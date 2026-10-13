@@ -203,7 +203,9 @@ rec["code"] = fi.code_version("solve", "nn-5", reason)
 (tools / "puzzle_integrity.py").write_text("import helper  # fixed\n")
 state("the named check changed:")
 legacy = {"puzzle": rec["puzzle"], "reason": reason}
-print("a record with no code version:", "due" if fi.due("solve", "nn-5", legacy) else "held")
+print("a legacy record naming its check:", "due" if fi.due("solve", "nn-5", legacy) else "held")
+legacy = {"puzzle": rec["puzzle"], "reason": "  no single grid holds these answers"}
+print("a legacy record naming none:", "due" if fi.due("solve", "nn-5", legacy) else "held")
 EOF
 )
 check "an unrefused row is held" "$(grep -c '^unchanged: held' <<<"$out")" "1"
@@ -211,7 +213,8 @@ check "an unnamed checker leaves it held" "$(grep -c '^an unnamed checker change
 check "an import of the named check makes it due" "$(grep -c 'an import of the named check changed: due' <<<"$out")" "1"
 check "re-dating the named neighbour makes it due" "$(grep -c 'neighbour it named was re-dated: due' <<<"$out")" "1"
 check "the named check changing makes it due" "$(grep -c '^the named check changed: due' <<<"$out")" "1"
-check "a legacy record holds on its puzzle alone" "$(grep -c 'no code version: held' <<<"$out")" "1"
+check "a legacy record naming its check is due" "$(grep -c 'legacy record naming its check: due' <<<"$out")" "1"
+check "a legacy record naming none holds on its puzzle alone" "$(grep -c 'legacy record naming none: held' <<<"$out")" "1"
 
 echo "the working tree is untouched"
 check "git status unchanged" "$(git status --porcelain)" "$tree_before"
