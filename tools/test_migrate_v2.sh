@@ -182,6 +182,11 @@ process.exit(bad ? 1 : 0);
 JS
 
 if [ -n "${CT_SMOKE:-}" ]; then
+  # smoke_test.js reads the built, uncommitted site: build what is missing
+  # (only that; a stale build is the checkout's to refresh).
+  [ -f puzzles/index.json ] || { echo "migrate_v2: building puzzles/index.json"; python3 tools/fetch_puzzle.py --reindex >/dev/null; }
+  [ -f abbreviations.js ] || { echo "migrate_v2: building abbreviations.js"; python3 tools/build_abbreviations.py >/dev/null; }
+  [ -f abbreviations/index.html ] || { echo "migrate_v2: building the crawlable pages (slow)"; python3 tools/build_seo_pages.py >/dev/null; }
   if CT_SMOKE_V2="$TMP/legacy:$TMP/puzzles" node tools/smoke_test.js > "$TMP/smoke.out" 2>&1; then
     echo "ok   smoke_test.js boots every migrated puzzle and climbs its ladders ($(tail -1 "$TMP/smoke.out"))"
   else
