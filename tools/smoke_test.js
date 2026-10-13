@@ -7582,6 +7582,25 @@ for (const got of JSON.parse(require("child_process").execFileSync("python3", ["
   { cwd: path.join(ROOT, "tools"), encoding: "utf8", maxBuffer: 1 << 28 }))) {
   const ID = "smoke-format-v2";
   const ladders = (puz) => {
+    // The anagram ring deals its tiles with Math.random (app.js dealRing), so
+    // two boots of one clue deal differently and every ring rung "differs".
+    // Every draw here comes from one seeded stream (mulberry32): the boot's,
+    // and each clue's started afresh so one clue's deal never depends on what
+    // an earlier one drew. The boot is seeded too, and each clue's stream
+    // starts before its reset: the clue selected on boot (usually the first,
+    // 1A) deals its ring then, and app.js keeps the deal (`ring`, keyed by
+    // answer and fodder) through reset-puzzle, so its climb drew nothing and
+    // showed the boot's unseeded deal. That was 10 FAILs, one exact clue per
+    // puzzle and always the first clue with a ring (cyclops-413 8A,
+    // everyman-3946 1A, ...), on the 7-per-series sample (10-13).
+    const seeded = (seed) => () => {
+      seed = (seed + 0x6D2B79F5) | 0;
+      let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+    const random = Math.random;
+    Math.random = seeded(0xb007);
     const p = Object.assign({}, puz, { id: ID });
     const d = require("./fake_dom.js").boot({
       query: "?p=" + ID,
@@ -7593,17 +7612,6 @@ for (const got of JSON.parse(require("child_process").execFileSync("python3", ["
       },
     });
     const reg = d.registry, out = {};
-    // The anagram ring deals its tiles with Math.random (app.js dealRing), so
-    // two boots of one clue deal differently and every ring rung "differs".
-    // Each clue climbs on the same seeded stream (mulberry32), started afresh
-    // per clue so one clue's deal never depends on what an earlier one drew.
-    const seeded = (seed) => () => {
-      seed = (seed + 0x6D2B79F5) | 0;
-      let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
-      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-    };
-    const random = Math.random;
     const arm = () => {
       const row = reg["hint-next"].children.find((b) => ARMED.test(b.textContent || ""));
       if (row) row.onclick();
@@ -7614,8 +7622,8 @@ for (const got of JSON.parse(require("child_process").execFileSync("python3", ["
       if (!row || !row.listeners.click) return;
       // A clean slate per clue, as the corpus sweeps take one: what an earlier
       // clue cost (a normalised one may climb differently) must not show here.
-      reg["reset-puzzle"].onclick();
       Math.random = seeded(0x5eed);
+      reg["reset-puzzle"].onclick();
       row.listeners.click[0]();
       const seen = [];
       for (let n = 0; n < 40; n++) {
