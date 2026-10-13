@@ -219,6 +219,22 @@ def run_tests(todo, deadline):
     return passed, failed, unfinished
 
 
+#: Paths per run of a puzzle check: a push of the whole corpus (the format v2
+#: migration, ~52,000 files) is too long for one command line (E2BIG).
+ARG_CHUNK = 2000
+
+
+def run_chunked(cmd, items):
+    """subprocess.run of `cmd` over `items` in ARG_CHUNK slices, as one result:
+    the worst return code and every slice's output."""
+    out, code = [], 0
+    for k in range(0, len(items), ARG_CHUNK):
+        r = subprocess.run([*cmd, *items[k:k + ARG_CHUNK]], cwd=ROOT, capture_output=True, text=True, check=False)
+        code = code or r.returncode
+        out.append(r.stdout + r.stderr)
+    return subprocess.CompletedProcess(cmd, code, "".join(out), "")
+
+
 def main(argv):
     if argv == ["--copies"]:
         problems = check_copies()
@@ -233,19 +249,17 @@ def main(argv):
     puzzles = [p for p in changed if PUZZLE_FILE.match(p) and (ROOT / p).is_file()]
     if puzzles:
         ids = [p if p.startswith("clues_only/") else PUZZLE_FILE.match(p).group(1) for p in puzzles]
-        r = subprocess.run([sys.executable, "tools/puzzle_schema.py", *ids], cwd=ROOT, capture_output=True, text=True, check=False)
+        r = run_chunked([sys.executable, "tools/puzzle_schema.py"], ids)
         if r.returncode:
             fails.append(("tools/puzzle_schema.py on the pushed puzzles", (r.stdout + r.stderr).splitlines()[-25:]))
         published = [p for p in puzzles if p.startswith("puzzles/")]
         if published:
-            r = subprocess.run([sys.executable, "tools/puzzle_integrity.py", "--quiet", *published],
-                               cwd=ROOT, capture_output=True, text=True, check=False)
+            r = run_chunked([sys.executable, "tools/puzzle_integrity.py", "--quiet"], published)
             if r.returncode:
                 fails.append(("tools/puzzle_integrity.py on the pushed puzzles", (r.stdout + r.stderr).splitlines()[-25:]))
             # The deploy's validate run: a definition `at` a clue rewrite left
             # stale passes puzzle_integrity and turns the site red (8cb5a7e0b2).
-            r = subprocess.run([sys.executable, "tools/validate_annotations.py", "--deploy", *published],
-                               cwd=ROOT, capture_output=True, text=True, check=False)
+            r = run_chunked([sys.executable, "tools/validate_annotations.py", "--deploy"], published)
             if r.returncode:
                 errs = [ln for ln in (r.stdout + r.stderr).splitlines() if "ERROR" in ln or "FAIL" in ln]
                 fails.append(("tools/validate_annotations.py on the pushed puzzles", errs[-25:]))
