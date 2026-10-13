@@ -14,7 +14,11 @@ the expression can't write, so new annotations can't add one.
 
 The tree is found by a search over the blocks in their filed order:
 charade, reversal, container (stored outer first, whatever order the blocks
-had), anagram and deletion, using the kinds the stored `type` names.
+had), anagram and deletion, using the kinds the stored `type` names. A
+palindrome wraps what it checks (the whole wordplay, or the part that reads
+both ways). Two definitions are a double definition, wordplay or not.
+Double-definition and &lit indicators steer the definitions, not the
+letters, so they hang on the nearest definition, not on an op.
 
 `puzzle_names(puzzle)` gives the facts a puzzle's `name` holds beyond
 series.display_name() (`prize`, `title`, `label`).
@@ -41,12 +45,16 @@ L = W.letters
 TYPE_OP = {"anagram": "anagram", "reversal": "reversal", "container": "container",
            "deletion": "deletion", "hidden_word": "hidden", "homophone": "homophone",
            "spoonerism": "spoonerism", "substitution": "substitution", "cycling": "cycling",
-           "letter_selection": "first", "charade": "charade", "cryptic_definition": "cryptic"}
+           "letter_selection": "first", "charade": "charade", "cryptic_definition": "cryptic",
+           "palindrome": "palindrome"}
+# Types that steer how the definitions read, not the letters: their
+# indicators hang on a definition (annotation.definition_indicator_type).
+DEF_TYPES = ("double_definition", "and_lit")
 SEARCH = ("charade", "reversal", "container", "anagram", "deletion")
 # Diffs accepted by design (the brief's decisions, and derived fields recomputed).
 ACCEPTED = {"container outer first", "type order", "indicator for filled", "linkWords recomputed",
             "assembly recomputed", "gives before the op", "soundsLike as letters",
-            "double definition meaning kept apart", "block order"}
+            "double definition meaning kept apart", "block order", "double definition gives the answer"}
 
 
 class Unconvertible(Exception):
@@ -304,7 +312,20 @@ def convert(ann, entry, puzzle=None):
         out["definitions"] = defs
     blocks = [b for b in ann.get("blocks") or [] if isinstance(b, dict)]
     inds = [i for i in ann.get("indicators") or [] if isinstance(i, dict)]
+    def_inds = [i for i in inds if i.get("for") in DEF_TYPES]
+    inds = [i for i in inds if i.get("for") not in DEF_TYPES]
+    if def_inds:
+        _attach_to_definitions(out.get("definitions"), def_inds, (entry.get("clue") or {}).get("text") or "")
     tset = set(types)
+    want = annotation.wordplay_letters(ann, entry)
+    def_texts = {d.get("text") for d in defs or []}
+    if "double_definition" in tset and any(b.get("gives") for b in blocks) and all(
+            b.get("clueFragment") in def_texts and L(b.get("gives")) == want
+            and b.get("soundsLike") is None and b.get("select") is None for b in blocks if b.get("gives")):
+        # Each definition filed as a block giving the whole answer: they are
+        # the definitions, and give nothing a definition doesn't.
+        notes.add("double definition gives the answer")
+        blocks = [{k: v for k, v in b.items() if k != "gives"} for b in blocks]
     if "double_definition" in tset and not any(b.get("gives") for b in blocks) and \
             not tset & {"cryptic_definition"}:
         # A double definition is its definitions: a v2 file has nowhere else
@@ -330,6 +351,9 @@ def convert(ann, entry, puzzle=None):
         tree = {"op": "cryptic", "parts": [_leaf(b) for b in blocks]} if blocks else None
     else:
         tree = _tree(blocks, inds, tset, annotation.wordplay_letters(ann, entry), ann, notes)
+    if "palindrome" in tset and not any(n.get("op") == "palindrome" for n in _walk(tree or {})):
+        tree = _palindrome(tree, want, [i for i in inds if i.get("for") == "palindrome"],
+                           (entry.get("clue") or {}).get("text") or "")
     if tree is not None:
         want = annotation.wordplay_letters(ann, entry)
         _attach(tree, inds, tset, want)
@@ -384,6 +408,9 @@ def _tree(blocks, inds, tset, want, ann, notes):
         return None
     # Blocks that give nothing (an indicator filed as a block) ride along unchecked.
     real = [k for k, v in enumerate(vals) if v]
+    if not real and "palindrome" in tset:
+        # The answer reads both ways and that is the wordplay; the blocks are notes.
+        return {"op": "palindrome", "parts": units}
     hl = ann.get("hiddenLetter")
     if isinstance(hl, dict) and hl.get("kind") in ("extra", "omitted"):
         return {"op": "charade", "unchecked": True, "gives": want, "parts": units}
@@ -422,6 +449,49 @@ def _tree(blocks, inds, tset, want, ann, notes):
             after = [units[k] for k in range(real[0] + 1, len(units)) if k not in real]
             tree = {"op": "charade", "parts": before + [tree] + after}
     return tree
+
+
+def _palindrome(tree, want, inds, clue):
+    """A palindrome checks the letters of what it governs: the whole
+    wordplay (or the answer alone, when that is all there is) when the
+    answer reads both ways, else the part that does (EVE in S + I + EVE),
+    the one nearest its indicator."""
+    if not tree:
+        return {"op": "palindrome", "parts": []}
+    if want != want[::-1]:
+        try:
+            got = W.evaluate(tree, want)
+        except W.WordplayError:
+            got = {}
+        cands = [n for n in _walk(tree) if len(got.get(id(n), "")) > 1 and got[id(n)] == got[id(n)][::-1]]
+        if cands:
+            at = W.find_at(clue, inds[0].get("text") or "") if inds else None
+
+            def dist(n):
+                spots = [W.find_at(clue, x["words"]) for x in _walk(n) if x.get("words")]
+                spots = [x for x in spots if x is not None]
+                return min((abs(x - at) for x in spots), default=len(clue)) if at is not None else 0
+            node = min(cands, key=lambda n: (dist(n), -len(got[id(n)])))
+            inner = dict(node)
+            node.clear()
+            node.update({"op": "palindrome", "parts": [inner]})
+            return tree
+    return {"op": "palindrome", "parts": [tree]}
+
+
+def _attach_to_definitions(defs, inds, clue):
+    """Hang each double-definition or &lit indicator on the definition
+    nearest it in the clue (the first, when it can't be placed)."""
+    if not defs:
+        raise Unconvertible("definition indicator with no definition")
+    for ind in inds:
+        at = W.find_at(clue, ind.get("text") or "")
+        d = defs[0] if at is None else min(
+            defs, key=lambda d: abs(d.get("at", 0) + len(d.get("text", "")) / 2 - at - len(ind["text"]) / 2))
+        new = {"text": ind.get("text")}
+        if ind.get("note"):
+            new["note"] = ind["note"]
+        d.setdefault("indicators", []).append(new)
 
 
 def _attach(tree, inds, tset, want):
@@ -488,7 +558,8 @@ def compare(old, new, view):
             else:
                 bad.add(f"type lost: {t}")
         for t in sorted(set(vt) - set(ot)):
-            if t in checked:
+            # Two definitions are a double definition, whatever the list said.
+            if t in checked or (t == "double_definition" and len(old.get("definitions") or []) > 1):
                 acc.add(f"type recomputed (+{t})")
             else:
                 bad.add(f"type added: {t}")
@@ -556,6 +627,8 @@ def check(ann, entry, puzzle=None):
     except (KeyError, TypeError, ValueError, StopIteration) as e:
         return "failed", {f"view crashed: {type(e).__name__}"}, new
     acc, bad = compare(ann, new, v)
+    if "double definition gives the answer" in notes and "gives before the op" in acc:
+        acc.discard("gives before the op")
     if "container outer first" in notes and "block order" in acc:
         acc.discard("block order")
         acc.add("container outer first")
@@ -597,6 +670,9 @@ def puzzle_names(puzzle):
 
 # ---------- dry run ----------
 
+# Failures listed with the answer against the solution, for re-annotation.
+CONTRADICT = {"answer contradicts enumeration", "answer letters differ from the solution"}
+
 def dry_run(root, report, limit=None):
     counts = collections.Counter()
     kinds = {"normalised": collections.Counter(), "failed": collections.Counter()}
@@ -604,6 +680,7 @@ def dry_run(root, report, limit=None):
     names = collections.Counter()
     name_ex = collections.defaultdict(list)
     contradict = []
+    failed_ids = collections.defaultdict(list)
     seen = 0
     def write(done):
         total = sum(counts.values())
@@ -627,6 +704,13 @@ def dry_run(root, report, limit=None):
         lines += ["", f"Answers that contradict their entry ({len(contradict)}; source or annotation bugs, "
                   f"for re-annotation):"]
         lines += [f"  {c}" for c in contradict]
+        rest = [k for k, _ in kinds["failed"].most_common() if k not in CONTRADICT]
+        if rest:
+            lines += ["", "Every other failure, by kind (stored annotations to redo):"]
+            for k in rest:
+                lines.append(f"  {k} ({len(failed_ids[k])}):")
+                ids = failed_ids[k]
+                lines += ["    " + ", ".join(ids[n:n + 6]) for n in range(0, len(ids), 6)]
         text = "\n".join(lines) + "\n"
         if report:
             with open(report, "w") as fh:
@@ -667,9 +751,11 @@ def dry_run(root, report, limit=None):
                 if status != "exact":
                     for k in ks:
                         kinds[status][k] += 1
+                        if status == "failed":
+                            failed_ids[k].append(eid)
                         if len(examples[(status, k)]) < 3:
                             examples[(status, k)].append(eid)
-                if status == "failed" and ks & {"answer contradicts enumeration", "answer letters differ from the solution"}:
+                if status == "failed" and ks & CONTRADICT:
                     contradict.append(f"{eid} ({e['annotation'].get('answer')!r} vs {e.get('solution')!r}, "
                                       f"{e['clue'].get('enumeration', '')})")
             if limit and seen >= limit:

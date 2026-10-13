@@ -129,6 +129,65 @@ run("an apostrophe is kept as spelling",
     ann(["charade"], "CAT-O'-NINE-TAILS", "Whip", 0,
         [blk("pet", "CAT"), blk("old", "O"), blk("number", "NINE"), blk("narratives", "TAILS")]),
     entry("CATONINETAILS", "Whip pet old number narratives", "3-1-4-5", [(3, "-"), (4, "-"), (8, "-")]), "exact")
+# Two definitions and wordplay: the tree holds both, and view() gives the
+# double definition back with the wordplay's type.
+two = [{"text": "Entirely", "at": 0}, {"text": "without a catch", "at": 9}]
+run("a double definition with wordplay as well",
+    ann(["double_definition", "charade"], "CLEAN", "", 0, [blk("Circle", "C"), blk("angling", "LEAN")],
+        definitions=two),
+    entry("CLEAN", "Entirely without a catch. Circle angling will admit that"), "exact",
+    tree_check=lambda n: len(n["definitions"]) == 2 and n["wordplay"]["op"] == "charade")
+run("two definitions are a double definition when the stored type left it out",
+    ann(["charade"], "CLEAN", "", 0, [blk("Circle", "C"), blk("angling", "LEAN")], definitions=two),
+    entry("CLEAN", "Entirely without a catch. Circle angling will admit that"), "normalised",
+    ["type recomputed (+double_definition)"])
+run("a double definition whose blocks each give the whole answer",
+    ann(["double_definition"], "GEL", "", 0, [blk("Posh female", "GEL"), blk("set", "GEL")],
+        definitions=[{"text": "Posh female", "at": 0}, {"text": "set", "at": 12}]),
+    entry("GEL", "Posh female set"), "normalised", ["double definition gives the answer"],
+    tree_check=lambda n: "wordplay" not in n)
+run("a definition heard as another word keeps its homophone",
+    ann(["double_definition", "homophone"], "CANE", "", 0,
+        [blk("A variety of sugar"), blk("beet", "CANE", soundsLike="BEAT")], [("we're told", "homophone")],
+        definitions=[{"text": "A variety of sugar", "at": 0}, {"text": "beet", "at": 19}]),
+    entry("CANE", "A variety of sugar-beet, we're told"), "normalised",
+    tree_check=lambda n: any(x.get("op") == "homophone" for x in C._walk(n["wordplay"])))
+
+# A palindrome checks the letters of what it governs.
+run("a palindrome round the whole wordplay",
+    ann(["charade", "palindrome"], "NIP IN", "Call briefly", 0, [blk("Ulster", "NI"), blk("fix", "PIN")],
+        [("works either way", "palindrome")]),
+    entry("NIPIN", "Call briefly for Ulster fix that works either way", "3,2", [(3, ",")]), "exact",
+    tree_check=lambda n: n["wordplay"]["op"] == "palindrome" and not unchecked(n["wordplay"]))
+run("a palindrome of the part that reads both ways",
+    ann(["charade", "palindrome"], "SIEVE", "Riddle", 0,
+        [blk("special", "S"), blk("one", "I"), blk("woman", "EVE")], [("reflective", "palindrome")]),
+    entry("SIEVE", "Riddle, special one, posed by reflective woman"), "exact",
+    tree_check=lambda n: w.render(n["wordplay"]) == "[special]S + [one]I + pal<reflective>([woman]EVE)")
+run("a palindrome that is all the wordplay keeps its notes as unchecked leaves",
+    ann(["palindrome"], "ABBA", "camel-hair coat", 11, [blk("camel-hair coat")], [("Reversible", "palindrome")]),
+    entry("ABBA", "Reversible camel-hair coat"), "normalised", ["unchecked step kept"],
+    tree_check=lambda n: n["wordplay"]["op"] == "palindrome")
+run("a palindrome type the answer does not have fails",
+    ann(["palindrome"], "ABBY", "camel-hair coat", 11, [blk("camel-hair coat")], [("Reversible", "palindrome")]),
+    entry("ABBY", "Reversible camel-hair coat"), "failed", ["tree does not give the answer"])
+
+# Double definition and &lit indicators steer the definitions, not the
+# letters: they hang on the nearest definition, and view() gives their `for`.
+new = run("a double definition's indicator hangs on a definition",
+          ann(["double_definition"], "STEEL", "", 0, [blk("Steel"), blk("silver, silicon or scandium")],
+              [("say", "double_definition")],
+              definitions=[{"text": "Steel", "at": 0}, {"text": "silver, silicon or scandium", "at": 7}]),
+          entry("STEEL", "Steel, silver, silicon or scandium, say?"), "normalised",
+          ["double definition meaning kept apart"],
+          tree_check=lambda n: n["definitions"][1].get("indicators", [{}])[0].get("text") == "say")
+run("an &lit indicator hangs on the definition",
+    ann(["charade", "and_lit"], "IONA", "Island connected with Columba ultimately?", 0,
+        [blk("Island", "I"), blk("connected with", "ON"), blk("Columba ultimately", "A")],
+        [("ultimately", "and_lit")]),
+    entry("IONA", "Island connected with Columba ultimately?"), "exact",
+    tree_check=lambda n: n["definitions"][0].get("indicators") == [{"text": "ultimately", "note": "why"}])
+
 # Lost content is a failure, never a normalisation.
 a = ann(["anagram"], "UNSOILED", "Immaculate", 0, [blk("delusion", "DELUSION")], [("crazy", "anagram")])
 new, _ = C.convert(a, entry("UNSOILED", "Immaculate crazy delusion"))
