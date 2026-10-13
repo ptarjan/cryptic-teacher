@@ -180,22 +180,25 @@ def _unit(block, sel_inds, hidden, homophone=True, all_inds=()):
                         vals = W.values(node)
                     except W.WordplayError:
                         continue
-                    if (vals == {g}) if unique else (g in vals):
+                    if unique and vals == {g}:
                         return node, g, {"letter_selection"}
+                    if not unique and g in vals:
+                        # One reading of several ("in opera house" last: E or
+                        # NAE): the answer steers it under a checked step, but
+                        # nothing does under an unchecked one, so the filed
+                        # form rides along for _pin_selections.
+                        node["_filed"] = _filed_selection(block, sel, g)
+                        return node, g, {"letter_selection"}
+    if sel is not None and snd is None:
+        # A selection the clue words don't give (from a synonym, or
+        # `prime`): an unchecked selection round the leaf as filed.
+        return _filed_selection(block, sel, g), g, {"letter_selection"}
     if sel is not None or snd is not None:
         leaf = {**_leaf(block, g, True), "unchecked": True}
         if sel is not None:
             leaf["select"] = sel
         if snd is not None:
             leaf["soundsLike"] = snd
-        if sel is not None and snd is None:
-            # A selection the clue words don't give (from a synonym, or
-            # `prime`): an unchecked selection round the leaf as filed.
-            op = "nth" if isinstance(sel, int) else sel if sel in W.SELECT else "first"
-            node = {"op": op, "unchecked": True, "gives": g, "parts": [leaf]}
-            if op == "nth":
-                node["n"] = sel
-            return node, g, {"letter_selection"}
         return leaf, g, {"homophone"} if snd is not None else set()
     if hidden and words:
         text = L(words)
@@ -205,6 +208,31 @@ def _unit(block, sel_inds, hidden, homophone=True, all_inds=()):
             return ({"op": "hidden", "parts": [_leaf(block, g[::-1], True)]}, g[::-1],
                     {"hidden_word", "+pre-op"})
     return _leaf(block, g), g, set()
+
+
+def _filed_selection(block, sel, g):
+    """A selection block as filed: an unchecked selection op giving `g` round
+    an unchecked leaf with its words, `g` and `select`."""
+    leaf = {**_leaf(block, g, True), "unchecked": True, "select": sel}
+    op = "nth" if isinstance(sel, int) else sel if sel in W.SELECT else "first"
+    node = {"op": op, "unchecked": True, "gives": g, "parts": [leaf]}
+    if op == "nth":
+        node["n"] = sel
+    return node
+
+
+def _pin_selections(node, loose=False):
+    """A checked selection with several readings under an unchecked step is
+    steered by nothing (view() would show its first reading, not the letters
+    filed), so it takes its filed form: an unchecked op carrying them."""
+    filed = node.pop("_filed", None)
+    if filed is not None and loose:
+        keep = {k: node[k] for k in ("indicators",) if k in node}
+        node.clear()
+        node.update({**filed, **keep})
+        return
+    for p in node.get("parts") or []:
+        _pin_selections(p, loose or bool(node.get("unchecked")))
 
 
 # ---------- the search ----------
@@ -453,6 +481,7 @@ def convert(ann, entry, puzzle=None):
             if t not in have and t in TYPE_OP and t != "charade":
                 tree = {"op": TYPE_OP[t], "unchecked": True, "gives": want, "parts": [tree]}
                 have.add(t)
+        _pin_selections(tree)
         out["wordplay"] = tree
     elif inds:
         if "double_definition" not in tset or not out.get("definitions"):

@@ -98,6 +98,24 @@ run("a selection the words give is checked",
         [blk("symbol", "S", select="first"), blk("oval", "OVAL")], [("originally", "letter_selection")]),
     entry("SOVAL", "Volley symbol originally oval"), "exact",
     tree_check=lambda t: not unchecked(t["wordplay"]))
+# A selection the words give more than one way (Wigan middle: G or IGA) under
+# an unchecked step: no answer steers it there, so it keeps the filed letters
+# (tls-1128 13A; timesjumbo-1591 28D "in opera house" last NAE, not E).
+for name, a_, e_, frag, want_ in (
+        ("a selection with several readings under an unchecked step keeps its filed letters",
+         ann(["container", "charade", "letter_selection"], "LITIGANT", "defendant?", 41,
+             [blk("Literary", "LIT"), blk("Wigan", "IGA", select="middle"), blk("books", "NT")],
+             [("caseless", "letter_selection"), ("about", "container")]),
+         entry("LITIGANT", "Literary books about caseless Wigan defendant?"), "Wigan", "IGA"),
+        ("a last-letters selection under an unchecked step keeps its filed letters",
+         ann(["container", "charade", "letter_selection"], "LADONNAEMOBILE", "Aria", 0,
+             [blk("boy", "LAD"), blk("on"), blk("in opera house", "NAE", select="last"), blk("phone", "MOBILE")],
+             [("ultimately", "letter_selection"), ("captured by", "container")]),
+         entry("LADONNAEMOBILE", "Aria in opera house ultimately captured by boy on phone", "2,5,1,6"),
+         "in opera house", "NAE")):
+    run(name, a_, e_, "normalised", ["unchecked step kept"],
+        tree_check=lambda t, e_=e_, frag=frag, want_=want_: [
+            b.get("gives") for b in annotation.view(t, e_)["blocks"] if b.get("clueFragment") == frag] == [want_])
 # A double definition: the definition's own note stays, the block note is its meaning.
 a = {"type": ["double_definition"], "answer": "RAISIN", "explanation": {"walkthrough": "w"},
      "definitions": [{"text": "Growin'", "at": 0, "note": "dropped g"}, {"text": "fruit", "at": 8}],
