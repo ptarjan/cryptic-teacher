@@ -18,12 +18,23 @@ cd "$(dirname "$0")/.." || exit 1
 
 PYTHONPATH=tools python3 - <<'PY'
 import sys
+import wordplay
 from build_authored_puzzle import hidden_edge_errors
 
-def verdict(text, answer, types=("hidden_word",)):
+def verdict(text, answer, types=("hidden_word",), tree=None):
+    # A file stores the wordplay tree; the check reads its type from
+    # annotation.view(). A pure hidden word is hid() over the clue, under rev()
+    # when it reads backwards.
+    if tree is None:
+        tree = {"op": "hidden", "parts": [{"words": text}]}
+        if "reversal" in types:
+            tree = {"op": "reversal", "parts": [tree]}
     entry = {"number": 1, "direction": "across", "solution": answer,
-             "clue": {"text": text}, "annotation": {"type": list(types)}}
-    return not hidden_edge_errors({"entries": [entry]})
+             "clue": {"text": text}, "annotation": {"wordplay": tree}}
+    try:
+        return not hidden_edge_errors({"entries": [entry]})
+    except wordplay.WordplayError:
+        return False    # letters the clue does not hide: the tree itself refuses it
 
 REV = ("hidden_word", "reversal")
 cases = [
@@ -49,7 +60,8 @@ for text, answer, types, want in cases:
         fails.append(f"{answer} in {text!r}: {'passed' if got else 'refused'}, "
                      f"want {'pass' if want else 'refusal'}")
 # A clue that is not a pure hidden word is not this check's business.
-if not verdict("Son leaves room for walk", "PACE", ("deletion",)):
+if not verdict("Son leaves room for walk", "PACE",
+               tree=wordplay.parse("del([room]SPACE, [Son]S)", "Son leaves room for walk")):
     fails.append("a deletion was judged as a hidden word")
 
 for f in fails:
