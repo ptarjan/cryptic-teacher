@@ -27,10 +27,18 @@ def anagram(defn, ind, link, frag, gives, fodder, answer):
             "explanation": {"walkthrough": "An anagram of the fodder gives the answer.",
                             "definitionFit": "The definition means the answer in ordinary use."}}
 
+# The old-prompt path untangles link words for a legacy file (a v2 file derives
+# its linkWords, so none can sit inside a block): a legacy-shaped copy, which
+# is what read_puzzle_view gives.
+def legacy(stem):
+    path = pathlib.Path(tempfile.mkdtemp()) / f"{stem}.json"
+    path.write_text(json.dumps(read_puzzle_view(resolve_puzzle(stem))), encoding="utf-8")
+    return path
+
 def untangle(stem, eid, ann):
     pending = pathlib.Path(tempfile.mkdtemp()) / f"_ann_{stem}.json"
     pending.write_text(json.dumps({eid: ann}), encoding="utf-8")
-    changed = C.untangle_link_words(resolve_puzzle(stem), pending)
+    changed = C.untangle_link_words(legacy(stem), pending)
     return changed, json.loads(pending.read_text(encoding="utf-8"))[eid]
 
 # The link word is fodder: USGUNMANIS uses the letters of "is".
@@ -87,7 +95,7 @@ def committed(stem, eid):
 def clear(stem, eid, ann):
     pending = pathlib.Path(tempfile.mkdtemp()) / f"_ann_{stem}.json"
     pending.write_text(json.dumps({eid: ann}), encoding="utf-8")
-    changed = C.clear_link_words(resolve_puzzle(stem), pending)
+    changed = C.clear_link_words(legacy(stem), pending)
     return changed, json.loads(pending.read_text(encoding="utf-8"))[eid]
 
 # An &lit: the whole clue is the definition, so "and" is no link.

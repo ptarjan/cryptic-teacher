@@ -223,7 +223,7 @@ f = flagged(lambda z: z["source"].update(publisher="Guardian"))
 print("WRONG_PUBLISHER", len(f) > 0)
 
 # A puzzle that does not state its series, or states another than its id.
-f = flagged(lambda z: z.pop("series"))
+f = flagged(lambda z: z.pop("series", None))
 print("NO_SERIES", len(f), says(f, "series is None"))
 f = flagged(lambda z: z.update(series="cryptic"))
 print("WRONG_SERIES", len(f))

@@ -150,7 +150,9 @@ try:
     held = F.read_puzzle_file(ft)
     debris = copy.deepcopy(seven_down(held))
     debris["clue"]["text"] = "Jotter Pad " + debris["clue"]["text"]
-    debris["annotation"]["blocks"].insert(0, {"clueFragment": "Jotter Pad", "note": "page debris"})
+    plain = copy.deepcopy(debris["annotation"])
+    debris["annotation"]["wordplay"] = {"op": "charade", "parts": [
+        {"words": "Jotter Pad", "note": "page debris", "unchecked": True}, plain["wordplay"]]}
     held["entries"] = [debris if groups.entry_id(e) == "7-down" else e for e in held["entries"]]
     def rewrite(text, ann=None):
         ft.write_text(json.dumps(held, indent=1))
@@ -168,12 +170,12 @@ try:
           == sum("annotation" in e for e in held["entries"]) - 1)
     out = rewrite("Jotter Pad Bring a well qualified person in, with all speed")
     check("a typography-only change that keeps every quoted phrase keeps it",
-          seven_down(out).get("annotation", {}).get("blocks") == debris["annotation"]["blocks"])
+          seven_down(out).get("annotation", {}).get("wordplay") == debris["annotation"]["wordplay"])
     check("and its definition is placed again", seven_down(out)["annotation"]["definitions"][0]["at"] == 45)
-    fresh = copy.deepcopy(debris["annotation"]); fresh["blocks"] = fresh["blocks"][1:]
+    fresh = plain
     out = rewrite(clean, fresh)
     check("an annotation written for the new clue is kept",
-          seven_down(out).get("annotation", {}).get("blocks") == fresh["blocks"])
+          seven_down(out).get("annotation", {}).get("wordplay") == fresh["wordplay"])
 finally:
     shutil.rmtree(tmp)
 sys.exit(fails)

@@ -84,9 +84,11 @@ import corroborate
 import definitions
 import groups
 import provenance
+import puzzle_schema
 from groups import entry_id
 import series
 import validate_annotations
+import wordplay
 from apply_annotations import (
     annotate_only, apply_also, current_view, default_input, move_alteration, normalize, view_path)
 from fetch_puzzle import clued, read_puzzle_file, resolve_puzzle
@@ -1112,7 +1114,19 @@ def misread(path):
     validate_annotations.check_clue_unchanged(puzzle, path, errors)
     if errors:
         why.append("check_clue_unchanged")
-    for e in annotation.view_puzzle(puzzle)["entries"]:
+    # A v2 tree whose anagram fodder cannot give its letters fails the
+    # evaluator, so view_puzzle leaves its annotation out: its problem is the
+    # misread check_anagram_letters would have named on a legacy file.
+    problems = []
+    viewed = annotation.view_puzzle(puzzle, problems)
+    failed = {where for where, _ in problems}
+
+    def has_anagram(node):
+        return node.get("op") == "anagram" or any(has_anagram(p) for p in wordplay.parts_of(node))
+    if any(where in failed and has_anagram(ann.get("wordplay") or {})
+           for where, _, ann in puzzle_schema.annotations(puzzle)):
+        why.append("check_anagram_letters")
+    for e in [] if "check_anagram_letters" in why else viewed["entries"]:
         errors = []
         if e.get("annotation"):
             tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
