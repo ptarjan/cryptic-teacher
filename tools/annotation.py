@@ -107,7 +107,7 @@ def _types(tree):
 
 
 def _block(**kw):
-    return {k: kw[k] for k in BLOCK_KEYS if kw.get(k) is not None}
+    return {k: kw[k] for k in BLOCK_KEYS if kw.get(k) not in (None, "")}
 
 
 def _blocks(node, got):
@@ -118,18 +118,24 @@ def _blocks(node, got):
     import wordplay
     op = node.get("op")
     if op is None:
+        # An unchecked legacy leaf keeps the select or soundsLike it was filed with.
         return [_block(clueFragment=node.get("words"), gives=wordplay.leaf_letters(node),
+                       select=node.get("select"), soundsLike=node.get("soundsLike"),
                        note=node.get("note"))]
     parts = node["parts"]
+    if node.get("unchecked"):
+        # A legacy step taken as filed shows its parts' blocks as they were.
+        return [b for p in parts for b in _blocks(p, got)]
     if op == "cryptic":
         return [_block(clueFragment=p.get("words"), note=p.get("note")) for p in parts]
     one = len(parts) == 1 and "op" not in parts[0] and "words" in parts[0]
     if OP_TYPE[op] == "letter_selection" and one:
         b = _blocks(parts[0], got)[0]
-        return [_block(**{**b, "gives": got[id(node)], "select": node["n"] if op == "nth" else op})]
+        return [_block(**{**b, "gives": got.get(id(node)) or min(wordplay.values(node), default=None),
+                          "select": node["n"] if op == "nth" else op})]
     if op == "hidden" and one:
         b = _blocks(parts[0], got)[0]
-        return [_block(**{**b, "gives": got[id(node)]})]
+        return [_block(**{**b, "gives": got.get(id(node)) or wordplay.leaf_letters(parts[0])})]
     if op == "homophone" and one:
         b = _blocks(parts[0], got)[0]
         return [_block(**{**b, "gives": node["spelt"], "soundsLike": b.get("gives")})]
@@ -143,6 +149,8 @@ def _pieces(node, got):
     """The answer in the chunks the tree builds, in answer order."""
     from derive_assembly import _cut
     op = node.get("op")
+    if node.get("unchecked"):
+        return [got[id(node)]]
     if op == "charade":
         return [x for p in node["parts"] for x in _pieces(p, got)]
     if op == "reversal":
@@ -164,9 +172,10 @@ def _assembly(tree, got):
     if len(pieces) > 1:
         out["pieces"] = pieces
     anas = [{"fodder": got.get(id(n["parts"][0])) or "".join(sorted(got[id(n)])), "gives": got[id(n)]}
-            for n, _ in _walk(tree) if n.get("op") == "anagram"]
+            for n, _ in _walk(tree) if n.get("op") == "anagram" and id(n) in got and not n.get("unchecked")]
     revs = [{"from": got[id(n["parts"][0])], "to": got[id(n)]}
-            for n, _ in _walk(tree) if n.get("op") == "reversal"]
+            for n, _ in _walk(tree) if n.get("op") == "reversal" and id(n["parts"][0]) in got
+            and not n.get("unchecked")]
     if anas:
         out["anagrams"] = anas
     if revs:
@@ -227,8 +236,10 @@ def view(ann, entry, puzzle=None):
     links = link_words(clue, spans)
     if links:
         out["linkWords"] = links
+    # A double definition's blocks say what each definition means (`meaning`,
+    # or its `note` when it has no separate meaning).
     out["blocks"] = (_blocks(tree, got) if tree else
-                     [_block(clueFragment=d["text"], note=d.get("note")) for d in defs])
+                     [_block(clueFragment=d["text"], note=d.get("meaning", d.get("note"))) for d in defs])
     if tree and (asm := _assembly(tree, got)):
         out["assembly"] = asm
     for key in ("explanation", "features", "hiddenLetter"):

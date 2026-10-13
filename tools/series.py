@@ -958,7 +958,7 @@ NAME_LEADS = {
     "tls": "Times Literary Supplement cryptic crossword", "mephisto": "Sunday Times mephisto crossword",
     "azed": "Observer azed crossword", "genius": "Guardian genius crossword",
     "listener": "Listener crossword", "ftcryptic": "Financial Times cryptic crossword",
-    "telegraph": "Telegraph cryptic crossword", "toughie": "Telegraph toughie crossword",
+    "telegraph": "Telegraph cryptic crossword", "toughie": "Telegraph Toughie",
     "sundaytel": "Sunday Telegraph cryptic crossword", "sundaytough": "Sunday Telegraph Toughie",
 }
 

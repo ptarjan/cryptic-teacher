@@ -662,6 +662,8 @@ LAYOUT = [
     ("fetching", "tools/salvaged.sh", "lists or restores what tools/puzzle_worker.sh salvaged from a discarded run"),
     ("fetching", "tools/test_wordplay.sh", "does wordplay.py parse and check every op of the wordplay expression, and does annotation.view() derive today's fields from the tree?"),
     ("fetching", "tools/wordplay.py", "a clue's wordplay as one line the model writes, and the tree a puzzle stores"),
+    ("fetching", "tools/convert_v2.py", "today's annotations as format v2 wordplay trees, losing nothing (a step the blocks can't rebuild stays an unchecked node), and a read-only dry run over the corpus"),
+    ("fetching", "tools/test_convert_v2.sh", "does convert_v2.py rebuild the stored blocks, indicators and definitions from the tree, keep what it can't check as unchecked nodes, and refuse an answer that contradicts its enumeration?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
