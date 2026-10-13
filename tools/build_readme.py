@@ -673,6 +673,7 @@ LAYOUT = [
     ("fetching", "tools/test_format_v2.sh","do the schema and validator refuse every derived field in a format v2 file, evaluate its trees and ratchet its unchecked steps, while legacy files keep passing?"),
     ("fetching", "tools/test_see_pointer.sh", "is a \"See N\" continuation the pointer and nothing else, in every reader?"),
     ("fetching", "tools/test_migrate_v2.sh", "does the format v2 migration (tools/convert_v2.py --migrate, plan step 8) leave files every gate passes, and is it safe to kill and start again?"),
+    ("fetching", "tools/test_validate_speed.sh", "the deploy's \"Check every annotation\" step runs validate_annotations over the whole corpus (~51,000 files), so a per-file cost that creeps up becomes minutes (124s -> 247s in a day, 2026-10-13, budget 200s). The guard is the cost of 40 annotated puzzles in CPU seconds on one core, with 4x headroom over today's ~45ms a puzzle; a regression of that size fails here, long before the deploy. And the two caches the speed rests on are in place"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

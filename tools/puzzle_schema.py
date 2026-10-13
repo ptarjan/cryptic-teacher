@@ -112,14 +112,23 @@ def _resolve(ref):
     return node
 
 
+_PLANS = {}     # id(schema node) -> (node, [(keyword fn, arg)]): a node is read once
+
+
+def _plan(s, at):
+    hit = _PLANS.get(id(s))
+    if hit is None or hit[0] is not s:
+        unknown = set(s) - ANNOTATIONS - set(KEYWORDS)
+        if unknown:
+            raise ValueError(f"schema at {at}: keyword(s) {sorted(unknown)} are not "
+                             f"implemented by tools/puzzle_schema.py")
+        hit = _PLANS[id(s)] = (s, [(KEYWORDS[kw], arg) for kw, arg in s.items() if kw in KEYWORDS])
+    return hit[1]
+
+
 def _check(v, s, at, out):
-    unknown = set(s) - ANNOTATIONS - set(KEYWORDS)
-    if unknown:
-        raise ValueError(f"schema at {at}: keyword(s) {sorted(unknown)} are not "
-                         f"implemented by tools/puzzle_schema.py")
-    for kw, arg in s.items():
-        if kw in KEYWORDS:
-            KEYWORDS[kw](v, arg, s, at, out)
+    for fn, arg in _plan(s, at):
+        fn(v, arg, s, at, out)
 
 
 def _type(v, arg, s, at, out):
