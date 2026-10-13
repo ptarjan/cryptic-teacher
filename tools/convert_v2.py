@@ -904,12 +904,32 @@ def compare(old, new, view):
     return acc, bad
 
 
+def _without_abbreviation_notes(ann, view):
+    """The stored annotation with its abbreviation-restating block notes
+    dropped, and `view`'s blocks with the gloss view() put in their place
+    dropped too (in place), for compare(): the gloss is derived, whether the
+    legacy block restated it or had no note."""
+    old = dict(ann, blocks=[dict(b) for b in ann.get("blocks") or []])
+    for b in old["blocks"]:
+        if annotation.restates_abbreviation({"words": b.get("clueFragment"), "gives": b.get("gives"),
+                                             "note": b.get("note")}):
+            del b["note"]
+    for b in view.get("blocks") or []:
+        leaf = {"words": b.get("clueFragment"), "gives": b.get("gives")}
+        gloss = annotation.abbreviation_gloss(leaf)
+        if gloss and (b.get("note") or "").lower() == gloss.lower():
+            del b["note"]
+    return old
+
+
 def check(ann, entry, puzzle=None):
     """('exact'|'normalised'|'failed', kinds, v2 annotation or None)."""
     try:
         new, notes = convert(ann, entry, puzzle)
     except Unconvertible as e:
         return "failed", {e.kind}, None
+    # The view below is taken of the stored form: no note that restates the table.
+    stripped = annotation.strip_abbreviation_notes(new.get("wordplay"))
     try:
         v = annotation.view(new, entry, puzzle)
     except W.WordplayError as e:
@@ -921,7 +941,12 @@ def check(ann, entry, puzzle=None):
         return "failed", {kind}, new
     except (KeyError, TypeError, ValueError, StopIteration) as e:
         return "failed", {f"view crashed: {type(e).__name__}"}, new
-    acc, bad = compare(ann, new, v)
+    # A block note that only restates the abbreviation table is not stored in
+    # v2 (annotation.restates_abbreviation): view() shows the table's gloss
+    # instead, so both are left out of the comparison.
+    acc, bad = compare(_without_abbreviation_notes(ann, v), new, v)
+    if stripped:
+        acc.add("abbreviation note from the table")
     if "double definition gives the answer" in notes and "gives before the op" in acc:
         acc.discard("gives before the op")
     if "container outer first" in notes and "block order" in acc:

@@ -80,7 +80,7 @@ shows, so you write none of those. Worked annotations close this file.
 {
   "def": "exact clue words that define the answer; [\"first\", \"second\"] for a double definition",
   "wp": "ins<in>([order]SORT, [Bird]TIT + [Chinese]CH + [woman]W)",
-  "notes": {"<words as written in wp or def>": "why these words do this job here"},
+  "notes": {"<words as written in wp or def>": "why these words do this job here; none for a plain abbreviation"},
   "explanation": {
     "surface": "one sentence, 25 words max: what the clue pretends to be about",
     "walkthrough": "optional, 1-2 sentences, 45 words max: what the parse cannot show",
@@ -95,6 +95,9 @@ shows, so you write none of those. Worked annotations close this file.
 }
 ```
 
+- **No note for a plain abbreviation** (`[with]W`, `[folio]F`): the app shows the
+  dictionary's abbreviation from its table, and such a note is dropped. Write one only
+  when it adds something (`C is the cricket abbreviation for caught`).
 - **Every clue word has one job**: in `def`, in a `[leaf]`, or in an `<indicator>`
   placed right after the operation it signals. Words left over are link words, worked
   out for you; an indicator you leave out of `wp` becomes a link word the check questions.
@@ -250,7 +253,7 @@ quiptic-619 11-across, "Fake folio made by a conservative is libellous" (10), so
 {"11-across": {
   "def": "libellous",
   "wp": "ana<Fake>([folio]F + [made] + [a]) + [conservative]TORY",
-  "notes": {"Fake": "something fake is invented or concocted, so these letters are reworked into a new arrangement", "folio": "F is the abbreviation for folio", "made": "taken as written", "a": "taken as written", "conservative": "a Tory is a member of the UK Conservative Party"},
+  "notes": {"Fake": "something fake is invented or concocted, so these letters are reworked into a new arrangement", "made": "taken as written", "a": "taken as written", "conservative": "a Tory is a member of the UK Conservative Party"},
   "explanation": {"surface": "A forged document produced by a Tory politician is defamatory.", "walkthrough": "'Fake' looks like an adjective describing the folio, but it is the anagram signal. Tory is the everyday name for a member of Britain's Conservative Party.", "definitionFit": "Libel is written defamation, so a libellous statement is one that damages a reputation falsely."},
   "features": {"answerInScene": true, "aptDefinition": false, "misdirectedWord": "Fake"}
 }}
