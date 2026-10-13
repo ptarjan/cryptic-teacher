@@ -165,23 +165,30 @@ jobs:
   # staging: it reads only the puzzle sources and tools/, none of what the
   # build generates. deploy needs it, so a failing check still ships nothing.
   #
-  # Incremental, because the full check is ~9 minutes and was the whole
-  # deploy's critical path while nearly every push changes one puzzle file.
+  # Incremental, because the full check is minutes long and nearly every push
+  # changes one puzzle file.
   # The base is the commit the last SUCCESSFUL run of this workflow deployed:
   # that run's check passed, so every puzzle as it stood there passed (by
   # induction from the last full check). A puzzle's check reads only its own
-  # file and tools/ (which holds the validator, its imports and every table
-  # it reads), so when the only changes since the base are added or edited
-  # puzzles/<series>/<year>/<id>.json files (plus deleted puzzles, and
-  # clues_only/ and docs/, which no check reads), checking just those files
-  # gives the full check's answer. Anything else changed (tools/, a root file,
-  # a workflow), no base to diff against, a manual run or the nightly
-  # schedule: the full check, as before. The pre-commit hook runs the same
-  # --deploy check on each staged puzzle, so this rarely finds anything new.
+  # file, the validator's code and the data files that code opens, so when the
+  # only changes since the base are added or edited puzzles/<series>/<year>/<id>.json
+  # files (plus deleted puzzles, clues_only/ and docs/, which no check reads),
+  # and nothing the check reads, checking just those files gives the full
+  # check's answer. "Nothing the check reads" is computed, not listed:
+  # tools/validate_scope.py takes the definitions code_reach says
+  # validate_annotations.main reaches, compares them with the base's, and
+  # looks for changed files by the names those modules mention. So an edit to
+  # a fetcher, a test or a doc stays incremental; an edit to a rule, a table
+  # or the workflow itself does not. A change to what the check reads, no base
+  # to diff against, a manual run or the nightly schedule: the full check, as
+  # before, spread across the runner's cores (validate_annotations.check_all).
+  # The pre-commit hook runs the same --deploy check on each staged puzzle, so
+  # this rarely finds anything new.
   #
   # The checkout fetches no file contents up front (blob:none), and only
-  # tools/ and the root files; the folders of the puzzles a run checks are
-  # added after the diff, and a full run takes the whole tree.
+  # tools/ and the workflows; the folders of the puzzles a run checks are
+  # added after the diff, and a full run takes the whole tree, fetched in
+  # four streams at once rather than one.
   validate:
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -190,7 +197,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           filter: blob:none
-          sparse-checkout: tools
+          sparse-checkout: |
+            tools
+            .github/workflows
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -203,34 +212,38 @@ jobs:
           REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          full() { echo "full check: $1"; git sparse-checkout disable; echo "mode=full" >> "$GITHUB_OUTPUT"; exit 0; }
+          # The whole tree, as four fetches at once: one stream of ~50k blobs
+          # took ~55s, the bulk of this step on a full run. The checkout that
+          # follows finds them local, and fetches any this missed itself.
+          fetch_tree() {
+            git ls-tree -r HEAD -- puzzles clues_only | awk '$1 != "160000" { print $3 }' | sort -u > "$RUNNER_TEMP/blobs"
+            split -n l/4 "$RUNNER_TEMP/blobs" "$RUNNER_TEMP/blobs."
+            for part in "$RUNNER_TEMP"/blobs.??; do
+              git -c fetch.negotiationAlgorithm=noop fetch --no-tags --no-write-fetch-head \
+                --recurse-submodules=no --filter=blob:none --stdin origin < "$part" &
+            done
+            wait || true
+          }
+          full() { echo "full check: $1"; fetch_tree || true; git sparse-checkout disable; echo "mode=full" >> "$GITHUB_OUTPUT"; exit 0; }
           [ "$EVENT" = push ] || full "a $EVENT run"
           base=$(gh api "repos/$REPO/actions/workflows/pages.yml/runs?branch=master&status=success&per_page=1" \
                    --jq '.workflow_runs[0].head_sha // empty' || true)
           [ -n "$base" ] || full "no successful run to diff against"
           git fetch --no-tags --depth=1 --filter=blob:none origin "$base" || full "could not fetch $base"
-          git diff --no-renames --name-status "$base" HEAD > "$RUNNER_TEMP/changed.txt"
-          echo "since $base (last deployed):"; cat "$RUNNER_TEMP/changed.txt"
-          : > "$RUNNER_TEMP/check.txt"
-          while IFS=$'\t' read -r st path; do
-            case "$path" in
-              clues_only/*|docs/*) continue ;;
-              puzzles/*/*/*.json)
-                case "$st" in
-                  A|M) echo "$path" >> "$RUNNER_TEMP/check.txt" ;;
-                  D) ;;
-                  *) full "$st $path" ;;
-                esac ;;
-              *) full "$path changed" ;;
-            esac
-          done < "$RUNNER_TEMP/changed.txt"
+          python3 tools/validate_scope.py "$base" > "$RUNNER_TEMP/scope.txt" || full "could not work out what changed"
+          head -n 1 "$RUNNER_TEMP/scope.txt"
+          case "$(head -n 1 "$RUNNER_TEMP/scope.txt")" in
+            full*) full "$(head -n 1 "$RUNNER_TEMP/scope.txt")" ;;
+          esac
+          tail -n +2 "$RUNNER_TEMP/scope.txt" > "$RUNNER_TEMP/check.txt"
           if [ -s "$RUNNER_TEMP/check.txt" ]; then
             sed 's|/[^/]*$||' "$RUNNER_TEMP/check.txt" | sort -u | xargs git sparse-checkout add
           fi
           echo "mode=files" >> "$GITHUB_OUTPUT"
       # The authored puzzle is built from its clues, not committed, and the
-      # check covers it like any other puzzle. Its inputs are under tools/, so
-      # only a full check can see it change.
+      # check covers it like any other puzzle. Its inputs are under tools/, and
+      # a change to them is one of the things validate_scope.py makes a full
+      # check, so only a full check can see it change.
       - name: Build the authored puzzle
         if: steps.scope.outputs.mode == 'full'
         run: >-

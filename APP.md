@@ -687,8 +687,14 @@ times as long. So:
   workflow restores it. `tools/row_cache.py` keeps its store in the git
   dir; pages.yml restores it with actions/cache.
 - **The annotation check is incremental on a push.** It checks only the
-  puzzle files changed since the last successfully deployed commit. Any
-  other change, a manual run or the nightly schedule runs the full check.
+  puzzle files changed since the last successfully deployed commit. The
+  full check runs for a manual run, the nightly schedule, or a change to
+  what a puzzle's check reads: `tools/validate_scope.py` computes that from
+  the definitions `code_reach` says `validate_annotations.main` reaches
+  and the data files those modules name, so an edit to a fetcher, a test
+  or a doc stays incremental. No list to keep. The full check is spread
+  across the runner's cores (`validate_annotations.check_all`;
+  `VALIDATE_JOBS=1` forces serial) and prints what a serial run prints.
   The commit hooks run the same check on each staged puzzle.
 
 ### Pushing is not deploying

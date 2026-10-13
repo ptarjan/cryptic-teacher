@@ -60,6 +60,8 @@ import collections
 import difflib
 import functools
 import json
+import multiprocessing
+import os
 import re
 import subprocess
 import sys
@@ -3646,6 +3648,65 @@ def run_errors(path, puzzle):
     return errors + backlog_errors(path.stem, warnings, load_backlog())
 
 
+def check_one(path, corpus, allowed):
+    """One puzzle's report: (its printed text, (stem, backlog counts) or None,
+    whether it failed). Prints nothing itself, so a pool of workers can run it
+    and the parent can print the reports in the order of the paths."""
+    out = []
+    if not path.exists():
+        return f"MISSING {path}\n", None, True
+    puzzle = read_puzzle_file(path)
+    annotated, errors, warnings = validate_puzzle(puzzle, corpus=corpus)
+    if not corpus:          # a run's own puzzles; the corpus is HEAD already
+        check_against_committed(puzzle, path, errors)
+    total = len(puzzle["entries"])
+    if annotated == 0 and corpus:
+        # Nothing to check about annotations that do not exist yet — but
+        # the checks that walk the whole file (markup) do apply, and
+        # dropping them here would exempt exactly the puzzles nobody has
+        # looked at.
+        out.append(f"{puzzle['id']}: unannotated ({total} clues) — skipped\n")
+        out += [f"{ERROR_PREFIX}{err}\n" for err in errors]
+        return "".join(out), None, bool(errors)
+    seen = (path.stem, count_backlog(warnings))
+    errors += backlog_errors(path.stem, warnings, allowed)
+    status = "OK" if not errors else "FAIL"
+    by = f" ({puzzle['setter']})" if puzzle.get("setter") else ""
+    out.append(f"{puzzle['id']}{by}: {annotated}/{total} annotated — {status}\n")
+    out += [f"{WARN_PREFIX}{w}\n" for w in warnings if annotated]
+    out += [f"{ERROR_PREFIX}{err}\n" for err in errors]
+    return "".join(out), seen, bool(errors)
+
+
+#: What a pool worker reads: set before the fork, so each inherits it.
+_POOL_JOB = None
+#: Puzzles a worker takes at a time: big enough that the pipe is not the cost.
+POOL_CHUNK = 16
+#: Fewer paths than this are checked in-process: forking costs more.
+POOL_MIN = 200
+
+
+def _pool_one(path):
+    corpus, allowed = _POOL_JOB
+    return check_one(path, corpus, allowed)
+
+
+def check_all(paths, corpus, allowed):
+    """check_one for each path, in the order of `paths`: spread across the
+    cores when there are many (the full check, ~1,000s of puzzles, and every
+    puzzle is independent), serial otherwise. The reports are identical either
+    way, and so is the order they come back in. VALIDATE_JOBS=1 forces serial."""
+    global _POOL_JOB
+    jobs = int(os.environ.get("VALIDATE_JOBS") or os.cpu_count() or 1)
+    if jobs < 2 or len(paths) < POOL_MIN or "fork" not in multiprocessing.get_all_start_methods():
+        for path in paths:
+            yield check_one(path, corpus, allowed)
+        return
+    _POOL_JOB = (corpus, allowed)
+    with multiprocessing.get_context("fork").Pool(jobs) as pool:
+        yield from pool.imap(_pool_one, paths, POOL_CHUNK)
+
+
 def main(argv):
     global FORCE_AUTHORED_CHECKS
     if "-h" in argv or "--help" in argv:
@@ -3676,38 +3737,11 @@ def main(argv):
     allowed = load_backlog()
     observed = {}
     failed = False
-    for path in paths:
-        if not path.exists():
-            print(f"MISSING {path}")
-            failed = True
-            continue
-        puzzle = read_puzzle_file(path)
-        annotated, errors, warnings = validate_puzzle(puzzle, corpus=corpus)
-        if not corpus:          # a run's own puzzles; the corpus is HEAD already
-            check_against_committed(puzzle, path, errors)
-        total = len(puzzle["entries"])
-        if annotated == 0 and corpus:
-            # Nothing to check about annotations that do not exist yet — but
-            # the checks that walk the whole file (markup) do apply, and
-            # dropping them here would exempt exactly the puzzles nobody has
-            # looked at.
-            print(f"{puzzle['id']}: unannotated ({total} clues) — skipped")
-            for err in errors:
-                print(f"{ERROR_PREFIX}{err}")
-            failed = failed or bool(errors)
-            continue
-        observed[path.stem] = count_backlog(warnings)
-        errors += backlog_errors(path.stem, warnings, allowed)
-        status = "OK" if not errors else "FAIL"
-        by = f" ({puzzle['setter']})" if puzzle.get("setter") else ""
-        print(f"{puzzle['id']}{by}: {annotated}/{total} annotated — {status}")
-        for w in warnings:
-            if annotated:
-                print(f"{WARN_PREFIX}{w}")
-        for err in errors:
-            print(f"{ERROR_PREFIX}{err}")
-        if errors:
-            failed = True
+    for text, seen, bad in check_all(paths, corpus, allowed):
+        sys.stdout.write(text)
+        if seen is not None:
+            observed[seen[0]] = seen[1]
+        failed = failed or bad
     # Printed as one number rather than 400 warning lines' worth of noise, and
     # printed even when everything passes: a backlog nobody sees is a backlog
     # nobody drains. Only a FULL run can total it — a single-puzzle run counts
