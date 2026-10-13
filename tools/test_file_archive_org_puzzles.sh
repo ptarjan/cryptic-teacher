@@ -77,6 +77,7 @@ reached = {d for m, d in code_reach.reach("file_archive_org_puzzles", f.SCAN_ROO
 check("the scan key follows every name scan() reaches: the title pattern, the title OCR, the Gale page's "
       "headings and their band re-reads, the 1930 headings, the Paper method scan calls", set(),
       {"TITLE", "SOLUTION", "ocr_titles", "ocr_headings", "mend_misreads", "solution_bands", "band_solutions", "SOLUTION_BAND",
+       "hint_strips", "HEADING_HINT", "PAGE_READERS", "HINT_PAD",
        "times1930_headings", "Paper.headings"} - reached)
 check("and not the filing code: a change to it rescans nothing", set(), {"read_puzzle", "read_solution"} & reached)
 # The mirror: the key moves with code scan() runs and stays with code it
@@ -2700,6 +2701,34 @@ f.band_words = timed_out
 check("a reader's timeout on a whole page reads as nothing, not a failed scan", [(17428, ["ch", "en5"])],
       [(n, r) for n, _, _, r in f.ocr_headings(Image.new("RGB", (400, 600), "black"), f.GALE, "timeout_test")[0]])
 f.band_words = saved_bw
+# Only PAGE_READERS read a Gale page's whole ink; the other readers read the
+# strips round their words a heading could be (hint_strips), or the whole ink
+# when they read nothing there.
+strip_img = Image.new("L", (f.SCAN_WIDTH, 2000), 255)
+strip_img.putpixel((10, 10), 0)
+check("a strip round each heading-like word, padded, clipped, overlaps merged",
+      [(0, 70, 450, 130), (900, 1470, 1500, 1530)],
+      f.hint_strips(strip_img, [(10, 90, 300, 110, "THE TIMES CROSSWORD"), (200, 95, 260, 110, "17,554"),
+                                (1050, 1490, 1350, 1510, "Solution to Puzzle"), (500, 500, 600, 520, "Down clue 12")]))
+check("(mirror) no heading-like word, no strip", [], f.hint_strips(strip_img, [(10, 90, 300, 110, "27 Order (5)")]))
+asked = []
+def strip_read(page_words):
+    def words(img, box, which, path):
+        asked.append((which, "page" if "_page." in str(path) else tuple(box)))
+        return page_words if which in f.PAGE_READERS and "_page." in str(path) else \
+            [(10, 90, 300, 110, "The Times Crossword Puzzle No 17,554")] if box[1] <= 90 else []
+    asked.clear()
+    f.band_words = words
+    try:
+        return [t[0] for t in f.ocr_headings(strip_img, f.GALE, "strip_read_test")[0]], sorted(set(asked))
+    finally:
+        f.band_words = saved_bw
+heading = [(10, 90, 300, 110, "The Times Crossword Puzzle No 17,554")]
+others = [r for r in f.READERS if r not in f.PAGE_READERS]
+check("the other readers read only the heading strips, and vote with the page reader",
+      ([17554], sorted([(r, "page") for r in f.PAGE_READERS] + [(r, (0, 70, 450, 130)) for r in others])), strip_read(heading))
+check("(mirror) page readers that read nothing: the others read the whole ink",
+      ([], sorted([(r, "page") for r in f.READERS])), strip_read([]))
 check("a band with no height reads as no words, not a crash", [],
       f.band_words(page_img, band, "times", Path(os.environ["TMP"]) / "band.json"))
 check("an image with no width reads as no words", [], ocr_clues.read_words(Image.new("RGB", (0, 40)), "ch"))
@@ -2770,7 +2799,9 @@ def gale_bands(page, band):
     def words(img, box, which, path):
         if "_page." in str(path):
             return page.get(which, [])
-        return [w for w in band.get(which, []) if box[0] <= w[0] and w[2] <= box[2] and box[1] <= w[1] and w[3] <= box[3]]
+        # A band (a heading strip, a solution band) reads the page's words in it too.
+        return sorted({w for w in page.get(which, []) + band.get(which, [])
+                       if box[0] <= w[0] and w[2] <= box[2] and box[1] <= w[1] and w[3] <= box[3]})
     f.band_words = words
     try:
         return f.ocr_headings(wide_img, f.GALE, "test")
