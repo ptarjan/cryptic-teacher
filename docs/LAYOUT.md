@@ -1022,6 +1022,16 @@ tools/step_budgets.py                         holds every deploy step to its tim
 tools/test_step_budgets.sh                    every pages.yml step is named and budgeted, and a
                                               step reading the whole corpus names its cache,
                                               how it is incremental, or why it is neither
+tools/validate_scope.py                       what the deploy's validate job must check: the
+                                              full check only when a change touches code the
+                                              validator reaches (computed with code_reach) or a
+                                              data file those modules name, else just the
+                                              changed puzzle files
+tools/test_validate_scope.sh                  does a puzzle edit or an unrelated tools/ edit
+                                              stay incremental, a rule, table or workflow
+                                              change force the full check, and the
+                                              core-parallel full check print what the serial
+                                              one does?
 tools/indexnow.py                             tells IndexNow (Bing and the engines it feeds)
                                               which pages a deploy changed: hashes each staged
                                               page without its ?v= stamps against the last
