@@ -6,7 +6,7 @@
 # file that run is writing.
 set -u
 here=$(cd "$(dirname "$0")" && pwd)
-eval "$(sed -n '/^sync_attempt() {/,/^}/p;/^sync_tree() {/,/^}/p' "$here/prereset_backfill.sh")"
+eval "$(sed -n '/^sync_attempt() {/,/^}/p;/^publish_commits() {/,/^}/p;/^sync_tree() {/,/^}/p' "$here/prereset_backfill.sh")"
 tools/push_puzzle_commit.sh() { bash "$here/push_puzzle_commit.sh" "$@" 2>/dev/null; }
 t=$(mktemp -d); trap 'rm -rf "$t"' EXIT
 fail=0; check() { if eval "$2"; then echo "ok - $1"; else echo "FAIL - $1"; fail=1; fi; }
