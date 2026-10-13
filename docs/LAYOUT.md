@@ -1014,6 +1014,13 @@ tools/test_sitemaps.sh                        do new puzzles get found fast? /si
                                               newest puzzle, /puzzles/ links no puzzle; and a
                                               puzzle page pages Newer/Older within its own
                                               series and links the series' landing page
+tools/step_budgets.py                         holds every deploy step to its time budget:
+                                              check-run fails pages.yml's budgets job (after
+                                              the deploy) on a step over budget or unbudgeted;
+                                              lint is the rule test_step_budgets.sh runs
+tools/test_step_budgets.sh                    every pages.yml step is named and budgeted, and a
+                                              step reading the whole corpus names its cache,
+                                              how it is incremental, or why it is neither
 tools/indexnow.py                             tells IndexNow (Bing and the engines it feeds)
                                               which pages a deploy changed: hashes each staged
                                               page without its ?v= stamps against the last
@@ -1428,6 +1435,9 @@ docs/NIGHTLY.md                               the scheduled jobs: the unit queue
 tables everything else reads
 tools/data/README.md                          what in tools/data is committed, what is fetched,
                                               and under what licence
+tools/data/deploy_budgets.json                seconds each pages.yml step may take, and how
+                                              each corpus-wide step skips unchanged work; read
+                                              by step_budgets.py
 tools/data/clue_joints.json                   link words and reversal-axis words published
                                               clues use, measured by build_clue_joints.py and
                                               read by the authoring checks in

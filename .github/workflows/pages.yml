@@ -16,9 +16,14 @@ on:
   push:
     branches: [master]
   workflow_dispatch:
+  # The full annotation check (see validate) once a day, whatever the day's
+  # pushes changed.
+  schedule:
+    - cron: "41 9 * * *"
 
 permissions:
   contents: read
+  actions: read  # validate reads the last successful run: its diff base
   pages: write
   id-token: write
 
@@ -42,15 +47,35 @@ jobs:
     # deploy behind it, for GitHub's 6 hours.
     timeout-minutes: 90
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Check out
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - uses: actions/setup-node@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
       # tools/og_palette.py, which make_og.sh runs on every card.
-      - run: pip install pillow
+      - name: Install Pillow
+        run: pip install pillow
+      # tools/row_cache.py's store: each puzzle's index row, difficulty inputs
+      # and card facts, keyed on its file's git blob and the code that made
+      # them, so the reindex and the card list re-read only the puzzles a push
+      # changed. It lives under .git/, so it was empty on every CI checkout and
+      # every run re-scored all ~50k files. code_reach's own store saves it
+      # re-parsing tools/ for the keys. Per-commit key so each run saves;
+      # restore-keys takes the newest. A stale or missing store is still
+      # correct, just slow: a row is reused only when its key matches.
+      - name: Restore the row cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .git/ct-rows.sqlite*
+            ~/.cache/cryptic-teacher/code_reach
+          key: row-cache-${{ github.sha }}
+          restore-keys: row-cache-
       # app.js reads the glossary from a <script> tag, so the file has to exist
       # before anything hashes it. That is this early because --reindex restamps
       # index.html on its way past, not only the stamping step further down.
@@ -114,7 +139,8 @@ jobs:
       # it names into _site/ and fails if any page links a file left out.
       - name: Stage the site
         run: python3 tools/stage_site.py
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload the site
+        uses: actions/upload-pages-artifact@v3
         with:
           path: _site
       # The pages this deploy changes, for IndexNow once it is live. The cache
@@ -128,33 +154,130 @@ jobs:
           restore-keys: indexnow-
       - name: List the changed pages
         run: python3 tools/indexnow.py changed _site .indexnow/manifest.json indexnow-urls.txt
-      - uses: actions/upload-artifact@v4
+      - name: Upload the page list
+        uses: actions/upload-artifact@v4
         with:
           name: indexnow-urls
           path: indexnow-urls.txt
           retention-days: 1
 
   # Its own job so it runs beside the build instead of in front of the
-  # staging: it reads only the puzzle sources and tools/data, none of what the
+  # staging: it reads only the puzzle sources and tools/, none of what the
   # build generates. deploy needs it, so a failing check still ships nothing.
+  #
+  # Incremental, because the full check is ~9 minutes and was the whole
+  # deploy's critical path while nearly every push changes one puzzle file.
+  # The base is the commit the last SUCCESSFUL run of this workflow deployed:
+  # that run's check passed, so every puzzle as it stood there passed (by
+  # induction from the last full check). A puzzle's check reads only its own
+  # file and tools/ (which holds the validator, its imports and every table
+  # it reads), so when the only changes since the base are added or edited
+  # puzzles/<series>/<year>/<id>.json files (plus deleted puzzles, and
+  # clues_only/ and docs/, which no check reads), checking just those files
+  # gives the full check's answer. Anything else changed (tools/, a root file,
+  # a workflow), no base to diff against, a manual run or the nightly
+  # schedule: the full check, as before. The pre-commit hook runs the same
+  # --deploy check on each staged puzzle, so this rarely finds anything new.
+  #
+  # The checkout fetches no file contents up front (blob:none), and only
+  # tools/ and the root files; the folders of the puzzles a run checks are
+  # added after the diff, and a full run takes the whole tree.
   validate:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Check out
+        uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: tools
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Choose what to check
+        id: scope
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT: ${{ github.event_name }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          full() { echo "full check: $1"; git sparse-checkout disable; echo "mode=full" >> "$GITHUB_OUTPUT"; exit 0; }
+          [ "$EVENT" = push ] || full "a $EVENT run"
+          base=$(gh api "repos/$REPO/actions/workflows/pages.yml/runs?branch=master&status=success&per_page=1" \
+                   --jq '.workflow_runs[0].head_sha // empty' || true)
+          [ -n "$base" ] || full "no successful run to diff against"
+          git fetch --no-tags --depth=1 --filter=blob:none origin "$base" || full "could not fetch $base"
+          git diff --no-renames --name-status "$base" HEAD > "$RUNNER_TEMP/changed.txt"
+          echo "since $base (last deployed):"; cat "$RUNNER_TEMP/changed.txt"
+          : > "$RUNNER_TEMP/check.txt"
+          while IFS=$'\t' read -r st path; do
+            case "$path" in
+              clues_only/*|docs/*) continue ;;
+              puzzles/*/*/*.json)
+                case "$st" in
+                  A|M) echo "$path" >> "$RUNNER_TEMP/check.txt" ;;
+                  D) ;;
+                  *) full "$st $path" ;;
+                esac ;;
+              *) full "$path changed" ;;
+            esac
+          done < "$RUNNER_TEMP/changed.txt"
+          if [ -s "$RUNNER_TEMP/check.txt" ]; then
+            sed 's|/[^/]*$||' "$RUNNER_TEMP/check.txt" | sort -u | xargs git sparse-checkout add
+          fi
+          echo "mode=files" >> "$GITHUB_OUTPUT"
       # The authored puzzle is built from its clues, not committed, and the
-      # check covers it like any other puzzle.
+      # check covers it like any other puzzle. Its inputs are under tools/, so
+      # only a full check can see it change.
       - name: Build the authored puzzle
+        if: steps.scope.outputs.mode == 'full'
         run: >-
           python3 tools/build_authored_puzzle.py
           --clues tools/data/authored_A001_clues.json --number 1
           --name "Cryptic Teacher No 1" --date 2026-07-29
           --annotated-by claude-opus-5-5
-      - name: Check the annotations
+      # Two steps rather than one with a branch, so each has its own budget in
+      # tools/data/deploy_budgets.json: the full check's growth is tracked
+      # there, and an incremental check that slows down is caught on its own.
+      - name: Check every annotation
+        if: steps.scope.outputs.mode == 'full'
         run: python3 tools/validate_annotations.py
+      - name: Check the changed annotations
+        if: steps.scope.outputs.mode == 'files'
+        run: |
+          if [ -s "$RUNNER_TEMP/check.txt" ]; then
+            xargs python3 tools/validate_annotations.py --deploy < "$RUNNER_TEMP/check.txt"
+          else
+            echo "no puzzle changed since the last deploy"
+          fi
+
+  # Every step's time against its budget in tools/data/deploy_budgets.json,
+  # read off the jobs API once the deploy is done. After the deploy, never in
+  # front of it: a slow build still ships, and the run goes red with an error
+  # naming the step, which is how a regression gets noticed the day it lands
+  # instead of a week later. A step with no budget row fails it too.
+  budgets:
+    needs: [build, validate, deploy, indexnow]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            tools/step_budgets.py
+            tools/data/deploy_budgets.json
+          sparse-checkout-cone-mode: false
+      - name: Check the step budgets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+          ATTEMPT: ${{ github.run_attempt }}
+        run: python3 tools/step_budgets.py check-run "$REPO" "$RUN_ID" "$ATTEMPT"
 
   deploy:
     needs: [build, validate]
@@ -163,7 +286,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - id: deployment
+      - name: Deploy to Pages
+        id: deployment
         uses: actions/deploy-pages@v4
 
   # After the deploy, so Bing fetches what is live. A failure here leaves the
@@ -173,13 +297,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out
+        uses: actions/checkout@v4
         with:
           sparse-checkout: |
             tools/indexnow.py
             f95c3e3037390dda228633f7d76588f2.txt
           sparse-checkout-cone-mode: false
-      - uses: actions/download-artifact@v4
+      - name: Download the page list
+        uses: actions/download-artifact@v4
         with:
           name: indexnow-urls
       - name: Ping IndexNow

@@ -664,6 +664,33 @@ changing a file's bytes means changing its URL.**
 - Stamping does not fix caches still holding the old URL. Re-share a link to
   force a refetch, and expect a day's lag.
 
+### The deploy stays fast
+
+The site is static, but the build reads every puzzle file, and the corpus
+grows every night. A step that redoes every puzzle on every push gets slower
+by itself, a little each day, and nobody sees it until a deploy takes three
+times as long. So:
+
+- **Every step of `.github/workflows/pages.yml` has a time budget** in
+  `tools/data/deploy_budgets.json`, the one table of numbers. The `budgets`
+  job runs after the deploy, reads each step's time off the jobs API
+  (`tools/step_budgets.py check-run`) and turns the run red on a step that
+  is over its budget or has none. The site still ships. A red budget means
+  find the cause; raise a budget only with the reason in the commit.
+- **Work that scales with the corpus is cached or incremental.** A step
+  that runs a tool reading every puzzle says, in its row, which
+  actions/cache step carries its results between runs, how it limits
+  itself to what changed, or why it can do neither.
+  `tools/test_step_budgets.sh` fails on a step with no name, no budget, or
+  corpus work with none of those.
+- **A cache under `.git/` or `~/.cache` is empty in CI** unless the
+  workflow restores it. `tools/row_cache.py` keeps its store in the git
+  dir; pages.yml restores it with actions/cache.
+- **The annotation check is incremental on a push.** It checks only the
+  puzzle files changed since the last successfully deployed commit. Any
+  other change, a manual run or the nightly schedule runs the full check.
+  The commit hooks run the same check on each staged puzzle.
+
 ### Pushing is not deploying
 
 GitHub Pages takes a minute or two to build after a push. **Nobody is told to
