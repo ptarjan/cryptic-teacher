@@ -142,7 +142,11 @@ def session_model(session_id, pid):
     disk, carrying `message.model`. A subagent shares its parent's session id
     and writes its own transcript under <session>/subagents/, so all of them
     are read and the newest call to this tool wins, preferring one that names
-    this puzzle. None when no transcript holds such a call.
+    this puzzle. A call naming this puzzle's _ann file (a Write, or a Bash that
+    builds it) counts as that call too: tools/puzzle_worker.sh runs
+    annotate_check itself after a cold solve, so a model that only wrote the
+    file never ran either command. None when no
+    transcript holds such a call.
     """
     root = Path(os.environ.get("CLAUDE_CONFIG_DIR")
                 or Path.home() / ".claude") / "projects"
@@ -154,6 +158,7 @@ def session_model(session_id, pid):
     mtimes = {f: f.stat().st_mtime for f in files}
     newest = max(mtimes.values(), default=0)
     number = pid.rsplit("-", 1)[-1]
+    ann_name = default_input(Path(pid)).name
     best = None
     for f in (f for f, t in mtimes.items() if t >= newest - 600):
         try:
@@ -161,7 +166,8 @@ def session_model(session_id, pid):
         except OSError:
             continue
         for line in reversed(lines):
-            if '"tool_use"' not in line or not any(c in line for c in LANDING_COMMANDS):
+            if '"tool_use"' not in line or not (
+                    ann_name in line or any(c in line for c in LANDING_COMMANDS)):
                 continue
             try:
                 rec = json.loads(line)
@@ -172,11 +178,12 @@ def session_model(session_id, pid):
                 if not (isinstance(block, dict) and block.get("type") == "tool_use"):
                     continue
                 command = json.dumps(block.get("input"))
-                if not any(c in command for c in LANDING_COMMANDS):
+                wrote = ann_name in command
+                if not (wrote or any(c in command for c in LANDING_COMMANDS)):
                     continue
                 if not provenance.MODEL_ID.fullmatch(msg.get("model") or ""):
                     continue
-                rank = (number in command, rec.get("timestamp") or "")
+                rank = (wrote or number in command, rec.get("timestamp") or "")
                 if best is None or rank > best[0]:
                     best = (rank, msg.get("model"))
             if best and best[0][0]:
