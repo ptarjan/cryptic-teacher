@@ -3109,7 +3109,7 @@ def hosted(found, held):
     own = [p["number"] for p in found["puzzles"] if "fromSolutions" not in p]
     near = [(d, m) for d, m in filter(None, (before, after)) if abs((d - day).days) <= SOLUTION_DAYS]
     counts = {m + issues_between(d, day) if d < day else m - issues_between(day, d) for d, m in near}
-    days = {t: issue_day(day, t, own) for t in own}
+    days = {t: issue_day(day, t, own, found.get("item")) for t in own}
     if not counts & set(own):
         days.update({m: day for m in counts if m not in days})
     on = set(days.values()) | {day}
@@ -3138,13 +3138,23 @@ def placed(n, day, held):
     return n, None
 
 
-def issue_day(day, n, numbers):
+#: A Gale item, Gale<Paper><year>UKEnglish/<date> (gale_inbox, gale_fetch):
+#: each edition is one page of that day's paper, binding no other day.
+ONE_DAY_ITEM = re.compile(r"Gale[A-Za-z]+(?:19|20)\d\dUKEnglish$")
+
+
+def issue_day(day, n, numbers, item=""):
     """The date of No `n` in an edition dated `day` holding `numbers`: an item
     can bind the next days' papers too, so each number above the lowest is one
     issue later (six a week, none on Sunday), but only while `numbers` run
     unbroken from the lowest up to `n`. Across a gap the lowest is a stray read
     (a solution heading, a misread), not an earlier issue, and No `n` keeps
-    the edition's date."""
+    the edition's date. A Gale page (ONE_DAY_ITEM) binds one day only, so a
+    lower number on it is always a stray: Monday 9 April 2001's page tells
+    "The solution to Saturday's Prize Crossword 21,696 will appear next
+    Saturday" beside No 21,697, which had filed as Tuesday's."""
+    if ONE_DAY_ITEM.match(item or ""):
+        return day
     low = min(numbers)
     if n - low > 6 or not set(range(low, n + 1)) <= set(numbers):
         return day
@@ -3158,7 +3168,8 @@ def filed_number(d, found, hit):
     refused."""
     n = hit["number"]
     paper = paper_of(d)
-    day = issue_day(datetime.date.fromisoformat(found["date"]), n, [h["number"] for h in found["puzzles"]])
+    day = issue_day(datetime.date.fromisoformat(found["date"]), n, [h["number"] for h in found["puzzles"]],
+                    found.get("item"))
     if paper in (TIMES, GALE) and day.weekday() == 6:
         return None, day, f"{day} is a Sunday and the Times prints no daily cryptic on it: a Sunday paper's puzzle"
     held = held_dates(paper.series)

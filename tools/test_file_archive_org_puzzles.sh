@@ -2984,6 +2984,11 @@ check("each number of an unbroken run above the edition's own is one issue later
       datetime.date(1996, 6, 17), f.issue_day(datetime.date(1996, 6, 15), 20681, [20680, 20681]))
 check("a number above a gap is not a later issue",
       tue, f.issue_day(tue, 20679, [20676, 20677, 20679]))
+mon = datetime.date(2001, 4, 9)
+check("a Gale page is one day: Monday's prize notice (No 21,696) does not move No 21,697 to Tuesday",
+      mon, f.issue_day(mon, 21697, [21697, 21696], "GaleTimes2001UKEnglish"))
+check("an archive.org item can still bind the next day's paper",
+      datetime.date(2001, 4, 10), f.issue_day(mon, 21697, [21697, 21696], "NewsUK2001UKEnglish"))
 
 print(f"FAILS {fails}")
 EOF
