@@ -92,7 +92,7 @@ import quotes  # curl(): clue text is stored straight, shown curled
 import series as series_meta  # what each series IS; see tools/series.py
 import showcase  # which puzzles /showcase/ picks, and why
 from fetch_puzzle import (  # one glob, one reader for every tool
-    blog_annotation, blog_fact_hashes, has_blog_hints, puzzle_files, read_puzzle_view,
+    blog_annotation, blog_fact_hashes, has_blog_hints, puzzle_files, read_puzzle_file, read_puzzle_view,
     with_blog_facts)
 import puzzle_paths  # one puzzles/ for every tool
 import page_cache  # last build's puzzle pages, reused when nothing moved
@@ -182,8 +182,16 @@ STUB_KEYS = ("id", "series", "number", "date", "year")
 def solved_stub(path):
     """(path, stub) for a listed puzzle with every solution, else None: the
     rule fetch_puzzle.reindex() uses for hasSolutions, which decides whether
-    the listing page a puzzle page links to exists."""
-    p = read_puzzle_view(path)
+    the listing page a puzzle page links to exists.
+
+    The raw file, not read_puzzle_view(): a stub needs only the series that
+    view derives (from the id, as annotation.view_puzzle does) and the
+    solutions, and viewing every annotation of ~50k files was most of the
+    puzzle list's time whenever the annotation code changed."""
+    import puzzle_schema
+    p = read_puzzle_file(path)
+    if "number" in p and puzzle_schema.is_v2(p):
+        p = {**p, "series": series_meta.parse_id(p["id"])[0]}
     if series_meta.unlisted(p["series"]) or not all(e.get("solution") for e in p["entries"]):
         return None
     return path, {k: p[k] for k in STUB_KEYS if k in p}
@@ -2085,18 +2093,44 @@ def clue_indicators(found, puz, page):
     writes, and the page shows the indicator: a blog's facts are on it only
     for a clue we have not annotated (fetch_puzzle.with_blog_facts).
     """
+    found.update(indicator_found(indicator_candidates(puz, page), found))
+
+
+def indicator_candidates(puz, page):
+    """clue_indicators()'s inputs from one page, before any lexicon: [(ours,
+    depth, day, puzzle id, entry id, indicators)]. What the page cache stores,
+    so a moved indicators.json re-matches a stored page without rendering it
+    (tools/page_cache.py PER_ENTRY)."""
+    out = []
     for e in puz["entries"]:
         ann = e.get("annotation") or e.get("blog") or {}
         if not ann.get("indicators") or f'id="{esc(entry_id(e))}"' not in page:
             continue
-        ours = bool(e.get("annotation"))
         prose = ann.get("explanation") or {}
-        depth = len((prose.get("walkthrough") or "") + (prose.get("definitionFit") or ""))
-        day = series_meta.puzzle_day(puz) or date.min
-        for (t, key), exact in clue_pairs(indicator_lexicon(), ann["indicators"]).items():
+        out.append((bool(e.get("annotation")),
+                    len((prose.get("walkthrough") or "") + (prose.get("definitionFit") or "")),
+                    series_meta.puzzle_day(puz) or date.min, puz["id"], entry_id(e),
+                    [{k: i[k] for k in ("text", "for") if k in i} for i in ann["indicators"]]))
+    return out
+
+
+def indicator_found(cands, found=None, lexicon=None):
+    """{(type, key): (rank, puzzle id, entry id)} for indicator_candidates()
+    matched against indicators.json, best first into a copy of `found`."""
+    found = dict(found or {})
+    lex = indicator_lexicon() if lexicon is None else lexicon
+    for ours, depth, day, pid, eid, inds in cands:
+        for (t, key), exact in clue_pairs(lex, inds).items():
             rank = (ours, exact, depth, day)
             if (t, key) not in found or found[(t, key)][0] < rank:
-                found[(t, key)] = (rank, puz["id"], entry_id(e))
+                found[(t, key)] = (rank, pid, eid)
+    return found
+
+
+@functools.cache
+def indicator_lexicon_hash():
+    """What a stored page's indicator candidates were matched against."""
+    return page_cache.file_hash(INDICATORS)
 
 
 def ranked_indicators(t):
@@ -2554,10 +2588,13 @@ def puzzle_page_job(i):
     # (difficulty index, tags) move without the page, so they are added fresh.
     row = meta.get(solved[i][1]["id"])
     if hit:
-        asked, digest, blocks, found, file_facts = hit
+        asked, digest, blocks, cands, lex, found, file_facts = hit
         if not all(_asset(rel) == url for rel, url in asked):
             why = f"asset:{series}"
         elif page_cache.file_hash(path) == digest:
+            if lex != indicator_lexicon_hash():  # the lexicon moved, not the page
+                found = indicator_found(cands)
+                hit = (asked, digest, blocks, cands, indicator_lexicon_hash(), found, file_facts)
             return (path, False, blocks, found, showcase.with_meta(file_facts, row),
                     (key, hit, True, None))
         else:
@@ -2571,13 +2608,15 @@ def puzzle_page_job(i):
         asked = tuple((rel, _asset(rel)) for rel in sorted(_ASKED))
     finally:
         _ASKED = None
-    blocks, found = {}, {}
+    blocks = {}
     clue_blocks(blocks, puz, page)
-    clue_indicators(found, puz, page)
+    cands = indicator_candidates(puz, page)
+    found = indicator_found(cands)
     assert path == puzzle_paths.PUZZLE_DIR / puz["id"] / "index.html"
     text = relative_links(page, PUZZLE_ROOT)
     file_facts = showcase.file_facts(puz)
-    entry = (asked, page_cache.text_hash(text), blocks, found, file_facts)
+    entry = (asked, page_cache.text_hash(text), blocks, cands, indicator_lexicon_hash(), found,
+             file_facts)
     return (path, write_output(path, text, check), blocks, found,
             showcase.with_meta(file_facts, row),
             (key, entry, False, why) if key else None)

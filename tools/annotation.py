@@ -87,6 +87,9 @@ def _light_marks(light):
 
 def _lights(entry, puzzle=None):
     """The lights a (possibly linked) answer runs through, in order."""
+    group = entry.get("group")
+    if not group or (len(group) == 1 and group[0] == entry_id(entry)):
+        return [entry]  # unlinked: no index of the puzzle's entries to build
     by_id = {entry_id(e): e for e in (puzzle or {}).get("entries") or []}
     by_id[entry_id(entry)] = entry
     return [by_id[eid] for eid in entry.get("group") or [entry_id(entry)]]

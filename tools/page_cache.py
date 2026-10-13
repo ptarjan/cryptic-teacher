@@ -28,6 +28,19 @@ its checks say so. A page is reused when all of these are what they were:
   - the file on disk, whose hash must be the one the render wrote. A cold
     cache, a hand-edited page or another tree's page is rendered again.
 
+Two data files the reached code names are not in the build-wide key, because
+a page's own check already covers them and both move with every "daily
+blog-facts" commit (every few hours), which re-rendered all ~42k pages each
+time for the few hundred whose text moved:
+  - blocks.json and whatever else only stamp_assets.asset_url() reads to
+    hash an asset (OPAQUE): every URL it gave is recomputed and compared
+    before a page is reused, so a moved asset re-renders exactly the pages
+    that link it;
+  - indicators.json (PER_ENTRY): a page's HTML does not read it; only the
+    /indicators/ candidates matched against it do, and a stored page keeps
+    its candidates unmatched with the lexicon's hash, so a moved lexicon
+    re-matches them (build_seo_pages.indicator_found) without a render.
+
 A stale or missing store is never wrong, only slow. Each run rewrites the
 store with exactly this run's pages, so it does not grow.
 """
@@ -45,16 +58,21 @@ ROOT = puzzle_paths.ROOT
 #: The store; gitignored, carried between deploys by the workflow's cache.
 STORE = ROOT / ".page-cache.pickle"
 #: Bump to drop every stored page (a change to how keys are made).
-VERSION = "2"
+VERSION = "3"
 
 PUZZLE_FILE = re.compile(r"puzzles/[^/]+/[0-9]{4}/[^/]+\.json")
 # Per-page inputs (keyed in page_key) or not inputs to a puzzle page at all.
 # index.html is restamped by every reindex, and no puzzle page reads it.
 NOT_GLOBAL = ("docs/", "tools/data/blog_facts/")
-NOT_GLOBAL_FILES = {"index.html"}
+#: Data the stored entry itself is checked against (see the docstring).
+PER_ENTRY = {"tools/data/lexicons/indicators.json"}
+NOT_GLOBAL_FILES = {"index.html"} | PER_ENTRY
 #: Where a puzzle page's code starts, in build_seo_pages: what outputs() runs
 #: per page in its workers, and the list and pager those pages are made from.
 ROOTS = ("puzzle_page_job", "page_key", "puzzles", "series_neighbours")
+#: Definitions whose output a stored page is checked against before reuse,
+#: so neither their code nor the data they read is in the build-wide key.
+OPAQUE = ("stamp_assets.asset_url",)
 #: A file name (the last part of a path) in a string constant, as ast.dump
 #: writes one in code_reach's hashed form.
 NAMED = re.compile(r"Constant\(value='(?:[^'\\]*/)?([\w.\-]+\.(?:json|tsv|txt|md|csv|yaml|yml|html|js|"
@@ -76,7 +94,8 @@ def reached(texts=None):
     """{(module, definition): hashed form} for the puzzle-page code; `texts`
     ({module: source}) stands in for tools/ files (tests)."""
     import code_reach  # here: build_seo_pages' workers never need it
-    return code_reach.reach("build_seo_pages", list(ROOTS), texts)
+    return code_reach.reach("build_seo_pages", list(ROOTS), texts,
+                            opaque=code_reach.TRANSPORT + OPAQUE)
 
 
 def inputs(code, paths):

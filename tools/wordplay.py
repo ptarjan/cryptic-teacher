@@ -234,8 +234,16 @@ def _spans(node, bare=False):
 
 def find_at(clue, text, nth=1, taken=()):
     """Offset of the nth whole-word copy of `text` in `clue` (any copy if no
-    whole-word one), skipping copies that overlap `taken` spans; None if absent."""
-    hits = [m.start() for m in re.finditer(re.escape(text), clue)]
+    whole-word one), skipping copies that overlap `taken` spans; None if absent.
+
+    str.find, not re.finditer(re.escape(text)): the same non-overlapping
+    copies, but a pattern per distinct text overflowed re's cache and compiled
+    afresh nearly every call -- most of annotation.view()'s time, which every
+    deploy pays per puzzle on a full reindex and render."""
+    hits, h = [], clue.find(text)
+    while h >= 0:
+        hits.append(h)
+        h = clue.find(text, h + (len(text) or 1))
     whole = [h for h in hits if (h == 0 or not clue[h - 1].isalnum())
              and (h + len(text) == len(clue) or not clue[h + len(text)].isalnum())]
     pool = whole or hits
