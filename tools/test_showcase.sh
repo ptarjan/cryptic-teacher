@@ -15,7 +15,8 @@ def check(name, ok, got=""):
     print(("ok  " if ok else "FAIL"), name, "" if ok else got)
 
 def real(pid):
-    return fp.read_puzzle_file(fp.resolve_puzzle(pid))
+    # As build_seo_pages and corpus_facts hand it to facts(): the view.
+    return fp.read_puzzle_view(fp.resolve_puzzle(pid))
 
 def facts(pid):
     return sc.facts(real(pid), None)

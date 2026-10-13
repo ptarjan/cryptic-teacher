@@ -18,7 +18,15 @@ def check(name, ok, got=""):
     fails += not ok
     print(("ok  " if ok else "FAIL"), name, "" if ok else got)
 
+# times-18 as judged, frozen (tools/fixtures): its legacy file types 11 plain
+# definitions double_definition, which the format v2 migration drops for the
+# burn to redo, so the live file is too thinly annotated to judge until then.
+FROZEN = {"times-18": "fixtures/times-18-legacy.json"}
+
 def real(pid):
+    if pid in FROZEN:
+        from pathlib import Path
+        return fp.read_puzzle_file(Path(FROZEN[pid]))
     return fp.read_puzzle_file(fp.resolve_puzzle(pid))
 
 # Straight, by eye: general knowledge, plain definitions, puns with nothing to take apart.
@@ -42,7 +50,9 @@ moved = copy.deepcopy(real("listener-9"))
 moved["date"] = "2021-01-01"
 check("(mirror) an unannotated puzzle's short clues decide only for an early one", not ps.is_straight(moved))
 # The annotation decides once it covers the puzzle: one indicator in most clues is a cryptic.
-wordplay = copy.deepcopy(real("listener-1"))
+# (Edited as the legacy shape view_puzzle gives, so it holds for a format v2 file too.)
+import annotation
+wordplay = copy.deepcopy(annotation.view_puzzle(real("listener-1")))
 for e in wordplay["entries"][:len(wordplay["entries"]) // 2]:
     e["annotation"]["type"] = ["anagram"]
     e["annotation"]["indicators"] = [{"text": "out", "for": "anagram"}]
