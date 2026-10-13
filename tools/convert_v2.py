@@ -305,7 +305,13 @@ def convert(ann, entry, puzzle=None):
     blocks = [b for b in ann.get("blocks") or [] if isinstance(b, dict)]
     inds = [i for i in ann.get("indicators") or [] if isinstance(i, dict)]
     tset = set(types)
-    if "double_definition" in tset and not any(b.get("gives") for b in blocks) and defs and len(defs) > 1:
+    if "double_definition" in tset and not any(b.get("gives") for b in blocks) and \
+            not tset & {"cryptic_definition"}:
+        # A double definition is its definitions: a v2 file has nowhere else
+        # to keep a block, so one definition, or a block that is none of
+        # them, is a stored annotation to redo.
+        if not defs or len(defs) < 2:
+            raise Unconvertible("double definition with one definition")
         tree = None
         by_text = collections.defaultdict(list)
         for b in blocks:
@@ -318,12 +324,22 @@ def convert(ann, entry, puzzle=None):
                 d["meaning"] = b["note"]
             elif b and not b.get("note") and d.get("note"):
                 d["meaning"] = ""
+        if any(by_text.values()):
+            raise Unconvertible("double definition block that is no definition")
     elif "cryptic_definition" in tset and not any(b.get("gives") for b in blocks):
         tree = {"op": "cryptic", "parts": [_leaf(b) for b in blocks]} if blocks else None
     else:
         tree = _tree(blocks, inds, tset, annotation.wordplay_letters(ann, entry), ann, notes)
     if tree is not None:
-        _attach(tree, inds, tset, annotation.wordplay_letters(ann, entry))
+        want = annotation.wordplay_letters(ann, entry)
+        _attach(tree, inds, tset, want)
+        # A stored type no op of the tree does (a step done inside one block,
+        # with no indicator) is kept as an unchecked op of that type round it.
+        have = {annotation.OP_TYPE[n["op"]] for n in _walk(tree) if "op" in n}
+        for t in types:
+            if t not in have and t in TYPE_OP and t != "charade":
+                tree = {"op": TYPE_OP[t], "unchecked": True, "gives": want, "parts": [tree]}
+                have.add(t)
         out["wordplay"] = tree
     elif inds:
         raise Unconvertible("indicators with no wordplay")
@@ -467,6 +483,8 @@ def compare(old, new, view):
         for t in sorted(set(ot) - set(vt)):
             if t == "charade":
                 acc.add("type recomputed (charade dropped)")
+            elif t == "double_definition" and len(old.get("definitions") or []) < 2:
+                bad.add("double definition with one definition")
             else:
                 bad.add(f"type lost: {t}")
         for t in sorted(set(vt) - set(ot)):
