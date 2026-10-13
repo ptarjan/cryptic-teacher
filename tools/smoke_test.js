@@ -7593,6 +7593,17 @@ for (const got of JSON.parse(require("child_process").execFileSync("python3", ["
       },
     });
     const reg = d.registry, out = {};
+    // The anagram ring deals its tiles with Math.random (app.js dealRing), so
+    // two boots of one clue deal differently and every ring rung "differs".
+    // Each clue climbs on the same seeded stream (mulberry32), started afresh
+    // per clue so one clue's deal never depends on what an earlier one drew.
+    const seeded = (seed) => () => {
+      seed = (seed + 0x6D2B79F5) | 0;
+      let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+    const random = Math.random;
     const arm = () => {
       const row = reg["hint-next"].children.find((b) => ARMED.test(b.textContent || ""));
       if (row) row.onclick();
@@ -7604,6 +7615,7 @@ for (const got of JSON.parse(require("child_process").execFileSync("python3", ["
       // A clean slate per clue, as the corpus sweeps take one: what an earlier
       // clue cost (a normalised one may climb differently) must not show here.
       reg["reset-puzzle"].onclick();
+      Math.random = seeded(0x5eed);
       row.listeners.click[0]();
       const seen = [];
       for (let n = 0; n < 40; n++) {
@@ -7616,6 +7628,7 @@ for (const got of JSON.parse(require("child_process").execFileSync("python3", ["
       }
       out[entryId(e)] = seen;
     });
+    Math.random = random;
     return out;
   };
   const before = ladders(got.old), after = ladders(got.new);
@@ -7634,7 +7647,11 @@ for (const got of JSON.parse(require("child_process").execFileSync("python3", ["
   const differ = exact.filter((id) => JSON.stringify(before[id]) !== JSON.stringify(after[id]));
   assert(!differ.length, `format v2: ${got.old.id}'s exactly converted clues climb the same ladder as `
     + `its legacy file; these do not: ${differ.join(", ")}`);
-  const climbed = Object.keys(before).filter((id) => before[id].length);
+  // A clue whose annotation the migration dropped (a convert_v2.check failure,
+  // e.g. a legacy "double definition" with one definition) is bare in v2 on
+  // purpose, for the burn to redo: it has no ladder to keep.
+  const kept = new Set(got.new.entries.filter((e) => e.annotation).map(entryId));
+  const climbed = Object.keys(before).filter((id) => before[id].length && kept.has(id));
   const silent = climbed.filter((id) => !(after[id] || []).length);
   assert(climbed.length && !silent.length, `format v2: every clue with a ladder in ${got.old.id}'s legacy `
     + `file has one in its v2 file (${climbed.length}); missing: ${silent.join(", ")}`);

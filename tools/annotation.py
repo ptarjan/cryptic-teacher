@@ -172,6 +172,31 @@ def _pieces(node, got):
     return [got[id(node)]]
 
 
+def _first_at(node):
+    """Where the node's first clue word starts, or None when it has none."""
+    ats = [n["at"] for n, _ in _walk(node) if "at" in n]
+    return min(ats) if ats else None
+
+
+def _fodder(node, got):
+    """An anagram's fodder letters as the clue prints them. Its fodder is one
+    heap, so a charade under it may be filed in any order; the letters are
+    read off its parts in clue order (as legacy files kept them), so the app
+    deals the same tiles and the fodder it shows reads like the clue. A part
+    with no clue words (supplied letters) keeps the tree order."""
+    child = node["parts"][0]
+    if id(child) not in got:
+        return "".join(sorted(got[id(node)]))
+    parts = child.get("parts") or []
+    if (child.get("op") != "charade" or child.get("unchecked")
+            or not all(id(p) in got for p in parts)):
+        return got[id(child)]
+    ats = [_first_at(p) for p in parts]
+    if None in ats:
+        return got[id(child)]
+    return "".join(got[id(p)] for _, p in sorted(zip(ats, parts), key=lambda it: it[0]))
+
+
 def _assembly(tree, got):
     if tree.get("op") == "cryptic":
         return {}
@@ -179,7 +204,7 @@ def _assembly(tree, got):
     pieces = [p for p in _pieces(tree, got) if p]
     if len(pieces) > 1:
         out["pieces"] = pieces
-    anas = [{"fodder": got.get(id(n["parts"][0])) or "".join(sorted(got[id(n)])), "gives": got[id(n)]}
+    anas = [{"fodder": _fodder(n, got) or "".join(sorted(got[id(n)])), "gives": got[id(n)]}
             for n, _ in _walk(tree) if n.get("op") == "anagram" and id(n) in got and not n.get("unchecked")]
     revs = [{"from": got[id(n["parts"][0])], "to": got[id(n)]}
             for n, _ in _walk(tree) if n.get("op") == "reversal" and id(n["parts"][0]) in got
