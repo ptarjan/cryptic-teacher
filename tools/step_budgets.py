@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Hold every step of the deploy to a time budget, from one table.
 
-  python3 tools/step_budgets.py check-run REPO RUN_ID [ATTEMPT]   # pages.yml's budgets job
+  python3 tools/step_budgets.py check-run REPO RUN_ID [ATTEMPT]   # the last step of pages.yml's build job
   python3 tools/step_budgets.py lint [WORKFLOW TABLE]              # tools/test_step_budgets.sh
 
 The deploy went from about five minutes to fourteen in under two weeks without
@@ -54,7 +54,7 @@ def check_run(repo, run_id, attempt="1"):
     rows, bad = [], []
     for job in jobs:
         if job["name"] == "budgets":
-            continue        # this job: still running
+            continue        # the old budgets job (runs before it was folded into build)
         for step in job.get("steps") or ():
             if RUNNER_STEPS.match(step["name"]) or step.get("conclusion") in (None, "skipped"):
                 continue

@@ -1017,9 +1017,10 @@ tools/test_sitemaps.sh                        do new puzzles get found fast? /si
                                               puzzle page pages Newer/Older within its own
                                               series and links the series' landing page
 tools/step_budgets.py                         holds every deploy step to its time budget:
-                                              check-run fails pages.yml's budgets job (after
-                                              the deploy) on a step over budget or unbudgeted;
-                                              lint is the rule test_step_budgets.sh runs
+                                              check-run fails the last step of pages.yml's
+                                              build job (after the deploy) on a step over
+                                              budget or unbudgeted; lint is the rule
+                                              test_step_budgets.sh runs
 tools/test_step_budgets.sh                    every pages.yml step is named and budgeted, and a
                                               step reading the whole corpus names its cache,
                                               how it is incremental, or why it is neither
