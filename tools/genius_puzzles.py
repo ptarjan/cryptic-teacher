@@ -287,6 +287,17 @@ CLUE_AT = re.compile(
 STUB_COUNTED = re.compile(rf"({STUB})\s*{fpp.ENUM_TEXT}", re.IGNORECASE)
 
 
+def instructions_unheld(pdf):
+    """Whether the page points at instructions it did not give us: no
+    preamble was read, yet a clue says "See special instructions" / "See
+    preamble" or a light was marked so (`marked`, whose clue is dropped). No
+    Guardian article page (No 138 and before) prints its instructions, so such
+    a Genius files with `awaitsPreamble` and no annotator is sent it; a
+    preamble filed later drops the flag (write_puzzle_file)."""
+    return not pdf.get("preamble") and (bool(pdf.get("marked")) or any(
+        puzzle_integrity.SEE_PREAMBLE.search(c.get("clue") or "") for c in pdf.get("clues") or []))
+
+
 UNCLUED_MARK = re.compile(r"(?i)\[unclued\]|\(See (?:special )?instructions\)|See (?:the )?(?:special )?(?:preamble|instructions)")
 
 
@@ -1649,6 +1660,8 @@ def file(write=True, numbers=None, log=print):
                 why = (held, also) if held else (why[0], f"{why[1]}; not held: {also}")
         except Exception as e:  # any raise: a malformed PDF is one puzzle
             puzzle, why = None, ("unreadable", f"{type(e).__name__}: {e}"[:160])
+        if puzzle is not None and not puzzle.get("preamble") and instructions_unheld(pdf):
+            puzzle["awaitsPreamble"] = True
         if puzzle is not None:
             if on_disk is None:
                 on_disk = fpp.ft_puzzles.held_by_content(SERIES)

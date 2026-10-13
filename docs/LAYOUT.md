@@ -2503,5 +2503,9 @@ tools/test_push_gate_target_tree.sh           does tools/push_puzzle_commit.sh j
                                               that checkout deadlocks it once master loosens
                                               the gate, and lets it past a gate master has
                                               tightened
+tools/test_genius_instructions.sh             is a puzzle whose clues point at instructions we
+                                              do not hold kept from the annotators, and does
+                                              filing a preamble later let a parked failure
+                                              retry?
 ```
 <!-- LAYOUT-END -->
