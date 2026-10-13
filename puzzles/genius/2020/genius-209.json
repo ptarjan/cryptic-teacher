@@ -25,6 +25,9 @@
   "date": "2020-12-06",
   "check": "grid and clues read from the Guardian's printable PDF, its numbering matching the clue list; every fifteensquared answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -38,7 +41,48 @@
     "text": "Idiot felt, perhaps, not all there",
     "enumeration": "4"
    },
-   "solution": "CLOT"
+   "solution": "CLOT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CLOT",
+    "definitions": [
+     {
+      "text": "Idiot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not all there",
+      "for": "deletion",
+      "note": "something not all there is incomplete, so the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "felt, perhaps",
+      "gives": "CLOTH",
+      "note": "felt is one example of cloth, hence 'perhaps'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone thinks an idiot has felt a little absent-minded.",
+     "walkthrough": "CLOTH loses its last letter to leave CLOT.",
+     "definitionFit": "Clot is informal British slang for a stupid person, a dimwit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "felt"
+    }
+   }
   },
   {
    "number": 2,
@@ -78,7 +122,47 @@
     "text": "Little remaining of elder, say, in defeat",
     "enumeration": "5"
    },
-   "solution": "STUMP"
+   "solution": "STUMP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STUMP",
+    "definitions": [
+     {
+      "text": "Little remaining of elder, say",
+      "at": 0
+     },
+     {
+      "text": "defeat",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little remaining of elder, say",
+      "note": "first meaning: the short base left when a tree such as an elder is felled"
+     },
+     {
+      "clueFragment": "defeat",
+      "note": "second meaning: to baffle or beat someone"
+     }
+    ],
+    "explanation": {
+     "surface": "An older person, reduced to very little, has lost.",
+     "walkthrough": "'Elder' reads as an older person, but it is the elder tree, and 'say' marks it as one example of a tree.",
+     "definitionFit": "The word is both the base of a felled tree trunk and a verb meaning to baffle or get the better of someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "elder"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +176,60 @@
     "text": "Author caught by another, briefly",
     "enumeration": "6"
    },
-   "solution": "BELLOC"
+   "solution": "BELLOC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BELLOC",
+    "definitions": [
+     {
+      "text": "Author",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "said briefly, the name is cut short by its final letter"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "one piece sits by the other, simply placed side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another",
+      "gives": "BELLOW",
+      "note": "another author: Saul Bellow, the American novelist"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BELLO",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "One writer is apprehended by a second writer, briefly.",
+     "walkthrough": "BELLOW clipped to BELLO, then C, gives BELLOC; one author's name is built from another's.",
+     "definitionFit": "Hilaire Belloc was an Anglo-French writer of verse and essays, so he is an author."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 5,
@@ -151,7 +288,82 @@
      }
     ]
    },
-   "solution": "DONALDTRUMP"
+   "solution": "DONALDTRUMP",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DONALD TRUMP",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue, over means placed above, so this piece comes first"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter only"
+     },
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "something carrying another holds it inside itself"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "DON",
+      "note": "the Don is a river in England and in Russia"
+     },
+     {
+      "clueFragment": "mountain",
+      "gives": "ALP",
+      "note": "an alp is a high mountain"
+     },
+     {
+      "clueFragment": "freight",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of freight"
+     },
+     {
+      "clueFragment": "large container",
+      "gives": "DRUM",
+      "note": "a drum is a big cylindrical container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DON",
+      "AL",
+      "D",
+      "T",
+      "RUM",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A river barge's cargo is described: a large drum hauled past a mountain.",
+     "walkthrough": "Two containers nest: the mountain carries the drum, which carries the letter. The preamble's title is 'Donald Trump' by Ivor Hugh Jego, i.e. 'I've a huge ego'.",
+     "definitionFit": "The preamble makes this a book title, the name of the former US president, matched to a joke author name about vanity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "container"
+    }
+   }
   },
   {
    "number": 9,
@@ -194,7 +406,52 @@
      }
     ]
    },
-   "solution": "ARTDECO"
+   "solution": "ARTDECO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ART DECO",
+    "definitions": [
+     {
+      "text": "using bold shapes and colours",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "retired",
+      "gives": "RTD",
+      "note": "rtd is the standard abbreviation for retired"
+     },
+     {
+      "clueFragment": "author",
+      "gives": "ECO",
+      "note": "Umberto Eco, the Italian author of The Name of the Rose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RTD",
+      "ECO"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer who has stopped working now paints with strong forms and colours.",
+     "definitionFit": "Art deco is the 1920s-30s design style known for bold geometric forms and strong colours, used here as an adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 11,
@@ -208,7 +465,72 @@
     "text": "Left in dirt I say, dragged around, undesirable",
     "enumeration": "7"
    },
-   "solution": "HOODLUM"
+   "solution": "HOODLUM",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "reversal"
+    ],
+    "answer": "HOODLUM",
+    "definitions": [
+     {
+      "text": "undesirable",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is enclosed by it"
+     },
+     {
+      "text": "dragged around",
+      "for": "reversal",
+      "note": "dragged round, the string is turned to face the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dirt",
+      "gives": "MUD",
+      "note": "mud is wet dirt"
+     },
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "I say",
+      "gives": "OOH",
+      "note": "an exclamation of surprise, like 'I say!'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOO",
+      "DLUM"
+     ],
+     "reversals": [
+      {
+       "from": "MULDOOH",
+       "to": "HOODLUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone left in the dirt, dragged about by an unwelcome type, protests.",
+     "walkthrough": "'I say' is a British exclamation of surprise; 'dragged around' applies to everything built before it, not just the last piece.",
+     "definitionFit": "An undesirable, used as a noun, is an objectionable person, and a hoodlum is a violent petty criminal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +544,43 @@
     "text": "One of a couple cheering in style",
     "enumeration": "3"
    },
-   "solution": "HIP"
+   "solution": "HIP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HIP",
+    "definitions": [
+     {
+      "text": "One of a couple cheering",
+      "at": 0
+     },
+     {
+      "text": "in style",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One of a couple cheering",
+      "note": "first meaning: one of the pair of words in the cheer '... ... hooray'"
+     },
+     {
+      "clueFragment": "in style",
+      "note": "second meaning: fashionable, trendy"
+     }
+    ],
+    "explanation": {
+     "surface": "One half of a pair cheers while dressed fashionably.",
+     "definitionFit": "The cheer goes 'hip, hip, hooray', with two of the word, and the word is also slang for fashionable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "couple"
+    }
+   }
   },
   {
    "number": 13,
@@ -246,7 +604,83 @@
    "group": [
     "13-down",
     "9-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PAUL THE OTHER ONE",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "refurbished",
+      "for": "anagram",
+      "note": "a refurbished building is done over and rearranged"
+     },
+     {
+      "text": "ultimate in",
+      "for": "letter_selection",
+      "note": "the ultimate in a word is its very last letter"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "one piece containing another holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French city",
+      "gives": "PAU",
+      "note": "Pau is a city in south-west France"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "HOTEL",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "sovereign's office",
+      "gives": "THRONE",
+      "note": "the throne stands for a monarch's position"
+     },
+     {
+      "clueFragment": "chinoiserie",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of chinoiserie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAU",
+      "LTHEO",
+      "TH",
+      "E",
+      "RONE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOTEL",
+       "gives": "LTHEO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hotel in a French city is redone, and the royal suite gets oriental décor.",
+     "walkthrough": "The preamble's title is 'Go On' by Paul the Other One, i.e. 'pull the other one', the British retort meaning 'I don't believe you'. Paul is also the setter.",
+     "definitionFit": "The preamble supplies this joke author name, a pun on the sceptical idiom 'pull the other one' answering the title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hotel"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +694,52 @@
     "text": "Plant that's spheral, regularly picked?",
     "enumeration": "3"
    },
-   "solution": "PEA"
+   "solution": "PEA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "PEA",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly picked",
+      "for": "letter_selection",
+      "note": "picking at regular intervals takes every other letter"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spheral",
+      "gives": "PEA",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of spheral"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEA"
+     ]
+    },
+    "explanation": {
+     "surface": "A round vegetable is gathered from the garden at intervals.",
+     "walkthrough": "The surface is apt: the seed is spherical and is picked. Take letters 2, 4 and 6.",
+     "definitionFit": "The pea is a climbing leguminous plant grown for its round edible seeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 14,
@@ -280,7 +759,61 @@
      }
     ]
    },
-   "solution": "PIUSV"
+   "solution": "PIUSV",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PIUS V",
+    "definitions": [
+     {
+      "text": "old leader",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "a new version of the words is a fresh arrangement of their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is up",
+      "gives": "ISUP",
+      "note": "the two words supply the letters to rearrange"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "V",
+      "note": "v is short for versus, meaning against"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIUS",
+      "V"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISUP",
+       "gives": "PIUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh challenger has risen against the former chief.",
+     "walkthrough": "'New' reads as an adjective in the surface, but it is the signal to rearrange 'is up'.",
+     "definitionFit": "Pius V was the sixteenth-century pope, so a leader of the Catholic Church from long ago."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 15,
@@ -304,7 +837,47 @@
    "group": [
     "15-across",
     "7-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OPEN GOLF",
+    "definitions": [
+     {
+      "text": "Competitive round after round",
+      "at": 0
+     },
+     {
+      "text": "VW drophead coupé",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Competitive round after round",
+      "note": "first meaning: rounds of ... played in an ... championship"
+     },
+     {
+      "clueFragment": "VW drophead coupé",
+      "note": "second meaning: a convertible version of the Volkswagen hatchback model"
+     }
+    ],
+    "explanation": {
+     "surface": "Racing lap after lap in a convertible Volkswagen.",
+     "walkthrough": "A drophead is a car with a folding roof, so an open car; the Golf is a Volkswagen model, and the Open is golf's oldest championship.",
+     "definitionFit": "Golf played in the Open championship is competitive, and a soft-top VW Golf is an open Golf."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 16,
@@ -318,7 +891,60 @@
     "text": "Parasite accordingly on foot of patient",
     "enumeration": "5"
    },
-   "solution": "ERGOT"
+   "solution": "ERGOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ERGOT",
+    "definitions": [
+     {
+      "text": "Parasite",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "one piece placed on another is simply followed by it"
+     },
+     {
+      "text": "foot of",
+      "for": "letter_selection",
+      "note": "the foot of a word is its bottom, the last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "accordingly",
+      "gives": "ERGO",
+      "note": "ergo is Latin for therefore, accordingly"
+     },
+     {
+      "clueFragment": "patient",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of patient"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERGO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A parasite has, as a result, got onto a sick person's foot.",
+     "definitionFit": "Ergot is a parasitic fungus that infects rye and other cereals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "foot"
+    }
+   }
   },
   {
    "number": 17,
@@ -364,7 +990,59 @@
     "text": "After initial loss, South African rugby reaching high point in Australia",
     "enumeration": "5"
    },
-   "solution": "ULURU"
+   "solution": "ULURU",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ULURU",
+    "definitions": [
+     {
+      "text": "high point in Australia",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After initial loss",
+      "for": "deletion",
+      "note": "losing the initial means the first letter is dropped"
+     },
+     {
+      "text": "reaching",
+      "for": "charade",
+      "note": "one piece reaching another runs straight on into it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South African",
+      "gives": "ZULU",
+      "note": "the Zulu are a South African people"
+     },
+     {
+      "clueFragment": "rugby",
+      "gives": "RU",
+      "note": "RU is short for rugby union"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ULU",
+      "RU"
+     ]
+    },
+    "explanation": {
+     "surface": "A South African rugby side, after an early defeat, climbs to the top in Australia.",
+     "definitionFit": "Uluru, once called Ayers Rock, is the huge sandstone monolith rising from the Australian outback."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loss"
+    }
+   }
   },
   {
    "number": 20,
@@ -378,7 +1056,44 @@
     "text": "A little pseudo-Homeric expression of frustration",
     "enumeration": "3"
    },
-   "solution": "DOH"
+   "solution": "DOH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DOH",
+    "definitions": [
+     {
+      "text": "expression of frustration",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A little",
+      "for": "hidden_word",
+      "note": "a little of the following text means just a part of it is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pseudo-Homeric",
+      "gives": "DOH",
+      "note": "spans the end of pseudo and the start of Homeric"
+     }
+    ],
+    "explanation": {
+     "surface": "A short mock-epic cry of annoyance.",
+     "walkthrough": "'Homeric' is a nod to Homer Simpson, whose catchphrase this is.",
+     "definitionFit": "Homer Simpson's catchphrase is the exclamation of exasperation at one's own stupidity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Homeric"
+    }
+   }
   },
   {
    "number": 21,
@@ -392,7 +1107,54 @@
     "text": "Less dry piggy particle",
     "enumeration": "5"
    },
-   "solution": "GLUON"
+   "solution": "GLUON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GLUON",
+    "definitions": [
+     {
+      "text": "particle",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Less",
+      "for": "deletion",
+      "note": "less something means without it, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dry",
+      "gives": "TT",
+      "note": "TT means teetotal, so dry"
+     },
+     {
+      "clueFragment": "piggy",
+      "gives": "GLUTTON",
+      "note": "a piggy person eats greedily, like a glutton"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLU",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A slightly damper particle of something pig-related.",
+     "walkthrough": "'Less dry' looks like a comparative adjective; it is 'dry' removed from the next word.",
+     "definitionFit": "The gluon is the subatomic particle that carries the strong force binding quarks together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Less"
+    }
+   }
   },
   {
    "number": 22,
@@ -418,6 +1180,79 @@
     "17-down",
     "3-down"
    ],
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "IVOR HUGH JEGO",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "Short",
+      "for": "deletion",
+      "note": "cut short, the word loses its final letter"
+     },
+     {
+      "text": "lost in",
+      "for": "deletion",
+      "note": "something lost from a word is taken out of it"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "key",
+      "gives": "IVORY",
+      "note": "a piano key is an ivory"
+     },
+     {
+      "clueFragment": "great",
+      "gives": "HUGE",
+      "note": "great in size"
+     },
+     {
+      "clueFragment": "pilgrimage",
+      "gives": "HAJ",
+      "note": "the haj is the Muslim pilgrimage to Mecca"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     },
+     {
+      "clueFragment": "journey",
+      "gives": "GO",
+      "note": "to go is to journey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IVOR",
+      "HUG",
+      "HJ",
+      "E",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A short note on a pilgrimage that turned into a great journey.",
+     "walkthrough": "'Key' is a piano key, named after the material it was made of. Said aloud the name is 'I've a huge ego', the author of 'Donald Trump'.",
+     "definitionFit": "The preamble makes this the joke author name of the book 'Donald Trump', a pun on boasting vanity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "key"
+    }
+   },
    "alsoLeads": [
     {
      "clue": {
@@ -428,7 +1263,47 @@
       "22-across",
       "2-down",
       "5-down"
-     ]
+     ],
+     "annotation": {
+      "type": [
+       "anagram"
+      ],
+      "answer": "IVOR SORE BEACH BUM",
+      "definedByPreamble": true,
+      "indicators": [
+       {
+        "text": "novel",
+        "for": "anagram",
+        "note": "something novel is new, a fresh arrangement of the letters"
+       }
+      ],
+      "blocks": [
+       {
+        "clueFragment": "Overcome a rubbish",
+        "gives": "OVERCOMEARUBBISH",
+        "note": "every letter of these three words is used"
+       }
+      ],
+      "assembly": {
+       "anagrams": [
+        {
+         "fodder": "OVERCOMEARUBBISH",
+         "gives": "IVORSOREBEACHBUM"
+        }
+       ]
+      },
+      "explanation": {
+       "surface": "A reader conquers a dreadful book.",
+       "walkthrough": "Spoken, the author name is 'I've a sore beach bum' (bum is British slang for backside), writing 'Sandy Knickers'. 'Novel' looks like the book itself; it is the signal.",
+       "definitionFit": "The preamble makes this the joke author name for the book 'Sandy Knickers', a pun about chafing at the seaside."
+      },
+      "features": {
+       "answerInScene": false,
+       "aptDefinition": false,
+       "joke": "pun",
+       "misdirectedWord": "novel"
+      }
+     }
     }
    ]
   },
@@ -444,7 +1319,48 @@
     "text": "Short book that's dreary",
     "enumeration": "3"
    },
-   "solution": "RUT"
+   "solution": "RUT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RUT",
+    "definitions": [
+     {
+      "text": "that's dreary",
+      "at": 11,
+      "note": "a noun phrase: the thing that is dreary, a dull routine"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Short",
+      "for": "deletion",
+      "note": "cut short, the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "RUTH",
+      "note": "Ruth is a book of the Old Testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A brief volume that is tedious.",
+     "definitionFit": "A rut is a dull, monotonous routine one is stuck in, something tedious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 24,
@@ -458,7 +1374,49 @@
     "text": "Shaving baby, I'm drunk!",
     "enumeration": "3"
    },
-   "solution": "HIC"
+   "solution": "HIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HIC",
+    "definitions": [
+     {
+      "text": "I'm drunk",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Shaving",
+      "for": "deletion",
+      "note": "shaving takes a little off each side, so both ends go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "baby",
+      "gives": "CHICK",
+      "note": "a chick is a baby bird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A tipsy man nicks himself shaving and confesses he is drunk.",
+     "walkthrough": "'Baby' reads as an endearment; it is a baby bird with both ends trimmed.",
+     "definitionFit": "Hic represents a hiccup, the sound comic writing gives a drunk person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Shaving"
+    }
+   }
   },
   {
    "number": 25,
@@ -482,7 +1440,63 @@
    "group": [
     "25-down",
     "18-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SANDY KNICKERS",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "charade",
+      "note": "one piece taking another picks it up to carry alongside"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "something put into another goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prince",
+      "gives": "ANDY",
+      "note": "Prince Andrew, known as Andy"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "SNICKERS",
+      "note": "Snickers is a chocolate bar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ANDY",
+      "K",
+      "NICKERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A prince brings the king into a pub.",
+     "walkthrough": "'Bar' suggests a pub; it is the chocolate bar, split after its S. Knickers are British for underpants; this is the book by 'I've a sore beach bum'.",
+     "definitionFit": "The preamble makes this a book title, sandy underwear, paired with the pun author name about a sore seat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 26,
@@ -506,7 +1520,62 @@
    "group": [
     "26-down",
     "6-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "GAIN WEIGHT",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "buffeted about",
+      "for": "anagram",
+      "note": "being buffeted about means being knocked into a jumbled new order"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, under means placed below, so this piece comes after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a wing",
+      "gives": "AWING",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "Figure",
+      "gives": "EIGHT",
+      "note": "eight is a figure, a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAINW",
+      "EIGHT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AWING",
+       "gives": "GAINW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shape tossed about beneath a plane's wing.",
+     "walkthrough": "The preamble's title 'Gain Weight' is by Duncan Donuts, a pun on the Dunkin' Donuts chain.",
+     "definitionFit": "The preamble makes this a book title, getting heavier, paired with an author named after a doughnut chain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Figure"
+    }
+   }
   },
   {
    "number": 27,
@@ -520,7 +1589,40 @@
     "text": "One's awfully tired of dull arty wife",
     "enumeration": "7"
    },
-   "solution": "ANAGRAM"
+   "solution": "ANAGRAM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ANAGRAM",
+    "definitions": [
+     {
+      "text": "One's awfully tired of dull arty wife",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One's awfully tired of dull arty wife",
+      "note": "surface reading: a man is sick of his boring, pretentious wife"
+     },
+     {
+      "clueFragment": "awfully tired of dull arty wife",
+      "note": "setter's reading: 'awfully tired' uses exactly the letters of 'dull arty wife', and the clue says it is one of those"
+     }
+    ],
+    "explanation": {
+     "surface": "A husband is fed up with his dreary, arty wife.",
+     "walkthrough": "Count the letters: 'awfully tired' and 'dull arty wife' are the same twelve letters rearranged, so 'One' is the kind of wordplay this is.",
+     "definitionFit": "The term names a word or phrase formed by rearranging the letters of another, as these two phrases are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tired"
+    }
+   }
   },
   {
    "number": 28,
@@ -534,7 +1636,40 @@
     "text": "Genuine coin",
     "enumeration": "4"
    },
-   "solution": "REAL"
+   "solution": "REAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REAL",
+    "definitions": [
+     {
+      "text": "Genuine",
+      "at": 0
+     },
+     {
+      "text": "coin",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Genuine",
+      "note": "first meaning: authentic, not fake"
+     },
+     {
+      "clueFragment": "coin",
+      "note": "second meaning: an old Spanish silver coin, also Brazil's currency"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means authentic, and is also a historic Spanish coin and the Brazilian currency unit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -548,7 +1683,77 @@
     "text": "Encapsulating allure, what spirit doing a twirl in loose garment",
     "enumeration": "7"
    },
-   "solution": "NIGHTIE"
+   "solution": "NIGHTIE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "reversal"
+    ],
+    "answer": "NIGHTIE",
+    "definitions": [
+     {
+      "text": "loose garment",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Encapsulating",
+      "for": "container",
+      "note": "encapsulating something means holding it inside a capsule"
+     },
+     {
+      "text": "doing a twirl",
+      "for": "reversal",
+      "note": "a twirl turns the whole string round to face the other way"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what",
+      "gives": "EH",
+      "note": "eh is a 'what?' asking someone to repeat"
+     },
+     {
+      "clueFragment": "allure",
+      "gives": "IT",
+      "note": "it means sex appeal, as in the 'It girl'"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "GIN",
+      "note": "gin is a spirit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIG",
+      "H",
+      "TI",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EITHGIN",
+       "to": "NIGHTIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An alluring ghost twirls about in a flowing dress.",
+     "walkthrough": "'Spirit' suggests a ghost, but it is the drink; the twirl turns round everything built before it.",
+     "definitionFit": "A nightie is a loose nightdress, a garment worn to bed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 30,
@@ -568,7 +1773,35 @@
      }
     ]
    },
-   "solution": "GOON"
+   "solution": "GOON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GO ON",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "31",
+      "gives": "GOON",
+      "note": "the answer at 31 means a thug"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOON"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The clue is just a cross-reference: a synonym of 31's answer, split as two words. The preamble's title 'Go On' is by Paul the Other One.",
+     "definitionFit": "The preamble makes this a book title, the sceptical 'go on!', answered by the author name meaning 'pull the other one'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 31,
@@ -582,7 +1815,54 @@
     "text": "11 — Poet Laureate he's not!",
     "enumeration": "4"
    },
-   "solution": "THUG"
+   "solution": "THUG",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THUG",
+    "definitions": [
+     {
+      "text": "11",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "the word before it is not there, so its letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poet Laureate",
+      "gives": "THUGHES",
+      "note": "Ted Hughes, Poet Laureate 1984-98, written T Hughes"
+     },
+     {
+      "clueFragment": "he's",
+      "gives": "HES",
+      "note": "the contraction gives three letters to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THUG"
+     ]
+    },
+    "explanation": {
+     "surface": "A hoodlum is plainly no Poet Laureate.",
+     "walkthrough": "'He's not' reads as an aside about the hoodlum; it is the instruction to remove HES from T HUGHES.",
+     "definitionFit": "The answer to 11, a hoodlum, is a violent criminal, which is what a thug is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 32,
@@ -606,7 +1886,57 @@
    "group": [
     "32-across",
     "33-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DUNCAN DONUTS",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "maintaining",
+      "for": "container",
+      "note": "to maintain something here is to keep it held within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horse",
+      "gives": "DUN",
+      "note": "a dun is a greyish-brown horse"
+     },
+     {
+      "clueFragment": "far from stable",
+      "gives": "NUTS",
+      "note": "mentally far from stable, i.e. crazy"
+     },
+     {
+      "clueFragment": "positive attitude",
+      "gives": "CANDO",
+      "note": "a can-do attitude is a positive one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUN",
+      "CANDO",
+      "NUTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A horse that has bolted from its stable still keeps its spirits up.",
+     "walkthrough": "'Far from stable' reads as a horse out of its stable; it means mentally unstable. Said aloud the name sounds like the Dunkin' Donuts chain, author of 'Gain Weight'.",
+     "definitionFit": "The preamble makes this the joke author name of 'Gain Weight', a nod to the doughnut chain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stable"
+    }
+   }
   },
   {
    "number": 33,
