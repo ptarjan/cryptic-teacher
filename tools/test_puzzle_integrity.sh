@@ -812,19 +812,20 @@ print("SOLVED_NO_SETTER", "refused" if setter_flags(solved, p) else "allowed")
 print("NEW_NO_SETTER", "refused" if setter_flags(solved, None) else "allowed")
 had = copy.deepcopy(p); had["setter"] = "Araucaria"
 print("DROPS_SETTER", "refused" if setter_flags(solved, had) else "allowed")
+# The pre-push runs the full report on the pushed file: it must not flag it
+# either, or the solve commits and never pushes (genius-26, 10-13).
+rep = []; pi.check_setter(solved, rep)
+print("REPORT_SOLVED_NO_SETTER", "flagged" if rep else "clean")
 junk = copy.deepcopy(solved); junk["setter"] = "Unknown"
 print("PLACEHOLDER", "refused" if setter_flags(junk, p) else "allowed")
-audit = []
-pi.check_setter(solved, audit)
-print("AUDIT_STILL_REPORTS", bool(audit))
 PY
 )
 died "$out13" "the no-setter write fixture"
 same "a solved puzzle filed with no byline is written" "$(field SOLVED_NO_SETTER "$out13")" "allowed"
 same "a new puzzle with no byline is written" "$(field NEW_NO_SETTER "$out13")" "allowed"
+same "and the integrity report does not flag the solved one (the pre-push runs it)" "$(field REPORT_SOLVED_NO_SETTER "$out13")" "clean"
 same "a write dropping the held byline is refused" "$(field DROPS_SETTER "$out13")" "refused"
 same "a placeholder byline is still refused" "$(field PLACEHOLDER "$out13")" "refused"
-same "the audit still reports the missing byline" "$(field AUDIT_STILL_REPORTS "$out13")" "True"
 
 # "(6;4,6)" is two counts: a themed Genius prints the clue's answer, then what
 # the grid holds. genius-38 was refused as 16 letters over 10 (2026-10-13).
