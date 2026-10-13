@@ -660,12 +660,27 @@ _worker_finish() {
       pending=$(grep -E '^  ERROR' "$vlog" | head -1 | cut -c1-200)
       echo "  [$id] only blank clues failed — shipping the hints that validated, the blanks left pending"
     fi
+    local verdict=alert ddir
+    if [ -z "$pending" ]; then
+      # Whether anyone can act on this (tools/discard_alert.py): a puzzle that
+      # awaits a preamble is parked silently; a first discard is retried by the
+      # next pick, unparked and unannounced; a second is a ledger line unless
+      # its error class is new.
+      ddir="$(worker_runs_root)/discards"
+      verdict=$(python3 tools/discard_alert.py judge "$id" "$vlog" --dir "$ddir" 2>/dev/null) || verdict=alert
+      if [ "$verdict" = retry ]; then
+        echo "  [$id] discarded once — left unparked for one more try, no alert"
+        discard_puzzle "$id"
+        rm -f "$vlog"
+        return 1
+      fi
+    fi
     if [ -z "$pending" ]; then
       # Parked: the work is thrown away and the puzzle stays unannotated until
       # its inputs change, which only a person mending the clue or answer does,
       # so this is said out loud. Quoting the failure line verbatim marks it
       # claimed for alert.sh.
-      alert "$what $id was discarded — it did not validate, so that puzzle stays unannotated:"$'\n'"VALIDATION FAILED after $what $id — discarding that puzzle's changes"$'\n'"\`\`\`"$'\n'"$(grep -E '^  ERROR' "$vlog" | head -5)"$'\n'"\`\`\`"
+      [ "$verdict" = alert ] && alert "$what $id was discarded — it did not validate, so that puzzle stays unannotated:"$'\n'"VALIDATION FAILED after $what $id — discarding that puzzle's changes"$'\n'"\`\`\`"$'\n'"$(grep -E '^  ERROR' "$vlog" | head -5)"$'\n'"\`\`\`"
       # Recorded against the puzzle's inputs: this run finished and was rejected,
       # the one failure that says something about the grid. A misread clue on an
       # OCR'd puzzle is the scan's to read again instead (annotate_check.py
@@ -717,6 +732,7 @@ _worker_finish() {
     python3 tools/failed_inputs.py record annotate "$id" --judged --reason "$pending" || true
   else
     python3 tools/failed_inputs.py clear annotate "$id" >/dev/null
+    python3 tools/discard_alert.py clear "$id" --dir "$(worker_runs_root)/discards" || true
   fi
   echo "committed $what $id"
   return 0
