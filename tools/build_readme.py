@@ -645,6 +645,7 @@ LAYOUT = [
     ("fetching", "tools/unit_more.py", "a unit's backlog_left(): it stopped with work left, so tools/unit_queue.py starts it again next tick; its own module so a unit loads none of the queue runner"),
     ("fetching", "tools/test_blog_clues_only.sh", "is a blog post whose answers fit no grid held as its clues alone, and does the solve's fill file it on the grid those answers cross in?"),
     ("fetching", "tools/test_session_model.sh", "does apply_annotations find who wrote the hints when the model never ran it?"),
+    ("fetching", "tools/salvaged.sh", "lists or restores what tools/puzzle_worker.sh salvaged from a discarded run"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
