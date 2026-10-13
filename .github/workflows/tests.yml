@@ -72,8 +72,8 @@ jobs:
       run:
         shell: bash .github/offline.sh {0}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Check the committed layout table, prompt reference and puzzle schema
@@ -115,11 +115,11 @@ jobs:
       run:
         shell: bash .github/offline.sh {0}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: "20"
       # Before the network is cut: the scan readers (trove_grid, the Cyclops
@@ -131,7 +131,7 @@ jobs:
       # the newest entry, which on master is the last master run that saved.
       # A miss leaves no file, and every puzzle is checked.
       - name: Restore the corpus result cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: ${{ runner.temp }}/ci-cache.json
           key: ci-results-${{ github.sha }}
@@ -247,7 +247,7 @@ jobs:
           fi
           echo "shard: ${#mine[@]} test item(s) passed"
       # Even from a red shard: a slice writes its results only when it passed.
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         if: always()
         with:
           name: results-${{ matrix.shard }}
@@ -271,23 +271,23 @@ jobs:
         shell: bash .github/offline.sh {0}
     steps:
       # The trees are all ci_cache.js reads (git ls-tree), so no blobs.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           filter: blob:none
           sparse-checkout: |
             .github
             tools
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: "20"
-      - uses: actions/cache/restore@v4
+      - uses: actions/cache/restore@v5
         with:
           path: ${{ runner.temp }}/ci-cache.json
           key: ci-results-${{ github.sha }}
           restore-keys: ci-results-
       # None to download is not an error here: merge fails on any puzzle left
       # without a passing result, which is the check that matters.
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         continue-on-error: true
         with:
           pattern: results-*
@@ -301,7 +301,7 @@ jobs:
       - name: The corpus still holds every rare shape
         if: always() && steps.merge.outcome != 'skipped'
         run: node tools/check_shapes.js "$RUNNER_TEMP/shapes"
-      - uses: actions/cache/save@v4
+      - uses: actions/cache/save@v5
         if: always() && steps.merge.outcome != 'skipped'
         with:
           path: ${{ runner.temp }}/ci-cache.json

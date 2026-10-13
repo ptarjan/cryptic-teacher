@@ -27,11 +27,11 @@ jobs:
       run:
         shell: bash .github/offline.sh {0}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: "20"
       - run: pip install numpy pillow pypdf opencv-python-headless
@@ -46,7 +46,7 @@ jobs:
             CT_SHAPES_OUT="$RUNNER_TEMP/shapes/slice-${{ matrix.slice }}.json" node tools/smoke_test.js
       # Which rare shapes this slice saw, for the job below. Even when the slice
       # failed: a missing report is itself a failure there.
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         if: always()
         with:
           name: shapes-${{ matrix.slice }}
@@ -63,11 +63,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: "20"
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         with:
           pattern: shapes-*
           path: shapes
@@ -83,8 +83,8 @@ jobs:
       run:
         shell: bash .github/offline.sh {0}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - run: pip install numpy pillow pypdf opencv-python-headless
