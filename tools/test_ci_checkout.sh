@@ -5,7 +5,7 @@
 # the whole tree again (that refetch was ~58s a run). Then that every cache
 # the build restores is saved again with the same paths and key, and that
 # tools/trim_codeql_caches.py keeps the newest CodeQL entry per language and
-# touches nothing else.
+# touches nothing else, and that the site is uploaded stored, not deflated.
 set -euo pipefail
 trap 'echo "test_ci_checkout: failed at line $LINENO: $BASH_COMMAND" >&2' ERR
 cd "$(dirname "$0")/.."
@@ -19,6 +19,10 @@ wf = yaml.safe_load(open(sys.argv[1]))
 steps = {s.get("name"): s for s in wf["jobs"]["build"]["steps"]}
 open(f"{sys.argv[2]}/checkout.sh", "w").write(steps["Check out"]["run"])
 open(f"{sys.argv[2]}/paths", "w").write(steps["Restore the git store"]["with"]["path"])
+# Deflate was the upload's bottleneck (65s at 6, 40s at 1) on an artifact
+# that is half PNG: stored, it is bound by the network.
+if steps["Upload the site"]["with"].get("compression-level") != 0:
+    sys.exit("test_ci_checkout: Upload the site should be stored (compression-level: 0)")
 # Every restore has its save: same paths (part of the cache version), same key.
 for name, s in steps.items():
     if not name or "actions/cache/restore" not in s.get("uses", ""):

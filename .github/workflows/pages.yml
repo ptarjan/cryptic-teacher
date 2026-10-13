@@ -244,14 +244,17 @@ jobs:
       - name: Stage the site
         run: python3 tools/stage_site.py
       # What actions/upload-pages-artifact does, minus its tar -v (a log line
-      # per file, ~140k of them) and with deflate level 1 instead of 6: the
-      # artifact is ~1GB, and at level 6 the upload was bound by compressing
-      # it, not by the network. Same name and layout (one artifact.tar in an
-      # artifact called github-pages), which is all deploy-pages reads.
+      # per file, ~140k of them) and stored rather than deflated. The upload
+      # is bound by compressing, not by the network: level 6 took 65s, level
+      # 1 40s (run 38370347047) and still came out at 1.05GB, since half the
+      # site is PNG cards deflate cannot shrink. Same name and layout (one
+      # artifact.tar in an artifact called github-pages), which is all
+      # deploy-pages reads.
       - name: Archive the site
-        run: >-
-          tar --dereference --hard-dereference --directory _site
-          -cf "$RUNNER_TEMP/artifact.tar" --exclude=.git --exclude=.github .
+        run: |
+          tar --dereference --hard-dereference --directory _site \
+            -cf "$RUNNER_TEMP/artifact.tar" --exclude=.git --exclude=.github .
+          echo "artifact.tar: $(( $(stat -c %s "$RUNNER_TEMP/artifact.tar") / 1000000 ))MB"
       - name: Upload the site
         uses: actions/upload-artifact@v4
         with:
@@ -259,7 +262,7 @@ jobs:
           path: ${{ runner.temp }}/artifact.tar
           retention-days: 1
           if-no-files-found: error
-          compression-level: 1
+          compression-level: 0
       # The pages this deploy changes, for IndexNow once it is live. The cache
       # carries the last build's page hashes; a cold one sends the recent
       # sitemap (see tools/indexnow.py).

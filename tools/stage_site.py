@@ -24,6 +24,7 @@ import posixpath
 import re
 import shutil
 import sys
+import time
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
@@ -125,8 +126,12 @@ def check(out, staged):
 def main(argv):
     src = Path(argv[0]) if argv else REPO
     out = Path(argv[1]) if len(argv) > 1 else src / "_site"
+    t0 = time.monotonic()
     staged = stage(src, out)
+    t1 = time.monotonic()
     missing = check(out, staged)
+    # The step's two halves, so a slow Stage the site says which it is.
+    print(f"stage_site: linked in {t1 - t0:.1f}s, checked in {time.monotonic() - t1:.1f}s")
     if missing:
         print(f"stage_site: {len(missing)} link(s) in {out} point at nothing "
               "(a file PUBLISH does not name, or a page linking a file that "
