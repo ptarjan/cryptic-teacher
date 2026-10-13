@@ -19,8 +19,20 @@ from pathlib import Path
 from PIL import Image
 
 
+def is_palette(path):
+    """Whether path is a PNG whose IHDR says colour type 3 (palette): byte 25,
+    after the 8-byte signature and IHDR's length, type, width, height and bit
+    depth. Read raw because opening each of ~17k cards with Pillow to ask was
+    most of the ~8s this took on a deploy that drew one card."""
+    with open(path, "rb") as f:
+        head = f.read(26)
+    return head[:8] == b"\x89PNG\r\n\x1a\n" and head[12:16] == b"IHDR" and head[25] == 3
+
+
 def palettise(path):
     """True if path was rewritten, False if it was already a palette PNG."""
+    if is_palette(path):
+        return False
     with Image.open(path) as im:
         if im.mode == "P":
             return False

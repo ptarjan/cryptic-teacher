@@ -239,21 +239,44 @@ jobs:
         run: bash tools/make_og.sh --pages
       - name: Stamp the assets
         run: python3 tools/stamp_assets.py
-      # Only the site goes up, not the checkout: tools/stage_site.py links what
-      # it names into _site/ and fails if any page links a file left out.
-      - name: Stage the site
-        run: python3 tools/stage_site.py
+      # The pages this deploy changes, for IndexNow once it is live. The cache
+      # carries the last build's page hashes; a cold one sends the recent
+      # sitemap (see tools/indexnow.py). Restored before the site checks
+      # start, since one of them reads it.
+      - name: Restore the IndexNow manifest
+        uses: actions/cache/restore@v4
+        with:
+          path: .indexnow
+          key: indexnow-${{ github.sha }}
+          restore-keys: indexnow-
+      # Only the site goes up, not the checkout: tools/stage_site.py names
+      # what PUBLISH covers as a tar file list, and tar reads those files
+      # where they are. It used to hard-link all ~138k into _site/ first,
+      # 23s of a 45s step (run 38385716791) for a tree only tar read.
+      - name: List the site
+        run: python3 tools/stage_site.py --list "$RUNNER_TEMP/site.list"
+      # Both read every published page (~67k, the link check across the
+      # cores) and neither writes anything the archive holds, so they run
+      # in the background beside Archive and Upload, which wait on the disk
+      # and the network, instead of in front of them: 22s + 8s that used to
+      # sit in series (run 38385716791). Wait for the site checks collects
+      # them before the deploy, so a broken link still ships nothing.
+      - name: Start the site checks
+        run: |
+          (python3 tools/stage_site.py --check "$RUNNER_TEMP/site.list" \
+             > "$RUNNER_TEMP/links.log" 2>&1; echo $? > "$RUNNER_TEMP/links.rc") &
+          (python3 tools/indexnow.py changed . .indexnow/manifest.json indexnow-urls.txt "$RUNNER_TEMP/site.list" \
+             > "$RUNNER_TEMP/indexnow.log" 2>&1; echo $? > "$RUNNER_TEMP/indexnow.rc") &
       # What actions/upload-pages-artifact does, minus its tar -v (a log line
       # per file, ~140k of them) and stored rather than deflated. The upload
       # is bound by compressing, not by the network: level 6 took 65s, level
       # 1 40s (run 38370347047) and still came out at 1.05GB, since half the
       # site is PNG cards deflate cannot shrink. Same name and layout (one
-      # artifact.tar in an artifact called github-pages), which is all
-      # deploy-pages reads.
+      # artifact.tar in an artifact called github-pages, members ./-relative,
+      # directories included), which is all deploy-pages reads.
       - name: Archive the site
         run: |
-          tar --dereference --hard-dereference --directory _site \
-            -cf "$RUNNER_TEMP/artifact.tar" --exclude=.git --exclude=.github .
+          tar --dereference --no-recursion -cf "$RUNNER_TEMP/artifact.tar" -T "$RUNNER_TEMP/site.list"
           echo "artifact.tar: $(( $(stat -c %s "$RUNNER_TEMP/artifact.tar") / 1000000 ))MB"
       - name: Upload the site
         uses: actions/upload-artifact@v4
@@ -263,17 +286,15 @@ jobs:
           retention-days: 1
           if-no-files-found: error
           compression-level: 0
-      # The pages this deploy changes, for IndexNow once it is live. The cache
-      # carries the last build's page hashes; a cold one sends the recent
-      # sitemap (see tools/indexnow.py).
-      - name: Restore the IndexNow manifest
-        uses: actions/cache/restore@v4
-        with:
-          path: .indexnow
-          key: indexnow-${{ github.sha }}
-          restore-keys: indexnow-
-      - name: List the changed pages
-        run: python3 tools/indexnow.py changed _site .indexnow/manifest.json indexnow-urls.txt
+      # The background checks' results. A check that died without writing
+      # its exit code (or hung) is caught by the timeout, and fails the
+      # deploy the same way a broken link does.
+      - name: Wait for the site checks
+        timeout-minutes: 5
+        run: |
+          while [ ! -f "$RUNNER_TEMP/links.rc" ] || [ ! -f "$RUNNER_TEMP/indexnow.rc" ]; do sleep 1; done
+          cat "$RUNNER_TEMP/indexnow.log" "$RUNNER_TEMP/links.log"
+          [ "$(cat "$RUNNER_TEMP/links.rc")" = 0 ] && [ "$(cat "$RUNNER_TEMP/indexnow.rc")" = 0 ]
       # The deploy is a step of this job, not a job of its own: every job in
       # the old build -> deploy -> budgets chain waited 15-75s for a runner
       # and set itself up again, about a minute and a half of each run's

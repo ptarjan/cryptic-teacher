@@ -2,10 +2,11 @@
 """Tell IndexNow (Bing, Yandex, Seznam, Naver; Bing feeds DuckDuckGo, Ecosia
 and ChatGPT search) which pages a deploy changed.
 
-    python3 tools/indexnow.py changed _site MANIFEST URLS   # in the build
+    python3 tools/indexnow.py changed SITE MANIFEST URLS [LIST]  # in the build
     python3 tools/indexnow.py ping URLS                     # after the deploy
 
-`changed` hashes every staged page and writes the URLs whose hash differs from
+`changed` hashes every published page (each index.html under SITE, or, given
+LIST, each one that tools/stage_site.py --list names, read where it is) and writes the URLs whose hash differs from
 MANIFEST (carried between runs by the Actions cache), then rewrites MANIFEST.
 The ?v= asset stamps are stripped before hashing: they move on every app.js or
 style.css edit and say nothing about the page. With no MANIFEST (a cold cache)
@@ -39,9 +40,14 @@ def page_url(site, page):
     return f"{BASE}/" if rel == "." else f"{BASE}/{rel}/"
 
 
-def hashes(site):
+def hashes(site, listed=None):
+    if listed is None:
+        pages = site.rglob("index.html")
+    else:
+        pages = (site / line[2:] for line in listed.read_text(encoding="utf-8").splitlines()
+                 if line.endswith("/index.html"))
     out = {}
-    for page in sorted(site.rglob("index.html")):
+    for page in sorted(pages):
         text = page.read_bytes()
         if REFRESH in text:
             continue
@@ -49,9 +55,9 @@ def hashes(site):
     return out
 
 
-def changed(site, manifest):
+def changed(site, manifest, listed=None):
     """(urls to send, new manifest)."""
-    now = hashes(site)
+    now = hashes(site, listed)
     if not manifest.exists():
         recent = (site / "sitemap-recent.xml").read_text(encoding="utf-8")
         return [u for u in re.findall(r"<loc>(.*?)</loc>", recent) if u in now], now
@@ -94,9 +100,9 @@ def main(argv):
     if not key_file.exists() or key_file.read_text().strip() != KEY:
         raise SystemExit(f"{key_file.name} must exist at the repo root holding {KEY}: "
                          "IndexNow fetches it from the site to check the key")
-    if argv[:1] == ["changed"] and len(argv) == 4:
-        site, manifest, out = map(Path, argv[1:])
-        urls, now = changed(site, manifest)
+    if argv[:1] == ["changed"] and len(argv) in (4, 5):
+        site, manifest, out = map(Path, argv[1:4])
+        urls, now = changed(site, manifest, Path(argv[4]) if len(argv) == 5 else None)
         out.write_text("".join(u + "\n" for u in urls), encoding="utf-8")
         manifest.parent.mkdir(parents=True, exist_ok=True)
         manifest.write_text(json.dumps(now, sort_keys=True), encoding="utf-8")
