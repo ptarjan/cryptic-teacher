@@ -17,8 +17,32 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-13",
+  "check": "28 entries, 48 crossings, 0 conflicts",
+  "reopened": {
+   "2-down": "WEAN",
+   "7-down": "UNKNIT",
+   "8-across": "SUPERMAN",
+   "9-across": "ONIONS",
+   "10-across": "BOON",
+   "11-across": "EXCURSIONS",
+   "12-across": "DUSTED",
+   "14-across": "HAVENOTS",
+   "15-across": "DEAREST",
+   "17-across": "WATERED",
+   "20-across": "ENTERING",
+   "22-across": "ANSWER",
+   "23-across": "PUNISHMENT",
+   "24-across": "PUTT",
+   "25-across": "PARCEL",
+   "26-across": "SAUNDERS"
+  }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -41,6 +65,56 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "OUTOFUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUT OF USE",
+    "definitions": [
+     {
+      "text": "not working",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "From",
+      "gives": "OUTOF",
+      "note": "out of means from, as in made out of wood"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is the United States"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain (España)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUTOF",
+      "US",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller describes a trip from the United States to Spain, apparently taken while off work.",
+     "walkthrough": "'From America to Spain' reads like a journey, but it is three pieces laid end to end, with 'to' just joining them.",
+     "definitionFit": "Something out of use is idle or broken, no longer functioning, which is what not working describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "From"
+    }
    }
   },
   {
@@ -54,7 +128,8 @@
    "clue": {
     "text": "Overcome Virgin Atlantic's chief's inside — keep away from milk!",
     "enumeration": "4"
-   }
+   },
+   "solution": "WEAN"
   },
   {
    "number": 3,
@@ -67,6 +142,49 @@
    "clue": {
     "text": "Threaten troublemaker with death",
     "enumeration": "6"
+   },
+   "solution": "IMPEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPEND",
+    "definitions": [
+     {
+      "text": "Threaten",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "troublemaker",
+      "gives": "IMP",
+      "note": "an imp is a mischievous little devil"
+     },
+     {
+      "clueFragment": "death",
+      "gives": "END",
+      "note": "the end of a life is its death"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A troublemaker is warned with a threat of being killed.",
+     "definitionFit": "Something that impends hangs over you as a looming danger, which is how a storm or disaster can threaten."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Threaten"
+    }
    }
   },
   {
@@ -80,6 +198,78 @@
    "clue": {
     "text": "North Chicago rocked, losing second element of satellite dish",
     "enumeration": "7"
+   },
+   "solution": "GNOCCHI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GNOCCHI",
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rocked",
+      "for": "anagram",
+      "note": "shaken about, so the letters are jumbled into a new order"
+     },
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "the city's name has to give up a letter, which the next words identify"
+     },
+     {
+      "text": "second element of",
+      "for": "letter_selection",
+      "note": "the second letter of the following word is the one taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "North",
+      "gives": "N",
+      "note": "N is the compass abbreviation"
+     },
+     {
+      "clueFragment": "Chicago",
+      "gives": "CHICAGO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "satellite",
+      "gives": "A",
+      "select": 2,
+      "note": "the word supplies only its second letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GNOCCHI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NCHICGO",
+       "gives": "GNOCCHI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Chicago's north side is shaken up and somebody's satellite dish is broken.",
+     "walkthrough": "'Satellite dish' looks like one object, but the split falls between them: 'dish' alone is the definition.",
+     "definitionFit": "Gnocchi are small Italian potato or semolina dumplings, served as a pasta course."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dish"
+    }
    }
   },
   {
@@ -93,6 +283,57 @@
    "clue": {
     "text": "Marilyn not quite getting through the port",
     "enumeration": "8"
+   },
+   "solution": "MONROVIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MONROVIA",
+    "definitions": [
+     {
+      "text": "the port",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not quite",
+      "for": "deletion",
+      "note": "the surname is cut short by its final letter"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marilyn",
+      "gives": "MONROE",
+      "note": "Marilyn Monroe, the film star"
+     },
+     {
+      "clueFragment": "through",
+      "gives": "VIA",
+      "note": "via means by way of, travelling through"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MONRO",
+      "VIA"
+     ]
+    },
+    "explanation": {
+     "surface": "Marilyn Monroe almost makes it through the harbour on her travels.",
+     "definitionFit": "Monrovia is the capital of Liberia, a major Atlantic seaport and so a port city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "through"
+    }
    }
   },
   {
@@ -106,6 +347,71 @@
    "clue": {
     "text": "Cryptic — solves in about one second. Observer? No",
     "enumeration": "10"
+   },
+   "solution": "VISIONLESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VISIONLESS",
+    "definitions": [
+     {
+      "text": "Observer? No",
+      "at": 38,
+      "note": "describes one who cannot observe, the answer being an adjective for that state"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cryptic",
+      "for": "anagram",
+      "note": "obscure, scrambled, so these letters are reordered"
+     },
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "a second hint that the letters are moved around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "solves in",
+      "gives": "SOLVESIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the standard abbreviation for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VISIONLESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOLVESINIS",
+       "gives": "VISIONLESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boast of finishing a cryptic in about a second, and a jab at the Observer newspaper's puzzle.",
+     "walkthrough": "The Observer is a Sunday paper with its own famous cryptic, which makes 'Cryptic' look like the subject rather than the instruction.",
+     "definitionFit": "Being visionless means lacking sight, so such a person is no observer at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cryptic"
+    }
    }
   },
   {
@@ -119,7 +425,8 @@
    "clue": {
     "text": "Ravel's opposite name in United Kingdom? Quite the contrary",
     "enumeration": "6"
-   }
+   },
+   "solution": "UNKNIT"
   },
   {
    "number": 8,
@@ -132,6 +439,58 @@
    "clue": {
     "text": "M1 crew (3);",
     "enumeration": "8"
+   },
+   "solution": "SUPERMAN",
+   "alteration": {
+    "from": "MAN",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUPERMAN",
+    "definitions": [
+     {
+      "text": "crew",
+      "at": 3
+     }
+    ],
+    "linkWords": [
+     "3"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "M",
+      "gives": "M",
+      "note": "taken as written, the letter that starts the motorway's name"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "AN",
+      "note": "one is the same as an, the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "The team that works on the M1 motorway, whether maintenance gang or patrol.",
+     "walkthrough": "Across answers here are the partner in a familiar 'X and Y' pair: the clue gives MAN, and the grid takes SUPERMAN from Shaw's play Man and Superman.",
+     "definitionFit": "To man a ship or post is to staff it, the verb sense of crew."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "M1"
+    }
    }
   },
   {
@@ -145,6 +504,58 @@
    "clue": {
     "text": "One who is a secreter of bile (5);",
     "enumeration": "6"
+   },
+   "solution": "ONIONS",
+   "alteration": {
+    "from": "LIVER",
+    "steps": [
+     {
+      "op": "deletion",
+      "gives": "I"
+     },
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ONIONS",
+    "definitions": [
+     {
+      "text": "One who is",
+      "at": 0
+     },
+     {
+      "text": "a secreter of bile",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "5"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who is",
+      "note": "first meaning: somebody who lives, one who exists"
+     },
+     {
+      "clueFragment": "a secreter of bile",
+      "note": "second meaning: the body organ that produces bile"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue gives LIVER; the grid takes its partner in the dish liver and onions, as every across entry does here.",
+     "definitionFit": "A liver is both a person who lives (a long liver) and the abdominal organ that makes bile for digestion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "is"
+    }
    }
   },
   {
@@ -158,6 +569,63 @@
    "clue": {
     "text": "Works with a good many catastrophes (5);",
     "enumeration": "4"
+   },
+   "solution": "BOON",
+   "alteration": {
+    "from": "MILLS",
+    "steps": [
+     {
+      "op": "deletion",
+      "gives": "MILL"
+     },
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOON",
+    "definitions": [
+     {
+      "text": "Works",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with",
+     "5"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a good many",
+      "gives": "M",
+      "note": "M is the Roman numeral for a thousand, a good many"
+     },
+     {
+      "clueFragment": "catastrophes",
+      "gives": "ILLS",
+      "note": "ills are misfortunes or disasters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ILLS"
+     ]
+    },
+    "explanation": {
+     "surface": "Factories that keep running despite a long series of disasters.",
+     "walkthrough": "The clue gives MILLS; the grid takes BOON, from the romance publisher Mills and Boon.",
+     "definitionFit": "A mill is a factory, and works is an older word for a factory or plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Works"
+    }
    }
   },
   {
@@ -171,6 +639,69 @@
    "clue": {
     "text": "Starts in the style of marines on square (6);",
     "enumeration": "10"
+   },
+   "solution": "EXCURSIONS",
+   "alteration": {
+    "from": "ALARMS",
+    "steps": [
+     {
+      "op": "deletion",
+      "gives": "RS"
+     },
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXCURSIONS",
+    "definitions": [
+     {
+      "text": "Starts",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on",
+     "6"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the style of",
+      "gives": "ALA",
+      "note": "à la is French for in the manner of"
+     },
+     {
+      "clueFragment": "marines",
+      "gives": "RM",
+      "note": "RM stands for the Royal Marines"
+     },
+     {
+      "clueFragment": "square",
+      "gives": "S",
+      "note": "S is a short form for square in some abbreviations"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALA",
+      "RM",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Drills that begin the way marines do things on the parade square.",
+     "walkthrough": "The clue gives ALARMS; the grid takes EXCURSIONS, from the stage direction 'alarms and excursions' for battle noise and skirmishing.",
+     "definitionFit": "Starts here are sudden frights or shocks, and alarms are exactly such moments of fear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Starts"
+    }
    }
   },
   {
@@ -184,6 +715,58 @@
    "clue": {
     "text": "Stung — agreed? (4);",
     "enumeration": "6"
+   },
+   "solution": "DUSTED",
+   "alteration": {
+    "from": "DONE",
+    "steps": [
+     {
+      "op": "deletion",
+      "gives": "DE"
+     },
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DUSTED",
+    "definitions": [
+     {
+      "text": "Stung",
+      "at": 0
+     },
+     {
+      "text": "agreed?",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "4"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stung",
+      "note": "first meaning: cheated or swindled, as in 'I've been done'"
+     },
+     {
+      "clueFragment": "agreed?",
+      "note": "second meaning: the word said to close a deal, 'Done!'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue gives DONE; the grid takes DUSTED, from 'done and dusted', meaning completely finished.",
+     "definitionFit": "Being done is British slang for being swindled, and 'Done!' is how a bargain is sealed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Stung"
+    }
    }
   },
   {
@@ -203,6 +786,53 @@
       "mark": "-"
      }
     ]
+   },
+   "solution": "THREEPIECE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THREE-PIECE",
+    "definitions": [
+     {
+      "text": "furniture",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gets out",
+      "for": "deletion",
+      "note": "the coin's name loses the word that leaves it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ready once",
+      "gives": "THREEPENNYPIECE",
+      "note": "ready is slang for cash, and the threepenny piece was a pre-1971 British coin"
+     },
+     {
+      "clueFragment": "Penny",
+      "gives": "PENNY",
+      "note": "the word itself, removed whole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THREEPIECE"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman named Penny, once ready, finally moves out the furniture.",
+     "walkthrough": "A threepenny piece (a 'thruppenny bit') was a small coin of Britain's old pre-decimal money, so 'once' marks it as ready cash of the past.",
+     "definitionFit": "A three-piece suite is a sofa with two matching armchairs, a set of living-room furniture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Penny"
+    }
    }
   },
   {
@@ -222,6 +852,65 @@
       "mark": "-"
      }
     ]
+   },
+   "solution": "HAVENOTS",
+   "alteration": {
+    "from": "HAVES",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HAVE-NOTS",
+    "definitions": [
+     {
+      "text": "Possessors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left out",
+      "for": "deletion",
+      "note": "left out says the letter for left is dropped from the word"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "5"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "semis",
+      "gives": "HALVES",
+      "note": "a semi is a half, so semis are halves"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAVES"
+     ]
+    },
+    "explanation": {
+     "surface": "Owners of semi-detached houses feel excluded from the property ladder.",
+     "walkthrough": "A semi is British for a semi-detached house, the surface's misdirection. The clue gives HAVES; the grid takes HAVE-NOTS, as in 'the haves and have-nots'.",
+     "definitionFit": "The haves are the people who own things, the wealthy, so they are possessors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "semis"
+    }
    }
   },
   {
@@ -235,6 +924,50 @@
    "clue": {
     "text": "Superlative local (7);",
     "enumeration": "7"
+   },
+   "solution": "DEAREST",
+   "alteration": {
+    "from": "NEAREST",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DEAREST",
+    "definitions": [
+     {
+      "text": "Superlative local",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "7"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Superlative",
+      "note": "reads as praise, the finest; here it is the grammar term, the most-of form of an adjective"
+     },
+     {
+      "clueFragment": "local",
+      "note": "reads as the neighbourhood pub; here it means close at hand"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A local is British for one's regular pub, so this looks like praise for the best pub. The clue gives NEAREST; the grid takes DEAREST, from 'nearest and dearest'.",
+     "definitionFit": "The superlative of near, meaning most close by, is the most local thing of all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "local"
+    }
    }
   },
   {
@@ -248,6 +981,54 @@
    "clue": {
     "text": "Insult heartless sexual partner to some extent",
     "enumeration": "8"
+   },
+   "solution": "SLIGHTLY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SLIGHTLY",
+    "definitions": [
+     {
+      "text": "to some extent",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "the word loses its middle letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insult",
+      "gives": "SLIGHT",
+      "note": "a slight is a snub or insult"
+     },
+     {
+      "clueFragment": "sexual partner",
+      "gives": "LAY",
+      "note": "a lay is slang for a sexual partner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLIGHT",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insults a cold-hearted lover, though only a little.",
+     "definitionFit": "Slightly means a little or in a small degree, which is the sense of to some extent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partner"
+    }
    }
   },
   {
@@ -261,6 +1042,71 @@
    "clue": {
     "text": "Hoover agent's three consecutive letters returned (3);",
     "enumeration": "7"
+   },
+   "solution": "WATERED",
+   "alteration": {
+    "from": "FED",
+    "steps": [
+     {
+      "op": "deletion",
+      "gives": "ED"
+     },
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "WATERED",
+    "definitions": [
+     {
+      "text": "Hoover agent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means the run of letters is read the other way, from back to front"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "3"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "three consecutive letters",
+      "gives": "DEF",
+      "note": "three letters in alphabetical order, the run after ABC"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FED"
+     ],
+     "reversals": [
+      {
+       "from": "DEF",
+       "to": "FED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An FBI man's initials turn out to be three letters of the alphabet in reverse order.",
+     "walkthrough": "'Hoover' looks like the vacuum cleaner, but it is J Edgar Hoover of the FBI. The clue gives FED; the grid takes WATERED, from 'fed and watered'.",
+     "definitionFit": "A Fed is American slang for a federal agent, and Hoover ran the FBI's agents for decades."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hoover"
+    }
    }
   },
   {
@@ -274,6 +1120,61 @@
    "clue": {
     "text": "Perhaps Friday-Sunday competitors still rest fitfully",
     "enumeration": "8"
+   },
+   "solution": "EVENTERS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EVENTERS",
+    "definitions": [
+     {
+      "text": "Perhaps Friday-Sunday competitors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fitfully",
+      "for": "anagram",
+      "note": "in fits and starts, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still",
+      "gives": "EVEN",
+      "note": "even as in still more, even more"
+     },
+     {
+      "clueFragment": "rest",
+      "gives": "REST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEN",
+      "TERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REST",
+       "gives": "TERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Weekend contestants still can't sleep properly the night before.",
+     "walkthrough": "Eventing is the horse-riding sport whose classic three-day contests run over a weekend, Friday to Sunday; 'Perhaps' marks this as an example.",
+     "definitionFit": "Eventers ride in three-day equestrian events, so a weekend competition is a typical example of what they enter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "still"
+    }
    }
   },
   {
@@ -287,6 +1188,70 @@
    "clue": {
     "text": "Monstrous, therefore rises and lives on heroin",
     "enumeration": "7"
+   },
+   "solution": "OGREISH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OGREISH",
+    "definitions": [
+     {
+      "text": "Monstrous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rises",
+      "for": "reversal",
+      "note": "in a down clue going up means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "therefore",
+      "gives": "ERGO",
+      "note": "ergo is Latin for therefore"
+     },
+     {
+      "clueFragment": "lives",
+      "gives": "IS",
+      "note": "is in the sense of exists"
+     },
+     {
+      "clueFragment": "heroin",
+      "gives": "H",
+      "note": "H is slang for heroin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OGRE",
+      "IS",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "ERGO",
+       "to": "OGRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something monstrous rises up and survives on heroin.",
+     "definitionFit": "Ogreish means like an ogre, the brutal giant of folk tales, hence cruel and monstrous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lives"
+    }
    }
   },
   {
@@ -300,6 +1265,50 @@
    "clue": {
     "text": "Succumbing to the rack of hot-wrapped raw egg tops? (8);",
     "enumeration": "8"
+   },
+   "solution": "ENTERING",
+   "alteration": {
+    "from": "BREAKING",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ENTERING",
+    "definitions": [
+     {
+      "text": "Succumbing to the rack of hot-wrapped raw egg tops?",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "8"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Succumbing to the rack",
+      "note": "a prisoner on the torture rack gives way, cracks, under the strain"
+     },
+     {
+      "clueFragment": "of hot-wrapped raw egg tops?",
+      "note": "the shell tops of eggs boiled in hot water are cracked open to eat them"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "One word covers giving way under torture and cracking open a boiled egg. The clue gives BREAKING; the grid takes ENTERING, from the burglary charge 'breaking and entering'.",
+     "definitionFit": "Breaking means both yielding under torment and cracking something open, here a boiled egg's shell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rack"
+    }
    }
   },
   {
@@ -313,6 +1322,62 @@
    "clue": {
     "text": "Sweet nothing when hospital is replaced by one",
     "enumeration": "6"
+   },
+   "solution": "NOUGAT",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "NOUGAT",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is replaced by",
+      "for": "substitution",
+      "note": "the hospital letter is swapped out for the next item"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "NOUGHT",
+      "note": "nought means zero, nothing"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map and sign abbreviation for hospital"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "A means one, as in a single thing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOUGAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A sweet nothing whispered when one patient replaces another in hospital.",
+     "walkthrough": "'Sweet nothing' looks like the romantic phrase, but the two words split: the first defines and the second starts the wordplay.",
+     "definitionFit": "Nougat is a chewy confection of sugar, nuts and egg white, a kind of candy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nothing"
+    }
    }
   },
   {
@@ -326,6 +1391,69 @@
    "clue": {
     "text": "Possibly where to seek a mythical maiden by name (8);",
     "enumeration": "6"
+   },
+   "solution": "ANSWER",
+   "alteration": {
+    "from": "QUESTION",
+    "steps": [
+     {
+      "op": "deletion",
+      "gives": "S"
+     },
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "ANSWER",
+    "definitions": [
+     {
+      "text": "Possibly where to seek a mythical maiden by name",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "8"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where to seek",
+      "gives": "QUEST",
+      "note": "a quest is a search, the act of seeking"
+     },
+     {
+      "clueFragment": "a mythical maiden",
+      "gives": "IO",
+      "note": "Io is the maiden of Greek myth loved by Zeus and turned into a heifer"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUEST",
+      "IO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A hero wonders where to look for a legendary maiden, knowing only her name.",
+     "walkthrough": "The whole clue, 'where to seek a mythical maiden?', is itself possibly a question. The grid takes ANSWER, from 'question and answer'.",
+     "definitionFit": "Asking where to look for someone is an example of a query, so the clue itself is one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "maiden"
+    }
    }
   },
   {
@@ -339,6 +1467,39 @@
    "clue": {
     "text": "Stamp personally put on his/her films?",
     "enumeration": "6"
+   },
+   "solution": "AUTEUR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AUTEUR",
+    "definitions": [
+     {
+      "text": "Stamp personally put on his/her films?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stamp personally put",
+      "note": "reads like a postage stamp fixed by hand, or the actor Terence Stamp, but it is a creative signature"
+     },
+     {
+      "clueFragment": "on his/her films?",
+      "note": "the films are the ones a director makes, and the stamp is their individual style"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Film critics use the French word for author for a director whose films carry an unmistakable personal style.",
+     "definitionFit": "An auteur is a film-maker who controls a work so fully that it bears their distinctive mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stamp"
+    }
    }
   },
   {
@@ -352,6 +1513,53 @@
    "clue": {
     "text": "The focus of detective Frost (5);",
     "enumeration": "10"
+   },
+   "solution": "PUNISHMENT",
+   "alteration": {
+    "from": "CRIME",
+    "steps": [
+     {
+      "op": "deletion",
+      "gives": "IME"
+     },
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PUNISHMENT",
+    "definitions": [
+     {
+      "text": "The focus of detective Frost",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "5"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The focus of detective",
+      "note": "what any detective investigates"
+     },
+     {
+      "clueFragment": "Frost",
+      "note": "Jack Frost, the TV detective of A Touch of Frost, rather than icy weather"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Detective Inspector Jack Frost is the hero of the British TV series A Touch of Frost. The clue gives CRIME; the grid takes PUNISHMENT, from 'crime and punishment'.",
+     "definitionFit": "Detectives investigate offences against the law, so that is the subject a police detective concentrates on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Frost"
+    }
    }
   },
   {
@@ -365,6 +1573,58 @@
    "clue": {
     "text": "Try to sell film script to Chuck? (5);",
     "enumeration": "4"
+   },
+   "solution": "PUTT",
+   "alteration": {
+    "from": "PITCH",
+    "steps": [
+     {
+      "op": "deletion",
+      "gives": "PT"
+     },
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PUTT",
+    "definitions": [
+     {
+      "text": "Try to sell film script to",
+      "at": 0
+     },
+     {
+      "text": "Chuck?",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "5"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try to sell film script to",
+      "note": "first meaning: to pitch an idea to a producer is to try to sell it"
+     },
+     {
+      "clueFragment": "Chuck?",
+      "note": "second meaning: to throw, as in pitching a ball"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Chuck' looks like the person being sold the script, but it is the verb throw. The clue gives PITCH; the grid takes PUTT, from the golf game pitch and putt.",
+     "definitionFit": "A writer pitches a screenplay to a studio, and to pitch a ball is to throw or toss it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Chuck"
+    }
    }
   },
   {
@@ -378,6 +1638,41 @@
    "clue": {
     "text": "Shells schools",
     "enumeration": "4"
+   },
+   "solution": "PODS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PODS",
+    "definitions": [
+     {
+      "text": "Shells",
+      "at": 0
+     },
+     {
+      "text": "schools",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shells",
+      "note": "first meaning: the husks that hold peas or beans"
+     },
+     {
+      "clueFragment": "schools",
+      "note": "second meaning: groups of whales or dolphins swimming together"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both seed cases of legumes and swimming groups of marine mammals such as whales."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "schools"
+    }
    }
   },
   {
@@ -391,6 +1686,57 @@
    "clue": {
     "text": "Leave a bit (4);",
     "enumeration": "6"
+   },
+   "solution": "PARCEL",
+   "alteration": {
+    "from": "PART",
+    "steps": [
+     {
+      "op": "deletion",
+      "gives": "PAR"
+     },
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PARCEL",
+    "definitions": [
+     {
+      "text": "Leave",
+      "at": 0
+     },
+     {
+      "text": "a bit",
+      "at": 6
+     }
+    ],
+    "linkWords": [
+     "4"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "note": "first meaning: to depart, as in parting company"
+     },
+     {
+      "clueFragment": "a bit",
+      "note": "second meaning: a portion or piece of something"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue gives PART; the grid takes PARCEL, from 'part and parcel', meaning an essential element.",
+     "definitionFit": "To part is to go away from someone, and a part is a portion or piece of a whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leave"
+    }
    }
   },
   {
@@ -404,6 +1750,77 @@
    "clue": {
     "text": "Some continentals seeing father with girl (not wife) (6);",
     "enumeration": "8"
+   },
+   "solution": "SAUNDERS",
+   "alteration": {
+    "from": "FRENCH",
+    "steps": [
+     {
+      "op": "deletion",
+      "gives": "N"
+     },
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SAUNDERS",
+    "definitions": [
+     {
+      "text": "Some continentals",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not, with the bracket, tells us the letter for wife is missing from the girl"
+     }
+    ],
+    "linkWords": [
+     "seeing",
+     "with",
+     "6"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "father",
+      "gives": "FR",
+      "note": "Fr is the abbreviation for Father, a priest's title"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "WENCH",
+      "note": "wench is an old word for a girl or young woman"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FR",
+      "ENCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Some Europeans are spotted with a priest who is out with a young woman who is not his wife.",
+     "walkthrough": "The clue gives FRENCH; the grid takes SAUNDERS, from the comedy double act French and Saunders.",
+     "definitionFit": "The French are people of France, a nation of continental Europe, so they are some of the continentals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "father"
+    }
    }
   }
  ]
