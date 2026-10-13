@@ -356,12 +356,23 @@ check("the wordplay round a slip is rebuilt and checked",
       new and w.render({**new["wordplay"], "parts": new["wordplay"]["parts"][:1]}).startswith("ins")
       and [n["op"] for n in C._walk(new["wordplay"]) if n.get("unchecked")] == ["anagram"],
       (got, ks, new and new["wordplay"]))
-# A slip that gives the whole answer while another block still gives letters
-# contradicts itself (ftcryptic-18035 21A): redo the clue.
+# A slip that gives the whole answer beside a block filed as the letter it
+# lacks (ftcryptic-18035 21A: "Large" as N, "no clue word supplies one"): that
+# block is the annotator's comment, kept as a note that gives no letters.
 a = ann(["anagram"], "POLYTUNNEL", "long tent with beds", 24,
         [blk("Large", "N"), blk("opulently", "OPULENTLY")], [("fitted", "anagram")],
         assembly={"anagrams": [{"fodder": "OPULENTLY", "gives": "POLYTUNNEL"}]})
-got, ks, new = C.check(a, entry("POLYTUNNEL", "Large, opulently fitted long tent with beds"))
+e = entry("POLYTUNNEL", "Large, opulently fitted long tent with beds")
+got, ks, new = C.check(a, e)
+v = new and annotation.view(new, e)
+check("a block making up a slip's missing letter rides along as a note",
+      v and [b.get("gives") for b in v["blocks"]] == [None, "OPULENTLY"]
+      and v["assembly"]["anagrams"] == [{"fodder": "OPULENTLY", "gives": "POLYTUNNEL"}], (got, ks, v and v["blocks"]))
+# Blocks giving other letters than the slip lacks contradict the row: redo.
+a = ann(["anagram"], "POLYTUNNEL", "long tent with beds", 24,
+        [blk("Large", "L"), blk("opulently", "OPULENTLY")], [("fitted", "anagram")],
+        assembly={"anagrams": [{"fodder": "OPULENTLY", "gives": "POLYTUNNEL"}]})
+got, ks, new = C.check(a, e)
 check("a slip the blocks contradict is redone", got == "failed" and "setter's slip and blocks disagree" in ks, (got, ks))
 
 # A double definition's block note is its `meaning`; a definition's own note

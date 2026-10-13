@@ -669,7 +669,7 @@ LAYOUT = [
     ("fetching", "tools/salvaged.sh", "lists or restores what tools/puzzle_worker.sh salvaged from a discarded run"),
     ("fetching", "tools/test_wordplay.sh", "does wordplay.py parse and check every op of the wordplay expression, and does annotation.view() derive today's fields from the tree?"),
     ("fetching", "tools/wordplay.py", "a clue's wordplay as one line the model writes, and the tree a puzzle stores"),
-    ("fetching", "tools/convert_v2.py", "today's annotations as format v2 wordplay trees, losing nothing (a step the blocks can't rebuild stays an unchecked node), and a read-only dry run over the corpus"),
+    ("fetching", "tools/convert_v2.py", "legacy annotations as format v2 wordplay trees, losing nothing (a step the blocks can't rebuild stays an unchecked node, a setter's slip an unchecked anagram of the printed fodder), the read-only dry run, and --migrate, which rewrote the corpus in one commit (10-13) and holds a file legacy when its v2 copy fails a gate the legacy one passed"),
     ("fetching", "tools/test_convert_v2.sh", "does convert_v2.py rebuild the stored blocks, indicators and definitions from the tree, keep what it can't check as unchecked nodes, and refuse an answer that contradicts its enumeration?"),
     ("fetching", "tools/test_annotate_model_shape.sh", "does a run's output in the model's shape (def, wp, notes) translate to the stored annotation, name the part of a parse that breaks, and land in a legacy or v2 file as that file's shape, old-prompt output included?"),
     ("fetching", "tools/fixtures/quiptic-619-legacy.json", "quiptic-619 in the legacy annotation format, frozen so tools/test_annotate_model_shape.sh still has legacy annotations to translate once the corpus is format v2"),

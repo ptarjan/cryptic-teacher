@@ -89,7 +89,15 @@ SEARCH = ("charade", "reversal", "container", "anagram", "deletion")
 ACCEPTED = {"container outer first", "type order", "indicator for filled", "linkWords recomputed",
             "assembly recomputed", "gives before the op", "soundsLike as letters",
             "double definition meaning kept apart", "block order", "double definition gives the answer",
-            "double definition step indicators on the definitions", "answer respaced to the enumeration"}
+            "double definition step indicators on the definitions", "answer respaced to the enumeration",
+            "setter's slip taken as printed"}
+
+
+def _slipped(ann):
+    """Whether a legacy annotation declares a setter's slip: an assembly
+    anagram whose fodder does not hold the letters it gives."""
+    return any(isinstance(a, dict) and L(a.get("fodder")) and _bag(L(a.get("fodder"))) != _bag(L(a.get("gives")))
+               for a in (ann.get("assembly") or {}).get("anagrams") or [])
 
 
 class Unconvertible(Exception):
@@ -539,6 +547,17 @@ def _enumerated(entry, puzzle):
     return any((x.get("clue") or {}).get("enumeration") or (x.get("clue") or {}).get("separators") for x in _lights(entry, puzzle))
 
 
+def _letterless(unit):
+    """A unit as an unchecked leaf that gives no letters: its clue words,
+    note and selection kept (a legacy block that is only a comment)."""
+    leaf = next((n for n in _walk(unit) if n.get("words")), {})
+    out = {k: leaf[k] for k in ("words", "note", "select", "soundsLike") if k in leaf}
+    op = unit.get("op")
+    if "select" not in out and op in W.SELECT:
+        out["select"] = unit["n"] if op == "nth" else op
+    return {**out, "unchecked": True}
+
+
 def _slips(units, vals, ann, tset, want):
     """(units, vals, made any) with each setter's slip made one unit. A slip is a legacy
     `assembly.anagrams` row whose fodder does not hold the letters it gives
@@ -586,20 +605,30 @@ def _slips(units, vals, ann, tset, want):
         for k, got in pick:
             if got != vals[k]:
                 units[k] = {x: v for x, v in units[k].items() if x != "gives"}
-        pick = [k for k, _ in pick]
+        # The run as filed: a block between fodder words that gives nothing
+        # (sundaytel-3008 15D's "with") stays inside it, in its place.
+        pick = list(range(pick[0][0], pick[-1][0] + 1))
         inner = [units[k] for k in pick]
         node = {"op": "anagram", "unchecked": True, "gives": g,
                 "parts": inner if len(inner) == 1 else [{"op": "charade", "parts": inner}]}
         keep = [k for k in range(len(units)) if k not in pick[1:]]
         units = [node if k == pick[0] else units[k] for k in keep]
         vals = [g if k == pick[0] else vals[k] for k in keep]
-        if _bag(g) == _bag(want) and sum(1 for v in vals if v) > 1 and "deletion" not in tset:
-            # The slip gives the whole answer and another block still gives
-            # letters (ftcryptic-18035 21A: the row says OPULENTLY gives
-            # POLYTUNNEL, and a block "Large" filed as giving N makes up the
-            # letter the slip lacks). The row and the blocks disagree about
-            # what the anagram is; which is right is not decidable here.
-            raise Unconvertible("setter's slip and blocks disagree", f"{f} gives {g}")
+        rest = [k for k, v in enumerate(vals) if v and units[k] is not node]
+        if _bag(g) == _bag(want) and rest and "deletion" not in tset:
+            # The slip gives the whole answer and other blocks still give
+            # letters. Where they give exactly what the slip lacks, they are
+            # the annotator saying where the missing letter would have come
+            # from (times-19660 6D: REPAPER for REAPPEAR, and "available"
+            # giving A, "though no word tells the solver to take it";
+            # ftcryptic-18035 21A: "Large" filed as N). They ride along as
+            # notes, words and select kept, letters dropped: the row is the
+            # parse. Anything else contradicts the row: redo the clue.
+            lack = collections.Counter(g) - collections.Counter(f)
+            if collections.Counter("".join(vals[k] for k in rest)) != lack:
+                raise Unconvertible("setter's slip and blocks disagree", f"{f} gives {g}")
+            for k in rest:
+                units[k], vals[k] = _letterless(units[k]), ""
         made = True
     return units, vals, made
 
@@ -837,6 +866,14 @@ def compare(old, new, view):
             acc.add("soundsLike as letters")
         elif sorted(map(_plain, nob)) == sorted(map(_plain, nvb)):
             acc.add("block order")
+        elif _slipped(old) and len(nob) == len(nvb) and all(
+                {k: v for k, v in o.items() if k != "gives"} == {k: v for k, v in n.items() if k != "gives"}
+                and (o.get("gives") == n.get("gives") or n.get("gives") in (None, L(n.get("clueFragment"))))
+                for o, n in zip(nob, nvb)):
+            # _slips: a block that respelt its words to hide a setter's slip is
+            # taken as printed, and one filed as the letter the slip lacks
+            # gives none.
+            acc.add("setter's slip taken as printed")
         elif [{k: v for k, v in b.items() if k != "gives"} for b in nob] == \
                 [{k: v for k, v in b.items() if k != "gives"} for b in nvb]:
             acc.add("gives before the op")
