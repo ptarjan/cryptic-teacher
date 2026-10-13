@@ -2525,6 +2525,11 @@ tools/test_discard_verdict.sh                 does a discarded annotation run wa
                                               when they can act on it? (tools/discard_alert.py;
                                               wired into _worker_finish in
                                               tools/puzzle_worker.sh.)
+tools/test_withdrawn_run.sh                   does a run that takes back its own work
+                                              (annotate_check.py --withdraw, or last words
+                                              asking for a git revert) ship none of it, the
+                                              harness putting the puzzle back? (genius-268,
+                                              10-13)
 tools/reapply_annotation.py                   re-apply a commit's annotation onto origin's copy
                                               of its puzzle when push_puzzle_commit.sh's replay
                                               conflicts

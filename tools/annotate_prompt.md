@@ -193,6 +193,8 @@ Four first runs in ten fail, most often on these rules. Get them right first tim
   replaced and null removes it, except `notes`, merged note by note.
 - Run it as a single command: no `&&`, `;`, pipes or `rm`. A compound command needs an
   approval this run cannot give, and aborts having run nothing.
+- To take back hints you would not stand by, run the check with `--withdraw "<why>"` and
+  stop: the puzzle file is put back for you and nothing you wrote ships. Never use git.
 - Don't open `validate_annotations.py`. For a line you cannot act on,
   `python3 tools/validate_annotations.py --explain <check-name>` prints that check.
 
