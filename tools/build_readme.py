@@ -677,6 +677,7 @@ LAYOUT = [
     ("fetching", "tools/fixtures/times-18-legacy.json", "times-18 in the legacy annotation format, frozen so tools/test_puzzle_style.sh judges it as annotated: the format v2 migration drops its 11 plain definitions typed double_definition for the burn to redo"),
     ("fetching", "tools/fixtures/telegraph-31356-legacy.json", "telegraph-31356 in the legacy annotation format, frozen so tools/test_selector_indicator.sh still has legacy blocks to check and normalize once the corpus is format v2"),
     ("fetching", "tools/test_format_v2.sh","do the schema and validator refuse every derived field in a format v2 file, evaluate its trees and ratchet its unchecked steps, while legacy files keep passing?"),
+    ("fetching", "tools/fixtures/legacy-puzzles/", "three Guardian cryptics and a book puzzle as they stood before the format v2 migration (f59e109ad6^), the legacy files convert_v2.converted_samples converts for test_format_v2.sh, test_shim_format.sh and smoke_test.js now the corpus is all v2"),
     ("fetching", "tools/test_see_pointer.sh", "is a \"See N\" continuation the pointer and nothing else, in every reader?"),
     ("fetching", "tools/test_migrate_v2.sh", "does the format v2 migration (tools/convert_v2.py --migrate, plan step 8) leave files every gate passes, and is it safe to kill and start again?"),
     ("fetching", "tools/test_validate_speed.sh", "the deploy's \"Check every annotation\" step runs validate_annotations over the whole corpus (~51,000 files), so a per-file cost that creeps up becomes minutes (124s -> 247s in a day, 2026-10-13, budget 200s). The guard is the cost of 40 annotated puzzles in CPU seconds on one core, with 4x headroom over today's ~45ms a puzzle; a regression of that size fails here, long before the deploy. And the two caches the speed rests on are in place"),
@@ -713,6 +714,7 @@ LAYOUT_EXEMPT = re.compile(r"""
     | ^tools/fixtures/trove-repair/                 # covered by the directory line
     | ^tools/fixtures/trove-clues/                  # covered by the directory line
     | ^tools/fixtures/trove-solution/               # covered by the directory line
+    | ^tools/fixtures/legacy-puzzles/               # covered by the directory line
     | ^household-plugins/           # covered by the <name>/plugin.toml line
     | ^og/                          # covered by the og/ line
     | ^vendor/                      # covered by the vendor/ line

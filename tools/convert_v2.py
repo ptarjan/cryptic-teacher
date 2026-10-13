@@ -1042,15 +1042,21 @@ def convert_puzzle(puzzle):
     return puzzle_schema.order(puzzle_schema.prune(out)), status
 
 
-def converted_samples(n=2, series="cryptic", look=20):
+# Legacy (pre format v2) puzzles kept for the tests: the corpus itself is all
+# v2 since the migration, so these are copies of real files as they stood
+# before it (git show f59e109ad6^:puzzles/<series>/...).
+LEGACY_FIXTURES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fixtures", "legacy-puzzles")
+
+def converted_samples(n=2, series="cryptic", look=20, root=None):
     """[(legacy puzzle, its v2 conversion, status)] for the newest `n` annotated
     puzzles of `series`, among the newest `look`, that convert whole: the
     fixtures tools/test_format_v2.sh, test_shim_format.sh and smoke_test.js
-    hold the two shapes to each other on, in memory."""
+    hold the two shapes to each other on, in memory. Read from `root`
+    (a directory of puzzle files), by default LEGACY_FIXTURES/<series>."""
     from pathlib import Path
 
     import fetch_puzzle
-    root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "puzzles", series)
+    root = root or os.path.join(LEGACY_FIXTURES, series)
     files = sorted((os.path.join(dp, f) for dp, _, fs in os.walk(root) for f in fs
                     if f.endswith(".json")), key=lambda f: int(re.sub(r"\D", "", os.path.basename(f)) or 0),
                    reverse=True)[:look]

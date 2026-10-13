@@ -7,7 +7,8 @@
 #
 # The shape is read off the file (tools/puzzle_schema.py format_problems): an
 # annotation with `blocks` is legacy, one without is v2, and a file is wholly
-# one shape. The v2 files here are corpus puzzles run through
+# one shape. The v2 files here are legacy puzzles (tools/fixtures/legacy-puzzles,
+# copies of corpus files from before the format v2 migration) run through
 # tools/convert_v2.py convert_puzzle, in memory; nothing is written.
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -33,7 +34,7 @@ def refused(puzzle, needle):
     probs = S.validate(puzzle)
     return any(needle in p for p in probs), probs
 
-# Two recent Guardian cryptics that convert whole (a re-annotated puzzle that
+# Two Guardian cryptics from the legacy fixtures that convert whole (one that
 # no longer converts is skipped, not failed: the converter has its own test).
 pairs = convert_v2.converted_samples(2)
 check("found converted puzzles to test", len(pairs) == 2, len(pairs))
@@ -138,7 +139,7 @@ with tempfile.TemporaryDirectory() as d:
 with tempfile.TemporaryDirectory() as d:
     write(old, d)
     check("a v2 file is written over its legacy copy (the migration's rewrite)", write(new, d) is None, write(new, d))
-book = fp.read_puzzle_file(sorted(Path("../puzzles/book").rglob("*.json"))[0])
+book = fp.read_puzzle_file(sorted((Path(convert_v2.LEGACY_FIXTURES) / "book").rglob("*.json"))[0])
 if True:
     with tempfile.TemporaryDirectory() as d:
         bn, _ = convert_v2.migrate_puzzle(book)

@@ -2477,6 +2477,12 @@ tools/test_format_v2.sh                       do the schema and validator refuse
                                               field in a format v2 file, evaluate its trees and
                                               ratchet its unchecked steps, while legacy files
                                               keep passing?
+tools/fixtures/legacy-puzzles/                three Guardian cryptics and a book puzzle as they
+                                              stood before the format v2 migration
+                                              (f59e109ad6^), the legacy files
+                                              convert_v2.converted_samples converts for
+                                              test_format_v2.sh, test_shim_format.sh and
+                                              smoke_test.js now the corpus is all v2
 tools/test_see_pointer.sh                     is a "See N" continuation the pointer and nothing
                                               else, in every reader?
 tools/test_migrate_v2.sh                      does the format v2 migration (tools/convert_v2.py
