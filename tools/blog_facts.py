@@ -63,7 +63,7 @@ import downloads
 from build_abbreviations import table as abbreviations_table
 from clue_types import NAMES
 from definitions import place
-from fetch_puzzle import puzzle_files, read_puzzle_file
+from fetch_puzzle import puzzle_files, read_puzzle_file, read_puzzle_view
 from groups import entry_id
 from puzzle_schema import order
 
@@ -1795,7 +1795,7 @@ def load_puzzles(extra=()):
     by_number = collections.defaultdict(list)
     series = {}
     for path in puzzle_files():
-        p = read_puzzle_file(path)
+        p = read_puzzle_view(path)
         ents = puzzle_entries(p)
         if ents:
             clues = {entry_id(e): e["clue"].get("text", "") for e in p["entries"]}
@@ -2035,7 +2035,7 @@ def inputs_digest():
     parsed = BLOGS["bigdave44"][0] / "parsed.jsonl"
     h.update(parsed.read_bytes() if parsed.exists() else b"")
     for path in puzzle_files():
-        p = read_puzzle_file(path)
+        p = read_puzzle_view(path)
         h.update(json.dumps([p["id"], p["number"], p.get("series"), puzzle_entries(p)]).encode())
     return h.hexdigest()
 

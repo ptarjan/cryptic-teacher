@@ -27,6 +27,7 @@ import collections
 import json
 from pathlib import Path
 
+from annotation import view_puzzle  # format v2: derived fields
 from puzzle_paths import puzzle_files
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -49,7 +50,7 @@ def derive():
     link_setters = collections.defaultdict(set)
     reversal_indicators = []  # (words, direction)
     for path in puzzle_files():
-        p = json.loads(Path(path).read_text())
+        p = view_puzzle(json.loads(Path(path).read_text()))
         if p.get("series") == "authored":
             continue
         for e in p.get("entries") or []:

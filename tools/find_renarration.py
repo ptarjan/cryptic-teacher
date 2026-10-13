@@ -37,7 +37,7 @@ import re
 import sys
 
 from fetch_puzzle import (  # one glob, one id resolver, one reader
-    puzzle_files, read_puzzle_file, resolve_puzzle)
+    puzzle_files, read_puzzle_view, resolve_puzzle)
 from groups import entry_id
 
 CAPS = re.compile(r"\b[A-Z][A-Z’'-]{1,}\b")
@@ -70,7 +70,7 @@ def chunks_of(ann):
 
 
 def scan(path):
-    puz = read_puzzle_file(path)
+    puz = read_puzzle_view(path)
     found = []
     for e in puz.get("entries", []):
         ann = e.get("annotation") or {}

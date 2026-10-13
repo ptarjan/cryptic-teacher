@@ -24,7 +24,7 @@ import tempfile
 from pathlib import Path
 
 import indicator_keys
-from fetch_puzzle import puzzle_files, read_puzzle_file
+from fetch_puzzle import puzzle_files, read_puzzle_view
 from indicator_keys import clue_pairs
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -45,7 +45,7 @@ _LEX = {}
 def _file_pairs(path):
     """The (type, key) pairs one puzzle file's annotations link under _LEX."""
     out = set()
-    for e in read_puzzle_file(path).get("entries", ()):
+    for e in read_puzzle_view(path).get("entries", ()):
         ann = e.get("annotation") or {}
         out |= entry_pairs(_LEX, ann.get("indicators"))
     return out

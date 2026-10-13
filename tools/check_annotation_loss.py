@@ -36,7 +36,7 @@ import sys
 
 import groups
 from groups import entry_id
-from fetch_puzzle import ROOT, has_words, read_puzzle_file, resolve_puzzle
+from fetch_puzzle import ROOT, has_words, read_puzzle_view, resolve_puzzle
 
 
 def changed_puzzles():
@@ -66,7 +66,7 @@ def main(argv):
     for path in paths:
         if not path.exists():
             continue
-        puzzle = read_puzzle_file(path)
+        puzzle = read_puzzle_view(path)
         missing = unannotated(puzzle)
         total = len(clues(puzzle))
         # A file with nothing in it was never attempted — that is the backlog,

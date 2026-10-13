@@ -19,7 +19,7 @@ import json
 import os
 import re
 
-from fetch_puzzle import puzzle_files, read_puzzle_file  # one glob, one reader
+from fetch_puzzle import puzzle_files, read_puzzle_view  # one glob, one reader
 from groups import entry_id
 import downloads
 
@@ -53,7 +53,7 @@ def load_corpus():
     """id -> {answers: {normalised answer: entry id}, refs: {(n, dir): entry id}}."""
     out = {}
     for path in puzzle_files():
-        puz = read_puzzle_file(path)
+        puz = read_puzzle_view(path)
         answers, refs = {}, {}
         for e in puz.get("entries", []):
             sol = (e.get("solution") or "").upper()

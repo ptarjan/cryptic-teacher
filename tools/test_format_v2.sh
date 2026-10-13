@@ -155,6 +155,100 @@ check("a puzzle the backlog allows none gets an error",
 # What the site sees of a v2 file (browser_puzzle reads view()) is
 # tools/test_shim_format.sh's and tools/smoke_test.js's to check.
 
+# ---- every reader of a derived field gives the same output for either shape ----
+# Each reader below reads name/series/type/blocks/answer/indicators/linkWords/
+# assembly of a puzzle FILE. Two comparisons per reader, on temp copies:
+#   same  - the legacy file against the v2 file. Holds for a reader that does not
+#           look inside the wordplay (series, name, annotated or not, the preamble
+#           flag, a clue's coverage).
+#   plumb - the v2 file against a legacy file holding annotation.view_puzzle() of
+#           it. The conversion rewrites wordplay on purpose (a derived type, no
+#           assembly.pieces, the order of blocks), so a reader that counts types or
+#           blocks gives different numbers for the two ORIGINAL files; against the
+#           view as a legacy file it must give the same, which proves the reader
+#           goes through view_puzzle and reads nothing the v2 file lacks.
+import tempfile
+import subprocess
+
+import annotation
+import await_preamble
+import difficulty
+import letter_facts
+import puzzle_integrity
+import puzzle_style
+import series as series_meta
+import showcase
+
+samples = convert_v2.converted_samples(3)
+check("found puzzles to hold the readers to", len(samples) >= 2, len(samples))
+tmp = Path(tempfile.mkdtemp(prefix="format_v2_readers_"))
+for o, n, _ in samples:
+    pid = o["id"]
+    paths = {}
+    for shape, doc in (("legacy", o), ("v2", n), ("view", annotation.view_puzzle(n))):
+        d = tmp / shape
+        d.mkdir(exist_ok=True)
+        paths[shape] = d / f"{pid}.json"
+        paths[shape].write_text(json.dumps(doc, ensure_ascii=False), encoding="utf-8")
+    check(f"{pid}: the 'view' copy is legacy-shaped (name, series, blocks) and the v2 copy is not",
+          not S.is_v2(json.loads(paths["view"].read_text())) and S.is_v2(json.loads(paths["v2"].read_text())))
+    check(f"{pid}: read_puzzle_view gives a v2 file's series and name",
+          fp.read_puzzle_view(paths["v2"])["series"] == o["series"]
+          and fp.read_puzzle_view(paths["v2"])["name"] == o["name"])
+    check(f"{pid}: read_puzzle_view leaves a legacy file as it is", fp.read_puzzle_view(paths["legacy"]) == o)
+    check(f"{pid}: series.of reads a raw v2 file", series_meta.of(n) == o["series"])
+
+    def flags_of(path):
+        flags = []
+        puzzle_integrity.check_puzzle(fp.read_puzzle_view(path), __import__("datetime").date(2099, 1, 1), flags)
+        return flags
+    readers = {
+        "fetch_puzzle.corpus_row (the README's corpus line)": (fp.corpus_row, True),
+        "fetch_puzzle.index_row (the reindex's index row)":
+            (lambda p: {k: v for k, v in fp.index_row(p).items() if k != "hash"}, False),
+        "puzzle_style.style": (lambda p: puzzle_style.style(fp.read_puzzle_view(p)), True),
+        "difficulty.history_row": (difficulty.history_row, True),
+        "difficulty.clue_row": (difficulty.clue_row, False),
+        "showcase.file_facts": (lambda p: showcase.file_facts(fp.read_puzzle_view(p)), True),
+        "await_preamble.which": (lambda p: await_preamble.which(p, fp.read_puzzle_file(p)), True),
+        "puzzle_integrity._summary (the cross-file row)": (puzzle_integrity._summary, True),
+        "puzzle_integrity.check_puzzle flags": (flags_of, False),
+        "letter_facts.read_view": (letter_facts.read_view, False),
+    }
+    for name, (read, same) in readers.items():
+        try:
+            got = {s: read(paths[s]) for s in paths}
+        except Exception as e:
+            check(f"{pid}: {name} runs on every shape", False, f"{type(e).__name__}: {e}")
+            continue
+        check(f"{pid}: {name}: v2 file gives what its view gives as a legacy file",
+              got["v2"] == got["view"], (str(got["v2"])[:200], str(got["view"])[:200]))
+        if same:
+            check(f"{pid}: {name}: and what the legacy original gives", got["v2"] == got["legacy"],
+                  (str(got["v2"])[:200], str(got["legacy"])[:200]))
+
+    # The node harnesses read the generated shim, not the source: puzzle_paths.js
+    # readView() loads puzzles/<id>.js, whose fields browser_puzzle derives.
+    # Write each shape's shim beside its file and read both through node.
+    js = r"""
+const pp = require(process.argv[1] + "/puzzle_paths.js");
+const [file, dir] = [process.argv[2], process.argv[3]];
+const p = pp.readView(file, dir);
+process.stdout.write(JSON.stringify({series: p.series, name: p.name, ann: p.entries.map((e) => {
+  const a = e.annotation; return a && {type: a.type, answer: a.answer, blocks: a.blocks, linkWords: a.linkWords,
+  indicators: a.indicators, anagrams: (a.assembly || {}).anagrams}; })}));
+"""
+    outs = {}
+    for shape in ("v2", "view"):
+        shim = fp.shim_path(paths[shape])
+        shim.write_text(fp.shim_text(paths[shape], fp.read_puzzle_view(paths[shape])), encoding="utf-8")
+        run = subprocess.run(["node", "-e", js, str(Path(__file__).resolve().parent) if "__file__" in globals()
+                              else str(Path.cwd()), str(paths[shape]), str(paths[shape].parent)],
+                             capture_output=True, text=True)
+        outs[shape] = run.stdout if run.returncode == 0 else run.stderr[-300:]
+    check(f"{pid}: puzzle_paths.js readView gives a v2 file the shim's derived fields (same as its view)",
+          outs["v2"] == outs["view"] and outs["v2"].startswith("{"), (outs["v2"][:200], outs["view"][:200]))
+
 print("PASS" if not fails else f"{fails} FAILED")
 sys.exit(1 if fails else 0)
 PY

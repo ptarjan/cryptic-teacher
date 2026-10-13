@@ -432,7 +432,7 @@ def calibrate(corpus, votes_path):
         if not path:
             continue
         rows = [(entry_id(e), e["clue"], e["annotation"], entry_id(e) in fav[pid])
-                for e in json.loads(Path(path).read_text())["entries"]
+                for e in __import__("annotation").view_puzzle(json.loads(Path(path).read_text()))["entries"]
                 if e.get("annotation") and (e.get("clue") or {}).get("text")]
         held_out |= {corpus_key(c["text"]) for _, c, _, _ in rows}
         if any(r[3] for r in rows) and not all(r[3] for r in rows):

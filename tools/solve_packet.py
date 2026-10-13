@@ -17,7 +17,7 @@ Usage: python3 tools/solve_packet.py 30080
 import argparse
 
 import clues_only
-from fetch_puzzle import read_puzzle_file, resolve_puzzle
+from fetch_puzzle import read_puzzle_view, resolve_puzzle
 from groups import entry_id
 from provenance import printed_answers
 
@@ -93,7 +93,7 @@ def main():
         print(clues_only_packet(waiting))
         return
     path = resolve_puzzle(args.number)
-    print(packet(read_puzzle_file(path)))
+    print(packet(read_puzzle_view(path)))
 
 
 def clues_only_packet(record):

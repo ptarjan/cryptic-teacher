@@ -248,8 +248,8 @@ def wanted(all_facts):
 
 
 def _file_facts(path):
-    from fetch_puzzle import read_puzzle_file
-    return file_facts(read_puzzle_file(path))
+    from fetch_puzzle import read_puzzle_view
+    return file_facts(read_puzzle_view(path))
 
 
 def _file_facts_deps(path, row):

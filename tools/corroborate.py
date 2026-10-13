@@ -462,7 +462,7 @@ BLOG_SERIES_NAMED = {series for _pattern, series in BLOG_SERIES if series}
 @same_grid_only
 def fifteensquared(puzzle):
     """fifteensquared.net's posts, from tools/fetch_fifteensquared.py's cache."""
-    if puzzle.get("series") not in BLOG_SERIES_NAMED:
+    if series_meta.of(puzzle) not in BLOG_SERIES_NAMED:
         return []
     if "ids" not in _posts:
         _posts["ids"] = _fifteensquared_index()
@@ -509,7 +509,7 @@ _listing = {}
 
 def times_listing(puzzle):
     """The Times's own puzzle listing, as Wayback captured it: print dates."""
-    series, number = puzzle["series"], puzzle["number"]
+    series, number = series_meta.of(puzzle), puzzle["number"]
     if not series.startswith(("times", "sundaytimes")):
         return []
     if "dates" not in _listing:
@@ -769,7 +769,7 @@ def field_disputes(puzzle, records):
             d = Dispute(name, "", own, {shown[k]: s for k, s in cands.items()})
             tests = []
             if name == "date":
-                series, number = puzzle["series"], puzzle["number"]
+                series, number = series_meta.of(puzzle), puzzle["number"]
                 tests = [("sequence", {v for v in d.candidates
                                        if fetch_puzzle.fits_sequence(series, number, v)})]
             if len(d.candidates) == 1:
@@ -914,7 +914,7 @@ def known_wrong(puzzle):
 def corroborate(puzzle, sources=None, ledger=None):
     """`puzzle` corroborated: fills made, disputes settled, all of it ledgered.
     Never raises over what a source says."""
-    if not puzzle.get("series") or not puzzle.get("entries"):
+    if not series_meta.of(puzzle) or not puzzle.get("entries"):
         return puzzle
     puzzle = known_wrong(puzzle)
     if not all("position" in e and e.get("length") for e in puzzle["entries"]):
@@ -942,7 +942,7 @@ def sweep(write=False):
     shown, misfiled = [], []
     for path in fetch_puzzle.puzzle_files():
         puzzle = fetch_puzzle.read_puzzle_file(path)
-        if not puzzle.get("series") or not all(
+        if not series_meta.of(puzzle) or not all(
                 "position" in e and e.get("length") for e in puzzle.get("entries") or [None]):
             continue
         records = [r for s in SOURCES for r in getattr(s, "every", s)(puzzle)]
@@ -951,7 +951,7 @@ def sweep(write=False):
             misfiled.append(f"{puzzle['id']}: {r.source} {r.url}")
         records = [r for r in records if r not in dropped]
         for origin in {r.source.split(":")[0] for r in records}:
-            per_source[(origin, puzzle["series"])] += 1
+            per_source[(origin, series_meta.of(puzzle))] += 1
         if not records:
             continue
         disputes = answer_disputes(puzzle, records) + field_disputes(puzzle, records)

@@ -24,7 +24,7 @@ import series as series_meta
 
 def puzzle_row(path):
     """(series, acquiredOn, solved on or None, hinted) for one puzzle file."""
-    p = fetch_puzzle.read_puzzle_file(path)
+    p = fetch_puzzle.read_puzzle_view(path)
     got = p["source"]["acquiredOn"]
     sol = p.get("solutions") or {}
     # The index's own tests (hasSolutions, annotated), so a night's row and the

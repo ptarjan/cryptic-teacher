@@ -91,7 +91,7 @@ import quotes  # curl(): clue text is stored straight, shown curled
 import series as series_meta  # what each series IS; see tools/series.py
 import showcase  # which puzzles /showcase/ picks, and why
 from fetch_puzzle import (  # one glob, one reader for every tool
-    blog_annotation, blog_fact_hashes, has_blog_hints, puzzle_files, read_puzzle_file,
+    blog_annotation, blog_fact_hashes, has_blog_hints, puzzle_files, read_puzzle_view,
     with_blog_facts)
 import puzzle_paths  # one puzzles/ for every tool
 import page_cache  # last build's puzzle pages, reused when nothing moved
@@ -182,7 +182,7 @@ def solved_stub(path):
     """(path, stub) for a listed puzzle with every solution, else None: the
     rule fetch_puzzle.reindex() uses for hasSolutions, which decides whether
     the listing page a puzzle page links to exists."""
-    p = read_puzzle_file(path)
+    p = read_puzzle_view(path)
     if series_meta.unlisted(p["series"]) or not all(e.get("solution") for e in p["entries"]):
         return None
     return path, {k: p[k] for k in STUB_KEYS if k in p}
@@ -2534,7 +2534,7 @@ def puzzle_page_job(i):
         if (all(_asset(rel) == url for rel, url in asked)
                 and page_cache.file_hash(path) == digest):
             return path, False, blocks, found, facts, (key, hit, True)
-    puz = with_blog_facts(read_puzzle_file(solved[i][0]))
+    puz = with_blog_facts(read_puzzle_view(solved[i][0]))
     # The list is newest-first, so "next" is the older neighbour.
     prev_p, next_p = neighbours[i]
     _ASKED = set()

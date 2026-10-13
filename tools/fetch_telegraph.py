@@ -54,7 +54,7 @@ import downloads
 import enumeration
 import puzzle_paths
 import series as series_meta
-from fetch_puzzle import (
+from fetch_puzzle import (read_puzzle_view,
     duplicated_clues,
     flatten_clue,
     is_continuation,
@@ -554,7 +554,7 @@ def unsolved(puzzle):
 def holes(rows):
     """The calendar rows to file: those puzzles/ lacks, those it holds only
     as the blog filer rebuilt them, and those it holds unsolved."""
-    have = {p["id"] for p in (read_puzzle_file(f) for f in puzzle_files())
+    have = {p["id"] for p in (read_puzzle_view(f) for f in puzzle_files())
             if p.get("series") in PAPER and not unsolved(p)
             and (p.get("source") or {}).get("acquiredBy") == TOOL}
     return [r for r in rows if series_meta.puzzle_id(r[0], r[1]) not in have]

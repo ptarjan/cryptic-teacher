@@ -884,7 +884,7 @@ def check(puzzle):
     if not source.get("url") and expected_channel != "authored":
         findings.append("source has no url — nothing to check it against")
 
-    if puzzle.get("series") != series:
+    if puzzle.get("series", series) != series:
         findings.append(f"series is {puzzle.get('series')!r} but the id says "
                         f"{series!r}")
     expected_publisher = series_table.publisher(series, puzzle["number"])

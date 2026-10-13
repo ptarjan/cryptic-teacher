@@ -934,6 +934,16 @@ def read_puzzle_file(path):
         raise SystemExit(f"{path}: not valid JSON — {err}")
 
 
+def read_puzzle_view(path):
+    """The puzzle as every reader of derived fields wants it: a format v2 file
+    through annotation.view_puzzle() (series, name, and each annotation's type,
+    answer, indicators, linkWords, blocks, assembly derived), a legacy file as
+    it is. Read-only: a tool that writes the puzzle back reads the raw file with
+    read_puzzle_file, or it would write the derived fields into a v2 file."""
+    import annotation
+    return annotation.view_puzzle(read_puzzle_file(path))
+
+
 def generator_of(path):
     """The tool source.acquiredBy already names as the acquirer, or the default for a
     new file.
@@ -2732,7 +2742,7 @@ def corpus_row(path):
     blog, clues, annotated clues). The same reads as index_row() with none of its
     writes -- no shim, no hash, no difficulty -- so counting the corpus does not
     rebuild it."""
-    p = read_puzzle_file(path)
+    p = read_puzzle_view(path)
     missing = len(unannotated_clues(p))
     blog = bool(missing) and has_blog_hints(with_blog_facts(p))
     entries = p.get("entries", [])
@@ -2745,7 +2755,7 @@ def index_row(path):
     difficulty, which reindex() adds from the corpus-wide ratings. One read of
     the file does both: the row hashes the shim bytes just written."""
     import puzzle_integrity  # lazy: it imports this module
-    p = read_puzzle_file(path)
+    p = read_puzzle_view(path)
     shim, text = shim_path(path), shim_text(path, p)
     shim.write_text(text, encoding="utf-8")
     missing = len(unannotated_clues(p))
@@ -3295,7 +3305,7 @@ def refresh_unsolved():
         # asked of theguardian.com 404 every night. The Observer and Private
         # Eye have their own fetchers' --refresh-unsolved; daily_update.sh runs
         # all three.
-        if p.get("series") not in FETCHABLE:
+        if series_meta.of(p) not in FETCHABLE:
             continue
         if not still_worth_refreshing(p):
             continue
