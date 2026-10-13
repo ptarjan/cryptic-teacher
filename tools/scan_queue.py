@@ -172,17 +172,30 @@ def compact(ledger, key):
         return before, len(rows)
 
 
-def held(ledger):
-    """Whether a run holds `ledger`'s lock right now."""
+#: How long a unit waits out a hold on its ledger before it ends "held": a
+#: slice's upkeep (edition_queue.ledger_upkeep: compact(), tens of seconds on
+#: the media mount) holds it as the slice's first units start, and those
+#: ended at once left the desktop idle until the next plan (10-13); a batch
+#: run holding it throughout outlasts this.
+UNIT_HOLD_WAIT = 180
+
+
+def held(ledger, wait=0):
+    """Whether a run holds `ledger`'s lock, still after `wait` seconds."""
     import fcntl
     path = ledger.with_suffix(".lock")
     if not path.exists():
         return False
+    deadline = time.monotonic() + wait
     with open(path, "a") as f:
-        try:
-            fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        except BlockingIOError:
-            return True
+        while True:
+            try:
+                fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                break
+            except BlockingIOError:
+                if time.monotonic() >= deadline:
+                    return True
+                time.sleep(min(1.0, max(0.05, deadline - time.monotonic())))
         fcntl.flock(f, fcntl.LOCK_UN)
     return False
 

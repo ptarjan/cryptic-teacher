@@ -143,6 +143,11 @@ SHELL_SUM=$(shell_sum)
 reexec_if_moved() {
   local err
   [ "$(shell_sum)" != "$SHELL_SUM" ] || return 0
+  # The last slice's move may still be writing these files, and an exec
+  # would orphan it: the re-exec waits for it (the mid-slice moves catch
+  # most code changes before a slice ends, so this wait is rare).
+  durable_wait
+  [ "$(shell_sum)" != "$SHELL_SUM" ] || return 0
   # New code that does not parse would end the pass; it keeps the old.
   if ! err=$(bash -n tools/ocr_full_pass.sh 2>&1); then
     echo "the tree's tools/ocr_full_pass.sh does not parse, so the pass keeps its old code: $err"
@@ -174,7 +179,7 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
     # own file: units it hands over still write to it, and it is followed
     # until they end.
     out=$(mktemp) || return 1
-    DURABLE_TEE="$out" durable_run "OCR" \
+    DURABLE_END=later DURABLE_TEE="$out" durable_run "OCR" \
       timeout "$((CHUNK + GRACE))" nice -n 19 "$@" --seconds "$CHUNK" --workers "$WORKERS" --wait --handoff "$HANDOFF"
     rc=$?
     pids=$(handed_over | tr '\n' ' ')
@@ -189,9 +194,16 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
       ) &
       tail -c "+$(($(stat -c %s "$out") + 1))" -f --pid=$! "$out" &
     fi
-    resync
-    [ "$rc" -eq 0 ] || { echo "$what failed (rc=$rc); stopping"; return 1; }
-    grep -q "left for the next run" "$out" || return 0
+    if [ "$rc" -ne 0 ] || ! grep -q "left for the next run" "$out"; then
+      resync
+      [ "$rc" -eq 0 ] || { echo "$what failed (rc=$rc); stopping"; return 1; }
+      return 0
+    fi
+    # The next slice starts at once and this one's commit, pushes and move
+    # run beside it (durable_background): done in turn they left the desktop
+    # idle for 1-3 minutes an hour (10-13). The next slice's checkpoints, a
+    # stop's commit and a re-exec wait for them.
+    durable_background resync
     reexec_if_moved
   done
 }

@@ -1451,7 +1451,7 @@ def read_unit(aid, cache=CACHE, puzzles=None, reread=None, force=False, ledger=N
     longer due, unless `force`), "busy" (another unit has it) or "held" (a
     batch run holds the ledger)."""
     ledger = Path(ledger or cache / "filed.jsonl")
-    if scan_queue.held(ledger):
+    if scan_queue.held(ledger, scan_queue.UNIT_HOLD_WAIT):
         return "held"
     with scan_queue.source_lock(ledger, aid) as mine:
         if not mine:

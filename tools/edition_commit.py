@@ -221,7 +221,7 @@ def main(spec):
     import vlm_reader
     head, tar, ctx = load_brief(spec["brief"])
     rel, ledger = ctx["rel"], Path(ctx["ledger"])
-    if scan_queue.held(ledger):
+    if scan_queue.held(ledger, scan_queue.UNIT_HOLD_WAIT):
         return EXITS["held"]
     with scan_queue.source_lock(ledger, rel) as mine:
         if not mine:
