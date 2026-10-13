@@ -960,6 +960,23 @@ with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.St
     eq.dispatch(["times"], cache, workers=4, scan_workers=1, seconds=1.0, replan=0.3)
 check("mirror: a reading newer than the starts counts them in its free memory, none charged again", 4,
       log.read_text().count("start"))
+# A unit that ended since the reading gives its session back: the gate caps
+# sessions open at once, not starts per reading (that held the live queue
+# to ~4 starts a minute with 6-12 units running, 2026-10-13).
+read_at = time.time()
+eq.desktop_mem_reader = lambda: (read_at, eq.DESKTOP_FLOOR_MB + 2 * eq.DESKTOP_SESSION_MB)
+fake(outcome={}, default=0.1)
+log.unlink(missing_ok=True)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=4, scan_workers=1, seconds=1.5, replan=0.3)
+check("units ended since the reading are not charged: all four start, two at a time", 4,
+      log.read_text().count("start"))
+check("an end is credited for a unit started since the reading or settled before it, not one still loading",
+      (1, 0, 1, 2, 0), (eq.desktop_sessions(100, [101, 102], [(101, 103)]),
+                        eq.desktop_sessions(100, [101], [(101, 103), (50, 104)]),
+                        eq.desktop_sessions(100, [101], [(90, 104)]),
+                        eq.desktop_sessions(100, [101, 102], [(101, 99)]),
+                        eq.desktop_sessions(100, [], [(50, 104)])))
 eq.desktop_mem_reader = lambda: None
 log.unlink(missing_ok=True)
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
