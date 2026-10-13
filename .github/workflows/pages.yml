@@ -52,8 +52,43 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # The tree is ~54k files, ~1GB of puzzle JSON, and fetching all of it
+      # from nothing was ~58s of a 66s checkout (run 38370347047) for a push
+      # that changed one file. So the object store is cached between runs
+      # (Save the git store) and the fetch is incremental: refs/ct/base, cached
+      # with it, is the last run's commit, the fetch offers it as a have, and
+      # the server sends only what was pushed since. A cold store is a full
+      # fetch, as before. Written out rather than actions/checkout, which
+      # deletes an existing repository's refs before it fetches and so would
+      # offer no have. tools/test_ci_checkout.sh runs this script twice
+      # against a local origin.
+      - name: Restore the git store
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            .git/objects
+            .git/shallow
+            .git/refs/ct
+          key: git-store-${{ github.sha }}
+          restore-keys: git-store-
       - name: Check out
-        uses: actions/checkout@v4
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # Every run adds the blobs it fetched and none are dropped, so a
+          # store grown past twice the tree starts over.
+          if [ -d .git/objects ] && [ "$(du -sm .git/objects | cut -f1)" -gt 1500 ]; then
+            echo "git store over 1500MB: fetching from scratch"; rm -rf .git
+          fi
+          git init -q .
+          git remote add origin "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY"
+          auth=$(printf 'x-access-token:%s' "${TOKEN:-}" | base64 -w0)
+          git -c protocol.version=2 -c "http.extraheader=AUTHORIZATION: basic $auth" \
+            fetch --no-tags --no-recurse-submodules --depth=1 origin "+$GITHUB_SHA:refs/remotes/origin/master"
+          git checkout -q --force -B master refs/remotes/origin/master
+          git update-ref refs/ct/base HEAD
+          echo "git store: $(du -sm .git/objects | cut -f1)MB"
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -74,7 +109,7 @@ jobs:
       # restore-keys takes the newest. A stale or missing store is still
       # correct, just slow: a row is reused only when its key matches.
       - name: Restore the row cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: |
             .git/ct-rows.sqlite*
@@ -88,7 +123,7 @@ jobs:
       # path of the row cache: a cache's paths are part of its version, so
       # adding one would have emptied the row store for a run.
       - name: Restore the clue index
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: ~/.cache/cryptic-teacher/clue-keys-*.sqlite*
           key: clue-index-${{ github.sha }}
@@ -130,7 +165,7 @@ jobs:
       # stale shim is never used: its row's key or deps no longer match, and
       # the row and shim are written again.
       - name: Restore the puzzle shims
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: puzzles/*.js
           key: puzzle-shims-${{ github.sha }}
@@ -157,7 +192,7 @@ jobs:
       # slow. The key is per-commit so every run saves what it drew; restore-keys
       # is what actually hits, taking the newest cache from any earlier commit.
       - name: Restore the social cards
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: og
           key: og-cards-${{ github.sha }}
@@ -229,7 +264,7 @@ jobs:
       # carries the last build's page hashes; a cold one sends the recent
       # sitemap (see tools/indexnow.py).
       - name: Restore the IndexNow manifest
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: .indexnow
           key: indexnow-${{ github.sha }}
@@ -269,10 +304,61 @@ jobs:
       # in the log.
       - name: Ping IndexNow
         run: python3 tools/indexnow.py ping indexnow-urls.txt
+      # What this run's caches carry to the next, saved once the deploy has
+      # succeeded and before the budgets are checked. Steps of their own, not
+      # actions/cache's post-job saves: those run only when every step passed,
+      # so a run that went red on Check the step budgets (a slow step, not a
+      # broken site) saved nothing and the next run started cold and slower
+      # still. Run 38370347047 failed its budgets and saved no shims or clue
+      # index; 38376042604's reindex then took 119s instead of ~50s and its
+      # authored puzzle 31s. Paths match each restore exactly: they are part
+      # of the cache's version. tools/test_ci_checkout.sh checks each
+      # restore has its save.
+      - name: Save the git store
+        if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            .git/objects
+            .git/shallow
+            .git/refs/ct
+          key: git-store-${{ github.sha }}
+      - name: Save the row cache
+        if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            .git/ct-rows.sqlite*
+            ~/.cache/cryptic-teacher/code_reach
+          key: row-cache-${{ github.sha }}
+      - name: Save the clue index
+        if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}
+        uses: actions/cache/save@v4
+        with:
+          path: ~/.cache/cryptic-teacher/clue-keys-*.sqlite*
+          key: clue-index-${{ github.sha }}
+      - name: Save the puzzle shims
+        if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}
+        uses: actions/cache/save@v4
+        with:
+          path: puzzles/*.js
+          key: puzzle-shims-${{ github.sha }}
+      - name: Save the social cards
+        if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}
+        uses: actions/cache/save@v4
+        with:
+          path: og
+          key: og-cards-${{ github.sha }}
+      - name: Save the IndexNow manifest
+        if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}
+        uses: actions/cache/save@v4
+        with:
+          path: .indexnow
+          key: indexnow-${{ github.sha }}
       # After everything the deploy needs, and only when this run rendered
       # many pages (a code change, a cold cache): see Restore the puzzle pages.
       - name: Save the puzzle pages
-        if: fromJSON(steps.pages.outputs.rendered || '0') > 2000
+        if: ${{ !cancelled() && steps.deployment.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || '0') > 2000 }}
         uses: actions/cache/save@v4
         with:
           path: |
@@ -327,6 +413,10 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    # A job's permissions replace the workflow's, so this restates contents.
+    permissions:
+      contents: read
+      actions: write  # reads the last successful run (its diff base); deletes stale CodeQL caches
     steps:
       - name: Check out
         uses: actions/checkout@v4
@@ -400,3 +490,19 @@ jobs:
           else
             echo "no puzzle changed since the last deploy"
           fi
+      # GitHub's CodeQL default setup stores an overlay database (~50MB) per
+      # language per push in this repo's Actions cache and never deletes one:
+      # 196 of them were 9.6GB of the 11.3GB in use (2026-10-13). GitHub makes
+      # room by evicting the least recently used entries, which are the
+      # build's own (cards, shims, pages, the git store), so a deploy could
+      # start cold for no reason of its own. CodeQL restores only the newest
+      # per language, so the rest go. Here beside the build rather than in
+      # it, and never failing the run: a failed trim costs cache space, not
+      # a deploy.
+      - name: Trim the CodeQL caches
+        if: ${{ !cancelled() }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: python3 tools/trim_codeql_caches.py "$REPO"
