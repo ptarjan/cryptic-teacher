@@ -6,9 +6,11 @@
 # file that run is writing.
 set -u
 here=$(cd "$(dirname "$0")" && pwd)
-eval "$(sed -n '/^sync_attempt() {/,/^}/p;/^publish_commits() {/,/^}/p;/^sync_tree() {/,/^}/p' "$here/prereset_backfill.sh")"
+eval "$(sed -n '/^sync_attempt() {/,/^}/p;/^publish_commits() {/,/^}/p;/^sync_tree() {/,/^}/p;/^shelve_code_edits() {/,/^}/p' "$here/prereset_backfill.sh")"
+alert() { echo "$*" >>"$t/alerts"; }
 tools/push_puzzle_commit.sh() { bash "$here/push_puzzle_commit.sh" "$@" 2>/dev/null; }
 t=$(mktemp -d); trap 'rm -rf "$t"' EXIT
+export PRERESET_SHELF="$t/shelf"
 fail=0; check() { if eval "$2"; then echo "ok - $1"; else echo "FAIL - $1"; fail=1; fi; }
 g() { git -c user.name=t -c user.email=t@t "$@"; }
 export GIT_AUTHOR_NAME=t GIT_AUTHOR_EMAIL=t@t GIT_COMMITTER_NAME=t GIT_COMMITTER_EMAIL=t@t
@@ -53,4 +55,24 @@ sync_attempt 2>/dev/null; rc=$?
 check "unpublished conflict fails" '[ "$rc" -ne 0 ]'
 check "unpublished conflict leaves HEAD and origin alone" \
   '[ "$(git rev-parse HEAD)" = "$mine" ] && [ "$(git show origin/master:tools/t.py)" = theirs ]'
+# A run's uncommitted edit to CODE origin also changed (genius-263's
+# tools/hidden_messages.py, 10-13): the worker never commits code, so left in
+# place it refuses every move. It is saved as a patch, put back, and alerted;
+# a code edit origin did not touch, and a run's puzzle, are left alone.
+g reset -q --hard origin/master
+printf 'local fix\n' > tools/plan.py; printf 'local t\n' > tools/t.py; echo inflight2 > puzzles/x/1/q.json
+cd "$t/m"; g pull -q origin master 2>/dev/null; echo v4 > tools/plan.py; g commit -qam v4; g push -q origin HEAD:master
+cd "$t/b"; git fetch -q origin master
+sync_tree 2>/dev/null; rc=$?
+check "a code edit origin changed no longer blocks the move" '[ "$rc" -eq 0 ] && [ "$(git rev-parse HEAD)" = "$(git rev-parse origin/master)" ]'
+check "the tree takes origin's code" '[ "$(cat tools/plan.py)" = v4 ]'
+check "the shelved edit is kept as a patch" 'grep -q "^+local fix" "$t"/shelf/*.patch'
+check "and said out loud" 'grep -q "tools/plan.py" "$t/alerts"'
+check "a code edit origin did not change stays" '[ "$(cat tools/t.py)" = "local t" ] && ! grep -q "local t" "$t"/shelf/*.patch'
+check "the run's puzzle is untouched" '[ "$(cat puzzles/x/1/q.json)" = inflight2 ]'
+# Nowhere to save it: nothing is put back and the move waits.
+cd "$t/m"; g pull -q origin master 2>/dev/null; echo v5 > tools/plan.py; g commit -qam v5; g push -q origin HEAD:master
+cd "$t/b"; git fetch -q origin master; printf 'again\n' > tools/plan.py; before=$(git rev-parse HEAD)
+PRERESET_SHELF=/dev/null/x sync_tree 2>/dev/null; rc=$?
+check "an unsavable edit is kept and the move refused" '[ "$rc" -ne 0 ] && [ "$(cat tools/plan.py)" = again ] && [ "$(git rev-parse HEAD)" = "$before" ]'
 exit $fail

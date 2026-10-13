@@ -812,7 +812,35 @@ publish_commits() {
 # file sits in its way: a run in flight writing a puzzle origin also changed.
 # Prints git's refusal and returns non-zero.
 sync_tree() {
+  shelve_code_edits || return 1
   git reset -q --keep origin/master
+}
+
+# A run authors its puzzle, the clues-only file its solve removes, and data
+# under tools/data/; the worker commits only those (puzzle_worker.sh), so an
+# edit a run made to tracked CODE (tools/*.py, say) is neither published nor
+# put back. Left in the tree, it makes every sync_tree refuse once origin
+# changes the same file, and the burn stops reaching origin (genius-263's
+# tools/hidden_messages.py, 10-13). The burn does not publish code: the edit is
+# saved as a patch under $PRERESET_SHELF for someone to land with tests, put
+# back as HEAD has it, and said out loud. Only files origin/master changed are
+# shelved, the ones reset --keep would refuse on. Fails, touching nothing, when
+# the patch cannot be written.
+shelve_code_edits() {
+  local shelf="${PRERESET_SHELF:-$HOME/.cryptic-teacher/design/prereset-code-edits}"
+  local -a code
+  mapfile -t code < <(comm -12 \
+    <(git diff --name-only HEAD origin/master -- . ':(exclude)puzzles/' ':(exclude)clues_only/' ':(exclude)tools/data/' | sort) \
+    <(git diff --name-only HEAD -- . ':(exclude)puzzles/' ':(exclude)clues_only/' ':(exclude)tools/data/' | sort))
+  [ ${#code[@]} -gt 0 ] || return 0
+  local patch
+  patch="$shelf/$(date +%Y%m%d-%H%M%S)-$(git rev-parse --short HEAD).patch"
+  mkdir -p "$shelf" && git diff HEAD -- "${code[@]}" >"$patch" && [ -s "$patch" ] || {
+    echo "sync: could not save the code edits ${code[*]} to $patch, so they stay and the move waits" >&2
+    return 1
+  }
+  git checkout -q HEAD -- "${code[@]}"
+  alert "pre-reset backfill: a run edited code it cannot publish (${code[*]}), which origin/master also changed, so the tree could not move. Saved to $patch and put back as HEAD has it; land it with tests if it is right — commits that need it stay parked until then."
 }
 
 # Every shared data file the runs wrote, committed and pushed the way a puzzle
