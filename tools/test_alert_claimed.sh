@@ -93,6 +93,33 @@ check "a failure line printed with echo_alerted is not reported again" \
 check "the same line printed with echo is still reported" \
   "$(run "annotation validation failed" "VALIDATION FAILED on telegraph-31315 — reverting those puzzle files")" "1"
 
+# --- an unexplained traceback names the job, quotes the raise, keeps the log ---
+detail() {  # -> the message wake.sh was handed, after a run named job_x.sh
+  rm -rf "$tmp/state"; mkdir -p "$tmp/state"
+  printf '#!/bin/sh\nprintf "%%s\\n" "$3" > "%s/sent"\n' "$tmp" \
+    > "$tmp/household/tools/wake.sh"
+  chmod +x "$tmp/household/tools/wake.sh"
+  printf '%s\n' "start" "$traceback" '  File "tools/groups.py", line 7, in load' \
+    '    return d["selfClued"]' "KeyError: 'selfClued'" > "$tmp/run.log"
+  printf '. "$1"\nalert_run_failures "$2"\n' > "$tmp/job_x.sh"
+  ALERT_ENV_FILE="$tmp/household/.env" ALERT_STATE_DIR="$tmp/state" ALERT_LOG_KEEP=2 \
+    bash "$tmp/job_x.sh" "$ROOT/tools/alert.sh" "$tmp/run.log" >/dev/null 2>&1
+  cat "$tmp/sent"
+}
+msg="$(detail)"
+check "the alert names the job" "$(printf '%s' "$msg" | grep -c 'job_x: the run printed 1 failure')" "1"
+check "the alert quotes the failing frame" "$(printf '%s' "$msg" | grep -c 'File "tools/groups.py", line 7')" "1"
+check "the alert quotes the exception line" "$(printf '%s' "$msg" | grep -c "^KeyError: 'selfClued'")" "1"
+saved="$(printf '%s' "$msg" | sed -n 's/^full log: //p')"
+check "the alert names a surviving copy of the log" "$(grep -q "^KeyError" "$saved" 2>/dev/null && echo 1)" "1"
+# the copies are bounded: the newest ALERT_LOG_KEEP survive
+for stamp in 20200101-000000 20200101-000001 20200101-000002; do
+  : > "$tmp/state/runlogs/$stamp-job_x.log"
+done
+ALERT_ENV_FILE="$tmp/household/.env" ALERT_STATE_DIR="$tmp/state" ALERT_LOG_KEEP=2 \
+  bash "$tmp/job_x.sh" "$ROOT/tools/alert.sh" "$tmp/run.log" >/dev/null 2>&1
+check "only the newest ALERT_LOG_KEEP logs are kept" "$(ls "$tmp/state/runlogs" | wc -l | tr -d ' ')" "2"
+
 # --- the icon says which kind of message this is ---
 # An alert is a warning (⚠️) unless the caller sets ALERT_ICON for that one
 # message, and it must fall back to the warning the moment it does not —

@@ -75,10 +75,33 @@ alert_run_failures() {
         [ -n "$exc" ] && grep -qxF -- "$exc" "$claimed" && continue
       fi
       printf '%s\n' "$line"
-    done | cut -c1-200 | head -8)
+      # A bare header says nothing: quote the last frame (the line that
+      # raised, with its source) and the exception under it.
+      if [ "${line#*:}" = "Traceback (most recent call last):" ]; then
+        tail -n +"$((${line%%:*} + 1))" "$log" | awk '
+          /^[^[:space:]]/ { if (frame != "") print frame; if (code != "") print code; print; exit }
+          /^  File / { frame = $0; code = ""; next }
+          /^    / && code == "" { code = $0 }'
+      fi
+    done | cut -c1-200 | head -20)
   rm -f "$claimed"
   [ -n "$hits" ] || return 0
-  alert "the run printed $(printf '%s\n' "$hits" | wc -l | tr -d ' ') failure line(s) nobody had written an alert for:"$'\n'"\`\`\`"$'\n'"$hits"$'\n'"\`\`\`"
+  local n job keep old saved
+  # Hit lines start "<lineno>:"; the quoted frames under a traceback do not.
+  n=$(printf '%s\n' "$hits" | grep -cE '^[0-9]+:')
+  job="${ALERT_JOB:-$(basename "$0")}"
+  job="${job%.sh}"
+  # The caller removes the log right after this returns, so keep a copy: the
+  # newest ALERT_LOG_KEEP, and the alert names it.
+  keep="$ALERT_STATE_DIR/runlogs"
+  saved=""
+  if mkdir -p "$keep" 2>/dev/null &&
+     cp "$log" "$keep/$(date +%Y%m%d-%H%M%S)-$job.log" 2>/dev/null; then
+    saved="$(ls -1d "$keep"/*-"$job.log" 2>/dev/null | tail -1)"
+    ls -1 "$keep" | sort -r | tail -n +"$((${ALERT_LOG_KEEP:-10} + 1))" |
+      while IFS= read -r old; do rm -f "$keep/$old"; done
+  fi
+  alert "$job: the run printed $n failure line(s) nobody had written an alert for:"$'\n'"\`\`\`"$'\n'"$hits"$'\n'"\`\`\`"${saved:+$'\n'"full log: $saved"}
 }
 
 # A line a path prints on its way to its own alert: printed, and claimed as
