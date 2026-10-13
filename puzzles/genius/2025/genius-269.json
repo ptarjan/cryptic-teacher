@@ -6,6 +6,14 @@
  "setter": "Glyph",
  "date": "2025-11-03",
  "preamble": "Entrants must pick a side. The majority of down clues must have a letter removed before solving. These letters, taken in clue order, inform the solver of one who may not pick a side. Five further clues are ambiguous and four more are undefined.",
+ "messages": [
+  {
+   "text": "CLAUDIA WINKLEMAN",
+   "kind": "clue",
+   "direction": "down",
+   "order": "clues"
+  }
+ ],
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -19,8 +27,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-13",
+  "check": "35 entries, 58 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,6 +47,70 @@
    "clue": {
     "text": "Fact US soldier embellished, at first, for VIP",
     "enumeration": "6"
+   },
+   "solution": "BIGGIE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BIGGIE",
+    "definitions": [
+     {
+      "text": "VIP",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first asks only for the opening letter of the word just before it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fact",
+      "gives": "BIG",
+      "note": "with its C removed the word reads Fat, and fat means big"
+     },
+     {
+      "clueFragment": "US soldier",
+      "gives": "GI",
+      "note": "GI is the standard term for an American soldier"
+     },
+     {
+      "clueFragment": "embellished",
+      "gives": "E",
+      "select": "first",
+      "note": "its opening letter is the one used"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIG",
+      "GI",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A report about an American soldier gets embroidered before it reaches a celebrity.",
+     "walkthrough": "The C taken out of 'Fact' starts the hidden message, leaving 'Fat'.",
+     "definitionFit": "A biggie is slang for an important person or thing, a big shot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fact"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "C",
+     "at": 2
+    }
    }
   },
   {
@@ -46,6 +124,60 @@
    "clue": {
     "text": "Support Dad winning Marlie's heart",
     "enumeration": "4"
+   },
+   "solution": "PROP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PROP",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "winning",
+      "for": "container",
+      "note": "to win something is to take it into your possession, so the word for Dad holds the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad",
+      "gives": "POP",
+      "note": "pop is an informal word for a father"
+     },
+     {
+      "clueFragment": "Marlie's heart",
+      "gives": "R",
+      "note": "without its L the name reads Marie, whose central letter is R"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "R",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "A father backs his child after winning a girl's affection.",
+     "walkthrough": "Remove the L from 'Marlie' to leave Marie; her middle letter is R.",
+     "definitionFit": "A prop is something that holds up a structure, a physical support."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "winning"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "L",
+     "at": 23
+    }
    }
   },
   {
@@ -59,6 +191,68 @@
    "clue": {
     "text": "Powder starts to tickle Aunt Alisa's cheeks",
     "enumeration": "4"
+   },
+   "solution": "TALC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TALC",
+    "definitions": [
+     {
+      "text": "Powder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of the following words are their opening letters, all four of them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tickle Aunt",
+      "gives": "TA",
+      "select": "first",
+      "note": "the opening letters of both words are used"
+     },
+     {
+      "clueFragment": "Alisa's",
+      "gives": "L",
+      "note": "with its A removed the name reads Lisa's, whose start is L"
+     },
+     {
+      "clueFragment": "cheeks",
+      "gives": "C",
+      "select": "first",
+      "note": "its opening letter is used, the last of the four starts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "L",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "Talcum powder on the cheeks tickles an aunt.",
+     "walkthrough": "Once the A of 'Alisa' is gone, 'Lisa' gives L, not A.",
+     "definitionFit": "Talc is the soft mineral ground into talcum powder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tickle"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "A",
+     "at": 29
+    }
    }
   },
   {
@@ -72,6 +266,73 @@
    "clue": {
     "text": "Elaborate system of gauze no good after minute",
     "enumeration": "4"
+   },
+   "solution": "MAZE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MAZE",
+    "definitions": [
+     {
+      "text": "Elaborate system",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "no here means without, so the letter for good is dropped"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the shortened word behind the abbreviation for minute"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "minute",
+      "gives": "M",
+      "note": "M is the standard abbreviation for minute"
+     },
+     {
+      "clueFragment": "gauze",
+      "gives": "GAZE",
+      "note": "with its U removed the word reads gaze, taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the usual abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AZE"
+     ]
+    },
+    "explanation": {
+     "surface": "A detailed account of an intricate arrangement of surgical gauze.",
+     "walkthrough": "Strike the U from 'gauze' to read gaze; gaze without G is AZE.",
+     "definitionFit": "A maze is an intricate network of paths, so it is a complex arrangement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gauze"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "U",
+     "at": 22
+    }
    }
   },
   {
@@ -85,6 +346,67 @@
    "clue": {
     "text": "Vestal college had setter regularly thrown out",
     "enumeration": "6"
+   },
+   "solution": "CHASTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHASTE",
+    "definitions": [
+     {
+      "text": "Vestal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly thrown out",
+      "for": "letter_selection",
+      "note": "every other letter is discarded at regular intervals, leaving the alternate ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "note": "C is a standard abbreviation for college"
+     },
+     {
+      "clueFragment": "had",
+      "gives": "HA",
+      "note": "with its D removed the word reads ha, taken as written"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "STE",
+      "select": "alternate",
+      "note": "its first, third and fifth letters remain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HA",
+      "STE"
+     ]
+    },
+    "explanation": {
+     "surface": "A college for vestal virgins expelled its compiler at regular intervals.",
+     "walkthrough": "Vestal virgins were the priestesses of Vesta in ancient Rome, sworn to chastity.",
+     "definitionFit": "Vestal as an adjective means pure or virginal, from the chaste priestesses of Vesta."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "college"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "D",
+     "at": 17
+    }
    }
   },
   {
@@ -104,6 +426,77 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "GOLFBAGS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GOLF BAGS",
+    "definitions": [
+     {
+      "text": "sporting kit",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Upturn",
+      "for": "reversal",
+      "note": "in a down clue an upturn reads the word from the bottom up, so it is reversed"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trade",
+      "gives": "FLOG",
+      "note": "to flog is British slang for to sell"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "metal",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     },
+     {
+      "clueFragment": "old money",
+      "gives": "S",
+      "note": "S stood for the shilling in pre-decimal British money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOLF",
+      "B",
+      "AG",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "FLOG",
+       "to": "GOLF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boom in British trade in metal coins and sports equipment.",
+     "walkthrough": "One of the five ambiguous clues: the metal could equally be AL, aluminium, and the old money L, the pound, giving GOLF BALL on the Faithful side.",
+     "definitionFit": "Golf bags hold the clubs a golfer carries, so they are part of the kit for that sport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Upturn"
+    }
    }
   },
   {
@@ -117,6 +510,51 @@
    "clue": {
     "text": "Day endlessly difficult",
     "enumeration": "5"
+   },
+   "solution": "FRIAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FRIAR",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "letter_selection",
+      "note": "endlessly strips the word of both its ends, leaving only its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Day",
+      "gives": "FRI",
+      "note": "FRI is the usual abbreviation for Friday"
+     },
+     {
+      "clueFragment": "difficult",
+      "gives": "AR",
+      "select": "middle",
+      "note": "hard means difficult"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRI",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A day that is unremittingly hard.",
+     "walkthrough": "One of the four undefined clues: a friar is one of the faithful, as 17 across says. Hard loses both its ends.",
+     "definitionFit": "A friar, a member of a religious order, is a fitting example of the faithful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Day"
+    }
    }
   },
   {
@@ -130,6 +568,50 @@
    "clue": {
     "text": "Women into counterfeit Monets, perhaps",
     "enumeration": "6"
+   },
+   "solution": "FAWKES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FAWKES",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into puts the letter for women inside the word for forgeries"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "counterfeit Monets, perhaps",
+      "gives": "FAKES",
+      "note": "forged paintings by Monet would be fakes"
+     },
+     {
+      "clueFragment": "Women",
+      "gives": "W",
+      "note": "W is the abbreviation for women"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "W",
+      "KES"
+     ]
+    },
+    "explanation": {
+     "surface": "Women are drawn into a racket of counterfeit Impressionist paintings.",
+     "walkthrough": "One of the four undefined clues: Guy Fawkes, who plotted to blow up Parliament in 1605, is a traitor, as 17 across says.",
+     "definitionFit": "Guy Fawkes is the best-known English traitor, burned in effigy every Bonfire Night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Monets"
+    }
    }
   },
   {
@@ -143,6 +625,78 @@
    "clue": {
     "text": "Like a huntsman, cunning — stealing a new / old identity",
     "enumeration": "9"
+   },
+   "solution": "ARACHNOID",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ARACHNOID",
+    "definitions": [
+     {
+      "text": "Like a huntsman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stealing",
+      "for": "container",
+      "note": "stealing takes something in, so the word for cunning holds the letter"
+     }
+    ],
+    "linkWords": [
+     "/"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cunning",
+      "gives": "ARCH",
+      "note": "arch means slyly knowing or cunning"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "identity",
+      "gives": "ID",
+      "note": "ID is short for identity, as in an ID card"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "A",
+      "CH",
+      "N",
+      "O",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A sly huntsman takes on a new identity in place of his old one.",
+     "walkthrough": "The huntsman is a large spider, not a man with hounds.",
+     "definitionFit": "Arachnoid means spider-like, and the huntsman is a family of large spiders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "huntsman"
+    }
    }
   },
   {
@@ -156,6 +710,80 @@
    "clue": {
     "text": "Hoist e.g. Tesla or Ford's rear end up",
     "enumeration": "5"
+   },
+   "solution": "DROVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "DROVE",
+    "definitions": [
+     {
+      "text": "Hoist",
+      "at": 0,
+      "note": "with its I removed the word reads Host, a large crowd"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rear end",
+      "for": "letter_selection",
+      "note": "the rear end of a word is its final letter"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue going up reads the letters from the bottom, reversing them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "e.g. Tesla",
+      "gives": "EV",
+      "note": "a Tesla is an EV, an electric vehicle"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Ford's",
+      "gives": "D",
+      "select": "last",
+      "note": "the name of the carmaker, of which only the last letter is used"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RO",
+      "VE"
+     ],
+     "reversals": [
+      {
+       "from": "EVORD",
+       "to": "DROVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A car lift raises an electric car or the back of a Ford.",
+     "walkthrough": "Remove the I from 'Hoist' to leave the definition, Host.",
+     "definitionFit": "A drove is a large moving crowd, just as a host is a multitude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hoist"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "I",
+     "at": 2
+    }
    }
   },
   {
@@ -175,6 +803,65 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "WAGEPACKETS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "WAGE PACKETS",
+    "definitions": [
+     {
+      "text": "Salaries",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "haggling",
+      "for": "anagram",
+      "note": "haggling is a tussle over terms, so these letters are fought over and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go back and forth",
+      "gives": "WAG",
+      "note": "to wag is to move to and fro, like a dog's tail"
+     },
+     {
+      "clueFragment": "cast",
+      "gives": "CAST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "keep",
+      "gives": "KEEP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAG",
+      "EPACKETS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CASTKEEP",
+       "gives": "EPACKETS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The cast of a show argue over pay, with talks swinging to and fro.",
+     "definitionFit": "A wage packet is the envelope of pay, and by extension the earnings themselves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "haggling"
+    }
    }
   },
   {
@@ -188,6 +875,54 @@
    "clue": {
     "text": "Tray of Chai (masala)",
     "enumeration": "3"
+   },
+   "solution": "AIM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AIM",
+    "definitions": [
+     {
+      "text": "Tray",
+      "at": 0,
+      "note": "with its A removed the word reads Try, a verb"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "of says the answer is made from part of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chai (masala)",
+      "gives": "AIM",
+      "note": "the answer runs across chai and masala, a spiced tea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIM"
+     ]
+    },
+    "explanation": {
+     "surface": "A tray bearing spiced Indian tea.",
+     "walkthrough": "Remove the A from 'Tray' to leave the definition, Try.",
+     "definitionFit": "To aim to do something is to try to do it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tray"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "A",
+     "at": 2
+    }
    }
   },
   {
@@ -201,6 +936,48 @@
    "clue": {
     "text": "Haircut Henri rudely snipped",
     "enumeration": "3"
+   },
+   "solution": "FRO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FRO",
+    "definitions": [
+     {
+      "text": "Haircut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snipped",
+      "for": "deletion",
+      "note": "snipped cuts off the tail, so the last letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Henri rudely",
+      "gives": "FROG",
+      "note": "frog is a rude name for a Frenchman, of whom Henri is an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRO"
+     ]
+    },
+    "explanation": {
+     "surface": "A barber called Henri cut someone's hair carelessly.",
+     "walkthrough": "'Fro is short for afro, a rounded mass of natural curls.",
+     "definitionFit": "An afro, often shortened to fro, is a hairstyle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rudely"
+    }
    }
   },
   {
@@ -220,6 +997,58 @@
       "mark": "-"
      }
     ]
+   },
+   "solution": "EWELAMB",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EWE-LAMB",
+    "definitions": [
+     {
+      "text": "young female",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Outrageously",
+      "for": "anagram",
+      "note": "something done outrageously is wild and disordered, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "we",
+      "gives": "WE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "blame",
+      "gives": "BLAME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EWELAMB"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WEBLAME",
+       "gives": "EWELAMB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An indignant protest that a girl is being unfairly blamed.",
+     "definitionFit": "A ewe lamb is a female lamb, a young female sheep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "female"
+    }
    }
   },
   {
@@ -233,6 +1062,54 @@
    "clue": {
     "text": "Parrot gawped, wings clipped",
     "enumeration": "3"
+   },
+   "solution": "APE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "APE",
+    "definitions": [
+     {
+      "text": "Parrot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wings clipped",
+      "for": "letter_selection",
+      "note": "with its wings, the outer letters on either side, cut away only the middle remains"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gawped",
+      "gives": "APE",
+      "select": "middle",
+      "note": "with its W removed the word reads gaped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "A clipped-winged parrot stared open-mouthed.",
+     "walkthrough": "Parrot here is a verb: to repeat mindlessly.",
+     "definitionFit": "To ape someone is to mimic them, just as to parrot is to copy words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Parrot"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "W",
+     "at": 9
+    }
    }
   },
   {
@@ -246,6 +1123,49 @@
    "clue": {
     "text": "Reveals, for audience, shoulders",
     "enumeration": "5"
+   },
+   "solution": "BARES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BARES",
+    "definitions": [
+     {
+      "text": "Reveals",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for audience",
+      "for": "homophone",
+      "note": "for an audience the words are heard rather than read, so only the sound counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shoulders",
+      "gives": "BARES",
+      "soundsLike": "BEARS",
+      "note": "to shoulder a burden is to bear it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BARES"
+     ]
+    },
+    "explanation": {
+     "surface": "An outfit that shows off the shoulders, for the audience's benefit.",
+     "walkthrough": "One of the five ambiguous clues: either word can be the definition and the other the sound, so the Faithful side enters BEARS.",
+     "definitionFit": "To bare something is to uncover it, making it visible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shoulders"
+    }
    }
   },
   {
@@ -259,6 +1179,54 @@
    "clue": {
     "text": "Introduce official inside measurement, approximately 30 inches",
     "enumeration": "7"
+   },
+   "solution": "PREFACE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PREFACE",
+    "definitions": [
+     {
+      "text": "Introduce",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside puts the official within the measurement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "measurement, approximately 30 inches",
+      "gives": "PACE",
+      "note": "a pace, a single step, is traditionally reckoned at about two and a half feet"
+     },
+     {
+      "clueFragment": "official",
+      "gives": "REF",
+      "note": "ref is short for referee, a match official"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "REF",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Bringing in an official to measure something about 30 inches long.",
+     "definitionFit": "To preface a talk or book is to introduce it with opening remarks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "official"
+    }
    }
   },
   {
@@ -272,6 +1240,62 @@
    "clue": {
     "text": "Father Rafa insistent offence only taken on one side in Puerto Rico",
     "enumeration": "5"
+   },
+   "solution": "PRIOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PRIOR",
+    "definitions": [
+     {
+      "text": "Father",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "only taken on one side",
+      "for": "letter_selection",
+      "note": "only the letters at one edge of each word count, here the front edge, so the initials are used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places these letters inside the abbreviation for the island"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Puerto Rico",
+      "gives": "PR",
+      "note": "PR is the standard abbreviation for Puerto Rico"
+     },
+     {
+      "clueFragment": "Rafa insistent offence",
+      "gives": "RIO",
+      "select": "first",
+      "note": "the initial of each of these three words is used"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RIO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A priest in Puerto Rico insists that Rafa's offence was entirely one-sided.",
+     "walkthrough": "One of the five ambiguous clues: taking the other side, the last letters, gives ATE and so PATER, the Faithful side's answer.",
+     "definitionFit": "A prior heads a priory and is addressed as Father, a title for a senior monk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "side"
+    }
    }
   },
   {
@@ -291,6 +1315,41 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "THETRAITORS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THE TRAITORS",
+    "definitions": [
+     {
+      "text": "7 and 20 could be",
+      "at": 0
+     },
+     {
+      "text": "game show contestants",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "7 and 20 could be",
+      "note": "first meaning: betrayers, as Guy Fawkes and Judas at 7 and 20 down were"
+     },
+     {
+      "clueFragment": "game show contestants",
+      "note": "second meaning: the players on the reality show of that name"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In The Traitors, hidden traitors try to eliminate the faithful; entrants pick a side, and the across answers at 7 and 20 suit the other choice.",
+     "definitionFit": "Fawkes plotted against the king and Judas betrayed Jesus, so both are archetypal betrayers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
    }
   },
   {
@@ -310,6 +1369,69 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "TASTEBUD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TASTE BUD",
+    "definitions": [
+     {
+      "text": "this may reveal bitterness",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaced",
+      "for": "anagram",
+      "note": "replaced means put back in a new order, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old volunteers",
+      "gives": "TA",
+      "note": "the TA, the Territorial Army, was Britain's volunteer reserve, renamed in 2014"
+     },
+     {
+      "clueFragment": "busted",
+      "gives": "BUSTED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "STEBUD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BUSTED",
+       "gives": "STEBUD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old soldier, busted and replaced, may well show some bitterness.",
+     "walkthrough": "The removed letter here is the whole word 'I'.",
+     "definitionFit": "Taste buds on the tongue detect flavours, bitterness among them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "busted"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "I",
+     "at": 15
+    }
    }
   },
   {
@@ -323,6 +1445,56 @@
    "clue": {
     "text": "Flapjack ingredient one of last two in BOGOF mate discovered",
     "enumeration": "3"
+   },
+   "solution": "OAT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OAT",
+    "definitions": [
+     {
+      "text": "Flapjack ingredient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "letter_selection",
+      "note": "discovered means with its cover, the outer letters, taken off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one of last two in BOGOF",
+      "gives": "O",
+      "note": "the last two letters of BOGOF are O and F, and the first is taken here"
+     },
+     {
+      "clueFragment": "mate",
+      "gives": "AT",
+      "select": "middle",
+      "note": "its inner letters are used"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A buy-one-get-one-free offer on flapjack ingredients, spotted by a friend.",
+     "walkthrough": "One of the five ambiguous clues: BOGOF, buy one get one free, ends in O and F, and the F gives FAT, the Faithful side's answer.",
+     "definitionFit": "Flapjacks are baked bars of rolled oats bound with butter and syrup."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mate"
+    }
    }
   },
   {
@@ -336,6 +1508,70 @@
    "clue": {
     "text": "Sent free advice once by retired writer",
     "enumeration": "6"
+   },
+   "solution": "REDEEM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "REDEEM",
+    "definitions": [
+     {
+      "text": "Sent free",
+      "at": 0,
+      "note": "with the N removed this reads Set free"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "retired means drawn back, so the word is reversed"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advice once",
+      "gives": "REDE",
+      "note": "rede is an archaic word for advice"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "ME",
+      "note": "the writer of the clue refers to themself as me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REDE",
+      "EM"
+     ],
+     "reversals": [
+      {
+       "from": "ME",
+       "to": "EM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Free advice sent long ago by an author who has since stopped writing.",
+     "walkthrough": "Remove the N from 'Sent' to read the definition, Set free.",
+     "definitionFit": "To redeem a captive is to buy their release, setting them free."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sent"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "N",
+     "at": 2
+    }
    }
   },
   {
@@ -349,6 +1585,45 @@
    "clue": {
     "text": "Glyph in Calais attracting whistles from Londoners",
     "enumeration": "7"
+   },
+   "solution": "JESUITS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JESUITS",
+    "definedByPreamble": true,
+    "linkWords": [
+     "attracting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Glyph in Calais",
+      "gives": "JE",
+      "note": "Glyph is the setter, who would say I, and in French, as in Calais, that is je"
+     },
+     {
+      "clueFragment": "whistles from Londoners",
+      "gives": "SUITS",
+      "note": "in Cockney rhyming slang a whistle and flute is a suit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JE",
+      "SUITS"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter, in a French port, draws wolf-whistles from Londoners.",
+     "walkthrough": "One of the four undefined clues: the Jesuits, the Society of Jesus, are among the faithful, as 17 across says.",
+     "definitionFit": "The Jesuits, a Catholic order, are a fitting example of the faithful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "whistles"
+    }
    }
   },
   {
@@ -362,6 +1637,55 @@
    "clue": {
     "text": "Like Punch's wife — short, over the top",
     "enumeration": "5"
+   },
+   "solution": "JUDAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "JUDAS",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means missing its last letter"
+     },
+     {
+      "text": "over the top",
+      "for": "charade",
+      "note": "in a down clue the shortened name sits over the top of the word for like"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Punch's wife",
+      "gives": "JUDY",
+      "note": "in the Punch and Judy puppet show, Punch's wife is Judy"
+     },
+     {
+      "clueFragment": "Like",
+      "gives": "AS",
+      "note": "as means like, as in 'as good as new'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUD",
+      "AS"
+     ]
+    },
+    "explanation": {
+     "surface": "Punch's wife is brief and overdramatic.",
+     "walkthrough": "One of the four undefined clues: Judas, who betrayed Jesus, is a traitor, as 17 across says.",
+     "definitionFit": "Judas Iscariot betrayed Jesus for thirty pieces of silver and is the byword for a traitor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
    }
   },
   {
@@ -381,6 +1705,66 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "INCARE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "IN CARE",
+    "definitions": [
+     {
+      "text": "Maybe fostered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "around suggests the letters are turned about, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kin",
+      "gives": "IN",
+      "note": "with its K removed the word reads in, taken as written"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "RACE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CARE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RACE",
+       "gives": "CARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Relatives of a fostered child race around.",
+     "walkthrough": "Remove the K from 'kin' to leave 'in'.",
+     "definitionFit": "A fostered child is one example of a child in care, looked after by the state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "race"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "K",
+     "at": 15
+    }
    }
   },
   {
@@ -394,6 +1778,87 @@
    "clue": {
     "text": "Followers from Europe backtracking after concerning ITN broadcast",
     "enumeration": "7"
+   },
+   "solution": "RETINUE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "charade"
+    ],
+    "answer": "RETINUE",
+    "definitions": [
+     {
+      "text": "Followers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backtracking",
+      "for": "reversal",
+      "note": "backtracking means going back, so the letters are reversed"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the reversed letters at the end"
+     },
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast scatters the letters, so they are rearranged"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "re means concerning, as in a letter heading"
+     },
+     {
+      "clueFragment": "ITN",
+      "gives": "ITN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Europe",
+      "gives": "EU",
+      "note": "EU is the European Union"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TIN",
+      "UE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITN",
+       "gives": "TIN"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "EU",
+       "to": "UE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "European fans go backwards after an ITN news broadcast.",
+     "walkthrough": "ITN is a British television news provider.",
+     "definitionFit": "A retinue is the group of attendants who follow an important person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
    }
   },
   {
@@ -407,6 +1872,59 @@
    "clue": {
     "text": "Bishop falls off zigzag slide on playing field",
     "enumeration": "3"
+   },
+   "solution": "END",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "END",
+    "definitions": [
+     {
+      "text": "slide on playing field",
+      "at": 24,
+      "note": "with the L removed this reads side on playing field, a noun phrase"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "falls off",
+      "for": "deletion",
+      "note": "falls off means drops away, so the letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "zigzag",
+      "gives": "BEND",
+      "note": "a zigzag is a series of bends"
+     },
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop tumbles off a winding slide in a playground.",
+     "walkthrough": "Remove the L from 'slide' to read the definition, side on playing field.",
+     "definitionFit": "Each team defends one end of a pitch, so an end is a side of the field."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slide"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "L",
+     "at": 25
+    }
    }
   },
   {
@@ -420,6 +1938,62 @@
    "clue": {
     "text": "Cuddle up in cheat's den with liberal European",
     "enumeration": "6"
+   },
+   "solution": "NESTLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NESTLE",
+    "definitions": [
+     {
+      "text": "Cuddle up",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheat's den",
+      "gives": "NEST",
+      "note": "with its E removed this reads chat's den, and a chat is a songbird whose home is a nest"
+     },
+     {
+      "clueFragment": "liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for liberal"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEST",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Snuggling up in a swindler's hideout with a liberal from the continent.",
+     "walkthrough": "Remove the E from 'cheat' to read chat, a small songbird such as the stonechat.",
+     "definitionFit": "To nestle is to settle snugly against someone, to snuggle or cuddle up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cheat's"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "E",
+     "at": 15
+    }
    }
   },
   {
@@ -433,6 +2007,47 @@
    "clue": {
     "text": "Expected performance to end early",
     "enumeration": "3"
+   },
+   "solution": "DUE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DUE",
+    "definitions": [
+     {
+      "text": "Expected",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to end early",
+      "for": "deletion",
+      "note": "ending early cuts off the last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "performance",
+      "gives": "DUET",
+      "note": "a duet is a performance by two players"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A show that was forecast to finish ahead of time.",
+     "definitionFit": "Something due is anticipated or scheduled, so it is expected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "performance"
+    }
    }
   },
   {
@@ -456,6 +2071,76 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "CUTANDPASTE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "CUT AND PASTE",
+    "definitions": [
+     {
+      "text": "reposition data sequences",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rewriting",
+      "for": "anagram",
+      "note": "rewriting sets the letters down afresh in a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places these letters within the word for smart"
+     }
+    ],
+    "linkWords": [
+     "way to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smart",
+      "gives": "CUTE",
+      "note": "cute can mean clever or sharp"
+     },
+     {
+      "clueFragment": "DNA",
+      "gives": "DNA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "history",
+      "gives": "PAST",
+      "note": "the past is history"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUT",
+      "AND",
+      "PAST",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DNA",
+       "gives": "AND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geneticist rewriting DNA history neatly rearranges sequences of code.",
+     "definitionFit": "Cut and paste is the computing operation that moves blocks of text or data."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "DNA"
+    }
    }
   },
   {
@@ -469,6 +2154,44 @@
    "clue": {
     "text": "Mistakem? Yes and no!",
     "enumeration": "4"
+   },
+   "solution": "TYPO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TYPO",
+    "definitions": [
+     {
+      "text": "Mistakem? Yes and no!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mistakem?",
+      "note": "the stray M is itself a slip of the keyboard, and once removed the clue asks for a word meaning mistake"
+     },
+     {
+      "clueFragment": "Yes and no!",
+      "note": "the extra letter both is and is not an error: it is a slip in print and also the letter the puzzle hid on purpose"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Remove the M from 'Mistakem' to read Mistake?; the clue as printed contains exactly what it asks for.",
+     "definitionFit": "A typo is a typing slip, a small mistake in printed or keyed text."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mistakem"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "M",
+     "at": 7
+    }
    }
   },
   {
@@ -488,6 +2211,73 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "NOGO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "NO GO",
+    "definitions": [
+     {
+      "text": "it's futile",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "struck",
+      "for": "deletion",
+      "note": "struck off means removed, so the back end is deleted"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following places the shortened animal after the refusal"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "refusal",
+      "gives": "NO",
+      "note": "no is a refusal"
+     },
+     {
+      "clueFragment": "Goat's",
+      "gives": "GOAT",
+      "note": "the animal, whose back end goes"
+     },
+     {
+      "clueFragment": "hindquarters",
+      "gives": "AT",
+      "note": "the hindquarters of the word are its last two letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "Hitting a goat on the rump after it refused to move is pointless.",
+     "walkthrough": "The removed letter is the whole word 'a' before 'refusal'.",
+     "definitionFit": "A no-go is something that cannot proceed, so attempting it is futile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "struck"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "A",
+     "at": 37
+    }
    }
   },
   {
@@ -501,6 +2291,66 @@
    "clue": {
     "text": "Poor quality coordinates south of Paston's outskirts",
     "enumeration": "4"
+   },
+   "solution": "POXY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "POXY",
+    "definitions": [
+     {
+      "text": "Poor quality",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "south of",
+      "for": "charade",
+      "note": "in a down clue south of means below, so these letters come after"
+     },
+     {
+      "text": "outskirts",
+      "for": "letter_selection",
+      "note": "the outskirts of a word are its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paston's",
+      "gives": "PO",
+      "select": "outer",
+      "note": "with its N removed the name reads Pasto's"
+     },
+     {
+      "clueFragment": "coordinates",
+      "gives": "XY",
+      "note": "x and y are the coordinates on a graph"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "XY"
+     ]
+    },
+    "explanation": {
+     "surface": "Shoddy mapping of a village on the edge of Paston.",
+     "walkthrough": "Remove the N from 'Paston' to read Pasto. Paston is a village in Norfolk.",
+     "definitionFit": "Poxy is British slang for worthless or shoddy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coordinates"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "N",
+     "at": 39
+    }
    }
   },
   {
@@ -520,6 +2370,62 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "SQUAREPEG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SQUARE PEG",
+    "definitions": [
+     {
+      "text": "Tough to find a fitting place for this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letter of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nerd",
+      "gives": "SQUARE",
+      "note": "a square is someone conventional and unfashionable"
+     },
+     {
+      "clueFragment": "games",
+      "gives": "PE",
+      "note": "PE, physical education, is school games"
+     },
+     {
+      "clueFragment": "challenging",
+      "gives": "G",
+      "select": "last",
+      "note": "its last letter is used"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SQUARE",
+      "PE",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A geek is hard to place, since games are a challenge.",
+     "walkthrough": "The idiom is a square peg in a round hole.",
+     "definitionFit": "A square peg is someone who does not fit in, from the idiom about a round hole."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "games"
+    }
    }
   },
   {
@@ -533,6 +2439,47 @@
    "clue": {
     "text": "Organic material from waxy lemon",
     "enumeration": "5"
+   },
+   "solution": "XYLEM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "XYLEM",
+    "definitions": [
+     {
+      "text": "Organic material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from says the answer is taken out of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "waxy lemon",
+      "gives": "XYLEM",
+      "note": "the answer runs from the end of waxy into lemon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "XYLEM"
+     ]
+    },
+    "explanation": {
+     "surface": "Something organic extracted from a waxed lemon.",
+     "definitionFit": "Xylem is the woody tissue that carries water through a plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "waxy"
+    }
    }
   }
  ]
