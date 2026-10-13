@@ -3167,12 +3167,15 @@ def selector_in_block(block):
 def check_selectors_are_indicators(puzzle, path, errors):
     """A new or changed annotation's letter-selection block holds only the
     words it selects from; the selector is an indicator."""
+    import annotation
     committed = committed_entries(path) or {}
-    for e in puzzle["entries"]:
+    # Changed is judged on the stored annotation; the blocks are derived
+    # (a format v2 file stores a tree, so they come from view()).
+    for e, seen in zip(puzzle["entries"], annotation.view_puzzle(puzzle)["entries"]):
         ann = e.get("annotation")
         if not isinstance(ann, dict) or ann == (committed.get(entry_id(e)) or {}).get("annotation"):
             continue
-        for b in ann.get("blocks") or []:
+        for b in (seen.get("annotation") or {}).get("blocks") or []:
             found = isinstance(b, dict) and selector_in_block(b)
             if found:
                 sel, rest = found
