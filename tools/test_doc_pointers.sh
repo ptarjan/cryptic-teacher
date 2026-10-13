@@ -28,7 +28,8 @@ import os, re, subprocess, sys
 from pathlib import Path
 
 DOCS = ["README.md", "APP.md", "STYLE.md", "BACKFILLS.md", "docs/LAYOUT.md",
-        "docs/ARCHIVE_COVERAGE.md", "tools/AUTHORING.md", "tools/data/README.md",
+        "docs/ARCHIVE_COVERAGE.md", "docs/FEATURES.md", "docs/PUZZLE_FORMAT.md",
+        "docs/ADDING_PUZZLES.md", "docs/NIGHTLY.md", "tools/AUTHORING.md", "tools/data/README.md",
         "vendor/README.md"]
 EXT = ("py sh js json jsonl md html css yml yaml toml txt ps1 csv tsv gz "
        "traineddata webmanifest svg png ico").split()

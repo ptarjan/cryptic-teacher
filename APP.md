@@ -673,7 +673,7 @@ nightly does not, because `.github/workflows/` deploys its push.
 ## Scheduled jobs: quota, gates and alerts
 
 The two jobs are `tools/daily_update.sh` and `tools/prereset_backfill.sh` (see
-"Nightly jobs" in `README.md`).
+`docs/NIGHTLY.md`).
 
 - **A scheduled job never guesses a fact it can look up.**
   - `prereset_backfill.sh` runs with *no* usage gate, so it spends only
