@@ -477,19 +477,29 @@ def convert(ann, entry, puzzle=None):
 LETTER_COUNT_ONLY = {"azed", "listener"}
 
 
+def _lights(entry, puzzle):
+    """The lights of the answer, in order. The holder entry stands for its own
+    light, as in annotation.display_answer: an alsoLeads item is seen as its
+    leader with the item's clue, and the leader's stored clue belongs to its
+    other group (genius-209 22A leads IVOR HUGH JEGO, separators at 4, and
+    also IVOR SORE BEACH BUM, "4,4,5,3", no separators). Read from the
+    puzzle, that leader's marks and count made the group look separated, so
+    the stored spacing was dropped and view() gave IVORSOREBEACHBUM."""
+    by_id = {annotation.entry_id(e): e for e in (puzzle or {}).get("entries") or []}
+    if entry.get("number") is not None and entry.get("direction"):
+        by_id[annotation.entry_id(entry)] = entry
+    return [by_id.get(i, {}) for i in entry.get("group") or []] or [entry]
+
+
 def _printed_counts(entry, puzzle):
     """The word lengths the enumerations print for the answer: each light's,
     in order, for a linked answer."""
-    by_id = {annotation.entry_id(e): e for e in (puzzle or {}).get("entries") or []}
-    lights = [by_id.get(i, entry) for i in entry.get("group") or []] or [entry]
-    return [n for x in lights for n in enumeration.counts((x.get("clue") or {}).get("enumeration"))]
+    return [n for x in _lights(entry, puzzle) for n in enumeration.counts((x.get("clue") or {}).get("enumeration"))]
 
 
 def _separated(entry, puzzle):
     """Whether any light of the answer has separators (the marks between its words)."""
-    by_id = {annotation.entry_id(e): e for e in (puzzle or {}).get("entries") or []}
-    lights = [by_id.get(i, {}) for i in entry.get("group") or []] or [entry]
-    return any((x.get("clue") or {}).get("separators") for x in lights)
+    return any((x.get("clue") or {}).get("separators") for x in _lights(entry, puzzle))
 
 
 def _enumerated(entry, puzzle):
@@ -497,9 +507,7 @@ def _enumerated(entry, puzzle):
     that could space it."""
     if str((puzzle or {}).get("id", "")).rsplit("-", 1)[0] in LETTER_COUNT_ONLY:
         return False
-    by_id = {annotation.entry_id(e): e for e in (puzzle or {}).get("entries") or []}
-    lights = [by_id.get(i, {}) for i in entry.get("group") or []] or [entry]
-    return any((x.get("clue") or {}).get("enumeration") or (x.get("clue") or {}).get("separators") for x in lights)
+    return any((x.get("clue") or {}).get("enumeration") or (x.get("clue") or {}).get("separators") for x in _lights(entry, puzzle))
 
 
 def _tree(blocks, inds, tset, want, ann, notes):
