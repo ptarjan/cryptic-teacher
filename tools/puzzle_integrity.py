@@ -271,12 +271,6 @@ PUBLISHED_WRONG = {
         "the Guardian grouped all five lights itself and filled them with "
         "THERE'S A ONE-EYED YELLOW IDOL TO THE NORTH OF KHATMANDU, 45 cells, "
         "under an enumeration it printed only as far as the first 26",
-    ("cryptic-22061", "23-across: clue says (10,4) = 14, answer holds 10"):
-        "the APPRENTICE BOYS who march by the Foyle need 24-across's BOYS, and "
-        "24-across's pointer reads \"See 22\" — but 20-across PERSONAL + "
-        "22-across NUMBER is already a complete (8,6) answer with no room in "
-        "it for four more cells, so the number the paper printed on that "
-        "pointer cannot be the one it meant",
 }
 
 # The LENGTH findings that are a light the Guardian never linked, not a mistake in
@@ -383,11 +377,6 @@ UNLINKED_IN_SOURCE = dict([
     (("cryptic-23874", "18-down: clue says (5,8) = 13, answer holds 8"),
      "no light in this grid is blank, spare, or grouped toward the five missing "
      "letters"),
-    (("cryptic-23837",
-      "10-across + 1-down: clue says (3,4,4,3,2,5,5,4) = 30, answer holds 7 "
-      "alone or 21 linked"),
-     "no light in this grid is blank, spare, or grouped toward the nine missing "
-     "letters"),
     (("cryptic-23834",
       "11-across + 27-across: clue says (7,11,13) = 31, answer holds 7 alone or "
       "21 linked"),
@@ -438,18 +427,10 @@ UNLINKED_IN_SOURCE = dict([
       "linked"),
      "the song lyric repeats SHE WAS; the grid holds it only once, so no light "
      "can supply the repeat"),
-    (("cryptic-23625", "8-across: clue says (4,4,5) = 13, answer holds 8"),
-     "no light in this grid is blank, spare, or grouped toward the five missing "
-     "letters"),
     (("cryptic-23541",
       "4-down + 19-down + 8-down: clue says (6,1,5 and 4,2,6,3) = 27, "
       "answer holds 6 alone or 23 linked"),
      "no light in this grid is blank, spare, or grouped toward the four missing "
-     "letters"),
-    (("cryptic-23501",
-      "8-across + 9-across: clue says (3,5,2,3,5,5) = 23, answer holds 8 alone "
-      "or 13 linked"),
-     "no light in this grid is blank, spare, or grouped toward the ten missing "
      "letters"),
     (("cryptic-23429",
       "17-across + 27-across: clue says (1,4,7,4) = 16, answer holds 5 alone or "
@@ -504,10 +485,6 @@ UNLINKED_IN_SOURCE = dict([
     (("cryptic-21718", "12-across: clue says (4,6) = 10, answer holds 4"),
      "the LITTLE that makes JOHN LITTLE is 19-down, already spent on 19-down + "
      "8-down's LITTLE GREEN MEN"),
-    (("cryptic-21625", "6-down: clue says (5,2,3,5,2,4) = 21, answer holds 15"),
-     "the OF TIME that finishes DANCE TO THE MUSIC OF TIME is 7-down, which "
-     "12-across's AHEAD OF TIME needs just as much, and 7-down has no clue "
-     "text to say it continues either answer"),
     (("cryptic-21625", "12-across: clue says (5,2,4) = 11, answer holds 5"),
      "the same 7-down OF TIME finishes 6-down's DANCE TO THE MUSIC OF TIME, "
      "and 7-down has no clue text to say it continues either answer"),
@@ -741,6 +718,16 @@ def check_shape(puzzle, today, flags):
     return checkable
 
 
+def leads_by_pointers(group, by_id):
+    """Is every light of `group` after its leader a pointer ("See 19"), or the
+    leader again? Such a group is linked by what its legs print, so its
+    leader's count may be its own light's (check_length)."""
+    legs = [g for g in group[1:] if g != group[0]]
+    return bool(legs) and all(
+        g in by_id and is_continuation((by_id[g].get("clue") or {}).get("text", ""))
+        for g in legs)
+
+
 def check_length(puzzle, checkable, flags):
     """The two length statements the data makes about an answer, against the answer.
 
@@ -806,6 +793,15 @@ def check_length(puzzle, checkable, flags):
         # a defect on the leg. The head is still checked, so nothing goes unread.
         if len(group) > 1 and is_continuation(e["clue"].get("text", "")):
             continue
+        # A leading clue may print its own light's count, in any paper, when
+        # every other light of its group is a bare pointer at it. The Guardian
+        # did this through about 1999-2005 (cryptic-21704's 19-across WOOD
+        # "(4)" over WOOD SHED, 13-across "See 19"), and the Telegraph still
+        # does (telegraph-30039's 6-down PLATE "(5)", 20-across "See 6 Down").
+        # The pointers are what make the group, so the count is not needed as
+        # evidence for it; a group whose other legs carry clues of their own
+        # is still held to the whole answer's count.
+        per_light = per_light or (group[0] == eid and leads_by_pointers(group, by_id))
         if sum(counts) == held or (len(group) > 1 and per_light
                                    and sum(counts) == len(solution)):
             continue

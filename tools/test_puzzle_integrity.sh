@@ -848,5 +848,34 @@ same "a themed (6;4,6) over ten cells is its entry count" "$(field SECOND_SIDE "
 same "a themed (6;4,6) over six cells is its clue count" "$(field FIRST_SIDE "$out14")" "allowed"
 same "a (6;4,6) over seven cells is still refused" "$(field NEITHER "$out14")" "refused"
 
+# A leading clue counting only its own light, over legs that are bare
+# pointers: the Guardian 1999-2005 (cryptic-21704's WOOD "(4)" + "See 19"
+# SHED) and the Telegraph today. The pointer links the group; a leg with a
+# clue of its own leaves the lead held to the whole answer's count.
+out15=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import puzzle_integrity as pi
+def flags(lead_enum, leg_text, series="cryptic"):
+    lead = {"number": 19, "direction": "across", "position": {"x": 0, "y": 0}, "length": 4,
+            "solution": "WOOD", "group": ["19-across", "13-across"],
+            "clue": {"text": "Bowl dropped where Ada Doom saw something nasty", "enumeration": lead_enum}}
+    leg = {"number": 13, "direction": "across", "position": {"x": 0, "y": 2}, "length": 4,
+           "solution": "SHED", "clue": {"text": leg_text, "enumeration": None}}
+    out = []
+    pi.check_length({"id": "cryptic-21704", "series": series, "entries": [leg, lead]}, [leg, lead], out)
+    return [f for f in out if f[0] == "LENGTH"]
+print("OWN_OVER_POINTER", "refused" if flags("4", "See 19") else "allowed")
+print("OWN_OVER_POINTER_TELEGRAPH", "refused" if flags("4", "See 19 across", "telegraph") else "allowed")
+print("WHOLE_OVER_POINTER", "refused" if flags("4,4", "See 19") else "allowed")
+print("OWN_OVER_CLUED_LEG", "refused" if flags("4", "Hut for storage") else "allowed")
+print("NEITHER_OVER_POINTER", "refused" if flags("5", "See 19") else "allowed")
+PY
+)
+died "$out15" "the own-count leader fixture"
+same "a lead counting its own light over a See-N leg is allowed" "$(field OWN_OVER_POINTER "$out15")" "allowed"
+same "and in the Telegraph too" "$(field OWN_OVER_POINTER_TELEGRAPH "$out15")" "allowed"
+same "a lead counting the whole answer is still allowed" "$(field WHOLE_OVER_POINTER "$out15")" "allowed"
+same "a lead counting its own light over a leg with its own clue is refused" "$(field OWN_OVER_CLUED_LEG "$out15")" "refused"
+same "a count that is neither the light's nor the answer's is refused" "$(field NEITHER_OVER_POINTER "$out15")" "refused"
+
 [ "$fails" = 0 ] && echo "puzzle_integrity: all checks passed" || echo "puzzle_integrity: $fails FAILED"
 exit $((fails > 0))
