@@ -307,5 +307,38 @@ check "two lock refusals, then committed" "$(commit_with 2 index.lock)" "committ
 check "a lock that never clears still fails, after five tries" "$(commit_with 99 index.lock)" "refused after 5"
 check "any other refusal is not retried" "$(commit_with 99 HEAD.lock)" "refused after 1"
 
+echo "a discard salvages what the run wrote, and tools/salvaged.sh restores it"
+salvage_flow() (
+  repo=$(mktemp -d)
+  trap 'rm -rf "$repo"' EXIT
+  cp tools/puzzle_worker.sh tools/salvaged.sh "$repo/" 2>/dev/null
+  cd "$repo" || exit 1
+  mkdir -p tools puzzles/x/2020 .ct-runs/job && mv puzzle_worker.sh salvaged.sh tools/
+  git init -q . && git config user.email t@t && git config user.name t
+  echo '{}' >puzzles/x/2020/pw-salv.json && git add puzzles && git commit -qm base
+  printf '.ct-runs/\ntools/_*\n' >.gitignore
+  echo '{"run": 1}' >puzzles/x/2020/pw-salv.json
+  echo '{"1-across": {"x": 1}}' >tools/_ann_pw-salv.json
+  echo 'sid-9 solve' >.ct-runs/job/pw-salv.sid
+  # shellcheck disable=SC2034  # read by the sourced worker
+  WORKER_JOB=test SALVAGE_ROOT="$repo/salvage"
+  . tools/puzzle_worker.sh
+  mkdir -p salvage/pw-salv/20200101T000000Z && touch -t 202001010000 salvage/pw-salv/20200101T000000Z
+  worker_salvage pw-salv
+  worker_salvage pw-salv
+  d=$(find salvage/pw-salv -mindepth 1 -maxdepth 1 -type d)
+  printf 'dirs=%s\nfiles=%s\nsession=%s\n' "$(wc -l <<<"$d" | tr -d ' ')" "$(ls "$d" | tr '\n' ' ')" "$(cat "$d/session")"
+  rm tools/_ann_pw-salv.json
+  out=$(SALVAGE_ROOT="$repo/salvage" bash tools/salvaged.sh pw-salv --restore)
+  printf 'restored=%s\nland=%s\n' "$(cat tools/_ann_pw-salv.json)" "$(tail -1 <<<"$out")"
+  SALVAGE_ROOT="$repo/salvage" bash tools/salvaged.sh pw-salv --restore >/dev/null; echo "again=$?"
+)
+out=$(salvage_flow)
+check "one copy per distinct state, the 14-day-old one pruned, with the run's files and session" \
+  "$(got dirs) $(got files)$(got session)" "1 _ann_pw-salv.json puzzle.json session sid-9"
+check "restored into tools/ for annotate_check, landing as the run's session" \
+  "$(got restored) | $(got land)" '{"1-across": {"x": 1}} | land it: CLAUDE_CODE_SESSION_ID=sid-9 python3 tools/annotate_check.py pw-salv'
+check "never over a live run's _ann file" "$(got again)" "1"
+
 [ "$fails" = 0 ] && echo "puzzle worker: all checks passed" || echo "puzzle worker: $fails FAILED"
 exit $((fails > 0))

@@ -350,11 +350,41 @@ restore_puzzle() {
 # lease (tools/nightly_worktree.sh), held for the whole run.
 index_lock() { exec 8>"$(git rev-parse --git-path ct-index.lock)"; flock 8; }
 index_unlock() { flock -u 8; exec 8>&-; }
+# Copy what a run wrote for puzzle $1 to $SALVAGE_ROOT/<id>/<UTC time>/ before
+# a discard throws it away: tools/_ann_<id>.json, tools/_puzzle_<id>.json, the
+# puzzle file as the run left it (puzzle.json), its cold-solve fill (fill.json)
+# and its session id (session), which is where the hints' author is read.
+# tools/salvaged.sh lists and restores them. A copy identical to the id's
+# newest is dropped; any older than 14 days is pruned. Never fails the discard.
+SALVAGE_ROOT="${SALVAGE_ROOT:-$HOME/.cache/cryptic-teacher/salvage}"
+worker_salvage() {
+  local id="$1" dir last p runs
+  dir="$SALVAGE_ROOT/$id/$(date -u +%Y%m%dT%H%M%SZ)"
+  mkdir -p "$dir" || return 0
+  for p in "tools/_ann_$id.json" "tools/_puzzle_$id.json"; do
+    [ -s "$p" ] && cp -p "$p" "$dir/"
+  done
+  p=$(git ls-files -m -o --exclude-standard -- "$(puzzle_spec "$id")" 2>/dev/null | head -1)
+  [ -n "$p" ] && [ -s "$p" ] && cp -p "$p" "$dir/puzzle.json"
+  runs=$(worker_runs_root 2>/dev/null)
+  if [ -n "$(ls -A "$dir")" ]; then
+    for p in "$runs"/*/"$id.fill"; do [ -s "$p" ] && cp -p "$p" "$dir/fill.json"; done
+    for p in "$runs"/*/"$id.sid"; do [ -s "$p" ] && worker_sid "$p" >"$dir/session"; done
+  fi
+  last=$(find "$SALVAGE_ROOT/$id" -mindepth 1 -maxdepth 1 -type d ! -path "$dir" | sort | tail -1)
+  if [ -z "$(ls -A "$dir")" ] || { [ -n "$last" ] && diff -rq "$last" "$dir" >/dev/null 2>&1; }; then
+    rm -rf "$dir"
+  fi
+  find "$SALVAGE_ROOT" -mindepth 2 -maxdepth 2 -type d -mtime +14 -exec rm -rf {} + 2>/dev/null
+  find "$SALVAGE_ROOT" -mindepth 1 -maxdepth 1 -type d -empty -delete 2>/dev/null
+  return 0
+}
 # Undo a run's edits to one puzzle (restore_puzzle) and its rows of the
 # source-correction tables (tools/data/source_*_wrong.json, fetch_puzzle.py):
 # back as HEAD has them, then any SOURCE_CLUE_WRONG row left for a clue the
-# reverted file does not show.
+# reverted file does not show. What the run wrote is salvaged first.
 discard_puzzle() {
+  worker_salvage "$1"
   restore_puzzle "$1"
   { python3 tools/own_rows.py revert "$1" && python3 tools/discard_clue_rows.py "$1"; } ||
     alert "$WORKER_JOB could not put back $1's rows of tools/fetch_puzzle.py after discarding it; the sweep at the end of the run may carry rows its file does not show."

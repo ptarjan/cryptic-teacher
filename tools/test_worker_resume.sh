@@ -23,7 +23,7 @@ check() {  # check <what> <expected> <got>
 t="$(mktemp -d)"
 trap 'rm -rf "$t"' EXIT
 t="$(cd "$t" && pwd -P)"
-export CLAUDE_CONFIG_DIR="$t/cfg"
+export CLAUDE_CONFIG_DIR="$t/cfg" SALVAGE_ROOT="$t/salvage"
 alert() { echo "ALERT: $*"; }
 . "$REPO/tools/claude_session.sh"
 . "$REPO/tools/puzzle_worker.sh"

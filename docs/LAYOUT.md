@@ -2318,5 +2318,7 @@ tools/test_blog_clues_only.sh                 is a blog post whose answers fit n
                                               it on the grid those answers cross in?
 tools/test_session_model.sh                   does apply_annotations find who wrote the hints
                                               when the model never ran it?
+tools/salvaged.sh                             lists or restores what tools/puzzle_worker.sh
+                                              salvaged from a discarded run
 ```
 <!-- LAYOUT-END -->
