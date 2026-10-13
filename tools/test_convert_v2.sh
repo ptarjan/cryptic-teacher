@@ -120,6 +120,11 @@ new = run("no enumeration: the stored spacing is kept as spelling",
           ann(["charade"], "RIG OUT", "Dress", 0, [blk("fix", "RIG"), blk("away", "OUT")]),
           entry("RIGOUT", "Dress fix away"), "exact")
 check("spelling holds the spacing", new.get("spelling") == "RIG OUT", new)
+got, ks, new = C.check(ann(["charade"], "WELL-EARNED", "Thoroughly deserved", 0,
+                           [blk("fine", "WELL"), blk("got", "EARNED")]),
+                       entry("WELLEARNED", "Thoroughly deserved fine got", "10"), {"id": "azed-1743", "entries": []})
+check("Azed prints letter counts only: the hyphen is kept as spelling",
+      got != "failed" and new.get("spelling") == "WELL-EARNED", (got, ks, new))
 run("an apostrophe is kept as spelling",
     ann(["charade"], "CAT-O'-NINE-TAILS", "Whip", 0,
         [blk("pet", "CAT"), blk("old", "O"), blk("number", "NINE"), blk("narratives", "TAILS")]),
