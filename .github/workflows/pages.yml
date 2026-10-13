@@ -23,7 +23,7 @@ on:
 
 permissions:
   contents: read
-  actions: read  # validate reads the last successful run: its diff base
+  actions: read  # validate reads the last successful run: its diff base; the build waits on validate
   pages: write
   id-token: write
 
@@ -41,11 +41,16 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # A build takes about 3.5 minutes, up to ~15 more when a change redraws
-    # a full OG_LIMIT of social cards.
+    # A build takes a few minutes, up to ~15 more when a change redraws a
+    # full OG_LIMIT of social cards.
     # Without a cap a hung step holds the pages concurrency group, and so every
     # deploy behind it, for GitHub's 6 hours.
     timeout-minutes: 90
+    # The deploy is this job's step (Deploy to Pages), so the job carries the
+    # environment.
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Check out
         uses: actions/checkout@v4
@@ -76,6 +81,18 @@ jobs:
             ~/.cache/cryptic-teacher/code_reach
           key: row-cache-${{ github.sha }}
           restore-keys: row-cache-
+      # tools/clue_index.py's store of every puzzle file's clue keys, by git
+      # blob: the authored puzzle's write checks that its clues are not a held
+      # puzzle's (fetch_puzzle.check_not_copy), and without the store that
+      # parses all ~50k files, ~25s of a 30s step. A step of its own, not a
+      # path of the row cache: a cache's paths are part of its version, so
+      # adding one would have emptied the row store for a run.
+      - name: Restore the clue index
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/cryptic-teacher/clue-keys-*.sqlite*
+          key: clue-index-${{ github.sha }}
+          restore-keys: clue-index-
       # app.js reads the glossary from a <script> tag, so the file has to exist
       # before anything hashes it. That is this early because --reindex restamps
       # index.html on its way past, not only the stamping step further down.
@@ -186,12 +203,39 @@ jobs:
           restore-keys: indexnow-
       - name: List the changed pages
         run: python3 tools/indexnow.py changed _site .indexnow/manifest.json indexnow-urls.txt
-      - name: Upload the page list
-        uses: actions/upload-artifact@v4
-        with:
-          name: indexnow-urls
-          path: indexnow-urls.txt
-          retention-days: 1
+      # The deploy is a step of this job, not a job of its own: every job in
+      # the old build -> deploy -> budgets chain waited 15-75s for a runner
+      # and set itself up again, about a minute and a half of each run's
+      # total. A failing check must still ship nothing, so the deploy waits
+      # here for the validate job to finish and stops unless it passed. That
+      # is nearly always already true: validate is done in a minute on a
+      # puzzle push and in under five on a full check. Bounded by the
+      # step's timeout, so a validate job that never reports cannot hold the
+      # pages concurrency group.
+      - name: Wait for the annotation check
+        timeout-minutes: 35
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOBS: repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/attempts/${{ github.run_attempt }}/jobs
+        run: |
+          set -euo pipefail
+          while :; do
+            state=$(gh api "$JOBS" --jq '.jobs[] | select(.name == "validate") | "\(.status) \(.conclusion)"')
+            case "$state" in
+              "completed success") echo "validate passed"; exit 0 ;;
+              completed*) echo "::error title=Not deployed::the validate job ended '$state'"; exit 1 ;;
+            esac
+            echo "validate: ${state:-not started}"
+            sleep 10
+          done
+      - name: Deploy to Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      # Only once the deploy succeeded, so Bing fetches what is live; a failed
+      # ping leaves the site deployed and the run red, with IndexNow's reply
+      # in the log.
+      - name: Ping IndexNow
+        run: python3 tools/indexnow.py ping indexnow-urls.txt
       # After everything the deploy needs, and only when this run rendered
       # many pages (a code change, a cold cache): see Restore the puzzle pages.
       - name: Save the puzzle pages
@@ -202,10 +246,26 @@ jobs:
             puzzles/*/index.html
             .page-cache.pickle
           key: seo-pages-${{ github.sha }}
+      # Every step's time against its budget in tools/data/deploy_budgets.json,
+      # read off the jobs API. After the deploy, never in front of it: a slow
+      # build still ships, and the run goes red with an error naming the step,
+      # which is how a regression gets noticed the day it lands instead of a
+      # week later. A step with no budget row fails it too. Whatever failed
+      # before it, so a broken build is still timed; check-run skips the steps
+      # still running, this one among them, and the post-job cache saves.
+      - name: Check the step budgets
+        if: ${{ !cancelled() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+          ATTEMPT: ${{ github.run_attempt }}
+        run: python3 tools/step_budgets.py check-run "$REPO" "$RUN_ID" "$ATTEMPT"
 
   # Its own job so it runs beside the build instead of in front of the
   # staging: it reads only the puzzle sources and tools/, none of what the
-  # build generates. deploy needs it, so a failing check still ships nothing.
+  # build generates. The build's deploy step waits for it (Wait for the
+  # annotation check), so a failing check still ships nothing.
   #
   # Incremental, because the full check is minutes long and nearly every push
   # changes one puzzle file.
@@ -307,58 +367,3 @@ jobs:
           else
             echo "no puzzle changed since the last deploy"
           fi
-
-  # Every step's time against its budget in tools/data/deploy_budgets.json,
-  # read off the jobs API once the deploy is done. After the deploy, never in
-  # front of it: a slow build still ships, and the run goes red with an error
-  # naming the step, which is how a regression gets noticed the day it lands
-  # instead of a week later. A step with no budget row fails it too.
-  #
-  # IndexNow rides in the same job, first: it was a job of its own between
-  # the deploy and this one, and every job in that chain waited ~30-50s for a
-  # runner. The ping runs only when the deploy succeeded, so Bing fetches what
-  # is live; a failure leaves the site deployed and the run red, with
-  # IndexNow's reply in the log. check-run skips the steps still running, so
-  # this job's own check is not timed against itself.
-  budgets:
-    needs: [build, validate, deploy]
-    if: ${{ !cancelled() }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - name: Check out
-        uses: actions/checkout@v4
-        with:
-          sparse-checkout: |
-            tools/step_budgets.py
-            tools/data/deploy_budgets.json
-            tools/indexnow.py
-            f95c3e3037390dda228633f7d76588f2.txt
-          sparse-checkout-cone-mode: false
-      - name: Download the page list
-        if: needs.deploy.result == 'success'
-        uses: actions/download-artifact@v4
-        with:
-          name: indexnow-urls
-      - name: Ping IndexNow
-        if: needs.deploy.result == 'success'
-        run: python3 tools/indexnow.py ping indexnow-urls.txt
-      - name: Check the step budgets
-        if: ${{ !cancelled() }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-          REPO: ${{ github.repository }}
-          RUN_ID: ${{ github.run_id }}
-          ATTEMPT: ${{ github.run_attempt }}
-        run: python3 tools/step_budgets.py check-run "$REPO" "$RUN_ID" "$ATTEMPT"
-
-  deploy:
-    needs: [build, validate]
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
