@@ -470,6 +470,18 @@ worker_reopen() {   # id run-file-copy entry...
   echo "  [$id] $out; to be solved again"
 }
 
+# Whether puzzle $1's validation ($2, its log) failed only for clues left
+# blank (check_every_clue_is_annotated's one line), with a hint elsewhere to
+# ship, and the file passes the deploy's rules, which the commit hooks apply:
+# there a hole is queued to be annotated again, not an error.
+worker_only_blanks() {   # id vlog
+  local errs
+  errs=$(grep -E '^  ERROR' "$2") || return 1
+  grep -qvE '^  ERROR: [0-9]+[AD](,[0-9]+[AD])*: no annotation\.' <<<"$errs" && return 1
+  grep -qE '^[^ ].*: [1-9][0-9]*/[0-9]+ annotated' "$2" || return 1
+  python3 tools/validate_annotations.py --deploy "$(python3 tools/puzzle_paths.py "$1")" >/dev/null 2>&1
+}
+
 # Mark $1, discarded, as awaiting the preamble its entries $2 need
 # (tools/await_preamble.py), and commit and push that, so neither picker sends
 # it again until a preamble is filed. When any step fails it is parked on its
@@ -577,7 +589,7 @@ worker_finish() {   # id what sidfile log
   return $rc
 }
 _worker_finish() {
-  local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen ran loss wants
+  local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen ran loss wants pending=""
   vlog="$(mktemp "${TMPDIR:-/tmp}/cryptic-validate.XXXXXX")"
   if ! python3 tools/validate_annotations.py "$id" >"$vlog" 2>&1; then
     file=$(python3 tools/puzzle_paths.py "$id")
@@ -619,21 +631,33 @@ _worker_finish() {
       worker_await_preamble "$id" "$wants"
       return 1
     fi
-    # Parked: the work is thrown away and the puzzle stays unannotated until
-    # its inputs change, which only a person mending the clue or answer does,
-    # so this is said out loud. Quoting the failure line verbatim marks it
-    # claimed for alert.sh.
-    alert "$what $id was discarded — it did not validate, so that puzzle stays unannotated:"$'\n'"VALIDATION FAILED after $what $id — discarding that puzzle's changes"$'\n'"\`\`\`"$'\n'"$(grep -E '^  ERROR' "$vlog" | head -5)"$'\n'"\`\`\`"
-    # Recorded against the puzzle's inputs: this run finished and was rejected,
-    # the one failure that says something about the grid. A misread clue on an
-    # OCR'd puzzle is the scan's to read again instead (annotate_check.py
-    # --reread; once per reading of its clues).
-    python3 tools/annotate_check.py --reread "$id" ||
-      python3 tools/failed_inputs.py record annotate "$id" --judged \
-        --reason "$(grep -E '^  ERROR' "$vlog" | head -1 | cut -c1-200)" || true
-    discard_puzzle "$id"
-    rm -f "$vlog"
-    return 1
+    # Wrong only in clues left blank, and nothing reopened them: the hints
+    # that did validate ship, and the blanks stay pending (the deploy's rules:
+    # a hole is queued, the puzzle indexes as unannotated). One clue no run
+    # can parse used to discard every other hint with it (nation-3405, 10-12).
+    # Recorded against its inputs as a parked puzzle is, so the hole is not
+    # bought again until a person changes the clue.
+    if [ -z "$reopen" ] && worker_only_blanks "$id" "$vlog"; then
+      pending=$(grep -E '^  ERROR' "$vlog" | head -1 | cut -c1-200)
+      echo "  [$id] only blank clues failed — shipping the hints that validated, the blanks left pending"
+    fi
+    if [ -z "$pending" ]; then
+      # Parked: the work is thrown away and the puzzle stays unannotated until
+      # its inputs change, which only a person mending the clue or answer does,
+      # so this is said out loud. Quoting the failure line verbatim marks it
+      # claimed for alert.sh.
+      alert "$what $id was discarded — it did not validate, so that puzzle stays unannotated:"$'\n'"VALIDATION FAILED after $what $id — discarding that puzzle's changes"$'\n'"\`\`\`"$'\n'"$(grep -E '^  ERROR' "$vlog" | head -5)"$'\n'"\`\`\`"
+      # Recorded against the puzzle's inputs: this run finished and was rejected,
+      # the one failure that says something about the grid. A misread clue on an
+      # OCR'd puzzle is the scan's to read again instead (annotate_check.py
+      # --reread; once per reading of its clues).
+      python3 tools/annotate_check.py --reread "$id" ||
+        python3 tools/failed_inputs.py record annotate "$id" --judged \
+          --reason "$(grep -E '^  ERROR' "$vlog" | head -1 | cut -c1-200)" || true
+      discard_puzzle "$id"
+      rm -f "$vlog"
+      return 1
+    fi
   fi
   rm -f "$vlog"
   # Solved-but-short is not a failure: the nulled clues ship as "answers only".
@@ -670,7 +694,11 @@ _worker_finish() {
   fi
   # shellcheck disable=SC2046  # one path per line, none with a space
   worker_commit "$what $id" "${spec[@]}" $(python3 tools/own_rows.py paths) || return 1
-  python3 tools/failed_inputs.py clear annotate "$id" >/dev/null
+  if [ -n "$pending" ]; then
+    python3 tools/failed_inputs.py record annotate "$id" --judged --reason "$pending" || true
+  else
+    python3 tools/failed_inputs.py clear annotate "$id" >/dev/null
+  fi
   echo "committed $what $id"
   return 0
 }

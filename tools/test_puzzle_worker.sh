@@ -340,5 +340,27 @@ check "restored into tools/ for annotate_check, landing as the run's session" \
   "$(got restored) | $(got land)" '{"1-across": {"x": 1}} | land it: CLAUDE_CODE_SESSION_ID=sid-9 python3 tools/annotate_check.py pw-salv'
 check "never over a live run's _ann file" "$(got again)" "1"
 
+echo "a run wrong only in blank clues ships the hints that validated (nation-3405, 10-12)"
+# shellcheck disable=SC2329  # its stubs are called by the sourced worker
+blanks() (   # vlog-text [deploy-rc]
+  # shellcheck disable=SC2034  # read by the sourced worker
+  WORKER_JOB="test"
+  . tools/puzzle_worker.sh
+  python3() { [ "$1" = tools/validate_annotations.py ] && return "${DEPLOY_RC:-0}"; echo x.json; }
+  printf '%s\n' "$1" >"$stub/vlog"
+  DEPLOY_RC="${2:-0}" worker_only_blanks pw-blank "$stub/vlog"
+  echo "rc=$?"
+)
+out=$(blanks $'nation-3405 (K and P): 28/30 annotated — FAIL\n  warn: 29A: no annotation — solved twice\n  ERROR: 22D: no annotation. Every clue')
+check "only a blank failed: it ships" "$(got rc)" "0"
+out=$(blanks $'x: 28/30 annotated — FAIL\n  ERROR: 22D,3A: no annotation. Every clue\n  ERROR: 15A: block gives II')
+check "a blank beside any other error: parked as before" "$(got rc)" "1"
+out=$(blanks $'x: 0/30 annotated — FAIL\n  ERROR: 1A,2A: no annotation. Every clue')
+check "no hint at all: nothing to ship" "$(got rc)" "1"
+out=$(blanks $'x: 28/30 annotated — FAIL\n  ERROR: 22D: no annotation. Every clue' 1)
+check "the deploy's rules refuse it: parked" "$(got rc)" "1"
+check "worker_finish ships it, and records it so the hole is not bought again" \
+  "$(grep -c 'worker_only_blanks "\$id" "\$vlog"' tools/puzzle_worker.sh) $(grep -c 'record annotate "\$id" --judged --reason "\$pending"' tools/puzzle_worker.sh)" "1 1"
+
 [ "$fails" = 0 ] && echo "puzzle worker: all checks passed" || echo "puzzle worker: $fails FAILED"
 exit $((fails > 0))

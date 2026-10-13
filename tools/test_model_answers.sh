@@ -157,8 +157,57 @@ try:
     check("hints that validate are kept", R.hinted_if_valid(path, same, ran, [eid]) is not None)
     V0.run_errors = lambda path, pz: ["7A: something"]
     check("hints that do not validate are all dropped", R.hinted_if_valid(path, same, ran, [eid]) is None)
+    # One clue's error costs only that clue's hint (nation-3405, 10-12).
+    x = next(e for e in ran["entries"] if entry_id(e) not in (eid, p_eid) and not e.get("group"))
+    x_eid, x_tag = entry_id(x), f"{x['number']}{'A' if x['direction'] == 'across' else 'D'}"
+    calls = []
+    V0.run_errors = lambda path, pz: calls.append(1) or ([f"{x_tag}: bad parse"] if len(calls) == 1 else [])
+    one = R.hinted_if_valid(path, same, ran, [eid])
+    check("a named clue's error drops its hint and keeps the rest",
+          one is not None and "annotation" not in next(e for e in one["entries"] if entry_id(e) == x_eid)
+          and sum(1 for e in one["entries"] if e.get("annotation")) == sum(
+              1 for e in kept["entries"] if e.get("annotation")) - 1)
+    V0.run_errors = lambda path, pz: ["schema: $: keys in the wrong order"]
+    check("an error naming no clue still keeps none", R.hinted_if_valid(path, same, ran, [eid]) is None)
 finally:
     V0.run_errors = real_run_errors
+# The kept file's keys are in the schema's order: annotatedBy added after
+# entries failed the real check on key order alone, and every hint went
+# (nation-3405, nation-3419, 10-12; the mocks above could not see it).
+import puzzle_schema
+check("the kept hints are in the schema's key order",
+      list(kept) == list(puzzle_schema.order(kept))
+      and not [e for e in V0.run_errors(path, kept) if e.startswith("schema: $: keys in the order")])
+
+# Run 1 annotates X and it is committed; run 2 leaves X null. X keeps run 1's
+# hint (nation-3405 22D, 10-12) — unless its answer or clue has changed since.
+def reannotate(puzzle, committed_puzzle):
+    wrote = {}
+    real = (A.write_puzzle_file, A.read_puzzle_file, A.committed_entries)
+    A.write_puzzle_file = lambda p, pz: wrote.setdefault("puzzle", pz)
+    A.read_puzzle_file = lambda p: copy.deepcopy(puzzle)
+    A.committed_entries = lambda p: {entry_id(e): copy.deepcopy(e) for e in committed_puzzle["entries"]}
+    try:
+        A.apply(path, {entry_id(e): None for e in puzzle["entries"]
+                       if entry_id(e) not in groups_leader}, by="human")
+    finally:
+        A.write_puzzle_file, A.read_puzzle_file, A.committed_entries = real
+    return {entry_id(e): e.get("annotation") for e in wrote["puzzle"]["entries"]}
+import groups
+groups_leader = groups.leader_of(kept["entries"])
+run1 = copy.deepcopy(kept)
+x_hint = next(e for e in run1["entries"] if entry_id(e) == x_eid)["annotation"]
+after = reannotate(run1, run1)
+check("a re-annotation's null keeps the committed hint", after[x_eid] == x_hint)
+moved = copy.deepcopy(run1)
+next(e for e in moved["entries"] if entry_id(e) == x_eid)["clue"]["text"] = "a clue since corrected (5)"
+after = reannotate(run1, moved)
+check("but not one whose clue changed since it was committed", after[x_eid] is None)
+uncommitted = copy.deepcopy(run1)
+for e in uncommitted["entries"]:
+    e.pop("annotation", None)
+after = reannotate(run1, uncommitted)
+check("and a run may still null its own uncommitted hint", after[x_eid] is None)
 # A reopened light without a hint is pending, then answers-only; any other blank still fails.
 pending = copy.deepcopy(kept)
 next(x for x in pending["entries"] if entry_id(x) == p_eid)["annotation"] = {"type": ["charade"]}
