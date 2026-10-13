@@ -4,6 +4,13 @@
  "setter": "Jack",
  "date": "2022-12-05",
  "preamble": "Wordplay in each clue contains a superfluous letter to be ignored in reaching its solution. The solutions are to be fitted into the grid, jigsaw-wise, however they will go.",
+ "messages": [
+  {
+   "text": "CHANGE ONE LETTER TO MAKE PANGRAM",
+   "kind": "clue",
+   "order": "clues"
+  }
+ ],
  "cluesUnplaced": true,
  "dimensions": {
   "cols": 15,
@@ -23,6 +30,9 @@
   "date": "2026-10-13",
   "check": "28 entries, 48 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +46,54 @@
     "text": "● Saw losers in favour of something that means action",
     "enumeration": "4"
    },
-   "solution": "VERB"
+   "solution": "VERB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "something that means action",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losers",
+       "at": 6,
+       "note": "read without its superfluous R as loses: the saw loses a part, so those letters are taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Saw",
+       "at": 2,
+       "gives": "PROVERB",
+       "note": "a saw is an old saying, a proverb"
+      },
+      {
+       "words": "in favour of",
+       "at": 13,
+       "gives": "PRO",
+       "note": "pro is Latin for for, as in pros and cons"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone saw the losers favour a particular course of action.",
+     "walkthrough": "The superfluous letter is the R of 'losers', which really reads 'loses'.",
+     "definitionFit": "Grammar books call a verb a doing word, the part of speech naming an action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Saw"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "R",
+     "at": 10
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +107,64 @@
     "text": "● Endearing lot get ejected from food plant",
     "enumeration": "8"
    },
-   "solution": "LOVEABLE"
+   "solution": "LOVEABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Endearing",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "lot",
+       "at": 12,
+       "gives": "LO",
+       "note": "read without its superfluous T as lo, the old word for look"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ejected from",
+         "at": 20,
+         "note": "something ejected is thrown out, so these letters leave the longer word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "food plant",
+         "at": 33,
+         "gives": "VEGETABLE",
+         "note": "a vegetable is a plant grown for food"
+        },
+        {
+         "words": "get",
+         "at": 16,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A charming bunch are thrown out of a vegetable garden.",
+     "walkthrough": "The superfluous letter is the T of 'lot', which really reads 'lo'.",
+     "definitionFit": "Something endearing inspires affection, which is the same as being easy to love."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lot"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "T",
+     "at": 14
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +178,54 @@
     "text": "● Stimulate moderate politician to open hospital",
     "enumeration": "4"
    },
-   "solution": "WHET"
+   "solution": "WHET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stimulate",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to open",
+       "at": 32,
+       "note": "read without its superfluous O as to pen: the politician pens, or encloses, the hospital letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "moderate politician",
+       "at": 12,
+       "gives": "WET",
+       "note": "a wet is a moderate in the Conservative party, a term from the Thatcher years"
+      },
+      {
+       "words": "hospital",
+       "at": 40,
+       "gives": "H",
+       "note": "H is the map and signpost abbreviation for hospital"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A centrist MP is invited to declare a new hospital open.",
+     "walkthrough": "The superfluous letter is the O of 'open', which really reads 'pen'. A wet was Thatcher's word for a soft Tory.",
+     "definitionFit": "To whet an appetite or interest is to sharpen and stimulate it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "open"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "O",
+     "at": 35
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +239,66 @@
     "text": "● Wrongly maligned stoical prisoner stabs smashing chap?",
     "enumeration": "10"
    },
-   "solution": "ICONOCLAST"
+   "solution": "ICONOCLAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "smashing chap?",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stabs",
+       "at": 36,
+       "note": "the prisoner stabs into the jumbled word, so it sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Wrongly maligned",
+         "at": 2,
+         "note": "read without its superfluous M as wrongly aligned: letters set out of line are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stoical",
+         "at": 19,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "prisoner",
+       "at": 27,
+       "gives": "CON",
+       "note": "con is short for convict, a prisoner"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A calm convict, falsely slandered, knifes someone.",
+     "walkthrough": "The superfluous letter is the M of 'maligned', which really reads 'aligned'. The question mark flags a playful definition.",
+     "definitionFit": "An iconoclast literally smashed religious images, so he is a smashing chap in the sense of a breaker of idols."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smashing"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "M",
+     "at": 10
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +312,50 @@
     "text": "● Hot meal atypically being delivered cold",
     "enumeration": "6"
    },
-   "solution": "CHILLY"
+   "solution": "CHILLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cold",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "CHILLY",
+     "indicators": [
+      {
+       "text": "being delivered",
+       "at": 22,
+       "note": "a speech is delivered, so the word is spoken and only its sound counts"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hot meal atypically",
+       "at": 2,
+       "gives": "CHILLI",
+       "note": "read without its superfluous A as hot meal typically: chilli con carne is a typical hot meal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hot takeaway turns up cold, which is not the usual way.",
+     "walkthrough": "The superfluous letter is the first A of 'atypically', which really reads 'typically'; chilli the dish and the adjective for cold sound alike.",
+     "definitionFit": "Chilly weather is unpleasantly cold, so the adjective is a plain synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "delivered"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "A",
+     "at": 11
+    }
+   }
   },
   {
    "number": 6,
@@ -106,7 +369,71 @@
     "text": "● Administration knew Conservative politician supervised church shelters",
     "enumeration": "10"
    },
-   "solution": "GOVERNANCE"
+   "solution": "GOVERNANCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Administration",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "shelters",
+       "at": 64,
+       "note": "the outer letters shelter the new one, holding it inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Conservative politician",
+         "at": 22,
+         "gives": "GOVE",
+         "note": "Michael Gove is a Conservative cabinet minister"
+        },
+        {
+         "words": "supervised",
+         "at": 46,
+         "gives": "RAN",
+         "note": "to run a business is to supervise it"
+        },
+        {
+         "words": "church",
+         "at": 57,
+         "gives": "CE",
+         "note": "CE is the Church of England"
+        }
+       ]
+      },
+      {
+       "words": "knew",
+       "at": 17,
+       "gives": "N",
+       "note": "read without its superfluous K as new, abbreviated N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The government knew a Tory minister had overseen church refuges.",
+     "walkthrough": "The superfluous letter is the K of 'knew', which really reads 'new'. Michael Gove is a long-serving British Conservative minister.",
+     "definitionFit": "Governance is the act or system of governing, which is the work of an administration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knew"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "K",
+     "at": 17
+    }
+   }
   },
   {
    "number": 7,
@@ -120,7 +447,76 @@
     "text": "The superfluous letters from the clues (in the normal order of their solutions as found in the grid) spell out a final instruction that must be followed before the entry is submitted for the prize. ● Novel on hope by writer chides racist",
     "enumeration": "10"
    },
-   "solution": "XENOPHOBIC"
+   "solution": "XENOPHOBIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "racist",
+      "at": 231
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "chides",
+       "at": 224,
+       "note": "read without its superfluous C as hides: the outer letters hide the jumble within"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "by",
+         "at": 214,
+         "gives": "X",
+         "note": "X is the times sign, as in four by three"
+        },
+        {
+         "words": "writer",
+         "at": 217,
+         "gives": "BIC",
+         "note": "Bic is a brand of ballpoint pen"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Novel",
+         "at": 200,
+         "note": "a novel arrangement is a new one, so the letters are reordered"
+        }
+       ],
+       "parts": [
+        {
+         "words": "on hope",
+         "at": 206,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer's novel about hope scolds a bigot.",
+     "walkthrough": "The superfluous letter is the C of 'chides', which really reads 'hides'. Dimensions such as six by four use X for 'by'.",
+     "definitionFit": "Xenophobia is fear or hatred of foreigners, close kin to racial prejudice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Novel"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "C",
+     "at": 224
+    }
+   }
   },
   {
    "number": 8,
@@ -134,7 +530,58 @@
     "text": "● Attractive woman and boyfriend cease to try",
     "enumeration": "6"
    },
-   "solution": "BEAUTY"
+   "solution": "BEAUTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Attractive woman",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "boyfriend",
+       "at": 23,
+       "gives": "BEAU",
+       "note": "a beau is a boyfriend or admirer"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "cease to",
+         "at": 33,
+         "note": "read without its superfluous E as case to: the case of a word is its outside, its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "try",
+         "at": 42,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lovely woman and her partner give up trying.",
+     "walkthrough": "The superfluous letter is the first E of 'cease', which really reads 'case'.",
+     "definitionFit": "A beauty is a strikingly good-looking person, especially a woman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cease"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "E",
+     "at": 34
+    }
+   }
   },
   {
    "number": 9,
@@ -148,7 +595,36 @@
     "text": "● Sound of howl or scream?",
     "enumeration": "4"
    },
-   "solution": "HOOT"
+   "solution": "HOOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sound of howl",
+      "at": 2,
+      "meaning": "first meaning, read without the superfluous H as sound of owl: the cry an owl makes"
+     },
+     {
+      "text": "scream",
+      "at": 19,
+      "meaning": "second meaning: a scream is something hilarious"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The superfluous letter is the H of 'howl', which really reads 'owl'.",
+     "definitionFit": "An owl's call is its classic cry, and informally a very funny person or thing is a riot or a scream."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "howl"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "H",
+     "at": 11
+    }
+   }
   },
   {
    "number": 10,
@@ -162,7 +638,69 @@
     "text": "● Old boy avoided juvenile court and part of sentence",
     "enumeration": "6"
    },
-   "solution": "OBJECT"
+   "solution": "OBJECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of sentence",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Old boy",
+       "at": 2,
+       "gives": "OB",
+       "note": "OB is the abbreviation for an old boy, a former pupil"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "avoided",
+         "at": 10,
+         "note": "read without its superfluous A as voided: the words are emptied, keeping only their first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "juvenile",
+         "at": 18,
+         "note": "taken as written, stripped to its first and last letters"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "parts": [
+        {
+         "words": "court",
+         "at": 27,
+         "note": "taken as written, likewise stripped to its ends"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former pupil escaped a youth court and served part of his sentence.",
+     "walkthrough": "The superfluous letter is the A of 'avoided', which really reads 'voided'. 'Sentence' looks like a prison term but is grammatical.",
+     "definitionFit": "In grammar the object is the noun phrase acted on by the verb, one component of a sentence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sentence"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "A",
+     "at": 10
+    }
+   }
   },
   {
    "number": 11,
@@ -176,7 +714,65 @@
     "text": "● Cancelled publication was first to abandon arena",
     "enumeration": "8"
    },
-   "solution": "ANNULLED"
+   "solution": "ANNULLED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cancelled",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to abandon",
+         "at": 34,
+         "note": "the letter is abandoned, so it leaves the word for the publication"
+        }
+       ],
+       "parts": [
+        {
+         "words": "publication",
+         "at": 12,
+         "gives": "ANNUAL",
+         "note": "an annual is a book published once a year"
+        },
+        {
+         "words": "arena",
+         "at": 45,
+         "gives": "A",
+         "note": "read without its superfluous N as area, abbreviated A"
+        }
+       ]
+      },
+      {
+       "words": "was first",
+       "at": 24,
+       "gives": "LED",
+       "note": "to lead a race is to be first"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A magazine that once topped the field is axed and leaves the stadium.",
+     "walkthrough": "The superfluous letter is the N of 'arena', which really reads 'area'.",
+     "definitionFit": "A cancelled contract or marriage is annulled, declared void and of no effect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arena"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "N",
+     "at": 48
+    }
+   }
   },
   {
    "number": 12,
@@ -190,7 +786,77 @@
     "text": "● Hedonistic city's about to host writer pursuing grail",
     "enumeration": "9"
    },
-   "solution": "SYBARITIC"
+   "solution": "SYBARITIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hedonistic",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to host",
+       "at": 26,
+       "note": "the reversed word plays host, holding the other letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 20,
+         "note": "turned about means reversed, so the word reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "city's",
+         "at": 13,
+         "gives": "CITYS",
+         "note": "the word with its S, read letter by letter"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "grail",
+         "at": 50,
+         "gives": "BAR",
+         "note": "read without its superfluous G as rail, and a rail is a bar"
+        },
+        {
+         "words": "writer",
+         "at": 34,
+         "gives": "I",
+         "note": "the writer of a clue refers to themself as I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pleasure-loving city is about to welcome an author questing for the Holy Grail.",
+     "walkthrough": "The superfluous letter is the G of 'grail', which really reads 'rail'. Sybaris was an ancient Greek city famous for luxury.",
+     "definitionFit": "Sybaritic means devoted to luxury and pleasure, like the citizens of Sybaris."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grail"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "G",
+     "at": 50
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +870,78 @@
     "text": "● Heightened awareness of speed limits is introduced by new model",
     "enumeration": "10"
    },
-   "solution": "SENSITISED"
+   "solution": "SENSITISED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Heightened awareness of",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "limits",
+       "at": 32,
+       "note": "the word forms the limits, its letters bounding the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "speed",
+       "at": 26,
+       "gives": "SEED",
+       "note": "read without its superfluous P as seed"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "introduced by",
+         "at": 42,
+         "note": "one piece is introduced by the others, so they come before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "new",
+         "at": 56,
+         "gives": "N",
+         "note": "N is the abbreviation for new"
+        },
+        {
+         "words": "model",
+         "at": 60,
+         "gives": "SIT",
+         "note": "to sit for an artist is to model"
+        },
+        {
+         "words": "is",
+         "at": 39,
+         "gives": "IS",
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Speed restrictions are brought in by a new type of car, making drivers more alert.",
+     "walkthrough": "The superfluous letter is the P of 'speed', which really reads 'seed'.",
+     "definitionFit": "To sensitise someone to an issue is to make them more conscious or alert to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "P",
+     "at": 27
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +955,58 @@
     "text": "● Paper out to launch dishonesty being relevant once more?",
     "enumeration": "10"
    },
-   "solution": "REAPPLYING"
+   "solution": "REAPPLYING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "being relevant once more?",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out to launch",
+         "at": 8,
+         "note": "read without its superfluous A as out to lunch, slang for crazy, so the letters go haywire"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Paper",
+         "at": 2,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "dishonesty",
+       "at": 22,
+       "gives": "LYING",
+       "note": "lying is telling untruths"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper sets out to expose deceit, now topical again.",
+     "walkthrough": "The superfluous letter is the A of 'launch', which really reads 'lunch'. The question mark covers a loose definition.",
+     "definitionFit": "A rule that is applying holds good or is relevant; doing so again is applying a second time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "launch"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "A",
+     "at": 16
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +1020,65 @@
     "text": "● American conmen ultimately cheat crowds",
     "enumeration": "4"
    },
-   "solution": "YANK"
+   "solution": "YANK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "American",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crowds",
+       "at": 35,
+       "note": "the outer word crowds round the letter, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cheat",
+       "at": 29,
+       "gives": "YAK",
+       "note": "read without its superfluous E as chat, and to yak is to chat"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 18,
+         "note": "ultimately points to the very end of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "conmen",
+         "at": 11,
+         "note": "only its final letter is used"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Swindlers eventually defraud the crowds in the States.",
+     "walkthrough": "The superfluous letter is the E of 'cheat', which really reads 'chat'.",
+     "definitionFit": "Yank is the informal British word for a person from the United States."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheat"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "E",
+     "at": 31
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +1092,49 @@
     "text": "● Something in limbo can keep suffering",
     "enumeration": "7"
    },
-   "solution": "KNEECAP"
+   "solution": "KNEECAP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something in limbo",
+      "at": 2,
+      "note": "read without its superfluous O as something in limb, a part of the leg"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "suffering",
+       "at": 30,
+       "note": "letters that are suffering are in a bad way, knocked out of order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "can keep",
+       "at": 21,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soul in limbo goes on suffering.",
+     "walkthrough": "The superfluous letter is the O of 'limbo', which really reads 'limb'; it sits in the definition, not the wordplay as the preamble says.",
+     "definitionFit": "The kneecap or patella is the bone at the front of the knee joint, part of the leg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "limbo"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "O",
+     "at": 19
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +1148,93 @@
     "text": "● Start off job when men supply boxes in plant",
     "enumeration": "7"
    },
-   "solution": "JASMINE"
+   "solution": "JASMINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start off",
+         "at": 2,
+         "note": "the start of the word is its first letter, taken off it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "job",
+         "at": 12,
+         "note": "only its first letter is used"
+        }
+       ]
+      },
+      {
+       "words": "when",
+       "at": 16,
+       "gives": "AS",
+       "note": "as can mean when, as in as I left"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "boxes",
+         "at": 32,
+         "note": "the jumbled letters box in the other one, holding it inside"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "supply",
+           "at": 25,
+           "note": "supply in the sense of supple, flexible: the letters bend into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "men",
+           "at": 21,
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "in",
+         "at": 38,
+         "gives": "I",
+         "note": "read without its superfluous N as i, the single letter I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Begin work when the men provide window boxes of flowers.",
+     "walkthrough": "The superfluous letter is the N of 'in', which really reads 'i'. 'Supply' here is an adverb from supple.",
+     "definitionFit": "Jasmine is a climbing shrub with fragrant white or yellow flowers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supply"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "N",
+     "at": 39
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +1248,54 @@
     "text": "● Orders courts to support land in years to come",
     "enumeration": "8"
    },
-   "solution": "MANDATES"
+   "solution": "MANDATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Orders",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to support",
+       "at": 16,
+       "note": "in a down answer the supporting piece sits underneath the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "land in years to come",
+       "at": 27,
+       "gives": "MAN",
+       "note": "read without its superfluous N as lad in years to come: a boy grows into a man"
+      },
+      {
+       "words": "courts",
+       "at": 9,
+       "gives": "DATES",
+       "note": "to court someone is to date them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge orders the courts to back a land claim for future years.",
+     "walkthrough": "The superfluous letter is the N of 'land', which really reads 'lad'.",
+     "definitionFit": "A mandate is an official order or commission to act, so mandates are orders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "courts"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "N",
+     "at": 29
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +1309,65 @@
     "text": "● Disconnect line bitten by gun dog",
     "enumeration": "6"
    },
-   "solution": "UNPLUG"
+   "solution": "UNPLUG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disconnect",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "gun",
+       "at": 28,
+       "gives": "UN",
+       "note": "read without its superfluous G as un, a dialect form of one"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bitten by",
+         "at": 18,
+         "note": "the line is bitten by the dog, held in its jaws"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dog",
+         "at": 32,
+         "gives": "PUG",
+         "note": "a pug is a small breed of dog"
+        },
+        {
+         "words": "line",
+         "at": 13,
+         "gives": "L",
+         "note": "L is the abbreviation for line"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retriever trained to the gun bites through a cable.",
+     "walkthrough": "The superfluous letter is the G of 'gun', which really reads 'un', as in 'a good un'. A gun dog retrieves shot game.",
+     "definitionFit": "To unplug a device is to disconnect it by pulling its plug from the socket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gun"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "G",
+     "at": 28
+    }
+   }
   },
   {
    "number": 19,
@@ -302,7 +1381,66 @@
     "text": "● Fellow overwhelmed by sources of torrent in full spate",
     "enumeration": "4"
    },
-   "solution": "TIFF"
+   "solution": "TIFF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spate",
+      "at": 51,
+      "note": "read without its superfluous E as spat, a petty quarrel"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "overwhelmed by",
+       "at": 9,
+       "note": "the fellow is overwhelmed, swallowed up inside the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "sources of",
+         "at": 24,
+         "note": "the source of each word is where it begins, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "torrent in full",
+         "at": 35,
+         "note": "the opening letters of these three words"
+        }
+       ]
+      },
+      {
+       "words": "Fellow",
+       "at": 2,
+       "gives": "F",
+       "note": "F is the abbreviation for fellow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man is swept away by a river in full flood.",
+     "walkthrough": "The superfluous letter is the E of 'spate', which really reads 'spat'; it sits in the definition, not the wordplay as the preamble says.",
+     "definitionFit": "A tiff is a minor squabble between friends or lovers, the same as a spat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spate"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "E",
+     "at": 55
+    }
+   }
   },
   {
    "number": 20,
@@ -316,7 +1454,65 @@
     "text": "● Liberal country blocking adherent's dangerous flyer",
     "enumeration": "6"
    },
-   "solution": "FALCON"
+   "solution": "FALCON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dangerous flyer",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "blocking",
+       "at": 18,
+       "note": "the inner letters block the middle of the word, sitting inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "adherent's",
+       "at": 27,
+       "gives": "FAN",
+       "note": "a fan is an adherent, the apostrophe S linking it to the rest"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Liberal",
+         "at": 2,
+         "gives": "L",
+         "note": "L is the abbreviation for Liberal"
+        },
+        {
+         "words": "country",
+         "at": 10,
+         "gives": "CO",
+         "note": "read without its superfluous R as county, abbreviated CO"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Liberal-run country is threatened by a supporter's deadly aircraft.",
+     "walkthrough": "The superfluous letter is the R of 'country', which really reads 'county'.",
+     "definitionFit": "A falcon is a bird of prey, deadly to the smaller birds it hunts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "flyer"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "R",
+     "at": 15
+    }
+   }
   },
   {
    "number": 21,
@@ -330,7 +1526,78 @@
     "text": "● Ruling state sent back English money in small change",
     "enumeration": "9"
    },
-   "solution": "PENITENCE"
+   "solution": "PENITENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ruling state",
+      "at": 2,
+      "note": "read without its superfluous L as ruing state, a state of regret"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 39,
+       "note": "one piece goes in the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "small change",
+       "at": 42,
+       "gives": "PENCE",
+       "note": "pence are the small coins of British money"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "sent back",
+         "at": 15,
+         "note": "letters sent back travel the other way, read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "English",
+           "at": 25,
+           "gives": "E",
+           "note": "E is the abbreviation for English"
+          },
+          {
+           "words": "money",
+           "at": 33,
+           "gives": "TIN",
+           "note": "tin is old slang for money"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A governing nation returns English cash in coins.",
+     "walkthrough": "The superfluous letter is the L of 'Ruling', which really reads 'Ruing'; it sits in the definition, not the wordplay as the preamble says.",
+     "definitionFit": "Penitence is sorrow and regret for wrongdoing, a condition of ruing what one did."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Ruling"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "L",
+     "at": 4
+    }
+   }
   },
   {
    "number": 22,
@@ -344,7 +1611,70 @@
     "text": "● False idols going made place backward",
     "enumeration": "8"
    },
-   "solution": "DISLOYAL"
+   "solution": "DISLOYAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "False",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "going made",
+         "at": 14,
+         "note": "read without its superfluous E as going mad: the letters run wild into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "idols",
+         "at": 8,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backward",
+         "at": 31,
+         "note": "the word is read backward, its letters reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "place",
+         "at": 25,
+         "gives": "LAY",
+         "note": "to lay something down is to place it"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fake gods went mad and made a place regress.",
+     "walkthrough": "The superfluous letter is the E of 'made', which really reads 'mad'.",
+     "definitionFit": "Someone disloyal is false to a friend or cause, unfaithful in allegiance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "False"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "E",
+     "at": 23
+    }
+   }
   },
   {
    "number": 23,
@@ -358,7 +1688,70 @@
     "text": "● Taxing backers of problem states is more sophisticated",
     "enumeration": "6"
    },
-   "solution": "SUAVER"
+   "solution": "SUAVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "more sophisticated",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Taxing backers of",
+         "at": 2,
+         "note": "read without its superfluous T as axing backers of: the back letter of each word is axed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "problem",
+         "at": 20,
+         "gives": "SUM",
+         "note": "a sum is an arithmetic problem"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "states",
+         "at": 28,
+         "gives": "AVERS",
+         "note": "to aver is to state firmly"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taxing the sponsors of troubled countries is the smoother policy.",
+     "walkthrough": "The superfluous letter is the T of 'Taxing', which really reads 'axing'. Change this S to Q, as the hidden instruction says, and the grid becomes a pangram.",
+     "definitionFit": "Suave means smooth and urbane in manner, so the comparative means more polished or sophisticated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Taxing"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "T",
+     "at": 2
+    }
+   }
   },
   {
    "number": 23,
@@ -372,7 +1765,41 @@
     "text": "● Action bureaucratic functionary's fiat",
     "enumeration": "4"
    },
-   "solution": "SUIT"
+   "solution": "SUIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Action",
+      "at": 2,
+      "meaning": "first meaning: an action or ... at law, a lawsuit"
+     },
+     {
+      "text": "bureaucratic functionary",
+      "at": 9,
+      "meaning": "second meaning: a ... is slang for an office bureaucrat in a business ..."
+     },
+     {
+      "text": "fiat",
+      "at": 36,
+      "meaning": "third meaning, read without its superfluous A as fit: to fit"
+     }
+    ],
+    "explanation": {
+     "surface": "An official's decree triggers a course of action.",
+     "walkthrough": "The superfluous letter is the A of 'fiat', which really reads 'fit'.",
+     "definitionFit": "A lawsuit is a legal action, a suit is a faceless office type, and clothes that suit you fit you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fiat"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "A",
+     "at": 38
+    }
+   }
   },
   {
    "number": 24,
@@ -386,7 +1813,63 @@
     "text": "● Leaders of men are creating havoc for every individual",
     "enumeration": "4"
    },
-   "solution": "EACH"
+   "solution": "EACH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for every individual",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Leaders of",
+         "at": 2,
+         "note": "the leader of a word is its opening letter, so only that letter is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "men",
+         "at": 13,
+         "gives": "EN",
+         "note": "read without its superfluous M as en, a printer's measure; only its first letter is used"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "parts": [
+        {
+         "words": "are creating havoc",
+         "at": 17,
+         "note": "the opening letters of these three words"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ringleaders are causing chaos for everyone.",
+     "walkthrough": "The superfluous letter is the M of 'men', which really reads 'en', a printer's measure.",
+     "definitionFit": "Each is used adverbially, as in a pound each, meaning apiece or per person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leaders"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "M",
+     "at": 13
+    }
+   }
   },
   {
    "number": 25,
@@ -400,7 +1883,55 @@
     "text": "● Round figure concealed by outsize trousers",
     "enumeration": "4"
    },
-   "solution": "ZERO"
+   "solution": "ZERO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Round figure",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "concealed by",
+       "at": 15,
+       "note": "the figure is concealed by the words after it, its letters lying inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "outsize",
+       "at": 28,
+       "gives": "ZE",
+       "note": "its closing two letters"
+      },
+      {
+       "words": "trousers",
+       "at": 36,
+       "gives": "RO",
+       "note": "read without its superfluous T as rousers, whose opening two letters are used"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rotund shape is hidden in baggy trousers.",
+     "walkthrough": "The superfluous letter is the T that opens 'trousers': drop it and the figure runs straight across outsiZE ROusers.",
+     "definitionFit": "Zero is written as a circle, the round figure, and also means nought."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Round"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "T",
+     "at": 36
+    }
+   }
   },
   {
    "number": 26,
@@ -414,7 +1945,66 @@
     "text": "● Thoughtlessness of niece regularly wearing revealing clothing",
     "enumeration": "10"
    },
-   "solution": "NEGLIGENCE"
+   "solution": "NEGLIGENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Thoughtlessness",
+      "at": 2
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 37,
+       "note": "the clothing is worn by the letters, so they go inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "revealing clothing",
+       "at": 45,
+       "gives": "NEGLIGEE",
+       "note": "a negligee is a flimsy, often see-through dressing gown"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 27,
+         "note": "regularly means taking letters at even intervals, every other one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "niece",
+         "at": 21,
+         "gives": "NICE",
+         "note": "read without its superfluous E as nice"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A niece is careless enough to go out in see-through clothes.",
+     "walkthrough": "The superfluous letter is the first E of 'niece', which really reads 'nice'.",
+     "definitionFit": "Negligence is failure to take proper care, a careless lack of attention."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wearing"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "E",
+     "at": 23
+    }
+   }
   }
  ]
 }
