@@ -56,14 +56,24 @@ def packet(puzzle):
     by_id = {entry_id(e): e for e in puzzle["entries"]}
     # The answers the paper printed, where it printed some (a scan that kept
     # part of its answer grid): the fill must agree with them. A previous model
-    # fill is not shown, since this solve may replace it.
+    # fill is shown only where an annotation explains it: those clues are done,
+    # and a solve sent back for the reopened lights works out only those.
     printed = printed_answers(puzzle)
     reopened = (puzzle.get("solutions") or {}).get("reopened") or {}
+    explained = {entry_id(e): e["solution"] for e in puzzle["entries"]
+                 if e.get("solution") and e.get("annotation") and entry_id(e) not in printed}
+    if explained:
+        lines += [f"{len(explained)} answers below are solved and explained already: copy each "
+                  f"into your fill as given and work out only the rest. Change one only if no "
+                  f"answer to an open light fits its crossings, since a changed answer loses "
+                  f"its explanation.", ""]
     for e in sorted(puzzle["entries"],
                     key=lambda e: (e["direction"], e["number"])):
         lines.append(f"{entry_id(e)}  {label(e)} ({e['length']}) {e['clue'].get('text', '')}")
         if entry_id(e) in printed:
             lines.append(f"    printed answer: {printed[entry_id(e)]} (the paper's own: your fill must agree)")
+        elif entry_id(e) in explained:
+            lines.append(f"    solved and explained: {explained[entry_id(e)]}")
         elif reopened.get(entry_id(e)):
             lines.append(f"    an earlier solve's {reopened[entry_id(e)]} was sent back: no parse "
                          f"of this clue was found for it. Keep it only if you can derive it")

@@ -2040,7 +2040,7 @@ def is_blank_clue(clue):
     return not (clue or "").strip()
 
 
-def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=False):
+def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=False, reopened=()):
     """Once a puzzle is annotated at all, every clue in it must be annotated.
 
     A blank annotation is the one failure no other check can see: it claims
@@ -2064,6 +2064,13 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
     explanation of every clue the model got wrong, because an explanation built on a wrong answer is wrong from its
     first line. That blank is the grader's, decided after the run ended and off
     the published key, so it is not an escape hatch — the model cannot reach it.
+
+    The last is a light in `reopened` (solutions.reopened): a model answer an
+    annotation already failed to parse once, sent back to be solved again
+    (tools/reopen_answers.py). Blank, it awaits that solve, and the hints
+    around it stand; answered and still null, the second solve found no
+    parse either, and it ships with answers only rather than being solved
+    a third time.
     """
     continuations = groups.leader_of(entries)
     blank = []
@@ -2080,6 +2087,13 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
         if is_blank_clue(e["clue"].get("text", "")):
             warnings.append(f"{tag}: no annotation, and no clue to annotate — "
                             f"the setter left this entry blank on purpose")
+            continue
+        if entry_id(e) in reopened:
+            warnings.append(
+                f"{tag}: no annotation — its answer was sent back to be solved again "
+                f"(solutions.reopened), and that solve annotates it" if not e.get("solution") else
+                f"{tag}: no annotation — solved twice and no parse found either time, "
+                f"so it ships with answers only")
             continue
         if entry_id(e) in continuations:
             continue                      # annotated on its group's leader
@@ -3420,7 +3434,8 @@ def _validate_puzzle(puzzle, corpus=False, schema=True):
     warnings.extend(check_preamble(puzzle))
     if annotated:
         check_every_clue_is_annotated(puzzle["entries"], errors, warnings,
-                                      blind_misses(puzzle["id"]), corpus=corpus)
+                                      blind_misses(puzzle["id"]), corpus=corpus,
+                                      reopened=(puzzle.get("solutions") or {}).get("reopened") or {})
         check_model_answer_doubted(puzzle, errors, warnings, corpus=corpus)
         check_cryptic_definition_cap(puzzle["entries"], errors, warnings,
                                      authored=authored)
