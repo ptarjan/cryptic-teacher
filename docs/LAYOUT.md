@@ -1032,6 +1032,10 @@ tools/test_validate_scope.sh                  does a puzzle edit or an unrelated
                                               change force the full check, and the
                                               core-parallel full check print what the serial
                                               one does?
+tools/test_page_cache.sh                      does the deploy keep last build's puzzle pages
+                                              through a fetcher, test, doc or hub-page edit,
+                                              and re-render them all when the page's own code
+                                              or a table it reads changes?
 tools/indexnow.py                             tells IndexNow (Bing and the engines it feeds)
                                               which pages a deploy changed: hashes each staged
                                               page without its ?v= stamps against the last

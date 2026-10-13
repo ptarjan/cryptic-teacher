@@ -7,11 +7,18 @@ file. The deploy restores last run's puzzles/<id>/index.html files and this
 store from an actions/cache, and a page is re-rendered only when its key or
 its checks say so. A page is reused when all of these are what they were:
 
-  - the build's code and data: every tracked file outside the puzzle files
-    (puzzles/<series>/<year>/<id>.json), docs/, the blog-facts sidecars and
-    index.html, by its git blob sha, a dirty or untracked one by its content
-    (fingerprint()). Any edit to tools/, app.js, style.css or a data table
-    re-renders every page, which is the full build the deploy ran before;
+  - the code a puzzle page runs: every definition tools/code_reach.py says
+    build_seo_pages' puzzle-page path (ROOTS) reaches, by its syntax tree
+    without docstrings. An edit to a fetcher, a test, the hub page's code or
+    a comment leaves every page reusable; an edit to anything a puzzle page
+    runs re-renders them all;
+  - the data that code names: every tracked file, outside the per-page
+    inputs below and tools/*.py, whose file name is a string constant in a
+    reached definition (indicators.json, style.css, og.png ...), by its git
+    blob sha, a dirty or untracked one by its content. A file only a comment
+    or docstring mentions is not read. A name built at run time would be
+    missed; the reached code builds only per-page ones (a puzzle's own file,
+    its blog facts, its card), which page_key covers;
   - the page's own inputs, which build_seo_pages.page_key() lists: its
     puzzle file's bytes, its blog-facts lines, its index row, its pager
     neighbours and whether its card is on disk;
@@ -37,17 +44,25 @@ ROOT = puzzle_paths.ROOT
 #: The store; gitignored, carried between deploys by the workflow's cache.
 STORE = ROOT / ".page-cache.pickle"
 #: Bump to drop every stored page (a change to how keys are made).
-VERSION = "1"
+VERSION = "2"
 
 PUZZLE_FILE = re.compile(r"puzzles/[^/]+/[0-9]{4}/[^/]+\.json")
 # Per-page inputs (keyed in page_key) or not inputs to a puzzle page at all.
 # index.html is restamped by every reindex, and no puzzle page reads it.
 NOT_GLOBAL = ("docs/", "tools/data/blog_facts/")
 NOT_GLOBAL_FILES = {"index.html"}
+#: Where a puzzle page's code starts, in build_seo_pages: what outputs() runs
+#: per page in its workers, and the list and pager those pages are made from.
+ROOTS = ("puzzle_page_job", "page_key", "puzzles", "series_neighbours")
+#: A file name (the last part of a path) in a string constant, as ast.dump
+#: writes one in code_reach's hashed form.
+NAMED = re.compile(r"Constant\(value='(?:[^'\\]*/)?([\w.\-]+\.(?:json|tsv|txt|md|csv|yaml|yml|html|js|"
+                   r"css|webmanifest|svg|png|ico|xml))'")
+TOOLS_PY = re.compile(r"tools/[^/]+\.py")
 
 
-def _global(path):
-    return not (PUZZLE_FILE.fullmatch(path) or path.startswith(NOT_GLOBAL)
+def _per_page(path):
+    return bool(PUZZLE_FILE.fullmatch(path) or path.startswith(NOT_GLOBAL)
                 or path in NOT_GLOBAL_FILES)
 
 
@@ -56,33 +71,48 @@ def _git(*args):
                           check=True).stdout.decode("utf-8", "surrogateescape")
 
 
-def fingerprint():
-    """A hash of every file a puzzle page can read through code or data that
-    is not one of its own per-page inputs. None outside a git checkout, which
-    turns the store off."""
+def reached(texts=None):
+    """{(module, definition): hashed form} for the puzzle-page code; `texts`
+    ({module: source}) stands in for tools/ files (tests)."""
+    import code_reach  # here: build_seo_pages' workers never need it
+    return code_reach.reach("build_seo_pages", list(ROOTS), texts)
+
+
+def inputs(code, paths):
+    """The paths (tracked or new files) that are a puzzle page's global data:
+    named by a string constant of the reached `code`, not a tools/ module
+    (the code itself is hashed by definition) and not a per-page input."""
+    names = {m for v in code.values() for m in NAMED.findall(v)}
+    return sorted(p for p in paths if p.rsplit("/", 1)[-1] in names
+                  and not _per_page(p) and not TOOLS_PY.fullmatch(p))
+
+
+def fingerprint(texts=None):
+    """A hash of the code a puzzle page runs and of the data files that code
+    names. None outside a git checkout, which turns the store off."""
     try:
         listed = _git("ls-files", "-s", "-z")
         changed = set(_git("ls-files", "-m", "-z").split("\0"))
         new = _git("ls-files", "-o", "--exclude-standard", "-z", "--", "tools").split("\0")
-    except (OSError, subprocess.CalledProcessError) as err:
+        code = reached(texts)
+    except (OSError, subprocess.CalledProcessError, SyntaxError) as err:
         print(f"page cache: {err!r}; rendering every page", file=sys.stderr)
         return None
-    h = hashlib.sha256(f"page-cache {VERSION}\0".encode())
+    blobs = {}
     for line in listed.split("\0"):
-        if not line:
-            continue
-        meta, path = line.split("\t", 1)
-        if not _global(path):
-            continue
-        if path in changed:
+        if line:
+            meta, path = line.split("\t", 1)
+            blobs[path] = None if path in changed else meta.split()[1]
+    blobs.update((p, None) for p in new if p)
+    h = hashlib.sha256(f"page-cache {VERSION}\0".encode())
+    for k, v in sorted(code.items()):
+        h.update(f"{k}\0{v}\0".encode("utf-8", "surrogateescape"))
+    for path in inputs(code, blobs):
+        blob = blobs[path]
+        if blob is None:  # dirty or untracked: its bytes
             p = ROOT / path
             blob = hashlib.sha1(p.read_bytes()).hexdigest() if p.exists() else "gone"
-        else:
-            blob = meta.split()[1]
         h.update(f"{path}\0{blob}\0".encode("utf-8", "surrogateescape"))
-    for path in sorted(p for p in new if p and _global(p)):
-        h.update(f"{path}\0{hashlib.sha1((ROOT / path).read_bytes()).hexdigest()}\0"
-                 .encode("utf-8", "surrogateescape"))
     return h.hexdigest()
 
 

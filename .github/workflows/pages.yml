@@ -127,7 +127,9 @@ jobs:
         run: bash tools/make_og.sh --all
       # Last build's puzzle pages and their keys (tools/page_cache.py): a page
       # is rendered again only when its puzzle file, index row, neighbours,
-      # card or stamped assets moved, or any tracked code or data did. A push
+      # card or stamped assets moved, or the code a puzzle page runs (what
+      # code_reach says its render reaches) or a data file that code names
+      # did; a fetcher, a test or a doc moves none of them. A push
       # that files one puzzle re-renders a handful of the ~50k, not all of
       # them. A cold cache renders everything, which is correct, just slow.
       # Restored here, saved (Save the puzzle pages) only after a big
