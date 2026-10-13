@@ -66,6 +66,7 @@ Usage:
   python3 tools/build_seo_pages.py --check    # exit 1 if anything is stale
 """
 
+import collections
 import functools
 import hashlib
 import html
@@ -2529,11 +2530,18 @@ def puzzle_page_job(i):
     path = puzzle_paths.PUZZLE_DIR / solved[i][1]["id"] / "index.html"
     key = page_key(i) if fp else None
     hit = stored.get(key) if key else None
+    # Why a page is rendered, by series, for the log: its key moved, a stamped
+    # asset it asked for did, or its file is not the one that was written.
+    series = solved[i][1].get("series")
+    why = f"key:{series}"
     if hit:
         asked, digest, blocks, found, facts = hit
-        if (all(_asset(rel) == url for rel, url in asked)
-                and page_cache.file_hash(path) == digest):
-            return path, False, blocks, found, facts, (key, hit, True)
+        if not all(_asset(rel) == url for rel, url in asked):
+            why = f"asset:{series}"
+        elif page_cache.file_hash(path) == digest:
+            return path, False, blocks, found, facts, (key, hit, True, None)
+        else:
+            why = f"file:{series}"
     puz = with_blog_facts(read_puzzle_view(solved[i][0]))
     # The list is newest-first, so "next" is the older neighbour.
     prev_p, next_p = neighbours[i]
@@ -2551,7 +2559,7 @@ def puzzle_page_job(i):
     facts = showcase.facts(puz, meta.get(puz["id"]))
     entry = (asked, page_cache.text_hash(text), blocks, found, facts)
     return (path, write_output(path, text, check), blocks, found, facts,
-            (key, entry, False) if key else None)
+            (key, entry, False, why) if key else None)
 
 
 def write_output(p, text, check):
@@ -2603,12 +2611,14 @@ def outputs(check=False):
     stored = page_cache.load() if fp else {}
     blog_fact_hashes()  # once, before the workers fork
     _PAGES = solved, series_neighbours(stubs), meta, check, fp, stored
-    keep, reused = {}, 0
+    keep, reused, why = {}, 0, collections.Counter()
     for path, stale, page_blocks, page_found, page_facts, kept in parallel.pmap(
             puzzle_page_job, range(len(solved))):
         if kept:
             reused += kept[2]
             keep[kept[0]] = kept[1]
+            if kept[3]:
+                why[kept[3]] += 1
         facts.append(page_facts)
         for key, cands in page_blocks.items():
             blocks.setdefault(key, []).extend(cands)
@@ -2620,6 +2630,9 @@ def outputs(check=False):
     _PAGES = None
     if fp:
         print(f"page cache: reused {reused} of {len(solved)} puzzle page(s)", file=sys.stderr)
+        if why:
+            print("page cache: rendered because " + ", ".join(
+                f"{k} {n}" for k, n in why.most_common(12)), file=sys.stderr)
         if os.environ.get("GITHUB_OUTPUT"):  # the deploy saves the store after a big render
             with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as out:
                 out.write(f"rendered={len(solved) - reused}\n")
