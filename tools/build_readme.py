@@ -669,8 +669,10 @@ LAYOUT = [
     ("fetching", "tools/convert_v2.py", "today's annotations as format v2 wordplay trees, losing nothing (a step the blocks can't rebuild stays an unchecked node), and a read-only dry run over the corpus"),
     ("fetching", "tools/test_convert_v2.sh", "does convert_v2.py rebuild the stored blocks, indicators and definitions from the tree, keep what it can't check as unchecked nodes, and refuse an answer that contradicts its enumeration?"),
     ("fetching", "tools/test_annotate_model_shape.sh", "does a run's output in the model's shape (def, wp, notes) translate to the stored annotation, name the part of a parse that breaks, and land in a legacy or v2 file as that file's shape, old-prompt output included?"),
-    ("fetching", "tools/test_format_v2.sh", "do the schema and validator refuse every derived field in a format v2 file, evaluate its trees and ratchet its unchecked steps, while legacy files keep passing?"),
+    ("fetching", "tools/fixtures/quiptic-619-legacy.json", "quiptic-619 in the legacy annotation format, frozen so tools/test_annotate_model_shape.sh still has legacy annotations to translate once the corpus is format v2"),
+    ("fetching", "tools/test_format_v2.sh","do the schema and validator refuse every derived field in a format v2 file, evaluate its trees and ratchet its unchecked steps, while legacy files keep passing?"),
     ("fetching", "tools/test_see_pointer.sh", "is a \"See N\" continuation the pointer and nothing else, in every reader?"),
+    ("fetching", "tools/test_migrate_v2.sh", "does the format v2 migration (tools/convert_v2.py --migrate, plan step 8) leave files every gate passes, and is it safe to kill and start again?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

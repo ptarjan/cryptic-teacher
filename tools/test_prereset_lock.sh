@@ -59,5 +59,17 @@ check "a live backfill is left alone" "held" "$(verdict)"
 kill "$holder" 2>/dev/null
 wait "$holder" 2>/dev/null
 
+# Paused (a corpus rewrite, e.g. the format v2 migration): a fire says so and
+# exits 0 before it makes or salvages its worktree.
+pause_dir="$(mktemp -d)"
+touch "$pause_dir/prereset.pause"
+out="$(CT_PRERESET_PAUSE="$pause_dir/prereset.pause" CT_WORKTREE_ROOT="$pause_dir/wt" \
+  timeout 30 bash "$(dirname "$0")/prereset_backfill.sh" 2>&1)"
+rc=$?
+paused="no"
+[ "$rc" = 0 ] && grep -q "paused" <<<"$out" && [ ! -e "$pause_dir/wt" ] && paused="yes"
+check "a paused burn does not start or touch its worktree" "yes" "$paused"
+rm -rf "$pause_dir"
+
 if [ "$fails" -gt 0 ]; then echo "prereset lock: $fails check(s) failed"; exit 1; fi
 echo "prereset lock: all checks passed"

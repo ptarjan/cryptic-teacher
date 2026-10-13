@@ -3202,6 +3202,13 @@ def validate_puzzle(puzzle, corpus=False):
         puzzle, v2_errors, v2_warnings = v2_view(puzzle)
     annotated, errors, warnings = _validate_puzzle(puzzle, corpus, schema=False)
     errors[:0] = schema_errors + v2_errors
+    # A v2 clue with an unchecked step has no assembly to derive (that step's
+    # letters are taken as filed), so the legacy "write the assembly" warnings
+    # would count it a second time under assembly.anagrams: the unchecked-step
+    # warning and its ratchet (wordplay.unchecked) are the one finding.
+    opaque = {w.split(":", 1)[0] for w in v2_warnings}
+    warnings = [w for w in warnings if w.split(":", 1)[0] not in opaque
+                or not any(m in w for m in SUPERSEDED_BY_UNCHECKED)]
     warnings[:0] = v2_warnings
     for i, e in enumerate(puzzle["entries"]):
         for k, item in enumerate(e.get("alsoLeads") or []):
@@ -3228,6 +3235,7 @@ def validate_puzzle(puzzle, corpus=False):
 
 
 UNCHECKED_STEP = "unchecked wordplay step"
+SUPERSEDED_BY_UNCHECKED = ("typed anagram but no assembly.anagrams", "no machine-checkable assembly")
 
 
 def _tag_of(puzzle, where):

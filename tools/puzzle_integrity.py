@@ -600,7 +600,7 @@ def check_shape(puzzle, today, flags):
         flags.append(("SHAPE", pid, "no entries at all"))
         return []
 
-    series = puzzle.get("series", "cryptic")
+    series = series_meta.of(puzzle) or "cryptic"  # a format v2 file stores none
     # A book puzzle's `year` is its book's imprint year, read off the registry
     # by the filer; any other value is a book cited under the wrong year. Only
     # a book holds a year: a paper prints the day.
@@ -794,7 +794,7 @@ def check_length(puzzle, checkable, flags):
         # one the clue itself asks for — see fetch_puzzle.prints_own_count,
         # which also covers the leg left wordless over its own cell count when
         # the pointer went missing, cryptic-21762's 26-across " (8)".
-        per_light = (puzzle.get("series") in PER_LIGHT_ENUMERATION
+        per_light = (series_meta.of(puzzle) in PER_LIGHT_ENUMERATION
                      or prints_own_count(e))
         # A counted continuation inside a linked answer is not measured at all.
         # Only the leading clue enumerates the answer; a leg's count describes
@@ -988,7 +988,7 @@ def check_setter(puzzle, flags):
     And, where the series sets `unbylinedUnsolved`, a puzzle filed unsolved: it
     has no post to name one, and the filer files it only once its page names none."""
     pid, setter = puzzle["id"], puzzle.get("setter")
-    series = puzzle.get("series", "cryptic")
+    series = series_meta.of(puzzle) or "cryptic"  # a format v2 file stores none
     if setter is None:
         scanned = provenance.channel_of(
             (puzzle.get("source") or {}).get("acquiredBy")) == "newspaper"
@@ -1184,7 +1184,7 @@ def special_without_preamble(puzzle):
     """An Azed special filed from its blog post, which never quotes the
     preamble its clues are written against."""
     m = AZED_SPECIAL.search((puzzle.get("source") or {}).get("url") or "")
-    return puzzle.get("series") == "azed" and bool(m) and bool(set(m.group(1).split("-")) - AZED_PLAIN_WORDS)
+    return series_meta.of(puzzle) == "azed" and bool(m) and bool(set(m.group(1).split("-")) - AZED_PLAIN_WORDS)
 
 
 def awaits_preamble(puzzle):

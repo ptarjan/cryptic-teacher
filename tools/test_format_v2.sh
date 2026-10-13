@@ -120,6 +120,43 @@ del p["name"]
 ok, probs = refused(p, "missing required key 'name'")
 check("a legacy file still needs its name", ok, probs[:3])
 
+# ---- the write path (fetch_puzzle.write_puzzle_file -> puzzle_integrity.refuse_bad_write) ----
+# A v2 file stores no series: puzzle_integrity reads it off the id (series.of),
+# so a v2 file can be written, over itself or over its legacy copy, while a
+# broken legacy file is still refused. In a temp dir outside the corpus.
+import tempfile
+import puzzle_integrity as PI
+def write(p, d):
+    try:
+        fp.write_puzzle_file(Path(d) / f"{p['id']}.json", p)
+        return None
+    except PI.RefusedWrite as e:
+        return str(e)
+with tempfile.TemporaryDirectory() as d:
+    check("a v2 file is written", write(new, d) is None, write(new, d))
+    check("and written again over itself", write(new, d) is None, write(new, d))
+with tempfile.TemporaryDirectory() as d:
+    write(old, d)
+    check("a v2 file is written over its legacy copy (the migration's rewrite)", write(new, d) is None, write(new, d))
+book = fp.read_puzzle_file(sorted(Path("../puzzles/book").rglob("*.json"))[0])
+if True:
+    with tempfile.TemporaryDirectory() as d:
+        bn, _ = convert_v2.migrate_puzzle(book)
+        check("a v2 book puzzle keeps its year and no date (series read off the id)", write(bn, d) is None, write(bn, d))
+for name, mutate, needle in (
+        ("a legacy file without series", lambda p: p.pop("series"), "key 'name' is refused"),
+        ("a legacy file without name", lambda p: p.pop("name"), "missing required key 'name'"),
+        ("a v2 file with a stored series", None, "key 'series' is refused"),
+        ("a legacy file whose series contradicts its id", lambda p: p.update(series="times"), "but the id says")):
+    p = copy.deepcopy(old if mutate else new)
+    if mutate:
+        mutate(p)
+    else:
+        p["series"] = "cryptic"
+    with tempfile.TemporaryDirectory() as d:
+        got = write(p, d)
+    check(f"{name} is refused on write", got is not None and needle in got, got)
+
 # ---- the validator reads view(): same findings, and the tree is checked ----
 for o, n, st in pairs:
     _, errs_old, _ = V.validate_puzzle(o, corpus=True)

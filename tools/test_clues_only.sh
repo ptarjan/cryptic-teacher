@@ -26,13 +26,14 @@ from pathlib import Path
 sys.path.insert(0, "tools")
 import apply_solution
 import clues_only
+import fetch_puzzle
 import puzzle_integrity
 import puzzle_paths
 from groups import entry_id
 from reconstruct_grid import grid_of
 
 fails = []
-source = json.loads(puzzle_paths.find("book-8001").read_text())
+source = fetch_puzzle.read_puzzle_view(puzzle_paths.find("book-8001"))
 
 
 def stripped(puzzle):

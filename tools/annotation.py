@@ -98,12 +98,16 @@ def _types(tree):
     out = []
     for node, parent in _walk(tree):
         op = node.get("op")
-        # An anagram's fodder is one heap of letters, not a charade.
-        if not op or (op == "charade" and parent and parent.get("op") == "anagram"):
+        # An anagram's fodder is one heap of letters, not a charade, unless
+        # the join has an indicator of its own (its `for` names the charade).
+        if not op or (op == "charade" and parent and parent.get("op") == "anagram"
+                      and not node.get("indicators")):
             continue
         if OP_TYPE[op] not in out:
             out.append(OP_TYPE[op])
-    return out
+    # A wordplay that is one leaf (a single block, as legacy filed it) is a
+    # charade of one part.
+    return out or (["charade"] if not tree.get("op") else [])
 
 
 def _block(**kw):
