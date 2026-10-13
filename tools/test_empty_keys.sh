@@ -252,7 +252,7 @@ same "the write drops every null and empty value and keeps a blank clue" \
   "$(grep '^PRUNED ' <<<"$out")" \
   "PRUNED False False True ['blocks', 'features', 'type'] ['answerInScene', 'aptDefinition'] [{'clueFragment': 'x'}] {'missing': True}"
 same "a file in another key order fails the validator" "$(grep '^SCRAMBLED ' <<<"$out")" "SCRAMBLED True"
-same "the write puts every key in the schema's order" "$(grep '^REORDERED ' <<<"$out")" "REORDERED [] ['id', 'number', 'series']"
+same "the write puts every key in the schema's order" "$(grep '^REORDERED ' <<<"$out")" "REORDERED [] ['id', 'number', 'setter']"
 same "the blog facts writer puts every key in the schema's order" "$(grep '^BLOGORDER ' <<<"$out")" \
   'BLOGORDER "p-1": {"blog": "fifteensquared", "name": "n", "url": "u", "entries": {"1-across": {"type": ["anagram"], "inferred": ["type"]}, "2-down": {"type": ["charade"], "blocks": [{"clueFragment": "a", "gives": "A"}]}}}'
 same "the write gate refuses a key the schema does not have" "$(grep '^GATE ' <<<"$out")" "GATE True"

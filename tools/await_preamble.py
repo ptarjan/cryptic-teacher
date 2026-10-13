@@ -34,9 +34,10 @@ STAND_IN = "The paper's preamble, which we do not hold."
 def left_to_preamble(puzzle):
     """The tags of the entries whose annotation leans on the preamble: it
     defines them, or a block takes letters no clue word gives (Genius 135's
-    body parts, which the preamble says the wordplay leaves out)."""
+    body parts, which the preamble says the wordplay leaves out). Read off
+    annotation.view_puzzle(), which derives a format v2 file's blocks."""
     return [f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
-            for e in puzzle.get("entries") or []
+            for e in annotation.view_puzzle(puzzle).get("entries") or []
             if (e.get("annotation") or {}).get("definedByPreamble") is True
             or any(b.get("gives") and not b.get("clueFragment")
                    for b in (e.get("annotation") or {}).get("blocks") or [])]
@@ -45,7 +46,7 @@ def left_to_preamble(puzzle):
 def which(path, puzzle):
     """The entries that make the run's file wait for its preamble, or [] when
     the file fails for anything else too, or has a preamble already."""
-    tags = left_to_preamble(annotation.view_puzzle(puzzle))
+    tags = left_to_preamble(puzzle)
     if puzzle.get("preamble") or not tags:
         return []
     given = puzzle_schema.order(dict(copy.deepcopy(puzzle), preamble=STAND_IN))

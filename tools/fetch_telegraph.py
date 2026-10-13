@@ -463,10 +463,14 @@ def refile(new, old):
     grid, numbering, enumerations and answers, the printed clue unless
     bucket_misprint() proves it wrong, and each annotation that still fits its
     clue. Returns (puzzle, notes), notes saying what was kept or dropped."""
+    import annotation
     import cross_validate
     notes = []
     at = {(e["position"]["x"], e["position"]["y"], e["direction"]): e
           for e in old.get("entries", ())}
+    # Fit is judged on each annotation's derived view; the raw one is what is kept.
+    shown = {(e["position"]["x"], e["position"]["y"], e["direction"]): e.get("annotation")
+             for e in annotation.view_puzzle(old).get("entries", ())}
     by_id = {f"{e['number']}-{e['direction']}": e for e in new["entries"]}
     for e in new["entries"]:
         was = at.get((e["position"]["x"], e["position"]["y"], e["direction"]))
@@ -502,11 +506,12 @@ def refile(new, old):
         ann = was.get("annotation")
         if ann and not is_continuation(e["clue"].get("text")):
             answer = "".join(by_id[m]["solution"] for m in e.get("group") or [light])
-            if annotation_fits(ann, e["clue"].get("text"), answer):
+            seen = shown.get((e["position"]["x"], e["position"]["y"], e["direction"])) or {}
+            if annotation_fits(seen, e["clue"].get("text"), answer):
                 e["annotation"] = ann
             else:
                 notes.append(f"{light}: dropped the annotation, written for "
-                             f"{old_text!r} = {_letters(ann.get('answer'))}")
+                             f"{old_text!r} = {_letters(seen.get('answer'))}")
     merged = {**new}
     if not merged.get("setter") and old.get("setter"):
         merged["setter"] = old["setter"]

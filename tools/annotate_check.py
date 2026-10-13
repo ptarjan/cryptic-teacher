@@ -123,7 +123,7 @@ FIFTEENSQUARED = {"cryptic", "quiptic", "everyman", "independent", "indysunday",
 
 def blog_of(puzzle):
     """(host, search words) for a blog that explains this puzzle, or None."""
-    s = puzzle.get("series")
+    s = series.of(puzzle)
     host = (series.meta(s) or {}).get("blog") if s in series.SERIES else None
     host = host or ("fifteensquared.net" if s in FIFTEENSQUARED else None)
     if not host:
@@ -284,7 +284,8 @@ def write_view(path):
     times the reading for it. An annotation already on an entry the run
     leaves alone is kept in `existingAnnotations`, for context."""
     puzzle = read_puzzle_file(path)
-    view = {k: puzzle[k] for k in VIEW_KEYS if k in puzzle and k != "entries"}
+    top = {**puzzle, "series": series.of(puzzle), "name": series.display_name(puzzle)}
+    view = {k: top[k] for k in VIEW_KEYS if k in top and k != "entries"}
     if (puzzle.get("source") or {}).get("retrievedFrom"):
         view["source"] = {"retrievedFrom": puzzle["source"]["retrievedFrom"]}
     # A run that started on the whole puzzle stays on it; one that started on
@@ -353,7 +354,8 @@ def notes(puzzle, only=None):
     """
     out = []
     # Advice about annotations this run may not change (`only`) is no use to it.
-    mine = [e for e in puzzle["entries"] if only is None or entry_id(e) in only]
+    mine = [e for e in annotation.view_puzzle(puzzle)["entries"]
+            if only is None or entry_id(e) in only]
     cds = [entry_id(e) for e in mine
            if (e.get("annotation") or {}).get("type") == ["cryptic_definition"]]
     if cds:
@@ -863,7 +865,7 @@ def untangle_link_words(path, pending):
             continue
         clue = e["clue"].get("text") or ""
         found = []
-        validate_annotations.check_link_word_is_not_inside_a_block("", normalize(a, e, puzzle["entries"]),
+        validate_annotations.check_link_word_is_not_inside_a_block("", normalize(a, e, puzzle["entries"], v2=False),
                                                                   clue, found)
         if not found:
             continue
@@ -970,7 +972,7 @@ def clear_link_words(path, pending):
         base_checks = _checks_of(base, templates)
         if not base_checks[rule]:
             continue
-        placed_ann = normalize(a, e, puzzle["entries"])
+        placed_ann = normalize(a, e, puzzle["entries"], v2=False)
         new = clear_link_list(placed_ann, clue)
         if new is None:
             continue
@@ -1013,13 +1015,14 @@ def _entry_report(path, ann, eid):
     or None when the annotations are too broken to validate."""
     try:
         puzzle = read_puzzle_file(path)
+        v2 = apply_annotations.file_is_v2(puzzle["entries"], puzzle)
         e = next(x for x in puzzle["entries"] if entry_id(x) == eid)
-        e["annotation"] = normalize(ann[eid], e, puzzle["entries"])
+        e["annotation"] = normalize(ann[eid], e, puzzle["entries"], v2)
         move_alteration(e)
         tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
         for other in puzzle["entries"]:
             if other is not e and isinstance(ann.get(entry_id(other)), dict):
-                other["annotation"] = normalize(ann[entry_id(other)], other, puzzle["entries"])
+                other["annotation"] = normalize(ann[entry_id(other)], other, puzzle["entries"], v2)
                 move_alteration(other)
         definitions.place_puzzle(puzzle)
         with contextlib.redirect_stdout(io.StringIO()):
@@ -1109,7 +1112,7 @@ def misread(path):
     validate_annotations.check_clue_unchanged(puzzle, path, errors)
     if errors:
         why.append("check_clue_unchanged")
-    for e in puzzle["entries"]:
+    for e in annotation.view_puzzle(puzzle)["entries"]:
         errors = []
         if e.get("annotation"):
             tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"

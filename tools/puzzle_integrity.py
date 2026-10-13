@@ -166,6 +166,7 @@ never writes: a defect here is a fetcher bug or a bad source page, and the fix
 belongs in the fetcher or in a re-fetch, not in a repair pass over the files.
 """
 
+import copy
 import hashlib
 import inspect
 import json
@@ -197,6 +198,7 @@ import puzzle_schema
 import quotes
 import reprints
 import series as series_meta
+import wordplay
 from apply_solution import (
     check_fill,
     check_geometry,
@@ -1186,10 +1188,24 @@ def check_reprint(puzzle, flags):
 
 def annotation_quotes(ann):
     """(what, text) for every piece of clue text an annotation quotes."""
-    out = [("definition", d.get("text")) for d in ann.get("definitions") or [] if isinstance(d, dict)]
-    out += [("indicator", i.get("text")) for i in ann.get("indicators") or [] if isinstance(i, dict)]
-    out += [("linkWord", w) for w in ann.get("linkWords") or []]
-    out += [("block fragment", b.get("clueFragment")) for b in ann.get("blocks") or [] if isinstance(b, dict)]
+    defs = [d for d in ann.get("definitions") or [] if isinstance(d, dict)]
+    out = [("definition", d.get("text")) for d in defs]
+    if puzzle_schema.is_v2_annotation(ann):
+        # A format v2 annotation quotes the clue in its definitions' indicators
+        # and its wordplay tree's indicators and leaf words; link words are
+        # derived from the clue, so they are in it.
+        out += [("indicator", i.get("text")) for d in defs for i in d.get("indicators") or []
+                if isinstance(i, dict)]
+        todo = [ann["wordplay"]] if isinstance(ann.get("wordplay"), dict) else []
+        while todo:
+            node = todo.pop()
+            out += [("indicator", i.get("text")) for i in node.get("indicators") or [] if isinstance(i, dict)]
+            out += [("wordplay words", node.get("words"))] if "op" not in node else []
+            todo += [p for p in wordplay.parts_of(node) if isinstance(p, dict)]
+    else:
+        out += [("indicator", i.get("text")) for i in ann.get("indicators") or [] if isinstance(i, dict)]
+        out += [("linkWord", w) for w in ann.get("linkWords") or []]
+        out += [("block fragment", b.get("clueFragment")) for b in ann.get("blocks") or [] if isinstance(b, dict)]
     return [(what, t) for what, t in out if isinstance(t, str) and t]
 
 
@@ -1388,6 +1404,25 @@ class RefusedWrite(ValueError):
         self.flags = flags
 
 
+def annotated_for(ann, word):
+    """Whether annotation `ann` explains `word` (letters only): a legacy one
+    by its `answer`; a format v2 one, which stores no answer, by its
+    `spelling` or else by its wordplay tree giving `word`."""
+    if not isinstance(ann, dict):
+        return False
+    if not puzzle_schema.is_v2_annotation(ann):
+        return re.sub(r"[^A-Z]", "", (ann.get("answer") or "").upper()) == word
+    if ann.get("spelling"):
+        return re.sub(r"[^A-Z]", "", ann["spelling"].upper()) == word
+    if not isinstance(ann.get("wordplay"), dict):
+        return False
+    try:
+        wordplay.evaluate(copy.deepcopy(ann["wordplay"]), word)
+    except (wordplay.WordplayError, KeyError, TypeError, ValueError, StopIteration):
+        return False
+    return True
+
+
 def check_key_grades_model(old, new, flags):
     """A key that replaces a model's solve grades it: each light it overturns is
     in tools/data/blind_misses.json and has lost the hint written for the old
@@ -1404,7 +1439,7 @@ def check_key_grades_model(old, new, flags):
         e = have.get(eid)
         if not mine or not e or not e.get("solution") or e["solution"] == mine:
             continue
-        stale = re.sub(r"[^A-Z]", "", ((e.get("annotation") or {}).get("answer") or "").upper()) == mine
+        stale = annotated_for(e.get("annotation"), mine)
         if eid not in recorded or stale:
             flags.append(("UNGRADED", new["id"], f"{eid}: the key says {e['solution']} where the "
                           f"model's solve said {mine}; grade it through fetch_puzzle.grade_model_fill "
@@ -1640,7 +1675,7 @@ def _one_file(path):
     puzzle = read_puzzle_view(path)
     check_filed(path, puzzle, flags)
     pid = puzzle["id"]
-    held = (puzzle.get("series", "cryptic"), puzzle["number"], date_of(puzzle), pid)
+    held = (series_meta.of(puzzle) or "cryptic", puzzle["number"], date_of(puzzle), pid)
     row = (pid, content_hash(puzzle), clue_keys(puzzle), held)
     check_puzzle(puzzle, _TODAY, flags)
     return flags, row
@@ -1782,7 +1817,7 @@ def _summary(path):
     puzzle = read_puzzle_view(path)
     pid = puzzle["id"]
     return (pid, content_hash(puzzle), clue_keys(puzzle),
-            (puzzle.get("series", "cryptic"), puzzle["number"], date_of(puzzle), pid))
+            (series_meta.of(puzzle) or "cryptic", puzzle["number"], date_of(puzzle), pid))
 
 
 def _neardups(conn, cached, files, paths, mine_rows):

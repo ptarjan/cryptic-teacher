@@ -188,13 +188,14 @@ del bare["preamble"]
 print("WHICH", "-".join(await_preamble.which(path, bare)) or "none")
 print("HELD", "-".join(await_preamble.which(path, real)) or "none")
 other = copy.deepcopy(bare)
-next(e for e in other["entries"] if e.get("annotation")
-     and not e["annotation"].get("definedByPreamble"))["annotation"].pop("answer")
+broken = next(e for e in other["entries"] if e.get("annotation")
+              and not e["annotation"].get("definedByPreamble"))
+broken["annotation"]["wordplay"] = {"words": broken["clue"]["text"].split()[0]}
 print("OTHER", "-".join(await_preamble.which(path, other)) or "none")
 supplied = copy.deepcopy(bare)
 for e in supplied["entries"]:
     if (e.get("annotation") or {}).pop("definedByPreamble", None):
-        e["annotation"]["blocks"] = e["annotation"].get("blocks", []) + [{"gives": "EAR"}]
+        e["annotation"]["wordplay"] = {"gives": e["solution"]}
 print("SUPPLIED", "-".join(await_preamble.left_to_preamble(supplied)) or "none")
 flagged = dict(bare, awaitsPreamble=True)
 print("FLAGGED", pi.awaits_preamble(flagged))

@@ -108,17 +108,17 @@ broken("CHAINOK", lambda p: alt(p).__setitem__("steps", [
 broken("CHAINNOGIVES", lambda p: alt(p).__setitem__("steps", [{"op": "insertion"}, {"op": "deletion"}]))
 broken("BADOPNAME", lambda p: alt(p)["steps"].__setitem__(0, {"op": "jumble"}))
 
-# The annotation's pieces build the clue's word, not the entry.
+# The annotation's wordplay builds the clue's word, not the entry.
 w = g["alteration"]["from"]
-ann = {"type": ["charade"], "answer": e["solution"], "definitions": [],
-       "blocks": [{"clueFragment": "x", "gives": w}],
-       "assembly": {"pieces": [w[:2], w[2:]]}}
 for pieces, name in (([w[:2], w[2:]], "FROM"), ([e["solution"][:2], e["solution"][2:]], "ENTRY")):
     p = copy.deepcopy(good)
     t = next(x for x in p["entries"] if "alteration" in x)
-    t["annotation"] = dict(ann, assembly={"pieces": pieces})
+    words = t["clue"]["text"].split()
+    t["annotation"] = {"definitions": t["annotation"]["definitions"],
+                       "wordplay": {"op": "charade", "parts": [{"words": words[0], "gives": pieces[0]},
+                                                                {"words": words[-1], "gives": pieces[1]}]}}
     errors = va.validate_puzzle(p)[1]
-    print("PIECES", name, any("pieces" in x and "join to" in x for x in errors))
+    print("PIECES", name, any("wordplay does not give" in x for x in errors))
 PY
 )
 
