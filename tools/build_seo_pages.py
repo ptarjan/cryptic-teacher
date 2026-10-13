@@ -71,6 +71,7 @@ import hashlib
 import html
 import itertools
 import json
+import os
 import re
 import sys
 import time
@@ -2619,6 +2620,9 @@ def outputs(check=False):
     _PAGES = None
     if fp:
         print(f"page cache: reused {reused} of {len(solved)} puzzle page(s)", file=sys.stderr)
+        if os.environ.get("GITHUB_OUTPUT"):  # the deploy saves the store after a big render
+            with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as out:
+                out.write(f"rendered={len(solved) - reused}\n")
         if not check:
             page_cache.save(keep)
     took("the puzzle pages", started)
