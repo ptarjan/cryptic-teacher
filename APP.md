@@ -672,8 +672,8 @@ by itself, a little each day, and nobody sees it until a deploy takes three
 times as long. So:
 
 - **Every step of `.github/workflows/pages.yml` has a time budget** in
-  `tools/data/deploy_budgets.json`, the one table of numbers. The `budgets`
-  job runs after the deploy, reads each step's time off the jobs API
+  `tools/data/deploy_budgets.json`, the one table of numbers. The build
+  job's last step runs after the deploy, reads each step's time off the jobs API
   (`tools/step_budgets.py check-run`) and turns the run red on a step that
   is over its budget or has none. The site still ships. A red budget means
   find the cause; raise a budget only with the reason in the commit.
@@ -685,22 +685,35 @@ times as long. So:
   corpus work with none of those.
 - **A cache under `.git/` or `~/.cache` is empty in CI** unless the
   workflow restores it. `tools/row_cache.py` keeps its store in the git
-  dir; pages.yml restores it with actions/cache.
+  dir; pages.yml restores it with actions/cache. So does everything a
+  cached row checks on disk: the reindex's rows hash the shim they wrote
+  (`index_row_deps`), so pages.yml carries `puzzles/*.js` too (without it
+  every index row missed on every run), and removes any restored shim the
+  new index does not name. The authored puzzle's copy check reads
+  `tools/clue_index.py`'s store under `~/.cache`, carried the same way.
 - **The puzzle pages are reused, not re-rendered.** pages.yml restores
   last build's `puzzles/<id>/index.html` files and `tools/page_cache.py`'s
   store. A page is rendered again only when its own inputs moved (its
   puzzle file, blog facts, index row, pager neighbours, whether its card is
   drawn), a stamped asset it links moved, the file on disk is not the one
-  the store says was written, or any tracked code or data file did (the
-  fingerprint). So a code change is a full render, as before, and a puzzle
-  push renders a few pages. A cold cache is correct, just slow.
+  the store says was written, or the code a puzzle page runs did (the
+  fingerprint). That code is computed, like the annotation check's scope
+  below: the definitions `code_reach` says build_seo_pages' puzzle-page
+  path reaches, plus the tracked files whose names are string constants
+  in that code (style.css, indicators.json). So an edit to a fetcher, a
+  test, the hub page's code or a doc keeps every page; an edit to the
+  page's code or a table it reads re-renders them all. A cold cache is
+  correct, just slow.
 - **The site upload is not compression-bound.** The artifact is about a
   gigabyte, mostly PNG cards; pages.yml tars `_site` itself and uploads
   at deflate level 1 rather than upload-pages-artifact's 6. deploy-pages
   reads only the `github-pages` artifact's `artifact.tar`.
-- **Few jobs in a chain.** Each job after the first waits for a runner, so
-  the IndexNow ping runs in the `budgets` job, not a job of its own between
-  the deploy and the budget check.
+- **Two jobs, no chain.** Each job after the first waits 15-75s for a
+  runner and sets itself up again, so the deploy, the IndexNow ping and the
+  budget check are steps of the build job. The build waits (bounded) for
+  the validate job before Deploy to Pages and stops unless it passed, so a
+  failing check still ships nothing; the post-job cache saves run after
+  the deploy, not in front of it.
 - **The annotation check is incremental on a push.** It checks only the
   puzzle files changed since the last successfully deployed commit. The
   full check runs for a manual run, the nightly schedule, or a change to
