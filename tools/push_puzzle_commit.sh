@@ -30,6 +30,13 @@
 set -uo pipefail
 CONFLICT=3
 
+# Pushers on this machine (burn, daily units, re-date batches) take turns from
+# fetch to push: unserialised, a 100-commit batch starved a daily unit through
+# all ten attempts (10-13). flock(2) via python, since macOS ships no flock(1);
+# the lock rides on fd 9 and drops when this script exits.
+exec 9>>"$(git rev-parse --git-common-dir)/push_puzzle_commit.lock"
+python3 -c 'import fcntl; fcntl.flock(9, fcntl.LOCK_EX)'
+
 commit=$(git rev-parse --verify -q "${1:-HEAD}^{commit}") || {
   echo "push_puzzle_commit: no such commit: ${1:-HEAD}" >&2; exit 2; }
 parent=$(git rev-parse --verify -q "$commit^") || {
