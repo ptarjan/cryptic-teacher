@@ -91,9 +91,25 @@ fi
 # The site card. Rebuilt from a published puzzle before screenshotting, which
 # also checks that the answer really is hidden where the card underlines it, so
 # the card can't be a picture that quietly asserts something false.
+# The page is self-contained (make_og_card.card_html), so its hash says
+# everything the picture is drawn from, as card_key does for a puzzle card:
+# the last drawing is kept, palettised, as og/.site/<hash>.png, inside the
+# directory the deploy caches and outside og/*.png, which ships. An unchanged
+# card was a Chrome start and a quantize on every deploy (~12s).
 python3 "$REPO/tools/make_og_card.py" >/dev/null
-shot "$REPO/tools/og_card.html" "$REPO/og.png"
-echo "wrote og.png"
+site_key="$(sha256sum "$REPO/tools/og_card.html" | cut -c1-32)"
+kept="$REPO/og/.site/$site_key.png"
+if [ -f "$kept" ]; then
+  cp "$kept" "$REPO/og.png"
+  echo "og.png unchanged (og/.site/$site_key.png)"
+else
+  shot "$REPO/tools/og_card.html" "$REPO/og.png"
+  python3 "$REPO/tools/og_palette.py" "$REPO/og.png"
+  rm -rf "$REPO/og/.site"
+  mkdir -p "$REPO/og/.site"
+  cp "$REPO/og.png" "$kept"
+  echo "wrote og.png"
+fi
 
 # Cards in batches: one interpreter writes a batch's pages and one records
 # them, rather than two per card, since the interpreter is a third of a card's
