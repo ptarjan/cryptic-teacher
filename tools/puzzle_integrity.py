@@ -271,6 +271,12 @@ PUBLISHED_WRONG = {
         "the Guardian grouped all five lights itself and filled them with "
         "THERE'S A ONE-EYED YELLOW IDOL TO THE NORTH OF KHATMANDU, 45 cells, "
         "under an enumeration it printed only as far as the first 26",
+    ("cryptic-22575",
+     "10-across + 12-down + 10-across: clue says (6-3,6-4) = 19, answer holds "
+     "9 alone or 28 linked"):
+        "the perfect figures are THIRTY-SIX TWENTY-FOUR THIRTY-SIX, and the "
+        "clue's own \"(and 10 again)\" asks for the repeat; the printed count "
+        "stops before it",
 }
 
 # The LENGTH findings that are a light the Guardian never linked, not a mistake in
