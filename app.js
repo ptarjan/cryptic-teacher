@@ -3348,8 +3348,11 @@
   // What the definition rung never named still is one: a third definition, a
   // half that is wordplay, a sounded form. So a compound type keeps its rung,
   // and a clue with three senses keeps the one the split did not mention.
+  // The split names the first two definitions. A file holds a third sense as a
+  // third definition (WATERLOO's "Single"), and its block stays a building
+  // block, so only the split's two count here.
   function senseBlock(ann, b) {
-    const defs = ann.definitions || [];
+    const defs = (ann.definitions || []).slice(0, 2);
     if (defs.length < 2 || !(ann.type || []).includes("double_definition")) return false;
     if (b.soundsLike || blockLetters(ann, b)) return false;
     // Digits count: a definition can be a cross-reference ("31"), which has no
@@ -4256,7 +4259,9 @@
       });
     } else if (!defs.length) {
       // A blog fact with a type and no clean underline: no definition rung.
-    } else if (isDD && defs.length === 2) {
+    } else if (isDD && defs.length >= 2) {
+      // Three senses or more: the split names the first two, and the rest are
+      // building blocks the split did not mention (senseBlock).
       const senses = senseBlocks(ann).map((b) =>
         `<li>“${escClue(b.clueFragment)}” <span class="muted">— ${esc(b.note)}</span></li>`).join("");
       steps.push({

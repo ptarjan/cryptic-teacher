@@ -113,7 +113,7 @@ def sense_block(ann, b):
         return False
     key = lambda t: re.sub(r"[^A-Z0-9]", "", str(t or "").upper())  # "31" is a definition
     frag = key(b.get("clueFragment"))
-    defs = [key(d.get("text")) for d in ann["definitions"]]
+    defs = [key(d.get("text")) for d in ann["definitions"][:2]]  # the split's two
     return bool(frag) and any(d and (frag in d or d in frag) for d in defs)
 
 
@@ -142,7 +142,7 @@ def ladder_steps(ann, clue_text):
 
     defs = ann.get("definitions") or [{}]
     definition = defs[0].get("text") or ""
-    if is_dd and len(defs) == 2:
+    if is_dd and len(defs) >= 2:
         def_text = (f"It splits between {definition} and {defs[1]['text']} — two "
                     "unrelated senses of the same word, which is where the surface "
                     "reading misleads you.")

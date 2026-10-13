@@ -6256,7 +6256,9 @@ global.realSetTimeout(() => {
       if (!a || JSON.stringify(a.type) !== '["double_definition"]' || defTexts(a).length < 2) continue;
       const bl = a.blocks || [];
       if (!pure && bl.length === 2 && bl.every((b) => isDef(a, b) && plain(b))) pure = { id, e, bl };
-      if (!third && bl.some((b) => !APP_BLOCKS.senseBlock(a, b) && plain(b) && bare(b.gives))) third = { id, e };
+      // A file holds a third sense as a third definition, whose block carries
+      // its `meaning` as the note and no letters.
+      if (!third && bl.some((b) => !APP_BLOCKS.senseBlock(a, b) && plain(b) && isDef(a, b))) third = { id, e };
     }
     if (pure && third) break;
   }
