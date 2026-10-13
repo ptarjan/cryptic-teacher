@@ -2450,5 +2450,15 @@ tools/test_see_pointer.sh                     is a "See N" continuation the poin
 tools/test_migrate_v2.sh                      does the format v2 migration (tools/convert_v2.py
                                               --migrate, plan step 8) leave files every gate
                                               passes, and is it safe to kill and start again?
+tools/test_validate_speed.sh                  the deploy's "Check every annotation" step runs
+                                              validate_annotations over the whole corpus
+                                              (~51,000 files), so a per-file cost that creeps
+                                              up becomes minutes (124s -> 247s in a day,
+                                              2026-10-13, budget 200s). The guard is the cost
+                                              of 40 annotated puzzles in CPU seconds on one
+                                              core, with 4x headroom over today's ~45ms a
+                                              puzzle; a regression of that size fails here,
+                                              long before the deploy. And the two caches the
+                                              speed rests on are in place
 ```
 <!-- LAYOUT-END -->

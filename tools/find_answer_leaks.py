@@ -22,6 +22,7 @@ line, not the notes that are wrong.
 
 import argparse
 import collections
+import functools
 import json
 import re
 import sys
@@ -36,8 +37,14 @@ from groups import entry_id
 INFLECTIONS = ("", "s", "es", "ed", "d", "ing", "n", "r", "rs", "ers")
 
 
+_NOT_LETTER = re.compile(r"[^a-z]")
+_WORD = re.compile(r"[A-Za-z]+(?:['\u2019][A-Za-z]+)*")
+_PLAIN_WORD = re.compile(r"[A-Za-z]+")
+
+
+@functools.lru_cache(maxsize=1 << 16)
 def letters(s):
-    return re.sub(r"[^a-z]", "", (s or "").lower())
+    return _NOT_LETTER.sub("", (s or "").lower())
 
 
 ARTICLES = {"a", "an", "the"}
@@ -46,10 +53,21 @@ ARTICLES = {"a", "an", "the"}
 def _words_at(text):
     """[(start, end, letters)] of each word of `text`; an apostrophe joins."""
     return [(m.start(), m.end(), letters(m.group()))
-            for m in re.finditer(r"[A-Za-z]+(?:['\u2019][A-Za-z]+)*", text or "")]
+            for m in _WORD.finditer(text or "")]
 
 
 def _spans(text, answer):
+    """_spans_list, one run of the same (text, answer) answered once: the
+    validator asks it for the same clue note under every check."""
+    return iter(_spans_list(text, answer))
+
+
+@functools.lru_cache(maxsize=1 << 15)
+def _spans_list(text, answer):
+    return list(_spans_uncached(text, answer))
+
+
+def _spans_uncached(text, answer):
     """(start, end, word letters) of every run of whole words of `text` that
     spells `answer` plus at most an inflection.
 
@@ -61,7 +79,7 @@ def _spans(text, answer):
     target = letters(answer)
     if len(target) < 3:
         return
-    one_word = len(re.findall(r"[A-Za-z]+", answer or "")) == 1
+    one_word = len(_PLAIN_WORD.findall(answer or "")) == 1
     words = _words_at(text)
     raw = [text[a:b] for a, b, _ in words]
     for i in range(len(words)):
