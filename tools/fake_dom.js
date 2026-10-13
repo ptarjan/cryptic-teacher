@@ -21,6 +21,12 @@ const path = require("path");
 const { reindex } = require("./reindex.js");
 const ROOT = path.join(__dirname, "..");
 const NATIVE_FETCH = global.fetch;
+// Node's own timers, taken once. A boot that read global.setTimeout instead
+// would wrap the previous boot's wrapper, so every booted app (its window, its
+// registry, the corpus index) stayed reachable from the current global: about
+// 18 MB a boot, and smoke_test's format v2 block (two boots per migrated
+// puzzle) ran out of heap on the 7-per-series sample (10-13).
+const NODE_SET_TIMEOUT = global.setTimeout, NODE_CLEAR_TIMEOUT = global.clearTimeout;
 
 function boot(opts) {
   const options = opts || {};
@@ -367,7 +373,7 @@ function boot(opts) {
   // every timer is recorded as well as scheduled and flushTimers(ms) runs the
   // ones that were due within ms. They are still scheduled for real underneath,
   // so the tests that just let things happen keep working as they did.
-  const realSetTimeout = global.setTimeout, realClearTimeout = global.clearTimeout;
+  const realSetTimeout = NODE_SET_TIMEOUT, realClearTimeout = NODE_CLEAR_TIMEOUT;
   // Handed out so a caller can schedule something flushTimers must never reach.
   // The suite's own "print the result and exit" timer is the one that matters:
   // through the fake clock it is just another pending timer, so any test that
@@ -547,8 +553,15 @@ function boot(opts) {
 
   // appSrc goes back out because the smoke test greps app.js's own source (the
   // LABELS ladder) — an assertion about the code, not about the rendered DOM.
+  // stop() cancels every timer this app still has pending. A caller that boots
+  // many apps in one synchronous run (smoke_test's format v2 block) never lets
+  // a timer fire, so each one kept its app alive, window and index included.
+  const stop = () => {
+    for (const t of pending.values()) realClearTimeout(t.handle);
+    pending.clear();
+  };
   return { registry, document, storage, docListeners, winListeners, canonicalLink, FakeEl,
-           appSrc, beacons, window: global.window };
+           appSrc, beacons, window: global.window, stop };
 }
 
 module.exports = { boot, ROOT };
