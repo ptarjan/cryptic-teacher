@@ -664,11 +664,19 @@ def _check_ops(node, got):
                             f"so the reversal does nothing")
 
 
-def translate(clue_out, clue, answer):
+def translate(clue_out, clue, answer, taken=(), respell=None):
     """The stored tree for one clue of model output ({"wp", "notes"}),
     checked against `answer`. Notes are keyed by span words (`#2` for a
-    repeat), or a bare piece's letters, and land on the span they name."""
-    tree = parse(clue_out["wp"], clue)
+    repeat), or a bare piece's letters, and land on the span they name.
+    `taken` are (start, end) clue spans already used (the definitions), so a
+    word in both picks another copy; `respell(text, clue)` spells each span's
+    words as the clue prints them first (a retyped apostrophe or capital)."""
+    tree = parse(clue_out["wp"])
+    if respell:
+        for span, key in _spans(tree):
+            if not re.search(r"#\d+$", span[key]):
+                span[key] = respell(span[key], clue)
+    locate(tree, clue, taken)
     notes = dict(clue_out.get("notes") or {})
     seen = {}
     raw = list(_spans(parse(clue_out["wp"]), True))

@@ -5,22 +5,28 @@
     python3 tools/apply_annotations.py cryptic-30098          # the default path
     cat ann.json | python3 tools/apply_annotations.py 30098 -
 
-The input is one JSON object keyed by entry id, each value the annotation object
-`tools/annotate_prompt.md` describes:
+The input is one JSON object keyed by entry id, each value an annotation in
+the model's shape `tools/annotate_prompt.md` describes:
 
-    {"1-across": {"type": ["charade"], "answer": "...", ...},
+    {"1-across": {"def": "...", "wp": "[can]LOO + del<losing>([accept]BUY, [you]U)",
+                  "notes": {...}, "explanation": {...}, "features": {...}},
      "12-across": null}
 
 Every entry in the puzzle must appear as a key. A key whose value is `null` says
 the clue is deliberately unsolved, which the prompt allows and which is very
 different from forgetting one — so absence is an error and `null` is not.
 
-`assembly` is worked out from the blocks wherever they reach the answer
-(tools/derive_assembly.py): filled in when absent, and `pieces` with the right
-letters in the wrong order redone. Clue words are written as the clue prints
-them (definitions.respell: a retyped apostrophe, a capital or a space is the
-same word), and a one-letter block quoting its selector ("Irish leader" gives
-I) is split into the block "Irish" with `select` and the indicator "leader".
+Each clue is translated (annotation.from_model: the wordplay evaluated, a
+parse that does not give the answer refused, naming the step) and written in
+the shape of the file it goes into (normalize), so a file stays wholly one
+shape: a legacy file takes annotation.view() of the tree, a format v2 file the
+tree. A clue in the old shape (type, blocks: a run that started on the old
+prompt) is still taken: `assembly` worked out from its blocks wherever they
+reach the answer (tools/derive_assembly.py), clue words written as the clue
+prints them (definitions.respell), and a one-letter block quoting its
+selector ("Irish leader" gives I) split into the block "Irish" with `select`
+and the indicator "leader"; into a v2 file it goes through convert_v2.check,
+and one that does not convert is left as the file had it.
 
 Except when the run's copy of the puzzle (tools/_puzzle_<ID>.json, written by
 `annotate_check.py --view`) lists `annotateOnly`: then only those ids need a
@@ -237,10 +243,76 @@ def derived_answer(entry, entries):
     return out
 
 
-def normalize(ann, entry, entries):
-    """`ann` with what code can compute filled in, so the run is not asked for it."""
+class Unlandable(ValueError):
+    """An old-prompt annotation that cannot be written into a format v2 file:
+    convert_v2.check found it contradicting itself or its entry."""
+
+
+def file_is_v2(entries, puzzle=None):
+    """Whether the file these entries come from is format v2
+    (puzzle_schema.is_v2; from the annotations alone without the puzzle)."""
+    import puzzle_schema
+    if puzzle is not None and "entries" in puzzle and "number" in puzzle:
+        return puzzle_schema.is_v2(puzzle)
+    return any(puzzle_schema.is_v2_annotation(e.get("annotation"))
+               for e in entries if e.get("annotation"))
+
+
+def normalize(ann, entry, entries, v2=None, puzzle=None):
+    """`ann` as it is stored in a file of the given shape (`v2`; None reads
+    it off the entries), with what code can compute filled in.
+
+    Two shapes come in. The model's shape (annotation.is_model: `def`, `wp`,
+    `notes`) is translated by annotation.from_model, which evaluates the
+    wordplay against the answer and raises wordplay.WordplayError when it does
+    not give it. An old-prompt annotation (type, blocks, ...) from a run that
+    started before the prompt changed is normalised the old way. A file is
+    wholly one shape (puzzle_schema.format_problems), so each is then written
+    in the file's: a v2 annotation goes into a legacy file as annotation.view()
+    (the legacy fields it implies), and an old-prompt one into a v2 file
+    through convert_v2.check (Unlandable when it does not convert)."""
+    import annotation
     if not isinstance(ann, dict):
         return ann
+    if v2 is None:
+        v2 = file_is_v2(entries, puzzle)
+    held = puzzle if puzzle is not None else {"entries": entries}
+    if annotation.is_model(ann):
+        stored = annotation.from_model(ann, entry, held)
+        if v2:
+            return stored
+        here = {**entry, "alteration": stored["alteration"]} if "alteration" in stored else entry
+        legacy = annotation.view(stored, here, held)
+        # A double definition's meaning is its block's note in a legacy file.
+        if legacy.get("definitions"):
+            legacy["definitions"] = [{k: v for k, v in d.items() if k != "meaning"}
+                                     for d in legacy["definitions"]]
+        if "alteration" in stored:
+            legacy["alteration"] = stored["alteration"]
+        legacy = with_assembly(split_selectors(in_clue_spelling(legacy, entry["clue"].get("text") or "")), entry)
+        # The tree's letters were checked step by step; a legacy file says so
+        # with `pieces` (a selection or deletion builds the answer in one).
+        asm = legacy.get("assembly") or {}
+        if stored.get("wordplay") and not asm.get("pieces") and stored["wordplay"].get("op") != "cryptic":
+            legacy["assembly"] = {"pieces": [annotation.wordplay_letters(legacy, here)], **asm}
+        return legacy
+    legacy = normalize_legacy(ann, entry, entries)
+    if not v2:
+        return legacy
+    import convert_v2
+    here = {**entry, "alteration": legacy["alteration"]} if isinstance(legacy.get("alteration"), dict) else entry
+    status, kinds, new = convert_v2.check(legacy, here, held)
+    if status == "failed":
+        raise Unlandable(", ".join(sorted(kinds)))
+    if "alteration" in legacy:
+        new["alteration"] = legacy["alteration"]
+    return new
+
+
+def normalize_legacy(ann, entry, entries):
+    """An old-prompt annotation (type, blocks, ...) with what code can
+    compute filled in, so the run is not asked for it. Goes when the
+    old-shape path does (the plan's step 9: a week with no old-shape file)."""
     ann = dict(ann)
     if not ann.get("answer"):
         derived = derived_answer(entry, entries)
@@ -380,8 +452,8 @@ def model_corrections(puzzle, annotations):
 
 
 ENTRY_PATH = re.compile(r"\$\.entries\[(\d+)\]")
-BLOCKS_HELP = ("write `blocks` as annotate_prompt.md shows: a cryptic_definition has "
-               "2+ blocks without `gives`; a double_definition has one block per definition")
+BLOCKS_HELP = ("this clue is in the old shape (type, blocks): rewrite it as annotate_prompt.md's "
+               "Schema shows, `def`, `wp` and `notes`, and the type and blocks are worked out from `wp`")
 
 
 def refusal(path, puzzle, err):
@@ -393,7 +465,7 @@ def refusal(path, puzzle, err):
             eid = entry_id(puzzle["entries"][int(m[1])])
             rest = what[m.end():].removeprefix(".annotation")
             what = eid + (" " + rest[1:] if rest.startswith(".") else rest)
-            if "missing required key 'blocks'" in what:
+            if "missing required key 'blocks'" in what or "missing required key 'type'" in what:
                 what += f" — {BLOCKS_HELP}"
         else:
             what = f"{kind} {what}"
@@ -416,11 +488,32 @@ def mend_clues(puzzle):
                 entry["clue"].pop("missingNote", None)
 
 
-def apply_also(puzzle, annotations):
+def landed(ann, entry, entries, v2, eid, errors, skipped=None):
+    """normalize(), with a wordplay that does not check appended to `errors`
+    as "<eid>: why" (None back), and an old-prompt annotation that cannot
+    enter a v2 file appended to `skipped` (None back: the clue is left as
+    it was)."""
+    import wordplay
+    try:
+        return normalize(ann, entry, entries, v2)
+    except Unlandable as e:
+        if skipped is None:
+            errors.append(f"{eid}: {e}")
+        else:
+            skipped.append(f"{eid} ({e})")
+    except wordplay.WordplayError as e:
+        errors.append(f"{eid}: {e}")
+    return None
+
+
+def apply_also(puzzle, annotations, v2=None, errors=None, skipped=None):
     """Write each alsoLeads answer's annotation, keyed by its clue id
     ("22-across/2", groups.clue_id), in place: normalized as its light
     standing as that answer's leader (groups.as_leader); likewise each offGrid
-    clue's. Others untouched."""
+    clue's. Others untouched. A clue whose wordplay does not check is left
+    as it was and named in `errors`."""
+    errors = [] if errors is None else errors
+    v2 = file_is_v2(puzzle["entries"], puzzle) if v2 is None else v2
     for cid, i, k, item in groups.also_clues(puzzle["entries"]):
         if cid not in annotations:
             continue
@@ -428,7 +521,9 @@ def apply_also(puzzle, annotations):
             item.pop("annotation", None)
         else:
             view = groups.as_leader(puzzle, i, k)["entries"]
-            item["annotation"] = normalize(annotations[cid], view[i], view)
+            new = landed(annotations[cid], view[i], view, v2, cid, errors, skipped)
+            if new is not None:
+                item["annotation"] = new
     # A clue entered off the grid (offGrid, "1-offgrid"): normalized on a
     # light of its own (groups.alone).
     for cid, item in groups.off_grid(puzzle):
@@ -438,7 +533,9 @@ def apply_also(puzzle, annotations):
             item.pop("annotation", None)
         else:
             view = groups.alone(puzzle, cid)["entries"]
-            item["annotation"] = normalize(annotations[cid], view[0], view)
+            new = landed(annotations[cid], view[0], view, v2, cid, errors, skipped)
+            if new is not None:
+                item["annotation"] = new
 
 
 def apply(path, annotations, by=None):
@@ -454,14 +551,16 @@ def apply(path, annotations, by=None):
     also += [cid for cid, _ in groups.off_grid(puzzle)]   # and each clue off the grid
     ids += also
     only = annotate_only(path)
+    # The file's shape, read before anything is written into it.
+    v2 = file_is_v2(puzzle["entries"], puzzle)
     if only is not None:
         current = {entry_id(e): e.get("annotation") for e in puzzle["entries"]}
         current.update({cid: item.get("annotation") for cid, _, _, item in groups.also_clues(puzzle["entries"])})
         current.update({cid: item.get("annotation") for cid, item in groups.off_grid(puzzle)})
         by_id = {entry_id(e): e for e in puzzle["entries"]}
         kept = [k for k in ids if k in annotations and k not in only and k not in also
-                and current[k] not in (annotations[k], normalize(
-                    annotations[k], by_id[k], puzzle["entries"]))]
+                and current[k] not in (annotations[k], landed(
+                    annotations[k], by_id[k], puzzle["entries"], v2, k, []))]
         if kept:
             raise SystemExit(
                 f"apply_annotations: {path.name}: {', '.join(kept)} already "
@@ -498,8 +597,12 @@ def apply(path, annotations, by=None):
                        ", so there is no wordplay to explain — give them null")
         raise SystemExit(f"apply_annotations: {path.name}: " + "; ".join(why))
     by_id_all = {entry_id(e): e for e in puzzle["entries"]}
+    import annotation
+    # The model's shape names a corrected answer as `answer` itself, and is
+    # translated only once the grid holds it.
     fixes, problems = model_corrections(puzzle, {
-        k: normalize(v, by_id_all[k], puzzle["entries"]) for k, v in annotations.items()
+        k: v if annotation.is_model(v) else normalize_legacy(v, by_id_all[k], puzzle["entries"])
+        for k, v in annotations.items()
         if k in required and k in by_id_all and isinstance(v, dict)})
     if problems:
         raise SystemExit(
@@ -532,6 +635,9 @@ def apply(path, annotations, by=None):
     # for it). Its own uncommitted hints a run may still null.
     committed = committed_entries(path) or {}
     held = []
+    # Wordplay that does not check (refuses the write), and old-prompt
+    # annotations a v2 file cannot take (left as they were, and named).
+    errors, skipped = [], []
     for entry in puzzle["entries"]:
         if entry_id(entry) in continuations or entry_id(entry) not in annotations:
             continue
@@ -545,9 +651,15 @@ def apply(path, annotations, by=None):
         if ann is None:
             entry.pop("annotation", None)
         else:
-            entry["annotation"] = normalize(ann, entry, puzzle["entries"])
-            move_alteration(entry)
-    apply_also(puzzle, annotations)
+            new = landed(ann, entry, puzzle["entries"], v2, entry_id(entry), errors, skipped)
+            if new is not None:
+                entry["annotation"] = new
+                move_alteration(entry)
+    apply_also(puzzle, annotations, v2, errors, skipped)
+    if errors:
+        raise SystemExit(
+            f"apply_annotations: {path.name}: refused to write — fix these in the _ann "
+            f"file:\n" + "\n".join(f"  {e}" for e in errors))
     if messages is not None:
         if messages:
             puzzle["messages"] = messages
@@ -572,6 +684,10 @@ def apply(path, annotations, by=None):
     if held:
         print(f"apply_annotations: {', '.join(held)} kept the committed hint your null "
               f"would have blanked — it validated before; give a hint to replace it")
+    if skipped:
+        print(f"apply_annotations: {', '.join(skipped)}: written in the old shape and could "
+              f"not be converted for this format v2 file, so left as it was (the burn "
+              f"re-annotates a clue with no hint)")
     solved = sum(1 for k in required if annotations[k] is not None or k in held)
     return solved, len(required)
 

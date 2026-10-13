@@ -7,10 +7,18 @@
     python3 tools/annotate_check.py --reread times-18749   # misread? ask the OCR again
     python3 tools/annotate_check.py cryptic-30098 --by claude-opus-5-5  # hints another session wrote
 
---patch merges FILE, {"8-down": {"definitionFit": "...", "blocks": [...]}},
+The _ann file is in the model's shape (annotate_prompt.md's Schema: `def`,
+`wp`, `notes`, ...), which apply_annotations translates (annotation.from_model)
+and writes in the puzzle file's own shape; a `wp` that does not give the answer
+stops the apply with a line naming the step that broke. An old-prompt clue
+(type, blocks), from a run that started before the prompt changed, still
+applies the old way.
+
+--patch merges FILE, {"8-down": {"wp": "...", "notes": {"in": "..."}}},
 into tools/_ann_<ID>.json first: each named field replaced, null removing it,
-and deletes FILE. Many clues' fixes are one Write and this one command, not a
-fix script, which these runs cannot get approved.
+except `notes`, merged note by note (a null note removed), and deletes FILE.
+Many clues' fixes are one Write and this one command, not a fix script, which
+these runs cannot get approved.
 
 An entry's `printedClue` (a misread clue mended), `setterError` (a setter's
 slip) and `answerTypo` (the paper's key misprinted) are filed as its rows of
@@ -20,9 +28,9 @@ field in the same write, not a hand edit of a sorted table. An `answerTypo`
 also puts the corrected letters in the puzzle file's grid before the apply.
 
 An entry the _ann file has no key for is filled in as null (not done yet), so
-a file written a few clues at a time applies as it stands, an `answer`
-typed with the enumeration's commas is respelt with spaces, and
-`assembly.pieces` a slip away from the answer are recut from its letters.
+a file written a few clues at a time applies as it stands, and an `answer`
+typed with the enumeration's commas is respelt with spaces. The run's view
+shows `existingAnnotations` in the model's shape too (in_notation).
 
 Applies tools/_ann_<ID>.json, validates, runs both audit tools and
 syntax-checks the file — and prints one report with a count at the
@@ -57,7 +65,8 @@ import subprocess
 import sys
 from pathlib import Path
 from annotate_audit import load_templates, rule_name
-from annotation import assembly, wordplay_letters
+import annotation
+import apply_annotations
 import blog_post
 import fetch_puzzle
 import clue_types
@@ -69,8 +78,7 @@ from groups import entry_id
 import series
 import validate_annotations
 from apply_annotations import (
-    annotate_only, apply_also, current_view, default_input, move_alteration, normalize, view_path,
-    with_assembly)
+    annotate_only, apply_also, current_view, default_input, move_alteration, normalize, view_path)
 from fetch_puzzle import clued, read_puzzle_file, resolve_puzzle
 from json_merge import dump_lines
 from validate_annotations import letters
@@ -242,6 +250,20 @@ def scan_path(puzzle):
     return out
 
 
+def in_notation(ann, entry, puzzle):
+    """A stored annotation as the run writes one (annotation.to_model: `def`,
+    `wp`, `notes`), so the context it reads is in its own notation; a legacy
+    one goes through convert_v2 first, and one that does not convert is shown
+    as stored."""
+    import convert_v2
+    import puzzle_schema
+    try:
+        v2 = ann if puzzle_schema.is_v2_annotation(ann) else convert_v2.convert(ann, entry, puzzle)[0]
+        return annotation.to_model(v2)
+    except (convert_v2.Unconvertible, ValueError, KeyError, TypeError, IndexError, StopIteration):
+        return ann
+
+
 def write_view(path):
     """Write the annotate run's copy of the puzzle file, current as of now.
 
@@ -284,11 +306,13 @@ def write_view(path):
         grid = grid_rows(puzzle)
         if grid:
             view["grid"] = grid
-    kept = {entry_id(e): e["annotation"] for e in puzzle["entries"]
+    kept = {entry_id(e): in_notation(e["annotation"], e, puzzle) for e in puzzle["entries"]
             if e.get("annotation") and only is not None and entry_id(e) not in only}
-    kept.update({cid: item["annotation"] for cid, _, _, item in groups.also_clues(puzzle["entries"])
+    kept.update({cid: in_notation(item["annotation"], groups.as_leader(puzzle, i, k)["entries"][i], puzzle)
+                 for cid, i, k, item in groups.also_clues(puzzle["entries"])
                  if item.get("annotation") and only is not None and cid not in only})
-    kept.update({cid: item["annotation"] for cid, item in groups.off_grid(puzzle)
+    kept.update({cid: in_notation(item["annotation"], groups.as_entry(puzzle, cid), puzzle)
+                 for cid, item in groups.off_grid(puzzle)
                  if item.get("annotation") and only is not None and cid not in only})
     if kept:
         view["existingAnnotations"] = kept
@@ -466,6 +490,10 @@ def patch(pending, fix):
         for k, v in fields.items():
             if v is None:
                 ann[eid].pop(k, None)
+            elif k == "notes" and isinstance(v, dict) and isinstance(ann[eid].get(k), dict):
+                # One note is the usual fix: notes merge key by key, null removing one.
+                merged = {**ann[eid][k], **v}
+                ann[eid][k] = {n: t for n, t in merged.items() if t is not None}
             else:
                 ann[eid][k] = v
     write_pending(pending, ann)
@@ -677,93 +705,13 @@ def normalize_pending(path, pending):
         return
     entries = read_puzzle_file(path)["entries"]
     by_id = {entry_id(e): e for e in entries}
-    out = {k: normalize(v, by_id[k], entries) if k in by_id else v for k, v in ann.items()}
+    # Only an old-prompt annotation is filled in place, and only in a legacy
+    # file: the model's shape stays the run's own text (apply translates it).
+    out = {k: normalize(v, by_id[k], entries, v2=False)
+           if k in by_id and isinstance(v, dict) and not annotation.is_model(v) else v
+           for k, v in ann.items()}
     if out != ann:
         write_pending(pending, out)
-
-
-def _edits(a, b):
-    """Levenshtein distance between two strings."""
-    row = list(range(len(b) + 1))
-    for i, ca in enumerate(a, 1):
-        prev, row[0] = row[0], i
-        for j, cb in enumerate(b, 1):
-            prev, row[j] = row[j], min(row[j] + 1, row[j - 1] + 1, prev + (ca != cb))
-    return row[-1]
-
-
-def recut(pieces, want, gives=()):
-    """`want` cut into as many chunks as `pieces`, or None.
-
-    The chunks are the answer's own letters, so they always join to it: the
-    pieces of a whole-answer reversal written in the order they were reversed
-    from (RATS+RE+PUS for SUPERSTAR) are each turned round and listed back to
-    front; otherwise each piece is matched to the run of `want` it differs
-    least from, a run that is some block's `gives` preferred. Only a slip is recut: the same letters out of order, or at
-    most two letters wrong. Anything further is a different parse or answer,
-    and stays an error."""
-    bare = [re.sub(r"[^A-Z]", "", str(p).upper()) for p in pieces]
-    joined = "".join(bare)
-    if not want or joined == want or not 0 < len(bare) <= len(want) or not all(bare):
-        return None
-    if joined[::-1] == want:
-        return [p[::-1] for p in reversed(bare)]
-    if sorted(joined) != sorted(want) and _edits(joined, want) > 2:
-        return None
-    k, n = len(bare), len(want)
-    inf = float("inf")
-    best = [[inf] * (n + 1) for _ in range(k + 1)]
-    cut = [[0] * (n + 1) for _ in range(k + 1)]
-    best[0][0] = 0
-    for i in range(1, k + 1):
-        for j in range(i, n - (k - i) + 1):
-            for m in range(i - 1, j):
-                if best[i - 1][m] < inf:
-                    c = (best[i - 1][m] + _edits(bare[i - 1], want[m:j])
-                         - 0.5 * (want[m:j] in gives))
-                    if c < best[i][j]:
-                        best[i][j], cut[i][j] = c, m
-    out, j = [], n
-    for i in range(k, 0, -1):
-        out.append(want[cut[i][j]:j])
-        j = cut[i][j]
-    return out[::-1]
-
-
-def recut_pieces(path, pending):
-    """Redo each `assembly.pieces` that misses the answer by a slip: rebuilt
-    from the blocks where they reach the answer (derive_assembly), else recut
-    (see `recut`); the entry ids changed, with the new pieces. `pieces` restates
-    letters the blocks already give, and a slip in retyping them was the
-    third commonest first-check failure, each costing a turn."""
-    try:
-        ann = json.loads(pending.read_text(encoding="utf-8"))
-        entries = {entry_id(e): e for e in read_puzzle_file(path)["entries"]}
-    except (ValueError, OSError, KeyError):
-        return []
-    changed = []
-    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
-        build = a.get("assembly") if isinstance(a, dict) else None
-        pieces = build.get("pieces") if isinstance(build, dict) else None
-        if not isinstance(pieces, list) or not pieces:
-            continue
-        entry = dict(entries.get(eid) or {})
-        if isinstance(a.get("alteration"), dict):
-            entry["alteration"] = a["alteration"]
-        gives = {re.sub(r"[^A-Z]", "", str(b.get("gives") or "").upper())
-                 for b in a.get("blocks") or [] if isinstance(b, dict)}
-        rebuilt = assembly(with_assembly(a, entry))
-        if rebuilt.get("pieces") and rebuilt != build:
-            a["assembly"] = rebuilt
-            changed.append((eid, rebuilt["pieces"]))
-            continue
-        new = recut(pieces, wordplay_letters(a, entry), gives)
-        if new:
-            build["pieces"] = new
-            changed.append((eid, new))
-    if changed:
-        write_pending(pending, ann)
-    return changed
 
 
 def unname_block_notes(path, pending):
@@ -782,6 +730,28 @@ def unname_block_notes(path, pending):
     by_id = {entry_id(e): e for e in entries}
     changed = []
     for eid, a in (ann.items() if isinstance(ann, dict) else ()):
+        if annotation.is_model(a) and isinstance(a.get("notes"), dict) and eid in by_id:
+            # The model's notes are its blocks' notes: read each against the
+            # block it becomes (the legacy view), rewrite it in `notes`.
+            try:
+                seen = normalize(a, by_id[eid], entries, v2=False)
+            except ValueError:
+                continue
+            lights = light_solutions(by_id[eid], by_id)
+            pieces = pieces_of(seen)
+            senses = "double_definition" in seen["type"]
+            for key, note in list(a["notes"].items()):
+                block = next((b for b in seen.get("blocks") or [] if b.get("note") == note), None)
+                if block is None or not isinstance(note, str):
+                    continue
+                for name in names(seen["answer"], lights):
+                    gives = block.get("gives") if name == seen["answer"] else ""
+                    new = unname(note, name, gives, clues.get(eid, ""), pieces,
+                                 blank=senses and not block.get("gives"))
+                    if new:
+                        a["notes"][key] = note = new
+                        changed.append(eid)
+            continue
         if not isinstance(a, dict) or not isinstance(a.get("answer"), str):
             continue
         lights = light_solutions(by_id.get(eid) or {}, by_id)
@@ -879,7 +849,7 @@ def untangle_link_words(path, pending):
     changed = []
     for eid, a in list(ann.items()):
         e = by_id.get(eid)
-        if not isinstance(a, dict) or not e or not isinstance(e.get("clue"), dict):
+        if not isinstance(a, dict) or annotation.is_model(a) or not e or not isinstance(e.get("clue"), dict):
             continue
         clue = e["clue"].get("text") or ""
         found = []
@@ -977,7 +947,7 @@ def clear_link_words(path, pending):
     changed = []
     for eid, a in list(ann.items()):
         e = by_id.get(eid)
-        if not isinstance(a, dict) or not e or not isinstance(e.get("clue"), dict):
+        if not isinstance(a, dict) or annotation.is_model(a) or not e or not isinstance(e.get("clue"), dict):
             continue
         clue = e["clue"].get("text") or ""
         if not a.get("linkWords"):
@@ -1060,15 +1030,21 @@ def preview(path, pending):
         ann = json.loads(pending.read_text(encoding="utf-8"))
         continuations = groups.leader_of(puzzle["entries"])
         only = annotate_only(path)
+        v2 = apply_annotations.file_is_v2(puzzle["entries"], puzzle)
         for e in puzzle["entries"]:
             if entry_id(e) in continuations or (only is not None and entry_id(e) not in ann):
                 continue
             if ann.get(entry_id(e)) is None:
                 e.pop("annotation", None)
             else:
-                e["annotation"] = normalize(ann[entry_id(e)], e, puzzle["entries"])
+                # A clue whose wordplay does not check is named by the refusal;
+                # the rest are still worth validating.
+                new = apply_annotations.landed(ann[entry_id(e)], e, puzzle["entries"], v2, "", [])
+                if new is None:
+                    continue
+                e["annotation"] = new
                 move_alteration(e)
-        apply_also(puzzle, ann)
+        apply_also(puzzle, ann, v2, [])
         try:
             definitions.place_puzzle(puzzle)
         except ValueError as err:
@@ -1202,11 +1178,6 @@ def main(argv):
                   + "; ".join(f"{eid} {what}" for eid, what in cleared)
                   + " (an &lit's whole clue is its definition, so it has no link words)."
                   " Make the walkthrough agree\n")
-        recut_done = recut_pieces(path, pending)
-        if recut_done:
-            print("assembly.pieces that did not join to the answer, recut from its "
-                  f"letters in {pending.name}: "
-                  + "; ".join(f"{eid} {'+'.join(p)}" for eid, p in recut_done) + "\n")
         unnamed = unname_block_notes(path, pending)
         if unnamed:
             print(f"block notes that named the answer, rewritten without it in "

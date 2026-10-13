@@ -54,7 +54,9 @@ try:
     view = json.loads(AC.write_view(path).read_text())
     check("view names only the missing entries", view.get("annotateOnly") == [a, b])
     check("view keeps the others' annotations as context",
-          view["existingAnnotations"][c] == full[c])
+          view["existingAnnotations"][c] == AC.in_notation(full[c], clues[2], F.read_puzzle_file(path)))
+    check("in the run's own notation", "wp" in view["existingAnnotations"][c] or "def" in view["existingAnnotations"][c]
+          or "blocks" in view["existingAnnotations"][c])
     check("view is a line per entry", len(view["entries"]) == len(F.read_puzzle_file(path)["entries"])
           and all(l.count(" | ") >= 3 for l in view["entries"]))
     check("view says no _ann file yet", view["annotationsFile"].startswith("no "))

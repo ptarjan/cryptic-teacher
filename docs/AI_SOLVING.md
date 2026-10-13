@@ -324,7 +324,14 @@ LIKELY or GUESS. It then writes the fill in and annotates it.
 
 Annotation is written to a JSON file a few clues at a time, so that a cut-off
 run keeps what it wrote, and `tools/annotate_check.py` is run until it says
-clean. That checker wraps the validator's checks and adds
+clean. Since 10-13 each clue is written in the model's shape: the definition
+(`def`), the wordplay as one parse line (`wp`, `ins<in>([order]SORT, [Bird]TIT +
+[Chinese]CH + [woman]W)`) and notes keyed by clue words; the checker translates it
+(`annotation.from_model`, `tools/wordplay.py`) and refuses a parse whose letters
+are not the answer, naming the step, so the clue type, link words, blocks and
+assembly are never the model's to keep consistent (docs/PUZZLE_FORMAT.md). The
+existing annotations it shows as context are rendered in the same notation.
+That checker wraps the validator's checks and adds
 repairs that are safe to apply mechanically (dropping a link word that
 overlaps a definition, for example), each applied only if it clears the
 check, adds nothing and is the unique best edit.

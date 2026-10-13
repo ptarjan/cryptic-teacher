@@ -40,7 +40,7 @@ def say(name, ok):
 lead_ann = {"type": ["charade"], "answer": "ABCDEFGH", "definitions": [{"text": "Some", "at": 0}],
             "explanation": {"walkthrough": "w"}, "blocks": [{"clueFragment": "words", "gives": "X"}]}
 g = ["1-across", "2-down"]
-good = {"id": "t-1", "entries": [
+good = {"id": "t-1", "series": "t", "name": "T 1", "entries": [
     entry("1-across", group=g, annotation=lead_ann),
     entry("2-down", sol="EFGH")]}
 errs = []
@@ -283,19 +283,6 @@ say("patch_deletes_its_file", AC.patch(pending, fix) is None and not fix.exists(
 pending.write_text(json.dumps({"1-across": {"answer": "TITUS, ANDRONICUS"}, "2-across": None}))
 say("comma_answer_spaced", AC.respell_answers(pending) == ["1-across"]
     and json.loads(pending.read_text())["1-across"]["answer"] == "TITUS ANDRONICUS")
-
-# Pieces a slip away from the answer are recut from its letters; a different
-# answer or parse is left for the validator.
-pending.write_text(json.dumps({
-    "1-across": {"answer": "SUPERSTAR", "assembly": {"pieces": ["RATS", "RE", "PUS"]}},
-    "2-across": {"answer": "STRANGLER", "blocks": [{"gives": "STRANGER"}, {"gives": "L"}],
-                 "assembly": {"pieces": ["STRAN", "L", "GER"]}},
-    "3-across": {"answer": "ABRIDGE", "assembly": {"pieces": ["SH", "OR", "TEN"]}},
-    "4-across": {"answer": "ROEDEER", "assembly": {"pieces": ["ROE", "DEER"]}}}))
-recut = AC.recut_pieces(path, pending)
-pieces_now = {k: v["assembly"]["pieces"] for k, v in json.loads(pending.read_text()).items()}
-say("pieces_recut", recut == [("1-across", ["SUP", "ER", "STAR"]), ("2-across", ["STRANG", "L", "ER"])]
-    and pieces_now["3-across"] == ["SH", "OR", "TEN"] and pieces_now["4-across"] == ["ROE", "DEER"])
 
 # A block note naming its answer is rewritten without it when no judgement goes
 # into that; one naming it mid-thought is left for the validator.
