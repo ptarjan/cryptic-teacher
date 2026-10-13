@@ -93,10 +93,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
+      # No Set up Node: nothing this job runs calls node (the smoke test is
+      # tests.yml's), and the actions bring their own. It was 5s a run.
       # tools/og_palette.py, which make_og.sh runs on every card.
       - name: Install Pillow
         run: pip install pillow
