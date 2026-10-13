@@ -576,8 +576,6 @@ LAYOUT = [
     ("fetching", "tools/test_scan_reread.sh", "does an annotation that meets a misread clue on an OCR'd puzzle queue its scan for a re-read, once per reading of its clues, does the burn leave the puzzle alone until the re-read lands, and take it back after?"),
     ("fetching", "tools/test_scan_queue.sh", "does tools/scan_queue.py read the never-read first, never send the queue back to the start, keep N sources in flight, stop at its deadline, and let only one run hold a ledger; do both scan filers read again, once the VLM answers, the sources read while it was down, mid-run outages included?"),
     ("fetching", "tools/test_ann_normalize.sh", "what apply_annotations.normalize computes, so the run need not write it"),
-    ("fetching", "tools/derive_assembly.py", "the search that rebuilds an assembly from block letters, and the cut annotation.view() uses"),
-    ("fetching", "tools/test_derive_assembly.sh", "is `assembly` worked out from the blocks, and only with the clue's own operations?"),
     ("fetching", "tools/row_cache.py", "a per-file pass over the corpus that parses only the files it has not seen: rows stored by code key, path and git blob under the git common dir (reindex's index rows, difficulty's history and clue rows)"),
     ("fetching", "tools/page_cache.py", "last build's puzzle pages, reused when their own inputs, the stamped assets they link and the tracked code and data are unmoved (build_seo_pages; the deploy restores the store with actions/cache)"),
     ("fetching", "tools/clue_index.py", "which puzzle files share clues: normalised clue text -> puzzle ids"),
