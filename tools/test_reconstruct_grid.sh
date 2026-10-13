@@ -170,7 +170,7 @@ import os
 import reconstruct_grid as R
 from fetch_puzzle import read_puzzle_file, puzzle_files
 
-total = sym = min2_row = min2_col = gap_row = gap_col = 0
+total = sym = min2_row = min1_col = min2_col = gap_row = gap_col = 0
 thin = short = 0
 for path in list(puzzle_files())[::int(os.environ["STEP"])]:
     puzzle = read_puzzle_file(path)
@@ -221,6 +221,8 @@ for path in list(puzzle_files())[::int(os.environ["STEP"])]:
     columns = [[lines[y][x] for y in range(rows)] for x in range(cols)]
     if min(sum(line) for line in lines) >= 2:
         min2_row += 1
+    if min(sum(col) for col in columns) >= 1:
+        min1_col += 1
     if min(sum(col) for col in columns) >= 2:
         min2_col += 1
 
@@ -253,7 +255,13 @@ else:
         allowed += 1
 print("ASYMMETRIC_ALLOWED", allowed)
 print("ROWS_AT_LEAST_TWO_WHITE", min2_row)
+print("COLS_AT_LEAST_ONE_WHITE", min1_col)
 print("COLS_AT_LEAST_TWO_WHITE", min2_col)
+# The grid that lowered the column rule from two to one, named so the rule
+# cannot creep back up without this line failing: Genius 209 has a column
+# whose only white cell is inside 20-across.
+genius = next(p for p in puzzle_files() if p.name == "genius-209.json")
+print("GENIUS_209_BROKEN", repr(R.conventions_broken(R.grid_of(read_puzzle_file(genius)))))
 print("NO_TWO_BARE_ROWS", gap_row)
 print("NO_TWO_BARE_COLS", gap_col)
 print("HAS_A_TWO_CELL_LIGHT", short)
@@ -266,7 +274,9 @@ echo "  (corpus: $n_total puzzles)"
 # every puzzle here is the tool refusing to find a grid somebody published.
 same "every puzzle has two or more white cells in every row" \
   "$(field ROWS_AT_LEAST_TWO_WHITE "$out1")" "$n_total"
-same "and in every column" "$(field COLS_AT_LEAST_TWO_WHITE "$out1")" "$n_total"
+same "and one or more in every column" "$(field COLS_AT_LEAST_ONE_WHITE "$out1")" "$n_total"
+check "$out1" "GENIUS_209_BROKEN []" \
+  "Genius 209, with a one-cell column, breaks none of the tool's rules"
 same "no puzzle has two adjacent rows without an across light" \
   "$(field NO_TWO_BARE_ROWS "$out1")" "$n_total"
 same "nor two adjacent columns without a down light" \
@@ -276,7 +286,7 @@ same "nor two adjacent columns without a down light" \
 # default pass cannot reconstruct them.
 most "at least 99.5% of grids are 180-degree symmetric (asymmetric within what that allows)" \
   "$(field ASYMMETRIC "$out1")" "$(field ASYMMETRIC_ALLOWED "$out1")"
-# The mirror image of the rules above: two rules the tool deliberately does
+# The mirror image of the rules above: rules the tool deliberately does
 # not enforce, held out of it because this corpus breaks them. The day the
 # corpus stops breaking them is the day that sentence needs rewriting.
 # A two-cell light is rare enough that a sample can hold none, so it is the
@@ -285,6 +295,10 @@ least "some puzzle still has a two-cell light, so no minimum length may be impos
   "$(field HAS_A_TWO_CELL_LIGHT "$out1")" "$([ "$STEP" = 1 ] && echo 1 || echo 0)"
 least "thousands still have a light under half checked, so no checking rule may be imposed" \
   "$(field HAS_A_LIGHT_UNDER_HALF_CHECKED "$out1")" "$((1000 / STEP))"
+# Genius 209 is one puzzle, so a sample usually misses it; the full pass is
+# what says a published column still holds a single white cell.
+least "some puzzle still has a column with one white cell, so columns may not be held to two" \
+  "$((n_total - $(field COLS_AT_LEAST_TWO_WHITE "$out1")))" "$([ "$STEP" = 1 ] && echo 1 || echo 0)"
 
 echo "reconstruction against the corpus, sampled across every series and size"
 out2=$(SAMPLE="${SAMPLE:-26}" NUMBERLESS_SAMPLE="${NUMBERLESS_SAMPLE:-4}" \
