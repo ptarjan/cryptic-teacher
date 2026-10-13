@@ -675,6 +675,8 @@ LAYOUT = [
     ("fetching", "tools/test_see_pointer.sh", "is a \"See N\" continuation the pointer and nothing else, in every reader?"),
     ("fetching", "tools/test_migrate_v2.sh", "does the format v2 migration (tools/convert_v2.py --migrate, plan step 8) leave files every gate passes, and is it safe to kill and start again?"),
     ("fetching", "tools/test_validate_speed.sh", "the deploy's \"Check every annotation\" step runs validate_annotations over the whole corpus (~51,000 files), so a per-file cost that creeps up becomes minutes (124s -> 247s in a day, 2026-10-13, budget 200s). The guard is the cost of 40 annotated puzzles in CPU seconds on one core, with 4x headroom over today's ~45ms a puzzle; a regression of that size fails here, long before the deploy. And the two caches the speed rests on are in place"),
+    ("fetching", "tools/test_ci_checkout.sh", "the deploy's checkout (.github/workflows/pages.yml, build/Check out) run twice against a local origin: once cold, then on what Restore the git store brings back, where it must fetch only what the new commit added rather than the whole tree again (that refetch was ~58s a run). Then that every cache the build restores is saved again with the same paths and key, and that tools/trim_codeql_caches.py keeps the newest CodeQL entry per language and touches nothing else"),
+    ("fetching", "tools/trim_codeql_caches.py", "delete all but the newest CodeQL overlay database per language from the repo's Actions cache, so CodeQL default setup stops evicting the deploy's caches"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
