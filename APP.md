@@ -329,7 +329,7 @@ Terms used below:
   an inline-block chip in every state (see `pickableClueHTML`), and an
   inline-block's margin box sets the minimum line height. A line-height smaller
   than the chip is silently ignored. So a bigger chip adds white space to the
-  roughly 75% of clues that wrap on a 390px phone, in every state, including
+  most clues, which wrap on a 390px phone, in every state, including
   plain reading. `--gw-box` and `--gw-line` in `style.css` are declared as one
   sum, and the smoke test checks that arithmetic against `.gw`'s own box. To
   grow the target, grow the sum, knowing you are paying in line spacing. Never
@@ -346,10 +346,10 @@ Terms used below:
 
 ## Picker and badges
 
-- **The puzzle picker's default view lists only the latest `RECENT_ROWS` (12)
-  puzzles with `annotated: true`**, plus the one currently open and any with
-  saved progress. Un-annotated puzzles are the
-  majority and grow faster than annotated ones, and a row that cannot teach
+- **The puzzle picker's default view lists only the latest `RECENT_ROWS`
+  puzzles with `annotated: true`**, plus the open one and any with
+  saved progress. Un-annotated puzzles can far outnumber annotated ones (the
+  archive grows faster than the quota annotates), and a row that cannot teach
   anything is noise.
 - **Hidden must never mean unreachable.**
   - A search query searches every puzzle, annotated or not.
@@ -472,13 +472,14 @@ answer, not solving it.
 
 ### The annotator model
 
-The nightly jobs annotate with Opus (`ANNOTATE_MODEL`, default `opus`, in
-`tools/daily_update.sh` and `tools/prereset_backfill.sh`).
+The nightly jobs annotate with the model pinned as `ANNOTATE_MODEL` (with
+`ANNOTATE_EFFORT`) in `tools/daily_update.sh` and `tools/prereset_backfill.sh`.
 That is an alias, so each run records the exact model id it resolved to in the
 puzzle's `annotatedBy`, and the commit trailer is read back from
-there by `python3 tools/provenance.py trailer`. The choice rests
-on one benchmark puzzle, 30078. Each model annotated it from scratch with the
-same prompt and flags, and was compared with Fable's existing annotation:
+there by `python3 tools/provenance.py trailer`. On 08-08 the pin moved from
+Fable to Opus on one benchmark puzzle, 30078. Each model annotated it from
+scratch with the same prompt and flags, and was compared with Fable's
+existing annotation:
 
 | Model    | time  | steps | input | output | vs Fable              | cost   |
 |----------|-------|-------|-------|--------|-----------------------|--------|
@@ -504,8 +505,9 @@ same prompt and flags, and was compared with Fable's existing annotation:
   weaknesses are boilerplate (`so 'X' names it by what it does` recurs) and a
   `definitionFit` averaging 24 words against a 30-word cap. Fable's extra output
   tokens were iteration, not finished prose.
-- The pin rests on a single puzzle. Read the first few nightly runs, and read
-  the capped clues of any run at `MAX_CRYPTIC_DEFINITIONS`.
+- That pin rested on a single puzzle. The 10-12 paired A/B that re-tested it
+  is in [docs/AI_SOLVING.md](docs/AI_SOLVING.md). Whatever the pin, read the
+  capped clues of any run at `MAX_CRYPTIC_DEFINITIONS`.
 
 ## Social cards and icons
 
