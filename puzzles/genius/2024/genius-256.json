@@ -4,6 +4,13 @@
  "setter": "Claw",
  "date": "2024-10-07",
  "preamble": "Each clue’s wordplay indicates an extra letter: these spell out an instruction. Following this will take the solver on a journey. However, the journey will quickly be thwarted in a couple of places. To resume it, the solver must change one letter each time. The journey will resume at pace until close to the end, when one final letter change will complete a release from 50 years ago this month. The original letters give a Homeric summary of its conclusion. Final entries are all real words or names.",
+ "messages": [
+  {
+   "text": "SELECT EVERY NUMBERED CELL IN ORDER",
+   "kind": "extra",
+   "order": "clues"
+  }
+ ],
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -17,8 +24,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-13",
+  "check": "30 entries, 48 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,6 +44,53 @@
    "clue": {
     "text": "Brown thingamyjig mostly cooked in clay oven",
     "enumeration": "8"
+   },
+   "solution": "TANDOORI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cooked in clay oven",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Brown",
+       "at": 0,
+       "gives": "TAN",
+       "note": "tan is a light brown"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "thingamyjig mostly",
+         "at": 6,
+         "gives": "DOOBRI",
+         "note": "doobrie is British slang for a thingummy whose name escapes you; mostly drops its last letter"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brown gadget is mostly baked in a clay oven.",
+     "definitionFit": "Tandoori food is cooked in a tandoor, the cylindrical clay oven of Indian cooking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brown"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "B"
+    }
    }
   },
   {
@@ -44,6 +104,52 @@
    "clue": {
     "text": "All but showed contempt for Norfolk town",
     "enumeration": "4"
+   },
+   "solution": "HISS",
+   "alteration": {
+    "from": "DISS",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Norfolk town",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "parts": [
+      {
+       "words": "All but showed contempt for",
+       "at": 0,
+       "gives": "DISSE",
+       "note": "dissed is slang for showed disrespect to; all but its last letter is kept"
+      },
+      {
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nearly everyone sneered at a small town in Norfolk.",
+     "walkthrough": "Entered as HISS: the D is changed to H so the numbered cells can spell THE, and the lost D starts D'OH.",
+     "definitionFit": "Diss is a market town in south Norfolk, in eastern England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "contempt"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
    }
   },
   {
@@ -57,6 +163,55 @@
    "clue": {
     "text": "Lecture faculty for discerning noted works — roll up!",
     "enumeration": "6"
+   },
+   "solution": "EARFUL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lecture",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "faculty for discerning noted works",
+       "at": 8,
+       "gives": "EAR",
+       "note": "an ear for music is the faculty for telling notes apart"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "roll up",
+         "at": 45,
+         "gives": "FURL",
+         "note": "to furl is to roll up a flag or sail"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fairground barker invites people to a lecture on music appreciation.",
+     "walkthrough": "'Noted works' are musical works, written in notes.",
+     "definitionFit": "An earful is a long scolding, so giving someone one is lecturing them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "noted"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "R"
+    }
    }
   },
   {
@@ -76,6 +231,73 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "TEABALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "leaves brewer",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held by",
+       "at": 5,
+       "note": "the beer is held by the other letters, so it goes inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "at": 13,
+         "note": "broken means the letters of the word are scattered and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "table",
+         "at": 20,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Beer",
+         "at": 0,
+         "gives": "ALE",
+         "note": "ale is beer"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Beer spilt on a broken table makes the brewer quit.",
+     "walkthrough": "'Leaves' is a verb in the surface but the noun tea leaves in the definition.",
+     "definitionFit": "A tea ball is a perforated metal ball that holds loose tea while it infuses in the pot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
    }
   },
   {
@@ -89,6 +311,61 @@
    "clue": {
     "text": "Do I say 'having S-shaped curves'?",
     "enumeration": "4"
+   },
+   "solution": "AGEE",
+   "alteration": {
+    "from": "OGEE",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "having S-shaped curves",
+      "at": 10
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Do",
+         "at": 0,
+         "note": "taken as written"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "I say",
+       "at": 3,
+       "gives": "GEE",
+       "note": "gee! is an exclamation of surprise, like I say!"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether to remark on a figure's curvy shape.",
+     "walkthrough": "Entered as AGEE, a Scots word for awry: the O becomes A for TAKING, and the O is the middle of D'OH.",
+     "definitionFit": "An ogee is a double curve shaped like an S, used attributively of arches and mouldings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "D"
+    }
    }
   },
   {
@@ -108,6 +385,67 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "KEEPWICKET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "field with guard for protection?",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in front",
+       "at": 33,
+       "note": "continuing is placed in front of the rest of the pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "continue",
+       "at": 24,
+       "gives": "KEEP",
+       "note": "to keep on is to continue"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Can",
+         "at": 0,
+         "gives": "WC",
+         "note": "the can is slang for the toilet, the WC"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      },
+      {
+       "words": "powerless protestor",
+       "at": 4,
+       "gives": "ICKET",
+       "note": "a picket is a striker protesting at a gate; powerless, it loses the P for power"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A striker asks whether, now powerless, the protest can go on at the front of a guarded field.",
+     "walkthrough": "In cricket the wicketkeeper fields behind the stumps wearing gloves and pads, hence 'guard for protection'.",
+     "definitionFit": "To keep wicket is to take the cricket fielding position behind the stumps, padded and gloved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "guard"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "C"
+    }
    }
   },
   {
@@ -121,6 +459,42 @@
    "clue": {
     "text": "Figurine Tim Allen keeps inside coat",
     "enumeration": "6"
+   },
+   "solution": "INTIMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "inside coat",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "parts": [
+      {
+       "words": "Figurine Tim Allen",
+       "at": 0,
+       "gives": "INETIMA",
+       "note": "the words keep a run of letters inside them, from the end of figurine across Tim into Allen"
+      },
+      {
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tim Allen, the voice of a toy-figure hero, keeps a figurine in his coat pocket.",
+     "definitionFit": "The intima is the innermost layer, or coat, of the wall of an artery or vein."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coat"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
    }
   },
   {
@@ -134,6 +508,77 @@
    "clue": {
     "text": "Is vehicle reversing towards crowd? Advise driver!",
     "enumeration": "8"
+   },
+   "solution": "NAVIGATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Advise driver",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversing",
+         "at": 11,
+         "note": "a vehicle reversing goes backwards, so the opening pieces are read from the end"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "op": "deletion",
+           "parts": [
+            {
+             "words": "Is",
+             "at": 0,
+             "gives": "IS",
+             "note": "taken as written"
+            },
+            {
+             "gives": "S"
+            }
+           ]
+          },
+          {
+           "words": "vehicle",
+           "at": 3,
+           "gives": "VAN",
+           "note": "a van is a vehicle"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "crowd",
+       "at": 29,
+       "gives": "GATE",
+       "note": "the gate is the crowd attending a match"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worried passenger asks whether the car backing up is heading into a crowd, and tells the driver what to do.",
+     "walkthrough": "Gate is the sports word for the number of spectators at a match.",
+     "definitionFit": "A passenger who navigates directs the driver along the route, telling them which way to go."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "crowd"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "S"
+    }
    }
   },
   {
@@ -147,6 +592,65 @@
    "clue": {
     "text": "Pick up bird when cycling north",
     "enumeration": "5"
+   },
+   "solution": "GLEAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pick up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "op": "cycling",
+         "indicators": [
+          {
+           "text": "cycling",
+           "at": 18,
+           "note": "cycling moves letters round from the front of the bird to its back"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bird",
+           "at": 8,
+           "gives": "EAGLE",
+           "note": "the eagle is a bird of prey"
+          }
+         ]
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "north",
+       "at": 26,
+       "gives": "N",
+       "note": "N is the compass abbreviation for north"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A birdwatcher spots an eagle while cycling north.",
+     "definitionFit": "To glean is to gather or pick up bits of information or leftover grain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
    }
   },
   {
@@ -160,6 +664,43 @@
    "clue": {
     "text": "Sailor leaves guiding light creative works",
     "enumeration": "4"
+   },
+   "solution": "ODES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "creative works",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "parts": [
+      {
+       "words": "Sailor leaves guiding light",
+       "at": 0,
+       "gives": "LODES",
+       "note": "a lodestar is a guiding star; when the tar (a sailor) leaves it, what remains is lodes"
+      },
+      {
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor abandons the star he steered by for a life of creative work.",
+     "walkthrough": "A lodestar is the star a navigator steers by; TAR is the crossword sailor.",
+     "definitionFit": "Odes are lyric poems, works of the creative imagination."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "L"
+    }
    }
   },
   {
@@ -179,6 +720,72 @@
       "mark": "-"
      }
     ]
+   },
+   "solution": "FIBREOPTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "made of thin flexible glass",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 17,
+         "note": "about means around, so the spirit wraps the next piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Spirit",
+         "at": 0,
+         "gives": "FIRE",
+         "note": "fire is spirit or ardour"
+        },
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "to exist",
+           "at": 23,
+           "gives": "BE",
+           "note": "to be is to exist"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "dispenser",
+       "at": 7,
+       "gives": "OPTIC",
+       "note": "an optic is the measuring dispenser on an upturned bottle in a British bar"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pub's spirit optic is about to be made out of fine glass strands.",
+     "walkthrough": "'Spirit dispenser' reads as one bar fitting, the optic, but the two words are split: spirit is fire and the dispenser alone is the optic.",
+     "definitionFit": "Fibre-optic cable carries light through fine strands of drawn glass, so a fibre-optic thing is built from them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spirit"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
    }
   },
   {
@@ -192,6 +799,54 @@
    "clue": {
     "text": "He's held in conflict by political activists, Colin?",
     "enumeration": "6"
+   },
+   "solution": "POWELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Colin?",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "He's held in conflict",
+       "at": 0,
+       "gives": "POW",
+       "note": "a POW is a prisoner of war, held during the fighting"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "political activists",
+         "at": 25,
+         "gives": "CELL",
+         "note": "a cell is a small group of activists working together"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Colin is held captive by militants during a conflict.",
+     "walkthrough": "The question mark marks a definition by example: Colin Powell was the US general and Secretary of State.",
+     "definitionFit": "Colin Powell is a famous bearer of the first name, so the surname stands for one Colin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "held"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "C"
+    }
    }
   },
   {
@@ -205,6 +860,61 @@
    "clue": {
     "text": "Speed delivery, not cocaine — drive out in the van",
     "enumeration": "10"
+   },
+   "solution": "EXPEDITION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Speed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in the van",
+       "at": 40,
+       "note": "in the van means at the front, so driving out leads"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "drive out",
+         "at": 30,
+         "gives": "EXPEL",
+         "note": "to expel is to drive out"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "delivery, not cocaine",
+       "at": 6,
+       "gives": "DITION",
+       "note": "diction is a speaker's delivery; without C, slang for cocaine, it loses that letter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A courier wants fast drug-free delivery and to be driven off in the van.",
+     "walkthrough": "'Speed' looks like the drug beside 'cocaine', but it is the definition.",
+     "definitionFit": "Expedition can mean promptness or haste, as in acting with all expedition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Speed"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "L"
+    }
    }
   },
   {
@@ -228,6 +938,65 @@
       "mark": "-"
      }
     ]
+   },
+   "solution": "LAHDIDAH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Posh",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "coming over",
+       "at": 23,
+       "note": "coming over is turning back on itself, so the pieces are read from the end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "architect",
+         "at": 5,
+         "gives": "HADID",
+         "note": "Zaha Hadid was a celebrated architect"
+        },
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "to stop",
+           "at": 15,
+           "gives": "HALT",
+           "note": "to halt is to stop"
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An upper-class architect is told to stop visiting.",
+     "definitionFit": "La-di-da describes affected, pretentiously refined manners, the speech of someone putting on airs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Posh"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "T"
+    }
    }
   },
   {
@@ -241,6 +1010,65 @@
    "clue": {
     "text": "Maori party regularly will push for uprising",
     "enumeration": "3"
+   },
+   "solution": "HUI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maori party",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "uprising",
+       "at": 36,
+       "note": "in a down light uprising means reading upwards, from the end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "regularly",
+           "at": 12,
+           "note": "regularly takes every other letter, here the second, fourth and so on"
+          }
+         ],
+         "parts": [
+          {
+           "words": "will push",
+           "at": 22,
+           "note": "the even letters of these two words"
+          }
+         ]
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Maori political party will keep pressing for a revolt.",
+     "definitionFit": "A hui is a Maori gathering or meeting, a party in the social sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "L"
+    }
    }
   },
   {
@@ -260,6 +1088,90 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "AIRPUMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cause of inflation",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "current",
+       "at": 2,
+       "gives": "I",
+       "note": "I is the physics symbol for electric current"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "note",
+         "at": 10,
+         "gives": "RE",
+         "note": "re is the second note of the sol-fa scale"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 40,
+         "note": "about here means turned round, so the last two pieces are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Prime Minister",
+           "at": 16,
+           "gives": "PM",
+           "note": "PM is the abbreviation for Prime Minister"
+          },
+          {
+           "words": "informed",
+           "at": 31,
+           "gives": "UP",
+           "note": "up on a subject means informed about it"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A current memo tells the Prime Minister what is driving up prices.",
+     "walkthrough": "'Inflation' is economic in the surface but means blowing up a tyre or balloon.",
+     "definitionFit": "An air pump forces air into a tyre or balloon, so it is what makes it swell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "inflation"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
    }
   },
   {
@@ -273,6 +1185,65 @@
    "clue": {
     "text": "Honey, I'm twelve essentially",
     "enumeration": "3"
+   },
+   "solution": "MEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Honey",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "I'm",
+         "at": 7,
+         "gives": "IM",
+         "note": "taken as written, without the apostrophe"
+        },
+        {
+         "gives": "I"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "essentially",
+         "at": 18,
+         "note": "essentially means at its core, so only the middle letters of twelve count"
+        }
+       ],
+       "parts": [
+        {
+         "words": "twelve",
+         "at": 11,
+         "gives": "EL",
+         "note": "the middle two letters of the six"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child tells someone she calls honey that she is twelve, basically.",
+     "definitionFit": "Mel is the Latin word for honey, used in pharmacy and an old crossword favourite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Honey"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "I"
+    }
    }
   },
   {
@@ -286,6 +1257,55 @@
    "clue": {
     "text": "Almost sheepish man making noise like an animal",
     "enumeration": "7"
+   },
+   "solution": "OINKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "making noise like an animal",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Almost sheepish",
+         "at": 0,
+         "gives": "OVIN",
+         "note": "ovine means of or like sheep; almost all of it drops the final letter"
+        },
+        {
+         "gives": "V"
+        }
+       ]
+      },
+      {
+       "words": "man",
+       "at": 16,
+       "gives": "KING",
+       "note": "a king is a chess man"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rather sheepish fellow starts making animal noises.",
+     "walkthrough": "'Sheepish' is read literally as like a sheep, not embarrassed.",
+     "definitionFit": "Oinking is the grunting sound a pig makes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sheepish"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "V"
+    }
    }
   },
   {
@@ -305,6 +1325,55 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "NAILFILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Digital editor",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "adapted",
+       "at": 15,
+       "note": "adapted means altered into a new form, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "final line",
+         "at": 23,
+         "note": "taken as written"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A digital-media editor reworks the last line of a piece.",
+     "walkthrough": "'Digital' means relating to fingers, the digits, not computers.",
+     "definitionFit": "A nail file shapes and tidies the fingernails, editing the digits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Digital"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "N"
+    }
    }
   },
   {
@@ -318,6 +1387,53 @@
    "clue": {
     "text": "Religious community members see noses put out of joint",
     "enumeration": "7"
+   },
+   "solution": "ESSENES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Religious community members",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "put out of joint",
+       "at": 38,
+       "note": "a dislocated thing is put out of joint, so these letters are disarranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "see noses",
+         "at": 28,
+         "note": "taken as written"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Members of a religious sect see their noses put out of joint.",
+     "definitionFit": "The Essenes were an ascetic Jewish sect living communally around the time of Christ."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "noses"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "O"
+    }
    }
   },
   {
@@ -331,6 +1447,60 @@
    "clue": {
     "text": "International British gymnast's trapped fingers",
     "enumeration": "8"
+   },
+   "solution": "TWIDDLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fingers",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "trapped",
+       "at": 32,
+       "note": "the gymnast traps the next piece, holding it inside her name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "British gymnast's",
+         "at": 14,
+         "gives": "TWEDDLES",
+         "note": "Beth Tweddle is a British Olympic gymnast; with the 's her name ends in S"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "International",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the abbreviation for International"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An international British gymnast has caught her fingers.",
+     "definitionFit": "To twiddle something is to fiddle with it idly, which is what fingering it means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fingers"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
    }
   },
   {
@@ -344,6 +1514,43 @@
    "clue": {
     "text": "Swiss tennis player was up dumping Inka — cried like a baby",
     "enumeration": "6"
+   },
+   "solution": "WAWLED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cried like a baby",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "parts": [
+      {
+       "words": "Swiss tennis player was up dumping Inka",
+       "at": 0,
+       "gives": "WAWRLED",
+       "note": "Stan Wawrinka is a Swiss Grand Slam champion; dumping Inka from his name leaves wawr, and was up (ahead in a match) is led, which follows"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Swiss player who was ahead loses to Inka and bawls like a baby.",
+     "definitionFit": "Waul or wawl is a Scots and dialect verb for crying like a cat or a wailing infant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Inka"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "R"
+    }
    }
   },
   {
@@ -357,6 +1564,53 @@
    "clue": {
     "text": "Get old boy to take vigorous exercise",
     "enumeration": "6"
+   },
+   "solution": "OBTAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "old boy",
+       "at": 4,
+       "gives": "OB",
+       "note": "OB is the abbreviation for old boy, a former pupil"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "take vigorous exercise",
+         "at": 15,
+         "gives": "TRAIN",
+         "note": "to train is to work out hard"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells an old boy to go and work out hard.",
+     "definitionFit": "To obtain something is to acquire it, a plain synonym of get."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Get"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "R"
+    }
    }
   },
   {
@@ -370,6 +1624,71 @@
    "clue": {
     "text": "Play better than tense jazz fan double act put up",
     "enumeration": "6"
+   },
+   "solution": "OUTACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Play better than",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "put up",
+       "at": 43,
+       "note": "in a down light put up means turned to read upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "tense",
+         "at": 17,
+         "gives": "T",
+         "note": "T is the grammar abbreviation for tense"
+        },
+        {
+         "words": "jazz fan",
+         "at": 23,
+         "gives": "CAT",
+         "note": "a cat is old jazz slang for a fan"
+        },
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "double act",
+           "at": 32,
+           "gives": "DUO",
+           "note": "a duo is a double act"
+          },
+          {
+           "gives": "D"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A double act upstages a nervous jazz fan who was put up on stage.",
+     "definitionFit": "To outact someone is to give a better performance than them on stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "D"
+    }
    }
   },
   {
@@ -383,6 +1702,72 @@
    "clue": {
     "text": "Most anxious hush after White City in turmoil",
     "enumeration": "10"
+   },
+   "solution": "TWITCHIEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most anxious",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 18,
+       "note": "after means the hush comes behind the jumbled city name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in turmoil",
+         "at": 35,
+         "note": "in turmoil means thrown into disorder, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "White City",
+           "at": 24,
+           "note": "taken as written"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "hush",
+       "at": 13,
+       "gives": "ST",
+       "note": "st! is an exclamation calling for silence"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fans are at their most nervous when a hush falls over White City in chaos.",
+     "walkthrough": "White City is a district of west London, once home to a famous stadium.",
+     "definitionFit": "Twitchy means nervous and jumpy, so the superlative is the most nervous of all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hush"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "Y"
+    }
    }
   },
   {
@@ -396,6 +1781,54 @@
    "clue": {
     "text": "Spurs stop fine",
     "enumeration": "4"
+   },
+   "solution": "HOYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spurs",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "stop",
+       "at": 6,
+       "gives": "HO",
+       "note": "ho! is a call to stop"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "fine",
+         "at": 11,
+         "gives": "YES",
+         "note": "fine! as an answer means yes"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tottenham Hotspur's season is stopped and a fine is imposed.",
+     "walkthrough": "Spurs is the nickname of Tottenham Hotspur, the London football club, but here it is a verb.",
+     "definitionFit": "Hoy is an old verb meaning to urge on or incite, as with a call to animals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spurs"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
    }
   },
   {
@@ -409,6 +1842,62 @@
    "clue": {
     "text": "Firmly establish dynasty with newspaper",
     "enumeration": "4"
+   },
+   "solution": "RAFT",
+   "alteration": {
+    "from": "HAFT",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Firmly establish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "dynasty",
+         "at": 17,
+         "gives": "HAN",
+         "note": "the Han were a Chinese ruling dynasty"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "newspaper",
+       "at": 30,
+       "gives": "FT",
+       "note": "the FT is the Financial Times"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ruling family sets itself up for good with a newspaper of its own.",
+     "walkthrough": "The answer is entered as RAFT: changing its first letter H to R completes THREE in the numbered cells, and the H is the last letter of D'OH.",
+     "definitionFit": "Haft, besides a handle, is a Chambers verb for fixing something firmly in place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "newspaper"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "N"
+    }
    }
   },
   {
@@ -422,6 +1911,52 @@
    "clue": {
     "text": "Overwhelming favourite in classic race advanced from capital",
     "enumeration": "4"
+   },
+   "solution": "RARE",
+   "alteration": {
+    "from": "HARE",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Overwhelming favourite in classic race",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "parts": [
+      {
+       "words": "advanced from capital",
+       "at": 39,
+       "gives": "HARRE",
+       "note": "Harare is the capital of Zimbabwe; A, for advanced, is taken from it"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A racing tipster makes a capital's horse the hot favourite for a Classic.",
+     "walkthrough": "The classic race is Aesop's fable, not a British Classic horse race. Entered as RARE: changing its first letter H to R completes THREE in the numbered cells, and the H is the last letter of D'OH.",
+     "definitionFit": "In the fable of the tortoise and the hare, everyone backed the swift runner, who lost."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "classic"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "R"
+    }
    }
   },
   {
@@ -435,6 +1970,41 @@
    "clue": {
     "text": "Dark brown ox and small horse lose their heads",
     "enumeration": "5"
+   },
+   "solution": "EBONY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dark brown",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "parts": [
+      {
+       "words": "ox and small horse lose their heads",
+       "at": 11,
+       "gives": "EBUONY",
+       "note": "the zebu is a humped ox and a pony a small horse; beheaded they leave ebu and ony"
+      },
+      {
+       "gives": "U"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brown ox and a pony are both beheaded.",
+     "definitionFit": "Ebony is the very dark wood of a tropical tree, and its name is used for a near-black brown."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "U"
+    }
    }
   },
   {
@@ -448,6 +2018,65 @@
    "clue": {
     "text": "Uncle initially avoided working with crime ring",
     "enumeration": "8"
+   },
+   "solution": "ENCIRCLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ring",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "working",
+       "at": 24,
+       "note": "working means being worked over and reshaped, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Uncle initially avoided",
+         "at": 0,
+         "gives": "NCLE",
+         "note": "the word uncle with its first letter avoided, so dropped"
+        },
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "crime",
+           "at": 37,
+           "note": "taken as written"
+          },
+          {
+           "gives": "M"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An uncle stays out of the family business while working with a crime ring.",
+     "walkthrough": "'Crime ring' looks like one phrase, but 'ring' alone is the definition.",
+     "definitionFit": "To ring something is to surround it in a circle, so ring as a verb means encircle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "M"
+    }
    }
   }
  ]
