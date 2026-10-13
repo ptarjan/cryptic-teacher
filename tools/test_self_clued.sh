@@ -88,6 +88,14 @@ pointer["entries"][1]["clue"]["text"] = "See 1"
 errors = []
 validate_annotations.check_groups(pointer, errors)
 check("a pointer leg in selfClued refused", any("its clue is a pointer" in e for e in errors), True)
+# cryptic-25126's MINOR, "See 17", ends MAJOR AND MINOR and ASIA MINOR too.
+borrowed = copy.deepcopy(puzzle)
+borrowed["entries"][0]["group"] = ["1-across", "2-down", "3-across", "4-down"]
+borrowed["entries"][0]["selfClued"] = ["2-down", "3-across", "4-down"]
+errors = []
+validate_annotations.check_groups(borrowed, errors)
+check("a pointer that continues another answer may be borrowed", errors, [])
+check("and stays that answer's continuation", groups.leader_of(borrowed["entries"]), {"4-down": "3-across"})
 
 print("length check: each answer against its own count")
 flags = []

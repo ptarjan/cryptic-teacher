@@ -18,7 +18,9 @@ A light of a group may also be an answer of its own: cryptic-21893's 21-down
 THERE and 1-across PUBLIC each carry a clue, and also finish 11-across's
 BATTLE HYMN OF THE REPUBLIC. The holder names such lights in `selfClued`;
 they keep their own clue, annotation and group, and are not that answer's
-continuations (holder_of, leader_of and group_of pass them by).
+continuations (holder_of, leader_of and group_of pass them by). A pointer
+light may be named too when it continues another answer: cryptic-25126's
+20-across MINOR, "See 17", ends MAJOR AND MINOR and also ASIA MINOR.
 """
 
 import re
