@@ -458,6 +458,23 @@ def annotation_fits(annotation, text, answer):
     return all(p in (text or "") for p in pieces if p)
 
 
+def different_puzzle(new, old):
+    """Why the bucket's puzzle `new` is not the one the held file `old` is, or
+    None. The bucket can serve another puzzle under the number (Prize Cryptic
+    No 2842 is that Sunday's General Knowledge crossword): when fewer than half
+    the held answers sit where the bucket puts them, it is a different puzzle."""
+    have = {(e["position"]["x"], e["position"]["y"], e["direction"]): e.get("solution")
+            for e in old.get("entries", ()) if e.get("solution")}
+    if not have:
+        return None
+    theirs = {(e["position"]["x"], e["position"]["y"], e["direction"]): e.get("solution")
+              for e in new["entries"]}
+    same = sum(theirs.get(k) == v for k, v in have.items())
+    if same * 2 >= len(have):
+        return None
+    return f"only {same} of the held file's {len(have)} answers are the bucket's"
+
+
 def refile(new, old):
     """The bucket's puzzle `new` over the blog-built file `old`: the printed
     grid, numbering, enumerations and answers, the printed clue unless
@@ -540,6 +557,10 @@ def fetch(variant, slug, expect=None, setters=None):
         # our own unsolved file outright.
         if unsolved(puzzle) or (ours and not unsolved(old)):
             print(f"held {puzzle['id']}: left alone")
+            return None, asked
+        why = None if ours else different_puzzle(puzzle, old)
+        if why:
+            print(f"held {puzzle['id']}: left alone, the bucket serves another puzzle ({why})")
             return None, asked
         if not ours:
             puzzle, notes = refile(puzzle, old)
