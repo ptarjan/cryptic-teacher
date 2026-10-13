@@ -5,6 +5,7 @@
     python3 tools/annotate_check.py --view cryptic-30098   # the run's input
     python3 tools/annotate_check.py cryptic-30098 --patch FILE
     python3 tools/annotate_check.py --reread times-18749   # misread? ask the OCR again
+    python3 tools/annotate_check.py cryptic-30098 --by claude-opus-5-5  # hints another session wrote
 
 --patch merges FILE, {"8-down": {"definitionFit": "...", "blocks": [...]}},
 into tools/_ann_<ID>.json first: each named field replaced, null removing it,
@@ -1157,6 +1158,11 @@ def main(argv):
     if argv[0] == "--view":
         print(write_view(resolve_puzzle(argv[1])).relative_to(ROOT))
         return 0
+    by = []
+    if "--by" in argv:
+        at = argv.index("--by")
+        by = argv[at:at + 2]
+        del argv[at:at + 2]
     path = resolve_puzzle(argv[0])
     stem = path.stem
     shown = path.relative_to(ROOT) if path.is_relative_to(ROOT) else path
@@ -1210,7 +1216,7 @@ def main(argv):
             print(f"{pending.name} had no key for {', '.join(filled)}: filled in as null "
                   f"(not done yet)\n")
         rc, out = run([sys.executable, str(TOOLS / "apply_annotations.py"),
-                       stem, str(pending), "--no-validate"])
+                       stem, str(pending), "--no-validate", *by])
         print(out)
         if rc:
             # Nothing downstream is about this puzzle if the annotations never
