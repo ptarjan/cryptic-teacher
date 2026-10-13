@@ -2044,6 +2044,48 @@ def row_lines(words):
     return rows
 
 
+#: The readers that read a Gale page's whole ink (ocr_headings); the other
+#: READERS (Tesseract) read only the strips round their words a heading
+#: could be (hint_strips). A whole-page Tesseract read cost 60 CPU-s of a
+#: scan's 142 (RapidOCR's ch 37, en5 45), its strips 16; RapidOCR reads a
+#: strip at a finer detection scale than a whole page, so strips cost it
+#: more, not less, and would move the boxes the read's crops are cut from.
+PAGE_READERS = ("ch", "en5")
+#: A word a heading could be, however misread: a number of four digits or
+#: more ("17,554", "17.58l" reads "17.58"), or "solution", "crossword" or
+#: "puzzle" as our readers misread them.
+HEADING_HINT = re.compile(r"\d[\d,.' ]{2,}\d|s[o0]l[uo0]t|cr[o0e]ss|puzz|pvzz", re.IGNORECASE)
+#: How far a hint's strip reaches past its word: this many pixels at
+#: SCAN_WIDTH left and right, this many of its heights over and under.
+HINT_PAD = (150, 1)
+
+
+def hint_strips(img, words):
+    """The bands (x0, y0, x1, y1) round each of `words` HEADING_HINT
+    matches, padded by HINT_PAD and clipped to the page, those that
+    overlap merged, so no word is read twice."""
+    k = img.width / SCAN_WIDTH
+    bands = []
+    for x0, y0, x1, y1, text in words:
+        if HEADING_HINT.search(text):
+            h = y1 - y0
+            bands.append([max(0, int(x0 - HINT_PAD[0] * k)), max(0, int(y0 - HINT_PAD[1] * h)),
+                          min(img.width, int(x1 + HINT_PAD[0] * k)), min(img.height, int(y1 + HINT_PAD[1] * h))])
+    merged = True
+    while merged:
+        merged = False
+        for i, a in enumerate(bands):
+            for b in bands[i + 1:]:
+                if a[0] < b[2] and b[0] < a[2] and a[1] < b[3] and b[1] < a[3]:
+                    a[:] = [min(a[0], b[0]), min(a[1], b[1]), max(a[2], b[2]), max(a[3], b[3])]
+                    bands.remove(b)
+                    merged = True
+                    break
+            if merged:
+                break
+    return sorted(tuple(b) for b in bands)
+
+
 def ocr_headings(img, paper, key, day=None):
     """([(number, box, setter, readers)], [(number, box)]) of the titles and
     solution headings on a page archive.org has no text for (a Gale page:
@@ -2064,13 +2106,23 @@ def ocr_headings(img, paper, key, day=None):
     box = img.convert("L").point(lambda v: 255 if v < 128 else 0).getbbox()
     if box is None:
         return ([] if day is None else ocr_titles(img, paper, day, key, far=True)), []
-    titles, page_words = {}, []
+    titles, page_words, read = {}, [], {}
+    for which in sorted(READERS, key=lambda r: r not in PAGE_READERS):
+        # PAGE_READERS read the whole ink; the others only the strips round
+        # their words a heading could be (hint_strips), or the whole ink too
+        # when they read nothing.
+        hints = [w for r in PAGE_READERS for w in read.get(r, ())]
+        bands = [box] if which in PAGE_READERS or not hints else hint_strips(img, hints)
+        read[which] = []
+        for band in bands:
+            name = "page" if band == box else "_".join(map(str, band))
+            try:
+                read[which] += [(*w[:4], mend_misreads(w[4])) for w in band_words(
+                    img, band, which, CROPS / "titles" / f"{key}_{name}.{reader_key(which)}.json")]
+            except subprocess.TimeoutExpired:  # this reader read nothing; the vote still needs half of READERS
+                pass
     for which in READERS:
-        path = CROPS / "titles" / f"{key}_page.{reader_key(which)}.json"
-        try:
-            words = [(*w[:4], mend_misreads(w[4])) for w in band_words(img, box, which, path)]
-        except subprocess.TimeoutExpired:  # this reader read nothing; the vote still needs half of READERS
-            words = []
+        words = read[which]
         page_words += words
         lines = printed_lines(words)
         lines += [ln[k:] for ln in lines for k in range(1, len(ln)) if HEADING_START.match(ln[k][4])]
