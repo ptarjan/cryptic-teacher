@@ -2003,6 +2003,11 @@ tools/row_cache.py                            a per-file pass over the corpus th
                                               key, path and git blob under the git common dir
                                               (reindex's index rows, difficulty's history and
                                               clue rows)
+tools/page_cache.py                           last build's puzzle pages, reused when their own
+                                              inputs, the stamped assets they link and the
+                                              tracked code and data are unmoved
+                                              (build_seo_pages; the deploy restores the store
+                                              with actions/cache)
 tools/clue_index.py                           which puzzle files share clues: normalised clue
                                               text -> puzzle ids
 tools/test_placeholder_clues.sh               a puzzle whose clues are pointers at clues
