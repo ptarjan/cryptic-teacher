@@ -301,17 +301,12 @@ def validate(puzzle):
     return out + format_problems(puzzle)
 
 
-# ------------------------------------------------------ format v2, one shape a file
-# Format v2 (docs/PUZZLE_FORMAT.md "Design principles") stores no field that can
-# be derived from others. Until the corpus is rewritten, files of both shapes
-# exist, so the shape is read off the file: an annotation with `blocks` is the
-# legacy shape, one without is v2 ($defs/annotation), and a puzzle is v2 when
-# any annotation is, or when it stores no `series`. A file is wholly one shape:
-# legacy files keep passing as they are, and a v2 file is held to v2's rules.
+# ------------------------------------------------------ derived fields
+# The format (docs/PUZZLE_FORMAT.md "Design principles") stores no field that
+# can be derived from others; the JSON Schema's `refused` lists name most of
+# them, and format_problems() the ones only Python can see.
 
-V2_PUZZLE_DERIVED = {"name": "series.display_name() derives it from the id, `prize`, `title` and `label`",
-                     "series": "it is the id's prefix (series.parse_id)"}
-V2_ONLY_PUZZLE_KEYS = ("prize", "title", "label")
+NAME_KEYS = ("prize", "title", "label")
 
 
 def annotations(puzzle):
@@ -333,35 +328,15 @@ def annotations(puzzle):
                    item["annotation"])
 
 
-def is_v2_annotation(ann):
-    return isinstance(ann, dict) and "blocks" not in ann
-
-
-def is_v2(puzzle):
-    """Whether the puzzle file is format v2 (see above)."""
-    return "series" not in puzzle or any(is_v2_annotation(a) for _, _, a in annotations(puzzle))
-
-
 def format_problems(puzzle):
-    """The one-shape rule, and the derived fields only Python can see: a v2
-    file's name or series, a legacy annotation in a v2 file, and a `spelling`
-    equal to the display answer the entry already gives."""
+    """The derived fields only Python can see: a `spelling` equal to the
+    display answer the entry already gives."""
     import annotation
     out = []
     if not isinstance(puzzle, dict):
         return out
-    if not is_v2(puzzle):
-        out += [f"$: missing required key {k!r}" for k in ("name", "series") if k not in puzzle]
-        out += [f"$: key {k!r} is format v2's; a legacy file spells it in `name`"
-                for k in V2_ONLY_PUZZLE_KEYS if k in puzzle]
-        return out
-    out += [f"$: key {k!r} is refused in a format v2 file: {why}"
-            for k, why in V2_PUZZLE_DERIVED.items() if k in puzzle]
     for at, held, ann in annotations(puzzle):
-        if not is_v2_annotation(ann):
-            out.append(f"{at}: a legacy annotation (it has `blocks`) in a format v2 file; a file is "
-                       f"wholly one shape, so convert it (tools/convert_v2.py)")
-        elif "spelling" in ann and held.get("solution"):
+        if "spelling" in ann and held.get("solution"):
             try:
                 derived = annotation.display_answer(held, puzzle)
             except (KeyError, TypeError):

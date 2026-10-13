@@ -62,8 +62,8 @@ def style(puzzle):
     if len(texts) < MIN_CLUES:
         return None
     short = sum(len(WORD.findall(t)) <= SHORT_WORDS for t in texts) / len(texts)
-    # type and indicators are derived: a format v2 file's come from view()
-    # (a legacy or already viewed puzzle comes back as it is).
+    # type and indicators are derived: the file's come from view()
+    # (an already viewed puzzle comes back as it is).
     import annotation
     puzzle = annotation.view_puzzle(puzzle)
     anns = [e["annotation"] for e in puzzle["entries"]

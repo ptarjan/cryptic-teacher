@@ -273,7 +273,7 @@ same "and it names the channel that tool really uses" \
   "$(awk '$1=="CHANNEL_MISMATCH" {print $3}' <<<"$out4")" "True"
 same "a publisher contradicting the id's series is refused" \
   "$(field WRONG_PUBLISHER "$out4")" "True"
-same "a puzzle with no series is no finding here (format v2 stores none; the schema owns a legacy file's)" "$(field NO_SERIES "$out4")" "0"
+same "a puzzle with no series is no finding here (the format stores none: the id gives it)" "$(field NO_SERIES "$out4")" "0"
 same "a blog-retrieved write-up passes" "$(field BLOG_PRISTINE "$out4")" "0"
 same "a model fill over a blog's write-up is refused" "$(field BLOG_MODEL "$out4")" "True"
 same "and no write can put it on disk" "$(field BLOG_MODEL_WRITE "$out4")" "refused"
@@ -395,8 +395,7 @@ print("PRENAMESPACE_SERIES", series_table.parse_id("30089")[0])
 print("PRENAMESPACE_NUMBER", series_table.parse_id("30089")[1])
 
 puzzle = {
-    "id": "authored-1", "number": 1, "series": "authored",
-    "name": "x", "setter": "x", "date": "2026-01-01",
+    "id": "authored-1", "number": 1, "setter": "x", "date": "2026-01-01",
     "dimensions": {"cols": 1, "rows": 1}, "entries": [],
 }
 stamped = p.stamp(puzzle, "tools/build_authored_puzzle.py")

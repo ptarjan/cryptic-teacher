@@ -1797,9 +1797,9 @@ def group_answer(puzzle, e):
 def drop_stale_annotations(old, puzzle):
     """Drop, in place, each annotation of `puzzle` whose light's answer
     differs from `old`'s and no longer matches the annotation's, so the light
-    is annotated again rather than explained as the answer it replaced. A
-    format v2 annotation stores no answer: its answer is the one view() derives
-    in `old`, where it was written."""
+    is annotated again rather than explained as the answer it replaced. An
+    annotation stores no answer: its answer is the one view() derives in
+    `old`, where it was written."""
     import annotation
     was = {where(e): group_answer(old, e) for e in old["entries"]}
     held = {where(e): e.get("annotation") for e in old["entries"]}
@@ -1810,7 +1810,7 @@ def drop_stale_annotations(old, puzzle):
         answer = group_answer(puzzle, e)
         if not isinstance(ann, dict) or was.get(where(e)) == answer:
             continue
-        said = ann.get("answer") or (derived.get(where(e)) if held.get(where(e)) == ann else None)
+        said = derived.get(where(e)) if held.get(where(e)) == ann else None
         if not said:
             continue
         if re.sub(r"[^A-Z]", "", said.upper()) != answer.upper():

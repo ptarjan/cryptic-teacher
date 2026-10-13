@@ -49,7 +49,7 @@ def whole_anagram(ann, entry=None):
     return None
 
 
-# ---------- format v2: the fields a stored wordplay tree implies ----------
+# ---------- the fields a stored wordplay tree implies ----------
 # The tree is tools/wordplay.py's; view() turns it back into the fields the
 # app and the checks read today (type, answer, indicators with `for`,
 # linkWords, blocks, assembly), so nothing downstream has to change.
@@ -158,7 +158,7 @@ def _enum_marks(enum):
 
 # Series whose printed enumerations count letters only (Azed marks a word
 # break in 23 of 19,690, the Listener in none): their answers' spacing is a
-# fact the enumeration can't give, kept as `spelling` (tools/convert_v2.py).
+# fact the enumeration can't give, kept as `spelling`.
 # Mephisto prints "(10, two words)" where Chambers has two words (filed as
 # 6,4 with separators) and a bare count for one word or a hyphenated one:
 # USED-UP (6), LOG-HOUSE (8), L-PLATES (7); hyphens in 2 of 15,459.
@@ -233,16 +233,15 @@ def _types(tree):
         if not op or (op == "charade" and parent and parent.get("op") == "anagram"
                       and not node.get("indicators")):
             continue
-        # Nor is a join of one lettered part and notes riding along (legacy
-        # blocks that give nothing): everyman-3002 12A, R AND Y named by
+        # Nor is a join of one lettered part and notes riding along (blocks
+        # that give nothing): everyman-3002 12A, R AND Y named by
         # "outskirts of Rugby", filed its "characters" as such a block and is
-        # one letter selection, as its legacy type said.
+        # one letter selection.
         if op == "charade" and not node.get("indicators") and len(wordplay.lettered(_parts(node))) < 2:
             continue
         if OP_TYPE[op] not in out:
             out.append(OP_TYPE[op])
-    # A wordplay that is one leaf (a single block, as legacy filed it) is a
-    # charade of one part.
+    # A wordplay that is one leaf (a single block) is a charade of one part.
     return out or (["charade"] if tree.get("op") in (None, "charade") else [])
 
 
@@ -369,7 +368,7 @@ def _blocks(node, got):
     import wordplay
     op = node.get("op")
     if op is None:
-        # An unchecked legacy leaf keeps the select or soundsLike it was filed with.
+        # An unchecked leaf keeps the select or soundsLike it was filed with.
         # An unchecked leaf without gives gives no letters (wordplay.match).
         gives = None if node.get("unchecked") and "gives" not in node else wordplay.leaf_letters(node)
         # A leaf the abbreviation table explains stores no note; its gloss is derived.
@@ -378,7 +377,7 @@ def _blocks(node, got):
                        note=node.get("note") or abbreviation_gloss(node))]
     parts = _parts(node)
     if node.get("unchecked"):
-        # A legacy step taken as filed shows its parts' blocks as they were.
+        # An unchecked step taken as filed shows its parts' blocks as they were.
         return [b for p in parts for b in _blocks(p, got)]
     if op == "cryptic":
         return [_block(clueFragment=p.get("words"), note=p.get("note")) for p in parts]
@@ -429,7 +428,7 @@ def _first_at(node):
 def _fodder(node, got):
     """An anagram's fodder letters as the clue prints them. Its fodder is one
     heap, so a charade under it may be filed in any order; the letters are
-    read off its parts in clue order (as legacy files kept them), so the app
+    read off its parts in clue order, so the app
     deals the same tiles and the fodder it shows reads like the clue. A part
     with no clue words (supplied letters) keeps the tree order."""
     child = _parts(node)[0]
@@ -463,7 +462,7 @@ def _assembly(tree, got):
     pieces = [p for p in _pieces(tree, got) if p]
     if len(pieces) > 1:
         out["pieces"] = pieces
-    # An unchecked anagram (a setter's slip, or a legacy step taken as filed)
+    # An unchecked anagram (a setter's slip, or a step taken as filed)
     # is listed too when its fodder's letters are known and are a slip's
     # reach from what it gives, so the ring deals them and
     # validate_annotations holds a slip to tools/data/setter_error.json.
@@ -510,8 +509,8 @@ def definition_indicator_type(ann):
 
 
 def view(ann, entry, puzzle=None):
-    """A format v2 annotation (definitions, wordplay tree, explanation, ...)
-    with the fields it implies, in the shape the app reads today: type,
+    """A stored annotation (definitions, wordplay tree, explanation, ...)
+    with the fields it implies, in the shape the app and the checks read: type,
     answer, indicators with `for`, linkWords, blocks and assembly. Two
     definitions make a double definition, with or without wordplay beside
     them. Raises wordplay.WordplayError when the tree does not give the
@@ -538,7 +537,7 @@ def view(ann, entry, puzzle=None):
         types.append("and_lit")
     out = {"type": types, "answer": answer}
     if "definitions" in ann:
-        # `meaning` is shown as the definition's block note, as legacy kept it.
+        # `meaning` is shown as the definition's block note.
         out["definitions"] = [{k: v for k, v in d.items() if k not in ("indicators", "meaning")}
                               for d in ann["definitions"]]
     if "definedByPreamble" in ann:
@@ -571,20 +570,17 @@ def view(ann, entry, puzzle=None):
     return out
 
 
-# Puzzle-level keys a format v2 file stores only for display_name().
-V2_NAME_KEYS = ("prize", "title", "label")
-
-
 def view_puzzle(puzzle, problems=None):
-    """A format v2 puzzle in the legacy shape every reader takes today:
-    `series` and `name` derived, `prize`/`title`/`label` folded into the name,
-    and each annotation replaced by view(). A legacy puzzle comes back as it
-    is. An annotation whose tree does not give its answer is left out, and
-    (where, message) appended to `problems` when given."""
+    """The puzzle as every reader takes it: `series` and `name` derived,
+    `prize`/`title`/`label` folded into the name, and each annotation
+    replaced by view(). An annotation whose tree does not give its answer is
+    left out, and (where, message) appended to `problems` when given. A view
+    comes back as it is (it has `series`, which a file never stores), so
+    view_puzzle(view_puzzle(p)) is view_puzzle(p)."""
     import puzzle_schema
     import series
     import wordplay
-    if not puzzle_schema.is_v2(puzzle):
+    if "series" in puzzle:
         return puzzle
 
     def viewed(where, held, ann):
@@ -606,7 +602,7 @@ def view_puzzle(puzzle, problems=None):
         return out
     out = {}
     for k, v in puzzle.items():
-        if k in V2_NAME_KEYS:
+        if k in puzzle_schema.NAME_KEYS:
             continue
         out[k] = v
         if k == "number":
@@ -614,7 +610,7 @@ def view_puzzle(puzzle, problems=None):
             out["name"] = series.display_name(puzzle)
     entries = []
     for i, e in enumerate(puzzle.get("entries") or []):
-        x = holder(e, f"$.entries[{i}].annotation")
+        x = dict(holder(e, f"$.entries[{i}].annotation"))
         if e.get("alsoLeads"):
             x["alsoLeads"] = [holder(h, f"$.entries[{i}].alsoLeads[{k}].annotation")
                               for k, h in enumerate(e["alsoLeads"])]
@@ -631,31 +627,30 @@ def view_puzzle(puzzle, problems=None):
 # (tools/wordplay.py's expression; left out for a double definition) and
 # `notes` keyed by the words of any span: a definition, an indicator, a leaf
 # (`#2` for a repeat, a bare piece's letters for a piece with no words).
-# from_model() turns it into the stored v2 annotation, checking the letters;
-# view() turns that into the legacy shape where a file is still legacy.
+# from_model() turns it into the stored annotation, checking the letters.
 
-# Keys the model shape passes through as they are (the v2 annotation's own).
+# Keys the model shape passes through as they are (the stored annotation's own).
 MODEL_PASS = ("definedByPreamble", "andLit", "explanation", "features", "hiddenLetter", "alteration")
 MODEL_KEYS = ("def", "wp", "notes", "answer") + MODEL_PASS
-# Legacy keys a model-shape clue may not carry: derived from `wp`.
-LEGACY_KEYS = ("type", "blocks", "definitions", "indicators", "linkWords", "assembly")
+# Keys a model-shape clue may not carry: view() derives them from `wp`.
+DERIVED_KEYS = ("type", "blocks", "definitions", "indicators", "linkWords", "assembly")
 
 
 def is_model(ann):
-    """Whether `ann` is in the model's shape: it has `def` or `wp` (which no
-    other shape has), or has neither the legacy keys nor a stored tree. An
-    old-prompt run's output (type, blocks, ...) goes the old way; a model
-    clue with a stray legacy key stays the model's, so from_model names it."""
+    """Whether `ann` is in the model's shape, not a stored annotation: it has
+    `def` or `wp` (which a stored one never has), or has neither a stored
+    tree nor any derived key. A model clue with a stray derived key stays
+    the model's, so from_model names it."""
     if not isinstance(ann, dict):
         return False
     if "def" in ann or "wp" in ann:
         return True
-    return (not any(k in ann for k in LEGACY_KEYS + ("wordplay",))
+    return (not any(k in ann for k in DERIVED_KEYS + ("wordplay",))
             and any(k in ann for k in ("definedByPreamble", "notes")))
 
 
 def from_model(m, entry, puzzle=None):
-    """The stored v2 annotation for one clue in the model's shape, its
+    """The stored annotation for one clue in the model's shape, its
     wordplay evaluated against the answer (the entry's `alteration.from`
     where the preamble alters it). Raises wordplay.WordplayError, worded for
     the run to act on: a word not in the clue, a note naming no span, an
@@ -665,7 +660,7 @@ def from_model(m, entry, puzzle=None):
     unknown = sorted(set(m) - set(MODEL_KEYS))
     if unknown:
         hint = ""
-        if set(unknown) & set(LEGACY_KEYS):
+        if set(unknown) & set(DERIVED_KEYS):
             hint = (": write `def`, `wp` and `notes` (annotate_prompt.md's Schema); the clue "
                     "type, link words, indicators' `for`, blocks and assembly are worked out from `wp`")
         raise wordplay.WordplayError(f"unknown key{'s' if len(unknown) > 1 else ''} "
@@ -732,10 +727,10 @@ def from_model(m, entry, puzzle=None):
 
 
 def to_model(ann):
-    """A stored v2 annotation in the model's shape (the prompt's worked
+    """A stored annotation in the model's shape (the prompt's worked
     examples, a run's existingAnnotations). Indicators on a definition and a
     double definition's `note` beside its `meaning` have no model form and
-    are left out; an unchecked legacy step renders as `?op(...)=LETTERS`."""
+    are left out; an unchecked step renders as `?op(...)=LETTERS`."""
     import wordplay
     defs = ann.get("definitions") or []
     out = {}

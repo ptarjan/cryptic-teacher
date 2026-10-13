@@ -51,7 +51,7 @@ rows[f"{pid}/{eid}"] = ["shown", "printed", "OCR misread: test"]
 check("a printedClue row HEAD lacks is a misread", ["printedClue"], AC.misread(path)[1])
 (data / "source_clue_wrong.json").write_text(json.dumps({k: v for k, v in rows.items() if k != f"{pid}/{eid}"}))
 broken = copy.deepcopy(puzzle)
-# Format v2 stores a tree, not assembly.anagrams: misprint an anagram's own
+# The file stores a tree, not assembly.anagrams: misprint an anagram's own
 # fodder leaf (a leaf with no gives is its own letters), losing its last
 # letter, as a scan drops one, so its words still read in the clue.
 def anagrams(n):

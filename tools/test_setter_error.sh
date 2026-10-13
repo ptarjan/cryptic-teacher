@@ -38,8 +38,8 @@ check("a row more than one letter out is a wrong parse", 1,
       len(errors("p-1", "2-down", "ABCDEF", "GHIJKL")))
 
 # The blocks hand over the fodder as printed: with a slip they add up to the
-# answer with the slip's letters swapped back (a v2 file's blocks are the
-# printed words); a legacy file that respelt a block to hide it still passes.
+# answer with the slip's letters swapped back (the view's blocks, derived from
+# the tree's leaves, are the printed words); a block respelt to hide it still passes.
 E = {"number": 13, "direction": "down", "solution": "KISSOFLIFE", "clue": {"text": "x"}}
 def slip_ann(*gives):
     return {"type": ["anagram"], "answer": "KISS OF LIFE",

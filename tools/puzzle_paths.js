@@ -60,18 +60,16 @@ function find(id, dir = PUZZLE_DIR) {
 }
 
 // The puzzle in `file` as the browser reads it: the generated shim
-// (puzzles/<id>.js, built by fetch_puzzle.browser_puzzle), where a format v2
-// file's name, series, type, answer, indicators, linkWords, blocks and assembly
-// are derived (annotation.view_puzzle). A node tool that reads those fields
-// reads them from here, never from the source JSON, which stores none of them
-// in v2. A legacy file with no shim is its own view; a v2 file with none is
-// an error (run python3 tools/fetch_puzzle.py --reindex).
+// (puzzles/<id>.js, built by fetch_puzzle.browser_puzzle), where the file's
+// name, series, type, answer, indicators, linkWords, blocks and assembly are
+// derived (annotation.view_puzzle). A node tool that reads those fields reads
+// them from here, never from the source JSON, which stores none of them. A
+// file with no shim is an error (run python3 tools/fetch_puzzle.py --reindex).
 function readView(file, dir = PUZZLE_DIR) {
   const raw = JSON.parse(fs.readFileSync(file, "utf8"));
   const shim = path.join(dir, `${path.basename(file, ".json")}.js`);
   if (!fs.existsSync(shim)) {
-    if (raw.series !== undefined) return raw;
-    throw new Error(`${file} is format v2 and has no shim ${shim}: run python3 tools/fetch_puzzle.py --reindex`);
+    throw new Error(`${file} has no shim ${shim}: run python3 tools/fetch_puzzle.py --reindex`);
   }
   const window = {};
   new Function("window", fs.readFileSync(shim, "utf8"))(window);

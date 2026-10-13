@@ -13,8 +13,7 @@ entry packed into an array that the script itself unpacks
 (`fetch_puzzle.write_shim`). That script is how the page loads a puzzle from
 `file://`.
 
-Shape (format v2, which every file has been since the step 8 migration of
-2026-10-13; see "Format v2" below):
+Shape (see "The wordplay tree" below):
 
 ```jsonc
 {
@@ -76,17 +75,11 @@ and annotation files name entries by it. A puzzle file that stores an entry
   reach, because only their final pieces were stored. A tree checks every
   step, and a derived field cannot disagree with its source.
 
-### Format v2
+### The wordplay tree
 
-The corpus was rewritten to v2 in one migration commit ("Migrate puzzles to
-format v2: N trees, M opaque", `tools/convert_v2.py --migrate`, 2026-10-13).
-A legacy annotation's blocks became a tree; where a step could not be rebuilt
-from them it is kept as an `"unchecked": true` node, whose `gives` is taken as
-filed and which the expression cannot write. A clue whose annotation
-contradicted itself was dropped for the burn to redo (the commit message lists
-them by kind). A file whose v2 copy `puzzle_integrity` or
-`validate_annotations` found something new on stayed legacy, so the commit
-lists it too. The tree, in brief:
+An annotation filed before trees were checked may hold an `"unchecked": true`
+node where its step could not be rebuilt as an op: its `gives` is taken as
+filed, and the expression cannot write one. The tree, in brief:
 
 - A node is an op `{op, indicators?, parts, spelt?, n?}` or a leaf
   `{words, at?, gives?, note?}`. A leaf without `gives` is its own letters.
@@ -94,7 +87,7 @@ lists it too. The tree, in brief:
 - **An absent key means empty** (`puzzle_schema.prune` runs on every write), so
   no file stores `[]` or `""`. `pal()` over the answer alone has no `parts`,
   and every reader goes through `wordplay.parts_of`. An unchecked leaf without
-  `gives` gives no letters (a legacy block that was only a note).
+  `gives` gives no letters (a block that was only a note).
 - **A double definition** has two `definitions` and no `wordplay` (or a
   partless palindrome when the answer reads both ways). A definition's
   `meaning` is the note on its block, on the blocks rung. Its `note` belongs to
@@ -112,57 +105,47 @@ lists it too. The tree, in brief:
   separator at the light's own end means the answer runs on into another
   light, and it is no gap inside this one.
 
-The schema and validator know both shapes, and read which one a file is from
-the file itself: an annotation with `blocks` is the legacy shape, one without
-is format v2, and a puzzle is v2 when any annotation is or when it stores no
-`series`. A file is wholly one shape (`puzzle_schema.format_problems`), so
-every file written before v2 keeps passing as it is, while a v2 file is held to
-v2's rules. In a v2 file the schema refuses, each with the reason:
+The schema refuses every derived field, each with the reason:
 
-- top-level `name` and `series` (a v2 file stores `prize`, `title` or `label`
-  where `display_name()` needs one);
-- annotation `type`, `answer`, `indicators`, `linkWords` and `assembly`, and
-  `blocks` (which would make it a legacy annotation in a v2 file);
+- top-level `name` and `series` (the file stores `prize`, `title` or `label`
+  where `display_name()` needs one; `fetch_puzzle.write_puzzle_file` turns a
+  fetcher's `name` into them, `series.name_facts`);
+- annotation `type`, `answer`, `indicators`, `linkWords`, `blocks` and
+  `assembly`;
 - an indicator's `for` (it signals the op it sits on), `gives` on a checked op
   (the evaluator works it out), and `select` or `soundsLike` on a checked leaf;
 - a `spelling` equal to the solution spaced by its enumeration.
 
 The tree is `$defs/wordplayNode` in `tools/data/puzzle.schema.json`.
-`validate_annotations.py` checks a v2 file through `annotation.view_puzzle()`:
+`validate_annotations.py` checks a file through `annotation.view_puzzle()`:
 a tree that does not give the answer is an error, and every other check reads
 the fields `view()` derives. An `unchecked` node warns, and the ratchet
 (`wordplay.unchecked` in `tools/annotation_backlog.json`) lets a puzzle keep
 only the ones it already has, so a new annotation can add none. The site's
 build reads `view_puzzle()` too (`fetch_puzzle.browser_puzzle`), so app.js
-sees the same fields from either shape. `tools/test_format_v2.sh`,
-`tools/test_shim_format.sh` and `tools/smoke_test.js` hold this to converted
-corpus puzzles.
+sees the derived fields. `tools/test_puzzle_format.sh`,
+`tools/test_shim_format.sh` and `tools/smoke_test.js` hold this.
 
 **What the annotate run writes** (`tools/annotate_prompt.md`'s Schema) is a
-third shape, the model's, which is never stored: per clue `def` (the
+shape of its own, the model's, which is never stored: per clue `def` (the
 definition's clue words, or a list of two for a double definition), `wp` (the
 expression; none for a double definition), `notes` keyed by the words of any
 span as written (`#2` for a repeat), and `explanation`, `features`, `andLit`,
 `hiddenLetter`, `alteration` as stored; `answer` only to correct a `(MODEL)`
 answer or to spell one with an apostrophe or accent (stored as `spelling`).
-`annotation.from_model()` translates it to the v2 annotation, evaluating the
+`annotation.from_model()` translates it to the stored annotation, evaluating the
 tree, and raises a message naming the step that broke; `annotation.to_model()`
 renders a stored annotation back (the prompt's worked examples, generated by
 `tools/build_annotate_prompt.py`, and the run's `existingAnnotations`).
-`apply_annotations.normalize` writes each clue in the shape of the file it
-goes into, so a file stays wholly one shape: into a legacy file (every file
-until the corpus rewrite) a model clue goes in as `annotation.view()` of its
-tree, the legacy fields it implies; into a v2 file, as the tree. An old-prompt
-clue (`type`, `blocks`: a run that started before the prompt changed) is
-normalised the old way, assembly filled in from its blocks, and into a v2 file
-goes through `convert_v2.check`, an unconvertible one left as the file had it
-and named. That old-shape path goes a week after the audit last sees one.
+`apply_annotations.normalize` writes each clue as its tree; a clue carrying a
+derived key (`type`, `blocks`, ...) is refused by `from_model`, which names the
+key and asks for `def`, `wp` and `notes`.
 `tools/test_annotate_model_shape.sh` holds all of this.
 
-The rules below are written against the legacy fields (`type`, `answer`,
-`indicators` with `for`, `blocks`, `assembly`, `linkWords`). In a v2 file they
-are never stored: they are read off `annotation.view()`, which derives them
-from the tree, so every rule applies to both shapes.
+The rules below are written against the derived fields (`type`, `answer`,
+`indicators` with `for`, `blocks`, `assembly`, `linkWords`). They are never
+stored: they are read off `annotation.view()`, which derives them from the
+tree.
 
 
 ## Annotation rules

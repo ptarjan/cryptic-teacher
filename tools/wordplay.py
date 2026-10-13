@@ -39,12 +39,12 @@ Grammar
     cd([words])           cryptic definition: the words, no letters
 A double definition has no wordplay: two definitions and no expression.
 
-Legacy trees (tools/convert_v2.py, from annotations written before the tree)
-may hold an `"unchecked": true` node: an op node or leaf whose `gives` is
-taken as stated, its parts shown but not checked, where the old blocks could
-not be rebuilt step by step (a deletion of scattered letters, a selection
-from a synonym). The expression has no way to write one, so a new
-annotation cannot add any.
+Unchecked nodes: a tree filed before trees were checked may hold an
+`"unchecked": true` node: an op node or leaf whose `gives` is taken as
+stated, its parts shown but not checked, where the old blocks could not be
+rebuilt step by step (a deletion of scattered letters, a selection from a
+synonym). The expression has no way to write one, so a new annotation
+cannot add any.
 
 Stored tree: a leaf is {"words", "at", "gives"?, "note"?} ({"gives"} alone
 for letters with no words); an op is {"op", "indicators"?: [{"text", "at",
@@ -290,7 +290,7 @@ def locate(node, clue, taken=()):
 
 def render(node):
     """The expression for a tree: parse(render(t)) == t, `at` aside. An
-    unchecked legacy node renders as `?op(...)=GIVES`, which does not parse."""
+    unchecked node renders as `?op(...)=GIVES`, which does not parse."""
     if node.get("unchecked") and "op" in node:
         inner = render({k: v for k, v in node.items() if k not in ("unchecked", "gives")})
         return f"?{inner}={node.get('gives', '')}"
@@ -334,7 +334,7 @@ def parts_of(node):
 
 
 def lettered(parts):
-    """The parts that give letters: a legacy leaf filed with no letters (an
+    """The parts that give letters: an unchecked leaf filed with no letters (an
     unchecked `gives: ""`, a note riding along) gives none."""
     return [p for p in parts if not (p.get("unchecked") and not letters(p.get("gives")))]
 

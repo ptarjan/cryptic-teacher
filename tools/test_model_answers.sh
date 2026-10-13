@@ -43,15 +43,16 @@ held = next((e, i) for e in model for i, c in enumerate(cells(e)) if covered[c] 
 def swap(word, i):
     return word[:i] + ("Z" if word[i] != "Z" else "Q") + word[i + 1:]
 
-def attempt(puzzle, eid, answer):
-    """apply() with every key null but `eid`, the write captured."""
+def attempt(puzzle, eid, answer, parse=None):
+    """apply() with every key null but `eid`, whose clue is `parse` (the
+    model's `def`, `wp`, `notes`) with `answer`; the write captured."""
     wrote = {}
     real = A.write_puzzle_file
     A.write_puzzle_file = lambda p, pz: wrote.setdefault("puzzle", pz)
     A.read_puzzle_file = lambda p: copy.deepcopy(puzzle)
     try:
         anns = {entry_id(e): None for e in puzzle["entries"]}
-        anns[eid] = {"answer": answer}
+        anns[eid] = {**(parse or {}), "answer": answer}
         A.apply(path, anns, by="human")
         return wrote.get("puzzle"), None
     except SystemExit as err:
@@ -64,7 +65,11 @@ e, i = free
 eid, right = entry_id(e), e["solution"]
 wrong = copy.deepcopy(base)
 next(x for x in wrong["entries"] if entry_id(x) == eid)["solution"] = swap(right, i)
-out, err = attempt(wrong, eid, right)
+# The frozen fixture's free cell is 1-down's: "Ripostes appear to surmount defence" (4-5).
+parse = {"1-down": {"def": "Ripostes", "wp": "[appear]COME +<to surmount> [defence]BACKS",
+                    "notes": {"appear": "to come is to appear", "to surmount": "in a down clue, to go on top",
+                              "defence": "a team's backs are its defence"}}}[eid]
+out, err = attempt(wrong, eid, right, parse)
 check(f"a correction that keeps every crossing is accepted ({eid})", out is not None and err is None)
 if out:
     got = next(x for x in out["entries"] if entry_id(x) == eid)["solution"]
@@ -114,10 +119,16 @@ check("without the row the misprint still binds",
       any("the paper printed MISQUOTEZ" in f for f in provenance.check(misprint)))
 
 # Reopening: a model answer left null goes back once; a printed one never.
+def hint(x):
+    """A stored annotation for any clue: its first word and the rest as a double definition."""
+    t = x["clue"]["text"]
+    i = t.index(" ")
+    return {"definitions": [{"text": t[:i], "at": 0}, {"text": t[i + 1:], "at": i + 1}]}
 ran = copy.deepcopy(base)
 for x in ran["entries"]:
-    if entry_id(x) not in (eid, p_eid):
-        x["annotation"] = {"type": ["charade"]}
+    # A clue the scan lost (2-down) has no words to annotate.
+    if entry_id(x) not in (eid, p_eid) and not x["clue"].get("missing"):
+        x["annotation"] = hint(x)
 check("a null model answer is reopenable, a null printed one is not", R.reopenable(ran) == [eid])
 again = R.reopen(copy.deepcopy(ran), [eid])
 check("reopening blanks it and records what it was",
@@ -210,7 +221,8 @@ after = reannotate(run1, uncommitted)
 check("and a run may still null its own uncommitted hint", after[x_eid] is None)
 # A reopened light without a hint is pending, then answers-only; any other blank still fails.
 pending = copy.deepcopy(kept)
-next(x for x in pending["entries"] if entry_id(x) == p_eid)["annotation"] = {"type": ["charade"]}
+p_light = next(x for x in pending["entries"] if entry_id(x) == p_eid)
+p_light["annotation"] = hint(p_light)
 errs, warns = [], []
 V0.check_every_clue_is_annotated(pending["entries"], errs, warns,
                                  reopened=pending["solutions"]["reopened"])
@@ -242,8 +254,9 @@ def annotated_as(puzzle, eid, walkthrough, fit="A plain sense."):
     out = copy.deepcopy(puzzle)
     for x in out["entries"]:
         if entry_id(x) == eid:
-            x["annotation"] = {"type": ["cryptic_definition"], "answer": x["solution"],
-                               "definitions": [], "blocks": [],
+            t = x["clue"]["text"]
+            x["annotation"] = {"definitions": [{"text": t, "at": 0}],
+                               "wordplay": {"op": "cryptic", "parts": [{"words": t, "at": 0}]},
                                "explanation": {"walkthrough": walkthrough, "definitionFit": fit}}
     return out
 d_eid = entry_id(model[0])

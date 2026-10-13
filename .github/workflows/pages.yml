@@ -154,7 +154,7 @@ jobs:
         run: >-
           python3 tools/build_authored_puzzle.py
           --clues tools/data/authored_A001_clues.json --number 1
-          --name "Cryptic Teacher No 1" --date 2026-07-29
+          --date 2026-07-29
           --annotated-by claude-opus-5-5
       # Last run's puzzles/<id>.js shims. A stored index row is reused only
       # when the shim on disk is the one it wrote (fetch_puzzle.index_row_deps
@@ -499,7 +499,7 @@ jobs:
         run: >-
           python3 tools/build_authored_puzzle.py
           --clues tools/data/authored_A001_clues.json --number 1
-          --name "Cryptic Teacher No 1" --date 2026-07-29
+          --date 2026-07-29
           --annotated-by claude-opus-5-5
       # Two steps rather than one with a branch, so each has its own budget in
       # tools/data/deploy_budgets.json: the full check's growth is tracked

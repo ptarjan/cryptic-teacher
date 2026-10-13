@@ -15,7 +15,6 @@ into its original; it only shrinks.
 import json
 from pathlib import Path
 
-import puzzle_schema
 import series as series_meta
 
 TOOLS = Path(__file__).resolve().parent
@@ -57,13 +56,10 @@ def as_original(reprint, date):
     reprint's print recorded."""
     oid = original_of(reprint)
     series, number = series_meta.parse_id(oid)
-    pub, kind = series_meta.publisher(series), series_meta.kind(series).lower()
     source = {k: v for k, v in (reprint.get("source") or {}).items()
               if k in ("url", "acquiredOn", "retrievedFrom", "gridOrigin")}
     out = {k: v for k, v in reprint.items() if k != "date"}
     out = {**out, "id": oid, "number": number, "source": source, **({"date": date} if date else {})}
-    if not puzzle_schema.is_v2(reprint):
-        out.update(series=series, name=f"{pub} {kind} crossword No {number:,}")
     return with_print(out, series_meta.of(reprint), reprint["number"], reprint["date"])
 
 

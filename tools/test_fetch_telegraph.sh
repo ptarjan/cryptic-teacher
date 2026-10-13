@@ -125,10 +125,10 @@ same("a See clue with a real enumeration is a clue, not a link",
 # A Toughie with no byline is refused unless no source records one.
 import puzzle_integrity as pi
 flags = []
-pi.check_setter({"id": "toughie-2874", "series": "toughie", "number": 2874}, flags)
+pi.check_setter({"id": "toughie-2874", "number": 2874}, flags)
 same("a Toughie with no setter is flagged", [f[0] for f in flags], ["SETTER"])
 flags = []
-pi.check_setter({"id": "toughie-2875", "series": "toughie", "number": 2875}, flags)
+pi.check_setter({"id": "toughie-2875", "number": 2875}, flags)
 same("one whose byline no source records is not", flags, [])
 same("a byline the crawl missed comes from BYLINES", ft.BYLINES[("toughie", 2489)][0], "Elgar")
 

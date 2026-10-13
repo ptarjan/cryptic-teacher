@@ -23,7 +23,6 @@ import re
 import sys
 from pathlib import Path
 
-import puzzle_schema
 import wordplay
 
 
@@ -80,9 +79,9 @@ def _clue_strings(entry):
     anagram's fodder), which must keep matching it character for character."""
     out = [(entry.get("clue") or {}, "text")]
     ann = entry.get("annotation")
-    if puzzle_schema.is_v2_annotation(ann):
-        # Format v2: the definitions, their indicators, and the wordplay
-        # tree's indicators and leaf words quote the clue.
+    if isinstance(ann, dict):
+        # The definitions, their indicators, and the wordplay tree's
+        # indicators and leaf words quote the clue.
         defs = [d for d in ann.get("definitions") or [] if isinstance(d, dict)]
         out += [(d, "text") for d in defs]
         out += [(i, "text") for d in defs for i in d.get("indicators") or [] if isinstance(i, dict)]
@@ -94,15 +93,6 @@ def _clue_strings(entry):
                 out.append((node, "words"))
             todo += [p for p in wordplay.parts_of(node) if isinstance(p, dict)]
         out.append((ann.get("features") or {}, "misdirectedWord"))
-    elif isinstance(ann, dict):
-        for name, key in (("definitions", "text"), ("indicators", "text"), ("blocks", "clueFragment")):
-            out += [(d, key) for d in ann.get(name) or [] if isinstance(d, dict)]
-        words = ann.get("linkWords")
-        if isinstance(words, list):
-            out += [(words, i) for i in range(len(words))]
-        out.append((ann.get("features") or {}, "misdirectedWord"))
-        out += [(a, "fodder") for a in (ann.get("assembly") or {}).get("anagrams") or []
-                if isinstance(a, dict)]
     return [(h, k) for h, k in out
             if isinstance(h, list) or (isinstance(h, dict) and isinstance(h.get(k), str))]
 

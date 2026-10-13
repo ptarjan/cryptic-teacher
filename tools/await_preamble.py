@@ -35,7 +35,7 @@ def left_to_preamble(puzzle):
     """The tags of the entries whose annotation leans on the preamble: it
     defines them, or a block takes letters no clue word gives (Genius 135's
     body parts, which the preamble says the wordplay leaves out). Read off
-    annotation.view_puzzle(), which derives a format v2 file's blocks."""
+    annotation.view_puzzle(), which derives the file's blocks."""
     return [f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
             for e in annotation.view_puzzle(puzzle).get("entries") or []
             if (e.get("annotation") or {}).get("definedByPreamble") is True

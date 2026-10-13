@@ -57,7 +57,7 @@ def recount():
     from puzzle_paths import puzzle_files
     seen = {f["name"]: 0 for f in FAMILIES}
     for path in puzzle_files():
-        puzzle = annotation.view_puzzle(json.loads(path.read_text(encoding="utf-8")))  # v2 stores no `type`
+        puzzle = annotation.view_puzzle(json.loads(path.read_text(encoding="utf-8")))  # the file stores no `type`
         if puzzle_style.is_straight(puzzle):
             continue
         for e in puzzle.get("entries") or ():

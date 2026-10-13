@@ -43,7 +43,7 @@ def entry(n, d, x, y, length, solution, text, enum=None, **more):
 
 # 1-across ABC leads ABC+DE (1-across, 2-down) and ABC+FG (1-across, 3-down).
 puzzle = {
-    "id": "genius-999", "number": 999, "series": "genius", "name": "Genius 999",
+    "id": "genius-999", "number": 999,
     "setter": "Paul", "date": "2020-12-07", "dimensions": {"cols": 5, "rows": 5},
     "source": {"url": "https://example.com/g999.pdf", "gridOrigin": "published"},
     "entries": [
@@ -100,21 +100,30 @@ print("the annotate run sees the second clue as its own and writes it there")
 validate_annotations.blind_misses = lambda pid: {}
 check("unsolved counts both clues", [e["clue"]["text"] for e in annotate_check.unsolved(puzzle)],
       ["First lead", "Second lead"])
-ann = {"type": ["charade"], "answer": "ABC FG", "definitions": [{"text": "lead"}],
-       "blocks": [{"clueFragment": "Second", "gives": "ABCFG"}],
-       "explanation": {"walkthrough": "x"}}
+ann = {"def": "lead", "wp": "[Second]ABCFG", "explanation": {"walkthrough": "x"}}
 written = copy.deepcopy(puzzle)
-apply_annotations.apply_also(written, {"1-across/2": ann})
-check("written to alsoLeads", written["entries"][0]["alsoLeads"][0]["annotation"]["answer"], "ABC FG")
+errors = []
+apply_annotations.apply_also(written, {"1-across/2": ann}, errors)
+check("no landing errors", errors, [])
+check("written to alsoLeads as the tree",
+      written["entries"][0]["alsoLeads"][0].get("annotation", {}).get("wordplay"),
+      {"words": "Second", "gives": "ABCFG", "at": 0})
 check("the light's own clue untouched", "annotation" in written["entries"][0], False)
+written = puzzle_schema.order(written)  # as write_puzzle_file stores it
+before = copy.deepcopy(written)
 _, errs, _ = validate_annotations.validate_puzzle(written)
-check("its answer is checked against its own group",
-      [e for e in errs if "alsoLeads[0]" in e and "!= grid solution" in e], [])
-wrong = copy.deepcopy(written)
-wrong["entries"][0]["alsoLeads"][0]["annotation"]["answer"] = "ABC DE"
-_, errs, _ = validate_annotations.validate_puzzle(wrong)
-check("a wrong alsoLeads answer is named", any(e.startswith("1A alsoLeads[0]:") and "!= grid solution" in e
-                                                for e in errs), True)
+check("its wordplay is checked against its own group", [e for e in errs if "alsoLeads[0]" in e], [])
+check("validating leaves the puzzle as it was", written == before, True)
+written = before
+wrong = copy.deepcopy(puzzle)
+errors = []
+apply_annotations.apply_also(wrong, {"1-across/2": dict(ann, wp="[Second]ABCDE")}, errors)
+check("wordplay giving the first group's answer is refused", (len(errors), "annotation" in wrong["entries"][0]["alsoLeads"][0]),
+      (1, False))
+stored = copy.deepcopy(written)
+stored["entries"][0]["alsoLeads"][0]["annotation"]["wordplay"]["gives"] = "ABCDE"
+_, errs, _ = validate_annotations.validate_puzzle(stored)
+check("a stored alsoLeads tree giving the wrong answer is named", any("alsoLeads[0]" in e for e in errs), True)
 
 print("Genius parser: a 'See 22' stub one clue on 22 already lists stays with it")
 clues = [{"lights": [(22, "across"), (17, "down"), (3, "down")], "clue": "A (4,4,4)", "enumeration": "4,4,4"},

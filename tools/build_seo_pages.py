@@ -189,10 +189,8 @@ def solved_stub(path):
     view derives (from the id, as annotation.view_puzzle does) and the
     solutions, and viewing every annotation of ~50k files was most of the
     puzzle list's time whenever the annotation code changed."""
-    import puzzle_schema
     p = read_puzzle_file(path)
-    if "number" in p and puzzle_schema.is_v2(p):
-        p = {**p, "series": series_meta.parse_id(p["id"])[0]}
+    p = {**p, "series": series_meta.of(p)}
     if series_meta.unlisted(p["series"]) or not all(e.get("solution") for e in p["entries"]):
         return None
     return path, {k: p[k] for k in STUB_KEYS if k in p}

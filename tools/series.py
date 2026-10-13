@@ -951,6 +951,7 @@ NAME_LEADS = {
     "cryptic": "Cryptic crossword", "quiptic": "Quiptic crossword", "everyman": "Everyman crossword",
     "independent": "Independent cryptic crossword", "metro": "Metro cryptic crossword",
     "cyclops": "Private Eye Cyclops crossword", "nation": "The Nation cryptic crossword No {n}",
+    "authored": "Cryptic Teacher No {n}",
     "canberra": "Canberra Times cryptic crossword",
     "indysunday": "Independent on Sunday cryptic crossword", "times": "Times cryptic crossword",
     "timesquick": "Times quick cryptic crossword", "timesjumbo": "Times jumbo cryptic crossword",
@@ -964,9 +965,9 @@ NAME_LEADS = {
 
 
 def of(puzzle):
-    """The puzzle's series: stored on a legacy file, the id's prefix on a format
-    v2 file (which stores no `series`). For a tool that holds the raw file
-    because it writes it back; a read-only tool takes view_puzzle()."""
+    """The puzzle's series: the id's prefix (a file stores no `series`; a view
+    or a puzzle a fetcher has just built names it). For a tool that holds the
+    raw file because it writes it back; a read-only tool takes view_puzzle()."""
     return puzzle.get("series") or (parse_id(puzzle["id"])[0] if puzzle.get("id") else None)
 
 
@@ -985,6 +986,30 @@ def display_name(puzzle):
         return name + (f" ({puzzle['label']})" if puzzle.get("label") else "")
     name = lead.format(n=number) if "{n}" in lead else f"{lead} {display_number(series, number)}"
     return name + (f": {puzzle['title']}" if puzzle.get("title") else "")
+
+
+def name_facts(puzzle):
+    """{prize|title|label: value}: the facts display_name() needs to give the
+    `name` a fetcher built from the page, which the file stores instead of
+    the name. A name display_name() cannot reach with them is dropped for the
+    derived one."""
+    name = puzzle.get("name") or ""
+    base = {k: puzzle[k] for k in ("prize", "title", "label") if k in puzzle}
+    if not name or display_name({**puzzle, **base}) == name:
+        return base
+    tries = []
+    if name.startswith("Prize crossword"):
+        tries.append({"prize": True})
+    m = re.search(r": (.+)$", name)
+    if m:
+        tries.append({"title": m.group(1)})
+    m = re.search(r" \(([^()]+)\)$", name)
+    if m:
+        tries.append({"label": m.group(1)})
+    for extra in tries:
+        if display_name({**puzzle, **extra}) == name:
+            return {**base, **extra}
+    return base
 
 
 # ---------- ids ----------

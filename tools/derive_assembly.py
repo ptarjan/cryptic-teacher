@@ -4,13 +4,11 @@ The blocks already hand over the wordplay's letters in the order they are
 assembled, so for most clues the rebuild is a search, not something a model
 has to retype: concatenation always, and a reversal, one piece put inside
 another, or an anagram of a run of blocks where the entry's `type` names that
-operation. `complete(ann, entry)` fills in the assembly where it is missing,
-and redoes `pieces` that hold the right letters in the wrong order.
+operation (`search`). annotation.view() reads a stored tree's assembly off
+the tree itself, using `_cut`.
 """
-import copy
 import functools
 
-from annotation import _letters, assembly, whole_anagram, wordplay_letters
 
 # Types whose answer is not built from block letters; their assembly is absent.
 NOTHING_TO_BUILD = {"hidden_word", "double_definition", "cryptic_definition", "homophone"}
@@ -128,50 +126,4 @@ def search(gives, want, types, limits=None):
         out["anagrams"] = [{"fodder": f, "gives": g} for f, g in anas]
         if len(pieces) == 1:
             del out["pieces"]
-    return out
-
-
-def derive(ann, entry=None):
-    """The assembly the blocks and `type` reach, or None."""
-    if not isinstance(ann, dict) or not isinstance(ann.get("type"), list):
-        return None
-    if NOTHING_TO_BUILD & set(ann["type"]):
-        return None
-    gives = [_letters(b.get("gives")) for b in ann.get("blocks") or [] if isinstance(b, dict)]
-    signals = [i.get("for") for i in ann.get("indicators") or [] if isinstance(i, dict)]
-    limits = {k: max(1, signals.count(k)) + signals.count(None) for k in KINDS}
-    return search([g for g in gives if g], wordplay_letters(ann, entry), ann["type"], limits)
-
-
-def complete(ann, entry=None):
-    """`ann` with its assembly derived where the blocks reach it: filled in when
-    there are no pieces and no whole-answer anagram, and `pieces` redone when
-    they hold the answer's letters in the wrong order. A key the annotation
-    already has is kept. Returns a new dict, or `ann` itself when nothing
-    changed; a failed search changes nothing, and the blocks' own check
-    reports why."""
-    if not isinstance(ann, dict):
-        return ann
-    build = assembly(ann)
-    pieces = build.get("pieces")
-    want = wordplay_letters(ann, entry)
-    if isinstance(pieces, list) and pieces:
-        joined = _letters("".join(map(str, pieces)))
-        if joined == want or sorted(joined) != sorted(want):
-            return ann
-    elif whole_anagram(ann, entry):
-        return ann
-    found = derive(ann, entry)
-    if not found:
-        return ann
-    out = copy.deepcopy(ann)
-    merged = dict(assembly(out))
-    if "pieces" in found:
-        merged["pieces"] = found["pieces"]
-    else:
-        merged.pop("pieces", None)
-    for key in ("reversals", "anagrams"):
-        if key in found and not merged.get(key):
-            merged[key] = found[key]
-    out["assembly"] = merged
     return out

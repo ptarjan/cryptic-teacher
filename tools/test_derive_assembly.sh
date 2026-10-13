@@ -1,18 +1,17 @@
 #!/bin/bash
-# Is `assembly` worked out from the blocks, and only with the clue's own operations?
+# Is `assembly` worked out from the pieces, and only with the clue's own operations?
 #
 #     bash tools/test_derive_assembly.sh
 #
-# tools/derive_assembly.py rebuilds the answer from the blocks' letters so the
-# annotating model need not retype them. Each operation is tested from both
-# sides: found when `type` names it, not found when it does not.
+# derive_assembly.search rebuilds the answer from the pieces' letters. Each
+# operation is tested from both sides: found when the clue's types name it,
+# not found when they do not.
 set -uo pipefail
 cd "$(dirname "$0")/.."
 out=$(PYTHONPATH=tools python3 - <<'PY'
 import json, tempfile
 from pathlib import Path
 import derive_assembly as D
-from apply_annotations import with_assembly
 
 S = D.search
 
@@ -49,30 +48,6 @@ say("no_reversal_inside_a_reversal", S(["WISH", "OLF"], "WOLFISH", ["container",
                                        {"reversal": 3}) is None)
 say("wrong_letters_no_build", S(["SOD", "DEN"], "SODDER", ["charade", "anagram"]) is None)
 
-
-def ann(**kw):
-    return {"type": ["charade"], "answer": "SODDEN",
-            "blocks": [{"clueFragment": "a", "gives": "SOD"}, {"clueFragment": "b", "gives": "DEN"}], **kw}
-
-
-say("missing_filled", D.complete(ann())["assembly"] == {"pieces": ["SOD", "DEN"]})
-wrong = ann(assembly={"pieces": ["DEN", "SOD"]})
-say("wrong_order_redone", D.complete(wrong)["assembly"] == {"pieces": ["SOD", "DEN"]}
-    and wrong["assembly"]["pieces"] == ["DEN", "SOD"])
-right = ann(assembly={"pieces": ["SO", "DDEN"]})
-say("right_pieces_kept", D.complete(right) is right)
-broken = ann(answer="SODDER")
-say("failed_search_unchanged", D.complete(broken) is broken)
-dd = ann(type=["double_definition"])
-say("nothing_to_build_skipped", D.complete(dd) is dd)
-say("anagram_whole_drops_pieces", D.complete({
-    "type": ["anagram"], "answer": "SILENT", "blocks": [{"clueFragment": "x", "gives": "LISTEN"}],
-    "assembly": {"pieces": ["LISTEN"]}})["assembly"] == {
-    "anagrams": [{"fodder": "LISTEN", "gives": "SILENT"}]})
-say("alteration_from_is_built", with_assembly(
-    {"type": ["charade"], "answer": "X", "alteration": {"from": "SODDEN"},
-     "blocks": [{"clueFragment": "a", "gives": "SOD"}, {"clueFragment": "b", "gives": "DEN"}]},
-    {"solution": "X"})["assembly"] == {"pieces": ["SOD", "DEN"]})
 PY
 )
 echo "$out"

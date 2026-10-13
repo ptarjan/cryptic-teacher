@@ -73,7 +73,7 @@ import enumeration  # a clue's printed counts; tools/enumeration.py
 import groups  # linked answers; tools/groups.py
 import provenance  # where each puzzle came from; tools/provenance.py
 import puzzle_schema  # tools/data/puzzle.schema.json
-import annotation  # format v2's derived fields: view(), view_puzzle()
+import annotation  # the derived fields: view(), view_puzzle()
 from annotation import assembly, explanation, whole_anagram, wordplay_letters
 from fetch_puzzle import (  # one reader, one exemption
     blog_facts_for,
@@ -255,11 +255,13 @@ def check_two_pieces(tag, ann, errors):
 
     A pure cryptic definition is exempt: the whole clue is its definition, so no
     word is padding, and its blocks are the two readings with no `gives` at all
-    (check_cryptic_definition_blocks forbids one)."""
+    (check_cryptic_definition_blocks forbids one). Nor is a definition's own
+    block, which view() gives a double definition with no `gives`."""
     if types_of(ann) == ["cryptic_definition"]:
         return
+    defs = {d.get("text") for d in ann.get("definitions") or [] if isinstance(d, dict)}
     for b in ann.get("blocks", []):
-        if not str(b.get("gives") or "").strip():
+        if not str(b.get("gives") or "").strip() and b.get("clueFragment") not in defs:
             frag = b.get("clueFragment") or "(no fragment)"
             errors.append(
                 f"{tag}: block {frag!r} has an empty 'gives' — surface padding is not "
@@ -1809,7 +1811,7 @@ def setter_error_problems(puzzle, eid, row, ann=None):
     e = by_id[eid]
     ann = e.get("annotation") if ann is None else ann
     if isinstance(ann, dict) and "blocks" not in ann and ("wordplay" in ann or "definitions" in ann):
-        # A format v2 annotation stores a tree: its blocks are view()'s.
+        # An annotation stores a tree: its blocks are view()'s.
         import annotation as annotation_view
         import wordplay
         try:
@@ -2519,7 +2521,7 @@ def slipped_letters(ann, want):
     setter's slip (fodder that does not hold the letters it gives): its fodder
     as printed in place of what it gives. check_anagram_letters lets such an
     anagram stand only when tools/data/setter_error.json names it, so this
-    forgives nothing else. (A legacy file may instead have respelt a block to
+    forgives nothing else. (An unchecked step may instead have respelt a block to
     hide the slip; its blocks then add up to `want` itself.)"""
     from collections import Counter
     have = Counter(want)
@@ -3223,7 +3225,7 @@ def check_selectors_are_indicators(puzzle, path, errors):
     import annotation
     committed = committed_entries(path) or {}
     # Changed is judged on the stored annotation; the blocks are derived
-    # (a format v2 file stores a tree, so they come from view()).
+    # (the file stores a tree, so they come from view()).
     for e, seen in zip(puzzle["entries"], annotation.view_puzzle(puzzle)["entries"]):
         ann = e.get("annotation")
         if not isinstance(ann, dict) or ann == (committed.get(entry_id(e)) or {}).get("annotation"):
@@ -3247,25 +3249,21 @@ def validate_puzzle(puzzle, corpus=False):
     the light's own clue, group and annotation (groups.as_leader); those
     findings name it "<tag> alsoLeads[k]".
 
-    A format v2 file (puzzle_schema.is_v2) is checked through
-    annotation.view_puzzle(): its trees are evaluated (one that does not give
-    the answer is an error), and every check below reads the fields view()
-    derives, so a check written against blocks or assembly reads the same
-    shape from either format."""
+    The file is checked through annotation.view_puzzle(): its trees are
+    evaluated (one that does not give the answer is an error), and every
+    check below reads the fields view() derives (blocks, assembly, type)."""
     schema_errors = [f"schema: {p}" for p in puzzle_schema.validate(puzzle)]
-    v2_errors, v2_warnings = [], []
-    if puzzle_schema.is_v2(puzzle):
-        puzzle, v2_errors, v2_warnings = v2_view(puzzle)
+    puzzle, tree_errors, tree_warnings = tree_view(puzzle)
     annotated, errors, warnings = _validate_puzzle(puzzle, corpus, schema=False)
-    errors[:0] = schema_errors + v2_errors
-    # A v2 clue with an unchecked step has no assembly to derive (that step's
-    # letters are taken as filed), so the legacy "write the assembly" warnings
-    # would count it a second time under assembly.anagrams: the unchecked-step
+    errors[:0] = schema_errors + tree_errors
+    # A clue with an unchecked step has no assembly to derive (that step's
+    # letters are taken as filed), so the "write the assembly" warnings would
+    # count it a second time under assembly.anagrams: the unchecked-step
     # warning and its ratchet (wordplay.unchecked) are the one finding.
-    opaque = {w.split(":", 1)[0] for w in v2_warnings}
+    opaque = {w.split(":", 1)[0] for w in tree_warnings}
     warnings = [w for w in warnings if w.split(":", 1)[0] not in opaque
                 or not any(m in w for m in SUPERSEDED_BY_UNCHECKED)]
-    warnings[:0] = v2_warnings
+    warnings[:0] = tree_warnings
     for i, e in enumerate(puzzle["entries"]):
         for k, item in enumerate(e.get("alsoLeads") or []):
             if not item.get("annotation"):
@@ -3306,7 +3304,7 @@ def _tag_of(puzzle, where):
 
 
 #: Whether the corpus holds no note that restates the abbreviation table:
-#: then every v2 file is held to check_no_abbreviation_notes. Until then only a
+#: then every file is held to check_no_abbreviation_notes. Until then only a
 #: run's own new notes are (check_no_new_abbreviation_notes), so the files still
 #: carrying them keep validating. tools/strip_abbreviation_notes.py --commit
 #: sets it True in its migration commit.
@@ -3314,7 +3312,7 @@ ABBREVIATION_NOTES_STRIPPED = False
 
 
 def _restating(tree):
-    """[leaf] of every note in a v2 tree that only restates the table."""
+    """[leaf] of every note in a tree that only restates the table."""
     out, stack = [], [tree] if isinstance(tree, dict) else []
     while stack:
         node = stack.pop()
@@ -3333,7 +3331,7 @@ def _abbreviation_error(tag, node):
 def check_no_new_abbreviation_notes(puzzle, path, errors):
     """check_no_abbreviation_notes for a run's own puzzle, on the notes the
     committed file does not already hold (until ABBREVIATION_NOTES_STRIPPED)."""
-    if ABBREVIATION_NOTES_STRIPPED or not puzzle_schema.is_v2(puzzle):
+    if ABBREVIATION_NOTES_STRIPPED:
         return
     committed = committed_entries(path) or {}
     for e in puzzle["entries"]:
@@ -3346,19 +3344,18 @@ def check_no_new_abbreviation_notes(puzzle, path, errors):
 
 
 def check_no_abbreviation_notes(tag, tree, errors):
-    """A v2 leaf stores no note that only restates an abbreviation the table
+    """A leaf stores no note that only restates an abbreviation the table
     holds (annotation.restates_abbreviation): view() derives that gloss from
     tools/build_abbreviations.table(), so the stored note is a derivable field.
     A note that adds anything beyond the pair stays."""
     errors += [_abbreviation_error(tag, node) for node in _restating(tree)]
 
 
-def v2_view(puzzle):
-    """(the puzzle as annotation.view_puzzle shows it, errors, warnings) for a
-    format v2 file. A tree that does not give the answer is an error, and its
-    annotation is left out of the view. An `unchecked` node (a legacy step
-    tools/convert_v2.py could not rebuild, which the expression cannot write)
-    warns, and the ratchet (wordplay.unchecked) lets a puzzle keep only the
+def tree_view(puzzle):
+    """(the puzzle as annotation.view_puzzle shows it, errors, warnings). A
+    tree that does not give the answer is an error, and its annotation is
+    left out of the view. An `unchecked` node (a step filed before trees were
+    checked, which the expression cannot write) warns, and the ratchet (wordplay.unchecked) lets a puzzle keep only the
     ones annotation_backlog.json allows it: new annotations may add none."""
     problems = []
     viewed = annotation.view_puzzle(puzzle, problems)
@@ -3374,7 +3371,7 @@ def v2_view(puzzle):
             check_no_abbreviation_notes(_tag_of(puzzle, where), ann.get("wordplay"), errors)
         if n:
             warnings.append(f"{_tag_of(puzzle, where)}: {n} {UNCHECKED_STEP}(s), taken as filed "
-                            f"from the legacy blocks; write the step as an expression the "
+                            f"from the old blocks; write the step as an expression the "
                             f"evaluator checks (tools/wordplay.py)")
     return viewed, errors, warnings
 

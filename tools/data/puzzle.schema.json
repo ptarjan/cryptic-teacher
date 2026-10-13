@@ -25,6 +25,10 @@
   }
  ],
  "additionalProperties": false,
+ "refused": {
+  "name": "series.display_name() derives it from the id, `prize`, `title` and `label`",
+  "series": "it is the id's prefix (series.parse_id)"
+ },
  "properties": {
   "id": {
    "description": "<series>-<number>; also the file name.",
@@ -36,26 +40,17 @@
    "type": "integer",
    "minimum": 1
   },
-  "series": {
-   "description": "Legacy files only: the series, which is the id's prefix (series.parse_id). A format v2 file stores no series (tools/puzzle_schema.py format_problems).",
-   "$ref": "#/$defs/series"
-  },
-  "name": {
-   "type": "string",
-   "minLength": 1,
-   "description": "Legacy files only: the title as the paper gives it. A format v2 file stores no name: series.display_name() derives it from the id plus `prize`, `title` and `label` (tools/puzzle_schema.py format_problems)."
-  },
   "prize": {
-   "description": "Format v2: a Guardian prize puzzle, which display_name() names \"Prize crossword\".",
+   "description": "A Guardian prize puzzle, which display_name() names \"Prize crossword\".",
    "const": true
   },
   "title": {
-   "description": "Format v2: the printed title display_name() puts after a colon (a Listener's \"Tobacco\").",
+   "description": "The printed title display_name() puts after a colon (a Listener's \"Tobacco\").",
    "type": "string",
    "minLength": 1
   },
   "label": {
-   "description": "Format v2: the edition label display_name() puts in brackets after a date-keyed name.",
+   "description": "The edition label display_name() puts in brackets after a date-keyed name.",
    "type": "string",
    "minLength": 1
   },
@@ -722,7 +717,7 @@
    }
   },
   "annotation": {
-   "description": "Our teaching annotation of one clue, on the leader alone for a linked answer, in one of two shapes told apart by `blocks`. LEGACY (has `blocks`): type, answer, indicators with `for`, linkWords, blocks and assembly stored, as every file was written before format v2. FORMAT V2 (no `blocks`): definitions, a checked `wordplay` tree, explanation, features, and `spelling`/`andLit`/`hiddenLetter` where needed; every field annotation.view() can derive is refused. A puzzle file is wholly one shape (tools/puzzle_schema.py format_problems). Keys marked required-by-ratchet are carried by every annotation written since each was added; older ones are counted per puzzle in tools/annotation_backlog.json under the key's dotted path (explanation.surface, indicators.note) and drained by the nightly backfill (tools/validate_annotations.py, the ratchet).",
+   "description": "Our teaching annotation of one clue, on the leader alone for a linked answer: definitions, a checked `wordplay` tree, explanation, features, and `spelling`/`andLit`/`hiddenLetter` where needed. Every field annotation.view() can derive (type, display answer, indicators' `for`, linkWords, blocks, assembly) is refused. Keys marked required-by-ratchet are carried by every annotation written since each was added; older ones are counted per puzzle in tools/annotation_backlog.json under the key's dotted path (explanation.surface) and drained by the nightly backfill (tools/validate_annotations.py, the ratchet).",
    "type": "object",
    "anyOf": [
     {
@@ -737,21 +732,15 @@
     }
    ],
    "additionalProperties": false,
+   "refused": {
+    "type": "derived, so an annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
+    "answer": "derived, so an annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
+    "indicators": "derived, so an annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
+    "linkWords": "derived, so an annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
+    "blocks": "derived, so an annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
+    "assembly": "derived, so an annotation never stores it: annotation.view() computes it from the wordplay tree and the entry"
+   },
    "properties": {
-    "type": {
-     "description": "Every mechanism the wordplay uses, in the order applied.",
-     "type": "array",
-     "minItems": 1,
-     "uniqueItems": true,
-     "items": {
-      "$ref": "#/$defs/clueType"
-     }
-    },
-    "answer": {
-     "description": "The solution in display form, spaced and hyphenated where the enumeration divides it; for a linked answer, the whole answer.",
-     "type": "string",
-     "minLength": 1
-    },
     "definitions": {
      "description": "The clue words that define the answer, in clue order: one, or two for a double definition. `at` is the offset of `text` in the entry's `clue`, in Unicode code points, so clue[at:at+len(text)] == text. Where the text occurs more than once, `at` is the occurrence that (1) stands as whole words, (2) does not overlap another definition, and (3) touches the clue's start or end, since a definition sits at one end of a cryptic clue; a text those rules leave ambiguous has its `at` given by hand (tools/definitions.py).",
      "type": "array",
@@ -780,11 +769,11 @@
         "minLength": 1
        },
        "meaning": {
-        "description": "Format v2, double definitions: what this definition means, where that differs from `note` (the app shows it as the definition's block).",
+        "description": "Double definitions: what this definition means, where that differs from `note` (the app shows it as the definition's block).",
         "type": "string"
        },
        "indicators": {
-        "description": "Format v2: indicator words that steer how the definitions read rather than the letters (a second meaning, an &lit), so they hang on a definition, not a wordplay op.",
+        "description": "Indicator words that steer how the definitions read rather than the letters (a second meaning, an &lit), so they hang on a definition, not a wordplay op.",
         "type": "array",
         "minItems": 1,
         "items": {
@@ -799,119 +788,17 @@
      "const": true
     },
     "wordplay": {
-     "description": "Format v2: the clue's wordplay as a checked tree (tools/wordplay.py parses the model's expression into it; annotation.view() derives type, answer, indicator `for`, linkWords, blocks and assembly from it). Absent for a double definition.",
+     "description": "The clue's wordplay as a checked tree (tools/wordplay.py parses the model's expression into it; annotation.view() derives type, answer, indicator `for`, linkWords, blocks and assembly from it). Absent for a double definition.",
      "$ref": "#/$defs/wordplayNode"
     },
     "spelling": {
-     "description": "Format v2: the display answer where it is not the solution plus the enumeration's separators (CAT-O'-NINE-TAILS, an accent, a Listener's spacing). Refused when it equals the derived form.",
+     "description": "The display answer where it is not the solution plus the enumeration's separators (CAT-O'-NINE-TAILS, an accent, a Listener's spacing). Refused when it equals the derived form.",
      "type": "string",
      "minLength": 1
     },
     "andLit": {
-     "description": "Format v2: the whole clue is also the definition.",
+     "description": "The whole clue is also the definition.",
      "const": true
-    },
-    "indicators": {
-     "description": "One object per indicator phrase: the clue words, the clue type they signal, and why.",
-     "type": "array",
-     "minItems": 1,
-     "items": {
-      "type": "object",
-      "required": [
-       "text"
-      ],
-      "additionalProperties": false,
-      "properties": {
-       "text": {
-        "description": "The clue words, verbatim.",
-        "type": "string",
-        "minLength": 1
-       },
-       "for": {
-        "description": "The one of this annotation's own types these words signal. Required by ratchet: absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink (indicators.for).",
-        "$ref": "#/$defs/clueType"
-       },
-       "note": {
-        "description": "Why these words signal that operation in this clue. Required by ratchet: absent only where tools/annotation_backlog.json grandfathers it, an allowance per puzzle that may only shrink (indicators.note).",
-        "type": "string",
-        "minLength": 1
-       }
-      }
-     }
-    },
-    "linkWords": {
-     "description": "Clue words that join the definition to the wordplay and give no letters. Absent when the clue has none.",
-     "$ref": "#/$defs/strings"
-    },
-    "blocks": {
-     "description": "The wordplay, one block per clue fragment, in the order the answer reads (before a container, reversal or rotation is applied).",
-     "type": "array",
-     "minItems": 1,
-     "items": {
-      "$ref": "#/$defs/block"
-     }
-    },
-    "assembly": {
-     "description": "The answer rebuilt from the wordplay in forms a program can verify letter for letter, independent of `blocks`: blocks follow the clue's fragments and what the app shows, and often cut the answer differently. Every key is optional and absent when the clue has no such step; the whole object is absent when the clue has none (a hidden word, homophone, or double or cryptic definition has nothing to rebuild). tools/validate_annotations.py checks each key.",
-     "type": "object",
-     "minProperties": 1,
-     "additionalProperties": false,
-     "properties": {
-      "pieces": {
-       "description": "The answer in the chunks the wordplay builds, in answer order, joining to the answer's letters (LI, MITE, D for LID around MITE). Given for a charade, container or deletion; absent where an anagram is the whole assembly.",
-       "$ref": "#/$defs/strings"
-      },
-      "anagrams": {
-       "description": "Each anagram in the wordplay: its fodder and the letters it becomes, `fodder` a rearrangement of `gives`. When the whole answer is an anagram, one item's `gives` is the answer's letters (A\u2013Z, no spaces); the others are anagrams inside the wordplay.",
-       "type": "array",
-       "minItems": 1,
-       "items": {
-        "type": "object",
-        "required": [
-         "fodder",
-         "gives"
-        ],
-        "additionalProperties": false,
-        "properties": {
-         "fodder": {
-          "description": "Every letter before shuffling, added ones included, as written (spaces allowed).",
-          "type": "string",
-          "minLength": 1
-         },
-         "gives": {
-          "description": "The letters the fodder is shuffled into; the answer's letters when the whole answer is the anagram.",
-          "type": "string",
-          "minLength": 1
-         }
-        }
-       }
-      },
-      "reversals": {
-       "description": "Each reversal in the wordplay: `to` is `from` read backwards.",
-       "type": "array",
-       "minItems": 1,
-       "items": {
-        "type": "object",
-        "required": [
-         "from",
-         "to"
-        ],
-        "additionalProperties": false,
-        "properties": {
-         "from": {
-          "description": "The letters before reversal.",
-          "type": "string",
-          "minLength": 1
-         },
-         "to": {
-          "description": "The same letters back to front.",
-          "type": "string",
-          "minLength": 1
-         }
-        }
-       }
-      }
-     }
     },
     "explanation": {
      "description": "The prose a solver reads on the last hint rung, after the blocks: what the clue seems to say, how the trick works, and why the answer means the definition. Each is plain text, one or two sentences.",
@@ -968,69 +855,10 @@
       }
      }
     }
-   },
-   "if": {
-    "required": [
-     "blocks"
-    ]
-   },
-   "then": {
-    "$ref": "#/$defs/annotationLegacy"
-   },
-   "else": {
-    "$ref": "#/$defs/annotationV2"
-   }
-  },
-  "annotationLegacy": {
-   "description": "The legacy annotation's keys (the shapes are in $defs/annotation's properties).",
-   "required": [
-    "type",
-    "answer",
-    "blocks"
-   ],
-   "properties": {
-    "type": {},
-    "answer": {},
-    "definitions": {},
-    "definedByPreamble": {},
-    "indicators": {},
-    "linkWords": {},
-    "blocks": {},
-    "assembly": {},
-    "explanation": {},
-    "features": {},
-    "hiddenLetter": {}
-   },
-   "additionalProperties": false,
-   "refused": {
-    "wordplay": "a format v2 key, but this annotation has `blocks`, so it is the legacy shape; a file is wholly one shape (tools/convert_v2.py converts)",
-    "spelling": "a format v2 key, but this annotation has `blocks`, so it is the legacy shape; a file is wholly one shape (tools/convert_v2.py converts)",
-    "andLit": "a format v2 key, but this annotation has `blocks`, so it is the legacy shape; a file is wholly one shape (tools/convert_v2.py converts)"
-   }
-  },
-  "annotationV2": {
-   "description": "The format v2 annotation's keys (the shapes are in $defs/annotation's properties).",
-   "properties": {
-    "definitions": {},
-    "definedByPreamble": {},
-    "wordplay": {},
-    "spelling": {},
-    "andLit": {},
-    "explanation": {},
-    "features": {},
-    "hiddenLetter": {}
-   },
-   "additionalProperties": false,
-   "refused": {
-    "type": "derived, so a format v2 annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
-    "answer": "derived, so a format v2 annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
-    "indicators": "derived, so a format v2 annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
-    "linkWords": "derived, so a format v2 annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
-    "assembly": "derived, so a format v2 annotation never stores it: annotation.view() computes it from the wordplay tree and the entry"
    }
   },
   "wordplayNode": {
-   "description": "A node of a format v2 wordplay tree (tools/wordplay.py): an op {op, indicators?, parts, spelt?, n?} or a leaf {words, at?, gives?, note?}, either one `unchecked` where a legacy step could not be rebuilt.",
+   "description": "A node of a wordplay tree (tools/wordplay.py): an op {op, indicators?, parts, spelt?, n?} or a leaf {words, at?, gives?, note?}, either one `unchecked` (a step filed before trees were checked, kept as filed).",
    "type": "object",
    "minProperties": 1,
    "additionalProperties": false,
@@ -1039,7 +867,7 @@
      "$ref": "#/$defs/wordplayOp"
     },
     "unchecked": {
-     "description": "A legacy step tools/convert_v2.py could not rebuild: its `gives` is taken as stated and its parts are not checked. The expression cannot write one, and the ratchet (wordplay.unchecked) lets no new ones in.",
+     "description": "A step filed before trees were checked, which could not be rebuilt as an op: its `gives` is taken as stated and its parts are not checked. The expression cannot write one, and the ratchet (wordplay.unchecked) lets no new ones in.",
      "const": true
     },
     "words": {
@@ -1068,7 +896,7 @@
      "minimum": 1
     },
     "select": {
-     "description": "Unchecked legacy leaf only: the block's `select`.",
+     "description": "Unchecked leaf only: the block's `select`.",
      "anyOf": [
       {
        "$ref": "#/$defs/selectWord"
@@ -1081,7 +909,7 @@
      ]
     },
     "soundsLike": {
-     "description": "Unchecked legacy leaf only: the block's `soundsLike`.",
+     "description": "Unchecked leaf only: the block's `soundsLike`.",
      "type": "string",
      "minLength": 1
     },
@@ -1154,7 +982,7 @@
     "additionalProperties": false,
     "refused": {
      "words": "an op has parts, not words",
-     "gives": "derived: tools/wordplay.py works out a checked op's letters; only an unchecked legacy step states them"
+     "gives": "derived: tools/wordplay.py works out a checked op's letters; only an unchecked step states them"
     }
    }
   },
@@ -1189,14 +1017,14 @@
     "additionalProperties": false,
     "refused": {
      "indicators": "a leaf has no indicators: they sit on the op they signal",
-     "select": "legacy only: write the selection as an op, first([words])",
-     "soundsLike": "legacy only: write the homophone as an op, sound([words]X, SPELT)",
+     "select": "unchecked leaves only: write the selection as an op, first([words])",
+     "soundsLike": "unchecked leaves only: write the homophone as an op, sound([words]X, SPELT)",
      "parts": "a leaf has no parts; an op needs `op`"
     }
    }
   },
   "wordplayIndicator": {
-   "description": "Indicator words on a format v2 op or definition: what they signal is the op they sit on, so there is no `for`.",
+   "description": "Indicator words on an op or definition: what they signal is the op they sit on, so there is no `for`.",
    "type": "object",
    "required": [
     "text"
@@ -1572,7 +1400,13 @@
    "additionalProperties": false,
    "properties": {
     "type": {
-     "$ref": "#/$defs/annotation/properties/type"
+     "description": "Every mechanism the wordplay uses, in the order applied.",
+     "type": "array",
+     "minItems": 1,
+     "uniqueItems": true,
+     "items": {
+      "$ref": "#/$defs/clueType"
+     }
     },
     "typeCore": {
      "description": "`type` is a lower bound: the clue is that, and perhaps a cut or a letter selection besides.",

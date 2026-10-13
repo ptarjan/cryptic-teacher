@@ -109,7 +109,7 @@ PY
 )
 echo "a fetched puzzle writes source, solutions and nothing that repeats them"
 same "top-level keys, in order" "$(grep '^KEYS ' <<<"$out")" \
-  "KEYS id,number,series,name,setter,date,dimensions,source,solutions"
+  "KEYS id,number,prize,setter,date,dimensions,source,solutions"
 same "source holds the url and how it was read" "$(grep '^SOURCE ' <<<"$out")" \
   "SOURCE publisher,url,retrievedFrom,acquiredBy,acquiredOn,gridOrigin https://www.theguardian.com/crosswords/prize/30066"
 same "no answers: origin unsolved, no detail" "$(grep '^UNSOLVED ' <<<"$out")" \

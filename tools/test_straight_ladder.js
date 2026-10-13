@@ -40,7 +40,7 @@ const CRYPTIC_RUNGS = /indicator|kind of clue|building blocks/i;
 // A straight-tagged puzzle can still hold a real wordplay clue (the tag is a
 // majority). times-28 27A ("Freed (anag.)") has indicators, so it keeps its
 // full ladder; f2c5f11f2f (the first straight cut) dropped them there. It was
-// times-26 31A until the format v2 migration dropped 16 of times-26's plain
+// times-26 31A until the puzzle format migration dropped 16 of times-26's plain
 // definitions for the burn to redo, which left times-26 no longer straight.
 {
   const want = { number: 27, direction: "across" };

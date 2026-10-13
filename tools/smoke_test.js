@@ -797,7 +797,7 @@ const TYPE_FAMILY = Object.fromEntries(CLUE_TYPES.types.map((t) => [t.name, t.fa
   const seen = {};
   pp.puzzleFiles()
     .forEach((f) => {
-      const puz = pp.readView(f);  // the shim form: a v2 file stores no `type`
+      const puz = pp.readView(f);  // the shim form: a file stores no `type`
       (puz.entries || []).forEach((e) => {
         const types = (e.annotation || {}).type;
         if (!Array.isArray(types)) return;
@@ -7551,36 +7551,23 @@ global.realSetTimeout(() => {
     "and a reload puts them back in the box: " + (box2 && box2.value));
 }
 
-// --- a format v2 puzzle renders as its legacy file did ---
-// A v2 file stores the wordplay tree and none of the fields derivable from it;
+// --- a puzzle file renders: every annotated clue climbs its ladder ---
+// A file stores the wordplay tree and none of the fields derivable from it;
 // the shim derives them (fetch_puzzle.browser_puzzle reads annotation.view_puzzle),
-// so app.js reads the same shape from either format. Proved here end to end: a
-// recent puzzle converted in memory (tools/convert_v2.py converted_samples) is
-// booted as its legacy browser form and as its v2 one, every annotated clue's
-// ladder is climbed in each, and a clue the converter rebuilt exactly must show
-// the same panel at every rung. A clue it normalised (blocks recut, link words
-// recomputed) only has to render; tools/test_shim_format.sh checks the data.
-// CT_SMOKE_V2=<legacy dir>:<migrated dir> holds every puzzle a migration
-// rewrote (tools/convert_v2.py --migrate on a copy; tools/test_migrate_v2.sh)
-// to the same, instead of the one converted sample.
-for (const got of JSON.parse(require("child_process").execFileSync("python3", ["-c",
-    "import json, os, sys, convert_v2, fetch_puzzle as fp, puzzle_schema as S\n"
+// so app.js reads type, blocks, indicators and assembly it never stored.
+// Proved here end to end on the format fixtures (tools/fixtures/format-puzzles,
+// frozen Guardian cryptics): each is booted as its browser form, every
+// annotated clue's ladder is climbed, and every one must have rungs. Each is
+// climbed twice from the same seed, and the two climbs must match: the panel a
+// clue shows depends on nothing but the puzzle. tools/test_shim_format.sh
+// checks the data.
+for (const puz of JSON.parse(require("child_process").execFileSync("python3", ["-c",
+    "import json, fetch_puzzle as fp\n"
     + "from pathlib import Path\n"
-    + "pairs = os.environ.get('CT_SMOKE_V2')\n"
-    + "if pairs:\n"
-    + "    old_dir, new_dir = pairs.split(':')\n"
-    + "    out = []\n"
-    + "    for f in sorted(Path(new_dir).rglob('*.json')):\n"
-    + "        n = fp.read_puzzle_file(f); o = fp.read_puzzle_file(Path(old_dir) / f.relative_to(new_dir))\n"
-    + "        if S.is_v2(o) or not any(a for _, _, a in S.annotations(n)): continue\n"
-    + "        st = {w: convert_v2.check(a, h, o)[0] for w, h, a in S.annotations(o)}\n"
-    + "        out.append((o, n, st))\n"
-    + "else:\n"
-    + "    out = convert_v2.converted_samples(1)\n"
-    + "print(json.dumps([{'old': fp.browser_puzzle(o), 'new': fp.browser_puzzle(n),"
-    + " 'exact': [w for w, s in st.items() if s == 'exact']} for o, n, st in out]))"],
+    + "print(json.dumps([fp.browser_puzzle(fp.read_puzzle_file(f))"
+    + " for f in sorted(Path('fixtures/format-puzzles/cryptic').glob('*.json'))]))"],
   { cwd: path.join(ROOT, "tools"), encoding: "utf8", maxBuffer: 1 << 28 }))) {
-  const ID = "smoke-format-v2";
+  const ID = "smoke-format";
   const ladders = (puz) => {
     // The anagram ring deals its tiles with Math.random (app.js dealRing), so
     // two boots of one clue deal differently and every ring rung "differs".
@@ -7589,16 +7576,9 @@ for (const got of JSON.parse(require("child_process").execFileSync("python3", ["
     // an earlier one drew. The boot is seeded too, and each clue's stream
     // starts before its reset: the clue selected on boot (usually the first,
     // 1A) deals its ring then, and app.js keeps the deal (`ring`, keyed by
-    // answer and fodder) through reset-puzzle, so its climb drew nothing and
-    // showed the boot's unseeded deal. That was 10 FAILs, one exact clue per
-    // puzzle and always the first clue with a ring (cyclops-413 8A,
-    // everyman-3946 1A, ...), on the 7-per-series sample (10-13).
-    // The boot and every clue start from the same seed, so a ring kept from
-    // the boot is the very deal a fresh climb makes. It is kept whenever no
-    // clue climbed before it deals a ring, and in v2 an anagram under an
-    // unchecked step has none (view() lists no assembly.anagrams): in
-    // mephisto-3169 1D ALCAIC dealt a ring between the boot's 4A deal and
-    // 4A's climb in legacy, and nothing in v2, so 4A showed the boot's deal.
+    // answer and fodder) through reset-puzzle, so its climb draws nothing and
+    // shows the boot's deal. The boot and every clue start from the same seed,
+    // so a ring kept from the boot is the very deal a fresh climb makes.
     const SEED = 0x5eed;
     const seeded = (seed) => () => {
       seed = (seed + 0x6D2B79F5) | 0;
@@ -7628,7 +7608,7 @@ for (const got of JSON.parse(require("child_process").execFileSync("python3", ["
       const row = e.annotation && reg["clue-" + entryId(e)];
       if (!row || !row.listeners.click) return;
       // A clean slate per clue, as the corpus sweeps take one: what an earlier
-      // clue cost (a normalised one may climb differently) must not show here.
+      // clue cost must not show here.
       Math.random = seeded(SEED);
       reg["reset-puzzle"].onclick();
       row.listeners.click[0]();
@@ -7647,38 +7627,15 @@ for (const got of JSON.parse(require("child_process").execFileSync("python3", ["
     Math.random = random;
     return out;
   };
-  const before = ladders(got.old), after = ladders(got.new);
-  // view() lists indicators in clue order; a legacy file that stored them
-  // otherwise shows them reordered, so those clues are held to rendering only.
-  const inClueOrder = (e) => {
-    const at = ((e.annotation || {}).indicators || []).map((i) => e.clue.text.indexOf(i.text));
-    return at.every((x, k) => k === 0 || at[k - 1] <= x);
-  };
-  // The ring deals the fodder's letters in the order the annotation lists
-  // them. view() lists them in clue order, so a legacy file that filed its
-  // blocks otherwise (metro-9887 16D "A BET ST" for "Good person placing a
-  // bet", indysunday-1379 5D AND before GIN) or whose fodder is the clue's
-  // letters where its block gives a scramble of them (independent-11823 3D,
-  // ICOACHGIRL vs the block's IGOACHCIRL) deals the same letters in another
-  // order: held to rendering only, like indicators out of clue order.
-  const fodder = (e) => JSON.stringify((((e.annotation || {}).assembly || {}).anagrams || [])
-    .map((a) => (a.fodder || "").toUpperCase().replace(/[^A-Z]/g, "")));
-  const sameFodder = (k) => fodder(got.old.entries[k]) === fodder(got.new.entries[k] || {});
-  const exact = got.exact.map((w) => /^\$\.entries\[(\d+)\]\.annotation$/.exec(w))
-    .filter(Boolean).filter((m) => sameFodder(+m[1])).map((m) => got.old.entries[+m[1]]).filter(inClueOrder)
-    // A clue run on by an ellipsis is shown with its neighbour, whose own
-    // annotation may be a normalised one.
-    .filter((e) => !/^\s*(…|\.\.\.)|(…|\.\.\.)\s*$/.test(clueText(e))).map(entryId);
-  if (!process.env.CT_SMOKE_V2) assert(exact.length >= 5, `format v2: ${got.old.id} has exactly converted clues to compare: ${exact.length}`);
-  const differ = exact.filter((id) => JSON.stringify(before[id]) !== JSON.stringify(after[id]));
-  assert(!differ.length, `format v2: ${got.old.id}'s exactly converted clues climb the same ladder as `
-    + `its legacy file; these do not: ${differ.join(", ")}`);
-  // A clue whose annotation the migration dropped (a convert_v2.check failure,
-  // e.g. a legacy "double definition" with one definition) is bare in v2 on
-  // purpose, for the burn to redo: it has no ladder to keep.
-  const kept = new Set(got.new.entries.filter((e) => e.annotation).map(entryId));
-  const climbed = Object.keys(before).filter((id) => before[id].length && kept.has(id));
-  const silent = climbed.filter((id) => !(after[id] || []).length);
-  assert(climbed.length && !silent.length, `format v2: every clue with a ladder in ${got.old.id}'s legacy `
-    + `file has one in its v2 file (${climbed.length}); missing: ${silent.join(", ")}`);
+  const first = ladders(puz), again = ladders(puz);
+  const annotated = puz.entries.filter((e) => e.annotation).map(entryId);
+  assert(annotated.length >= 5, `format: ${puz.id} has annotated clues to climb: ${annotated.length}`);
+  assert(puz.entries.every((e) => !e.annotation || (Array.isArray(e.annotation.type) && e.annotation.blocks)),
+    `format: ${puz.id}'s shim derives every annotation's type and blocks`);
+  // A clue run on by an ellipsis is shown with its neighbour, which may hold the ladder.
+  const silent = annotated.filter((id) => !(first[id] || []).length)
+    .filter((id) => !/^\s*(…|\.\.\.)|(…|\.\.\.)\s*$/.test(clueText(puz.entries.find((e) => entryId(e) === id))));
+  assert(!silent.length, `format: every annotated clue in ${puz.id} climbs a ladder; these do not: ${silent.join(", ")}`);
+  const differ = annotated.filter((id) => JSON.stringify(first[id]) !== JSON.stringify(again[id]));
+  assert(!differ.length, `format: ${puz.id}'s clues climb the same ladder twice from one seed; these do not: ${differ.join(", ")}`);
 }

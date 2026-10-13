@@ -12,7 +12,7 @@
     "note": "2s on a warm clue index (run 38378765553); 31s cold, which the explicit Save the clue index now prevents"},
   "build/Restore the puzzle shims": {"seconds": 30},
   "build/Build the puzzle shims and reindex": {"seconds": 150, "corpus": true,
-    "note": "17-21s on warm shims and rows (runs 38378765553, 38385076152); 56-127s cold (127s in run 38390532020). Was 75, under that cold range: an edit to code the index rows reach (convert_v2, run 38383021945) re-makes all ~51k rows by design and took 94s, so every such push went red for expected work",
+    "note": "17-21s on warm shims and rows (runs 38378765553, 38385076152); 56-127s cold (127s in run 38390532020). Was 75, under that cold range: an edit to code the index rows reach (the format converter, run 38383021945) re-makes all ~51k rows by design and took 94s, so every such push went red for expected work",
     "cache": ["Restore the row cache", "Restore the puzzle shims"]},
   "build/Restore the social cards": {"seconds": 60},
   "build/Draw the social cards": {"seconds": 240, "corpus": true,

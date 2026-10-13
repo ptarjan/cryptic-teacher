@@ -30,7 +30,7 @@ export FAILED_INPUTS_FILE="$sand/ledger.json"
 export FAILED_INPUTS_PUZZLES="$sand/puzzles"
 ledger() { python3 tools/failed_inputs.py "$@"; }
 
-puzzle() {  # id answer [annotation-type] — one-entry, undated puzzle file
+puzzle() {  # id answer [definition: half an annotation] — one-entry, undated puzzle file
   python3 - "$sand/puzzles/${1%-*}/undated/$1.json" "$2" "${3:-}" <<'EOF'
 import json, os, sys
 path, answer, ann = sys.argv[1:]
@@ -38,7 +38,7 @@ os.makedirs(os.path.dirname(path), exist_ok=True)
 e = {"number": 1, "direction": "across", "clue": {"text": "Test", "enumeration": "3"}, "solution": answer, "length": 3,
      "position": {"x": 0, "y": 0}}
 if ann:
-    e["annotation"] = {"type": [ann]}
+    e["annotation"] = {"definitions": [{"text": ann, "at": e["clue"]["text"].index(ann)}]}
 json.dump({"id": path.rsplit("/", 1)[1][:-5], "dimensions": {"rows": 3, "cols": 3},
            "entries": [e]}, open(path, "w"))
 EOF
@@ -80,7 +80,7 @@ check "and the log counts it" "$(ledger summary)" \
   "skipped as failed on unchanged inputs: 1 — annotate 1 (ct-1)"
 
 echo "half an annotation left on disk is not a new input"
-puzzle ct-1 CAT "charade"
+puzzle ct-1 CAT "Test"
 check "still skipped" "$(queue)" "ct-2 ct-3"
 
 echo "a hand-fixed answer is a new input, and the puzzle comes back by itself"
@@ -202,10 +202,10 @@ state("the neighbour it named was re-dated:")
 rec["code"] = fi.code_version("solve", "nn-5", reason)
 (tools / "puzzle_integrity.py").write_text("import helper  # fixed\n")
 state("the named check changed:")
-legacy = {"puzzle": rec["puzzle"], "reason": reason}
-print("a legacy record naming its check:", "due" if fi.due("solve", "nn-5", legacy) else "held")
-legacy = {"puzzle": rec["puzzle"], "reason": "  no single grid holds these answers"}
-print("a legacy record naming none:", "due" if fi.due("solve", "nn-5", legacy) else "held")
+older = {"puzzle": rec["puzzle"], "reason": reason}
+print("an older record naming its check:", "due" if fi.due("solve", "nn-5", older) else "held")
+older = {"puzzle": rec["puzzle"], "reason": "  no single grid holds these answers"}
+print("an older record naming none:", "due" if fi.due("solve", "nn-5", older) else "held")
 EOF
 )
 check "an unrefused row is held" "$(grep -c '^unchanged: held' <<<"$out")" "1"
@@ -213,8 +213,8 @@ check "an unnamed checker leaves it held" "$(grep -c '^an unnamed checker change
 check "an import of the named check makes it due" "$(grep -c 'an import of the named check changed: due' <<<"$out")" "1"
 check "re-dating the named neighbour makes it due" "$(grep -c 'neighbour it named was re-dated: due' <<<"$out")" "1"
 check "the named check changing makes it due" "$(grep -c '^the named check changed: due' <<<"$out")" "1"
-check "a legacy record naming its check is due" "$(grep -c 'legacy record naming its check: due' <<<"$out")" "1"
-check "a legacy record naming none holds on its puzzle alone" "$(grep -c 'legacy record naming none: held' <<<"$out")" "1"
+check "an older record naming its check is due" "$(grep -c 'older record naming its check: due' <<<"$out")" "1"
+check "an older record naming none holds on its puzzle alone" "$(grep -c 'older record naming none: held' <<<"$out")" "1"
 
 echo "the working tree is untouched"
 check "git status unchanged" "$(git status --porcelain)" "$tree_before"

@@ -3,11 +3,11 @@
 #
 #     bash tools/test_abbreviation_notes.sh
 #
-# A format v2 leaf whose clue words -> letters pair is in
+# A wordplay leaf whose clue words -> letters pair is in
 # build_abbreviations.table() needs no note: annotation.view() shows
 # ABBREVIATION_GLOSS. A stored note that only restates it is refused by
-# validate_annotations, dropped by from_model (and to_model, and
-# convert_v2.check), and stripped from the corpus by strip_abbreviation_notes.py.
+# validate_annotations, dropped by from_model (and to_model), and stripped
+# from the corpus by strip_abbreviation_notes.py.
 # A note that adds anything (a domain, a source) stays. All in memory, on a
 # copy of quiptic-619 (11-across: [folio]F).
 set -euo pipefail
