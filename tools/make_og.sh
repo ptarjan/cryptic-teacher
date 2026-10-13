@@ -15,9 +15,11 @@
 # Every puzzle page unfurls as a clue from THAT puzzle, not one shared card;
 # which clue each puzzle shows is decided by make_og_card.py's score(), not here.
 #
-# --all only redraws cards whose inputs have changed, which make_og_card.py
-# decides by hashing them into og/.manifest.json — content, not mtimes, because
-# this runs in CI and a fresh checkout stamps every file with the same time.
+# --all only redraws cards whose picture could have changed: og/.manifest.json
+# holds, per card, a hash of the exact HTML Chrome was handed
+# (make_og_card.card_key), so an edit to the drawing code that leaves a card's
+# page byte-identical redraws nothing. Content, not mtimes, because this runs
+# in CI and a fresh checkout stamps every file with the same time.
 # Delete the png, or the manifest entry, to force one.
 #
 # Chrome writes 24-bit PNGs; tools/og_palette.py rewrites each as a 256-colour
@@ -93,14 +95,21 @@ python3 "$REPO/tools/make_og_card.py" >/dev/null
 shot "$REPO/tools/og_card.html" "$REPO/og.png"
 echo "wrote og.png"
 
-one() {  # one <puzzle number>
-  local n="$1" out="$REPO/og/$1.png"
-  python3 "$REPO/tools/make_og_card.py" --out "$TMP/$n.html" "$n" >/dev/null
-  shot "$TMP/$n.html" "$out"
-  # After the shot, so a run that dies partway leaves the cards it did not get
-  # to still marked stale rather than done.
-  python3 "$REPO/tools/make_og_card.py" --record "$n"
-  echo "wrote og/$n.png"
+# Cards in batches: one interpreter writes a batch's pages and one records
+# them, rather than two per card, since the interpreter is a third of a card's
+# time beside Chrome. Recorded after the batch's shots, so a run that dies
+# partway leaves the cards it did not finish still marked stale rather than
+# done; the record hashes the very page each card was shot from.
+draw() {  # draw <puzzle number>...
+  [ $# -gt 0 ] || return 0
+  python3 "$REPO/tools/make_og_card.py" --out-dir "$TMP" "$@"
+  local n pairs=()
+  for n in "$@"; do
+    shot "$TMP/$n.html" "$REPO/og/$n.png"
+    pairs+=("$n" "$TMP/$n.html")
+    echo "wrote og/$n.png"
+  done
+  python3 "$REPO/tools/make_og_card.py" --record "${pairs[@]}"
 }
 
 case "${1:-}" in
@@ -112,8 +121,13 @@ case "${1:-}" in
     # indistinguishable from nothing being stale, and every puzzle after the one
     # it died on silently keeps a stale card while the run reports success.
     list="$(python3 "$REPO/tools/og_list.py" "${OG_LIMIT:-600}")"
-    for n in $list; do one "$n"; done ;;
-  *) mkdir -p "$REPO/og"; one "$1" ;;
+    batch=()
+    for n in $list; do
+      batch+=("$n")
+      if [ ${#batch[@]} -ge 50 ]; then draw "${batch[@]}"; batch=(); fi
+    done
+    draw ${batch[@]+"${batch[@]}"} ;;
+  *) mkdir -p "$REPO/og"; draw "$1" ;;
 esac
 
 # Every card on disk, not only the ones drawn this run, so a card the cache

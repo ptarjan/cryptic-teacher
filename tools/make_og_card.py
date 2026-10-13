@@ -39,7 +39,8 @@ Usage:
   python3 tools/make_og_card.py 30066 4-down       # a clue you picked yourself
   python3 tools/make_og_card.py --out /tmp/c.html 30066
   python3 tools/make_og_card.py --stale            # puzzles whose card needs drawing
-  python3 tools/make_og_card.py --record 30066     # note that card as drawn
+  python3 tools/make_og_card.py --out-dir /tmp/o 30066 30067   # many, one process
+  python3 tools/make_og_card.py --record 30066 /tmp/o/30066.html  # note it as drawn
   python3 tools/make_og_card.py --prune            # delete cards no puzzle gets any more
 """
 import hashlib
@@ -52,7 +53,6 @@ import app_tables  # app.js's tables, read from app.js
 from annotation import whole_anagram  # tools/annotation.py
 import clue_types
 import quotes  # curl(): clue text is stored straight, shown curled
-import enumeration
 from fetch_puzzle import (  # one glob, one reader, one puzzles/ for every tool
     blog_annotation, blog_facts_for, puzzle_files, read_puzzle_view,
     with_blog_facts)
@@ -657,40 +657,55 @@ def alt_text(number, wanted=None):
 
 MANIFEST = REPO / "og" / ".manifest.json"
 CARD_REGION = re.compile(r"<!--CARD-START.*?<!--CARD-END-->", re.S)
+#: What a manifest key in the current scheme starts with. An entry without it
+#: was written by the old scheme (see adopt_legacy()).
+KEY_PREFIX = "html:"
 
 
 def _salt():
-    """A hash of everything outside a puzzle file that decides what a card looks
-    like: this script, the app.js tables it renders from (as parsed, not the
-    whole file, or every edit to the app would redraw every card), and
-    og_card.html with the card region cut out. That region is whatever card was
-    drawn last, so hashing it whole would call every card stale every time the
-    site card moved.
+    """A hash of what a puzzle's cached card row depends on beyond its file and
+    the code it runs (row_cache's code reach already covers this script and
+    clue_types' code): the app.js tables it renders from, as parsed (not the
+    whole file, or every edit to the app would work every row out again), and
+    og_card.html with the card region cut out. That region is whatever card
+    was drawn last, so hashing it whole would call every row stale every time
+    the site card moved. Only og_list.py's row cache reads this; it decides
+    nothing about which cards get drawn — card_key() does.
     """
     h = hashlib.sha256()
-    h.update(Path(__file__).resolve().read_bytes())
     words = [(f["name"], f["label"], f["blurb"]) for f in clue_types.FAMILIES]
     h.update(repr((words, clue_types.FALLBACK_FAMILY, LADDER)).encode("utf-8"))
     h.update(CARD_REGION.sub("", CARD.read_text(encoding="utf-8")).encode("utf-8"))
     return h
 
 
-def card_key(pid, salt):
-    """What a card was drawn from, hashed: the salt plus, for each entry as
-    load() hands it to the drawing code, the three fields the drawing reads —
-    id, clue text and annotation — in canonical JSON.
+def card_html(number, wanted=None):
+    """The whole page Chrome screenshots for one card: og_card.html with its
+    card region filled. Self-contained (no stylesheet, font or image is
+    fetched), so it is everything the picture is drawn from."""
+    text = CARD.read_text(encoding="utf-8")
+    new, n = CARD_REGION.subn(lambda _: build(number, wanted), text)
+    if n != 1:
+        raise SystemExit("og_card.html is missing its <!--CARD-START--> markers")
+    return new
 
-    Nothing else of the puzzle reaches a card, so this changes when the picture
-    could, and not when a file around it is re-spelled or gains a key the card
-    never draws.
+
+def html_key(html_text):
+    return KEY_PREFIX + hashlib.sha256(html_text.encode("utf-8")).hexdigest()
+
+
+def card_key(pid):
+    """What a card was drawn from, hashed: the exact HTML Chrome is handed.
+
+    It used to be a salt of this script's own bytes plus the puzzle's entries,
+    so any edit here, a comment or an import, called all ~17k cards stale and
+    the deploy spent the next ~30 runs redrawing identical pictures, 600 at a
+    time at about a second each (2026-10-13, a read-path refactor). Hashing
+    the rendered page instead means a card is redrawn exactly when what it
+    shows could change: a puzzle's clue or annotation, the drawing code's
+    output, or the template.
     """
-    drawn = [{"id": entry_id(e), "clue": enumeration.printed(e["clue"]),
-              "annotation": e.get("annotation")}
-             for e in load(pid)["entries"]]
-    h = salt.copy()
-    h.update(json.dumps(drawn, ensure_ascii=False, sort_keys=True,
-                        separators=(",", ":")).encode("utf-8"))
-    return h.hexdigest()
+    return html_key(card_html(pid))
 
 
 def _manifest():
@@ -700,6 +715,35 @@ def _manifest():
         return {}
 
 
+def _write_manifest(have):
+    MANIFEST.parent.mkdir(exist_ok=True)
+    MANIFEST.write_text(json.dumps(have, indent=1, sort_keys=True), encoding="utf-8")
+
+
+def adopt_legacy():
+    """Take a card the old scheme drew (manifest entry without KEY_PREFIX, png
+    on disk) as current, recording its key in this scheme without redrawing.
+
+    The switch would otherwise call every one of the ~17k cards stale at once.
+    The old keys changed on every byte of this script, and the last such edit
+    was a read-path refactor that moved no picture, so the cards on disk are
+    what they would be drawn as now; a card whose puzzle changes later is
+    redrawn by the normal rule. Returns how many were adopted.
+    """
+    have = _manifest()
+    old = [pid for pid, k in have.items()
+           if not str(k).startswith(KEY_PREFIX) and (REPO / f"og/{pid}.png").exists()]
+    keep = set(eligible())
+    n = 0
+    for pid in old:
+        if pid in keep:
+            have[pid] = card_key(pid)
+            n += 1
+    if n:
+        _write_manifest(have)
+    return n
+
+
 def stale():
     """Puzzles whose card is missing or drawn from something that has changed.
 
@@ -707,9 +751,9 @@ def stale():
     same mtime, so the `-nt` test this replaced saw nothing stale and CI would
     have published whatever cards its cache happened to hold, forever.
     """
-    salt, have = _salt(), _manifest()
+    have = _manifest()
     for pid in eligible():
-        if not (REPO / f"og/{pid}.png").exists() or have.get(pid) != card_key(pid, salt):
+        if not (REPO / f"og/{pid}.png").exists() or have.get(pid) != card_key(pid):
             yield pid
 
 
@@ -734,28 +778,21 @@ def prune():
             have.pop(png.stem, None)
             print(f"removed og/{png.name}")
     if MANIFEST.exists():
-        MANIFEST.write_text(json.dumps(have, indent=1, sort_keys=True), encoding="utf-8")
+        _write_manifest(have)
 
 
-def record(pid):
-    """Note that pid's card is now drawn from what that puzzle says today.
-
-    Called per card rather than once at the end, so a run that dies halfway
-    leaves the cards it did draw marked done and the rest still stale.
-    """
+def record(pairs):
+    """Note that each (pid, html file) card is drawn from that HTML, by hashing
+    the very file Chrome was handed — the same bytes card_key() hashes, so
+    nothing is rendered twice. One manifest write for the batch."""
     have = _manifest()
-    have[pid] = card_key(pid, _salt())
-    MANIFEST.parent.mkdir(exist_ok=True)
-    MANIFEST.write_text(json.dumps(have, indent=1, sort_keys=True), encoding="utf-8")
+    for pid, html_path in pairs:
+        have[pid] = html_key(Path(html_path).read_text(encoding="utf-8"))
+    _write_manifest(have)
 
 
 def render(number, wanted, out_path):
-    text = CARD.read_text(encoding="utf-8")
-    new, n = re.subn(r"<!--CARD-START.*?<!--CARD-END-->",
-                     lambda _: build(number, wanted), text, flags=re.S)
-    if n != 1:
-        raise SystemExit("og_card.html is missing its <!--CARD-START--> markers")
-    Path(out_path).write_text(new, encoding="utf-8")
+    Path(out_path).write_text(card_html(number, wanted), encoding="utf-8")
 
 
 def main():
@@ -777,7 +814,18 @@ def main():
         prune()
         return 0
     if "--record" in args:
-        record(args[args.index("--record") + 1])
+        # --record PID HTML [PID HTML ...]: the cards make_og.sh drew this run,
+        # each with the page it screenshot.
+        rest = args[args.index("--record") + 1:]
+        record(zip(rest[0::2], rest[1::2]))
+        return 0
+    if "--out-dir" in args:
+        # --out-dir DIR PID...: each puzzle's card page as DIR/<pid>.html, one
+        # process for the whole batch rather than an interpreter per card.
+        i = args.index("--out-dir")
+        out_dir = Path(args[i + 1])
+        for pid in args[i + 2:]:
+            render(pid, None, out_dir / f"{pid}.html")
         return 0
     out = CARD
     if "--out" in args:
