@@ -1565,6 +1565,10 @@ tools/test_public_docs.sh                     do the public docs name hosts by r
                                               host, the GPU host, the data disk) rather than by
                                               a local path, home directory, LAN address or
                                               whose machine it is?
+tools/test_doc_staleness.sh                   do the hand-written docs, outside generated
+                                              regions, stay free of live counts ("about N
+                                              puzzles") and snapshot words ("currently", "as
+                                              of") that go stale, with dated history exempt?
 tools/test_downloads.sh                       does every fetcher keep its downloads under
                                               tools/downloads.py's root: fails on a home path,
                                               ~/.cache folder or container path spelled

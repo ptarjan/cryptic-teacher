@@ -475,6 +475,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/test_book_queue.sh", "does tools/book_queue.py still offer the right book to tools/acquire_books.sh?"),
     ("tables everything else reads", "tools/test_build_readme.sh", "does tools/build_readme.py still read the header of every file it is asked about?"),
     ("tables everything else reads", "tools/test_public_docs.sh", "do the public docs name hosts by role (the OCR host, the GPU host, the data disk) rather than by a local path, home directory, LAN address or whose machine it is?"),
+    ("tables everything else reads", "tools/test_doc_staleness.sh", "do the hand-written docs, outside generated regions, stay free of live counts (\"about N puzzles\") and snapshot words (\"currently\", \"as of\") that go stale, with dated history exempt?"),
     ("tables everything else reads", "tools/test_downloads.sh", "does every fetcher keep its downloads under tools/downloads.py's root: fails on a home path, ~/.cache folder or container path spelled anywhere else in tools/"),
     ("tables everything else reads", "tools/test_doc_pointers.sh", "does every backticked path and function in the prose docs still exist?"),
     ("tables everything else reads", "tools/test_prereset_lock.sh", "does the pre-reset backfill still take over a lock nobody is holding?"),

@@ -63,7 +63,7 @@ committed is never filed again. Three mechanisms, one shared helper
 (`tools/durable.sh`):
 
 - **Commit as it goes.** While a job files, what it filed is committed and
-  pushed every `DURABLE_EVERY` seconds (300) by `tools/push_puzzle_commit.sh`,
+  pushed every `DURABLE_EVERY` seconds by `tools/push_puzzle_commit.sh`,
   which does not touch the working tree the job is still writing into.
 - **Commit on stop.** SIGTERM, SIGINT or SIGHUP ends the job's child, commits
   and pushes, then exits; `tools/corpus_queue.py stop` sends the pass TERM and

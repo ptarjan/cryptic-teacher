@@ -4,9 +4,10 @@ Cryptic Teacher gives every clue a hint ladder: indicator, definition, clue
 type, building blocks, full walkthrough. Nobody writes those hints by hand.
 A language model writes them, a validator checks them, and scheduled jobs
 spend a fixed weekly quota writing as many as the quota buys. This document
-explains which models do what, how the procedure got to its current shape in
-about eleven weeks (late July to mid October 2026), what the system looks
-like now, where it falls short, and what comes next.
+explains which models do what, how the procedure evolved from its start in
+late July 2026, how the system fits together, where it falls short, and what
+might come next. It describes how and why; live counts (puzzles filed,
+solved, hinted) are on the site's /progress/ page, not here.
 
 It is written for an outside technical reader. The operational details live
 elsewhere: [NIGHTLY.md](NIGHTLY.md) covers the scheduled jobs,
@@ -36,10 +37,9 @@ text, so the scanned archive costs no Claude quota at all.
 
 Every Claude role is a `claude -p` subprocess started by a shell or Python
 script, with a role-specific system prompt, a short tool list and a pinned
-model and reasoning effort. Every role runs Opus at medium effort, except
-authoring, which runs at high. Neither is left to the CLI's default: the
-default effort differs per model, so it would change silently whenever the
-alias moved.
+model and reasoning effort, set in the script that starts it. Neither is
+left to the CLI's default: the default effort differs per model, so it would
+change silently whenever the alias moved.
 
 | Role | Script / prompt | What it does |
 |---|---|---|
@@ -48,15 +48,15 @@ alias moved.
 | Bad-hint report fixes | `tools/report_fix_prompt.md`, from `tools/daily_update.sh` | Works through the hints that readers report from the site. The fix goes into the data, and into the renderer or validator where it can. |
 | Clue-quality judge | `tools/grade_clues_judge.sh`, `tools/grade_clues_judge.md` | Three fresh judges per arm score clues blind on five axes, to compare clues we write with published ones. |
 | Favourite grading | `tools/favourite_grading.sh`, `tools/favourite_grading_prompt.md` | Scores published clues on the same axes, to check those axes against solvers' favourite votes. |
-| Authoring trials | `tools/author_trial.py`, `tools/author_trial_author.md`, `tools/author_trial_select.md` | Writes original clues: several candidates per answer from a fresh author with no tools, then a selector picks one. Runs at high effort. |
-| Surface judge | `tools/surface_judge.md`, called by the authoring trials | Refuses an authored clue whose surface is not a real sentence. A refusal needs two calls to agree, because a single call false-refuses about one time in five. |
+| Authoring trials | `tools/author_trial.py`, `tools/author_trial_author.md`, `tools/author_trial_select.md` | Writes original clues: several candidates per answer from a fresh author with no tools, then a selector picks one. |
+| Surface judge | `tools/surface_judge.md`, called by the authoring trials | Refuses an authored clue whose surface is not a real sentence. A refusal needs two calls to agree, because a single call false-refuses too often to trust alone. |
 
-The alias `opus` is set once, as `ANNOTATE_MODEL` (with `ANNOTATE_EFFORT`), in
-both scheduled jobs. Each run records the exact model it resolved to in the
-puzzle's `annotatedBy`; the provenance checks refuse a bare alias there. In the
-committed corpus about 16,000 annotated puzzles name `claude-opus-5-5`, about
-600 name `claude-opus-5`, and 23 name `claude-fable-5`, the model the
-nightly started on.
+The annotation model is pinned once, as `ANNOTATE_MODEL` (with
+`ANNOTATE_EFFORT`), in each scheduled job: `tools/daily_update.sh` and
+`tools/prereset_backfill.sh`. It is an alias, so each run records the exact
+model it resolved to in the puzzle's `annotatedBy`, and the provenance checks
+refuse a bare alias there. The corpus itself, not this document, is the
+record of which model wrote which puzzle's hints.
 
 **Why Opus.** The pin was first chosen on 08-08 from a one-puzzle benchmark,
 recorded in [APP.md](../APP.md) under "The annotator model". Opus 5 matched
@@ -79,12 +79,9 @@ The choice was re-tested on 10-12 with a paired A/B over the burn's own queue
   It lost the blind judging 8 to 34, mostly because it wrote fewer and
   thinner walkthroughs.
 
-So the default stayed Opus at medium. The blog cross-check and the answer key
+So on 10-12 the default stayed Opus at medium. The blog cross-check and the answer key
 could not tell the arms apart, because the validator already enforces both;
 only judges reading the prose could.
-
-The cost weights the burn plans with (`tools/prereset_plan.py`) still list
-Sonnet and Haiku. No production role uses them.
 
 ### Local models: reading scans
 
@@ -107,7 +104,8 @@ the GPU host (`tools/ocr_clues.py`):
   on, together with their readings, and asks it to repeat the right one or to
   copy the clue from the image itself. Both prompts insist it must not
   "correct" an odd clue, because cryptic clues are odd on purpose. The VLM
-  was Qwen3-VL-8B from 10-02 and has been qwen3.8-vl-27b since 10-10.
+  started as Qwen3-VL-8B on 10-02 and moved to a larger 27B model on 10-10;
+  `MODEL` in `tools/vlm_reader.py` names the one in use.
 
 No neural language model is used for text. To choose between OCR readings,
 the vote uses a lexicon, WordNet and a count table of clue words and word
@@ -117,11 +115,11 @@ puzzles in the OCR gold set. Blog write-ups are parsed by rules, not a model
 
 ## How the procedure evolved
 
-The repository's history is about 25,600 commits, roughly 16,000 of them
-"Annotate <id>" commits that each land one puzzle's hints. The monthly count
-of those tells the scaling story: 2 in July, 64 in August, about 3,900 in
-September and about 12,000 in the first twelve days of October. The shifts
-below are the ones that changed how the model is used, not what it produced.
+Every puzzle's hints land in their own "Annotate <id>" commit, so those
+commits counted by month tell the scaling story: a handful in July and
+August, thousands a month once the burn ran in September and October. The
+shifts below are the ones that changed how the model is used, not what it
+produced.
 
 ### July: hand-run annotation and the first validator (07-26 to 07-31)
 
@@ -180,8 +178,8 @@ answers were not yet published. On 08-29 the annotation rules moved from
   annotate prompt is paid for on every run, while a check in the validator
   costs nothing unless it fires. So a lesson from a miss or a bad-hint report
   becomes a mechanical check first, measured for false positives on correct
-  work, and prompt text only when no check is possible. The solve prompt is
-  capped at 500 words by a test. The same day `tools/annotate_check.py` began
+  work, and prompt text only when no check is possible. A test caps the
+  solve prompt's length. The same day `tools/annotate_check.py` began
   telling a run when it is clean and finished, and the prompts moved into the
   system prompt.
 - **Judges and authoring trials (09-29, 09-30).** Model judges were
@@ -211,7 +209,7 @@ answers were not yet published. On 08-29 the annotation rules moved from
 - **Solve only when hinting (10-07).** Paul: "We shouldn't solve until we are
   hinting." A solved but unhinted puzzle is spend with nothing shipped, and
   splitting the solve and the hint into two conversations re-bought the
-  reasoning. Now one run solves the puzzle and annotates it in the same
+  reasoning. From then on one run solves the puzzle and annotates it in the same
   conversation, and both schedulers call the same per-puzzle worker
   (`tools/puzzle_worker.sh`).
 - **Pacing modes (10-07).** The burn paces to the weekly reset by default, or
@@ -219,22 +217,22 @@ answers were not yet published. On 08-29 the annotation rules moved from
 - **Blogs are read, not overwritten (10-09).** A puzzle with a solving blog's
   write-up takes its key from the blog; a model is refused there.
 - **Never discard good work (10-08 to 10-12).** One clue failing validation
-  used to throw away a run's other 28 hints. Now every clue that validated is
-  kept, only the failing entry goes back, a run cannot blank a committed hint,
+  used to throw away a run's other 28 hints. Since then every clue that
+  validated is kept, only the failing entry goes back, a run cannot blank a committed hint,
   and before any discard the run's files are salvaged for two weeks
   (`tools/salvaged.sh`). Lost runs have even been rebuilt by replaying the
   writes in their session transcripts.
 - **Doubt is an error (10-12).** Grading 120 model-solved puzzles against
   their later official keys found 6 wrong lights in 3,500, all on unchecked
   cells or cells two weak answers shared, and in one case the annotator had
-  written "placeholder" and shipped. A hedged hint on a model answer is now a
+  written "placeholder" and shipped. A hedged hint on a model answer became a
   validator error that reopens the answer.
 
 The pattern across all of it: rules migrate out of prose and into code. A
 sentence in a prompt is a request; a check in the validator is a guarantee,
 and costs nothing on the runs that already comply.
 
-## The current shape of the system
+## The shape of the system
 
 ```
  SOURCES                      FILING                    QUOTA-PACED CLAUDE RUNS
@@ -272,7 +270,8 @@ reproduce the clues with answers, from books and PDFs, and from scanned
 newspaper pages. Every filer writes the same puzzle format, and
 cross-checking happens at filing: a puzzle seen in more than one source is
 compared field by field, and the corrections tables carry known misprints so
-a refetch cannot revert them. About 51,000 puzzles across 25 series are filed.
+a refetch cannot revert them. How many puzzles each series has filed is on
+the site's /progress/ page.
 
 Scanned pages go through `tools/ocr_clues.py`. Each clue column is read by
 several engines; `reconcile()` settles each word on the spelling the readings
@@ -285,12 +284,13 @@ local models only.
 
 ### Choosing what to hint
 
-Two scheduled jobs annotate, and they split the quota deliberately (the
-current numbers are generated into [NIGHTLY.md](NIGHTLY.md)):
+Two scheduled jobs annotate, and they split the quota deliberately (their
+schedules and thresholds are generated into [NIGHTLY.md](NIGHTLY.md)):
 
-- **The daily tick** (`tools/daily_update.sh`, every ten minutes) annotates
+- **The daily tick** (`tools/daily_update.sh`, on a short timer) annotates
   every new arrival, because a puzzle gets most of its visits in the week it
-  is published. It runs only below 90% of the weekly and five-hour meters.
+  is published. It runs only while the weekly and five-hour meters have
+  headroom.
 - **The burn** (`tools/prereset_backfill.sh`, hourly) spends everything
   else on the backlog. `tools/prereset_plan.py` sizes the pool so the weekly
   meter lands at its limit just as it resets, net of what interactive use
@@ -324,7 +324,7 @@ LIKELY or GUESS. It then writes the fill in and annotates it.
 
 Annotation is written to a JSON file a few clues at a time, so that a cut-off
 run keeps what it wrote, and `tools/annotate_check.py` is run until it says
-clean. That checker wraps the validator's roughly 50 checks and adds
+clean. That checker wraps the validator's checks and adds
 repairs that are safe to apply mechanically (dropping a link word that
 overlaps a definition, for example), each applied only if it clears the
 check, adds nothing and is the unique best edit.
@@ -367,31 +367,30 @@ cover the same puzzles.
 ## Shortcomings
 
 **Quota is the bottleneck.** Everything is paced by a weekly subscription
-meter, not by compute or by humans. About 17,000 of 51,000 puzzles (about 35%
-of 1.5 million clues) are annotated. A committed puzzle costs a median of
-about 120,000 quota-weighted tokens, two thirds of it output, and roughly 40%
-of the annotation output is the model's thinking. At the October pace of
-about a thousand puzzles a day, when the meter allows, the backlog of about
-34,000 is weeks of burn, and new puzzles keep arriving. Solving is
-disproportionately expensive: in one five-day sample, solves were a third of
-the spend for 7% of puzzles, and solves that never shipped were 15%.
+meter, not by compute or by humans, so coverage grows only as fast as the
+quota buys it while new puzzles keep arriving (the /progress/ page charts
+both). The 10-12 cost analysis found a committed puzzle cost a median of
+120,000 or so quota-weighted tokens, two thirds of it output, with roughly
+40% of the annotation output being the model's thinking. Solving is
+disproportionately expensive: in a five-day sample that October, solves were
+a third of the spend for 7% of puzzles, and solves that never shipped were
+15%.
 
-**Blanks where the wordplay is not found.** Of about 510,000 clues in
-annotated puzzles, about 4,400 (0.9%) have no hint. They are clues the model
-could not parse honestly, clues lost to OCR, or reopened model answers that
+**Blanks where the wordplay is not found.** A small share of clues in
+annotated puzzles have no hint. They are clues the model could not parse
+honestly, clues lost to OCR, or reopened model answers that
 failed twice. The site shows the answer for those but cannot teach them.
 
 **Validator-clean is not correct.** The checks catch inconsistency and
-known failure shapes, not a plausible but wrong parse. In the October model
+known failure shapes, not a plausible but wrong parse. In the 10-12 model
 comparison, blind Opus judges reading 42 sampled clues found a wrong parse in
 1 from the default configuration and 3 from the low-effort one, all of them
-validator-clean. The first check still fails on roughly a third of puzzles
-for the default configuration, mostly on letter accounting
+validator-clean. A run's first check often fails, mostly on letter accounting
 (blocks that do not spell the answer, unmarked deletions), and the run then
-fixes it, at a cost.
+fixes it, at a cost; the daily audit (below) ranks which rules cost most.
 
-**Model solves can be wrong where nothing checks.** 6 wrong lights in 3,500
-graded is a low rate, but every one was on an unchecked cell or a cell two
+**Model solves can be wrong where nothing checks.** The 10-12 grading's 6
+wrong lights in 3,500 is a low rate, but every one was on an unchecked cell or a cell two
 weak answers shared, and some model-solved puzzles never get an official key
 (books, scans, defunct series). Those answers are marked unofficial on the
 site and stay unverified.
@@ -416,8 +415,8 @@ measurement.
 
 **Hints that are right but do not teach.** An early reader said the hints
 "didn't really help him learn how to solve": a correct walkthrough of one
-clue is not a lesson in the general rule. Rungs now state the rule and link
-to the tutorial, but teaching quality is the hardest thing here to measure.
+clue is not a lesson in the general rule. Rungs were changed to state the
+rule and link to the tutorial, but teaching quality is the hardest thing here to measure.
 
 **Operational fragility.** The burn is a long-running shell pool with
 worktrees, locks, a rebase every hour and re-exec on code change. Much of the
@@ -429,16 +428,16 @@ but the surface is large.
 ## Future work
 
 - **Spend less per puzzle.** The 10-12 cost analysis ranked the levers:
-  gate or salvage solves that cannot ship (some landed the same day),
+  gate or salvage solves that cannot ship,
   trim the annotation JSON the model writes, and end the run the moment the
   check is clean. Lower reasoning effort was tested and rejected: 14% cheaper
   but blind judges preferred the default 34 to 8, mostly because its
   walkthroughs were thinner.
-- **Keep turning lessons into checks.** The daily audit's top targets are
-  letter-accounting errors; the next class is extra letters from unmarked
-  deletions.
-- **Use the blogs harder.** Blog markings already serve as interim hints for
-  about 21,000 puzzles and as a disagreement check; they could seed the
+- **Keep turning lessons into checks.** Work down whatever the daily audit
+  ranks top; on 10-12 that was letter accounting, with extra letters from
+  unmarked deletions next.
+- **Use the blogs harder.** Blog markings already serve as interim hints on
+  unannotated puzzles and as a disagreement check; they could seed the
   annotation itself for the cheap series, leaving the model to write the
   teaching prose.
 - **Grade the model against keys continuously.** Every model-solved puzzle
@@ -446,7 +445,7 @@ but the surface is large.
   to a standing per-series accuracy report.
 - **Better OCR for the oldest scans.** The 1970s and 1980s scans defeat clue
   layout; a stronger VLM pass over whole columns, or a grid read by image,
-  would recover editions now held back.
+  would recover editions the vote holds back.
 - **Measure teaching.** Blind solve packets (can a solver who reads only
   rung *n* get the answer?) exist for spot checks; making them a routine
   sample would put a number on the shortcoming above.

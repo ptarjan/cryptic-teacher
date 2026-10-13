@@ -1,6 +1,7 @@
 # Archive coverage: every archive year as full as a modern one
 
-A modern Times year files about 300 puzzles (Mon-Sat). Most archive years file
+A modern Times year files a puzzle for every edition, Monday to Saturday:
+some 300 a year. Most archive years file
 under 100. The goal is to bring every archive year close to the modern count
 using archive.org's newspaper scans (and Trove for the Canberra Times), read by
 CPU OCR with no Claude inference. Three pieces keep that work from being
@@ -34,8 +35,8 @@ the next step):
 
 - **no crossword found** (Times): the filer reads garbled titles ("Tfee Th:es
   Crossword PuzzleNo 16,587") and the fetcher also fetches the page densest
-  with clue counts when no title is in the text (`DENSE_ENUMS`,
-  `DETECTOR_VERSION` 5). What is left needs a grid search by image over
+  with clue counts when no title is in the text (`DENSE_ENUMS`, bumping
+  `DETECTOR_VERSION`). What is left needs a grid search by image over
   every leaf.
 - **no grid** (Times): when the clue OCR is too poor (1970s-80s scans) to
   lay `LOOSE_SHARE` of the scanned grid's lights and no grid can be rebuilt
@@ -49,14 +50,16 @@ the next step):
   CROSSWORD PUZZLE No. 4,534" title over it by OCR. The crossword is on the
   TV page. They count as not fetched until the hourly pass reaches them.
 
-Blank clues are mostly the VLM being down, not faint print. On 2026-10-06,
-4,283 of the 4,425 Times editions had been read while llama-swap on the
+When measured on 2026-10-06, blank clues were mostly the VLM being down, not
+faint print: 4,283 of the 4,425 Times editions had been read while llama-swap on the
 GPU host was dead, and 88% of those verdicts held a blank clue, against 8% of
 the editions read with the VLM. Re-reading a 20-edition sample with the VLM
 cut 82 blanks to 18, and 14 of the 20 came out complete. The print was
 legible in every case checked. So an edition read without the VLM is due
 again whenever the VLM answers (`due_reason`), and the bucket drains as the
-full pass reads it, at a median of 48 s an edition with the VLM (21-290 s; llama-server serves one request at a time, so 20 workers do not go faster).
+full pass reads it. That day a read with the VLM took a median of 48 s an
+edition (21-290 s); the VLM server takes one request at a time, so more
+workers do not go faster.
 
 `--json FILE` writes the same data as JSON. `--save` keeps it in
 `~/.cache/archive_coverage/latest.json`, and the next run prints each year's

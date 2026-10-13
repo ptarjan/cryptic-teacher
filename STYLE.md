@@ -45,7 +45,7 @@ occur, each once. Never give only the main mechanism. If a charade's second
 chunk comes from the alternate letters of a word, the type is
 `["charade", "letter_selection"]`, not `["charade"]`.
 
-The vocabulary is fixed: the 15 names in `tools/data/clue_types.json`. The
+The vocabulary is fixed: the names in `tools/data/clue_types.json`. The
 validator ERRORs on any other name, and on a string.
 
 - Base types: `anagram`, `charade`, `container`, `hidden_word`, `homophone`,
@@ -248,7 +248,7 @@ lists are measured from published annotations by `tools/build_clue_joints.py`
    flattened by aircraft` is fine. `The oyster lives on the ground floor` is
    not: `ground` cannot reach back over `lives` to shuffle `The oyster`. The
    check measures character offsets in the clue, so it is arithmetic, not
-   taste. It flags 24 of 9,914 published anagram clues.
+   taste. When it was added it flagged 24 of 9,914 published anagram clues.
 3. **A reversal runs along the entry.** A reversed down answer reads bottom to
    top, so a word meaning upward (`up`, `rising`, `raised`, `climbing`,
    `north`) can only reverse a down entry. Published setters hold to that: `up`
@@ -292,8 +292,8 @@ those steps is padding. Keep only what the blocks CANNOT show:
 Trimmed this way, A001's twenty walkthroughs went from 44-63 words (median 54)
 to 19-42 (median 32).
 
-`check_walkthrough_budget()` warns above `MAX_WALKTHROUGH_WORDS` (45; the
-published 99th percentile is 40) when a blocks rung exists, and only on authored
+`check_walkthrough_budget()` warns above `MAX_WALKTHROUGH_WORDS` (set a little
+above the published walkthroughs' 99th percentile) when a blocks rung exists, and only on authored
 puzzles. It is a word budget, not a redundancy detector. A semantic version that
 scored recycled vocabulary was built, measured and rejected, because good
 walkthroughs scored worse than bad ones. Keep the walkthrough short but never
