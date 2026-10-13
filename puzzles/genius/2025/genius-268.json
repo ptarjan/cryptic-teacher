@@ -4,6 +4,14 @@
  "setter": "Odo",
  "date": "2025-10-06",
  "preamble": "Wordplay in each across clue generates an extra letter that doesn’t belong in the grid; in order these letters should lead the solver to a thematic modification of a single word in each down clue. The unclued down entry is thematic.",
+ "messages": [
+  {
+   "text": "ED?Y DUKES' BET IN FILM",
+   "kind": "extra",
+   "direction": "across",
+   "order": "clues"
+  }
+ ],
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -30,6 +38,9 @@
    "26-across": "TERM"
   }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +54,65 @@
     "text": "One's cutting with praise, craftily",
     "enumeration": "6"
    },
-   "solution": "RIPSAW"
+   "solution": "RIPSAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One's cutting",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "craftily",
+       "at": 27,
+       "note": "done craftily, the letters of praise and the with-letter are worked into a new arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "with",
+         "at": 14,
+         "gives": "W",
+         "note": "W is the standard abbreviation for with"
+        },
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "praise",
+           "at": 19,
+           "note": "the word itself supplies letters, less the E that is this clue's extra letter"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flatters the boss with cunning, and the flattery is itself a kind of cutting remark.",
+     "walkthrough": "The jumble yields seven letters; the spare E is this clue's extra letter for the message, and is not entered.",
+     "definitionFit": "A ripsaw is a coarse saw for cutting wood along the grain, so it is the thing doing the cutting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cutting"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
+   }
   },
   {
    "number": 2,
@@ -57,7 +126,60 @@
     "text": "Correct to cycle on hard local seaweed close to land",
     "enumeration": "7"
    },
-   "solution": "INSHORE"
+   "solution": "INSHORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "close to land",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "to cycle",
+         "at": 8,
+         "note": "cycling moves a letter round from one end of the word to the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Correct",
+         "at": 0,
+         "gives": "SIN",
+         "note": "the clue's swapped word: Correct stands in for Wrong, whose synonym is sin"
+        }
+       ]
+      },
+      {
+       "words": "hard",
+       "at": 20,
+       "gives": "H",
+       "note": "H is the pencil-lead grading for hard"
+      },
+      {
+       "words": "local seaweed",
+       "at": 25,
+       "gives": "ORE",
+       "note": "ore is a dialect word for seaweed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to bike along a shore where the seaweed is slippery.",
+     "walkthrough": "Correct has traded places with Wrong in 19 Down; read Wrong here, giving SIN, whose last letter moves to the front.",
+     "definitionFit": "Inshore waters lie near the coast, so inshore means near the land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Correct"
+    }
+   }
   },
   {
    "number": 3,
@@ -70,6 +192,54 @@
    "clue": {
     "text": "Wealthy new theatre's deserted",
     "enumeration": "9"
+   },
+   "solution": "SHATTERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wealthy",
+      "at": 0,
+      "note": "the swapped word, standing for broke, the past tense of break, as shattered is"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new",
+         "at": 8,
+         "note": "new letters are a fresh arrangement of the old ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "theatre's",
+         "at": 12,
+         "note": "the word with its S supplies the letters to be rearranged"
+        }
+       ]
+      },
+      {
+       "words": "deserted",
+       "at": 22,
+       "gives": "D",
+       "note": "D is a recorded abbreviation for deserted"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rich man's new playhouse stands empty.",
+     "walkthrough": "Wealthy has traded places with broke in 23 Down: read Broke, which as a verb means shattered.",
+     "definitionFit": "Broke and shattered both describe glass breaking into pieces, so the past tenses match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Wealthy"
+    }
    }
   },
   {
@@ -84,7 +254,61 @@
     "text": "In contest win exhausted horse",
     "enumeration": "5"
    },
-   "solution": "WALER"
+   "solution": "WALER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "horse",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "the shortened word goes inside the conflict"
+      }
+     ],
+     "parts": [
+      {
+       "words": "contest",
+       "at": 3,
+       "gives": "WAR",
+       "note": "war is a contest of arms"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "exhausted",
+         "at": 15,
+         "note": "an exhausted word is emptied, keeping only its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "win",
+         "at": 11,
+         "gives": "LOSE",
+         "note": "the swapped word: win stands in for lose, its opposite"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worn-out horse still wins its race.",
+     "walkthrough": "Win has traded places with lose in 15 Down, so read lose here. A waler is an Australian saddle horse, first bred in New South Wales.",
+     "definitionFit": "The waler is a breed of horse from New South Wales, prized as a cavalry mount."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "win"
+    }
+   }
   },
   {
    "number": 5,
@@ -98,7 +322,72 @@
     "text": "Soldier and doctor circling mine, for example",
     "enumeration": "8"
    },
-   "solution": "PARADIGM"
+   "solution": "PARADIGM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "example",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Soldier",
+       "at": 0,
+       "gives": "PARA",
+       "note": "a para is a paratrooper"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "circling",
+         "at": 19,
+         "note": "the doctor's two letters go around the mine's letters, one on each side"
+        }
+       ],
+       "parts": [
+        {
+         "words": "doctor",
+         "at": 12,
+         "gives": "DM",
+         "note": "DM is Doctor of Medicine, the Oxford form of the degree"
+        },
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "mine",
+           "at": 28,
+           "gives": "DIG",
+           "note": "to dig is to mine"
+          },
+          {
+           "gives": "D"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A paratrooper and a medic surround a landmine, the sort of scene a training manual offers as a case study.",
+     "walkthrough": "The wordplay gives PARADDIGM; the spare D is the extra letter for the message.",
+     "definitionFit": "A paradigm is a model or typical instance, a pattern that others follow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mine"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "D"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +410,8 @@
       "mark": ","
      }
     ]
-   }
+   },
+   "solution": "PARTNERSINCRIME"
   },
   {
    "number": 6,
@@ -134,6 +424,71 @@
    "clue": {
     "text": "Again picks lesser canine, oddly lacking height somehow",
     "enumeration": "9"
+   },
+   "solution": "RESELECTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Again picks",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "somehow",
+       "at": 48,
+       "note": "somehow says the letters arrive in some new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "lesser",
+         "at": 12,
+         "note": "the word itself goes into the mix"
+        },
+        {
+         "words": "canine",
+         "at": 19,
+         "gives": "C",
+         "note": "C stands for a canine tooth in dental notation"
+        },
+        {
+         "op": "regular",
+         "indicators": [
+          {
+           "text": "oddly lacking",
+           "at": 27,
+           "note": "losing the odd letters leaves the second and fourth"
+          }
+         ],
+         "parts": [
+          {
+           "words": "height",
+           "at": 41,
+           "gives": "DEPTH",
+           "note": "the swapped word: height stands in for its opposite, depth"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog breeder again chooses the smaller hound, strangely lacking in stature.",
+     "walkthrough": "Height has traded places with depth in 25 Down. Dentists chart teeth as I, C, P and M: incisor, canine, premolar, molar.",
+     "definitionFit": "To reselect is to select once more, so reselects means picks a second time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "canine"
+    }
    }
   },
   {
@@ -148,7 +503,68 @@
     "text": "Up in the first half but floundering in uncertainty",
     "enumeration": "5"
    },
-   "solution": "DOUBT"
+   "solution": "DOUBT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "uncertainty",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "in the first half",
+         "at": 3,
+         "note": "only the first half of the word is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Up",
+         "at": 0,
+         "gives": "DOWN",
+         "note": "the swapped word: Up stands in for its opposite, Down"
+        },
+        {
+         "gives": "WN"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "floundering",
+         "at": 25,
+         "note": "floundering means struggling clumsily, so the letters of but tumble"
+        }
+       ],
+       "parts": [
+        {
+         "words": "but",
+         "at": 21,
+         "note": "the word itself supplies the letters to be shuffled"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A team is ahead at half-time but then founders, leaving the result in question.",
+     "walkthrough": "Up has traded places with down in 17 Down, so read Down here.",
+     "definitionFit": "Doubt is a state of being unsure, the same thing as uncertainty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Up"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +578,48 @@
     "text": "Smirk provided by pleasant afternoon these days",
     "enumeration": "7"
    },
-   "solution": "GRIMACE"
+   "solution": "GRIMACE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Smirk",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "pleasant",
+       "at": 18,
+       "gives": "GRIM",
+       "note": "the swapped word: pleasant stands in for harsh, whose synonym is grim"
+      },
+      {
+       "words": "afternoon",
+       "at": 27,
+       "gives": "A",
+       "note": "A is a short form for afternoon in timetables"
+      },
+      {
+       "words": "these days",
+       "at": 37,
+       "gives": "CE",
+       "note": "CE is the Common Era, the present era"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smug smile prompted by a lovely modern afternoon.",
+     "walkthrough": "Pleasant has traded places with harsh in 21 Down, so read harsh here.",
+     "definitionFit": "A grimace is a twisted facial expression, and Chambers counts an affected smirk among them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pleasant"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +632,8 @@
    "clue": {
     "text": "A special project with German aggressor",
     "enumeration": "8"
-   }
+   },
+   "solution": "ASSAILER"
   },
   {
    "number": 10,
@@ -189,7 +647,60 @@
     "text": "Movie producer's exercise in art: The First Love",
     "enumeration": "6"
    },
-   "solution": "STUDIO"
+   "solution": "STUDIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Movie producer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "exercise in art",
+         "at": 17,
+         "gives": "STUDY",
+         "note": "a study is a practice piece made by an artist"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "words": "The First",
+       "at": 34,
+       "gives": "I",
+       "note": "I is the regnal numeral of a first monarch, as in Elizabeth I"
+      },
+      {
+       "words": "Love",
+       "at": 44,
+       "gives": "O",
+       "note": "love is nil in tennis scoring, shaped like O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter's practice sketch is presented as the opening romance of some saga.",
+     "walkthrough": "The Y of the study is the extra letter for the message.",
+     "definitionFit": "Film studios are the companies that make and release movies, so a studio is a movie producer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exercise"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "Y"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +714,66 @@
     "text": "Retired professor put on weight for nothing",
     "enumeration": "4"
    },
-   "solution": "NOWT"
+   "solution": "NOWT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nothing",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Retired",
+         "at": 0,
+         "note": "retired here means withdrawn backwards, so the academic's title runs the other way"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "professor",
+           "at": 8,
+           "gives": "DON",
+           "note": "a don is a university teacher"
+          },
+          {
+           "gives": "D"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "weight",
+       "at": 25,
+       "gives": "WT",
+       "note": "WT is the usual abbreviation for weight"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An emeritus academic has piled on pounds and got nothing for it.",
+     "walkthrough": "The wordplay gives NODWT; the spare D is the extra letter. NOWT is northern English dialect for nothing.",
+     "definitionFit": "Nowt is the dialect word for nothing, the counterpart of owt meaning anything."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Retired"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "D"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +787,55 @@
     "text": "Neural convulsing of kidneys",
     "enumeration": "5"
    },
-   "solution": "RENAL"
+   "solution": "RENAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "of kidneys",
+      "at": 18,
+      "note": "an adjectival phrase, matching the adjective renal"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "convulsing",
+       "at": 7,
+       "note": "a convulsion throws things into disorder, so the letters of neural are reshuffled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Neural",
+         "at": 0,
+         "note": "the word itself supplies the letters, less the U that is this clue's extra letter"
+        },
+        {
+         "gives": "U"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medical note about nerve spasms affecting the kidneys.",
+     "walkthrough": "Six letters are rearranged into five; the spare U is the extra letter.",
+     "definitionFit": "Renal is the medical adjective relating to the kidneys, from Latin renes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "convulsing"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "U"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,6 +848,65 @@
    "clue": {
     "text": "Cause pain to the heartless chest",
     "enumeration": "4"
+   },
+   "solution": "TEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cause pain to",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 18,
+         "note": "a word without its heart keeps only its outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 14,
+         "note": "the word itself, before its middle letter is removed"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "chest",
+         "at": 28,
+         "gives": "ARK",
+         "note": "an ark is a chest or coffer, as in the Ark of the Covenant"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something wounds the uncaring torso, a pain with no feeling behind it.",
+     "walkthrough": "The K of the ark is the extra letter. To tear is to rend or lacerate, hence to hurt.",
+     "definitionFit": "To tear flesh or feelings is to wound, so tearing is a way of inflicting pain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "K"
+    }
    }
   },
   {
@@ -244,7 +921,63 @@
     "text": "Tailless bird in river for 60 minutes",
     "enumeration": "6"
    },
-   "solution": "DEGREE"
+   "solution": "DEGREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "60 minutes",
+      "at": 27,
+      "note": "a singular measure, as degree is"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "the shortened bird sits inside the river's name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "river",
+         "at": 17,
+         "gives": "DEE",
+         "note": "the Dee is a river of Wales and England, and of Scotland"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "Tailless bird",
+       "at": 0,
+       "gives": "EGRE",
+       "note": "an egret, the white heron, with its last letter cut off"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird missing its tail swims in a river for an hour.",
+     "walkthrough": "Sixty minutes is not an hour here but a degree of arc. The wordplay gives DEGREEE, and the spare E is the extra letter.",
+     "definitionFit": "In angle measurement one degree divides into sixty minutes of arc."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "minutes"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +991,68 @@
     "text": "Starting late, lose elegant rambling rose",
     "enumeration": "9"
    },
-   "solution": "EGLANTINE"
+   "solution": "EGLANTINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rose",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "rambling",
+       "at": 28,
+       "note": "a rambling rose sprawls, and so do these letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Starting late",
+           "at": 0,
+           "note": "starting late means the first letter is missed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lose",
+           "at": 15,
+           "gives": "WIN",
+           "note": "the swapped word: lose stands in for its opposite, win"
+          },
+          {
+           "gives": "W"
+          }
+         ]
+        },
+        {
+         "words": "elegant",
+         "at": 20,
+         "note": "the word itself goes into the mix"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener's lament: an elegant climbing rose that flowered late.",
+     "walkthrough": "Lose has traded places with win in 4 Down, so read win here. Rambling looks like a type of rose; it is the anagram signal.",
+     "definitionFit": "Eglantine is the sweetbriar, a wild rose with fragrant leaves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rambling"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +1066,78 @@
     "text": "Bouncer — doorman, essentially — in charge briefly of strongbox",
     "enumeration": "8"
    },
-   "solution": "RICOCHET"
+   "solution": "RICOCHET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bouncer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "essentially",
+         "at": 19,
+         "note": "the essence of a word is its central letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "doorman",
+         "at": 10,
+         "note": "the seven-letter word, whose central letter is wanted"
+        }
+       ]
+      },
+      {
+       "words": "in charge briefly",
+       "at": 33,
+       "gives": "IC",
+       "note": "I/C is the short form of in charge"
+      },
+      {
+       "words": "of",
+       "at": 51,
+       "gives": "O",
+       "note": "O stands for of, as in o'clock"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "strongbox",
+         "at": 54,
+         "gives": "CHEST",
+         "note": "a chest is a box for valuables"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nightclub bouncer, the man on the door, is put in charge of the safe.",
+     "walkthrough": "Bouncer suggests a doorman, which the clue then names, but it means something that bounces off. The S of the chest is the extra letter.",
+     "definitionFit": "A ricochet is a shot or object rebounding off a surface, something that bounces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bouncer"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "S"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1151,70 @@
     "text": "Saddler perhaps can't initially settle farm down",
     "enumeration": "9"
    },
-   "solution": "CRAFTSMAN"
+   "solution": "CRAFTSMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Saddler perhaps",
+      "at": 0,
+      "note": "a saddler is one example of a skilled tradesman"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "down",
+       "at": 44,
+       "note": "the swapped word: down stands in for up, which signals letters in disarray"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "can't",
+         "at": 16,
+         "note": "the word itself, without its apostrophe, goes into the mix"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 22,
+           "note": "initially takes the first letter of settle"
+          }
+         ],
+         "parts": [
+          {
+           "words": "settle",
+           "at": 32,
+           "note": "the word whose first letter is taken"
+          }
+         ]
+        },
+        {
+         "words": "farm",
+         "at": 39,
+         "note": "the word itself goes into the mix"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A saddler who cannot settle at first moves down to the farm.",
+     "walkthrough": "Down has traded places with Up in 7 Down, so read up here: letters that are up are in turmoil.",
+     "definitionFit": "A saddler makes saddles and harness by hand, an example of a skilled tradesman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 18,
@@ -306,7 +1234,72 @@
      }
     ]
    },
-   "solution": "OLDDELHI"
+   "solution": "OLDDELHI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "walled city",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Daring",
+         "at": 0,
+         "gives": "BOLD",
+         "note": "bold means daring"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taking on",
+         "at": 12,
+         "note": "the shop takes the hotel letter into itself"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shop",
+         "at": 7,
+         "gives": "DELI",
+         "note": "a deli is a delicatessen"
+        },
+        {
+         "words": "hotel",
+         "at": 22,
+         "gives": "H",
+         "note": "H is hotel in the phonetic alphabet"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An enterprising store takes over a hotel inside an old fortified town.",
+     "walkthrough": "The B of bold is the extra letter. Old Delhi is the historic walled city of Shahjahanabad in India's capital.",
+     "definitionFit": "Old Delhi, founded as Shahjahanabad, was enclosed by city walls with gates such as Kashmiri Gate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Daring"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "B"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,7 +1319,54 @@
      }
     ]
    },
-   "solution": "LEETIDE"
+   "solution": "LEETIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "current moving with wind",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 11,
+       "note": "in a down clue over means turned upside down, so the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Wrong",
+         "at": 0,
+         "gives": "EDIT",
+         "note": "the swapped word: Wrong stands in for Correct, and to correct is to edit"
+        },
+        {
+         "words": "fish",
+         "at": 6,
+         "gives": "EEL",
+         "note": "the eel is a fish"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The wrong fish turns up in a current driven by the wind.",
+     "walkthrough": "Wrong has traded places with Correct in 2 Down, so read Correct here.",
+     "definitionFit": "A lee tide is a tidal stream running the same way as the wind blows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wrong"
+    }
+   }
   },
   {
    "number": 20,
@@ -340,7 +1380,82 @@
     "text": "Waitress finally arrived with epic shelled seafood",
     "enumeration": "6"
    },
-   "solution": "SCAMPI"
+   "solution": "SCAMPI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "seafood",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 9,
+         "note": "finally picks the last letter of the waitress"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Waitress",
+         "at": 0,
+         "note": "the word whose last letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "arrived",
+         "at": 17,
+         "gives": "CAME",
+         "note": "came means arrived"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "shelled",
+         "at": 35,
+         "note": "shelling a word strips off its outer letters, leaving the inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "epic",
+         "at": 30,
+         "note": "the word whose outer letters are stripped"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The waitress at last turns up with a huge platter of prawns already out of their shells.",
+     "walkthrough": "The E of came is the extra letter.",
+     "definitionFit": "Scampi are langoustine tails, usually served breaded, a classic British seafood dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shelled"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1469,74 @@
     "text": "Head of harsh country has curtailed swimmer",
     "enumeration": "7"
    },
-   "solution": "PIRANHA"
+   "solution": "PIRANHA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "swimmer",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Head of",
+         "at": 0,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "harsh",
+         "at": 8,
+         "gives": "PLEASANT",
+         "note": "the swapped word: harsh stands in for its opposite, pleasant"
+        }
+       ]
+      },
+      {
+       "words": "country",
+       "at": 14,
+       "gives": "IRAN",
+       "note": "Iran is the country"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "curtailed",
+         "at": 26,
+         "note": "curtailed means docked of its tail, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "has",
+         "at": 22,
+         "note": "the word itself, before its last letter is docked"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The leader of a severe regime keeps a fish with a docked tail.",
+     "walkthrough": "Harsh has traded places with pleasant in 8 Down, so read pleasant here.",
+     "definitionFit": "The piranha is a South American river fish, famous for sharp teeth and swimming in shoals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "harsh"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1550,60 @@
     "text": "In Bulgaria, money from rent very advanced",
     "enumeration": "4"
    },
-   "solution": "LEVA"
+   "solution": "LEVA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "In Bulgaria, money",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "rent",
+         "at": 24,
+         "gives": "LET",
+         "note": "to let is to rent out"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "very",
+       "at": 29,
+       "gives": "V",
+       "note": "V is the abbreviation for very"
+      },
+      {
+       "words": "advanced",
+       "at": 34,
+       "gives": "A",
+       "note": "A stands for advanced, as in A level"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In Bulgaria the money from letting property is very high.",
+     "walkthrough": "The T of let is the extra letter.",
+     "definitionFit": "The lev is Bulgaria's currency unit, and leva is its plural."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "advanced"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "T"
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1617,67 @@
     "text": "Ultimately broke, after a fashion, leading to lack of energy",
     "enumeration": "5"
    },
-   "solution": "ATONY"
+   "solution": "ATONY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lack of energy",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 18,
+       "note": "the last letter is placed after the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 24,
+       "gives": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "fashion",
+       "at": 26,
+       "gives": "TON",
+       "note": "ton is fashion or style, from French"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Ultimately",
+         "at": 0,
+         "note": "ultimately takes the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "broke",
+         "at": 11,
+         "gives": "WEALTHY",
+         "note": "the swapped word: broke stands in for its opposite, wealthy"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ending up penniless in a way that leaves one listless.",
+     "walkthrough": "Broke has traded places with Wealthy in 3 Down, so read wealthy here.",
+     "definitionFit": "Atony is the medical term for slackness or loss of tone in a muscle, a want of vigour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broke"
+    }
+   }
   },
   {
    "number": 24,
@@ -396,7 +1691,72 @@
     "text": "Newton, one collecting infrared iridescent material",
     "enumeration": "5"
    },
-   "solution": "NACRE"
+   "solution": "NACRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "iridescent material",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Newton",
+       "at": 0,
+       "gives": "N",
+       "note": "N is the symbol for the newton, the unit of force"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "collecting",
+           "at": 12,
+           "note": "the card takes the infrared letters into its middle"
+          }
+         ],
+         "parts": [
+          {
+           "words": "one",
+           "at": 8,
+           "gives": "ACE",
+           "note": "an ace is a one in cards"
+          },
+          {
+           "words": "infrared",
+           "at": 23,
+           "gives": "IR",
+           "note": "IR is the standard short form of infrared"
+          }
+         ]
+        },
+        {
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Isaac Newton, studying light, gathers infrared rays from a shimmering substance.",
+     "walkthrough": "The wordplay gives NACIRE; the spare I is the extra letter.",
+     "definitionFit": "Nacre is mother-of-pearl, the shimmering lining of oyster and abalone shells."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Newton"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "I"
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1770,61 @@
     "text": "Alcohol essentially thrown up, washing liquid limiting depth",
     "enumeration": "5"
    },
-   "solution": "ETHYL"
+   "solution": "ETHYL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Alcohol essentially",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "thrown up",
+       "at": 20,
+       "note": "in a down clue thrown up means read from the bottom, so the letters go backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "limiting",
+         "at": 46,
+         "note": "the liquid surrounds the other letters, setting their limits"
+        }
+       ],
+       "parts": [
+        {
+         "words": "washing liquid",
+         "at": 31,
+         "gives": "LYE",
+         "note": "lye is an alkaline solution used for washing"
+        },
+        {
+         "words": "depth",
+         "at": 55,
+         "gives": "HT",
+         "note": "the swapped word: depth stands in for height, abbreviated HT"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drank too much and was sick, and the cleaning fluid barely covers it.",
+     "walkthrough": "Depth has traded places with height in 6 Down, so read height here.",
+     "definitionFit": "Ethyl is the radical at the core of ordinary drinking alcohol, ethanol, or ethyl alcohol."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "depth"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,6 +1837,55 @@
    "clue": {
     "text": "Nine months? Three months!",
     "enumeration": "4"
+   },
+   "solution": "TERM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nine months?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Three",
+         "at": 13,
+         "gives": "TERN",
+         "note": "a tern is a set of three, as in a lottery draw"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "months",
+       "at": 19,
+       "gives": "M",
+       "note": "M is the abbreviation for month"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pregnancy lasts nine months, and a school term about three: two quick exclamations about time.",
+     "walkthrough": "The N of tern is the extra letter. The question mark flags that nine months is a term only in the sense of a full pregnancy.",
+     "definitionFit": "A pregnancy carried to term lasts about nine months, so term names that full span."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Three"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "N"
+    }
    }
   },
   {
@@ -437,7 +1900,84 @@
     "text": "On the counter, provided travel bag to carry duck dumplings",
     "enumeration": "6"
    },
-   "solution": "PIROGI"
+   "solution": "PIROGI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dumplings",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "On the counter",
+       "at": 0,
+       "note": "counter here means running the opposite way, so everything is read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "provided",
+           "at": 16,
+           "gives": "IF",
+           "note": "if means provided that"
+          },
+          {
+           "gives": "F"
+          }
+         ]
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "to carry",
+           "at": 36,
+           "note": "the bag carries the duck inside it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "travel bag",
+           "at": 25,
+           "gives": "GRIP",
+           "note": "a grip is a holdall"
+          },
+          {
+           "words": "duck",
+           "at": 45,
+           "gives": "O",
+           "note": "a duck is a score of nought in cricket, shaped like O"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At the shop counter, someone packs ducks into a holdall to take home some dumplings.",
+     "walkthrough": "The wordplay gives PIROGFI; the spare F is the extra letter.",
+     "definitionFit": "Pirogi are Polish and Russian filled dumplings, also spelt pierogi."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "counter"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "F"
+    }
+   }
   },
   {
    "number": 28,
@@ -451,7 +1991,62 @@
     "text": "Cruel to bury entertaining Scotsman",
     "enumeration": "8"
    },
-   "solution": "INHUMANE"
+   "solution": "INHUMANE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cruel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertaining",
+       "at": 14,
+       "note": "to entertain is to hold within, so the Scot goes inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to bury",
+       "at": 6,
+       "gives": "INHUME",
+       "note": "inhume is a formal verb for bury"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Scotsman",
+         "at": 27,
+         "gives": "IAN",
+         "note": "Ian is the Scottish form of John, a stock Scotsman"
+        },
+        {
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It seems cruel to bury a Scot who is so amusing.",
+     "walkthrough": "The wordplay gives INHUMIANE; the spare I is the extra letter.",
+     "definitionFit": "Inhumane means lacking pity or compassion, the same quality as cruelty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "entertaining"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "I"
+    }
+   }
   },
   {
    "number": 29,
@@ -465,7 +2060,77 @@
     "text": "Witch 'English Nelly' knocked back chemical",
     "enumeration": "8"
    },
-   "solution": "HEXYLENE"
+   "solution": "HEXYLENE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chemical",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Witch",
+       "at": 0,
+       "gives": "HEX",
+       "note": "a hex is a witch, from the German Hexe"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "knocked back",
+           "at": 22,
+           "note": "knocking something back sends it the other way, so the letters run in reverse"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "English",
+             "at": 7,
+             "gives": "E",
+             "note": "E is the abbreviation for English"
+            },
+            {
+             "words": "Nelly",
+             "at": 15,
+             "gives": "NELLY",
+             "note": "taken as written"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A witch called English Nelly downs a chemical concoction.",
+     "walkthrough": "The reversal gives YLLENE; dropping the extra L leaves the chemical's ending.",
+     "definitionFit": "Hexylene is a hydrocarbon, an alkene with six carbon atoms, also called hexene."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knocked"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "L"
+    }
+   }
   },
   {
    "number": 30,
@@ -479,7 +2144,60 @@
     "text": "Latin writer is almost straightforward in terms of narrative",
     "enumeration": "6"
    },
-   "solution": "LINEAR"
+   "solution": "LINEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "straightforward in terms of narrative",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Latin",
+       "at": 0,
+       "gives": "L",
+       "note": "L is the abbreviation for Latin"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "writer is",
+         "at": 6,
+         "gives": "IM",
+         "note": "the writer speaking of himself says I'm"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "words": "almost",
+       "at": 16,
+       "gives": "NEAR",
+       "note": "near means almost, as in a near disaster"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A classical author is nearly plain in how he tells a story.",
+     "walkthrough": "The M of I'm is the extra letter.",
+     "definitionFit": "A linear story runs in chronological order, without flashbacks or parallel threads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "M"
+    }
+   }
   }
  ]
 }
