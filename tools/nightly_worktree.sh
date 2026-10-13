@@ -114,11 +114,15 @@ sys.stdout.buffer.write(s.unstamp(s.INDEX_HTML.read_text(encoding="utf-8")).enco
           echo "WORKTREE: put back $path in $home — its edit was already on origin/master or only asset stamps" >&2
       fi
     done < <(git -C "$home" diff --name-only HEAD --)
-    # A commit in the checkout holds index.lock for a moment; wait it out.
+    # A commit, fetch or push holds index.lock, HEAD.lock or a ref lock for a
+    # moment; wait any of them out, and keep git's own words for the alert.
+    ff_err=""
     for _ in 1 2 3 4 5 6; do
-      git -C "$home" merge-base --is-ancestor origin/master HEAD ||
-        git -C "$home" merge -q --ff-only origin/master 2>/dev/null && break
-      [ -e "$common/index.lock" ] || break
+      git -C "$home" merge-base --is-ancestor origin/master HEAD && break
+      ff_err="$(git -C "$home" merge -q --ff-only origin/master 2>&1)" && break
+      compgen -G "$common/index.lock" >/dev/null || compgen -G "$common/HEAD.lock" >/dev/null ||
+        compgen -G "$common/refs/heads/master.lock" >/dev/null ||
+        grep -qi "lock" <<<"$ff_err" || break
       sleep 5
     done
   fi
@@ -135,7 +139,7 @@ sys.stdout.buffer.write(s.unstamp(s.INDEX_HTML.read_text(encoding="utf-8")).enco
     elif [ -n "$clobber" ]; then
       why="untracked files origin/master would overwrite: $clobber"
     else
-      why="git merge --ff-only failed (a git lock held by another process?)"
+      why="git merge --ff-only failed: $(tail -1 <<<"${ff_err:-no output}")"
     fi
     echo "WORKTREE: $home cannot fast-forward to origin/master: $why" >&2
     . "$home/tools/alert.sh" 2>/dev/null &&
