@@ -337,8 +337,17 @@ def convert(ann, entry, puzzle=None):
     return {k: out[k] for k in order if k in out}, notes
 
 
+# Series whose printed enumerations count letters only (Azed marks a word
+# break in 23 of 19,690, the Listener in none): their answers' spacing is a
+# fact the enumeration can't give, kept as `spelling`.
+LETTER_COUNT_ONLY = {"azed", "listener"}
+
+
 def _enumerated(entry, puzzle):
-    """Whether any light of the answer prints an enumeration or separators."""
+    """Whether any light of the answer prints an enumeration or separators
+    that could space it."""
+    if str((puzzle or {}).get("id", "")).rsplit("-", 1)[0] in LETTER_COUNT_ONLY:
+        return False
     by_id = {annotation.entry_id(e): e for e in (puzzle or {}).get("entries") or []}
     lights = [by_id.get(i, {}) for i in entry.get("group") or []] or [entry]
     return any((x.get("clue") or {}).get("enumeration") or (x.get("clue") or {}).get("separators") for x in lights)
