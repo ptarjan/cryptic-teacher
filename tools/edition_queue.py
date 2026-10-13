@@ -729,15 +729,34 @@ def desktop_free():
     return desktop_busy.free_mb(hosts) if hosts else None
 
 
-def desktop_room(reading, opened):
+#: Seconds a session runs before its memory surely shows in a reading: an
+#: end is credited back only for a unit started this long before the
+#: reading (or since it), not one whose session was still loading then.
+DESKTOP_SETTLE_S = 30
+
+
+def desktop_sessions(t, opened, closed=()):
+    """The OCR sessions opened on the desktop since a reading at `t` and not
+    closed again: each start in `opened` (start times) since it, less each
+    unit in `closed` ((start, end) times) that ended since it, having
+    started since it or DESKTOP_SETTLE_S before it (its memory was in the
+    reading). Never below none."""
+    ended = sum(e >= t and (s >= t or s <= t - DESKTOP_SETTLE_S) for s, e in closed)
+    return max(0, sum(s >= t for s in opened) - ended)
+
+
+def desktop_room(reading, opened, closed=()):
     """Whether the desktop has room for one more OCR session: its free
     memory at `reading` (desktop_free, or None: room), less a session for
-    each start in `opened` (start times) since that reading, stays above
-    DESKTOP_FLOOR_MB after it."""
+    each still open of those started since that reading (desktop_sessions:
+    starts less ends since it), stays above DESKTOP_FLOOR_MB after it.
+    Counting only starts held the queue to (free - floor) / session starts
+    per reading (~one a minute) however many units had ended: ~4 a minute
+    at 9 GB free, so 6-12 units ran on a desktop with room for more."""
     if reading is None:
         return True
     t, free = reading
-    return free - DESKTOP_SESSION_MB * (sum(s >= t for s in opened) + 1) >= DESKTOP_FLOOR_MB
+    return free - DESKTOP_SESSION_MB * (desktop_sessions(t, opened, closed) + 1) >= DESKTOP_FLOOR_MB
 
 
 def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=None, workers=WORKERS,
@@ -799,6 +818,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     outages = dict.fromkeys(fetch, 0)
     memory_bound = cpu_bound = desktop_bound = desk_mem_bound = False  # logged once per slice
     opened = []  # when this run started each unit that opens a desktop session (desktop_room), the last hour's
+    closed = []  # (start, end) wall times of those units that ended, the last hour's (desktop_sessions)
     burn_bound = False  # logged once each time the burn starts starving
     stopped = set()  # fetch sources started no more this run
     adopted = {**(take_over(handoff) if handoff else {}), **(take_over(resume) if resume else {})}  # pid: (unit, started)
@@ -857,6 +877,12 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         log(f"start {unit['kind']} {unit['rel']} ({unit['reason']})")
         return True
 
+    def ended(unit, t0):
+        # Its desktop session has closed: desktop_room credits it back.
+        if not load_gated(unit):
+            now = time.time()
+            closed.append((now - (time.monotonic() - t0), now))
+
     def reap():
         # A unit this process started before a re-exec is adopted and still its child.
         while running or adopted:
@@ -869,6 +895,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if pid not in running and pid not in adopted:
                 continue
             unit, t0 = running.pop(pid) if pid in running else adopted.pop(pid)
+            ended(unit, t0)
             rc = os.waitstatus_to_exitcode(status)
             if rc == EXITS["lost"]:
                 losses[key_of(unit)] = losses.get(key_of(unit), 0) + 1
@@ -901,6 +928,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         for pid, (unit, t0) in list(adopted.items()):
             if not alive(pid):
                 del adopted[pid]
+                ended(unit, t0)
                 finished[key_of(unit)] = time.monotonic()
                 log(f"end {unit['kind']} {unit['rel']}: ended (taken over) in {time.monotonic() - t0:.0f}s")
 
@@ -1028,6 +1056,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         desktop_bound = bool(yielding)
         desk_mem = desktop_free() if not yielding else None
         opened[:] = [s for s in opened if s > time.time() - 3600]
+        closed[:] = [c for c in closed if c[1] > time.time() - 3600]
         desk_held = False
         # The whole-corpus re-reads (fa.BLANKET) wait until nothing more
         # urgent is left to start, in any pool: new and fixed work first.
@@ -1103,7 +1132,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 held_back = True
                 continue
             if not load_gated(u):
-                if desk_held or not desktop_room(desk_mem, opened):
+                if desk_held or not desktop_room(desk_mem, opened, closed):
                     desk_held = True
                     continue
             if load_gated(u):
@@ -1131,7 +1160,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 f"({len(running) + len(adopted)} running are left alone)")
         if desk_held and not desk_mem_bound:
             log(f"desktop-memory-bound: {desk_mem[1]} MB free there {time.time() - desk_mem[0]:.0f}s ago, "
-                f"{sum(s >= desk_mem[0] for s in opened)} session(s) started since at {DESKTOP_SESSION_MB} MB each, "
+                f"{desktop_sessions(desk_mem[0], opened, closed)} session(s) opened since and still open "
+                f"at {DESKTOP_SESSION_MB} MB each, "
                 f"floor {DESKTOP_FLOOR_MB} MB; only fetches start until it has room "
                 f"({len(running) + len(adopted)} running are left alone)")
         desk_mem_bound = desk_held
