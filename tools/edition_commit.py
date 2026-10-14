@@ -29,9 +29,11 @@ import dir_cache
 TOOL = "tools/file_archive_org_puzzles.py"
 #: A unit's exit status: what read_unit/scan_unit/a fetcher's unit returned;
 #: "deferred", its desktop reads met a busy desktop (ocr_remote.DesktopBusy);
-#: "lost", the desktop stopped answering it (ocr_remote.DesktopLost).
+#: "lost", the desktop stopped answering it (ocr_remote.DesktopLost); "vlm",
+#: its read needed the VLM and it was down or went down (vlm_reader.Down):
+#: nothing written, the read waits for the VLM.
 EXITS = {"read": 0, "scanned": 0, "current": 0, "fetched": 0, "busy": 3, "held": 4, "outage": 5,
-         "throttled": 6, "disk": 7, "deferred": 8, "lost": 9}
+         "throttled": 6, "disk": 7, "deferred": 8, "lost": 9, "vlm": 10}
 #: The tools modules main() runs, loaded as the unit starts (under the
 #: queue's code lock, edition_queue.snapshot): none of them is loaded later
 #: from a tree that moved meanwhile (test_edition_commit.sh checks a commit
@@ -228,7 +230,8 @@ def main(spec):
             return EXITS["busy"]
         if read_since(ledger, ctx["ledgerSize"], rel):
             whole_unit(spec, "its ledger row moved since it was prepared")
-        vlm_up = vlm_reader.reachable()
+        # The VLM down: vlm_reader.Down, the unit ends deferred (EXITS["vlm"]) before the desktop reads a page.
+        vlm_up = vlm_reader.wanted()
         head = {**head, "vlm": vlm_up}
         # A desktop lost mid-read is tried again (ocr_remote.there), then the
         # unit ends deferred (DesktopLost) unless it has been gone LONG_GONE.
@@ -239,6 +242,8 @@ def main(spec):
         del tar
         if "error" in got:
             whole_unit(spec, f"the read failed there ({got['error']})")
+        if vlm_up and not got["vlm"]:
+            vlm_reader.went_without(f"{rel}'s read")  # lost mid-edition: Down, nothing committed
         with tarfile.open(fileobj=io.BytesIO(back)) as t:
             t.extractall(ctx["crops"], filter="data")
         if got.get("decided") is None:

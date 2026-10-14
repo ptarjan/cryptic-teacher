@@ -239,6 +239,55 @@ go(True)
 check("so it is read again once the VLM answers", True, reads[-1])
 f.scan, f.read_puzzle, vlm.reachable, vlm.version = saved
 
+# A read the queue started (DEFER_ENV) never reads on without the VLM (Paul
+# 10-13): wanted() raises Down when it is down, an ask lost mid-read makes
+# the next puzzle write or ledger row raise it, and nothing is written.
+saved = vlm.reachable, vlm.URL, vlm._MISSED[0]
+vlm.URL = "http://127.0.0.1:9"
+vlm.reachable = lambda: False
+vlm._MISSED[0] = False
+check("outside a queue's read wanted() is reachable() and raises nothing", False, vlm.wanted())
+vlm._MISSED[0] = False
+os.environ[vlm.DEFER_ENV] = "1"
+try:
+    vlm.wanted()
+    got = "read on"
+except vlm.Down:
+    got = "deferred"
+check("in a queue's read the VLM down raises Down at the first ask", ("deferred", True), (got, vlm.missed()))
+check("Down is a RuntimeError, so a reader's own except still lets the write guard catch it",
+      True, issubclass(vlm.Down, RuntimeError))
+vlm._MISSED[0] = False
+vlm.reachable = lambda: True
+check("the VLM up: wanted() is True and nothing is guarded", (True, None), (vlm.wanted(), vlm.guard("x")))
+led = T / "guarded.jsonl"
+vlm._MISSED[0] = True  # an ask failed mid-edition
+try:
+    scan_queue.append(led, [{"edition": "e"}])
+    got = "written"
+except vlm.Down:
+    got = "deferred"
+check("a read that lost the VLM mid-edition writes no ledger row", ("deferred", False), (got, led.exists()))
+try:
+    scan_queue.file_puzzle(lambda *a, **k: calls.append("wrote"), "t", T / "p.json", {"id": "p", "entries": []}, {})
+    got = "written"
+except vlm.Down:
+    got = "deferred"
+check("nor any puzzle", "deferred", got)
+check("scan_queue.parallel lets Down through, not logged as one bad source", True, scan_queue.vlm_down(vlm.Down("x")))
+del os.environ[vlm.DEFER_ENV]
+scan_queue.append(led, [{"edition": "e"}])
+check("mirror: outside a queue's read the same row is written", True, led.exists())
+# up(): asked afresh at most every UP_EVERY seconds.
+asked = []
+vlm.reachable = lambda: (asked.append(1), len(asked) > 1)[1]
+vlm._UP_AT[:] = [float("-inf"), False]
+first = vlm.up()
+check("up() is asked once within UP_EVERY", (False, False, 1), (first, vlm.up(), len(asked)))
+vlm._UP_AT[0] -= vlm.UP_EVERY
+check("and again after it", (True, 2), (vlm.up(), len(asked)))
+vlm.reachable, vlm.URL, vlm._MISSED[0] = saved
+
 print(f"FAILS {fails}")
 EOF
 )

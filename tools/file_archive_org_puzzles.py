@@ -3265,7 +3265,7 @@ def read_puzzle(d, found, hit, solutions):
         cols = {which: columns_of_four(rapid[which], gbox, gutters, down) for which in FOUR_READERS}
         texts = {k: column_text(c) for k, c in cols.items()}
         wins = [None] * max(len(c) for c in cols.values())
-        if vlm.reachable():
+        if vlm.wanted():
             try:
                 texts["vlm"] = vlm_four(img, list(cols.values()))
             except RuntimeError:
@@ -3292,7 +3292,7 @@ def read_puzzle(d, found, hit, solutions):
         wins = windows(gbox, third, m, above, left, split, lead)
     # The desktop's VLM, when it answers, is one more reading (the 1930
     # page's, vlm_four's above).
-    if vlm.reachable() and not paper.four:
+    if not paper.four and vlm.wanted():
         try:
             texts["vlm"] = "\n".join(numbered_heading(t) or t for t in
                                      vlm.column_text(img, wins, list(cols.values())).splitlines())
@@ -3402,7 +3402,7 @@ def read_puzzle(d, found, hit, solutions):
     # it whole (the reprint's among them) and put to the rest.
     read = {k: t for k, t in texts.items() if t.strip()}
     laid, blank = ocr_clues.relaid(read, laid, blank, parse, lengths)
-    if blank and "vlm" in texts and vlm.reachable():
+    if blank and "vlm" in texts and vlm.wanted():
         try:
             laid, blank = vlm_pick(img, wins, list(cols.values()), texts, laid, blank)
         except RuntimeError:
@@ -4743,6 +4743,8 @@ def read_edition(d, found):
         for hit in found["puzzles"]:
             try:
                 verdict, puzzle = read_puzzle(d, found, hit, _SOLUTIONS)
+            except vlm.Down:
+                raise  # the VLM down: the whole edition waits for it (vlm_reader.wanted)
             except Exception as e:  # any raise: one bad page is a verdict, not a crash
                 verdict, puzzle = refuse({"number": hit["number"]}, "crashed",
                                          f"crashed: {type(e).__name__}: {e}"), None

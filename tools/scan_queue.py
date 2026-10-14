@@ -145,6 +145,7 @@ def append(ledger, rows):
     import fcntl
     if not rows:
         return
+    vlm_guard(f"{ledger.name} row")
     data = "".join(json.dumps(r) + "\n" for r in rows).encode()
     ledger.parent.mkdir(parents=True, exist_ok=True)
     with open(ledger.with_suffix(".lock"), "w") as f:
@@ -154,6 +155,24 @@ def append(ledger, rows):
             os.write(fd, data)
         finally:
             os.close(fd)
+
+
+def vlm_guard(what):
+    """The one place a read's record meets the VLM rule (vlm_reader.guard):
+    in a read unit the queue started, a read that wanted the VLM and went
+    without it (down from the start, or lost mid-edition) raises
+    vlm_reader.Down here, before `what` (a puzzle write, a ledger row) is
+    written, so the edition stays due and is read whole once it answers.
+    A process that never loaded vlm_reader never asked it."""
+    vlm = sys.modules.get("vlm_reader")
+    if vlm is not None:
+        vlm.guard(what)
+
+
+def vlm_down(e):
+    """Whether `e` is vlm_reader.Down: a read that must wait for the VLM, never a verdict."""
+    vlm = sys.modules.get("vlm_reader")
+    return vlm is not None and isinstance(e, vlm.Down)
 
 
 def compact(ledger, key):
@@ -234,7 +253,9 @@ def file_puzzle(write_puzzle_file, generator, path, puzzle, verdict):
     written. A clue holding another clue's or the page's text
     (ocr_clues.bled), or a write puzzle_integrity refuses, is a
     refusedWrite; any other raise is a writeFailed, logged with its
-    traceback: one puzzle that cannot be written never stops a run."""
+    traceback: one puzzle that cannot be written never stops a run. A
+    read that went without the VLM it wanted does stop (vlm_guard)."""
+    vlm_guard(f"{puzzle.get('id')}")
     import ocr_clues
     import puzzle_integrity  # it imports the write path, so not at the top
     bleed = [f"{e.get('number')}-{e.get('direction')} {why}" for e in puzzle.get("entries") or ()
@@ -278,6 +299,8 @@ def parallel(items, fn, workers=1, deadline=None, init=None, initargs=(), failed
             try:
                 result = fn(*item)
             except Exception as e:  # any raise: one bad source is logged, not the run's end
+                if vlm_down(e):
+                    raise  # the VLM down: the unit ends deferred (vlm_guard), not one bad source
                 error = failure(item, e)
                 if failed is not None:
                     yield item, failed(item, error)
@@ -307,6 +330,8 @@ def parallel(items, fn, workers=1, deadline=None, init=None, initargs=(), failed
                 except BrokenProcessPool:
                     raise
                 except Exception as e:  # any raise: one bad source is logged, not the run's end
+                    if vlm_down(e):
+                        raise
                     error = failure(item, e)
                     if failed is not None:
                         yield item, failed(item, error)
