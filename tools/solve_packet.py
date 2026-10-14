@@ -17,6 +17,7 @@ Usage: python3 tools/solve_packet.py 30080
 import argparse
 
 import clues_only
+import nation_key  # the setters' printed notes for a Nation puzzle
 from fetch_puzzle import read_puzzle_view, resolve_puzzle
 from groups import entry_id
 from provenance import printed_answers
@@ -67,6 +68,7 @@ def packet(puzzle):
                   f"into your fill as given and work out only the rest. Change one only if no "
                   f"answer to an open light fits its crossings, since a changed answer loses "
                   f"its explanation.", ""]
+    notes = nation_key.notes_for(puzzle)
     for e in sorted(puzzle["entries"],
                     key=lambda e: (e["direction"], e["number"])):
         lines.append(f"{entry_id(e)}  {label(e)} ({e['length']}) {e['clue'].get('text', '')}")
@@ -77,6 +79,8 @@ def packet(puzzle):
         elif reopened.get(entry_id(e)):
             lines.append(f"    an earlier solve's {reopened[entry_id(e)]} was sent back: no parse "
                          f"of this clue was found for it. Keep it only if you can derive it")
+        if notes.get(entry_id(e)):
+            lines.append(f"    the setters' own note on it: {notes[entry_id(e)]}")
         pairs = sorted(cross.get(entry_id(e), []))
         if pairs:
             lines.append("    crossings: " + "; ".join(
