@@ -72,6 +72,12 @@ committed is never filed again. Three mechanisms, one shared helper
   `CT_SALVAGE_PATHS` before sourcing `tools/nightly_worktree.sh` has its last
   run's uncommitted files under those paths, and any commit a failed push
   left, pushed before the worktree is reset.
+- **Never held on old code.** The full pass moves its tree to `origin/master`
+  after every checkpoint, and its units start as fresh processes off the tree.
+  A commit `origin`'s pre-push refuses (written by older code than `origin`'s)
+  can't block that move: it is kept under `refs/durable/refused/`, the tree
+  moves anyway, and then its sources are read again with the new code from
+  their cached readings, so nothing is OCR'd twice.
 
 Puzzle files are written whole (a temp file renamed into place), and a `.json`
 that does not parse is never committed. Downloads live under one root (see
