@@ -358,6 +358,8 @@ def read_scans(numbers):
             last = last or (got is None and reason)
             if text:
                 path.write_text(text + "\n")
+            else:  # an earlier reading this one refuses is no capture
+                path.unlink(missing_ok=True)
             if got == n:
                 if reason:
                     why[n] = reason
