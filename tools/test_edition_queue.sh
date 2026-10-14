@@ -660,7 +660,12 @@ VERSION = "p1"
 print(f"parent {{VERSION}} {{os.getpid()}}", file=sys.stderr, flush=True)
 eq.cpu_gate_reader = lambda: 0.0
 eq.mem_gate_reader = lambda: 1 << 40
-eq.UNIT_SCRIPT = {str(eq.UNIT_SCRIPT)!r}
+# As above, in this process too: off Paul's LAN (CI) the real VLM probe says
+# down, and the "times" reads it gates (needs_vlm) never start: a hang.
+eq.desktop_gate_reader = lambda: None
+eq.desktop_mem_reader = lambda: None
+eq.vlm_gate_reader = lambda: True
+eq.UNIT_SCRIPT ={str(eq.UNIT_SCRIPT)!r}
 eq.plan = lambda papers, cache=None, reread=None, out=None: (
     [], [{{"kind": "read", "paper": "times", "rel": r, "rank": 1, "reason": "never read", "needs": []}}
          for r in ("long", "r1", "r2")])
