@@ -1518,7 +1518,9 @@ def heading_of(line):
     return None
 
 
-BRACKETS = str.maketrans({"{": "(", "[": "(", "<": "(", "}": ")", "]": ")"})
+#: A brace, square, angle or full-width bracket (RapidOCR's ch recogniser)
+#: read for a round one.
+BRACKETS = str.maketrans({"{": "(", "[": "(", "<": "(", "}": ")", "]": ")", "\uff08": "(", "\uff09": ")"})
 
 
 def parse(text):

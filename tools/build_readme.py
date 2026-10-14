@@ -706,6 +706,8 @@ LAYOUT = [
     ("building and checking the site", "tools/test_pct.sh", "does the site's progress percent floor, and only say 100% when it is?"),
     ("building and checking the site", "tools/media_manifest.py", "what the media disk holds, kept on the SSD so no scheduled job walks it"),
     ("building and checking the site", "tools/test_no_media_scans.sh", "does no scheduled tick walk the media disk?"),
+    ("building and checking the site", "tools/privateeye_scans.py", "read a Cyclops crossword's clues off the page image of archive.org's Private Eye scan"),
+    ("building and checking the site", "tools/test_privateeye_scans.sh", "does tools/privateeye_scans.py find a Private Eye page's clue columns from its djvu words, take the crossword's number and not the entry address's, read a linked head and a cross-reference, and hand privateeye_wayback's read_capture a list it parses? And does the shared tidy read RapidOCR's full-width bracket as a round one?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
