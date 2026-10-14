@@ -400,6 +400,10 @@ def build_genius_files(out=sys.stdout):
         if d.is_dir():
             found += [{"key": f"{kind}/{e.name[:-len(ext)]}", "at": e.stat().st_mtime} for e in os.scandir(d)
                       if e.name.endswith(ext) and e.name[:-len(ext)].isdigit()]
+    d = downloads.GENIUS / "article"
+    if d.is_dir():  # fetch_article's pictures, <n>-<k>.img (genius_puzzles.image_paths)
+        found += [{"key": f"image/{e.name[:-4]}", "at": e.stat().st_mtime} for e in os.scandir(d)
+                  if e.name.endswith(".img")]
     write("genius-files", sorted(found, key=lambda r: r["key"]))
     print(f"{len(found)} Genius file(s) written to {path('genius-files')}", file=out)
     return found

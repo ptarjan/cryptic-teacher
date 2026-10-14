@@ -33,7 +33,7 @@ SCHEDULED = {
     "post_index.py": ["entries", "by_link"],
     "fetch_fifteensquared.py": ["cached_post_ids", "post_categories", "category_post_files",
                                 "cached_comment_ids", "fetch_posts", "fetch_comments"],
-    "genius_puzzles.py": ["blog_posts", "have_file", "fetch", "file"],
+    "genius_puzzles.py": ["blog_posts", "have_file", "fetch", "file", "image_paths"],
     "andlit_azed.py": ["cached", "fetch"],
     "blog_facts.py": ["extract", "inputs_digest"],
     "blog_comment_difficulty.py": ["months", "comments_by_post", "post_ids"],
