@@ -399,7 +399,7 @@ def refresh_unsolved():
     that would know, and a puzzle stays pending here only as long as THAT
     field itself stays hashed."""
     pending = []
-    for path in puzzle_files():
+    for path in puzzle_files("everyman"):
         p = read_puzzle_view(path)
         if p.get("series") != "everyman":
             continue

@@ -1029,7 +1029,7 @@ def refresh_unsolved():
     model got wrong, exactly as grade_model_fill does for the other papers'
     refresh_unsolved."""
     pending = []
-    for path in puzzle_files():
+    for path in puzzle_files(SERIES):
         p = read_puzzle_view(path)
         if p.get("series") != SERIES:
             continue

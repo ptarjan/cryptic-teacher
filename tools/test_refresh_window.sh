@@ -83,7 +83,7 @@ today = datetime.date.today().isoformat()
 raw = {"id": "cryptic-99999", "number": 99999, "date": today,
        "entries": [{"solution": None}]}
 asked = []
-fetcher.puzzle_files = lambda: ["x"]
+fetcher.puzzle_files = lambda *series: ["x"]
 fetcher.read_puzzle_file = lambda path: raw
 fetcher.fetch_number = lambda num, series: (asked.append((num, series)) or (raw, None))
 fetcher.reindex = lambda: None
