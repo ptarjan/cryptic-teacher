@@ -361,7 +361,7 @@ def build(num, held):
         how = "the Eye's own .puz, from the Wayback Machine"
     elif clues:
         ts, rows = clues[-1]
-        puzzle, why = from_rows(num, rows)
+        puzzle, why = from_rows(num, rows, held.get("answers"))
         if puzzle is None:
             return None, why
         url = capture_url(ts)
@@ -389,9 +389,12 @@ def build(num, held):
     return puzzle, None
 
 
-def from_rows(num, rows):
+def from_rows(num, rows, answers=None):
     """A puzzle with no answers from light_spec rows, its grid rebuilt from
-    the clue numbers and enumerations (as tools/fetch_nation.py does)."""
+    the clue numbers and enumerations (as tools/fetch_nation.py does).
+    `answers`, [(ts, answer_rows)] from the solution the next issue printed:
+    each single light's answer goes into the search, so the one grid they
+    agree in is found where the clue list alone fits two (Nos 56, 59)."""
     import light_spec
     from clues_only import entries_from_grid
     import reconstruct_grid as rg
@@ -409,9 +412,18 @@ def from_rows(num, rows):
             lg[1] = None
     groups = linked_groups(rows, across, down)
     spec = [(lg[0], d, lg[1]) for d, lights in (("across", across), ("down", down)) for lg in lights]
+    words = None
+    for _ts, arows in answers or []:
+        given = {(k, d): w for k, d, w in arows if "/" not in k}
+        words = [given.get((str(n), d)) if n and size and len(given.get((str(n), d)) or "") == size
+                 else None for n, d, size in spec]
+        if any(words):
+            break
+        words = None
     # Every Cyclops is 15x15; the linked lights' free lengths need more search
     # than the Nation's budget.
-    grid, why = rg.unique_grid(spec, cols=15, rows=15, max_nodes=MAX_NODES, groups=groups)
+    grid, why = rg.unique_grid(spec, cols=15, rows=15, max_nodes=MAX_NODES, groups=groups,
+                               words=words)
     if grid is None:
         return None, f"grid did not rebuild: {why}"
     entries, problems = entries_from_grid(grid, across, down)
