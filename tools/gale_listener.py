@@ -60,6 +60,7 @@ import archive_org_listener as al
 import file_archive_org_puzzles as fa
 import gale_inbox as gi
 import listener_puzzles as lp
+import media_manifest as mm
 import ocr_clues
 
 TOOLS = Path(__file__).resolve().parent
@@ -146,11 +147,36 @@ def parse_year(text, year):
     return out
 
 
+#: SSD manifests (tools/media_manifest.py) standing in for what wanted() would
+#: otherwise ask the media disk each gale_fetch plan (Paul 2026-10-14: nothing
+#: scheduled scans the spinning disk): the year pages' parsed rows, the
+#: readings kept (STORE/listener-N.json) and the ledger's number and reports.
+YEARS_MANIFEST = "listener-years"
+READINGS_MANIFEST = "listener-readings"
+LEDGER_MANIFEST = "listener-ledger"
+
+
+def _year_rows(y, cache, fetch, memo):
+    """One year page's rows. A page on the media disk is read once, its rows
+    kept in YEARS_MANIFEST (a year page is never rewritten); a cache elsewhere
+    (a test's) is read each time."""
+    if not mm.on_media(cache):
+        return parse_year(year_page(y, cache, fetch), y)
+    if y in memo:
+        return [{**r, "date": datetime.date.fromisoformat(r["date"])} for r in memo[y]]
+    text = year_page(y, cache, fetch)
+    rows = parse_year(text, y)
+    if text:
+        mm.record(YEARS_MANIFEST, cache, year=y, rows=[{**r, "date": r["date"].isoformat()} for r in rows])
+    return rows
+
+
 def index(cache=YEARS, fetch=True):
     """[{number, title, setter, date}] of every Listener the magazine printed."""
     rows = {}
+    memo = mm.memo(YEARS_MANIFEST, "year", "rows") if mm.on_media(cache) else {}
     for y in range(FIRST_YEAR, LAST_ISSUE.year + 1):
-        for r in parse_year(year_page(y, cache, fetch), y):
+        for r in _year_rows(y, cache, fetch, memo):
             if r["date"] <= LAST_ISSUE:
                 rows[r["number"]] = r
     return [rows[n] for n in sorted(rows)]
@@ -1341,7 +1367,9 @@ def read_one(p, h, idx, rows, store, out=sys.stdout, reader=read_file):
                     dest.write_text(json.dumps(reading(m, rows[m["number"]], verdict, laid), indent=1,
                                                ensure_ascii=False) + "\n")
                     entry["reading"] = dest.name
+                    mm.record(READINGS_MANIFEST, dest, number=m["number"])
     scan_queue.append(store / LEDGER, [{"sha": h, **entry}])
+    mm.record(LEDGER_MANIFEST, store / LEDGER, sha=h, number=entry.get("number"), reports=entry.get("reports") or [])
     print(f"{p.name}: " + (f"No {m['number']} ({m['how']}), " if m["number"] is not None else "")
           + (f"{entry['agreed']}/{entry['clues']} clues read" if "agreed" in entry else entry["why"] or "")
           + "".join(f", the solution of No {n}" for n in m["reports"]), file=out)
@@ -1451,6 +1479,48 @@ def wanted(idx=None, store=STORE, root=ROOT):
     return [(d, n, bool(k)) for d, k, n in sorted(pages + reports)]
 
 
+def _build_readings(store):
+    """List STORE's readings once into READINGS_MANIFEST (a cold memo)."""
+    found = [{"number": json.loads(p.read_text())["number"], "at": p.stat().st_mtime}
+             for p in sorted(store.glob("listener-*.json"))]
+    mm.write(READINGS_MANIFEST, found)
+    mm.complete_path(READINGS_MANIFEST).write_text(json.dumps({"at": time.time()}))
+    return {r["number"] for r in found}
+
+
+def _glob_readings(store):
+    """reading_numbers for a store not on the media disk (a test's): a glob is fine there."""
+    return {json.loads(p.read_text())["number"] for p in store.glob("listener-*.json")}
+
+
+def reading_numbers(store=STORE):
+    """{number} of the readings kept in `store`: from READINGS_MANIFEST (which
+    read_one appends to) when it is on the media disk, never a glob of it."""
+    if not mm.on_media(store):
+        return _glob_readings(store)
+    if not mm.complete(READINGS_MANIFEST):
+        return _build_readings(store)
+    return set(mm.memo(READINGS_MANIFEST, "number", "at"))
+
+
+def _build_ledger(store):
+    """Copy STORE's ledger once into LEDGER_MANIFEST (a cold memo)."""
+    found = [{"sha": sha, "number": e.get("number"), "reports": e.get("reports") or []}
+             for sha, e in sorted(load_ledger(store).items())]
+    mm.write(LEDGER_MANIFEST, found)
+    mm.complete_path(LEDGER_MANIFEST).write_text(json.dumps({"at": time.time()}))
+    return found
+
+
+def ledger_numbers(store=STORE):
+    """[{"number", "reports"}] of the ledger's entries, last row per file: from
+    LEDGER_MANIFEST (which read_one appends to) on the media disk, not the ledger."""
+    if not mm.on_media(store):
+        return [{"number": e.get("number"), "reports": e.get("reports") or []} for e in load_ledger(store).values()]
+    rows = mm.rows(LEDGER_MANIFEST) if mm.complete(LEDGER_MANIFEST) else _build_ledger(store)
+    return list({r["sha"]: r for r in rows}.values())
+
+
 def filed_numbers(root=ROOT):
     return {int(p.stem.split("-")[1]) for p in (root / "puzzles" / lp.SERIES).glob("*/listener-*.json")}
 
@@ -1459,19 +1529,18 @@ def to_save(idx, store=STORE, root=ROOT):
     """The printed puzzles neither filed nor read into a reading, earliest first
     (a page read with none kept is wanted still; tools/gale_fetch.py passes
     over a document it already got)."""
-    held = filed_numbers(root) | {json.loads(p.read_text())["number"] for p in store.glob("listener-*.json")}
+    held = filed_numbers(root) | reading_numbers(store)
     return [r for r in idx if printed(r) and r["number"] not in held]
 
 
 def saved_numbers(store=STORE):
     """{number} of the puzzles a saved page was read as, a reading kept or not."""
-    return {e["number"] for e in load_ledger(store).values() if e.get("number") is not None} | {
-        json.loads(p.read_text())["number"] for p in store.glob("listener-*.json")}
+    return {e["number"] for e in ledger_numbers(store) if e.get("number") is not None} | reading_numbers(store)
 
 
 def solutions(store=STORE):
     """{number} of the puzzles a saved page reports on."""
-    return {n for e in load_ledger(store).values() for n in e.get("reports") or ()}
+    return {n for e in ledger_numbers(store) for n in e["reports"]}
 
 
 def unsolved(idx, store=STORE):
