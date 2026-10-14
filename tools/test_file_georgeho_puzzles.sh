@@ -10,7 +10,11 @@ check() {  # check <what> <expected> <got>
   if [ "$2" = "$3" ]; then echo "ok   $1"; else
     echo "FAIL $1: expected [$2], got [$3]"; fails=$((fails + 1)); fi
 }
-out=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+# Readers find cached posts off the SSD manifests (media_manifest): a fresh
+# dir for the fixture's, never the household's own (CI has none).
+mtmp=$(mktemp -d)
+trap 'rm -rf "$mtmp"' EXIT
+out=$(CT_MANIFEST="$mtmp" PYTHONPATH="$REPO/tools" python3 - <<'PY'
 import file_georgeho_puzzles as G
 print("LIGHTS", G.lights_of("13/15a", "d"), G.lights_of("26,10", "d"), G.lights_of("Great", "a"))
 print("COUNT", G.count_of("ROMAN WALL"), G.count_of("NON-FATAL"), G.count_of("SWAP"))
@@ -28,23 +32,27 @@ print("LINKED", rec["unsplit"][0]["lights"], rec["unsplit"][0]["enumeration"])
 # name (a hints post too), else the fifteensquared post at its url's title.
 import json, pathlib, tempfile
 tmp = pathlib.Path(tempfile.mkdtemp())
-(tmp / "bd").mkdir(); (tmp / "fs").mkdir()
-post = lambda pid, slug, title, body, link="": json.dumps({
-    "id": pid, "slug": slug, "link": link, "date": "2022-02-14T00:00:00", "categories": [],
-    "title": {"rendered": title}, "content": {"rendered": body}})
-(tmp / "bd" / "1.json").write_text(post(1, "sunday-toughie-3", "Sunday Toughie 3 (Hints)",
-                                        "<h2>Sunday Toughie No 3 by proXimal (Hints)</h2><p>Hints and Tips by Big Dave</p>"))
-(tmp / "bd" / "2.json").write_text(post(2, "toughie-1031", "Toughie 1031",
-                                        "<h2>Toughie No 1031 by Beam</h2>"))
-(tmp / "bd" / "3.json").write_text(post(3, "toughie-1032", "Toughie 1032", "<h2>Toughie No 1032</h2>"))
-(tmp / "fs" / "9.json").write_text(post(9, "", "Independent on Sunday 1150/Glow-worm", "",
-                                        "https://fifteensquared.net/2012/03/11/independent-on-sunday-1150glow-worm/"))
+import media_manifest
+bd, fs = tmp / "bigdave44" / "posts", tmp / "fifteensquared" / "posts"
+bd.mkdir(parents=True); fs.mkdir(parents=True)
+def post(d, pid, slug, title, body, link=""):  # as the fetchers store it: the file, then its manifest row
+    p = {"id": pid, "slug": slug, "link": link, "date": "2022-02-14T00:00:00", "categories": [],
+         "title": {"rendered": title}, "content": {"rendered": body}}
+    (d / f"{pid}.json").write_text(json.dumps(p))
+    with open(media_manifest.path(media_manifest.posts_name(d)), "a") as f:
+        f.write(json.dumps(media_manifest.post_row(p)) + "\n")
+post(bd, 1, "sunday-toughie-3", "Sunday Toughie 3 (Hints)",
+     "<h2>Sunday Toughie No 3 by proXimal (Hints)</h2><p>Hints and Tips by Big Dave</p>")
+post(bd, 2, "toughie-1031", "Toughie 1031", "<h2>Toughie No 1031 by Beam</h2>")
+post(bd, 3, "toughie-1032", "Toughie 1032", "<h2>Toughie No 1032</h2>")
+post(fs, 9, "", "Independent on Sunday 1150/Glow-worm", "",
+     "https://fifteensquared.net/2012/03/11/independent-on-sunday-1150glow-worm/")
 wanted = [{"series": "sundaytough", "number": 3, "link": "http://bigdave44.com/2022/02/23/sunday-toughie-3-3/"},
           {"series": "toughie", "number": 1031, "link": "http://bigdave44.com/2013/08/14/toughie-1031/"},
           {"series": "toughie", "number": 1032, "link": "http://bigdave44.com/2013/08/15/toughie-1032/"},
           {"series": "indysunday", "number": 1150,
            "link": "https://www.fifteensquared.net/2012/03/11/independent-on-sunday-1150glow-worm/"}]
-print("OTHER", sorted(G.other_setters(wanted, tmp / "bd", tmp / "fs").items()))
+print("OTHER", sorted(G.other_setters(wanted, bd, fs).items()))
 # georgeho cuts an answer off at its first break (TAM for TAM-O'-SHANTER);
 # our parse of the same post has it whole and wins. A whole answer stays
 # georgeho's, and so does a blog answer that does not start with its letters.
