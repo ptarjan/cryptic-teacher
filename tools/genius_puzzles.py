@@ -400,7 +400,7 @@ def unsplit(text):
             return m.group(0)
         return a
     # The second run is only looked at, so it can still join the next run.
-    return re.sub(r"\b([A-Za-z]+) (?=([a-z]+)\b)", join, text)
+    return re.sub(r"(?<![\w'\u2019])([A-Za-z]+) (?=([a-z]+)\b)", join, text)
 
 
 #: A clue head inside a run of clues printed without counts: a number after
@@ -565,7 +565,7 @@ def parse_text(text):
     rest.append(text[at:])
     # The labels first, so a heading they hid ("Clues ACross Instructions
     # Eight solutions ...", No 165) is at the start for FURNITURE.
-    rest = [re.sub(r"(?i)^\s*Clues\b|\b(?:Instructions|RULES AND REQUESTS|Preamble)\b:?", "", x) for x in rest]
+    rest = [re.sub(r"(?i)^\s*Clues\b(?!\s+(?:are|is)\b)|\b(?:Instructions|RULES AND REQUESTS|Preamble)\b:?", "", x) for x in rest]
     rest = [FURNITURE.sub("", x) for x in rest]
     sentences = re.split(r"(?<=[.?!])\s+", " ".join(x.strip() for x in rest if x.strip()))
     # Small print run on from an instruction with no full stop between keeps
