@@ -492,4 +492,77 @@ PY
 )
 rc4=$?
 echo "$out"
-exit $(( rc || rc2 || rc3 || rc4 ))
+
+# The code a process took its hash of can always be shipped, however its
+# checkout moved since: on 2026-10-14 the full pass's tree was caught
+# mid-reset (half old files, half new), every unit hashed files no commit
+# holds, kept nowhere, and each ship failed "no longer in the checkout ...
+# restart it", the reads falling back to the 4-core host. A throwaway repo.
+out=$(cd "$REPO/tools" && CT_REPO="$tmp/coderepo" python3 - <<'PY'
+import os, subprocess, sys
+from pathlib import Path
+import ocr_remote
+
+fails = 0
+def check(what, want, got):
+    global fails
+    if want == got:
+        print(f"ok   {what}")
+    else:
+        fails += 1
+        print(f"FAIL {what}: expected {want!r}, got {got!r}")
+
+repo = Path(os.environ["CT_REPO"])
+(repo / "tools" / "data").mkdir(parents=True)
+def git(*a):
+    return subprocess.run(["git", "-C", str(repo), *a], capture_output=True, text=True, check=True).stdout.strip()
+def commit(files, msg):
+    for name, text in files.items():
+        (repo / name).write_text(text)
+    git("add", "-A")
+    git("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qm", msg)
+git("init", "-q")
+commit({"tools/a.py": "A1\n", "tools/b.py": "B1\n", "tools/desktop_hosts.json": "[\"h1\"]\n"}, "one")
+ocr_remote.TOOLS = repo / "tools"
+ocr_remote.KEPT = repo.parent / "kept"
+
+def fresh_process():
+    ocr_remote._TREES.clear()
+    ocr_remote._VERSIONS.clear()
+def took():
+    fresh_process()
+    ocr_remote._VERSIONS["local"] = {"code": ocr_remote.code_hash()}
+    return ocr_remote._VERSIONS["local"]["code"]
+def shipped_hash():
+    return ocr_remote.hash_of(ocr_remote.code_files())
+
+one = took()
+check("a clean tree's hash is its files'", ocr_remote.hash_of(ocr_remote.shipped()), one)
+commit({"tools/desktop_hosts.json": "[\"h2\", \"h1\"]\n"}, "reorder hosts")
+check("a push moving the checkout on still ships the hash taken", one, shipped_hash())
+ocr_remote._TREES.clear()
+check("and so does another process, from KEPT", one, shipped_hash())
+
+# Mid-reset: one file new, one old, matching no commit.
+(repo / "tools" / "a.py").write_text("A2\n")
+torn = took()
+commit({"tools/a.py": "A2\n", "tools/b.py": "B2\n"}, "the reset's far side")
+check("a hash taken mid-reset names files no commit holds", True,
+      torn not in {one, ocr_remote.hash_of(ocr_remote.shipped())})
+check("and is still shipped once the reset is done", torn, shipped_hash())
+ocr_remote._TREES.clear()
+check("by another process too (its tree kept)", torn, shipped_hash())
+check("the checkout itself was left alone", "", git("status", "--porcelain"))
+fresh_process()
+ocr_remote._VERSIONS["local"] = {"code": "0123456789ab"}
+try:
+    ocr_remote.code_files()
+    check("a hash nothing holds is refused", "Unavailable", "shipped")
+except ocr_remote.Unavailable:
+    check("a hash nothing holds is refused", 1, 1)
+raise SystemExit(1 if fails else 0)
+PY
+)
+rc5=$?
+echo "$out"
+exit $(( rc || rc2 || rc3 || rc4 || rc5 ))

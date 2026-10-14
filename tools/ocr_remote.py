@@ -200,32 +200,89 @@ def tree_files(tree):
     return files
 
 
+#: {code hash: git tree of tools/} of each hash this process took
+#: (code_hash()): what code_files() ships, wherever the checkout has moved since.
+_TREES = {}
+
+
+def code_tree():
+    """A git tree of tools/ holding the shipped files as they are on disk
+    now, or None (on the desktop, or no git): HEAD's (tools_tree()) when
+    they are HEAD's, else one written from them through a copy of the
+    index (its stat cache, so only changed files are read), its blobs left
+    in the object store. A checkout mid-reset (the full pass's tree resets
+    onto origin/master as it pushes) is caught half old, half new: its
+    hash then names no commit's tree, and before this was kept nowhere,
+    so a process that took it could not ship it again (2026-10-14)."""
+    root = TOOLS.parent
+    if (root / MANIFEST).exists():
+        return None
+    tree = tools_tree()
+    if tree:
+        return tree
+    try:
+        index = subprocess.run(["git", "-C", str(root), "rev-parse", "--path-format=absolute", "--git-path", "index"],
+                               capture_output=True, text=True, check=True).stdout.strip()
+        with tempfile.TemporaryDirectory() as d:
+            env = {**os.environ, "GIT_INDEX_FILE": str(Path(d) / "index")}
+            try:
+                Path(env["GIT_INDEX_FILE"]).write_bytes(Path(index).read_bytes())
+            except OSError:
+                subprocess.run(["git", "-C", str(root), "read-tree", "HEAD"], env=env, capture_output=True, check=True)
+            subprocess.run(["git", "-C", str(root), "add", "-u", "--", "tools"], env=env, capture_output=True,
+                           check=True)
+            return subprocess.run(["git", "-C", str(root), "write-tree", "--prefix=tools/"], env=env,
+                                  capture_output=True, text=True, check=True).stdout.strip() or None
+    except (OSError, subprocess.CalledProcessError):
+        return None
+
+
 def code_files():
     """{repo path: file or bytes} of the code this process runs (code_dir()):
-    the checkout's files, or when the checkout has moved on since the
-    process took its hash, that hash's git tree (found in KEPT). Shipping
-    the checkout's newer files instead made a v-<new> the session never
-    opens, so each reconnect shipped again and failed on v-<old> (2026-10-14)."""
+    the git tree its hash was taken from (code_hash(), _TREES; another
+    process's, found in KEPT), else the checkout's files. Shipping the
+    checkout's newer files instead made a v-<new> the session never opens,
+    so each reconnect shipped again and failed on v-<old> (2026-10-14)."""
     want = code_dir().rpartition("v-")[2]
-    files = shipped()
-    if hash_of(files) == want:
-        return files
+    trees = [_TREES[want]] if want in _TREES else []
     for path in KEPT.glob("code-*.json"):
         try:
-            if json.loads(path.read_text()) != want:
-                continue
-            old = tree_files(path.stem.removeprefix("code-"))
+            if json.loads(path.read_text()) == want:
+                trees.append(path.stem.removeprefix("code-"))
+        except (OSError, ValueError):
+            continue
+    for tree in trees:
+        try:
+            old = tree_files(tree)
         except (OSError, ValueError, subprocess.CalledProcessError):
             continue
         if hash_of(old) == want:
             return old
+    files = shipped()
+    if hash_of(files) == want:
+        return files
     raise Unavailable(f"this process's code v-{want} is no longer in the checkout (now v-{hash_of(files)}) "
                       "nor in git: restart it")
 
 
 def code_hash():
-    """hash_of(shipped())."""
-    return kept("code", tools_tree, lambda: hash_of(shipped()))
+    """hash_of() the shipped files: of their git tree (code_tree()), so the
+    hash is always of files git still holds, the tree kept under KEPT and
+    in _TREES for code_files(); on the desktop, of shipped()."""
+    tree = code_tree()
+    if tree is None:
+        return hash_of(shipped())
+    path = KEPT / f"code-{tree}.json"
+    try:
+        code = json.loads(path.read_text())
+    except (OSError, ValueError):
+        code = hash_of(tree_files(tree))
+        KEPT.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_suffix(f".{os.getpid()}.part")
+        tmp.write_text(json.dumps(code))
+        tmp.replace(path)
+    _TREES[code] = tree
+    return code
 
 
 def code_dir():
@@ -250,8 +307,9 @@ def versions():
     reader packages, tesseract's build, the shipped code's hash and each
     reader model's. Kept (kept()) by the tree's commit and what else they
     are read from: the package directories', tesseract's and each model's
-    file stamps."""
-    return kept("versions", versions_key, read_versions)
+    file stamps; the code's hash taken afresh (code_hash(), itself kept by
+    tree), so it is the one this process can ship (_TREES)."""
+    return {**kept("versions", versions_key, read_versions), "code": code_hash()}
 
 
 def versions_key():
