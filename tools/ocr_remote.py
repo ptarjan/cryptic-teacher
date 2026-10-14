@@ -1054,7 +1054,9 @@ def connect():
         reasons.append(why)
     said = "; ".join(reasons or ["OCR_REMOTE names no host"])
     log(f"unavailable ({said})")
-    if not desktop_busy.busy(hosts()):  # a game-yield is expected, not an outage
+    # a game-yield is expected, not an outage; a loopback host is a test's
+    # stand-in desktop, never the real one (two fake alerts, 2026-10-14)
+    if not desktop_busy.busy(hosts()) and not all(loopback(h) for h in hosts()):
         alert_once("down", f"desktop OCR: no desktop host works, reading on the 4-core host ({said[:600]})")
     return None
 
@@ -1119,6 +1121,10 @@ def _connected(s, reasons):
         alert_once(f"fallback-{s.host}", f"desktop OCR: fell back to {s.host}; "
                    f"failed first: {'; '.join(r[:150] for r in reasons)} (update tools/desktop_hosts.json)")
     return s
+
+
+def loopback(host):
+    return host.rpartition("@")[2] in ("127.0.0.1", "localhost", "::1")
 
 
 def hosts():
