@@ -66,6 +66,7 @@ SCHEDULED = {
     "privateeye_wayback.py": ["lost", "summary", "summary_path", "summary_version"],
     # progress_record.py record (nightly): the read queue's size.
     "edition_backlog.py": ["_editions", "trove_counts"],
+    "progress_record.py": ["backlog"],
 }
 #: {file: [function]} that may not run a command on the host either (an ssh
 #: `ls` of the Gale folders is a listing of the media disk too).
