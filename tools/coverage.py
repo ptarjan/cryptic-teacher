@@ -106,8 +106,8 @@ def _causes():
         for source in (("trove",) if key == "canberra-reprint" else ("archive.org", "gale")):
             out[(source, key)] = Cause(owner, fix, recoverable, key == "refused-no-cause")
     out[("gale", "by-hand-only")] = Cause(
-        "tools/gale_inbox.py", "only a Gale page Paul downloads by hand: "
-        "tools/gale_inbox.py files what lands", False, False)
+        "tools/gale_fetch.py", "only on Gale: tools/gale_fetch.py downloads it "
+        "and the full pass files it", False, False)
     import genius_puzzles
     for key, words in genius_puzzles.LOST_CAUSES.items():
         out[("guardian", key)] = Cause("tools/genius_puzzles.py", words, False, False)

@@ -2,7 +2,7 @@
 
 A dir's state is its (mtime, ctime): every writer of an edition dir
 adds, replaces or removes an entry (fetch_archive_org_editions.write_atomic,
-gale_inbox.stage's rename and relink), which moves them, so an unmoved key
+gale_inbox.lay_out_fetched's rename and relink), which moves them, so an unmoved key
 is unmoved files. Not its inode: the Media mount (Docker's virtiofs)
 numbers a dir afresh once the kernel forgets it, its files unmoved. A dir changed within SETTLED seconds is never kept: a
 change within one tick of the filesystem's clock leaves the mtime unmoved.

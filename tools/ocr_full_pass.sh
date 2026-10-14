@@ -210,13 +210,11 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
 }
 
 mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
-# The Times pages Paul downloads by hand from Gale's Times Digital Archive
-# become Gale editions for the queue to read first, each due when its file
-# lands (tools/gale_inbox.py asks the Mac and the desktop, never Gale). The
-# cryptic-gale-inbox plugin does the same every 3 minutes; this run makes
-# sure the pass starts from everything that has arrived.
+# Refresh the Times progress page and the Listener's inbox before the pass
+# (tools/gale_inbox.py sync; tools/gale_fetch.py lays the Gale editions out
+# itself). The cryptic-gale-inbox plugin does the same every minute.
 python3 tools/gale_inbox.py sync ||
-  echo "gale_inbox sync failed (rc=$?); the Gale pages staged before stand, the checklist is not refreshed"
+  echo "gale_inbox sync failed (rc=$?); the progress page and Listener checklist are not refreshed"
 finish() {  # finish <rc>: say so and exit
   echo "=== full pass done $(date '+%F %T') (rc=$1) ==="
   exit "$1"

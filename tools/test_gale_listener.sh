@@ -868,9 +868,7 @@ check("the Listener's checklist writes no page structure of its own", [],
                  r"progress|span|button)\b", src))
 gi = g.gi
 gi.held, gi.usual_pages, gi.archive_coverage.ledger = (lambda: {}), (lambda: {}), (lambda: {})
-un = Path(sys.argv[1]) / "un.json"
-un.write_text(json.dumps([{"file": "x.pdf", "why": "nothing"}]))
-times = gi.checklist([(D(1988, 1, 13), "no-scan")], Path(sys.argv[1]) / "nocache", un, docs={},
+times = gi.checklist([(D(1988, 1, 13), "no-scan")], Path(sys.argv[1]) / "nocache", docs={},
                      fetched=Path(sys.argv[1]) / "nofetched", limits=Path(sys.argv[1]) / "nolimits")
 listener = g.checklist(rows, Path(sys.argv[1]) / "nostore", Path(sys.argv[1]) / "none",
                        arrivals=[{"file": "x.pdf", "number": None, "reports": []}], docs={})
