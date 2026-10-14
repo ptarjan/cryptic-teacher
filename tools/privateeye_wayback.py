@@ -115,6 +115,7 @@ def fetch():
             print(f"{ts} {orig}: {e}", file=sys.stderr)
         time.sleep(1)
     print(f"{len(rows)} captures listed, {got} downloaded to {DIR}")
+    save_summary()
 
 
 # ---------- reading a capture ----------
@@ -313,6 +314,7 @@ def fetch_ia(numbers=None):
             print(f"cyclops-{n} (issue {issue}): {e}", file=sys.stderr)
         time.sleep(1)
     print(f"{got} scan texts downloaded to {DIR / 'ia'}")
+    save_summary()
 
 
 IA_TEXT = "https://archive.org/download/private-eye-magazine-{issue}/{issue}_djvu.txt"
@@ -469,6 +471,7 @@ def file(numbers=None, dry_run=False):
             refused.pop(str(n), None)
         refused.update({str(n): r for n, r in why.items()})
         REFUSED.write_text(json.dumps(refused, indent=1, sort_keys=True) + "\n")
+        save_summary(got)
     return filed, why
 
 
@@ -506,19 +509,71 @@ LOST_FIRST, LOST_LAST = 1, 459
 IA_ABSENT = {69, 108, 155, 187, 189, 195, 433, 459}
 
 
+def summary_path():
+    """What index() found, kept on the SSD (tools/media_manifest.py) so the
+    daily coverage run (lost) neither lists DIR nor re-parses its captures:
+    {"version", "numbers": {n: ["answers", "clues", "puz"] held}, "ia": [n],
+    "refused": [n in refused.json]}."""
+    import media_manifest
+    return media_manifest.DIR / "privateeye-index.json"
+
+
+def summary_version():
+    import media_manifest
+    return media_manifest.source_version("privateeye_wayback.py")
+
+
+def save_summary(got=None):
+    """Write summary_path() from index() (or `got`, its result) and the ia
+    scans held. fetch, fetch-ia and file write it; lost reads it."""
+    got = index() if got is None else got
+    ia = sorted(int(p.name.split("_")[0]) - ISSUE_OFFSET for p in (DIR / "ia").glob("*_djvu.txt"))
+    try:
+        refused = sorted(json.loads(REFUSED.read_text()))
+    except FileNotFoundError:
+        refused = []
+    s = {"version": summary_version(), "ia": ia, "refused": refused,
+         "numbers": {str(n): sorted(k for k in ("answers", "clues", "puz") if h.get(k)) for n, h in got.items()}}
+    p = summary_path()
+    p.parent.mkdir(parents=True, exist_ok=True)
+    tmp = p.with_name(f".{p.name}.tmp")
+    tmp.write_text(json.dumps(s, sort_keys=True))
+    tmp.replace(p)
+    return s
+
+
+def summary():
+    """summary_path()'s summary; written afresh (index() once) only when it is
+    missing or this file changed since (a parser change reads every capture
+    again once, not each run)."""
+    try:
+        s = json.loads(summary_path().read_text())
+    except (OSError, ValueError):
+        s = None
+    if not s or s.get("version") != summary_version():
+        s = _summary_indexed()
+    return s
+
+
+def _summary_indexed():
+    """summary() taken off the disk: index() and the ia listing, saved."""
+    return save_summary() if DIR.exists() else {"numbers": {}, "ia": [], "refused": []}
+
+
 def lost():
     """{number: LOST_CAUSES key} for every Cyclops 1-459 this source could speak to.
-    Filed numbers are the ledger's to skip."""
-    got = index() if DIR.exists() else {}
-    refused = json.loads(REFUSED.read_text()) if REFUSED.exists() else {}
+    Filed numbers are the ledger's to skip. Off summary(): no listing of DIR."""
+    s = summary()
+    got = {int(n): dict.fromkeys(held, True) for n, held in s["numbers"].items()}
+    ia, refused = set(s["ia"]), set(s.get("refused", ()))
     out = {}
     for n in range(LOST_FIRST, LOST_LAST + 1):
         h = got.get(n, {})
         if h.get("clues") or h.get("puz"):
             out[n] = "refused" if str(n) in refused else "not-read"
-        elif n not in IA_ABSENT and not (DIR / "ia" / f"{n + ISSUE_OFFSET}_djvu.txt").exists():
+        elif n not in IA_ABSENT and n not in ia:
             out[n] = "scan-not-read"
-        elif (DIR / "ia" / f"{n + ISSUE_OFFSET}_djvu.txt").exists():
+        elif n in ia:
             out[n] = "scan-unparsed"
         elif h.get("answers"):
             out[n] = "answers-only"

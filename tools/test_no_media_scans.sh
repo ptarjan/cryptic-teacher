@@ -51,6 +51,7 @@ SCHEDULED = {
     "file_trove_puzzles.py": ["article_date", "stamp_cause", "zones_held"],
     # coverage.py daily (daily_update.sh): the FT PDFs fetched.
     "coverage.py": ["ft_pdf_rows", "trove_articles", "trove_dates"],
+    "privateeye_wayback.py": ["lost", "summary", "summary_path", "summary_version"],
     # progress_record.py record (nightly): the read queue's size.
     "edition_backlog.py": ["_editions", "trove_counts"],
 }
