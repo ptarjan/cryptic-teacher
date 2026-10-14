@@ -179,7 +179,7 @@ import sys
 import time
 import unicodedata
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from itertools import combinations, pairwise, zip_longest
 from pathlib import Path
 
@@ -501,8 +501,12 @@ def check_shape(puzzle, today, flags):
     elif (d := date_of(puzzle)) is None:
         flags.append(("SHAPE", pid, f"date {puzzle['date']!r} is not a calendar "
                       f"day written YYYY-MM-DD"))
-    elif d > today:
-        flags.append(("SHAPE", pid, f"dated {d}, which is in the future"))
+    elif d > today + timedelta(days=(lead := series_meta.cover_date_lead(series))):
+        # A cover-dated weekly is online days before its issue's date
+        # (series.py coverDateLead); anything further ahead is a misread.
+        flags.append(("SHAPE", pid, f"dated {d}, which is in the future"
+                      + (f" by more than the {lead} days a {series} issue is "
+                         f"online before its cover date" if lead else "")))
     elif d.year < EARLIEST_YEAR:
         flags.append(("SHAPE", pid, f"dated {d}, before cryptics existed"))
 
