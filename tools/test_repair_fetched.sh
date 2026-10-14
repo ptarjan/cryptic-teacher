@@ -29,6 +29,10 @@ same() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
   echo "  FAIL: $1"$'\n'"    want $3"$'\n'"    got  $2"; fails=$((fails + 1)); fi; }
 
 work=$(mktemp -d); trap 'rm -rf "$work"' EXIT
+# Readers look cached blog posts up off the SSD manifests (media_manifest):
+# empty ones here (CI has none), never the household's own.
+export CT_MANIFEST="$work/.manifest"
+mkdir -p "$CT_MANIFEST" && : > "$CT_MANIFEST/posts-fifteensquared.jsonl"
 mkdir -p "$work/tools/data" "$work/puzzles"
 cp "$REPO"/tools/*.py "$work/tools/"
 # The fixtures are defects in two- and three-light grids, which the writer's
