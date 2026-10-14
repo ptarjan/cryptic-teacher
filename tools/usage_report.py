@@ -63,6 +63,14 @@ def main():
         m = KEY.match(k["name"] if isinstance(k, dict) else str(k))
         if m:
             by_day[m.group(1)][m.group(2)] += 1
+    # Since 2026-10-14 events are counted in a Durable Object and copied hourly
+    # into the one key `e:tally`, {day: {name: n}} (sync/worker.js). The old
+    # per-event keys above expire within 90 days; the two never overlap.
+    if not args.file and any((k["name"] if isinstance(k, dict) else k) == "e:tally" for k in keys):
+        out = kv.get_key("e:tally")
+        tally = json.loads(out[out.index("{"):])
+        for d, counts in tally.items():
+            by_day[d].update(counts)
     days = sorted(by_day)
     if args.days:
         days = days[-args.days:]

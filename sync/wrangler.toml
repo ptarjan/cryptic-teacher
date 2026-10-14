@@ -17,6 +17,17 @@ id = "85f9de552ea64b229c113df624fb6ca0"
 # New-puzzle push. The site is a static deploy, so the fan-out polls the
 # published index.json rather than being called by the nightly job — twenty
 # minutes is well inside the gap between the run finishing and anyone waking up.
+# Analytics counters (POST /e). One SQLite-backed Durable Object, which the free
+# plan includes, so a beacon is not a KV write; the cron copies the counts into
+# the KV key "e:tally" at most hourly. See EventCounter in worker.js.
+[[durable_objects.bindings]]
+name = "EVENTS"
+class_name = "EventCounter"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["EventCounter"]
+
 [triggers]
 crons = ["*/20 * * * *"]
 
