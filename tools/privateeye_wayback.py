@@ -243,6 +243,12 @@ def build(num, held):
     """(puzzle, None) or (None, why not) for Cyclops `num` from its captures."""
     import fetch_privateeye as fp
     clues = held.get("clues") or []
+    if held.get("puz") and clues:
+        try:  # a truncated capture of the .puz (184) leaves the page's clues
+            fp.parse_puz(Path(held["puz"]).read_bytes())
+        except ValueError as e:
+            print(f"  cyclops-{num}: the .puz does not read ({e}); using the page")
+            held = {**held, "puz": None}
     if held.get("puz"):
         puz = fp.parse_puz(Path(held["puz"]).read_bytes())
         puzzle = fp.convert(num, puz)
