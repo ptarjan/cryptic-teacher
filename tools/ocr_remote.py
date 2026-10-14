@@ -839,6 +839,18 @@ def prune(host, keep, days=PRUNE_DAYS):
     return out
 
 
+def prune_any(names, keep, days=PRUNE_DAYS):
+    """prune() on the first of `names` (by_path order, as connect() picks)
+    that answers: a stale LAN address must not stop the sweep."""
+    reasons = []
+    for host in by_path(names):
+        try:
+            return prune(host, keep, days)
+        except (Unavailable, OSError, subprocess.TimeoutExpired) as e:
+            reasons.append(f"{host}: {e}")
+    raise Unavailable("no host answers (" + "; ".join(reasons or ["OCR_REMOTE names no host"]) + ")")
+
+
 def ship_command(code, nonce):
     """The cmd line that extracts a tar on stdin into HOME's v-`code`: into
     part-`code`-`nonce` first, renamed once whole (ren refuses a name that
@@ -1273,7 +1285,6 @@ if __name__ == "__main__":
     elif cmd == "check":
         sys.exit(check())
     elif cmd == "prune":
-        host = os.environ["OCR_REMOTE"].split(",")[0]
-        print(prune(host, keep=f"v-{hash_of(shipped())}"))
+        print(prune_any(hosts(), keep=f"v-{hash_of(shipped())}"))
     else:
         sys.exit(f"unknown command {cmd!r}: serve, check or prune")
