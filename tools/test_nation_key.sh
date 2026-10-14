@@ -84,4 +84,49 @@ expect "OPEN [] None"
 expect "MERGED [('HAT', {}), (None, {'spelling': 'HIM'})]"
 expect "MOVED None"
 expect "CONTRADICTED ['1-down']"
+# The pictures (tools/nation_images.py): the page's blank grid read by
+# pixels and held to the clue list's numbering, the solution read line by
+# line and kept only where its letter runs are the grid's white runs.
+pics=$(PYTHONPATH="$PWD/tools" python3 - <<'PY'
+import io
+from PIL import Image, ImageDraw
+import nation_images as ni, nation_key as K
+up = "https://www.thenation.com/wp-content/uploads/2020/03/"
+page = f'<img src="{up}grid3527.jpg"> <img src="{up}solution3536.jpg">'
+print("URLS", ni.image_url(page, "grid")[len(up):], ni.image_url(page, "solution")[len(up):])
+print("SOL", ni.image_url(f'<img src="{up}Solution-3523.jpg">', "solution")[len(up):])
+# A 5x5 picture: blocks at (1,1), (3,1), (1,3), (3,3), a letter's ink in (0,0).
+grid = (".....", ".#.#.", ".....", ".#.#.", ".....")
+img = Image.new("L", (5 * 40 + 1, 5 * 40 + 1), 255)
+d = ImageDraw.Draw(img)
+for y, row in enumerate(grid):
+    for x, c in enumerate(row):
+        d.rectangle([x * 40, y * 40, x * 40 + 40, y * 40 + 40], outline=0,
+                    fill=0 if c == "#" else None)
+d.rectangle([10, 12, 30, 30], fill=0)   # bold ink over the middle only
+buf = io.BytesIO(); img.save(buf, format="JPEG")
+print("BLOCKS", ni.blocks(buf.getvalue(), 5) == grid)
+across = [[1, 5, "plain", None], [4, 5, "plain", None], [5, 5, "plain", None]]
+down = [[1, 5, "plain", None], [2, 5, "plain", None], [3, 5, "plain", None]]
+print("FITS", ni.fits(grid, across, down, []),
+      ni.fits(grid, across, [[1, 5, "plain", None], [2, 4, "plain", None], [3, 5, "plain", None]], []))
+# s3524 as the VLM read it: "###" written "#", a trailing block dropped, and
+# a sparse row with one letter lost (refused, not shifted).
+lines = ["MACADAMIA#GAMUT", "CHINATOWN#BANK", "O#A#I#P#O#E#H"]
+want = [".........#.....", ".........#....#", ".#.#.#.#.#.#.#."]
+got = ni.read_lines("\n".join(lines), want)
+print("LINES", "".join(got.get((1, x), "-") for x in range(15)), sum(1 for i, _ in got if i == 2))
+print("CLASH", K.clashes(("..", ".."), [(1, "across", 2), (1, "down", 2), (2, "down", 2)],
+                         ["AB", "XC", "YD"]))
+PY
+)
+check() { grep -qxF -- "$1" <<<"$pics" || { echo "FAIL: expected line: $1"; fail=1; }; }
+check "URLS grid3527.jpg solution3536.jpg"
+check "SOL Solution-3523.jpg"
+check "BLOCKS True"
+check "FITS True False"
+check "LINES CHINATOWN-BANK- 0"
+# 1-across "AB" clashes with both downs ("XC" at A, "YD" at B): it goes.
+check "CLASH [0]"
+[ "$fail" = 0 ] || echo "$pics"
 if [ "$fail" = 0 ]; then echo "PASS: test_nation_key"; else echo "$out"; exit 1; fi

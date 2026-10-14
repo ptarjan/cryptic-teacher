@@ -481,13 +481,18 @@ def promote(record, answers):
     return (puzzle, []) if puzzle else (None, [why])
 
 
-def build(page, url, known=None, grid=None):
+def build(page, url, known=None, grid=None, origin="reconstructed"):
     """(puzzle, None) or (None, why not). `grid`, when given, is used instead
-    of searching for one (promote())."""
+    of searching for one (promote()); without it the page's own grid picture
+    (tools/nation_images.py) is tried before the search."""
     read, why = read_page(page, known)
     if read is None:
         return None, why
     m, head, across, down, groups = read
+    if grid is None:
+        import nation_images
+        grid, _ = nation_images.printed_grid(page, across, down, groups)
+        origin = "published" if grid is not None else origin
     if grid is None:
         grid, why = search_grid(across, down, groups)
     if grid is None:
@@ -547,7 +552,7 @@ def build(page, url, known=None, grid=None):
         "dimensions": {"cols": len(grid[0]), "rows": len(grid)},
         "source": {"publisher": "The Nation", "url": url, "retrievedFrom": "publisher",
                    "acquiredBy": TOOL, "acquiredOn": datetime.date.today().isoformat(),
-                   "gridOrigin": "reconstructed"},
+                   "gridOrigin": origin},
         "entries": out,
     }
     if not puzzle["preamble"]:

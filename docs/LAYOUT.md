@@ -2616,5 +2616,7 @@ tools/nation_key.py                            the Nation's answers, from the se
 tools/test_nation_key.sh                       does nation_key read The Nation's answers from
                                                the setters' printed solution and Braze's posts,
                                                and only the letters they really spell?
+tools/nation_images.py                         the Nation's own pictures of its grids: the
+                                               blank grid every page prints
 ```
 <!-- LAYOUT-END -->
