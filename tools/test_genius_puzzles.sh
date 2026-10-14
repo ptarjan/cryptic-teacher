@@ -312,4 +312,16 @@ check "an off-grid annotation is validated, its findings named by its id" "[\"1-
 check "a held Genius jigsaw has a builder (queued); 280 is out of SCHEMA_GAP" "True False" "$(get jigsaw-builder)"
 [ -z "$(get held-280)" ] || check "genius-280 is held clues-only: 39 unnumbered clues and its instruction" "True 39 True" "$(get held-280)"
 
+# image_paths asks the genius-files manifest for a Genius's pictures, never a
+# glob of the media disk: nothing is on "disk" here but the manifest.
+gt=$(mktemp -d)
+mkdir -p "$gt/dl/.manifest"
+printf '%s\n' '{"key": "image/5-1", "at": 1}' '{"key": "image/5-0", "at": 1}' '{"key": "image/50-0", "at": 1}' \
+  '{"key": "pdf/5", "at": 1}' > "$gt/dl/.manifest/genius-files.jsonl"
+check "image_paths: off the genius-files manifest" "5-0.img 5-1.img" \
+  "$(cd "$(dirname "$0")" && CT_DOWNLOADS="$gt/dl" python3 -c "
+import genius_puzzles as G
+print(' '.join(p.name for p in G.image_paths(5)))")"
+rm -rf "$gt"
+
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }

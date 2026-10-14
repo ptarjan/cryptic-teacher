@@ -223,6 +223,19 @@ def article_path(number):
 
 
 def image_paths(number):
+    """The pictures fetch_article saved for Genius `number` (article/<n>-<k>.img),
+    off the genius-files manifest's image/<n>-<k> rows when ARTICLES is on
+    the media disk: no glob of it."""
+    if not media_manifest.on_media(ARTICLES):
+        return _images_listed(number)
+    if not _held:
+        _held.update(media_manifest.latest(FILES, "key"))
+    pre = f"image/{int(number)}-"
+    return sorted(ARTICLES / f"{k[len('image/'):]}.img" for k in _held if k.startswith(pre))
+
+
+def _images_listed(number):
+    """image_paths of an ARTICLES off the media disk (a test's), globbed."""
     return sorted(ARTICLES.glob(f"{number}-*.img"))
 
 
@@ -235,6 +248,9 @@ def fetch_article(n, row):
     for k, path in enumerate(sorted(set(STATIC_IMAGE.findall(body.decode("utf-8", "replace"))))):
         data = get("https://static.guim.co.uk/" + path)
         (ARTICLES / f"{n}-{k}.img").write_bytes(data)
+        media_manifest.record(FILES, ARTICLES / f"{n}-{k}.img", key=f"image/{int(n)}-{k}")
+        if _held:
+            _held.add(f"image/{int(n)}-{k}")
         time.sleep(PAUSE)
     tmp = article_path(n).with_suffix(".tmp")
     tmp.write_bytes(body)
