@@ -2598,5 +2598,15 @@ tools/test_inflate.js                          does inflate.js, the gunzip app.j
                                                for short input, dynamic otherwise), header
                                                flags, and real shims when the checkout has them
                                                built
+tools/cache_tar.sh                             the deploy's caches of files that live directly
+                                               in puzzles/, carried as one tar file each
+                                               instead of an actions/cache glob over puzzles/
+tools/test_cache_tar.sh                        tools/cache_tar.sh round trip on a small tree:
+                                               pack takes exactly the files each deploy cache
+                                               carried as a glob (puzzles/*/index.html and the
+                                               page store; puzzles/*.js, *.js.gz,
+                                               shims.gz.json) with their mtimes, unpack puts
+                                               them back and removes the tar, and a missing tar
+                                               is a cold cache, not an error
 ```
 <!-- LAYOUT-END -->

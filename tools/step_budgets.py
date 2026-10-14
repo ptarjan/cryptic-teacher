@@ -19,7 +19,9 @@ nobody saw it. tools/data/deploy_budgets.json gives each step a number, and:
              that runs a tool reading the whole corpus (CORPUS_MARKS in its
              source) marked "corpus" and saying how it avoids redoing
              unchanged work: "cache" (actions/cache steps earlier in the same
-             job), "incremental" (how), or "uncached" (why it cannot).
+             job), "incremental" (how), or "uncached" (why it cannot); and
+             no actions/cache path that globs a directory too big for
+             @actions/glob (BIG_DIRS), whose save would fail every run.
 """
 import json
 import re
@@ -131,6 +133,48 @@ def reads_corpus(step_text):
     return False
 
 
+#: Directories a build fills with too many entries for actions/cache to glob:
+#: @actions/glob lists a directory with stack.push(...entries), one argument
+#: per entry, and past ~120k that overflows V8's stack. puzzles/ holds a page
+#: directory, a .js and a .js.gz per puzzle, ~140k entries, and both caches
+#: that globbed it failed to save ("Maximum call stack size exceeded", a
+#: warning, not an error), so every run rendered every puzzle page again
+#: (runs 38498612588, 38499371632). tools/cache_tar.sh carries them as one tar.
+BIG_DIRS = ("puzzles",)
+
+
+def cache_paths(step_text):
+    """The path: entries of an actions/cache step's with:, one per line."""
+    out, block = [], None
+    for line in step_text.splitlines():
+        m = re.match(r"^(\s*)path:\s*(.*?)\s*$", line)
+        if m:
+            if m.group(2) in ("|", ">", "|-", ">-"):
+                block = len(m.group(1))
+            else:
+                out.append(m.group(2))
+            continue
+        if block is not None:
+            if line.strip() and len(line) - len(line.lstrip()) > block:
+                out.append(line.strip())
+            else:
+                block = None
+    return out
+
+
+def globs_big_dir(path):
+    """The BIG_DIRS entry actions/cache would have to list to expand `path`, or None."""
+    parts = path.lstrip("!").removeprefix("./").split("/")
+    for i, part in enumerate(parts):
+        if any(c in part for c in "*?[{"):
+            parent = "/".join(parts[:i])
+            for big in BIG_DIRS:
+                if parent == big or ("**" in path and (big + "/").startswith(parent + "/" if parent else "")):
+                    return big
+            return None
+    return None
+
+
 def lint(workflow=WORKFLOW, table=TABLE):
     table, errors = budgets(table), []
     steps = workflow_steps(Path(workflow).read_text(encoding="utf-8"))
@@ -157,6 +201,13 @@ def lint(workflow=WORKFLOW, table=TABLE):
             if not how:
                 errors.append(f"{key} reads the whole corpus: its row needs \"cache\" (the actions/cache "
                               "steps it restores), \"incremental\" (how), or \"uncached\" (why it cannot be)")
+        if "actions/cache" in text:
+            for path in cache_paths(text):
+                big = globs_big_dir(path)
+                if big:
+                    errors.append(f"{key}: path {path!r} makes actions/cache list {big}/, too many "
+                                  "entries for @actions/glob (its save fails); cache one file "
+                                  "made by tools/cache_tar.sh instead")
         earlier = [n for j, n, t in steps[:at] if j == job and "actions/cache" in t]
         for c in row.get("cache") or ():
             if c not in earlier:
