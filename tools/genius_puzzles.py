@@ -959,6 +959,12 @@ JIGSAW = {
 #: the day its article page datePublished gives instead.
 DATED = {2: "2003-07-30"}  # url 2016/feb/04/genius-crossword-2; page published 2003-07-30
 
+#: A Genius printed with no instructions at all, as its fifteensquared post
+#: says: No 188 ("There are no special instructions for this one ... just a
+#: plain puzzle"), No 151 (identical across pairs; post names no preamble and
+#: the page and PDF print none).
+NO_PREAMBLE = {151, 188}
+
 #: A Genius the schema cannot hold yet, and why: assemble() reports it so
 #: rather than as the reader's first complaint about it.
 SCHEMA_GAP = {}
@@ -1158,7 +1164,7 @@ def assemble(number, pdf, post, date, url):
     # An article page (No 135 and before) prints no preamble in its text: what
     # the puzzle says is on the grid picture alone, which is not OCRed. Its
     # clues and grid are read all the same, and it files with no preamble.
-    if not pdf["preamble"] and not pdf.get("article"):
+    if not pdf["preamble"] and not pdf.get("article") and number not in NO_PREAMBLE:
         return None, ("preamble unread", "")
     # Only the clues are mandatory: with no post the puzzle files unsolved,
     # its grid and clues as printed, and the nightly backfill solves it
