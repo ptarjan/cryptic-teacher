@@ -286,6 +286,10 @@ PUBLISHED_WRONG = {
         "AT SEA (Labour's second letter, A, + SEAT \"lost\") fills the "
         "five cells the grid gives it; Private Eye's own cyclops206.puz prints "
         "the clue (2,5)",
+    ("azed-2636", "40-across: clue says (5) = 5, answer holds 4"):
+        "STEE (CASTERED less C-A-R-D; STEEPLY less PLY) fills the four cells "
+        "the grid gives it under a preamble saying bracketed numbers are entry "
+        "lengths; the Observer's own AZ_2636 PDF prints the clue (5)",
 }
 
 # The LENGTH findings that are a light the Guardian never linked, not a mistake in
