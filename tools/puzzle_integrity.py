@@ -214,11 +214,14 @@ from clue_index import (
 )
 from fetch_puzzle import (
     PER_LIGHT_ENUMERATION,
+    PRINTED_COUNT_WRONG,
+    count_lights,
     clued,
     corrected_clue,
     duplicated_clues,
     group_orders,
     has_words,
+    printed_count_wrong,
     is_bare_letters,
     is_continuation,
     is_grid_answer,
@@ -336,9 +339,6 @@ UNLINKED_IN_SOURCE = dict([
       "linked"),
      "no light in this grid is blank, spare, or grouped toward the three missing "
      "letters"),
-    (("cryptic-23874", "18-down: clue says (5,8) = 13, answer holds 8"),
-     "no light in this grid is blank, spare, or grouped toward the five missing "
-     "letters"),
     (("cryptic-23834",
       "11-across + 27-across: clue says (7,11,13) = 31, answer holds 7 alone or "
       "21 linked"),
@@ -349,10 +349,8 @@ UNLINKED_IN_SOURCE = dict([
     # holding them into several answers at once — RIGHT alone finishes MISTER
     # RIGHT, INSIDE RIGHT, RIGHT NOTE and RIGHT AS RAIN. Each of the three
     # lights reads "See" and one number, so it sits in that one leader's group,
-    # and these are the answers left over.
-    (("cryptic-23821", "22-across: clue says (5,2,4) = 11, answer holds 6"),
-     "the RIGHT that would make RIGHT AS RAIN is already spent on "
-     "23-down + 16-across's RIGHT NOTE"),
+    # and these are the answers left over. (RIGHT AS RAIN is no longer one:
+    # 22-across leads it from its second light, 23-down named in selfClued.)
     (("cryptic-23753",
       "1-across + 52-across: clue says (4,6-4) = 14, answer holds 4 alone or 8 "
       "linked"),
@@ -636,11 +634,12 @@ def check_shape(puzzle, today, flags):
     return checkable
 
 
-def leads_by_pointers(group, by_id):
-    """Is every light of `group` after its leader a pointer ("See 19"), or the
-    leader again? Such a group is linked by what its legs print, so its
-    leader's count may be its own light's (check_length)."""
-    legs = [g for g in group[1:] if g != group[0]]
+def leads_by_pointers(group, by_id, lead=None):
+    """Is every light of `group` but its leader `lead` (default its first) a
+    pointer ("See 19"), or the leader again? Such a group is linked by what its
+    legs print, so its leader's count may be its own light's (check_length)."""
+    lead = lead or group[0]
+    legs = [g for g in group if g != lead]
     return bool(legs) and all(
         g in by_id and is_continuation((by_id[g].get("clue") or {}).get("text", ""))
         for g in legs)
@@ -683,7 +682,11 @@ def check_length(puzzle, checkable, flags):
 
         # A continuation leg ("See 23") carries no count of its own; its length
         # is stated once, on the leg that holds the clue.
-        counts = enumeration.counts(e["clue"].get("enumeration"))
+        # A count the paper printed wrong is measured as intended: the row in
+        # fetch_puzzle.PRINTED_COUNT_WRONG is the finding, held by
+        # check_printed_counts.
+        printed = e["clue"].get("enumeration")
+        counts = enumeration.counts(printed_count_wrong(pid, eid, printed) or printed)
         if not counts:
             continue
         group = group_of.get(eid) or [eid]
@@ -719,7 +722,7 @@ def check_length(puzzle, checkable, flags):
         # The pointers are what make the group, so the count is not needed as
         # evidence for it; a group whose other legs carry clues of their own
         # is still held to the whole answer's count.
-        per_light = per_light or (group[0] == eid and leads_by_pointers(group, by_id))
+        per_light = per_light or (e.get("group") == group and leads_by_pointers(group, by_id, eid))
         if sum(counts) == held or (len(group) > 1 and per_light
                                    and sum(counts) == len(solution)):
             continue
@@ -774,7 +777,7 @@ def check_apostrophes(puzzle, flags):
         if not total:
             continue
         group = [by_id[g] for g in group_of.get(eid) or [eid] if g in by_id]
-        if group[0] is e and total == sum(g["length"] for g in group):
+        if (group[0] is e or e.get("group")) and total == sum(g["length"] for g in group):
             lights = group
         elif total == e["length"]:
             lights = [e]
@@ -799,6 +802,40 @@ def check_apostrophes(puzzle, flags):
                 f"{eid}: enumeration ({enum}) prints an apostrophe at {spell(want)}; "
                 f"separators mark \"'\" at {spell(have)}"
                 + (f" and a break at {spell(want & other)}" if want & other else ""))))
+
+
+def check_printed_counts(puzzle, flags):
+    """Each fetch_puzzle.PRINTED_COUNT_WRONG row of this puzzle against the
+    file: the light is there, its enumeration is still the one the row says
+    the paper printed, and its answer's separators are the intended count's,
+    cut over the lights that count adds up to (mend_printed_counts writes
+    them). A row that no longer describes the file is a finding too, so a
+    correction cannot outlive its misprint."""
+    from fetch_puzzle import separators
+    pid = puzzle.get("id")
+    entries = puzzle.get("entries") or []
+    by_id = {entry_id(e): e for e in entries}
+    for (row_pid, eid), (printed, intended, _why) in PRINTED_COUNT_WRONG.items():
+        if row_pid != pid:
+            continue
+        e = by_id.get(eid)
+        if e is None or e["clue"].get("enumeration") != printed:
+            held = "no such light" if e is None else f"({e['clue'].get('enumeration')})"
+            flags.append(("LENGTH", pid, f"{eid}: PRINTED_COUNT_WRONG says the paper "
+                          f"printed ({printed}), but the file holds {held}; delete "
+                          f"or mend the row"))
+            continue
+        lights = count_lights(entries, e, intended)
+        if not lights:
+            flags.append(("LENGTH", pid, f"{eid}: PRINTED_COUNT_WRONG's intended "
+                          f"({intended}) adds up to neither the light nor its group"))
+            continue
+        want = separators(intended, [m["length"] for m in lights])
+        have = [m["clue"].get("separators") or [] for m in lights]
+        if want != have:
+            flags.append(("LENGTH", pid, f"{eid}: printed ({printed}) for "
+                          f"({intended}), but its lights' separators are {have}, "
+                          f"not {want}; fetch_puzzle.mend_printed_counts writes them"))
 
 
 def check_group_order(puzzle, flags):
@@ -1162,6 +1199,7 @@ def check_puzzle(puzzle, today, flags):
     check_length(puzzle, checkable, flags)
     check_semicolon_counts(puzzle, flags)
     check_group_order(puzzle, flags)
+    check_printed_counts(puzzle, flags)
     check_apostrophes(puzzle, flags)
     check_cross(puzzle, checkable, flags)
     check_extra_cells(puzzle, flags)

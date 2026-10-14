@@ -981,7 +981,9 @@
     const out = {};
     // A light named in `selfClued` is an answer of its own that this one also
     // runs through (cryptic-21893's THERE): it keeps its own clue.
-    list.forEach((e) => (e.group || []).slice(1).forEach((id) => {
+    // A leader may print its clue on a later light of its answer, so every
+    // light of the group but its own is a continuation (tools/groups.py).
+    list.forEach((e) => (e.group || []).forEach((id) => {
       if (id !== entryId(e) && !(id in out) && !(e.selfClued || []).includes(id)) out[id] = entryId(e);
     }));
     return out;

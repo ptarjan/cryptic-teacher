@@ -690,6 +690,7 @@ LAYOUT = [
     ("fetching", "tools/desktop_hosts.py", "the desktop's LAN and tailnet addresses, read once from desktop_hosts.json by python and shell callers"),
     ("fetching", "tools/desktop_hosts.json", "the desktop's addresses, LAN first, tailnet as fallback: the one place to edit when its DHCP lease changes"),
     ("fetching", "tools/test_clue_repair.sh", "does tools/clue_repair.py give a clue whose bracket its own reading lost the count another reading prints, in its parts, so the scan filers file \"3,6,5\" and not the bare letter total \"14\"?"),
+    ("fetching", "tools/test_off_start_leader.sh", "a leader that prints its clue on a later light, and a count the paper printed wrong"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

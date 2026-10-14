@@ -82,7 +82,7 @@ stray = copy.deepcopy(puzzle)
 stray["entries"][0]["selfClued"] = ["2-down", "3-across", "4-down"]
 errors = []
 validate_annotations.check_groups(stray, errors)
-check("selfClued outside the group refused", any("not a later light" in e for e in errors), True)
+check("selfClued outside the group refused", any("not another light" in e for e in errors), True)
 pointer = copy.deepcopy(puzzle)
 pointer["entries"][1]["clue"]["text"] = "See 1"
 errors = []

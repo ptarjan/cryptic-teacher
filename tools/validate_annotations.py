@@ -79,6 +79,7 @@ from fetch_puzzle import (  # one reader, one exemption
     blog_facts_for,
     clue_words,
     corrected_clue,
+    has_words,
     leaders_named,
     load_source_table,
     read_puzzle_file,
@@ -2839,9 +2840,17 @@ def is_pointer_text(e):
 
 def check_groups(puzzle, errors):
     """A linked answer is one answer over several lights. Its leader carries
-    `group`, the answer's lights in order with itself first, and the whole
-    annotation; every other light carries neither a group nor an annotation.
-    No group at all is the ordinary case: the entry is its own answer.
+    `group`, the answer's lights in word order, and the whole annotation;
+    every other light carries neither a group nor an annotation. No group at
+    all is the ordinary case: the entry is its own answer.
+
+    The leader is the light that prints the clue, and it is first in its
+    group unless the paper printed the clue on a later light of the answer:
+    cryptic-21673 prints VESTED INTEREST's clue at 26-across, so 26-across
+    holds ["25-across", "26-across"]. Each light before such a leader prints
+    no clue of its own (blank, or a pointer), or is named in `selfClued`
+    (cryptic-23821's 23-down RIGHT has its own clue and also starts 22-across's
+    RIGHT AS RAIN).
 
     A light may continue more than one answer, and then it is in more than one
     group, but only when its own clue names more than one leader. Cryptic
@@ -2872,17 +2881,33 @@ def check_groups(puzzle, errors):
                           f"different lights. A clue that is its own answer "
                           f"carries no group at all.")
             continue
-        if group[0] != entry_id(e):
-            errors.append(f"{entry_id(e)}: group {group} does not start with this "
-                          f"entry. Only the leader carries the group, first in it")
+        if entry_id(e) not in group:
+            errors.append(f"{entry_id(e)}: group {group} does not name this entry. "
+                          f"Only the leader carries the group, and it is one of its lights")
             continue
         clued = groups.self_clued(holder)
-        for gid in sorted(clued - set(group[1:])):
-            errors.append(f"{entry_id(e)}: selfClued names {gid}, which is not a later "
+        for gid in sorted(clued - set(group) | (clued & {entry_id(e)})):
+            errors.append(f"{entry_id(e)}: selfClued names {gid}, which is not another "
                           f"light of its group {group}")
-        for gid in dict.fromkeys(group[1:]):
+        if group[0] != entry_id(e):
+            if is_pointer_text(e) or not has_words(e["clue"].get("text", "")):
+                errors.append(f"{entry_id(e)}: group {group} starts on another light, "
+                              f"but this entry prints no clue to lead it from. A group "
+                              f"starts with its leader unless the paper printed the "
+                              f"clue on a later light")
+            for gid in group[:group.index(entry_id(e))]:
+                other = by_id.get(gid)
+                if other is None or gid in clued:
+                    continue
+                if has_words(other["clue"].get("text", "")) and not is_pointer_text(other):
+                    errors.append(f"{entry_id(e)}: group {group} starts on {gid}, whose "
+                                  f"clue is a clue of its own. A leader prints its clue "
+                                  f"on a later light only when the answer's first light "
+                                  f"prints none (blank, or \"See N\"), or names that "
+                                  f"light in selfClued")
+        for gid in dict.fromkeys(group):
             if gid == entry_id(e):
-                continue                  # an answer that repeats its first light
+                continue                  # the leader, or an answer that repeats it
             other = by_id.get(gid)
             if other is None:
                 errors.append(f"{entry_id(e)}: group names {gid}, which is not in this puzzle")
@@ -2893,8 +2918,9 @@ def check_groups(puzzle, errors):
                 # THE REPUBLIC), or it continues another answer (cryptic-25126's
                 # MINOR, "See 17", ends both MAJOR AND MINOR and ASIA MINOR).
                 # A pointer continuing nothing else is a plain continuation.
-                elsewhere = any(gid in h["group"][1:] and gid not in groups.self_clued(h)
-                                for _, h in groups.linked(puzzle["entries"]))
+                elsewhere = any(gid in h["group"] and gid != entry_id(lead)
+                                and gid not in groups.self_clued(h)
+                                for lead, h in groups.linked(puzzle["entries"]))
                 if is_pointer_text(other) and not elsewhere:
                     errors.append(f"{gid}: in {entry_id(e)}'s selfClued, but its clue is a "
                                   f"pointer and it continues no other answer; a light whose "

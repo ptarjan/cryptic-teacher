@@ -493,7 +493,12 @@ ORDER_LIMIT = 8
 # Linked answers the lexicon cannot put in order, because more than one
 # arrangement of the lights spells words and only the phrase says which:
 # (puzzle id, leader) -> the answer's lights in order. Read by group_orders.
+# A leader that prints its clue on a later light of its answer is pinned here
+# too (tools/groups.py): the paper's data lists the clue's light first, and a
+# re-fetch would put it back.
 GROUP_ORDER = {
+    ("cryptic-21673", "26-across"): ["25-across", "26-across"],
+    ("cryptic-21684", "25-across"): ["24-across", "25-across"],
     ("cryptic-22037", "21-across"): ["21-across", "9-across", "23-down", "11-across"],
     ("cryptic-22069", "16-across"): ["16-across", "19-across", "22-across", "23-across"],
     ("cryptic-22333", "3-down"): ["3-down", "24-across", "16-across", "22-across",
@@ -548,12 +553,12 @@ def group_orders(puzzle):
     by_id = {entry_id(e): e for e in puzzle.get("entries") or []}
     out = {}
     for lead, g in groups.leaders(puzzle.get("entries") or []).items():
-        if g[0] != lead or len(g) < 3 or len(set(g)) != len(g) or not set(g) <= set(by_id):
-            continue
         pinned = GROUP_ORDER.get((puzzle.get("id"), lead))
         if pinned:
             if pinned != g and sorted(pinned) == sorted(g):
                 out[lead] = list(pinned)
+            continue
+        if g[0] != lead or len(g) < 3 or len(set(g)) != len(g) or not set(g) <= set(by_id):
             continue
         if len(g) > ORDER_LIMIT or not all(by_id[m].get("solution") for m in g):
             continue
@@ -1020,6 +1025,8 @@ def write_puzzle_file(path, puzzle, generator=None):
     # A linked answer's lights in the order that reads as words, before the
     # sources are compared against the joined answer.
     puzzle = order_groups(puzzle)
+    # A count the paper printed wrong: the answer's breaks are the intended one's.
+    puzzle = mend_printed_counts(puzzle)
     # A puzzle built fresh from a page names its `series` and `name`; the file
     # stores neither, only the prize/title/label facts display_name needs.
     if "series" in puzzle or "name" in puzzle:
@@ -2047,6 +2054,79 @@ SOURCE_LIGHT_WRONG = {
         "L, I, G from 27-, 29- and 31-across; the page's 9 cells run three "
         "rows off the board")),
 }
+
+
+# The counts the PAPER printed wrong: a clue whose enumeration, as the paper
+# itself printed it, does not cut its answer. Keyed by puzzle and entry like
+# SOURCE_LIGHT_WRONG, holding the enumeration as printed, the one the answer
+# reads by, and the evidence. Unlike SOURCE_LIGHT_WRONG (a feed serving what
+# the paper did not print) nothing printed is replaced: `clue.enumeration`
+# stays as printed, and the answer's `separators` follow the intended count.
+# mend_printed_counts lays them out on every write, so a re-fetch keeps them;
+# puzzle_integrity.check_printed_counts holds the file to each row.
+PRINTED_COUNT_WRONG = {
+    ("cryptic-21734", "4-down"): (
+        "5-7", "6-6",
+        "PAVING-STONES fills 4-down PAVINGS and 8-across TONES; the Guardian's "
+        "page prints the hyphen after the fifth letter, PAVIN-GSTONES"),
+    ("cryptic-22045", "2-down"): (
+        "0,11", "5,6",
+        "RHODE ISLAND fills 2-down RHODE and 20-down ISLAND; the Guardian's "
+        "page prints (0,11)"),
+    ("cryptic-23874", "18-down"): (
+        "5,8", "5,3",
+        "DITTY BAG fills the eight cells the grid gives 18-down; the Guardian's "
+        "page prints (5,8), and no light is blank or spare for five more letters"),
+    ("ftcryptic-18474", "5-down"): (
+        "15", "8,7",
+        "HERMIONE GRANGER is two words; the paper printed (15), as the "
+        "fifteensquared write-up of 2026-09-08 notes"),
+    ("sundaytimes-4661", "12-across"): (
+        "10", "5,5",
+        "ROUTE MARCH is two words; the paper printed (10), as the "
+        "timesforthetimes write-up notes"),
+}
+
+
+def printed_count_wrong(pid, eid, printed):
+    """The enumeration the answer of light `eid` reads by when the paper
+    printed `printed` wrong (PRINTED_COUNT_WRONG), else None."""
+    row = PRINTED_COUNT_WRONG.get((pid, eid))
+    return row[1] if row and row[0] == printed else None
+
+
+def count_lights(entries, e, fmt):
+    """The lights `fmt`, entry e's count, cuts: e's group when it adds up to
+    the group, e alone when it adds up to e, else None."""
+    by_id = {entry_id(x): x for x in entries}
+    total = sum(enumeration.counts(fmt))
+    group = [by_id[g] for g in e.get("group") or [] if g in by_id]
+    if group and total == sum(g["length"] for g in group):
+        return group
+    return [e] if total == e["length"] else None
+
+
+def mend_printed_counts(puzzle):
+    """`puzzle` with the separators of each PRINTED_COUNT_WRONG light cut from
+    the count its answer reads by, over its group when that count is the
+    group's. A row whose printed count the file no longer holds is left
+    alone: check_printed_counts names it. Run on every write."""
+    pid = puzzle.get("id")
+    if not any(k[0] == pid for k in PRINTED_COUNT_WRONG):
+        return puzzle
+    puzzle = {**puzzle, "entries": [dict(e) for e in puzzle["entries"]]}
+    entries = puzzle["entries"]
+    for e in entries:
+        fmt = printed_count_wrong(pid, entry_id(e), e["clue"].get("enumeration"))
+        lights = fmt and count_lights(entries, e, fmt)
+        if not lights:
+            continue
+        for m, seps in zip(lights, separators(fmt, [m["length"] for m in lights])):
+            clue = {k: v for k, v in m["clue"].items() if k != "separators"}
+            if seps:
+                clue["separators"] = seps
+            m["clue"] = {k: clue[k] for k in CLUE_KEYS if k in clue}
+    return puzzle
 
 
 def _light_field(entry, field):
