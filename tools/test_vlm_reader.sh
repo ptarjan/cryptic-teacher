@@ -29,6 +29,11 @@ def check(what, want, got):
 
 T = Path(os.environ["TMP"])
 vlm.CACHE = T / "vlm"
+# A fake desktop, never the real one: two LAN leases and a tailnet address
+# from the documentation ranges (RFC 5737), whatever tools/desktop_hosts.json
+# lists, and no ssh to ask whether it is busy.
+vlm.URLS = ["http://192.0.2.198:8090", "http://192.0.2.180:8090", "http://198.51.100.15:8090"]
+vlm.desktop_busy.busy = lambda hosts: None
 
 # Nothing listening: not reachable, and asked once.
 vlm.URL = ""
@@ -106,8 +111,6 @@ def fake_lan_dead(req, timeout=None):
         return io.BytesIO(b'{"running": []}')
     return io.BytesIO(json.dumps({"data": [{"id": vlm.MODEL}]}).encode())
 urllib.request.urlopen = fake_lan_dead
-real_busy = vlm.desktop_busy.busy
-vlm.desktop_busy.busy = lambda hosts: None
 vlm.URL, vlm._RESOLVED[0] = lan, False
 vlm._UP.clear()
 vlm._CHAT[0] = float("-inf")
@@ -142,7 +145,6 @@ vlm.URL, vlm._RESOLVED[0] = "http://127.0.0.1:9", False
 vlm._UP.clear()
 vlm.reachable()
 check("an override URL never falls back", True, all(p[0].startswith("http://127.0.0.1:9") for p in probed))
-vlm.desktop_busy.busy = real_busy
 urllib.request.urlopen = real
 vlm._RESOLVED[0] = True
 
