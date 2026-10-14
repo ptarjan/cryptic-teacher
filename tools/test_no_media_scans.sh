@@ -36,7 +36,12 @@ SCHEDULED = {
     "andlit_azed.py": ["cached", "fetch"],
     "blog_facts.py": ["extract", "inputs_digest"],
     "blog_comment_difficulty.py": ["months", "comments_by_post", "post_ids"],
+    # gale_fetch.py run() asks this every pass of its loop.
+    "gale_fetch.py": ["have_docs"],
 }
+#: {file: [function]} that may not run a command on the host either (an ssh
+#: `ls` of the Gale folders is a listing of the media disk too).
+NO_SSH = {"gale_fetch.py": ["have_docs"]}
 SCANS = {"glob", "rglob", "iterdir", "listdir", "scandir", "walk", "stat", "exists", "is_file", "is_dir"}
 #: Paths on the SSD those functions may stat: gale_fetch's log in ~/.cache,
 #: the repo's pins file.
@@ -60,6 +65,8 @@ for f, names in SCHEDULED.items():
                     isinstance(on, ast.Call) and getattr(on.func, "id", "") in SSD_CALLS)
                 if called in SCANS and not ssd:
                     bad.append(f"{f}:{node.lineno}: {name} calls {called}()")
+                if called in ("ssh", "run", "check_output", "Popen") and name in NO_SSH.get(f, ()):
+                    bad.append(f"{f}:{node.lineno}: {name} runs a command ({called}()) on the host")
 # fetch_fifteensquared.py runs at every daily ft/azed/genius unit: its cache
 # report reads every post, so only --status runs it.
 tree = ast.parse(open("fetch_fifteensquared.py").read())
