@@ -166,8 +166,37 @@ def fits(grid, across, down, groups):
     return True
 
 
-def printed_grid(page, across, down, groups):
-    """(grid, None) from the page's blank grid picture, or (None, why not)."""
+# A picture whose numbering is the clue list's, light for light, but which
+# disagrees with this many printed counts or fewer is the page misprinting the
+# counts, not a misread: a misread block shifts the numbering, which fits()
+# and misprints() both refuse. Crossword Classic 24 prints (6-9) over
+# CROSS-REFERENCE's 14 cells, (6) over CUBES and (6) over SAILS.
+MAX_MISPRINTS = 3
+
+
+def misprints(grid, across, down, groups):
+    """[(number, direction, printed, cells)] where `grid` numbers exactly as
+    the clue list does except for printed counts, at most MAX_MISPRINTS of
+    them, and is half-turn symmetric; else None. [] is a strict fit."""
+    if [row[::-1] for row in grid[::-1]] != list(grid):
+        return None
+    got = {(n, d): length for n, d, length in rg.lights_from_grid(grid)}
+    want = [(lg[0], d, lg[1]) for d, ls in (("across", across), ("down", down)) for lg in ls]
+    if len(got) != len(want) or any((n, d) not in got for n, d, _ in want):
+        return None
+    lights = {"across": across, "down": down}
+    for members, total in groups or ():
+        if sum(got[(lights[d][i][0], d)] for d, i in members) != total:
+            return None
+    wrong = [(n, d, length, got[(n, d)]) for n, d, length in want
+             if length is not None and got[(n, d)] != length]
+    return wrong if len(wrong) <= MAX_MISPRINTS else None
+
+
+def printed_grid(page, across, down, groups, misprinted=None):
+    """(grid, None) from the page's blank grid picture, or (None, why not).
+    Given a list as `misprinted`, a picture that misprints() accepts is taken
+    too, the printed counts it overrules appended to the list."""
     url = image_url(page, "grid")
     if url is None:
         return None, "the page prints no grid picture"
@@ -179,6 +208,13 @@ def printed_grid(page, across, down, groups):
         grid = blocks(data, size)
         if grid is not None and fits(grid, across, down, groups):
             return grid, None
+    if misprinted is not None:
+        for size in fn.SIZES:
+            grid = blocks(data, size)
+            wrong = grid is not None and misprints(grid, across, down, groups)
+            if wrong:
+                misprinted.extend(wrong)
+                return grid, None
     return None, "the grid picture does not number as the clue list"
 
 

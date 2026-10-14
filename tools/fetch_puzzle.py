@@ -2081,6 +2081,26 @@ PRINTED_COUNT_WRONG = {
         "15", "8,7",
         "HERMIONE GRANGER is two words; the paper printed (15), as the "
         "fifteensquared write-up of 2026-09-08 notes"),
+    # Crossword Classic pages (2008 retypes of Lewis's 1947-48 Nation
+    # puzzles): the page's own grid picture (nation_images.misprints) gives
+    # the light's cells, and where the word split is not known the count is
+    # the plain length.
+    ("nation-15", "6-down"): (
+        "6", "5",
+        "the page's printed grid picture gives 6-down five cells (row 5 blocks "
+        "under it), and every other light numbers and measures as printed"),
+    ("nation-24", "17-across"): (
+        "6", "5",
+        "the page's printed grid picture gives 17-across five cells; CUBES "
+        "(the duplication of the cube)"),
+    ("nation-24", "22-down"): (
+        "6", "5",
+        "the page's printed grid picture gives 22-down five cells; SAILS "
+        "(a steamer does without them)"),
+    ("nation-24", "27-across"): (
+        "6-9", "14",
+        "the page's printed grid picture gives 27-across 14 cells, the mirror "
+        "of 1-across (8,6); likely CROSS-REFERENCE (5-9), split not proven"),
     ("sundaytimes-4661", "12-across"): (
         "10", "5,5",
         "ROUTE MARCH is two words; the paper printed (10), as the "

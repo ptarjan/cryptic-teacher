@@ -35,7 +35,7 @@ import enumeration  # a clue's printed counts; tools/enumeration.py
 import light_spec
 import reconstruct_grid as rg
 from clues_only import entries_from_grid
-from fetch_puzzle import has_words, puzzle_path, write_puzzle_file
+from fetch_puzzle import PRINTED_COUNT_WRONG, has_words, printed_count_wrong, puzzle_path, write_puzzle_file
 from file_penguin_puzzle import separators
 from groups import entry_id, is_pointer
 from normalise_linked_enumerations import normalise_record, resolve_groups
@@ -516,10 +516,26 @@ def build(page, url, known=None, grid=None, origin="reconstructed"):
     if read is None:
         return None, why
     m, head, across, down, groups = read
+    pid = puzzle_id(SERIES, m["number"])
     if grid is None:
         import nation_images
-        grid, _ = nation_images.printed_grid(page, across, down, groups)
+        # The picture outranks the printed counts (nation_images.misprints):
+        # each count it overrules must be a fetch_puzzle.PRINTED_COUNT_WRONG
+        # row, so the misprint is recorded and puzzle_integrity holds the
+        # file to it; the light then takes the picture's length.
+        misprinted = []
+        grid, _ = nation_images.printed_grid(page, across, down, groups, misprinted)
         origin = "published" if grid is not None else origin
+        lights = {(lg[0], d): lg for d, ls in (("across", across), ("down", down)) for lg in ls}
+        for n, d, _printed, cells in misprinted:
+            lg = lights[(n, d)]
+            fmt = (lg[3] or {}).get("enumeration") if len(lg) > 3 else None
+            row = PRINTED_COUNT_WRONG.get((pid, f"{n}-{d}"))
+            if not row or row[0] != fmt or sum(enumeration.counts(row[1])) != cells:
+                return None, (f"the grid picture gives {n}-{d} {cells} cells where the page "
+                              f"prints ({fmt}): add fetch_puzzle.PRINTED_COUNT_WRONG"
+                              f"[({pid!r}, '{n}-{d}')] = ({fmt!r}, <count of {cells}>, why)")
+            lg[1] = cells
     if grid is None:
         grid, why = search_grid(across, down, groups)
     if grid is None:
@@ -554,7 +570,8 @@ def build(page, url, known=None, grid=None, origin="reconstructed"):
         if ids[0] != entry_id(e):
             return None, f"{entry_id(e)} carries an enumeration but is a continuation"
         try:
-            seps.update(separators(ids, by_id, e["enumeration"]))
+            fmt = printed_count_wrong(pid, entry_id(e), e["enumeration"]) or e["enumeration"]
+            seps.update(separators(ids, by_id, fmt))
         except SystemExit as err:
             return None, str(err)
     out = []
