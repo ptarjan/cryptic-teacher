@@ -895,12 +895,18 @@ LOST_CAUSES = {
                        "and no archive or blog holds a free copy: only a print copy files it",
     "counts-only": "the Guardian's article prints only the counts, the clues having been on "
                    "a picture it no longer serves; no archive or blog holds them",
+    "not-migrated": "the Guardian never migrated it to an article page (not on the series "
+                    "listing or its date pages, no /article/ or genius-no-N URL; Wayback has no "
+                    "capture): fifteensquared prints answers, not clues, so only a print copy files it",
 }
 #: Checked 2026-10-12 on theguardian.com, fifteensquared and web.archive.org
 #: (whose captures of these 403'd or 503'd: re-check it when it answers).
 LOST = {6: "not-on-guardian", 20: "not-on-guardian", 33: "not-on-guardian",
         52: "not-on-guardian", 54: "not-on-guardian", 56: "not-on-guardian",
-        9: "counts-only", 21: "counts-only", 32: "counts-only"}
+        9: "counts-only", 21: "counts-only", 32: "counts-only",
+        # Checked 2026-10-13: series date pages, /article/ and genius-no-N slugs, Wayback.
+        **{n: "not-migrated" for n in (68, 86, 113, *range(118, 129), 130, 132, 133, 134,
+                                         136, 137, 139)}}
 
 
 def split_shared_leaders(pdf, answers):
