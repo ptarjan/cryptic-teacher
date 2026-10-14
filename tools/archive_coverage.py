@@ -34,6 +34,7 @@ from pathlib import Path
 import canberra_london_numbers
 import downloads
 import fetch_archive_org_editions as fetcher
+import media_manifest
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -152,10 +153,22 @@ def corpus(series):
     return by_date, by_number
 
 
+def _item_off_media(item):
+    """scans' row for `item` from its metadata file, for a CACHE off the media disk (a test's), or None."""
+    path = CACHE / "items" / f"{item}.json"
+    if not path.exists():
+        return None
+    return fetcher.item_row(item, json.loads(path.read_text()))
+
+
 def scans(paper):
     """({date: "<item>/<slug>"} of every edition archive.org lists for
-    `paper`, {year: listing cached}) from the cached item metadata."""
+    `paper`, {year: listing cached}) from the cached item metadata: off the
+    SSD manifest the fetcher appends to (fetcher.IA_ITEMS) when CACHE is on
+    the media disk, so the every-minute gale_inbox tick stats and reads none
+    of its item files there."""
     out, listed = {}, {}
+    held = media_manifest.latest(fetcher.IA_ITEMS, "key") if media_manifest.on_media(CACHE) else None
     group = {"times": "times", "ft": "ft", "guardian": "guardian", "telegraph": "telegraph"}[paper.key]
     try:
         items = [i["identifier"] for i in json.loads((CACHE / "items" / f"_group_{group}.json").read_text())]
@@ -165,15 +178,10 @@ def scans(paper):
         m = paper.item.match(item)
         if not m:
             continue
-        path = CACHE / "items" / f"{item}.json"
-        listed[int(m.group(1))] = path.exists()
-        if not path.exists():
-            continue
-        meta = json.loads(path.read_text())
-        for name in fetcher.editions_of(meta):
-            date = fetcher.edition_date(name)
-            if date:
-                out.setdefault(date, f"{item}/{fetcher.slug_of(item, name)}")
+        row = held.get(item) if held is not None else _item_off_media(item)
+        listed[int(m.group(1))] = row is not None
+        for date, slug in (row or {}).get("editions", {}).items():
+            out.setdefault(date, f"{item}/{slug}")
     for group in ONE_ISSUE_GROUPS.get(paper.key, ()):
         try:
             issues = json.loads((CACHE / "items" / f"_group_{group}.json").read_text())

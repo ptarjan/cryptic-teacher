@@ -81,6 +81,7 @@ import cross_validate as cv
 import file_archive_org_puzzles as fa
 import gale_inbox as gi
 import gale_listener as gl
+import media_manifest
 import listener_grid as lg
 import ocr_clues
 import reconstruct_grid as rg
@@ -752,6 +753,8 @@ def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout
         if printed and write:
             Path(reports_to).mkdir(parents=True, exist_ok=True)
             (Path(reports_to) / f"{printed['id']}.json").write_text(json.dumps(printed, indent=1) + "\n")
+            # cross_validate.ListenerReport.ids reads this, not a listing of the media disk.
+            media_manifest.record_file("listenerreport-source", Path(reports_to) / f"{printed['id']}.json")
         if puzzle is not None and "lacks" not in verdict:
             # build() files a light the page prints with no clue as just
             # {"missing": true}; a clue unread keeps its empty text.

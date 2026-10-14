@@ -24,6 +24,7 @@ import time
 from pathlib import Path
 
 import dir_cache
+import media_manifest
 
 #: The filer whose files these are: a held file it wrote names it (source.acquiredBy).
 TOOL = "tools/file_archive_org_puzzles.py"
@@ -66,6 +67,8 @@ def writer(source, series, puzzles):
         if where is None:
             Path(source).mkdir(parents=True, exist_ok=True)
             (Path(source) / f"{puzzle['id']}.json").write_text(json.dumps(puzzle, indent=1))
+            # cross_validate.ArchiveOrg.ids reads this, not a listing of the media disk.
+            media_manifest.record_file("archiveorg-source", Path(source) / f"{puzzle['id']}.json")
             return True
         return scan_queue.file_puzzle(write_puzzle_file, TOOL, filer_path(where, series, puzzles), puzzle, verdict)
     return commit
