@@ -1096,32 +1096,50 @@ def zones_of(cache):
 
 
 def input_hash(d):
-    """The article's files by size and modification time in whole seconds
-    (a copy to another disk keeps those, not the nanoseconds) and its clue
-    zone images by name: a rerun stats every article but reads only those
-    whose hash moved. Inputs only: our own readings cached beside the zones
-    are the read's output. The files' stats are taken again only when the
-    article dir's dir_key moved: tools/fetch_trove.py writes each by
-    atomic rename, which moves it."""
+    """The article's files by size and whole-second modification time
+    (media_manifest.trove_files) and its clue zone images by name
+    (trove_zone_names): a rerun reads only the articles whose hash moved.
+    Inputs only: our own readings cached beside the zones are the read's
+    output. On the media disk both come from the trove-inputs manifest on
+    the SSD, which tools/fetch_trove.py appends to as it writes them, so a
+    rerun stats no article; one missing there is taken off the disk once
+    and appended (_inputs_off_disk)."""
+    held = trove_inputs().get(d.name, {}) if media_manifest.on_media(d) else {}
+    if "files" not in held or "zones" not in held:
+        held = _inputs_off_disk(d, held)
     h = hashlib.sha256()
-    try:
-        memo = dir_cache.seen(d)[2]
-    except (FileNotFoundError, NotADirectoryError):
-        memo = {}
-    if "input_stats" not in memo:
-        stats = []
-        for name in ("meta.json", "ocr.txt", "grid.jpg"):
-            try:
-                st = os.stat(d / name)
-            except (FileNotFoundError, NotADirectoryError):
-                st = None
-            stats.append(f"{name}:{st.st_size}:{int(st.st_mtime)}" if st else f"{name}:-")
-        memo["input_stats"] = "".join(stats)
-    h.update(memo["input_stats"].encode())
-    zones = sorted((n for n in dir_cache.listed(clue_zones(d) / d.name) if n.startswith("zone") and n.endswith(".png")),
-                   key=lambda n: int(n[4:-4]))
-    h.update(" ".join(zones).encode())
+    h.update(held["files"].encode())
+    h.update(held["zones"].encode())
     return h.hexdigest()[:16]
+
+
+def _fold_input(acc, line):
+    """Fold one trove-inputs row into {article: {"files", "zones"}}, a later row's field standing."""
+    try:
+        row = json.loads(line)
+        held = acc.setdefault(str(row["article"]), {})
+    except (ValueError, KeyError, TypeError):
+        return  # a torn last line
+    held.update({k: row[k] for k in ("files", "zones") if k in row})
+
+
+def trove_inputs():
+    """{article id: {"files", "zones"}} off the trove-inputs manifest, folding
+    only the rows appended since the last call."""
+    return dir_cache.appended(media_manifest.path(media_manifest.TROVE_INPUTS), dict, _fold_input)
+
+
+def _inputs_off_disk(d, held):
+    """input_hash's inputs of article dir `d`, those `held` lacks taken off
+    the disk and, when `d` is on the media disk, appended to trove-inputs."""
+    new = {}
+    if "files" not in held:
+        new["files"] = media_manifest.trove_files(d)
+    if "zones" not in held:
+        new["zones"] = media_manifest.trove_zone_names(clue_zones(d) / d.name)
+    if media_manifest.on_media(d):
+        media_manifest.record(media_manifest.TROVE_INPUTS, d, article=d.name, **new)
+    return {**held, **new}
 
 
 def rekey_unchanged(ledger, cache=CACHE, puzzles=None):

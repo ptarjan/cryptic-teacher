@@ -48,7 +48,8 @@ SCHEDULED = {
     # gale_fetch.py run() asks this every pass of its loop.
     "gale_fetch.py": ["have_docs"],
     # edition_queue plan (every corpus slice) dates each due Trove article.
-    "file_trove_puzzles.py": ["article_date", "stamp_cause", "zones_held", "plan", "article_dirs"],
+    "file_trove_puzzles.py": ["article_date", "stamp_cause", "zones_held", "plan", "article_dirs", "input_hash",
+                              "trove_inputs", "_fold_input"],
     # edition_queue's trove fetch slice plans off the caches.
     "fetch_trove.py": ["plan", "pending_zones", "fetched_ids", "zoned_ids", "_in"],
     # coverage.py daily (daily_update.sh): the FT PDFs fetched.
@@ -99,4 +100,42 @@ if bad:
     print("A scheduled tick reads tools/media_manifest.py, not the media disk:\n" + "\n".join(bad))
     sys.exit(1)
 print(f"ok: {sum(map(len, SCHEDULED.values()))} scheduled functions list, glob and stat nothing")
+PY
+
+# file_trove_puzzles plan and _run, with nothing new, stat no article dir
+# and no zone dir: each article's inputs come from the trove-inputs manifest
+# (input_hash), its list from trove-titles.
+t=$(mktemp -d)
+trap 'rm -rf "$t"' EXIT
+mkdir -p "$t/dl/trove/7" "$t/dl/trove-clues/7" "$t/dl/.manifest" "$t/puzzles"
+echo '{"title": "01 Jun 1972 - Crossword"}' > "$t/dl/trove/7/meta.json"
+echo clues > "$t/dl/trove/7/ocr.txt"
+: > "$t/dl/trove-clues/7/zone0.png"
+echo '{"article": "7", "title": "01 Jun 1972 - Crossword"}' > "$t/dl/.manifest/trove-titles.jsonl"
+echo '{"article": "7", "readings": true}' > "$t/dl/.manifest/trove-zones.jsonl"
+for m in trove-titles trove-zones; do echo '{}' > "$t/dl/.manifest/$m.complete"; done
+export CT_DOWNLOADS="$t/dl" VLM_READER_URL=
+# The first run after this lands takes each article's inputs off the disk once.
+python3 -c "
+import file_trove_puzzles as F, downloads, json
+h = F.input_hash(downloads.TROVE / '7')
+(downloads.TROVE / 'filed.jsonl').write_text(json.dumps({'article': '7', 'inputs': h, 'skip': 'test',
+                                                         'readAt': '2026-10-14T00:00:00+00:00'}) + '\n')"
+python3 - "$t/puzzles" <<'PY'
+import io, os, sys
+import downloads, file_trove_puzzles as F
+touched = []
+for name in ("stat", "lstat", "listdir", "scandir"):
+    real = getattr(os, name)
+    setattr(os, name, (lambda real: lambda p=".", *a, **k: (touched.append(p), real(p, *a, **k))[1])(real))
+units = F.plan(puzzles=sys.argv[1])
+tally = F.run(write=False, out=io.StringIO(), puzzles=sys.argv[1])
+# The ledger, its lock and the folder holding them (scan_queue.lock makes it) aside.
+media = sorted({os.fspath(p) for p in touched if isinstance(p, (str, os.PathLike))
+                and os.fspath(p).startswith(str(downloads.ROOT)) and "/.manifest/" not in os.fspath(p)
+                and os.fspath(p) != str(downloads.TROVE) and not os.path.basename(p).startswith("filed.")})
+if units or tally != {"skipped: test": 1} or media:
+    print(f"FAIL file_trove_puzzles plan/_run with nothing new: units {units}, tally {tally}, media paths statted {media}")
+    sys.exit(1)
+print("ok   file_trove_puzzles plan and _run with nothing new stat no Trove article or zone dir")
 PY
