@@ -115,6 +115,9 @@ def _causes():
     for key, words in privateeye_wayback.LOST_CAUSES.items():
         out[("wayback", key)] = Cause("tools/privateeye_wayback.py", words,
                                       key in ("not-read", "refused"), False)
+    import file_livejournal_puzzles
+    for key, words in file_livejournal_puzzles.LOST_CAUSES.items():
+        out[key] = Cause("tools/file_livejournal_puzzles.py", words, False, False)
     out[("none", "no-source")] = Cause(
         "tools/first_issue.py", "no source we know prints it: find one (tools/first_issue.py SOURCES)", False, False)
     import file_blog_puzzles
@@ -436,6 +439,10 @@ def build(today=None):
         import privateeye_wayback
         for n, cause in privateeye_wayback.lost().items():
             numbered["cyclops"][2].add((n, "wayback", cause))
+    if "timesclub" in numbered:
+        import file_livejournal_puzzles
+        for n, (source, cause) in file_livejournal_puzzles.lost().items():
+            numbered["timesclub"][2].add((n, source, cause))
     if "azed" in numbered:
         for n, cause in andlit_rows():
             numbered["azed"][2].add((n, "andlit", cause))

@@ -305,6 +305,11 @@ ACQUIRED_BY = {
         "what": "cryptics.georgeho.org's ODbL scrape of a times-for-the-times, "
                 "fifteensquared or bigdave44 write-up, the grid rebuilt from its "
                 "clues and answers by tools/times_grids.py"},
+    "tools/file_livejournal_puzzles.py": {
+        "channel": "blog",
+        "what": "a times-for-the-times write-up still on its old LiveJournal and "
+                "never moved to the WordPress blog, the grid rebuilt from its "
+                "clues and answers by tools/times_grids.py"},
     "tools/build_authored_puzzle.py": {
         "channel": "authored", "what": "set here, not fetched"},
     "unknown": {
@@ -419,6 +424,8 @@ for _host, _names in GEORGEHO_HOSTS.items():
         ACQUISITION_BY_SOURCE[(_series, _host)] = (
             ACQUISITION_BY_SOURCE.get((_series, _host), ())
             + ("tools/file_georgeho_puzzles.py",))
+ACQUISITION_BY_SOURCE[("timesclub", "times-xwd-times.livejournal.com")] += (
+    "tools/file_livejournal_puzzles.py",)
 
 # Series whose grid geometry is NOT the publisher's. Everything absent here is
 # "published", and that is checked rather than assumed: the book filers and

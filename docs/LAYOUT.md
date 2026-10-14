@@ -2613,5 +2613,7 @@ tools/test_cache_tar.sh                        tools/cache_tar.sh round trip on 
                                                is a cold cache, not an error
 tools/privateeye_wayback.py                    private Eye Cyclops crosswords the Eye no longer
                                                serves, from the Wayback Machine
+tools/file_livejournal_puzzles.py              file the Club Monthly posts only
+                                               times-for-the-times' old LiveJournal holds
 ```
 <!-- LAYOUT-END -->
