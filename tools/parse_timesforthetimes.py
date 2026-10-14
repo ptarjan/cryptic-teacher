@@ -23,6 +23,7 @@ import re
 import sys
 import unicodedata
 import downloads
+import media_manifest
 from groups import pointer_target
 
 CACHE = downloads.TIMESFORTHETIMES
@@ -1438,16 +1439,44 @@ def plausible(rec):
                                     for lo, hi in ranges)
 
 
-def run(write=True, limit=None):
-    files = sorted(POSTS.glob("*.json"))
+#: This parser's cursor in the posts manifest (tools/media_manifest.py).
+READER = "parse_timesforthetimes"
+
+
+def post_order(post_id):
+    """Where a post's record sits in OUT: its file name's order."""
+    return f"{post_id}.json"
+
+
+def run(write=True, limit=None, full=False):
+    """Parse the posts into OUT. The post list is the SSD manifest
+    fetch_wp_blog appends to, never a listing of the media disk; a run that
+    writes reads only the posts added since the last one and merges their
+    records into OUT, and reads them all (`full`) only when this parser
+    changed, the manifest was rebuilt, or OUT is missing."""
+    name = media_manifest.posts_name(POSTS)
+    version = media_manifest.source_version("parse_timesforthetimes.py", "groups.py")
+    new, whole, mark = media_manifest.unread(name, READER, version)
+    whole = whole or full or bool(limit) or not write
+    #: {file name: its OUT line}: the records an earlier run kept, when this one adds to them.
+    held = {}
+    if not whole:
+        try:
+            with open(OUT, encoding="utf-8") as f:
+                held = {post_order(json.loads(ln)["post_id"]): ln for ln in f if ln.strip()}
+        except FileNotFoundError:
+            whole = True
+    if whole:
+        new = media_manifest.rows(name)
+    files = sorted({POSTS / post_order(r["id"]) for r in new}, key=lambda f: f.name)
     if limit:
         files = files[:limit]
-    if not files:
+    if not files and whole:
         print(f"no cached posts in {POSTS} — run tools/fetch_wp_blog.py timesforthetimes")
         return None
     by_year, by_series, odd, unsplit = {}, {}, [], []
     kept = withtext = checked = agreed = 0
-    out = open(OUT, "w", encoding="utf-8") if write else None
+    out = {} if write else None
     for f in files:
         post = json.loads(f.read_text(encoding="utf-8"))
         rec = parse_post(post)
@@ -1478,10 +1507,20 @@ def run(write=True, limit=None):
             if a is not None:
                 checked += 1
                 agreed += a
-        if out:
-            out.write(json.dumps(rec, ensure_ascii=False) + "\n")
-    if out:
-        out.close()
+        if out is not None:
+            out[f.name] = json.dumps(rec, ensure_ascii=False) + "\n"
+    if out is not None:
+        held.update(out)
+        # Written aside and renamed in: a killed run leaves the last OUT whole.
+        part = OUT.with_name(OUT.name + ".part")
+        with open(part, "w", encoding="utf-8") as f:
+            f.writelines(held[k] for k in sorted(held))
+        part.replace(OUT)
+        # A --limit run wrote a partial OUT: no cursor, so the next run reads all.
+        if limit:
+            media_manifest.cursor_path(name, READER).unlink(missing_ok=True)
+        else:
+            media_manifest.advance(name, READER, mark, version)
     return {"files": len(files), "kept": kept, "withtext": withtext,
             "checked": checked, "agreed": agreed, "unsplit": unsplit,
             "odd": odd, "by_year": by_year, "by_series": by_series}
