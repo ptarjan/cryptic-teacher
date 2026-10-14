@@ -101,11 +101,11 @@ export OCR_REMOTE="${OCR_REMOTE-$(python3 "$(dirname "$0")/desktop_hosts.py" rem
 export OCR_THREADS="${OCR_THREADS:-1}"
 WORKERS="${OCR_FULL_PASS_WORKERS:-25}"
 # The last change to the scan filers that should alter past readings: a
-# count clue_repair takes from another reading keeps its parts ("(3.6.5)"
-# filed 3,6,5, not the bare letter total 14 that dropped SIR EDWARD ELGAR's
-# word breaks). Before it (2026-10-09T23:18:55): a printed solution grid's
-# frame found beside a heavy edge column (trove_solution_ocr.read_framed).
-REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-13T19:09:41+00:00}"
+# column ends at a solution heading whose opening is misread ("cotution of
+# Puzzle No 13.682"), and the vote puts back a "(" one reading prints
+# where it kept the ")" (1970s Times blanks). Before it (2026-10-13T19:09:41):
+# a count clue_repair takes from another reading keeps its parts.
+REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-14T07:54:26+00:00}"
 
 publish() {  # publish <what>: commit and push the puzzles filed so far
   durable_checkpoint "OCR" || return 1

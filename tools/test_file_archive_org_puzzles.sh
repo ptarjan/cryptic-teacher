@@ -460,6 +460,15 @@ run_on = [line("DOWN", 100, 820), line("1 See last stages of Le Mans", 100, 840)
 check("a run-on line opening on a STOP word is the clue's, a notice ends the column",
       "DOWN\n1 See last stages of Le Mans\nchampionship, possibly (4).\n2 Impressive maiden (7).",
       f.column_text(f.columns(run_on, grid)))
+# The solution heading with its opening misread (times-13683, 1974) still
+# ends the column: else 22 down's count is no longer its clue's end.
+for head in ("cotution of Puzzle No 13.682", "^j^on D f Puzzle No 13,682"):
+    col = [line("DOWN", 470, 820), line("22 Bird dives back into the", 470, 840), line("iceberg (5).", 470, 860),
+           line(head, 470, 880)]
+    check(f"a misread solution heading ends the column: {head}",
+          "DOWN\n22 Bird dives back into the\niceberg (5).", f.column_text(f.columns(col, grid)))
+check("a clue ending on a number is no solution heading",
+      [False, False], [f.stops(t) for t in ("puzzle no 1 (5).", "a business combine (8).")])
 
 # tidy(): OCR's slips in the print's shape.
 check("braces and square brackets read as round ones", "1 Poet's way (5)\n2 Talks (3,2)",
@@ -614,6 +623,17 @@ check("a lone letter no other reading has is a speck", "Annual production",
 got, blank = ocr_clues.reconcile({"8-down": ("Wisdom shown by, school-head", "10", None)},
                          ["8 Wisdom shown by school-head (10)", "8 Wisdom shown by school-head (10)"])
 check("reconcile votes with every reading it is given", "Wisdom shown by school-head", got["8-down"][0])
+# The vote counts no brackets: one reading's "(" put back where the rest read
+# "i", "I" glued on or nothing (times-14500 1 across, real readings).
+got, blank = ocr_clues.reconcile({"1-across": ("Washing part of old Somerset Inew Aron) House ?", "8", None)},
+                                 ["1 Washing part of old Somer-\nset i new Avon) House ? (8).",
+                                  "1 Washing part of old Somer-\nset (new Aron) House ? (8).",
+                                  "1 Washing part of old Somer\nset new Aron) House ? (8)."], {"1-across": 8})
+check("a bracket the vote lost is put back where a reading prints it",
+      ("Washing part of old Somerset (new Avon) House?", {}), (got["1-across"][0], blank))
+check("a bracket two readings open at different words is not put back", None,
+      ocr_clues.bracket_reopened("A b c) d", ["A b (c) d", "A (b c) d"]))
+check("a bracket no reading opens is not put back", None, ocr_clues.bracket_reopened("A b c) d", ["A b c d"]))
 
 # A real word misread as another (real readings off the gold editions).
 def vote(clue, *readings):
