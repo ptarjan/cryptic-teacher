@@ -333,6 +333,8 @@ said = io.StringIO()
 g.sync(out=said)
 check("and a sync tick skips until it is built", True, "not built yet" in said.getvalue())
 media_manifest.write(g.EDITIONS, [])
+# unfiled asks archive.org's edition manifest too (archive_coverage.fetched_editions).
+media_manifest.write(media_manifest.ARCHIVE_EDITIONS, [])
 # wanted() asks unfiled only for the dates archive.org holds no scan of:
 # those it skips need the ledgers and a stat of each edition's dir.
 class _Paper:
