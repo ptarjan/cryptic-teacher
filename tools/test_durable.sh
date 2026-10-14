@@ -225,6 +225,32 @@ out=$(bash "$tmp/cf.sh" "$tmp/cf2" 2>&1) || true
 [ -s "$HOME/alerts" ] || fail "a conflicting commit nothing re-reads was not alerted: $out"
 rm -f "$HOME/alerts"
 
+# 4c. A push that fails every checkpoint (10-13: the pre-push refused what the
+#     pass's old code wrote, 5 hours unnoticed) alerts once the streak reaches
+#     DURABLE_ALERT_AFTER, once per streak, and a checkpoint that pushes ends it.
+git clone -q "$tmp/origin.git" "$tmp/pf" 2>/dev/null
+cat >"$tmp/pf.sh" <<'EOF'
+cd "$1" || exit 1
+DURABLE_PATHS=(puzzles)
+DURABLE_ALERT_AFTER=3
+. tools/durable.sh
+mkdir -p puzzles/pf && echo "{\"n\": $2}" >"puzzles/pf/$2.json"
+durable_checkpoint "failing pass"
+EOF
+git -C "$tmp/pf" remote set-url origin "$tmp/nowhere.git"
+rm -f "$HOME/alerts"
+for i in 1 2; do bash "$tmp/pf.sh" "$tmp/pf" "$i" >/dev/null 2>&1 && fail "a checkpoint whose push cannot work succeeded"; done
+[ ! -s "$HOME/alerts" ] || fail "alerted before DURABLE_ALERT_AFTER failed checkpoints: $(cat "$HOME/alerts")"
+bash "$tmp/pf.sh" "$tmp/pf" 3 >/dev/null 2>&1 || true
+grep -q "failed 3 checkpoints in a row" "$HOME/alerts" 2>/dev/null || fail "3 failed checkpoints in a row did not alert"
+bash "$tmp/pf.sh" "$tmp/pf" 4 >/dev/null 2>&1 || true
+[ "$(wc -l <"$HOME/alerts")" = 1 ] || fail "a streak alerted more than once: $(cat "$HOME/alerts")"
+git -C "$tmp/pf" remote set-url origin "$tmp/origin.git"
+out=$(bash "$tmp/pf.sh" "$tmp/pf" 5 2>&1) || fail "the checkpoint after the push came back failed: $out"
+on_origin puzzles/pf/1.json >/dev/null || fail "the commits a failed streak left were not pushed: $out"
+[ ! -e "$(git -C "$tmp/pf" rev-parse --path-format=absolute --git-path durable-push-failures)" ] || fail "a pushing checkpoint did not end the streak"
+rm -f "$HOME/alerts"
+
 # 5. corpus_queue.py stop gives the pass's leader TERM and waits for it.
 python3 - "$REAL" <<'PY'
 import os, sys, time
