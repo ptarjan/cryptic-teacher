@@ -300,3 +300,24 @@ after=$(cd tools && CT_DOWNLOADS="$tmp/tv" python3 -c "$q")
 [ "$before" = "{'5': datetime.date(1980, 12, 11)} ['8']" ] || { echo "FAIL trove_dates/zones listed: $before"; exit 1; }
 [ "$after" = "{'8': datetime.date(1980, 12, 12)} ['7']" ] || { echo "FAIL trove_dates/zones manifest: $after"; exit 1; }
 echo "trove_dates, stamp_cause zones: ok"
+
+# privateeye_wayback.lost reads the SSD summary fetch/fetch-ia/file write, not
+# the captures: with it saved, the scans can go and the causes stand; a
+# changed privateeye_wayback.py (version) indexes the disk again once.
+mkdir -p "$tmp/pe/privateeye-wayback/ia"
+echo "no clues here" > "$tmp/pe/privateeye-wayback/ia/848_djvu.txt"
+echo '{"5": "grid does not rebuild"}' > "$tmp/pe/privateeye-wayback/refused.json"
+got=$(cd tools && CT_DOWNLOADS="$tmp/pe" python3 -c "
+import json, shutil, privateeye_wayback as pw
+causes = lambda: {n: c for n, c in pw.lost().items() if n in (2, 3, 69)}
+first = causes()
+s = json.loads(pw.summary_path().read_text())
+assert s['ia'] == [3] and s['refused'] == ['5'], s
+shutil.rmtree(pw.DIR)
+second = causes()
+s['version'] = 'old'
+pw.summary_path().write_text(json.dumps(s))
+print(first == second, first, causes())")
+[ "$got" = "True {2: 'scan-not-read', 3: 'scan-unparsed', 69: 'no-capture'} {2: 'scan-not-read', 3: 'scan-not-read', 69: 'no-capture'}" ] \
+    || { echo "FAIL privateeye_wayback.lost off the summary: $got"; exit 1; }
+echo "privateeye_wayback.lost: ok"
