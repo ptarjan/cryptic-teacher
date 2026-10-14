@@ -336,7 +336,7 @@ worker_mend_hints() {   # id fill verdict sidfile notefile
   touch "$mark"
   printf '%s\n%s\n\n%s\n' "Your fill passed the check, but your annotations did not land on it, so nothing has been written:" \
     "$(grep -v '^[[:space:]]*$' "$verdict" | grep -v '^annotate_check ' | tail -20 | cut -c1-400)" \
-    "The puzzle file is back as committed. Apply your fill again with python3 tools/apply_solution.py $id --fill $fill, fix what is listed above in tools/_ann_$id.json (leave null only a clue you cannot parse), and run python3 tools/annotate_check.py $id until it reports clean. Do not commit." >"$notefile"
+    "The puzzle file is back as committed. Apply your fill again with python3 tools/apply_solution.py $id --fill $fill --no-reindex, fix what is listed above in tools/_ann_$id.json (leave null only a clue you cannot parse), and run python3 tools/annotate_check.py $id until it reports clean. Do not commit." >"$notefile"
   echo "  [$id] its hints did not land on the fill — resuming its conversation once to mend them"
   return 0
 }

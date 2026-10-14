@@ -133,16 +133,113 @@ CITED = re.compile(r'(?:"[^"]{0,200}"\s*(?:The\s+)?Times|The Times[^,]{0,40}),\s
 
 # ------------------------------------------------------------ numbers and dates
 
-#: [held()] while a sync tick runs: the tick files no puzzle, so its five
-#: reads of the series' directory give one answer. Empty outside a sync.
+#: [True, held()?] while a sync tick runs: the tick files no puzzle, so its
+#: reads of the series' directory give one answer, read on first ask (a tick
+#: that renders nothing reads none). Empty outside a sync.
 _TICK_HELD = []
+#: Where a sync keeps held_files' parse of the filed Times puzzles between
+#: ticks (one process a minute): each file is parsed again only when its stat
+#: moves, not all ~13k every tick.
+HELD_CACHE = HOME / "held_times.pickle"
 
 
 def held():
     """{number: date} of every filed Times puzzle (read once a sync tick)."""
-    if _TICK_HELD:
-        return _TICK_HELD[0]
-    return fa.held_dates(fa.TIMES.series)
+    if len(_TICK_HELD) > 1:
+        return _TICK_HELD[1]
+    if not _TICK_HELD:
+        return fa.held_dates(fa.TIMES.series)
+    got = _times_held()
+    _TICK_HELD.append(got)
+    return got
+
+
+def _times_held(path=None):
+    """fa.held_dates of the Times, its files' parses carried in HELD_CACHE."""
+    import pickle
+    path = HELD_CACHE if path is None else path
+    try:
+        with open(path, "rb") as f:
+            snap = pickle.load(f)
+        for k, v in snap.items():
+            fa._HELD.setdefault(Path(k), v)
+    except (OSError, EOFError, pickle.UnpicklingError, AttributeError, ValueError, TypeError):
+        pass
+    fa._HELD_MOVED.clear()
+    got = fa.held_dates(fa.TIMES.series)
+    if fa._HELD_MOVED:
+        fa._HELD_MOVED.clear()
+        top = str(fa.ROOT / "puzzles" / fa.TIMES.series) + os.sep
+        keep = {str(k): v for k, v in fa._HELD.items() if str(k).startswith(top)}
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            tmp = path.with_name(f"{path.name}.{os.getpid()}.tmp")
+            with open(tmp, "wb") as f:
+                pickle.dump(keep, f, protocol=pickle.HIGHEST_PROTOCOL)
+            os.replace(tmp, path)
+        except OSError:
+            pass
+    return got
+
+
+#: Where ledger_summary keeps its fold of each ledger between ticks.
+LEDGER_CACHE = HOME / "ledger_summary.pickle"
+
+
+def ledger_summary(ledgers=None, path=None):
+    """{edition: {"filesHash": ..., "inputs": True when its row has inputs}}
+    of archive_coverage's ledgers, the last row of each standing: what a
+    tick asks of them (whether an edition was read, and with which files),
+    without parsing their ~16 MB each minute. Each ledger is folded only
+    past where the last tick stopped (kept in LEDGER_CACHE), and whole again
+    when it was rewritten (another inode, shorter, or its tail moved)."""
+    import pickle
+    ledgers = archive_coverage.LEDGERS if ledgers is None else ledgers
+    path = LEDGER_CACHE if path is None else path
+    try:
+        with open(path, "rb") as f:
+            kept = pickle.load(f)
+        if not isinstance(kept, dict):
+            kept = {}
+    except (OSError, EOFError, pickle.UnpicklingError, AttributeError, ValueError, TypeError):
+        kept = {}
+    out, moved = {}, False
+    for ledger in ledgers:
+        k = os.fspath(ledger)
+        try:
+            fh = open(ledger, "rb")
+        except FileNotFoundError:
+            moved |= kept.pop(k, None) is not None
+            continue
+        with fh:
+            st = os.fstat(fh.fileno())
+            ino, done, tail, acc = kept.get(k, (None, 0, b"", None))
+            if (acc is None or ino != st.st_ino or st.st_size < done
+                    or os.pread(fh.fileno(), len(tail), done - len(tail)) != tail):
+                done, tail, acc = 0, b"", {}
+            fh.seek(done)
+            data = fh.read()
+        end = data.rfind(b"\n") + 1
+        for line in data[:end].split(b"\n"):
+            if line.strip():
+                row = json.loads(line)
+                acc[row["edition"]] = {"filesHash": row.get("filesHash"), **({"inputs": True} if "inputs" in row else {})}
+        if end:
+            done += end
+            tail = (tail + data[:end])[-64:]
+            moved = True
+        kept[k] = (st.st_ino, done, tail, acc)
+        out.update(acc)
+    if moved:
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            tmp = path.with_name(f"{path.name}.{os.getpid()}.tmp")
+            with open(tmp, "wb") as f:
+                pickle.dump(kept, f, protocol=pickle.HIGHEST_PROTOCOL)
+            os.replace(tmp, path)
+        except OSError:
+            pass
+    return out
 
 
 #: Every date the Times printed in YEARS (archive_coverage.PRINTED: no
@@ -208,8 +305,14 @@ def page_grids(img):
     beside the grid is wider (Times 24,662, 24,743, 24,744)."""
     at = fa.SCAN_WIDTH / img.width
     shaped = [[v / at for v in b] for b in fa.grids_on(img.resize((fa.SCAN_WIDTH, round(img.height * at))))]
-    squares = fa.grids_on(img, shaped=square)
-    grids = shaped or squares
+    squares = None  # the full-size search, the costliest step: made only when asked of
+
+    def all_squares():
+        nonlocal squares
+        if squares is None:
+            squares = fa.grids_on(img, shaped=square)
+        return squares
+    grids = shaped or all_squares()
     if not grids:
         return grids
 
@@ -221,7 +324,8 @@ def page_grids(img):
     widest = max(grids, key=width)
     if is_lattice(widest):
         return grids
-    rest = sorted((b for b in shaped + [list(b) for b in squares] if list(b) != list(widest)), key=width, reverse=True)
+    rest = sorted((b for b in shaped + [list(b) for b in all_squares()] if list(b) != list(widest)), key=width,
+                  reverse=True)
     return next(([b] for b in rest if is_lattice(b)), grids)
 
 
@@ -308,6 +412,32 @@ def shrink_oversized(cache=CACHE, cap=None, out=sys.stdout):
 FETCHED_HOW = "fetched"
 
 
+def layout_pages(data):
+    """({"pages": [{"width", "height", "found": a grid was found, "bytes":
+    its JPEG's length}]}, the JPEGs end to end) of a Gale page PDF `data`:
+    each page as lay_out_fetched lays it out (images, scaled, JPEG quality
+    92). Run on the desktop when tools/ocr_remote.py can (layout_there): the
+    decode, grid search and resize are ~all of tools/gale_fetch.py's CPU."""
+    import tempfile
+    with tempfile.TemporaryDirectory() as t:
+        path = Path(t) / "page.pdf"
+        path.write_bytes(data)
+        read = images(path)
+    pages, jpegs = [], []
+    for img, _ in read:
+        page, found = scaled(img)
+        buf = io.BytesIO()
+        page.save(buf, "JPEG", quality=92)
+        jpegs.append(buf.getvalue())
+        pages.append({"width": page.width, "height": page.height, "found": bool(found), "bytes": len(jpegs[-1])})
+    return {"pages": pages}, b"".join(jpegs)
+
+
+def layout_there(data):
+    """layout_pages, as tools/ocr_remote.py's CALLS runs it on the desktop."""
+    return layout_pages(data)
+
+
 def lay_out_fetched(day, doc, data, entry, cache=CACHE, prod="TTDA"):
     """Lay out the page PDF `data` tools/gale_fetch.py downloaded for `day`
     (Gale document `doc` of product `prod`, gale_docs cache `entry`) as that
@@ -322,20 +452,20 @@ def lay_out_fetched(day, doc, data, entry, cache=CACHE, prod="TTDA"):
     url = DOC_URL.format(doc) if prod == "TTDA" else gale_docs.PERMALINK.format(doc=doc, prod=prod)
     d = cache / item.format(day.year) / day.isoformat()
     name = f"GALE_{doc}.pdf"
-    with tempfile.TemporaryDirectory() as t:
-        (Path(t) / name).write_bytes(data)
-        read = images(Path(t) / name)
+    import ocr_remote
+    got = ocr_remote.call("gale_layout", data=data)
+    laid, jpegs = got if got is not None else layout_pages(data)
     d.parent.mkdir(parents=True, exist_ok=True)
     work = Path(tempfile.mkdtemp(prefix=".gale_fetch-", dir=cache))
     tmp = work / d.name
     tmp.mkdir()
-    leaves, grid = [], False
-    for img, _ in read:
-        page, found = scaled(img)
-        grid |= found
+    leaves, grid, at = [], False, 0
+    for p in laid["pages"]:
+        grid |= p["found"]
         leaf = len(leaves)
-        page.save(tmp / f"leaf_{leaf:04d}.jpg", quality=92)
-        leaves.append({"leaf": leaf, "width": page.width, "height": page.height, "file": name})
+        (tmp / f"leaf_{leaf:04d}.jpg").write_bytes(jpegs[at:at + p["bytes"]])
+        at += p["bytes"]
+        leaves.append({"leaf": leaf, "width": p["width"], "height": p["height"], "file": name})
     m = {"file": name, "date": day.isoformat(), "how": FETCHED_HOW, "docId": doc,
          "cited": (entry.get("title") or "").strip().rstrip(". ") or None, "page": entry.get("page"), "grid": grid}
     (tmp / "pages.json").write_text(json.dumps({
@@ -594,7 +724,7 @@ def fresh_unread(rows=None, now=None, laid=None):
              if now - r["at"] <= FRESH and re.fullmatch(ITEM.format(r"\d+"), e.split("/")[0])}
     if not fresh:
         return []
-    rows = archive_coverage.ledger() if rows is None else rows
+    rows = ledger_summary() if rows is None else rows
     return sorted(e for e, r in fresh.items()
                   if "inputs" not in (rows.get(e) or {}) or rows[e].get("filesHash") != r["files"])
 
@@ -727,7 +857,7 @@ def checklist(rows=None, laid=None, docs=None, ledger=None, log=SET_ASIDE,
     e = html.escape
     now = now or datetime.datetime.now().astimezone()
     rows = wanted() if rows is None else rows
-    ledger = archive_coverage.ledger() if ledger is None else ledger
+    ledger = ledger_summary() if ledger is None else ledger
     matches = staged_matches(laid)
     docs = gale_docs.load() if docs is None else docs
     aside = aside_days(log)
@@ -814,7 +944,7 @@ def sync(out=sys.stdout, force=False):
             # tick past its 900 s limit.
             print("another sync holds the lock; this one skips", file=out)
             return
-        _TICK_HELD[:] = [fa.held_dates(fa.TIMES.series)]
+        _TICK_HELD[:] = [True]
         try:
             _sync_locked(out, force)
         finally:

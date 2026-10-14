@@ -571,7 +571,8 @@ def _pdf_pages_there(data):
 #: giving (a JSON-able result, bytes sent back after it), or "module.f",
 #: imported there when it runs: a module the page build need not import.
 CALLS = {"reconstruct": _reconstruct_there, "pdf_pages": _pdf_pages_there, "scan": _scan_there,
-         "listener_read": "gale_listener.read_there", "listener_grids": "file_gale_listener.grids_there"}
+         "listener_read": "gale_listener.read_there", "listener_grids": "file_gale_listener.grids_there",
+         "gale_layout": "gale_inbox.layout_there"}
 
 
 def run_call(name, data, args, kwargs):
@@ -1265,7 +1266,8 @@ def edition_request(d, found, solutions):
         for arc, path in files.items():
             if path.exists():
                 tar.add(path, arcname=arc)
-    held = {str(n): day.isoformat() for n, day in fa.held_dates(series).items()}
+    held = fa.held_dates(series)
+    held = held.iso() if hasattr(held, "iso") else {str(n): day.isoformat() for n, day in held.items()}
     urls = {fa.page_url(d, found, hit["leaf"]) for hit in found["puzzles"]}
     filing = {"series": series, "puzzles": fa._FILING["puzzles"], "asked": sorted(asked),
               "held": sorted(fa.held_numbers(series)),
