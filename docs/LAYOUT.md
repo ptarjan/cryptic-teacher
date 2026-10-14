@@ -2629,5 +2629,15 @@ tools/test_pct.sh                              does the site's progress percent 
 tools/media_manifest.py                        what the media disk holds, kept on the SSD so no
                                                scheduled job walks it
 tools/test_no_media_scans.sh                   does no scheduled tick walk the media disk?
+tools/privateeye_scans.py                      read a Cyclops crossword's clues off the page
+                                               image of archive.org's Private Eye scan
+tools/test_privateeye_scans.sh                 does tools/privateeye_scans.py find a Private
+                                               Eye page's clue columns from its djvu words,
+                                               take the crossword's number and not the entry
+                                               address's, read a linked head and a
+                                               cross-reference, and hand privateeye_wayback's
+                                               read_capture a list it parses? And does the
+                                               shared tidy read RapidOCR's full-width bracket
+                                               as a round one?
 ```
 <!-- LAYOUT-END -->

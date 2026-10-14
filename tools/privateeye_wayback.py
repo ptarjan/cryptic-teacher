@@ -4,6 +4,7 @@
 Usage:
   python3 tools/privateeye_wayback.py fetch        # list and download every capture
   python3 tools/privateeye_wayback.py index        # print number -> what the captures hold
+  python3 tools/privateeye_wayback.py read-scans 13 25   # read scans' page images (privateeye_scans.py)
 
 The Eye's own .puz downloads (tools/fetch_privateeye.py) start at No 300
 (Nov 2005) and fifteensquared's posts at Dec 2006. Before that the Eye's site
@@ -282,7 +283,10 @@ def index():
     """{number: {"clues": [(ts, rows)], "answers": [(ts, rows)], "puz": path|None}}."""
     got = {}
     # Web captures, then the archive.org print scans (IA/<issue>_djvu.txt, UTF-8).
-    for path in sorted(DIR.glob("*.html")) + sorted((DIR / "ia").glob("*_djvu.txt")):
+    # Last, a scan's clues read off its page image (privateeye_scans.py), so
+    # build() takes them over the same scan's OCR text.
+    for path in (sorted(DIR.glob("*.html")) + sorted((DIR / "ia").glob("*_djvu.txt"))
+                 + sorted((DIR / "ia").glob("*_page.txt"))):
         try:
             scan = path.suffix == ".txt"
             cap = read_capture(path.read_bytes(), "utf-8" if scan else "cp1252", plain=scan,
@@ -331,9 +335,41 @@ def fetch_ia(numbers=None):
 IA_TEXT = "https://archive.org/download/private-eye-magazine-{issue}/{issue}_djvu.txt"
 
 
+def read_scans(numbers):
+    """Read each number's clues off its archive.org scan's page image
+    (privateeye_scans.read) into ia/<issue>_page.txt, for `file` to file.
+    The number runs a step off issue - ISSUE_OFFSET in the early years
+    (No 13 is in issue 857), so the issues either side are read too when
+    the first holds another number. Returns {number: why not}."""
+    import privateeye_scans
+    why, done = {}, set()
+    for n in numbers:
+        last = None
+        for issue in (n + ISSUE_OFFSET, n + ISSUE_OFFSET - 1, n + ISSUE_OFFSET + 1):
+            path = DIR / "ia" / f"{issue}_page.txt"
+            if issue in done or not (DIR / "ia" / f"{issue}_djvu.txt").exists():
+                continue
+            done.add(issue)
+            try:
+                got, text, reason = privateeye_scans.read(issue, get)
+            except Exception as e:  # one bad scan is a reason, not the end of the run
+                got, text, reason = None, None, f"{type(e).__name__}: {e}"
+            print(f"  issue {issue}: No {got}: {reason or 'read'}", flush=True)
+            last = last or (got is None and reason)
+            if text:
+                path.write_text(text + "\n")
+            if got == n:
+                if reason:
+                    why[n] = reason
+                break
+        else:
+            why.setdefault(n, last or "no scan of the issue or those either side prints it")
+    return why
+
+
 def capture_url(ts):
     """The Wayback (or archive.org) URL a capture was read from."""
-    if ts.endswith("_djvu"):
+    if ts.endswith(("_djvu", "_page")):
         return f"https://archive.org/details/private-eye-magazine-{ts[:-5]}"
     for line in (DIR / "cdx.txt").read_text().splitlines():
         t, orig, _ = line.split()
@@ -365,7 +401,9 @@ def build(num, held):
         if puzzle is None:
             return None, why
         url = capture_url(ts)
-        how = "the Eye's crossword page, from the Wayback Machine"
+        how = {"_djvu": "the issue's archive.org scan, its OCR text",
+               "_page": "the issue's archive.org scan, its page image read by OCR"}.get(
+                   ts[-5:], "the Eye's crossword page, from the Wayback Machine")
     else:
         return None, "no capture prints its clues"
     puzzle["source"] = {"publisher": "Private Eye", "url": url,
@@ -610,7 +648,7 @@ def lost():
 
 def main(argv):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("cmd", choices=["fetch", "fetch-ia", "index", "file"])
+    ap.add_argument("cmd", choices=["fetch", "fetch-ia", "index", "file", "read-scans"])
     ap.add_argument("numbers", nargs="*", type=int)
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args(argv)
@@ -618,6 +656,9 @@ def main(argv):
         fetch()
     elif args.cmd == "fetch-ia":
         fetch_ia(args.numbers)
+    elif args.cmd == "read-scans":
+        for n, reason in sorted(read_scans(args.numbers).items()):
+            print(f"cyclops-{n}: not read: {reason}")
     elif args.cmd == "file":
         file(args.numbers, args.dry_run)
     else:
