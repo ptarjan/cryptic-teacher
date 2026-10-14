@@ -282,6 +282,10 @@ PUBLISHED_WRONG = {
         "the perfect figures are THIRTY-SIX TWENTY-FOUR THIRTY-SIX, and the "
         "clue's own \"(and 10 again)\" asks for the repeat; the printed count "
         "stops before it",
+    ("cyclops-206", "23-down: clue says (2,5) = 7, answer holds 5"):
+        "AT SEA (Labour's second letter, A, + SEAT \"lost\") fills the "
+        "five cells the grid gives it; Private Eye's own cyclops206.puz prints "
+        "the clue (2,5)",
 }
 
 # The LENGTH findings that are a light the Guardian never linked, not a mistake in
