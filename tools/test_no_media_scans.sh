@@ -23,7 +23,8 @@ SCHEDULED = {
     # cryptic-books, every ten minutes: book_queue.py --next / --reread.
     "book_queue.py": ["text_of", "queue", "rereads"],
     "media_manifest.py": ["rows", "latest", "unread", "advance", "parse_new", "posts", "post_ids",
-                          "comment_keys", "record_post", "record_comments"],
+                          "comment_keys", "record_post", "record_comments",
+                          "on_media", "record_file", "folder_files"],
     # daily_update.sh's blog units (every 10 min / 3 h / nightly): the
     # fetchers append to the posts manifests, readers ask the manifests.
     "fetch_wp_blog.py": ["cached_ids", "fetch_category", "fetch_comments"],
@@ -38,6 +39,11 @@ SCHEDULED = {
     "blog_comment_difficulty.py": ["months", "comments_by_post", "post_ids"],
     # The parser those units run: posts from the manifest, past a cursor.
     "parse_timesforthetimes.py": ["run"],
+    # cross_validate.py all --new (after every filing unit) asks every adapter
+    # its ids; the writers append to the folder manifests.
+    "cross_validate.py": ["Independent.served", "FT.ids", "ArchiveOrg.ids", "ListenerReport.ids"],
+    # gale_inbox sync's checklist, every minute: the scanned editions.
+    "archive_coverage.py": ["scans"],
     # gale_fetch.py run() asks this every pass of its loop.
     "gale_fetch.py": ["have_docs"],
 }
@@ -54,6 +60,8 @@ bad = []
 for f, names in SCHEDULED.items():
     tree = ast.parse(open(f).read())
     defs = {n.name: n for n in tree.body if isinstance(n, ast.FunctionDef)}
+    defs.update({f"{c.name}.{n.name}": n for c in tree.body if isinstance(c, ast.ClassDef)
+                 for n in c.body if isinstance(n, ast.FunctionDef)})
     for name in names:
         if name not in defs:
             bad.append(f"{f}: {name} is gone; update SCHEDULED")

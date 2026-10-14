@@ -26,6 +26,7 @@ read them all once.
 """
 import argparse
 import hashlib
+import importlib
 import json
 import os
 import sys
@@ -208,6 +209,63 @@ def comment_keys(comments_dir):
     return set(latest(comments_name(comments_dir), "key"))
 
 
+#: Folders whose file names a scheduled reader lists, each with the manifest
+#: its writer appends to (record_file) and the files it holds:
+#: {name: (folder getter, glob)}. build_files lists one once.
+FOLDERS = {
+    # cross_validate.Independent.fetch_one; served() reads its rows' "pid".
+    "independent-source": (lambda: downloads.ROOT / "independent-source", "c_*.xml"),
+    # ft_pdf_puzzles.fetch_one / orphans; cross_validate.FT.ids.
+    "ft-pdf": (lambda: downloads.FT_PDF / "pdf", "*.pdf"),
+    # edition_commit.writer (file_archive_org_puzzles); cross_validate.ArchiveOrg.ids.
+    "archiveorg-source": (lambda: downloads.ARCHIVE_ORG_SOURCE, "*.json"),
+    # file_gale_listener.run; cross_validate.ListenerReport.ids.
+    "listenerreport-source": (lambda: downloads.ROOT / "listenerreport-source", "*.json"),
+}
+
+
+def on_media(folder):
+    """Whether `folder` is on the media disk (under downloads.ROOT); a test's
+    temp folder is not. Path arithmetic only: no stat."""
+    root = os.path.abspath(downloads.ROOT)
+    f = os.path.abspath(folder)
+    return f == root or f.startswith(root + os.sep)
+
+
+def record_file(name, written, **extra):
+    """Append the file `written` (just saved) to folder manifest `name`
+    (FOLDERS), keyed by its file name."""
+    record(name, written, key=Path(written).name, **extra)
+
+
+def folder_files(name, folder, pattern="*"):
+    """{file name: its row} of the files in `folder` matching `pattern`: off
+    manifest `name` when the folder is on the media disk, never a listing of
+    it; a folder elsewhere (a test's) is globbed, see _glob_off_media."""
+    import fnmatch
+    if not on_media(folder):
+        return _glob_off_media(folder, pattern)
+    return {k: r for k, r in sorted(latest(name, "key").items()) if fnmatch.fnmatch(k, pattern)}
+
+
+def _glob_off_media(folder, pattern):
+    """folder_files for a folder not on the media disk (on_media): a glob is fine there."""
+    return {p.name: {"key": p.name} for p in sorted(Path(folder).glob(pattern))}
+
+
+def build_files(name, out=sys.stdout, extra=lambda path: {}):
+    """List folder `name` of FOLDERS once into its manifest (rows from
+    `extra(path)` too). Never scheduled."""
+    get, pattern = FOLDERS[name]
+    folder = get()
+    found = []
+    for p in sorted(folder.glob(pattern)) if folder.is_dir() else ():
+        found.append({"key": p.name, "at": p.stat().st_mtime, **extra(p)})
+    write(name, found)
+    print(f"{len(found)} file(s) written to {path(name)}", file=out)
+    return found
+
+
 def build_posts(posts_dir, out=sys.stdout):
     """List `posts_dir` once and read every post the manifest lacks into it
     (all of them the first time), oldest id first. A rerun, after the
@@ -300,6 +358,22 @@ BUILDERS = {BOOK_TEXTS: build_book_texts, "genius-files": build_genius_files, "a
 for _blog in ("fifteensquared", "timesforthetimes", "bigdave44"):
     BUILDERS[f"posts-{_blog}"] = (lambda b: lambda: build_posts(downloads.ROOT / b / "posts"))(_blog)
     BUILDERS[f"comments-{_blog}"] = (lambda b: lambda: build_comments(downloads.ROOT / b / "comments"))(_blog)
+for _name in FOLDERS:
+    BUILDERS[_name] = (lambda n: lambda: build_files(n))(_name)
+
+
+# The builders' own modules load by name, only when a build runs: never by a
+# scheduled reader (nor the page build's import graph, tools/ci_cache.js).
+def _independent_row(p):
+    return {"pid": importlib.import_module("cross_validate").Independent.pid_of(p)}
+
+
+def _build_items():
+    return importlib.import_module("fetch_archive_org_editions").build_items()
+
+
+BUILDERS["ia-items"] = _build_items
+BUILDERS["independent-source"] = lambda: build_files("independent-source", extra=_independent_row)
 
 
 def main(argv=None):

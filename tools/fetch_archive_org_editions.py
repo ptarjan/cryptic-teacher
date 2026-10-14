@@ -141,6 +141,7 @@ from pathlib import Path
 
 import dir_cache
 import downloads
+import media_manifest
 
 #: The tools modules a queue unit's fetch_unit may load, loaded as the unit
 #: starts (under the queue's code lock, edition_queue.snapshot), so none is
@@ -432,6 +433,7 @@ class Fetcher:
         if not meta.get("files"):
             raise RuntimeError(f"/metadata/{item} has no files (dark or missing item)")
         write_atomic(path, json.dumps(meta).encode())
+        record_item(path, item, meta)
         return meta
 
     def refresh_metadata(self, item, meta):
@@ -450,11 +452,49 @@ class Fetcher:
             if self.moved[item]:
                 meta.update(live)
                 write_atomic(os.path.join(self.out, "items", item + ".json"), json.dumps(meta).encode())
+                record_item(os.path.join(self.out, "items", item + ".json"), item, meta)
             return self.moved[item]
 
 
 def log(msg):
     print(time.strftime("%H:%M:%S ") + msg, flush=True)
+
+
+#: The SSD manifest of the item metadata cached in items/ (tools/media_manifest.py):
+#: {"key": item, "editions": {date: slug}} a row, so archive_coverage.scans
+#: stats and reads none of them on the media disk.
+IA_ITEMS = "ia-items"
+
+
+def item_row(item, meta):
+    """{"key", "editions"} of item `item` whose metadata is `meta`: its first slug for each edition date."""
+    eds = {}
+    for name in editions_of(meta):
+        date = edition_date(name)
+        if date:
+            eds.setdefault(date, slug_of(item, name))
+    return {"key": item, "editions": eds}
+
+
+def record_item(path, item, meta):
+    media_manifest.record(IA_ITEMS, path, **item_row(item, meta))
+
+
+def build_items(out=sys.stdout):
+    """List downloads.ARCHIVE_ORG/items once into IA_ITEMS (reads each
+    item's metadata). Never scheduled."""
+    d = downloads.ARCHIVE_ORG / "items"
+    found = []
+    for e in sorted(os.scandir(d), key=lambda e: e.name):
+        if e.name.endswith(".json") and not e.name.startswith(("_", ".")):
+            try:
+                meta = json.loads(Path(e.path).read_bytes())
+            except ValueError:
+                continue
+            found.append(dict(item_row(e.name[:-5], meta), at=e.stat().st_mtime))
+    media_manifest.write(IA_ITEMS, found)
+    print(f"{len(found)} item(s) written to {media_manifest.path(IA_ITEMS)}", file=out)
+    return found
 
 
 def write_atomic(path, data):

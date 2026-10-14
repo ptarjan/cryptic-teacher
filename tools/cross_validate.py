@@ -127,6 +127,7 @@ from pathlib import Path
 
 import groups
 import downloads
+import media_manifest
 import provenance
 from fetch_puzzle import puzzle_files, read_puzzle_file
 
@@ -397,17 +398,24 @@ class Independent(Adapter):
     def served(self):
         """{puzzle id: date key} over the 2015 keys cached, read off each
         key's own title (fetch_independent.parse); keys that fail to parse
-        hold no puzzle we can name."""
-        import fetch_independent as fi
+        hold no puzzle we can name. The keys and ids are the rows fetch_one
+        appended to the SSD manifest (tools/media_manifest.py), never a
+        listing or a read of every file on the media disk."""
         out = {}
-        for path in sorted(self.cache.glob("c_15*.xml")):
-            ymd = path.stem[2:]
-            try:
-                pid = fi.parse(path.read_bytes(), ymd)["id"]
-            except (ValueError, KeyError, ET.ParseError):  # a repeat or staging key names nothing
-                continue
-            out.setdefault(pid, ymd)
+        for name, row in media_manifest.folder_files("independent-source", self.cache, "c_15*.xml").items():
+            pid = row["pid"] if "pid" in row else self.pid_of(self.cache / name)
+            if pid:
+                out.setdefault(pid, name[2:-4])
         return out
+
+    @staticmethod
+    def pid_of(path):
+        """The puzzle id key file `path` (c_<ymd>.xml) names, or None."""
+        import fetch_independent as fi
+        try:
+            return fi.parse(Path(path).read_bytes(), Path(path).stem[2:])["id"]
+        except (ValueError, KeyError, ET.ParseError):  # a repeat or staging key names nothing
+            return None
 
     def raw_file(self, ymd):
         return self.cache / f"c_{ymd}.xml"
@@ -426,6 +434,7 @@ class Independent(Adapter):
                 return True
             raise
         path.write_bytes(body)
+        media_manifest.record_file("independent-source", path, pid=self.pid_of(path))
         return True
 
     def puzzle(self, ymd):
@@ -675,7 +684,9 @@ class FT(Adapter):
         return fpp.PDFS
 
     def ids(self):
-        return {f"ftcryptic-{p.stem}": int(p.stem) for p in self.cache.glob("*.pdf")}
+        """Off the SSD manifest ft_pdf_puzzles appends to, not a listing of the media disk."""
+        return {f"ftcryptic-{n[:-4]}": int(n[:-4]) for n in media_manifest.folder_files("ft-pdf", self.cache, "*.pdf")
+                if n[:-4].isdigit()}
 
     def raw_file(self, number):
         return self.cache / f"{number}.pdf"
@@ -1008,8 +1019,9 @@ class ArchiveOrg(Adapter):
         return downloads.ARCHIVE_ORG_SOURCE
 
     def ids(self):
-        out = {p.stem: (p.stem, p) for s in ("times", "ftcryptic", "cryptic")
-               for p in sorted(self.cache.glob(f"{s}-*.json"))}
+        # Off the SSD manifest edition_commit.writer appends to, not a listing of the media disk.
+        out = {n[:-5]: (n[:-5], self.cache / n) for s in ("times", "ftcryptic", "cryptic")
+               for n in media_manifest.folder_files("archiveorg-source", self.cache, f"{s}-*.json")}
         for pid, times_id in reprints().items():
             if times_id in out:
                 out[pid] = (pid, out[times_id][1])
@@ -1066,7 +1078,8 @@ class ListenerReport(Adapter):
     votes = ("ANSWER",)
 
     def ids(self):
-        return {p.stem: p for p in sorted(self.cache.glob("listener-*.json"))}
+        """Off the SSD manifest file_gale_listener.run appends to, not a listing of the media disk."""
+        return {n[:-5]: self.cache / n for n in media_manifest.folder_files("listenerreport-source", self.cache, "listener-*.json")}
 
     def fetch_one(self, key):
         return False

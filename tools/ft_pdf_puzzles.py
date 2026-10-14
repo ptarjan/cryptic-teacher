@@ -43,6 +43,7 @@ from pathlib import Path
 import fetch_fifteensquared as fsq
 import file_blog_puzzles
 import ft_puzzles
+import media_manifest
 import parse_timesforthetimes as tftt
 import puzzle_integrity
 import reconstruct_grid as rg
@@ -211,6 +212,7 @@ def orphans(log=print):
             continue
         pdf_path(number).write_bytes(data)
         (PDFS / f"{number}.how").write_text("wayback")
+        media_manifest.record_file("ft-pdf", pdf_path(number), how="wayback")
         idx["puzzles"][str(number)] = {"date": held and held.get("date"), "url": url}
         INDEX.write_text(json.dumps(idx, indent=0, sort_keys=True))
         got += 1
@@ -295,6 +297,7 @@ def fetch_one(number, url):
             continue
         pdf_path(number).write_bytes(data)
         (PDFS / f"{number}.how").write_text(how)
+        media_manifest.record_file("ft-pdf", pdf_path(number), how=how)
         return pdf_path(number), how
     return None, {"cause": cause, "how": "; ".join(why)}
 
