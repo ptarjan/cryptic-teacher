@@ -379,12 +379,6 @@ UNLINKED_IN_SOURCE = dict([
       "9 linked"),
      "the BRITISH that would make A VERY BRITISH COUP is already spent on "
      "24-across + 29-across's BRITISH EMPIRE"),
-    (("cryptic-23299",
-      "1-across + 10-across + 19-down: clue says (2,3,2,5,2,7,6) = 27, "
-      "answer holds 7 alone or 22 linked"),
-     "the HUMAN of TO ERR IS HUMAN, TO FORGIVE DIVINE is 9-across, which leads "
-     "its own HUMAN FACE DIVINE, and a light that starts one answer cannot "
-     "continue another"),
     (("cryptic-23299", "12-across: clue says (4,5,2) = 11, answer holds 4"),
      "no light in this grid is blank, spare, or grouped toward the seven "
      "missing letters"),
