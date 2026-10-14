@@ -2244,8 +2244,13 @@
   // The clue's words, without its enumeration; "" where the paper printed none.
   function clueText(e) { return e.clue.text || ""; }
   // The enumeration printed after the words, as the paper prints it: " (5,4)".
+  // A clue whose words the source lost and we rebuilt from the wordplay
+  // (schema clue.reconstructed) says so after its enumeration, every time it
+  // is drawn: the words are ours, not the paper's.
+  const reconstructedHTML = (e) => (e.clue.reconstructed
+    ? ` <span class="clue-reconstructed" title="The source lost words of this clue and no other print was found: these words are rebuilt from the answer's wordplay, not printed">reconstructed</span>` : "");
   const enumHTML = (e) => (e.clue.enumeration
-    ? `<span class="clue-enum">${clueText(e) ? " " : ""}(${esc(e.clue.enumeration)})</span>` : "");
+    ? `<span class="clue-enum">${clueText(e) ? " " : ""}(${esc(e.clue.enumeration)})</span>` : "") + reconstructedHTML(e);
   const plainClueHTML = (e) => markUp(clueText(e), [], italicsOf(e)) + enumHTML(e);
 
   // Where a fragment goes is a placement, not a search. indexOf() takes the
