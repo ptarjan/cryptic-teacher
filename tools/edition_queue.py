@@ -444,16 +444,19 @@ def fresh(papers, cache=fa.CACHE, now=None):
     last fa.FRESH seconds with no reading of their current files, each the
     latest laid out first, ranked fa.RANKS["just laid out"]; found without a
     plan, so dispatch starts them ahead of everything planned however long
-    the planner takes. An edition is laid out by a rename or a mkdir in its
-    item dir, which moves the item, so only items moved within FRESH are
-    looked in. A read needs its own scan and those of the fresh editions
+    the planner takes. On the media disk the editions come off the edition
+    manifests (media_manifest.edition_rows: the fetcher and gale_inbox append
+    a row as they lay one out), so this 30 s tick lists and stats nothing
+    there. A read needs its own scan and those of the fresh editions
     dated SOLUTION_DAYS after it (where its solution prints)."""
     now = time.time() if now is None else now
     cache = Path(cache)
-    try:
-        names = os.listdir(cache)
-    except OSError:
-        return [], []
+    if media_manifest.on_media(cache):
+        # The edition manifests' rows laid out within FRESH, never a listing.
+        laid = [(row["at"], cache / rel) for rel, row in media_manifest.edition_rows().items()
+                if now - row.get("at", 0) <= fa.FRESH and "/" in rel]
+    else:
+        laid = _laid_out_listed(cache, now)
     rank = fa.RANKS["just laid out"]
     scans, reads = [], []
     for key in papers:
@@ -461,27 +464,16 @@ def fresh(papers, cache=fa.CACHE, now=None):
         if paper is None:
             continue
         found, rows = [], None
-        for name in names:
-            if not any(p.item.match(name) for p in (paper, *paper.also)):
+        for staged, d in laid:
+            if not any(p.item.match(d.parent.name) for p in (paper, *paper.also)):
                 continue
+            rows = fa.standing(paper, cache) if rows is None else rows
+            row = rows.get(f"{d.parent.name}/{d.name}") or {}
             try:
-                if now - (cache / name).stat().st_mtime > fa.FRESH:
-                    continue
-                editions = os.listdir(cache / name)
-            except OSError:
-                continue
-            for e in editions:
-                d = cache / name / e
-                try:
-                    staged = fa.staged_at(d)
-                except OSError:
-                    continue
-                if now - staged > fa.FRESH:
-                    continue
-                rows = fa.standing(paper, cache) if rows is None else rows
-                row = rows.get(f"{name}/{e}") or {}
                 if "inputs" not in row or row.get("filesHash") != fa.input_hash(d):
                     found.append((staged, d))
+            except OSError:
+                continue
         found.sort(key=lambda t: t[0], reverse=True)
         dirs = [d for _, d in found]
         planned = fa._PLANNED_DIRS.get((str(cache), key))
@@ -500,6 +492,32 @@ def fresh(papers, cache=fa.CACHE, now=None):
         reads += [{"kind": "read", "paper": key, "rel": rel[d], "rank": rank, "date": fa.day_of(d),
                    "reason": "just laid out", "needs": needs(d), "force": False} for d in dirs]
     return scans, reads
+
+
+def _laid_out_listed(cache, now):
+    """fresh's [(staged_at, edition dir)] laid out within fa.FRESH of a folder
+    off the media disk (a test's), listed: only items moved within FRESH are
+    looked in (laying an edition out renames or makes a dir in its item)."""
+    try:
+        names = os.listdir(cache)
+    except OSError:
+        return []
+    out = []
+    for name in names:
+        try:
+            if now - (cache / name).stat().st_mtime > fa.FRESH:
+                continue
+            editions = os.listdir(cache / name)
+        except OSError:
+            continue
+        for e in editions:
+            try:
+                staged = fa.staged_at(cache / name / e)
+            except OSError:
+                continue
+            if now - staged <= fa.FRESH:
+                out.append((staged, cache / name / e))
+    return out
 
 
 def by_urgency(units):

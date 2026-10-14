@@ -20,6 +20,7 @@ trap 'rm -rf "$tmp"' EXIT
 export CT_DOWNLOADS="$tmp/dl"
 mkdir -p "$CT_DOWNLOADS/.manifest"
 : > "$CT_DOWNLOADS/.manifest/gale-editions.jsonl"
+: > "$CT_DOWNLOADS/.manifest/archiveorg-editions.jsonl"
 python3 - "$tmp" <<'PY'
 import datetime, io, json, re, sys
 from pathlib import Path

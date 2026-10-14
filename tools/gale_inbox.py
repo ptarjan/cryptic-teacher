@@ -486,7 +486,7 @@ def note_edition(d, sources=None):
     rel = f"{d.parent.name}/{d.name}"
     if sources is None:
         sources = editions().get(rel, {}).get("sources")
-    media_manifest.record(EDITIONS, d, edition=rel, files=fa.input_hash(d), sources=sources)
+    media_manifest.record(EDITIONS, d, edition=rel, files=media_manifest.edition_files(d), sources=sources)
 
 
 def editions():
@@ -508,7 +508,7 @@ def build_manifest(cache=CACHE, out=sys.stdout):
                 continue
             srcs = sorted(n for n in os.listdir(d) if n.startswith("sources-") and n.endswith(".json"))
             if srcs:
-                found.append({"edition": f"{item}/{day}", "files": fa.input_hash(d),
+                found.append({"edition": f"{item}/{day}", "files": media_manifest.edition_files(d),
                               "sources": json.loads((d / srcs[-1]).read_text()), "at": d.stat().st_mtime})
     media_manifest.write(EDITIONS, found)
     print(f"{len(found)} Gale edition(s) written to {media_manifest.path(EDITIONS)}", file=out)

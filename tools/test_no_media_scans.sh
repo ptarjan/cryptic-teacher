@@ -67,14 +67,24 @@ SCHEDULED = {
     # progress_record.py record (nightly): the read queue's size.
     "edition_backlog.py": ["_editions", "trove_counts"],
     "progress_record.py": ["backlog"],
+    # edition_queue run, every 30 s: the editions just laid out, off the
+    # edition manifests (media_manifest.edition_rows).
+    "edition_queue.py": ["fresh"],
+    # edition_queue plan (each replan) lists, keys and dates the archive.org
+    # editions; each OCR pass matches the canberra files to the Times readings.
+    "file_archive_org_puzzles.py": ["plan", "_plan_paper", "edition_dirs", "input_hash", "staged_at",
+                                    "match_canberra", "source_readings"],
+    # edition_queue's archive.org fetch slice plans off ia-groups and ia-items.
+    "fetch_archive_org_editions.py": ["plan", "plan_listings", "_per_group", "held_rows", "_fold_key"],
 }
+SCHEDULED["media_manifest.py"] += ["edition_rows", "_fold_edition", "edition_rel"]
 #: {file: [function]} that may not run a command on the host either (an ssh
 #: `ls` of the Gale folders is a listing of the media disk too).
 NO_SSH = {"gale_fetch.py": ["have_docs"]}
 SCANS = {"glob", "rglob", "iterdir", "listdir", "scandir", "walk", "stat", "exists", "is_file", "is_dir"}
 #: Paths on the SSD those functions may stat: gale_fetch's log in ~/.cache,
-#: the repo's pins file.
-SSD = {"FETCHED", "pins_path"}
+#: the repo's pins file, the repo's canberra puzzles (match_canberra).
+SSD = {"FETCHED", "pins_path", "canberra"}
 #: Calls naming a file in the repo (on the SSD), which may be stat-ed.
 SSD_CALLS = {"puzzle_path"}
 bad = []
@@ -258,4 +268,67 @@ if rekeyed != 1 or under:
     print(f"FAIL file_trove_puzzles.rekey_unchanged with the memos held: rekeyed {rekeyed}, Trove paths touched {under}")
     sys.exit(1)
 print("ok   trove_solution_ocr._articles and file_trove_puzzles.rekey_unchanged stat no Trove article dir")
+PY
+
+# The archive.org side: edition_queue.fresh (every 30 s), the filer's plan
+# (each replan), match_canberra (each OCR pass) and the fetcher's plan, their
+# memos warm, stat, list and glob nothing under the archive.org folders: the
+# editions, their hashes and laid-out times come off the edition manifests,
+# the readings off archiveorg-source and its SSD store, the group listings
+# and item editions off ia-groups and ia-items.
+mkdir -p "$t/canberra"
+CT_DOWNLOADS="$t/ao" VLM_READER_URL= python3 - "$t" <<'PY'
+import io, json, os, sys, time
+from pathlib import Path
+import downloads, media_manifest as M
+ao, src = downloads.ARCHIVE_ORG, downloads.ARCHIVE_ORG_SOURCE
+rel = "NewsUK1980UKEnglish/1980-01-05_1"
+d = ao / rel
+d.mkdir(parents=True)
+(d / "pages.json").write_text(json.dumps({"item": "NewsUK1980UKEnglish", "date": "1980-01-05", "crossword_pages": []}))
+src.mkdir(parents=True)
+(src / "times-1.json").write_text(json.dumps({"id": "times-1", "date": "1980-01-05", "dimensions": {"cols": 1, "rows": 1},
+    "entries": [{"number": 1, "direction": "across", "position": {"x": 0, "y": 0}, "length": 1, "clue": {"text": "a b c d"}}]}))
+(ao / "items").mkdir()
+(ao / "items" / "NewsUK1980UKEnglish.json").write_text(json.dumps({"files": [{"name": "Jan 05 1980, 1_djvu.txt"}]}))
+(ao / "items" / "_group_times.json").write_text(json.dumps([{"identifier": "NewsUK1980UKEnglish", "title": "The Times , 1980"}]))
+# The manifests as their one-off builds left them, from before rows held a hash or names.
+M.write(M.ARCHIVE_EDITIONS, [{"edition": rel, "at": time.time()}])
+M.write(M.GALE_EDITIONS, [])
+M.write("archiveorg-source", [{"key": "times-1.json", "at": 1}])
+M.write("ia-items", [{"key": "NewsUK1980UKEnglish", "editions": {}, "at": 1}])
+import edition_queue as eq, file_archive_org_puzzles as fa, fetch_archive_org_editions as fetch
+
+
+def readers():
+    return (eq.fresh(["times"], ao), fa.plan(fa.TIMES, ao),
+            fa.match_canberra(src, write=False, out=io.StringIO(), canberra=Path(sys.argv[1]) / "canberra"),
+            fetch.plan(str(ao), ["times"]), fa.staged_at(d))
+
+
+first = readers()  # fills each memo off the disk once
+touched = []
+import builtins
+real = {(os, n): getattr(os, n) for n in ("stat", "lstat", "listdir", "scandir")}
+real.update({(io, "open"): io.open, (builtins, "open"): builtins.open})  # a file opened again is a read of the disk too
+for (mod, name), fn in real.items():
+    setattr(mod, name, (lambda fn: lambda p=".", *a, **k: (touched.append(p), fn(p, *a, **k))[1])(fn))
+try:
+    again = readers()
+finally:
+    for (mod, name), fn in real.items():
+        setattr(mod, name, fn)
+# The filer's ledgers (filed*.jsonl, their locks) are another job's; done.tsv the fetcher's.
+media = sorted({os.fspath(p) for p in touched if isinstance(p, (str, os.PathLike))
+                and os.fspath(p).startswith((str(ao), str(src)))
+                and not os.path.basename(os.fspath(p)).startswith(("filed", "done.tsv"))})
+want = ([rel], [rel], {}, ["NewsUK1980UKEnglish/Jan 05 1980, 1"], first[4])
+got = ([u["rel"] for u in again[0][1]], [u["rel"] for u in again[1][1]], again[2], [u["rel"] for u in again[3]], again[4])
+if media or got != want or again != first:
+    print(f"FAIL archive.org readers with warm memos: media paths statted {media}, got {got}, want {want}")
+    sys.exit(1)
+if fa.input_hash(d) != fa._input_hash_listed(d):
+    print("FAIL the edition manifest's hash is not input_hash's form")
+    sys.exit(1)
+print("ok   edition_queue.fresh, the archive.org filer and fetcher plans and match_canberra stat no archive.org path")
 PY

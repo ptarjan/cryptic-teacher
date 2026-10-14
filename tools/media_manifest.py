@@ -55,9 +55,12 @@ BOOK_TEXTS = "ia-books"
 #: read. A memo, not a listing: a missing row means "read meta.json once".
 TROVE_TITLES = "trove-titles"
 #: The archive.org edition dirs under downloads.ARCHIVE_ORG holding pages.json,
-#: one row each: {"edition": "<item>/<edition dir>", "at"}.
-#: fetch_archive_org_editions appends one as it writes an edition's
-#: pages.json; edition_backlog counts them (with gale-editions' Gale ones).
+#: one row each: {"edition": "<item>/<edition dir>", "files": edition_files,
+#: "at"}. fetch_archive_org_editions appends one as it writes an edition's
+#: pages.json; edition_backlog counts them (with gale-editions' Gale ones);
+#: file_archive_org_puzzles lists, keys and dates editions by them
+#: (edition_rows). A row with no "files" (an older one) is filled once off
+#: the disk and appended.
 ARCHIVE_EDITIONS = "archiveorg-editions"
 #: The Trove search listings' print dates, one row a hit:
 #: {"article": id, "date": "Thursday 11 December 1980", "at"}, in index
@@ -105,9 +108,52 @@ def trove_zone_names(zdir):
 
 
 def record_edition(d):
-    """Append edition dir `d` (its pages.json just written) to ARCHIVE_EDITIONS."""
+    """Append edition dir `d` (its pages.json just written) to ARCHIVE_EDITIONS,
+    with its files' hash (edition_files)."""
     d = os.path.normpath(os.fspath(d))
-    record(ARCHIVE_EDITIONS, d, edition=f"{os.path.basename(os.path.dirname(d))}/{os.path.basename(d)}")
+    record(ARCHIVE_EDITIONS, d, edition=edition_rel(d), files=edition_files(d))
+
+
+def edition_rel(d):
+    """"<item>/<edition dir>" of edition dir `d`."""
+    d = os.path.normpath(os.fspath(d))
+    return f"{os.path.basename(os.path.dirname(d))}/{os.path.basename(d)}"
+
+
+def edition_files(d):
+    """Edition dir `d`'s files by name and size, hashed: what
+    file_archive_org_puzzles.input_hash keys a read by. Lists and stats the
+    dir: only a writer that just wrote it, or a memo filling once, calls this."""
+    h = hashlib.sha256()
+    for n in sorted(os.listdir(d)):
+        h.update(f"{n}:{os.stat(os.path.join(d, n)).st_size}".encode())
+    return h.hexdigest()[:16]
+
+
+def _fold_edition(acc, line):
+    """Fold one archiveorg-editions or gale-editions row into {rel: {"files",
+    "at"}}: a later row's fields stand, "at" when it was last laid out."""
+    try:
+        row = json.loads(line)
+        held = acc.setdefault(row["edition"], {})
+    except (ValueError, KeyError, TypeError):
+        return  # a torn last line
+    held.update({k: row[k] for k in ("files", "at") if k in row})
+
+
+def edition_rows():
+    """{"<item>/<edition dir>": {"files": its input hash when recorded, "at":
+    when it was laid out}} of every edition under downloads.ARCHIVE_ORG
+    holding pages.json, off the archiveorg-editions and gale-editions
+    manifests, folding only the rows appended since the last call. Raises
+    SystemExit when either was never built (it would read as no editions)."""
+    import dir_cache
+    out = {}
+    for name in (ARCHIVE_EDITIONS, GALE_EDITIONS):
+        if not built(name):
+            rows(name)  # raises, naming its build
+        out.update(dir_cache.appended(path(name), dict, _fold_edition))
+    return out
 
 
 def memo(name, key, value):
@@ -437,7 +483,8 @@ def build_archive_editions(out=sys.stdout):
     """Walk downloads.ARCHIVE_ORG once for the edition dirs holding pages.json
     into ARCHIVE_EDITIONS. Never scheduled."""
     root = downloads.ARCHIVE_ORG
-    found = [{"edition": f"{item}/{ed}", "at": time.time()}
+    found = [{"edition": f"{item}/{ed}", "at": (root / item / ed / "pages.json").stat().st_mtime,
+              "files": edition_files(root / item / ed)}
              for item in sorted(os.listdir(root)) if (root / item).is_dir()
              for ed in sorted(os.listdir(root / item)) if (root / item / ed / "pages.json").exists()]
     write(ARCHIVE_EDITIONS, found)

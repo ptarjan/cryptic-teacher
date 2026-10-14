@@ -467,13 +467,66 @@ IA_ITEMS = "ia-items"
 
 
 def item_row(item, meta):
-    """{"key", "editions"} of item `item` whose metadata is `meta`: its first slug for each edition date."""
+    """{"key", "editions", "names"} of item `item` whose metadata is `meta`:
+    its first slug for each edition date, and its editions (editions_of)."""
     eds = {}
-    for name in editions_of(meta):
+    names = editions_of(meta)
+    for name in names:
         date = edition_date(name)
         if date:
             eds.setdefault(date, slug_of(item, name))
-    return {"key": item, "editions": eds}
+    return {"key": item, "editions": eds, "names": names}
+
+
+#: The SSD memo of the group item listings cached in items/_group_<g>.json:
+#: {"key": group, "docs": the search's docs (None: none cached), "at": when
+#: it was searched}. items_of appends one as it writes a listing; plan fills
+#: a group missing there off the disk once.
+IA_GROUPS = "ia-groups"
+
+
+def _fold_key(acc, line):
+    """Fold one manifest row into {row["key"]: its fields}, a later row's standing."""
+    try:
+        row = json.loads(line)
+        acc.setdefault(row["key"], {}).update(row)
+    except (ValueError, KeyError, TypeError, AttributeError):
+        return  # a torn last line
+
+
+def held_rows(name):
+    """{key: fields} of manifest `name` (ia-items or ia-groups), folding only
+    the rows appended since the last call; {} when never written."""
+    return dir_cache.appended(media_manifest.path(name), dict, _fold_key)
+
+
+def record_group(out, group, docs):
+    """Append group `group`'s listing `docs` (just written) to IA_GROUPS."""
+    slim = [{k: d.get(k) for k in ("identifier", "title", "date")} for d in docs] if docs is not None else None
+    media_manifest.record(IA_GROUPS, listing_path(out, group), key=group, docs=slim)
+
+
+def _group_off_disk(out, group):
+    """A group listing's IA_GROUPS fields off the disk, once: its docs and
+    mtime, or docs None when none is cached; appended."""
+    path = listing_path(out, group)
+    try:
+        at = os.path.getmtime(path)
+        docs = json.loads(Path(path).read_bytes())
+    except FileNotFoundError:
+        at, docs = 0, None
+    row = {"docs": docs, "at": at}
+    media_manifest.record(IA_GROUPS, path, key=group, **row)
+    return row
+
+
+def _names_off_disk(out, item):
+    """An item's editions off its cached metadata, once (an ia-items row from
+    before rows held them), appended to IA_ITEMS."""
+    path = os.path.join(out, "items", item + ".json")
+    meta = json.loads(Path(path).read_bytes())
+    record_item(path, item, meta)
+    return editions_of(meta)
 
 
 def record_item(path, item, meta):
@@ -1107,6 +1160,7 @@ def items_of(fx, group, refresh=False):
     else:
         docs = fx.search(next(g for g in GROUPS if g[0] == group)[1])
         write_atomic(path, json.dumps(docs).encode())
+        record_group(fx.out, group, docs)
     return kept_items(group, docs)
 
 
@@ -1216,8 +1270,58 @@ def plan(out, groups=None):
     by_editions order, each item with no cached metadata ({"item": it},
     its metadata fetched and, when it holds one edition, that edition) and
     each edition not in done.tsv ({"item": it, "name": edition}), the
-    groups taking turns an edition each, so none starves the rest.""" 
+    groups taking turns an edition each, so none starves the rest. On the
+    media disk the listings and item metadata come off the ia-groups and
+    ia-items manifests (plan_listings), never a stat of items/."""
     done = load_done(out)
+    if media_manifest.on_media(out):
+        lists = plan_listings(out, groups)
+        units = [{"group": g, "rel": f"_group_{g}", "reason": "item listing stale"} for g, fresh, _ in lists if not fresh]
+        return units + by_editions(_per_group(out, [rows for _, _, rows in lists], done), lambda u: 1)
+    return _plan_listed(out, groups, done)
+
+
+def plan_listings(out, groups=None):
+    """[(group, fresh, [(group, item)])] of plan's groups off IA_GROUPS: fresh
+    when its listing is under LISTING_SECONDS old. A group with no row there
+    is taken off the disk once (_group_off_disk)."""
+    held = held_rows(IA_GROUPS)
+    now = time.time()
+    found = []
+    for group in groups or [g[0] for g in GROUPS]:
+        row = held.get(group)
+        if row is None:
+            row = _group_off_disk(out, group)
+        docs = row.get("docs")
+        fresh = docs is not None and now - row.get("at", 0) < LISTING_SECONDS
+        found.append((group, fresh, [] if docs is None else [(group, it) for it in kept_items(group, docs)]))
+    return found
+
+
+def _per_group(out, lists, done):
+    """plan's units of each group's items off IA_ITEMS: an item it lacks has
+    no metadata cached (the fetcher appends a row as it writes one). Raises
+    SystemExit when IA_ITEMS was never built (it would read as none cached)."""
+    if not media_manifest.built(IA_ITEMS):
+        media_manifest.rows(IA_ITEMS)
+    held = held_rows(IA_ITEMS)
+    per_group = []
+    for row in lists:
+        per_group.append([])
+        for _, item in row:
+            names = (held.get(item) or {}).get("names") if item in held else None
+            if item in held and names is None:
+                names = _names_off_disk(out, item)
+            if item not in held:
+                per_group[-1].append({"item": item, "rel": item, "reason": "metadata not cached"})
+            else:
+                per_group[-1] += [{"item": item, "name": x, "rel": f"{item}/{x}", "reason": "not fetched"}
+                                  for x in names if (item, x) not in done]
+    return per_group
+
+
+def _plan_listed(out, groups, done):
+    """plan of an out folder off the media disk (a test's), off its files."""
     units, lists = [], []
     for group in groups or [g[0] for g in GROUPS]:
         path = listing_path(out, group)
