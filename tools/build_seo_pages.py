@@ -116,6 +116,9 @@ PAGE_CARDS = {}
 
 ROOT = Path(__file__).resolve().parent.parent
 BASE = "https://cryptic.paultarjan.com"
+# The numbers /puzzles/<number>/ was ever a real page at; see legacy_redirects().
+BARE_NUMBER_URLS = frozenset(json.loads(
+    (ROOT / "tools/data/bare_number_urls.json").read_text(encoding="utf-8"))["numbers"])
 
 # Marker pair in index.html. The homepage is hand-written and stays that way;
 # only what is between these two comments is generated, so the crawl path out
@@ -640,7 +643,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
     annotated = row and row["annotated"]
     # The page lives at its ID, not its number: two papers can reach the same
     # number and would then want the same directory. The bare-number URL still
-    # works — legacy_redirects() keeps one at every number we have ever used.
+    # works — legacy_redirects() keeps one at every number that was ever a page.
     canonical = f"{BASE}/puzzles/{puz['id']}/"
 
     # "Everyman Crossword No 4,096 by Everyman" is the setter's pseudonym said
@@ -2492,10 +2495,12 @@ def legacy_redirects(solved):
     links here, so "nothing links to them" is the wrong test; the right one is
     the top-pages table in tools/ga_report.py.
 
-    Built for every puzzle, and the copy says "is at" rather than "has moved"
-    for that reason: a series added later was never published under its bare
-    number. A number is a number — the page's job is to say which puzzle it
-    names.
+    Built only at the numbers in BARE_NUMBER_URLS: the 222 puzzles that were
+    pages at /puzzles/<number>/ before ids carried their series. Every other
+    number was never published bare, and a stub for each of them was ~24k
+    pages (~50 MB of the Pages artifact, headers included) that no crawler or
+    reader had a URL for. The copy still says "is at" rather than "has moved":
+    a number listed there may since have been reached by another paper too.
 
     A number claimed by more than one paper offers the choice rather than
     guessing, which is the same rule resolve_puzzle() applies on the command
@@ -2503,7 +2508,8 @@ def legacy_redirects(solved):
     """
     by_number = {}
     for p in solved:
-        by_number.setdefault(str(p["number"]), []).append(p)
+        if int(p["number"]) in BARE_NUMBER_URLS:
+            by_number.setdefault(str(p["number"]), []).append(p)
     for num, ps in sorted(by_number.items()):
         pretty = f"{int(num):,}"
         if len(ps) == 1:
@@ -2837,8 +2843,8 @@ def orphans(files):
         which is the exact shape this generator creates;
       * and only if that index.html is not one this run is about to write.
 
-    A bare-numeric directory is NOT an orphan: legacy_redirects() writes one for
-    every puzzle number and always will. The test for a dead page is "this run
+    A bare-numeric directory legacy_redirects() still writes (one of
+    BARE_NUMBER_URLS) is NOT an orphan; any other one is, and goes. The test for a dead page is "this run
     does not write it", never a guess from the name.
 
     Anything that does not fit the shape is returned as a leftover rather than

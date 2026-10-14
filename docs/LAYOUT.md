@@ -1443,6 +1443,10 @@ tools/data/renamed_ids.json                    every puzzle id renamed, {old id:
                                                (tools/renamed_ids.py); build_seo_pages.py
                                                writes a redirect page at each old id no live
                                                puzzle holds
+tools/data/bare_number_urls.json               the 222 numbers /puzzles/<number>/ was a real
+                                               page at before ids carried their series;
+                                               build_seo_pages.py writes a redirect stub only
+                                               at these
 tools/data/book_twins.json                     {held book id: newspaper id}:
                                                tools/book_twins.py's table, written by the
                                                write path when it refuses a newspaper copy of a
