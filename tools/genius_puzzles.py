@@ -743,8 +743,10 @@ def blog_posts():
 #: "Guardian Genius 156 / Pasquale", "Genius 81 by Paul", "Guardian Genius 188 – Enigmatist".
 POST_SETTER = re.compile(r"Genius\D{0,12}\d{1,3}\s*(?:by|/|–|-|:)\s*([A-Z][A-Za-z]+)\s*$")
 #: Or the setter, then a dash and the post's own headline: "Guardian Genius
-#: 96 / Araucaria – A Masochist's Delight"; or a headline ending ", by Paul".
-POST_SETTER_HEADED = re.compile(r"Genius\D{0,12}\d{1,3}\s*[/:]\s*([A-Z][a-z]+)\s+[–—-]\s|,\s+by\s+([A-Z][a-z]+)\s*$")
+#: 96 / Araucaria – A Masochist's Delight"; or a headline ending ", by Paul";
+#: or "Guardian Genius 82, Lavatch: Regression to the mean".
+POST_SETTER_HEADED = re.compile(r"Genius\D{0,12}\d{1,3}\s*[/:]\s*([A-Z][a-z]+)\s+[–—-]\s|,\s+by\s+([A-Z][a-z]+)\s*$"
+                                r"|Genius\D{0,12}\d{1,3},\s*([A-Z][a-z]+):\s")
 
 
 #: The post's first words naming the setter: "Lavatch is a setter whose".
