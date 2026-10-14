@@ -1048,6 +1048,8 @@ os.environ.pop("OCR_REMOTE")
 eq.LOST_TRIES = 1
 os.environ["OCR_REMOTE"] = "micro@192.168.1.180"
 real_prepare, eq.prepare = eq.prepare, lambda *a: None  # no desktop probe
+eq.plan = units([], [("d0", [])])  # its own plan: the cases above leave theirs
+eq.desktop_mem_reader = lambda: None  # no memory gate
 fake(outcome={"d0": "lost"}, default=0.05, env=True)
 log.unlink(missing_ok=True)
 err = io.StringIO()
