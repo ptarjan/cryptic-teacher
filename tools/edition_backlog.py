@@ -14,7 +14,11 @@ edition_queue.py plan takes minutes.
                                  ledger row
 
 Counted in puzzles: each edition or Listener page prints one cryptic; a
-Trove article counts the share of read articles that filed a puzzle.
+Trove article counts the share of read articles that filed a puzzle. An
+edition is counted once per series and print date (edition_day()), however
+many copies are on disk: the Gale Times and archive.org's NewsUK Times both
+hold 1970-1999, and an item can hold a date twice, so on 2026-10-13 the Times
+had 14,712 edition dirs for 13,467 dates. A date is read once any copy is.
 
     python3 tools/edition_backlog.py     # {series: [downloaded, queued]} and each source's raw counts
 
@@ -27,6 +31,7 @@ import collections
 import datetime
 import json
 import os
+import re
 import sys
 
 import downloads
@@ -36,22 +41,53 @@ import gale_listener
 import scan_queue
 
 
-def archive_counts(cache=downloads.ARCHIVE_ORG):
-    """{paper key: [editions on disk, never read]} over FILERS."""
-    read = set()
-    for key in {fa.ledger_of(cache, p) for p in fa.FILERS.values()}:
-        read.update(r["edition"] for r in scan_queue.jsonl_rows(key) if "inputs" in r)
+def edition_day(ed):
+    """The print date an edition dir names ("1989-10-10_30968" -> "1989-10-10"),
+    else the dir's whole name, so an undated dir counts on its own."""
+    return ed[:10] if re.match(r"\d{4}-\d\d-\d\d(?!\d)", ed) else ed
+
+
+def by_day(editions):
+    """{series: [print dates, dates no copy of which was read]} from
+    (series, edition dir, read) rows, one per copy on disk."""
+    days = {}
+    for series, ed, read in editions:
+        key = (series, edition_day(ed))
+        days[key] = days.get(key, False) or bool(read)
     out = {}
+    for (series, _), read in days.items():
+        c = out.setdefault(series, [0, 0])
+        c[0] += 1
+        c[1] += not read
+    return out
+
+
+def _editions(cache):
+    """(paper key, item, edition dir) for each edition on disk holding
+    pages.json whose item a FILERS paper reads."""
     for item in (os.listdir(cache) if cache.is_dir() else ()):
         paper = fa.filer_of(item)
         if paper is None or not (cache / item).is_dir():
             continue
-        c = out.setdefault(paper.key, [0, 0])
         for ed in os.listdir(cache / item):
             if (cache / item / ed / "pages.json").exists():
-                c[0] += 1
-                c[1] += f"{item}/{ed}" not in read
-    return out
+                yield paper.key, item, ed
+
+
+def archive_counts(cache=downloads.ARCHIVE_ORG):
+    """({paper key: [edition dirs on disk, never read]} over FILERS, the raw
+    copies; {series: by_day()} of them, the puzzles)."""
+    read = set()
+    for key in {fa.ledger_of(cache, p) for p in fa.FILERS.values()}:
+        read.update(r["edition"] for r in scan_queue.jsonl_rows(key) if "inputs" in r)
+    out, rows = {}, []
+    for key, item, ed in _editions(cache):
+        unread = f"{item}/{ed}" not in read
+        c = out.setdefault(key, [0, 0])
+        c[0] += 1
+        c[1] += unread
+        rows.append((fa.FILERS[key].series, ed, not unread))
+    return out, by_day(rows)
 
 
 def listener_counts(inbox=gale_listener.MIRROR, store=gale_listener.STORE):
@@ -72,16 +108,16 @@ def trove_counts(cache=ftp.CACHE):
 
 def counts():
     """({series: [downloaded, queued]} in puzzles, {source: raw counts})."""
-    raw = {**archive_counts(), "listener": listener_counts(), "trove": trove_counts()}
+    copies, editions = archive_counts()
+    raw = {**copies, "listener": listener_counts(), "trove": trove_counts()}
     out = {}
 
     def add(series, n, q):
         c = out.setdefault(series, [0, 0])
         c[0] += round(n)
         c[1] += round(q)
-    for key, c in raw.items():
-        if key in fa.FILERS:
-            add(fa.FILERS[key].series, *c)
+    for series, c in editions.items():
+        add(series, *c)
     add(gale_listener.lp.SERIES, *raw["listener"])
     n, q, filed, read = raw["trove"]
     share = filed / read if read else 0
@@ -117,16 +153,21 @@ def dated(cache=downloads.ARCHIVE_ORG, inbox=gale_listener.MIRROR, store=gale_li
         for ed, d in _first_reads((r for r in scan_queue.jsonl_rows(key) if "inputs" in r),
                                   "edition", "readAt").items():
             reads[ed] = min(reads.get(ed, d), d)
-    for item in (os.listdir(cache) if cache.is_dir() else ()):
-        paper = fa.filer_of(item)
-        if paper is None or not (cache / item).is_dir():
+    # One scan per series and print date (by_day): landed with its first
+    # copy, read with its first read copy.
+    days = {}
+    for key, item, ed in _editions(cache):
+        try:
+            landed = _day(cache / item / ed / "pages.json")
+        except FileNotFoundError:
             continue
-        for ed in os.listdir(cache / item):
-            try:
-                landed = _day(cache / item / ed / "pages.json")
-            except (FileNotFoundError, NotADirectoryError):
-                continue
-            add(fa.FILERS[paper.key].series, 1, landed, reads.get(f"{item}/{ed}"))
+        read = reads.get(f"{item}/{ed}")
+        k = (fa.FILERS[key].series, edition_day(ed))
+        was = days.get(k)
+        days[k] = (landed, read) if was is None else (
+            min(was[0], landed), min((d for d in (was[1], read) if d), default=None))
+    for (series, _), (landed, read) in days.items():
+        add(series, 1, landed, read)
     read = _first_reads(gale_listener.load_ledger(store).values(), "file", "readOn")
     for p in gale_listener.page_files(inbox):
         add(gale_listener.lp.SERIES, 1, _day(p), read.get(p.name))

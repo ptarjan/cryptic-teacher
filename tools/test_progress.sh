@@ -65,6 +65,19 @@ assert q["2026-10-05"]["times"][5:] == [100, 40], "a recorded night is kept"
 assert "canberra" not in q["2026-10-05"], "a counted night's missing series stays missing"
 assert all(a >= b for r in q.values() for c in r.values() for a, b in zip(P.nested(c), P.nested(c)[1:]))
 
+# One puzzle a series and print date, however many copies are on disk: the
+# Gale Times and archive.org's NewsUK Times hold the same 1970-1999 dates, and
+# FT items hold a date twice under two issue numbers. A date is read once any
+# copy is; an undated dir counts on its own.
+assert E.edition_day("1989-10-10_30968") == "1989-10-10" and E.edition_day("1970-04-07") == "1970-04-07"
+assert E.edition_day("19891010") == "19891010" and E.edition_day("2001-01-019") == "2001-01-019"
+eds = [("times", "1975-03-01", True), ("times", "1975-03-01", False),     # Gale read, NewsUK not
+       ("times", "1975-03-02", False), ("times", "1975-03-02", False),    # neither read
+       ("times", "1975-03-03", False),
+       ("ftcryptic", "1989-10-10_30968", False), ("ftcryptic", "1989-10-10_30969", True),
+       ("ftcryptic", "1989-10-11_30970", False)]
+assert E.by_day(eds) == {"times": [3, 2], "ftcryptic": [2, 1]}, E.by_day(eds)
+
 live = P.with_today(days, {"times": [5, 4, 3], "azed": [1, 1, 1]}, "2026-10-08")
 assert live["2026-10-08"] == {"azed": [None, None, 1, 1, 1, None, None], "times": [10, 3, 5, 4, 3, 110, 30]}, live["2026-10-08"]
 assert P.totals(live["2026-10-08"]) == [10, 3, 6, 5, 4, 110, 30]

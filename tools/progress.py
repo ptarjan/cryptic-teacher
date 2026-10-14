@@ -25,8 +25,10 @@ filed. nested() puts every series in one chain, known >= downloaded >= filed
 include editions already read and filed, so the raw downloaded is not a layer
 above filed. The funnel and the by-series bars draw that chain.
 
-downloaded and queued count puzzles: one per newspaper edition or Listener
-page (each prints one cryptic), and a Trove article times the share of read
+downloaded and queued count puzzles: one per newspaper print date (each
+edition prints one cryptic; a date on disk from both Gale and archive.org, or
+twice in one item, is one puzzle, read once any copy is) or Listener page,
+and a Trove article times the share of read
 articles that filed a puzzle (tools/edition_backlog.py). The queue's daily
 inflow is downloaded's gain, its outflow that gain less queued's. Nights
 before progress_record.py first counted them are backfilled
