@@ -2620,5 +2620,7 @@ tools/nation_images.py                         the Nation's own pictures of its 
                                                blank grid every page prints
 tools/test_fetch_nation_build_one.sh           does one bad page fail on its own in
                                                fetch_nation's worker pool?
+tools/test_pct.sh                              does the site's progress percent floor, and only
+                                               say 100% when it is?
 ```
 <!-- LAYOUT-END -->
