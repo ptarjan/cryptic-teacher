@@ -51,7 +51,15 @@ URLS = DIR / "urls.json"
 SLEEP_SECONDS = 1.5
 # The Nation prints 15x15 and 13x13 blocked grids; the rebuild tries those.
 SIZES = (15, 13)
-MAX_NODES = 400_000
+# 400k ran 40 of 150 pages out of budget (2026-10-14 run); 1478 and 259 need
+# 1.15M even with the cap below. reconstruct_grid's own default.
+MAX_NODES = 2_000_000
+# No line of blocks longer than five: 383 of the 392 Nation grids filed by
+# 2026-10-14, and the nine that break it (771, 1590, 1599, 1610, 1612, 1629,
+# 3152, 3154, 3185) all came from the page's own grid picture, which is tried
+# before the search. Without it the search spends its budget on grids opening
+# with a row of blocks.
+MAX_BLACK_RUN = 5
 PUZZLE_URL = re.compile(r"/article/[a-z0-9-]+/(?:[a-z-]*puzzle-(?:no-)?\d+(?:-\d)?|crossword-classic-\d+)/?$")
 
 
@@ -151,9 +159,13 @@ def lines_of(page):
 def meta(page):
     title = re.search(r'<meta property="og:title" content="([^"]+)"', page)
     title = html.unescape(title.group(1)) if title else ""
-    number = re.search(r"\bPuzzle\s*(?:No\.?\s*)?(\d+)\b", title, re.I)
+    # "Crossword Classic #1".."#25" (2008) are Lewis's first puzzles under
+    # their own Nation number, not a series of their own: #1 is "From the
+    # October 18, 1947, issue", #10 December 20 and #25 April 3, 1948, a
+    # week a number, and no other page prints numbers 1-25.
+    number = re.search(r"\b(?:Puzzle\s*(?:No\.?\s*)?|Crossword Classic\s*#\s*)(\d+)\b", title, re.I)
     flat = html.unescape(re.sub(r"<[^>]+>", "", page))
-    original = re.search(r"originally appeared in the (\w+ \d{1,2}, \d{4}),? issue", flat)
+    original = re.search(r"(?:originally appeared in|From) the (\w+ \d{1,2}, \d{4}),? issue", flat)
     issue = (original or re.search(r"This article appears in the\s+(\w+ \d{1,2}, \d{4})\s+issue", flat))
     author = re.search(r'aria-label="author name ([^"]+)"', page)
     posted = re.search(r'<meta property="article:published_time" content="(\d{4}-\d\d-\d\d)', page)
@@ -431,7 +443,7 @@ def search_grid(across, down, groups, words=None, max_nodes=None):
         if size < longest:
             continue
         grid, why = rg.unique_grid(spec, cols=size, rows=size, max_nodes=max_nodes or MAX_NODES,
-                                   groups=groups, words=words)
+                                   groups=groups, words=words, max_black_run=MAX_BLACK_RUN)
         if grid is not None or "grids fit" in (why or ""):
             return grid, why
         if first is None or "budget" in why and "budget" not in first:
