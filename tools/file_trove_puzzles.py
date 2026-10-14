@@ -1333,7 +1333,7 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles
     # The VLM's readings are an input: an article read without it is read
     # again once it answers, and one read with it stands while it is down.
     seen_by = vlm.version() if vlm.reachable() else None
-    dirs = sorted(p for p in cache.iterdir() if (p / "meta.json").exists()) if cache.exists() else []
+    dirs = article_dirs(cache)
     due = {}
     for d in dirs:
         row = known.get(d.name)
@@ -1450,6 +1450,20 @@ def article_date(d):
     return _DATES[d.name]
 
 
+def article_dirs(cache):
+    """The article dirs in `cache` holding meta.json, by name: off the
+    trove-titles manifest (fetch_trove appends to it) once `build
+    trove-titles` has completed it, so a plan lists no Trove dir."""
+    if media_manifest.on_media(cache) and media_manifest.complete(media_manifest.TROVE_TITLES):
+        return [cache / a for a in sorted(media_manifest.memo(media_manifest.TROVE_TITLES, "article", "title")) if a]
+    return _article_dirs_listed(cache)
+
+
+def _article_dirs_listed(cache):
+    """article_dirs by listing `cache` (before trove-titles is complete, or off the media disk)."""
+    return sorted(p for p in cache.iterdir() if (p / "meta.json").exists()) if cache.exists() else []
+
+
 def plan(cache=CACHE, reread=None, asked=(), ledger=None, puzzles=None):
     """The article reads due, one unit each ({"rel": article id, "rank",
     "reason", "force", "date"}), the most urgent first (RANKS), each rank
@@ -1460,7 +1474,7 @@ def plan(cache=CACHE, reread=None, asked=(), ledger=None, puzzles=None):
     seen_by = vlm.version() if vlm.reachable() else None
     asked = set(asked)
     due = {}
-    for d in (sorted(p for p in cache.iterdir() if (p / "meta.json").exists()) if cache.exists() else []):
+    for d in article_dirs(cache):
         why = "annotation asked" if d.name in asked else due_reason(known.get(d.name), inputs_of(d, files.get(d.name)),
                                                                      seen_by, reread)
         if why:
