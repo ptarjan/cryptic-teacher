@@ -105,6 +105,35 @@ page = """<article><p>ACROSS
 lists, _ = F.clue_lists(F.lines_of(page))
 print("HYPH", " ".join(f"{r['number']}:{r['enumeration']}" for r in lists["across"] + lists["down"]),
       "|", lists["across"][0]["clue"])
+# 1614: "26 and 27 See 6 across" closes on its pointer (not swallowing the
+# note below the list) and is two continuations, one row each.
+page = """<article><p>ACROSS
+<p>6, 25, 26 and 27 Mother's aboard (5,3,5,4)
+<p>25 See 6 across
+<p>DOWN
+<p>22 See 1 down
+<p>26 and 27 See 6 across
+<p>Frank W. Lewis, who for more than six decades wrote the puzzle, died on Nov. 18.
+</article>"""
+lists, _ = F.clue_lists(F.lines_of(page))
+print("SEEPAIR", " | ".join(f"{r['number']}:{r['clue']}" for r in lists["down"]))
+# 1614: "6 See 15 (6)" is a continuation printing a stray count, not a
+# leader; masked as one, the group was short and build refused it.
+page = """<html><head><meta property="og:title" content="Puzzle No. 3467" />
+<meta property="article:published_time" content="2018-05-01T00:00:00" /></head><body>
+<article><p>This article appears in the May 28, 2018 issue.</p>
+<p><strong>ACROSS</strong>
+<p><strong>1</strong> and 2 down First and second (5,5)
+<p><strong>4</strong> Middle across (5)
+<p><strong>5</strong> Last across (5)
+<p><strong>DOWN</strong>
+<p><strong>1</strong> First down (5)
+<p><strong>2</strong> See 1 across (4)
+<p><strong>3</strong> Third down (5)
+</article></body></html>"""
+puzzle, why = F.build(page, "https://example.org/puzzle-no-3467/", {}, grid=grid)
+lead = next(e for e in puzzle["entries"] if e["number"] == 1 and e["direction"] == "across") if puzzle else {}
+print("STRAY", why, lead.get("group"))
 # Crossword Classic #N print the grid as a timestamp-named upload; only they.
 import nation_images as NI
 up = '<img src="http://www.thenation.com/wp-content/uploads/2015/03/1225388684-large2.jpg">'
@@ -128,6 +157,8 @@ expect "MIRROR 5 8 9 7 9 8 5 [([('down', 1), ('down', 2)], 10)]" "a linked acros
 expect "HALVES 4 4" "two linked lights that mirror each other split their total"
 expect "SEELEAD None ['1-across', '5-across'] See 4" "a leader whose clue is 'See 4' leads its group and keeps its clue"
 expect "HYPH 27:8 28:6 19:7 | The sword, or the man who wields it. (hyphenated)" "a '(hyphenated)' note after the count keeps the count and stays with the clue"
+expect "SEEPAIR 22:See 1 down | 26:See 6 across | 27:See 6 across" "'26 and 27 See 6 across' closes on its pointer and is one row per light"
+expect "STRAY None ['1-across', '2-down']" "a continuation printing a stray count is not masked as a leader"
 expect "CLASSICIMG 1225388684-large2.jpg None" "a Crossword Classic page's timestamp-named upload is its grid picture; no other page's is"
 [ "$fails" = 0 ] && echo "fetch_nation clue list: all checks passed" || echo "fetch_nation clue list: $fails FAILED"
 exit $((fails > 0))

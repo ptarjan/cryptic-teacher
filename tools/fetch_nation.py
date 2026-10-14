@@ -217,6 +217,11 @@ def clue_lists(lines):
             # the first line of a clue of its own (3257's 1-across) and runs on.
             t = pending["text"]
             t = re.sub(r"\s*\(hyphenated\)\s*$", "", t, flags=re.I)
+            # ...after the linked numbers: "26 and 27 See 6 across" (1614)
+            # is closed by its pointer, or it runs on into the page's note
+            # below the list.
+            link = LINKED.match(t)
+            t = link.group(2) if link else t
             if ENUM.match(t) or SEE.match(t) or is_pointer(t, counted=True):
                 pending["open"] = False
         if pending and pending["text"]:
@@ -234,8 +239,11 @@ def clue_lists(lines):
                 # The direction stays: "See 1D" on an across light names
                 # 1-down, not the 1-across a bare "See 1" would.
                 where = {"a": " across", "d": " down"}.get((see.group(2) or "")[:1].lower(), "")
-                rows.append({"number": number, "clue": f"See {see.group(1)}{where}",
-                             "enumeration": None})
+                # "26 and 27 See 6 across" (1614) is two continuations, each
+                # its own light: one row per number, or light_spec reads the
+                # field "26,27" as one redirect with no number.
+                rows.extend({"number": n, "clue": f"See {see.group(1)}{where}",
+                             "enumeration": None} for n in number.split(","))
                 continue
             # Lewis's 1948 pages note a hyphen after the count ("(8)
             # (hyphenated)", Crossword Classic 14): the count is still printed,
@@ -635,8 +643,15 @@ def build(page, url, known=None, grid=None, origin="reconstructed"):
     # its clue is the one printed at 12): it prints the group's count, so it
     # leads, and resolve_groups (normalise_record's too) must not follow it to
     # 12 as a continuation.
+    # Only a printed linked field leads: 1614's "6 See 15 (6)" is a
+    # continuation with a stray count, and masked as a leader it left the
+    # 15-down group two lights short.
+    lists, _ = clue_lists(lines_of(page))
+    fields = {(int(r["number"].split(",")[0]), d) for d in ("across", "down")
+              for r in lists[d] if "," in str(r["number"]) and r["enumeration"]}
     leaders = {f"{lg[0]}-{d}" for d, lights in (("across", across), ("down", down))
-               for lg in lights if lg[2].startswith("linked") and (lg[3] or {}).get("enumeration")}
+               for lg in lights if lg[2].startswith("linked") and (lg[3] or {}).get("enumeration")
+               and (lg[0], d) in fields}
     masked = {entry_id(e): e["clue"] for e in entries
               if entry_id(e) in leaders and is_pointer(e.get("clue"))}
     for e in entries:
