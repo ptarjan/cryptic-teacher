@@ -134,6 +134,32 @@ page = """<html><head><meta property="og:title" content="Puzzle No. 3467" />
 puzzle, why = F.build(page, "https://example.org/puzzle-no-3467/", {}, grid=grid)
 lead = next(e for e in puzzle["entries"] if e["number"] == 1 and e["direction"] == "across") if puzzle else {}
 print("STRAY", why, lead.get("group"))
+# Classic 25: one pinned split fits capped; the others finish capped empty
+# and are not searched uncapped (where they ran out of budget). A capped
+# run-out still holds the grid back.
+def stub(table):
+    def unique_grid(spec, **kw):
+        n = [l for num, d, l in spec if num == 2 and d == "down"][0]
+        return table[(n, "max_black_run" in kw)]
+    return unique_grid
+real = F.rg.unique_grid
+F.paired_lengths, real_pl = (lambda *a: [{("down", 0): 3, ("down", 1): 5}, {("down", 0): 4, ("down", 1): 4},
+                                          {("down", 0): 5, ("down", 1): 3}]), F.paired_lengths
+pa = [[1, 5], [4, 5]]
+pd = [[2, None], [3, None]]
+grp = [([("down", 0), ("down", 1)], 8)]
+fit = (["G"], None)
+none = (None, "the search found no grid")
+out_ = (None, "the search ran out of budget")
+F.rg.unique_grid = stub({(3, True): none, (3, False): out_, (4, True): fit, (5, True): none, (5, False): out_})
+ok1 = F._search_paired(pa, pd, grp, 5, None, None)
+F.rg.unique_grid = stub({(3, True): out_, (4, True): fit, (5, True): none, (5, False): out_})
+ok2 = F._search_paired(pa, pd, grp, 5, None, None)
+F.rg.unique_grid = stub({(3, True): none, (3, False): fit, (4, True): none, (4, False): none, (5, True): none, (5, False): none})
+ok3 = F._search_paired(pa, pd, grp, 5, None, None)
+F.rg.unique_grid = real
+print("PAIRED", ok1, "|", ok2[1], "|", ok3)
+F.paired_lengths = real_pl
 # Crossword Classic #N print the grid as a timestamp-named upload; only they.
 import nation_images as NI
 up = '<img src="http://www.thenation.com/wp-content/uploads/2015/03/1225388684-large2.jpg">'
@@ -159,6 +185,7 @@ expect "SEELEAD None ['1-across', '5-across'] See 4" "a leader whose clue is 'Se
 expect "HYPH 27:8 28:6 19:7 | The sword, or the man who wields it. (hyphenated)" "a '(hyphenated)' note after the count keeps the count and stays with the clue"
 expect "SEEPAIR 22:See 1 down | 26:See 6 across | 27:See 6 across" "'26 and 27 See 6 across' closes on its pointer and is one row per light"
 expect "STRAY None ['1-across', '2-down']" "a continuation printing a stray count is not masked as a leader"
+expect "PAIRED (['G'], None) | the search ran out of budget | (['G'], None)" "a split the capped search finishes empty is not re-searched uncapped once another fits; a capped run-out still holds; with no capped fit the uncapped pass runs"
 expect "CLASSICIMG 1225388684-large2.jpg None" "a Crossword Classic page's timestamp-named upload is its grid picture; no other page's is"
 [ "$fails" = 0 ] && echo "fetch_nation clue list: all checks passed" || echo "fetch_nation clue list: $fails FAILED"
 exit $((fails > 0))

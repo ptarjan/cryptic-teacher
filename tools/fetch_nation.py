@@ -501,13 +501,14 @@ def paired_lengths(across, down, groups, size):
     return out
 
 
-def _search_size(across, down, groups, size, words, max_nodes):
-    """search_grid's (grid, why) at one size, capped and then uncapped."""
+def _search_size(across, down, groups, size, words, max_nodes, uncapped=True):
+    """search_grid's (grid, why) at one size, capped and then (unless
+    `uncapped` is False) uncapped."""
     spec = [(lg[0], d, lg[1]) for d, lights in (("across", across), ("down", down))
             for lg in lights]
     grid, why = rg.unique_grid(spec, cols=size, rows=size, max_nodes=max_nodes or MAX_NODES,
                                groups=groups, words=words, max_black_run=MAX_BLACK_RUN)
-    if grid is None and why == "the search found no grid":
+    if uncapped and grid is None and why == "the search found no grid":
         # The cap proved only that no capped grid fits: Lewis's 1947-48
         # pages (12: a 13-block middle row, 17: nine) break it, so search
         # again without it.
@@ -520,24 +521,43 @@ def _search_size(across, down, groups, size, words, max_nodes):
 def _search_paired(across, down, groups, size, words, max_nodes):
     """_search_size, but over each length assignment paired_lengths() allows
     when there are few: each search has every length pinned (no group left)
-    and its own budget. One grid over all of them is the grid."""
+    and its own budget. One grid over all of them is the grid.
+
+    Every assignment is searched capped first. When one of them fits under
+    the cap, an assignment the capped search finished empty is done with: it
+    is not searched again uncapped, where it can only run out of budget
+    (Classic 25: 8d+21d=16 fits as 8/8 in 17s; 7/9 and 9/7 finish capped
+    empty, then ran 2M nodes uncapped each and their "out of budget" held
+    the 8/8 grid back). A capped search that itself runs out of budget
+    still holds the grid back. Only when no assignment fits capped are the
+    empty ones searched again without the cap, as _search_size does."""
     ways = paired_lengths(across, down, groups, size)
     if ways is None or len(ways) > MAX_PAIRED or ways == [{}]:
         return _search_size(across, down, groups, size, words, max_nodes)
-    grids, budget = [], None
+    pins = []
     for pick in ways:
         pinned = {d: [list(lg) for lg in lights] for d, lights in (("across", across), ("down", down))}
         for (d, i), n in pick.items():
             pinned[d][i][1] = n
-        grid, why = _search_size(pinned["across"], pinned["down"], [], size, words, max_nodes)
-        if grid is None and "grids fit" in (why or ""):
-            return None, why
-        if grid is not None and grid not in grids:
-            grids.append(grid)
-        if grid is None and "budget" in why:
-            budget = why
-        if len(grids) >= 2:
-            return None, "at least 2 grids fit the clue list"
+        pins.append(pinned)
+    for uncapped in (False, True):
+        grids, budget, empty = [], None, []
+        for pinned in pins:
+            grid, why = _search_size(pinned["across"], pinned["down"], [], size, words,
+                                     max_nodes, uncapped=uncapped)
+            if grid is None and "grids fit" in (why or ""):
+                return None, why
+            if grid is not None and grid not in grids:
+                grids.append(grid)
+            if grid is None and "budget" in why:
+                budget = why
+            if grid is None and why == "the search found no grid":
+                empty.append(pinned)
+            if len(grids) >= 2:
+                return None, "at least 2 grids fit the clue list"
+        if grids or budget is not None or not empty:
+            break
+        pins = empty
     if grids and budget is None:
         return grids[0], None
     return None, budget or "the search found no grid"
