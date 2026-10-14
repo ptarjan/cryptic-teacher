@@ -44,6 +44,7 @@ const PUZZLE_URL = "https://cryptic.paultarjan.com/?p=";
 // page re-registers on every load, so a device still in use never reaches this.
 const PUSH_TTL = 60 * 60 * 24 * 180;
 const MAX_SUB = 4 * 1024;
+const REFRESH_SLACK = 60 * 60 * 24 * 7;  // see the /n handler
 const MAX_SERIES = 12;
 // Only the four push services exist. Storing an arbitrary https URL here would
 // make the cron a machine that POSTs to anywhere anyone asks it to.
@@ -114,6 +115,92 @@ function badSubscription(sub) {
   return "";
 }
 
+/* The one Durable Object every event goes to. One instance on purpose: a few
+   thousand ticks a day is nothing for it, and one place is what makes a count
+   exact and the hourly copy into KV a single write. */
+const counter = (env) => env.EVENTS.get(env.EVENTS.idFromName("events"));
+
+// Days of counts the counter keeps once copied to KV. Only today and yesterday
+// can still change; the rest is slack for a missed cron.
+const COUNTER_DAYS = 3;
+
+/* Event counts in Durable Object storage, `c:<day>:<name>` -> n, plus
+   `f:<day>` -> the counts as last copied into KV.
+
+   Plain fetch() rather than RPC, so this file still imports under node, where
+   tools/test_push_hold.js and tools/test_kv_writes.js drive it. */
+export class EventCounter {
+  constructor(state) { this.storage = state.storage; }
+
+  async fetch(request) {
+    const url = new URL(request.url);
+    if (url.pathname === "/add") {
+      const [day, name] = (await request.text()).split("|");
+      const k = `c:${day}:${name}`;
+      await this.storage.put(k, ((await this.storage.get(k)) || 0) + 1);
+      return new Response(null, { status: 204 });
+    }
+    if (url.pathname === "/counts")
+      return Response.json(await this.day(url.searchParams.get("day") || ""));
+    /* Every day whose counts differ from the last copy that reached KV, as
+       {day: {name: n}}. Today is left out unless asked for, which is how the
+       cron copies it hourly yet still closes yesterday on the first run after
+       midnight. Nothing is marked copied here: the cron says so with /flushed
+       once its KV write went through, so a 429 is simply retried next run. */
+    if (url.pathname === "/pending") {
+      const today = url.searchParams.get("today") || "";
+      const withToday = url.searchParams.get("include_today") === "1";
+      const days = new Set([...(await this.storage.list({ prefix: "c:" })).keys()]
+        .map((k) => k.split(":")[1]));
+      const out = {};
+      for (const d of [...days].sort()) {
+        if (d === today && !withToday) continue;
+        const counts = await this.day(d);
+        if (JSON.stringify(counts) !== await this.storage.get("f:" + d)) out[d] = counts;
+      }
+      return Response.json(out);
+    }
+    if (url.pathname === "/flushed") {
+      const done = await request.json();
+      for (const [d, counts] of Object.entries(done))
+        await this.storage.put("f:" + d, JSON.stringify(counts));
+      const cutoff = new Date(Date.now() - COUNTER_DAYS * 864e5).toISOString().slice(0, 10);
+      const stale = [];
+      for (const k of (await this.storage.list({ prefix: "c:" })).keys())
+        if (k.split(":")[1] < cutoff) stale.push(k);
+      for (const k of (await this.storage.list({ prefix: "f:" })).keys())
+        if (k.slice(2) < cutoff) stale.push(k);
+      for (let i = 0; i < stale.length; i += 128) await this.storage.delete(stale.slice(i, i + 128));
+      return new Response(null, { status: 204 });
+    }
+    return new Response("not found", { status: 404 });
+  }
+
+  async day(d) {
+    const out = {};
+    for (const [k, n] of await this.storage.list({ prefix: `c:${d}:` })) out[k.split(":")[2]] = n;
+    return out;
+  }
+}
+
+/* Copy the event counts into KV: the one key `e:tally`, {day: {name: n}} for
+   the last EVENT_TTL of days. At most one write an hour, and none in an hour
+   nobody did anything, against one write per event before. */
+async function flushEvents(env, now, hourly) {
+  if (!env.EVENTS) return;
+  const today = new Date(now).toISOString().slice(0, 10);
+  const stub = counter(env);
+  const res = await stub.fetch(`https://counter/pending?today=${today}&include_today=${hourly ? 1 : 0}`);
+  const pending = await res.json();
+  if (!Object.keys(pending).length) return;
+  const tally = (await env.SAVES.get("e:tally", "json")) || {};
+  Object.assign(tally, pending);
+  const oldest = new Date(now - EVENT_TTL * 1000).toISOString().slice(0, 10);
+  for (const d of Object.keys(tally)) if (d < oldest) delete tally[d];
+  await env.SAVES.put("e:tally", JSON.stringify(tally));
+  await stub.fetch("https://counter/flushed", { method: "POST", body: JSON.stringify(pending) });
+}
+
 export default {
   async fetch(request, env) {
     const origin = request.headers.get("origin") || "";
@@ -123,15 +210,21 @@ export default {
 
     /* Counting solves, with no solver in the data.
 
-       THE KEY NAME IS THE RECORD. The value is empty and is never read: counting
-       is a `list` by prefix, so there is no read-modify-write and therefore no
-       increment a race can lose, and no counter that can end up wrong.
+       An event is a day and a name from the shared list, and nothing else: no
+       address, no cookie, no id, no user agent, no puzzle, and no clock finer
+       than the day. So there is nothing here to correlate two events into one
+       visitor with, which is deliberate: the question is whether visitors solve
+       anything, and that is an aggregate.
 
-       A key is a date, a name from the shared list, and randomness to keep two
-       of them apart. That is all of it — no address, no cookie, no id, no user
-       agent, no puzzle, and no clock finer than the day. So there is nothing
-       here to correlate two events into one visitor with, which is deliberate:
-       the question is whether visitors solve anything, and that is an aggregate.
+       It is a +1 on a counter in one Durable Object (EventCounter, above), NOT
+       a KV write. It used to be one KV key per event (`e:<day>:<name>:<uuid>`),
+       and the free tier allows 1,000 KV writes a day across the whole
+       namespace: on busy days the beacons alone came close, and past the limit
+       every save, vote and push record 429s until midnight UTC. A Durable
+       Object is single-threaded, so the increment is a real one no race can
+       lose, and its storage has its own, far larger, allowance. The cron copies
+       the counts into the one KV key `e:tally` at most once an hour
+       (flushEvents), which is what tools/usage_report.py reads.
 
        Always 204, whatever was sent. A validation failure told to the caller
        would describe the list to anyone who asked, and sendBeacon has nobody to
@@ -141,11 +234,24 @@ export default {
       const ok = new Response(null, { status: 204, headers: cors(origin) });
       if (Number(request.headers.get("content-length") || 0) > MAX_EVENT) return ok;
       const name = (await request.text()).trim();
-      if (CTEvents.indexOf(name) < 0) return ok;
+      if (CTEvents.indexOf(name) < 0 || !env.EVENTS) return ok;
       const day = new Date().toISOString().slice(0, 10);
-      await env.SAVES.put(`e:${day}:${name}:${crypto.randomUUID()}`, "",
-                          { expirationTtl: EVENT_TTL });
+      try {
+        await counter(env).fetch("https://counter/add", { method: "POST", body: `${day}|${name}` });
+      } catch (e) { /* a lost tick is a lost tick; the solver must never see it */ }
       return ok;
+    }
+
+    /* Today's counts so far, ahead of the hourly copy into KV. Aggregate
+       numbers for names anyone can read in events.js, and nothing finer;
+       tools/e2e_analytics.py reads this to see its own beacons arrive without
+       waiting up to an hour for the cron. */
+    if (url.pathname === "/e" && request.method === "GET") {
+      if (!env.EVENTS) return json({}, 200, origin);
+      const day = url.searchParams.get("day") || new Date().toISOString().slice(0, 10);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(day)) return json({ error: "day must be YYYY-MM-DD" }, 400, origin);
+      const res = await counter(env).fetch("https://counter/counts?day=" + day);
+      return json(await res.json(), 200, origin);
     }
 
     /* What solvers thought of a clue, and of the puzzle.
@@ -277,6 +383,16 @@ export default {
       // record when it starts or clears a hold, and without this that write
       // would silently renew the 180 days on a device nobody opens any more.
       const until = Math.floor(Date.now() / 1000) + PUSH_TTL;
+      // The page re-registers on every load. When nothing but the clock
+      // would change, the record is left alone unless its retirement date is
+      // more than a week stale, so an everyday reader costs one write a week
+      // rather than one per page view.
+      if (stored && stored.endpoint === sub.endpoint && stored.keys &&
+          stored.keys.p256dh === sub.keys.p256dh && stored.keys.auth === sub.keys.auth &&
+          JSON.stringify(stored.series) === JSON.stringify(series) &&
+          stored.after === after && stored.tz === tz &&
+          Number(stored.until) > until - REFRESH_SLACK)
+        return json({ ok: true, series, after, tz }, 200, origin);
       await env.SAVES.put(key, JSON.stringify({
         endpoint: sub.endpoint,
         keys: { p256dh: sub.keys.p256dh, auth: sub.keys.auth },
@@ -344,7 +460,11 @@ export default {
     // It does not need to be: the merge is a union, so the loser of a race is
     // re-merged by the next push from either device, and no writing order can
     // remove something that was already in.
-    await env.SAVES.put("s:" + code, JSON.stringify(merged), { expirationTtl: TTL });
+    // A push that added nothing (a page load re-asserting what is already
+    // here) is not written: KV writes are the scarce thing on the free tier.
+    // The year's TTL is then renewed by the next push that does change it.
+    if (!stored || JSON.stringify(merged) !== JSON.stringify(stored))
+      await env.SAVES.put("s:" + code, JSON.stringify(merged), { expirationTtl: TTL });
     return reply(merged, 200);
   },
 
@@ -374,6 +494,16 @@ export default {
      and re-sends everything every twenty minutes until the push service
      recovers, which is the failure a phone actually notices. */
   async scheduled(event, env) {
+    // First and on its own: a bad index.json below must not stop the counts
+    // being copied, and a counter hiccup must not stop the fan-out. Today's
+    // counts go on the first run of each hour; a finished day goes at once.
+    const at = (event && event.scheduledTime) || Date.now();
+    try {
+      await flushEvents(env, at, new Date(at).getUTCMinutes() < 20);
+    } catch (e) {
+      console.error("event flush failed:", e);
+    }
+
     const res = await fetch(INDEX_URL, { headers: { "cache-control": "no-cache" } });
     if (!res.ok) throw new Error(`index.json: HTTP ${res.status}`);
     const index = await res.json();
@@ -386,7 +516,10 @@ export default {
     const byId = new Map(puzzles.map((p) => [p.id, p]));
 
     const seen = await env.SAVES.get("n:seen", "json");
-    await env.SAVES.put("n:seen", JSON.stringify(puzzles.map((p) => p.id)));
+    // Only when the set changed: rewriting it every twenty minutes was 72 of
+    // the namespace's 1,000 daily writes spent saying nothing new.
+    const ids = JSON.stringify(puzzles.map((p) => p.id));
+    if (!seen || JSON.stringify(seen) !== ids) await env.SAVES.put("n:seen", ids);
     if (!seen) return;   // First run of a fresh namespace: the corpus is not news.
 
     const known = new Set(seen);
