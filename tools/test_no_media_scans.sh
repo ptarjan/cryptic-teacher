@@ -24,7 +24,7 @@ SCHEDULED = {
     "book_queue.py": ["text_of", "queue", "rereads"],
     "media_manifest.py": ["rows", "latest", "unread", "advance", "parse_new", "posts", "post_ids",
                           "comment_keys", "record_post", "record_comments",
-                          "on_media", "record_file", "folder_files"],
+                          "on_media", "record_file", "folder_files", "trove_hits"],
     # daily_update.sh's blog units (every 10 min / 3 h / nightly): the
     # fetchers append to the posts manifests, readers ask the manifests.
     "fetch_wp_blog.py": ["cached_ids", "fetch_category", "fetch_comments"],
@@ -48,9 +48,9 @@ SCHEDULED = {
     # gale_fetch.py run() asks this every pass of its loop.
     "gale_fetch.py": ["have_docs"],
     # edition_queue plan (every corpus slice) dates each due Trove article.
-    "file_trove_puzzles.py": ["article_date"],
+    "file_trove_puzzles.py": ["article_date", "stamp_cause", "zones_held"],
     # coverage.py daily (daily_update.sh): the FT PDFs fetched.
-    "coverage.py": ["ft_pdf_rows", "trove_articles"],
+    "coverage.py": ["ft_pdf_rows", "trove_articles", "trove_dates"],
     # progress_record.py record (nightly): the read queue's size.
     "edition_backlog.py": ["_editions", "trove_counts"],
 }

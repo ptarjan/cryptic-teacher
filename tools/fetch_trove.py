@@ -341,6 +341,8 @@ def fetch_zones(tv, out, zones, aid):
             img, _ = tv.crop(z["page"], z, pad=4)
             with atomic(p, "wb") as f:
                 img.save(f, format="PNG")
+    import media_manifest
+    media_manifest.record(media_manifest.TROVE_ZONES, d, article=str(aid), readings=bool(zone_images(zones, aid)))
 
 
 def pending_zones(out, zones):
@@ -486,6 +488,9 @@ def main():
             known[h["id"]] = h
         with atomic(path) as f:
             f.writelines(json.dumps(h) + "\n" for h in known.values())
+        import media_manifest
+        for h in new:
+            media_manifest.record(media_manifest.TROVE_DATES, path, article=str(h["id"]), date=h.get("date"))
         print(f"{year} {a.query}: {total} hits, {len(new)} new, {len(known)} in {path}")
     else:
         ids = list(a.args)

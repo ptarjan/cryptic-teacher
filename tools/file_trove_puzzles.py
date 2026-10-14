@@ -189,7 +189,7 @@ def stamp_cause(row, zones):
     row is due."""
     if row.get("cause") or not (row.get("pending") or row.get("refused")):
         return False
-    if row.get("pending") and "grid" in row and not has_readings(row["article"], zones):
+    if row.get("pending") and "grid" in row and not zones_held(row["article"], zones):
         row["cause"] = "zones-not-fetched"
         return False
     row["inputs"] = ""
@@ -870,6 +870,22 @@ def has_readings(aid, zones):
     images, or every reader's cached text of them."""
     return bool(zone_images(aid, zones)) or all(
         p.exists() for p in readings_cached(aid, zones).values())
+
+
+#: {article id: has_readings} off the trove-zones manifest, loaded once a process.
+_ZONES = {}
+
+
+def zones_held(aid, zones):
+    """has_readings(aid, zones), off the trove-zones manifest once `build
+    trove-zones` has completed it (fetch_trove.fetch_zones appends to it):
+    stamp_cause asks it of every old ledger row, so it lists no zone dir."""
+    if media_manifest.on_media(zones) and media_manifest.complete(media_manifest.TROVE_ZONES):
+        if not _ZONES:
+            _ZONES.update(media_manifest.memo(media_manifest.TROVE_ZONES, "article", "readings"))
+            _ZONES.setdefault("", False)  # loaded, even when empty
+        return bool(_ZONES.get(str(aid)))
+    return has_readings(aid, zones)
 
 
 def stacked(images):
