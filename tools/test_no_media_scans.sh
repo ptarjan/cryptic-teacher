@@ -22,12 +22,27 @@ SCHEDULED = {
                       "editions", "checklist"],
     # cryptic-books, every ten minutes: book_queue.py --next / --reread.
     "book_queue.py": ["text_of", "queue", "rereads"],
-    "media_manifest.py": ["rows", "latest"],
+    "media_manifest.py": ["rows", "latest", "unread", "advance", "parse_new", "posts", "post_ids",
+                          "comment_keys", "record_post", "record_comments"],
+    # daily_update.sh's blog units (every 10 min / 3 h / nightly): the
+    # fetchers append to the posts manifests, readers ask the manifests.
+    "fetch_wp_blog.py": ["cached_ids", "fetch_category", "fetch_comments"],
+    "fetch_times_listing.py": ["paper_dates", "capture_row"],
+    "corroborate.py": ["times_listing", "_fifteensquared_index"],
+    "post_index.py": ["entries", "by_link"],
+    "fetch_fifteensquared.py": ["cached_post_ids", "post_categories", "category_post_files",
+                                "cached_comment_ids", "fetch_posts", "fetch_comments"],
+    "genius_puzzles.py": ["blog_posts", "have_file", "fetch", "file"],
+    "andlit_azed.py": ["cached", "fetch"],
+    "blog_facts.py": ["extract", "inputs_digest"],
+    "blog_comment_difficulty.py": ["months", "comments_by_post", "post_ids"],
 }
 SCANS = {"glob", "rglob", "iterdir", "listdir", "scandir", "walk", "stat", "exists", "is_file", "is_dir"}
 #: Paths on the SSD those functions may stat: gale_fetch's log in ~/.cache,
 #: the repo's pins file.
 SSD = {"FETCHED", "pins_path"}
+#: Calls naming a file in the repo (on the SSD), which may be stat-ed.
+SSD_CALLS = {"puzzle_path"}
 bad = []
 for f, names in SCHEDULED.items():
     tree = ast.parse(open(f).read())
@@ -41,7 +56,9 @@ for f, names in SCHEDULED.items():
                 fn = node.func
                 called = fn.attr if isinstance(fn, ast.Attribute) else getattr(fn, "id", "")
                 on = getattr(fn, "value", None)
-                if called in SCANS and not (isinstance(on, ast.Name) and on.id in SSD):
+                ssd = (isinstance(on, ast.Name) and on.id in SSD) or (
+                    isinstance(on, ast.Call) and getattr(on.func, "id", "") in SSD_CALLS)
+                if called in SCANS and not ssd:
                     bad.append(f"{f}:{node.lineno}: {name} calls {called}()")
 # fetch_fifteensquared.py runs at every daily ft/azed/genius unit: its cache
 # report reads every post, so only --status runs it.

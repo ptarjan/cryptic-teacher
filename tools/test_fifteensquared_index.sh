@@ -20,37 +20,35 @@ check() {  # check <what> <expected> <got>
 
 out=$(CT_DOWNLOADS="$TMP" PYTHONPATH="$REPO/tools" python3 - <<'PY'
 import builtins, json, pathlib
-import fetch_fifteensquared as f
+import fetch_fifteensquared as f, media_manifest
+
+def store(post):  # as fetch_posts does: the file, then its manifest row
+    f.store(f.POSTS, post["id"], post)
+    media_manifest.record_post(f.POSTS, post)
 
 f.POSTS.mkdir(parents=True)
-for i, cats in ((1, [6]), (2, [4]), (3, [6, 4])):
-    (f.POSTS / f"{i}.json").write_text(json.dumps({"id": i, "categories": cats}))
-print("FIRST", [p.name for p in f.category_post_files(6)])
-
-# Built once, the index is all a second read opens.
 opened = []
 real_read = pathlib.Path.read_text
 def spy(self, *a, **k):
     opened.append(self.name)
     return real_read(self, *a, **k)
 pathlib.Path.read_text = spy
-f.category_post_files(6)
-print("OPENED", opened)
+for i, cats in ((1, [6]), (2, [4]), (3, [6, 4])):
+    store({"id": i, "categories": cats})
+print("FIRST", [p.name for p in f.category_post_files(6)], opened)
 
-# A post a killed run stored without rewriting the index joins it; a post
-# gone from the cache leaves it.
+# A post stored later joins off its manifest row; still no post is opened.
 opened.clear()
-(f.POSTS / "5.json").write_text(json.dumps({"id": 5, "categories": [6]}))
-(f.POSTS / "1.json").unlink()
+store({"id": 5, "categories": [6]})
 print("TOPPED", [p.name for p in f.category_post_files(6)], sorted(opened))
 
 PY
 )
 field() { printf '%s\n' "$out" | sed -n "s/^$1 //p"; }
-check "a category's posts read off the posts once" "['1.json', '3.json']" "$(field FIRST)"
-check "a second read opens only the index" "['post_categories.json']" "$(field OPENED)"
-check "a post stored outside the index joins it, a deleted one leaves" \
-  "['3.json', '5.json'] ['5.json', 'post_categories.json']" "$(field TOPPED)"
+check "a category's posts read off the manifest, opening no post" \
+  "['1.json', '3.json'] ['posts-fifteensquared.jsonl']" "$(field FIRST)"
+check "a post stored later joins off its manifest row" \
+  "['1.json', '3.json', '5.json'] ['posts-fifteensquared.jsonl']" "$(field TOPPED)"
 
 budget=$(CT_DOWNLOADS="$TMP" PYTHONPATH="$REPO/tools" python3 - <<'PY'
 import time

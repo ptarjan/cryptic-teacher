@@ -18,6 +18,7 @@ the caches under downloads.ROOT and rebuilds the whole table.
 import argparse
 import html
 import json
+import media_manifest
 import math
 import re
 import statistics
@@ -66,20 +67,23 @@ def answer_regex(solution):
     return re.compile(r"(?<![A-Za-z])" + r"[\s\-']?".join(letters) + r"(?![A-Za-z])")
 
 
+def months():
+    """The comment months cached, off the SSD manifest fetch_wp_blog --comments
+    appends to (tools/media_manifest.py), not a listing of the media disk."""
+    return sorted(k for k in media_manifest.comment_keys(BLOG / "comments") if re.fullmatch(r"\d{4}-\d\d", k))
+
+
 def comments_by_post():
     by = defaultdict(list)
-    for f in sorted((BLOG / "comments").glob("????-??.json")):
+    for f in (BLOG / "comments" / f"{m}.json" for m in months()):
         for row in json.loads(f.read_text(encoding="utf-8")):
             by[row["post"]].append(text(row["content"]["rendered"]))
     return by
 
 
 def post_ids():
-    ids = {}
-    for f in (BLOG / "posts").glob("*.json"):
-        p = json.loads(f.read_text(encoding="utf-8"))
-        ids[p["link"].rstrip("/")] = p["id"]
-    return ids
+    """{post link: id}, off the posts manifest: no post is opened."""
+    return {r["link"].rstrip("/"): i for i, r in media_manifest.posts(BLOG / "posts").items()}
 
 
 def score(puz, comments):
@@ -154,8 +158,8 @@ def rho(a, b):
 
 
 def measure(table):
-    months = sorted(p.stem for p in (BLOG / "comments").glob("????-??.json"))
-    print(f"comment months on disk: {len(months)} ({months[0]}..{months[-1]})")
+    held = months()
+    print(f"comment months on disk: {len(held)} ({held[0]}..{held[-1]})")
     print(f"puzzles with comments: {len(table)}; "
           f"median comments each: {statistics.median(v['comments'] for v in table.values())}")
     named = [n for v in table.values() for n in v["clues"].values()]

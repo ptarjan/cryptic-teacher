@@ -43,6 +43,7 @@ from dataclasses import dataclass
 from datetime import UTC, date, datetime
 
 import downloads
+import media_manifest
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
@@ -113,7 +114,8 @@ def get(url, tries=4):
 
 
 def cached_ids(blog):
-    return {int(p.stem) for p in blog.posts.glob("*.json")}
+    """The ids cached, off the SSD manifest fetch_category appends to."""
+    return media_manifest.post_ids(blog.posts)
 
 
 COMMENT_FIELDS = "id,post,parent,date,content"
@@ -128,7 +130,7 @@ def fetch_comments(blog):
     month before the newest one on disk is final; that one and every month
     after it are refetched."""
     blog.comments.mkdir(parents=True, exist_ok=True)
-    have = sorted(p.stem for p in blog.comments.glob("????-??.json"))
+    have = sorted(media_manifest.comment_keys(blog.comments))
     month = date.fromisoformat(have[-1] + "-01") if have else COMMENTS_FROM
     today = datetime.now(UTC).date()
     while month <= today:
@@ -166,11 +168,12 @@ def fetch_comments(blog):
             print(f"  comments {month:%Y-%m}: {len(rows)} rows; "
                   f"{total - len(rows)} more are on posts the API hides", flush=True)
         (blog.comments / f"{month:%Y-%m}.json").write_text(json.dumps(rows), encoding="utf-8")
+        media_manifest.record_comments(blog.comments, f"{month:%Y-%m}")
         if month.month == 1:
             print(f"  comments {month:%Y}", flush=True)
         month = after
         time.sleep(blog.crawl_delay)
-    return len(list(blog.comments.glob("????-??.json")))
+    return len(media_manifest.comment_keys(blog.comments))
 
 
 class FetchError(Exception):
@@ -215,6 +218,7 @@ def fetch_category(blog, cid, name, since=None, pages_cap=None, full=False):
             part = blog.posts / f".{p['id']}.json.part"
             part.write_text(json.dumps(p, ensure_ascii=False), encoding="utf-8")
             part.replace(blog.posts / f"{p['id']}.json")
+            media_manifest.record_post(blog.posts, p)
         new += len(fresh)
         if not fresh and not full:
             break

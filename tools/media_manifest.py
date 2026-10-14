@@ -15,8 +15,17 @@ that took it for "nothing there" would fetch everything again.
 
     python3 tools/media_manifest.py build ia-books     # once, lists the disk
     python3 tools/gale_inbox.py build-manifest         # once, walks the Gale editions
+    python3 tools/media_manifest.py build posts-fifteensquared  # once each, reads every post
+
+A blog's post cache (<blog>/posts/<id>.json, never rewritten) has one,
+posts-<blog>, that its fetcher appends to (record_post) with what a reader
+looks a post up by. A parser that turns posts into records keeps a cursor
+into it (unread, advance) and reads only the posts added since its last run;
+a missing cursor, a rebuilt manifest or a changed parser (`version`) makes it
+read them all once.
 """
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -81,6 +90,163 @@ def latest(name, key):
     return {r[key]: r for r in rows(name)}
 
 
+def cursor_path(name, reader):
+    return DIR / f"{name}.{reader}.cursor"
+
+
+def unread(name, reader, version=""):
+    """(rows, whole, mark): the rows of manifest `name` that `reader` has not
+    yet advanced past. `whole` is True, and rows are every row, when the reader
+    has no cursor, the manifest was rebuilt since (write drops its cursors),
+    or the cursor was taken at another `version` (source_version of the
+    parser). Pass `mark` to advance once what the rows fed is saved."""
+    every = rows(name)
+    try:
+        c = json.loads(cursor_path(name, reader).read_text())
+    except (FileNotFoundError, ValueError):
+        c = None
+    if not c or c.get("version") != version or c.get("rows", 0) > len(every):
+        return every, True, len(every)
+    return every[c["rows"]:], False, len(every)
+
+
+def advance(name, reader, mark, version=""):
+    """Record that `reader` has handled the first `mark` rows of manifest `name`."""
+    DIR.mkdir(parents=True, exist_ok=True)
+    p = cursor_path(name, reader)
+    tmp = p.with_name(f".{p.name}.{os.getpid()}.tmp")
+    tmp.write_text(json.dumps({"rows": mark, "version": version}))
+    os.replace(tmp, p)
+
+
+def source_version(*files, extra=b""):
+    """A digest of the named files under tools/ (and `extra`): a reader's
+    cursor `version`, so a parser change reads every post again once."""
+    h = hashlib.sha1(extra)
+    for f in files:
+        h.update((Path(__file__).parent / f).read_bytes())
+    return h.hexdigest()[:16]
+
+
+def posts_name(posts_dir):
+    """The manifest of the post cache `posts_dir` (<blog>/posts)."""
+    return f"posts-{Path(posts_dir).parent.name}"
+
+
+def post_row(post):
+    """What a reader looks a post up by: {"id", "date", "title", "link", "slug", "categories"}."""
+    title = post.get("title")
+    if isinstance(title, dict):
+        title = title.get("rendered")
+    return {"id": int(post["id"]), "date": post.get("date") or "", "title": title or "",
+            "link": post.get("link") or "", "slug": post.get("slug") or "",
+            "categories": post.get("categories") or []}
+
+
+def record_post(posts_dir, post):
+    """Append the post just saved as <posts_dir>/<id>.json to its manifest."""
+    record(posts_name(posts_dir), Path(posts_dir) / f"{post['id']}.json", **post_row(post))
+
+
+def posts(posts_dir):
+    """{post id: its row} for every post in the cache `posts_dir`."""
+    return latest(posts_name(posts_dir), "id")
+
+
+def post_ids(posts_dir):
+    return set(posts(posts_dir))
+
+
+def parse_new(posts_dir, reader, version, parse, store, want=lambda row: True):
+    """([parse(post) of every post in `posts_dir` whose manifest row `want`s,
+    in file-name order], save). Only the posts past `reader`'s cursor are
+    opened; the earlier ones' results come from `store`, a JSON-lines file of
+    {"file", "out"}, which save() rewrites before moving the cursor. Call
+    save() once what the results fed is written. All are opened when there
+    is no cursor or store, the manifest was rebuilt, or `version` moved."""
+    name = posts_name(posts_dir)
+    new, whole, mark = unread(name, reader, version)
+    held = {}
+    if not whole:
+        try:
+            with open(store, encoding="utf-8") as f:
+                for ln in f:
+                    if ln.strip():
+                        row = json.loads(ln)
+                        held[row["file"]] = row["out"]
+        except FileNotFoundError:
+            whole = True
+    if whole:
+        new = rows(name)
+    for r in new:
+        if want(r):
+            f = Path(posts_dir) / f"{r['id']}.json"
+            held[f.name] = parse(json.loads(f.read_text(encoding="utf-8")))
+
+    def save():
+        part = Path(store).with_name(Path(store).name + ".part")
+        with open(part, "w", encoding="utf-8") as f:
+            for k in sorted(held):
+                f.write(json.dumps({"file": k, "out": held[k]}, ensure_ascii=False) + "\n")
+        part.replace(store)
+        advance(name, reader, mark, version)
+
+    return [held[k] for k in sorted(held)], save
+
+
+def comments_name(comments_dir):
+    return f"comments-{Path(comments_dir).parent.name}"
+
+
+def record_comments(comments_dir, key):
+    """Append the comment file <comments_dir>/<key>.json just saved (a post
+    id on fifteensquared, a month YYYY-MM on a WordPress blog)."""
+    record(comments_name(comments_dir), Path(comments_dir) / f"{key}.json", key=str(key))
+
+
+def comment_keys(comments_dir):
+    return set(latest(comments_name(comments_dir), "key"))
+
+
+def build_posts(posts_dir, out=sys.stdout):
+    """List `posts_dir` once and read every post the manifest lacks into it
+    (all of them the first time), oldest id first. A rerun, after the
+    fetchers began recording, reads only what landed in between; it keeps
+    the rows and so the readers' cursors. Never scheduled."""
+    name = posts_name(posts_dir)
+    held = posts(posts_dir) if built(name) else {}
+    found = []
+    for e in os.scandir(posts_dir):
+        if e.name.endswith(".json") and not e.name.startswith(".") and e.name[:-5].isdigit() \
+                and int(e.name[:-5]) not in held:
+            post = json.loads(Path(e.path).read_text(encoding="utf-8"))
+            found.append(dict(post_row(post), at=e.stat().st_mtime))
+    found.sort(key=lambda r: r["id"])
+    if held:
+        for r in found:
+            record(name, Path(posts_dir) / f"{r['id']}.json", **r)
+    else:
+        write(name, found)
+    print(f"{len(found)} post(s) added to {path(name)}, {len(held)} already there", file=out)
+    return found
+
+
+def build_comments(comments_dir, out=sys.stdout):
+    """List `comments_dir` once into its manifest. Never scheduled."""
+    name = comments_name(comments_dir)
+    held = comment_keys(comments_dir) if built(name) else set()
+    found = sorted(({"key": e.name[:-5], "at": e.stat().st_mtime} for e in os.scandir(comments_dir)
+                    if e.name.endswith(".json") and not e.name.startswith(".") and e.name[:-5] not in held),
+                   key=lambda r: r["key"])
+    if held:
+        for r in found:
+            record(name, Path(comments_dir) / f"{r['key']}.json", **r)
+    else:
+        write(name, found)
+    print(f"{len(found)} comment file(s) written to {path(comments_name(comments_dir))}", file=out)
+    return found
+
+
 def build_book_texts(out=sys.stdout):
     """List downloads.IA_BOOKS once and write a row for each whole-book text
     (<identifier>.txt, not a .sample-), as book_queue.save_text would have.
@@ -100,10 +266,40 @@ def write(name, found):
     tmp = path(name).with_suffix(f".{os.getpid()}.tmp")
     tmp.write_text("".join(json.dumps(r, sort_keys=True) + "\n" for r in found))
     os.replace(tmp, path(name))
+    for c in DIR.glob(f"{name}.*.cursor"):  # its readers start again from the top
+        c.unlink()
 
 
 #: The builders here; the Gale editions' is `python3 tools/gale_inbox.py build-manifest`.
-BUILDERS = {BOOK_TEXTS: build_book_texts}
+def build_genius_files(out=sys.stdout):
+    """List downloads.GENIUS's pdf/ and article/ once into genius-files
+    (genius_puzzles.held). Never scheduled."""
+    found = []
+    for kind, folder, ext in (("pdf", "pdf", ".pdf"), ("article", "article", ".html")):
+        d = downloads.GENIUS / folder
+        if d.is_dir():
+            found += [{"key": f"{kind}/{e.name[:-len(ext)]}", "at": e.stat().st_mtime} for e in os.scandir(d)
+                      if e.name.endswith(ext) and e.name[:-len(ext)].isdigit()]
+    write("genius-files", sorted(found, key=lambda r: r["key"]))
+    print(f"{len(found)} Genius file(s) written to {path('genius-files')}", file=out)
+    return found
+
+
+def build_andlit_copies(out=sys.stdout):
+    """List downloads.ANDLIT_AZED/copies once into andlit-copies
+    (andlit_azed.cached). Never scheduled."""
+    d = downloads.ANDLIT_AZED / "copies"
+    found = sorted(({"key": e.name, "at": e.stat().st_mtime} for e in os.scandir(d)
+                    if e.name.split(".")[0].isdigit() and e.name.count(".") == 1), key=lambda r: r["key"])
+    write("andlit-copies", found)
+    print(f"{len(found)} Azed copies written to {path('andlit-copies')}", file=out)
+    return found
+
+
+BUILDERS = {BOOK_TEXTS: build_book_texts, "genius-files": build_genius_files, "andlit-copies": build_andlit_copies}
+for _blog in ("fifteensquared", "timesforthetimes", "bigdave44"):
+    BUILDERS[f"posts-{_blog}"] = (lambda b: lambda: build_posts(downloads.ROOT / b / "posts"))(_blog)
+    BUILDERS[f"comments-{_blog}"] = (lambda b: lambda: build_comments(downloads.ROOT / b / "comments"))(_blog)
 
 
 def main(argv=None):

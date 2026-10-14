@@ -32,6 +32,7 @@ import urllib.error
 
 from fetch_puzzle import http_bytes
 import downloads
+import media_manifest
 
 CACHE = downloads.TIMES_LISTING
 HOSTS = ("thetimes.co.uk", "thetimes.com")
@@ -109,26 +110,55 @@ def cards(ts, page):
     return out
 
 
-def paper_dates(cache=CACHE):
-    """{(series, number): print date} from every cached capture.
+#: tools/media_manifest.py's record of each capture main saved: {"ts", "v",
+#: "cards": [[series, number, "YYYY-MM-DD"]]}, so paper_dates (reached from
+#: every Times write through corroborate) neither lists nor gunzips the
+#: captures on the media disk. `--build-manifest` reads them all once.
+MANIFEST = "times-listing"
+#: What the cards were read with: a capture read by another CARD or SLUGS is stale.
+VERSION = media_manifest.source_version(extra=json.dumps([CARD.pattern, SLUGS], sort_keys=True).encode())
+
+
+def capture_row(ts, page):
+    return {"ts": ts, "v": VERSION, "cards": [[s, n, d.isoformat()] for s, n, d in cards(ts, page)]}
+
+
+def paper_dates():
+    """{(series, number): print date} from every cached capture, off MANIFEST.
 
     A number two captures date differently is dropped: the listing is the
     fact, and a fact that contradicts itself proves nothing."""
     seen = {}
-    for path in sorted(cache.glob("*.html")):
-        page = gunzip(path.read_bytes()).decode("utf-8", errors="replace")
-        for series, number, date in cards(path.stem, page):
-            seen.setdefault((series, number), set()).add(date)
+    for ts, row in sorted(media_manifest.latest(MANIFEST, "ts").items()):
+        if row["v"] != VERSION:
+            raise SystemExit(f"{media_manifest.path(MANIFEST)} was read with another CARD or SLUGS: "
+                             "rebuild it (`python3 tools/fetch_times_listing.py --build-manifest`)")
+        for series, number, date in row["cards"]:
+            seen.setdefault((series, number), set()).add(datetime.date.fromisoformat(date))
     return {k: next(iter(v)) for k, v in seen.items() if len(v) == 1}
+
+
+def build_manifest():
+    """Read every cached capture once into MANIFEST. Never scheduled."""
+    found = []
+    for path in sorted(CACHE.glob("*.html")):
+        found.append(capture_row(path.stem, gunzip(path.read_bytes()).decode("utf-8", errors="replace")))
+    media_manifest.write(MANIFEST, found)
+    print(f"{len(found)} capture(s) written to {media_manifest.path(MANIFEST)}")
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--status", action="store_true", help="what is cached, then exit")
+    ap.add_argument("--build-manifest", action="store_true",
+                    help="read every cached capture once into the SSD manifest (never scheduled)")
     args = ap.parse_args(argv)
+    if args.build_manifest:
+        build_manifest()
+        return 0
     CACHE.mkdir(parents=True, exist_ok=True)
     if not args.status:
-        have = {p.stem for p in CACHE.glob("*.html")}
+        have = set(media_manifest.latest(MANIFEST, "ts"))
         try:
             todo = wanted(captures(), have)
         except (urllib.error.URLError, TimeoutError, ValueError) as e:
@@ -146,6 +176,8 @@ def main(argv=None):
                 print(f"  {ts}: {e}; stopping, {len(todo) - fetched} capture(s) left for the next run")
                 break
             (CACHE / f"{ts}.html").write_bytes(page)
+            row = capture_row(ts, gunzip(page).decode("utf-8", errors="replace"))
+            media_manifest.record(MANIFEST, CACHE / f"{ts}.html", **row)
             fetched += 1
             time.sleep(PAUSE)
         print(f"fetched {fetched} of {len(todo)} capture(s)")
