@@ -432,12 +432,16 @@ STOP = re.compile(r"^\W*(solution|crossword|concise|times\s+two|the\s+times\s+cr
 #: A line opening on a lowercase word ("championship. possibly (4).") runs
 #: on a clue from the line above: a notice opens on a capital.
 CONTINUED = re.compile(r"\W*[a-z]{4,}\b")
+#: The solution heading under a column, its opening misread ("cotution of
+#: Puzzle No 13.682", "^j^on D f Puzzle No 13.682", 1974): no clue's line
+#: ends on a puzzle's number.
+PUZZLE_NO = re.compile(r"\bp[uo]\S{2,4}\s+n[o0]\.?\s*\d{1,2}\s?[.,]?\s?\d{3}\W{0,2}$", re.I)
 
 
 def stops(text):
     """Whether a column line ends the clues: a STOP line, never a clue's
-    run-on line."""
-    return bool(STOP.match(text)) and not CONTINUED.match(text)
+    run-on line, or one ending on a puzzle's number."""
+    return bool(STOP.match(text)) and not CONTINUED.match(text) or bool(PUZZLE_NO.search(text))
 
 
 #: The vertical gap, in pixels at the scan's 3296x4672, that ends a column.

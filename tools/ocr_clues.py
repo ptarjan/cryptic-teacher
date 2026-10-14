@@ -3020,6 +3020,33 @@ def unpaired(text):
     return stack[0][1] if stack else None
 
 
+def bracket_reopened(text, readings):
+    """`text` with the "(" the vote lost put back, or None: when `text`
+    holds a ")" it never opened and some reading (each a raw text in
+    `readings`) prints "(" between the same two words before it, at one
+    place only. The vote counts no brackets, so one reading's "(" loses to
+    the others' "i", "I" glued on or nothing (times-14500 1 across,
+    "Somerset (new Avon) House?" voted "Somerset new Avon) House?")."""
+    k = unpaired(text)
+    if k is None or text[k] != ")":
+        return None
+    words = list(re.finditer(r"[A-Za-z][A-Za-z'’\-]*", text[:k]))
+    # A word broken at a line's end ("Somer-\nset") is read whole too.
+    readings = [v for r in readings if r for v in (r, re.sub(r"(?<=[A-Za-z])-[ \t]*\n\s*(?=[a-z])", "", r))]
+    at = []
+    for a, b in zip(words, words[1:]):
+        if text[a.end():b.start()].strip():
+            continue
+        pat = re.compile(r"(?<![A-Za-z])" + re.escape(a.group()) + r"\s*\(\s*" + re.escape(b.group())
+                         + r"(?![A-Za-z])", re.IGNORECASE)
+        if any(pat.search(r or "") for r in readings):
+            at.append(b.start())
+    if len(at) != 1:
+        return None
+    out = text[:at[0]] + "(" + text[at[0]:]
+    return out if unpaired(out) is None else None
+
+
 def bled(text, printed=()):
     """Why a clue OCR read holds text that is not its own, or None: a clue
     number opening a capitalised clue (NUMBERED_IN), another clue run in,
@@ -3327,6 +3354,9 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
         got, how = agree(text, other, keep_known, engines, rates, [w for k, w in words_of.items() if k != lid],
                          str(own), enum, counted=not uncounted)
         got = trimmed(cut_at_count(got, enum), lid)
+        if got is not None and unpaired(got) is not None:
+            raw = [s for s in streams if isinstance(s, str)] + [s.get(lid) or "" for s in streams if isinstance(s, dict)]
+            got = bracket_reopened(got, raw) or got
         if got is not None and merged(got):
             got, how = None, merged(got)
         if got is None:
