@@ -65,7 +65,8 @@ import re
 
 import ocr_clues
 
-SEE_RE = re.compile(r"^see\s+(\d+)\s*\.?$", re.IGNORECASE)
+# "See 15", "See 1 down": a redirect, naming its light's direction or not.
+SEE_RE = re.compile(r"^see\s+(\d+)(?:\s+(?:across|down))?\s*\.?$", re.IGNORECASE)
 LEADING_NUM_RE = re.compile(r"^(\d{1,2})\b")
 # THE PRINTED CLUE NUMBER IS NOT PART OF THE CLUE. The book prints "23" and
 # then the clue; the scan sometimes puts a rule fragment, a leader dot or a
@@ -199,8 +200,11 @@ def _parse_direction(entries, notes, direction, damage):
         field = e.get("number")
         enum = e.get("enumeration")
 
+        # A linked field printing the group's enumeration is its leader even
+        # when its clue is a cross-reference: 3466's "8, 14A and 26 See 12
+        # (2,8,2,8,...)" puts the wordplay at 12, the answer here.
         m = SEE_RE.match(clue)
-        if m:
+        if m and not (isinstance(field, str) and "," in field and enum):
             own = _num_of(field)
             lights.append([own, None, "redirect", {"clue": clue, "enumeration": enum}])
             if own is not None:

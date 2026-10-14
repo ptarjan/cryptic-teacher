@@ -38,13 +38,34 @@ for d in ("across", "down"):
     print(d.upper(), " ".join(f"{r['number']}:{r['enumeration']}" for r in lists[d]))
 print("SEE", lists["across"][-1]["clue"])
 print("TEXT", lists["across"][4]["clue"])
+print("BARE", lists["down"][2]["clue"])
+# 3520: a hidden paragraph counter flush after every line; 3466: a linked
+# leader whose clue is "See 12" but which prints the group's enumeration.
+page = """<article><p><strong>ACROSS</strong><span class="paranum hidden">2</span>
+<p><strong>8</strong>, 14A and 26 See 12 (2,8,2,8,4,7,4,4,2-4)<span class="paranum hidden">3</span>
+<p><strong>12</strong> Tehran lunatic forms an organization (3,3)<span class="paranum hidden">4</span>
+<p><strong>14</strong> See 8<span class="paranum hidden">5</span>
+<p><strong>26</strong> See 8<span class="paranum hidden">6</span>
+<p><strong>DOWN</strong><span class="paranum hidden">7</span>
+<p><strong>1</strong> East Coast university (6)<span class="paranum hidden">8</span>
+</article>"""
+lists, _ = F.clue_lists(F.lines_of(page))
+for d in ("across", "down"):
+    print("P" + d.upper(), " ".join(f"{r['number']}:{r['enumeration']}" for r in lists[d]))
+import light_spec
+across, down, _, _ = light_spec.build_spec(lists)
+print("LEADER", across[0][0], across[0][2])
 PY
 )
 fails=0
 expect() { grep -qxF "$1" <<<"$out" && echo "  ok: $2" || { echo "  FAIL: $2 (want '$1')"; echo "$out"; fails=$((fails+1)); }; }
 expect "ACROSS 1,14:4,6 4:9 10:7 11:7 12:5 13:None" "an <aside>, a lone dash and an escaped tag do not end the across list"
 expect "DOWN 2:5 3:4 14:None 15:4" "a Popular <section> and a number set flush do not end the down list"
-expect "SEE See 1" "'See 1A' is a continuation"
+expect "SEE See 1 across" "'See 1A' is a continuation and keeps its direction"
+expect "BARE See 1" "a bare 'See 1' names no direction"
 expect "TEXT Cheerful lad steals uranium" "the escaped tag leaves the clue's text clean"
+expect "PACROSS 8,14,26:2,8,2,8,4,7,4,4,2-4 12:3,3 14:None 26:None" "a hidden paragraph counter does not hide the headings or the counts"
+expect "PDOWN 1:6" "the counter does not glue onto the down list"
+expect "LEADER 8 linked" "a linked 'See 12' printing the group's count is its leader, not a redirect"
 [ "$fails" = 0 ] && echo "fetch_nation clue list: all checks passed" || echo "fetch_nation clue list: $fails FAILED"
 exit $((fails > 0))
