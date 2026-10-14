@@ -119,21 +119,34 @@ export CT_DOWNLOADS="$t/dl" VLM_READER_URL=
 python3 -c "
 import file_trove_puzzles as F, downloads, json
 h = F.input_hash(downloads.TROVE / '7')
+import media_manifest as M
 (downloads.TROVE / 'filed.jsonl').write_text(json.dumps({'article': '7', 'inputs': h, 'skip': 'test',
-                                                         'readAt': '2026-10-14T00:00:00+00:00'}) + '\n')"
+                                                         'readAt': '2026-10-14T00:00:00+00:00'}) + '\n')
+# The old ledger moves to the SSD once, whole, and not again.
+new = M.trove_ledger(downloads.TROVE)
+assert new == M.DIR / 'trove-filed.jsonl' and new.exists() and not (downloads.TROVE / 'filed.jsonl').exists(), new
+assert json.loads(new.read_text())['article'] == '7'"
 python3 - "$t/puzzles" <<'PY'
 import io, os, sys
 import downloads, file_trove_puzzles as F
 touched = []
+mtime = (downloads.ROOT / ".manifest" / "trove-filed.jsonl").stat().st_mtime_ns
 for name in ("stat", "lstat", "listdir", "scandir"):
     real = getattr(os, name)
     setattr(os, name, (lambda real: lambda p=".", *a, **k: (touched.append(p), real(p, *a, **k))[1])(real))
 units = F.plan(puzzles=sys.argv[1])
-tally = F.run(write=False, out=io.StringIO(), puzzles=sys.argv[1])
+tally = F.run(write=True, out=io.StringIO(), puzzles=sys.argv[1])
 # The ledger, its lock and the folder holding them (scan_queue.lock makes it) aside.
 media = sorted({os.fspath(p) for p in touched if isinstance(p, (str, os.PathLike))
                 and os.fspath(p).startswith(str(downloads.ROOT)) and "/.manifest/" not in os.fspath(p)
-                and os.fspath(p) != str(downloads.TROVE) and not os.path.basename(p).startswith("filed.")})
+                and os.fspath(p) not in (str(downloads.TROVE), str(downloads.ROOT / ".manifest")) and not os.path.basename(p).startswith("filed.")})
+# Nothing under downloads.TROVE at all (not the folder, not a ledger or lock), and the SSD ledger unwritten.
+trove = sorted({os.fspath(p) for p in touched if isinstance(p, (str, os.PathLike))
+                and os.fspath(p).startswith(str(downloads.TROVE) + os.sep)
+                and os.path.basename(os.fspath(p)) in ("filed.jsonl", "filed.lock", "filed.tmp")})
+if trove or (downloads.ROOT / ".manifest" / "trove-filed.jsonl").stat().st_mtime_ns != mtime:
+    print(f"FAIL file_trove_puzzles with nothing new touched the Trove ledger paths {trove} or rewrote the SSD ledger")
+    sys.exit(1)
 if units or tally != {"skipped: test": 1} or media:
     print(f"FAIL file_trove_puzzles plan/_run with nothing new: units {units}, tally {tally}, media paths statted {media}")
     sys.exit(1)

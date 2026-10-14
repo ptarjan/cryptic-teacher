@@ -64,6 +64,7 @@ from concurrent.futures.process import BrokenProcessPool
 from pathlib import Path
 
 import downloads
+import media_manifest
 
 #: The modules file_puzzle() loads lazily (importing this module must not
 #: load them), which parallel() loads up front.
@@ -344,7 +345,7 @@ def parallel(items, fn, workers=1, deadline=None, init=None, initargs=(), failed
 #: Each scan filer's ledger; "gale" is the archive filer's for the Gale
 #: Times pages (file_archive_org_puzzles.GALE), its rows the archive filer's.
 LEDGERS = {"archive": downloads.ARCHIVE_ORG / "filed.jsonl", "gale": downloads.GALE_LEDGER,
-           "trove": downloads.TROVE / "filed.jsonl"}
+           "trove": media_manifest.trove_ledger(downloads.TROVE)}
 #: The re-read requests, appended to by annotation runs in any worktree.
 REQUESTS = Path(os.environ.get("SCAN_REREAD_REQUESTS")
                 or os.path.expanduser("~/.cache/scan_reread_requests.jsonl"))
