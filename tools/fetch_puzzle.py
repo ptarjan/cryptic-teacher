@@ -2085,6 +2085,26 @@ PRINTED_COUNT_WRONG = {
     # puzzles): the page's own grid picture (nation_images.misprints) gives
     # the light's cells, and where the word split is not known the count is
     # the plain length.
+    ("nation-3", "9-across"): (
+        "9", "7",
+        "the page's printed grid picture gives 9-across seven cells; the "
+        "answer to \"The thief's in the jug overseas\" is not proven, so the "
+        "count is the plain length"),
+    ("nation-3", "32-across"): (
+        "6", "5",
+        "the page's printed grid picture gives 32-across five cells, the "
+        "mirror of 1-across (5); TODAY (\"It's here now!\"), which the "
+        "(9)-down \"Just before 32\", YESTERDAY, confirms"),
+    ("nation-3", "15-down"): (
+        "6", "5",
+        "the page's printed grid picture gives 15-down five cells; EGRET, "
+        "the bird that with its head back would be REGRET, the lament the "
+        "printed (6) counts"),
+    ("nation-8", "1-across"): (
+        "8,6", "8,5",
+        "the page's printed grid picture gives 1-across 13 cells, the mirror "
+        "of the (1,5,7) across at the foot; ABSOLUTE PITCH (\"has it "
+        "completely in the dark\": pitch dark)"),
     ("nation-15", "6-down"): (
         "6", "5",
         "the page's printed grid picture gives 6-down five cells (row 5 blocks "
