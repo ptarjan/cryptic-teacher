@@ -24,6 +24,7 @@ import json
 import re
 import sys
 import fetch_fifteensquared as fsq
+import media_manifest
 import file_blog_puzzles
 import ft_puzzles
 import parse_timesforthetimes as tftt
@@ -118,12 +119,25 @@ def parse_post(post, category_id):
     return rec
 
 
+#: Each post's parse_post, kept so a run opens only the posts added since the
+#: last (media_manifest.parse_new).
+READ = CACHE / "posts_read.jsonl"
+
+
 def parse(write=True):
-    """Every cached Azed post to parsed.jsonl. Returns (records, implausible)."""
+    """Every cached Azed post to parsed.jsonl. Returns (records, implausible).
+
+    The posts are the category's rows in the SSD posts manifest
+    (tools/media_manifest.py), never a listing of the media disk, and only
+    those added since the last run that wrote are opened: the rest come from
+    READ, until this parser changes."""
     cat = fsq.cached_categories()[CATEGORY]
+    version = media_manifest.source_version("azed_puzzles.py", "ft_puzzles.py", "parse_timesforthetimes.py", "groups.py", "file_blog_puzzles.py", extra=str(cat).encode())
+    every, save = media_manifest.parse_new(
+        fsq.POSTS, f"{CATEGORY.lower()}_puzzles", version, lambda post: parse_post(post, cat), READ,
+        want=lambda row: cat in row["categories"])
     recs, odd = [], []
-    for f in fsq.category_post_files(cat):
-        rec = parse_post(json.loads(f.read_text(encoding="utf-8")), cat)
+    for rec in every:
         if rec is None:
             continue
         lo, hi = PLAUSIBLE
@@ -134,6 +148,7 @@ def parse(write=True):
         tmp.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in recs),
                        encoding="utf-8")
         tmp.replace(CACHE / "parsed.jsonl")
+        save()
     return recs, odd
 
 

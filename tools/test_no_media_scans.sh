@@ -39,6 +39,9 @@ SCHEDULED = {
     "blog_comment_difficulty.py": ["months", "comments_by_post", "post_ids"],
     # The parser those units run: posts from the manifest, past a cursor.
     "parse_timesforthetimes.py": ["run"],
+    "parse_bigdave44.py": ["read_posts", "run"],
+    "ft_puzzles.py": ["parse"],
+    "azed_puzzles.py": ["parse"],
     # cross_validate.py all --new (after every filing unit) asks every adapter
     # its ids; the writers append to the folder manifests.
     "cross_validate.py": ["Independent.served", "FT.ids", "ArchiveOrg.ids", "ListenerReport.ids",

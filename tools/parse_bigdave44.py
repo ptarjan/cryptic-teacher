@@ -30,6 +30,7 @@ import sys
 
 import fetch_wp_blog
 import file_blog_puzzles
+import media_manifest
 import parse_timesforthetimes as tftt
 
 BLOG = fetch_wp_blog.BLOGS["bigdave44"]
@@ -419,13 +420,63 @@ def plausible(rec):
     return PLAUSIBLE[0] <= lights(rec) <= PLAUSIBLE[1]
 
 
-def run(write=True):
+#: This parser's cursor in the posts manifest (tools/media_manifest.py).
+READER = "parse_bigdave44"
+#: Every post's read_post, {"file": "<id>.json", "post": it or null} a line,
+#: so a run reads only the posts added since the last (records() joins them all).
+READ = BLOG.cache / "posts_read.jsonl"
+
+
+def read_posts(full=False):
+    """read_post of every cached post, in file-name order, and a callable
+    that moves the cursor past them once what they fed is saved. The post
+    list is the SSD manifest fetch_wp_blog appends to, never a listing of
+    the media disk; only posts past the cursor are opened, and all of them
+    only when this parser or the category list changed, the manifest was
+    rebuilt, or READ is missing (`full`)."""
     cats = categories()
+    name = media_manifest.posts_name(POSTS)
+    version = media_manifest.source_version(
+        "parse_bigdave44.py", "parse_timesforthetimes.py", "groups.py",
+        extra=json.dumps(sorted(cats.items()), sort_keys=True).encode())
+    new, whole, mark = media_manifest.unread(name, READER, version)
+    held = {}
+    whole = whole or full
+    if not whole:
+        try:
+            with open(READ, encoding="utf-8") as f:
+                for ln in f:
+                    if ln.strip():
+                        row = json.loads(ln)
+                        held[row["file"]] = row["post"]
+        except FileNotFoundError:
+            whole = True
+    if whole:
+        new = media_manifest.rows(name)
+    for r in new:
+        f = POSTS / f"{r['id']}.json"
+        held[f.name] = read_post(json.loads(f.read_text(encoding="utf-8")), cats)
+
+    def save():
+        part = READ.with_name(READ.name + ".part")
+        with open(part, "w", encoding="utf-8") as f:
+            for k in sorted(held):
+                f.write(json.dumps({"file": k, "post": held[k]}, ensure_ascii=False, default=str) + "\n")
+        part.replace(READ)
+        media_manifest.advance(name, READER, mark, version)
+
     posts = []
-    for f in sorted(POSTS.glob("*.json")):
-        p = read_post(json.loads(f.read_text(encoding="utf-8")), cats)
+    for k in sorted(held):
+        p = held[k]
         if p:
+            if isinstance(p["published"], str):
+                p = dict(p, published=datetime.date.fromisoformat(p["published"]))
             posts.append(p)
+    return posts, save
+
+
+def run(write=True, full=False):
+    posts, save = read_posts(full)
     by_series = collections.defaultdict(collections.Counter)
     checked = agreed = 0
     # Written aside and renamed in: a parse killed part-way (a timeout) must
@@ -451,6 +502,7 @@ def run(write=True):
     if out:
         out.close()
         part.replace(OUT)
+        save()
     print(f"{len(posts)} post(s) read")
     print("BY SERIES  (puzzles / full clue list / dated / setter named)")
     for s, c in sorted(by_series.items()):
