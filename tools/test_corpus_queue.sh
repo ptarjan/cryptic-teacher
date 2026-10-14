@@ -42,6 +42,14 @@ q.RUNNING.unlink()
 
 ledger = Path(os.environ["HOME"]) / "filed.jsonl"
 lock = q.lock_of(ledger)
+# A ledger on the media disk keeps its lock (and its sources' locks) on the
+# SSD, and the fetch marks are SSD manifests: a check stats no media folder.
+import media_manifest, scan_queue
+on_disk = Path(os.environ["CT_DOWNLOADS"]) / "archive_org_editions" / "filed-gale.jsonl"
+assert q.lock_of(on_disk) == media_manifest.DIR / "archive_org_editions-filed-gale.lock", q.lock_of(on_disk)
+assert scan_queue.lock_path(on_disk, ".locks") == media_manifest.DIR / "archive_org_editions-filed-gale.locks"
+assert lock == ledger.with_suffix(".lock"), "a ledger elsewhere keeps its lock beside it"
+assert all(not media_manifest.on_media(p) or p.parent == media_manifest.DIR for p in q.FETCHED), q.FETCHED
 q.LEDGERS = [ledger]
 lock.touch()
 assert q.ledger_held() is None

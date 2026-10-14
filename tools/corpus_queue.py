@@ -80,10 +80,12 @@ STATE = STATE_DIR / "state.json"
 EXIT = STATE_DIR / "full_pass.exit"
 LOG = STATE_DIR / "full_pass.log"
 LEDGERS = [downloads.ARCHIVE_ORG / "filed.jsonl", downloads.GALE_LEDGER, media_manifest.trove_ledger(downloads.TROVE)]
-#: What the pass's fetchers move when they fetch: the archive.org fetcher's
-#: done.tsv, and the Trove caches' directories (an article fetched, or its
-#: clue zones, is a new directory in them).
-FETCHED = [downloads.ARCHIVE_ORG / "done.tsv", downloads.TROVE, downloads.TROVE_CLUES]
+#: What the pass's fetchers move when they fetch, all on the SSD: the
+#: manifests the archive.org fetcher appends an edition to
+#: (archiveorg-editions) and the Trove fetcher an article (trove-titles)
+#: or its clue zones (trove-zones) to, so a mark stats no media-disk folder.
+FETCHED = [media_manifest.path(media_manifest.ARCHIVE_EDITIONS), media_manifest.path(media_manifest.TROVE_TITLES),
+           media_manifest.path(media_manifest.TROVE_ZONES)]
 WAKE_SH = os.environ.get("WAKE_SH", "/Users/pt/github/household/tools/wake.sh")
 TRACK_JOB = os.environ.get("TRACK_JOB", str(Path(WAKE_SH).parent / "track-job.sh"))
 LABEL = "corpus OCR full pass"
@@ -276,7 +278,9 @@ def adopt(pid):
 
 
 def lock_of(ledger):
-    return ledger.with_suffix(".lock")
+    """`ledger`'s lock, on the SSD for one on the media disk (scan_queue.lock_path)."""
+    import scan_queue  # here: the desktop imports this module for ocr_remote's serve path
+    return scan_queue.lock_path(ledger)
 
 
 def ledger_held():
