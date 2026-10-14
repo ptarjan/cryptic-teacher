@@ -146,8 +146,9 @@ def text_of(raw, encoding="cp1252", plain=False):
 
 def split_dirs(part):
     """'ACROSS ... DOWN ...' -> (across text, down text) or None."""
-    # Headings by case and a following number, so a clue's "going down on" isn't one.
-    m = re.search(r"\b(?:ACROSS|Across)\b:?(.*?)\b(?:DOWN|Down)\b:?(?=\s*\d)(.*)$", part, re.S)
+    # Headings by case and a following number, so a clue's "going down on" isn't one
+    # (or a scan's "|", "l", "I" misread for 1 before a capital: "DOWN | Picture").
+    m = re.search(r"\b(?:ACROSS|Across)\b:?(.*?)\b(?:DOWN|Down)\b:?(?=\s*(?:\d|[|lI]\s+[A-Z]))(.*)$", part, re.S)
     return (m.group(1).strip(), m.group(2).strip()) if m else None
 
 
@@ -155,7 +156,9 @@ def scan_clean(part):
     """An archive.org scan's clue text with its common OCR slips mended: a
     stray rule ("|"), "S" and "A" read for 5 and 4 in a clue number ("4S",
     "2A", "1/Sac", "See Sdn"), a clue number run into its first word ("12T he",
-    "20ac.They")."""
+    "20ac.They"), and "|", "l" or "I" read for the 1 that opens a list ("DOWN |
+    Picture of crack plugged (8)", No 328)."""
+    part = re.sub(r"^\s*[|lI](?=\s+[A-Z‘“'\"])", " 1", part)
     part = re.sub(r"\s[|]+(?=\s|$)", " ", part)
     part = re.sub(r"(?<=[\s/])S(?=\s*(?:ac|dn)\b)", "5", part)
     part = re.sub(r"(?<=\s)(\d)S(?=\s)", r"\g<1>5", part)
@@ -173,6 +176,13 @@ def clue_rows(part, scan=False):
     dropped (a real clue lost in it leaves a light the grid rebuild refuses)."""
     if scan:
         part = scan_clean(" " + part)
+        # Grid junk with no digit straight after the last clue's enumeration
+        # ("... Dead mad-looking (4-4) eS ; i aes Ane", No 328) hid that clue.
+        last = None
+        for last in re.finditer(ENUM, part, re.I):
+            pass
+        if last and not re.search(r"\d", part[last.end():]):
+            part = part[:last.end()]
     rows, pos = [], 0
     for m in CLUE.finditer(part):
         gap = part[pos:m.start()]
