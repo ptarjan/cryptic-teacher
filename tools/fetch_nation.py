@@ -19,10 +19,13 @@ and left held in downloads.NATION for a later builder.
 The puzzle number is the one the page's title prints, and its date is the
 issue it first appeared in.
 """
+import collections
 import datetime
 import functools
 import html
+import itertools
 import json
+import math
 import re
 import sys
 import time
@@ -439,26 +442,109 @@ def read_page(page, known=None):
     return (m, head, across, down, groups), None
 
 
+def pairable(lengths):
+    """Could these be one direction's light lengths in a 180-degree symmetric
+    grid? Every light pairs with its mirror, the same length, except at most
+    one that is its own mirror: the light through the centre cell, of odd
+    length on these odd-sized grids. So at most one length is counted an odd
+    number of times, and that length is odd."""
+    odd = [n for n, k in collections.Counter(lengths).items() if k % 2]
+    return not odd or (len(odd) == 1 and odd[0] % 2 == 1)
+
+
+# Most assignments paired_lengths() hands search_grid one search each for.
+MAX_PAIRED = 6
+
+
+def paired_lengths(across, down, groups, size):
+    """Every way to give the open lights (length None) lengths that keep
+    both directions pairable(), as [{(direction, index): length}], or None
+    when there are too many ways to list. A linked group's open lights share
+    its remaining total; any other open light is 2..size. Lewis's 18 ("2
+    Same definition as 14.", no count), 25 (8d + 21d = 16) and 3126 (1d +
+    20d + 23d = 20) ran a 15x15 out of budget on lengths symmetry rules out:
+    18's known downs hold three 5s, so 2d is a fourth; 3126's hold one 8 (an
+    even centre light is impossible), so the group is 8, 6, 6 in some order."""
+    lights = {"across": across, "down": down}
+    open_ = [(d, i) for d in ("across", "down") for i, lg in enumerate(lights[d])
+             if lg[1] is None]
+    if not open_:
+        return [{}]
+    grouped, choices = set(), []
+    for members, total in groups or ():
+        members = [m for m in members if lights[m[0]][m[1]][1] is None]
+        grouped.update(members)
+        parts = [p for p in itertools.product(range(2, size + 1), repeat=len(members))
+                 if sum(p) == total] if len(members) <= 4 else None
+        if parts is None:
+            return None
+        choices.append([dict(zip(members, p)) for p in parts])
+    for m in open_:
+        if m not in grouped:
+            choices.append([{m: n} for n in range(2, size + 1)])
+    if math.prod(len(c) for c in choices) > 20000:
+        return None
+    out = []
+    for combo in itertools.product(*choices):
+        pick = {k: v for part in combo for k, v in part.items()}
+        if all(pairable([pick.get((d, i), lg[1]) for i, lg in enumerate(lights[d])])
+               for d in ("across", "down")):
+            out.append(pick)
+    return out
+
+
+def _search_size(across, down, groups, size, words, max_nodes):
+    """search_grid's (grid, why) at one size, capped and then uncapped."""
+    spec = [(lg[0], d, lg[1]) for d, lights in (("across", across), ("down", down))
+            for lg in lights]
+    grid, why = rg.unique_grid(spec, cols=size, rows=size, max_nodes=max_nodes or MAX_NODES,
+                               groups=groups, words=words, max_black_run=MAX_BLACK_RUN)
+    if grid is None and why == "the search found no grid":
+        # The cap proved only that no capped grid fits: Lewis's 1947-48
+        # pages (12: a 13-block middle row, 17: nine) break it, so search
+        # again without it.
+        grid, why = rg.unique_grid(spec, cols=size, rows=size,
+                                   max_nodes=max_nodes or MAX_NODES,
+                                   groups=groups, words=words)
+    return grid, why
+
+
+def _search_paired(across, down, groups, size, words, max_nodes):
+    """_search_size, but over each length assignment paired_lengths() allows
+    when there are few: each search has every length pinned (no group left)
+    and its own budget. One grid over all of them is the grid."""
+    ways = paired_lengths(across, down, groups, size)
+    if ways is None or len(ways) > MAX_PAIRED or ways == [{}]:
+        return _search_size(across, down, groups, size, words, max_nodes)
+    grids, budget = [], None
+    for pick in ways:
+        pinned = {d: [list(lg) for lg in lights] for d, lights in (("across", across), ("down", down))}
+        for (d, i), n in pick.items():
+            pinned[d][i][1] = n
+        grid, why = _search_size(pinned["across"], pinned["down"], [], size, words, max_nodes)
+        if grid is None and "grids fit" in (why or ""):
+            return None, why
+        if grid is not None and grid not in grids:
+            grids.append(grid)
+        if grid is None and "budget" in why:
+            budget = why
+        if len(grids) >= 2:
+            return None, "at least 2 grids fit the clue list"
+    if grids and budget is None:
+        return grids[0], None
+    return None, budget or "the search found no grid"
+
+
 def search_grid(across, down, groups, words=None, max_nodes=None):
     """(grid, None) or (None, why not), `words` (one per light, None where
     unknown) written in if given. A size whose search ran out of budget is
     the reason given, even if a smaller size then finished empty."""
-    spec = [(lg[0], d, lg[1]) for d, lights in (("across", across), ("down", down))
-            for lg in lights]
-    longest = max((n for _, _, n in spec if n), default=0)
+    longest = max((lg[1] or 0 for lights in (across, down) for lg in lights), default=0)
     grid, why, first = None, "no size tried", None
     for size in SIZES:
         if size < longest:
             continue
-        grid, why = rg.unique_grid(spec, cols=size, rows=size, max_nodes=max_nodes or MAX_NODES,
-                                   groups=groups, words=words, max_black_run=MAX_BLACK_RUN)
-        if grid is None and why == "the search found no grid":
-            # The cap proved only that no capped grid fits: Lewis's 1947-48
-            # pages (12: a 13-block middle row, 17: nine) break it, so search
-            # again without it.
-            grid, why = rg.unique_grid(spec, cols=size, rows=size,
-                                       max_nodes=max_nodes or MAX_NODES,
-                                       groups=groups, words=words)
+        grid, why = _search_paired(across, down, groups, size, words, max_nodes)
         if grid is not None or "grids fit" in (why or ""):
             return grid, why
         if first is None or "budget" in why and "budget" not in first:
