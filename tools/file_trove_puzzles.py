@@ -1142,9 +1142,18 @@ def _inputs_off_disk(d, held):
     return {**held, **new}
 
 
+def file_mtimes(files):
+    """{name: whole-second mtime} of the files media_manifest.trove_files
+    string `files` found (a "<name>:-" is absent)."""
+    return {m.group(1): int(m.group(2)) for m in
+            re.finditer(r"(meta\.json|ocr\.txt|grid\.jpg):(?:\d+:(\d+))", files)}
+
+
 def rekey_unchanged(ledger, cache=CACHE, puzzles=None):
     """Re-key to inputs_of() the rows of `ledger` whose article's files (and
-    clue zone images) are all older than its read, so are what it read: a
+    clue zone images) are all older than its read, so are what it read (the
+    files' times from the trove-inputs manifest, no article stat; the zone
+    images are held by name there, so a rewrite in place is not seen): a
     copy that dropped their mtimes' nanoseconds, or a change of
     input_hash's form, is no reason to read it again. Unless a run holds
     the ledger; how many."""
@@ -1156,14 +1165,19 @@ def rekey_unchanged(ledger, cache=CACHE, puzzles=None):
     new = {}
     for a, row in known.items():
         d = cache / a
-        if "inputs" not in row or not row.get("readAt") or not (d / "meta.json").exists():
+        if "inputs" not in row or not row.get("readAt"):
+            continue
+        held = trove_inputs().get(a, {}) if media_manifest.on_media(d) else {}
+        if "files" not in held:
+            held = _inputs_off_disk(d, held)
+        mtimes = file_mtimes(held["files"])
+        if "meta.json" not in mtimes:
             continue
         h = inputs_of(d, files.get(a))
         if h == row["inputs"] or h.endswith("+strayed") != row["inputs"].endswith("+strayed"):
             continue
         read = scan_queue.when(row["readAt"]).timestamp()
-        paths = [d / n for n in ("meta.json", "ocr.txt", "grid.jpg")] + zone_images(a, clue_zones(d))
-        if all(int(p.stat().st_mtime) <= read for p in paths if p.exists()):
+        if all(m <= read for m in mtimes.values()):
             new[a] = h
     if not new:
         return 0
