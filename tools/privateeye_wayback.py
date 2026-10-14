@@ -148,7 +148,7 @@ def split_dirs(part):
     """'ACROSS ... DOWN ...' -> (across text, down text) or None."""
     # Headings by case and a following number, so a clue's "going down on" isn't one
     # (or a scan's "|", "l", "I" misread for 1 before a capital: "DOWN | Picture").
-    m = re.search(r"\b(?:ACROSS|Across)\b:?(.*?)\b(?:DOWN|Down)\b:?(?=\s*(?:\d|[|lI]\s+[A-Z]))(.*)$", part, re.S)
+    m = re.search(r"\b(?:ACROSS|Across)\b\s*:?(.*?)\b(?:DOWN|Down)\b\s*:?(?=\s*(?:\d|[|lI]\s+[A-Z]))(.*)$", part, re.S)
     return (m.group(1).strip(), m.group(2).strip()) if m else None
 
 
@@ -254,7 +254,8 @@ def read_capture(raw, encoding="cp1252", plain=False, issue=None):
     clues = body[:sol.start()] if sol else body
     # The print issue (archive.org scans) sets "£100 prize" above ACROSS and
     # the entry notice under the last down clue: keep ACROSS up to that notice.
-    across = re.search(r"\bACROSS\b", clues, re.I)
+    # The heading in capitals first: an article's "across London" (No 245) is not it.
+    across = re.search(r"\bACROSS\b", clues) or re.search(r"\bACROSS\b", clues, re.I)
     if across:
         clues = TAIL.split(clues[across.start():])[0]
     out = {"number": num, "rows": None, "prev": None, "answers": None}
