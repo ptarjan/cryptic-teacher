@@ -112,8 +112,8 @@ NUMBERED = re.compile(r"^(\d{1,2})(?:\b|(?=[A-Z]))\s*(.*)$")
 # "8 and 1 down", "12, 20 across", "3/14", "1 and 14D": the extra numbers of a linked clue.
 LINKED = re.compile(r"^((?:\s*(?:,|and|&|/)\s*\d{1,2}(?:\s*(?:across|down)|(?-i:[AD])\b)?)+)\s+(.*)$", re.I)
 ENUM = re.compile(r"^(.*?)\s*\(\s*([\d][\d\s,.'’\-–]*)\s*\)\s*$")
-# "See 7A" (3482) as well as "See 7 across".
-SEE = re.compile(r"^see\s+(\d{1,2})(?:\s*-?\s*(?:across|down|a|d))?\s*\.?$", re.I)
+# "See 7A" (3482) as well as "See 7 across"; group 2 the direction, if named.
+SEE = re.compile(r"^see\s+(\d{1,2})(?:\s*-?\s*(across|down|a|d))?\s*\.?$", re.I)
 
 
 def lines_of(page):
@@ -130,6 +130,10 @@ def lines_of(page):
     body = re.sub(r"(?is)<aside\b.*?</aside>", "", body)
     # ...and its "Popular" carousel, a <section> (3450's down list, 3418's).
     body = re.sub(r"(?is)<section\b[^>]*popular-articles.*?</section>", "", body)
+    # ...and its hidden paragraph counter, set flush after each line's text
+    # ('(1-9)<span class="paranum hidden">3</span>'): read as text, 3520's
+    # headings became "ACROSS2" and "DOWN19" and no clue list was found.
+    body = re.sub(r"(?is)<span\b[^>]*\bparanum\b[^>]*>.*?</span>", "", body)
     body = BLOCK.sub("\n", body)
     text = html.unescape(re.sub(r"<[^>]+>", "", body))
     text = text.replace(" ", " ").replace(" ", " ").replace(" ", " ")
@@ -207,7 +211,11 @@ def clue_lists(lines):
                 text = link.group(2)
             see = SEE.match(text)
             if see:
-                rows.append({"number": number, "clue": f"See {see.group(1)}", "enumeration": None})
+                # The direction stays: "See 1D" on an across light names
+                # 1-down, not the 1-across a bare "See 1" would.
+                where = {"a": " across", "d": " down"}.get((see.group(2) or "")[:1].lower(), "")
+                rows.append({"number": number, "clue": f"See {see.group(1)}{where}",
+                             "enumeration": None})
                 continue
             m = ENUM.match(text)
             rows.append({"number": number, "clue": (m.group(1) if m else text).strip(),
