@@ -113,7 +113,17 @@ if [ -n "$REEXEC_STATE" ]; then
   RUN_LOG="${REEXEC_STATE%.state}"
 else
   RUN_LOG="$(mktemp "${TMPDIR:-/tmp}/cryptic-prereset.XXXXXX")"
-  exec > >(tee -a "$RUN_LOG") 2>&1
+  # The main checkout's .prereset.log is the job's log whoever started it:
+  # the Burn lane tails it (tools/track_prereset.sh) and prereset_plan.py reads
+  # its meter lines. The hourly fire already appends there; a start by hand or
+  # through track_prereset.sh does not, and without this its lines went only to
+  # the track-job log, leaving the lane on the fires' "holds its tree" line.
+  main_log="${CT_MAIN_CHECKOUT:-$REPO}/.prereset.log"
+  if [ /dev/stdout -ef "$main_log" ] || [ "${DRY_RUN:-0}" = 1 ]; then
+    exec > >(tee -a "$RUN_LOG") 2>&1
+  else
+    exec > >(tee -a "$RUN_LOG" "$main_log") 2>&1
+  fi
 fi
 
 # Kept in step with daily_update.sh — Opus, benchmarked against Fable on 30078
