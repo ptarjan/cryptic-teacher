@@ -50,6 +50,10 @@ ANSWER_ONLY = re.compile(r"^[A-Z\s+()\-.'’,&]+$")
 REVERSED = re.compile(r"\brev\b")
 # How long the search for the one wrong answer may take, per puzzle.
 LEAVE_ONE_OUT_SECONDS = 45
+# The search with the key's answers written in, run once per puzzle, may go
+# further than the filer's clue-list search (fetch_nation.MAX_NODES): 3499's
+# list, every length known, ran out at 400,000 nodes and places at 3,000,000.
+KEYED_MAX_NODES = 3_000_000
 
 
 def solution_text(lines):
@@ -221,14 +225,14 @@ def spec_of(across, down):
             for lg in lights]
 
 
-def search(spec, words, groups):
+def search(spec, words, groups, max_nodes=None):
     """(grid, why) for these lights with these answers written in: the
     filer's own search (fetch_nation.search_grid), so a 15x15 search that ran
     out of budget is the reason given, not the 13x13 one that then found
     nothing (3325, 3499, 3505 and 3507 were refused as "no grid" so)."""
     across = [[n, length] for n, d, length in spec if d == "across"]
     down = [[n, length] for n, d, length in spec if d == "down"]
-    return fn.search_grid(across, down, groups, words=words)
+    return fn.search_grid(across, down, groups, words=words, max_nodes=max_nodes)
 
 
 def place(read, key):
@@ -255,7 +259,7 @@ def place(read, key):
         words.append(letters)
     if not any(words):
         return None, words, dropped, "the key gives no answers"
-    grid, why = search(spec, words, groups)
+    grid, why = search(spec, words, groups, max_nodes=KEYED_MAX_NODES)
     if grid is not None:
         return grid, words, dropped, None
     if "grids fit" not in (search(spec, [None] * len(spec), groups)[1] or ""):

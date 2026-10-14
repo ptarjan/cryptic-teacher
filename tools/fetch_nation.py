@@ -419,7 +419,7 @@ def read_page(page, known=None):
     return (m, head, across, down, groups), None
 
 
-def search_grid(across, down, groups, words=None):
+def search_grid(across, down, groups, words=None, max_nodes=None):
     """(grid, None) or (None, why not), `words` (one per light, None where
     unknown) written in if given. A size whose search ran out of budget is
     the reason given, even if a smaller size then finished empty."""
@@ -430,7 +430,7 @@ def search_grid(across, down, groups, words=None):
     for size in SIZES:
         if size < longest:
             continue
-        grid, why = rg.unique_grid(spec, cols=size, rows=size, max_nodes=MAX_NODES,
+        grid, why = rg.unique_grid(spec, cols=size, rows=size, max_nodes=max_nodes or MAX_NODES,
                                    groups=groups, words=words)
         if grid is not None or "grids fit" in (why or ""):
             return grid, why
