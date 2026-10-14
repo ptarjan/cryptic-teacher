@@ -60,7 +60,7 @@ if [ "$(readlink "/proc/$$/fd/9" 2>/dev/null)" != "$_ct_lease" ]; then
   exec 9>"$_ct_lease"
 fi
 if ! flock -n 9; then
-  echo "another $_ct_job run holds its tree — leaving it alone"
+  echo "$(date '+%F %H:%M') another $_ct_job run holds its tree — leaving it alone"
   exit "${CT_LEASE_BUSY_RC:-0}"
 fi
 if [ "${CT_IN_WORKTREE:-0}" = 1 ]; then export -n CT_JOB CT_LEASE_BUSY_RC; fi
