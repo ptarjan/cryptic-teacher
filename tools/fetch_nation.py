@@ -107,11 +107,13 @@ def download():
 # ------------------------------------------------------------------ parsing
 
 BLOCK = re.compile(r"(?i)<br\s*/?>|</(?:div|p|li|h\d|tr)>")
-NUMBERED = re.compile(r"^(\d{1,2})\b\s*(.*)$")
-# "8 and 1 down", "12, 20 across", "3/14": the extra numbers of a linked clue.
-LINKED = re.compile(r"^((?:\s*(?:,|and|&|/)\s*\d{1,2}(?:\s*(?:across|down))?)+)\s+(.*)$", re.I)
+# "14Argued page was in front (4)": 3280 sets some numbers flush to the clue.
+NUMBERED = re.compile(r"^(\d{1,2})(?:\b|(?=[A-Z]))\s*(.*)$")
+# "8 and 1 down", "12, 20 across", "3/14", "1 and 14D": the extra numbers of a linked clue.
+LINKED = re.compile(r"^((?:\s*(?:,|and|&|/)\s*\d{1,2}(?:\s*(?:across|down)|(?-i:[AD])\b)?)+)\s+(.*)$", re.I)
 ENUM = re.compile(r"^(.*?)\s*\(\s*([\d][\d\s,.'’\-–]*)\s*\)\s*$")
-SEE = re.compile(r"^see\s+(\d{1,2})(?:\s*-?\s*(?:across|down))?\s*\.?$", re.I)
+# "See 7A" (3482) as well as "See 7 across".
+SEE = re.compile(r"^see\s+(\d{1,2})(?:\s*-?\s*(?:across|down|a|d))?\s*\.?$", re.I)
 
 
 def lines_of(page):
@@ -120,10 +122,22 @@ def lines_of(page):
     end = page.find("Submit a correction", start)
     body = page[start:end if end > 0 else None]
     body = re.sub(r"(?is)<(script|style)\b.*?</\1>", "", body)
+    # The site drops its sidebars into the clue list as <aside>s ("Current
+    # Issue / View our current issue" after 3505's 12-across, "Related
+    # Article / Puzzle No. 308", the "Puzzled?" note after 3529's 1-across).
+    # Read as lines they ended the across list there, so puzzles were held
+    # with half a list and refused as asymmetric (clues_only.implausible).
+    body = re.sub(r"(?is)<aside\b.*?</aside>", "", body)
+    # ...and its "Popular" carousel, a <section> (3450's down list, 3418's).
+    body = re.sub(r"(?is)<section\b[^>]*popular-articles.*?</section>", "", body)
     body = BLOCK.sub("\n", body)
     text = html.unescape(re.sub(r"<[^>]+>", "", body))
     text = text.replace(" ", " ").replace(" ", " ").replace(" ", " ")
-    return [re.sub(r"\s+", " ", ln).strip() for ln in text.split("\n") if ln.strip()]
+    lines = [re.sub(r"\s+", " ", ln).strip() for ln in text.split("\n")]
+    # A tag the page escaped by mistake ("strong&gt;27 Cheerful lad", 3494),
+    # and a lone dash set beside a clue for layout (3493's 1-across).
+    lines = [re.sub(r"^/?(?:strong|b|em|span)>\s*", "", ln) for ln in lines]
+    return [ln for ln in lines if ln and not re.fullmatch(r"[–—-]+", ln)]
 
 
 def meta(page):

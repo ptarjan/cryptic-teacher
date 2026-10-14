@@ -2546,6 +2546,9 @@ tools/trim_codeql_caches.py                    delete all but the newest CodeQL 
                                                database per language from the repo's Actions
                                                cache, so CodeQL default setup stops evicting
                                                the deploy's caches
+tools/test_fetch_nation_clue_list.sh           does fetch_nation read a Nation clue list whole,
+                                               through the sidebars and typesetting slips the
+                                               site drops into it?
 tools/test_fetch_nation_dates.sh               does fetch_nation date a page printing no issue
                                                on the issue clock, so it sorts between its
                                                neighbours instead of before the number below it?
