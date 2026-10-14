@@ -44,7 +44,7 @@ SCHEDULED = {
     "cross_validate.py": ["Independent.served", "FT.ids", "ArchiveOrg.ids", "ListenerReport.ids",
                           "Telegraph.ids", "Globe.fetch_one"],
     # gale_inbox sync's checklist, every minute: the scanned editions.
-    "archive_coverage.py": ["scans"],
+    "archive_coverage.py": ["scans", "unfiled", "fetched_editions"],
     # gale_fetch.py run() asks this every pass of its loop.
     "gale_fetch.py": ["have_docs"],
     # edition_queue plan (every corpus slice) dates each due Trove article.
