@@ -471,7 +471,10 @@ def file(numbers=None, dry_run=False):
             continue
         try:
             puzzle, reason = build(num, got[num])
-        except Exception as e:
+        # SystemExit too: the shared enumeration code exits on a linked count
+        # that overruns its light ("the book counts (7,7,4) = 18 letters, the
+        # light is 7 cells"), and one puzzle must never end the batch.
+        except (Exception, SystemExit) as e:
             puzzle, reason = None, f"{type(e).__name__}: {e}"
         if puzzle is None:
             why[num] = reason
