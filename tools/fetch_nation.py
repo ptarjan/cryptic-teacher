@@ -110,7 +110,11 @@ BLOCK = re.compile(r"(?i)<br\s*/?>|</(?:div|p|li|h\d|tr)>")
 # "14Argued page was in front (4)": 3280 sets some numbers flush to the clue.
 NUMBERED = re.compile(r"^(\d{1,2})(?:\b|(?=[A-Z]))\s*(.*)$")
 # "8 and 1 down", "12, 20 across", "3/14", "1 and 14D": the extra numbers of a linked clue.
-LINKED = re.compile(r"^((?:\s*(?:,|and|&|/)\s*\d{1,2}(?:\s*(?:across|down)|(?-i:[AD])\b)?)+)\s+(.*)$", re.I)
+# Also "15, 18, 5D, and 21D" with its serial comma (3507, 3498), and "1 &amp; ;
+# 30", a page's "&" with a stray ";" (3325): each refused as one light holding
+# the whole group's count.
+LINKED = re.compile(r"^((?:\s*(?:,\s*(?:and|&)?|and|&|/)\s*;?\s*\d{1,2}"
+                    r"(?:\s*(?:across|down)|(?-i:[AD])\b)?)+)\s+(.*)$", re.I)
 ENUM = re.compile(r"^(.*?)\s*\(\s*([\d][\d\s,.'’\-–]*)\s*\)\s*$")
 # "See 7A" (3482) as well as "See 7 across"; group 2 the direction, if named.
 SEE = re.compile(r"^see\s+(\d{1,2})(?:\s*-?\s*(across|down|a|d))?\s*\.?$", re.I)
@@ -345,6 +349,44 @@ def linked_groups(lists, across, down):
     return groups
 
 
+def mirror_lengths(across, down, groups):
+    """Fill in the linked lights' lengths a symmetric grid fixes, in place,
+    and return `groups` cut down to the lights still open. The search builds
+    only symmetric grids, and in one the i-th across light (in reading order)
+    is the mirror of the i-th from the end, so the two are the same length.
+    A linked across light's mirror then gives its length; a group with one
+    light left open gets the rest of its total, and two open across lights
+    that are each other's mirror get half each when they are all that is
+    left. Without this the search tried every split of each total: 3499's
+    "1 and 4 across (5,8)", 3325's "1 & 30 (4,4)" and 3418's four groups ran
+    out of budget at 15x15 and were refused as "no grid"."""
+    lights = {"across": across, "down": down}
+    n = len(across)
+    length = lambda m: lights[m[0]][m[1]][1]
+    changed = True
+    while changed:
+        changed = False
+        for i, lg in enumerate(across):
+            if lg[1] is None and across[n - 1 - i][1] is not None:
+                lg[1], changed = across[n - 1 - i][1], True
+        for members, total in groups:
+            open_ = [m for m in members if length(m) is None]
+            left = total - sum(length(m) for m in members if length(m) is not None)
+            if len(open_) == 1 and left > 0:
+                lights[open_[0][0]][open_[0][1]][1], changed = left, True
+            elif (len(open_) == 2 and all(d == "across" for d, _ in open_)
+                  and open_[0][1] + open_[1][1] == n - 1 and left > 0 and left % 2 == 0):
+                for d, i in open_:
+                    across[i][1] = left // 2
+                changed = True
+    out = []
+    for members, total in groups:
+        open_ = [m for m in members if length(m) is None]
+        if len(open_) >= 2:
+            out.append((open_, total - sum(length(m) for m in members if length(m) is not None)))
+    return out
+
+
 def read_page(page, known=None):
     """((meta, head, across, down, groups), None) or (None, why not): the
     page's clue list as light_spec lights, before any grid search."""
@@ -371,15 +413,16 @@ def read_page(page, known=None):
         if lg[2].startswith("linked"):
             lg[1] = None
     # ...but the group's total is printed, and which lights make it up.
-    groups = linked_groups(lists, across, down)
+    groups = mirror_lengths(across, down, linked_groups(lists, across, down))
     if any(lg[0] is None for lg in across + down):
         return None, "a light with no number"
     return (m, head, across, down, groups), None
 
 
-def search_grid(across, down, groups):
-    """(grid, None) or (None, why not). A size whose search ran out of budget
-    is the reason given, even if a smaller size then finished empty."""
+def search_grid(across, down, groups, words=None):
+    """(grid, None) or (None, why not), `words` (one per light, None where
+    unknown) written in if given. A size whose search ran out of budget is
+    the reason given, even if a smaller size then finished empty."""
     spec = [(lg[0], d, lg[1]) for d, lights in (("across", across), ("down", down))
             for lg in lights]
     longest = max((n for _, _, n in spec if n), default=0)
@@ -388,7 +431,7 @@ def search_grid(across, down, groups):
         if size < longest:
             continue
         grid, why = rg.unique_grid(spec, cols=size, rows=size, max_nodes=MAX_NODES,
-                                   groups=groups)
+                                   groups=groups, words=words)
         if grid is not None or "grids fit" in (why or ""):
             return grid, why
         if first is None or "budget" in why and "budget" not in first:
@@ -454,8 +497,22 @@ def build(page, url, known=None, grid=None):
         return None, "; ".join(problems)
     for e in entries:
         e["clue"] = (e["clue"] or "").strip()
+    # A leader's clue can be "See 12" (3466's "8, 14A and 26 See 12 (2,8,...)":
+    # its clue is the one printed at 12): it prints the group's count, so it
+    # leads, and resolve_groups (normalise_record's too) must not follow it to
+    # 12 as a continuation.
+    leaders = {f"{lg[0]}-{d}" for d, lights in (("across", across), ("down", down))
+               for lg in lights if lg[2].startswith("linked") and (lg[3] or {}).get("enumeration")}
+    masked = {entry_id(e): e["clue"] for e in entries
+              if entry_id(e) in leaders and is_pointer(e.get("clue"))}
+    for e in entries:
+        if entry_id(e) in masked:
+            e["clue"] = "(leads a linked answer)"
     normalise_record({"puzzle": {"entries": entries}, "fill": {}})
     groups = resolve_groups(entries)
+    for e in entries:
+        if entry_id(e) in masked:
+            e["clue"] = masked[entry_id(e)]
     by_id = {entry_id(e): e for e in entries}
     seps = {}
     for e in entries:

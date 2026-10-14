@@ -222,17 +222,13 @@ def spec_of(across, down):
 
 
 def search(spec, words, groups):
-    """(grid, why) for these lights with these answers written in."""
-    grid, why = None, "no size tried"
-    longest = max((n for _, _, n in spec if n), default=0)
-    for size in fn.SIZES:
-        if size < longest:
-            continue
-        grid, why = fn.rg.unique_grid(spec, cols=size, rows=size, words=words,
-                                      max_nodes=fn.MAX_NODES, groups=groups)
-        if grid is not None or "grids fit" in (why or ""):
-            return grid, why
-    return grid, why
+    """(grid, why) for these lights with these answers written in: the
+    filer's own search (fetch_nation.search_grid), so a 15x15 search that ran
+    out of budget is the reason given, not the 13x13 one that then found
+    nothing (3325, 3499, 3505 and 3507 were refused as "no grid" so)."""
+    across = [[n, length] for n, d, length in spec if d == "across"]
+    down = [[n, length] for n, d, length in spec if d == "down"]
+    return fn.search_grid(across, down, groups, words=words)
 
 
 def place(read, key):

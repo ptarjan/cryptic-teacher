@@ -55,6 +55,46 @@ for d in ("across", "down"):
 import light_spec
 across, down, _, _ = light_spec.build_spec(lists)
 print("LEADER", across[0][0], across[0][2])
+# 3507's serial comma and 3325's "&amp; ;": each lost its link, so the group's
+# whole count went on one light (24 cells, 8 cells) and no grid was found.
+page = """<article><p><strong>ACROSS</strong>
+<p><strong>&ensp;1</strong> &amp; ; <strong>30&ensp;</strong>Play double Dutch with a pole? (4,4)
+<p><strong>15</strong>, 18, 5D, and 21D Weak theater delivery person (6,6,6,4,2)
+<p><strong>18</strong> See 15
+<p><strong>30</strong> See 1
+<p><strong>DOWN</strong>
+<p><strong>5</strong> See 15
+<p><strong>21</strong> See 15
+</article>"""
+lists, _ = F.clue_lists(F.lines_of(page))
+print("LINKS", " ".join(f"{r['number']}:{r['enumeration']}" for r in lists["across"][:2]))
+# A symmetric grid's i-th across light mirrors the i-th from the end (3499's
+# "1 and 4 across (5,8)", 3325's "1 & 30 (4,4)", 3418's "11 and 31 (7,10)").
+across = [[1, None], [4, None], [9, 9], [11, 7], [20, 9], [28, 8], [29, 5]]
+down = [[1, 6], [2, None], [3, None]]
+left = F.mirror_lengths(across, down, [([("across", 0), ("across", 1)], 13),
+                                       ([("down", 1), ("down", 2)], 10)])
+print("MIRROR", " ".join(str(lg[1]) for lg in across), left)
+across = [[1, None], [5, 7], [8, 7], [30, None]]
+F.mirror_lengths(across, [], [([("across", 0), ("across", 3)], 8)])
+print("HALVES", across[0][1], across[3][1])
+# 3466: a leader whose clue is "See 4" leads; build must not follow it to 4.
+page = """<html><head><meta property="og:title" content="Puzzle No. 3466" />
+<meta property="article:published_time" content="2018-05-01T00:00:00" /></head><body>
+<article><p>This article appears in the May 21, 2018 issue.</p>
+<p><strong>ACROSS</strong>
+<p><strong>1</strong> and 5 See 4 (5,5)
+<p><strong>4</strong> Organization whose slogan is spoofed at 1 and 5 (5)
+<p><strong>5</strong> See 1
+<p><strong>DOWN</strong>
+<p><strong>1</strong> First down (5)
+<p><strong>2</strong> Second down (5)
+<p><strong>3</strong> Third down (5)
+</article></body></html>"""
+grid = [".....", ".#.#.", ".....", ".#.#.", "....."]
+puzzle, why = F.build(page, "https://example.org/puzzle-no-3466/", {}, grid=grid)
+lead = next(e for e in puzzle["entries"] if e["number"] == 1 and e["direction"] == "across") if puzzle else {}
+print("SEELEAD", why, lead.get("group"), (lead.get("clue") or {}).get("text"))
 PY
 )
 fails=0
@@ -67,5 +107,9 @@ expect "TEXT Cheerful lad steals uranium" "the escaped tag leaves the clue's tex
 expect "PACROSS 8,14,26:2,8,2,8,4,7,4,4,2-4 12:3,3 14:None 26:None" "a hidden paragraph counter does not hide the headings or the counts"
 expect "PDOWN 1:6" "the counter does not glue onto the down list"
 expect "LEADER 8 linked" "a linked 'See 12' printing the group's count is its leader, not a redirect"
+expect "LINKS 1,30:4,4 15,18,5,21:6,6,6,4,2" "a serial comma and a stray '&amp; ;' keep a linked clue's numbers"
+expect "MIRROR 5 8 9 7 9 8 5 [([('down', 1), ('down', 2)], 10)]" "a linked across light takes its mirror's length; an open down pair stays a group"
+expect "HALVES 4 4" "two linked lights that mirror each other split their total"
+expect "SEELEAD None ['1-across', '5-across'] See 4" "a leader whose clue is 'See 4' leads its group and keeps its clue"
 [ "$fails" = 0 ] && echo "fetch_nation clue list: all checks passed" || echo "fetch_nation clue list: $fails FAILED"
 exit $((fails > 0))
