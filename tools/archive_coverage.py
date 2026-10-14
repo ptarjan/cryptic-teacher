@@ -251,6 +251,7 @@ def unfiled(paper, today, scanned=True, scans_as=None):
     by_date, by_number = corpus(series)
     listing, listed = scans(paper)
     rows, failed = (ledger(), failed_fetches()) if scanned else ({}, set())
+    fetched = fetched_editions() if scanned else frozenset()
     reprinted = {r["londonDate"] for r in canberra_london_numbers.load().values()
                  if r.get("londonDate")} if series == "times" else set()
     for date in printed_dates(series, today):
@@ -268,11 +269,28 @@ def unfiled(paper, today, scanned=True, scans_as=None):
             cls = verdict_class(rows[ed], by_number)
         elif ed in failed:
             cls = "fetch-failed"
-        elif (CACHE / ed / "pages.json").exists():
+        elif ed in fetched:
             cls = "not-read"
         else:
             cls = "not-fetched"
         yield date, cls, ed
+
+
+class _Listed:
+    """fetched_editions of a folder off the media disk (a test's): `in`
+    stats the edition's pages.json, which is fine there."""
+    def __contains__(self, ed):
+        return (CACHE / ed / "pages.json").exists()
+
+
+def fetched_editions():
+    """The "<item>/<edition>" dirs under CACHE holding pages.json: off the
+    archiveorg-editions and gale-editions manifests (their fetchers append)
+    when CACHE is on the media disk, so the daily coverage run stats none."""
+    if not media_manifest.on_media(CACHE):
+        return _Listed()
+    return (set(media_manifest.latest(media_manifest.ARCHIVE_EDITIONS, "edition"))
+            | set(media_manifest.latest(media_manifest.GALE_EDITIONS, "edition")))
 
 
 def cover(paper, today):

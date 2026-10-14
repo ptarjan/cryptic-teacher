@@ -186,9 +186,27 @@ cache = tmp / "cache"
 saved = ac.CACHE, ac.LEDGERS, ac.corpus
 ac.CACHE, ac.LEDGERS, ac.corpus = cache, [cache / "filed.jsonl"], lambda s: ({}, {})
 got = {d: c for d, c, _ in ac.unfiled(filer.PAPERS["ft"], datetime.date(1981, 4, 2))}
-ac.CACHE, ac.LEDGERS, ac.corpus = saved
 assert (got["1981-04-01"], got["1981-04-02"], got["1980-04-01"], got["1972-04-04"]) == \
     ("not-fetched", "no-scan", "no-listing", "no-scan"), got
+# On the media disk a fetched edition is one the archiveorg-editions (or
+# gale-editions) manifest holds: its pages.json is never stat-ed.
+ed = {d: e for d, _, e in ac.unfiled(filer.PAPERS["ft"], datetime.date(1981, 4, 2))}["1981-04-01"]
+(cache / ed).mkdir(parents=True)
+(cache / ed / "pages.json").write_text("{}")
+assert {d: c for d, c, _ in ac.unfiled(filer.PAPERS["ft"], datetime.date(1981, 4, 2))}["1981-04-01"] == "not-read"
+import media_manifest as mm
+mm_saved = mm.DIR, mm.on_media
+item_row = {"key": "FinancialTimes1981UKEnglish", **ac._item_off_media("FinancialTimes1981UKEnglish")}
+mm.DIR, mm.on_media = tmp / "mf", lambda f: True
+mm.DIR.mkdir()
+(mm.DIR / "gale-editions.jsonl").write_text("")
+(mm.DIR / f"{ac.fetcher.IA_ITEMS}.jsonl").write_text(json.dumps(item_row) + "\n")
+for rows_, want in (([], "not-fetched"), ([{"edition": ed}], "not-read")):
+    (mm.DIR / "archiveorg-editions.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows_))
+    got = {d: c for d, c, _ in ac.unfiled(filer.PAPERS["ft"], datetime.date(1981, 4, 2))}
+    assert got["1981-04-01"] == want, (rows_, got)
+mm.DIR, mm.on_media = mm_saved
+ac.CACHE, ac.LEDGERS, ac.corpus = saved
 
 # A date no archive.org item holds is Gale's by hand inside its archive's
 # span, no source's outside it, and a series with no Gale archive has none.
