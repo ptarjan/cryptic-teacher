@@ -2615,5 +2615,10 @@ tools/privateeye_wayback.py                    private Eye Cyclops crosswords th
                                                serves, from the Wayback Machine
 tools/file_livejournal_puzzles.py              file the Club Monthly posts only
                                                times-for-the-times' old LiveJournal holds
+tools/nation_key.py                            the Nation's answers, from the setters' own
+                                               solution printed a week later
+tools/test_nation_key.sh                       does nation_key read The Nation's answers from
+                                               the setters' printed solution and Braze's posts,
+                                               and only the letters they really spell?
 ```
 <!-- LAYOUT-END -->
