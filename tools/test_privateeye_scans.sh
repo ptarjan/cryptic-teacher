@@ -29,7 +29,8 @@ def line(*words):
 
 rows = [line((100, 50, 300, "EYE"), (320, 50, 600, "CROSSWORD"), (620, 50, 660, "13"), (680, 50, 900, "Cyclops"))]
 left = ["ACROSS", "1 Clue one here (5)", "5 Clue five (4)", "7 Another clue (6)", "9 Last across (8)"]
-right = ["DOWN", "1 First down clue (4,4)", "2 Second (4)", "20/12 Linked clue (6,6)", "12 (See 20 down)"]
+right = ["DOWN", "1 First down clue (4,4)", "2 This crossword is first (4)", "20/12 Linked clue (6,6)",
+         "12 (See 20 down)"]
 y = 200
 for a, b in zip(left, right):
     # archive.org's OCR runs a row of both columns into one LINE.
@@ -46,7 +47,7 @@ xml = ("<OBJECT>" + "".join(rows) + "</OBJECT>").encode()
 lines = ps.page_lines(xml)
 print("SPLIT", len(lines))
 cols = ps.columns(lines)
-print("COLS", len(cols), cols[0][0] < 200, cols[1][0] > 1200)
+print("COLS", len(cols), cols[0][0] < 200, cols[1][0] > 1200 and cols[1][3] > 200 + 45 * 4)
 print("NUMBER", ps.number_of(lines, 858), ps.number_of(lines[1:], 858), ps.number_of(lines[1:], 900))
 words = [w for ws in lines for w in ws]
 across, down = ps.column_cols(cols)(words)
@@ -71,7 +72,7 @@ echo "$out" | sed 's/^/  | /'
 get() { echo "$out" | sed -n "s/^$1 //p"; }
 
 check "a LINE across both columns is cut at the gap" "13" "$(get SPLIT)"
-check "two clue columns found, left then right" "2 True True" "$(get COLS)"
+check "two clue columns found, left then right, a clue saying crossword in them" "2 True True" "$(get COLS)"
 check "the heading's number, else the solution's + 1, never the address's 6" "13 13 None" "$(get NUMBER)"
 check "the columns read ACROSS then DOWN, a linked head's slash a comma" "4 4 20, 12 Linked clue (6,6)" "$(get SIDES)"
 check "a linked head prints 20/12 and a continuation See 20" \
