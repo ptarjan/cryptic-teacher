@@ -735,6 +735,12 @@ def needs_vlm(unit):
 DESKTOP_FLOOR_MB = 4096
 #: What one OCR session takes on the desktop (private MB, 0.85-1.3 GB seen).
 DESKTOP_SESSION_MB = 1024
+#: Seconds a free-memory reading gates starts. desktop_busy keeps the last
+#: one through every probe that fails (a saturated desktop, a LAN address
+#: gone), so an old low reading would hold each desktop unit back until the
+#: probe answered again; past this it is no reading, and the unit tries the
+#: connection (ocr_remote alerts and reads here when none works).
+DESKTOP_STALE_S = 600
 
 
 def load_gated(unit):
@@ -784,13 +790,14 @@ def desktop_sessions(t, opened, closed=()):
 
 def desktop_room(reading, opened, closed=()):
     """Whether the desktop has room for one more OCR session: its free
-    memory at `reading` (desktop_free, or None: room), less a session for
-    each still open of those started since that reading (desktop_sessions:
-    starts less ends since it), stays above DESKTOP_FLOOR_MB after it.
+    memory at `reading` (desktop_free; None, or one over DESKTOP_STALE_S
+    old: room), less a session for each still open of those started since
+    that reading (desktop_sessions: starts less ends since it), stays above
+    DESKTOP_FLOOR_MB after it.
     Counting only starts held the queue to (free - floor) / session starts
     per reading (~one a minute) however many units had ended: ~4 a minute
     at 9 GB free, so 6-12 units ran on a desktop with room for more."""
-    if reading is None:
+    if reading is None or time.time() - reading[0] > DESKTOP_STALE_S:
         return True
     t, free = reading
     return free - DESKTOP_SESSION_MB * (desktop_sessions(t, opened, closed) + 1) >= DESKTOP_FLOOR_MB

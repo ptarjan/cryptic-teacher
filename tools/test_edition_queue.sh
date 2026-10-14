@@ -1035,6 +1035,12 @@ log.unlink(missing_ok=True)
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=4, scan_workers=1, seconds=1.0, replan=0.3)
 check("mirror: no reading (the desktop not answering) holds nothing back", 4, log.read_text().count("start"))
+eq.desktop_mem_reader = lambda: (time.time() - eq.DESKTOP_STALE_S - 1, eq.DESKTOP_FLOOR_MB)
+log.unlink(missing_ok=True)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=4, scan_workers=1, seconds=1.0, replan=0.3)
+check("a stale reading (probes failing since) holds nothing back: the units try the connection", 4,
+      log.read_text().count("start"))
 eq.prepare, eq.plan = real_prepare, kept_plan
 os.environ.pop("OCR_REMOTE")
 # A unit the desktop keeps losing (its read ends the server there) is started
