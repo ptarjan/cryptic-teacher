@@ -205,13 +205,15 @@ def solution_letters(number, grid):
     columns = ["".join(row[x] for row in grid) for x in range(size)]
     rows = read_lines(by_row, grid)
     cols = read_lines(by_col, columns)
-    out = {}
-    for (y, x), ch in rows.items():
-        out[(y, x)] = ch
+    out, disputed = dict(rows), set()
     for (x, y), ch in cols.items():
         if out.get((y, x), ch) != ch:
-            return None, f"row and column reads differ at row {y + 1} square {x + 1}"
+            disputed.add((y, x))   # the two reads differ: neither is kept
         out[(y, x)] = ch
+    for cell in disputed:
+        del out[cell]
+    if not out:
+        return None, "no line of either read is the grid's"
     return out, None
 
 
