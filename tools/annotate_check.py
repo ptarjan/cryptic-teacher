@@ -751,6 +751,31 @@ def unname_block_notes(path, pending):
     return sorted(set(changed), key=changed.index)
 
 
+BLANK_LINE = re.compile(r"^(\d+[AD](?:,\d+[AD])*): no annotation\. Every clue")
+
+
+def drop_refused_blanks(line, refused):
+    """`line` without the clues in `refused`, or "" if none is left.
+
+    A clue the write refused is still blank in the previewed puzzle, so
+    check_every_clue_is_annotated called it unwritten as well, though the run
+    wrote it and the refusal above names it with the real reason. That echo
+    was 56 of the 80 sessions the 10-14 audit counted as missing a clue
+    (38% of first-check failures): runs went looking for a clue they had
+    written. Only a clue absent from the _ann file is reported here now."""
+    m = BLANK_LINE.match(line)
+    if not m or not refused:
+        return line
+    tags = m.group(1).split(",")
+    left = [t for t in tags if t not in refused]
+    if not left:
+        return ""
+    line = ",".join(left) + line[m.end(1):]
+    return re.sub(r"With \d+ blank", f"With {len(left)} blank", line) if len(left) > 1 else \
+        re.sub(r" With \d+ blank, write every one before running the check again: "
+               r"a check of a half-written file costs a turn\.", "", line)
+
+
 def preview(path, pending):
     """(errors, warnings) the validator would give once `pending` applied.
 
@@ -762,6 +787,7 @@ def preview(path, pending):
         ann = json.loads(pending.read_text(encoding="utf-8"))
         continuations = groups.leader_of(puzzle["entries"])
         only = annotate_only(path)
+        refused = set()
         for e in puzzle["entries"]:
             if entry_id(e) in continuations or (only is not None and entry_id(e) not in ann):
                 continue
@@ -772,6 +798,7 @@ def preview(path, pending):
                 # the rest are still worth validating.
                 new = apply_annotations.landed(ann[entry_id(e)], e, puzzle["entries"], "", [])
                 if new is None:
+                    refused.add(f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}")
                     continue
                 e["annotation"] = new
                 move_alteration(e)
@@ -783,7 +810,8 @@ def preview(path, pending):
         with contextlib.redirect_stdout(io.StringIO()):
             _, errors, warnings = validate_annotations.validate_puzzle(puzzle)
         # The refusal above already names the schema's findings by entry id.
-        return [e for e in errors if not e.startswith("schema:")], warnings
+        errors = [drop_refused_blanks(e, refused) for e in errors if not e.startswith("schema:")]
+        return [e for e in errors if e], warnings
     except (OSError, ValueError, KeyError, IndexError, TypeError, AttributeError):
         # An annotation too malformed to validate: the refusal itself still shows.
         return [], []
