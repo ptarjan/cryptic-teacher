@@ -444,6 +444,13 @@ def search_grid(across, down, groups, words=None, max_nodes=None):
             continue
         grid, why = rg.unique_grid(spec, cols=size, rows=size, max_nodes=max_nodes or MAX_NODES,
                                    groups=groups, words=words, max_black_run=MAX_BLACK_RUN)
+        if grid is None and why == "the search found no grid":
+            # The cap proved only that no capped grid fits: Lewis's 1947-48
+            # pages (12: a 13-block middle row, 17: nine) break it, so search
+            # again without it.
+            grid, why = rg.unique_grid(spec, cols=size, rows=size,
+                                       max_nodes=max_nodes or MAX_NODES,
+                                       groups=groups, words=words)
         if grid is not None or "grids fit" in (why or ""):
             return grid, why
         if first is None or "budget" in why and "budget" not in first:

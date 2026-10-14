@@ -270,8 +270,36 @@ def build_spec(puzzle):
 
     # Rule 1b/1a: place each linked extra at its own printed slot.
     slots = _redirect_slots(parsed)
+    # A label naming no direction ("6, 25, 26 and 27") whose extras the other
+    # list prints itself, linked back to this leader (Nation 1614's down list:
+    # "26 and 27 See 6 across"), means those extras are the other
+    # direction's: synthesising 26- and 27-across too invents two lights.
+    elsewhere = {}
+    for d in ("across", "down"):
+        od = "down" if d == "across" else "across"
+        own = {}
+        for lg in parsed[od]:
+            m = re.match(r"\s*See\s+(\d+)", (lg[3] or {}).get("clue") or "")
+            if lg[0] is not None and lg[2] != "plain" and m:
+                own[lg[0]] = int(m.group(1))
+        for number, _, leader in pending[od]:
+            own.setdefault(number, ("via", leader))
+        elsewhere[d] = own
+    def printed_elsewhere(d, number, leader):
+        seen, n = set(), number
+        while n in elsewhere[d] and n not in seen:
+            seen.add(n)
+            to = elsewhere[d][n]
+            n = to[1] if isinstance(to, tuple) else to
+            if n == leader:
+                return True
+        return False
     for d in ("across", "down"):
         for number, length, leader in pending[d]:
+            if number not in slots and printed_elsewhere(d, number, leader):
+                notes.append(f"{d} {number}: linked to {leader} but printed under the "
+                             f"other direction's list; not synthesised as {d}")
+                continue
             hit = slots.pop(number, None)
             if hit is not None:
                 # Found by number now: an insertion since _redirect_slots
