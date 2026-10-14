@@ -43,6 +43,7 @@ POOL_CHECK_SECS=0   # a checkpoint after every run, so a width change lands at o
 POOL_SYNC_SECS=2    # and a mid-pool sync, at least once
 eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
 for fn in pool_live pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_checkpoint run_pool \
+          pool_replan pool_kill_tree pool_topup pool_finished pool_adopted_done \
           needs_solve solve_applied resumed_first; do
   block="$(sed -n "/^$fn() {/,/^}/p" "$SCRIPT")"
   if [ -z "$block" ]; then echo "FAIL tools/prereset_backfill.sh no longer defines $fn()"; exit 1; fi
@@ -105,7 +106,8 @@ python3() {
     tools/weekly_usage.py) echo 10 ;;
     tools/prereset_plan.py)
       case "$2" in
-        --cover-first) echo "replan" >>"$EVENTS"; cat ;;
+        --cover-first) echo "replan" >>"$EVENTS"; [ -z "${PLAN_SLEEP:-}" ] || sleep "$PLAN_SLEEP"
+          if [ -n "${PLAN_REVERSE:-}" ]; then tac; else cat; fi ;;
         --backlog) : ;;
         *) [ "$2" = --unsolved ] && [ "$3" = "$UNSOLVED_ID" ] ;;
       esac ;;
@@ -213,6 +215,46 @@ out=$(run_pool "Annotate" "Annotate @ in @PATH@" 1 2>&1)
 check "a reordering pool re-plans once per sync interval, not per checkpoint" \
   "1 checkpoints=1" \
   "$(grep -c '^replan' "$EVENTS") checkpoints=$(( $(grep -c '^after' "$EVENTS") > 1 ))"
+grep -q '^ALERT' "$EVENTS" && { echo "FAIL alert raised: $(grep '^ALERT' "$EVENTS")"; fails=$((fails + 1)); }
+
+# A slow re-plan runs in the background: runs go on starting at the width in
+# force while it works, never past it, and its order (here reversed) is taken
+# for what is still unlaunched when it lands.
+replan_pool() {  # replan_pool <tag>: run a reordering pool of 8, re-planning each second
+  : >"$EVENTS"
+  POOL_SYNC_SECS=1 POOL_REPLANNED_US=0 handled=0
+  echo 2 >"$WIDTH_FILE"
+  queue=(); for i in $(seq 1 8); do queue+=("pooltest-$$-$1$i"); done
+  at=0
+  out=$(run_pool "Annotate" "Annotate @ in @PATH@" 1 2>&1)
+}
+replan_verdict() {  # starts while a plan ran, launches over the width, ids not handled once
+  printf '%s\n' "$out" | awk '/^--- re-planning/ { inplan = 1 } /^--- pool of/ { inplan = 0 }
+       / started/ && inplan { during++ } END { print (during > 0) }' | tr '\n' ' '
+  awk '$1 == "width" { w = $2 }
+       $1 == "start" { inflight++; if (inflight > w) over++; s[$2]++ }
+       $1 == "end" { inflight-- }
+       $1 == "ok" || $1 == "fail" { h[$2]++ }
+       END { bad = 0; for (i in s) if (s[i] != 1) bad++; for (i in h) if (h[i] != 1) bad++
+             print over + 0, length(h), bad }' "$EVENTS"
+}
+PLAN_SLEEP=1.5 PLAN_REVERSE=1 POOL_PLAN_SECS=60 replan_pool s
+check "a slow re-plan: runs start while it works, within the width, each id once" \
+  "1 0 8 0" "$(replan_verdict)"
+check "the background re-plan's order is the one launched" "pooltest-$$-s8" \
+  "$(awk '$1 == "start" { print $2 }' "$EVENTS" | sed -n 1p)"
+# A re-plan that hangs is killed at POOL_PLAN_SECS, everything under it too (a
+# survivor would hold this test's output open for its 30s), and the queue keeps
+# its order.
+t0=$SECONDS
+PLAN_SLEEP=30 POOL_PLAN_SECS=1 replan_pool h
+check "a hung re-plan is stopped at its deadline, its sleep killed with it" 1 \
+  "$(( SECONDS - t0 < 20 ))"
+check "after a hung re-plan the pool goes on, within the width, each id once" \
+  "1 0 8 0" "$(replan_verdict)"
+check "a stopped re-plan is logged and leaves the order as it was" \
+  "1 pooltest-$$-h1 pooltest-$$-h2 pooltest-$$-h3" \
+  "$(printf '%s\n' "$out" | grep -cm1 '^--- re-plan still running after') $(awk '$1 == "start" { print $2 }' "$EVENTS" | head -3 | tr '\n' ' ' | sed 's/ $//')"
 grep -q '^ALERT' "$EVENTS" && { echo "FAIL alert raised: $(grep '^ALERT' "$EVENTS")"; fails=$((fails + 1)); }
 
 # A sync that brings new shell code: the pool re-execs itself onto it at its
