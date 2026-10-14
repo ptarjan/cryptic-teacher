@@ -994,6 +994,7 @@ def fetch_edition(fx, item, meta, name):
     write_atomic(os.path.join(d, "pages.json"), json.dumps({
         "item": item, "edition": name, "date": edition_date(name), "leaves": len(pages),
         "detector_version": DETECTOR_VERSION, "crossword_pages": hits}, indent=1).encode())
+    media_manifest.record_edition(d)
     return hits
 
 
@@ -1084,6 +1085,7 @@ def fetch_pdf_edition(fx, item, name, d, bases):
     write_atomic(os.path.join(d, "pages.json"), json.dumps({
         "item": item, "edition": name, "date": edition_date(name),
         "leaves": count, "detector_version": DETECTOR_VERSION, "crossword_pages": hits}, indent=1).encode())
+    media_manifest.record_edition(d)
     return hits
 
 

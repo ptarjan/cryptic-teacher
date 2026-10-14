@@ -54,6 +54,17 @@ BOOK_TEXTS = "ia-books"
 #: one for each it had to read off the disk, so a killed plan keeps what it
 #: read. A memo, not a listing: a missing row means "read meta.json once".
 TROVE_TITLES = "trove-titles"
+#: The archive.org edition dirs under downloads.ARCHIVE_ORG holding pages.json,
+#: one row each: {"edition": "<item>/<edition dir>", "at"}.
+#: fetch_archive_org_editions appends one as it writes an edition's
+#: pages.json; edition_backlog counts them (with gale-editions' Gale ones).
+ARCHIVE_EDITIONS = "archiveorg-editions"
+
+
+def record_edition(d):
+    """Append edition dir `d` (its pages.json just written) to ARCHIVE_EDITIONS."""
+    d = os.path.normpath(os.fspath(d))
+    record(ARCHIVE_EDITIONS, d, edition=f"{os.path.basename(os.path.dirname(d))}/{os.path.basename(d)}")
 
 
 def memo(name, key, value):
@@ -352,6 +363,34 @@ def write(name, found):
 
 
 #: The builders here; the Gale editions' is `python3 tools/gale_inbox.py build-manifest`.
+def build_archive_editions(out=sys.stdout):
+    """Walk downloads.ARCHIVE_ORG once for the edition dirs holding pages.json
+    into ARCHIVE_EDITIONS. Never scheduled."""
+    root = downloads.ARCHIVE_ORG
+    found = [{"edition": f"{item}/{ed}", "at": time.time()}
+             for item in sorted(os.listdir(root)) if (root / item).is_dir()
+             for ed in sorted(os.listdir(root / item)) if (root / item / ed / "pages.json").exists()]
+    write(ARCHIVE_EDITIONS, found)
+    print(f"{ARCHIVE_EDITIONS}: {len(found)} editions", file=out)
+
+
+def build_trove_titles(out=sys.stdout):
+    """List downloads.TROVE once and read the title of every article holding
+    meta.json that TROVE_TITLES lacks into it. Never scheduled."""
+    have = memo(TROVE_TITLES, "article", "title")
+    root, n = downloads.TROVE, 0
+    for name in sorted(os.listdir(root)):
+        if name in have:
+            continue
+        try:
+            title = json.loads((root / name / "meta.json").read_text()).get("title", "")
+        except (OSError, ValueError, AttributeError):
+            continue
+        record(TROVE_TITLES, root / name, article=name, title=title)
+        n += 1
+    print(f"{TROVE_TITLES}: {len(have)} held, {n} added", file=out)
+
+
 def build_genius_files(out=sys.stdout):
     """List downloads.GENIUS's pdf/ and article/ once into genius-files
     (genius_puzzles.held). Never scheduled."""
@@ -396,6 +435,8 @@ def _build_items():
 
 
 BUILDERS["ia-items"] = _build_items
+BUILDERS[ARCHIVE_EDITIONS] = build_archive_editions
+BUILDERS[TROVE_TITLES] = build_trove_titles
 BUILDERS["independent-source"] = lambda: build_files("independent-source", extra=_independent_row)
 
 

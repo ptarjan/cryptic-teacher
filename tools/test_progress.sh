@@ -249,3 +249,19 @@ PY
 rc=$?
 echo "$out"
 [ "$rc" -eq 0 ] && [ "${out##*$'\n'}" = "ok" ] || { echo "FAIL: tools/test_progress.sh"; exit 1; }
+
+# edition_backlog counts off the SSD manifests, with nothing on the "media
+# disk": the archiveorg-editions and gale-editions rows, the trove-titles rows.
+mt=$(mktemp -d)
+mkdir -p "$mt/dl/.manifest" "$mt/dl/trove"
+echo '{"edition": "GaleTelegraph1975UKEnglish/1975-03-04", "at": 1}' > "$mt/dl/.manifest/archiveorg-editions.jsonl"
+printf '%s\n' '{"edition": "GaleTelegraph1975UKEnglish/1975-03-04", "at": 1}' \
+  '{"edition": "GaleTelegraph1975UKEnglish/1975-03-05", "at": 1}' > "$mt/dl/.manifest/gale-editions.jsonl"
+printf '%s\n' '{"article": "1", "title": "x", "at": 1}' '{"article": "2", "title": "y", "at": 1}' > "$mt/dl/.manifest/trove-titles.jsonl"
+echo '{"article": "1", "inputs": "a"}' > "$mt/dl/trove/filed.jsonl"
+got=$(cd "$(dirname "$0")" && CT_DOWNLOADS="$mt/dl" python3 -c "
+import downloads, edition_backlog as E
+print([e[2] for e in E._editions(downloads.ARCHIVE_ORG)], E.trove_counts(downloads.TROVE))")
+rm -rf "$mt"
+[ "$got" = "['1975-03-04', '1975-03-05'] [2, 1, 0, 1]" ] || { echo "FAIL edition_backlog off the manifests: $got"; exit 1; }
+echo "edition_backlog off the manifests: ok"
