@@ -47,11 +47,13 @@ def ledger_on(day):
 
 
 def backlog():
-    """edition_backlog.counts()'s per series, or None with no media disk here."""
-    import downloads
-    if not downloads.ROOT.is_dir():
-        return None
+    """edition_backlog.counts()'s per series, or None with no media disk (manifests) here."""
     import edition_backlog
+    import media_manifest
+    # The SSD manifests stand for the media disk (nothing scheduled stats it):
+    # a host that never held its editions has no gale-editions manifest.
+    if not media_manifest.built(media_manifest.GALE_EDITIONS):
+        return None
     return edition_backlog.counts()[0]
 
 
