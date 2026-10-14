@@ -85,7 +85,7 @@ print("kern-rejoin", G.flat("T earful T going T his T urpin X and"))
 # it ("Tgoing", "Xsupport") is the join above. genius-210's preamble is
 # enciphered ("Pof pg uiftf"); NAMES are names the lexicon lacks.
 import re, ft_pdf_puzzles as fpp
-glued, NAMES = [], {"Edam", "Jones", "Vera"}
+glued, NAMES = [], {"Edam", "Fred", "Jones", "Vera"}
 for f in sorted(glob.glob("puzzles/genius/*/*.json")):
     p = json.load(open(f))
     if p["id"] == "genius-210":
@@ -239,6 +239,33 @@ pz["offGrid"][0]["annotation"] = {"type": ["charade"], "answer": "XYZ", "definit
 print("off-grid-validate", [m.split(";")[0] for m in validate_annotations.validate_puzzle(pz)[1] if m.startswith("1-offgrid")])
 print("jigsaw-builder", clues_only.builder({"cluesUnplaced": True, "series": "genius",
       "source": {"acquiredBy": "tools/genius_puzzles.py"}}) is not None, 280 in G.SCHEMA_GAP)
+# A grid read sound but a clue list not covering it light for light files
+# unsolved on that grid (unsolved_special); a misread is still refused.
+import copy
+sg = [".....", ".#.#.", ".....", ".#.#.", "....."]
+def sp(clues, preamble=None, article=False, marked=()):
+    return {"grid": sg, "setter": "Test", "preamble": preamble, "article": article, "marked": set(marked),
+            "origin": "a test", "clues": [{"lights": [l], "clue": f"{t} ({k})", "enumeration": k}
+                                          for l, t, k in clues]}
+base = [((1, "across"), "Alpha clue", "5"), ((1, "down"), "Down one", "5"), ((2, "down"), "Down two", "5"),
+        ((3, "down"), "Down three", "5"), ((4, "across"), "Four", "5")]
+d = datetime.date(2020, 1, 6)
+pz, why = G.unsolved_special(9998, sp(base, "Five across is unclued."), d, "https://example.org/g")
+print("special-unclued", why, [e["clue"] for e in pz["entries"] if e["number"] == 5], pz["solutions"]["origin"])
+print("special-undeclared", G.unsolved_special(9998, sp(base, "Answers are normal."), d, "u")[1])
+print("special-marked", G.unsolved_special(9998, sp(base, "See preamble.", marked=[(5, "across")]), d, "u")[1])
+extra = base + [((5, "across"), "Five", "5"), ((6, "down"), "No such light", "4")]
+print("special-extra", G.unsolved_special(9998, sp(extra, "Unclued lights."), d, "u")[1])
+inpre = G.unsolved_special(9998, sp(base, "Two unclued. 5 Missed clue run on (5)"), d, "u")[1]
+print("special-clue-in-preamble", inpre)
+loose = [((1, "across"), "Alpha clue", "7")] + base[1:] + [((5, "across"), "Five", "5")]
+pz, why = G.unsolved_special(9998, sp(loose, "Entries lose two letters before entry."), d, "u")
+e1 = next(e for e in pz["entries"] if e["number"] == 1 and e["direction"] == "across")
+print("special-loose", why, e1["clue"].get("enumeration"), e1["length"], "awaitsPreamble" in pz)
+print("special-loose-no-preamble", G.unsolved_special(9998, sp(loose), d, "u")[1])
+pz, why = G.unsolved_special(9998, sp(loose, article=True), d, "u")
+print("special-loose-article", why, pz.get("awaitsPreamble"))
+print("special-classes", sorted(G.SPECIAL_UNSOLVED), sorted(G.SPECIAL_UNSOLVED - G.GRID_MISFIT))
 z = clues_only.read("genius-280")
 if z:
     print("held-280", z.get("cluesUnplaced"), len(z["clues"]["unplaced"]), z["preamble"].startswith("Clues are listed"))
@@ -310,6 +337,15 @@ check "the write gate passes an off-grid answer its count long, refuses another"
 check "an off-grid clue counts toward solved and annotated" "True 1-offgrid" "$(get off-grid-done)"
 check "an off-grid annotation is validated, its findings named by its id" "[\"1-offgrid: definition 'Below' is not at 3 in 'Below the grid'\"]" "$(get off-grid-validate)"
 check "a held Genius jigsaw has a builder (queued); 280 is out of SCHEMA_GAP" "True False" "$(get jigsaw-builder)"
+check "an unclued light the preamble declares files with a blank clue, unsolved" "None [{'missing': True}] unsolved" "$(get special-unclued)"
+check "an unclued light nobody declares is a misread" "1 lights unclued, and the preamble says none is" "$(get special-undeclared)"
+check "a light the clue list marks See preamble files unclued" "None" "$(get special-marked)"
+check "a listed light the grid lacks is refused" "lights and clue list differ" "$(get special-extra)"
+check "an unclued light whose clue ran into the preamble is a misread (265)" "5 across's clue is in the preamble: the clue list is misread" "$(get special-clue-in-preamble)"
+check "a count the preamble alters keeps the printed count, the light its length" "None 7 5 False" "$(get special-loose)"
+check "a count off its light with no preamble printed is refused" "the clue list does not cover the grid, and no preamble printed says why" "$(get special-loose-no-preamble)"
+check "an article page's altered count files awaiting its preamble" "None True" "$(get special-loose-article)"
+check "the special classes are grid misfits the clues-only hold catches if refused" "[\"enumeration is not the entry's length\", 'lights left unclued'] []" "$(get special-classes)"
 [ -z "$(get held-280)" ] || check "genius-280 is held clues-only: 39 unnumbered clues and its instruction" "True 39 True" "$(get held-280)"
 
 # image_paths asks the genius-files manifest for a Genius's pictures, never a

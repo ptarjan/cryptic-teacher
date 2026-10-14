@@ -1294,18 +1294,30 @@ def misprinted(number):
     return set(MISPRINTED.get(number, {}))
 
 
-def unsolved(number, pdf, date, url, withheld=()):
-    """(puzzle, None) or (None, why not): the grid and clues with no answers."""
+def unsolved(number, pdf, date, url, withheld=(), unclued=(), loose=False):
+    """(puzzle, None) or (None, why not): the grid and clues with no answers.
+    `unclued`: lights filed with a blank clue (unclued_lights says which).
+    `loose`: an unlinked clue's count may differ from its light, kept as
+    printed (the answer's count, the entry altered by the preamble's rule)."""
     # No post and a page that names nobody: "no source names a setter" is the
     # recorded state (series.py unbylinedUnsolved), so the puzzle files without one.
     shared = split_shared_leaders(pdf, None)
     entries = fpp.entries_of(pdf, None, pdf["grid"])
+    lights = rg.light_cells(pdf["grid"])
+    # build() wants words and a count on every light; the blank goes in after.
+    entries += [{"number": n, "direction": d, "answer": None, "clue": "Unclued",
+                 "enumeration": str(len(lights[(n, d)]))} for n, d in unclued]
     rec = {"post_id": None, "link": url, "date": None, "series": CATEGORY, "number": number,
            "setter": pdf["setter"], "entries": entries}
     row = {"grid": pdf["grid"], "number": number, "how": pdf["origin"]}
-    puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, pdf["setter"])
+    puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, pdf["setter"], pairs=True,
+                                          loose_counts=loose)
     if why:
         return None, (why, "unsolved")
+    blank = set(unclued)
+    for e in puzzle["entries"]:
+        if (e["number"], e["direction"]) in blank:
+            e["clue"] = {"missing": True}
     printed_order(puzzle, pdf["clues"])
     join_shared_leaders(puzzle, shared)
     # The stand-in counts of clues that print none come off again.
@@ -1476,24 +1488,11 @@ def assemble_altered(number, pdf, post, date, url):
     preamble = pdf["preamble"] or ""
     lights = rg.light_cells(pdf["grid"])
     clued = [c for c in pdf["clues"] if c["enumeration"]]
-    listed = {l for c in pdf["clues"] for l in c["lights"]}
-    if not listed <= set(lights):
-        return None, "lights and clue list differ"
     # A numbered light the clue list leaves out is unclued: it takes a word
     # the post prints beside its number, else its crossings' letters.
-    unclued = [l for l in lights if l not in listed]
-    # The clue list itself may say a light has no clue, printing "See
-    # preamble" or "[unclued]" in its place (No 165's eight theme lights):
-    # that is the setter's word as much as the preamble's, once the preamble
-    # it points to is read. An article page never holds the preamble (No
-    # 112's "See special instructions" points to a megaclue printed beside
-    # the grid), so there the clue list's marks are the setter's word alone.
-    declared = (bool(preamble) or bool(pdf.get("article"))) and set(unclued) <= pdf.get("marked", set())
-    if unclued and not declared and not re.search(
-            r"(?i)\bunclued|not clued|no clues?\b|without (?:a )?clues?", preamble):
-        return None, f"{len(unclued)} lights unclued, and the preamble says none is"
-    if len(unclued) > MOST_UNCLUED:
-        return None, f"{len(unclued)} lights unclued: more than a preamble leaves, so the clue list is misread"
+    unclued, why = unclued_lights(pdf)
+    if why:
+        return None, why
     clued = sorted(clued + [{"lights": [l], "enumeration": str(len(lights[l])), "clue": None}
                             for l in unclued], key=lambda c: (c["lights"][0][1], c["lights"][0][0]))
     rendered = DASHES.sub("-", re.sub(r"&#(?:820[89]|821[012]|x201[0-4]);", "-", post["content"]["rendered"]))
@@ -1588,6 +1587,73 @@ def assemble_altered(number, pdf, post, date, url):
     return puzzle, None
 
 
+#: A preamble saying some lights have no clue.
+UNCLUED_SAID = re.compile(r"(?i)\bunclued|not clued|no clues?\b|without (?:a )?clues?")
+
+
+def unclued_lights(pdf):
+    """(the grid's lights the clue list leaves out, None), or (None, why not)
+    when that is a misread rather than the setter's: a listed light the grid
+    lacks, more unclued lights than a Genius leaves, or unclued lights that
+    neither the preamble nor the clue list declares.
+
+    The clue list itself may say a light has no clue, printing "See
+    preamble" or "[unclued]" in its place (No 165's eight theme lights):
+    that is the setter's word as much as the preamble's, once the preamble
+    it points to is read. An article page never holds the preamble (No
+    112's "See special instructions" points to a megaclue printed beside
+    the grid), so there the clue list's marks are the setter's word alone."""
+    preamble = pdf["preamble"] or ""
+    lights = rg.light_cells(pdf["grid"])
+    listed = {l for c in pdf["clues"] for l in c["lights"]}
+    if not listed <= set(lights):
+        return None, "lights and clue list differ"
+    unclued = [l for l in lights if l not in listed]
+    declared = (bool(preamble) or bool(pdf.get("article"))) and set(unclued) <= pdf.get("marked", set())
+    if unclued and not declared and not UNCLUED_SAID.search(preamble):
+        return None, f"{len(unclued)} lights unclued, and the preamble says none is"
+    if len(unclued) > MOST_UNCLUED:
+        return None, f"{len(unclued)} lights unclued: more than a preamble leaves, so the clue list is misread"
+    # A light's clue run into the preamble ("... 27 Disinfectant: reduced
+    # lye (5) 28 Marks ...", No 265) is a clue the reader missed, not one
+    # the setter left out.
+    for n, d in unclued:
+        if re.search(rf"(?<![\d,])\b{n}\s+[A-Z‘“\"'][^()]{{3,}}\(\d", preamble):
+            return None, f"{n} {d}'s clue is in the preamble: the clue list is misread"
+    return unclued, None
+
+
+def unsolved_special(number, pdf, date, url):
+    """(puzzle, None) or (None, why not) for a Genius whose grid read is sound
+    but whose clue list does not cover it light for light, filed unsolved on
+    that grid: a light the setter leaves unclued (unclued_lights) files with a
+    blank clue, and a count that is the answer's while the entry the
+    preamble's rule makes of it fills a light of another length is kept as
+    printed, the light's length being the entry's. Every other light must
+    match the clue list, so a grid or clue list read wrong is still refused.
+    An article page holds no preamble (it is on the grid picture), so such a
+    puzzle files awaiting it."""
+    if pdf["grid"] is None:
+        return None, "no grid read"
+    unclued, why = unclued_lights(pdf)
+    if why:
+        return None, why
+    lights = rg.light_cells(pdf["grid"])
+    for c in pdf["clues"]:
+        if c["enumeration"] is None and not groups.is_pointer(c["clue"], counted=True):
+            return None, f"{c['lights'][0][0]} {c['lights'][0][1]} has no enumeration"
+    loose = any(c["enumeration"] and sum(int(x) for x in re.findall(r"\d+", c["enumeration"]))
+                != sum(len(lights[l]) for l in c["lights"]) for c in pdf["clues"])
+    if (loose or unclued) and not (pdf["preamble"] or pdf.get("article")):
+        return None, "the clue list does not cover the grid, and no preamble printed says why"
+    puzzle, why = unsolved(number, pdf, date, url, unclued=unclued, loose=loose)
+    if why:
+        return None, f"{why[0]} ({why[1]})"
+    if not puzzle.get("preamble"):
+        puzzle["awaitsPreamble"] = True
+    return puzzle, None
+
+
 def placed_words(rendered, clue):
     """A jigsaw clue's words off the post row printing it, which numbers no
     light: "SA CAUTION / CAU SA TION Heading away ..." gives the answer
@@ -1643,6 +1709,10 @@ def hold(number, pdf, date, url, write):
     return HELD_JIGSAW, "not written (--dry-run)"
 
 
+#: The classes whose grid may be read right though the clue list does not
+#: cover it light for light: unsolved_special files them unsolved on it once
+#: the post's answers fail to go in; what it refuses is held clues-only.
+SPECIAL_UNSOLVED = {"enumeration is not the entry's length", "lights left unclued"}
 #: The classes left when the grid read does not take the clue list: its
 #: entries altered by a rule the preamble states (an article's preamble is on
 #: its grid picture, not read), a light left unclued, or no grid read at all.
@@ -1755,6 +1825,11 @@ def file(write=True, numbers=None, log=print):
                 fresh["setter"] = fresh["setter"] or post_setter(post)
                 bare, also = unsolved(n, fresh, date, idx[str(n)]["url"])
                 puzzle, why = (bare, None) if bare else (None, (why[0], f"{why[1]}; unsolved: {also[0]}"))
+            if why and why[0] in SPECIAL_UNSOLVED:
+                fresh = read_pdf(pdf_path(n)) if have_file("pdf", n) else read_article(n)
+                fresh["setter"] = fresh["setter"] or post_setter(post)
+                bare, also = unsolved_special(n, fresh, date, idx[str(n)]["url"])
+                puzzle, why = (bare, None) if bare else (None, (why[0], f"{why[1]}; unsolved: {also}"))
             if why and why[0] in GRID_MISFIT and pdf["clues"]:
                 fresh = read_pdf(pdf_path(n)) if have_file("pdf", n) else read_article(n)
                 fresh["setter"] = fresh["setter"] or post_setter(post)
