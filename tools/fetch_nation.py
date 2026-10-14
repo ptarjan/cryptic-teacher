@@ -289,12 +289,50 @@ NEIGHBOUR_REACH = 6
 
 def original_dates():
     """{number: original issue date} for every held Lewis reprint naming one."""
-    out = {}
+    out, seen, moved = {}, _original_seen(), False
     for path in PAGES.glob("*.html"):
-        m = meta(path.read_text())
-        if m["number"] and m["number"] < REPRINTS_BELOW and m.get("original"):
-            out[m["number"]] = m["date"]
+        st = path.stat()
+        stamp = [st.st_mtime_ns, st.st_size]
+        hit = seen.get(str(path))
+        if hit is None or hit[0] != stamp:
+            m = meta(path.read_text())
+            hit = seen[str(path)] = [stamp, m["number"], bool(m.get("original")), m["date"]]
+            moved = True
+        _, number, original, day = hit
+        if number and number < REPRINTS_BELOW and original:
+            out[number] = day
+    if moved:
+        _save_original_seen(seen)
     return out
+
+
+#: Where original_dates keeps each page's (stat, number, names an original,
+#: date) between processes: a solve's check reads every held page otherwise.
+ORIGINAL_CACHE = Path.home() / ".cache" / "fetch_nation" / "original_dates.json"
+
+
+#: This file's own source: meta() reading a page another way reads every page again.
+ORIGINAL_CODE = __import__("hashlib").sha256(Path(__file__).read_bytes()).hexdigest()[:16]
+
+
+def _original_seen():
+    try:
+        got = json.loads(ORIGINAL_CACHE.read_text())
+        pages = got["pages"] if got.get("_code") == ORIGINAL_CODE else {}
+        return pages if isinstance(pages, dict) else {}
+    except (OSError, ValueError, KeyError, TypeError, AttributeError):
+        return {}
+
+
+def _save_original_seen(seen):
+    import os
+    try:
+        ORIGINAL_CACHE.parent.mkdir(parents=True, exist_ok=True)
+        tmp = ORIGINAL_CACHE.with_name(f"{ORIGINAL_CACHE.name}.{os.getpid()}.tmp")
+        tmp.write_text(json.dumps({"_code": ORIGINAL_CODE, "pages": seen}))
+        os.replace(tmp, ORIGINAL_CACHE)
+    except OSError:
+        pass
 
 
 def reprint_date(number, known):

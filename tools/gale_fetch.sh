@@ -23,4 +23,8 @@ CT_GENERATED=none
 . "$(dirname "$0")/nightly_worktree.sh"
 cd "$(dirname "$0")/.." || exit 1
 export PYTHONUNBUFFERED=1
+# Each page's layout (PDF decode, grid search, resize, JPEG) runs on the
+# desktop (gale_inbox.layout_there via tools/ocr_remote.py), here when it is
+# not answering: it was ~all this run's CPU on the host.
+export OCR_REMOTE="${OCR_REMOTE-$(python3 tools/desktop_hosts.py remote)}"
 exec python3 tools/gale_fetch.py "$@"

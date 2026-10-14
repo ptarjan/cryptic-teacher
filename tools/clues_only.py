@@ -186,8 +186,51 @@ def derive_grid(record, answers):
             spec.append((None, direction, light.get("length") or len(word)))
             words.append(word)
     dims = record["dimensions"]
-    return unique_grid(spec, cols=dims["cols"], rows=dims["rows"], words=words,
-                       max_nodes=NODE_BUDGET)
+    key = grid_key(spec, dims, words)
+    hit = _read_grid_cache(key)
+    if hit is not None:
+        return hit
+    import ocr_remote  # the search runs on the desktop when one answers, here when not
+    got = unique_grid(spec, cols=dims["cols"], rows=dims["rows"], words=words,
+                      max_nodes=NODE_BUDGET, search=ocr_remote.reconstruct)
+    _write_grid_cache(key, got)
+    return got
+
+
+#: Where derive_grid keeps each search's answer: apply_solution checks a fill
+#: (--check-only), then writes it, then the annotation run checks again, and
+#: one search costs minutes of CPU. Keyed by the search's inputs and
+#: reconstruct_grid.py's own source, so new search code searches again.
+GRID_CACHE = Path.home() / ".cache" / "clues_only_grids"
+
+
+def grid_key(spec, dims, words):
+    import hashlib
+    code = (Path(__file__).resolve().parent / "reconstruct_grid.py").read_bytes()
+    blob = json.dumps([spec, dims["cols"], dims["rows"], words, NODE_BUDGET], default=str)
+    return hashlib.sha256(code + b"\0" + blob.encode()).hexdigest()[:32]
+
+
+def _read_grid_cache(key):
+    try:
+        got = json.loads((GRID_CACHE / f"{key}.json").read_text())
+        return got["grid"], got["why"]
+    except (OSError, ValueError, KeyError, TypeError):
+        return None
+
+
+def _write_grid_cache(key, got):
+    import os
+    grid, why = got
+    if why and ("budget" in why or "unusable" in why):  # a host-dependent or odd outcome: search again next time
+        return
+    try:
+        GRID_CACHE.mkdir(parents=True, exist_ok=True)
+        tmp = GRID_CACHE / f"{key}.{os.getpid()}.tmp"
+        tmp.write_text(json.dumps({"grid": grid, "why": why}))
+        os.replace(tmp, GRID_CACHE / f"{key}.json")
+    except OSError:
+        pass
 
 
 def entries_from_grid(grid, across, down):

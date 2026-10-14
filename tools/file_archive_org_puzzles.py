@@ -2721,9 +2721,18 @@ def run_papers(paper):
 
 
 def paper_of(d):
-    """The Paper an edition directory's item belongs to."""
+    """The Paper an edition directory's item belongs to (memoized by item
+    name: a unit start asks it of every edition of a paper)."""
     item = Path(d).parent.name
-    return next((q for p in FILERS.values() for q in run_papers(p) if q.item.match(item)), TIMES)
+    hit = _PAPER_OF.get(item)
+    if hit is None:
+        hit = _PAPER_OF[item] = next((q for p in FILERS.values() for q in run_papers(p) if q.item.match(item)),
+                                     TIMES)
+    return hit
+
+
+#: {item name: paper_of's answer}; FILERS is fixed at import.
+_PAPER_OF = {}
 
 
 def filer_of(rel):
@@ -2813,6 +2822,7 @@ def held_files(series):
         stamp = (st.st_mtime_ns, st.st_size)
         seen = _HELD.get(p)
         if seen is None or seen[0] != stamp:
+            _HELD_GEN[series] = _HELD_GEN.get(series, 0) + 1
             d = json.loads(p.read_text())
             date = d.get("date")
             seen = _HELD[p] = (stamp, (date and datetime.date.fromisoformat(date[:10]),
@@ -2842,6 +2852,13 @@ class Held(dict):
     def of(cls, held):
         return held if isinstance(held, cls) else cls(held)
 
+    def iso(self):
+        """{str(number): date.isoformat()}, worked out once (a desktop
+        request carries it every unit)."""
+        if getattr(self, "_iso", None) is None:
+            self._iso = {str(n): day.isoformat() for n, day in self.items()}
+        return self._iso
+
     def _read_only(self, *a, **k):
         raise TypeError("Held is read-only: make a new one")
 
@@ -2849,8 +2866,23 @@ class Held(dict):
 
 
 def held_dates(series):
-    """{number: date} of every dated puzzle filed in a series (Held)."""
-    return Held({n: day for n, (day, _, _) in held_files(series) if day})
+    """{number: date} of every dated puzzle filed in a series (Held): the
+    same object while no file of the series moved (held_files parsed none
+    and listed as many), so a unit start does not sort the corpus again
+    and callers may key memos on its identity."""
+    files = held_files(series)
+    key = (_HELD_GEN.get(series, 0), len(files))
+    hit = _HELD_DATES.get(series)
+    if hit is None or hit[0] != key:
+        hit = _HELD_DATES[series] = (key, Held({n: day for n, (day, _, _) in files if day}))
+    return hit[1]
+
+
+#: {series: held_files parses of that series so far}: held_dates' Held stands
+#: while it and the count of files listed do.
+_HELD_GEN = {}
+#: {series: ((generation, files listed), Held)} of held_dates.
+_HELD_DATES = {}
 
 
 #: Where the Canberra Times reprints of London Times puzzles are cached:
@@ -3777,6 +3809,8 @@ def input_hash(d):
 
 
 def held_numbers(series=SERIES):
+    if getattr(_HELD_NOW, "files", None) is not None:  # held_once: held_files lists the series once
+        return {n for n, _ in held_files(series)}
     return {int(p.stem.split("-")[1]) for p in (ROOT / "puzzles" / series).glob("*/*.json")}
 
 
@@ -4005,12 +4039,22 @@ def solution_sources(dirs, scans, rels, held, sister):
     headings, the first per number standing, over the `sister` ones."""
     first, every = {}, {}
     for d in dirs:
-        for s in linked_solutions(paper_of(d), scans[rels[d]], held):
+        scan = scans[rels[d]]
+        hit = _LINKED.get(d)
+        if hit is None or hit[0] is not scan or hit[1] is not held:
+            hit = _LINKED[d] = (scan, held, linked_solutions(paper_of(d), scan, held))
+        for s in hit[2]:
             first.setdefault(s["number"], {**s, "dir": d})
             every.setdefault(s["number"], set()).add(solution_source({**s, "dir": d}))
     for n, s in sister.items():
         every.setdefault(n, set()).add(solution_source(s))
     return {**sister, **first}, every
+
+
+#: {edition dir: (its scan, held, linked_solutions of them)} of
+#: solution_sources: a unit start links every edition of its paper, and an
+#: edition's scan row and held_dates' Held stay the same objects until they move.
+_LINKED = {}
 
 
 def fix_reason(row):
