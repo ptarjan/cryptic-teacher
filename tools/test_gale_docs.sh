@@ -1,9 +1,10 @@
 #!/bin/bash
 # Does tools/gale_docs.py find the day's crossword in a Gale issue's contents
-# (the numbered Times or Listener puzzle, not the Concise or a competition),
-# build Gale's Download link with a citation the inbox recognises and files,
-# look up at most its limit of uncached rows, remember misses, stop at Gale's
-# first error, and do both checklists offer Download beside Open in Gale?
+# (the numbered Times or Listener puzzle, not the Concise or a competition)
+# and a Listener report in the weeks after its puzzle, build Gale's Download
+# link with a citation naming its document, and look a miss up again only
+# when an older matcher made it? Does tools/gale_listener.py want each
+# Listener puzzle not filed or read, then its report?
 #
 #     bash tools/test_gale_docs.sh
 #
@@ -14,7 +15,7 @@ cd "$(dirname "$0")"
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 python3 - "$tmp" <<'PY'
-import datetime, io, sys, urllib.parse
+import datetime, sys, urllib.parse
 from pathlib import Path
 import gale_docs as gd
 import gale_inbox as gi
@@ -78,34 +79,17 @@ lcite = urllib.parse.unquote(dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(
     gd.download_url("LSNR", lday, gd.entry("LSNR", listener, 1309))).query))["citationTextJson"])
 check("the Listener citation dates the page", lday, gl.cited_day(lcite))
 
-# resolve: at most `limit` uncached rows, a miss kept, stops at an error.
-cache = tmp / "docs.json"
-days = [D(1988, 1, d) for d in range(4, 12)]
-fake = FakeGale({d: times for d in days[:3] + [days[4]]}, fail=[days[5]])
-out = io.StringIO()
-check("links added, up to the limit", 4, gd.resolve("TTDA", [(d, None) for d in days], out, fake, cache, limit=5))
-check("a day with no issue is kept as a miss", "Gale has no issue that day", gd.load(cache)["TTDA/1988-01-07"]["why"])
-check("a date asked once for two puzzles", 0, gd.resolve("TTDA", [(D(1990, 1, 1), 1), (D(1990, 1, 1), 2)], out, fake,
-                                                         tmp / "dup.json"))
-check("once", 1, sum(d == D(1990, 1, 1) for d in fake.asked))
-fake.asked.clear()
-check("the next tick asks only what is not cached, up to the error", 0,
-      gd.resolve("TTDA", [(d, None) for d in days], out, fake, cache, limit=5))
-check("and asked just those", [days[5]], fake.asked)
-check("the error is said", True, "OSError: Gale said 500" in out.getvalue())
-check("the failed day is asked again later", False, "TTDA/1988-01-09" in gd.load(cache))
-check("a cached link", True, (gd.link("TTDA", days[0], gd.load(cache)) or "").startswith("https://go.gale.com/ps/callisto"))
-check("no link for a miss", None, gd.link("TTDA", days[3], gd.load(cache)))
+# lookup: a day with no issue is a miss, said so.
+check("a day with no issue is a miss", "Gale has no issue that day", gd.lookup("TTDA", D(1988, 1, 7), FakeGale({}))["why"])
+check("a day's crossword is found", "IF0000001001", gd.lookup("TTDA", day, FakeGale({day: times}), 17563)["doc"])
 
-# The Listener checklist (the Times page is progress only): Download where a
-# link is cached.
-idx = [{"number": 1309, "title": "Crossword No. 1,309", "setter": None, "date": lday}]
-page = gl.checklist(idx, tmp / "store", tmp / "none", arrivals=[],
-                    docs={"LSNR/1955-06-02": gd.entry("LSNR", listener, 1309)})
-check("Listener row has Download", True, ">Download</a>" in page and "p=LSNR" in page)
-check("the Listener's Download marks its row", True,
-      'class="dl"' in page and "onclick=\"mark('p1309')\">Download</a>" in page)
-check("to_save lists it", [1309], [r["number"] for r in gl.to_save(idx, tmp / "store", tmp / "none", arrivals=[])])
+# What tools/gale_fetch.py fetches for the Listener: each printed puzzle not
+# filed or read, earliest first, its report page after it.
+idx = [{"number": 1309, "title": "Crossword No. 1,309", "setter": None, "date": lday},
+       {"number": 1310, "title": "[No crossword]", "setter": None, "date": lday + datetime.timedelta(weeks=1)}]
+check("to_save lists it", [1309], [r["number"] for r in gl.to_save(idx, tmp / "store", tmp / "none")])
+check("wanted: its page, then its report", [(lday, 1309, False), (lday, 1309, True)],
+      gl.wanted(idx, tmp / "store", tmp / "none"))
 
 # Gale's OCR'd titles still find the crossword; a report is found by its number.
 check("OCR'd crossword titles", [0, 0, 0, 0], [gd.crossword("LSNR", [t], n) for t, n in [
@@ -143,36 +127,16 @@ check("a Times link an older matcher picked is stale unless the cryptic's", [Tru
           ("Crossword 95", {"matcher": gd.MATCHER["TTDA"]})]])
 check("the other papers' links are not", False, gd.stale("LSNR", {"doc": "x", "title": "Competition"}))
 # A miss from an older matcher is asked again once; a current one is not.
-mcache = tmp / "miss.json"
-mcache.write_text('{"LSNR/1955-06-02": {"why": "no crossword in the issue\'s contents"}}')
-fake = FakeGale({lday: listener})
-check("an old miss is looked up again", 1, gd.resolve("LSNR", [(lday, 1309)], out, fake, mcache))
-mcache.write_text('{"LSNR/1955-06-02": {"why": "x", "matcher": %d}}' % gd.MATCHER["LSNR"])
-check("a current miss is not", (0, []), (gd.resolve("LSNR", [(lday, 1309)], out, fake, mcache), fake.asked[1:]))
-# The report on a puzzle: in an issue some weeks after it, linked as its own row.
+check("an old miss is stale", True, gd.stale("LSNR", {"why": "no crossword in the issue's contents"}))
+check("a current miss is not", False, gd.stale("LSNR", {"why": "x", "matcher": gd.MATCHER["LSNR"]}))
+# The report on a puzzle: in an issue some weeks after it, its issue's date kept.
 rday = lday + datetime.timedelta(weeks=2)
 fake = FakeGale({rday: issue([("Report on Crossword No. 1,309", 40, 1)], 44)})
-rcache = tmp / "rep.json"
-check("a report looked up after its row's doc link, in the same limit", 2,
-      len([gd.resolve("LSNR", [(lday, 1309)], out, fake, rcache, limit=2, reports=[(lday, 1309)])] and gd.load(rcache)))
-ocache = tmp / "order.json"
-d1, d2 = lday, lday + datetime.timedelta(weeks=1)
-gd.resolve("LSNR", [(d1, 1), (d2, 2)], out, FakeGale({}), ocache, limit=3, reports=[(d1, 1), (d2, 2)])
-check("by row: doc and report of the first row, then the second row's doc, its report left for later",
-      (True, False), ("LSNR/report/1" in gd.load(ocache) and "LSNR/1955-06-09" in gd.load(ocache), "LSNR/report/2" in gd.load(ocache)))
-check("its issue's date kept", "1955-06-16", gd.load(rcache)["LSNR/report/1309"]["day"])
-rq = dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(gd.report_link("LSNR", 1309, gd.load(rcache))).query))
+r = gd.lookup_report("LSNR", lday, fake, 1309)
+check("its issue's date kept", "1955-06-16", r["day"])
+rq = dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(gd.download_url("LSNR", D.fromisoformat(r["day"]), r)).query))
 check("its link cites the report's issue", True, "16 June 1955, p. 40" in urllib.parse.unquote(rq["citationTextJson"]))
 check("no report, a miss", True, "no report" in gd.lookup_report("LSNR", lday, FakeGale({}), 1309)["why"])
-
-# A tick's time budget: no lookup starts once `until` has passed.
-import time
-tcache = tmp / "budget.json"
-fake = FakeGale({})
-tout = io.StringIO()
-check("past its deadline, no lookup starts", (0, []),
-      (gd.resolve("TTDA", [(d, None) for d in days], tout, fake, tcache, until=time.monotonic() - 1), fake.asked))
-check("and it says the rest waits", True, "out of time" in tout.getvalue())
 
 # report_lookups reads the ledger once, not once a row (it took 55 s on 3,000 rows).
 calls = []
@@ -180,7 +144,7 @@ real = gl.solutions
 gl.solutions = lambda *a, **k: (calls.append(1), real(*a, **k))[1]
 try:
     gl.report_lookups([{"number": n, "title": "x", "date": D(1950, 1, 1)} for n in range(1, 50)],
-                      store=tmp / "nostore", root=tmp / "noroot", arrivals=[])
+                      store=tmp / "nostore", root=tmp / "noroot")
 finally:
     gl.solutions = real
 check("report_lookups asks for the solutions a fixed number of times", True, len(calls) <= 3)

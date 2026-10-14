@@ -1,26 +1,24 @@
 #!/usr/bin/env python3
-"""Gale's PDF download link for the crossword of each of the checklists'
-next rows (tools/gale_inbox.py's Times, tools/gale_listener.py's Listener).
+"""Gale's PDF download link for the crossword of each row tools/gale_fetch.py
+wants (the Times', the other papers', the Listener's).
 
-A sync (every gale_inbox.LOOKUP_EVERY) looks up PER_TICK uncached rows per
-paper, PACE seconds apart. A row is a puzzle's issue, or (`reports`) the Listener's "Report on Crossword
-No. N" with its answers, searched in the issues one to REPORT_WEEKS weeks
-after the puzzle's. A row's lookup is the Alberta Research Portal's session (geo-IP, no login),
-Gale's month of issues (issuesForMonth, once per month), then that date's
-issue (navigateToIssue), whose table of contents names the crossword's
-document id, page and page-image record ids. CACHE keeps each answer, a miss
-too, so no date is asked twice; one from an older MATCHER is asked once
-more when stale.
+A row is a puzzle's issue, or (lookup_report) the Listener's "Report on
+Crossword No. N" with its answers, searched in the issues one to
+REPORT_WEEKS weeks after the puzzle's. A row's lookup is the Alberta
+Research Portal's session (geo-IP, no login), Gale's month of issues
+(issuesForMonth, once per month), then that date's issue
+(navigateToIssue), whose table of contents names the crossword's document
+id, page and page-image record ids. CACHE keeps each answer, a miss too,
+so no date is asked twice; one from an older MATCHER is asked once more
+when stale.
 
-The link is Gale's own Download target, BulkPDF as a GET: it needs a Gale
-session in the browser (the checklists' "Start Gale session"), not this
-one's, and returns the crossword's page with a citation page whose text the
-inbox sweep recognises and files by.
+The link is Gale's own Download target, BulkPDF as a GET (download_url),
+fetched in a portal session; it returns the crossword's page with a
+citation page naming its document.
 
     python3 tools/gale_docs.py TTDA 1988-01-12   # look up one date, print its link
 """
 import datetime
-import http.client
 import json
 import re
 import sys
@@ -33,14 +31,11 @@ from pathlib import Path
 from gale_http import Chrome, click_headers, verifies
 
 CACHE = Path.home() / ".cache/gale_inbox/docs.json"
-PER_TICK = 15
 PACE = 2.0
 #: Per product, bumped when crossword() or report() would pick differently:
 #: entries cached by an older one are looked up again (stale).
 MATCHER = {"TTDA": 3, "LSNR": 2, "TGRH": 2, "FTHA": 2, "INDA": 2, "STHA": 2, "TLSH": 2}
 REPORT_WEEKS = 5
-#: Seconds a lookup started before resolve's `until` may run past it.
-LOOKUP_GRACE = 120
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
 #: product: (the portal's db code, the citation's paper, the archive's name)
@@ -58,11 +53,8 @@ DVI = re.compile(r"var dviResponse = (\{.*?\});\s*\n")
 class Gale:
     """One portal session per product, asked one thing at a time."""
 
-    def __init__(self, pace=PACE, deadline=None):
-        """`deadline`: the monotonic time past which no request is sent and
-        none waits longer, so one slow lookup cannot outlast its tick."""
+    def __init__(self, pace=PACE):
         self.pace, self.last, self.openers, self.pages, self.months = pace, 0.0, {}, {}, {}
-        self.deadline = deadline
 
     def get(self, prod, url, xhr=False):
         """`url`'s body, browsed as Chrome does (tools/gale_http.py): the
@@ -76,11 +68,9 @@ class Gale:
         return self.fetch(prod, url, None, xhr)[0]
 
     def fetch(self, prod, url, wait=None, xhr=False):
-        """(decoded body, final url) of `url`, paced, within the deadline."""
+        """(decoded body, final url) of `url`, paced."""
         time.sleep(max(0.0, self.last + self.pace - time.time()))
-        wait = wait or (90 if self.deadline is None else min(90, self.deadline - time.monotonic()))
-        if wait <= 0:
-            raise TimeoutError("out of time mid-lookup; asked again next tick")
+        wait = wait or 90
         try:
             status, body, final = self.openers[prod](url, click_headers(self.pages[prod], url, xhr),
                                                      verifies(url, PORTAL), wait)
@@ -243,77 +233,14 @@ def load(cache=CACHE):
     return json.loads(cache.read_text()) if cache.exists() else {}
 
 
-def link(prod, day, docs):
-    """The Download URL for `day` from the loaded cache `docs`, else None."""
-    e = docs.get(f"{prod}/{day.isoformat()}")
-    return download_url(prod, day, e) if e and "doc" in e else None
-
-
 #: Gale's permalink for a document, the one its citation prints: opens the
 #: article in the viewer in a portal session.
 PERMALINK = "https://link.gale.com/apps/doc/{doc}/{prod}?u=alberta_portal&sid=bookmark-{prod}"
 
 
-def permalink(prod, day, docs):
-    """Gale's page for the crossword of `day` from the loaded cache `docs`,
-    else None."""
-    e = docs.get(f"{prod}/{day.isoformat()}")
-    return PERMALINK.format(doc=e["doc"], prod=prod) if e and "doc" in e else None
-
-
-def report_link(prod, number, docs):
-    """The Download URL for the report on puzzle `number`, else None."""
-    e = docs.get(f"{prod}/report/{number}")
-    return download_url(prod, datetime.date.fromisoformat(e["day"]), e) if e and "doc" in e else None
-
-
-def cached(docs, key):
-    e = docs.get(key)
-    return e is not None and not stale(key.split("/")[0], e)
-
-
-def resolve(prod, rows, out=sys.stdout, gale=None, cache=CACHE, limit=PER_TICK, reports=(), until=None):
-    """Look up the first `limit` uncached of `rows` ([(date, number or None)])
-    and `reports` ([(puzzle's date, number)]), in date order, each row's doc
-    link then its report link, so the rows to do next get both first (with no
-    reports, in `rows` order); stop at Gale's first error (said to `out`).
-    No lookup starts after the monotonic time `until` (one is several
-    requests at PACE, so a slow Gale must not eat the whole tick).
-    Returns how many links were added."""
-    docs = load(cache)
-    asks = [(d, 0, f"{prod}/{d.isoformat()}", n, lookup) for d, n in rows]
-    asks += [(d, 1, f"{prod}/report/{n}", n, lookup_report) for d, n in reports]
-    if reports:
-        asks.sort(key=lambda a: a[:2])
-    todo = {}  # one lookup a date, though two puzzles share it
-    for d, _, key, n, how in asks:
-        if not cached(docs, key):
-            todo.setdefault(key, (d, n, how))
-    added = 0
-    for key, (day, number, how) in list(todo.items())[:limit]:
-        if until is not None and time.monotonic() > until:
-            print("gale_docs: out of time; the rest next tick", file=out)
-            break
-        gale = gale or Gale(deadline=None if until is None else until + LOOKUP_GRACE)
-        try:
-            e = how(prod, day, gale, number)
-        except (urllib.error.URLError, http.client.HTTPException, OSError, ValueError, KeyError) as ex:
-            # A network or Gale error: the row is asked again next tick.
-            print(f"gale_docs: {key}: {type(ex).__name__}: {ex}", file=out)
-            break
-        e["at"] = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
-        e["matcher"] = MATCHER[prod]
-        docs[key] = e
-        added += "doc" in e
-        print(f"gale_docs: {key}: " + (f"{e['doc']} {e['title']}" if "doc" in e else e["why"]), file=out)
-        keep(key, e, cache)
-    return added
-
-
 def keep(key, e, cache=CACHE):
     """Set `key` to `e` in `cache`, whole or not at all, under its own lock:
-    the sync (the Listener's rows) and tools/gale_fetch.py (the Times')
-    both write it, and each keeps the other's entries."""
+    two runs of tools/gale_fetch.py never lose each other's entries."""
     import fcntl
     cache.parent.mkdir(parents=True, exist_ok=True)
     with open(cache.with_suffix(".lock"), "w") as lock:

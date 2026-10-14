@@ -1,12 +1,11 @@
-about    = "Re-render the Times progress page (tools/gale_fetch.py's downloads) and the Listener checklist, mirror the Listener inbox, and start the full pass when an edition gale_fetch laid out waits and none runs"
+about    = "Re-render the Times progress page (tools/gale_fetch.py's downloads) and start the full pass when an edition gale_fetch laid out waits and none runs"
 room     = "cryptic-crosswords"
-# Every minute: the Listener checklist's rows say "downloading..." until a
-# tick sees the file arrive. A tick that finds nothing new is one ssh
-# listing (the Listener inbox), the Listener page's small status file and a
+# Every minute, so a page tools/gale_fetch.py laid out while no full pass
+# runs is read within minutes (kick). A tick that finds nothing new is a
 # worktree reset; it re-renders the Times progress page when
-# tools/gale_fetch.py logged a download, or hourly. It asks Gale only for Listener links not yet looked up (the
-# Times rows are looked up by tools/gale_fetch.py). A tick still running
-# when the next is due holds the plugin's flock, so that one is skipped.
+# tools/gale_fetch.py logged a download, or hourly. It asks Gale nothing.
+# A tick still running when the next is due holds the plugin's flock, so
+# that one is skipped.
 schedule = "* * * * *"
 where    = "container"
 # The job's own worktree, which tools/nightly_worktree.sh resets to

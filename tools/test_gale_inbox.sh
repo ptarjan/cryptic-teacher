@@ -5,8 +5,7 @@
 # start the corpus tick for them, and order what is still wanted (next_up,
 # wanted)? Does the Times progress page show its counts, downloads, Gale's
 # refusals and the years with nothing to click, a page's grid set by its
-# lattice and not a photo, and a sync tick publish and hand the Listener its
-# full Gale allowance without asking Gale for the Times?
+# lattice and not a photo, and a sync tick publish it only after a download?
 #
 #     bash tools/test_gale_inbox.sh
 #
@@ -28,8 +27,7 @@ g.gale_docs.load = lambda cache=None: {}
 def _no_mac(command, **kw):
     raise AssertionError(f"the test ran ssh on the Mac: {command[:80]}")
 g.ssh = _no_mac
-# Nor read the live mirror and its matches (~/.cache).
-# Nor read the live mirror (~/.cache).
+# Nor read the live caches (~/.cache).
 g.HOME = Path(sys.argv[1]) / "home"
 g.DIR_CACHE = Path(sys.argv[1]) / "dir_cache.pickle"
 
@@ -186,18 +184,6 @@ html3 = g.checklist(rows, cache, docs=docs, ledger={}, log=LOG, fetched=FETCHED,
 check("such a date counts as not on Gale, not to fetch", True, "<th>Not on Gale</th><td>2</td>" in html3)
 check("only the cryptic's title is the cryptic", (True, False, False),
       (g.cryptic_cited({"cited": cryptic}), g.cryptic_cited({"cited": concise}), g.cryptic_cited({})))
-want = ("https://go.gale.com/ps/advancedSearch.do?inputFieldNames%5B0%5D=TI&inputFieldValues%5B0%5D=crossword"
-        "&dateIndices=DA&dateLimiterValues%5BDA%5D.dateMode=2&dateLimiterValues%5BDA%5D.fromYear=1988"
-        "&dateLimiterValues%5BDA%5D.fromMonth=01&dateLimiterValues%5BDA%5D.fromDay=13"
-        "&dateLimiterValues%5BDA%5D.fromEra=1&searchType=AdvancedSearchForm&method=doSearch&searchMethod=advanced"
-        "&searchResultsType=SingleTab&prodId=TTDA&userGroupName=alberta_portal&u=alberta_portal&p=TTDA")
-check("a date's link is Gale's title search on that day, month and day zero-padded", want,
-      g.search_url(D(1988, 1, 13)))
-check("a row whose document is known opens Gale's permalink for it, as its citation prints; else the search",
-      ("https://link.gale.com/apps/doc/IF0500470778/TTDA?u=alberta_portal&sid=bookmark-TTDA", None),
-      (g.gale_docs.permalink("TTDA", D(1987, 1, 19), {"TTDA/1987-01-19": {"doc": "IF0500470778"}}),
-       g.gale_docs.permalink("TTDA", D(1987, 1, 13), {"TTDA/1987-01-13": {"why": "no crossword"}})))
-check("the Listener's link searches its own archive", True, "prodId=LSNR" in g.search_url(D(1930, 4, 9), "LSNR"))
 
 # A PDF's text: a one-page PDF to read.
 def pdf(text):
@@ -265,71 +251,35 @@ check("a Times puzzle filed off a Gale page, by its document or the portal, is a
       "filed by the archive filer", [("newspaper", fa.TOOL)] * 2,
       [(s_["retrievedFrom"], s_["acquiredBy"]) for s_ in
        (provenance.derive({"id": "times-17246", "number": 17246, "source": {"url": u}}, fa.TOOL, None)["source"]
-        for u in (g.DOC_URL.format("IF0500004465"), g.PORTAL))])
+        for u in (g.DOC_URL.format("IF0500004465"), "https://abresearchportal.ca/collections"))])
 
 times = g.pdf_text(pdf("The Times, 12 Jan. 1988, p. 18. The Times Digital Archive. Gale Document Number: GALE|IF0503151598"))
 listener = g.pdf_text(pdf("The Listener, 5 Feb. 1970, p. 190. The Listener Historical Archive. link.gale.com/apps/doc/X"))
 tax = g.pdf_text(pdf("Notice of assessment 2025. Canada Revenue Agency"))
 check("a PDF's text is read", True, "Times Digital Archive" in times)
 check("a file that is not a PDF has no text", "", g.pdf_text(b"\xff\xd8 jpeg bytes"))
-check("the Listener's inbox shares the Media share's root", True, g.LISTENER_INBOX.startswith(g.GALE_ROOT + "/"))
-# A Listener puzzle still to save whose document is known gets a Download in
-# next up, ahead of an earlier one Gale has no link for; the Times the same.
-import gale_listener as gl
-idx = [{"date": D(1930, 4, 2), "number": 1, "title": "A Musical Crossword", "setter": ""},
-       {"date": D(1930, 4, 9), "number": 2, "title": "A Scientific Crossword", "setter": ""}]
-known = {"doc": "GM2500000001", "title": "A Scientific Crossword", "page": 7, "records": ["R1"]}
-lpage = gl.checklist(idx, Path(sys.argv[1]) / "nostore", Path(sys.argv[1]) / "norepo", arrivals=[],
-                     docs={"LSNR/1930-04-09": known})
-lnext = re.findall(r"<tr data-k.*?</tr>", lpage.split('<table id="next">')[1].split("</table>")[0], re.S)
-check("a Listener next-up row with a known document has a Download, first", (2, ["p2", True, False]),
-      (len(lnext), [re.search(r'data-k="([^"]*)"', lnext[0]).group(1), 'class="dl"' in lnext[0], 'class="dl"' in lnext[1]]))
-check("a row carries the documents its links name", (True, []),
-      ('data-doc="GM2500000001"' in lnext[0], g.row_docs({"dl": None, "search": g.search_url(D(1988, 1, 12))})))
-stamp = Path(sys.argv[1]) / "looked_up"
-check("Gale is asked at most every LOOKUP_EVERY, however often the tick runs", [True, False, False, True],
-      [g.gale_due(t, stamp) for t in (1000, 1060, 1120, 1000 + g.LOOKUP_EVERY)])
 g.LOCK = Path(sys.argv[1]) / "sync.lock"
 with g.locked():
     buf = io.StringIO()
     g.sync(out=buf)
 check("a sync while another holds the lock skips at once, not waits", "another sync holds the lock; this one skips\n",
       buf.getvalue())
-# The Times asks Gale for nothing in a tick (tools/gale_fetch.py looks its
-# rows up); the Listener gets its full lookup allowance.
-import gale_listener as gl2, time as _time
-clock, asked, published = [0.0], {}, []
-def fake_resolve(prod, rows, out=None, **kw):
-    asked[prod] = kw["until"] - clock[0]
-    if prod == "TTDA":
-        clock[0] += g.GALE_SECONDS
-real = (_time.monotonic, g.mirror, g.gale_due, g.next_up, g.wanted, g.last_render, g.publish_status, g.kick,
-        g.gale_docs.resolve, gl2.tick, g.LOCK, g.checklist, g.publish, g.CHECKLIST, g.FETCHED)
-_time.monotonic = lambda: clock[0]
-g.mirror = lambda *a, **k: False
-g.gale_due, g.next_up, g.wanted = (lambda: True), (lambda *a: []), (lambda: {})
+# A tick publishes the progress page only after a download (or RENDER_EVERY).
+import time as _time
+real = (g.next_up, g.wanted, g.last_render, g.kick, g.LOCK, g.checklist, g.publish, g.CHECKLIST, g.FETCHED)
+g.next_up, g.wanted = (lambda *a: []), (lambda: {})
 g.last_render, g.kick = (lambda: _time.time() + 10**9), (lambda *a: None)
-g.publish_status = lambda *a: published.append((a[0].name, clock[0]))
-g.gale_docs.resolve = fake_resolve
-gl2.tick = lambda out, force, ask, until, changed: asked.update(LSNR=until - clock[0])
 g.LOCK = Path(sys.argv[1]) / "sync2.lock"
 pages_made, pushed = [], []
 g.checklist, g.publish = (lambda: pages_made.append(1) or ""), (lambda *a, **k: pushed.append(1))
 g.CHECKLIST, g.FETCHED = Path(sys.argv[1]) / "tick" / "Checklist.html", Path(sys.argv[1]) / "tick_fetched.json"
 g.sync(out=io.StringIO())
-check("(mirror) a tick with no download since the last page publishes none", ([], []), (pages_made, pushed))
+check("a tick with no download since the last page publishes none", ([], []), (pages_made, pushed))
 g.last_render = lambda: 0
 g.FETCHED.write_text("{}")
 g.sync(out=io.StringIO())
 check("a tick after a download (or RENDER_EVERY) publishes the progress page", ([1], [1]), (pages_made, pushed))
-(_time.monotonic, g.mirror, g.gale_due, g.next_up, g.wanted, g.last_render, g.publish_status, g.kick,
- g.gale_docs.resolve, gl2.tick, g.LOCK, g.checklist, g.publish, g.CHECKLIST, g.FETCHED) = real
-check("no Times lookup in a tick; the Listener gets its full allowance", (False, g.GALE_SECONDS),
-      ("TTDA" in asked, asked["LSNR"]))
-check("no Times status file (its page does not poll); the Listener's is published before its lookups",
-      [(gl2.CHECKLIST.name, 0.0)], published[:1])
-check("an open page calls the status dead only after a sync's longest gap between publishes",
-      True, g.STALE_SECONDS > 2 * g.GALE_SECONDS)
+(g.next_up, g.wanted, g.last_render, g.kick, g.LOCK, g.checklist, g.publish, g.CHECKLIST, g.FETCHED) = real
 # staged_matches reads an unmoved edition dir once, across ticks, and again
 # once it moves; while a year dir is unmoved, it is the one stat. Temp cache
 # and cache file only.

@@ -63,8 +63,8 @@ page: find_grids, then the printed numbers of each unfilled grid; on the
 desktop, SEARCH_SLOTS pages at once, when tools/ocr_remote.py can), each
 report's letters once per puzzle grid, cached under GRIDS. STORE/filed.json
 records each puzzle's verdict: what it lacks, or that it filed.
-tools/gale_listener.py sync runs this after reading the new pages, so a
-grid that turns exact files on the next pass.
+gale_listener.read_unit runs this after reading each new page, so a
+grid that turns exact files on the next read.
 """
 import argparse
 import copy
@@ -687,7 +687,7 @@ def grids_there(data, name):
         return grids_here(path), b""
 
 
-def letters_reader(inbox=gl.MIRROR, cache=GRIDS):
+def letters_reader(inbox=gl.SAVED, cache=GRIDS):
     """read_letters for join(): read_grid_letters on the report's page,
     cached by the report, its lights and the readers' code."""
     import numpy as np
@@ -713,7 +713,7 @@ def letters_reader(inbox=gl.MIRROR, cache=GRIDS):
     return read
 
 
-def run(store=gl.STORE, inbox=gl.MIRROR, puzzles=None, write=True, out=sys.stdout,
+def run(store=gl.STORE, inbox=gl.SAVED, puzzles=None, write=True, out=sys.stdout,
         grids_of=page_grids, read_letters=None, reports_to=REPORTS, numbers=None):
     """Join every reading in `store` (or just those of `numbers`) with its
     grid and report; file those that pass, and keep each report's copy in
@@ -806,7 +806,7 @@ def main(argv=None):
     ap.add_argument("--dry-run", action="store_true", help="say what each puzzle lacks, write nothing")
     ap.add_argument("--out", type=Path, help="file into this folder instead of the corpus")
     ap.add_argument("--store", type=Path, default=gl.STORE)
-    ap.add_argument("--inbox", type=Path, default=gl.MIRROR)
+    ap.add_argument("--inbox", type=Path, default=gl.SAVED)
     ap.add_argument("--number", type=int, action="append",
                     help="just this No (repeatable): its pages and those its report may be on")
     a = ap.parse_args(argv)

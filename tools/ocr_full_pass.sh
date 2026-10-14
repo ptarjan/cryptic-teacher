@@ -210,23 +210,23 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
 }
 
 mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
-# Refresh the Times progress page and the Listener's inbox before the pass
+# Refresh the Times progress page before the pass
 # (tools/gale_inbox.py sync; tools/gale_fetch.py lays the Gale editions out
 # itself). The cryptic-gale-inbox plugin does the same every minute.
 python3 tools/gale_inbox.py sync ||
-  echo "gale_inbox sync failed (rc=$?); the progress page and Listener checklist are not refreshed"
+  echo "gale_inbox sync failed (rc=$?); the progress page is not refreshed"
 finish() {  # finish <rc>: say so and exit
   echo "=== full pass done $(date '+%F %T') (rc=$1) ==="
   exit "$1"
 }
 # Every edition, Trove article and Listener page, one unit each
-# (tools/edition_queue.py; the Listener pages Paul saves from Gale's
-# Listener Historical Archive, mirrored by the gale_inbox tick, each read,
-# filed where grid and clues agree, and the checklist published):
+# (tools/edition_queue.py; the Listener pages tools/gale_fetch.py
+# downloads from Gale's Listener Historical Archive, each read and filed
+# where grid and clues agree):
 # an edition's scan, an edition's or article's read and filing, or a fetch,
 # each in a process of its own with its own time limit and lock, adding its
 # own ledger row, the most urgent first: the editions just laid out, then
-# the Gale pages Paul saved, then
+# the Gale Listener pages, then
 # the never-read and the re-reads annotation asked for, then those whose
 # inputs moved, then the re-reads REREAD_BEFORE makes due. The queue is
 # planned again every minute, so a source that lands mid-slice is read

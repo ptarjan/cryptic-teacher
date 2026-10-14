@@ -1,7 +1,7 @@
 #!/bin/bash
 # The scheduled entry point for tools/gale_inbox.py (the cryptic-gale-inbox
 # plugin): runs it from a worktree at origin/master (tools/nightly_worktree.sh).
-# A tick publishes the Times progress page, ticks the Listener's inbox and
+# A tick publishes the Times progress page and
 # starts the full pass for editions tools/gale_fetch.py laid out; it reads no
 # generated file, so nothing is rebuilt. Arguments pass through.
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh

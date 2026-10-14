@@ -90,7 +90,7 @@ def archive_counts(cache=downloads.ARCHIVE_ORG):
     return out, by_day(rows)
 
 
-def listener_counts(inbox=gale_listener.MIRROR, store=gale_listener.STORE):
+def listener_counts(inbox=gale_listener.SAVED, store=gale_listener.STORE):
     """[saved pages, never read]."""
     names = {row.get("file") for row in gale_listener.load_ledger(store).values()}
     pages = [p.name for p in gale_listener.page_files(inbox)]
@@ -139,7 +139,7 @@ def _first_reads(rows, key, stamp):
     return out
 
 
-def dated(cache=downloads.ARCHIVE_ORG, inbox=gale_listener.MIRROR, store=gale_listener.STORE,
+def dated(cache=downloads.ARCHIVE_ORG, inbox=gale_listener.SAVED, store=gale_listener.STORE,
           trove=ftp.CACHE):
     """[(series, puzzles, day landed, day first read or None)], one per scan
     counts() counts. A read before the file's mtime (a scan fetched again)

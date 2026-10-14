@@ -319,7 +319,7 @@ if _snapshot is not None:
 #: The papers in the order a rank's units are taken; "trove" is the
 #: Canberra Times articles (tools/file_trove_puzzles.py), read in a pool of
 #: their own (TROVE_WORKERS) beside the editions', and "listener" the
-#: Listener pages Paul saves from Gale (tools/gale_listener.py), read one at
+#: Listener pages tools/gale_fetch.py downloads (tools/gale_listener.py), read one at
 #: a time (LISTENER_WORKERS: this host's Tesseract) within LISTENER_SECONDS.
 PAPERS = ["gale", "listener", "times", "telegraph", "guardian", "ft",
           "galeindependent", "galesundaytimes", "galetls", "trove"]

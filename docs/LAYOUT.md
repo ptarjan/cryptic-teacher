@@ -2114,48 +2114,47 @@ tools/gale_inbox.py                            every 1930-2019 Times edition wit
                                                Telegraph and FT in those papers' runs, --paper
                                                galeindependent, galesundaytimes and galetls),
                                                publishes the Times progress page (nothing to
-                                               click), ticks the Listener's inbox
-                                               (gale_listener.py), and starts the full pass
-                                               when a page is laid out while none runs (kick)
+                                               click), and starts the full pass when a page is
+                                               laid out while none runs (kick)
 tools/gale_inbox.sh                            the scheduled entry point for gale_inbox.py
                                                sync, every minute, from a worktree
 tools/gale_listener.py                         the Listener crosswords of 1930-91, read from
-                                               the pages Paul saves by hand from Gale's
-                                               Listener Historical Archive: a checklist of
-                                               every puzzle (the Listener Team's year index,
-                                               numbers and dates only), earliest first, and
-                                               each saved page matched to its puzzle (file
-                                               name, Gale citation title or date, page title)
-                                               and to the past puzzles whose solution report it
-                                               prints, its clue lists read once (a ledger keyed
-                                               by file hash) with ocr_clues' readers and
+                                               the pages gale_fetch.py downloads from Gale's
+                                               Listener Historical Archive: what to fetch
+                                               (wanted: every printed puzzle not filed or read,
+                                               from the Listener Team's year index, numbers and
+                                               dates only, and each one's solution report page,
+                                               earliest first), each downloaded page saved for
+                                               the reader (lay_out_fetched), and each saved
+                                               page matched to its puzzle (file name, Gale
+                                               citation title or date, page title) and to the
+                                               past puzzles whose solution report it prints,
+                                               its clue lists read once (a ledger keyed by file
+                                               hash) with ocr_clues' readers and
                                                archive_org_listener's vote into a clues-only
                                                reading, then file_gale_listener.py run, each
                                                page a unit of the full pass's edition queue
                                                (read_unit, its ledger rows appended), read on
                                                the OCR host but for its whole-page Tesseract
-                                               read (ocr_remote's listener_read) and filed
-                                               here; the checklist asks for a saved puzzle's
-                                               solution report and links each next puzzle to
-                                               Gale's Download (gale_docs.py)
+                                               read (ocr_remote's listener_read) and filed here
 tools/gale_docs.py                             Gale's document and PDF Download link for a date
                                                (portal session, the month's issues, the issue's
                                                contents), cached, misses too, in
-                                               ~/.cache/gale_inbox/docs.json: the Times and
-                                               other papers' rows (Telegraph, FT, Independent,
-                                               Sunday Times archives) looked up by
-                                               gale_fetch.py as it goes, the Listener
-                                               checklist's next rows by a sync at most every 3
-                                               minutes (15 a tick, 2 s apart); Paul allowed
-                                               this on 2026-10-07
+                                               ~/.cache/gale_inbox/docs.json: the Times,
+                                               Listener (its puzzles and their solution
+                                               reports) and other papers' rows looked up by
+                                               gale_fetch.py as it goes, 2 s apart
 tools/gale_fetch.py                            downloads every wanted Times edition itself, in
-                                               next-up order, then the other papers'
-                                               (gale_inbox.OTHERS) once fewer than a plan's
-                                               worth of Times rows are left, at a hand's pace
-                                               (8-22 s apart, at most 15 in 3 minutes) and lays
-                                               each out at once as its date's edition (no
-                                               inbox, match or set-aside), the PDF kept on the
-                                               data disk; counts downloads per window across
+                                               next-up order, then once fewer than a plan's
+                                               worth of Times rows are left the Listener's
+                                               puzzles and solution report pages
+                                               (gale_listener.wanted, saved for gale_listener's
+                                               reader), then the other papers'
+                                               (gale_inbox.OTHERS), at a hand's pace (8-22 s
+                                               apart, at most 15 in 3 minutes) and lays each
+                                               out at once as its date's edition (no inbox,
+                                               match or set-aside), the PDF kept on the data
+                                               disk; counts downloads per window across
                                                sessions and papers (the browser's included; no
                                                cap until the first refusal), retries a
                                                logged-out session at once, records each Gale
@@ -2179,15 +2178,16 @@ tools/test_gale_fetch.sh                       on a fake clock: does gale_fetch 
                                                out one), skip what was got, wait a bounded
                                                number of times, open another paper's session
                                                through its own portal link and count its
-                                               downloads in the one window, and plan the Times
-                                               first?
+                                               downloads in the one window, plan the Times
+                                               first and the Listener before the other papers,
+                                               and look up and save a Listener report from its
+                                               own issue?
 tools/test_gale_docs.sh                        with Gale stood in: is the day's crossword found
                                                in an issue's contents (not the Concise or a
-                                               competition), its Download link's citation one
-                                               the inbox files by, at most the limit of
-                                               uncached dates asked, a miss kept, Gale's first
-                                               error said and retried next tick, and does the
-                                               Listener checklist offer Download?
+                                               competition), its Download link's citation
+                                               naming its document, a Listener report found in
+                                               the weeks after its puzzle, and a miss looked up
+                                               again only when an older matcher made it?
 tools/test_gale_listener.sh                    is a saved Listener page matched by its name,
                                                citation title, citation date (across a line
                                                break) or title, not by a browser's "(1)" copy
@@ -2208,9 +2208,9 @@ tools/test_gale_listener.sh                    is a saved Listener page matched 
                                                dagger read as a letter; does a page say the
                                                page its clues or diagram are on; is each file
                                                read once, a read on the OCR host the read here
-                                               (its OCR and grids kept here), and does the
-                                               checklist mark what is saved or filed and ask
-                                               for a missing solution?
+                                               (its OCR and grids kept here), and does wanted()
+                                               ask for each puzzle not filed or read and each
+                                               missing solution report?
 tools/listener_grid.py                         reads a 1930s Listener grid off a scanned Gale
                                                page: every grid on the page found as a lattice
                                                of long rules (prose, column rules and boxes are
@@ -2301,19 +2301,19 @@ tools/vlm_health_probe.ps1                     what tools/vlm_health.py reports 
                                                flag uses the host's own guard script's rule,
                                                because that guard is what takes llama-swap down
 tools/file_gale_listener.py                    files the 1930s Listeners saved from Gale into
-                                               puzzles/listener/ (run by gale_listener.py
-                                               sync): gale_listener's clue reading joined with
-                                               the page's grid when listener_grid's fit is
-                                               exact and its lights are the clue list's (one
-                                               unsure side flipped where that alone makes them
-                                               so), filed unsolved for the nightly solve,
-                                               through the shared validators only when every
-                                               clue reads true; the later report's filled grid,
-                                               found by its bars, read for answers (a cell
-                                               settled by sure reads or by the letter both its
-                                               lights' whole reads share, an entry with an
-                                               unsettled cell left unanswered) that are never
-                                               filed: the copy with them goes to
+                                               puzzles/listener/ (run by
+                                               gale_listener.read_unit): gale_listener's clue
+                                               reading joined with the page's grid when
+                                               listener_grid's fit is exact and its lights are
+                                               the clue list's (one unsure side flipped where
+                                               that alone makes them so), filed unsolved for
+                                               the nightly solve, through the shared validators
+                                               only when every clue reads true; the later
+                                               report's filled grid, found by its bars, read
+                                               for answers (a cell settled by sure reads or by
+                                               the letter both its lights' whole reads share,
+                                               an entry with an unsettled cell left unanswered)
+                                               that are never filed: the copy with them goes to
                                                cross_validate.py's listenerreport adapter,
                                                where a solve it disagrees with is a lead; each
                                                puzzle's verdict, or what it lacks, in filed.json

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Does a Listener page saved into the Gale inbox (tools/gale_listener.py)
+# Does a saved Listener page (tools/gale_listener.py)
 # match its puzzle by the date or number in its name, the Gale citation or
 # its title, a report page as the solution of the puzzle it names; are its
 # clue lists read in column order wherever DOWN falls, the 1930s lists by
@@ -7,11 +7,10 @@
 # clue a line when the lists print no counts; is each file read once (the
 # ledger is keyed by its hash; one whose OCR times out stays unread); is a
 # read on the desktop the read here, its OCR and grids kept here, a page's
-# grids found there cached as found here; and
-# does the checklist list every puzzle of
-# the index, earliest first, marking what is filed or saved, and what the
-# 3-minute tick saw arrive (matched by name or citation, each file once),
-# asking for a saved puzzle's missing solution?
+# grids found there cached as found here; does wanted() ask
+# tools/gale_fetch.py for every printed puzzle not filed or read, earliest
+# first, and each one's missing solution report; and is a downloaded page
+# saved whole under a name match() reads?
 #
 #     bash tools/test_gale_listener.sh
 #
@@ -789,92 +788,34 @@ ocr_remote.call = lambda *a, **k: None
 root = Path(sys.argv[1]) / "repo"
 (root / "puzzles" / "listener" / "1930").mkdir(parents=True)
 (root / "puzzles" / "listener" / "1930" / "listener-2.json").write_text("{}")
-page = g.checklist(rows, store, root)
-check("the saved puzzle is marked", True, "saved: 1 of 1 clues read" in page)
-check("the filed puzzle is marked", True, ">filed<" in page)
-check("the unmatched file is listed", True, "holiday snap.jpg" in page)
-check("a saved solution is marked", True, "solution saved" in page)
-bare = g.checklist(rows, Path(sys.argv[1]) / "nostore", Path(sys.argv[1]) / "none", arrivals=[])
-check("a session link, then a Listener search on each puzzle still to save, in next up and its year", (True, 4),
-      (g.gi.SESSION.format("LSNR") in bare, bare.count("prodId=LSNR")))
-check("next up lists them with the ordering rule, rows never moving (no Next batch, no Clicked table)", (True, False),
-      ('<table id="next">' in bare and g.ORDER in bare and '<table id="done">' not in bare, "nextBatch" in bare))
-check("nothing on the page asks for a rename", False, "Rename it" in page)
-check("years collapsed", True, "<details><summary><b>1930</b>" in bare)
-check("no search link once a puzzle is saved or filed", 0, page.count("prodId=LSNR"))
+check("nothing wanted once read or filed, its solution saved", [], g.wanted(rows, store, root))
+nostore, noroot = Path(sys.argv[1]) / "nostore", Path(sys.argv[1]) / "none"
+check("every printed puzzle wanted, earliest first, its page then its report",
+      [(D(1930, 4, 2), 1, False), (D(1930, 4, 2), 1, True), (D(1930, 4, 9), 2, False), (D(1930, 4, 9), 2, True)],
+      g.wanted(rows, nostore, noroot))
 inbox2, store2 = Path(sys.argv[1]) / "inbox2", Path(sys.argv[1]) / "store2"
 inbox2.mkdir()
 Image.new("RGB", (300, 203), "white").save(inbox2 / "1930-04-09.png")
 g.run(inbox2, store2, rows, out=out, reader=reader)
-page2 = g.checklist(rows, store2, Path(sys.argv[1]) / "none", arrivals=[])
-check("a read puzzle's missing solution is asked for", True,
-      "save its solution too: “Report on Crossword No. 2”" in page2)
-check("and offers its solution as the row's job", True, 'data-k="r2"' in page2)
-check("still asked for while an unrelated saved file waits to be read", True, "save its solution too:" in g.checklist(
-    rows, store2, Path(sys.argv[1]) / "none", arrivals=[{"file": "new.pdf", "number": 1}]))
-check("earliest first", True, page.index("Wed 02 Apr 1930") < page.index("Wed 09 Apr 1930"))
-# A page that sends its grid or clues to another page (No 24's "see page
-# 381") files only with that page too: the checklist asks for it in next up.
+check("a read puzzle's page is not wanted, its missing report is",
+      [(D(1930, 4, 2), 1, False), (D(1930, 4, 2), 1, True), (D(1930, 4, 9), 2, True)], g.wanted(rows, store2, noroot))
 inbox3, store3 = Path(sys.argv[1]) / "inbox3", Path(sys.argv[1]) / "store3"
 inbox3.mkdir()
 Image.new("RGB", (300, 204), "white").save(inbox3 / "1930-04-09.png")
-g.run(inbox3, store3, rows, out=out, reader=lambda m: ({"clues": 1, "agreed": 1, "seePages": [381]},
-                                                       {"1-across": ("Spanish for aubade", None, None)}))
-page3 = g.checklist(rows, store3, Path(sys.argv[1]) / "none", arrivals=[])
-next3 = page3.split('<table id="next">')[1].split("</table>")[0]
-check("a read page's other page is asked for in next up, as the row's job", (True, True),
-      ("save p. 381 of this issue too" in next3, 'data-k="e2"' in next3))
-check("mirror: a read page that sends nowhere asks for no other page", False, "of this issue too" in page2)
-Image.new("RGB", (300, 205), "white").save(inbox3 / "1930-04-09 p381.png")
 g.run(inbox3, store3, rows, out=out, reader=lambda m: ({"refused": "no clue list on the page"}, None))
-check("mirror: once a second page of the puzzle is saved, it is not asked for", False,
-      "of this issue too" in g.checklist(rows, store3, Path(sys.argv[1]) / "none", arrivals=[]))
-inbox4, store4 = Path(sys.argv[1]) / "inbox4", Path(sys.argv[1]) / "store4"
-inbox4.mkdir()
-Image.new("RGB", (300, 206), "white").save(inbox4 / "1930-04-09.png")
-g.run(inbox4, store4, rows, out=out, reader=lambda m: ({"refused": "no clue list on the page (it sends to p. 1057)",
-                                                        "seePages": [1057]}, None))
-check("a refused page's other page is asked for too (the ledger keeps where it sends)", True,
-      "save p. 1057 of this issue too" in g.checklist(rows, store4, Path(sys.argv[1]) / "none", arrivals=[]))
-
-# The 3-minute tick: a page matched by its name alone is ticked off as
-# arrived before the full pass reads it; one naming no puzzle waits for it.
-Image.new("RGB", (300, 200), "white").save(inbox / "Listener 9 Apr 1930.png")
-Image.new("RGB", (300, 200), "white").save(inbox / "download.png")
-came = g.arrived(inbox, rows, Path(sys.argv[1]) / "arrived.json")
-check("arrivals matched by name, no OCR", {"1930-04-02.png": 1, "Listener 9 Apr 1930.png": 2, "download.png": None,
-                                           "holiday snap.jpg": None},
-      {a["file"]: a["number"] for a in came})
-g.match = lambda *a, **k: (_ for _ in ()).throw(AssertionError("opened again"))
-check("a file already matched is not opened again", 4, len(g.arrived(inbox, rows, Path(sys.argv[1]) / "arrived.json")))
-(root / "puzzles" / "listener" / "1930" / "listener-2.json").unlink()
-page = g.checklist(rows, store, root, arrivals=came)
-check("an arrived page is ticked off", True, "arrived: the full pass reads it at its next slice" in page)
-check("and counted by the files downloaded", True, "<b id=\"count\">4 of 4</b> files downloaded" in page)
-check("a page naming no puzzle waits for the pass", True, "<li><b>download.png</b>: arrived, puzzle not yet known" in page)
-check("one the pass already read is not waiting", False,
-      "<li><b>holiday snap.jpg</b>: arrived, puzzle not yet known" in page)
-row1 = next(r for r in page.split("\n") if 'data-k="p2"' in r)
-check("an arrived puzzle's row says so and offers no Download", (True, False, False),
-      ('data-in="1"' in row1, "Open in Gale" in row1, 'class="dl"' in row1))
-
-# One page for both papers: gale_inbox.page builds both, and this module
-# holds no page markup of its own.
-import re
-import inspect
-src = inspect.getsource(g.checklist) + inspect.getsource(g.render) + "".join(g.STEPS) + g.UNKNOWN + g.ORDER
-check("the Listener's checklist writes no page structure of its own", [],
-      re.findall(r"</?(?:html|head|meta|title|style|script|h1|h2|div|p|ol|ul|li|table|tr|td|th|details|summary|"
-                 r"progress|span|button)\b", src))
-gi = g.gi
-gi.held, gi.usual_pages, gi.archive_coverage.ledger = (lambda: {}), (lambda: {}), (lambda: {})
-times = gi.checklist([(D(1988, 1, 13), "no-scan")], Path(sys.argv[1]) / "nocache", docs={},
-                     fetched=Path(sys.argv[1]) / "nofetched", limits=Path(sys.argv[1]) / "nolimits")
-listener = g.checklist(rows, Path(sys.argv[1]) / "nostore", Path(sys.argv[1]) / "none",
-                       arrivals=[{"file": "x.pdf", "number": None, "reports": []}], docs={})
-check("the Times page is progress only (tools/gale_fetch.py downloads it); the Listener's is still clicked",
-      (False, True, True), ("<script>" in times, "<script>" in listener,
-                            'SRC="Listener%20checklist.status.js"' in listener))
+check("a page read with no reading kept is still wanted (gale_fetch passes over its document)", True,
+      (D(1930, 4, 9), 2, False) in g.wanted(rows, store3, noroot))
+# A page tools/gale_fetch.py downloaded is saved whole, named for its date
+# (match() gives it that issue's puzzle); a report by its document alone.
+saved_dir = Path(sys.argv[1]) / "fetched"
+got = g.lay_out_fetched(D(1930, 4, 9), "GM2500000001", b"%PDF-1.4 page", saved=saved_dir)
+rpt = g.lay_out_fetched(D(1930, 4, 23), "GM2500000002", b"%PDF-1.4 report", report=True, saved=saved_dir)
+check("saved whole, under names the reader lists",
+      (["1930-04-09 GALE_GM2500000001.pdf", "GALE_GM2500000002.pdf"], b"%PDF-1.4 page"),
+      ([q.name for q in g.page_files(saved_dir)], got.read_bytes()))
+check("the page's name gives its issue's puzzle; the report's names none", (2, None, None),
+      (g.by_date(rows, g.gi.name_date(got.name, g.DATES))["number"], g.gi.name_date(rpt.name, g.DATES),
+       g.name_number(rpt.name)))
 # The Guardian's Azed scans (tools/andlit_azed.py): ACROSS and DOWN level,
 # bare clue numbers, a gutter of ~50px a reader's words may bridge.
 def azed(down_y=100, down="DOWN", gutter=50, extra=()):
@@ -965,27 +906,19 @@ with tempfile.TemporaryDirectory() as tmp:
     check("a page read at an older VERSION is read again", True, "a.pdf" in planned)
     check("a page read at this VERSION is not (mirror)", False, "b.pdf" in planned)
 
-# Report lookups: a saved puzzle is asked for while a file is unread; an
-# upcoming one too; a puzzle whose report arrived, read or not, is not.
+# Report lookups: a saved puzzle's and an upcoming one's; not one whose
+# report a saved page holds.
 with tempfile.TemporaryDirectory() as tmp:
     store, root = Path(tmp) / "store", Path(tmp) / "root"
     store.mkdir(); root.mkdir()
     idx = [{"number": n, "title": "T", "setter": None, "date": D(1930, 4, 2) + datetime.timedelta(days=7 * n)}
            for n in (1, 2, 3, 4)]
     (store / "listener-2.json").write_text(json.dumps({"number": 2, "verdict": {}}))
-    arrivals = [{"file": "unread.pdf", "number": 3, "reports": [1]}]
-    got = [r["number"] for r in g.report_lookups(idx, store, root, arrivals)]
-    check("reports looked up for a saved and an upcoming row, not one whose report arrived unread", [2, 4], got)
-    check("unsolved lists a saved puzzle though a file is unread", [2], [r["number"] for r in g.unsolved(idx, store, arrivals)])
-    # An upcoming row offers its solution beside its Download once the report link is cached.
-    day4 = idx[3]["date"]
-    ent = lambda doc, day: {"doc": doc, "title": "T", "page": 1, "records": ["r"], "day": day.isoformat()}
-    docs = {f"LSNR/{day4.isoformat()}": ent("D4", day4), "LSNR/report/4": ent("R4", day4 + datetime.timedelta(days=14))}
-    row4 = next(r for r in g.checklist(idx, store, root, arrivals=arrivals, docs=docs).split("\n") if 'data-k="p4"' in r)
-    check("an upcoming row offers Download, then Download solution", (True, True),
-          ("Download</a>" in row4, "Download solution</a>" in row4 and row4.index("Download</a>") < row4.index("Download solution")))
-    row4 = next(r for r in g.checklist(idx, store, root, arrivals=arrivals, docs={f"LSNR/{day4.isoformat()}": docs[f"LSNR/{day4.isoformat()}"]}).split("\n") if 'data-k="p4"' in r)
-    check("and no solution link before it is cached", False, "Download solution" in row4)
+    (store / g.LEDGER).write_text(json.dumps({"sha": "r", "version": g.VERSION, "file": "r.pdf", "number": 3,
+                                              "reports": [1]}) + "\n")
+    got = [r["number"] for r in g.report_lookups(idx, store, root)]
+    check("reports looked up for a saved and an upcoming row, not one whose report is saved", [2, 3, 4], got)
+    check("unsolved lists the saved puzzles with no report saved", [2, 3], [r["number"] for r in g.unsolved(idx, store)])
 
 print(f"FAILS {fails}")
 sys.exit(1 if fails else 0)
