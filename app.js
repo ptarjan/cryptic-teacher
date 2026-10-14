@@ -566,6 +566,17 @@
       // body, so it is the body's last child.
       const kids = (body && body.children) || [];
       if (body) out.push(kids[kids.length - 1] || body);
+      // A question that says "Tap them in the clue above" has to light the clue
+      // words it is talking about, not only itself: a hole that stops at the
+      // question leaves the words it asks for dimmed behind the scrim. Reached
+      // whenever the walk is not pointing at specific words (a later tour line
+      // over a question that is still open, or a question with nothing pointable),
+      // so it is the question's own wording that decides, off the same markup.
+      if (body && /\btap-hint\b/.test(body.innerHTML || "")) {
+        const row = $("hint-clue") && $("hint-clue").querySelector
+          ? $("hint-clue").querySelector(".guess-clue.ask") : null;
+        if (row) out.unshift(row);
+      }
     } else if (nuxTypeIt(on)) {
       // Type it in: the letter strip in the panel and nothing else. The line
       // gives the answer, so the pieces it was worked out from need no light,
