@@ -18,7 +18,8 @@
 #     it has filed under DURABLE_PATHS is committed and pushed with
 #     tools/push_puzzle_commit.sh, which replays the commit onto origin/master
 #     without touching the working tree the command is still writing into.
-#     A commit whose push fails stays local and goes with the next checkpoint.
+#     A commit whose push fails stays local and goes with the next checkpoint;
+#     DURABLE_ALERT_AFTER (default 6) failed checkpoints in a row alert the room.
 #     One that conflicts (push_puzzle_commit.sh's CONFLICT: another job filed
 #     the same puzzle meanwhile) never will, so it is set aside and the ones
 #     after it still go: origin's version stands, and each puzzle it filed
@@ -80,10 +81,30 @@ durable_checkpoint() {  # durable_checkpoint <what>: commit what is filed, push 
       durable_set_aside "$c"
     elif [ "$rc" != 0 ]; then
       echo "durable: push of $(git log -1 --format=%s "$c") failed; it stays committed here and is retried at the next checkpoint"
+      durable_push_failed "$c"
       return 1
     fi
     _durable_pushed="$c"
   done
+  rm -f "$(git rev-parse --git-path durable-push-failures)"
+}
+
+# A push that fails the same way every time (the pre-push refusing a shape
+# the job's old code still writes: 10-13, 5 hours and 777 commits) leaves
+# every checkpoint failing, and a failed checkpoint never resyncs, so the job
+# never reaches the code that would fix it. The streak is counted in the git
+# dir (a durable_background publish runs in a subshell) and the room is told
+# once it reaches DURABLE_ALERT_AFTER checkpoints in a row; a checkpoint that
+# pushes everything ends the streak.
+DURABLE_ALERT_AFTER="${DURABLE_ALERT_AFTER:-6}"
+durable_push_failed() {  # durable_push_failed <commit>: count the failed checkpoint, alert at the threshold
+  local f n
+  f="$(git rev-parse --git-path durable-push-failures)"
+  n=$(( $(cat "$f" 2>/dev/null || echo 0) + 1 ))
+  echo "$n" >"$f"
+  [ "$n" = "$DURABLE_ALERT_AFTER" ] || return 0
+  . "$_durable_dir/alert.sh" 2>/dev/null &&
+    alert "durable: ${_durable_what:-a job} in $PWD has failed $n checkpoints in a row: \"$(git log -1 --format=%s "$1")\" will not push, so $(git rev-list --count "${_durable_pushed:-origin/master}..HEAD" 2>/dev/null) commit(s) wait unpushed and the tree cannot move to origin/master's code. Push them by hand (tools/push_puzzle_commit.sh) or fix what the pre-push refuses."
 }
 
 durable_set_aside() {  # durable_set_aside <commit>: a commit that conflicts with origin/master
