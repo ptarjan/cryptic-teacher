@@ -37,6 +37,8 @@ import sys
 import time
 
 import fetch_nation as fn
+import nation_images as ni
+import reconstruct_grid as rg
 
 # "SOLUTION TO PUZZLE NO. 3272", and the pages that link the number.
 SOLUTION = re.compile(r"SOLUTION TO\D{0,80}?(\d{3,4})")
@@ -235,14 +237,42 @@ def search(spec, words, groups, max_nodes=None):
     return fn.search_grid(across, down, groups, words=words, max_nodes=max_nodes)
 
 
-def place(read, key):
+def clashes(grid, spec, words):
+    """Indices of `words` to drop so that the rest agree wherever two cross
+    in `grid`: the word clashing with most others first, until none clash."""
+    cells = rg.light_cells(grid)
+    runs = [cells.get((n, d)) for n, d, _ in spec]
+    words = list(words)
+    dropped = []
+    while True:
+        at, count = {}, [0] * len(words)
+        for k, (w, run) in enumerate(zip(words, runs)):
+            if w and run:
+                for c, ch in zip(run, w):
+                    at.setdefault(c, []).append((k, ch))
+        for hits in at.values():
+            for k, ch in hits:
+                count[k] += sum(1 for _, other in hits if other != ch)
+        if not any(count):
+            return dropped
+        worst = max(range(len(words)), key=lambda k: count[k])
+        dropped.append(worst)
+        words[worst] = None
+
+
+def place(read, key, printed=None):
     """(grid, words, dropped, why): the one grid the clue list and the key's
     answers make, the answers kept (one per light, None where unknown), and
     the indices of answers dropped for not fitting. An answer not its light's
     length is dropped first; then, with no grid, each answer in turn, keeping
-    the one drop that leaves a grid."""
+    the one drop that leaves a grid. With `printed` (the page's own grid,
+    tools/nation_images.py) there is no search: an answer is dropped for not
+    being its light's length there or for clashing with its crossers."""
     _, _, across, down, groups = read
     spec = spec_of(across, down)
+    if printed is not None:
+        cells = rg.light_cells(printed)
+        spec = [(n, d, len(cells.get((n, d)) or ())) for n, d, _ in spec]
     index = [(d, i) for d, lights in (("across", across), ("down", down))
              for i in range(len(lights))]
     words, dropped = [], []
@@ -259,6 +289,9 @@ def place(read, key):
         words.append(letters)
     if not any(words):
         return None, words, dropped, "the key gives no answers"
+    if printed is not None:
+        out = clashes(printed, spec, words)
+        return printed, [None if k in out else w for k, w in enumerate(words)], dropped + out, None
     grid, why = search(spec, words, groups, max_nodes=KEYED_MAX_NODES)
     if grid is not None:
         return grid, words, dropped, None
@@ -408,23 +441,27 @@ def keyed_puzzle(number, keys=None, known=None, braze=None):
     from groups import entry_id
     keys, pages = keys if keys is not None else solutions()
     braze = braze_keys().get(number) if braze is None else braze.get(number)
-    if number not in keys and not braze:
-        return None, "no held page prints its solution, and Braze posted none"
-    path = pages.get(number)
-    if path is None:
+    path = pages.get(number) or fn.PAGES / f"puzzle-no-{number}.html"
+    if not path.is_file():
         return None, "its own page is not held"
     page = path.read_text()
     known = known if known is not None else fn.original_dates()
     read, why = fn.read_page(page, known)
     if read is None:
         return None, why
-    key = key_for(read, (keys.get(number) or ("",))[0], braze)
+    key = key_for(read, (keys.get(number) or ("",))[0], braze) if (number in keys or braze) else {}
+    printed, _ = ni.printed_grid(page, read[2], read[3], read[4])
+    key, pic_why = picture_key(number, read, key, printed)
     if not key:
-        return None, "the key's entries did not read"
+        if number not in keys and not braze and not pic_why:
+            return None, "no held page prints its solution, and Braze posted none"
+        return None, pic_why or "the key's entries did not read"
     import clues_only
     held = clues_only.read(fn.puzzle_id(fn.SERIES, number))
     broken = held and clues_only.implausible(held)
-    if broken:
+    if printed is not None:
+        grid, words, dropped, why = place(read, key, printed)
+    elif broken:
         # No grid holds the clue list as numbered: only every answer, in
         # order, can place it.
         grid, words, dropped, why = None, [], [], broken
@@ -438,7 +475,8 @@ def keyed_puzzle(number, keys=None, known=None, braze=None):
     url = next((u for u in fn.json.loads(fn.URLS.read_text())
                 if fn.page_path(u).name == path.name), f"{fn.SITE}/article/archive/{path.stem}/")
     filed = puzzle_paths.find(fn.puzzle_id(fn.SERIES, number))
-    puzzle, why = fn.build(page, url, known, grid=grid)
+    puzzle, why = fn.build(page, url, known, grid=grid,
+                           origin="published" if printed is not None else "reconstructed")
     if puzzle is None:
         return None, why
     _, _, across, down, _ = read
@@ -469,6 +507,36 @@ def keyed_puzzle(number, keys=None, known=None, braze=None):
     return puzzle, {"keyed": len(answers), "dropped": [lights[k] for k in dropped],
                     "derived": derived, "open": open_, "filed": bool(filed), "gained": gained,
                     "notes": {eid: notes[eid] for eid in open_ if eid in notes}}
+
+
+def picture_key(number, read, key, printed):
+    """(key, why): `key` with the solution picture's letters (the next page's
+    s<N>.jpg, tools/nation_images.py) for every light, when the text key is
+    missing or leaves a light open. The picture is the grid as printed, so a
+    themed entry (3505's lisp: SUNDER is THUNDER) reads as entered. It is
+    refused if it disagrees with any text answer of its light's length (either
+    way round, for a reversal). VLM down: an empty key stays empty (the
+    puzzle stays due); a text key is used alone."""
+    _, _, across, down, _ = read
+    if printed is None or not ni.image_url(
+            (fn.PAGES / f"puzzle-no-{number + 1}.html").read_text()
+            if (fn.PAGES / f"puzzle-no-{number + 1}.html").is_file() else "", "solution"):
+        return key, None
+    lights = [(d, i) for d, ls in (("across", across), ("down", down)) for i in range(len(ls))]
+    if key and all((key.get(k) or (None,))[0] for k in lights):
+        return key, None
+    try:
+        letters, why = ni.solution_letters(number, printed)
+    except ni.VlmDown as e:
+        return key, None if key else f"the solution is a picture and the VLM is down ({e}); left due"
+    if letters is None:
+        return key, None if key else f"the solution picture did not read: {why}"
+    seen = ni.key_from_letters(letters, printed, across, down)
+    for k, (w, _) in key.items():
+        got = (seen.get(k) or ("",))[0]
+        if w and len(w) == len(got) and w not in (got, got[::-1]):
+            return key, None if key else f"the solution picture reads {got} where the key has {w}"
+    return {k: (w, (key.get(k) or (None, ""))[1]) for k, (w, _) in seen.items()}, None
 
 
 def notes_for(puzzle):
