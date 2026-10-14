@@ -109,9 +109,11 @@ def trove_zone_names(zdir):
 
 def record_edition(d):
     """Append edition dir `d` (its pages.json just written) to ARCHIVE_EDITIONS,
-    with its files' hash (edition_files)."""
+    with its files' hash (edition_files), which it returns."""
     d = os.path.normpath(os.fspath(d))
-    record(ARCHIVE_EDITIONS, d, edition=edition_rel(d), files=edition_files(d))
+    files = edition_files(d)
+    record(ARCHIVE_EDITIONS, d, edition=edition_rel(d), files=files)
+    return files
 
 
 def edition_rel(d):
@@ -608,6 +610,8 @@ def _build_items():
 
 
 BUILDERS["ia-items"] = _build_items
+BUILDERS["archiveorg-done"] = lambda: importlib.import_module("fetch_archive_org_editions").build_done()
+BUILDERS["archiveorg-pages"] = lambda: importlib.import_module("fetch_archive_org_editions").build_pages()
 BUILDERS[ARCHIVE_EDITIONS] = build_archive_editions
 BUILDERS[TROVE_TITLES] = build_trove_titles
 BUILDERS[TROVE_DATES] = build_trove_dates

@@ -78,6 +78,10 @@ SCHEDULED = {
     "fetch_archive_org_editions.py": ["plan", "plan_listings", "_per_group", "held_rows", "_fold_key"],
 }
 SCHEDULED["media_manifest.py"] += ["edition_rows", "_fold_edition", "edition_rel"]
+# The fetcher's plan asks load_done which editions are done and not stale:
+# off archiveorg-done and the archiveorg-pages memo, not done.tsv and the dirs.
+SCHEDULED["fetch_archive_org_editions.py"] += ["load_done", "load_done_manifest", "_fold_done_row", "_fold_pages",
+                                               "unfetched", "count_titled", "_common_leaves", "_prior_leaves"]
 #: {file: [function]} that may not run a command on the host either (an ssh
 #: `ls` of the Gale folders is a listing of the media disk too).
 NO_SSH = {"gale_fetch.py": ["have_docs"]}
@@ -297,6 +301,7 @@ M.write(M.ARCHIVE_EDITIONS, [{"edition": rel, "at": time.time()}])
 M.write(M.GALE_EDITIONS, [])
 M.write("archiveorg-source", [{"key": "times-1.json", "at": 1}])
 M.write("ia-items", [{"key": "NewsUK1980UKEnglish", "editions": {}, "at": 1}])
+M.write("archiveorg-done", [])
 import edition_queue as eq, file_archive_org_puzzles as fa, fetch_archive_org_editions as fetch
 
 
@@ -318,10 +323,10 @@ try:
 finally:
     for (mod, name), fn in real.items():
         setattr(mod, name, fn)
-# The filer's ledgers (filed*.jsonl, their locks) are another job's; done.tsv the fetcher's.
+# The filer's ledgers (filed*.jsonl, their locks) are another job's; done.tsv the fetcher's, whose plan reads archiveorg-done.
 media = sorted({os.fspath(p) for p in touched if isinstance(p, (str, os.PathLike))
                 and os.fspath(p).startswith((str(ao), str(src)))
-                and not os.path.basename(os.fspath(p)).startswith(("filed", "done.tsv"))})
+                and not os.path.basename(os.fspath(p)).startswith("filed")})
 want = ([rel], [rel], {}, ["NewsUK1980UKEnglish/Jan 05 1980, 1"], first[4])
 got = ([u["rel"] for u in again[0][1]], [u["rel"] for u in again[1][1]], again[2], [u["rel"] for u in again[3]], again[4])
 if media or got != want or again != first:
@@ -331,6 +336,55 @@ if fa.input_hash(d) != fa._input_hash_listed(d):
     print("FAIL the edition manifest's hash is not input_hash's form")
     sys.exit(1)
 print("ok   edition_queue.fresh, the archive.org filer and fetcher plans and match_canberra stat no archive.org path")
+PY
+
+# fetch_archive_org_editions.load_done (the fetcher's plan, each replan): the
+# done editions and their stale verdicts come off archiveorg-done and the
+# archiveorg-pages memo; it agrees with the verdicts worked out off the dirs,
+# and warm it opens, lists and stats nothing under the archive.org root.
+CT_DOWNLOADS="$t/ld" XDG_CACHE_HOME="$t/ld-cache" python3 - <<'PY'
+import builtins, io, json, os, sys
+import dir_cache, downloads, media_manifest as M
+import fetch_archive_org_editions as fetch
+ao = downloads.ARCHIVE_ORG
+title = lambda leaf: {"leaf": leaf, "headings": ["CROSSWORD NO 1,234"], "width": 9, "height": 9}
+# An undated item: two editions print it on leaf 30; a third has no titled page (stale).
+# A dated item holding one untitled edition, its near item printing it on leaf 4 (stale).
+eds = {("X1980", "ed_a"): [title(30)], ("X1980", "ed_b"): [title(30)], ("X1980", "ed_c"): [],
+       ("per_times_the-times_1930-02-17_1", "per_times_the-times_1930-02-17_1"): [],
+       ("per_times_the-times_1930-02-18_2", "per_times_the-times_1930-02-18_2"): [title(4)],
+       ("Y1981", "ed_t"): [title(5)]}
+for (item, name), hits in eds.items():
+    d = ao / item / fetch.slug_of(item, name)
+    d.mkdir(parents=True)
+    (d / "pages.json").write_text(json.dumps({"item": item, "edition": name, "leaves": 40, "crossword_pages": hits}))
+(ao / "done.tsv").write_text("".join(f"{i}\t{n}\t{fetch.DETECTOR_VERSION}\n" for i, n in eds)
+                             + f"Y1981\tgone\t{fetch.DETECTOR_VERSION}\nY1981\told\t1\n")
+M.build_archive_editions(out=io.StringIO())
+M.write(M.GALE_EDITIONS, [])
+fetch.build_done(out=io.StringIO())
+listed = fetch._load_done_listed(str(ao))  # the verdicts off the dirs, as before
+want = {k for k in eds if k[1] not in ("ed_c", "per_times_the-times_1930-02-17_1")} | {("Y1981", "gone")}
+cold = fetch.load_done(str(ao))  # fills archiveorg-pages off the disk once
+fetch.record_done(str(ao), "Y1981", "ed_new")  # the fetcher's append: no dir recorded, so done
+dir_cache._READ.clear()  # as a fresh process would
+touched = []
+real = {(os, n): getattr(os, n) for n in ("stat", "lstat", "listdir", "scandir")}
+real.update({(io, "open"): io.open, (builtins, "open"): builtins.open})
+for (mod, name), fn in real.items():
+    setattr(mod, name, (lambda fn: lambda p=".", *a, **k: (touched.append(p), fn(p, *a, **k))[1])(fn))
+try:
+    warm = fetch.load_done(str(ao))
+finally:
+    for (mod, name), fn in real.items():
+        setattr(mod, name, fn)
+media = sorted({os.fspath(p) for p in touched if isinstance(p, (str, os.PathLike))
+                and os.fspath(p).startswith(str(ao))})
+if listed != want or cold != want or warm != want | {("Y1981", "ed_new")} or media:
+    print(f"FAIL fetch_archive_org_editions.load_done: listed {sorted(listed)}, cold {sorted(cold)}, "
+          f"warm {sorted(warm)}, want {sorted(want)}; archive.org paths touched warm {media}")
+    sys.exit(1)
+print("ok   fetch_archive_org_editions.load_done agrees with the dirs' verdicts and, warm, touches no archive.org path")
 PY
 
 # corpus_queue's checks (every tick of the corpus queue) look for a filer's

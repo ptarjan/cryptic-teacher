@@ -335,13 +335,21 @@ def prior_unfetched(d):
         pages = memo(path, read_pages)
     except (OSError, ValueError):
         return False
+    return unfetched(pages, lambda: crossword_leaves(d))
+
+
+def unfetched(pages, counts):
+    """prior_unfetched of an edition whose pages.json (or page_summary) is
+    `pages`, its siblings' crossword_leaves Counters from counts() (asked
+    only when no fetched page holds a title)."""
     hits = pages.get("crossword_pages") or ()
     if any(titled(h) or h.get("pdf") for h in hits):
         return False
     shown = {h["leaf"] for h in hits if not any(h.get(k) for k in GUESSED) and not sister(h)}
-    common = common_leaves(d, pages["leaves"])
+    c = counts()
+    common = _common_leaves(c, pages["leaves"])
     return bool(common) and not common & shown \
-        and bool(set(prior_leaves(d, pages["leaves"])) - {h["leaf"] for h in hits})
+        and bool(set(_prior_leaves(c, pages["leaves"])) - {h["leaf"] for h in hits})
 
 
 class Fetcher:
@@ -711,9 +719,18 @@ def save_stale(out, dirs):
 
 def load_done(out):
     """{(item, edition)} of done.tsv's rows at DETECTOR_VERSION that are not
-    stale. done.tsv is parsed only as far as it grew (dir_cache.appended);
-    an edition's stale verdict is kept until a dir it read (stale_dirs)
-    moves its dir_cache.dir_key, across processes (load_stale, save_stale)."""
+    stale: off the SSD (load_done_manifest) for an out root on the media
+    disk, else off the out root itself (_load_done_listed)."""
+    if media_manifest.on_media(out):
+        return load_done_manifest(out)
+    return _load_done_listed(out)
+
+
+def _load_done_listed(out):
+    """load_done off the out root's files (a test's): done.tsv is parsed only
+    as far as it grew (dir_cache.appended); an edition's stale verdict is
+    kept until a dir it read (stale_dirs) moves its dir_cache.dir_key,
+    across processes (load_stale, save_stale)."""
     rows = dir_cache.appended(os.path.join(out, "done.tsv"), set, _fold_done)
     load_stale(out)
     rows = list(rows)
@@ -750,6 +767,158 @@ def load_done(out):
     if changed:
         save_stale(out, dirs)
     return done
+
+
+#: The SSD mirror of done.tsv for the out root on the media disk: {"item",
+#: "edition", "version", "at"} a row. Run appends one as it appends to done.tsv
+#: (record_done); `python3 tools/media_manifest.py build archiveorg-done`
+#: copies done.tsv once.
+IA_DONE = "archiveorg-done"
+#: The SSD memo of each edition's pages.json as stale() reads it:
+#: {"edition": "<item>/<edition dir>", "files": its archiveorg-editions
+#: "files" when read, "pages": page_summary (None: no pages.json), "at"}.
+#: fetch_edition appends one as it writes pages.json; load_done_manifest
+#: fills one off the disk once for an edition whose row is missing or whose
+#: files have moved since (`build archiveorg-pages` fills them all once).
+IA_PAGES = "archiveorg-pages"
+
+
+def page_summary(doc):
+    """What stale() reads of pages.json `doc`: its leaf count and each
+    crossword page's leaf, headings and marks (no sizes)."""
+    return {"leaves": doc.get("leaves"),
+            "crossword_pages": [{k: v for k, v in h.items() if k not in ("width", "height", "enums")}
+                                for h in doc.get("crossword_pages") or ()]}
+
+
+def record_pages(d, files, doc):
+    """Append edition dir `d`'s pages.json `doc` (just written, or read once)
+    to IA_PAGES under its files' hash `files`."""
+    media_manifest.record(IA_PAGES, os.path.join(d, "pages.json"), edition=media_manifest.edition_rel(d),
+                          files=files, pages=None if doc is None else page_summary(doc))
+
+
+def record_done(out, item, name):
+    """Append done.tsv's new row (item, name) to IA_DONE."""
+    media_manifest.record(IA_DONE, os.path.join(out, "done.tsv"), item=item, edition=name, version=DETECTOR_VERSION)
+
+
+def _fold_done_row(done, line):
+    """Fold one IA_DONE row into {(item, name)} at DETECTOR_VERSION."""
+    try:
+        row = json.loads(line)
+        if str(row["version"]) == str(DETECTOR_VERSION):
+            done.add((row["item"], row["edition"]))
+    except (ValueError, KeyError, TypeError):
+        return  # a torn last line
+
+
+def _fold_pages(acc, line):
+    """Fold one IA_PAGES row into {edition: row}, a later row standing."""
+    try:
+        row = json.loads(line)
+        acc[row["edition"]] = row
+    except (ValueError, KeyError, TypeError):
+        return  # a torn last line
+
+
+def _pages_off_disk(out, rel, files):
+    """IA_PAGES' row for edition `rel`, read off its pages.json once and appended."""
+    d = os.path.join(out, rel)
+    try:
+        doc = json.loads(Path(d, "pages.json").read_bytes())
+    except (OSError, ValueError):
+        doc = None
+    record_pages(d, files, doc)
+    return {"edition": rel, "files": files, "pages": None if doc is None else page_summary(doc)}
+
+
+def load_done_manifest(out):
+    """load_done for the out root on the media disk, off the SSD alone: the
+    done rows off IA_DONE, the editions and their items off the edition
+    manifests (media_manifest.edition_rows) and each one's pages.json off
+    IA_PAGES (filled once off the disk where it is missing or its files
+    moved). Its siblings are the item's other editions holding pages.json,
+    or for an item holding it alone the NEIGHBOURS nearest items by date
+    holding one (sibling_dirs counts every dir; one with no pages.json counts
+    nothing). Raises SystemExit when IA_DONE was never built (it would read
+    as none done)."""
+    if not media_manifest.built(IA_DONE):
+        media_manifest.rows(IA_DONE)  # raises, naming its build
+    done_rows = dir_cache.appended(media_manifest.path(IA_DONE), set, _fold_done_row)
+    eds = media_manifest.edition_rows()
+    held = dir_cache.appended(media_manifest.path(IA_PAGES), dict, _fold_pages)
+    items = {}
+    for rel in eds:
+        item, _, ed = rel.partition("/")
+        items.setdefault(item, []).append(ed)
+    dated = [(m[1], m[2], item) for item in items if (m := ITEM_DATED.fullmatch(item)) and iso_day(m[2])]
+    totals = {}
+
+    def summary(rel):
+        files = eds[rel].get("files")
+        row = held.get(rel)
+        if row is None or row.get("files") != files:
+            row = held[rel] = _pages_off_disk(out, rel, files)
+        return row.get("pages")
+
+    def counts_of(rels):
+        counts = collections.Counter(), collections.Counter(), collections.Counter()
+        for rel in rels:
+            pages = summary(rel)
+            if pages and pages.get("leaves") is not None:
+                count_titled(pages, counts)
+        return counts
+
+    def total(item):
+        if item not in totals:
+            totals[item] = counts_of(f"{item}/{e}" for e in items[item])
+        return totals[item]
+
+    def siblings(item, rel):
+        if len(items[item]) > 1:
+            return tuple(t - o for t, o in zip(total(item), counts_of([rel])))
+        m = ITEM_DATED.fullmatch(item)
+        day = m and iso_day(m[2])
+        counts = collections.Counter(), collections.Counter(), collections.Counter()
+        if not day:
+            return counts
+        near = sorted((abs(iso_day(date) - day), it) for prefix, date, it in dated if prefix == m[1] and it != item)
+        for _, it in near[:NEIGHBOURS]:
+            for c, t in zip(counts, total(it)):
+                c.update(t)
+        return counts
+
+    done = set()
+    for item, name in list(done_rows):
+        rel = f"{item}/{slug_of(item, name)}"
+        pages = summary(rel) if rel in eds else None
+        if not pages or pages.get("leaves") is None or not unfetched(pages, lambda: siblings(item, rel)):
+            done.add((item, name))
+    return done
+
+
+def build_done(out=sys.stdout):
+    """Copy downloads.ARCHIVE_ORG/done.tsv once into IA_DONE. Never scheduled."""
+    try:
+        lines = (downloads.ARCHIVE_ORG / "done.tsv").read_text().splitlines()
+    except FileNotFoundError:
+        lines = []
+    found = [{"item": parts[0], "edition": parts[1], "version": parts[2], "at": 0}
+             for parts in (line.split("\t") for line in lines) if len(parts) == 3]
+    media_manifest.write(IA_DONE, found)
+    print(f"{len(found)} done row(s) written to {media_manifest.path(IA_DONE)}", file=out)
+    return found
+
+
+def build_pages(out=sys.stdout):
+    """Read every recorded edition's pages.json once into IA_PAGES (each one
+    load_done_manifest would otherwise fill as it first needs it). Never
+    scheduled."""
+    eds = media_manifest.edition_rows()
+    found = [_pages_off_disk(str(downloads.ARCHIVE_ORG), rel, row.get("files")) for rel, row in sorted(eds.items())]
+    print(f"{len(found)} edition(s) appended to {media_manifest.path(IA_PAGES)}", file=out)
+    return found
 
 
 def stale_dirs(d):
@@ -907,18 +1076,25 @@ def crossword_leaves(edition_dir):
 
 
 def _crossword_leaves(edition_dir):
-    fronts, backs, sized = collections.Counter(), collections.Counter(), collections.Counter()
+    counts = collections.Counter(), collections.Counter(), collections.Counter()
     for pj in sibling_pages(edition_dir):
         try:
             pages = memo(pj, read_pages)
         except (OSError, ValueError):
             continue
-        for hit in pages.get("crossword_pages") or ():
-            if titled(hit):
-                fronts[hit["leaf"]] += 1
-                backs[pages["leaves"] - 1 - hit["leaf"]] += 1
-                sized[pages["leaves"], hit["leaf"]] += 1
-    return fronts, backs, sized
+        count_titled(pages, counts)
+    return counts
+
+
+def count_titled(pages, counts):
+    """Add the titled crossword leaves of one sibling's pages.json (or
+    page_summary) `pages` to crossword_leaves' (fronts, backs, sized)."""
+    fronts, backs, sized = counts
+    for hit in pages.get("crossword_pages") or ():
+        if titled(hit):
+            fronts[hit["leaf"]] += 1
+            backs[pages["leaves"] - 1 - hit["leaf"]] += 1
+            sized[pages["leaves"], hit["leaf"]] += 1
 
 
 def common_leaves(edition_dir, count):
@@ -926,7 +1102,12 @@ def common_leaves(edition_dir, count):
     often (crossword_leaves), and those of its siblings of `count` leaves: an
     item mixing sizes splits the count (1998-11-26, 56 leaves: 52-leaf
     siblings print it on leaf 25, 56-leaf ones on leaf 27)."""
-    fronts, _, sized = crossword_leaves(edition_dir)
+    return _common_leaves(crossword_leaves(edition_dir), count)
+
+
+def _common_leaves(counts, count):
+    """common_leaves off crossword_leaves' `counts`."""
+    fronts, _, sized = counts
     same = collections.Counter({leaf: k for (n, leaf), k in sized.items() if n == count and k >= SIZED_AGREE})
     return {n for n, _ in fronts.most_common(PRIOR_LEAVES)} | {n for n, _ in same.most_common(PRIOR_LEAVES)}
 
@@ -936,8 +1117,13 @@ def prior_leaves(edition_dir, count):
     lies on: its last, the common_leaves, and the PRIOR_LEAVES commonest
     leaves holding a titled crossword in its siblings by distance from the
     back (crossword_leaves)."""
-    _, backs, _ = crossword_leaves(edition_dir)
-    leaves = {count - 1} | common_leaves(edition_dir, count) \
+    return _prior_leaves(crossword_leaves(edition_dir), count)
+
+
+def _prior_leaves(counts, count):
+    """prior_leaves off crossword_leaves' `counts`."""
+    _, backs, _ = counts
+    leaves = {count - 1} | _common_leaves(counts, count) \
         | {count - 1 - n for n, _ in backs.most_common(PRIOR_LEAVES)}
     return sorted(n for n in leaves if 0 <= n < count)
 
@@ -1044,10 +1230,10 @@ def fetch_edition(fx, item, meta, name):
         if not data.startswith(b"\xff\xd8"):
             raise RuntimeError(f"leaf {hit['leaf']} image is not a JPEG ({data[:60]!r})")
         write_atomic(path, data)
-    write_atomic(os.path.join(d, "pages.json"), json.dumps({
-        "item": item, "edition": name, "date": edition_date(name), "leaves": len(pages),
-        "detector_version": DETECTOR_VERSION, "crossword_pages": hits}, indent=1).encode())
-    media_manifest.record_edition(d)
+    doc = {"item": item, "edition": name, "date": edition_date(name), "leaves": len(pages),
+           "detector_version": DETECTOR_VERSION, "crossword_pages": hits}
+    write_atomic(os.path.join(d, "pages.json"), json.dumps(doc, indent=1).encode())
+    record_pages(d, media_manifest.record_edition(d), doc)
     return hits
 
 
@@ -1135,10 +1321,10 @@ def fetch_pdf_edition(fx, item, name, d, bases):
     write_atomic(os.path.join(d, "djvu.xml.gz"), gzip.compress(
         b'<?xml version="1.0" encoding="UTF-8"?>\n<DjVuXML><BODY>\n'
         + b'<OBJECT width="0" height="0"></OBJECT>\n' * count + b"</BODY></DjVuXML>\n", 6))
-    write_atomic(os.path.join(d, "pages.json"), json.dumps({
-        "item": item, "edition": name, "date": edition_date(name),
-        "leaves": count, "detector_version": DETECTOR_VERSION, "crossword_pages": hits}, indent=1).encode())
-    media_manifest.record_edition(d)
+    doc = {"item": item, "edition": name, "date": edition_date(name),
+           "leaves": count, "detector_version": DETECTOR_VERSION, "crossword_pages": hits}
+    write_atomic(os.path.join(d, "pages.json"), json.dumps(doc, indent=1).encode())
+    record_pages(d, media_manifest.record_edition(d), doc)
     return hits
 
 
@@ -1250,6 +1436,7 @@ class Run:
             self.in_a_row = 0
             self.n += 1
             append(self.out, "done.tsv", [item, name, DETECTOR_VERSION])
+            record_done(self.out, item, name)
             log(f"  {name}: leaves {[h['leaf'] for h in hits]} {heads[:120]} ({time.monotonic() - t:.0f}s)")
         return True
 
@@ -1395,6 +1582,11 @@ def edition_done(out, item, name):
                 return False
     except FileNotFoundError:
         return False
+    if media_manifest.on_media(out):
+        # The verdict plan gave, off the SSD; a done row from before IA_DONE was built is recorded there.
+        if (item, name) not in dir_cache.appended(media_manifest.path(IA_DONE), set, _fold_done_row):
+            record_done(out, item, name)
+        return (item, name) in load_done(out)
     return not stale(os.path.join(out, item, slug_of(item, name)))
 
 
