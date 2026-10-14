@@ -3426,7 +3426,7 @@ def refresh_unsolved():
 
     Annotations are preserved by fetch_number's merge."""
     pending = []
-    for path in puzzle_files():
+    for path in puzzle_files(*FETCHABLE):
         p = read_puzzle_file(path)
         # Only what this fetcher can actually fetch: another paper's numbers
         # asked of theguardian.com 404 every night. The Observer and Private

@@ -74,9 +74,13 @@ def puzzle_path(series, number):
     return find(pid) or PUZZLE_DIR / series_folder(pid) / UNDATED / f"{pid}.json"
 
 
-def puzzle_files():
+def puzzle_files(*series):
     """Every published puzzle file: <series>-<number>.json one level under a
-    year folder. Not generated output."""
+    year folder. Not generated output. Name series to get only theirs, picked
+    by file name: a nightly refresh that opened all 54k files to keep a few
+    dozen ran past its hour on a loaded host."""
+    if series:
+        return sorted(f for s in series for f in PUZZLE_DIR.glob(f"*/*/{s}-[0-9]*.json"))
     return sorted(PUZZLE_DIR.glob("*/*/*-[0-9]*.json"))
 
 
