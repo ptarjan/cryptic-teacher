@@ -36,6 +36,8 @@ SCHEDULED = {
     "andlit_azed.py": ["cached", "fetch"],
     "blog_facts.py": ["extract", "inputs_digest"],
     "blog_comment_difficulty.py": ["months", "comments_by_post", "post_ids"],
+    # The parser those units run: posts from the manifest, past a cursor.
+    "parse_timesforthetimes.py": ["run"],
     # gale_fetch.py run() asks this every pass of its loop.
     "gale_fetch.py": ["have_docs"],
 }
