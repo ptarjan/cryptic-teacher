@@ -397,6 +397,11 @@ def build(num, held):
         how = "the Eye's own .puz, from the Wayback Machine"
     elif clues:
         ts, rows = clues[-1]
+        # Two issues' pages read as one number (a heading lost and the
+        # solution's number misread) with different clues: neither is sure.
+        pages = {json.dumps(r, sort_keys=True) for t, r in clues if t.endswith("_page")}
+        if len(pages) > 1:
+            return None, "two scans' page images print different clues under this number"
         puzzle, why = from_rows(num, rows, held.get("answers"))
         if puzzle is None:
             return None, why
