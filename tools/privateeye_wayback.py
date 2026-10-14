@@ -131,11 +131,16 @@ CLUE = re.compile(r"(?:^|(?<=\s))(\d{1,2}(?:\s*/\s*\d{1,2}(?:\s*(?:ac|dn)\.?)?)*
 ANSWER = re.compile(r"(\d{1,2}(?:/\d{1,2})*)\s+([^\d]+?)(?=\s+\d{1,2}[\s/]|\s*\.?\s*$)")
 
 
-def text_of(raw, encoding="cp1252"):
+def text_of(raw, encoding="cp1252", plain=False):
+    """One line of text. `plain` (an archive.org scan's OCR text) is not HTML:
+    a stray "<" in the OCR would otherwise eat everything up to the next ">"
+    as a tag, which lost the crossword from 6 in 10 scans."""
     t = raw.decode(encoding, "replace")
-    t = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", t)
-    t = re.sub(r"<[^>]+>", " ", t)
-    return re.sub(r"\s+", " ", html.unescape(t)).strip()
+    if not plain:
+        t = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", t)
+        t = re.sub(r"<[^>]+>", " ", t)
+        t = html.unescape(t)
+    return re.sub(r"\s+", " ", t).strip()
 
 
 def split_dirs(part):
@@ -145,12 +150,32 @@ def split_dirs(part):
     return (m.group(1).strip(), m.group(2).strip()) if m else None
 
 
-def clue_rows(part):
+def scan_clean(part):
+    """An archive.org scan's clue text with its common OCR slips mended: a
+    stray rule ("|"), "S" and "A" read for 5 and 4 in a clue number ("4S",
+    "2A", "1/Sac", "See Sdn"), a clue number run into its first word ("12T he",
+    "20ac.They")."""
+    part = re.sub(r"\s[|]+(?=\s|$)", " ", part)
+    part = re.sub(r"(?<=[\s/])S(?=\s*(?:ac|dn)\b)", "5", part)
+    part = re.sub(r"(?<=\s)(\d)S(?=\s)", r"\g<1>5", part)
+    part = re.sub(r"(?<=\s)(\d)A(?=\s+[A-Z‘“'\"])", r"\g<1>4", part)
+    part = re.sub(r"(?<=\s)(\d{1,2})([A-Z]) ([a-z]{1,3})\b", r"\1 \2\3", part)
+    part = re.sub(r"(?<=\d)(ac|dn)\.(?=[A-Z‘“'\"])", r"\1. ", part)
+    return part
+
+
+def clue_rows(part, scan=False):
     """light_spec rows ({"number", "clue", "enumeration"}) of one direction's
-    text, or None if any text is left between or after the clues."""
+    text, or None if any text is left between or after the clues. A scan's
+    OCR (`scan`) may leave punctuation specks between clues, and after the
+    last across clue the grid's OCR junk: text with no enumeration in it,
+    dropped (a real clue lost in it leaves a light the grid rebuild refuses)."""
+    if scan:
+        part = scan_clean(" " + part)
     rows, pos = [], 0
     for m in CLUE.finditer(part):
-        if part[pos:m.start()].strip():
+        gap = part[pos:m.start()]
+        if gap.strip() and not (scan and not re.search(r"[A-Za-z0-9]", gap)):
             return None
         pos = m.end()
         nums = re.findall(r"\d{1,2}", m.group(1))
@@ -163,7 +188,10 @@ def clue_rows(part):
             return None
         rows.append({"number": ",".join(nums), "clue": text,
                      "enumeration": re.sub(r"\s+", "", tail[1:-1]).replace("–", "-")})
-    if part[pos:].strip() or not rows:
+    left = part[pos:]
+    if scan and not re.search(ENUM, left, re.I) and not re.search(r"\bSee \d", left):
+        left = ""
+    if left.strip() or not rows:
         return None
     return rows
 
@@ -180,14 +208,37 @@ def answer_rows(part, direction):
     return out
 
 
-def read_capture(raw, encoding="cp1252"):
-    """{"number", "rows": {"across", "down"} | None, "prev", "answers": [...] | None}."""
-    t = text_of(raw, encoding)
+def scan_number(t, issue):
+    """(number, end of heading) of a scan whose "EYE CROSSWORD N" the OCR
+    mangled ("EYE CROSSWORI by Cyclops D 157"): a number near "by Cyclops"
+    within 2 of the one the issue implies (issue - ISSUE_OFFSET, which drifts
+    by one in the early years), else the solution's number + 1 if that is."""
+    want = issue - ISSUE_OFFSET
+    for m in re.finditer(r"\bby Cyclops\b", t, re.I):
+        near = t[max(0, m.start() - 60):m.end() + 40]
+        for n in re.findall(r"(?<![\d£])(\d{1,3})(?![\d,)])", near):
+            if abs(int(n) - want) <= 2:
+                return int(n), m.end()
+        sol = SOLUTION.search(t, m.end())
+        if sol and sol.group(1) and abs(int(sol.group(1)) + 1 - want) <= 2:
+            return int(sol.group(1)) + 1, m.end()
+    return None
+
+
+def read_capture(raw, encoding="cp1252", plain=False, issue=None):
+    """{"number", "rows": {"across", "down"} | None, "prev", "answers": [...] | None}.
+    `plain` and `issue`: an archive.org scan's OCR text, of that issue."""
+    t = text_of(raw, encoding, plain)
     m = NUMBER.search(t)
-    if not m:
+    if m and issue and abs(int(m.group(1) or m.group(2)) - (issue - ISSUE_OFFSET)) > 2:
+        m = None  # a misread heading ("EYE CROSSWORD 883" in issue 883)
+    if m:
+        num, end = int(m.group(1) or m.group(2)), m.end()
+    elif issue and scan_number(t, issue):
+        num, end = scan_number(t, issue)
+    else:
         return None
-    num = int(m.group(1) or m.group(2))
-    body = t[m.end():]
+    body = t[end:]
     sol = SOLUTION.search(body)
     clues = body[:sol.start()] if sol else body
     # The print issue (archive.org scans) sets "£100 prize" above ACROSS and
@@ -198,8 +249,11 @@ def read_capture(raw, encoding="cp1252"):
     out = {"number": num, "rows": None, "prev": None, "answers": None}
     dirs = split_dirs(clues)
     if dirs:
-        a, d = clue_rows(dirs[0]), clue_rows(dirs[1])
-        if a and d:
+        a, d = clue_rows(dirs[0], plain), clue_rows(dirs[1], plain)
+        # Square 1 starts a light: a list missing it lost its first clues
+        # (a scan's column set above its heading), refused before the
+        # minutes a grid search spends finding no grid.
+        if a and d and "1" in (a[0]["number"].split(",")[0], d[0]["number"].split(",")[0]):
             out["rows"] = {"across": a, "down": d}
     if sol:
         out["prev"] = int(sol.group(1) or sol.group(2)) if not sol.group(3) else num - 1
@@ -218,7 +272,9 @@ def index():
     # Web captures, then the archive.org print scans (IA/<issue>_djvu.txt, UTF-8).
     for path in sorted(DIR.glob("*.html")) + sorted((DIR / "ia").glob("*_djvu.txt")):
         try:
-            cap = read_capture(path.read_bytes(), "utf-8" if path.suffix == ".txt" else "cp1252")
+            scan = path.suffix == ".txt"
+            cap = read_capture(path.read_bytes(), "utf-8" if scan else "cp1252", plain=scan,
+                               issue=int(path.stem.split("_")[0]) if scan else None)
         except Exception as e:  # one odd capture never stops the rest
             print(f"{path.name}: {type(e).__name__}: {e}", file=sys.stderr)
             continue
