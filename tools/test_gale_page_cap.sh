@@ -13,6 +13,10 @@ set -euo pipefail
 cd "$(dirname "$0")"
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
+# gale_inbox records each staged edition to the SSD manifests: a fresh one
+# here (CI has none), never the household's own.
+export CT_MANIFEST="$tmp/.manifest"
+mkdir -p "$CT_MANIFEST" && : > "$CT_MANIFEST/gale-editions.jsonl"
 python3 - "$tmp" <<'PY'
 import io, json, sys
 from pathlib import Path
