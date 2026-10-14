@@ -358,6 +358,9 @@ def records(posts):
         setters = {p["setter"] for p in group if p["setter"]}
         rec = {k: best[k] for k in ("post_id", "date", "slug", "link", "series",
                                     "number", "title", "entries")}
+        rec["entries"], filled = filled_in(best, group)
+        if filled:
+            rec["filled_from"] = filled
         if best["unsplit"]:
             rec["unsplit"] = best["unsplit"]
         rec["setter"] = best["setter"] or (setters.pop() if len(setters) == 1 else None)
@@ -366,6 +369,42 @@ def records(posts):
         yield rec
     for note in sorted(notes):
         print(f"  date: {note}")
+
+
+def filled_in(best, group):
+    """The fullest post's entries, with what it leaves out taken from the
+    other posts of its (series, number): a light it skips, and the clue of an
+    entry it gives no clue for, where another post gives one for the same
+    answer. A full review now and then skips a clue the hints post on the day
+    printed (Sunday Toughie 2's review has no 23 down; Tilsit's hints do), and
+    without every clue there is no puzzle to file. Also the post ids it drew
+    on, for the record."""
+    entries = [dict(e) for e in best["entries"]]
+    have = {(e["number"], e["direction"]): e for e in entries}
+    have.update({tuple(l): None for g in best.get("unsplit") or () for l in g["lights"]})
+    used = []
+    others = sorted((p for p in group if p is not best),
+                    key=lambda p: (lights(p), p["date"], p["post_id"]), reverse=True)
+    for p in others:
+        took = False
+        for e in p["entries"]:
+            if not e.get("clue"):
+                continue
+            key = (e["number"], e["direction"])
+            if key not in have:
+                have[key] = dict(e)
+                entries.append(have[key])
+                took = True
+            elif have[key] is not None and not have[key].get("clue") \
+                    and have[key].get("answer") == e.get("answer"):
+                have[key]["clue"] = e["clue"]
+                have[key].setdefault("enumeration", e.get("enumeration"))
+                took = True
+        if took:
+            used.append(p["post_id"])
+    if used:
+        entries.sort(key=lambda e: (e["direction"] != "across", e["number"]))
+    return entries, used
 
 
 def lights(rec):
