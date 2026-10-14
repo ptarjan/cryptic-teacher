@@ -48,6 +48,29 @@ GALE_EDITIONS = "gale-editions"
 #: The whole-book texts in downloads.IA_BOOKS (book_queue.save_text), one row
 #: each: {"identifier", "chars", "at"}.
 BOOK_TEXTS = "ia-books"
+#: The Trove articles' meta.json titles ("01 Jan 1972 - ..."), one row each:
+#: {"article": id, "title", "at"}. tools/fetch_trove.py appends one as it
+#: writes an article's meta.json; file_trove_puzzles.article_date appends
+#: one for each it had to read off the disk, so a killed plan keeps what it
+#: read. A memo, not a listing: a missing row means "read meta.json once".
+TROVE_TITLES = "trove-titles"
+
+
+def memo(name, key, value):
+    """{row[key]: row[value]} of manifest `name`, {} when it was never
+    written (a cold memo, unlike rows' listing manifests)."""
+    try:
+        text = path(name).read_text()
+    except FileNotFoundError:
+        return {}
+    out = {}
+    for ln in text.splitlines():
+        try:
+            r = json.loads(ln)
+            out[r[key]] = r[value]
+        except (ValueError, KeyError, TypeError):
+            continue  # a torn last line
+    return out
 
 
 def path(name):

@@ -93,6 +93,7 @@ import dir_cache
 import downloads
 import edition_commit
 import enumeration
+import media_manifest
 import clue_repair
 import ocr_clues
 import reconstruct_grid as rg
@@ -1407,17 +1408,25 @@ def settle(d, got, taken, files, write, puzzles, seen_by):
 RANKS = {"never read": 1, "annotation asked": 1, "inputs changed": 2, "read without the VLM": 2,
          **{f"{c} cured since": 2 for c in REREAD_CAUSES}, "--reread": 3}
 _DATES = {}
+#: {article id: its meta.json title} from the SSD manifest, loaded once a process.
+_TITLES = {}
 
 
 def article_date(d):
     """Article dir `d`'s print day as ISO text from its meta.json title
-    ("01 Jan 1972 - ..."), "" when it has none; read once a process."""
+    ("01 Jan 1972 - ..."), "" when it has none. The title comes from the
+    trove-titles manifest on the SSD; one missing there is read off the
+    media disk once and appended, so a plan killed midway keeps what it read."""
     if d.name not in _DATES:
+        if not _TITLES:
+            _TITLES.update(media_manifest.memo(media_manifest.TROVE_TITLES, "article", "title"))
+            _TITLES.setdefault("", "")  # loaded, even when empty
         try:
-            _, _, memo = dir_cache.seen(d)
-            if "title" not in memo:
-                memo["title"] = json.loads((d / "meta.json").read_text()).get("title", "")
-            title = memo["title"]
+            title = _TITLES.get(d.name)
+            if title is None:
+                title = json.loads((d / "meta.json").read_text()).get("title", "")
+                _TITLES[d.name] = title
+                media_manifest.record(media_manifest.TROVE_TITLES, d, article=d.name, title=title)
             day = datetime.date(*time.strptime(title.split(" - ", 1)[0].strip(), "%d %b %Y")[:3]).isoformat()
         except (OSError, ValueError, AttributeError):
             day = ""

@@ -619,4 +619,19 @@ zoned = F.input_hash(d)
 print(first == again, [n for n in stats if n != '42'], renamed != first, zoned != renamed)")
 check "input_hash: an unmoved article is not statted again; a renamed-in file or new zone moves it" "True [] True True" "$got"
 
+# article_date reads the trove-titles manifest on the SSD: a title read off
+# the disk once is appended, so the next process (a killed plan's rerun)
+# never opens that meta.json again.
+mkdir -p "$tmp/dl/trove/7"
+echo '{"title": "01 Jun 1972 - Crossword"}' > "$tmp/dl/trove/7/meta.json"
+date_of() { (cd "$REPO/tools" && CT_DOWNLOADS="$tmp/dl" python3 -c "
+import file_trove_puzzles as F
+from pathlib import Path
+print(F.article_date(Path('$tmp/dl/trove/7')))"); }
+first=$(date_of)
+rm "$tmp/dl/trove/7/meta.json"
+again=$(date_of)
+rows=$(grep -c '"article": "7"' "$tmp/dl/.manifest/trove-titles.jsonl")
+check "article_date: read once off the disk, then from the manifest" "1972-06-01 1972-06-01 1" "$first $again $rows"
+
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
