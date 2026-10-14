@@ -2763,6 +2763,7 @@ import ocr_remote
 os.environ["OCR_REMOTE"] = "nobody@127.0.0.1"
 ocr_remote.SSH = ocr_remote.SSH + ["-p", "1"]
 ocr_remote.versions = lambda: {}
+ocr_remote.alert_once = lambda key, text: False  # never a real alert from a test (one reached the room, 2026-10-14)
 err = io.StringIO()
 with contextlib.redirect_stderr(err):
     t = time.monotonic()
