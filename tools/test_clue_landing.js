@@ -55,6 +55,7 @@ function run({ referrer = "https://www.google.com/", scrollY = 0, hash = "", nav
   };
   const document = {
     currentScript: script, referrer, readyState: "complete",
+    querySelector: () => null,
     querySelectorAll: (sel) => (sel === ".s-list article[id]" ? arts : []),
     getElementById: (id) => arts.find((a) => a.id === id) || null,
     createElement: (t) => new El(t),
