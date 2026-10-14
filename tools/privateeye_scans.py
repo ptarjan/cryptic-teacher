@@ -267,7 +267,34 @@ def read(issue, get):
     if blank:
         return number, None, f"{len(blank)} clues the readings do not agree on: " + \
             "; ".join(f"{k}: {v}" for k, v in sorted(blank.items())[:4])
+    laid = linked_across(laid)
+    empty = sorted(lid for lid, (t, _, _) in laid.items() if not (t or "").strip())
+    if empty:
+        return number, None, f"clues with no words: {', '.join(empty)}"
     return number, page_text(number, laid), None
+
+
+def linked_across(laid):
+    """`laid` with a link that crosses directions put right. The Eye prints
+    "14/22" for 14 across and 22 down, and the vote lays both on the head's
+    direction, writing "See 14" on 22 across. When the other direction's 22
+    prints the reference ("See 14", or a bare "(14)", the reference's
+    number read as its count), that light is the continuation and the
+    one the vote made goes."""
+    out = dict(laid)
+    for lid, (_, _, group) in laid.items():
+        head = lid.split("-")[0]
+        see = "See " + head
+        for tail in (group or [])[1:]:
+            n, side = tail.split("-")
+            other = n + "-" + ("down" if side == "across" else "across")
+            text, enum, _ = out.get(other, ("", None, None))
+            text = (text or "").strip()
+            if other in out and (text == see or (not text and enum == head)):
+                out[other] = (see, None, None)
+                if (out.get(tail) or ("",))[0] == see:
+                    del out[tail]
+    return out
 
 
 def voted(words, cols):
