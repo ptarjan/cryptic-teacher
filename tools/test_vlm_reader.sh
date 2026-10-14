@@ -100,7 +100,7 @@ lan, tail = vlm.URLS[0], vlm.URLS[-1]
 probed = []
 def fake_lan_dead(req, timeout=None):
     probed.append((req.full_url, timeout))
-    if req.full_url.startswith(lan):
+    if not req.full_url.startswith(tail):  # every LAN address (both leases) gone
         raise socket.timeout("timed out")
     if req.full_url.endswith("/running"):
         return io.BytesIO(b'{"running": []}')
@@ -118,6 +118,18 @@ n = len(probed)
 vlm.reachable()
 check("and cached: no LAN probe again", [], [p for p in probed[n:] if p[0].startswith(lan)])
 check("the LAN probe used the short timeout", True, probed[0][1] <= 3)
+# The address kept stops answering (the lease moved under a long-running
+# queue): up() asks again and every URL is tried, not the dead one alone.
+def fake_tail_dead(req, timeout=None):
+    if req.full_url.startswith(tail):
+        raise ConnectionRefusedError("refused")
+    if req.full_url.endswith("/running"):
+        return io.BytesIO(b'{"running": []}')
+    return io.BytesIO(json.dumps({"data": [{"id": vlm.MODEL}]}).encode())
+urllib.request.urlopen = fake_tail_dead
+vlm._UP.clear()
+check("the kept address refusing: another URL answers, is reachable and kept", (True, lan, True),
+      (vlm.reachable(), vlm.URL, vlm._RESOLVED[0]))
 # Neither answers: not reachable, and asked again next time.
 urllib.request.urlopen = lambda req, timeout=None: (_ for _ in ()).throw(socket.timeout("t"))
 vlm.URL, vlm._RESOLVED[0] = lan, False
