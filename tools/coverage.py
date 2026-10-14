@@ -41,6 +41,7 @@ import datetime
 import functools
 import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -131,7 +132,8 @@ def _causes():
             "mostly 2007-2016: exhausted on the blog; only another source's clues can file it", False, False)
         out[(blog, "partial-post")] = Cause(
             "tools/times_grids.py", "the post hints only some of the clues: the grid search names "
-            "lights no entry has (attempts.jsonl `how`: no light numbered N); exhausted on the blog, "
+            "lights no entry has (attempts.jsonl `how`: no light numbered N), more of them than "
+            "times_grids.MAX_GAPS fills from the crossings (fewer is a no-grid retry); exhausted on the blog, "
             "only another source's clues can file it", False, False)
         out[(blog, "no-grid")] = Cause(
             "tools/times_grids.py", "the grid search found none (attempts.jsonl `how`); a parser fix "
@@ -292,6 +294,17 @@ def day_after(date):
     return (datetime.date.fromisoformat(date) + datetime.timedelta(days=1)).isoformat()
 
 
+def partial(how, max_gaps):
+    """Is this attempt's outcome a post that hints too few clues to rebuild?
+    A light list missing at most `max_gaps` numbers is one times_grids'
+    tolerant search puts back from the crossings (with_gaps), so an older
+    attempt that stopped at the gap is a retry, not an exhausted post
+    (sundaytough 2, whose blog skipped 23d)."""
+    if not how.startswith("no grid: no light numbered"):
+        return False
+    return len(re.findall(r"\d+", how)) > max_gaps
+
+
 # ------------------------------------------------------------ the sources
 
 def blog_rows():
@@ -320,7 +333,7 @@ def blog_rows():
             else:
                 cause = ("answers-only" if not times_grids.has_clues(r) else
                          "grid-not-tried" if pid not in tried else
-                         "partial-post" if tried[pid].startswith("no grid: no light numbered") else
+                         "partial-post" if partial(tried[pid], times_grids.MAX_GAPS) else
                          "no-grid")
             day = r.get("printed") or (r.get("date") or "")[:10]
             dates = ([day] if r.get("printed") else [day, day_after(day)]) if dated and day else []
