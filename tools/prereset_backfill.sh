@@ -141,9 +141,13 @@ WORKER_JOB="pre-reset backfill"
 # width the current one stands. At 0 (the bridge alone will spend what the
 # week has left, or the machine has no room) nothing new starts, and once the
 # runs in flight are done the pool naps a checkpoint interval and asks again.
+# POOL_SPAN_RUNS is the runs in flight on average over the interval just ended
+# (after_wave's "at width"): the planner divides the burn's CPU over that span
+# by it, since by the time the re-plan is done most of those runs have exited
+# and the few still alive would each look like the whole burn's CPU.
 wave_width() {
   local w
-  w=$(python3 tools/prereset_plan.py --may-pause --width ${wide:-})
+  w=$(CT_SPAN_RUNS="${POOL_SPAN_RUNS:-}" python3 tools/prereset_plan.py --may-pause --width ${wide:-})
   case "$w" in ''|*[!0-9]*) echo "${wide:-14}" ;; *) echo "$w" ;; esac
 }
 # Above this the weekly window really is gone and a failing run means it. Below
@@ -657,7 +661,9 @@ pool_checkpoint() {
   after_wave "$POOL_BEFORE" "$hours" "$avg" "${#WAVE_FAILED_IDS[@]}" "$POOL_BEFORE_S" "$wide" ||
     return 1
   requeue_failed
+  POOL_SPAN_RUNS=$avg
   pool_interval_start
+  POOL_SPAN_RUNS=
 }
 
 # Run the pool over queue[at..] until it is spent.
