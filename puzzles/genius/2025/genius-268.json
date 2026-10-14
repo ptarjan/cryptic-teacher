@@ -6,7 +6,7 @@
  "preamble": "Wordplay in each across clue generates an extra letter that doesn’t belong in the grid; in order these letters should lead the solver to a thematic modification of a single word in each down clue. The unclued down entry is thematic.",
  "messages": [
   {
-   "text": "ED?Y DUKES' BET IN FILM",
+   "text": "EDGY DUKES BET IN FILM",
    "kind": "extra",
    "direction": "across",
    "order": "clues"
@@ -633,7 +633,63 @@
     "text": "A special project with German aggressor",
     "enumeration": "8"
    },
-   "solution": "ASSAILER"
+   "solution": "ASSAILER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "aggressor",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "special",
+       "at": 2,
+       "gives": "S"
+      },
+      {
+       "words": "project",
+       "at": 10,
+       "gives": "SAIL",
+       "note": "Chambers gives sail as a verb meaning to project or jut out"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "German",
+         "at": 23,
+         "gives": "GER"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A one-off scheme run alongside a German partner turns out to be hostile.",
+     "walkthrough": "The G of GER is the extra letter for the message, which reads EDGY DUKES BET IN FILM: the Duke brothers' wager in Trading Places.",
+     "definitionFit": "An assailer is one who assails or attacks, so the word names an attacker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "project"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "G"
+    }
+   }
   },
   {
    "number": 10,
