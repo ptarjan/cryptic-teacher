@@ -161,9 +161,10 @@ def _answers(url):
 def resolve():
     """The URL in use, found once a process: URL itself when it is not one of
     URLS (an override), else the first of URLS (URL's first) that answers,
-    which URL is then set to and kept. A LAN address gone stale (DHCP) costs
-    one short timeout, never the VLM. When none answers URL stays and the
-    next call asks again."""
+    which URL is then set to and kept until it stops answering (reachable
+    then resolves again). A LAN address gone stale (DHCP) costs one short
+    timeout, never the VLM. When none answers URL stays and the next call
+    asks again."""
     global URL
     if _RESOLVED[0] or not URL:
         return URL
@@ -199,13 +200,25 @@ def reachable():
     if time.monotonic() - _YIELDED[0] < desktop_busy.PROBE_EVERY or busy():
         return False
     if MODEL not in _UP:
-        try:
-            req = urllib.request.Request(f"{URL}/v1/models", headers={"User-Agent": "cryptic-teacher"})
-            ids = {m.get("id") for m in json.load(urllib.request.urlopen(req, timeout=3)).get("data", [])}
-            _UP[MODEL] = MODEL in ids
-        except (OSError, ValueError):
-            _UP[MODEL] = False
+        ids = _models()
+        if ids is None and _RESOLVED[0] and URL in URLS:
+            # The address found before stopped answering (the LAN lease
+            # moved under a long-running queue): every URL is tried again.
+            was = URL
+            _RESOLVED[0] = False
+            if resolve() != was:
+                ids = _models()
+        _UP[MODEL] = MODEL in (ids or ())
     return _UP[MODEL]
+
+
+def _models():
+    """The model ids URL lists, or None when it does not answer."""
+    try:
+        req = urllib.request.Request(f"{URL}/v1/models", headers={"User-Agent": "cryptic-teacher"})
+        return {m.get("id") for m in json.load(urllib.request.urlopen(req, timeout=3)).get("data", [])}
+    except (OSError, ValueError):
+        return None
 
 
 def version():
