@@ -80,6 +80,7 @@ import urllib.request
 from pathlib import Path
 
 import gale_docs
+import media_manifest
 from gale_http import Chrome, click_headers, verifies
 
 #: Seconds between one download's end and the next request, drawn uniformly.
@@ -347,13 +348,20 @@ def ssh(command, **kw):
 
 
 def have_docs():
-    """The documents already got: named in the Times folder, its Set aside
-    folder or a paper's Fetched folder, or in FETCHED."""
+    """The documents already got: those this script fetched (FETCHED, which
+    note() rewrites as each lands, so this run's own count), those filed into
+    an edition (the SSD gale-editions manifest gale_inbox appends to) and
+    those set aside (gale_inbox.SET_ASIDE). Asked of the SSD every pass of
+    run(): never a listing of the media disk's Gale folders (Paul
+    2026-10-14: nothing regularly scans the spinning disk; an ssh `ls` there
+    under load also killed a run)."""
     import gale_inbox
-    q = shlex.quote
-    dirs = " ".join(q(fetched_dir(p)) for p in ("TTDA", "LSNR", *gale_inbox.OTHERS))
-    names = ssh(f"cd {q(INBOX)} && ls -1 . {q(ASIDE)} {dirs} 2>/dev/null; exit 0", text=True).stdout
-    return {m.group(0).upper() for m in DOC.finditer(names)} | set(load(FETCHED))
+    got = {d.upper() for d in load(FETCHED)}
+    for row in media_manifest.rows(gale_inbox.EDITIONS):
+        for s in row.get("sources") or ():
+            got |= {m.group(0).upper() for m in DOC.finditer(f"{s.get('docId') or ''} {s.get('file') or ''}")}
+    got |= {m.group(0).upper() for f in load(gale_inbox.SET_ASIDE) for m in DOC.finditer(f)}
+    return got
 
 
 def load(path):
