@@ -165,12 +165,12 @@ jobs:
       - name: Restore the puzzle shims
         uses: actions/cache/restore@v5
         with:
-          path: |
-            puzzles/*.js
-            puzzles/*.js.gz
-            puzzles/shims.gz.json
+          path: .shim-cache.tar
           key: puzzle-shims-${{ github.sha }}
           restore-keys: puzzle-shims-
+      # One tar file, not a glob over puzzles/: see tools/cache_tar.sh.
+      - name: Unpack the puzzle shims
+        run: bash tools/cache_tar.sh unpack .shim-cache.tar
       # Then a restored shim the index no longer names (its puzzle deleted or
       # renamed since) is removed, so the site ships what a clean build would.
       - name: Build the puzzle shims and reindex
@@ -226,11 +226,12 @@ jobs:
       - name: Restore the puzzle pages
         uses: actions/cache/restore@v5
         with:
-          path: |
-            puzzles/*/index.html
-            .page-cache.pickle
+          path: .page-cache.tar
           key: seo-pages-${{ github.sha }}
           restore-keys: seo-pages-
+      # One tar file, not a glob over puzzles/: see tools/cache_tar.sh.
+      - name: Unpack the puzzle pages
+        run: bash tools/cache_tar.sh unpack .page-cache.tar
       - name: Generate the crawlable pages
         id: pages
         run: python3 tools/build_seo_pages.py
@@ -367,14 +368,14 @@ jobs:
         with:
           path: ~/.cache/cryptic-teacher/clue-keys-*.sqlite*
           key: clue-index-${{ github.sha }}
+      - name: Pack the puzzle shims
+        if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}
+        run: bash tools/cache_tar.sh pack shims .shim-cache.tar
       - name: Save the puzzle shims
         if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}
         uses: actions/cache/save@v5
         with:
-          path: |
-            puzzles/*.js
-            puzzles/*.js.gz
-            puzzles/shims.gz.json
+          path: .shim-cache.tar
           key: puzzle-shims-${{ github.sha }}
       - name: Save the social cards
         if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}
@@ -390,13 +391,14 @@ jobs:
           key: indexnow-${{ github.sha }}
       # After everything the deploy needs, and only when this run rendered
       # many pages (a code change, a cold cache): see Restore the puzzle pages.
+      - name: Pack the puzzle pages
+        if: ${{ !cancelled() && steps.deployment.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || '0') > 2000 }}
+        run: bash tools/cache_tar.sh pack pages .page-cache.tar
       - name: Save the puzzle pages
         if: ${{ !cancelled() && steps.deployment.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || '0') > 2000 }}
         uses: actions/cache/save@v5
         with:
-          path: |
-            puzzles/*/index.html
-            .page-cache.pickle
+          path: .page-cache.tar
           key: seo-pages-${{ github.sha }}
       # Every step's time against its budget in tools/data/deploy_budgets.json,
       # read off the jobs API. After the deploy, never in front of it: a slow
