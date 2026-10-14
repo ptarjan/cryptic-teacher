@@ -368,11 +368,6 @@ UNLINKED_IN_SOURCE = dict([
       "answer holds 6 alone or 23 linked"),
      "no light in this grid is blank, spare, or grouped toward the four missing "
      "letters"),
-    (("cryptic-23429",
-      "17-across + 27-across: clue says (1,4,7,4) = 16, answer holds 5 alone or "
-      "9 linked"),
-     "the BRITISH that would make A VERY BRITISH COUP is already spent on "
-     "24-across + 29-across's BRITISH EMPIRE"),
     (("cryptic-23299", "12-across: clue says (4,5,2) = 11, answer holds 4"),
      "no light in this grid is blank, spare, or grouped toward the seven "
      "missing letters"),
