@@ -228,6 +228,7 @@ from fetch_puzzle import (
     prints_own_count,
     read_puzzle_file,  # the tests read raw fixtures through this module
     read_puzzle_view,
+    source_clue,
 )
 from groups import entry_id
 from reconstruct_grid import grid_of, lights_from_grid, lights_of
@@ -1422,7 +1423,11 @@ def check_rewrite(old, new, flags):
         | {entry_id(e) for e in clued(old.get("entries") or [])
            if ocr_clues.bled(e["clue"]["text"]) or ocr_clues.stray(e["clue"]["text"])} \
         if (old.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS else set()
-    was = {entry_id(e): e["clue"]["text"] for e in clued(old.get("entries") or []) if entry_id(e) not in lost}
+    # A placeholder the source serves where it holds no clue (quiptic-71's
+    # "?????"), which SOURCE_CLUE_WRONG prints as nothing, loses nothing either.
+    lost |= {entry_id(e) for e in clued(old.get("entries") or [])
+             if not source_clue(old.get("id"), entry_id(e), e["clue"]["text"]).strip()}
+    was ={entry_id(e): e["clue"]["text"] for e in clued(old.get("entries") or []) if entry_id(e) not in lost}
     for e in new.get("entries") or []:
         if has_words(was.get(entry_id(e))) and not has_words(e["clue"].get("text", "")):
             flags.append(("SHAPE", new["id"], f"{entry_id(e)}: would replace the clue "
