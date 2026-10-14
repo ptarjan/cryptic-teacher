@@ -258,6 +258,7 @@ echo '{"edition": "GaleTelegraph1975UKEnglish/1975-03-04", "at": 1}' > "$mt/dl/.
 printf '%s\n' '{"edition": "GaleTelegraph1975UKEnglish/1975-03-04", "at": 1}' \
   '{"edition": "GaleTelegraph1975UKEnglish/1975-03-05", "at": 1}' > "$mt/dl/.manifest/gale-editions.jsonl"
 printf '%s\n' '{"article": "1", "title": "x", "at": 1}' '{"article": "2", "title": "y", "at": 1}' > "$mt/dl/.manifest/trove-titles.jsonl"
+echo '{}' > "$mt/dl/.manifest/trove-titles.complete"
 echo '{"article": "1", "inputs": "a"}' > "$mt/dl/trove/filed.jsonl"
 got=$(cd "$(dirname "$0")" && CT_DOWNLOADS="$mt/dl" python3 -c "
 import downloads, edition_backlog as E

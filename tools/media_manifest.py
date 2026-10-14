@@ -390,7 +390,19 @@ def build_trove_titles(out=sys.stdout):
             continue
         record(TROVE_TITLES, root / name, article=name, title=title)
         n += 1
+    complete_path(TROVE_TITLES).write_text(json.dumps({"at": time.time()}))
     print(f"{TROVE_TITLES}: {len(have)} held, {n} added", file=out)
+
+
+def complete_path(name):
+    """The marker a build of memo manifest `name` writes once it holds every
+    file: before it, the memo (seeded, or appended as read) is partial."""
+    return DIR / f"{name}.complete"
+
+
+def complete(name):
+    """Whether memo manifest `name` holds every file (complete_path)."""
+    return complete_path(name).exists()
 
 
 def build_genius_files(out=sys.stdout):

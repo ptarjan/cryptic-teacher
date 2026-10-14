@@ -117,9 +117,10 @@ def listener_counts(inbox=gale_listener.SAVED, store=gale_listener.STORE):
 def trove_counts(cache=ftp.CACHE):
     """[articles, never read, articles filed, articles read]."""
     rows = scan_queue.ledger_rows(cache / "filed.jsonl", "article")
-    if media_manifest.on_media(cache):
+    if media_manifest.on_media(cache) and media_manifest.complete(media_manifest.TROVE_TITLES):
         # The articles holding meta.json, off the trove-titles manifest
         # (fetch_trove appends one per meta.json): no listing of the disk.
+        # Listed until `media_manifest.py build trove-titles` completes it.
         names = list(media_manifest.memo(media_manifest.TROVE_TITLES, "article", "title"))
     else:
         names = _trove_listed(cache)
