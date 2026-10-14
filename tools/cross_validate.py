@@ -221,7 +221,12 @@ class Telegraph(Adapter):
         rows = []
         for year in range(ft.FIRST_YEAR, datetime.date.today().year + 1):
             path = self.calendar_file(year)
-            if not path.exists() or (year >= datetime.date.today().year and not self.offline):
+            # Opened, not stat-ed first: about a dozen cached years a run.
+            try:
+                cached = path.read_text(encoding="utf-8")
+            except FileNotFoundError:
+                cached = None
+            if cached is None or (year >= datetime.date.today().year and not self.offline):
                 if self.offline:
                     continue
                 try:
@@ -232,8 +237,9 @@ class Telegraph(Adapter):
                     raise
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_bytes(body)
+                cached = body.decode("utf-8")
                 time.sleep(self.delay)
-            rows += ft.calendar_rows(json.loads(path.read_text(encoding="utf-8")))
+            rows += ft.calendar_rows(json.loads(cached))
         return {series_meta.puzzle_id(s, n): (variant, slug)
                 for s, n, _day, variant, slug in ft.in_order(rows)}
 
@@ -610,18 +616,31 @@ class Globe(Adapter):
         return self.cache / f"{key[1]}.json"
 
     def fetch_one(self, key):
+        """Fetch day `key`'s payload unless it or its .404 is held: asked of
+        the globe-source manifest (each write appends to it), no stat of
+        the media disk per Quick."""
         import fetch_globeandmail as fg
         path = self.raw_file(key)
-        if path.exists() or path.with_suffix(".404").exists():
+        if self._held is None:
+            self._held = set(media_manifest.folder_files("globe-source", self.cache))
+        if path.name in self._held or path.with_suffix(".404").name in self._held:
             return False
         path.parent.mkdir(parents=True, exist_ok=True)
         try:
             data = fg.fetch_raw_json(f"{fg.SET}_{key[1]}")
         except fg.PuzzleNotFound as err:
             path.with_suffix(".404").write_text(str(err))
+            self._saved(path.with_suffix(".404"))
             return True
         path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        self._saved(path)
         return True
+
+    _held = None
+
+    def _saved(self, path):
+        media_manifest.record_file("globe-source", path)
+        self._held.add(path.name)
 
     def puzzle(self, key):
         path = self.raw_file(key)

@@ -255,6 +255,8 @@ FOLDERS = {
     "archiveorg-source": (lambda: downloads.ARCHIVE_ORG_SOURCE, "*.json"),
     # file_gale_listener.run; cross_validate.ListenerReport.ids.
     "listenerreport-source": (lambda: downloads.ROOT / "listenerreport-source", "*.json"),
+    # cross_validate.Globe.fetch_one: each day's payload (<date>.json) or its .404.
+    "globe-source": (lambda: downloads.ROOT / "globe-source", "*"),
 }
 
 
