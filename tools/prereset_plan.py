@@ -24,8 +24,10 @@ puzzle held as its clues alone (tools/clues_only.py), whose solve derives its
 grid in tools/apply_solution.py as the nightly's does. Those rank by the same
 rules as an index row: clues_only_rows() gives them one. Its order
 is head_of_queue()'s: the puzzles a lockout cut off first,
-then the small series' puzzles, nearest to fully hinted first (small_series:
-under SMALL_SERIES known, then filed), then the puzzles /showcase/ would pick
+then the nearly-done and small series' puzzles (small_series: those at least
+NEARLY_DONE hinted whatever their size, then those under SMALL_SERIES known,
+then filed; each tier fewest left to hint first, so a set completes soonest),
+then the puzzles /showcase/ would pick
 once annotated (showcase.wanted), then
 each series' first puzzle (series.is_first_issue), then each series'
 OLDEST_PER_SERIES oldest puzzles, oldest first, then the puzzles with a notable
@@ -869,7 +871,10 @@ def head_self_test():
 _SMALL_DAYS = {
     "2026-10-10": {"times": [10, 10, 10, 10, 0]},
     "2026-10-11": {"genius": [279, 40, 40, 40, 40],        # nothing left to hint
-                   "timesclub": [280, 98, 131, 126, 130],  # known under 500: first
+                   "timesclub": [280, 98, 131, 126, 130],  # nearly done, fewest left
+                   "quiptic": [1403, 1600, 1600, 1600, 1500],  # nearly done though big
+                   "nation": [3529, 429, 257, 190, 167],   # small, fewer left, not near
+                   "dimmy": [300, 50, 50, 50, 10],         # known under 500
                    "tls": [1183, 48, 48, 40, 45],
                    "book": [4181, 2737, 1100, 225, 215],
                    "everyman": [4173, 1207, 1207, 1206, 1065],
@@ -882,7 +887,7 @@ _SMALL_DAYS = {
 
 def small_self_test():
     bad = 0
-    want = ["timesclub", "tls", "metro", "everyman", "book"]
+    want = ["timesclub", "tls", "metro", "quiptic", "everyman", "dimmy", "nation", "book"]
     if small_series(_SMALL_DAYS) != want:
         print(f"FAIL small_series = {small_series(_SMALL_DAYS)} (want {want})", file=sys.stderr)
         bad += 1
@@ -1306,12 +1311,18 @@ def newest_first(queue, rows):
 # when fewer than "filed" of them are on file (Paul 10-12: "Finishing some of
 # the smaller puzzles fully might be more useful than getting all the times").
 SMALL_SERIES = {"known": 500, "filed": 1500}
+# A series this much hinted (hinted / filed) is nearly done, and goes ahead of
+# the small ones whatever its size (Paul 10-13: "Like the quiptic says 90%
+# hinted maybe that's a better set to complete", nation at 65% having taken
+# all day).
+NEARLY_DONE = 0.85
 
 
 def small_series(days=None):
-    """The small series with puzzles left to hint, in the order hinting
-    finishes them: those under SMALL_SERIES["known"] first, then those under
-    SMALL_SERIES["filed"], each by fewest unhinted (filed - hinted) first.
+    """The nearly-done and small series with puzzles left to hint, in the
+    order hinting finishes them: those at least NEARLY_DONE hinted first, then
+    those under SMALL_SERIES["known"], then those under SMALL_SERIES["filed"],
+    each tier by fewest unhinted (filed - hinted) first.
     Counted off the newest day of tools/data/progress.json (days, else read).
     LAST's lanes stay last: their reasons hold whatever a series' size."""
     import progress
@@ -1321,8 +1332,9 @@ def small_series(days=None):
     for name, counts in row.items():
         known, filed, left = counts[progress.KNOWN], counts[progress.FILED], \
             counts[progress.FILED] - counts[progress.HINTED]
-        tier = (0 if known is not None and known < SMALL_SERIES["known"]
-                else 1 if filed < SMALL_SERIES["filed"] else None)
+        tier = (0 if filed and counts[progress.HINTED] >= NEARLY_DONE * filed
+                else 1 if known is not None and known < SMALL_SERIES["known"]
+                else 2 if filed < SMALL_SERIES["filed"] else None)
         if tier is not None and left > 0 and name not in LAST:
             ranked.append((tier, left, name))
     return [name for *_, name in sorted(ranked)]
@@ -1339,7 +1351,8 @@ def small_first(queue, pinned, rows, small):
 
 def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=()):
     """(the queue newest first, the ids that go ahead of it in order): pinned
-    (cut off by a lockout), then the small series' puzzles (small_first), then
+    (cut off by a lockout), then the nearly-done and small series' puzzles
+    (small_first), then
     /showcase/'s wanted, then each series' No 1,
     then each series' oldest few, then the notable-tagged; each set in queue
     order but the oldest, which go oldest first. The whole queue is re-sorted,
@@ -1368,7 +1381,7 @@ def cover_first(pinned):
     small, cut = small_series(), len(pinned)
     queue, pinned, n = head_of_queue(sys.stdin.read().split(), pinned, index_rows() + clues_only_rows(),
                                      showcase_wanted(), tagged_puzzles(), small)
-    print(f"small series: {n[0] - cut} queued puzzles of {', '.join(small) or 'none'} go first",
+    print(f"nearly-done and small series: {n[0] - cut} queued puzzles of {', '.join(small) or 'none'} go first",
           file=sys.stderr)
     print(f"showcase: {n[1] - n[0]} queued puzzles /showcase/ wants go first",
           file=sys.stderr)
