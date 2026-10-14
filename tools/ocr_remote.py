@@ -168,11 +168,59 @@ def kept(name, key_of, compute):
 
 
 def hash_of(files):
-    """The hash of `files` ({repo path: file}): the desktop directory they live in."""
+    """The hash of `files` ({repo path: file, or its bytes}): the desktop
+    directory they live in."""
     h = hashlib.sha1()
-    for name, path in sorted(files.items()):
-        h.update(name.encode() + b"\0" + path.read_bytes())
+    for name, data in sorted(files.items()):
+        h.update(name.encode() + b"\0" + (data if isinstance(data, bytes) else data.read_bytes()))
     return h.hexdigest()[:12]
+
+
+def tree_files(tree):
+    """{repo path: bytes} of what shipped() would give for git tree `tree`
+    of tools/ (a checkout since moved on): its blobs, read from git."""
+    root = TOOLS.parent
+    listing = subprocess.run(["git", "-C", str(root), "ls-tree", "-r", "-z", tree], capture_output=True,
+                             check=True).stdout.decode().split("\0")
+    blobs = {}
+    for row in filter(None, listing):
+        meta, name = row.split("\t", 1)
+        mode, kind, sha = meta.split()
+        name = f"tools/{name}"
+        if kind == "blob" and mode != "120000" and not name.startswith(UNSHIPPED) and name != MANIFEST:
+            blobs[name] = sha
+    out = subprocess.run(["git", "-C", str(root), "cat-file", "--batch"], capture_output=True, check=True,
+                         input="".join(f"{sha}\n" for sha in blobs.values()).encode()).stdout
+    files, at = {}, 0
+    for name in blobs:
+        head_end = out.index(b"\n", at)
+        size = int(out[at:head_end].split()[2])
+        files[name] = out[head_end + 1:head_end + 1 + size]
+        at = head_end + 1 + size + 1
+    return files
+
+
+def code_files():
+    """{repo path: file or bytes} of the code this process runs (code_dir()):
+    the checkout's files, or when the checkout has moved on since the
+    process took its hash, that hash's git tree (found in KEPT). Shipping
+    the checkout's newer files instead made a v-<new> the session never
+    opens, so each reconnect shipped again and failed on v-<old> (2026-10-14)."""
+    want = code_dir().rpartition("v-")[2]
+    files = shipped()
+    if hash_of(files) == want:
+        return files
+    for path in KEPT.glob("code-*.json"):
+        try:
+            if json.loads(path.read_text()) != want:
+                continue
+            old = tree_files(path.stem.removeprefix("code-"))
+        except (OSError, ValueError, subprocess.CalledProcessError):
+            continue
+        if hash_of(old) == want:
+            return old
+    raise Unavailable(f"this process's code v-{want} is no longer in the checkout (now v-{hash_of(files)}) "
+                      "nor in git: restart it")
 
 
 def code_hash():
@@ -750,18 +798,23 @@ class Session:
 
 
 def ship(host):
-    """Copy shipped() to the desktop, over ssh as a tar stream, into a fresh
+    """Copy code_files() to the desktop, over ssh as a tar stream, into a fresh
     directory renamed to v-<its hash> once whole: a session reads only a
     complete copy, and none is ever written over (Windows refuses opening a
     file another process is replacing). A name already there is kept and
     the new copy dropped."""
     import io
     import tarfile
-    files = shipped()
+    files = code_files()
     buf = io.BytesIO()
     with tarfile.open(fileobj=buf, mode="w") as tar:
-        for name, path in files.items():
-            tar.add(path, arcname=name)
+        for name, data in files.items():
+            if isinstance(data, bytes):
+                info = tarfile.TarInfo(name)
+                info.size, info.mtime = len(data), int(time.time())
+                tar.addfile(info, io.BytesIO(data))
+            else:
+                tar.add(data, arcname=name)
         listing = "\n".join(files).encode()
         info = tarfile.TarInfo(MANIFEST)
         info.size = len(listing)
@@ -982,10 +1035,19 @@ def alert_once(key, text):
     return True
 
 
+#: Seconds an episode stands after its alert whatever succeeds meanwhile: one
+#: process falling back to the tailnet must not end it for the next that
+#: fails (two "no desktop host works" alerts minutes apart, 2026-10-14).
+ALERT_QUIET = 3600
+
+
 def alert_over(key):
-    """End `key`'s episode: its next failure alerts again."""
+    """End `key`'s episode, host-wide, once its alert is ALERT_QUIET old:
+    its next failure alerts again."""
     try:
-        (ALERT_STAMPS / key).unlink()
+        stamp = ALERT_STAMPS / key
+        if time.time() - stamp.stat().st_mtime >= ALERT_QUIET:
+            stamp.unlink()
     except FileNotFoundError:
         pass
 

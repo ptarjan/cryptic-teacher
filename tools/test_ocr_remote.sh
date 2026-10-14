@@ -377,6 +377,56 @@ def woken():
     p = Path(os.environ["WOKEN"])
     return p.read_text().splitlines() if p.exists() else []
 
+# The checkout moved on under a running process (a job's worktree reset to
+# a newer master): ship() sends the code the process runs (code_dir()), from
+# its git tree, not the checkout's newer files: those made a v-<new> the
+# session never opened, so every reconnect shipped again and failed.
+import io, subprocess, tarfile
+import tempfile
+repo = Path(tempfile.mkdtemp()) / "moved"
+(repo / "tools").mkdir(parents=True)
+git = lambda *a: subprocess.run(["git", "-C", str(repo), *a], check=True, capture_output=True, text=True).stdout
+git("init", "-q")
+(repo / "tools" / "a.py").write_text("v1\n")
+(repo / "tools" / "b.py").write_text("same\n")
+git("add", "tools")
+git("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qm", "one")
+tree1 = git("rev-parse", "HEAD:tools").strip()
+kept_tools, kept_kept, kept_run = ocr_remote.TOOLS, ocr_remote.KEPT, ocr_remote.subprocess.run
+ocr_remote.TOOLS, ocr_remote.KEPT = repo / "tools", repo / "kept"
+h1 = ocr_remote.code_hash()
+(repo / "tools" / "a.py").write_text("v2\n")
+git("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qam", "two")
+h2 = ocr_remote.code_hash()
+ocr_remote._VERSIONS["local"] = {"code": h1}
+old_files = ocr_remote.code_files()
+check("a moved checkout: the process's own code, from its git tree", (h1, b"v1\n", b"same\n"),
+      (ocr_remote.hash_of(old_files), old_files["tools/a.py"], old_files["tools/b.py"]))
+sent = []
+def run(args, **kw):
+    if args[0] != "ssh":
+        return kept_run(args, **kw)
+    sent.append((args[-1], kw["input"]))
+    return subprocess.CompletedProcess(args, 0, b"", b"")
+ocr_remote.subprocess.run = run
+kept_prune, ocr_remote.prune = ocr_remote.prune, lambda host, keep, days=1: None
+ocr_remote.ship("micro@100.68.145.15")
+with tarfile.open(fileobj=io.BytesIO(sent[0][1])) as tar:
+    shipped_a = tar.extractfile("tools/a.py").read()
+check("ship() makes the v- directory the session opens, with that code in it", (True, b"v1\n"),
+      (rf"\v-{h1}" in sent[0][0], shipped_a))
+ocr_remote.subprocess.run = kept_run
+ocr_remote._VERSIONS["local"] = {"code": h2}
+check("mirror: an unmoved checkout ships its own files", h2, ocr_remote.hash_of(ocr_remote.code_files()))
+ocr_remote._VERSIONS["local"] = {"code": "0123456789ab"}
+try:
+    ocr_remote.code_files()
+    gone = None
+except ocr_remote.Unavailable as e:
+    gone = "restart it" in str(e)
+check("code in neither the checkout nor git: Unavailable, nothing shipped", True, gone)
+ocr_remote.TOOLS, ocr_remote.KEPT, ocr_remote.prune = kept_tools, kept_kept, kept_prune
+
 class S:
     def __init__(self, host): self.host = host
     def close(self): pass
@@ -411,7 +461,17 @@ up.add("micro@100.68.145.15")
 ocr_remote.connect()
 up.clear()
 ocr_remote.connect()
-check("a new outage after a session alerts again", 2, sum("no desktop host works" in l for l in woken()))
+check("a session minutes after the alert does not end the episode: the next failure sends none", 1,
+      sum("no desktop host works" in l for l in woken()))
+import time
+aged = time.time() - ocr_remote.ALERT_QUIET - 1
+os.utime(ocr_remote.ALERT_STAMPS / "down", (aged, aged))
+up.add("micro@100.68.145.15")
+ocr_remote.connect()
+up.clear()
+ocr_remote.connect()
+check("a session once the alert is ALERT_QUIET old ends it: a new outage alerts again", 2,
+      sum("no desktop host works" in l for l in woken()))
 ocr_remote.alert_over("down")
 busy[0] = "playing Wow"
 ocr_remote.connect()
