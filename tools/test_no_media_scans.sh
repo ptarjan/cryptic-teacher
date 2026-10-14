@@ -48,7 +48,9 @@ SCHEDULED = {
     # gale_fetch.py run() asks this every pass of its loop.
     "gale_fetch.py": ["have_docs"],
     # edition_queue plan (every corpus slice) dates each due Trove article.
-    "file_trove_puzzles.py": ["article_date", "stamp_cause", "zones_held"],
+    "file_trove_puzzles.py": ["article_date", "stamp_cause", "zones_held", "plan", "article_dirs"],
+    # edition_queue's trove fetch slice plans off the caches.
+    "fetch_trove.py": ["plan", "pending_zones", "fetched_ids", "zoned_ids", "_in"],
     # coverage.py daily (daily_update.sh): the FT PDFs fetched.
     "coverage.py": ["ft_pdf_rows", "trove_articles", "trove_dates"],
     "privateeye_wayback.py": ["lost", "summary", "summary_path", "summary_version"],

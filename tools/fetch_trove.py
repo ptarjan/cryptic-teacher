@@ -350,9 +350,38 @@ def pending_zones(out, zones):
     (its last row an article standing: the ledger is appended to)."""
     import scan_queue
     rows = scan_queue.ledger_rows(Path(out) / "filed.jsonl", "article").values()
+    fetched, zoned = fetched_ids(out), zoned_ids(zones)
     return sorted(r["article"] for r in rows
-                  if r.get("pending") and not zone_images(zones, r["article"])
-                  and os.path.exists(os.path.join(out, r["article"], "meta.json")))
+                  if r.get("pending") and not _in(zoned, r["article"], lambda a: zone_images(zones, a))
+                  and _in(fetched, r["article"], lambda a: _fetched_listed(out, a)))
+
+
+def _in(held, aid, listed):
+    """Whether `aid` is in `held` (a manifest's ids), or listed(aid) when there is none (None)."""
+    return str(aid) in held if held is not None else bool(listed(aid))
+
+
+def _fetched_listed(out, aid):
+    """Whether article `aid` is cached, off the disk (no complete trove-titles)."""
+    return os.path.exists(os.path.join(out, str(aid), "meta.json"))
+
+
+def fetched_ids(out):
+    """The ids of the articles cached in `out` (meta.json written), off the
+    trove-titles manifest once complete; None when it is not (ask the disk)."""
+    import media_manifest
+    if media_manifest.on_media(out) and media_manifest.complete(media_manifest.TROVE_TITLES):
+        return {a for a in media_manifest.memo(media_manifest.TROVE_TITLES, "article", "title") if a}
+    return None
+
+
+def zoned_ids(zones):
+    """The ids of the articles with clue zones cached in `zones`, off the
+    trove-zones manifest once complete; None when it is not (ask the disk)."""
+    import media_manifest
+    if media_manifest.on_media(zones) and media_manifest.complete(media_manifest.TROVE_ZONES):
+        return {a for a, r in media_manifest.memo(media_manifest.TROVE_ZONES, "article", "readings").items() if r}
+    return None
 
 
 def each_article(tv, ids, one, what, stop_at=float("inf")):
@@ -398,14 +427,15 @@ def plan(out=str(downloads.TROVE), zones=ZONES_DIR):
     """The fetch units due (tools/edition_queue.py), most urgent first, off
     the caches alone: the clue zones of each article the filer left pending
     ({"zones": id}; it files once they land), then each indexed article not
-    yet cached ({"article": id}), the latest index year's last."""
+    yet cached ({"article": id}), the latest index year's last. Off the
+    trove-dates, trove-titles and trove-zones manifests once each is
+    complete (media_manifest.py build), so the queue lists no Trove dir."""
     units = [{"zones": aid, "rel": f"zones/{aid}", "reason": "clue zones pending"} for aid in pending_zones(out, zones)]
-    ids = []
-    for p in sorted(glob.glob(os.path.join(out, "index", "*.jsonl"))):
-        with open(p) as f:
-            ids += [str(json.loads(line)["id"]) for line in f if line.strip()]
+    import media_manifest
+    ids = [aid for aid, _date in media_manifest.trove_hits(out)]
+    fetched = fetched_ids(out)
     units += [{"article": aid, "rel": f"article/{aid}", "reason": "not fetched"} for aid in dict.fromkeys(ids)
-              if not os.path.exists(os.path.join(out, aid, "meta.json"))]
+              if not _in(fetched, aid, lambda a: _fetched_listed(out, a))]
     return units
 
 

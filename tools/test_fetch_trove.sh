@@ -6,7 +6,7 @@
 #     bash tools/test_fetch_trove.sh
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
-python3 - "$REPO/tools" <<'PY'
+python3 - "$REPO/tools" <<'PY' || exit 1
 import sys, socket, urllib.error
 sys.path.insert(0, sys.argv[1])
 import fetch_trove as ft
@@ -104,3 +104,24 @@ rc, log = trove("fetch")
 check("fetch: nothing new costs no request", rc == 0 and "0 article(s) to fetch" in log and "0 requests" in log)
 sys.exit(1 if fails else 0)
 PY
+
+# The fetch plan and the filer's article list list the Trove dirs only until
+# the trove-dates / trove-titles / trove-zones manifests are complete; then
+# they ask the manifests alone.
+t=$(mktemp -d)
+trap 'rm -rf "$t"' EXIT
+mkdir -p "$t/trove/index" "$t/trove/7" "$t/.manifest"
+printf '%s\n' '{"id": "7"}' '{"id": "8"}' > "$t/trove/index/1980.jsonl"
+echo '{}' > "$t/trove/7/meta.json"
+printf '%s\n' '{"article": "7", "pending": "x"}' '{"article": "8", "pending": "x"}' > "$t/trove/filed.jsonl"
+printf '%s\n' '{"article": "8"}' '{"article": "9"}' '{"article": "10"}' > "$t/.manifest/trove-dates.jsonl"
+printf '%s\n' '{"article": "7", "title": "a"}' '{"article": "9", "title": "b"}' > "$t/.manifest/trove-titles.jsonl"
+echo '{"article": "7", "readings": true}' > "$t/.manifest/trove-zones.jsonl"
+q='import fetch_trove as ft, file_trove_puzzles as t, downloads
+print([u["rel"] for u in ft.plan()], [d.name for d in t.article_dirs(downloads.TROVE)])'
+before=$(cd "$REPO/tools" && CT_DOWNLOADS="$t" python3 -c "$q")
+for m in trove-dates trove-titles trove-zones; do echo '{}' > "$t/.manifest/$m.complete"; done
+after=$(cd "$REPO/tools" && CT_DOWNLOADS="$t" python3 -c "$q")
+[ "$before" = "['zones/7', 'article/8'] ['7']" ] || { echo "FAIL Trove plans listed: $before"; exit 1; }
+[ "$after" = "['article/8', 'article/10'] ['7', '9']" ] || { echo "FAIL Trove plans off the manifests: $after"; exit 1; }
+echo "ok   Trove plans off the manifests once complete"
