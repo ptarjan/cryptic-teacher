@@ -68,6 +68,40 @@ TROVE_DATES = "trove-dates"
 #: {"article": id, "readings": bool, "at"}. fetch_trove.fetch_zones appends
 #: one as it writes an article's zone PNGs (downloads.TROVE_CLUES/<id>/).
 TROVE_ZONES = "trove-zones"
+#: A Trove article's inputs as file_trove_puzzles.input_hash keys them:
+#: {"article": id, "files": trove_files(its dir), "at"}, which tools/fetch_trove.py
+#: appends as it writes the article, and {"article": id, "zones":
+#: trove_zone_names(its zone dir), "at"}, as it writes the zone PNGs.
+#: input_hash appends both for an article it had to read off the disk. A
+#: memo: a missing field means "take it off the disk once".
+TROVE_INPUTS = "trove-inputs"
+#: The files of a Trove article dir (downloads.TROVE/<id>/) a read takes in.
+TROVE_FILES = ("meta.json", "ocr.txt", "grid.jpg")
+
+
+def trove_files(d):
+    """Trove article dir `d`'s TROVE_FILES by size and modification time in
+    whole seconds (a copy to another disk keeps those, not the nanoseconds),
+    as one string; a missing file is "<name>:-"."""
+    out = []
+    for name in TROVE_FILES:
+        try:
+            st = os.stat(os.path.join(d, name))
+        except (FileNotFoundError, NotADirectoryError):
+            st = None
+        out.append(f"{name}:{st.st_size}:{int(st.st_mtime)}" if st else f"{name}:-")
+    return "".join(out)
+
+
+def trove_zone_names(zdir):
+    """The clue zone images in Trove zone dir `zdir` (downloads.TROVE_CLUES/<id>/)
+    by name, in print order, space-joined; "" when it is no dir."""
+    try:
+        names = os.listdir(zdir)
+    except (FileNotFoundError, NotADirectoryError):
+        names = []
+    return " ".join(sorted((n for n in names if n.startswith("zone") and n.endswith(".png")),
+                           key=lambda n: int(n[4:-4])))
 
 
 def record_edition(d):

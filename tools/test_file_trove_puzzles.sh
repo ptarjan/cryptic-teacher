@@ -589,35 +589,36 @@ t = F.run(d / 'cache', ledger=d / 'filed.jsonl', out=io.StringIO(), puzzles=d / 
 print(t.get('not read'), len((d / 'filed.jsonl').read_text().splitlines()))")
 check "an --article run counts the never-read articles beside it" "2 1" "$got"
 
-# input_hash stats an unmoved article dir's files once; a file replaced by
-# rename (fetch_trove.atomic) or a new zone image moves the hash (mirror).
-got=$(cd "$REPO/tools" && python3 -c "
-import file_trove_puzzles as F, os, time, pathlib, tempfile
-c = pathlib.Path(tempfile.mkdtemp()) / 'cache'
-d = c / '42'
-d.mkdir(parents=True)
-(c.parent / 'cache-clues' / '42').mkdir(parents=True)
-(d / 'ocr.txt').write_text('a')
-def settle():
-    for p in (d, c.parent / 'cache-clues' / '42'):
-        os.utime(p, (time.time() - 600, time.time() - 600))
-settle()
-first = F.input_hash(d)
-stats = []
-real = F.os.stat
-F.os.stat = lambda p, *a, **k: (stats.append(pathlib.Path(p).name), real(p, *a, **k))[1]
-again = F.input_hash(d)
-F.os.stat = real
-(d / 'tmp').write_text('bb')
-os.utime(d / 'tmp', (1, 1))
-os.replace(d / 'tmp', d / 'ocr.txt')
-settle()
-renamed = F.input_hash(d)
-(c.parent / 'cache-clues' / '42' / 'zone1.png').write_bytes(b'')
-settle()
-zoned = F.input_hash(d)
-print(first == again, [n for n in stats if n != '42'], renamed != first, zoned != renamed)")
-check "input_hash: an unmoved article is not statted again; a renamed-in file or new zone moves it" "True [] True True" "$got"
+# input_hash on the media disk takes an article's inputs off the disk once
+# into the trove-inputs manifest; the next process stats nothing, and
+# fetch_trove's writes (an article's files, its zones) move the hash (mirror).
+mkdir -p "$tmp/in/trove/42"
+echo a > "$tmp/in/trove/42/ocr.txt"
+hash_of() { local what=${1:-}; (cd "$REPO/tools" && CT_DOWNLOADS="$tmp/in" python3 -c "
+import file_trove_puzzles as F, fetch_trove as ft, media_manifest as mm, downloads, os
+from PIL import Image
+d = downloads.TROVE / '42'
+touched = []
+for name in ('stat', 'lstat', 'listdir', 'scandir'):
+    real = getattr(os, name)
+    setattr(os, name, (lambda real: lambda p='.', *a, **k: (touched.append(str(p)), real(p, *a, **k))[1])(real))
+h = F.input_hash(d)
+media = [p for p in touched if p.startswith(str(downloads.ROOT)) and '.manifest' not in p]
+print(h, 'statted' if media else 'unstatted', end=' ')
+if '$what' == 'files':
+    (d / 'ocr.txt').write_text('bb')
+    mm.record(mm.TROVE_INPUTS, d, article='42', files=mm.trove_files(d))
+if '$what' == 'zones':
+    (d / 'meta.json').write_text('{\"zones\": [{\"page\": 1}]}')
+    ft.fetch_zones(type('T', (), {'crop': lambda self, page, z, pad: (Image.new('L', (2, 2)), 6)})(),
+                   str(downloads.TROVE), str(downloads.TROVE_CLUES), '42')
+print(F.input_hash(d))"); }
+read -r first how1 after1 <<<"$(hash_of)"
+read -r again how2 filed <<<"$(hash_of files)"
+read -r _ how3 zoned <<<"$(hash_of zones)"
+check "input_hash: off the disk once, then the manifest; fetch_trove's file and zone writes move it" \
+  "statted unstatted unstatted same moved moved" \
+  "$how1 $how2 $how3 $([ "$first" = "$again" ] && echo same) $([ "$filed" != "$first" ] && echo moved) $([ "$zoned" != "$filed" ] && echo moved)"
 
 # article_date reads the trove-titles manifest on the SSD: a title read off
 # the disk once is appended, so the next process (a killed plan's rerun)

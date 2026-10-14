@@ -284,6 +284,7 @@ class Trove:
         with atomic(os.path.join(d, "meta.json")) as f:
             json.dump(meta, f, indent=1)
         import media_manifest
+        media_manifest.record(media_manifest.TROVE_INPUTS, d, article=str(aid), files=media_manifest.trove_files(d))
         media_manifest.record(media_manifest.TROVE_TITLES, d, article=str(aid), title=meta["title"])
         return meta
 
@@ -342,6 +343,7 @@ def fetch_zones(tv, out, zones, aid):
             with atomic(p, "wb") as f:
                 img.save(f, format="PNG")
     import media_manifest
+    media_manifest.record(media_manifest.TROVE_INPUTS, d, article=str(aid), zones=media_manifest.trove_zone_names(d))
     media_manifest.record(media_manifest.TROVE_ZONES, d, article=str(aid), readings=bool(zone_images(zones, aid)))
 
 
