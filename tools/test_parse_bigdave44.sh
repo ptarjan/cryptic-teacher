@@ -288,4 +288,19 @@ lines = [l.replace("{", "").replace("}", " -") for l in lines]
 es, _ = T.read_entries(lines)
 print(" | ".join("%d%s %s" % (e["number"], e["direction"][0], e["answer"]) for e in es))' 2>&1 | tail -1)"
 
+check "a light the full review skips is clued from the hints post for the same puzzle (sundaytough-2)" \
+  "1a:R 2d:H 23d:H [10] | 1a:R 2d:R [] | R" "$(PYTHONPATH="$REPO/tools" python3 -c '
+import parse_bigdave44 as pb
+E = lambda n, d, a, c: {"number": n, "direction": d, "answer": a, "clue": c, "enumeration": str(len(a))}
+P = lambda pid, es: {"post_id": pid, "date": "2022-02-%d" % pid, "series": "sundaytough", "number": 2, "entries": es}
+review = P(16, [E(1, "across", "TRIVIALPURSUIT", "R"), E(2, "down", "RAVE", "")])
+hints = P(10, [E(23, "down", "CHAR", "H"), E(2, "down", "RAVE", "H"), E(1, "across", "TRIVIALPURSUIT", "X")])
+hints["post_id"] = 10
+alone = P(17, [E(1, "across", "TRIVIALPURSUIT", "R"), E(2, "down", "RAVE", "R")])
+out = []
+for g in ([review, hints], [alone]):
+    es, used = pb.filled_in(g[0], g)
+    out.append(" ".join("%d%s:%s" % (e["number"], e["direction"][0], e["clue"]) for e in es) + " %s" % used)
+print(" | ".join(out + [review["entries"][0]["clue"] + review["entries"][1]["clue"]]))' 2>&1 | tail -1)"
+
 [ $fails -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
