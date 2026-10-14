@@ -124,21 +124,6 @@ check("a scan there gives a scan here's headings and cached readings", here,
 check("and finds a title and caches its readings (both are in the comparison)", (True, True),
       (len(here[0]["puzzles"]) > 0, len(here[1]) > 0))
 
-# A saved Gale page is matched there from its bytes (match_anywhere): the
-# same match and the same pixels as match() here.
-import datetime
-import gale_inbox
-saved = tmp / "Times 1976-07-02 crossword.png"
-leaf.save(saved)
-fa.CROPS = tmp / "crops-gale"
-by_number = {14100: datetime.date(1976, 7, 1)}
-here, there = gale_inbox.match(saved, by_number), gale_inbox.match_anywhere(saved, by_number)
-fa.CROPS = tmp / "crops-gale"
-check("a Gale page matched there is its match here",
-      {k: v for k, v in here.items() if k != "pages"}, {k: v for k, v in there.items() if k != "pages"})
-check("and its pages are the same pixels", [(p.size, p.tobytes()) for p in here["pages"]],
-      [(p.size, p.tobytes()) for p in there["pages"]])
-
 # Off the desktop an OCR process runs OCR_THREADS threads, or one: cv2's
 # pool ignores OMP_NUM_THREADS, so it is capped beside onnxruntime's, and
 # cv2 is imported only through that cap.

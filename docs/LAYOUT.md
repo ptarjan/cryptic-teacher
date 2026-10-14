@@ -2113,13 +2113,10 @@ tools/gale_inbox.py                            every 1930-2019 Times edition wit
                                                editions file_archive_org_puzzles.py reads (the
                                                Telegraph and FT in those papers' runs, --paper
                                                galeindependent, galesundaytimes and galetls),
-                                               publishes the Times progress page, and for pages
-                                               saved by hand sweeps each Gale download out of
-                                               the hosts' download folders into its paper's
-                                               inbox on the data disk, mirrors the Times one
-                                               over the ssh hatch, matches and stages it, and
-                                               starts the full pass when a page is laid out
-                                               while none runs (kick)
+                                               publishes the Times progress page (nothing to
+                                               click), ticks the Listener's inbox
+                                               (gale_listener.py), and starts the full pass
+                                               when a page is laid out while none runs (kick)
 tools/gale_inbox.sh                            the scheduled entry point for gale_inbox.py
                                                sync, every minute, from a worktree
 tools/gale_listener.py                         the Listener crosswords of 1930-91, read from
@@ -2239,16 +2236,11 @@ tools/test_listener_grid.sh                    does listener_grid read a drawn, 
                                                its 2-cell runs fit with them barred shut, and a
                                                number read in two cells the run could each hold
                                                kept in neither?
-tools/test_gale_inbox.sh                       is a page saved into the Gale inbox matched to
-                                               its date by its name or puzzle number, staged as
-                                               that date's Times edition with its Gale link,
-                                               due again when a page is added or replaced for
-                                               that date and no other; is a page gale_fetch.py
-                                               downloaded laid out without a match and left
-                                               alone by stage, another paper's under its own
-                                               item; is a Gale download recognised by its name
-                                               or citation and routed to its paper's inbox,
-                                               everything else left alone; does the Times
+tools/test_gale_inbox.sh                       is a page gale_fetch.py downloaded laid out as
+                                               its date's edition, another paper's under its
+                                               own item, read first by the full pass
+                                               (fresh_unread, kick); does next_up keep its
+                                               order and wanted() stop at 2014; does the Times
                                                progress page count what is wanted, fetched,
                                                read and not on Gale, with nothing to click?
 tools/test_canberra_reprint_vote.sh            does a Canberra Times reprint vote on the
@@ -2359,8 +2351,6 @@ tools/test_reprints.js                         a paper that reprints another's p
                                                book, Globe and Mail or Canberra Times puzzle
                                                renamed to the puzzle it reprints stays listed
                                                and counted in its series at its own number
-tools/gale_arrived.py                          mark a Gale download arrived on the checklists
-                                               within seconds of it landing
 tools/deleted_paths.py                         the commit that last deleted a path, read from a
                                                cache
 tools/test_deleted_paths.sh                    does deleted_paths.last_deletion() give what

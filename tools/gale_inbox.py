@@ -1,49 +1,29 @@
 #!/usr/bin/env python3
 """Every London Times edition of 1930-2014 (YEARS, the run Gale's Times
-Digital Archive holds) with no puzzle filed, read from the crossword pages
-Paul downloads BY HAND from Gale (through the Alberta Research Portal),
-whether or not archive.org holds a scan of it. next_up orders them (ORDER):
-Times No 1, then the 1974-99 editions archive.org has no scan of (the list
-before it was widened, which Paul was part way through), then 2014, then
-2000-13, then the rest of 1930-99, each newest first.
+Digital Archive holds) with no puzzle filed (wanted), in next_up's order
+(ORDER): Times No 1, then the 1974-99 editions archive.org has no scan of,
+then 2014, then 2000-13, then the rest of 1930-99, each newest first; and
+the other papers' Gale archives' unfiled dates (OTHERS, other_wanted).
 
-tools/gale_fetch.py downloads the Times rows itself (Paul 2026-10-11) and
-lays each out as its date's edition (lay_out_fetched): it knows the date,
-so its files are never swept, matched or set aside here. This module keeps
-the wanted list, renders the Times progress page (checklist), and lays out
-each page saved BY HAND into the inbox (stage) as one more Times edition
-for tools/file_archive_org_puzzles.py, which reads it like any scan: our
-readers' and the VLM's readings voted on, the Canberra reprint's beside them.
+tools/gale_fetch.py downloads them itself (Paul 2026-10-11) and lays each
+out as its date's edition (lay_out_fetched), CACHE/Gale<Paper><year>UKEnglish/
+<date>, its leaves scaled to an archive.org scan's grid size (scaled), for
+tools/file_archive_org_puzzles.py, which reads it like any scan. An edition
+laid out in the last FRESH seconds is read within minutes by the full pass
+(tools/ocr_full_pass.sh), whose queue starts it ahead of everything planned
+(edition_queue.fresh); when no pass runs, sync starts one for it (kick).
+This module also renders the Times progress page (checklist: nothing to
+click) and the page shell, row script and Mac publishing the Listener's
+checklist shares (page, script, publish; tools/gale_listener.py).
 
-    python3 tools/gale_inbox.py sync [--render]   # sweep hand downloads in, mirror, stage, publish the progress page
-    python3 tools/gale_inbox.py stage --inbox DIR # stage a local folder of pages (no Mac)
+    python3 tools/gale_inbox.py sync [--render]   # publish the progress page, tick the Listener, kick the pass
     python3 tools/gale_inbox.py checklist [--out FILE]
-    python3 tools/gale_inbox.py match FILE...     # which edition each file is, and how that was read
     python3 tools/gale_inbox.py shrink            # lay out smaller every staged leaf over MAX_PAGE_PIXELS
 
-For a hand download, every minute (the cryptic-gale-inbox
-plugin) sync sweeps each Gale file out of the Windows desktop's and the Mac's
-Downloads, and any page saved straight into GALE_ROOT, into its paper's inbox
-(INBOXES), recognised by Gale's document id in its name or Gale's citation in
-its text and routed by the archive that citation names; nothing else there is
-touched. The Times inbox is HOST_INBOX on the Mac, reached over the
-container's ssh hatch; its mirror is MIRROR. A file is matched to its edition by the date in its
-name, else the puzzle number in its name, else the date a Gale PDF's
-citation prints, else the number our readers read in its title ("The Times
-Crossword Puzzle No 17,563"); a number gives the date its filed neighbours
-put it on. Every page of one date is one edition directory,
-CACHE/GaleTimes<year>UKEnglish/<date>, its leaves scaled to an archive.org
-scan's grid size; its sources-<key>.json is named for what the inbox holds
-for that date, so a file added or replaced changes the edition's files
-(input_hash, the first part of file_archive_org_puzzles.inputs_of) and makes
-that edition, and no other, due. An edition laid out in the last FRESH
-seconds is read within minutes by the full pass (tools/ocr_full_pass.sh),
-whose queue starts it ahead of everything planned (edition_queue.fresh) and
-files it under the Gale pages' own ledger (file_archive_org_puzzles.GALE);
-when no pass runs, sync starts one for it (kick).
+Every minute (the cryptic-gale-inbox plugin) a sync re-renders the progress
+page when tools/gale_fetch.py logged a download, or RENDER_EVERY.
 """
 import argparse
-import bisect
 import collections
 import contextlib
 import copy
@@ -63,10 +43,8 @@ import time
 import urllib.parse
 from pathlib import Path
 import archive_coverage
-import code_reach
 import dir_cache
 import file_archive_org_puzzles as fa
-import gale_arrived
 import gale_docs
 import gale_fetch
 import pypdf
@@ -75,52 +53,28 @@ import trove_grid
 TOOLS = Path(__file__).resolve().parent
 
 HOST = os.environ.get("GALE_INBOX_HOST", "pt@host.docker.internal")
-#: The Mac folder every Gale page lands in, on the Media disk: the SMB share
-#: "Media", Z: on the Windows desktop (SHARE). A page saved straight into it,
-#: or a Gale file found in either machine's Downloads, is moved into its
-#: paper's folder (INBOXES); each paper's checklist is written into it.
+#: The Mac folder the Gale pages and the checklists live in, on the Media
+#: disk: the SMB share "Media", Z: on the Windows desktop (SHARE).
 GALE_ROOT = "/Volumes/Media/Gale crosswords"
 SHARE = r"Z:\Gale crosswords"
-INBOXES = {"times": f"{GALE_ROOT}/Times", "listener": f"{GALE_ROOT}/Listener"}
-HOST_INBOX = INBOXES["times"]
-LISTENER_INBOX = INBOXES["listener"]
+
+
+LISTENER_INBOX = f"{GALE_ROOT}/Listener"
 CHECKLIST_NAME = "Checklist.html"
-#: Where the desktop's Chrome saves downloads (Z:\Downloads\chrome): swept
-#: like Downloads, at any age.
-CHROME = "/Volumes/Media/Downloads/chrome"
-#: The Windows desktop Paul browses Gale on; its Downloads is swept too.
-DESKTOP = os.environ.get("GALE_DESKTOP", "micro@100.68.145.15")
-#: A Downloads file older than this is not looked at: Gale files are swept
-#: within minutes of landing, and older ones are Paul's own.
-RECENT_DAYS = 2
-#: A file this new may still be being written.
-SETTLE_SECONDS = 15
+
+
 SSH = ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=15", "-o", "HostKeyAlias=localhost",
        "-i", os.path.expanduser("~/.ssh/host_hatch")]
-MIRROR = Path(os.path.expanduser("~/.cache/gale_inbox/files"))
-CHECKLIST = Path(os.path.expanduser("~/.cache/gale_inbox")) / CHECKLIST_NAME
-UNMATCHED = MIRROR.parent / "unmatched.json"
-#: Each inbox file's match, by name, size and mtime: a tick re-reads only what moved.
-MATCHES = MIRROR.parent / "matches.json"
-#: The code match() reaches: a change to it re-reads every file.
-MATCHER = code_reach.key("gale_inbox", {"match"})[:12]
-#: The most seconds a stage spends matching files afresh: a code change
-#: re-reads every file (minutes each batch), and the minute tick must stay
-#: short. Files never matched go first, the oldest download first, so a
-#: fresh download is never queued behind re-reads; a file not re-read yet
-#: keeps its last match (same name, size and mtime, under the code before).
-#: A tick stages while the inbox holds a file never matched (unread). The
-#: budget starts once the desktop's session is up (desktop_ready): its
-#: connect can wait minutes behind other processes' handshakes and code
-#: ships, which would otherwise spend the whole budget on no match.
-MATCH_SECONDS = 60
-#: The Downloads files already looked at and found not to be Gale's.
-SEEN = MIRROR.parent / "seen.json"
+#: This module's and tools/gale_fetch.py's state.
+HOME = Path(os.path.expanduser("~/.cache/gale_inbox"))
+CHECKLIST = HOME / CHECKLIST_NAME
+
+
 #: The edition dirs' listings and staged matches between ticks (dir_cache.save).
-DIR_CACHE = MIRROR.parent / "dir_cache.pickle"
-LOCK = MIRROR.parent / "sync.lock"
-#: A tick re-renders the checklist when the inbox moved, else this often,
-#: so a puzzle the full pass filed leaves it.
+DIR_CACHE = HOME / "dir_cache.pickle"
+LOCK = HOME / "sync.lock"
+#: A tick re-renders the progress page when tools/gale_fetch.py logged a
+#: download, else this often, so a puzzle the full pass filed leaves it.
 RENDER_EVERY = 3600
 #: An edition laid out this recently and unread is one the full pass's queue
 #: reads first (edition_queue.fresh); a tick that finds one while no pass
@@ -132,7 +86,7 @@ CACHE = fa.CACHE
 ITEM = "GaleTimes{}UKEnglish"
 #: An edition dir's name under ITEM.
 ISO_DAY = re.compile(r"\d{4}-\d\d-\d\d")
-PAGES = gale_arrived.PAGES
+PAGES = (".pdf", ".jpg", ".jpeg", ".png", ".tif", ".tiff", ".gif", ".webp")
 #: The years Gale's Times Digital Archive holds that the checklist asks for; it ends with 2014.
 YEARS = range(1930, 2015)
 #: The classes of a 1974-99 edition the checklist asked for before it took
@@ -154,7 +108,7 @@ DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=TTDA&userGr
 #: Gale's advanced search as a GET (its own form's fields): document title
 #: containing the word, published On the date (dateMode 2, era 1 = AD).
 SEARCH = "https://go.gale.com/ps/advancedSearch.do"
-DOC_ID, BARE_DOC = gale_arrived.DOC_ID, gale_arrived.BARE_DOC
+DOC_ID = re.compile(r"GALE[\W_]{0,3}([A-Z]{2}\d{8,12})", re.IGNORECASE)
 #: Where else a saved file names its document: the permalink its PDF's
 #: citation prints ("link.gale.com/apps/doc/IF0500468517/").
 CITED_DOC = re.compile(r"link\.gale\.com/apps/doc/([A-Z]{2}\d{8,12})\b", re.IGNORECASE)
@@ -190,9 +144,6 @@ NUMBER = re.compile(r"(?:(?<![a-z])n[o0]\.?[._ ]{0,2}(?:(\d{1,2})[,.]?(\d{3})|(\
 #: '"The Times Crossword Puzzle No 17,244." Times, 3 Jan. 1987, p. 20.'
 CITED = re.compile(r'(?:"[^"]{0,200}"\s*(?:The\s+)?Times|The Times[^,]{0,40}),\s*(?:\w+,\s*)?([0-3]?\d)\s+' + MON
                    + r"\s*(" + YEAR + r")(?:,\s*p\.?\s*(\d+))?", re.IGNORECASE)
-#: The article title a Gale download's citation page quotes: '"Concise
-#: Crossword No 1154." Times, 13 Jan. 1987'.
-CITED_TITLE = re.compile(r'"([^"]{1,200}?)\.?"\s*(?:The\s+)?Times,')
 
 
 # ------------------------------------------------------------ numbers and dates
@@ -217,56 +168,6 @@ PRINTED = [datetime.date.fromisoformat(d)
 ISSUE = {d: i for i, d in enumerate(PRINTED)}
 
 
-_SORTED = {}
-
-
-def _sorted(by_number):
-    """(by date, by number, their dates, their numbers): the filed (number,
-    date) pairs on a printed date, sorted each way, and each one's sort key;
-    kept per mapping, which checklist asks tens of thousands of times."""
-    k = (id(by_number), len(by_number))
-    if k not in _SORTED:
-        pairs = [(m, d) for m, d in by_number.items() if d in ISSUE]
-        by_date, by_num = sorted(pairs, key=lambda p: p[1]), sorted(pairs)
-        _SORTED.clear()
-        _SORTED[k] = (by_date, by_num, [r[1] for r in by_date], [r[0] for r in by_num])
-    return _SORTED[k]
-
-
-def neighbours(value, by_number, field):
-    """The filed (number, date) either side of `value`, a date (field 1) or
-    a number (field 0); one equal to it is neither."""
-    s = _sorted(by_number)
-    rows, keys = s[1 - field], s[3 - field]
-    lo, hi = bisect.bisect_left(keys, value), bisect.bisect_right(keys, value)
-    return (rows[lo - 1] if lo else None), (rows[hi] if hi < len(rows) else None)
-
-
-def number_on(day, by_number):
-    """(number, sure) of the Times cryptic printed on `day`: sure when the
-    printed issues counted from the filed puzzles either side agree, else
-    the two counts' difference shared out by where `day` lies between them
-    (PRINTED lists holidays the Times skipped: 136 issues' worth over the
-    1931-73 gap, which no filed puzzle brackets more closely)."""
-    lo, hi = neighbours(day, by_number, 1)
-    up = lo and lo[0] + ISSUE[day] - ISSUE[lo[1]]
-    down = hi and hi[0] - (ISSUE[hi[1]] - ISSUE[day])
-    if up and down:
-        span = ISSUE[hi[1]] - ISSUE[lo[1]]
-        return (up, True) if up == down else (up + round((down - up) * (ISSUE[day] - ISSUE[lo[1]]) / span), False)
-    return (up or down or fa.expected_number(day)), False
-
-
-def day_of(number, by_number):
-    """The date No `number` printed on, or None: the printed issues counted
-    from the filed puzzles either side must agree on it."""
-    lo, hi = neighbours(number, by_number, 0)
-    if not lo or not hi:
-        return None
-    up, down = ISSUE[lo[1]] + number - lo[0], ISSUE[hi[1]] - (hi[0] - number)
-    return PRINTED[up] if up == down and 0 <= up < len(PRINTED) else None
-
-
 def name_date(name, patterns=DATES):
     """The date a file name spells, or None."""
     for rx, order in patterns:
@@ -280,12 +181,6 @@ def name_date(name, patterns=DATES):
             except ValueError:
                 continue
     return None
-
-
-def name_number(name):
-    """The Times cryptic number a file name spells, or None."""
-    m = NUMBER.search(DOC_ID.sub(" ", name))
-    return int("".join(g for g in m.groups() if g)) if m else None
 
 
 # ------------------------------------------------------------ pages
@@ -421,147 +316,6 @@ def shrink_oversized(cache=CACHE, cap=None, out=sys.stdout):
     return done
 
 
-#: Only breaks a tie between readers who read different title numbers, on
-#: a page nothing else dates (a citation dates every Gale download, in any
-#: year): the middle of the 1974-99 run most such pages came from.
-MID_DAY = datetime.date(1987, 1, 1)
-
-
-def title_number(img, key):
-    """The puzzle number our readers read in a page's title, or None: in the
-    filer's bands by each grid, else anywhere a grid's height over it (the
-    Saturday prize puzzle's entry form sets its title ~500px up)."""
-    found = fa.ocr_titles(img, fa.TIMES, MID_DAY, key)
-    if found:
-        return found[0][0]
-    for i, (x0, y0, x1, y1) in enumerate(fa.grids_on(img)):
-        w = x1 - x0
-        above = img.crop((max(0, x0 - w // 2), max(0, y0 - (y1 - y0)), min(img.width, x1 + w // 2), y0))
-        titles, _ = fa.ocr_headings(above, fa.TIMES, f"{key}_over{i}")
-        if titles:
-            return titles[0][0]
-    return None
-
-
-def doc_id(name, cite=""):
-    """The Gale document a saved file is, off its name (DOC_ID, BARE_DOC) or
-    its citation's permalink (CITED_DOC), upper-cased; None when neither
-    names one."""
-    m = CITED_DOC.search(cite or "")
-    return gale_arrived.name_doc(name) or (m.group(1).upper() if m else None)
-
-
-def edition_url(ms):
-    """A laid-out edition's pages.json "url": its first named document's
-    page at Gale (a match made before doc_id read bare names is named off
-    its file now), else the portal."""
-    doc = next((d for m in ms if (d := m.get("docId") or doc_id(m["file"]))), None)
-    return DOC_URL.format(doc) if doc else PORTAL
-
-
-def match(path, by_number):
-    """{"date", "number", "how", "page", "docId", "pages": [image]} for a
-    saved file; "date" None (and "why") when nothing names its edition."""
-    name = path.name
-    out = {"file": name, "page": None}
-    read = images(path)
-    laid = [scaled(img) for img, _ in read]
-    pages = out["pages"] = [page for page, _ in laid]
-    out["grid"] = any(found for _, found in laid)
-    cite = read[0][1] if read else ""
-    out["docId"] = doc_id(name, cite)
-    t = CITED_TITLE.search(cite or "")
-    out["cited"] = t and t.group(1).strip()
-    day, number = name_date(name), name_number(name)
-    if day:
-        out.update(date=day, how="file name date")
-    elif number:
-        out.update(number=number, how="file name number")
-    else:
-        m = CITED.search(cite or "")
-        if m:
-            out.update(date=datetime.date(int(m.group(3)), MONTHS[m.group(2)[:3].lower()], int(m.group(1))),
-                       how="PDF citation", page=int(m.group(4)) if m.group(4) else None)
-        else:
-            key = "gale_" + hashlib.sha1(name.encode()).hexdigest()[:12]
-            number = next((n for i, img in enumerate(pages) if (n := title_number(img, f"{key}_{i}"))), None)
-            if number:
-                out.update(number=number, how="title read")
-    if "date" not in out and out.get("number"):
-        out["date"] = day_of(out["number"], by_number)
-        if out["date"] is None:
-            out["why"] = f"No {out['number']}: the filed puzzles either side do not run unbroken, so no date"
-    if "date" not in out:
-        out.update(date=None, why="no date or number in the name, citation or title")
-    if not pages:
-        out.update(date=None, why="no page image in the file")
-    return out
-
-
-def match_anywhere(path, by_number):
-    """match(path, by_number) run on the desktop when tools/ocr_remote.py
-    can (the file's bytes sent; the same match and the same pages back, the
-    title readings it cached written under CROPS), else here in
-    local_slot()."""
-    import ocr_remote
-    from PIL import Image
-    Image.MAX_IMAGE_PIXELS = None
-    got = ocr_remote.call("gale_match", path.name, {n: d.isoformat() for n, d in by_number.items()},
-                          data=path.read_bytes())
-    if got is None:
-        with ocr_remote.local_slot():
-            return match(path, by_number)
-    (got, back), at, pages = got, 0, []
-    for n in got["pages"]:
-        page = Image.open(io.BytesIO(back[at:at + n]))
-        page.load()
-        pages.append(page)
-        at += n
-    with tarfile.open(fileobj=io.BytesIO(back[at:])) as t:
-        t.extractall(fa.CROPS, filter="data")
-    m = got["match"]
-    return {**m, "date": m["date"] and datetime.date.fromisoformat(m["date"]), "pages": pages}
-
-
-#: What a Windows file name cannot hold.
-NOT_IN_NAMES = set('<>:"/\\|?*')
-
-
-def match_there(data, name, held):
-    """tools/ocr_remote.py's "gale_match", run on the desktop: ({"match":
-    match() of the saved file `data` named `name`, its date ISO, "pages":
-    [PNG length]}, the pages' PNGs then a tar of the title readings it
-    cached), `held` its {number: ISO date}; raises when it opened a file it
-    was not sent."""
-    import gc
-    import tempfile
-
-    import ocr_remote
-    if NOT_IN_NAMES & set(name):
-        raise ValueError(f"{name!r} cannot be a file name there")
-    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
-        root = Path(tmp)
-        path = root / name
-        path.write_bytes(data)
-        crops, sent = ocr_remote.sent_crops(root)
-        fa.CROPS = crops
-        ocr_remote._WATCH[:] = [(str(root), str(TOOLS.parent)), []]
-        try:
-            m = match(path, {int(n): datetime.date.fromisoformat(d) for n, d in held.items()})
-        finally:
-            missing, ocr_remote._WATCH[:] = ocr_remote._WATCH[1], [None, []]
-        if missing:
-            raise FileNotFoundError("opened files it was not sent: " + ", ".join(sorted(set(missing))[:5]))
-        pngs = []
-        for page in m.pop("pages"):
-            buf = io.BytesIO()
-            page.save(buf, format="PNG", compress_level=1)  # lossless: the Mac lays out these pixels
-            pngs.append(buf.getvalue())
-        m["date"] = m["date"] and m["date"].isoformat()
-        gc.collect()  # closes the file, which Windows will not delete open
-        return {"match": m, "pages": [len(p) for p in pngs]}, b"".join(pngs) + ocr_remote.changed(crops, sent)
-
-
 # ------------------------------------------------------------ staging
 
 #: A staged edition's "how" when tools/gale_fetch.py laid it out.
@@ -614,13 +368,6 @@ def fetched_dir(d):
     found = staged_year(d.parent).get(d.name, ((), None))[1]
     return bool(found) and all(m.get("how") == FETCHED_HOW for m in found)
 
-def source_key(files):
-    """What the inbox holds for one date, by name, size and content."""
-    h = hashlib.sha256()
-    for p in sorted(files):
-        h.update(f"{p.name}:{p.stat().st_size}:".encode() + hashlib.sha256(p.read_bytes()).digest())
-    return h.hexdigest()[:16]
-
 
 def save_json(path, value):
     """Write `value` to `path` whole or not at all (a killed tick leaves the last)."""
@@ -643,134 +390,6 @@ def relink(pages, url):
     tmp.write_text(json.dumps({**row, "url": url}, indent=1))
     os.utime(tmp, ns=(st.st_atime_ns, st.st_mtime_ns))
     tmp.replace(pages)
-
-
-def file_ident(p):
-    """A file's key in MATCHES (after the code's): name, size and mtime."""
-    st = p.stat()
-    return f"{p.name}\t{st.st_size}\t{int(st.st_mtime)}"
-
-
-def inbox_files(inbox=None):
-    """The page files in `inbox` (MIRROR), by name."""
-    inbox = MIRROR if inbox is None else inbox
-    return sorted(p for p in Path(inbox).iterdir() if p.is_file() and p.suffix.lower() in PAGES) \
-        if Path(inbox).exists() else []
-
-
-def unread(inbox=None, matches=None):
-    """The files in `inbox` (MIRROR) no match under any code (`matches`,
-    MATCHES) has read yet, the oldest download first."""
-    seen = {k.split("\t", 1)[1] for k in load(MATCHES if matches is None else matches, {})}
-    return sorted((p for p in inbox_files(inbox) if file_ident(p) not in seen), key=lambda p: p.stat().st_mtime)
-
-
-def desktop_ready():
-    """Open this process's desktop session (tools/ocr_remote.py), which
-    match_anywhere then uses; nothing when OCR_REMOTE is unset or the
-    desktop does not answer (the matches then run here)."""
-    import ocr_remote
-    ocr_remote.session()
-
-
-def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matches=MATCHES,
-          seconds=MATCH_SECONDS):
-    """Lay each date's pages in `inbox` out as one edition directory under
-    `cache` (re-laid only when what the inbox holds for it moved; a date
-    the inbox no longer holds is removed); the files that matched no
-    edition are listed in `unmatched`. {date: [match]}; the unmatched
-    under None."""
-    by_number = held()
-    files = inbox_files(inbox)
-    known, kept = load(matches, {}), {}
-    #: Each file's match under any code, by name, size and mtime.
-    stale = {k.split("\t", 1)[1]: v for k, v in known.items()}
-    by_date = collections.defaultdict(list)
-    deferred = 0
-    idents = {p: file_ident(p) for p in files}
-    if seconds > 0 and any(f"{MATCHER}\t{idents[p]}" not in known for p in files):
-        desktop_ready()
-    deadline = time.monotonic() + seconds
-    for p in sorted(files, key=lambda p: (idents[p] in stale, int(idents[p].rsplit("\t", 1)[1]))):
-        ident = idents[p]
-        k = f"{MATCHER}\t{ident}"
-        m = known.get(k)
-        if m is None and time.monotonic() > deadline:
-            m = stale.get(ident)
-            deferred += 1
-            if m is None:
-                continue
-            k = next(key for key in known if key.endswith("\t" + ident))
-        elif m is None:
-            try:
-                m = match_anywhere(p, by_number)
-            except (OSError, ValueError, pypdf.errors.PyPdfError) as e:  # reported, not fatal
-                m = {"file": p.name, "date": None, "why": f"unreadable: {type(e).__name__}: {e}", "pages": []}
-            m["date"] = m["date"] and m["date"].isoformat()
-            # Kept as it goes: a tick killed mid-way loses one file's match.
-            known[k] = {f: v for f, v in m.items() if f != "pages"}
-            save_json(matches, known)
-        kept[k] = {f: v for f, v in m.items() if f != "pages"}
-        m = dict(m, path=p, date=m["date"] and datetime.date.fromisoformat(m["date"]))
-        by_date[m["date"]].append(m)
-    save_json(matches, kept)
-    if deferred:
-        print(f"{deferred} file(s) left to match next tick (MATCH_SECONDS)", file=out)
-    staged = set()
-    for day, ms in by_date.items():
-        if day is None:
-            continue
-        d = cache / ITEM.format(day.year) / day.isoformat()
-        staged.add(d)
-        if fetched_dir(d):
-            print(f"left {d.parent.name}/{d.name} as tools/gale_fetch.py laid it out; "
-                  f"{', '.join(m['file'] for m in ms)} is a second copy", file=out)
-            continue
-        key = source_key([m["path"] for m in ms])
-        if has_sources(d, f"sources-{key}.json"):
-            relink(d / "pages.json", edition_url(ms))
-            continue
-        # Laid out beside it and swapped in, so a reader of the edition sees
-        # the old one or the new, not half of each.
-        tmp = d.with_name(d.name + ".new")
-        if tmp.exists():
-            shutil.rmtree(tmp)
-        tmp.mkdir(parents=True)
-        leaves = []
-        for m in ms:
-            pages = m.get("pages")
-            if pages is None:
-                pages = match_anywhere(m["path"], by_number)["pages"]
-            for img in pages:
-                leaf = len(leaves)
-                img.save(tmp / f"leaf_{leaf:04d}.jpg", quality=92)
-                leaves.append({"leaf": leaf, "width": img.width, "height": img.height, "file": m["file"]})
-        item = ITEM.format(day.year)
-        (tmp / "pages.json").write_text(json.dumps({
-            "item": item, "edition": day.isoformat(), "date": day.isoformat(), "leaves": len(leaves),
-            "crossword_pages": leaves, "url": edition_url(ms)}, indent=1))
-        (tmp / f"sources-{key}.json").write_text(json.dumps(
-            [{k: (v.isoformat() if isinstance(v, datetime.date) else v) for k, v in m.items()
-              if k not in ("pages", "path")} for m in ms], indent=1))
-        if d.exists():
-            shutil.rmtree(d)
-        tmp.rename(d)
-        print(f"staged {item}/{day} from {', '.join(m['file'] for m in ms)} ({ms[0]['how']})", file=out)
-    unmatched.parent.mkdir(parents=True, exist_ok=True)
-    unmatched.write_text(json.dumps([{"file": m["file"], "why": m.get("why", "")} for m in by_date.get(None, ())]
-                                    + [{"file": m["file"], "date": day.isoformat(), "why": "no crossword grid found on it"}
-                                       for day, ms in by_date.items() if day for m in ms if m.get("grid") is False],
-                                    indent=1))
-    for item in cache.glob(ITEM.format("*")):
-        for d in item.iterdir():
-            if d.is_dir() and d.name.endswith(".new"):
-                shutil.rmtree(d)  # a lay-out a killed tick left half done
-            elif deferred:
-                continue  # a file not matched yet may hold this date
-            elif d.is_dir() and d not in staged and not fetched_dir(d):
-                shutil.rmtree(d)
-                print(f"removed {item.name}/{d.name}: no longer in the inbox", file=out)
-    return dict(by_date)
 
 
 # ------------------------------------------------------------ the Mac's inbox
@@ -797,8 +416,8 @@ def ssh(command, **kw):
             time.sleep(10 * attempt)
 
 
-def mirror(out=sys.stdout, host_inbox=HOST_INBOX, into=MIRROR):
-    """Copy the Mac inbox's page files to `into`: the new and changed ones;
+def mirror(out=sys.stdout, *, host_inbox, into):
+    """Copy the Mac inbox's page files (the Listener's) to `into`: the new and changed ones;
     a file gone from the inbox goes from the mirror. Only the Mac is asked.
     How many files it copied or dropped."""
     q = shlex.quote
@@ -849,42 +468,6 @@ def publish(path=CHECKLIST, host_inbox=GALE_ROOT, polled=False):
     ssh(f"mkdir -p {q(host_inbox)} && cat > {q(tmp)} && mv -f {q(tmp)} {dest}", input=path.read_bytes())
 
 
-#: The Mac's arrival watcher (tools/gale_arrived.py): its copy of the
-#: script, its launchd job and log. The sync installs them, and again
-#: whenever this tree's script or job differs from what it last installed.
-MAC_HOME = "/Users/pt"
-WATCHER = f"{MAC_HOME}/.local/lib/gale-arrived/gale_arrived.py"
-WATCHER_PLIST = f"{MAC_HOME}/Library/LaunchAgents/{gale_arrived.LABEL}.plist"
-WATCHER_LOG = f"{MAC_HOME}/Library/Logs/gale-arrived.log"
-WATCHER_PYTHON = "/usr/local/bin/python3"
-#: The folders a Gale download lands in on the Mac (collect sweeps them).
-WATCHED = (CHROME, f"{MAC_HOME}/Downloads")
-WATCHER_STAMP = MIRROR.parent / "watcher.sha"
-
-
-def install_watcher(out=sys.stdout, run=None, stamp=WATCHER_STAMP):
-    """Install the arrival watcher on the Mac when what this tree would
-    install differs from the last install; reload its job only when the job
-    itself changed. Whether it installed."""
-    code = (TOOLS / "gale_arrived.py").read_bytes()
-    job = gale_arrived.plist(WATCHER_PYTHON, WATCHER, WATCHED, f"{GALE_ROOT}/{gale_arrived.NAME}", WATCHER_LOG)
-    want = hashlib.sha256(code + job.encode()).hexdigest()
-    if load(stamp, None) == want:
-        return False
-    q, run, label = shlex.quote, run or ssh, f"gui/$(id -u)/{gale_arrived.LABEL}"
-    run(f"mkdir -p {q(str(Path(WATCHER).parent))} && cat > {q(WATCHER + '.tmp')} && mv -f {q(WATCHER + '.tmp')} {q(WATCHER)}",
-        input=code)
-    # bootout returns before the job is gone, so bootstrap waits for it.
-    new = q(WATCHER_PLIST + ".new")
-    run(f"cat > {new} && if cmp -s {new} {q(WATCHER_PLIST)} && launchctl print {label} >/dev/null 2>&1; "
-        f"then rm -f {new}; else mv -f {new} {q(WATCHER_PLIST)}; launchctl bootout {label} 2>/dev/null; "
-        f"for i in $(seq 40); do launchctl print {label} >/dev/null 2>&1 || break; sleep 0.25; done; "
-        f"launchctl bootstrap gui/$(id -u) {q(WATCHER_PLIST)}; fi", input=job.encode())
-    save_json(stamp, want)
-    print(f"installed the arrival watcher ({gale_arrived.LABEL}) on the Mac", file=out)
-    return True
-
-
 # ------------------------------------------------------------ picking Gale files up
 
 def pdf_text(data, pages=3):
@@ -904,174 +487,11 @@ def is_gale(name, text):
     return bool(DOC_ID.search(name) or GALE_TEXT.search(text))
 
 
-def paper_of(name, text):
-    """Which inbox ("times", "listener") a Gale file belongs in: its
-    citation's archive, else a paper its name or text names; else the Times,
-    which most of what is asked for is."""
-    for rx, paper in ((r"Listener Historical Archive", "listener"), (r"Times Digital Archive", "times"),
-                      (r"\bThe Listener\b", "listener"), (r"\bThe Times\b", "times")):
-        if re.search(rx, text):
-            return paper
-    return "listener" if re.search(r"listener", name, re.IGNORECASE) else "times"
-
-
-def classify(name, text, dropped):
-    """The inbox a file goes to, or None to leave it alone. A page file put
-    in the drop folder is Paul's for Gale whatever it holds; one in Downloads
-    only when it is recognisably Gale's."""
-    if Path(name).suffix.lower() not in PAGES:
-        return None
-    if dropped or is_gale(name, text):
-        return paper_of(name, text)
-    return None
-
-
-def needs_text(name, dropped):
-    """Must a file's bytes be read to place it? A PDF's citation says which
-    paper it is; an image in Downloads is Gale's only by its name."""
-    suffix = Path(name).suffix.lower()
-    return suffix == ".pdf" if dropped else (suffix == ".pdf" and not DOC_ID.search(name))
-
-
-def free_name(name, taken):
-    """`name`, or `name (2)` and on, whichever `taken` does not hold."""
-    stem, suffix, i = Path(name).stem, Path(name).suffix, 2
-    out = name
-    while out in taken:
-        out, i = f"{stem} ({i}){suffix}", i + 1
-    return out
-
-
 def load(path, default):
     try:
         return json.loads(path.read_text())
     except (OSError, ValueError):
         return default
-
-
-def parse_listing(text):
-    """[(where, size, mtime, name)] of the `where size mtime name` lines."""
-    rows = []
-    for line in text.splitlines():
-        parts = line.split("\t", 3)
-        if len(parts) == 4 and parts[1].isdigit() and parts[2].lstrip("-").isdigit():
-            rows.append((parts[0], int(parts[1]), int(parts[2]), parts[3].removeprefix("./")))
-    return rows
-
-
-def collect(out=sys.stdout, seen_path=SEEN, now=None):
-    """Move every Gale file in the drop folder, the Mac's and desktop's
-    Downloads and CHROME into its paper's inbox; leave every other file alone. How many
-    it moved."""
-    now = now or time.time()
-    seen = load(seen_path, {})
-    q = shlex.quote
-    #: where: (its folder in the shell, what the log calls it)
-    swept = {"drop": (q(GALE_ROOT), "the drop folder"), "downloads": ('"$HOME"/Downloads', "Mac Downloads"),
-             "chrome": (q(CHROME), "Chrome downloads")}
-    dirs = {**{w: d for w, (d, _) in swept.items()}, **{p: q(d) for p, d in INBOXES.items()}}
-    script = [f"mkdir -p {' '.join(q(d) for d in [GALE_ROOT, *INBOXES.values()])}"]
-    for where, place in dirs.items():
-        recent = f"-mtime -{RECENT_DAYS}" if where == "downloads" else ""
-        script.append(f"(cd {place} 2>/dev/null && find . -maxdepth 1 -type f {recent} "
-                      f"-exec stat -f '{where}%t%z%t%m%t%N' {{}} +)")
-    rows = parse_listing(ssh("; ".join(script) + "; exit 0", text=True).stdout)
-    taken = {paper: {n for w, _, _, n in rows if w == paper} for paper in INBOXES}
-    sizes = {(w, n): z for w, z, _, n in rows}
-    moves, moved = [], 0
-
-    def place(paper, name, size):
-        """The name a file gets in `paper`'s inbox, or None when the same
-        file (name and size) is there already."""
-        if sizes.get((paper, name)) == size:
-            return None
-        dest = free_name(name, taken[paper])
-        taken[paper].add(dest)
-        return dest
-
-    for where, size, mtime, name in rows:
-        if where not in swept or now - mtime < SETTLE_SECONDS:
-            continue
-        key = f"mac:{name}:{size}:{mtime}"
-        if key in seen or Path(name).suffix.lower() not in PAGES:
-            continue
-        dropped = where == "drop"
-        src = f"{swept[where][0]}/{q(name)}"
-        text = pdf_text(ssh(f"cat {src}").stdout) if needs_text(name, dropped) else ""
-        paper = classify(name, text, dropped)
-        if paper is None:
-            seen[key] = "not Gale"
-            continue
-        dest = place(paper, name, size)
-        if dest is None:
-            moves.append(f"rm -f {src}")
-            print(f"{name}: already in {paper}, removed the copy", file=out)
-        else:
-            moves.append(f"mv -n {src} {q(INBOXES[paper] + '/' + dest)}")
-            print(f"{name}: moved from {swept[where][1]} to {paper}/{dest}", file=out)
-        moved += 1
-    if moves:
-        ssh(" && ".join(moves))
-    moved += collect_desktop(out, seen, place, now)
-    seen_path.parent.mkdir(parents=True, exist_ok=True)
-    seen_path.write_text(json.dumps(seen, indent=0))
-    return moved
-
-
-def powershell(script, timeout=120):
-    """Run a PowerShell script on the desktop; its stdout, or None when the
-    desktop is off or unreachable."""
-    import base64
-    enc = base64.b64encode(("[Console]::OutputEncoding=[Text.Encoding]::UTF8\n" + script)
-                           .encode("utf-16-le")).decode()
-    try:
-        r = subprocess.run(["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=8", DESKTOP,
-                            f"powershell -NoProfile -NonInteractive -EncodedCommand {enc}"],
-                           capture_output=True, text=True, timeout=timeout, check=False)
-    except subprocess.TimeoutExpired:
-        return None
-    return r.stdout if r.returncode == 0 else None
-
-
-def ps_quote(s):
-    return "'" + s.replace("'", "''") + "'"
-
-
-def collect_desktop(out, seen, place, now):
-    """collect for the desktop's Downloads: a Gale file is copied into its
-    inbox on the Mac, then deleted from the desktop."""
-    downloads = "(Join-Path $env:USERPROFILE 'Downloads')"
-    listing = powershell(
-        f"Get-ChildItem -LiteralPath {downloads} -File | Where-Object {{ $_.LastWriteTime -gt (Get-Date).AddDays(-{RECENT_DAYS}) }}"
-        " | ForEach-Object { \"desktop`t$($_.Length)`t$(([DateTimeOffset]$_.LastWriteTimeUtc).ToUnixTimeSeconds())`t$($_.Name)\" }")
-    if listing is None:  # off or asleep, as it is most of the night: swept next time
-        return 0
-    import base64
-    moved = 0
-    for _, size, mtime, name in parse_listing(listing):
-        key = f"desktop:{name}:{size}:{mtime}"
-        if key in seen or Path(name).suffix.lower() not in PAGES or now - mtime < SETTLE_SECONDS:
-            continue
-        path = f"(Join-Path {downloads} {ps_quote(name)})"
-        if not needs_text(name, False) and not DOC_ID.search(name):
-            seen[key] = "not Gale"
-            continue
-        blob = powershell(f"[Convert]::ToBase64String([IO.File]::ReadAllBytes({path}))")
-        if blob is None:
-            continue
-        data = base64.b64decode(blob.strip())
-        paper = classify(name, pdf_text(data) if needs_text(name, False) else "", False)
-        if paper is None or len(data) != size:
-            seen[key] = "not Gale" if paper is None else "short read"
-            continue
-        dest = place(paper, name, size)
-        if dest is not None:
-            ssh(f"cat > {shlex.quote(INBOXES[paper] + '/' + dest)}", input=data)
-        if powershell(f"Remove-Item -LiteralPath {path}") is None:
-            seen[key] = "copied; could not delete"
-        print(f"{name}: moved from desktop Downloads to {paper}/{dest or '(already there)'}", file=out)
-        moved += 1
-    return moved
 
 
 # ------------------------------------------------------------ the checklist
@@ -1266,11 +686,6 @@ def staged_matches(cache=CACHE):
     return out
 
 
-def staged_files(cache=CACHE):
-    """{date: [file name]} of the inbox pages staged as editions."""
-    return {day: [m["file"] for m in ms] for day, ms in staged_matches(cache).items()}
-
-
 #: The Listener checklist's "next up": POOL rows, all shown and none moved
 #: as they are clicked; next up shows the linked rows first (page).
 POOL = 60
@@ -1289,17 +704,15 @@ STALE_SECONDS = 720
 RELOAD_SECONDS = 180
 
 
-def script(store, status_src, stamp, arrived_src=gale_arrived.NAME):
+def script(store, status_src, stamp):
     """The checklists' row state. A row is one of: to fetch (its Download
     button), clicked and waiting for its file ("downloading... clicked
     HH:MM", an undo, no Download), clicked LATE_MINUTES ago with no file
-    (amber, a retry), downloaded (a document its row's links name is in
-    `arrived_src`, the Mac's arrival watcher's, tools/gale_arrived.py:
-    seconds after the file lands, and counted then), or arrived ("in the
-    inbox", the sync's); a row to fetch says TO DO. Clicks are kept in the
+    (amber, a retry), or arrived ("in the inbox", the sync's); a row to
+    fetch says TO DO. Clicks are kept in the
     browser (localStorage `store`, key: when) so a reload keeps them; what
     arrived is the page's own data-in and its status file (status_js),
-    read with `arrived_src` every POLL_SECONDS by a script tag, which a file:// page may load
+    read every POLL_SECONDS by a script tag, which a file:// page may load
     where it may not fetch. A status naming a newer page reloads it once;
     a status that stops coming reloads the page every RELOAD_SECONDS. #next
     shows all its rows and never moves one (a browser agent works down it,
@@ -1308,51 +721,49 @@ def script(store, status_src, stamp, arrived_src=gale_arrived.NAME):
     to fetch is a click on its Download (a.dl). A middle click on a link opens a tab
     without a click event, so it runs the link's onclick (the mark) itself."""
     js = """<script>
-const S=STORE,C=S+'At',LATE=LATEMIN*60e3,PAGE=STAMP,SRC=SOURCE,ASRC=ARRIVALS,
+const S=STORE,C=S+'At',LATE=LATEMIN*60e3,PAGE=STAMP,SRC=SOURCE,
   LOADED=Date.now();
-let IN=new Set(),AT=PAGE*1000,ARR={},BASE=null,GOT=0;
+let IN=new Set(),AT=PAGE*1000,BASE=null;
 function get(n){return JSON.parse(localStorage.getItem(n)||'[]')}
 function clicks(){const v=localStorage.getItem(C);if(v)return JSON.parse(v);const m={};get(S).forEach(k=>m[k]=0);return m}
 function keep(m){localStorage.setItem(C,JSON.stringify(Object.fromEntries(
   Object.entries(m).sort((a,b)=>a[1]-b[1]).slice(-5000))))}
 function hm(t){return t?new Date(t).toTimeString().slice(0,5):'earlier'}
 function state(r,m,now){const k=r.dataset.k;if(r.dataset.in||IN.has(k))return'in';
-  if((r.dataset.doc||'').split(' ').some(d=>d&&d in ARR))return'got';
   return k in m?(now-m[k]>LATE?'late':'wait'):''}
 function badge(r,s,t){const b=r.querySelector('.st');if(!b||b.dataset.s===s+t)return;b.dataset.s=s+t;b.className='st '+s;
   const k=r.dataset.k,u=' <a href="#" onclick="unmark(\\''+k+'\\');return false">undo</a>',
     a=r.querySelector('a.dl')||r.querySelector('a.go');
-  b.innerHTML=s==='in'?'&#10003; DONE: in the inbox':s==='got'?'&#10003; DONE: downloaded, checking&hellip;':s==='wait'?'CLICKED: downloading&hellip; clicked '+hm(t)+u
+  b.innerHTML=s==='in'?'&#10003; DONE: in the inbox':s==='wait'?'CLICKED: downloading&hellip; clicked '+hm(t)+u
     :s==='late'?'CLICKED '+hm(t)+', not arrived: <a class="retry" target="gale" onclick="mark(\\''+k+'\\')">retry?</a>'+u
     :r.querySelector('a.dl')?'TO DO':'';
   const x=b.querySelector('a.retry');if(x&&a)x.href=a.href}
-function show(){const m=clicks(),now=Date.now(),got=new Set();let n=0,c=0,lit=false;
-  document.querySelectorAll('tr[data-k]').forEach(r=>{const s=state(r,m,now);r.dataset.s=s;if(s==='got')got.add(r.dataset.k);
-    for(const c of['wait','late','got','in'])r.classList.toggle('s-'+c,s===c);
+function show(){const m=clicks(),now=Date.now();let n=0,lit=false;
+  document.querySelectorAll('tr[data-k]').forEach(r=>{const s=state(r,m,now);r.dataset.s=s;
+    for(const c of['wait','late','in'])r.classList.toggle('s-'+c,s===c);
     badge(r,s,m[r.dataset.k]||0);r.classList.toggle('dlrow',!s&&!!r.querySelector('a.dl'))});
   const nx=document.getElementById('next');
   if(nx){nx.querySelectorAll('tr[data-i]').forEach(r=>{const x=!r.dataset.s&&!!r.querySelector('a.dl');
     if(x)n++;r.classList.toggle('next',x&&!lit);if(x)lit=true})}
   const lf=document.getElementById('left');if(lf)lf.textContent=n;
-  GOT=got.size;count();const mo=document.getElementById('more');if(mo)mo.hidden=n>0;
+  count();const mo=document.getElementById('more');if(mo)mo.hidden=n>0;
   const a=document.getElementById('age'),old=now-AT>STALE*1e3;
   if(a){a.textContent='Arrivals last checked '+hm(AT)+' ('+Math.round((now-AT)/60e3)+' min ago)'
     +(old?': the status file is not updating, so this page reloads itself every 3 minutes':'; this page updates itself.');
     a.classList.toggle('old',old)}}
 function mark(k){const m=clicks();m[k]=Date.now();keep(m);show()}
 function unmark(k){const m=clicks();delete m[k];keep(m);show()}
-function count(){const s=BASE;if(!s||s.done==null)return;const d=Math.min(s.done+GOT,s.total),
+function count(){const s=BASE;if(!s||s.done==null)return;const d=Math.min(s.done,s.total),
   p=document.getElementById('prog'),f=n=>n.toLocaleString('en');
   if(p){p.value=d;p.max=Math.max(s.total,1)}
   const c=document.getElementById('count');if(c)c.textContent=f(d)+' of '+f(s.total);
   const t=document.getElementById('togo');if(t)t.textContent=f(s.total-d)}
-function galeArrived(a){ARR=a||{};show()}
 function galeStatus(s){IN=new Set(s.in);AT=s.at*1000;BASE=s;
   if(s.page>PAGE&&sessionStorage.getItem(S+'Page')!==String(s.page)){
     sessionStorage.setItem(S+'Page',s.page);location.reload()}else show()}
 function load(u){const x=document.createElement('script');x.src=u+'?'+Date.now();
   x.onload=x.onerror=()=>x.remove();document.head.appendChild(x)}
-function poll(){load(SRC);load(ASRC)}
+function poll(){load(SRC)}
 function cp(b,t){const done=()=>{b.textContent='Copied'};
   const fb=()=>{const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();
   document.execCommand('copy');a.remove();done()};
@@ -1364,7 +775,7 @@ addEventListener('click',ev=>{const r=ev.target.closest('tr.dlrow');
   if(r&&!ev.target.closest('a,button,summary'))r.querySelector('a.dl').click()})
 addEventListener('auxclick',ev=>{const a=ev.button===1&&ev.target.closest('a[target=gale][onclick]');if(a)a.onclick()})
 </script>"""
-    for k, v in (("STORE", json.dumps(store)), ("SOURCE", json.dumps(status_src)), ("ARRIVALS", json.dumps(arrived_src)),
+    for k, v in (("STORE", json.dumps(store)), ("SOURCE", json.dumps(status_src)),
                  ("LATEMIN", str(LATE_MINUTES)), ("STAMP", str(stamp)), ("STALE", str(STALE_SECONDS)),
                  ("RELOAD", str(RELOAD_SECONDS)), ("POLL", str(POLL_SECONDS))):
         js = js.replace(k, v)
@@ -1383,8 +794,8 @@ a.dl{display:inline-block;padding:8px 18px;font-size:17px;font-weight:bold;color
 border-radius:6px;text-decoration:none;margin:2px .8em 2px 0}a.dl:hover{background:#084f96}a.go{margin-right:.6em}
 .st{display:inline-block;padding:6px 12px;border-radius:6px;font-weight:bold}.st:empty{display:none}
 .agent{border:2px solid #0a66c2;padding:.4em 1em;margin:1em 0}
-.st.wait{background:#dde8f6;color:#123}.st.got{background:#bfe6c8;color:#063}.st.late{background:#ffc24d;color:#4a2c00}.st.in{background:#17803a;color:#fff}
-.st a{color:inherit}tr.s-wait .acts,tr.s-late .acts,tr.s-got .acts,tr.s-in .acts{display:none}tr.s-in td{color:#777}
+.st.wait{background:#dde8f6;color:#123}.st.late{background:#ffc24d;color:#4a2c00}.st.in{background:#17803a;color:#fff}
+.st a{color:inherit}tr.s-wait .acts,tr.s-late .acts,tr.s-in .acts{display:none}tr.s-in td{color:#777}
 tr.next td{background:#fff3b0}tr.next td:first-child{border-left:4px solid #e0a800}
 tr.dlrow{cursor:pointer}tr.dlrow:hover td{background:#dcebff}"""
 
@@ -1522,7 +933,6 @@ of them still TO DO. Rows never move: a row you click is marked CLICKED where it
     return "\n".join(out) + "\n"
 
 
-
 #: The plain how-to a browser agent (or Paul) follows, top of each page.
 AGENT_STEPS = """<section class="agent" id="instructions"><h2>Instructions</h2><ol>
 <li>Click <b>Start Gale session</b> below once (it opens Gale in another tab; no login).</li>
@@ -1555,83 +965,13 @@ def cryptic_cited(m):
     return bool(m.get("cited")) and gale_docs.crossword("TTDA", [m["cited"]]) == 0
 
 
-def titleless(staged, ledger, cache=CACHE):
-    """{date: [match]} of the staged editions whose current files
-    (input_hash) the filer's current scan code (scan_current) scanned and
-    read no Times Crossword title on; a scan that failed is no reading.
-    `staged` is staged_matches'."""
-    out = {}
-    for day, ms in staged.items():
-        d = cache / ITEM.format(day.year) / day.isoformat()
-        row = ledger.get(f"{d.parent.name}/{d.name}") or {}
-        scan = row.get("scan") or {}
-        # The ledger's fields first: each answers without a stat.
-        if ("scan" in row and "failed" not in scan and not scan.get("puzzles")
-                and d.name in staged_year(d.parent) and fa.scan_current(row, fa.input_hash(d), f"{d.parent.name}/{d.name}")):
-            out[day] = ms
-    return out
-
-
-def to_set_aside(staged, rows, by_number, untitled):
-    """[(file, date, why)] of the inbox files that are not a page the list
-    wants, each with the reason it is moved out (set_aside): a second copy
-    of a Gale document the inbox holds; a page Gale's citation names as
-    another article (the Concise's); a page for an edition the list does
-    not ask for; and, unless its citation names the cryptic, a page with no
-    grid on it or none of whose titles our readers read (`untitled`,
-    titleless()), once the matcher has read its citation. A page whose
-    citation names the cryptic stays: Gale's cryptic page is the one to
-    read, whatever our readers make of it."""
-    asked, filed = {d for d, _ in rows}, set(by_number.values())
-    out = []
-    for day, ms in sorted(staged.items()):
-        by_doc = collections.defaultdict(list)
-        for m in ms:
-            by_doc[m.get("docId") or doc_id(m["file"]) or m["file"]].append(m)
-        for doc, copies in by_doc.items():
-            keep = min(copies, key=lambda m: (not cryptic_cited(m), len(m["file"]), m["file"]))
-            out += [(m["file"], day, f"a second copy of Gale document {doc}") for m in copies if m is not keep]
-            if keep.get("cited") and not cryptic_cited(keep):
-                out.append((keep["file"], day, f"Gale's citation names it \"{keep['cited']}\", not the cryptic"))
-            elif day not in asked and day not in filed:
-                out.append((keep["file"], day, f"read as {day:%a %d %b %Y}, an edition the list does not ask for"))
-            elif cryptic_cited(keep) or "cited" not in keep:
-                continue  # Gale's cryptic page; or matched before citations were read: next tick
-            elif keep.get("grid") is False:
-                out.append((keep["file"], day, "no crossword grid on it"))
-            elif day in untitled:
-                out.append((keep["file"], day, "no Times Crossword title read on it"))
-    return out
-
-
 #: Where set_aside moves a file, in its inbox: the sweep and mirror look
 #: only at the inbox's own files, so it is out of every count.
 ASIDE = "Set aside"
 #: Each file set aside: {file: {"date", "why", "at"}}.
-SET_ASIDE = MIRROR.parent / "set_aside.json"
+SET_ASIDE = HOME / "set_aside.json"
 #: How long a file set aside is listed on the page.
 ASIDE_DAYS = 7
-
-
-def set_aside(plan, out=sys.stdout, host_inbox=HOST_INBOX, log=SET_ASIDE, run=None):
-    """Move each file of `plan` (to_set_aside) into the inbox's ASIDE
-    folder on the Mac, a name it already holds kept, and log it. How many."""
-    if not plan:
-        return 0
-    q = shlex.quote
-    dest = f"{host_inbox}/{ASIDE}"
-    # Each move is tolerant of a source already gone (macOS mv fails on one).
-    (run or ssh)(f"mkdir -p {q(dest)} && " + " && ".join(
-        f"{{ [ ! -e {q(host_inbox + '/' + f)} ] || mv -n {q(host_inbox + '/' + f)} {q(dest + '/')}; }}"
-        for f, _, _ in plan))
-    kept = load(log, {})
-    plan = [(f, day, why) for f, day, why in plan if f not in kept]  # already logged: not newly set aside
-    at = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
-    for f, day, why in plan:
-        kept[f] = {"date": day and day.isoformat(), "why": why, "at": at}
-        print(f"set aside {f}: {why}", file=out)
-    save_json(log, kept)
-    return len(plan)
 
 
 def aside_days(log=SET_ASIDE):
@@ -1653,24 +993,6 @@ def not_on_gale(day, docs, aside):
     if e.get("why") == "no crossword in the issue's contents" and any("citation names" in w for w in aside.get(day, ())):
         return "Gale's contents list no cryptic that day, and the page found for it was another puzzle"
     return None
-
-
-def notes(staged, untitled, unmatched=UNMATCHED, log=SET_ASIDE, now=None):
-    """[(file, what happened)] for the page: the files set aside in the last
-    ASIDE_DAYS, Gale's cryptic pages our readers read no title on, and the
-    files nothing names an edition of. Nothing here asks anything."""
-    now = now or datetime.datetime.now().astimezone()
-    out = []
-    for f, e in sorted(load(log, {}).items(), key=lambda kv: kv[1]["at"], reverse=True):
-        if now - datetime.datetime.fromisoformat(e["at"]) <= datetime.timedelta(days=ASIDE_DAYS):
-            out.append((f, f"set aside into {ASIDE}: {e['why']}"))
-    for day, ms in sorted(untitled.items()):
-        out += [(m["file"], f"Gale's cryptic page for {day:%a %d %b %Y}; our readers read no title on it yet")
-                for m in ms if cryptic_cited(m)]
-    for m in (json.loads(unmatched.read_text()) if unmatched.exists() else []):
-        if not m.get("date"):
-            out.append((m["file"], f"no edition named on it ({m.get('why', '')}); left in the inbox"))
-    return out
 
 
 #: How next_up orders, said on the page.
@@ -1706,20 +1028,18 @@ FETCHED, LIMITS = gale_fetch.FETCHED, gale_fetch.LIMITS
 LATEST = 20
 
 
-def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, ledger=None, log=SET_ASIDE,
+def checklist(rows=None, cache=CACHE, docs=None, ledger=None, log=SET_ASIDE,
               fetched=FETCHED, limits=LIMITS, now=None):
     """The Times progress page. tools/gale_fetch.py downloads every wanted
     edition itself, so nothing on it is to click: how many editions are
     still wanted, laid out and waiting to be read, read, and not on Gale;
-    the downloader's latest files and Gale's refusals (LIMITS); what was
-    sorted automatically from hand downloads (notes); then each year's
-    counts, in next_up's order (ORDER)."""
+    the downloader's latest files and Gale's refusals (LIMITS); then each
+    year's counts, in next_up's order (ORDER)."""
     e = html.escape
     now = now or datetime.datetime.now().astimezone()
     rows = wanted() if rows is None else rows
     ledger = archive_coverage.ledger() if ledger is None else ledger
     matches = staged_matches(cache)
-    untitled = titleless(matches, ledger, cache)
     docs = gale_docs.load() if docs is None else docs
     aside = aside_days(log)
     gone = {day for day, _ in rows if not_on_gale(day, docs, aside)}
@@ -1763,12 +1083,6 @@ and lays it out for the reader, which files its puzzle. Updated {now:%a %d %b %H
                 f"{e(v.get('date', ''))}</td><td>{e(doc)}</td></tr>"
                 for doc, v in got[:LATEST]]
         out.append("</table>")
-    notes_ = notes(matches, untitled, unmatched, log, now)
-    if notes_:
-        out.append(f'<details class="notes"><summary>Hand downloads sorted automatically ({len(notes_)});'
-                   ' nothing to do</summary><ul>')
-        out += [f"<li><b>{e(f)}</b>: {e(why)}</li>" for f, why in notes_]
-        out.append("</ul></details>")
     out.append("<h2>By year</h2><table><tr><th>Year</th><th>Wanted</th><th>Waiting to be read</th>"
                "<th>Read, not filed</th><th>Not on Gale</th></tr>")
     out += [f"<tr><td>{y}</td>" + "".join(f"<td>{n:,}</td>" for n in years[y]) + "</tr>"
@@ -1782,7 +1096,7 @@ LOOKUP_EVERY = 180
 #: The Listener's Gale lookups in a tick start within this long of its
 #: start. Short, because the next tick's sweep waits on them.
 GALE_SECONDS = 60
-LOOKED_UP = MIRROR.parent / "looked_up"
+LOOKED_UP = HOME / "looked_up"
 
 
 def gale_due(now=None, path=LOOKED_UP):
@@ -1795,18 +1109,6 @@ def gale_due(now=None, path=LOOKED_UP):
     path.touch()
     os.utime(path, (now, now))
     return True
-
-
-def tidy(out=sys.stdout, cache=CACHE, ledger=None):
-    """Set aside (set_aside) every staged file that is not a page the list
-    wants (to_set_aside). How many."""
-    matches = staged_matches(cache)
-    # Only files the inbox still holds: a staged match whose file was set
-    # aside (or removed) earlier is stale, not something to move again.
-    here = {p.name for p in inbox_files()}
-    matches = {d: kept for d, ms in matches.items() if (kept := [m for m in ms if m["file"] in here])}
-    ledger = archive_coverage.ledger() if ledger is None else ledger
-    return set_aside(to_set_aside(matches, wanted(), held(), titleless(matches, ledger, cache)), out)
 
 
 def last_render(path=CHECKLIST):
@@ -1830,13 +1132,11 @@ def locked(wait=True):
 
 
 def sync(out=sys.stdout, force=False):
-    """One tick: sweep hand-downloaded Gale files into their inboxes;
-    mirror the Times inbox and, when it moved, holds a file not matched yet
-    (unread) or RENDER_EVERY passed, stage it and publish the progress
-    page; then the Listener's (gale_listener.tick); then start the full
-    pass if none runs to read the editions just laid out, by stage or
-    tools/gale_fetch.py (kick), and keep the Mac's arrival watcher installed
-    (install_watcher). Skipped when another sync is running."""
+    """One tick: publish the Times progress page when tools/gale_fetch.py
+    logged a download since the last (or RENDER_EVERY passed); then the
+    Listener's (gale_listener.tick); then start the full pass if none runs
+    to read the editions tools/gale_fetch.py laid out (kick). Skipped when
+    another sync is running."""
     import gale_listener  # imports this module, so not at the top
     with locked(wait=False) as mine:
         if not mine:
@@ -1852,22 +1152,14 @@ def sync(out=sys.stdout, force=False):
             _TICK_HELD.clear()
             dir_cache.save(DIR_CACHE)
     kick(out)
-    install_watcher(out)
 
 
 def _sync_locked(out, force, gale_listener):
     """sync's work under the lock."""
-    moved = collect(out)
-    changed = mirror(out)
     listener_changed = gale_listener.arrivals(out)
     ask = gale_due()
-    staging = force or moved or changed or unread() or time.time() - last_render() > RENDER_EVERY
-    if staging:
-        stage(MIRROR, out=out)
-        if tidy(out):
-            mirror(out)
-            stage(MIRROR, out=out)
-    if staging or (FETCHED.exists() and FETCHED.stat().st_mtime > last_render()):
+    if (force or time.time() - last_render() > RENDER_EVERY
+            or (FETCHED.exists() and FETCHED.stat().st_mtime > last_render())):
         CHECKLIST.parent.mkdir(parents=True, exist_ok=True)
         CHECKLIST.write_text(checklist())
         publish()
@@ -1878,37 +1170,21 @@ def _sync_locked(out, force, gale_listener):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
-    sy = sub.add_parser("sync", help="sweep hand downloads in, mirror the Mac inbox, stage it, publish the progress page")
-    sy.add_argument("--render", action="store_true", help="stage and publish even when nothing moved")
-    st = sub.add_parser("stage", help="stage a local folder of pages")
-    st.add_argument("--inbox", type=Path, default=MIRROR)
+    sy = sub.add_parser("sync", help="publish the progress page, tick the Listener, start the full pass")
+    sy.add_argument("--render", action="store_true", help="publish even when nothing was downloaded")
     cl = sub.add_parser("checklist", help="write the progress page")
     cl.add_argument("--out", type=Path, default=CHECKLIST)
-    mt = sub.add_parser("match", help="which edition each file is")
-    mt.add_argument("files", nargs="+", type=Path)
     sub.add_parser("shrink", help="lay out smaller every staged leaf over MAX_PAGE_PIXELS (its edition comes due)")
     a = ap.parse_args(argv)
     if a.cmd == "shrink":
         print(f"{len(shrink_oversized())} edition(s) shrunk")
-        return 0
-    if a.cmd == "match":
-        by_number = held()
-        for f in a.files:
-            m = match_anywhere(f, by_number)
-            print(f"{f.name}: {m['date'] or 'unmatched'} ({m.get('how') or m.get('why')})"
-                  + (f", No {m['number']}" if m.get("number") else "")
-                  + (f", page {m['page']}" if m.get("page") else "")
-                  + f", {len(m['pages'])} page image(s), {'a' if m.get('grid') else 'no'} grid found")
         return 0
     if a.cmd == "checklist":
         a.out.parent.mkdir(parents=True, exist_ok=True)
         a.out.write_text(checklist())
         print(f"wrote {a.out}")
         return 0
-    if a.cmd == "sync":
-        sync(force=a.render)
-        return 0
-    stage(a.inbox)
+    sync(force=a.render)
     return 0
 
 
