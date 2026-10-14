@@ -695,6 +695,7 @@ LAYOUT = [
     ("building and checking the site", "tools/test_inflate.js", "does inflate.js, the gunzip app.js falls back on where a browser has no DecompressionStream, give back exactly what zlib compressed? Over every block type zlib writes (stored at level 0, fixed for short input, dynamic otherwise), header flags, and real shims when the checkout has them built"),
     ("building and checking the site", "tools/cache_tar.sh", "the deploy's caches of files that live directly in puzzles/, carried as one tar file each instead of an actions/cache glob over puzzles/"),
     ("building and checking the site", "tools/test_cache_tar.sh", "tools/cache_tar.sh round trip on a small tree: pack takes exactly the files each deploy cache carried as a glob (puzzles/*/index.html and the page store; puzzles/*.js, *.js.gz, shims.gz.json) with their mtimes, unpack puts them back and removes the tar, and a missing tar is a cold cache, not an error"),
+    ("building and checking the site", "tools/privateeye_wayback.py", "private Eye Cyclops crosswords the Eye no longer serves, from the Wayback Machine"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

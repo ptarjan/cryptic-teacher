@@ -715,9 +715,15 @@ def solve_from_fifteensquared(puzzle, post):
     entry with problem None, or (None, "what failed and for which entry") if
     any check fails. Never a partial solutions dict.
     """
+    return solve_from_rows(puzzle, parse_fifteensquared_rows(post["content"]["rendered"]))
+
+
+def solve_from_rows(puzzle, rows):
+    """solve_from_fifteensquared's join and checks for answer rows read from any
+    source, as parse_fifteensquared_rows gives them: [(key, direction, letters)]
+    (tools/privateeye_wayback.py passes the Eye's own printed solution)."""
     entries_by_id = {(e["number"], e["direction"]): e for e in puzzle["entries"]}
     _, groups = find_link_groups(puzzle)
-    rows = parse_fifteensquared_rows(post["content"]["rendered"])
 
     solutions = {}  # (num, dir) -> letters
 

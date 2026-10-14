@@ -111,6 +111,10 @@ def _causes():
     import genius_puzzles
     for key, words in genius_puzzles.LOST_CAUSES.items():
         out[("guardian", key)] = Cause("tools/genius_puzzles.py", words, False, False)
+    import privateeye_wayback
+    for key, words in privateeye_wayback.LOST_CAUSES.items():
+        out[("wayback", key)] = Cause("tools/privateeye_wayback.py", words,
+                                      key in ("not-read", "refused"), False)
     out[("none", "no-source")] = Cause(
         "tools/first_issue.py", "no source we know prints it: find one (tools/first_issue.py SOURCES)", False, False)
     import file_blog_puzzles
@@ -428,6 +432,10 @@ def build(today=None):
         import genius_puzzles
         for n, cause in genius_puzzles.LOST.items():
             numbered["genius"][2].add((n, "guardian", cause))
+    if "cyclops" in numbered:
+        import privateeye_wayback
+        for n, cause in privateeye_wayback.lost().items():
+            numbered["cyclops"][2].add((n, "wayback", cause))
     if "azed" in numbered:
         for n, cause in andlit_rows():
             numbered["azed"][2].add((n, "andlit", cause))

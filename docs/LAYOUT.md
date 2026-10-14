@@ -2608,5 +2608,7 @@ tools/test_cache_tar.sh                        tools/cache_tar.sh round trip on 
                                                shims.gz.json) with their mtimes, unpack puts
                                                them back and removes the tar, and a missing tar
                                                is a cold cache, not an error
+tools/privateeye_wayback.py                    private Eye Cyclops crosswords the Eye no longer
+                                               serves, from the Wayback Machine
 ```
 <!-- LAYOUT-END -->
