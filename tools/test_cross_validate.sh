@@ -430,3 +430,23 @@ same("authority: three votes and no majority is a lead, whoever prints them",
 print("FAILED:", fails if fails else "none")
 sys.exit(1 if fails else 0)
 PY
+
+# Globe.fetch_one asks the globe-source manifest what is held, never a stat:
+# a day held as its payload or its .404 is not fetched again; a fetch
+# appends its file. Telegraph.ids (offline) opens the cached calendars.
+ct=$(mktemp -d)
+mkdir -p "$ct/dl/.manifest" "$ct/dl/telegraph/calendar"
+printf '%s\n' '{"key": "20260101.json", "at": 1}' '{"key": "20260102.404", "at": 1}' > "$ct/dl/.manifest/globe-source.jsonl"
+(cd "$(dirname "$0")" && CT_DOWNLOADS="$ct/dl" python3 -c "
+import cross_validate as cv, fetch_globeandmail as fg
+g = cv.Globe()
+assert g.fetch_one(('timesquick', '20260101')) is False
+assert g.fetch_one(('timesquick', '20260102')) is False
+fg.fetch_raw_json = lambda name: {'got': name}
+assert g.fetch_one(('timesquick', '20260103')) is True
+assert '20260103.json' in open('$ct/dl/.manifest/globe-source.jsonl').read()
+t = cv.Telegraph()
+t.offline = True
+assert t.ids() == {}, t.ids()
+print('Globe/Telegraph off the manifest: ok')") || { echo "FAIL Globe/Telegraph off the manifest"; rm -rf "$ct"; exit 1; }
+rm -rf "$ct"

@@ -41,7 +41,8 @@ SCHEDULED = {
     "parse_timesforthetimes.py": ["run"],
     # cross_validate.py all --new (after every filing unit) asks every adapter
     # its ids; the writers append to the folder manifests.
-    "cross_validate.py": ["Independent.served", "FT.ids", "ArchiveOrg.ids", "ListenerReport.ids"],
+    "cross_validate.py": ["Independent.served", "FT.ids", "ArchiveOrg.ids", "ListenerReport.ids",
+                          "Telegraph.ids", "Globe.fetch_one"],
     # gale_inbox sync's checklist, every minute: the scanned editions.
     "archive_coverage.py": ["scans"],
     # gale_fetch.py run() asks this every pass of its loop.
