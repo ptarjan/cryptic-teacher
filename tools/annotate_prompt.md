@@ -122,6 +122,7 @@ definition and wordplay give `alteration.from`, and its `steps` turn that word i
 the solution: `wp` builds `from`.
 
 Letters the puzzle's preamble supplies are a bare piece with no clue words: `[can]LOO + E`.
+A puzzle's `themeClue` names the clue that states its theme; treat that clue as its preamble.
 
 When the preamble hides a letter per clue that spells a phrase, give each such clue
 `"hiddenLetter": {"kind": "extra", "letter": "L"}`. Kinds: `extra` (the wordplay gives it

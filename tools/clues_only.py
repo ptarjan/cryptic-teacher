@@ -474,6 +474,14 @@ def promote(record, answers):
     if problems:
         return None, problems
     puzzle["source"] = {**puzzle["source"], "acquiredOn": record["source"]["acquiredOn"]}
+    # The clue that states the theme was filed by hand on the record, under
+    # the id its printed number gives; the grid puzzle keeps it.
+    if record.get("themeClue"):
+        from groups import entry_id   # late, as in fit_jigsaw
+        if record["themeClue"] not in {entry_id(e) for e in puzzle["entries"]}:
+            return None, [f"themeClue {record['themeClue']!r} is not an entry of the "
+                          f"grid these answers build"]
+        puzzle["themeClue"] = record["themeClue"]
     return puzzle, []
 
 

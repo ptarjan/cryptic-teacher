@@ -3006,15 +3006,35 @@ def text_errors(obj, errors):
 
 def committed_entries(path):
     """{entry id: entry} as HEAD has this puzzle, or None when it is not committed."""
+    was = committed_top(path)
+    return None if was is None else {entry_id(e): e for e in was.get("entries", [])}
+
+
+def committed_top(path):
+    """The puzzle as HEAD has it, or None when it is not committed."""
     try:
         rel = path.resolve().relative_to(ROOT)
     except ValueError:
         return None
     shown = subprocess.run(["git", "show", f"HEAD:{rel.as_posix()}"], cwd=ROOT,
                            capture_output=True, text=True, check=False)
-    if shown.returncode:
-        return None
-    return {entry_id(e): e for e in json.loads(shown.stdout).get("entries", [])}
+    return None if shown.returncode else json.loads(shown.stdout)
+
+
+def check_theme_clue_unchanged(puzzle, path, errors):
+    """`themeClue` is filed at filing or review, never by an annotator: it is
+    what lets a run's clue-word-less blocks stand, so a run that wrote it
+    would be granting itself the exception. A file whose themeClue differs
+    from HEAD's (added, changed or dropped) is refused."""
+    was = committed_top(path)
+    if was is None:
+        return
+    if was.get("themeClue") != puzzle.get("themeClue"):
+        errors.append(
+            f"themeClue changed from {was.get('themeClue')!r} to "
+            f"{puzzle.get('themeClue')!r}. It names the clue that states the theme "
+            f"and is filed by hand, not by the annotator: put it back. If a clue "
+            f"states the theme and none is filed, withdraw and say which")
 
 
 #: The letters an OCR'd clue's SOURCE_CLUE_WRONG correction may change: a
@@ -3402,6 +3422,16 @@ def tree_view(puzzle):
     return viewed, errors, warnings
 
 
+def theme_source(puzzle):
+    """What supplies a themed puzzle's letters that no clue word gives: its
+    preamble, else the clue its `themeClue` names ("30-across"), else None."""
+    if puzzle.get("preamble"):
+        return "the preamble"
+    if puzzle.get("themeClue"):
+        return puzzle["themeClue"]
+    return None
+
+
 def _validate_puzzle(puzzle, corpus=False, schema=True):
     errors, warnings = [], []
     # The file's shape first: tools/fetch_puzzle.write_puzzle_file refuses to
@@ -3484,11 +3514,14 @@ def _validate_puzzle(puzzle, corpus=False, schema=True):
             if frag and frag not in clue:
                 errors.append(f"{tag}: block fragment {frag!r} not found in clue {clue!r}"
                               + verbatim_hint(frag, clue))
-            # No clue words: letters the puzzle's preamble supplies.
-            if not frag and not (b.get("gives") and puzzle.get("preamble")):
+            # No clue words: letters the puzzle's preamble supplies, or the
+            # clue that states its theme (`themeClue`, filed by hand, when the
+            # paper prints the gimmick in a clue: nation-3337's 30-across).
+            if not frag and not (b.get("gives") and theme_source(puzzle)):
                 errors.append(f"{tag}: a block with no clueFragment is for letters the "
                               f"preamble supplies, and needs `gives` and a puzzle with a "
-                              f"preamble; otherwise quote the clue words it parses")
+                              f"preamble (or a filed themeClue); otherwise quote the "
+                              f"clue words it parses")
 
         # Letter mechanics.
         build = assembly(ann)
@@ -3825,6 +3858,7 @@ def backlog_errors(stem, warnings, allowed=None):
 def check_against_committed(puzzle, path, errors):
     """The checks a run's own puzzle gets against the file as committed."""
     check_clue_unchanged(puzzle, path, errors)
+    check_theme_clue_unchanged(puzzle, path, errors)
     check_clue_rows_held(puzzle, errors)
     check_selectors_are_indicators(puzzle, path, errors)
     check_no_new_abbreviation_notes(puzzle, path, errors)
