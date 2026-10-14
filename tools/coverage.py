@@ -537,14 +537,14 @@ def number_runs(series, held, today, dated=number_date):
 
 def trove_dates(root=None):
     """{article id: print date} from fetch_trove.py's search listings
-    (index/<year>.jsonl, "Thursday 11 December 1980")."""
+    (index/<year>.jsonl, "Thursday 11 December 1980"), off the trove-dates
+    manifest once complete (media_manifest.trove_hits)."""
     out = {}
-    for path in sorted(((root or TROVE) / "index").glob("*.jsonl")):
-        for hit in jsonl(path):
-            try:
-                out[str(hit["id"])] = datetime.datetime.strptime(hit["date"], "%A %d %B %Y").date()
-            except (KeyError, TypeError, ValueError):
-                pass
+    for art, date in media_manifest.trove_hits(root or TROVE):
+        try:
+            out[art] = datetime.datetime.strptime(date, "%A %d %B %Y").date()
+        except (TypeError, ValueError):
+            pass
     return out
 
 

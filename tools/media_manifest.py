@@ -59,6 +59,15 @@ TROVE_TITLES = "trove-titles"
 #: fetch_archive_org_editions appends one as it writes an edition's
 #: pages.json; edition_backlog counts them (with gale-editions' Gale ones).
 ARCHIVE_EDITIONS = "archiveorg-editions"
+#: The Trove search listings' print dates, one row a hit:
+#: {"article": id, "date": "Thursday 11 December 1980", "at"}, in index
+#: order (downloads.TROVE/index/<year>.jsonl, oldest year first).
+#: `fetch_trove.py search` appends a row for each hit it adds to a year's index.
+TROVE_DATES = "trove-dates"
+#: Whether a Trove article has clue zones to read (file_trove_puzzles.has_readings):
+#: {"article": id, "readings": bool, "at"}. fetch_trove.fetch_zones appends
+#: one as it writes an article's zone PNGs (downloads.TROVE_CLUES/<id>/).
+TROVE_ZONES = "trove-zones"
 
 
 def record_edition(d):
@@ -394,6 +403,46 @@ def build_trove_titles(out=sys.stdout):
     print(f"{TROVE_TITLES}: {len(have)} held, {n} added", file=out)
 
 
+def trove_hits(root):
+    """[(article id, its listing's date text)] of Trove cache `root`'s search
+    listings (root/index/<year>.jsonl), in index order: off TROVE_DATES once
+    `build trove-dates` has completed it, else read off the listings."""
+    if on_media(root) and complete(TROVE_DATES):
+        return [(str(r["article"]), r.get("date")) for r in rows(TROVE_DATES)]
+    return _trove_hits_read(root)
+
+
+def _trove_hits_read(root):
+    """trove_hits read off the listings themselves."""
+    out = []
+    for p in sorted((Path(root) / "index").glob("*.jsonl")):
+        for ln in p.read_text().splitlines():
+            if ln.strip():
+                hit = json.loads(ln)
+                out.append((str(hit["id"]), hit.get("date")))
+    return out
+
+
+def build_trove_dates(out=sys.stdout):
+    """Read downloads.TROVE/index/*.jsonl once into TROVE_DATES, whole. Never scheduled."""
+    found = [{"article": a, "date": d, "at": time.time()} for a, d in _trove_hits_read(downloads.TROVE)]
+    write(TROVE_DATES, found)
+    complete_path(TROVE_DATES).write_text(json.dumps({"at": time.time()}))
+    print(f"{TROVE_DATES}: {len(found)} hits", file=out)
+
+
+def build_trove_zones(out=sys.stdout):
+    """List downloads.TROVE_CLUES once: whether each article there has clue
+    zones to read, into TROVE_ZONES, whole. Never scheduled."""
+    has_readings = importlib.import_module("file_trove_puzzles").has_readings
+    root = downloads.TROVE_CLUES
+    found = [{"article": name, "readings": has_readings(name, root), "at": time.time()}
+             for name in sorted(os.listdir(root)) if (root / name).is_dir()]
+    write(TROVE_ZONES, found)
+    complete_path(TROVE_ZONES).write_text(json.dumps({"at": time.time()}))
+    print(f"{TROVE_ZONES}: {len(found)} articles, {sum(r['readings'] for r in found)} with readings", file=out)
+
+
 def complete_path(name):
     """The marker a build of memo manifest `name` writes once it holds every
     file: before it, the memo (seeded, or appended as read) is partial."""
@@ -455,6 +504,8 @@ def _build_items():
 BUILDERS["ia-items"] = _build_items
 BUILDERS[ARCHIVE_EDITIONS] = build_archive_editions
 BUILDERS[TROVE_TITLES] = build_trove_titles
+BUILDERS[TROVE_DATES] = build_trove_dates
+BUILDERS[TROVE_ZONES] = build_trove_zones
 BUILDERS["independent-source"] = lambda: build_files("independent-source", extra=_independent_row)
 
 

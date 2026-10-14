@@ -281,3 +281,22 @@ echo '{}' > "$tmp/tv/.manifest/trove-titles.complete"
 after=$(cd tools && CT_DOWNLOADS="$tmp/tv" python3 -c "import coverage as c; print(c.trove_articles())")
 [ "$before $after" = "['5'] ['9']" ] || { echo "FAIL trove_articles: $before $after"; exit 1; }
 echo "trove_articles: ok"
+
+# coverage.trove_dates reads the index listings until trove-dates is complete,
+# then only the manifest; stamp_cause's zone check likewise off trove-zones.
+mkdir -p "$tmp/tv/trove/index" "$tmp/tv/trove-clues/7"
+echo '{"id": 5, "date": "Thursday 11 December 1980"}' > "$tmp/tv/trove/index/1980.jsonl"
+: > "$tmp/tv/trove-clues/7/zone0.png"
+echo '{"article": "8", "date": "Friday 12 December 1980", "at": 1}' > "$tmp/tv/.manifest/trove-dates.jsonl"
+printf '%s\n' '{"article": "8", "readings": true, "at": 1}' '{"article": "7", "readings": false, "at": 1}' \
+    > "$tmp/tv/.manifest/trove-zones.jsonl"
+q='import coverage as c, downloads, file_trove_puzzles as t
+row = lambda a: {"article": a, "inputs": "h", "grid": "image", "pending": "x"}
+print(c.trove_dates(), [a for a in "78" if not t.stamp_cause(row(a), downloads.TROVE_CLUES)])'
+before=$(cd tools && CT_DOWNLOADS="$tmp/tv" python3 -c "$q")
+echo '{}' > "$tmp/tv/.manifest/trove-dates.complete"
+echo '{}' > "$tmp/tv/.manifest/trove-zones.complete"
+after=$(cd tools && CT_DOWNLOADS="$tmp/tv" python3 -c "$q")
+[ "$before" = "{'5': datetime.date(1980, 12, 11)} ['8']" ] || { echo "FAIL trove_dates/zones listed: $before"; exit 1; }
+[ "$after" = "{'8': datetime.date(1980, 12, 12)} ['7']" ] || { echo "FAIL trove_dates/zones manifest: $after"; exit 1; }
+echo "trove_dates, stamp_cause zones: ok"
