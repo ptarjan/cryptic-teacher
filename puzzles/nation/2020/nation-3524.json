@@ -16,8 +16,40 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "published"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-14",
+  "check": "30 entries, 60 crossings, 0 conflicts, agrees with the 24 answers the paper printed",
+  "printed": {
+   "1-across": "MACADAMIA",
+   "1-down": "MOUSSE",
+   "3-down": "DITHERY",
+   "4-down": "MIDDLEBROW",
+   "5-down": "APSE",
+   "6-across": "GAMUT",
+   "6-down": "GOLIATH",
+   "9-across": "UNRATED",
+   "10-across": "SPLURGE",
+   "11-across": "SLOVENLY",
+   "12-across": "CAVERN",
+   "13-down": "GRANDPIANO",
+   "14-across": "DENY",
+   "15-across": "BIRDHOUSE",
+   "16-down": "SCABBARD",
+   "17-across": "CHINATOWN",
+   "18-down": "ANCHOVY",
+   "19-across": "BANK",
+   "19-down": "BELARUS",
+   "21-across": "BISECT",
+   "22-across": "OPULENCE",
+   "23-down": "BLAB",
+   "24-across": "AXOLOTL",
+   "25-across": "AIRSHIP"
+  }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +63,64 @@
     "text": "Mystery, primarily to a scoundrel: \"Am I a nut?\"",
     "enumeration": "9"
    },
-   "solution": "MACADAMIA"
+   "solution": "MACADAMIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nut",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 9,
+         "note": "primarily means the word Mystery gives only its first letter here"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Mystery",
+         "at": 0,
+         "note": "only its opening letter is used, as primarily directs"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 22,
+       "note": "taken as written"
+      },
+      {
+       "words": "scoundrel",
+       "at": 24,
+       "gives": "CAD",
+       "note": "a cad is a man who behaves dishonourably"
+      },
+      {
+       "words": "Am I a",
+       "at": 36,
+       "note": "taken as written, three words run together"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone puzzled by a whodunit addresses a villain, wondering whether they themselves are crazy.",
+     "walkthrough": "'nut' seems to mean a madman in the surface question, but it is the definition: a kind of nut.",
+     "definitionFit": "The macadamia is a round, creamy Australian tree nut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nut"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +134,44 @@
     "text": "Listen to beast getting dessert",
     "enumeration": "6"
    },
-   "solution": "MOUSSE"
+   "solution": "MOUSSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dessert",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MOUSSE",
+     "indicators": [
+      {
+       "text": "Listen to",
+       "at": 0,
+       "note": "asks us to hear the word for the beast, so its sound gives the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beast",
+       "at": 10,
+       "gives": "MOOSE",
+       "note": "a moose is a large deer, a beast of the northern forests"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to heed an animal that is being served pudding.",
+     "definitionFit": "Mousse is a light, airy sweet dish, often chocolate, served as a dessert."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "beast"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,6 +190,50 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "CARBONEMISSIONS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "These have to be reduced immediately!",
+      "at": 33,
+      "note": "plural, as the answer is: the greenhouse gases climate policy aims to cut"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "automotive",
+       "at": 11,
+       "gives": "CAR",
+       "note": "something automotive concerns a car"
+      },
+      {
+       "words": "skeletons",
+       "at": 22,
+       "gives": "BONE",
+       "note": "a skeleton is made of bone, so bone stands in for it"
+      },
+      {
+       "words": "Quests",
+       "at": 0,
+       "gives": "MISSIONS",
+       "note": "missions are quests or expeditions with a purpose"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hunting for the shells of old cars, followed by an urgent cry that something must be cut down now.",
+     "walkthrough": "Read as 'car-bone missions', quests for a car's skeleton; the words then rejoin into a familiar phrase.",
+     "definitionFit": "Carbon emissions from burning fuels drive global warming, so cutting them is seen as an urgent priority."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "skeletons"
+    }
    }
   },
   {
@@ -78,7 +248,59 @@
     "text": "Captivated by dull object, that gentleman becomes indecisive",
     "enumeration": "7"
    },
-   "solution": "DITHERY"
+   "solution": "DITHERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "indecisive",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Captivated by",
+       "at": 0,
+       "note": "being captivated by something here means being held inside it, so the inner pieces sit within the outer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dull",
+       "at": 14,
+       "gives": "DRY",
+       "note": "dry, as in a dry or tedious lecture"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "object",
+         "at": 19,
+         "gives": "IT",
+         "note": "it is the grammatical object pronoun"
+        },
+        {
+         "words": "that gentleman",
+         "at": 27,
+         "gives": "HE",
+         "note": "he refers to a man already mentioned"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man so fascinated by some boring thing that he can no longer make up his mind.",
+     "definitionFit": "Someone dithery hesitates and wavers, unable to settle on a choice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Captivated"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +314,71 @@
     "text": "Rising society claims: \"Be not too bright and only somewhat cultured\"",
     "enumeration": "10"
    },
-   "solution": "MIDDLEBROW"
+   "solution": "MIDDLEBROW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "only somewhat cultured",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Rising",
+       "at": 0,
+       "note": "in a down clue, rising means the whole construction is read from the bottom up"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "claims",
+           "at": 15,
+           "note": "the society word claims, or takes in, the word Be"
+          }
+         ],
+         "parts": [
+          {
+           "words": "society",
+           "at": 7,
+           "gives": "WORLD",
+           "note": "the world, as in the fashionable world of society"
+          },
+          {
+           "words": "Be",
+           "at": 24,
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "not too bright",
+         "at": 27,
+         "gives": "DIM",
+         "note": "dim means slow-witted or not very bright"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An upwardly mobile social set announces its ideal: modest intelligence and a little culture.",
+     "walkthrough": "The parse is read upward in the grid, so the pieces appear back to front in the clue.",
+     "definitionFit": "Middlebrow describes taste or people of moderate, unchallenging intellectual and cultural interests."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "society"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +392,45 @@
     "text": "Part of church error: missing leadership",
     "enumeration": "4"
    },
-   "solution": "APSE"
+   "solution": "APSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Part of church",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing leadership",
+       "at": 22,
+       "note": "missing the leader means the word for error loses its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "error",
+       "at": 15,
+       "gives": "LAPSE",
+       "note": "a lapse is a slip or mistake"
+      },
+      {
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church body's mistake was having nobody in charge.",
+     "definitionFit": "The apse is the semicircular recess, usually at the east end, of a church building."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leadership"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +444,64 @@
     "text": "Tailless dog seen east of Georgia range",
     "enumeration": "5"
    },
-   "solution": "GAMUT"
+   "solution": "GAMUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "range",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "seen east of",
+       "at": 13,
+       "note": "in an across answer, east is to the right, so this piece comes after the state's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Georgia",
+       "at": 26,
+       "gives": "GA",
+       "note": "GA is the US postal abbreviation for Georgia"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Tailless",
+         "at": 0,
+         "note": "the dog word loses its last letter, its tail"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dog",
+         "at": 9,
+         "gives": "MUTT",
+         "note": "a mutt is a mongrel dog"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog with no tail turns up east of Georgia in a mountain range.",
+     "walkthrough": "'range' seems to be a mountain range near Georgia; here it means a full spread of things.",
+     "definitionFit": "A gamut is the whole scale or spectrum of something, as in running the gamut of emotions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +515,59 @@
     "text": "Giant vandal capturing Ali violently",
     "enumeration": "7"
    },
-   "solution": "GOLIATH"
+   "solution": "GOLIATH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Giant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "capturing",
+       "at": 13,
+       "note": "the vandal word captures the other letters, holding them inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vandal",
+       "at": 6,
+       "gives": "GOTH",
+       "note": "the Goths, like the Vandals, sacked Rome, so a goth is a barbarian destroyer"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "violently",
+         "at": 27,
+         "note": "violent treatment throws the letters of Ali into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ali",
+         "at": 23,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge thug grabs the boxer Muhammad Ali in a brutal way.",
+     "definitionFit": "Goliath is the Philistine giant killed by David, and his name now means any giant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vandal"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,6 +586,76 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "MERCECUNNINGHAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "choreographer",
+      "at": 63
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "overcomes",
+       "at": 24,
+       "note": "in a down answer, a piece that overcomes another sits above it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 8,
+         "note": "the word for grace loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Grace's",
+         "at": 0,
+         "gives": "MERCY",
+         "note": "mercy is grace in the sense of clemency; the apostrophe-s just attaches the next piece"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "words": "ecstasy",
+       "at": 16,
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
+      },
+      {
+       "words": "crafty",
+       "at": 34,
+       "gives": "CUNNING",
+       "note": "cunning means sly or crafty"
+      },
+      {
+       "words": "actor (a bad one)",
+       "at": 41,
+       "gives": "HAM",
+       "note": "a ham is an overacting, bad actor"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Grace, high on a drug, gets the better of a scheming bad actor and a dance-maker.",
+     "walkthrough": "Grace looks like a woman's name but is a synonym for mercy. Merce Cunningham (1919-2009) was a leading American modern-dance choreographer.",
+     "definitionFit": "Merce Cunningham founded his own dance company and created avant-garde dances, often with John Cage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grace's"
+    }
    }
   },
   {
@@ -172,6 +675,44 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "THEANDES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "high places?",
+      "at": 19,
+      "note": "the question mark flags a playful definition: a mountain range is literally a set of high places"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "reform",
+       "at": 9,
+       "note": "to reform is to form again, so these letters are rebuilt in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hastened",
+       "at": 0,
+       "note": "taken as written, all eight letters rearranged"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rushed changes among people in positions of power.",
+     "walkthrough": "'high places' suggests the corridors of power; it is literally lofty ground in South America.",
+     "definitionFit": "The Andes, the long mountain range of South America, rise to nearly 7,000 metres: lofty terrain indeed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "high"
+    }
    }
   },
   {
@@ -186,7 +727,41 @@
     "text": "Shocking nude art, like some films",
     "enumeration": "7"
    },
-   "solution": "UNRATED"
+   "solution": "UNRATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "like some films",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Shocking",
+       "at": 0,
+       "note": "a shocking jolt disturbs these letters into a fresh order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nude art",
+       "at": 9,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Scandalous naked artwork, of the kind seen in certain movies.",
+     "definitionFit": "An unrated film has not been given a classification by the ratings board, often because of explicit content."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Shocking"
+    }
+   }
   },
   {
    "number": 10,
@@ -200,7 +775,48 @@
     "text": "Troop buildup involving a couple of planes and heavy expenditure",
     "enumeration": "7"
    },
-   "solution": "SPLURGE"
+   "solution": "SPLURGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "heavy expenditure",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "at": 14,
+       "note": "the buildup word involves, or wraps around, the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Troop buildup",
+       "at": 0,
+       "gives": "SURGE",
+       "note": "a surge is a rapid increase in deployed troops"
+      },
+      {
+       "words": "a couple of planes",
+       "at": 24,
+       "gives": "PL",
+       "note": "the first two letters of planes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military reinforcement with some aircraft costs a fortune.",
+     "definitionFit": "A splurge is a spending spree, an extravagant outlay of money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "planes"
+    }
+   }
   },
   {
    "number": 11,
@@ -214,7 +830,70 @@
     "text": "Messy, like a fox eating honey and a piece of nectarine",
     "enumeration": "8"
    },
-   "solution": "SLOVENLY"
+   "solution": "SLOVENLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Messy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "at": 18,
+       "note": "the outer word eats the others, taking them inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "like a fox",
+       "at": 7,
+       "gives": "SLY",
+       "note": "foxes are proverbially sly"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "honey",
+         "at": 25,
+         "gives": "LOVE",
+         "note": "love and honey are both terms of endearment"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "a piece of",
+           "at": 35,
+           "note": "just the first letter of nectarine is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nectarine",
+           "at": 46,
+           "note": "its opening letter is the piece taken"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fox makes a mess of its meal of honey and fruit.",
+     "definitionFit": "Slovenly means untidy and careless in appearance or habits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "honey"
+    }
+   }
   },
   {
    "number": 12,
@@ -228,7 +907,41 @@
     "text": "Beware the nurse in a dark space",
     "enumeration": "6"
    },
-   "solution": "CAVERN"
+   "solution": "CAVERN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dark space",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Beware",
+       "at": 0,
+       "gives": "CAVE",
+       "note": "cave is Latin for beware, a school word used as a warning"
+      },
+      {
+       "words": "nurse",
+       "at": 11,
+       "gives": "RN",
+       "note": "RN stands for registered nurse"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning about a nurse lurking in a gloomy place.",
+     "definitionFit": "A cavern is a large cave, an enclosed space with little light."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Beware"
+    }
+   }
   },
   {
    "number": 13,
@@ -248,7 +961,60 @@
      }
     ]
    },
-   "solution": "GRANDPIANO"
+   "solution": "GRANDPIANO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "musical instrument",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "adopting",
+         "at": 17,
+         "note": "the relative takes in the other letter, as one adopts a child into the family"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Elderly relative",
+         "at": 0,
+         "gives": "GRANDPA",
+         "note": "grandpa is an older family member"
+        },
+        {
+         "words": "the author",
+         "at": 26,
+         "gives": "I",
+         "note": "the writer of the clue refers to themself as I"
+        }
+       ]
+      },
+      {
+       "words": "no",
+       "at": 42,
+       "gives": "NO",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old family member takes the writer in, though no music-maker comes with them.",
+     "walkthrough": "'with no musical instrument' reads as a lack, but 'no' is a piece and the instrument is the definition.",
+     "definitionFit": "A grand piano is the large horizontal concert piano."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "no"
+    }
+   }
   },
   {
    "number": 14,
@@ -262,7 +1028,41 @@
     "text": "Refuse to accept study? Yes",
     "enumeration": "4"
    },
-   "solution": "DENY"
+   "solution": "DENY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Refuse to accept",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "study",
+       "at": 17,
+       "gives": "DEN",
+       "note": "a den is a private room for work or reading"
+      },
+      {
+       "words": "Yes",
+       "at": 24,
+       "gives": "Y",
+       "note": "Y is a common shorthand for yes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student refusing to take up a subject and answering yes.",
+     "definitionFit": "To deny something is to reject or disavow it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 15,
@@ -276,7 +1076,53 @@
     "text": "Rob hid strange application in an aviary",
     "enumeration": "9"
    },
-   "solution": "BIRDHOUSE"
+   "solution": "BIRDHOUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "aviary",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "strange",
+         "at": 8,
+         "note": "the letters of Rob hid are made strange, rearranged into an odd order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Rob hid",
+         "at": 0,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "application",
+       "at": 16,
+       "gives": "USE",
+       "note": "use, as in putting something to application or use"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Rob concealed an odd app inside a bird enclosure.",
+     "walkthrough": "'Rob' looks like theft or a name; it is just fodder.",
+     "definitionFit": "A birdhouse is a small shelter for birds, an enclosure where they are kept."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rob"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +1136,41 @@
     "text": "Strikebreaking poet's case for a weapon",
     "enumeration": "8"
    },
-   "solution": "SCABBARD"
+   "solution": "SCABBARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "case for a weapon",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Strikebreaking",
+       "at": 0,
+       "gives": "SCAB",
+       "note": "a scab is a strikebreaker"
+      },
+      {
+       "words": "poet's",
+       "at": 15,
+       "gives": "BARD",
+       "note": "a bard is a poet; the apostrophe-s joins on what follows"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer who crosses the picket line, and the sheath for his sword.",
+     "definitionFit": "A scabbard is the sheath that holds a sword or dagger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poet's"
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +1184,47 @@
     "text": "Feature a pair of attorneys have in neighborhood where many immigrants live",
     "enumeration": "9"
    },
-   "solution": "CHINATOWN"
+   "solution": "CHINATOWN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "neighborhood where many immigrants live",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Feature",
+       "at": 0,
+       "gives": "CHIN",
+       "note": "the chin is a facial feature"
+      },
+      {
+       "words": "a pair of attorneys",
+       "at": 8,
+       "gives": "AT",
+       "note": "the first two letters of attorneys"
+      },
+      {
+       "words": "have",
+       "at": 28,
+       "gives": "OWN",
+       "note": "to own something is to have it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two lawyers have a role in a district settled by newcomers.",
+     "definitionFit": "A Chinatown is an urban district where many Chinese immigrants and their descendants live."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Feature"
+    }
+   }
   },
   {
    "number": 18,
@@ -318,7 +1238,85 @@
     "text": "Cut of lamb, mostly, with a helping of veal amid unspecified fish",
     "enumeration": "7"
    },
-   "solution": "ANCHOVY"
+   "solution": "ANCHOVY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 61
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "amid",
+       "at": 44,
+       "note": "these pieces sit amid the letters of the outer word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "unspecified",
+       "at": 49,
+       "gives": "ANY",
+       "note": "any means no particular one"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 13,
+           "note": "most of the word, with its last letter dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Cut of lamb",
+           "at": 0,
+           "gives": "CHOP",
+           "note": "a chop is a cut of lamb"
+          },
+          {
+           "gives": "P"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "a helping of",
+           "at": 26,
+           "note": "just a first serving of the word, its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "veal",
+           "at": 39,
+           "note": "its opening letter is the helping taken"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A menu of lamb and a little veal served with some fish.",
+     "definitionFit": "The anchovy is a small, salty, oily sea fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unspecified"
+    }
+   }
   },
   {
    "number": 19,
@@ -332,7 +1330,54 @@
     "text": "Take back kilo in a safe place?",
     "enumeration": "4"
    },
-   "solution": "BANK"
+   "solution": "BANK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "safe place?",
+      "at": 20,
+      "note": "the question mark flags the play on safe: a bank holds safes"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 5,
+         "note": "the word for take is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Take",
+         "at": 0,
+         "gives": "NAB",
+         "note": "to nab is to grab or take"
+        }
+       ]
+      },
+      {
+       "words": "kilo",
+       "at": 10,
+       "gives": "K"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Retrieving a kilogram and storing it securely.",
+     "definitionFit": "A bank keeps money in its vaults, so it is a secure place for valuables."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Take"
+    }
+   }
   },
   {
    "number": 19,
@@ -346,7 +1391,43 @@
     "text": "A ruble's dispersed here!",
     "enumeration": "7"
    },
-   "solution": "BELARUS"
+   "solution": "BELARUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A ruble's dispersed here!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "dispersed",
+       "at": 10,
+       "note": "scattered letters, spread about into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "A ruble's",
+       "at": 0,
+       "note": "taken as written, apostrophe dropped"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A currency note spent all around a country where it is legal tender.",
+     "walkthrough": "The whole clue is both the wordplay and the definition: the ruble is the currency of this country.",
+     "definitionFit": "Belarus is the Eastern European country whose currency is the Belarusian ruble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "dispersed"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,6 +1440,43 @@
    "clue": {
     "text": "On the radio, retain commercial for calculator component",
     "enumeration": "6"
+   },
+   "solution": "KEYPAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "calculator component",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "KEYPAD",
+     "indicators": [
+      {
+       "text": "On the radio",
+       "at": 0,
+       "note": "broadcast speech is heard, not seen, so the answer sounds like the pieces"
+      }
+     ],
+     "parts": [
+      {
+       "words": "retain commercial",
+       "at": 14,
+       "gives": "KEEPAD",
+       "note": "keep (retain) plus ad (commercial), said together, sound like the answer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A request that a broadcaster keep running an advert for a calculator part.",
+     "definitionFit": "A keypad is the set of buttons on a calculator or phone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "commercial"
+    }
    }
   },
   {
@@ -373,7 +1491,90 @@
     "text": "Lives on bananas, etc., after first bite of banana split",
     "enumeration": "6"
    },
-   "solution": "BISECT"
+   "solution": "BISECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "split",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 24,
+       "note": "the following pieces come after that first letter"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first bite of",
+         "at": 30,
+         "note": "only the first bite, the opening letter, of banana"
+        }
+       ],
+       "parts": [
+        {
+         "words": "banana",
+         "at": 44,
+         "note": "its opening letter is the bite taken"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "on",
+         "at": 6,
+         "note": "the scrambled piece is placed on, or next after, the word for lives"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lives",
+         "at": 0,
+         "gives": "IS",
+         "note": "lives means is alive, so it gives is"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "bananas",
+           "at": 9,
+           "note": "bananas means crazy, signalling the letters of etc are scrambled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "etc",
+           "at": 18,
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who lives on bananas and the like, after biting into a banana split dessert.",
+     "walkthrough": "'banana split' looks like the dessert; split is the definition.",
+     "definitionFit": "To bisect is to cut or divide into two parts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1588,70 @@
     "text": "Wealth from nothing? Vice president admits unusual start and finish",
     "enumeration": "8"
    },
-   "solution": "OPULENCE"
+   "solution": "OPULENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wealth",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "nothing",
+       "at": 12,
+       "gives": "O",
+       "note": "O is zero, nothing"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "admits",
+         "at": 36,
+         "note": "the vice president admits, or lets in, the other letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Vice president",
+         "at": 21,
+         "gives": "PENCE",
+         "note": "Mike Pence was the US vice president under Trump"
+        },
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "start and finish",
+           "at": 51,
+           "note": "just the first and last letters of unusual"
+          }
+         ],
+         "parts": [
+          {
+           "words": "unusual",
+           "at": 43,
+           "note": "its outer letters, the first and last, are the pieces kept"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Riches out of nothing, as a vice president concedes an odd beginning and end.",
+     "definitionFit": "Opulence is great wealth or luxurious richness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "admits"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1665,61 @@
     "text": "Spill a bit of beer on the dog",
     "enumeration": "4"
    },
-   "solution": "BLAB"
+   "solution": "BLAB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spill",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 20,
+       "note": "in a down answer, a piece on another sits above it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a bit of",
+         "at": 6,
+         "note": "only a small bit, the opening letter, of beer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beer",
+         "at": 15,
+         "note": "its opening letter is the bit taken"
+        }
+       ]
+      },
+      {
+       "words": "the dog",
+       "at": 23,
+       "gives": "LAB",
+       "note": "a lab is a Labrador retriever"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spills some beer on their dog.",
+     "walkthrough": "'Spill' looks like knocking a drink over; here it means to spill secrets.",
+     "definitionFit": "To blab is to reveal secrets indiscreetly, as in spilling the beans."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Spill"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1733,70 @@
     "text": "Salamander can start to outgrow parcel of land before long",
     "enumeration": "7"
    },
-   "solution": "AXOLOTL"
+   "solution": "AXOLOTL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Salamander",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 47,
+       "note": "the land piece comes before the last letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "can",
+       "at": 11,
+       "gives": "AX",
+       "note": "to can or ax someone is to fire them; ax is the US spelling of axe"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start to",
+         "at": 15,
+         "note": "the start of outgrow, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "outgrow",
+         "at": 24,
+         "note": "its opening letter is the start taken"
+        }
+       ]
+      },
+      {
+       "words": "parcel of land",
+       "at": 32,
+       "gives": "LOT",
+       "note": "a lot is a plot of land"
+      },
+      {
+       "words": "long",
+       "at": 54,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A salamander might be fired before getting too big for its plot.",
+     "definitionFit": "The axolotl is a Mexican salamander that keeps its larval gills into adulthood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1810,49 @@
     "text": "Zeppelin's tune is trendy",
     "enumeration": "7"
    },
-   "solution": "AIRSHIP"
+   "solution": "AIRSHIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Zeppelin",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tune",
+       "at": 11,
+       "gives": "AIR",
+       "note": "an air is a melody"
+      },
+      {
+       "words": "is",
+       "at": 16,
+       "gives": "S",
+       "note": "is shortened to an apostrophe-s gives S"
+      },
+      {
+       "words": "trendy",
+       "at": 19,
+       "gives": "HIP",
+       "note": "hip means fashionable"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rock fan declares that Led Zeppelin's song is cool.",
+     "walkthrough": "Zeppelin evokes the band Led Zeppelin, but it is the airship named after Count Zeppelin.",
+     "definitionFit": "A Zeppelin is a rigid dirigible balloon, a type of large rigid-framed aircraft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Zeppelin's"
+    }
+   }
   },
   {
    "number": 26,
@@ -442,6 +1865,48 @@
    "clue": {
     "text": "Shadowy blue follows you in Berlin",
     "enumeration": "5"
+   },
+   "solution": "DUSKY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shadowy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "follows",
+       "at": 13,
+       "note": "the colour piece follows the German word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "you in Berlin",
+       "at": 21,
+       "gives": "DU",
+       "note": "du is German for you"
+      },
+      {
+       "words": "blue",
+       "at": 8,
+       "gives": "SKY",
+       "note": "the sky is blue, and sky blue names that colour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dim blue trails after someone in the German capital.",
+     "definitionFit": "Dusky means dim or darkish, as at dusk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blue"
+    }
    }
   },
   {
@@ -455,6 +1920,67 @@
    "clue": {
     "text": "Developed beta failure before withdrawn test version",
     "enumeration": "9"
+   },
+   "solution": "BLOSSOMED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Developed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 23,
+       "note": "the failure piece comes before the next one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beta",
+       "at": 10,
+       "gives": "B",
+       "note": "B is the Greek letter beta's equivalent"
+      },
+      {
+       "words": "failure",
+       "at": 15,
+       "gives": "LOSS",
+       "note": "a loss is a defeat or failure"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "withdrawn",
+         "at": 30,
+         "note": "withdrawn means pulled back, so the word for test version is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "test version",
+         "at": 40,
+         "gives": "DEMO",
+         "note": "a demo is a trial version of software"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Software jargon: a beta release failed before a trial build was pulled.",
+     "walkthrough": "The software terms beta and developed suggest a programming story; developed means flourished.",
+     "definitionFit": "To have blossomed is to have flourished and matured, like a flower opening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beta"
+    }
    }
   }
  ]
