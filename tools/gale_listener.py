@@ -1,46 +1,42 @@
 #!/usr/bin/env python3
-"""The Listener crosswords of 1930-91, read from the pages Paul saves BY HAND
-from Gale's Listener Historical Archive (through the Alberta Research Portal).
+"""The Listener crosswords of 1930-91, read from the pages
+tools/gale_fetch.py downloads from Gale's Listener Historical Archive
+(through the Alberta Research Portal).
 
-Only tools/gale_docs.py asks Gale anything: each sync looks up the next
-puzzles' document ids, so their rows link straight to Gale's Download. This
-writes a checklist of the puzzles to save, from the
-Listener Team's year index (listenercrossword.com /Years/Y<year>.html, read
-for the numbers and dates only), and reads each page Paul saves into his
-inbox with the clue OCR every scan filer shares (tools/ocr_clues.py's
-readers, tools/archive_org_listener.py's vote).
+wanted() is what tools/gale_fetch.py fetches: every puzzle the magazine
+printed that is neither filed nor read, from the Listener Team's year index
+(listenercrossword.com /Years/Y<year>.html, read for the numbers and dates
+only), and the "Report on Crossword No. N" page printing each one's answers
+about two issues later, while no saved page holds it. lay_out_fetched puts
+each downloaded page in SAVED, named for its issue's date (a report page by
+its document alone), and the clue OCR every scan filer shares
+(tools/ocr_clues.py's readers, tools/archive_org_listener.py's vote) reads
+it.
 
-    python3 tools/gale_listener.py sync               # mirror the Mac's inbox, read new pages, file, publish the checklist
-    python3 tools/gale_listener.py read --inbox DIR [--store DIR]   # read a local folder (no Mac)
-    python3 tools/gale_listener.py checklist [--out FILE]
+    python3 tools/gale_listener.py read [--inbox DIR] [--store DIR]   # read every saved page not yet read
     python3 tools/gale_listener.py match FILE...      # which puzzle each file is, and how that was read
 
-The inbox is gi.LISTENER_INBOX on the Mac, mirrored to MIRROR over the ssh hatch
-as tools/gale_inbox.py mirrors the Times'. A file is matched to its puzzle
-by the date in its name, else the puzzle number in its name, else the
-number its Gale citation's article title prints ("No. 22—A French
-Crossword"), else the date the citation prints, else the number our
-readers read in its title ("Crossword No. 1,234"); a date gives the puzzle
-the index puts on that issue. A page may also print a past puzzle's
-solution, "Report on Crossword No. 16" with the filled grid, about two
-issues later: the citation or the page's words name it, the ledger keeps it
-as the file's "reports", and the checklist asks for that page while a
-saved puzzle has none. Each file is read once: STORE/ledger.jsonl is keyed
-by the file's sha256 (and VERSION), one row appended a read, so a re-run
-reads only files new or changed. The standing pass reads each new page as
-a unit of its own (tools/edition_queue.py, plan() and read_unit(): its own
-process, time limit and lock), planned every minute from the mirror the
-every-3-minute gale_inbox tick keeps, so a page is read within minutes of
-landing; `sync` does the same as one batch. With OCR_REMOTE set, a page's
-read (its match, clue OCR and grids) runs on the desktop through
-tools/ocr_remote.py (read_remote), all but its whole-page Tesseract read;
-the filing runs here, and the whole read when the desktop is unset, busy
-or fails.
+A file is matched to its puzzle by the date in its name, else the puzzle
+number in its name, else the number its Gale citation's article title
+prints ("No. 22—A French Crossword"), else the date the citation prints,
+else the number our readers read in its title ("Crossword No. 1,234"); a
+date gives the puzzle the index puts on that issue. A page may also print a
+past puzzle's solution, "Report on Crossword No. 16" with the filled grid:
+the citation or the page's words name it, and the ledger keeps it as the
+file's "reports". Each file is read once: STORE/ledger.jsonl is keyed by
+the file's sha256 (and VERSION), one row appended a read, so a re-run reads
+only files new or changed. The standing pass reads each new page as a unit
+of its own (tools/edition_queue.py, plan() and read_unit(): its own
+process, time limit and lock), planned every minute, so a page is read
+within minutes of landing. With OCR_REMOTE set, a page's read (its match,
+clue OCR and grids) runs on the desktop through tools/ocr_remote.py
+(read_remote), all but its whole-page Tesseract read; the filing runs
+here, and the whole read when the desktop is unset, busy or fails.
 
 What a page gives is its clues: STORE/listener-N.json, the reading
 tools/archive_org_listener.py writes (clue text and count by light, the
 vote's blanks, the source). A puzzle file needs the grid and answers too,
-which a barred grid's clues alone do not give: `sync` then runs
+which a barred grid's clues alone do not give: read_unit then runs
 tools/file_gale_listener.py, which joins each reading with its page's grid
 (tools/listener_grid.py) and files what passes unsolved; the later
 report's letters are kept as a check on the solve, never filed.
@@ -62,7 +58,6 @@ import unicodedata
 from pathlib import Path
 import archive_org_listener as al
 import file_archive_org_puzzles as fa
-import gale_docs
 import gale_inbox as gi
 import listener_puzzles as lp
 import ocr_clues
@@ -70,14 +65,10 @@ import ocr_clues
 TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 
-#: Published to the Gale root beside the Times' checklist.
-CHECKLIST_NAME = "Listener checklist.html"
 HOME = Path(os.path.expanduser("~/.cache/gale_listener"))
-MIRROR = HOME / "files"
-CHECKLIST = HOME / CHECKLIST_NAME
-#: Each mirrored file's cheap match (name, citation; no OCR), by name, size
-#: and mtime: what the every-minute tick ticks off before the full pass reads it.
-ARRIVED = HOME / "arrived.json"
+#: The saved Listener pages: tools/gale_fetch.py's (lay_out_fetched), and
+#: those saved by hand before it.
+SAVED = HOME / "files"
 OCR_CACHE = HOME / "ocr"
 #: The readings and the ledger: derived from Paul's pages, kept beside the
 #: series' other source data.
@@ -87,7 +78,7 @@ YEARS = lp.CACHE / "years"
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
 VERSION = 12
-PORTAL = gi.PORTAL
+PORTAL = "https://abresearchportal.ca/collections"
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
 DATES = gi.date_patterns(r"19[2-9]\d")
@@ -1374,7 +1365,7 @@ def hash_of(p):
     return _HASHES[key]
 
 
-def run(inbox=MIRROR, store=STORE, idx=None, out=sys.stdout, reader=read_file):
+def run(inbox=SAVED, store=STORE, idx=None, out=sys.stdout, reader=read_file):
     """Read every file in `inbox` the ledger has not read at this VERSION;
     write each puzzle's reading to `store` (a fuller one replaces it).
     Returns the ledger."""
@@ -1392,7 +1383,7 @@ def run(inbox=MIRROR, store=STORE, idx=None, out=sys.stdout, reader=read_file):
     return ledger
 
 
-def plan(inbox=MIRROR, store=STORE):
+def plan(inbox=SAVED, store=STORE):
     """The saved pages not read at this VERSION, one read unit each
     (tools/edition_queue.py), the earliest saved first: one never read is
     rank 0, saved by hand like the Gale Times pages; one read at an older
@@ -1405,10 +1396,10 @@ def plan(inbox=MIRROR, store=STORE):
             for p, row in sorted(todo.items(), key=lambda kv: (bool(kv[1]), kv[0].stat().st_mtime))]
 
 
-def read_unit(name, inbox=MIRROR, store=STORE, reader=read_file, out=sys.stdout, file_it=True):
+def read_unit(name, inbox=SAVED, store=STORE, reader=read_file, out=sys.stdout, file_it=True):
     """Read one saved page (tools/edition_queue.py's unit), under its own
     lock, its ledger row appended; then file what the readings now give
-    (file_gale_listener.run, one at a time) and publish the checklist.
+    (file_gale_listener.run, one at a time).
     Returns "read", "current", "busy" or "failed" (its OCR timed out)."""
     import scan_queue
     p = Path(inbox) / name
@@ -1428,241 +1419,80 @@ def read_unit(name, inbox=MIRROR, store=STORE, reader=read_file, out=sys.stdout,
         import file_gale_listener  # it imports this module
         with scan_queue.lock(store / "filing", wait_for_it=True):
             file_gale_listener.run(store, inbox, out=out)
-            render(idx, out=out)
     return "read"
 
 
-# ------------------------------------------------------------ the checklist
+# ------------------------------------------------------------ what to fetch
 
-def arrived(inbox=MIRROR, idx=None, path=ARRIVED):
-    """[{"file", "number", "reports", "why"}] of every page file in `inbox`,
-    matched by its name or citation only (no OCR: the full pass reads
-    titles); a file already matched at its name, size and mtime, at this
-    VERSION, is not opened again."""
+def lay_out_fetched(day, doc, data, report=False, saved=SAVED):
+    """Save the page PDF `data` tools/gale_fetch.py downloaded (Gale
+    document `doc` of the issue of `day`) in `saved`, where plan() finds it:
+    named for its date, which match() gives the issue's puzzle; a report
+    page (`report`) by its document alone, its citation naming the puzzle
+    it reports on. Written whole or not at all (page_files skips the
+    hidden part). Returns its path."""
+    name = f"GALE_{doc}.pdf" if report else f"{day.isoformat()} GALE_{doc}.pdf"
+    saved.mkdir(parents=True, exist_ok=True)
+    tmp = saved / f".{name}.part"
+    tmp.write_bytes(data)
+    tmp.replace(saved / name)
+    return saved / name
+
+
+def wanted(idx=None, store=STORE, root=ROOT):
+    """[(date, number, report)] for tools/gale_fetch.py, earliest first:
+    each printed puzzle neither filed nor read into a reading (its page, report
+    False), and each saved or still to fetch whose report page no saved
+    page holds (report True: "Report on Crossword No. N", found in the
+    issues after `date`), a puzzle's page before its report."""
     idx = index() if idx is None else idx
-    known = gi.load(path, {})
-    kept = {}
-    files = sorted(p for p in Path(inbox).iterdir() if p.is_file() and p.suffix.lower() in gi.PAGES) \
-        if Path(inbox).exists() else []
-    for p in files:
-        st = p.stat()
-        k = f"{p.name}\t{st.st_size}\t{int(st.st_mtime)}"
-        if known.get(k, {}).get("version") != VERSION:
-            try:
-                m = match(p, idx, read_title=False)
-            except (OSError, ValueError) as e:  # shown on the checklist
-                m = {"number": None, "why": f"unreadable: {type(e).__name__}: {e}", "reports": []}
-            known[k] = {"file": p.name, "number": m["number"], "reports": m["reports"], "version": VERSION,
-                        "why": None if m["number"] is None and m["reports"] else m.get("why")}
-        kept[k] = known[k]
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(kept, indent=0))
-    return list(kept.values())
-
-
-def render(idx=None, out=sys.stdout):
-    """Match what arrived and publish the checklist to the Mac."""
-    idx = index() if idx is None else idx
-    CHECKLIST.parent.mkdir(parents=True, exist_ok=True)
-    status = {}
-    CHECKLIST.write_text(checklist(idx, arrivals=arrived(MIRROR, idx), status=status))
-    gi.publish(CHECKLIST, host_inbox=gi.GALE_ROOT)
-    gi.publish_status(CHECKLIST, status)
-    print(f"checklist published to {gi.GALE_ROOT}/{CHECKLIST.name}", file=out)
-
-
-def arrivals(out=sys.stdout):
-    """Mirror the Listener inbox and publish its status file; whether it
-    moved. gale_inbox.sync runs this before any Gale lookup, so an open
-    page hears of an arrival without waiting on them."""
-    changed = gi.mirror(out, host_inbox=gi.LISTENER_INBOX, into=MIRROR)
-    gi.publish_status(CHECKLIST)
-    return changed
-
-
-def tick(out=sys.stdout, force=False, ask=True, until=None, changed=False):
-    """The every-minute part (gale_inbox.sync calls it, after arrivals,
-    whose `changed` it passes): when the inbox moved (or gi.RENDER_EVERY
-    passed), re-render the checklist; publish its status file either way.
-    Gale is asked for links only when `ask` (gale_inbox.gale_due), none
-    started after the monotonic time `until`. The clue reading stays in the
-    full pass."""
-    idx = index()
-    linked = ask and gale_docs.resolve("LSNR", [(r["date"], r["number"]) for r in to_save(idx)], out,
-                                       reports=[(r["date"], r["number"]) for r in report_lookups(idx)],
-                                       until=until)
-    last = CHECKLIST.stat().st_mtime if CHECKLIST.exists() else 0
-    if force or changed or linked or time.time() - last > gi.RENDER_EVERY:
-        render(idx, out=out)
-    else:
-        gi.publish_status(CHECKLIST)
+    pages = [(r["date"], 0, r["number"]) for r in to_save(idx, store, root)]
+    reports = [(r["date"], 1, r["number"]) for r in report_lookups(idx, store, root)]
+    return [(d, n, bool(k)) for d, k, n in sorted(pages + reports)]
 
 
 def filed_numbers(root=ROOT):
     return {int(p.stem.split("-")[1]) for p in (root / "puzzles" / lp.SERIES).glob("*/listener-*.json")}
 
 
-def to_save(idx, store=STORE, root=ROOT, arrivals=None):
-    """The printed puzzles not filed, read or arrived, earliest first."""
-    arrivals = list(gi.load(ARRIVED, {}).values()) if arrivals is None else arrivals
-    held = filed_numbers(root) | {json.loads(p.read_text())["number"] for p in store.glob("listener-*.json")} | {
-        a["number"] for a in arrivals if a.get("number") is not None}
+def to_save(idx, store=STORE, root=ROOT):
+    """The printed puzzles neither filed nor read into a reading, earliest first
+    (a page read with none kept is wanted still; tools/gale_fetch.py passes
+    over a document it already got)."""
+    held = filed_numbers(root) | {json.loads(p.read_text())["number"] for p in store.glob("listener-*.json")}
     return [r for r in idx if printed(r) and r["number"] not in held]
 
 
-def solutions(store=STORE, arrivals=None):
-    """{number} of the puzzles a page in the inbox, read or not, or a saved
-    page reports on."""
-    arrivals = list(gi.load(ARRIVED, {}).values()) if arrivals is None else arrivals
-    return {n for e in [*load_ledger(store).values(), *arrivals] for n in e.get("reports") or ()}
-
-
-def unsolved(idx, store=STORE, arrivals=None):
-    """The printed puzzles saved whose report page has not arrived."""
-    solved = solutions(store, arrivals)
-    saved = {e["number"] for e in load_ledger(store).values() if e.get("number") is not None} | {
+def saved_numbers(store=STORE):
+    """{number} of the puzzles a saved page was read as, a reading kept or not."""
+    return {e["number"] for e in load_ledger(store).values() if e.get("number") is not None} | {
         json.loads(p.read_text())["number"] for p in store.glob("listener-*.json")}
-    return [r for r in idx if printed(r) and r["number"] in saved - solved]
 
 
-def report_lookups(idx, store=STORE, root=ROOT, arrivals=None):
-    """The rows whose report link Gale is asked for, earliest first: every
-    saved puzzle and every one still to save (the rows that get a Download
-    link) whose report page has not arrived."""
-    arrivals = list(gi.load(ARRIVED, {}).values()) if arrivals is None else arrivals
-    want = {r["number"] for r in [*unsolved(idx, store, arrivals), *to_save(idx, store, root, arrivals)]}
-    want -= solutions(store, arrivals)  # once: per row it re-read the ledger ~3,000 times (55 s)
-    return [r for r in idx if printed(r) and r["number"] in want]
+def solutions(store=STORE):
+    """{number} of the puzzles a saved page reports on."""
+    return {n for e in load_ledger(store).values() for n in e.get("reports") or ()}
 
 
-def elsewhere_wanted(ledger, got, arrivals, filed):
-    """{number: [page]} of the puzzles not filed whose one saved page sends
-    its clues or diagram to another page of the issue ("For clues see page
-    1057"), the ledger's or reading's seePages: no puzzle files without
-    both. A second file of the puzzle saved is taken for that page."""
-    pages, files = {}, {}
-    for e in [*ledger.values(), *arrivals]:
-        if e.get("number") is not None:
-            files.setdefault(e["number"], set()).add(e["file"])
-    for n, see in [*((e.get("number"), e.get("seePages")) for e in ledger.values()),
-                   *((n, v.get("seePages")) for n, v in got.items())]:
-        if n is not None and see:
-            pages.setdefault(n, set()).update(see)
-    return {n: sorted(ps) for n, ps in pages.items() if n not in filed and len(files.get(n, ())) < 2}
+def unsolved(idx, store=STORE):
+    """The printed puzzles saved whose report page is not."""
+    return [r for r in idx if printed(r) and r["number"] in saved_numbers(store) - solutions(store)]
 
 
-#: How the Listener's next up orders, said on the page.
-ORDER = ("Order: earliest issue first, a puzzle's page and its solution page alike; a row leaves the list "
-         "once its file arrives. Numbers, titles and dates are the Listener Team's index (listenercrossword.com).")
-
-
-#: The Listener's own items of the checklist's how-to (gi.page).
-STEPS = (
-    ("A row with no Download button yet: click <b>Open in Gale</b> (Gale's results for that issue's crossword"
-     " pages). If they are empty, use <i>Browse &rarr; Browse By Date</i>, pick the date, page through it to"
-     " the crossword (a grid with ACROSS and DOWN clue lists) and press <i>Download</i> (PDF or image, either"
-     " works). Any file name works; one with the date (e.g. <code>1930-04-09</code>) is the surest match."
-     " When the grid and the clues are on different pages (&ldquo;For Clues see page 340&rdquo;), save both."),
-    ("Its answers are printed about two issues later, as &ldquo;Report on Crossword No. N&rdquo; with the"
-     " filled grid: save that page too. Once the pages saved are read, a row whose solution page is still"
-     " missing offers <b>Download solution</b>."),
-    ("Once the full pass has read a page (at its next slice, within about an hour), its status says how"
-     " many clues read."),
-)
-#: What the checklist says of a file whose puzzle the tick could not name.
-UNKNOWN = ("arrived, puzzle not yet known: the name and citation name no puzzle, and the full pass reads the title"
-           " at its next slice")
-
-
-def checklist(idx=None, store=STORE, root=ROOT, arrivals=None, docs=None, status=None):
-    """The Listener checklist (gi.page): every Listener the magazine
-    printed, earliest first, with what the inbox (`arrivals`, else
-    ARRIVED's last) and the corpus hold of each."""
-    idx = index() if idx is None else idx
-    docs = gale_docs.load() if docs is None else docs
-    arrivals = list(gi.load(ARRIVED, {}).values()) if arrivals is None else arrivals
-    came = {a["number"] for a in arrivals if a.get("number") is not None}
-    unnamed = [a for a in arrivals if a.get("number") is None and not a.get("reports")]
-    filed = filed_numbers(root)
-    ledger = load_ledger(store)
-    tried = {}
-    for e in ledger.values():
-        if e.get("number") is not None:
-            tried.setdefault(e["number"], []).append(e)
-    lost = [e for e in ledger.values() if e.get("number") is None and not e.get("reports")]
-    solved = solutions(store, arrivals)
-    got = {}
-    for p in store.glob("listener-*.json"):
-        r = json.loads(p.read_text())
-        got[r["number"]] = r["verdict"]
-    idx = [r for r in idx if printed(r)]
-    todo = to_save(idx, store, root, arrivals)
-    read = {e_["file"] for e_ in ledger.values()}
-    asks = {r["number"] for r in unsolved(idx, store, arrivals)}
-    sends = elsewhere_wanted(ledger, got, arrivals, filed)
-
-    def row(r):
-        n = r["number"]
-        if n in filed:
-            status = [("filed", "got")]
-        elif n in got:
-            status = [(f'saved: {got[n].get("agreed", 0)} of {got[n].get("clues", 0)} clues read', "got")]
-        elif n in tried:
-            status = [(f'saved, not read: {tried[n][-1].get("why") or ""}', "bad")]
-        elif n in came:
-            status = [("arrived: the full pass reads it at its next slice", "got")]
-        else:
-            status = []
-        if n in sends:
-            pages = ", ".join(map(str, sends[n]))
-            status.append((f"save p. {pages} of this issue too: the page sends its clues or diagram there", "bad"))
-        if n in solved:
-            status.append(("solution saved", "got"))
-        elif n in asks:
-            about = r["date"] + datetime.timedelta(days=14)
-            status.append((f"save its solution too: “Report on Crossword No. {n}”, about {about:%d %b %Y}", "bad"))
-        out = {"date": r["date"], "search": gale_docs.permalink("LSNR", r["date"], docs) or gi.search_url(r["date"], "LSNR"),
-               "status": status,
-               "cells": [str(n), r["title"], r.get("setter") or ""]}
-        if n in sends:
-            # The other page is a document of its own: the issue's search finds it.
-            out.update(key=f"e{n}", dl=None)
-        elif n in asks:
-            out.update(key=f"r{n}", dl=gale_docs.report_link("LSNR", n, docs), label="Download solution")
-        elif n not in filed and n not in got:
-            report = None if n in solved else gale_docs.report_link("LSNR", n, docs)
-            out.update(key=f"p{n}", dl=gale_docs.link("LSNR", r["date"], docs), arrived=n in came or n in tried,
-                       more=[("Download solution", report)] if report else [])
-        return out
-
-    want = asks | set(sends) | {r["number"] for r in todo}
-    held = filed | set(got) | came
-    years = {}
-    for r in idx:
-        years.setdefault(r["date"].year, []).append(r)
-    return gi.page(
-        paper="Listener", prod="LSNR", name=CHECKLIST_NAME, store="listenerCopied", done=len(arrivals),
-        total=len(arrivals) + len(todo), done_word="files downloaded", folder=gi.SHARE + "\\Listener",
-        notes=[(a["file"], UNKNOWN) for a in unnamed if a["file"] not in read]
-              + [(m["file"], f"matched no puzzle ({m.get('why') or ''}); left in the inbox") for m in lost],
-        steps=STEPS,
-        order=ORDER, what="pages", next_rows=[row(r) for r in idx if r["number"] in want],
-        years_note="Earliest first.",
-        years=[(y, f"{sum(1 for r in rs if r['number'] not in held)} of {len(rs)} to save",
-                [row(r) for r in rs]) for y, rs in sorted(years.items())],
-        columns=["No", "Title", "Setter"], status=status)
+def report_lookups(idx, store=STORE, root=ROOT):
+    """The rows whose report page is wanted, earliest first: every saved
+    puzzle and every one still to save whose report page is not saved."""
+    saved, solved = saved_numbers(store), solutions(store)  # once: per row it re-read the ledger ~3,000 times
+    want = {r["number"] for r in to_save(idx, store, root)} | saved
+    return [r for r in idx if printed(r) and r["number"] in want - solved]
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
-    sub.add_parser("sync", help="mirror the Mac inbox, read new pages, file what they give, publish the checklist there")
-    rd = sub.add_parser("read", help="read a local folder of pages")
-    rd.add_argument("--inbox", type=Path, default=MIRROR)
+    rd = sub.add_parser("read", help="read every saved page (or a local folder's) not yet read")
+    rd.add_argument("--inbox", type=Path, default=SAVED)
     rd.add_argument("--store", type=Path, default=STORE)
-    cl = sub.add_parser("checklist", help="write the checklist")
-    cl.add_argument("--out", type=Path, default=CHECKLIST)
-    cl.add_argument("--store", type=Path, default=STORE)
     mt = sub.add_parser("match", help="which puzzle each file is")
     mt.add_argument("files", nargs="+", type=Path)
     a = ap.parse_args(argv)
@@ -1673,21 +1503,7 @@ def main(argv=None):
             print(f"{f.name}: " + (f"No {m['number']}, {m['date']} ({m['how']})" if m["number"] is not None
                                    else f"unmatched ({m['why']})") + f", {len(m['pages'])} page image(s)")
         return 0
-    if a.cmd == "checklist":
-        a.out.parent.mkdir(parents=True, exist_ok=True)
-        a.out.write_text(checklist(store=a.store))
-        print(f"wrote {a.out}")
-        return 0
-    if a.cmd == "sync":
-        with gi.locked():
-            gi.mirror(host_inbox=gi.LISTENER_INBOX, into=MIRROR)
-    run(a.inbox if a.cmd == "read" else MIRROR, a.store if a.cmd == "read" else STORE)
-    if a.cmd == "sync":
-        import file_gale_listener  # it imports this module
-        import scan_queue
-        with scan_queue.lock(STORE / "filing", wait_for_it=True):
-            file_gale_listener.run()
-            render()
+    run(a.inbox, a.store)
     return 0
 
 

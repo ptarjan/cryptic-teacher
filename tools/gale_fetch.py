@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
-"""Download the Gale Times pages the checklist wants, then the other
-papers' (gale_inbox.OTHERS), at a hand's pace, with no model in the loop
-(Paul 2026-10-11, "Mac script, at hand pace": it took over from a
-Claude-in-browser that clicked each Download row).
+"""Download the Gale Times pages still wanted, then the Listener's, then
+the other papers' (gale_inbox.OTHERS), at a hand's pace, with no model in
+the loop (Paul 2026-10-11, "Mac script, at hand pace").
 
-Rows come in the checklist's own order (gale_inbox.next_up: Times No 1,
-then the rest as the page lists them), from row SKIP + 1 (--skip; deep by
-default, below wherever a person or browser agent clicks from the top).
-Once fewer than REPLAN Times rows are left, each other paper's unfiled
-dates follow (gale_inbox.other_wanted), paper by paper in OTHERS' order,
-newest first. Each row's document is looked up here (gale_docs.lookup, kept
-in gale_docs.CACHE, which only this script writes for these papers). Each PDF is
+Times rows come in gale_inbox.next_up's order (Times No 1, then the rest as
+the progress page lists them), from row SKIP + 1 (--skip). Once fewer than
+REPLAN Times rows are left, the Listener's follow (gale_listener.wanted:
+each printed puzzle not filed or read, and each "Report on Crossword No. N"
+page with its answers that no saved page holds, earliest first), then each
+other paper's unfiled dates (gale_inbox.other_wanted), paper by paper in
+OTHERS' order, newest first. Each row's document is looked up here
+(gale_docs.lookup, or lookup_report for a report; kept in gale_docs.CACHE,
+which only this script writes). Each PDF is
 Gale's own Download (gale_docs.download_url) fetched in an Alberta Research
 Portal session (geo-IP: this runs on the home connection, in the container
 or on the Mac, same address) and checked to be a PDF whose citation names
@@ -20,9 +21,11 @@ opened before its Download, each request with the Referer of the page it
 was clicked on. The date is known, so nothing matches it: it is laid out
 straight away as that date's edition (gale_inbox.lay_out_fetched), which
 tools/gale_read.sh reads and files (the Times'; file_archive_org_puzzles.py
-reads the other papers', the Telegraph and FT in those papers' runs), and kept as GALE_<doc>.pdf in its paper's Fetched
-folder on the Mac (fetched_dir: out of the inbox, so no sweep, match or
-set-aside sees it). Every paper's downloads count against the one LIMITS
+reads the other papers', the Telegraph and FT in those papers' runs); a
+Listener page goes to gale_listener.SAVED (gale_listener.lay_out_fetched),
+which the standing pass reads and files (gale_listener.plan). Each is kept
+as GALE_<doc>.pdf in its paper's Fetched folder on the Mac (fetched_dir).
+Every paper's downloads count against the one LIMITS
 window: Gale's cap is per IP, not per archive.
 
 Pace (Pacer): GAP seconds between downloads, jittered, an occasional
@@ -50,9 +53,9 @@ pinned to within PROBE_EVERY; that recovery starts a new window.
 It stops, and wakes the room (tools/wake.sh), at a captcha, a PDF too small
 or naming another document, the portal not opening a session, Gale still
 refusing after every probe, or MAX_ERRORS errors in a row (each retried
-after a backoff). Resumable: a row whose document is in the inbox, its Set
-aside folder, FETCHED_DIR or this script's own log (FETCHED), or whose date
-is staged, set aside or filed, is skipped. With no row left it waits IDLE
+after a backoff). Resumable: a row whose document is in the Times folder,
+its Set aside folder, a Fetched folder or this script's own log (FETCHED),
+or whose date is staged, set aside or filed, is skipped. With no row left it waits IDLE
 seconds, at most IDLE_MAX times in a row.
 
     python3 tools/gale_fetch.py [--max N] [--skip N] [--dry-run]
@@ -118,9 +121,11 @@ SSH = ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=15", "-o", "HostKeyAl
 GALE_ROOT = "/Volumes/Media/Gale crosswords"
 INBOX = f"{GALE_ROOT}/Times"
 ASIDE = "Set aside"
-#: Where each downloaded PDF is kept on the Mac: inside the Times folder,
-#: below the inbox's own files, which are all a sweep or mirror looks at.
+#: Where each downloaded Times PDF is kept on the Mac (fetched_dir: each
+#: paper's own).
 FETCHED_DIR = f"{INBOX}/Fetched"
+#: The Listener's folder under GALE_ROOT.
+LISTENER = "Listener"
 CHANNEL = os.environ.get("GALE_FETCH_CHANNEL", "cryptic-crosswords")
 DOC = re.compile(r"[A-Z]{2}\d{8,12}", re.IGNORECASE)
 
@@ -286,7 +291,9 @@ def pdf_of(fetch, url, day, doc, text_of=None):
 def fetched_dir(prod):
     """The Mac folder product `prod`'s downloaded PDFs are kept in."""
     import gale_inbox
-    return FETCHED_DIR if prod == "TTDA" else f"{GALE_ROOT}/{gale_inbox.OTHERS[prod].folder}/Fetched"
+    if prod == "TTDA":
+        return FETCHED_DIR
+    return f"{GALE_ROOT}/{LISTENER if prod == 'LSNR' else gale_inbox.OTHERS[prod].folder}/Fetched"
 
 
 def prod_of(url):
@@ -340,11 +347,11 @@ def ssh(command, **kw):
 
 
 def have_docs():
-    """The documents already got: named in the inbox, its Set aside folder
-    or a paper's Fetched folder, or in FETCHED."""
+    """The documents already got: named in the Times folder, its Set aside
+    folder or a paper's Fetched folder, or in FETCHED."""
     import gale_inbox
     q = shlex.quote
-    dirs = " ".join(q(fetched_dir(p)) for p in ("TTDA", *gale_inbox.OTHERS))
+    dirs = " ".join(q(fetched_dir(p)) for p in ("TTDA", "LSNR", *gale_inbox.OTHERS))
     names = ssh(f"cd {q(INBOX)} && ls -1 . {q(ASIDE)} {dirs} 2>/dev/null; exit 0", text=True).stdout
     return {m.group(0).upper() for m in DOC.finditer(names)} | set(load(FETCHED))
 
@@ -374,11 +381,13 @@ SKIP = int(os.environ.get("GALE_FETCH_SKIP", "0"))
 
 
 def plan(got, skip=SKIP):
-    """[(product, date, cache entry or None)] to fetch: the Times' in
+    """[(product, date, cache entry or None, *ask)] to fetch: the Times' in
     next_up order past its first `skip` rows (wanted, not staged, set aside
-    or gone from Gale), then, with fewer than REPLAN of those, each OTHERS
-    paper's other_wanted; none a document in `got`, none Gale has no
-    crossword for. None: not looked up yet (run looks it up)."""
+    or gone from Gale); then, with fewer than REPLAN of those, the
+    Listener's (gale_listener.wanted; ask is its (number, report)); then,
+    still fewer, each OTHERS paper's other_wanted; none a document in
+    `got`, none Gale has no crossword for. None: not looked up yet (run
+    looks it up)."""
     import dir_cache
     import gale_inbox
     dir_cache.load(gale_inbox.DIR_CACHE)
@@ -390,6 +399,10 @@ def plan(got, skip=SKIP):
     out = []
     for day, _ in gale_inbox.next_up(rows, passed, None)[skip:]:
         out += want("TTDA", day, docs, got)
+    if len(out) < REPLAN:
+        import gale_listener
+        for day, number, report in gale_listener.wanted():
+            out += want("LSNR", day, docs, got, number, report)
     if len(out) < REPLAN:
         for prod in gale_inbox.OTHERS:
             for day in gale_inbox.other_wanted(prod):
@@ -407,22 +420,32 @@ def superseded(day, ms, docs):
     return bool(e and fetched) and (gale_docs.stale("TTDA", e) or e.get("doc", "").upper() not in fetched)
 
 
-def want(prod, day, docs, got):
-    """[(prod, day, its cache entry or None)], or [] when Gale has no
-    crossword that day or its document is in `got`. None: not looked up
-    yet, or looked up by an older matcher (gale_docs.stale)."""
-    e = docs.get(f"{prod}/{day.isoformat()}")
+def key(prod, day, number=None, report=False):
+    """The gale_docs.CACHE key of a row: its date's, or the report's on
+    puzzle `number`."""
+    return f"{prod}/report/{number}" if report else f"{prod}/{day.isoformat()}"
+
+
+def want(prod, day, docs, got, number=None, report=False):
+    """[(prod, day, its cache entry or None, *ask)], or [] when Gale has no
+    crossword that day (no report on `number`) or its document is in `got`.
+    ask: (number, report), given a number (the Listener's rows). None: not
+    looked up yet, or looked up by an older matcher (gale_docs.stale)."""
+    ask = () if number is None else (number, report)
+    e = docs.get(key(prod, day, number, report))
     if e is None or gale_docs.stale(prod, e):
-        return [(prod, day, None)]
-    return [(prod, day, e)] if "doc" in e and e["doc"].upper() not in got else []
+        return [(prod, day, None, *ask)]
+    return [(prod, day, e, *ask)] if "doc" in e and e["doc"].upper() not in got else []
 
 
-def look_up(prod, day, gale):
-    """The cache entry for `day` of `prod` (gale_docs.lookup), kept in gale_docs.CACHE."""
-    e = gale_docs.lookup(prod, day, gale)
+def look_up(prod, day, gale, number=None, report=False):
+    """The cache entry for `day` of `prod` (gale_docs.lookup), or for the
+    report on puzzle `number` of `day` (gale_docs.lookup_report, its issue's
+    date its "day"), kept in gale_docs.CACHE."""
+    e = (gale_docs.lookup_report if report else gale_docs.lookup)(prod, day, gale, number)
     e["at"] = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
     e["matcher"] = gale_docs.MATCHER[prod]
-    gale_docs.keep(f"{prod}/{day.isoformat()}", e)
+    gale_docs.keep(key(prod, day, number, report), e)
     return e
 
 
@@ -434,10 +457,15 @@ def put(body, name, folder=FETCHED_DIR):
 
 
 def file_page(body, prod, day, doc, e):
-    """Keep the PDF on the Mac and lay it out as `day`'s edition (no lock:
-    a sync's stage never removes or re-lays a fetched edition)."""
-    import gale_inbox
+    """Keep the PDF on the Mac and lay it out as issue `day`'s: a
+    Listener page for its reader (a report's entry carries its issue's
+    "day"), any other as that date's edition."""
     put(body, f"GALE_{doc}.pdf", fetched_dir(prod))
+    if prod == "LSNR":
+        import gale_listener
+        gale_listener.lay_out_fetched(day, doc, body, report="day" in e)
+        return
+    import gale_inbox
     gale_inbox.lay_out_fetched(day, doc, body, e, prod=prod)
 
 
@@ -481,10 +509,10 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
     tell = tell or (lambda text: alert(text, quiet=True))
     gale = None
 
-    def real_lookup(prod, day):
+    def real_lookup(prod, day, *ask):
         nonlocal gale
         gale = gale or gale_docs.Gale()
-        return look_up(prod, day, gale)
+        return look_up(prod, day, gale, *ask)
 
     def hold():
         """At the window's cap, wait out the window, then start a new one;
@@ -569,15 +597,15 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
             pacer.sleep(IDLE)
             continue
         idle = 0
-        for prod, day, e in todo:
+        for prod, day, e, *ask in todo:
             if limit is not None and n >= limit:
                 break
             if e is None:
                 if dry:
-                    log(f"would look up {prod} {day}, then fetch it")
+                    log(f"would look up {prod} {day}{' report' if ask[1:] == [True] else ''}, then fetch it")
                     continue
                 try:
-                    e = lookup_of(prod, day)
+                    e = lookup_of(prod, day, *ask)
                 except (urllib.error.URLError, http.client.HTTPException, OSError, ValueError, KeyError) as ex:
                     errors += 1
                     log(f"{day}: lookup {type(ex).__name__}: {ex} (error {errors}/{MAX_ERRORS})")
@@ -592,6 +620,8 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
             doc = e["doc"].upper()
             if doc in got:
                 continue
+            # A report is printed in a later issue than its puzzle's.
+            day = datetime.date.fromisoformat(e["day"]) if "day" in e else day
             url = gale_docs.download_url(prod, day, e)
             if dry:
                 log(f"would fetch {prod} {day} {doc} {e.get('title', '')}")

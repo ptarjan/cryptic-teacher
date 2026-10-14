@@ -5,7 +5,8 @@
 # download works again, learn its cap from them, stop at a captcha or short
 # PDF, after every probe fails, and after MAX_ERRORS errors in a row (but
 # ride out one), skip documents already got, and give up after IDLE_MAX
-# waits?
+# waits? Does it plan the Listener after the Times and before the other
+# papers, and fetch a Listener report from its own issue?
 #
 #     bash tools/test_gale_fetch.sh
 #
@@ -292,6 +293,7 @@ assert gf.prod_of(turl) == "TGRH" and gf.prod_of(url) == "TTDA"
 assert "Daily Telegraph" in urllib.parse.unquote(urllib.parse.parse_qs(urllib.parse.urlsplit(turl).query)
                                                  ["citationTextJson"][0])
 assert gf.fetched_dir("TGRH") == f"{gf.GALE_ROOT}/Telegraph/Fetched" and gf.fetched_dir("TTDA") == gf.FETCHED_DIR
+assert gf.fetched_dir("LSNR") == f"{gf.GALE_ROOT}/Listener/Fetched"
 clock, starts, stored, kw = harness(n_rows=4)
 mixed = [("TTDA" if i < 2 else "TGRH", d, e) for i, (d, e) in enumerate(rows(4))]
 kw["plan_of"] = lambda g: [r for r in mixed if r[2]["doc"] not in g]
@@ -306,9 +308,11 @@ assert gf.in_window(kw["limits"], kw["fetched"], clock())[1] == 4
 # 10. The plan: the Times' rows first; the other papers' only once fewer
 #     than REPLAN Times rows are left, in OTHERS' order; a date Gale has
 #     no crossword for, or whose document is got, is left out.
-import dir_cache, gale_inbox
+import dir_cache, gale_inbox, gale_listener
 D = datetime.date
 saved = {k: getattr(gale_inbox, k) for k in ("wanted", "aside_days", "staged_matches", "other_wanted")}
+saved_wanted = gale_listener.wanted
+gale_listener.wanted = lambda: []
 dir_cache.load = lambda *a: None
 gale_inbox.aside_days = lambda: {}
 gale_inbox.staged_matches = lambda: {}
@@ -321,6 +325,19 @@ assert gf.plan(set(), 0) == [("TTDA", D(2001, 1, 2), None), ("TGRH", D(2000, 1, 
 assert ("FTHA", D(2010, 1, 4), {"doc": "HS1"}) not in gf.plan({"HS1"}, 0)
 gale_inbox.wanted = lambda: [(D(2001, 1, 2) - datetime.timedelta(days=i), "no-scan") for i in range(gf.REPLAN)]
 assert {r[0] for r in gf.plan(set(), 0)} == {"TTDA"}, "other papers wait while the Times has a plan's worth"
+# The Listener's rows come after the Times' and before the other papers',
+# each with its number and whether it is the report; a report is cached
+# under its own key, and one got is left out.
+gale_inbox.wanted = lambda: [(D(2001, 1, 2), "no-scan")]
+gale_listener.wanted = lambda: [(D(1955, 6, 2), 1309, False), (D(1955, 6, 2), 1309, True)]
+rep_e = {"doc": "GM9", "title": "Report on Crossword No. 1,309", "page": 40, "records": ["R"], "day": "1955-06-16",
+         "matcher": gale_docs.MATCHER["LSNR"]}
+docs["LSNR/report/1309"] = rep_e
+assert gf.plan(set(), 0) == [("TTDA", D(2001, 1, 2), None), ("LSNR", D(1955, 6, 2), None, 1309, False),
+                             ("LSNR", D(1955, 6, 2), rep_e, 1309, True), ("TGRH", D(2000, 1, 4), None),
+                             ("FTHA", D(2010, 1, 4), {"doc": "HS1"})], gf.plan(set(), 0)
+assert ("LSNR", D(1955, 6, 2), rep_e, 1309, True) not in gf.plan({"GM9"}, 0)
+gale_listener.wanted = lambda: []
 # A fetched page staged for a date is passed, unless an older matcher
 # picked it (gale_docs.stale): then it is looked up again, and fetched over
 # when the new pick is another document.
@@ -338,5 +355,27 @@ docs["TTDA/2006-05-23"] = {"doc": "IF1", "title": "The Times Crossword 23,296", 
 assert times({"IF1"}) == [], "the cryptic, fetched, is passed"
 for k, v in saved.items():
     setattr(gale_inbox, k, v)
+gale_listener.wanted = saved_wanted
+
+# 11. A Listener row is looked up with its number (a report by lookup_report)
+#     and fetched from the issue its entry names: a report's from its own
+#     issue, two weeks after its puzzle's.
+clock, starts, stored, kw = harness(n_rows=0)
+lday = D(1955, 6, 2)
+asked, urls, kept = [], [], []
+kw["plan_of"] = lambda g: [r for r in [("LSNR", lday, None, 1309, False), ("LSNR", lday, None, 1309, True)]
+                           if not ({"GM1", "GM2"} <= g)]
+kw["lookup_of"] = lambda prod, day, number, report: asked.append((prod, day, number, report)) or (
+    {"doc": "GM2", "title": "Report on Crossword No. 1,309", "page": 40, "records": ["R"], "day": "1955-06-16"}
+    if report else {"doc": "GM1", "title": "Crossword No. 1,309", "page": 42, "records": ["R"]})
+kw["fetch"] = lambda url: urls.append(url) or PDF
+kw["text_of"] = lambda body: "GM1 GM2"
+kw["store"] = lambda body, prod, day, doc, e: kept.append((prod, day, doc))
+n, _ = gf.run(limit=2, **kw)
+assert asked == [("LSNR", lday, 1309, False), ("LSNR", lday, 1309, True)], asked
+assert kept == [("LSNR", lday, "GM1"), ("LSNR", D(1955, 6, 16), "GM2")], kept
+cites = [urllib.parse.unquote(urllib.parse.unquote(u)) for u in urls]
+assert "Listener, 16 June 1955" in cites[1] and "Listener, 2 June 1955" in cites[0], cites
+assert gf.key("LSNR", lday, 1309, True) == "LSNR/report/1309" and gf.key("LSNR", lday) == "LSNR/1955-06-02"
 print("test_gale_fetch: ok")
 PY
