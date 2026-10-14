@@ -602,6 +602,104 @@ pool_drain() {
   POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
 }
 
+# The re-plan, bounded. It reads the backlog again and re-sorts queue[at..] in
+# a background subshell (which runs functions, as `timeout` cannot), while this
+# shell keeps the pool topped up at the width already in force and commits what
+# finishes. Past POOL_PLAN_SECS the subshell and everything under it are killed
+# and the queue keeps its order: 10-14 17:23-17:38 a re-plan sat on
+# .git/ct-rows.sqlite writes with swap full while nothing was launched, and the
+# pool drained from 17 runs to 0. sqlite rolls a killed writer back.
+POOL_PLAN_SECS="${POOL_PLAN_SECS:-600}"
+POOL_PLAN_POLL="${POOL_PLAN_POLL:-1}"
+pool_replan() {
+  local f pid id t0 waited p
+  local -A held=() pending=() placed=()
+  local rest=()
+  f=$(mktemp "${TMPDIR:-/tmp}/ct-prereset-plan.XXXXXX") || return
+  printf '%s\n' "${queue[@]:$at}" >"$f.in"
+  : >"$f.new"
+  t0=${EPOCHREALTIME/[.,]/}
+  (
+    # A run lasts days: the backlog is read again, so a puzzle filed or made
+    # eligible since the run started joins the queue. An id the queue already
+    # holds, started or not, is not added again.
+    if [ "$POOL_PLANNED" = 1 ]; then
+      for id in "${queue[@]}"; do held[$id]=1; done
+      for id in $(python3 tools/prereset_plan.py --backlog \
+          "$(python3 tools/failed_inputs.py skipped annotate)" \
+          "$(python3 tools/failed_inputs.py skipped solve)" 2>/dev/null); do
+        [ -n "${held[$id]:-}" ] || { held[$id]=1; echo "$id"; }
+      done >"$f.new"
+      cat "$f.new" >>"$f.in"
+    fi
+    python3 tools/prereset_plan.py --cover-first "$requeued$resumed" <"$f.in" >"$f.out" || true
+    touch "$f.done"
+  ) &
+  pid=$!
+  echo "--- re-planning the queue in the background (up to ${POOL_PLAN_SECS}s), ${#POOL_RUNS[@]} in flight ---"
+  while kill -0 "$pid" 2>/dev/null; do
+    waited=$(( (${EPOCHREALTIME/[.,]/} - t0) / 1000000 ))
+    if [ "$waited" -ge "$POOL_PLAN_SECS" ]; then
+      pool_kill_tree "$pid"
+      echo "--- re-plan still running after ${waited}s: stopped, the queue keeps its order ---"
+      break
+    fi
+    pool_topup
+    while p=$(pool_finished) && [ -n "$p" ]; do pool_reap; done
+    sleep "$POOL_PLAN_POLL"
+  done
+  wait "$pid" 2>/dev/null
+  if [ -e "$f.done" ]; then
+    held=()
+    for id in "${queue[@]}"; do held[$id]=1; done
+    while read -r id; do
+      [ -n "$id" ] && [ -z "${held[$id]:-}" ] && { held[$id]=1; queue+=("$id"); }
+    done <"$f.new"
+    # Only a whole permutation of what went in counts. It is cut to what is
+    # still unlaunched (runs started meanwhile came off the front in the old
+    # order), and anything else still queued keeps its place after it.
+    if [ "$(sort "$f.in")" = "$(sort "$f.out")" ]; then
+      for id in "${queue[@]:$at}"; do pending[$id]=1; done
+      while read -r id; do
+        [ -n "$id" ] && [ -n "${pending[$id]:-}" ] && [ -z "${placed[$id]:-}" ] &&
+          { placed[$id]=1; rest+=("$id"); }
+      done <"$f.out"
+      for id in "${queue[@]:$at}"; do [ -n "${placed[$id]:-}" ] || rest+=("$id"); done
+      queue=("${queue[@]:0:$at}" "${rest[@]}")
+    fi
+  fi
+  rm -f "$f" "$f.in" "$f.new" "$f.out" "$f.done"
+}
+# Kill a process and everything under it, the parent first so it starts nothing new.
+pool_kill_tree() {
+  local kids p
+  kids=$(ps -o pid= --ppid "$1" 2>/dev/null)
+  kill "$1" 2>/dev/null
+  for p in $kids; do pool_kill_tree "$p"; done
+}
+# While a re-plan runs: free slots filled up to the width already in force.
+# Not at the first plan (no width yet), past the deadline, or once a run failed
+# this interval, which may be a lockout for the checkpoint after the plan.
+pool_topup() {
+  case "${wide:-}" in ''|*[!0-9]*) return ;; esac
+  while [ ${#POOL_RUNS[@]} -lt "$wide" ] && [ "$at" -lt "${#queue[@]}" ] &&
+        [ ${#WAVE_FAILED_IDS[@]} -eq 0 ] && ! past_deadline; do
+    pool_launch "${queue[$at]}"
+    at=$((at + 1))
+  done
+}
+# A run in flight that has ended, so pool_reap takes it without blocking.
+pool_finished() {
+  local p
+  for p in "${!POOL_RUNS[@]}"; do
+    if [ -n "${POOL_ADOPTED[$p]:-}" ]; then
+      pool_adopted_done "$p" && { echo "$p"; return; }
+    else
+      kill -0 "$p" 2>/dev/null || { echo "$p"; return; }
+    fi
+  done
+}
+
 # Start an interval: the meters it is measured from, the width to keep in
 # flight, and (annotate pools) the queue re-planned so the indicator cover
 # shrinks as annotations land.
@@ -612,31 +710,15 @@ pool_interval_start() {
   # re-sorts the whole of queue[at..], so what the re-read appends takes its
   # date's place. Cut-off puzzles stay first. Anything but a whole permutation
   # back leaves the order as it was. A dry run plans once. The re-plan takes
-  # minutes on a loaded machine and nothing is reaped or launched meanwhile,
-  # so it runs at most once per POOL_SYNC_SECS, not at every checkpoint.
+  # minutes on a loaded machine, so it runs at most once per POOL_SYNC_SECS,
+  # not at every checkpoint, and bounded, the pool kept topped up meanwhile
+  # (pool_replan).
   if [ "$POOL_REORDER" = 1 ] && [ "$at" -lt "${#queue[@]}" ] &&
      [ $(( ${EPOCHREALTIME/[.,]/} - POOL_REPLANNED_US )) -ge $(( POOL_SYNC_SECS * 1000000 )) ] &&
      { [ "$DRY_RUN" = 0 ] || [ "$POOL_PLANNED" = 0 ]; }; then
     POOL_REPLANNED_US=${EPOCHREALTIME/[.,]/}
-    # A run lasts days: the backlog is read again, so a puzzle filed or made
-    # eligible since the run started joins the queue. An id the queue already
-    # holds, started or not, is not added again.
-    if [ "$POOL_PLANNED" = 1 ]; then
-      local -A held=()
-      local id
-      for id in "${queue[@]}"; do held[$id]=1; done
-      for id in $(python3 tools/prereset_plan.py --backlog \
-          "$(python3 tools/failed_inputs.py skipped annotate)" \
-          "$(python3 tools/failed_inputs.py skipped solve)" 2>/dev/null); do
-        [ -n "${held[$id]:-}" ] || queue+=("$id")
-      done
-    fi
+    pool_replan
     POOL_PLANNED=1
-    local reordered
-    reordered=($(printf '%s\n' "${queue[@]:$at}" \
-      | python3 tools/prereset_plan.py --cover-first "$requeued$resumed" || true))
-    [ "${#reordered[@]}" -eq $(( ${#queue[@]} - at )) ] \
-      && queue=("${queue[@]:0:$at}" "${reordered[@]}")
   fi
   # Read after the re-plan, which can take longer than a five-hour window has
   # left on a loaded machine: the width launched is the one for now.
