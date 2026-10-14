@@ -62,6 +62,9 @@ GEORGEHO = ROOT / "georgeho"
 # The Nation's puzzle pages, html/<slug>.html, and the sitemap's list of them
 # (tools/fetch_nation.py).
 NATION = ROOT / "nation"
+# Wayback snapshots of private-eye.co.uk's crossword page, <timestamp>.html,
+# and the CDX listing of them (tools/privateeye_wayback.py).
+PRIVATE_EYE_WAYBACK = ROOT / "privateeye-wayback"
 # tools/cross_validate.py's per-source report, <source>.jsonl.
 CROSS_VALIDATE = ROOT / "cross-validate"
 
