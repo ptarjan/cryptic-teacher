@@ -1,11 +1,11 @@
 #!/bin/bash
-# Spend the weekly usage window on backfills: the week to EXHAUSTED at its reset.
+# Spend the weekly usage window on backfills: the week to EXHAUSTED before its reset.
 #
 # Why this exists, separately from daily_update.sh: unspent quota does not roll
 # over. daily_update.sh deliberately refuses to annotate above
 # ANNOTATE_MAX_WEEKLY_PCT because a crossword backlog is never worth being
 # rate-limited for real work; this job is the other half and runs with NO usage
-# gate. It keeps as many runs in flight as spends the paced meter evenly up to
+# gate. It keeps as many runs in flight as spends the paced meter evenly to EXHAUSTED a margin before
 # its reset (tools/prereset_plan.py --width): the weekly one by default, each
 # five-hour window after `tools/prereset_plan.py --five-hour`. That holds from
 # the moment it starts until the week resets: a rolling pool, where a finished
