@@ -332,3 +332,33 @@ if fa.input_hash(d) != fa._input_hash_listed(d):
     sys.exit(1)
 print("ok   edition_queue.fresh, the archive.org filer and fetcher plans and match_canberra stat no archive.org path")
 PY
+
+# corpus_queue's checks (every tick of the corpus queue) look for a filer's
+# ledger lock on the SSD (scan_queue.lock_path) and take the fetch marks off
+# the SSD manifests: of the media disk they stat only the two archive.org
+# ledgers themselves, which still live there.
+mkdir -p "$t/cq/archive_org_editions" "$t/cq/.manifest"
+: > "$t/cq/archive_org_editions/filed.jsonl"
+CT_DOWNLOADS="$t/cq" HOME="$t/cq-home" python3 - <<'PY'
+import os, sys
+import downloads, corpus_queue as q, scan_queue
+for ledger in q.LEDGERS:
+    with scan_queue.lock(ledger):
+        pass  # the lock files exist, as a filer leaves them
+touched = []
+real = {n: getattr(os, n) for n in ("stat", "lstat", "listdir", "scandir")}
+for name, fn in real.items():
+    setattr(os, name, (lambda fn: lambda p=".", *a, **k: (touched.append(p), fn(p, *a, **k))[1])(fn))
+try:
+    held, marks = q.ledger_held(), q.ledger_marks()
+finally:
+    for name, fn in real.items():
+        setattr(os, name, fn)
+root = str(downloads.ROOT) + os.sep
+media = sorted({os.fspath(p) for p in touched if isinstance(p, (str, os.PathLike)) and os.fspath(p).startswith(root)
+                and "/.manifest" not in os.fspath(p)} - {str(downloads.ARCHIVE_ORG / "filed.jsonl"), str(downloads.GALE_LEDGER)})
+if media or held is not None:
+    print(f"FAIL corpus_queue ledger_held/ledger_marks statted media paths {media} (held {held})")
+    sys.exit(1)
+print("ok   corpus_queue ledger_held and ledger_marks stat no lock, done.tsv or Trove dir on the media disk")
+PY

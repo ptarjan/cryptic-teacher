@@ -3744,7 +3744,7 @@ def rekey_scans(ledger):
     import fcntl
     if not ledger.exists():
         return 0
-    with open(ledger.with_suffix(".lock"), "w") as f:
+    with open(scan_queue.lock_path(ledger), "w") as f:
         try:
             fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:

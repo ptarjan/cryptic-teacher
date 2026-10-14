@@ -101,12 +101,24 @@ def order(keys, rows, unread):
     return fresh + stale
 
 
+def lock_path(ledger, suffix=".lock"):
+    """Where `ledger`'s lock lives (suffix ".locks": its sources' lock dir):
+    beside it (<ledger stem>.lock), but on the SSD (media_manifest.DIR,
+    "<its folder>-<stem>.lock") for a ledger on the media disk, so a tick
+    that checks or takes a lock spins nothing."""
+    ledger = Path(ledger)
+    if media_manifest.on_media(ledger):
+        media_manifest.DIR.mkdir(parents=True, exist_ok=True)
+        return media_manifest.DIR / f"{ledger.parent.name}-{ledger.stem}{suffix}"
+    return ledger.with_suffix(suffix)
+
+
 @contextlib.contextmanager
 def lock(ledger, wait_for_it=False):
-    """Yields whether this run holds `ledger`'s lock (<ledger>.lock); with
+    """Yields whether this run holds `ledger`'s lock (lock_path); with
     `wait_for_it`, waits for it instead of yielding False."""
     import fcntl  # here, not at the top: the desktop (Windows) imports this module, never locks
-    path = ledger.with_suffix(".lock")
+    path = lock_path(ledger)
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w") as f:
         try:
@@ -149,7 +161,7 @@ def append(ledger, rows):
     vlm_guard(f"{ledger.name} row")
     data = "".join(json.dumps(r) + "\n" for r in rows).encode()
     ledger.parent.mkdir(parents=True, exist_ok=True)
-    with open(ledger.with_suffix(".lock"), "w") as f:
+    with open(lock_path(ledger), "w") as f:
         fcntl.flock(f, fcntl.LOCK_EX)
         fd = os.open(ledger, os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o644)
         try:
@@ -182,7 +194,7 @@ def compact(ledger, key):
     import fcntl
     if not ledger.exists():
         return 0, 0
-    with open(ledger.with_suffix(".lock"), "w") as f:
+    with open(lock_path(ledger), "w") as f:
         try:
             fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
@@ -206,7 +218,7 @@ UNIT_HOLD_WAIT = 180
 def held(ledger, wait=0):
     """Whether a run holds `ledger`'s lock, still after `wait` seconds."""
     import fcntl
-    path = ledger.with_suffix(".lock")
+    path = lock_path(ledger)
     if not path.exists():
         return False
     deadline = time.monotonic() + wait
@@ -229,7 +241,7 @@ def source_lock(ledger, source):
     `ledger`, in <ledger stem>.locks/), never waiting: a source being read
     by another unit is not read twice."""
     import fcntl
-    d = ledger.parent / f"{ledger.stem}.locks"
+    d = lock_path(ledger, ".locks")
     d.mkdir(parents=True, exist_ok=True)
     with open(d / (hashlib.sha256(source.encode()).hexdigest()[:20] + ".lock"), "w") as f:
         try:
