@@ -1972,6 +1972,18 @@ def corrected_clue(pid, eid):
     return SOURCE_CLUE_WRONG.get((pid, eid), (None, None, None))[1]
 
 
+#: How a SOURCE_CLUE_WRONG row's evidence opens when the source lost clue words
+#: that no other print of the puzzle supplies (quiptic-230's 9-across): the
+#: words are rebuilt from the answer's wordplay, not read off a page, so the
+#: clue carries `reconstructed` and the app says so beside it.
+RECONSTRUCTED = "Reconstructed: "
+
+
+def reconstructed_clue(pid, eid):
+    """Whether light `eid`'s SOURCE_CLUE_WRONG words are a reconstruction."""
+    return SOURCE_CLUE_WRONG.get((pid, eid), (None, None, ""))[2].startswith(RECONSTRUCTED)
+
+
 def duplicated_clues(entries, one_list=False):
     """[[entry id, ...]] of lights served the same clue words, "See N" stubs
     and clues with no letters aside. A source serving one clue on two lights has lost
@@ -2495,8 +2507,10 @@ def convert(data):
         # gap being the SPACE of SPACE RACE.
         line = line.lstrip(LEADING_SPACE)
         text, enum = enumeration.split(line)
-        if (printed := source_clue(pid, f"{e['number']}-{e['direction']}", text)) != text:
+        eid = f"{e['number']}-{e['direction']}"
+        if (printed := source_clue(pid, eid, text)) != text:
             text, italics = printed, []
+        rebuilt = text == corrected_clue(pid, eid) and reconstructed_clue(pid, eid)
         # A run of spaces ("wrong Elvis?  Dead right!") is the feed's, not
         # the paper's: one space, as every other filer has it.
         text, italics = enumeration.collapse_spaces(text, italics)
@@ -2517,6 +2531,7 @@ def convert(data):
                 **({"separators": seps} if seps else {}),
                 **({"italics": italics} if italics else {}),
                 **({} if has_words(text) else {"missing": True}),
+                **({"reconstructed": True} if rebuilt else {}),
             },
             # Only when it links clues. The paper writes a group on every entry,
             # singleton or not; an absent group here means "this clue is its own

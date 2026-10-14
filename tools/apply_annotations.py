@@ -59,7 +59,8 @@ import puzzle_integrity
 import groups  # linked answers
 from groups import entry_id
 from validate_annotations import committed_entries
-from fetch_puzzle import read_puzzle_file, resolve_puzzle, source_clue, write_puzzle_file
+from fetch_puzzle import (corrected_clue, read_puzzle_file, reconstructed_clue, resolve_puzzle,
+                          source_clue, write_puzzle_file)
 
 TOOLS = Path(__file__).resolve().parent
 
@@ -306,7 +307,8 @@ def refusal(path, puzzle, err):
 def mend_clues(puzzle):
     """Write each source_clue_wrong.json row into `puzzle`'s clues. A row that
     gives a blank clue its printed words makes it a clue with words, so it
-    stops being marked missing."""
+    stops being marked missing; one whose words are a reconstruction
+    (fetch_puzzle.RECONSTRUCTED) marks the clue `reconstructed`."""
     for entry in puzzle["entries"]:
         text = entry["clue"].get("text")
         printed = source_clue(puzzle["id"], entry_id(entry), text)
@@ -315,6 +317,9 @@ def mend_clues(puzzle):
             if printed.strip():
                 entry["clue"].pop("missing", None)
                 entry["clue"].pop("missingNote", None)
+        if (reconstructed_clue(puzzle["id"], entry_id(entry))
+                and entry["clue"].get("text") == corrected_clue(puzzle["id"], entry_id(entry))):
+            entry["clue"]["reconstructed"] = True
 
 
 def landed(ann, entry, entries, eid, errors):
