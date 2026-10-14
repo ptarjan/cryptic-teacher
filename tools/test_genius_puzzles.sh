@@ -265,6 +265,20 @@ print("special-loose", why, e1["clue"].get("enumeration"), e1["length"], "awaits
 print("special-loose-no-preamble", G.unsolved_special(9998, sp(loose), d, "u")[1])
 pz, why = G.unsolved_special(9998, sp(loose, article=True), d, "u")
 print("special-loose-article", why, pz.get("awaitsPreamble"))
+counted = sp(base + [((5, "across"), "", "5")], "Normal.")
+counted["clues"][-1]["clue"] = "(5)"
+pz, why = G.unsolved(9998, counted, d, "u")
+print("count-only-blank", why, [e["clue"] for e in pz["entries"] if e["number"] == 5])
+allcounts = sp(base + [((5, "across"), "", "5")], "Normal.")
+for c in allcounts["clues"]:
+    c["clue"] = f"({c['enumeration']})"
+G.MOST_UNCLUED, most = 3, G.MOST_UNCLUED
+print("count-only-many", G.unsolved(9998, allcounts, d, "u")[1])
+G.MOST_UNCLUED = most
+bl, bp = G.bulleted_clues("● Keeps elastic pants worn by date ● Most vulgar fan of Labour PM uncovered "
+                          "stealing French art All clues are normal and all solutions are single words. However, "
+                          "the solutions are in no particular order. ● Yellow colour? It might be this")
+print("bulleted", bl, "|", bp)
 print("special-classes", sorted(G.SPECIAL_UNSOLVED), sorted(G.SPECIAL_UNSOLVED - G.GRID_MISFIT))
 z = clues_only.read("genius-280")
 if z:
@@ -345,6 +359,9 @@ check "an unclued light whose clue ran into the preamble is a misread (265)" "5 
 check "a count the preamble alters keeps the printed count, the light its length" "None 7 5 False" "$(get special-loose)"
 check "a count off its light with no preamble printed is refused" "the clue list does not cover the grid, and no preamble printed says why" "$(get special-loose-no-preamble)"
 check "an article page's altered count files awaiting its preamble" "None True" "$(get special-loose-article)"
+check "a light printed with only its count files a blank clue keeping it (235, 63)" "None [{'missing': True, 'enumeration': '5'}]" "$(get count-only-blank)"
+check "a list of bare counts is no set of unclued lights (144)" "('6 clues print only a count', 'unsolved')" "$(get count-only-many)"
+check "bulleted clues read in order, the run-on instruction cut out (240)" "[('Keeps elastic pants worn by date', None), ('Most vulgar fan of Labour PM uncovered stealing French art', None), ('Yellow colour? It might be this', None)] | All clues are normal and all solutions are single words. However, the solutions are in no particular order." "$(get bulleted)"
 check "the special classes are grid misfits the clues-only hold catches if refused" "[\"enumeration is not the entry's length\", 'lights left unclued'] []" "$(get special-classes)"
 [ -z "$(get held-280)" ] || check "genius-280 is held clues-only: 39 unnumbered clues and its instruction" "True 39 True" "$(get held-280)"
 
