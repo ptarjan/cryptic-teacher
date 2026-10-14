@@ -53,7 +53,7 @@ never meets a times-* or cryptic-* id. The paper's own label ("English
 cryptic 715C", a setter's byline) goes in the name and the setter. A Guardian
 reprint whose clues match a held cryptic-* puzzle is not filed again.
 
-Resumable and idempotent: downloads.TROVE/filed.jsonl records each article's
+Resumable and idempotent: the SSD ledger (media_manifest.trove_ledger) records each article's
 verdict against its inputs (its files' sizes and times, its clue zones, and
 whether the VLM read it), so a rerun reads only articles that are new or
 changed, the never-read first and
@@ -1329,7 +1329,7 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, seco
     `reread` (a datetime) reads again every article last read before it;
     `articles` (ids) reads those again, and no other."""
     deadline = None if seconds is None else time.monotonic() + seconds
-    ledger = Path(ledger or cache / "filed.jsonl")
+    ledger = Path(ledger or media_manifest.trove_ledger(cache))
     with scan_queue.lock(ledger, wait) as mine:
         if not mine:
             print(f"another run holds {ledger.with_suffix('.lock')}: nothing read", file=out)
@@ -1346,6 +1346,7 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles
             known[row["article"]] = row
     for row in known.values():
         stamp_cause(row, zones_of(cache))
+    before = _dump(known)
     files = held_files(puzzles)
     taken = {row["id"]: a for a, row in known.items() if row.get("id")} | {p.stem: a for a, p in files.items()}
     # The VLM's readings are an input: an article read without it is read
@@ -1394,7 +1395,7 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles
             tally[g] = tally.get(g, 0) + 1
         if row.get("imageDisagrees"):
             tally["image read but disagrees"] = tally.get("image read but disagrees", 0) + 1
-    if write:
+    if write and _dump(known) != before:  # nothing changed: the ledger is not rewritten
         save(ledger, known)
     print(f"{len(dirs)} articles in {cache}", file=out)
     for k in sorted(tally):
@@ -1486,7 +1487,7 @@ def plan(cache=CACHE, reread=None, asked=(), ledger=None, puzzles=None):
     """The article reads due, one unit each ({"rel": article id, "rank",
     "reason", "force", "date"}), the most urgent first (RANKS), each rank
     the newest article first (article_date)."""
-    ledger = Path(ledger or cache / "filed.jsonl")
+    ledger = Path(ledger or media_manifest.trove_ledger(cache))
     known = scan_queue.ledger_rows(ledger, "article")
     files = held_files(puzzles)
     seen_by = vlm.version() if vlm.reachable() else None
@@ -1507,7 +1508,7 @@ def read_unit(aid, cache=CACHE, puzzles=None, reread=None, force=False, ledger=N
     own lock, adding its own ledger row. Returns "read", "current" (no
     longer due, unless `force`), "busy" (another unit has it) or "held" (a
     batch run holds the ledger)."""
-    ledger = Path(ledger or cache / "filed.jsonl")
+    ledger = Path(ledger or media_manifest.trove_ledger(cache))
     if scan_queue.held(ledger, scan_queue.UNIT_HOLD_WAIT):
         return "held"
     with scan_queue.source_lock(ledger, aid) as mine:
@@ -1556,10 +1557,14 @@ def held_read(voted, puzzle, path, verdict, write):
     return puzzle if write and scan_queue.file_puzzle(write_puzzle_file, TOOL, path, puzzle, verdict) else None
 
 
+def _dump(known):
+    return "".join(json.dumps(r) + "\n" for r in known.values())
+
+
 def save(ledger, known):
     ledger.parent.mkdir(parents=True, exist_ok=True)
     tmp = ledger.with_suffix(".tmp")
-    tmp.write_text("".join(json.dumps(r) + "\n" for r in known.values()))
+    tmp.write_text(_dump(known))
     tmp.replace(ledger)
 
 
@@ -1587,7 +1592,7 @@ def consider_article(d):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--cache", type=Path, default=CACHE)
-    ap.add_argument("--ledger", type=Path, help="default <cache>/filed.jsonl")
+    ap.add_argument("--ledger", type=Path, help="default media_manifest.trove_ledger(cache)")
     ap.add_argument("--out", type=Path, help="write puzzles here, not into puzzles/")
     ap.add_argument("--seconds", type=float,
                     help="start no new article read after N seconds; the rest wait for the next run")

@@ -581,7 +581,7 @@ def trove():
     read = set()
     dates = trove_dates()
     zones = file_trove_puzzles.zones_of(TROVE)
-    for r in scan_queue.ledger_rows(TROVE / "filed.jsonl", "article").values():
+    for r in scan_queue.ledger_rows(media_manifest.trove_ledger(TROVE), "article").values():
         art = str(r.get("article"))
         read.add(art)
         if r.get("skip"):

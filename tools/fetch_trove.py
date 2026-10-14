@@ -350,8 +350,9 @@ def fetch_zones(tv, out, zones, aid):
 def pending_zones(out, zones):
     """Article ids the filing ledger leaves pending whose zones are not cached
     (its last row an article standing: the ledger is appended to)."""
+    import media_manifest
     import scan_queue
-    rows = scan_queue.ledger_rows(Path(out) / "filed.jsonl", "article").values()
+    rows = scan_queue.ledger_rows(media_manifest.trove_ledger(Path(out)), "article").values()
     fetched, zoned = fetched_ids(out), zoned_ids(zones)
     return sorted(r["article"] for r in rows
                   if r.get("pending") and not _in(zoned, r["article"], lambda a: zone_images(zones, a))

@@ -116,7 +116,7 @@ def listener_counts(inbox=gale_listener.SAVED, store=gale_listener.STORE):
 
 def trove_counts(cache=ftp.CACHE):
     """[articles, never read, articles filed, articles read]."""
-    rows = scan_queue.ledger_rows(cache / "filed.jsonl", "article")
+    rows = scan_queue.ledger_rows(media_manifest.trove_ledger(cache), "article")
     if media_manifest.on_media(cache) and media_manifest.complete(media_manifest.TROVE_TITLES):
         # The articles holding meta.json, off the trove-titles manifest
         # (fetch_trove appends one per meta.json): no listing of the disk.
@@ -132,7 +132,7 @@ def trove_counts(cache=ftp.CACHE):
 def _trove_listed(cache):
     """Article names in a Trove folder off the media disk (a test's): every
     dir name that is read or holds meta.json, by listing it."""
-    rows = scan_queue.ledger_rows(cache / "filed.jsonl", "article")
+    rows = scan_queue.ledger_rows(media_manifest.trove_ledger(cache), "article")
     names = os.listdir(cache) if cache.is_dir() else []
     return [n for n in names if n in rows or (cache / n / "meta.json").exists()]
 
@@ -202,7 +202,7 @@ def dated(cache=downloads.ARCHIVE_ORG, inbox=gale_listener.SAVED, store=gale_lis
     read = _first_reads(gale_listener.load_ledger(store).values(), "file", "readOn")
     for p in gale_listener.page_files(inbox):
         add(gale_listener.lp.SERIES, 1, _day(p), read.get(p.name))
-    rows = scan_queue.jsonl_rows(trove / "filed.jsonl")
+    rows = scan_queue.jsonl_rows(media_manifest.trove_ledger(trove))
     last = {r["article"]: r for r in rows if "article" in r}
     share = sum(bool(r.get("id")) for r in last.values()) / len(last) if last else 0
     read = _first_reads(rows, "article", "readAt")

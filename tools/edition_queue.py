@@ -306,6 +306,7 @@ import fetch_trove
 import file_archive_org_puzzles as fa
 import file_trove_puzzles as ftp
 import gale_listener
+import media_manifest
 import mem_gate
 import ocr_remote
 import scan_queue
@@ -420,7 +421,7 @@ def _plan(papers, cache, reread, out):
                       for n, u in enumerate(gale_listener.plan())]
             continue
         if key == "trove":
-            led = ftp.CACHE / "filed.jsonl"
+            led = media_manifest.trove_ledger(ftp.CACHE)
             if scan_queue.held(led):
                 if out is not None:
                     out.append(f"trove: a run holds {led.with_suffix('.lock')}; left out")
@@ -1390,7 +1391,7 @@ def ledger_upkeep(papers, cache):
     """Re-key and fold each paper's ledger (under its lock, so units append
     meanwhile): tens of seconds on the media mount."""
     for key in [k for k in papers if k != "listener"]:
-        ledger, by = (ftp.CACHE / "filed.jsonl", "article") if key == "trove" else (fa.ledger_of(cache, fa.FILERS[key]), "edition")
+        ledger, by = (media_manifest.trove_ledger(ftp.CACHE), "article") if key == "trove" else (fa.ledger_of(cache, fa.FILERS[key]), "edition")
         if key != "trove" and (n := fa.rekey_scans(ledger)):
             log(f"{ledger.name}: {n} scans re-keyed to the narrowed scan key")
         if key == "trove" and (n := ftp.rekey_unchanged(ledger)):

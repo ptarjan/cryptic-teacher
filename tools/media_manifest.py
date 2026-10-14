@@ -303,6 +303,31 @@ FOLDERS = {
 }
 
 
+def trove_ledger(cache):
+    """The Trove filer's ledger for the article folder `cache`: on the SSD
+    (DIR/trove-filed.jsonl, its lock and unit locks beside it) when `cache` is
+    on the media disk, so nothing scheduled spins that disk to read or lock it;
+    <cache>/filed.jsonl for a test's own folder. The first call that finds the
+    old <cache>/filed.jsonl and no new ledger moves it, rows and all."""
+    if not on_media(cache):
+        return Path(cache) / "filed.jsonl"
+    new = DIR / "trove-filed.jsonl"
+    if not new.exists():
+        old = Path(cache) / "filed.jsonl"
+        if old.exists():
+            DIR.mkdir(parents=True, exist_ok=True)
+            tmp = new.with_suffix(".moving")
+            tmp.write_bytes(old.read_bytes())
+            if tmp.stat().st_size != old.stat().st_size:
+                tmp.unlink()
+                raise OSError(f"copy of {old} to {new} came short")
+            tmp.replace(new)  # the new ledger exists only whole
+            old.unlink()
+            for stale in (old.with_suffix(".lock"), old.with_suffix(".tmp")):
+                stale.unlink(missing_ok=True)
+    return new
+
+
 def on_media(folder):
     """Whether `folder` is on the media disk (under downloads.ROOT); a test's
     temp folder is not. Path arithmetic only: no stat."""
