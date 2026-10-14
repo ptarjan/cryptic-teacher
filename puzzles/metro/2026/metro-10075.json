@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Person signing up as carpenter",
     "enumeration": "6"
    },
-   "solution": "JOINER"
+   "solution": "JOINER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Person signing up",
+      "at": 0,
+      "meaning": "first meaning: someone who joins a club or society"
+     },
+     {
+      "text": "carpenter",
+      "at": 21,
+      "meaning": "second meaning: a woodworker who makes joints and fittings"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together it suggests a carpenter enlisting; the two parts are separate meanings of one word.",
+     "definitionFit": "The word names both a new member who enrols and a skilled woodworker, especially one doing finer work than a carpenter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "signing"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,53 @@
     "text": "Geordie in York's going round British isles",
     "enumeration": "7"
    },
-   "solution": "ORKNEYS"
+   "solution": "ORKNEYS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "British isles",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "going round",
+         "at": 18,
+         "note": "the letters go round, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "York's",
+         "at": 11,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "Geordie",
+       "at": 0,
+       "gives": "NE",
+       "note": "a Geordie comes from Newcastle in the North East of England, abbreviated NE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Newcastle man visiting York tours some islands.",
+     "walkthrough": "The Orkneys are an island group off the north coast of Scotland.",
+     "definitionFit": "The Orkneys are a group of islands belonging to Britain, so British isles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Geordie"
+    }
+   }
   },
   {
    "number": 3,
@@ -59,7 +131,43 @@
     "text": "Bottle never broken",
     "enumeration": "5"
    },
-   "solution": "NERVE"
+   "solution": "NERVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bottle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "broken",
+       "at": 13,
+       "note": "the word never is broken up and its letters reassembled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "never",
+       "at": 7,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bottle that has never been smashed.",
+     "walkthrough": "Bottle is British slang for courage, not a container.",
+     "definitionFit": "In British slang bottle means courage, the same as nerve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bottle"
+    }
+   }
   },
   {
    "number": 4,
@@ -73,7 +181,41 @@
     "text": "Money back at beer exchange",
     "enumeration": "6"
    },
-   "solution": "REBATE"
+   "solution": "REBATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Money back",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "exchange",
+       "at": 19,
+       "note": "the letters exchange places with one another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "at beer",
+       "at": 11,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting a refund at a beer swap.",
+     "definitionFit": "A rebate is a partial refund of money paid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exchange"
+    }
+   }
   },
   {
    "number": 5,
@@ -87,7 +229,45 @@
     "text": "Warms up missing starter and devours",
     "enumeration": "4"
    },
-   "solution": "EATS"
+   "solution": "EATS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "devours",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing starter",
+       "at": 9,
+       "note": "the word loses its starting letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Warms up",
+       "at": 0,
+       "gives": "HEATS",
+       "note": "heats means warms up, as with food on a stove"
+      },
+      {
+       "gives": "H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reheats a meal and then wolfs it down.",
+     "definitionFit": "To devour food is to eat it greedily, a stronger synonym of the plain verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +281,53 @@
     "text": "Three directions near to fly trap",
     "enumeration": "7"
    },
-   "solution": "ENSNARE"
+   "solution": "ENSNARE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "trap",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Three directions",
+       "at": 0,
+       "gives": "ENS",
+       "note": "the compass points east, north and south give E, N and S"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to fly",
+         "at": 22,
+         "note": "the letters fly about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "near",
+         "at": 17,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spider's web set to catch a nearby fly, from every side.",
+     "walkthrough": "Fly trap looks like one thing, but fly is the anagram signal and trap is the definition.",
+     "definitionFit": "To ensnare is to catch in a snare, so to trap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fly"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +341,48 @@
     "text": "Sound of bird, small, in dry surroundings",
     "enumeration": "5"
    },
-   "solution": "TWEET"
+   "solution": "TWEET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sound of bird",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "surroundings",
+       "at": 29,
+       "note": "the letters for dry form surroundings for the letters for small"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dry",
+       "at": 25,
+       "gives": "TT",
+       "note": "TT means teetotal, so dry"
+      },
+      {
+       "words": "small",
+       "at": 15,
+       "gives": "WEE",
+       "note": "wee is Scottish for small"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny bird chirps in a parched landscape.",
+     "definitionFit": "A tweet is the short high chirp of a small bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dry"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +396,44 @@
     "text": "Discard, not initially, then throw out",
     "enumeration": "5"
    },
-   "solution": "EJECT"
+   "solution": "EJECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "throw out",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not initially",
+       "at": 9,
+       "note": "the initial letter is not included"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Discard",
+       "at": 0,
+       "gives": "REJECT",
+       "note": "to reject is to discard as unwanted"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tossing something aside, then flinging it away.",
+     "definitionFit": "To eject is to throw out forcibly, as from a club."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +447,29 @@
     "text": "Perceive meaning",
     "enumeration": "5"
    },
-   "solution": "SENSE"
+   "solution": "SENSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perceive",
+      "at": 0,
+      "meaning": "first meaning: to detect or be aware of, as a verb"
+     },
+     {
+      "text": "meaning",
+      "at": 9,
+      "meaning": "second meaning: the significance of a word, as a noun"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words read like a phrase about grasping meaning; each is a separate sense of the answer.",
+     "definitionFit": "The word is both a verb for detecting something and a noun for the import of words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +483,42 @@
     "text": "Gag ringleader, the prankster",
     "enumeration": "5"
    },
-   "solution": "JOKER"
+   "solution": "JOKER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the prankster",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Gag",
+       "at": 0,
+       "gives": "JOKE",
+       "note": "a gag is a joke, as told by a comedian"
+      },
+      {
+       "words": "ringleader",
+       "at": 4,
+       "gives": "R",
+       "note": "the leader, or first letter, of the word ring"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A practical joker heading a gang plays a gag.",
+     "walkthrough": "Ringleader looks like the boss of a gang, but it is read as the leading letter of ring.",
+     "definitionFit": "A joker is someone who plays tricks and pranks on others, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ringleader"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +532,68 @@
     "text": "Surround black geese flying round island",
     "enumeration": "7"
    },
-   "solution": "BESIEGE"
+   "solution": "BESIEGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Surround",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "black",
+       "at": 9,
+       "gives": "B"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 28,
+         "note": "the rearranged geese letters go round the letter for island"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "flying",
+           "at": 21,
+           "note": "geese in flight scatter, so their letters are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "geese",
+           "at": 15,
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "words": "island",
+         "at": 34,
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dark flock of geese circles an island.",
+     "definitionFit": "To besiege a place is to surround it with an army, cutting it off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flying"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +607,41 @@
     "text": "Merciful uncle mentioned inside",
     "enumeration": "7"
    },
-   "solution": "CLEMENT"
+   "solution": "CLEMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Merciful",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 25,
+       "note": "the answer sits inside the words uncle mentioned, across the gap"
+      }
+     ],
+     "parts": [
+      {
+       "words": "uncle mentioned",
+       "at": 9,
+       "note": "the answer runs from the end of uncle into mentioned"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kindly uncle gets a mention.",
+     "definitionFit": "Clement describes someone lenient and forgiving, as in the clemency shown by a judge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inside"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +655,42 @@
     "text": "Singers lost a composition",
     "enumeration": "5"
    },
-   "solution": "ALTOS"
+   "solution": "ALTOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Singers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "composition",
+       "at": 15,
+       "note": "a composition puts things together in a new arrangement, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lost a",
+       "at": 8,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Choir members have mislaid a piece of music.",
+     "walkthrough": "Composition suggests a piece of music in the choir's repertoire, but it signals rearranging the letters.",
+     "definitionFit": "Altos are singers of the voice part below soprano, an example of singers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "composition"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +704,41 @@
     "text": "It's balance regularly required for Jacob's father",
     "enumeration": "5"
    },
-   "solution": "ISAAC"
+   "solution": "ISAAC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jacob's father",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "regular",
+     "indicators": [
+      {
+       "text": "regularly",
+       "at": 13,
+       "note": "every other letter is taken, starting with the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "It's balance",
+       "at": 0,
+       "note": "taking the first, third, fifth letters and so on of these words spells the answer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Balance is needed, apparently, for the patriarch.",
+     "definitionFit": "In Genesis, Isaac son of Abraham fathered the twins Esau and Jacob."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "balance"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +752,55 @@
     "text": "Not in favour of half the guards in Caribbean island",
     "enumeration": "7"
    },
-   "solution": "ANTIGUA"
+   "solution": "ANTIGUA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Caribbean island",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Not in favour of",
+       "at": 0,
+       "gives": "ANTI",
+       "note": "anti means against, not in favour of"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 17,
+         "note": "only half of the word guards is kept, its first three letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "guards",
+         "at": 26,
+         "note": "taken as written"
+        },
+        {
+         "gives": "RDS"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone objecting to the guards on a Caribbean island.",
+     "walkthrough": "Antigua is the main island of Antigua and Barbuda in the eastern Caribbean.",
+     "definitionFit": "Antigua is an island in the Leeward Islands of the West Indies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +814,45 @@
     "text": "Trousers say, ones that are inherited",
     "enumeration": "5"
    },
-   "solution": "GENES"
+   "solution": "GENES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ones that are inherited",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GENES",
+     "indicators": [
+      {
+       "text": "say",
+       "at": 9,
+       "note": "say signals the word is spoken, giving a word of the same sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Trousers",
+       "at": 0,
+       "gives": "JEANS",
+       "note": "jeans are denim trousers"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pun on denim trousers handed down in the family.",
+     "walkthrough": "It reads like hand-me-down trousers; the trousers stand for a word that sounds like the answer.",
+     "definitionFit": "Genes are the units of heredity passed from parents to children."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Trousers"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +866,52 @@
     "text": "Involves about ten with troubles",
     "enumeration": "7"
    },
-   "solution": "ENTAILS"
+   "solution": "ENTAILS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Involves",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 9,
+         "note": "the letters of ten are turned about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ten",
+         "at": 15,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "troubles",
+       "at": 24,
+       "gives": "AILS",
+       "note": "ails means troubles, as an illness does"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something involving roughly ten people and their problems.",
+     "definitionFit": "To entail is to involve something as a necessary consequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +925,43 @@
     "text": "'The King' lives abroad",
     "enumeration": "5"
    },
-   "solution": "ELVIS"
+   "solution": "ELVIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "'The King'",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "abroad",
+       "at": 17,
+       "note": "the letters go abroad, wandering into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lives",
+       "at": 11,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The rumour that Elvis is still alive overseas.",
+     "walkthrough": "The surface recalls the old rumour that Elvis Presley is alive somewhere.",
+     "definitionFit": "Elvis Presley was nicknamed The King of Rock and Roll."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lives"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +975,50 @@
     "text": "Bounce along when cold confection is 1p less",
     "enumeration": "6"
    },
-   "solution": "LOLLOP"
+   "solution": "LOLLOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bounce along",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "less",
+       "at": 40,
+       "note": "the letters for 1p are taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cold confection",
+       "at": 18,
+       "gives": "LOLLIPOP",
+       "note": "a lollipop, or ice lolly, is a frozen treat on a stick"
+      },
+      {
+       "words": "1p",
+       "at": 37,
+       "gives": "IP",
+       "note": "1p is read as the letters I and P"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hopping about happily when an ice lolly is a penny cheaper.",
+     "walkthrough": "1p looks like a penny off the price, but it is read as the letters I and P.",
+     "definitionFit": "To lollop is to move with clumsy bounding steps, like a big dog."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "1p"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1032,43 @@
     "text": "Publicly denounced shield for Scottish flower",
     "enumeration": "5"
    },
-   "solution": "CLYDE"
+   "solution": "CLYDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scottish flower",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "shield",
+       "at": 19,
+       "note": "the words Publicly denounced shield the answer within them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Publicly denounced",
+       "at": 0,
+       "note": "the answer spans the end of Publicly and the start of denounced"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish emblem flower is publicly condemned.",
+     "walkthrough": "Flower here is something that flows, a river: the Clyde runs through Glasgow.",
+     "definitionFit": "In crosswords a flower is a river; the Clyde is the river of Glasgow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 20,
@@ -311,7 +1082,40 @@
     "text": "Some symbolic items are permitted by law",
     "enumeration": "5"
    },
-   "solution": "LICIT"
+   "solution": "LICIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "permitted by law",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Some",
+       "at": 0,
+       "note": "only some of the letters in symbolic items are used, a run across the gap"
+      }
+     ],
+     "parts": [
+      {
+       "words": "symbolic items",
+       "at": 5,
+       "note": "the answer spans the end of symbolic and the start of items"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Certain emblems are legally allowed.",
+     "definitionFit": "Licit means lawful or allowed, the opposite of illicit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -325,7 +1129,47 @@
     "text": "Room inside to take old instrument",
     "enumeration": "5"
    },
-   "solution": "CELLO"
+   "solution": "CELLO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "instrument",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to take",
+       "at": 12,
+       "note": "the cell takes the letter for old after it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Room inside",
+       "at": 0,
+       "gives": "CELL",
+       "note": "inside is slang for prison, so a room there is a cell"
+      },
+      {
+       "words": "old",
+       "at": 20,
+       "gives": "O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner given an antique instrument in their cell.",
+     "definitionFit": "A cello is a large bowed string instrument of the violin family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inside"
+    }
+   }
   },
   {
    "number": 22,
@@ -339,7 +1183,47 @@
     "text": "Gold piece for Al going round",
     "enumeration": "7"
    },
-   "solution": "ORBITAL"
+   "solution": "ORBITAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "going round",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Gold",
+       "at": 0,
+       "gives": "OR",
+       "note": "or is gold in heraldry"
+      },
+      {
+       "words": "piece",
+       "at": 5,
+       "gives": "BIT",
+       "note": "a bit is a piece of something"
+      },
+      {
+       "words": "Al",
+       "at": 15,
+       "gives": "AL",
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gold coin is set aside for a man called Al.",
+     "definitionFit": "Orbital describes something circling, like a satellite in orbit or a ring road."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 23,
@@ -353,7 +1237,41 @@
     "text": "Start being awkward",
     "enumeration": "5"
    },
-   "solution": "BEGIN"
+   "solution": "BEGIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Start",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "awkward",
+       "at": 12,
+       "note": "the letters are put in an awkward, jumbled order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "being",
+       "at": 6,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "It reads as advice about early clumsiness; awkward signals a rearrangement.",
+     "definitionFit": "To begin is to start something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "awkward"
+    }
+   }
   },
   {
    "number": 24,
@@ -367,7 +1285,48 @@
     "text": "In France he gets the girl, it's criminal!",
     "enumeration": "7"
    },
-   "solution": "ILLEGAL"
+   "solution": "ILLEGAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it's criminal",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In France he",
+       "at": 0,
+       "gives": "IL",
+       "note": "il is French for he"
+      },
+      {
+       "words": "the",
+       "at": 18,
+       "gives": "LE",
+       "note": "le is French for the, still under the France signal"
+      },
+      {
+       "words": "girl",
+       "at": 22,
+       "gives": "GAL",
+       "note": "gal is an informal word for a girl"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman winning the girl is somehow against the law.",
+     "definitionFit": "Illegal means against the law, which is what criminal describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "gets"
+    }
+   }
   },
   {
    "number": 25,
@@ -381,7 +1340,42 @@
     "text": "Embellish, we hear, old merchants' association",
     "enumeration": "5"
    },
-   "solution": "GUILD"
+   "solution": "GUILD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "old merchants' association",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "GUILD",
+     "indicators": [
+      {
+       "text": "we hear",
+       "at": 11,
+       "note": "we hear signals a word that sounds like another"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Embellish",
+       "at": 0,
+       "gives": "GILD",
+       "note": "to gild is to coat with gold, so to embellish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Decorating the hall of an ancient trade body.",
+     "definitionFit": "Medieval guilds were associations of merchants or craftsmen protecting their trade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -395,7 +1389,43 @@
     "text": "Letter from Greece carried by Cypriot airline",
     "enumeration": "4"
    },
-   "solution": "IOTA"
+   "solution": "IOTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Letter from Greece",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "carried by",
+       "at": 19,
+       "note": "the answer is carried within the words Cypriot airline"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cypriot airline",
+       "at": 30,
+       "note": "the answer spans the end of Cypriot and the start of airline"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A letter flown out of Greece by a Cyprus carrier.",
+     "walkthrough": "Letter suggests post being flown, but it means a letter of the alphabet.",
+     "definitionFit": "Iota is the ninth letter of the Greek alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Letter"
+    }
+   }
   },
   {
    "number": 27,
@@ -409,7 +1439,52 @@
     "text": "Penalise play on words — his undoing!",
     "enumeration": "6"
    },
-   "solution": "PUNISH"
+   "solution": "PUNISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Penalise",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "play on words",
+       "at": 9,
+       "gives": "PUN",
+       "note": "a pun is a play on words"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "undoing",
+         "at": 29,
+         "note": "his letters are undone and refastened in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "his",
+         "at": 25,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man's love of puns brings his downfall and a penalty.",
+     "definitionFit": "To punish is to penalise someone for a wrong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "undoing"
+    }
+   }
   }
  ]
 }
