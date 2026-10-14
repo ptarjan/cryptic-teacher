@@ -702,8 +702,16 @@ def blanks(old):
 
 print("REWRITE_OCR", blanks(ocr))
 print("REWRITE_FEED", blanks(held))
+# quiptic-71's 20-down: the feed serves a placeholder, which SOURCE_CLUE_WRONG
+# prints as nothing; blanking it loses nothing, and only that light.
+served = next(e for e in held["entries"] if (e["number"], e["direction"]) == (16, "down"))["clue"]["text"]
+fetch_puzzle.SOURCE_CLUE_WRONG[("cryptic-23115", "16-down")] = (served, "", "evidence")
+print("REWRITE_PLACEHOLDER", blanks(held))
+del fetch_puzzle.SOURCE_CLUE_WRONG[("cryptic-23115", "16-down")]
 PY
 )
+same "a placeholder SOURCE_CLUE_WRONG prints as nothing may be blanked, any other clue is kept" \
+  "$(field REWRITE_PLACEHOLDER "$out9")" "1-down"
 same "a feed's clue on two lights is the setter's" "$(field FEED "$out9")" "0"
 same "an OCR reading's clue on two lights is refused" "$(field OCR "$out9")" "1"
 same "unless SOURCE_CLUE_WRONG prints one of them" "$(field FIXED "$out9")" "0"
