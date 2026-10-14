@@ -845,7 +845,7 @@ def vlm_reading(d, zones=None):
     answers (its replies cached by tools/vlm_reader.py), else {}."""
     from PIL import Image
     images = zone_images(d.name, zones or clue_zones(d))
-    if not images or not vlm.reachable():
+    if not images or not vlm.wanted():
         return {}
     try:
         return {"vlm": "\n".join(vlm.read(vlm.crop(im, (0, 0, im.width, im.height)))
@@ -919,7 +919,7 @@ def vote(d, laid, grid, zones=None):
     texts.update(vlm_reading(d, zones))
     before = dict(laid)
     laid, blank = ocr_clues.reconcile(laid, list(texts.values()), lengths, keep_known=True)
-    if blank and "vlm" in texts and vlm.reachable():
+    if blank and "vlm" in texts and vlm.wanted():
         page = stacked(images)
         try:
             laid, blank = ocr_clues.vlm_pick(
@@ -1520,6 +1520,8 @@ def consider_article(d):
     after it)."""
     try:
         verdict, puzzle, voted = consider(d, _TAKEN)
+    except vlm.Down:
+        raise  # the VLM down: the article waits for it (vlm_reader.wanted)
     except Exception as e:  # any raise: one bad article is a verdict, not a crash
         verdict, puzzle, voted = refuse({}, "crashed", f"crashed: {type(e).__name__}: {e}"), None, None
     return verdict, puzzle, voted, vlm.reachable()

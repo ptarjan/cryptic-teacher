@@ -11,6 +11,16 @@ depend on, for a caller's input hash. While Paul games on the desktop
 (tools/desktop_busy.py) it is not reachable either, and ask() raises as
 when the server is down: it is asked again once the desktop is idle.
 
+A read the edition queue starts (DEFER_ENV set) never reads on without the
+model (Paul 10-13: "If the vision model is down and you need it just go onto
+the next scan and do it when it is back"): wanted(), a reader's check before
+it asks, raises Down when the model is not reachable, and a reply lost
+mid-read (ask() failing or yielding) makes guard() raise Down at the read's
+next puzzle write or ledger row (scan_queue.file_puzzle, scan_queue.append),
+so the read ends deferred, writing nothing, and the queue holds it until
+up() says the model answers again. What never asks (a Trove article that is
+no crossword, a scan, a fetch) reads and files as before.
+
 Prompts: vlm_column_prompt.md and vlm_pick_prompt.md. Replies are cached by
 a hash of the model, prompt and image under ~/.cache/vlm_reader, so a re-run
 asks nothing new.
@@ -51,6 +61,68 @@ _UP = {}
 #: When ask() last yielded to a game: reachable() stays False a while after,
 #: so a caller does not take a read that lost its VLM half-way for a full one.
 _YIELDED = [float("-inf")]
+
+
+#: Set (to anything) in a read unit's environment by the edition queue: a
+#: read there that needs the model while it is down ends deferred (Down),
+#: never read without it.
+DEFER_ENV = "CT_VLM_DEFER"
+#: Whether this process wanted the model and went without it: wanted() found
+#: it unreachable, or an ask failed or yielded mid-read. Never cleared.
+_MISSED = [False]
+
+
+class Down(RuntimeError):
+    """A read that needs the model met it down, under DEFER_ENV: the read
+    ends deferred (edition_commit.EXITS["vlm"]), writing nothing."""
+
+
+def wanted():
+    """reachable(), asked by a reader about to use the model. When it is not
+    (and a URL is set: an empty one turns the model off, and the read goes
+    on without it) the miss is noted, and under DEFER_ENV it raises Down."""
+    if reachable():
+        return True
+    if URL:
+        _MISSED[0] = True
+        if os.environ.get(DEFER_ENV):
+            raise Down(f"VLM {MODEL} at {URL} is down")
+    return False
+
+
+def missed():
+    """Whether this process wanted the model and went without it (_MISSED)."""
+    return _MISSED[0]
+
+
+def guard(what):
+    """Raise Down, under DEFER_ENV, when this process went without the model
+    it wanted (missed): `what` (a puzzle write, a ledger row) would record a
+    read made without it."""
+    if _MISSED[0] and os.environ.get(DEFER_ENV):
+        raise Down(f"VLM {MODEL} at {URL} went down mid-read; {what} not written")
+
+
+def went_without(what):
+    """Note that a read made elsewhere (the desktop's, tools/ocr_remote.py)
+    lost the model it was sent with, then guard(what)."""
+    _MISSED[0] = True
+    guard(what)
+
+
+#: Seconds up()'s answer stands: the queue asks once a minute at most, never once a unit.
+UP_EVERY = 60
+_UP_AT = [float("-inf"), False]
+
+
+def up():
+    """reachable() asked afresh at most every UP_EVERY seconds, for a
+    long-running process (the edition queue): reachable() itself answers
+    once a process, for a read that must not change its mind half-way."""
+    if time.monotonic() - _UP_AT[0] >= UP_EVERY:
+        _UP.pop(MODEL, None)
+        _UP_AT[:] = [time.monotonic(), reachable()]
+    return _UP_AT[1]
 
 
 #: How long llama-swap's /running answer stands, like desktop_busy.PROBE_EVERY's.
@@ -210,6 +282,7 @@ def ask_png(data, prompt, max_tokens=1500):
     why = busy()
     if why:
         _YIELDED[0] = time.monotonic()
+        _MISSED[0] = True
         raise RuntimeError(f"VLM {MODEL} at {URL} yields: desktop busy ({why})")
     body = {"model": MODEL, "temperature": 0, "max_tokens": max_tokens,
             "messages": [{"role": "user", "content": [
@@ -223,6 +296,7 @@ def ask_png(data, prompt, max_tokens=1500):
     except OSError as e:
         # Down mid-run (the desktop rebooted): the rest of the run reads without it.
         _UP[MODEL] = False
+        _MISSED[0] = True
         raise RuntimeError(f"VLM {MODEL} at {URL} failed: {e}") from e
     text = reply["choices"][0]["message"]["content"] or ""
     CACHE.mkdir(parents=True, exist_ok=True)

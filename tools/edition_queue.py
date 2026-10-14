@@ -173,6 +173,9 @@ def unit_status(unit, run):
         memory_failure(unit, e)
         return 1
     except Exception as e:  # any raise: the unit's end is its exit status, logged
+        if scan_queue.vlm_down(e):
+            print(f"{unit['kind']} {unit['rel']}: deferred, the VLM is down ({e})", file=sys.stderr, flush=True)
+            return edition_commit.EXITS["vlm"]
         scan_queue.failure((unit["rel"],), e)
         return 1
 
@@ -283,6 +286,9 @@ if _snapshot is not None and _spec.get("brief"):
         sys.exit(1)
     except Exception as e:  # any raise: the unit's end is its exit status, logged
         import scan_queue
+        if scan_queue.vlm_down(e):
+            print(f"read {_spec['unit']['rel']}: deferred, the VLM is down ({e})", file=sys.stderr, flush=True)
+            sys.exit(edition_commit.EXITS["vlm"])
         scan_queue.failure((_spec["unit"]["rel"],), e)
         sys.exit(1)
 if _spec.get("unit", {}).get("kind") in ("scan", "read"):
@@ -303,6 +309,7 @@ import gale_listener
 import mem_gate
 import ocr_remote
 import scan_queue
+import vlm_reader
 
 if _snapshot is not None:
     _reach = code_reach.modules("edition_queue")
@@ -693,6 +700,36 @@ desktop_gate_reader = None
 #: (when read, the desktop's free memory in MB), or None (tests swap it);
 #: None is desktop_busy.free_mb over ocr_remote.hosts().
 desktop_mem_reader = None
+#: Whether the desktop's VLM answers (tests swap it); None is vlm_reader.up(),
+#: asked at most every vlm_reader.UP_EVERY seconds, never once a unit.
+vlm_gate_reader = None
+#: Seconds a read ending deferred for the VLM (EXITS["vlm"]) holds the reads
+#: that need it, whatever the last answer: the queue does not restart them on
+#: an answer from before it went down.
+VLM_RECHECK = 60
+#: The dispatch loop's tick while the reads left wait for the VLM and nothing
+#: runs: it checks again, but does not walk the queue every second for nothing.
+VLM_IDLE = 10
+
+
+def vlm_up():
+    """Whether the VLM answers: vlm_gate_reader(), else vlm_reader.up()
+    (True with no VLM URL set: then the reads are made without it)."""
+    if vlm_gate_reader is not None:
+        return vlm_gate_reader()
+    import vlm_reader
+    return not vlm_reader.URL or vlm_reader.up()
+
+
+def needs_vlm(unit):
+    """Whether `unit` is not started while the VLM is down: an archive.org
+    or Gale edition's read (its clue columns are read with the VLM). Any
+    other read starts and, asking for the VLM (vlm_reader.wanted), ends
+    deferred, so a Trove article that is no crossword still files; one that
+    has ended deferred so waits too (dispatch's vlm_held)."""
+    return unit["kind"] == "read" and unit["paper"] in fa.FILERS
+
+
 #: The desktop's free memory, in MB, it keeps: its VLM (~22 GB) and OCR
 #: sessions page below it, so no unit that opens a session there starts.
 DESKTOP_FLOOR_MB = 4096
@@ -790,6 +827,13 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     scanned, scan_failed = set(), set()  # (paper, rel) of the scans that ended done, or failed, this run
     outcomes = {}
     losses = {}  # key_of(unit): times it ended lost (EXITS["lost"])
+    # Paul 10-13: "If the vision model is down and you need it just go onto
+    # the next scan and do it when it is back". The reads that ended deferred
+    # for the VLM (EXITS["vlm"]), held with needs_vlm's while it is down.
+    vlm_held = set()
+    vlm_lost_at = [float("-inf")]  # when a read last ended deferred for it
+    vlm_logged = [None, 0]  # (when the "VLM down" line was last logged, its count)
+    vlm_pending = [0]  # the reads waiting for it at the last pass that could start units
     beside = [Beside(argv) for argv in beside or ()]
     scans = reads = fetches = []
     # The editions just laid out (fresh), looked for every FRESH_POLL
@@ -866,6 +910,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                # setproctitle then keeps /proc/<pid>/environ (the title fits
                # in its argv), so the room tag the bridge's watchdog reads stays.
                "SPT_NOENV": "1"}
+        if unit["kind"] == "read":
+            # A read needing the VLM while it is down ends deferred, never read without it (vlm_reader.wanted).
+            env[vlm_reader.DEFER_ENV] = "1"
         if alone:
             env["OCR_REMOTE"] = ""
         elif unit["kind"] != "fetch":
@@ -899,8 +946,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             rc = os.waitstatus_to_exitcode(status)
             if rc == EXITS["lost"]:
                 losses[key_of(unit)] = losses.get(key_of(unit), 0) + 1
-            if rc in (EXITS["deferred"], EXITS["lost"]):
-                tried.discard(key_of(unit))  # started again once the desktop is idle
+            if rc == EXITS["vlm"]:
+                vlm_held.add(key_of(unit))
+                vlm_lost_at[0] = time.monotonic()
+            if rc in (EXITS["deferred"], EXITS["lost"], EXITS["vlm"]):
+                tried.discard(key_of(unit))  # started again once the desktop is idle, or the VLM answers
             else:
                 finished[key_of(unit)] = time.monotonic()
             if unit["kind"] == "scan" and rc == 0:
@@ -911,7 +961,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                     5: "failed, the source looks down", 6: "done, but throttled (429)",
                     7: "not started: the disk is full",
                     EXITS["deferred"]: "deferred (the desktop is busy)",
-                    EXITS["lost"]: "deferred (the desktop was lost)"}.get(rc, f"failed (rc={rc})")
+                    EXITS["lost"]: "deferred (the desktop was lost)",
+                    EXITS["vlm"]: "deferred (the VLM is down)"}.get(rc, f"failed (rc={rc})")
             if unit["kind"] == "fetch":
                 src = unit["paper"]
                 outages[src] = outages[src] + 1 if rc == 5 else 0
@@ -1058,9 +1109,26 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         opened[:] = [s for s in opened if s > time.time() - 3600]
         closed[:] = [c for c in closed if c[1] > time.time() - 3600]
         desk_held = False
+        vlm_now = []  # whether the VLM answers, asked once a pass and only when a read needs it
+
+        def vlm_waits(u, vlm_now=vlm_now):
+            """Whether read `u` waits for the VLM: it needs it (needs_vlm,
+            or it ended deferred for it) and it is down."""
+            if u["kind"] != "read" or not (key_of(u) in vlm_held or needs_vlm(u)):
+                return False
+            if not vlm_now:
+                vlm_now.append(time.monotonic() - vlm_lost_at[0] >= VLM_RECHECK and vlm_up())
+                if vlm_now[0] and vlm_held:
+                    log(f"VLM back: {len(vlm_held)} read(s) deferred for it start again")
+                    vlm_held.clear()
+                if vlm_now[0]:
+                    vlm_logged[0] = None
+            return not vlm_now[0]
+        vlm_deferred = 0
         # The whole-corpus re-reads (fa.BLANKET) wait until nothing more
-        # urgent is left to start, in any pool: new and fixed work first.
-        urgent = any(u["rank"] < fa.BLANKET and key_of(u) not in tried and pools.get(slot_of(u))
+        # urgent is left to start, in any pool: new and fixed work first
+        # (a read waiting for the VLM holds none back).
+        urgent = any(u["rank"] < fa.BLANKET and key_of(u) not in tried and pools.get(slot_of(u)) and not vlm_waits(u)
                      for u in fresh_scans + fresh_reads + scans + reads)
         # A pass with no free slot starts nothing; and once a gate holds
         # one unit back it holds every later one (begun_now only grows), so
@@ -1095,7 +1163,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             rank: a pass asks it of every queued scan (~12k)."""
             if not ready:
                 ready.append([v for v in reads if slot_of(v) == "read" and key_of(v) not in tried
-                              and key_of(v) not in busy and not waits(v)])
+                              and key_of(v) not in busy and not waits(v) and not vlm_waits(v)])
             if u["rank"] not in heads:
                 nxt = [v for v in ready[0] if v["rank"] <= u["rank"]][:pools["read"]]
                 heads[u["rank"]] = ({(v["paper"], r) for v in nxt for r in v["needs"]}
@@ -1103,6 +1171,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             needed = heads[u["rank"]]
             return needed is not None and (u["paper"], u["rel"]) not in needed
         queue = first + fresh_scans + fresh_reads + scans + reads + fetches
+        walked = may_start() and any(v > 0 for v in free.values())
         for u in queue if any(v > 0 for v in free.values()) else ():
             if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
                 continue
@@ -1122,6 +1191,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                     tried.add(key_of(u))
                 continue
             if starved or (yielding and u["kind"] != "fetch"):
+                continue
+            if vlm_waits(u):
+                vlm_deferred += 1
                 continue
             if costs is None:
                 costs = mem_gate.unit_costs({pid: slot_of(v) for pid, (v, _) in units_running()})
@@ -1165,6 +1237,12 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 f"floor {DESKTOP_FLOOR_MB} MB; only fetches start until it has room "
                 f"({len(running) + len(adopted)} running are left alone)")
         desk_mem_bound = desk_held
+        if walked:
+            vlm_pending[0] = vlm_deferred
+        if vlm_deferred and (vlm_logged[0] is None or time.monotonic() - vlm_logged[0] >= 600):
+            vlm_logged[:] = [time.monotonic(), vlm_deferred]
+            log(f"VLM down: {vlm_deferred} scans deferred; their reads start once it answers, "
+                f"scans, fetches and reads that do not ask it go on ({len(running) + len(adopted)} running)")
         if cpu_held and not cpu_bound:
             cpu_bound = True
             log(f"cpu-bound: load over {mem_gate.LOAD_PER_CORE:g} per core; only units the desktop reads start until it falls "
@@ -1198,7 +1276,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                                                                              for b in beside):
                     break
                 continue
-        time.sleep(1)
+        # Only reads waiting for the VLM left to start, and nothing running:
+        # look again every VLM_IDLE seconds (vlm_up is asked once a minute).
+        time.sleep(VLM_IDLE if vlm_deferred and not begun_now and not running and not adopted else 1)
     if stop:
         log(f"stop asked: TERM to {len(running) + len(adopted)} running unit(s), up to {STOP_GRACE}s")
         for pid in list(running) + list(adopted):
@@ -1223,6 +1303,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         reap()
         return 143
     print(f"edition queue: {len(tried)} units started; " + ", ".join(f"{v} {k}" for k, v in sorted(outcomes.items())))
+    if vlm_pending[0]:
+        print(f"  VLM down: {vlm_pending[0]} scans deferred")
     if left:
         print(f"  {left:5d}  left for the next run")
     return 0

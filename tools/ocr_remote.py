@@ -1085,7 +1085,7 @@ def edition_request(d, found, solutions):
               "held": sorted(fa.held_numbers(series)),
               "scans": [[url, day, ns] for (url, day), ns in fa.held_scans(series).items() if url in urls]}
     return ({"edition": rel, "found": found, "solutions": sols, "held": {series: held}, "reprints": reprints,
-             "vlm": vlm_reader.reachable(), "png": vlm_reader.encoder(), "filing": filing},
+             "vlm": vlm_reader.wanted(), "png": vlm_reader.encoder(), "filing": filing},
             buf.getvalue())
 
 
@@ -1116,6 +1116,9 @@ def edition(d, found, solutions):
     if "error" in got:
         log(f"{head['edition']} failed there ({got['error']}), reading it here")
         return None
+    if head.get("vlm") and not got.get("vlm"):
+        import vlm_reader
+        vlm_reader.went_without(f"{head['edition']}'s read")  # lost there mid-edition
     with tarfile.open(fileobj=io.BytesIO(back)) as t:
         t.extractall(fa.CROPS, filter="data")
     if got.get("decided") is None:

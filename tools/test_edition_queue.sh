@@ -28,6 +28,7 @@ import edition_queue as eq
 eq.cpu_gate_reader = lambda: 0.0  # this host's load must not gate the tests' starts
 eq.desktop_gate_reader = lambda: None  # nor whether Paul's desktop is busy
 eq.desktop_mem_reader = lambda: None  # nor its free memory
+eq.vlm_gate_reader = lambda: True  # nor whether its VLM answers
 os.environ["CT_BURN_STATE"] = os.path.join(os.environ["TMP"], "no-burn")  # nor this host's burn
 
 fails = 0
@@ -958,6 +959,34 @@ fake(outcome={}, default=0.1)
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=2.2, replan=0.5)
 check("mirror: once the desktop is idle it starts again", 1, log.read_text().count("start"))
+# The VLM down (Paul 10-13: "just go onto the next scan and do it when it is
+# back"): an edition's read is not started, its scan and a fetch-free scan
+# are, and it says so; a read that is started (not needs_vlm) and ends
+# deferred for the VLM is held, not started again, and left for the next run.
+eq.vlm_gate_reader = lambda: False
+eq.VLM_IDLE = 0.3
+log.unlink(missing_ok=True)
+fake(outcome={"t1": "vlm"}, default=0.1)
+eq.plan = lambda papers, cache=None, reread=None, out=None: (
+    [{"kind": "scan", "paper": "times", "rel": "vs", "rank": 1, "reason": "scan stale"}],
+    [{"kind": "read", "paper": "times", "rel": "v1", "rank": 1, "reason": "never read", "needs": []},
+     {"kind": "read", "paper": "trove", "rel": "t1", "rank": 1, "reason": "never read", "needs": []}])
+err, out = io.StringIO(), io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(out):
+    eq.dispatch(["times"], cache, workers=2, scan_workers=1, seconds=2.2, replan=0.5)
+starts = sorted(line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start")
+check("the VLM down: no edition read starts, the scan does, a Trove read once, it ends deferred and is held",
+      (["t1", "vs"], True, True, True, False),
+      (starts, "VLM down: " in err.getvalue(), "deferred (the VLM is down)" in err.getvalue(),
+       "left for the next run" in out.getvalue(), "failed" in err.getvalue()))
+check("the slice's tally names the scans deferred", True, "VLM down: 2 scans deferred" in out.getvalue())
+eq.vlm_gate_reader = lambda: True
+log.unlink(missing_ok=True)
+fake(outcome={}, default=0.1)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=2, scan_workers=1, seconds=2.2, replan=0.5)
+check("mirror: the VLM back, the edition's read starts", True,
+      "v1" in [line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start"])
 # The desktop's free memory gates the units that open an OCR session there:
 # each started since its last reading is charged DESKTOP_SESSION_MB, and none
 # starts that would take it under DESKTOP_FLOOR_MB.
