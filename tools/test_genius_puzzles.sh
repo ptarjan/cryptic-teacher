@@ -279,6 +279,21 @@ bl, bp = G.bulleted_clues("● Keeps elastic pants worn by date ● Most vulgar 
                           "stealing French art All clues are normal and all solutions are single words. However, "
                           "the solutions are in no particular order. ● Yellow colour? It might be this")
 print("bulleted", bl, "|", bp)
+# An image-only PDF's clues file only when both OCR readers read them alike.
+import ocr_clues
+from PIL import Image
+said = {}
+real = ocr_clues.read_words, ocr_clues.lines_of
+ocr_clues.read_words, ocr_clues.lines_of = (lambda crop, which: which), (lambda which: said[which])
+G.OCR_BOXES[9997] = [(0, 0.5, 1, 1)]
+page = Image.new("L", (100, 200), 255)
+said.update(en5="Across 7Lives in abandon (6) 8 Spooner's fighting’usky? (8) Down 1 Pip — hung (6)",
+            times="Across 7 Lives in abandon (6) 8 Spooner's fighting 'usky? (8) Down 1 Pip hung (6)")
+got, why = G.ocr_page(9997, page)
+print("ocr-agree", why, [c["clue"] for c in got["clues"]])
+said["times"] = said["times"].replace("abandon", "abanden")
+print("ocr-disagree", G.ocr_page(9997, page)[1])
+ocr_clues.read_words, ocr_clues.lines_of = real
 print("special-classes", sorted(G.SPECIAL_UNSOLVED), sorted(G.SPECIAL_UNSOLVED - G.GRID_MISFIT))
 z = clues_only.read("genius-280")
 if z:
@@ -362,6 +377,8 @@ check "an article page's altered count files awaiting its preamble" "None True" 
 check "a light printed with only its count files a blank clue keeping it (235, 63)" "None [{'missing': True, 'enumeration': '5'}]" "$(get count-only-blank)"
 check "a list of bare counts is no set of unclued lights (144)" "('6 clues print only a count', 'unsolved')" "$(get count-only-many)"
 check "bulleted clues read in order, the run-on instruction cut out (240)" "[('Keeps elastic pants worn by date', None), ('Most vulgar fan of Labour PM uncovered stealing French art', None), ('Yellow colour? It might be this', None)] | All clues are normal and all solutions are single words. However, the solutions are in no particular order." "$(get bulleted)"
+check "two OCR readers alike up to spaces, dashes and quotes file the fuller reading (150)" "None ['Lives in abandon (6)', \"Spooner's fighting 'usky? (8)\", 'Pip — hung (6)']" "$(get ocr-agree)"
+check "a word the OCR readers read differently files nothing" "7 across read two ways: 'Lives in abandon (6)' 'Lives in abanden (6)'" "$(get ocr-disagree)"
 check "the special classes are grid misfits the clues-only hold catches if refused" "[\"enumeration is not the entry's length\", 'lights left unclued'] []" "$(get special-classes)"
 [ -z "$(get held-280)" ] || check "genius-280 is held clues-only: 39 unnumbered clues and its instruction" "True 39 True" "$(get held-280)"
 

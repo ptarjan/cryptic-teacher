@@ -654,6 +654,57 @@ def unstretched(rects):
     return [(x0, y0 * k, x1, y1 * k) + tuple(rest) for x0, y0, x1, y1, *rest in rects]
 
 
+#: A PDF that is one picture of the page, no text in it: where on the picture
+#: the clue list is printed, as fractions (x0, y0, x1, y1) of its size, each
+#: box read in turn. No 150 prints one column below the grid.
+OCR_BOXES = {150: [(0, 0.43, 1, 1)]}
+#: The clue OCR's readers (ocr_clues.READERS), of two engines: a clue files
+#: only when both read it alike.
+OCR_READERS = ("en5", "times")
+#: The preamble a page leaves off, as its fifteensquared post quotes it.
+#: No 150's PDF prints the grid and clues alone; the post opens "The preamble
+#: states that: In one way or another 20,9 is missing from each clue."
+POST_PREAMBLE = {150: "In one way or another 20,9 is missing from each clue."}
+
+
+def ocr_page(number, image):
+    """(parse_text's fields, None) off a page picture read by each of
+    OCR_READERS over OCR_BOXES[number], or (None, why not). Both readings must
+    lay the same clues with the same counts and the same words (a dash or a
+    space apart: of two such the longer is kept), and no word may be one OCR
+    wrote (ocr_clues.suspect)."""
+    import ocr_clues
+    image = image.convert("L")
+    readings = []
+    for which in OCR_READERS:
+        parts = []
+        for x0, y0, x1, y1 in OCR_BOXES[number]:
+            crop = image.crop((int(image.width * x0), int(image.height * y0),
+                               int(image.width * x1), int(image.height * y1)))
+            parts.append(ocr_clues.lines_of(ocr_clues.read_words(crop, which)).replace("\n", " "))
+        # A clue number read onto its first word ("7Lives") stands apart.
+        text = re.sub(r"(?<![\w,])(\d{1,2})(?=[A-Z][a-z])", r"\1 ", " ".join(parts))
+        readings.append(parse_text(flat(text, kerned=False)))
+    first, other = readings[0], {tuple(c["lights"]): c for c in readings[1]["clues"]}
+    if not first["clues"] or sorted(tuple(c["lights"]) for c in first["clues"]) != sorted(other):
+        return None, "the readers lay different clue lists"
+    norm = lambda s: re.sub(r"[\s—–-]+", "", re.sub("[‘’]", "'", s))
+    clues = []
+    for c in first["clues"]:
+        o = other[tuple(c["lights"])]
+        if norm(c["clue"]) != norm(o["clue"]) or c["enumeration"] != o["enumeration"]:
+            return None, (f"{c['lights'][0][0]} {c['lights'][0][1]} read two ways: "
+                          f"{c['clue']!r} {o['clue']!r}")
+        pick = c if len(c["clue"]) >= len(o["clue"]) else o
+        if ocr_clues.suspect(pick["clue"]):
+            return None, f"{c['lights'][0][0]} {c['lights'][0][1]}: {ocr_clues.suspect(pick['clue'])[:2]}"
+        clues.append(pick)
+    # The grid is the picture above the clues.
+    top = int(image.height * min(b[1] for b in OCR_BOXES[number]))
+    return dict(first, clues=clues, preamble=first["preamble"] if first["preamble"] == readings[1]["preamble"]
+                else None, number=None, grid=grid_of_images([image.crop((0, 0, image.width, top))], clues)), None
+
+
 def read_pdf(path):
     """{number, setter, preamble, clues, grid, kind, text} off a Genius PDF.
     `kind` says where the grid came from: "vector", "image" or None."""
@@ -664,7 +715,15 @@ def read_pdf(path):
     reader = pypdf.PdfReader(str(path))
     raw, ops = fpp.ops_of(Path(path).read_bytes())
     raw += "\n" + "\n".join(pg.extract_text() or "" for pg in reader.pages[1:])
-    out = parse_text(flat(raw))
+    number = int(Path(path).stem) if Path(path).stem.isdigit() else None
+    if not raw.strip() and number in OCR_BOXES:
+        out, why = ocr_page(number, reader.pages[0].images[0].image)
+        raw = "" if why else "ocr"
+        out = out or parse_text("")
+        out["ocr"] = why or "read"
+    else:
+        out = parse_text(flat(raw))
+    out["preamble"] = out["preamble"] or POST_PREAMBLE.get(number)
     # A light printed "[unclued]" or "(See instructions)" has no clue: it is
     # left out, as an unclued light the clue list skips is.
     out["marked"] = {l for c in out["clues"] if UNCLUED_MARK.fullmatch(c["clue"]) for l in c["lights"]}
@@ -685,12 +744,15 @@ def read_pdf(path):
     rects = fpp.filled_rects(ops)
     grid = fpp.read_grid(rects) or fpp.read_grid(unstretched(rects))
     out["kind"] = "vector" if grid else None
+    if grid is None and out.get("grid"):
+        grid, out["kind"] = out["grid"], "image"
     if grid is None:
         grid = image_grid(reader.pages, out["clues"])
         out["kind"] = "image" if grid else None
     out["grid"] = grid
     out["text"] = bool(raw.strip())
-    out["origin"] = "the Guardian's printable PDF"
+    out["origin"] = ("the Guardian's printable PDF, a picture of the page whose clues two OCR readers read alike"
+                     if out.get("ocr") == "read" else "the Guardian's printable PDF")
     if grid:
         turn_links(out["clues"], set(rg.light_cells(grid)))
     return out
