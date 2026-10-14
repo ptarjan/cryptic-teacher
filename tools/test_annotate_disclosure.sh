@@ -282,6 +282,32 @@ errs, _ = AC.preview(path, pending)
 say("preview_names_validator_errors", any("names the answer" in e for e in errs)
     and not any(e.startswith("schema:") for e in errs))
 
+# A clue the write refuses is named by the refusal, not also called unwritten:
+# that echo was 56 of 80 check_every_clue_is_annotated failures (audit 10-14).
+# A clue really left null still is.
+full = {k: dict(charade) for k in ann}
+full["3-across"] = {"def": "Some", "wp": "[words]ZZZZ"}
+full["4-across"] = None
+pending.write_text(json.dumps(full))
+fresh = json.loads(path.read_text())     # a fresh run: 3-across has nothing filed yet
+for e in fresh["entries"]:
+    if entry_id(e) == "3-across":
+        e.pop("annotation", None)
+path.write_text(json.dumps(fresh))
+bad = []
+say("bad_wordplay_is_refused", apply_annotations.landed(
+    full["3-across"], next(e for e in real["entries"] if entry_id(e) == "3-across"),
+    real["entries"], "3-across", bad) is None and bad)
+errs, _ = AC.preview(path, pending)
+blank = [e for e in errs if "no annotation. Every clue" in e]
+say("preview_refused_clue_not_called_blank",
+    len(blank) == 1 and blank[0].startswith("4A: ") and "3A" not in blank[0])
+say("drop_refused_blanks_keeps_the_rest",
+    AC.drop_refused_blanks("3A,4A,5D: no annotation. Every clue x. With 3 blank, y", {"3A"})
+    == "4A,5D: no annotation. Every clue x. With 2 blank, y"
+    and AC.drop_refused_blanks("3A: no annotation. Every clue x", {"3A"}) == ""
+    and AC.drop_refused_blanks("3A: other check", {"3A"}) == "3A: other check")
+
 # --patch consumes its file, so the run has nothing to rm afterwards.
 fix = path.parent / "_patch.json"
 anagram = {"def": "Some", "wp": "ana([words]DCBA)"}
@@ -436,7 +462,9 @@ for k in linked_leader_quiet annotated_continuation_flagged \
          blanks_one_line one_blank_not_called_half_written \
          reworded_clue_fails retyped_clue_passes missing_keys_filled_null \
          ocr_rewording_filed_fails ocr_misread_filed_passes \
-         preview_names_validator_errors patch_deletes_its_file \
+         preview_names_validator_errors bad_wordplay_is_refused \
+         preview_refused_clue_not_called_blank drop_refused_blanks_keeps_the_rest \
+         patch_deletes_its_file \
          light_answer_named_fails function_word_light_passes \
          unlinked_still_whole_answer_only light_name_unnamed \
          line_names_its_check explain_takes_a_field explain_takes_dashed_words \
