@@ -302,15 +302,11 @@ def ledger_held():
 def ledger_marks():
     """Each ledger's and FETCHED path's (size, mtime_ns): a filer saves its
     ledger after every source it reads and a fetcher moves its FETCHED path,
-    so a mark that moved means the pass read or fetched something."""
-    out = {}
-    for ledger in LEDGERS + FETCHED:
-        try:
-            st = ledger.stat()
-            out[str(ledger)] = [st.st_size, st.st_mtime_ns]
-        except OSError:
-            out[str(ledger)] = None
-    return out
+    so a mark that moved means the pass read or fetched something. A ledger
+    on the media disk is read off the SSD stamp its writers keep
+    (scan_queue.ledger_mark), never stat-ed."""
+    import scan_queue  # here: the desktop imports this module for ocr_remote's serve path
+    return {str(ledger): scan_queue.ledger_mark(ledger) for ledger in LEDGERS + FETCHED}
 
 
 def wake(text, dry):
