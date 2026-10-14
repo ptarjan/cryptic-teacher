@@ -283,6 +283,8 @@ class Trove:
             meta["grid_level"], meta["grid_px"] = level, list(img.size)
         with atomic(os.path.join(d, "meta.json")) as f:
             json.dump(meta, f, indent=1)
+        import media_manifest
+        media_manifest.record(media_manifest.TROVE_TITLES, d, article=str(aid), title=meta["title"])
         return meta
 
     def crop(self, page_id, box, pad=10):
