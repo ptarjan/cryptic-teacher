@@ -38,6 +38,7 @@ import downloads
 import file_archive_org_puzzles as fa
 import file_trove_puzzles as ftp
 import gale_listener
+import media_manifest
 import scan_queue
 
 
@@ -64,7 +65,23 @@ def by_day(editions):
 
 def _editions(cache):
     """(paper key, item, edition dir) for each edition on disk holding
-    pages.json whose item a FILERS paper reads."""
+    pages.json whose item a FILERS paper reads: off the archiveorg-editions
+    and gale-editions manifests when `cache` is on the media disk (never a
+    walk of it), else (a test's folder) listed."""
+    if not media_manifest.on_media(cache):
+        yield from _editions_listed(cache)
+        return
+    eds = (set(media_manifest.latest(media_manifest.ARCHIVE_EDITIONS, "edition"))
+           | set(media_manifest.latest(media_manifest.GALE_EDITIONS, "edition")))
+    for rel in sorted(eds):
+        item, _, ed = rel.partition("/")
+        paper = fa.filer_of(item)
+        if paper is not None and ed:
+            yield paper.key, item, ed
+
+
+def _editions_listed(cache):
+    """_editions of a folder off the media disk, by listing it."""
     for item in (os.listdir(cache) if cache.is_dir() else ()):
         paper = fa.filer_of(item)
         if paper is None or not (cache / item).is_dir():
@@ -100,10 +117,23 @@ def listener_counts(inbox=gale_listener.SAVED, store=gale_listener.STORE):
 def trove_counts(cache=ftp.CACHE):
     """[articles, never read, articles filed, articles read]."""
     rows = scan_queue.ledger_rows(cache / "filed.jsonl", "article")
-    names = os.listdir(cache) if cache.is_dir() else []
-    unread = sum(n not in rows and (cache / n / "meta.json").exists() for n in names)
+    if media_manifest.on_media(cache):
+        # The articles holding meta.json, off the trove-titles manifest
+        # (fetch_trove appends one per meta.json): no listing of the disk.
+        names = list(media_manifest.memo(media_manifest.TROVE_TITLES, "article", "title"))
+    else:
+        names = _trove_listed(cache)
+    unread = sum(n not in rows for n in names)
     read = sum(n in rows for n in names)
     return [read + unread, unread, sum(bool(r.get("id")) for r in rows.values()), len(rows)]
+
+
+def _trove_listed(cache):
+    """Article names in a Trove folder off the media disk (a test's): every
+    dir name that is read or holds meta.json, by listing it."""
+    rows = scan_queue.ledger_rows(cache / "filed.jsonl", "article")
+    names = os.listdir(cache) if cache.is_dir() else []
+    return [n for n in names if n in rows or (cache / n / "meta.json").exists()]
 
 
 def counts():

@@ -50,6 +50,8 @@ SCHEDULED = {
     "file_trove_puzzles.py": ["article_date"],
     # coverage.py daily (daily_update.sh): the FT PDFs fetched.
     "coverage.py": ["ft_pdf_rows"],
+    # progress_record.py record (nightly): the read queue's size.
+    "edition_backlog.py": ["_editions", "trove_counts"],
 }
 #: {file: [function]} that may not run a command on the host either (an ssh
 #: `ls` of the Gale folders is a listing of the media disk too).
