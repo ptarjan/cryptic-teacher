@@ -57,6 +57,9 @@ def fetch(url):
     """The image's bytes, cached under downloads.NATION/images."""
     path = IMAGES / url.rsplit("/", 1)[1]
     if not path.is_file():
+        # Old pages link http://www.thenation.com/..., which now ends the TLS
+        # handshake with "EOF occurred in violation of protocol" (1588).
+        url = re.sub(r"^http://", "https://", url)
         req = urllib.request.Request(url, headers={"User-Agent": fn.UA})
         with urllib.request.urlopen(req, timeout=40) as r:
             data = r.read()
