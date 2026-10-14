@@ -607,10 +607,18 @@ def file_all(numbers=None, workers=None):
     _build_one.known = original_dates()
     paths = sorted(PAGES.glob("*.html"))
     # "puzzle-no-1588-0", "puzzle-no-3161-2": a later copy of a page held plain.
+    # But 1588's plain copy prints no grid picture and its "-0" copy does:
+    # keep the copy with the picture, which settles a grid the search cannot.
+    import nation_images
     names = {p.name for p in paths}
-    paths = [p for p in paths
-             if not (re.search(r"-\d+-\d\.html$", p.name)
-                     and re.sub(r"-\d\.html$", ".html", p.name) in names)]
+    pictured = lambda name: nation_images.image_url((PAGES / name).read_text(), "grid") is not None
+    drop = set()
+    for p in paths:
+        if re.search(r"-\d+-\d\.html$", p.name):
+            plain = re.sub(r"-\d\.html$", ".html", p.name)
+            if plain in names:
+                drop.add(plain if pictured(p.name) and not pictured(plain) else p.name)
+    paths = [p for p in paths if p.name not in drop]
     if numbers:
         paths = [p for p in paths if meta(p.read_text())["number"] in numbers]
     else:
