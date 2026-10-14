@@ -985,6 +985,9 @@ def unique_grid(spec, cols=15, rows=15, words=None, max_nodes=DEFAULT_MAX_NODES,
         if chosen is not None:
             return list(chosen), None
         return None, f"{len(found)} grids fit the clue list"
+    if len(found) >= (limit if pick else 2):
+        # The grid limit stopped it, not the budget: the list is ambiguous.
+        return None, f"at least {len(found)} grids fit the clue list"
     if found:
         return None, f"{len(found)} grids found before the search ran out of budget"
     return None, "the search " + ("ran out of budget" if info["truncated"] else "found no grid")
