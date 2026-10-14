@@ -59,6 +59,10 @@ TIMES_LISTING = ROOT / "times-listing"
 FIFTEENSQUARED = ROOT / "fifteensquared"
 TIMESFORTHETIMES = ROOT / "timesforthetimes"
 GEORGEHO = ROOT / "georgeho"
+# times-for-the-times' old LiveJournal posts the WordPress blog never got,
+# html/<post id>.html, and their parsed.jsonl/grids.jsonl
+# (tools/file_livejournal_puzzles.py).
+LIVEJOURNAL = ROOT / "livejournal"
 # The Nation's puzzle pages, html/<slug>.html, and the sitemap's list of them
 # (tools/fetch_nation.py).
 NATION = ROOT / "nation"

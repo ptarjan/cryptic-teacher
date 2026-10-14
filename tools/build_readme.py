@@ -697,6 +697,7 @@ LAYOUT = [
     ("building and checking the site", "tools/cache_tar.sh", "the deploy's caches of files that live directly in puzzles/, carried as one tar file each instead of an actions/cache glob over puzzles/"),
     ("building and checking the site", "tools/test_cache_tar.sh", "tools/cache_tar.sh round trip on a small tree: pack takes exactly the files each deploy cache carried as a glob (puzzles/*/index.html and the page store; puzzles/*.js, *.js.gz, shims.gz.json) with their mtimes, unpack puts them back and removes the tar, and a missing tar is a cold cache, not an error"),
     ("building and checking the site", "tools/privateeye_wayback.py", "private Eye Cyclops crosswords the Eye no longer serves, from the Wayback Machine"),
+    ("building and checking the site", "tools/file_livejournal_puzzles.py", "file the Club Monthly posts only times-for-the-times' old LiveJournal holds"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
