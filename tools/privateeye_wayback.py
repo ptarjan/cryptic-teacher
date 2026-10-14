@@ -131,8 +131,8 @@ CLUE = re.compile(r"(?:^|(?<=\s))(\d{1,2}(?:\s*/\s*\d{1,2}(?:\s*(?:ac|dn)\.?)?)*
 ANSWER = re.compile(r"(\d{1,2}(?:/\d{1,2})*)\s+([^\d]+?)(?=\s+\d{1,2}[\s/]|\s*\.?\s*$)")
 
 
-def text_of(raw):
-    t = raw.decode("cp1252", "replace")
+def text_of(raw, encoding="cp1252"):
+    t = raw.decode(encoding, "replace")
     t = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", t)
     t = re.sub(r"<[^>]+>", " ", t)
     return re.sub(r"\s+", " ", html.unescape(t)).strip()
@@ -140,7 +140,8 @@ def text_of(raw):
 
 def split_dirs(part):
     """'ACROSS ... DOWN ...' -> (across text, down text) or None."""
-    m = re.search(r"\bACROSS\b:?(.*?)\bDOWN\b:?(.*)$", part, re.I | re.S)
+    # Headings by case and a following number, so a clue's "going down on" isn't one.
+    m = re.search(r"\b(?:ACROSS|Across)\b:?(.*?)\b(?:DOWN|Down)\b:?(?=\s*\d)(.*)$", part, re.S)
     return (m.group(1).strip(), m.group(2).strip()) if m else None
 
 
@@ -179,16 +180,21 @@ def answer_rows(part, direction):
     return out
 
 
-def read_capture(raw):
+def read_capture(raw, encoding="cp1252"):
     """{"number", "rows": {"across", "down"} | None, "prev", "answers": [...] | None}."""
-    t = text_of(raw)
+    t = text_of(raw, encoding)
     m = NUMBER.search(t)
     if not m:
         return None
     num = int(m.group(1) or m.group(2))
     body = t[m.end():]
     sol = SOLUTION.search(body)
-    clues = body[:sol.start()] if sol else (TAIL.split(body)[0])
+    clues = body[:sol.start()] if sol else body
+    # The print issue (archive.org scans) sets "£100 prize" above ACROSS and
+    # the entry notice under the last down clue: keep ACROSS up to that notice.
+    across = re.search(r"\bACROSS\b", clues, re.I)
+    if across:
+        clues = TAIL.split(clues[across.start():])[0]
     out = {"number": num, "rows": None, "prev": None, "answers": None}
     dirs = split_dirs(clues)
     if dirs:
@@ -209,9 +215,10 @@ def read_capture(raw):
 def index():
     """{number: {"clues": [(ts, rows)], "answers": [(ts, rows)], "puz": path|None}}."""
     got = {}
-    for path in sorted(DIR.glob("*.html")):
+    # Web captures, then the archive.org print scans (IA/<issue>_djvu.txt, UTF-8).
+    for path in sorted(DIR.glob("*.html")) + sorted((DIR / "ia").glob("*_djvu.txt")):
         try:
-            cap = read_capture(path.read_bytes())
+            cap = read_capture(path.read_bytes(), "utf-8" if path.suffix == ".txt" else "cp1252")
         except Exception as e:  # one odd capture never stops the rest
             print(f"{path.name}: {type(e).__name__}: {e}", file=sys.stderr)
             continue
@@ -228,8 +235,37 @@ def index():
     return got
 
 
+def fetch_ia(numbers=None):
+    """Download the OCR text of the archive.org scan of each Cyclops number's
+    issue (item private-eye-magazine-<issue>, file <issue>_djvu.txt), for the
+    numbers not filed (or `numbers`). Issues 846 on are there (531 items in all,
+    2026-10-13): No 1 is issue 846."""
+    import puzzle_paths
+    (DIR / "ia").mkdir(parents=True, exist_ok=True)
+    nums = numbers or [n for n in range(LOST_FIRST, LOST_LAST + 1)
+                       if not puzzle_paths.find(f"cyclops-{n}")]
+    got = 0
+    for n in nums:
+        issue = n + ISSUE_OFFSET
+        path = DIR / "ia" / f"{issue}_djvu.txt"
+        if path.exists():
+            continue
+        try:
+            path.write_bytes(get(IA_TEXT.format(issue=issue), tries=2))
+            got += 1
+        except Exception as e:
+            print(f"cyclops-{n} (issue {issue}): {e}", file=sys.stderr)
+        time.sleep(1)
+    print(f"{got} scan texts downloaded to {DIR / 'ia'}")
+
+
+IA_TEXT = "https://archive.org/download/private-eye-magazine-{issue}/{issue}_djvu.txt"
+
+
 def capture_url(ts):
-    """The Wayback URL a capture was read from."""
+    """The Wayback (or archive.org) URL a capture was read from."""
+    if ts.endswith("_djvu"):
+        return f"https://archive.org/details/private-eye-magazine-{ts[:-5]}"
     for line in (DIR / "cdx.txt").read_text().splitlines():
         t, orig, _ = line.split()
         if t == ts:
@@ -263,7 +299,8 @@ def build(num, held):
         how = "the Eye's crossword page, from the Wayback Machine"
     else:
         return None, "no capture prints its clues"
-    puzzle["source"] = {"publisher": "Private Eye", "url": url, "retrievedFrom": "web.archive.org",
+    puzzle["source"] = {"publisher": "Private Eye", "url": url,
+                        "retrievedFrom": "archive.org" if "/details/" in url else "web.archive.org",
                         "acquiredBy": TOOL, "acquiredOn": datetime.date.today().isoformat(),
                         **({} if held.get("puz") else {"gridOrigin": "reconstructed"})}
     if not puzzle.get("date"):
@@ -392,12 +429,21 @@ LOST_CAUSES = {
                   "copy (or the Eye's paid archive) files it",
     "answers-only": "a capture holds only the solution printed in the next issue, "
                     "not the clues: only a print copy files it",
+    "scan-not-read": "archive.org holds the issue's scan (private-eye-magazine-<issue>) "
+                     "and its OCR text is not fetched or filed yet: "
+                     "privateeye_wayback.py fetch-ia, then file",
+    "scan-unparsed": "the issue's archive.org OCR text is fetched and read_capture finds "
+                     "no whole clue list in it (OCR damage or a layout it misses): "
+                     "a reader fix or a re-OCR of the page files it",
     "not-read": "a capture prints its clues and no filing run has tried it: "
                 "privateeye_wayback.py file N",
     "refused": "a capture prints its clues and the filer refused it "
                "(privateeye_wayback/refused.json says why)",
 }
 LOST_FIRST, LOST_LAST = 1, 459
+# Numbers 1-459 unfiled on 2026-10-13 whose issue archive.org has no
+# private-eye-magazine-<issue> item for (it has 846-1252 bar these, then 1258).
+IA_ABSENT = {69, 108, 155, 187, 189, 195, 433, 459}
 
 
 def lost():
@@ -410,6 +456,10 @@ def lost():
         h = got.get(n, {})
         if h.get("clues") or h.get("puz"):
             out[n] = "refused" if str(n) in refused else "not-read"
+        elif n not in IA_ABSENT and not (DIR / "ia" / f"{n + ISSUE_OFFSET}_djvu.txt").exists():
+            out[n] = "scan-not-read"
+        elif (DIR / "ia" / f"{n + ISSUE_OFFSET}_djvu.txt").exists():
+            out[n] = "scan-unparsed"
         elif h.get("answers"):
             out[n] = "answers-only"
         else:
@@ -419,12 +469,14 @@ def lost():
 
 def main(argv):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("cmd", choices=["fetch", "index", "file"])
+    ap.add_argument("cmd", choices=["fetch", "fetch-ia", "index", "file"])
     ap.add_argument("numbers", nargs="*", type=int)
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args(argv)
     if args.cmd == "fetch":
         fetch()
+    elif args.cmd == "fetch-ia":
+        fetch_ia(args.numbers)
     elif args.cmd == "file":
         file(args.numbers, args.dry_run)
     else:

@@ -114,7 +114,7 @@ def _causes():
     import privateeye_wayback
     for key, words in privateeye_wayback.LOST_CAUSES.items():
         out[("wayback", key)] = Cause("tools/privateeye_wayback.py", words,
-                                      key in ("not-read", "refused"), False)
+                                      key in ("not-read", "refused", "scan-not-read", "scan-unparsed"), False)
     import file_livejournal_puzzles
     for key, words in file_livejournal_puzzles.LOST_CAUSES.items():
         out[key] = Cause("tools/file_livejournal_puzzles.py", words, False, False)
