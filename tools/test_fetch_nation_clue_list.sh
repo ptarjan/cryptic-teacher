@@ -95,6 +95,22 @@ grid = [".....", ".#.#.", ".....", ".#.#.", "....."]
 puzzle, why = F.build(page, "https://example.org/puzzle-no-3466/", {}, grid=grid)
 lead = next(e for e in puzzle["entries"] if e["number"] == 1 and e["direction"] == "across") if puzzle else {}
 print("SEELEAD", why, lead.get("group"), (lead.get("clue") or {}).get("text"))
+# Crossword Classic 14 (1948): "(8) (hyphenated)" still prints the count.
+page = """<article><p>ACROSS
+<p>27 The sword, or the man who wields it. (8) (hyphenated)
+<p>28 Loudest when last. (6)
+<p>DOWN
+<p>19 It has wings. (7) (hyphenated)
+</article>"""
+lists, _ = F.clue_lists(F.lines_of(page))
+print("HYPH", " ".join(f"{r['number']}:{r['enumeration']}" for r in lists["across"] + lists["down"]),
+      "|", lists["across"][0]["clue"])
+# Crossword Classic #N print the grid as a timestamp-named upload; only they.
+import nation_images as NI
+up = '<img src="http://www.thenation.com/wp-content/uploads/2015/03/1225388684-large2.jpg">'
+classic = '<meta property="og:title" content="Crossword Classic #24" />' + up
+other = '<meta property="og:title" content="Puzzle No. 3000" />' + up
+print("CLASSICIMG", (NI.image_url(classic, "grid") or "").rsplit("/", 1)[-1], NI.image_url(other, "grid"))
 PY
 )
 fails=0
@@ -111,5 +127,7 @@ expect "LINKS 1,30:4,4 15,18,5,21:6,6,6,4,2" "a serial comma and a stray '&amp; 
 expect "MIRROR 5 8 9 7 9 8 5 [([('down', 1), ('down', 2)], 10)]" "a linked across light takes its mirror's length; an open down pair stays a group"
 expect "HALVES 4 4" "two linked lights that mirror each other split their total"
 expect "SEELEAD None ['1-across', '5-across'] See 4" "a leader whose clue is 'See 4' leads its group and keeps its clue"
+expect "HYPH 27:8 28:6 19:7 | The sword, or the man who wields it. (hyphenated)" "a '(hyphenated)' note after the count keeps the count and stays with the clue"
+expect "CLASSICIMG 1225388684-large2.jpg None" "a Crossword Classic page's timestamp-named upload is its grid picture; no other page's is"
 [ "$fails" = 0 ] && echo "fetch_nation clue list: all checks passed" || echo "fetch_nation clue list: $fails FAILED"
 exit $((fails > 0))

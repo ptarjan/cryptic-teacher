@@ -213,6 +213,7 @@ def clue_lists(lines):
             # and nothing else (groups.POINTER). "See 2 if confused about" is
             # the first line of a clue of its own (3257's 1-across) and runs on.
             t = pending["text"]
+            t = re.sub(r"\s*\(hyphenated\)\s*$", "", t, flags=re.I)
             if ENUM.match(t) or SEE.match(t) or is_pointer(t, counted=True):
                 pending["open"] = False
         if pending and pending["text"]:
@@ -233,6 +234,13 @@ def clue_lists(lines):
                 rows.append({"number": number, "clue": f"See {see.group(1)}{where}",
                              "enumeration": None})
                 continue
+            # Lewis's 1948 pages note a hyphen after the count ("(8)
+            # (hyphenated)", Crossword Classic 14): the count is still printed,
+            # and the note stays with the clue.
+            note = re.search(r"\s*\((hyphenated)\)\s*$", text, re.I)
+            if note and ENUM.match(text[:note.start()]):
+                c, n = ENUM.match(text[:note.start()]).groups()
+                text = f"{c} ({note.group(1)}) ({n})"
             m = ENUM.match(text)
             rows.append({"number": number, "clue": (m.group(1) if m else text).strip(),
                          "enumeration": re.sub(r"\s+", "", m.group(2)).replace("–", "-")

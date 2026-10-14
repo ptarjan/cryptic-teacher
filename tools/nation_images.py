@@ -36,6 +36,11 @@ UPLOAD = r"https?://[^\"' ]*?/wp-content/uploads/\d{4}/\d{2}/"
 # "solution3525.jpg", and 3527's page names 3526's "solution3536.jpg".
 GRID_IMG = re.compile(UPLOAD + r"grid(\d+)\.(?:jpg|png)", re.I)
 SOLUTION_IMG = re.compile(UPLOAD + r"(?:s|solution-?)(\d+)\.(?:jpg|png)", re.I)
+# Crossword Classic #1-25 (Lewis 1947-48) print their grid as the page's one
+# upload named by a timestamp ("1225388684-large2.jpg"); no other kind of page
+# is searched for it, since elsewhere such a name is an article photo.
+CLASSIC = re.compile(r'<meta property="og:title" content="Crossword Classic\s*#', re.I)
+CLASSIC_IMG = re.compile(UPLOAD + r"\d{9,10}-large2?\.(?:jpg|png)", re.I)
 DARK = 110          # a grey level below this is ink
 LINE = 200          # below this is drawn on (a thin ruled line greys out in a JPEG)
 BLOCK = 0.75        # a cell whose middle is this dark is a block; a letter's ink is far less
@@ -50,6 +55,8 @@ def image_url(page, kind):
     the previous puzzle's), full size, or None."""
     pattern = GRID_IMG if kind == "grid" else SOLUTION_IMG
     m = pattern.search(page)
+    if m is None and kind == "grid" and CLASSIC.search(page):
+        m = CLASSIC_IMG.search(page)
     return m.group(0) if m else None
 
 
