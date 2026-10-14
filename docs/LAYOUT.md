@@ -2618,5 +2618,7 @@ tools/test_nation_key.sh                       does nation_key read The Nation's
                                                and only the letters they really spell?
 tools/nation_images.py                         the Nation's own pictures of its grids: the
                                                blank grid every page prints
+tools/test_fetch_nation_build_one.sh           does one bad page fail on its own in
+                                               fetch_nation's worker pool?
 ```
 <!-- LAYOUT-END -->

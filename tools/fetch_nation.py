@@ -726,18 +726,22 @@ def build(page, url, known=None, grid=None, origin="reconstructed"):
 
 
 def _build_one(path):
-    """(number, puzzle, why not) for one held page; run in a worker."""
-    urls = _build_one.urls
-    page = path.read_text()
-    url = urls.get(path.name) or f"{SITE}/article/archive/{path.stem}/"
-    number = meta(page)["number"]
+    """(number, puzzle, why not, clues-only record) for one held page; run in
+    a worker. Nothing a page raises leaves here: a SystemExit (a tool's
+    refusal) would end the pool worker and lose its task, so imap_unordered
+    waits for it forever and the whole run hangs."""
+    number = None
     try:
+        urls = _build_one.urls
+        page = path.read_text()
+        url = urls.get(path.name) or f"{SITE}/article/archive/{path.stem}/"
+        number = meta(page)["number"]
         puzzle, reason = build(page, url, _build_one.known)
-    except Exception as e:  # one bad page never stops the rest
-        puzzle, reason = None, f"{type(e).__name__}: {e}"
-    held = None
-    if puzzle is None and reason.startswith("grid did not rebuild"):
-        held = clues_record(page, url, _build_one.known)
+        held = None
+        if puzzle is None and str(reason).startswith("grid did not rebuild"):
+            held = clues_record(page, url, _build_one.known)
+    except (Exception, SystemExit) as e:  # one bad page never stops the rest
+        puzzle, reason, held = None, f"{type(e).__name__}: {e}", None
     return number or path.stem, puzzle, reason, held
 
 
