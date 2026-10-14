@@ -351,4 +351,85 @@ PY
 )
 rc3=$?
 echo "$out"
-exit $(( rc || rc2 || rc3 ))
+
+# A stale LAN address falls back to the next host (the tailnet), prune does
+# the same, and a desktop no host reaches alerts once an episode through
+# alert.sh (its wake.sh stubbed to a file), never while yielding to a game.
+mkdir -p "$tmp/hh/tools"
+printf '#!/bin/bash\necho "$*" >> %q\n' "$tmp/woken" > "$tmp/hh/tools/wake.sh"
+chmod +x "$tmp/hh/tools/wake.sh"
+out=$(cd "$REPO/tools" && TMPDIR="$tmp" ALERT_ENV_FILE="$tmp/hh/.env" ALERT_STATE_DIR="$tmp/as" HOUSEHOLD_LIVE_CHECKOUT= \
+      OCR_REMOTE=micro@100.68.145.15,micro@192.168.1.180 WOKEN="$tmp/woken" python3 - <<'PY'
+import os
+from pathlib import Path
+import ocr_remote
+
+fails = 0
+def check(what, want, got):
+    global fails
+    if want == got:
+        print(f"ok   {what}")
+    else:
+        fails += 1
+        print(f"FAIL {what}: expected {want!r}, got {got!r}")
+
+def woken():
+    p = Path(os.environ["WOKEN"])
+    return p.read_text().splitlines() if p.exists() else []
+
+class S:
+    def __init__(self, host): self.host = host
+    def close(self): pass
+
+up = {"micro@100.68.145.15"}
+tried = []
+def opened(host, tries=3):
+    tried.append(host)
+    if host not in up:
+        raise ocr_remote.Unavailable("Host key verification failed.")
+    return S(host)
+ocr_remote.opened = opened
+ocr_remote.matched = lambda s: (s, None)
+ocr_remote.ship = lambda host: (_ for _ in ()).throw(ocr_remote.Unavailable("ship: no route"))
+ocr_remote._VERSIONS["local"] = {}
+busy = [None]
+ocr_remote.desktop_busy.busy = lambda hosts: busy[0]
+
+s = ocr_remote.connect()
+check("a stale LAN address falls back to the tailnet", "micro@100.68.145.15", s and s.host)
+check("the LAN address is tried first", "micro@192.168.1.180", tried[0])
+check("the fallback sends one line", 1, sum("fell back to micro@100.68.145.15" in l for l in woken()))
+ocr_remote.connect()
+check("and only once", 1, sum("fell back" in l for l in woken()))
+
+up.clear()
+for _ in range(3):
+    check("no host works: no session", None, ocr_remote.connect())
+check("no host works: one alert for the episode, not one per edition", 1,
+      sum("no desktop host works" in l for l in woken()))
+up.add("micro@100.68.145.15")
+ocr_remote.connect()
+up.clear()
+ocr_remote.connect()
+check("a new outage after a session alerts again", 2, sum("no desktop host works" in l for l in woken()))
+ocr_remote.alert_over("down")
+busy[0] = "playing Wow"
+ocr_remote.connect()
+check("a game-yield sends no alert", 2, sum("no desktop host works" in l for l in woken()))
+
+pruned = []
+def prune(host, keep, days=1):
+    pruned.append(host)
+    if host.endswith(".180"):
+        raise ocr_remote.Unavailable("Host key verification failed.")
+    return {"deleted": 0, "failed": 0, "bytes": 0}
+ocr_remote.prune = prune
+check("prune falls back to the next host too", {"deleted": 0, "failed": 0, "bytes": 0},
+      ocr_remote.prune_any(ocr_remote.hosts(), keep="v-x"))
+check("prune tries hosts in connect()'s order", ["micro@192.168.1.180", "micro@100.68.145.15"], pruned)
+raise SystemExit(1 if fails else 0)
+PY
+)
+rc4=$?
+echo "$out"
+exit $(( rc || rc2 || rc3 || rc4 ))

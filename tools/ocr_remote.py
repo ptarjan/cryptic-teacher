@@ -923,7 +923,7 @@ def connect():
         except Unavailable as e:
             s, why = None, f"{host}: {e}"
         if s:
-            return s
+            return _connected(s, reasons)
         with open(SHIP_LOCK, "w") as lock:
             fcntl.flock(lock, fcntl.LOCK_EX)
             try:
@@ -931,17 +931,73 @@ def connect():
             except Unavailable:
                 s = None
             if s:
-                return s
+                return _connected(s, reasons)
             try:
                 ship(host)
                 s, why = matched(opened(host, 1))
             except (Unavailable, OSError, subprocess.TimeoutExpired) as e:
                 s, why = None, f"{why}; then {host}: {e}"
             if s:
-                return s
+                return _connected(s, reasons)
         reasons.append(why)
-    log("unavailable (" + "; ".join(reasons or ["OCR_REMOTE names no host"]) + ")")
+    said = "; ".join(reasons or ["OCR_REMOTE names no host"])
+    log(f"unavailable ({said})")
+    if not desktop_busy.busy(hosts()):  # a game-yield is expected, not an outage
+        alert_once("down", f"desktop OCR: no desktop host works, reading on the 4-core host ({said[:600]})")
     return None
+
+
+#: Host-wide alert stamps: one alert per episode, never one per edition.
+ALERT_STAMPS = Path(tempfile.gettempdir()) / "ocr_remote.alerts"
+#: Seconds before an episode still going alerts again.
+ALERT_REPEAT = 6 * 3600
+
+
+def alert_once(key, text):
+    """Send `text` through tools/alert.sh once per episode of `key`, host-wide
+    (an O_EXCL stamp, so 25 workers losing the desktop together send one);
+    again only after ALERT_REPEAT or once alert_over(key) ended the episode.
+    An alert that cannot be sent never fails the read."""
+    ALERT_STAMPS.mkdir(exist_ok=True)
+    stamp = ALERT_STAMPS / key
+    try:
+        if time.time() - stamp.stat().st_mtime < ALERT_REPEAT:
+            return False
+        stamp.unlink()
+    except FileNotFoundError:
+        pass
+    try:
+        os.close(os.open(stamp, os.O_CREAT | os.O_EXCL | os.O_WRONLY))
+    except FileExistsError:
+        return False
+    log(f"alerting: {text}")
+    try:
+        subprocess.run(["bash", "-c", '. "$1"; alert "$2"', "alert", str(TOOLS / "alert.sh"), text],
+                       capture_output=True, timeout=60, check=False,
+                       # the stamp above is the rate limit; alert.sh's own 12h
+                       # dedup would swallow the next episode's identical text
+                       env={**os.environ, "ALERT_REPEAT_HOURS": "0"})
+    except (OSError, subprocess.TimeoutExpired) as e:
+        log(f"the alert could not be sent: {e}")
+    return True
+
+
+def alert_over(key):
+    """End `key`'s episode: its next failure alerts again."""
+    try:
+        (ALERT_STAMPS / key).unlink()
+    except FileNotFoundError:
+        pass
+
+
+def _connected(s, reasons):
+    """`s`, the desktop's outage over; when earlier hosts failed first (a
+    stale LAN address the DHCP lease moved), one line says so."""
+    alert_over("down")
+    if reasons:
+        alert_once(f"fallback-{s.host}", f"desktop OCR: fell back to {s.host}; "
+                   f"failed first: {'; '.join(r[:150] for r in reasons)} (update tools/desktop_hosts.json)")
+    return s
 
 
 def hosts():
