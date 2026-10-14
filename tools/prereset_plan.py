@@ -336,6 +336,20 @@ def cpu_cap(others, burn, cores, runs):
     return max(0, int((cores - others) / (burn / runs)))
 
 
+def cpu_runs(live, span):
+    """The runs the burn's CPU over the span is split between: the shell's
+    average in flight over it (CT_SPAN_RUNS, after_wave's "at width"), when it
+    gives one larger than the claude runs alive now. The shell re-plans before
+    it asks for the width, launching nothing meanwhile, so by then most of the
+    interval's runs have exited: 2026-10-14 a pool averaging 13.2 runs had 3
+    alive, each read as a third of a core, and the cap fell from 25 to 6."""
+    try:
+        span = float(span or 0)
+    except ValueError:
+        span = 0.0
+    return max(live, span)
+
+
 def width_for(runs_needed, mem, cpu, current, floor=1):
     """The need (else the current width, else DEFAULT_WIDTH), capped by memory
     (else DEFAULT_CEILING) and by the idle cores (when measured). At least
@@ -523,11 +537,12 @@ def width(arg=None, floor=1):
     rss = burn_rss_kb()
     mem = mem_cap(_read("/proc/meminfo"), rss)
     load = cpu_load(home / CPU_STATE)
-    cpu = cpu_cap(*load, os.cpu_count(), len(rss)) if load else None
+    runs = cpu_runs(len(rss), os.environ.get("CT_SPAN_RUNS"))
+    cpu = cpu_cap(*load, os.cpu_count(), runs) if load else None
     w = width_for(runs_needed, mem, cpu, current, floor)
     publish(home / mem_gate.BURN_STATE, runs_needed, mem, cpu, w)
     shown = (f"{bridge:.1f} pts/h" if bridge is not None else "unread")
-    cores = (f"others {load[0]:.2f} burn {load[1]:.2f} of {os.cpu_count()} cores"
+    cores = (f"others {load[0]:.2f} burn {load[1]:.2f} over {runs:g} runs of {os.cpu_count()} cores"
              if load else "cores unread")
     per = (f", {ratio:.2f} five-hour pts per weekly" if ratio else ", ratio unread"
            ) if meter == "weekly" else ""
@@ -706,6 +721,15 @@ CPU_CASES = [
     (0.5, 0.0, 4, 4, None),   # no burn CPU to measure a run by
     (0.5, 1.0, 4, 0, None),   # no run in flight
     (None, 1.0, 4, 4, None),
+    (2.13, 0.98, 6, 13.22, 52),  # the span's average, not the 3 alive at the plan (cap 11)
+]
+# (claude runs alive now, CT_SPAN_RUNS) -> runs the burn's CPU is split between
+CPU_RUNS_CASES = [
+    (3, "13.22", 13.22),  # the pool drained during the re-plan
+    (9, "4.5", 9),        # more alive than the span averaged: those
+    (5, "", 5),           # the first interval, or after a nap
+    (5, None, 5),
+    (5, "junk", 5),
 ]
 
 
@@ -718,6 +742,7 @@ def width_self_test():
               + [(mode, (st, r), w) for st, r, w in MODE_CASES]
               + [(mem_cap, (m, r), w) for m, r, w in MEM_CASES]
               + [(cpu_cap, (o, b, c, r), w) for o, b, c, r, w in CPU_CASES]
+              + [(cpu_runs, (n, s), w) for n, s, w in CPU_RUNS_CASES]
               + [(meter_rise, (t, a, b), w) for t, a, b, w in METER_CASES]
               + [(five_per_weekly, (t, a, b), w) for t, a, b, w in RATIO_CASES])
     for fn, args, want in checks:

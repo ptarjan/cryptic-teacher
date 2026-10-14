@@ -255,6 +255,14 @@ ct_generated() {
 
 if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   _ct_main="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+  # A job started from another job's worktree (corpus_queue.py launches the
+  # full pass from its own tree) sources this from that tree, which is not the
+  # main checkout: git's common dir names the real one. Taking the tree for it
+  # pointed the pass's CT_MAIN_CHECKOUT at ~/.cryptic-teacher/corpus_queue,
+  # where the burn's plan (.prereset.width) never is, so the burn-first gate
+  # never held a unit back however starved the burn was (2026-10-14).
+  _ct_common="$(git -C "$_ct_main" rev-parse --path-format=absolute --git-common-dir 2>/dev/null)"
+  case "$_ct_common" in */.git) [ -d "${_ct_common%/.git}" ] && _ct_main="${_ct_common%/.git}" ;; esac
   _ct_tree="${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher}/$_ct_job"
 
   # Trim the jobs' logs before the run writes to them. They all live in the
