@@ -223,7 +223,7 @@ rm -f /tmp/ct-prereset-*.resume
 # past the lock: a fire that found a burn running never gets this far. A
 # re-exec is the same pid, already registered.
 TRACK_JOB="${TRACK_JOB:-/Users/pt/github/household/tools/track-job.sh}"
-if [ -n "$HOUSEHOLD_ROOM" ] && [ -x "$TRACK_JOB" ]; then
+if [ -n "${HOUSEHOLD_ROOM:-}" ] && [ -x "$TRACK_JOB" ]; then
   "$TRACK_JOB" ${PRERESET_LOG:+--log "$PRERESET_LOG"} "$HOUSEHOLD_ROOM" "$$" "Hint burn" \
     "grep -E '^(committed|rejected|--- pool)' '$RUN_LOG' | tail -1" >/dev/null 2>&1 \
     || echo "track-job.sh failed (rc=$?); the burn runs without a status lane"
