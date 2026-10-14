@@ -29,14 +29,19 @@
 # same change onto a newer origin, and the check's seconds are the window
 # another pusher wins in. A conflict exits CONFLICT (3), read off merge-tree's
 # own status (1: conflicts), so a caller can set the commit aside and go on to
-# the next (tools/durable.sh); anything else exits non-zero (1, 2) with git's
-# own words on stderr. The one conflict settled instead of refused is a
+# the next (tools/durable.sh). A commit the pre-push check refuses (its own
+# exit 1, no crash) exits REFUSED (4): origin's code judges it, so it is
+# refused at every try until it is made again with that code, and the caller
+# sets it aside and has its source read again (tools/durable.sh; 10-13: a
+# pass on old code stuck 5 hours behind such commits). Anything else exits
+# non-zero (1, 2) with git's own words on stderr. The one conflict settled instead of refused is a
 # promotion racing a re-read of its clues-only file (modify/delete on
 # clues_only/X.json): tools/resolve_promotion_conflict.py keeps the promoted
 # puzzle, drops the clues-only copy, and carries the re-read's clue text in
 # where the filed clue was never corrected.
 set -uo pipefail
 CONFLICT=3
+REFUSED=4
 
 # Pushers on this machine (burn, daily units, re-date batches) take turns from
 # fetch to push: unserialised, a 100-commit batch starved a daily unit through
@@ -51,7 +56,8 @@ parent=$(git rev-parse --verify -q "$commit^") || {
   echo "push_puzzle_commit: $commit has no parent to diff against" >&2; exit 2; }
 
 gate="$(git rev-parse --path-format=absolute --git-common-dir)/push-gate"
-judge() {  # $1 base, $2 the commit to push
+judge() {  # $1 base, $2 the commit to push: 0 passed, REFUSED, else 1 (it could not judge)
+  local out rc
   if [ ! -e "$gate/.git" ]; then
     echo "push_puzzle_commit: checking out $gate for the pre-push check (first push only)" >&2
     git worktree prune
@@ -59,7 +65,16 @@ judge() {  # $1 base, $2 the commit to push
   fi
   git -C "$gate" checkout -q -f --detach "$2" && git -C "$gate" clean -fdq || return 1
   [ -f "$gate/tools/pre_push.py" ] || return 0
-  python3 "$gate/tools/pre_push.py" "$1" "$2" </dev/null
+  out=$(python3 "$gate/tools/pre_push.py" "$1" "$2" </dev/null 2>&1)
+  rc=$?
+  [ -n "$out" ] && printf '%s\n' "$out" >&2
+  [ "$rc" = 0 ] && return 0
+  # Its verdict, not a crash (a traceback, a signal): a crash is tried again later.
+  if [ "$rc" = 1 ] && ! printf '%s' "$out" | grep "^Traceback " >/dev/null; then
+    echo "push_puzzle_commit: the pre-push check refuses $(git log -1 --format=%s "$commit")" >&2
+    return "$REFUSED"
+  fi
+  return 1
 }
 
 judged=
@@ -105,7 +120,9 @@ for attempt in 1 2 3 4 5 6 7 8 9 10; do
     GIT_AUTHOR_DATE=$(git log -1 --format=%aD "$commit") \
     git commit-tree "${sign[@]}" "$tree" -p "$base") || exit 1
   if [ -z "$judged" ]; then
-    judge "$base" "$sha" || exit 1
+    judge "$base" "$sha"
+    rc=$?
+    [ "$rc" = 0 ] || exit "$rc"
     judged=1
   fi
   out=$(git push -q --no-verify origin "$sha:refs/heads/master" 2>&1) && exit 0

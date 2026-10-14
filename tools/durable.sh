@@ -25,7 +25,12 @@
 #     after it still go: origin's version stands, and each puzzle it filed
 #     asks for its source to be read again (scan_queue.py conflicted), which
 #     files over origin's; a commit nothing re-reads is kept under
-#     refs/durable/conflicts/ and the room is told.
+#     refs/durable/conflicts/ and the room is told. One origin's pre-push
+#     refuses (made by older code than origin's: durable_refused) is set
+#     aside the same way, kept under refs/durable/refused/, and its source is
+#     read again once the tree has moved to origin's code. So no commit can
+#     hold the tree on old code, and DURABLE_RESYNC's move is tried after a
+#     failed checkpoint too.
 #   * SIGTERM, SIGINT or SIGHUP (tools/corpus_queue.py stop, a container
 #     stop) TERMs the command, waits up to DURABLE_STOP_GRACE seconds (default
 #     60) for it to end, KILLs it if not, checkpoints, and exits 143.
@@ -79,6 +84,8 @@ durable_checkpoint() {  # durable_checkpoint <what>: commit what is filed, push 
     rc=$?
     if [ "$rc" = 3 ]; then
       durable_set_aside "$c"
+    elif [ "$rc" = 4 ]; then
+      durable_refused "$c"
     elif [ "$rc" != 0 ]; then
       echo "durable: push of $(git log -1 --format=%s "$c") failed; it stays committed here and is retried at the next checkpoint"
       durable_push_failed "$c"
@@ -89,10 +96,11 @@ durable_checkpoint() {  # durable_checkpoint <what>: commit what is filed, push 
   rm -f "$(git rev-parse --git-path durable-push-failures)"
 }
 
-# A push that fails the same way every time (the pre-push refusing a shape
-# the job's old code still writes: 10-13, 5 hours and 777 commits) leaves
-# every checkpoint failing, and a failed checkpoint never resyncs, so the job
-# never reaches the code that would fix it. The streak is counted in the git
+# A push that fails the same way every time leaves every checkpoint failing
+# (10-13, 5 hours and 777 commits: the pre-push refusing a shape the job's old
+# code still wrote, now settled by durable_refused; still possible: origin
+# unreachable, the push-gate worktree broken, a pre-push that crashes). The
+# backstop: the streak is counted in the git
 # dir (a durable_background publish runs in a subshell) and the room is told
 # once it reaches DURABLE_ALERT_AFTER checkpoints in a row; a checkpoint that
 # pushes everything ends the streak.
@@ -119,6 +127,53 @@ durable_set_aside() {  # durable_set_aside <commit>: a commit that conflicts wit
       alert "durable: \"$subj\" conflicts with origin/master and is not all re-readable, so origin's version stands and the commit is kept as refs/durable/conflicts/$c; merge it from a worktree. $out"
   fi
   printf '%s\n' "$out"
+}
+
+# A commit the pre-push refuses (push_puzzle_commit.sh's REFUSED) is judged by
+# origin/master's code, so it will never push as it stands: the job made it
+# with older code than origin's (10-13: a pass started before a format change
+# wrote the old shape, every checkpoint failed on it and the tree never moved
+# to the code that writes the new one, 5 hours, 781 commits). So it is settled
+# like a conflict: kept as refs/durable/refused/<commit> (nothing is
+# discarded) and the ones after it still go. With every commit settled the
+# resync moves the tree to origin/master, and only then (durable_reread_refused)
+# each puzzle it filed asks for its source to be read again (scan_queue.py
+# conflicted ... pushRefused): asked before the move, a unit started off the
+# old tree could read it again with the old code and be refused again. The
+# re-read files the puzzle again with origin's code, off the readings cached
+# for its crops (~/.cache/archive_org_crops/rapid, solution_reads, Trove's
+# zone readings), so nothing is OCR'd again unless the new code crops anew.
+# The commits waiting for the move are listed in the git dir
+# (durable-refused), so a durable_background publish, or a run dropped before
+# its move, leaves them to the next move. A reading refused twice asks no
+# second re-read (request_reread asks once per reading): that one, and one
+# nothing re-reads, is alerted.
+durable_refused() {  # durable_refused <commit>: a commit origin's pre-push refuses
+  local c="$1"
+  git update-ref "refs/durable/refused/$c" "$c"
+  echo "$c" >>"$(git rev-parse --git-path durable-refused)"
+  echo "durable: origin's pre-push refuses $(git log -1 --format=%s "$c") (made with older code); kept as refs/durable/refused/$c, and its source is read again once the tree is on origin's code"
+  # A job that never moves its tree (no DURABLE_RESYNC) asks now: whatever
+  # reads it again runs from another tree.
+  [ -n "${DURABLE_RESYNC:-}" ] || durable_reread_refused
+}
+
+durable_reread_refused() {  # after a move: ask the re-reads of the refused commits
+  local f c subj out
+  f="$(git rev-parse --git-path durable-refused)"
+  [ -s "$f" ] || return 0
+  for c in $(sort -u "$f"); do
+    subj="$(git log -1 --format=%s "$c")"
+    if out="$(python3 "$_durable_dir/scan_queue.py" conflicted "$c" pushRefused 2>&1)"; then
+      echo "durable: $subj, refused by the pre-push, is read again with $(git rev-parse --short HEAD)'s code:"
+    else
+      echo "durable: $subj, refused by the pre-push, is not all read again; kept as refs/durable/refused/$c:"
+      . "$_durable_dir/alert.sh" 2>/dev/null &&
+        alert "durable: origin/master's pre-push refused \"$subj\" from ${_durable_what:-a job} in $PWD and not all of it is re-readable (or a re-read was refused again), so it is kept as refs/durable/refused/$c and the job moved on to origin's code. Fix what the pre-push refuses, or file it by hand. $out"
+    fi
+    printf '%s\n' "$out"
+  done
+  rm -f "$f"
 }
 
 # A publish (commit, push, move) run beside the next command, so a job
@@ -194,13 +249,12 @@ durable_run() {  # durable_run <what> <command...>: its exit status; DURABLE_TEE
     sleep 2 &
     wait $!
     if [ $((SECONDS - last)) -ge "$DURABLE_EVERY" ]; then
-      if durable_checkpoint "$what"; then
-        # A job that starts its work as fresh processes (tools/edition_queue.py)
-        # runs master's code from the next one on, without a restart.
-        [ -n "${DURABLE_RESYNC:-}" ] && durable_resync
-      else
-        echo "durable: checkpoint failed for $what"
-      fi
+      durable_checkpoint "$what" || echo "durable: checkpoint failed for $what"
+      # A job that starts its work as fresh processes (tools/edition_queue.py)
+      # runs master's code from the next one on, without a restart. Tried
+      # after a failed checkpoint too: a rebase keeps the unpushed commits,
+      # and one that cannot replay leaves the tree where it was.
+      [ -n "${DURABLE_RESYNC:-}" ] && durable_resync
       last=$SECONDS
     fi
   done
@@ -233,4 +287,6 @@ durable_resync() {  # move the tree to origin/master; nothing is lost if it cann
     return 1
   fi
   _durable_pushed=""
+  durable_reread_refused
+  return 0
 }

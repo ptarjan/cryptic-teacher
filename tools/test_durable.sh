@@ -12,7 +12,9 @@
 # and every item the ledger holds is on origin. Then a job that sources
 # durable.sh alone is checked to checkpoint, tools/corpus_queue.py stop to give
 # the pass its TERM and time to commit before killing, and every scheduled job
-# that can run long to use the mechanism.
+# that can run long to use the mechanism. Last, a job on old code whose
+# output origin's new pre-push refuses moves onto origin's code anyway and
+# files that output again from its cached readings (8, the 10-13 deadlock).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 REAL="$PWD"
@@ -372,5 +374,98 @@ grep -q "=== shell code moved: re-execing onto" "$tmp/fp.log" || { cat "$tmp/fp.
 grep -q "new code, slice from" "$tmp/fp.log" || { cat "$tmp/fp.log"; fail "the slice after the re-exec ran the old code"; }
 grep -q "handoff kept" "$tmp/fp.log" || { cat "$tmp/fp.log"; fail "the re-exec dropped what the slice before it handed over"; }
 [ "$(wc -l <"$HOME/slices")" = 3 ] || { cat "$tmp/fp.log"; fail "the pass re-ran a slice"; }
+
+# 8. The 10-13 push deadlock: a job started on old code writes the old shape,
+#    then a format change lands on origin whose pre-push refuses that shape.
+#    Before, every checkpoint failed on the first refused commit, a failed
+#    checkpoint never moved the tree, and the job stayed on the old code with
+#    its commits unpushed (5 hours, 781 commits). Now each refused commit is
+#    kept under refs/durable/refused/, the tree moves to origin's code, and
+#    only then is each source asked to be read again: the re-read, by the new
+#    code, comes from the cached reading (no OCR again) and pushes. The filer
+#    runs as a fresh process each round off the tree, as the queue's units do.
+git clone -q "$tmp/origin.git" "$tmp/rf-dev" 2>/dev/null
+cat >"$tmp/rf-dev/tools/rf_filer.py" <<'EOF'
+import collections, json, os, sys
+SHAPE = 1
+home = os.environ["HOME"]
+def lines(name):
+    p = os.path.join(home, name)
+    return open(p).read().split() if os.path.exists(p) else []
+def add(name, line):
+    with open(os.path.join(home, name), "a") as f:
+        f.write(line + "\n")
+sources, ledger = lines("rf-sources"), lines("rf-ledger")
+asked, closed = collections.Counter(lines("rf-asked")), collections.Counter(lines("rf-closed"))
+due = [s for s in sources if s not in ledger] + [s for s in asked if asked[s] > closed[s]]
+for s in dict.fromkeys(due):
+    cache = os.path.join(home, "rf-cache", s)
+    if not os.path.exists(cache):  # the OCR, once a source: its reading is cached
+        os.makedirs(os.path.dirname(cache), exist_ok=True)
+        add("rf-ocr", s)
+        open(cache, "w").write(f"clues of {s}")
+    clues = open(cache).read()
+    body = {"series": "rf", "clues": clues} if SHAPE == 1 else {"shape": 2, "clues": clues}
+    os.makedirs("puzzles/rf", exist_ok=True)
+    json.dump(body, open(f"puzzles/rf/{s}.json", "w"))
+    add("rf-ledger", s)
+    add("rf-filings", f"{s} shape{SHAPE}")
+    if asked[s] > closed[s]:
+        add("rf-closed", s)
+done = {l.split()[0] for l in open(os.path.join(home, "rf-filings")).read().splitlines() if l.endswith(" shape2")}
+sys.exit(0 if set(sources) <= done else 1)
+EOF
+# scan_queue.py conflicted, stubbed: each puzzle's source is asked again.
+cat >"$tmp/rf-dev/tools/scan_queue.py" <<'EOF'
+import os, subprocess, sys
+assert sys.argv[1] == "conflicted", sys.argv
+home = os.environ["HOME"]
+out = subprocess.run(["git", "diff-tree", "--no-commit-id", "-r", "--name-only", sys.argv[2]],
+                     capture_output=True, text=True, check=True).stdout
+for p in out.split():
+    with open(f"{home}/rf-asked", "a") as f:
+        f.write(os.path.basename(p)[:-len(".json")] + "\n")
+    with open(f"{home}/rf-why", "a") as f:
+        f.write(sys.argv[3] + "\n")
+    print(f"{p}: re-read asked")
+EOF
+git -C "$tmp/rf-dev" add -A && git -C "$tmp/rf-dev" commit -qm "the old filer" && git -C "$tmp/rf-dev" push -q origin HEAD:master 2>/dev/null
+git clone -q "$tmp/origin.git" "$tmp/rf" 2>/dev/null  # the job's tree, on the old code
+# The format change: the new shape, and a pre-push that refuses the old one.
+sed -i 's/^SHAPE = 1$/SHAPE = 2/' "$tmp/rf-dev/tools/rf_filer.py"
+cat >"$tmp/rf-dev/tools/pre_push.py" <<'EOF'
+import json, subprocess, sys
+base, head = sys.argv[1:3]
+git = lambda *a: subprocess.run(["git", *a], capture_output=True, text=True, check=True).stdout
+bad = [p for p in git("diff", "--name-only", "--diff-filter=AMR", f"{base}...{head}").split()
+       if p.startswith("puzzles/") and "series" in json.loads(git("show", f"{head}:{p}"))]
+for p in bad:
+    print(f"{p}: the old shape (series)")
+sys.exit(1 if bad else 0)
+EOF
+git -C "$tmp/rf-dev" add -A && git -C "$tmp/rf-dev" commit -qm "the format change" && git -C "$tmp/rf-dev" push -q origin HEAD:master 2>/dev/null
+printf 's1\ns2\ns3\n' >"$HOME/rf-sources"
+cat >"$tmp/rf.sh" <<'EOF'
+cd "$1" || exit 1
+DURABLE_PATHS=(puzzles)
+DURABLE_RESYNC=1
+DURABLE_EVERY=1
+. tools/durable.sh
+durable_run "refused pass" bash -c 'for i in $(seq 1 90); do python3 tools/rf_filer.py && exit 0; sleep 0.5; done; exit 1'
+EOF
+rm -f "$HOME/alerts"
+out=$(timeout 120 bash "$tmp/rf.sh" "$tmp/rf" 2>&1) || fail "the job on old code never moved onto origin's code past its refused commits: $out"
+git -C "$tmp/rf" fetch -q origin master
+for s in s1 s2 s3; do
+  on_origin "puzzles/rf/$s.json" | grep '"shape": 2' >/dev/null || fail "$s was not made again in the new shape and pushed: $out"
+done
+[ -z "$(git -C "$tmp/rf" cherry origin/master HEAD | grep '^+')" ] || fail "commits left unpushed: $(git -C "$tmp/rf" cherry -v origin/master HEAD)"
+[ "$(sort "$HOME/rf-ocr" | tr '\n' ' ')" = "s1 s2 s3 " ] || fail "a source was OCR'd again, not read from its cache: $(tr '\n' ' ' <"$HOME/rf-ocr")"
+[ "$(sort "$HOME/rf-filings" | tr '\n' ' ')" = "s1 shape1 s1 shape2 s2 shape1 s2 shape2 s3 shape1 s3 shape2 " ] ||
+  fail "each source is filed once by each code, the old code never re-reading: $(tr '\n' '|' <"$HOME/rf-filings")"
+[ "$(git -C "$tmp/rf" for-each-ref refs/durable/refused | wc -l)" = 3 ] || fail "the refused commits were not kept under refs/durable/refused/: $out"
+[ "$(sort -u "$HOME/rf-why")" = pushRefused ] || fail "the re-reads were not asked as pushRefused: $(cat "$HOME/rf-why")"
+[ ! -s "$HOME/alerts" ] || fail "a refused commit that is read again alerted: $(cat "$HOME/alerts")"
+[ ! -e "$(git -C "$tmp/rf" rev-parse --path-format=absolute --git-path durable-refused)" ] || fail "the refused commits' re-reads are still pending"
 
 echo "durable: ok"

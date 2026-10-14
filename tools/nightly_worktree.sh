@@ -159,7 +159,9 @@ sys.stdout.buffer.write(s.unstamp(s.INDEX_HTML.read_text(encoding="utf-8")).enco
 # out), then push every commit the tree has that origin/master lacks with
 # tools/push_puzzle_commit.sh. One that conflicts with origin/master and
 # whose puzzles all ask a re-read (scan_queue.py conflicted, as
-# tools/durable.sh does) is dropped; any other commit that will not push is
+# tools/durable.sh does) is dropped, and so is one origin's pre-push
+# refuses whose puzzles all ask a re-read (kept under refs/durable/refused/);
+# any other commit that will not push is
 # kept on the branch salvage/<job>-<time> and the room is told; the reset then
 # goes ahead.
 _ct_salvage() {
@@ -193,6 +195,15 @@ _ct_salvage() {
       0) echo "WORKTREE: salvaged and pushed: $msg" >&2 ;;
       3) if out=$(cd "$tree" && python3 "$tools/scan_queue.py" conflicted "$c" 2>&1); then
            echo "WORKTREE: $msg conflicts with origin/master; origin's version stands and the source is read again: $out" >&2
+         else
+           failed=1
+         fi ;;
+      # Refused by origin's pre-push (made by older code: durable.sh's
+      # durable_refused): kept under refs/durable/refused/, read again with
+      # the code the tree resets onto.
+      4) git -C "$tree" update-ref "refs/durable/refused/$c" "$c"
+         if out=$(cd "$tree" && python3 "$tools/scan_queue.py" conflicted "$c" pushRefused 2>&1); then
+           echo "WORKTREE: origin's pre-push refuses $msg; kept as refs/durable/refused/$c and the source is read again: $out" >&2
          else
            failed=1
          fi ;;
