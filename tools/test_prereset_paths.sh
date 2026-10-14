@@ -24,10 +24,15 @@ cp "$ROOT/tools/alert.sh" "$tmp/worktrees/nightly/tools/alert.sh"
 : > "$tmp/github/household/.env"
 printf '#!/bin/sh\n' > "$tmp/github/household/tools/wake.sh"
 chmod +x "$tmp/github/household/tools/wake.sh"
-got="$(bash -c 'unset ALERT_ENV_FILE; . "$1"; echo "$ALERT_ENV_FILE"' \
+got="$(bash -c 'unset ALERT_ENV_FILE HOUSEHOLD_LIVE_CHECKOUT; . "$1"; echo "$ALERT_ENV_FILE"' \
   _ "$tmp/worktrees/nightly/tools/alert.sh")"
 check "alert.sh finds the bridge beside the checkout, not beside the worktrees" \
   "$got" "$tmp/github/household/.env"
+
+got="$(HOUSEHOLD_LIVE_CHECKOUT=/live/household bash -c 'unset ALERT_ENV_FILE; . "$1"; echo "$ALERT_ENV_FILE"' \
+  _ "$tmp/worktrees/nightly/tools/alert.sh")"
+check "HOUSEHOLD_LIVE_CHECKOUT wins over the git-derived path" \
+  "$got" "/live/household/.env"
 
 [ "$fails" = 0 ] && echo "PRERESET PATHS PASSED" || echo "$fails check(s) failed"
 exit $((fails > 0))

@@ -31,6 +31,12 @@ ALERT_CHANNEL="${ALERT_CHANNEL:-cryptic-crosswords}"
 # levels under CT_WORKTREE_ROOT, that names a household beside the worktrees,
 # where there is no wake.sh. A worktree's git-common-dir is the main checkout's
 # .git from either place.
+# Where the clone is not beside the live bridge tree (e.g. /data/home/github,
+# where household is an empty mount stub), every bridge process carries
+# HOUSEHOLD_LIVE_CHECKOUT; that wins over the derivation.
+if [ -n "${HOUSEHOLD_LIVE_CHECKOUT:-}" ]; then
+  ALERT_ENV_FILE="${ALERT_ENV_FILE:-$HOUSEHOLD_LIVE_CHECKOUT/.env}"
+fi
 ALERT_ENV_FILE="${ALERT_ENV_FILE:-$(dirname "$(dirname "$(git \
   -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --path-format=absolute \
   --git-common-dir 2>/dev/null || echo "$(dirname "${BASH_SOURCE[0]}")/../.git")")")/household/.env}"
