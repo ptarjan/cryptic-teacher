@@ -294,8 +294,25 @@ def normalise_record(record):
         cells = sum(e["length"] for e in lights)
         was = by_id[leader_id].get("enumeration")
         strays = [entry_id(e) for e in lights[1:] if e.get("enumeration")]
-        if not strays and was and sum(n for n, _ in enumeration_parts(was)) == cells:
-            continue  # already leader form; the answer gets no vote over it
+        if was and sum(n for n, _ in enumeration_parts(was)) == cells:
+            if not strays:
+                continue  # already leader form; the answer gets no vote over it
+            # The leader prints the whole group's count, so it is leader form
+            # whatever a continuation prints beside its pointer: Nation 1614's
+            # "15, 6 and 12 across (3,4,2,4,6)" with "6 See 15 (6)" under a
+            # 4-cell 6-down. Reading the leader per light instead took the
+            # group's 19 as 15-down's own 9 cells and refused the puzzle.
+            notes = []
+            for e in lights[1:]:
+                printed = e.get("enumeration")
+                if printed:
+                    own = sum(n for n, _ in enumeration_parts(printed))
+                    notes.append(entry_id(e) + (f" ({printed}, its light is {e['length']} cells)"
+                                                if own != e["length"] else ""))
+                e["enumeration"] = None
+            changes.append(f"{' + '.join(group_ids)}: leader ({was}) counts the group; "
+                           f"cleared the count on {', '.join(notes)}")
+            continue
 
         # Off the answers where there are answers, off the book's printed
         # counts where there are not. An unsolved record is the second case for
