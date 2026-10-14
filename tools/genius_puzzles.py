@@ -345,6 +345,8 @@ def instructions_unheld(pdf):
         puzzle_integrity.SEE_PREAMBLE.search(c.get("clue") or "") for c in pdf.get("clues") or []))
 
 
+#: A clue that is its count alone: "(3)", "(3,5)".
+COUNT_ONLY = re.compile(rf"\s*{fpp.ENUM_TEXT}\s*")
 UNCLUED_MARK = re.compile(r"(?i)\[unclued\]|\(See (?:special )?instructions\)|See (?:the )?(?:special )?(?:preamble|instructions)")
 
 
@@ -674,8 +676,11 @@ def read_pdf(path):
         bare = re.sub(r"(?:^|(?<=[).!?]))\s*\d{1,2}\s+(?=[A-Z‘“\"'])", " ", out["preamble"]).strip()
         if unnumbered(bare) >= UNNUMBERED_AT:
             out["preamble"] = unsplit(bare)
+    # Clues printed as bullets with no number or count (No 240): an unnumbered list.
+    if not out["clues"] and (out["preamble"] or "").count(BULLET) >= UNNUMBERED_AT:
+        out["unplaced"], out["preamble"] = bulleted_clues(out["preamble"])
     # No numbered run and the clues all in what is left: an unnumbered list.
-    if not out["clues"] and unnumbered(out["preamble"]) >= UNNUMBERED_AT:
+    elif not out["clues"] and unnumbered(out["preamble"]) >= UNNUMBERED_AT:
         out["unplaced"], out["preamble"] = unplaced_clues(out["preamble"])
     rects = fpp.filled_rects(ops)
     grid = fpp.read_grid(rects) or fpp.read_grid(unstretched(rects))
@@ -925,6 +930,32 @@ def unplaced_clues(text):
     return clues, " ".join(x for x in said if x) or None
 
 
+BULLET = "●"
+
+
+def bulleted_clues(text):
+    """([(clue, None)] in printed order, preamble or None) off text printing
+    each clue after a bullet with no number or count (No 240). The
+    instruction runs on after a clue with no full stop between ("... French
+    art All clues are normal ... grid."): an item holding a full stop at least
+    INSTRUCTION_AT in is cut at the last capital before that stop, the clue
+    keeping two words or more and the instruction three or more."""
+    items = (text or "").split(BULLET)
+    said, clues = [items[0].strip()], []
+    for item in items[1:]:
+        item = item.strip()
+        full = next((m for m in re.finditer(r"\.(?:\s|$)", item) if m.start() >= INSTRUCTION_AT), None)
+        caps = list(re.finditer(r"\s(?=[A-Z][a-z])", item[:full.start()])) if full else []
+        cut = next((c.start() for c in reversed(caps) if len(item[:c.start()].split()) >= 2
+                    and len(item[c.start():full.start()].split()) >= 3), None)
+        if cut is not None:
+            said.append(item[cut:].strip())
+            item = item[:cut].strip()
+        if item:
+            clues.append((item, None))
+    return clues, " ".join(x for x in said if x) or None
+
+
 #: Where each clue of a jigsaw goes: light -> the start of its clue as
 #: printed in the unnumbered list. The post prints answers by light but not
 #: the clues, so the placing is its parses' (No 76: "COATI COAT + 1" is
@@ -980,6 +1011,9 @@ LOST_CAUSES = {
                        "and no archive or blog holds a free copy: only a print copy files it",
     "counts-only": "the Guardian's article prints only the counts, the clues having been on "
                    "a picture it no longer serves; no archive or blog holds them",
+    "headings-only": "the Guardian's article prints only the Across and Down headings and the "
+                     "grid picture, the clues having been on a picture it no longer serves; no "
+                     "archive or blog holds them",
     "not-migrated": "the Guardian never migrated it to an article page (not on the series "
                     "listing or its date pages, no /article/ or genius-no-N URL; Wayback has no "
                     "capture): fifteensquared prints answers, not clues, so only a print copy files it",
@@ -989,6 +1023,9 @@ LOST_CAUSES = {
 LOST = {6: "not-on-guardian", 20: "not-on-guardian", 33: "not-on-guardian",
         52: "not-on-guardian", 54: "not-on-guardian", 56: "not-on-guardian",
         9: "counts-only", 21: "counts-only", 32: "counts-only",
+        # Checked 2026-10-14: every clue on its article page is a bare count.
+        144: "counts-only",
+        64: "headings-only", 72: "headings-only",
         # Checked 2026-10-13: series date pages, /article/ and genius-no-N slugs, Wayback.
         **{n: "not-migrated" for n in (68, 86, 113, *range(118, 129), 130, 132, 133, 134,
                                          136, 137, 139)}}
@@ -1166,6 +1203,10 @@ def assemble(number, pdf, post, date, url):
     # clues and grid are read all the same, and it files with no preamble.
     if not pdf["preamble"] and not pdf.get("article") and number not in NO_PREAMBLE:
         return None, ("preamble unread", "")
+    # A light printed with a count and no words takes no answer from the post's
+    # clue-by-clue read: unsolved files it with a blank clue.
+    if any(COUNT_ONLY.fullmatch(c["clue"] or "") for c in pdf["clues"]):
+        return None, ("lights left unclued", "a light prints only its count")
     # Only the clues are mandatory: with no post the puzzle files unsolved,
     # its grid and clues as printed, and the nightly backfill solves it
     # (whatever the preamble does to the entries).
@@ -1301,6 +1342,14 @@ def unsolved(number, pdf, date, url, withheld=(), unclued=(), loose=False):
     printed (the answer's count, the entry altered by the preamble's rule)."""
     # No post and a page that names nobody: "no source names a setter" is the
     # recorded state (series.py unbylinedUnsolved), so the puzzle files without one.
+    # A light printed with its count and no words ("19 (3)") is one the setter
+    # leaves unclued: a blank clue keeping the count. More than a Genius
+    # leaves is a list whose words were on a picture (LOST counts-only).
+    counted = [c for c in pdf["clues"] if COUNT_ONLY.fullmatch(c["clue"] or "")]
+    if len(counted) > MOST_UNCLUED:
+        return None, (f"{len(counted)} clues print only a count", "unsolved")
+    for c in counted:
+        c["clue"] = f"Unclued ({c['enumeration']})"
     shared = split_shared_leaders(pdf, None)
     entries = fpp.entries_of(pdf, None, pdf["grid"])
     lights = rg.light_cells(pdf["grid"])
@@ -1318,6 +1367,11 @@ def unsolved(number, pdf, date, url, withheld=(), unclued=(), loose=False):
     for e in puzzle["entries"]:
         if (e["number"], e["direction"]) in blank:
             e["clue"] = {"missing": True}
+    blank_counted = {c["lights"][0] for c in counted}
+    for e in puzzle["entries"]:
+        if (e["number"], e["direction"]) in blank_counted:
+            e["clue"] = {"missing": True, **{k: e["clue"][k] for k in ("enumeration", "separators")
+                                            if k in e["clue"]}}
     printed_order(puzzle, pdf["clues"])
     join_shared_leaders(puzzle, shared)
     # The stand-in counts of clues that print none come off again.
