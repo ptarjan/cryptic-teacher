@@ -65,6 +65,9 @@ reads = {k: words for k in ("a", "b")}
 laid2, v2 = ps.see_filled({"12-down": ("", None, None), "5-across": ("", "4", None)}, verdict, reads,
                           ps.column_cols(cols))
 print("SEE", laid2["12-down"][0], sorted(v2.get("blank", {})))
+two = {"clues": [(f"{i}_page", {"across": [{"number": "1", "clue": c, "enumeration": "5"}], "down": []})
+                 for i, c in ((974, "One"), (975, "Two"))]}
+print("CLASH", pw.build(129, two)[1])
 print("TIDY", fa.tidy("ACROSS\n23 Maybe Charles slips one inside 4）").splitlines()[-1])
 PY
 )
@@ -82,6 +85,8 @@ check "read_capture parses the page text" \
   "13 [('1', 'First down clue', '4,4'), ('12', 'See 20', None), ('20,12', 'Linked clue', '6,6')]" \
   "$(get CAPTURE)"
 check "a blank two readings print as (See 20 down) is See 20; others stay blank" "See 20 ['5-across']" "$(get SEE)"
+check "two pages reading one number with different clues are refused" \
+  "two scans' page images print different clues under this number" "$(get CLASH)"
 check "a full-width bracket reads as a round one" "23 Maybe Charles slips one inside (4)" "$(get TIDY)"
 
 [ "$fails" = 0 ] && echo "all ok" || { echo "$fails failed"; exit 1; }
