@@ -514,8 +514,9 @@ def times_listing(puzzle):
         return []
     if "dates" not in _listing:
         import fetch_times_listing
+        import media_manifest
         _listing["dates"] = (fetch_times_listing.paper_dates()
-                             if fetch_times_listing.CACHE.is_dir() else {})
+                             if media_manifest.built(fetch_times_listing.MANIFEST) else {})
     when = _listing["dates"].get((series, number))
     if when is None:
         return []

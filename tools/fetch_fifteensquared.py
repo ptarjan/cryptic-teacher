@@ -38,12 +38,12 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import downloads
+import media_manifest
 
 CACHE = downloads.FIFTEENSQUARED
 POSTS = CACHE / "posts"
 COMMENTS = CACHE / "comments"
 # Post id -> categories, kept by post_categories().
-INDEX = CACHE / "post_categories.json"
 
 BASE = "https://fifteensquared.net/wp-json/wp/v2"
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
@@ -127,31 +127,15 @@ def cached_categories():
 
 
 def cached_post_ids():
-    return {int(p.stem) for p in POSTS.glob("*.json")}
+    """The ids cached, off the SSD manifest fetch_posts appends to
+    (tools/media_manifest.py): no listing of the media disk's 20k+ posts."""
+    return media_manifest.post_ids(POSTS)
 
 
 def post_categories():
-    """{post id: its categories} for every cached post, off INDEX.
-
-    The index is one file where the posts are 20k+, which over the container's
-    virtiofs mount is the difference between a second and a quarter of an hour.
-    It is topped up from a listing of POSTS, so a post stored by a run killed
-    before it rewrote the index is read once and joins it; a cached post is
-    never refetched, so an entry never goes stale."""
-    try:
-        index = {int(k): v for k, v in json.loads(INDEX.read_text(encoding="utf-8")).items()}
-    except FileNotFoundError:
-        index = {}
-    have = cached_post_ids()
-    missing, gone = have - index.keys(), index.keys() - have
-    for post_id in missing:
-        post = json.loads((POSTS / f"{post_id}.json").read_text(encoding="utf-8"))
-        index[post_id] = post.get("categories", [])
-    for post_id in gone:
-        del index[post_id]
-    if missing or gone:
-        store(CACHE, INDEX.stem, {str(k): v for k, v in sorted(index.items())})
-    return index
+    """{post id: its categories} for every cached post, off the same manifest.
+    A cached post is never refetched, so an entry never goes stale."""
+    return {i: r["categories"] for i, r in media_manifest.posts(POSTS).items()}
 
 
 def category_post_files(cat_id):
@@ -161,7 +145,8 @@ def category_post_files(cat_id):
 
 
 def cached_comment_ids():
-    return {int(p.stem) for p in COMMENTS.glob("*.json")}
+    """The posts whose comments are cached, off the manifest fetch_comments appends to."""
+    return {int(k) for k in media_manifest.comment_keys(COMMENTS)}
 
 
 def store(directory, key, payload):
@@ -193,14 +178,13 @@ def fetch_posts(cat_id, name, pages_max=None):
             break
         for row in fresh:
             store(POSTS, row["id"], row)
+            media_manifest.record_post(POSTS, row)
             have.add(row["id"])
             new += 1
         print(f"  {name} page {page}/{pages}: +{len(fresh)} new", flush=True)
         page += 1
     if pages_max is not None and pages_max < pages:
         print(f"  {name}: STOPPED at --pages {pages_max} of {pages} pages", flush=True)
-    if new:
-        post_categories()
     return new
 
 
@@ -215,7 +199,8 @@ def fetch_comments(post_ids):
     indistinguishable from a post that genuinely has no comments, so the cache
     never retries it and the error is permanent and silent.
     """
-    todo = [i for i in sorted(post_ids) if i not in cached_comment_ids()]
+    have = cached_comment_ids()
+    todo = [i for i in sorted(post_ids) if i not in have]
     for i in range(0, len(todo), BATCH):
         batch = todo[i:i + BATCH]
         by_post = {p: [] for p in batch}
@@ -229,6 +214,7 @@ def fetch_comments(post_ids):
         # Stored only once the batch is complete, for the same reason.
         for post_id, items in by_post.items():
             store(COMMENTS, post_id, items)
+            media_manifest.record_comments(COMMENTS, post_id)
         got = sum(len(v) for v in by_post.values())
         print(f"  comments {i + len(batch)}/{len(todo)}  (+{got} in {pages} page(s))", flush=True)
     return len(todo)

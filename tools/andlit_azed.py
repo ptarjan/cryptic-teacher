@@ -52,6 +52,7 @@ import time
 import urllib.error
 import azed_puzzles
 import downloads
+import media_manifest
 import fetch_fifteensquared as fsq
 import file_blog_puzzles
 import ft_pdf_puzzles as fpp
@@ -135,12 +136,23 @@ def index(refresh=False):
     return out
 
 
+#: tools/media_manifest.py's record of each copy fetch saved, {"key":
+#: "<n>.<ext>"}, so the nightly asks it, not up to three stats per number on
+#: the media disk. Built once by `media_manifest.py build andlit-copies`.
+COPIES = "andlit-copies"
+_copies = {}
+
+
 def cached(n):
     """The cached copy of No n: Path or None."""
+    if not _copies:
+        for key in media_manifest.latest(COPIES, "key"):
+            num, ext = key.split(".", 1)
+            _copies.setdefault(int(num), set()).add(ext)
+    have = _copies.get(int(n), ())
     for ext in ("pdf", "html", "other"):
-        p = CACHE / "copies" / f"{n}.{ext}"
-        if p.exists():
-            return p
+        if ext in have:
+            return CACHE / "copies" / f"{n}.{ext}"
     return None
 
 
@@ -153,8 +165,8 @@ def fetch(limit=None, budget_seconds=None, log=print, clock=time.monotonic):
     """Download the copies not yet cached of numbers not yet filed, oldest first;
     none is started once `budget_seconds` have passed. Returns how many the
     budget left unasked (a number that failed is asked again next run)."""
-    nums = [n for n in sorted(index(refresh=True)) if cached(n) is None
-            and not puzzle_path(SERIES, n).exists()]
+    nums = [n for n in sorted(index(refresh=True)) if not puzzle_path(SERIES, n).exists()
+            and cached(n) is None]
     known, got, start = urls(), 0, clock()
     (CACHE / "copies").mkdir(parents=True, exist_ok=True)
     walk, unasked = nums[:limit], 0
@@ -180,6 +192,9 @@ def fetch(limit=None, budget_seconds=None, log=print, clock=time.monotonic):
             url, data = "the router redirects to no host", b""
         ext = "pdf" if data[:4] == b"%PDF" else "html" if b"<html" in data[:2000].lower() else "other"
         (CACHE / "copies" / f"{n}.{ext}").write_bytes(data)
+        media_manifest.record(COPIES, CACHE / "copies" / f"{n}.{ext}", key=f"{n}.{ext}")
+        if _copies:
+            _copies.setdefault(int(n), set()).add(ext)
         known[n] = url
         (CACHE / "urls.json").write_text(json.dumps({str(k): v for k, v in sorted(known.items())}, indent=0))
         got += 1

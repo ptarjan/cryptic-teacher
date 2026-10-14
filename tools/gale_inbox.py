@@ -432,13 +432,42 @@ def ssh(command, **kw):
             time.sleep(10 * attempt)
 
 
-def publish(path=CHECKLIST, host_inbox=GALE_ROOT):
+#: {"sha": the page as last copied to the Mac, its "Updated" stamp left out;
+#: "at": when}. The Mac folder is on the spinning Media disk (Paul
+#: 2026-10-14: "I don't want anything regularly scanning the spinning disk"),
+#: so the page lives on the SSD (CHECKLIST) and is copied over only when it
+#: says something new, at most every PUBLISH_EVERY.
+PUBLISHED = HOME / "Checklist.published.json"
+PUBLISH_EVERY = 3600
+#: The line that changes on every render: not a change worth a disk write.
+STAMP = re.compile(rb"Updated [A-Z][a-z]{2} \d{2} [A-Z][a-z]{2} \d{2}:\d{2}")
+
+
+def publish(path=CHECKLIST, host_inbox=GALE_ROOT, out=sys.stdout, now=None):
     """Copy the progress page into the Mac folder under its own name,
-    replaced whole (written aside, then renamed)."""
+    replaced whole (written aside, then renamed), when it changed since the
+    last copy and PUBLISH_EVERY has passed. A slow or absent disk is the
+    next tick's retry, never the tick's failure. Returns whether it copied."""
+    now = time.time() if now is None else now
+    data = path.read_bytes()
+    sha = hashlib.sha1(STAMP.sub(b"", data)).hexdigest()
+    try:
+        last = json.loads(PUBLISHED.read_text())
+    except (FileNotFoundError, ValueError):
+        last = {}
+    if last.get("sha") == sha or now - last.get("at", 0) < PUBLISH_EVERY:
+        return False
     q = shlex.quote
     dest = q(host_inbox + '/' + path.name)
     tmp = f"{host_inbox}/.{path.name}.tmp"
-    ssh(f"mkdir -p {q(host_inbox)} && cat > {q(tmp)} && mv -f {q(tmp)} {dest}", input=path.read_bytes())
+    try:
+        ssh(f"mkdir -p {q(host_inbox)} && cat > {q(tmp)} && mv -f {q(tmp)} {dest}", input=data)
+    except (subprocess.TimeoutExpired, subprocess.CalledProcessError) as err:
+        print(f"progress page not copied to {host_inbox} ({type(err).__name__}); the next tick retries", file=out)
+        return False
+    PUBLISHED.parent.mkdir(parents=True, exist_ok=True)
+    PUBLISHED.write_text(json.dumps({"sha": sha, "at": now}))
+    return True
 
 
 # ------------------------------------------------------------ picking Gale files up
@@ -799,8 +828,8 @@ def _sync_locked(out, force):
             or (FETCHED.exists() and FETCHED.stat().st_mtime > last_render())):
         CHECKLIST.parent.mkdir(parents=True, exist_ok=True)
         CHECKLIST.write_text(checklist())
-        publish()
-        print(f"progress page published to {GALE_ROOT}/{CHECKLIST_NAME}", file=out)
+        if publish(out=out):
+            print(f"progress page published to {GALE_ROOT}/{CHECKLIST_NAME}", file=out)
 
 
 def main(argv=None):

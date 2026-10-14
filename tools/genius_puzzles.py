@@ -50,6 +50,7 @@ import puzzle_integrity
 import quotes
 import series as series_meta
 import downloads
+import media_manifest
 import reconstruct_grid as rg
 from fetch_puzzle import correct_source_answers, puzzle_path, write_puzzle_file
 
@@ -120,7 +121,7 @@ def index(log=print):
         date = datetime.date(int(m.group(2)), MONTHS[m.group(3)], int(m.group(4))).isoformat()
         row = {"url": SITE + m.group(1), "date": date}
         if str(n) in old and old[str(n)].get("url") == row["url"] and (
-                old[str(n)].get("pdf") or article_path(n).exists()):
+                old[str(n)].get("pdf") or have_file("article", n)):
             out[str(n)] = old[str(n)]
             continue
         try:
@@ -163,7 +164,7 @@ def unlisted(rows):
 def guess(n, rows, old, footer):
     """The row of a Genius the listing skips, from its URL: one a month, on
     a Monday early in the month its nearest listed neighbour puts it in."""
-    if str(n) in old and (old[str(n)].get("pdf") or article_path(n).exists()):
+    if str(n) in old and (old[str(n)].get("pdf") or have_file("article", n)):
         return old[str(n)]
     m = min((int(k) for k in rows), key=lambda k: abs(k - n))
     d = datetime.date.fromisoformat(rows[str(m)]["date"])
@@ -191,6 +192,28 @@ def guess(n, rows, old, footer):
 
 # ------------------------------------------------------------------ fetch
 
+#: What fetch saved under CACHE, kept in tools/media_manifest.py's SSD
+#: manifest so no run stats the media disk per number: {"key": "pdf/<n>"
+#: or "article/<n>"}. Built once by `media_manifest.py build genius-files`.
+FILES = "genius-files"
+_held = set()
+
+
+def have_file(kind, number):
+    """Whether fetch saved `kind` ("pdf" or "article") of Genius `number`."""
+    if not _held:
+        _held.update(media_manifest.latest(FILES, "key"))
+    return f"{kind}/{int(number)}" in _held
+
+
+def saved(kind, number, path):
+    """Note in the manifest that fetch just saved `path`."""
+    key = f"{kind}/{int(number)}"
+    media_manifest.record(FILES, path, key=key)
+    if _held:
+        _held.add(key)
+
+
 def pdf_path(number):
     return PDFS / f"{number}.pdf"
 
@@ -216,6 +239,7 @@ def fetch_article(n, row):
     tmp = article_path(n).with_suffix(".tmp")
     tmp.write_bytes(body)
     tmp.replace(article_path(n))
+    saved("article", n, article_path(n))
 
 
 def fetch(numbers=None, log=print):
@@ -226,7 +250,7 @@ def fetch(numbers=None, log=print):
         if numbers and not numbers[0] <= int(n) <= numbers[1]:
             continue
         if not row.get("pdf"):
-            if row.get("error") or article_path(n).exists():
+            if row.get("error") or have_file("article", n):
                 continue
             try:
                 fetch_article(n, row)
@@ -234,7 +258,7 @@ def fetch(numbers=None, log=print):
             except urllib.error.HTTPError as e:
                 failed.append((n, e.code))
             continue
-        if pdf_path(n).exists():
+        if have_file("pdf", n):
             continue
         try:
             data = get(row["pdf"])
@@ -247,6 +271,7 @@ def fetch(numbers=None, log=print):
         tmp = pdf_path(n).with_suffix(".tmp")
         tmp.write_bytes(data)
         tmp.replace(pdf_path(n))
+        saved("pdf", n, pdf_path(n))
         got += 1
         time.sleep(PAUSE)
     log(f"fetched {got}; {len(failed)} unreachable {failed[:10]}")
@@ -725,19 +750,27 @@ NUMBER = re.compile(r"\bGenius\b\D{0,12}?(\d{1,3})\b", re.IGNORECASE)
 
 
 def blog_posts():
-    """{number: post} of every cached Genius write-up a single post claims."""
+    """{number: post id} of every cached Genius write-up a single post claims,
+    off the titles in the posts manifest (tools/media_manifest.py): no post
+    is opened here; blog_post opens the one a puzzle is assembled with."""
     cat = fsq.cached_categories()[CATEGORY]
     by, claims = {}, collections.Counter()
-    for f in fsq.category_post_files(cat):
-        post = json.loads(f.read_text(encoding="utf-8"))
-        if cat not in post.get("categories", []):
+    for post_id, row in sorted(media_manifest.posts(fsq.POSTS).items(), key=lambda kv: f"{kv[0]}.json"):
+        if cat not in row["categories"]:
             continue
-        m = NUMBER.search(html.unescape(post.get("title", {}).get("rendered", "")))
+        m = NUMBER.search(html.unescape(row["title"]))
         if m:
             n = int(m.group(1))
             claims[n] += 1
-            by[n] = post
+            by[n] = post_id
     return {n: p for n, p in by.items() if claims[n] == 1}
+
+
+def blog_post(post_id):
+    """The cached post `post_id` (blog_posts), or None."""
+    if post_id is None:
+        return None
+    return json.loads((fsq.POSTS / f"{post_id}.json").read_text(encoding="utf-8"))
 
 
 #: "Guardian Genius 156 / Pasquale", "Genius 81 by Paul", "Guardian Genius 188 – Enigmatist".
@@ -1149,7 +1182,7 @@ def promote_jigsaw(record, answers, grid=None):
     each entry id to (clue index, letters), as clues_only._jigsaw_build's does."""
     import jigsaw_fit
     number = record["number"]
-    if grid is None and pdf_path(number).exists():
+    if grid is None and have_file("pdf", number):
         grid = read_pdf(pdf_path(number))["grid"]
     if grid is None:
         return None, [f"no grid read off {pdf_path(number)}"]
@@ -1640,7 +1673,7 @@ def file(write=True, numbers=None, log=print):
     for n in sorted((int(k) for k in idx), reverse=True):
         if numbers and not numbers[0] <= n <= numbers[1]:
             continue
-        if not pdf_path(n).exists() and not article_path(n).exists():
+        if not have_file("pdf", n) and not have_file("article", n):
             blocked["no PDF or article"].append(n)
             continue
         counts["fetched"] += 1
@@ -1650,28 +1683,29 @@ def file(write=True, numbers=None, log=print):
         if puzzle_path(SERIES, n).exists():
             counts["already filed"] += 1
             continue
+        post = blog_post(posts.get(n))
         try:
-            pdf = read_pdf(pdf_path(n)) if pdf_path(n).exists() else read_article(n)
+            pdf = read_pdf(pdf_path(n)) if have_file("pdf", n) else read_article(n)
             if pdf["clues"] and pdf["number"] in (None, n):
                 counts["parsed"] += 1
             if pdf["grid"] and not fpp.grid_matches(pdf["grid"], pdf["clues"]):
                 counts["grid consistent with clues"] += 1
             date = datetime.date.fromisoformat(DATED.get(n, idx[str(n)]["date"]))
-            puzzle, why = assemble(n, pdf, posts.get(n), date, idx[str(n)]["url"])
+            puzzle, why = assemble(n, pdf, post, date, idx[str(n)]["url"])
             if why and why[0] == HELD_JIGSAW:
                 why = hold(n, pdf, date, idx[str(n)]["url"], write)
             if why and why[0] in ALTERABLE:
-                alt, also = assemble_altered(n, pdf, posts.get(n), date, idx[str(n)]["url"])
+                alt, also = assemble_altered(n, pdf, post, date, idx[str(n)]["url"])
                 puzzle, why = (alt, None) if alt else (None, (why[0], f"{why[1]}; altered: {also}"))
             if why and why[0] in UNSOLVED_FALLBACK:
                 # Read afresh: the tries above share leaders and stand in counts.
-                fresh = read_pdf(pdf_path(n)) if pdf_path(n).exists() else read_article(n)
-                fresh["setter"] = fresh["setter"] or post_setter(posts.get(n))
+                fresh = read_pdf(pdf_path(n)) if have_file("pdf", n) else read_article(n)
+                fresh["setter"] = fresh["setter"] or post_setter(post)
                 bare, also = unsolved(n, fresh, date, idx[str(n)]["url"])
                 puzzle, why = (bare, None) if bare else (None, (why[0], f"{why[1]}; unsolved: {also[0]}"))
             if why and why[0] in GRID_MISFIT and pdf["clues"]:
-                fresh = read_pdf(pdf_path(n)) if pdf_path(n).exists() else read_article(n)
-                fresh["setter"] = fresh["setter"] or post_setter(posts.get(n))
+                fresh = read_pdf(pdf_path(n)) if have_file("pdf", n) else read_article(n)
+                fresh["setter"] = fresh["setter"] or post_setter(post)
                 held, also = hold_clues(n, fresh, date, idx[str(n)]["url"], write)
                 why = (held, also) if held else (why[0], f"{why[1]}; not held: {also}")
         except Exception as e:  # any raise: a malformed PDF is one puzzle

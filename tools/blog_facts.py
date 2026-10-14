@@ -60,6 +60,7 @@ from concurrent.futures import ProcessPoolExecutor
 from functools import lru_cache
 from pathlib import Path
 import downloads
+import media_manifest
 from build_abbreviations import table as abbreviations_table
 from clue_types import NAMES
 from definitions import place
@@ -1918,11 +1919,17 @@ class Index:
             self.db.commit()
 
     def post(self, path):
-        """(sha256 of the post's bytes, its rendered title), or None for a post that is not JSON."""
-        st = path.stat()
+        """(sha256 of the post's bytes, its rendered title), or None for a post that is not JSON.
+
+        The fetchers store a post whole and never rewrite it, so a post held
+        here is answered without touching the media disk; only a new one is
+        stat-ed and read."""
         row = self.db.execute("SELECT size, mtime, sha, title FROM post WHERE path=?", (str(path),)).fetchone()
+        if row and row[2] is not None:
+            return row[2], row[3]
+        st = path.stat()
         if row and row[0] == st.st_size and row[1] == st.st_mtime_ns:
-            return None if row[2] is None else (row[2], row[3])
+            return None
         data = path.read_bytes()
         try:
             got = hashlib.sha256(data).hexdigest(), rendered(json.loads(data.decode("utf-8")).get("title"))
@@ -1942,11 +1949,13 @@ class Index:
         self._wrote()
 
     def prune(self, keys):
-        """Drop every join not under `keys`."""
+        """Drop every join not under `keys`; returns the keys dropped."""
         self.db.execute("CREATE TEMP TABLE keep (key TEXT PRIMARY KEY)")
         self.db.executemany("INSERT OR IGNORE INTO keep VALUES (?)", ((k,) for k in keys))
+        gone = [k for (k,) in self.db.execute("SELECT key FROM join_ WHERE key NOT IN (SELECT key FROM keep)")]
         self.db.execute("DELETE FROM join_ WHERE key NOT IN (SELECT key FROM keep)")
         self.db.execute("DROP TABLE keep")
+        return gone
 
     def close(self):
         self.db.commit()
@@ -1969,7 +1978,8 @@ def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, repa
     work = []
     for blog in blogs:
         posts = BLOGS[blog][0] / "posts"
-        for path in sorted(posts.glob("*.json")):
+        # The post list is the SSD manifest the fetcher appends to, not a listing.
+        for path in sorted(posts / f"{i}.json" for i in media_manifest.post_ids(posts)):
             got = index.post(path)
             if got is None:
                 continue
@@ -1981,9 +1991,12 @@ def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, repa
                 hit = None
                 if cached and blog not in reparse:
                     hit = index.join(key)
-                    if hit is None and cached.exists():
-                        hit = cached.read_text(encoding="utf-8")
-                        index.put_join(key, hit)
+                    if hit is None:
+                        try:
+                            hit = cached.read_text(encoding="utf-8")
+                            index.put_join(key, hit)
+                        except FileNotFoundError:
+                            pass
                 work.append(((blog, path, cands, keep_facts), hit, cached))
     del by_number
     misses = [w for w, hit, _ in work if not hit]
@@ -2010,10 +2023,9 @@ def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, repa
         ex.shutdown()
     if not keep_facts and set(blogs) == set(BLOGS):
         used = {cached.name for _, _, cached in work}
-        for old in CACHE.glob("*/*"):
-            if old.name not in used:
-                old.unlink()
-        index.prune(name.removesuffix(".json") for name in used)
+        # The joins INDEX holds are the cached ones: CACHE is not listed.
+        for key in index.prune(name.removesuffix(".json") for name in used):
+            (CACHE / key[:2] / f"{key}.json").unlink(missing_ok=True)
     index.close()
     print(f"parsed {len(misses)} of {len(work)} posts; the rest were cached by an earlier run")
     return best, series, spool
@@ -2022,18 +2034,20 @@ def extract(blogs, with_bigdave_records=False, jobs=None, keep_facts=False, repa
 def inputs_digest():
     """A digest of the inputs the output is read from: each blog's cached
     posts, bigdave44's parsed light lists, and the clues of every puzzle. Posts
-    are cached once and never rewritten, so a post is its name and size; a
+    are cached once and never rewritten, so a post is its id, read off the SSD
+    posts manifest (tools/media_manifest.py), never a listing of the media disk; a
     puzzle is only what the join reads, so a new annotation moves nothing. The
     code is not an input: a change to it is applied by running without
     --if-changed, with --reparse when the parser changed."""
     h = hashlib.sha256()
     for blog in sorted(BLOGS):
         posts = BLOGS[blog][0] / "posts"
-        names = sorted((e.name, e.stat().st_size) for e in os.scandir(posts)
-                       if e.name.endswith(".json")) if posts.is_dir() else []
-        h.update(json.dumps([blog, names]).encode())
+        h.update(json.dumps([blog, sorted(media_manifest.post_ids(posts))]).encode())
     parsed = BLOGS["bigdave44"][0] / "parsed.jsonl"
-    h.update(parsed.read_bytes() if parsed.exists() else b"")
+    try:
+        h.update(parsed.read_bytes())
+    except FileNotFoundError:
+        pass
     for path in puzzle_files():
         p = read_puzzle_view(path)
         h.update(json.dumps([p["id"], p["number"], p.get("series"), puzzle_entries(p)]).encode())
