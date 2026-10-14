@@ -476,6 +476,13 @@ ocr_remote.alert_over("down")
 busy[0] = "playing Wow"
 ocr_remote.connect()
 check("a game-yield sends no alert", 2, sum("no desktop host works" in l for l in woken()))
+busy[0] = None
+ocr_remote.alert_over("down")
+saved = os.environ["OCR_REMOTE"]
+os.environ["OCR_REMOTE"] = "nobody@127.0.0.1"
+ocr_remote.connect()
+os.environ["OCR_REMOTE"] = saved
+check("a loopback desktop (a test's stand-in) sends no alert", 2, sum("no desktop host works" in l for l in woken()))
 
 pruned = []
 def prune(host, keep, days=1):
