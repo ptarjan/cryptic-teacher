@@ -296,8 +296,9 @@ def fetch(numbers=None, log=print):
 
 # ------------------------------------------------------------------ the PDF
 
-#: "Genius No 262 Set by Enigmatist", "Genius   no. 176 seT BY PAuL".
-HEADER = re.compile(r"Genius\W{0,4}(?:crossword\W{0,4})?No\s*\.?\s*(\d{1,3})(?:\W{0,6}(?:Set\s+)?by\s+([A-Za-z]+))?", re.IGNORECASE)
+#: "Genius No 262 Set by Enigmatist", "Genius   no. 176 seT BY PAuL"; a
+#: kerned number ("Genius no. 1 70 Set by puck") joins when the byline follows.
+HEADER = re.compile(r"Genius\W{0,4}(?:crossword\W{0,4})?No\s*\.?\s*(\d \d\d?(?=\W{0,6}(?:Set\s+)?by\s)|\d\d \d(?=\W{0,6}(?:Set\s+)?by\s)|\d{1,3})(?:\W{0,6}(?:Set\s+)?by\s+([A-Za-z]+))?", re.IGNORECASE)
 #: What the entry form and page furniture leave in the preamble: a byline
 #: printed apart from the header, a form's "Traced letter: ___", a link.
 FURNITURE = re.compile(r"(?i)\bset by [A-Za-z]+\b|[A-Z][\w ]{0,30}:\s*_{2,}|click here to register\.?|"
@@ -377,6 +378,29 @@ def flat(raw, kerned=True):
                    and fpp.rank(m.group(1) + m.group(2)) is None else m.group(1) + m.group(2), t)
     return re.sub(r"\b([A-Za-z]+)- ([a-z]+)\b",
                   lambda m: fpp.join_lines(m.group(1) + "-", m.group(2)), t)
+
+
+SHORT_WORDS = set("a i am an as at be by do go he if in is it me my no of oh on or ox so to up us we".split())
+SUFFIXES = set("ed er ers es est ing ings ly".split())
+
+
+def unsplit(text):
+    """text with a word the PDF's justification split ("wo rking", "Spic e",
+    "ec centric": No 170) joined: two runs of letters join when the join is a
+    word and one of them is not."""
+    def word(w):
+        w = w.lower()
+        return w in SHORT_WORDS if len(w) <= 2 else fpp.rank(w) is not None
+
+    def join(m):
+        a, b = m.group(1), m.group(2)
+        if len(a) == 1 and a.isupper() and len(b) >= 3 and not word(b):
+            return a  # "I ndian": a capital kerned off a name
+        if fpp.rank((a + b).lower()) is None or (word(a) and word(b) and b not in SUFFIXES):
+            return m.group(0)
+        return a
+    # The second run is only looked at, so it can still join the next run.
+    return re.sub(r"\b([A-Za-z]+) (?=([a-z]+)\b)", join, text)
 
 
 #: A clue head inside a run of clues printed without counts: a number after
@@ -478,7 +502,7 @@ def section(text, start, direction):
 def parse_text(text):
     """{number, setter, clues, preamble} off the flattened text."""
     m = HEADER.search(text)
-    out = {"number": int(m.group(1)) if m else None,
+    out = {"number": int(m.group(1).replace(" ", "")) if m else None,
            "setter": m.group(2).title() if m and m.group(2) and (
                m.group(2).isupper() or not m.group(2).istitle()) else (m.group(2) if m else None)}
     if not out["setter"]:
@@ -644,6 +668,12 @@ def read_pdf(path):
     out["marked"] = {l for c in out["clues"] if UNCLUED_MARK.fullmatch(c["clue"]) for l in c["lights"]}
     out["clues"] = [c for c in out["clues"] if not UNCLUED_MARK.fullmatch(c["clue"])]
     see_links(out["clues"])
+    # A jigsaw whose alphabetical list numbers its clues 1, 2, ... under no
+    # Across/Down heading (No 170): those numbers place nothing, so drop them.
+    if not out["clues"] and re.search(r"(?i)alphabetical order", out["preamble"] or ""):
+        bare = re.sub(r"(?:^|(?<=[).!?]))\s*\d{1,2}\s+(?=[A-Z‘“\"'])", " ", out["preamble"]).strip()
+        if unnumbered(bare) >= UNNUMBERED_AT:
+            out["preamble"] = unsplit(bare)
     # No numbered run and the clues all in what is left: an unnumbered list.
     if not out["clues"] and unnumbered(out["preamble"]) >= UNNUMBERED_AT:
         out["unplaced"], out["preamble"] = unplaced_clues(out["preamble"])
