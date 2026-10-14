@@ -4372,9 +4372,11 @@ registry["reset-puzzle"].onclick();
     "there is exactly one place that sends a crossword, and it is gated on sync being on");
   // And the page as a whole leaves nothing else: a sentence the reader typed on
   // purpose about a bad hint, and a push subscription — an address, not a
-  // crossword, and it only leaves when a paper is ticked.
+  // crossword, and it only leaves when a paper is ticked. at() is the site's
+  // own origin, so fetching a puzzle file from it sends nothing out.
   assert(fetches.every((f) => f.includes('"/s/"') || f.includes('"/r"')
-      || f.includes('"/n"') || f.includes("/v?p=") || f.includes('"/v"')),
+      || f.includes('"/n"') || f.includes("/v?p=") || f.includes('"/v"')
+      || f.startsWith('fetch(at("puzzles/')),
     "nothing else leaves the page: " + fetches.join(" | "));
   // The counter is the only other thing that reaches the network, and what it
   // can carry is one name from the shared list — no grid, no code, no id. Two
