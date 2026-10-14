@@ -33,9 +33,10 @@ ALERT_CHANNEL="${ALERT_CHANNEL:-cryptic-crosswords}"
 # .git from either place.
 # Where the clone is not beside the live bridge tree (e.g. /data/home/github,
 # where household is an empty mount stub), every bridge process carries
-# HOUSEHOLD_LIVE_CHECKOUT; that wins over the derivation.
+# HOUSEHOLD_LIVE_CHECKOUT=1 and names the live tree in HOUSEHOLD_CHECKOUT (the
+# flag is "1", not a path); that wins over the derivation.
 if [ -n "${HOUSEHOLD_LIVE_CHECKOUT:-}" ]; then
-  ALERT_ENV_FILE="${ALERT_ENV_FILE:-$HOUSEHOLD_LIVE_CHECKOUT/.env}"
+  ALERT_ENV_FILE="${ALERT_ENV_FILE:-${HOUSEHOLD_CHECKOUT:-/app}/.env}"
 fi
 ALERT_ENV_FILE="${ALERT_ENV_FILE:-$(dirname "$(dirname "$(git \
   -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --path-format=absolute \
