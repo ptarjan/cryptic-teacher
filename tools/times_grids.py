@@ -623,7 +623,8 @@ def retolerate(where=None, series=None, max_nodes=1_000_000, write=True, log=sys
         if not write:
             continue
         alog.write(json.dumps({"post_id": rec["post_id"], "how": why,
-                               "max_nodes": max_nodes, "lights": lit}) + "\n")
+                               "max_nodes": max_nodes, "lights": lit,
+                                  "gaps_filled": MAX_GAPS}) + "\n")
         alog.flush()
         if grid:
             out.write(json.dumps(row(rec, grid, why, made + fixes), ensure_ascii=False) + "\n")
@@ -1349,7 +1350,18 @@ def attempted(attempts=None, retry=None, keys=None):
     keys = keys or {}
     return {pid for pid, a in last.items()
             if not (retry is not None and (not retry or a.get("how", "").startswith(tuple(retry))))
-            and not (pid in keys and keys[pid] != a.get("lights"))}
+            and not (pid in keys and keys[pid] != a.get("lights"))
+            and not gap_stale(a)}
+
+
+def gap_stale(attempt):
+    """Did this attempt stop at a skipped light the tolerant search now puts
+    back? Attempts made before with_gaps carry no `gaps_filled`, so a post
+    missing at most MAX_GAPS lights is due again by itself (sundaytough 2)."""
+    how = attempt.get("how", "")
+    return (how.startswith("no grid: no light numbered")
+            and attempt.get("gaps_filled", 0) < MAX_GAPS
+            and len(re.findall(r"\d+", how)) <= MAX_GAPS)
 
 
 def forget_unparsed(ids, out, attempts):
@@ -1521,7 +1533,8 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
         how[key] += 1
         if log:
             log.write(json.dumps({"post_id": rec["post_id"], "how": why,
-                                  "max_nodes": max_nodes, "lights": lit}) + "\n")
+                                  "max_nodes": max_nodes, "lights": lit,
+                                  "gaps_filled": MAX_GAPS}) + "\n")
             log.flush()
         by_series[rec["series"]][key] += 1
         if not grids:
