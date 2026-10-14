@@ -238,6 +238,7 @@ class Telegraph(Adapter):
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_bytes(body)
                 cached = body.decode("utf-8")
+                ft.record_calendar(year, path, json.loads(cached))
                 time.sleep(self.delay)
             rows += ft.calendar_rows(json.loads(cached))
         return {series_meta.puzzle_id(s, n): (variant, slug)

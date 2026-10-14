@@ -58,6 +58,8 @@ SCHEDULED = {
     "file_trove_puzzles.py": ["article_date", "stamp_cause", "zones_held", "plan", "article_dirs", "input_hash",
                               "trove_inputs", "_fold_input"],
     # edition_queue's trove fetch slice plans off the caches.
+    # blog:telegraph (every 3 h) asks served() which numbers the calendars repeat.
+    "fetch_telegraph.py": ["served", "repeated", "held_calendar_rows", "record_calendar"],
     "fetch_trove.py": ["plan", "pending_zones", "fetched_ids", "zoned_ids", "_in"],
     # coverage.py daily (daily_update.sh): the FT PDFs fetched.
     "coverage.py": ["ft_pdf_rows", "trove_articles", "trove_dates"],
@@ -186,4 +188,28 @@ if again != first or not first or media:
     print(f"FAIL gale_listener.wanted warm: {len(first)} then {len(again)} rows, media paths touched {media[:5]} ({len(media)})")
     sys.exit(1)
 print("ok   gale_listener.wanted touches nothing on the media disk once its memos are warm")
+PY
+
+# fetch_telegraph.repeated (blog:telegraph, every 3 h): the cached calendars'
+# rows come from the telegraph-calendar manifest, not a glob of the calendar folder.
+python3 - "$t" <<'PY'
+import json, os, sys
+import downloads, fetch_telegraph as ft
+cal = ft.CACHE / "calendar"
+cal.mkdir(parents=True)
+(cal / "2016.json").write_text(json.dumps({"calendar": {"cryptic-crossword-1": {"2016-04": {"18": "cryptic-crossword-37490", "19": "cryptic-crossword-37491"}}},
+                                          "numbers": {"cryptic-crossword-1": {"2016-04": {"18": "28085", "19": "28085"}}}}))
+first = ft.repeated()  # cold: reads the folder once, fills the manifest
+ft._repeated.clear()
+touched = []
+for name in ("stat", "lstat", "listdir", "scandir"):
+    real = getattr(os, name)
+    setattr(os, name, (lambda real: lambda p=".", *a, **k: (touched.append(p), real(p, *a, **k))[1])(real))
+again = ft.repeated()
+media = sorted({os.fspath(p) for p in touched if isinstance(p, (str, os.PathLike))
+                and os.fspath(p).startswith(str(downloads.ROOT)) and "/.manifest/" not in os.fspath(p)})
+if again != first or not first or media:
+    print(f"FAIL fetch_telegraph.repeated warm: {first} then {again}, media paths touched {media[:5]} ({len(media)})")
+    sys.exit(1)
+print("ok   fetch_telegraph.repeated touches nothing on the media disk once its manifest is warm")
 PY

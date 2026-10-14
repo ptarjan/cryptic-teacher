@@ -52,6 +52,7 @@ from pathlib import Path
 
 import downloads
 import enumeration
+import media_manifest as mm
 import puzzle_paths
 import series as series_meta
 from fetch_puzzle import (read_puzzle_view,
@@ -121,15 +122,52 @@ def served(series, number):
 
 
 _repeated = []
+#: The cached calendars' rows, kept on the SSD so repeated() (blog:telegraph,
+#: every 3 h) does not glob CACHE/calendar on the media disk (Paul 2026-10-14):
+#: {"year", "rows": [[series, number, "YYYY-MM-DD", variant, slug]]}, appended
+#: by record_calendar when cross_validate.Telegraph.ids writes a year's file.
+CALENDAR_MANIFEST = "telegraph-calendar"
+
+
+def record_calendar(year, path, cal):
+    """Append calendar `year` (the document `cal` just written to `path`) to CALENDAR_MANIFEST."""
+    mm.record(CALENDAR_MANIFEST, path, year=year,
+              rows=[[s, n, d.isoformat(), v, sl] for s, n, d, v, sl in calendar_rows(cal)])
+
+
+def _build_calendar():
+    """Read CACHE/calendar once into CALENDAR_MANIFEST (a cold memo)."""
+    found = []
+    for path in sorted((CACHE / "calendar").glob("*.json")):
+        rows = calendar_rows(json.loads(path.read_text(encoding="utf-8")))
+        found.append({"year": int(path.stem), "rows": [[s, n, d.isoformat(), v, sl] for s, n, d, v, sl in rows]})
+    mm.write(CALENDAR_MANIFEST, found)
+    mm.complete_path(CALENDAR_MANIFEST).write_text(json.dumps({"at": time.time()}))
+    return found
+
+
+def _glob_calendar_rows():
+    """The calendar rows of a cache not on the media disk (a test's): a glob is fine there."""
+    rows = []
+    for path in sorted((CACHE / "calendar").glob("*.json")):
+        rows += calendar_rows(json.loads(path.read_text(encoding="utf-8")))
+    return rows
+
+
+def held_calendar_rows():
+    """The cached calendars' rows, from CALENDAR_MANIFEST when CACHE is on the media disk."""
+    if not mm.on_media(CACHE):
+        return _glob_calendar_rows()
+    held = {r["year"]: r for r in (mm.rows(CALENDAR_MANIFEST) if mm.complete(CALENDAR_MANIFEST)
+                                   else _build_calendar())}
+    return [(s, n, datetime.date.fromisoformat(d), v, sl)
+            for _y, r in sorted(held.items()) for s, n, d, v, sl in r["rows"]]
 
 
 def repeated():
     """{(series, number)} the cached calendars give twice in sequence."""
     if not _repeated:
-        rows = []
-        for path in sorted((CACHE / "calendar").glob("*.json")):
-            rows += calendar_rows(json.loads(path.read_text(encoding="utf-8")))
-        _repeated.append(runs(rows)[1])
+        _repeated.append(runs(held_calendar_rows())[1])
     return _repeated[0]
 
 
