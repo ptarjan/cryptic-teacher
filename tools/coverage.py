@@ -48,6 +48,7 @@ from pathlib import Path
 import archive_coverage
 import downloads
 import file_trove_puzzles
+import media_manifest
 import scan_queue
 import series as series_meta
 
@@ -350,6 +351,9 @@ def ft_pdf_rows():
         failed = json.loads((FT_PDF / "fetch_failed.json").read_text())
     except (OSError, ValueError):
         failed = {}
+    # The PDFs fetched, off the ft-pdf manifest (ft_pdf_puzzles.fetch_one
+    # appends to it): no stat of each number's file on the media disk.
+    pdfs = media_manifest.folder_files("ft-pdf", FT_PDF / "pdf", "*.pdf")
     last = {}
     for r in jsonl(FT_PDF / "attempts.jsonl"):
         last[str(r.get("number"))] = r
@@ -357,7 +361,7 @@ def ft_pdf_rows():
         a = last.get(n)
         if a is not None:
             cause = None if a.get("filed") else "refused-no-cause"
-        elif (FT_PDF / "pdf" / f"{n}.pdf").exists():
+        elif f"{n}.pdf" in pdfs:
             cause = "not-read"
         else:
             cause = failed[n]["cause"] if n in failed else "not-fetched"
