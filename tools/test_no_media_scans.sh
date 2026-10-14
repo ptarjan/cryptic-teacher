@@ -48,6 +48,10 @@ SCHEDULED = {
                           "Telegraph.ids", "Globe.fetch_one"],
     # gale_inbox sync's checklist, every minute: the scanned editions.
     "archive_coverage.py": ["scans", "unfiled", "fetched_editions"],
+    # gale_fetch plan asks gale_listener.wanted: year pages, readings and the
+    # ledger from the listener-* manifests.
+    "gale_listener.py": ["wanted", "index", "_year_rows", "to_save", "saved_numbers", "solutions",
+                         "report_lookups", "reading_numbers", "ledger_numbers"],
     # gale_fetch.py run() asks this every pass of its loop.
     "gale_fetch.py": ["have_docs"],
     # edition_queue plan (every corpus slice) dates each due Trove article.
@@ -154,4 +158,32 @@ if units or tally != {"skipped: test": 1} or media:
     print(f"FAIL file_trove_puzzles plan/_run with nothing new: units {units}, tally {tally}, media paths statted {media}")
     sys.exit(1)
 print("ok   file_trove_puzzles plan and _run with nothing new stat no Trove article or zone dir")
+PY
+
+# gale_listener.wanted (gale_fetch plan, each pass): once the memos are warm it
+# touches nothing under the downloads root but the SSD manifests.
+python3 - "$t" <<'PY'
+import os, sys
+from pathlib import Path
+import downloads, gale_listener as g
+dl = Path(sys.argv[1]) / "dl"
+years, store = g.YEARS, g.STORE
+years.mkdir(parents=True)
+store.mkdir(parents=True)
+for y in range(g.FIRST_YEAR, g.LAST_ISSUE.year + 1):
+    (years / f"Y{y}.html").write_text(f'<td class="num">{y}</td><td class="title">T</td><td class="setter">S</td><td class="date">3 Jan</td>')
+(store / "listener-1930.json").write_text('{"number": 1930}')
+(store / "ledger.jsonl").write_text('{"sha": "a", "number": 1931, "reports": [1932]}\n')
+first = g.wanted()  # cold: reads the disk once, fills the memos
+touched = []
+for name in ("stat", "lstat", "listdir", "scandir"):
+    real = getattr(os, name)
+    setattr(os, name, (lambda real: lambda p=".", *a, **k: (touched.append(p), real(p, *a, **k))[1])(real))
+again = g.wanted()
+media = sorted({os.fspath(p) for p in touched if isinstance(p, (str, os.PathLike))
+                and os.fspath(p).startswith(str(downloads.ROOT)) and "/.manifest/" not in os.fspath(p)})
+if again != first or not first or media:
+    print(f"FAIL gale_listener.wanted warm: {len(first)} then {len(again)} rows, media paths touched {media[:5]} ({len(media)})")
+    sys.exit(1)
+print("ok   gale_listener.wanted touches nothing on the media disk once its memos are warm")
 PY
