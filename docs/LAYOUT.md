@@ -2580,5 +2580,7 @@ tools/test_clue_repair.sh                      does tools/clue_repair.py give a 
                                                bracket its own reading lost the count another
                                                reading prints, in its parts, so the scan filers
                                                file "3,6,5" and not the bare letter total "14"?
+tools/test_off_start_leader.sh                 a leader that prints its clue on a later light,
+                                               and a count the paper printed wrong
 ```
 <!-- LAYOUT-END -->

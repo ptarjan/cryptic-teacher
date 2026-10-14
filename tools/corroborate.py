@@ -545,7 +545,7 @@ def units(puzzle):
     out, taken = {}, set()
     for e in puzzle["entries"]:
         group = [g for g in (e.get("group") or []) if g in by_id]
-        if len(group) > 1 and group[0] == entry_id(e):
+        if len(group) > 1 and entry_id(e) in group:
             out[entry_id(e)] = [by_id[g] for g in group]
             taken.update(group)
     for e in puzzle["entries"]:

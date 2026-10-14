@@ -1,9 +1,12 @@
 """Linked answers: one answer spread over several lights ("See 21").
 
-The leader, the light the answer starts on, carries `group`: the answer's
-lights in order, itself first, naming again any light the answer repeats.
-Every other light of the answer carries
-nothing, neither a group nor an annotation. A light may continue more than
+The leader, the light that prints the answer's clue, carries `group`: the
+answer's lights in word order, naming again any light the answer repeats.
+The leader is first unless the paper printed the clue on a later light:
+cryptic-21673 clues VESTED INTEREST at 26-across and prints nothing at
+25-across, so 26-across holds ["25-across", "26-across"] (validate_annotations
+check_groups says which lights may come before their leader). Every other
+light of the answer carries nothing, neither a group nor an annotation. A light may continue more than
 one answer: cryptic-27188's 12-across AND ONE ends both 1-across's HUNDRED AND
 ONE and 13-across's THOUSAND AND ONE, so it is in both leaders' groups.
 
@@ -163,7 +166,7 @@ def holder_of(entries):
     where its clue, group and annotation live."""
     out = {}
     for lead, h in linked(entries):
-        for eid in h["group"][1:]:
+        for eid in h["group"]:
             if eid != entry_id(lead) and eid not in self_clued(h):
                 out.setdefault(eid, h)
     return out
@@ -173,7 +176,7 @@ def leader_of(entries):
     """{continuation id: its leader's id}, first leader in entry order."""
     out = {}
     for lead, h in linked(entries):
-        for eid in h["group"][1:]:
+        for eid in h["group"]:
             if eid != entry_id(lead) and eid not in self_clued(h):
                 out.setdefault(eid, entry_id(lead))
     return out
@@ -190,9 +193,26 @@ def spread(entries):
     return entries
 
 
-def collapse(entries):
-    """Drop `group` from every light that does not lead it, in place."""
+def off_start(entries):
+    """{leader id: group} for each leader that is not its group's first light
+    (it prints the clue on a later light): what collapse() needs told, since
+    after spread() the first light carries the same group."""
+    return {entry_id(e): list(e["group"]) for e in entries
+            if e.get("group") and e["group"][0] != entry_id(e)}
+
+
+def collapse(entries, kept=None):
+    """Drop `group` from every light that does not lead it, in place. A
+    group leads from its first light, or from the light `kept` ({leader id:
+    group}, off_start() read before spread()) names as its leader."""
+    kept = kept or {}
     for e in entries:
-        if e.get("group") and e["group"][0] != entry_id(e):
+        g, eid = e.get("group"), entry_id(e)
+        if not g:
+            continue
+        if g[0] != eid:
+            if kept.get(eid) != g:
+                del e["group"]
+        elif any(k != eid and v == g for k, v in kept.items()):
             del e["group"]
     return entries

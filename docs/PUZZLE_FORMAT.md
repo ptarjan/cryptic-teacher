@@ -184,11 +184,18 @@ tree.
   - Each of `reversals` is `{from, to}` with `to` equal to `from` backwards.
   - A hidden answer must appear inside the clue's letters.
 - Linked answers (one answer over several lights, "See 21"): the leader, the
-  light the answer starts on, carries `group`, the answer's entry ids in
-  order with its own first, and the one annotation, whose `answer` is the
-  whole answer. The other lights carry neither a group nor an annotation, so
-  a light's leader is the entry whose `group` names it. A light whose clue
-  continues two answers ("See 19, 22") is in both leaders' groups.
+  light that prints the clue, carries `group`, the answer's entry ids in
+  word order, and the one annotation, whose `answer` is the whole answer.
+  The leader is the light the answer starts on, and so first in its group,
+  unless the paper printed the clue on a later light: cryptic-21673 clues
+  VESTED INTEREST at 26-across and prints nothing at 25-across, so 26-across
+  holds `["25-across", "26-across"]`. A light before such a leader prints no
+  clue of its own, or is named in the leader's `selfClued` (cryptic-23821's
+  23-down RIGHT, clued as RIGHT NOTE, also starts 22-across's RIGHT AS RAIN);
+  `fetch_puzzle.GROUP_ORDER` pins the order so a re-fetch keeps it. The other
+  lights carry neither a group nor an annotation, so a light's leader is the
+  entry whose `group` names it. A light whose clue continues two answers
+  ("See 19, 22") is in both leaders' groups.
 
   ```jsonc
   {"number": 21, "direction": "across",
@@ -233,7 +240,11 @@ tree.
     mostly "See 21" continuations). `text + " (" + enumeration + ")"` is the
     printed line. It is stored rather than rebuilt from `separators`: a linked
     answer's leader prints the whole group's count, and some prints say what
-    separators cannot.
+    separators cannot. A count the paper itself printed wrong stays as
+    printed ("0,11" over RHODE ISLAND); `fetch_puzzle.PRINTED_COUNT_WRONG`
+    names it with the count the answer reads by, every write lays the
+    `separators` out from that one, and `puzzle_integrity` holds the file to
+    the row.
   - `separators`: the marks inside this light's answer, in order, as
     `{"at", "mark"}`. `at` counts this light's answer letters before the mark,
     not clue characters. Each light of a linked answer carries the marks inside

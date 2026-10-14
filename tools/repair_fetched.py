@@ -228,6 +228,7 @@ def repair(path, puzzle, apply_it):
                      f" — all {len(fixed['entries'])} entries stored unsolved")
     # The group rules reason over every member's claim; the file keeps the
     # group on the leader alone. See tools/groups.py.
+    kept = groups.off_start(fixed["entries"])
     groups.spread(fixed["entries"])
     broken = dissolve(fixed)
     if broken:
@@ -238,7 +239,7 @@ def repair(path, puzzle, apply_it):
     if rebuilt:
         notes.append(f"{len(rebuilt)} linked answer(s) reassembled: "
                      + ", ".join(" + ".join(g) for g in rebuilt))
-    groups.collapse(fixed["entries"])
+    groups.collapse(fixed["entries"], kept)
 
     if json.dumps(fixed, sort_keys=True, ensure_ascii=False) == before:
         return None
