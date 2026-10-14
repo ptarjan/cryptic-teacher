@@ -3761,6 +3761,7 @@ def rekey_scans(ledger):
             tmp.write_text("".join(json.dumps({**r, "scanKey": moved[k]} if k in moved else r) + "\n"
                                    for k, r in enumerate(rows)), encoding="utf-8")
             tmp.replace(ledger)
+            scan_queue.stamp(ledger)
         return len(moved)
 
 
@@ -5246,6 +5247,7 @@ def save(ledger, known):
     tmp = ledger.with_suffix(".tmp")
     tmp.write_text("".join(json.dumps(r) + "\n" for r in known.values()))
     tmp.replace(ledger)
+    scan_queue.stamp(ledger)
 
 
 # ------------------------------------------------------------ the Canberra reprints

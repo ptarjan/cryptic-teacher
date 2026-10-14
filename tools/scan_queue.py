@@ -113,6 +113,63 @@ def lock_path(ledger, suffix=".lock"):
     return ledger.with_suffix(suffix)
 
 
+def stamp_path(ledger):
+    """Where `ledger`'s stamp lives: beside its lock on the SSD (lock_path)."""
+    return lock_path(ledger, ".stamp")
+
+
+def stamped(ledger):
+    """Whether `ledger` keeps an SSD stamp (stamp): it is on the media disk,
+    not in media_manifest.DIR (an SSD ledger such as trove-filed.jsonl, which
+    a test's CT_DOWNLOADS puts under the downloads root). Path arithmetic only."""
+    d = os.path.abspath(media_manifest.DIR)
+    f = os.path.abspath(ledger)
+    return media_manifest.on_media(f) and not (f == d or f.startswith(d + os.sep))
+
+
+def stamp(ledger):
+    """Write `ledger`'s [size, mtime_ns] (null when it is missing) to its SSD
+    stamp, for a ledger on the media disk: each writer calls it under the
+    ledger's lock right after it writes, so a tick (corpus_queue.ledger_marks)
+    reads the stamp and stats nothing on that disk."""
+    ledger = Path(ledger)
+    if not stamped(ledger):
+        return
+    try:
+        st = ledger.stat()
+        mark = [st.st_size, st.st_mtime_ns]
+    except FileNotFoundError:
+        mark = None
+    path = stamp_path(ledger)
+    tmp = path.with_name(f".{path.name}.{os.getpid()}.tmp")
+    tmp.write_text(json.dumps(mark))
+    os.replace(tmp, path)
+    return mark
+
+
+def ledger_mark(ledger):
+    """`ledger`'s [size, mtime_ns] as its writers last stamped it (stamp), or
+    None when it is missing: off the SSD for a ledger on the media disk
+    (stamped), the stamp filled off the disk once when no writer has stamped
+    it yet; a stat of any other path (an SSD ledger or manifest)."""
+    ledger = Path(ledger)
+    if stamped(ledger):
+        try:
+            return json.loads(stamp_path(ledger).read_text())
+        except (FileNotFoundError, ValueError):
+            return stamp(ledger)
+    return _stat_mark(ledger)
+
+
+def _stat_mark(ledger):
+    """ledger_mark of a ledger off the media disk (an SSD one, a test's): a stat."""
+    try:
+        st = ledger.stat()
+        return [st.st_size, st.st_mtime_ns]
+    except OSError:
+        return None
+
+
 @contextlib.contextmanager
 def lock(ledger, wait_for_it=False):
     """Yields whether this run holds `ledger`'s lock (lock_path); with
@@ -168,6 +225,7 @@ def append(ledger, rows):
             os.write(fd, data)
         finally:
             os.close(fd)
+        stamp(ledger)
 
 
 def vlm_guard(what):
@@ -204,6 +262,7 @@ def compact(ledger, key):
         tmp = ledger.with_suffix(".tmp")
         tmp.write_text("".join(json.dumps(r) + "\n" for r in rows.values()), encoding="utf-8")
         tmp.replace(ledger)
+        stamp(ledger)
         return before, len(rows)
 
 

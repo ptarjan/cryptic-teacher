@@ -82,6 +82,9 @@ SCHEDULED["media_manifest.py"] += ["edition_rows", "_fold_edition", "edition_rel
 # off archiveorg-done and the archiveorg-pages memo, not done.tsv and the dirs.
 SCHEDULED["fetch_archive_org_editions.py"] += ["load_done", "load_done_manifest", "_fold_done_row", "_fold_pages",
                                                "unfetched", "count_titled", "_common_leaves", "_prior_leaves"]
+# corpus_queue's tick marks the filers' ledgers off the SSD stamps their writers keep.
+SCHEDULED["corpus_queue.py"] = ["ledger_marks"]
+SCHEDULED["scan_queue.py"] = ["ledger_mark", "stamped", "stamp_path"]
 #: {file: [function]} that may not run a command on the host either (an ssh
 #: `ls` of the Gale folders is a listing of the media disk too).
 NO_SSH = {"gale_fetch.py": ["have_docs"]}
@@ -388,9 +391,10 @@ print("ok   fetch_archive_org_editions.load_done agrees with the dirs' verdicts 
 PY
 
 # corpus_queue's checks (every tick of the corpus queue) look for a filer's
-# ledger lock on the SSD (scan_queue.lock_path) and take the fetch marks off
-# the SSD manifests: of the media disk they stat only the two archive.org
-# ledgers themselves, which still live there.
+# ledger lock on the SSD (scan_queue.lock_path), take the fetch marks off the
+# SSD manifests and the archive.org ledgers' marks off the SSD stamps their
+# writers keep (scan_queue.stamp): of the media disk they stat nothing once
+# the stamps exist, and a writer's append moves the mark.
 mkdir -p "$t/cq/archive_org_editions" "$t/cq/.manifest"
 : > "$t/cq/archive_org_editions/filed.jsonl"
 CT_DOWNLOADS="$t/cq" HOME="$t/cq-home" python3 - <<'PY'
@@ -399,6 +403,7 @@ import downloads, corpus_queue as q, scan_queue
 for ledger in q.LEDGERS:
     with scan_queue.lock(ledger):
         pass  # the lock files exist, as a filer leaves them
+cold = q.ledger_marks()  # a ledger no writer has stamped yet: its stamp filled off the disk once
 touched = []
 real = {n: getattr(os, n) for n in ("stat", "lstat", "listdir", "scandir")}
 for name, fn in real.items():
@@ -410,9 +415,15 @@ finally:
         setattr(os, name, fn)
 root = str(downloads.ROOT) + os.sep
 media = sorted({os.fspath(p) for p in touched if isinstance(p, (str, os.PathLike)) and os.fspath(p).startswith(root)
-                and "/.manifest" not in os.fspath(p)} - {str(downloads.ARCHIVE_ORG / "filed.jsonl"), str(downloads.GALE_LEDGER)})
-if media or held is not None:
-    print(f"FAIL corpus_queue ledger_held/ledger_marks statted media paths {media} (held {held})")
+                and "/.manifest" not in os.fspath(p)})
+if media or held is not None or marks != cold:
+    print(f"FAIL corpus_queue ledger_held/ledger_marks statted media paths {media} (held {held}, marks {marks} cold {cold})")
     sys.exit(1)
-print("ok   corpus_queue ledger_held and ledger_marks stat no lock, done.tsv or Trove dir on the media disk")
+ledger = downloads.ARCHIVE_ORG / "filed.jsonl"
+scan_queue.append(ledger, [{"edition": "x"}])
+st = ledger.stat()
+if q.ledger_marks()[str(ledger)] != [st.st_size, st.st_mtime_ns] or q.ledger_marks() == cold:
+    print(f"FAIL a filer's append did not move corpus_queue's mark of {ledger}: {q.ledger_marks()}")
+    sys.exit(1)
+print("ok   corpus_queue ledger_held and ledger_marks stat no lock, ledger, done.tsv or Trove dir on the media disk")
 PY
