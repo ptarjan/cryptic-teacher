@@ -71,6 +71,9 @@ quotes.js                                      curls the straight quotes clue te
 qr.js                                          the QR encoder, drawn in the page: the sync code
                                                is the account, so it is never handed to an
                                                image service
+inflate.js                                     gunzip for the browsers without
+                                               DecompressionStream, loaded only when one has to
+                                               inflate a gzipped puzzle by hand
 vendor/                                        the one dependency shipped to the browser: jsQR,
                                                pinned by filename and sha256, fetched only when
                                                someone scans a code
@@ -101,7 +104,11 @@ clues_only/<series>/<id>.json                  a puzzle held as its clues alone 
 puzzles/<series>-<n>.js                        the same puzzle as a script, so app.js can
                                                inject it from file:// — flat, so its URL does
                                                not move with the source's year; built by
-                                               tools/fetch_puzzle.py --reindex, not committed
+                                               tools/fetch_puzzle.py --reindex, not committed.
+                                               The site ships it gzipped, as
+                                               puzzles/<series>-<n>.js.gz
+                                               (tools/stage_site.py), which app.js fetches and
+                                               inflates
 
 the rest of the site
 site.webmanifest                               PWA name, icons and display mode
@@ -2582,5 +2589,14 @@ tools/test_clue_repair.sh                      does tools/clue_repair.py give a 
                                                file "3,6,5" and not the bare letter total "14"?
 tools/test_off_start_leader.sh                 a leader that prints its clue on a later light,
                                                and a count the paper printed wrong
+
+building and checking the site
+tools/test_inflate.js                          does inflate.js, the gunzip app.js falls back on
+                                               where a browser has no DecompressionStream, give
+                                               back exactly what zlib compressed? Over every
+                                               block type zlib writes (stored at level 0, fixed
+                                               for short input, dynamic otherwise), header
+                                               flags, and real shims when the checkout has them
+                                               built
 ```
 <!-- LAYOUT-END -->

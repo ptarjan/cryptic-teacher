@@ -165,7 +165,10 @@ jobs:
       - name: Restore the puzzle shims
         uses: actions/cache/restore@v5
         with:
-          path: puzzles/*.js
+          path: |
+            puzzles/*.js
+            puzzles/*.js.gz
+            puzzles/shims.gz.json
           key: puzzle-shims-${{ github.sha }}
           restore-keys: puzzle-shims-
       # Then a restored shim the index no longer names (its puzzle deleted or
@@ -179,6 +182,8 @@ jobs:
           index = json.loads((d / "index.json").read_text(encoding="utf-8"))
           keep = {"index.js"} | {p["file"] for p in index["puzzles"] + index.get("unlisted", [])}
           gone = [f for f in d.glob("*.js") if f.name not in keep]
+          # and the .gz stage_site.py made of one (index.js is never gzipped)
+          gone += [f for f in d.glob("*.js.gz") if f.name[:-3] not in keep or f.name == "index.js.gz"]
           for f in gone:
               f.unlink()
           print(f"removed {len(gone)} shim(s) no puzzle has")
@@ -366,7 +371,10 @@ jobs:
         if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}
         uses: actions/cache/save@v5
         with:
-          path: puzzles/*.js
+          path: |
+            puzzles/*.js
+            puzzles/*.js.gz
+            puzzles/shims.gz.json
           key: puzzle-shims-${{ github.sha }}
       - name: Save the social cards
         if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}

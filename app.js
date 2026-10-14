@@ -804,15 +804,54 @@
     const p = BY_ID[id];
     if (!p) return done();
     puzzleLoad[id] = [done];
-    const s = document.createElement("script");
-    // ?v=<content hash> so an updated puzzle is never served from cache
-    s.src = at("puzzles/" + p.file + (p.v ? "?v=" + p.v : ""));
-    s.onload = s.onerror = () => {
+    const settle = () => {
       const waiting = puzzleLoad[id];
       puzzleLoad[id] = 1;
       waiting.forEach((f) => f());
     };
-    document.head.appendChild(s);
+    // ?v=<content hash> so an updated puzzle is never served from cache
+    const v = p.v ? "?v=" + p.v : "";
+    const script = () => {
+      const s = document.createElement("script");
+      s.src = at("puzzles/" + p.file + v);
+      s.onload = s.onerror = settle;
+      document.head.appendChild(s);
+    };
+    // The site ships puzzles/<id>.js.gz, not the .js (tools/stage_site.py:
+    // Pages counts the artifact uncompressed, and cannot serve a .gz with
+    // Content-Encoding), so it is fetched and inflated here and run the way
+    // the script tag would run it. The .js script tag is the way in wherever
+    // that fails: file:// (no fetch), a checkout served as it stands (no .gz
+    // built), and the Node harnesses, whose window has no fetch.
+    if (!window.fetch) return script();
+    window.fetch(at("puzzles/" + p.file + ".gz" + v))
+      .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.arrayBuffer(); })
+      .then(unzipText)
+      .then((text) => { new Function("window", text)(window); settle(); })
+      .catch(() => (window.CRYPTIC_PUZZLES[id] ? settle() : script()));
+  }
+
+  // The text in a .gz's bytes. DecompressionStream where the browser has it;
+  // inflate.js, loaded on first need, where it does not (Safari before 16.4,
+  // Firefox before 113). Bytes that are not gzip are taken as the text itself,
+  // for a server that sent the .gz with Content-Encoding and so had the
+  // browser inflate it already.
+  let inflateLoad = null;
+  function unzipText(buf) {
+    const bytes = new Uint8Array(buf);
+    if (bytes[0] !== 0x1f || bytes[1] !== 0x8b) return new TextDecoder().decode(bytes);
+    if (window.DecompressionStream) {
+      return new Response(new Blob([bytes]).stream()
+        .pipeThrough(new window.DecompressionStream("gzip"))).text();
+    }
+    inflateLoad = inflateLoad || new Promise((ok, fail) => {
+      const s = document.createElement("script");
+      s.src = at("inflate.js");
+      s.onload = () => (window.ctGunzip ? ok(window.ctGunzip) : fail(new Error("no inflate")));
+      s.onerror = () => { inflateLoad = null; fail(new Error("no inflate")); };
+      document.head.appendChild(s);
+    });
+    return inflateLoad.then((gunzip) => new TextDecoder().decode(gunzip(bytes)));
   }
 
   // Every puzzle this browser has letters saved for, id -> progress. Built by

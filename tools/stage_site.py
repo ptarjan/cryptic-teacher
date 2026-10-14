@@ -24,7 +24,21 @@ for a tree whose only reader was tar. --list writes what tar should archive
 (the directories, then the files, each ./-relative to REPO), so tar reads the
 checkout itself; --check reads the pages where they are. The link check is
 its own invocation so the workflow can run it beside the upload.
+
+The shims ship gzipped. Pages counts the artifact's files uncompressed against
+its 1 GB, and the ~45k shims were ~530 MB of it; gzip -9 takes them to ~180 MB
+(0.335 of raw, measured 10-13 over the whole corpus). Pages cannot serve a
+.gz with Content-Encoding, so only a file the app fetches itself can ship
+compressed: app.js fetches puzzles/<id>.js.gz and inflates it in the page
+(DecompressionStream, or inflate.js where a browser lacks it). So the site
+carries puzzles/<id>.js.gz in place of puzzles/<id>.js; the .js stays in the
+checkout for file:// and every tool and harness that reads it. Each .gz is
+written beside its shim and rewritten only when the shim's bytes change
+(SHIM_GZ_MANIFEST, cached with the shims), so a deploy compresses only what
+moved.
 """
+import gzip
+import hashlib
 import json
 import os
 import posixpath
@@ -53,6 +67,12 @@ PUBLISH = [
     "puzzles/*/index.html", "puzzles/series/**/*",
 ]
 
+# A puzzle's shim, which ships as SHIM.gz; puzzles/index.js, the catalogue
+# index.html loads as a script, stays plain.
+SHIM = re.compile(r"puzzles/(?!index\.js$)[^/]+\.js")
+# md5 of each shim's bytes as of its .gz: not published (no PUBLISH glob).
+SHIM_GZ_MANIFEST = "puzzles/shims.gz.json"
+
 LINK = re.compile(r'''\b(?:src|href)="([^"]*)"|'''
                   r'''property="og:image"\s+content="([^"]*)"''')
 
@@ -69,11 +89,57 @@ def select(src):
     return sorted(found)
 
 
+#: (src, manifest) for gzip_shim(), set by publish() before its workers fork.
+_GZ = None
+
+
+def gzip_shim(rel):
+    """Write src/rel.gz unless the manifest says it already holds rel's
+    bytes; (rel, md5 of rel)."""
+    src, manifest = _GZ
+    js, gz = src / rel, src / (rel + ".gz")
+    data = js.read_bytes()
+    digest = hashlib.md5(data).hexdigest()
+    if manifest.get(rel) != digest or not gz.is_file():
+        tmp = gz.with_name(gz.name + ".tmp")
+        # mtime=0: the same shim always makes the same bytes.
+        tmp.write_bytes(gzip.compress(data, 9, mtime=0))
+        os.replace(tmp, gz)
+    return rel, digest
+
+
+def published(rel):
+    """The path rel is published at: a shim as its .gz."""
+    return rel + ".gz" if SHIM.fullmatch(rel) else rel
+
+
+def publish(src):
+    """select(src) with every shim swapped for its .gz, compressing the
+    shims whose .gz is missing or stale."""
+    global _GZ
+    files = select(src)
+    shims = [f for f in files if SHIM.fullmatch(f)]
+    if not shims:
+        return files
+    path = src / SHIM_GZ_MANIFEST
+    try:
+        manifest = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        manifest = {}
+    _GZ = src, manifest
+    try:
+        done = dict(parallel.pmap(gzip_shim, shims))
+    finally:
+        _GZ = None
+    path.write_text(json.dumps(done, sort_keys=True, separators=(",", ":")), encoding="utf-8")
+    return sorted(published(f) for f in files)
+
+
 def stage(src, out):
     """Link PUBLISH into out; the set of paths staged, relative, with /."""
     if out.exists():
         shutil.rmtree(out)
-    staged, made = set(select(src)), set()
+    staged, made = set(publish(src)), set()
     for rel in staged:
         dest = out / rel
         if dest.parent not in made:
@@ -148,8 +214,8 @@ def check(out, staged):
     _CHECK = None
     index = json.loads((out / "puzzles/index.json").read_text(encoding="utf-8"))
     for p in index["puzzles"] + index.get("unlisted", []):
-        if f"puzzles/{p['file']}" not in staged:
-            missing.append(f"puzzles/index.json -> puzzles/{p['file']}")
+        if published(f"puzzles/{p['file']}") not in staged:
+            missing.append(f"puzzles/index.json -> {published('puzzles/' + p['file'])}")
     return missing
 
 
@@ -167,7 +233,7 @@ def report(where, missing):
 def main(argv):
     if argv[:1] == ["--list"] and len(argv) == 2:
         t0 = time.monotonic()
-        files = select(REPO)
+        files = publish(REPO)
         Path(argv[1]).write_text("".join(f"{line}\n" for line in tar_list(files)), encoding="utf-8")
         print(f"stage_site: {len(files)} files listed in {argv[1]} in {time.monotonic() - t0:.1f}s")
         return 0
