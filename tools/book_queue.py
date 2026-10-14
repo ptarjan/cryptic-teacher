@@ -40,6 +40,7 @@ import re
 import sys
 
 import downloads
+import media_manifest
 from json_merge import dump_lines
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -61,10 +62,20 @@ REPRINT_DIR = downloads.BOOK_REPRINTS
 READS = ROOT / "tools" / "data" / "book_reads.json"
 
 
+def save_text(identifier, text, out_dir=None):
+    """Write identifier's whole-book text to `out_dir` (TEXT_DIR) and note it
+    in the media_manifest.BOOK_TEXTS manifest text_of reads. Returns its path."""
+    out = pathlib.Path(out_dir or TEXT_DIR) / f"{identifier}.txt"
+    out.write_text(text, encoding="utf-8")
+    media_manifest.record(media_manifest.BOOK_TEXTS, out, identifier=identifier, chars=len(text))
+    return out
+
+
 def text_of(identifier):
-    """The cached whole-book text for identifier, or None."""
-    path = TEXT_DIR / f"{identifier}.txt"
-    return path if path.exists() and path.stat().st_size > 0 else None
+    """The cached whole-book text for identifier, or None: read off the
+    BOOK_TEXTS manifest, so the scheduled queue never stats the media disk."""
+    row = media_manifest.latest(media_manifest.BOOK_TEXTS, "identifier").get(identifier)
+    return TEXT_DIR / f"{identifier}.txt" if row and row["chars"] > 0 else None
 
 
 def reads():

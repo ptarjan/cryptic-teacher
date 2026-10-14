@@ -703,6 +703,8 @@ LAYOUT = [
     ("building and checking the site", "tools/nation_images.py", "the Nation's own pictures of its grids: the blank grid every page prints"),
     ("building and checking the site", "tools/test_fetch_nation_build_one.sh", "does one bad page fail on its own in fetch_nation's worker pool?"),
     ("building and checking the site", "tools/test_pct.sh", "does the site's progress percent floor, and only say 100% when it is?"),
+    ("building and checking the site", "tools/media_manifest.py", "what the media disk holds, kept on the SSD so no scheduled job walks it"),
+    ("building and checking the site", "tools/test_no_media_scans.sh", "does no scheduled tick walk the media disk?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
