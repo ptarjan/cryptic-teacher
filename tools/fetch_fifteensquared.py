@@ -289,7 +289,7 @@ def main():
     total_new = 0
     for name in wanted:
         total_new += fetch_posts(cats[name], name, args.pages)
-    print(f"posts: +{total_new} new, {len(cached_post_ids())} cached", flush=True)
+    print(f"posts: +{total_new} new", flush=True)
 
     if not args.posts_only:
         # Comments for the whole cache, not just this run's posts: a previous
@@ -297,8 +297,6 @@ def main():
         # and nothing else ever comes back for them.
         n = fetch_comments(cached_post_ids())
         print(f"comments: fetched for {n} posts", flush=True)
-
-    status()
     return 0
 
 

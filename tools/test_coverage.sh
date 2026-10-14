@@ -115,6 +115,9 @@ for ident, rows in (("fresh", [{"book_number": 3, "status": "no-solution", "fili
 texts = tmp / "texts"
 texts.mkdir()
 (texts / "old-text.txt").write_text("text")
+import media_manifest  # the queue reads which texts are held off the SSD manifest
+media_manifest.DIR = tmp / "manifest"
+media_manifest.write(media_manifest.BOOK_TEXTS, [{"identifier": "old-text", "chars": 4, "at": 0}])
 cov.ROOT, acquire_book.DEFAULT_OUT, book_queue.READS, book_queue.TEXT_DIR = broot, out, reads, texts
 got = {(b["cause"], b["puzzles"]) for b in cov.books().result()["buckets"]}
 assert got == {("clues-only-refused", 1), ("budget-exhausted", 1), ("read-no-report", 1), ("not-split", 1),

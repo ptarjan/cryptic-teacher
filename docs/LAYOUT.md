@@ -2622,5 +2622,8 @@ tools/test_fetch_nation_build_one.sh           does one bad page fail on its own
                                                fetch_nation's worker pool?
 tools/test_pct.sh                              does the site's progress percent floor, and only
                                                say 100% when it is?
+tools/media_manifest.py                        what the media disk holds, kept on the SSD so no
+                                               scheduled job walks it
+tools/test_no_media_scans.sh                   does no scheduled tick walk the media disk?
 ```
 <!-- LAYOUT-END -->

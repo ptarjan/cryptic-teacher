@@ -285,7 +285,7 @@ def borrow_text(identifier, max_pages=None):
 
     FETCHED_TEXT_DIR.mkdir(parents=True, exist_ok=True)
     if max_pages is None:
-        out = FETCHED_TEXT_DIR / f"{identifier}.txt"
+        out = book_queue.save_text(identifier, text, FETCHED_TEXT_DIR)
         note = f", cached at {out}"
     else:
         # A sample must never land under the whole-book name: the cache check
@@ -294,7 +294,7 @@ def borrow_text(identifier, max_pages=None):
         out = FETCHED_TEXT_DIR / f"{identifier}.sample-{max_pages}p.txt"
         note = (f", written to {out} as a SAMPLE of the first {max_pages} "
                 f"pages — not the book, and not cached as one")
-    out.write_text(text, encoding="utf-8")
+        out.write_text(text, encoding="utf-8")
     return out, (f"borrowed from archive.org, {len(text)} chars of page OCR "
                  f"read, loan returned{note}"), None
 

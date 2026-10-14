@@ -40,10 +40,10 @@ import sys
 import time
 from pathlib import Path
 import archive_coverage
-import dir_cache
 import file_archive_org_puzzles as fa
 import gale_docs
 import gale_fetch
+import media_manifest
 import pypdf
 import trove_grid
 
@@ -63,8 +63,6 @@ HOME = Path(os.path.expanduser("~/.cache/gale_inbox"))
 CHECKLIST = HOME / CHECKLIST_NAME
 
 
-#: The edition dirs' listings and staged matches between ticks (dir_cache.save).
-DIR_CACHE = HOME / "dir_cache.pickle"
 LOCK = HOME / "sync.lock"
 #: A tick re-renders the progress page when tools/gale_fetch.py logged a
 #: download, else this often, so a puzzle the full pass filed leaves it.
@@ -77,6 +75,11 @@ TICK = TOOLS / "corpus_queue.sh"
 TICK_LOG = Path(os.path.expanduser("~/.cache/corpus_queue/kick.log"))
 CACHE = fa.CACHE
 ITEM = "GaleTimes{}UKEnglish"
+#: Any Gale paper's item: the Times' ITEM or an OTHERS paper's.
+GALE_ITEM = re.compile(r"Gale[A-Za-z]+\d{4}UKEnglish")
+#: The SSD manifest of the editions laid out under CACHE (lay_out_fetched):
+#: what a tick reads instead of the media disk.
+EDITIONS = media_manifest.GALE_EDITIONS
 #: An edition dir's name under ITEM.
 ISO_DAY = re.compile(r"\d{4}-\d\d-\d\d")
 PAGES = (".pdf", ".jpg", ".jpeg", ".png", ".tif", ".tiff", ".gif", ".webp")
@@ -295,6 +298,7 @@ def shrink_oversized(cache=CACHE, cap=None, out=sys.stdout):
         if moved:
             pj.write_text(json.dumps(pages, indent=1))
             done.append(pj.parent)
+            note_edition(pj.parent)
     return done
 
 
@@ -342,13 +346,43 @@ def lay_out_fetched(day, doc, data, entry, cache=CACHE, prod="TTDA"):
         shutil.rmtree(d)
     tmp.rename(d)
     work.rmdir()
+    note_edition(d, [m])
     return d
 
 
-def fetched_dir(d):
-    """Is edition dir `d` one tools/gale_fetch.py laid out (lay_out_fetched)?"""
-    found = staged_year(d.parent).get(d.name, ((), None))[1]
-    return bool(found) and all(m.get("how") == FETCHED_HOW for m in found)
+def note_edition(d, sources=None):
+    """Append edition dir `d` (its files' hash, its sources, now) to the
+    EDITIONS manifest; `sources` None keeps its last row's."""
+    rel = f"{d.parent.name}/{d.name}"
+    if sources is None:
+        sources = editions().get(rel, {}).get("sources")
+    media_manifest.record(EDITIONS, d, edition=rel, files=fa.input_hash(d), sources=sources)
+
+
+def editions():
+    """{"<item>/<date>": its last EDITIONS row}."""
+    return media_manifest.latest(EDITIONS, "edition")
+
+
+def build_manifest(cache=CACHE, out=sys.stdout):
+    """Walk the Gale items under `cache` once and write the EDITIONS manifest
+    whole: a row for each laid-out edition (one with a sources-*.json), as
+    note_edition would have. Never scheduled."""
+    found = []
+    for item in sorted(os.listdir(cache)):
+        if not GALE_ITEM.fullmatch(item):
+            continue
+        for day in sorted(os.listdir(cache / item)):
+            d = cache / item / day
+            if not ISO_DAY.fullmatch(day) or not d.is_dir():
+                continue
+            srcs = sorted(n for n in os.listdir(d) if n.startswith("sources-") and n.endswith(".json"))
+            if srcs:
+                found.append({"edition": f"{item}/{day}", "files": fa.input_hash(d),
+                              "sources": json.loads((d / srcs[-1]).read_text()), "at": d.stat().st_mtime})
+    media_manifest.write(EDITIONS, found)
+    print(f"{len(found)} Gale edition(s) written to {media_manifest.path(EDITIONS)}", file=out)
+    return found
 
 
 def save_json(path, value):
@@ -505,42 +539,35 @@ def printed(other, until):
         d += datetime.timedelta(days=1)
 
 
-def other_wanted(prod, cache=CACHE, today=None):
+def other_wanted(prod, today=None, laid=None):
     """[date] of each edition of OTHERS[prod] in its Gale years with no
-    puzzle filed and none laid out, newest first."""
+    puzzle filed and none laid out (the EDITIONS manifest), newest first."""
     other = OTHERS[prod]
     today = today or datetime.datetime.now().astimezone().date()
     filed = archive_coverage.corpus(other.series)[0]
-    laid = {}
+    laid = set(editions()) if laid is None else laid
     out = []
     for d in printed(other, min(today, datetime.date(other.years[-1], 12, 31))):
         if d.year not in other.years or d.isoformat() in filed:
             continue
-        if d.year not in laid:
-            year = cache / other.item.format(d.year)
-            laid[d.year] = set(os.listdir(year)) if year.is_dir() else set()
-        if d.isoformat() not in laid[d.year]:
+        if f"{other.item.format(d.year)}/{d.isoformat()}" not in laid:
             out.append(d)
     return out[::-1]
 
 
-def fresh_unread(cache=CACHE, rows=None, now=None):
-    """The "<item>/<date>" of each Gale edition laid out in the last FRESH
-    seconds that has no reading of its current files in the ledger."""
-    rows = archive_coverage.ledger() if rows is None else rows
+def fresh_unread(rows=None, now=None, laid=None):
+    """The "<item>/<date>" of each Times edition laid out (or shrunk) in the
+    last FRESH seconds whose files the ledger holds no reading of. Read off
+    the EDITIONS manifest; the ledger is read only when one is that fresh."""
     now = time.time() if now is None else now
-    out = []
-    # An edition's pages.json is written before the rename that lays it out
-    # moves its year dir: a year dir unmoved for FRESH holds no fresh one.
-    years = [cache / y for y in dir_cache.listed(cache) if re.fullmatch(ITEM.format(r"\d+"), y)]
-    for pages in (p for y in years if now - y.stat().st_mtime <= FRESH for p in y.glob("*/pages.json")):
-        d = pages.parent
-        if now - pages.stat().st_mtime > FRESH:
-            continue
-        row = rows.get(f"{d.parent.name}/{d.name}") or {}
-        if "inputs" not in row or row.get("filesHash") != fa.input_hash(d):
-            out.append(f"{d.parent.name}/{d.name}")
-    return sorted(out)
+    laid = editions() if laid is None else laid
+    fresh = {e: r for e, r in laid.items()
+             if now - r["at"] <= FRESH and re.fullmatch(ITEM.format(r"\d+"), e.split("/")[0])}
+    if not fresh:
+        return []
+    rows = archive_coverage.ledger() if rows is None else rows
+    return sorted(e for e, r in fresh.items()
+                  if "inputs" not in (rows.get(e) or {}) or rows[e].get("filesHash") != r["files"])
 
 
 def kick(out=sys.stdout, tick=TICK, log=TICK_LOG):
@@ -571,57 +598,16 @@ def kick(out=sys.stdout, tick=TICK, log=TICK_LOG):
     return p
 
 
-def _staged_in(d):
-    """(the sources-*.json names, the last one parsed or None) of edition
-    dir `d`: kept in dir_cache's memo (and so between ticks, dir_cache.save)
-    until the dir moves, not read off the media mount again."""
-    _, names, memo = dir_cache.seen(d)
-    srcs = tuple(n for n in names if n.startswith("sources-") and n.endswith(".json"))
-    if "sources" not in memo:
-        memo["sources"] = json.loads((d / srcs[-1]).read_text()) if srcs else None
-    return srcs, memo["sources"]
-
-
-def staged_year(year_dir):
-    """{day: (its sources-*.json names, the last one parsed or None)} of
-    each edition dir in `year_dir` ({} when it is no dir). A day dir's
-    sources-*.json change only as stage renames a whole dir in or removes
-    one, each of which moves the year dir (relink rewrites pages.json alone),
-    so the answer is kept in the year dir's memo while the year dir is
-    unmoved: one stat, not one a day."""
-    try:
-        _, names, memo = dir_cache.seen(year_dir)
-    except (FileNotFoundError, NotADirectoryError):
-        return {}
-    if "staged" not in memo:
-        found = {}
-        for day in names:
-            try:
-                found[day] = _staged_in(year_dir / day)
-            except (FileNotFoundError, NotADirectoryError):
-                continue
-        memo["staged"] = found
-    return memo["staged"]
-
-
-def has_sources(d, name):
-    """Whether edition dir `d` holds sources file `name` (staged_year)."""
-    return name in staged_year(d.parent).get(d.name, ((), None))[0]
-
-
-def staged_matches(cache=CACHE):
-    """{date: [match]} of the inbox pages staged as editions (stage's
-    sources-*.json). Each year dir is stat-ed, not its editions, while it
-    is unmoved (staged_year); a dir not named for a date (a .new one a
-    killed stage left) is no edition."""
+def staged_matches(laid=None):
+    """{date: [match]} of the Times editions laid out (the EDITIONS
+    manifest's sources)."""
+    laid = editions() if laid is None else laid
     out = {}
     years = re.compile(ITEM.format(r"\d+"))
-    for item in dir_cache.listed(cache):
-        if not years.fullmatch(item):
-            continue
-        for day, (_, found) in staged_year(cache / item).items():
-            if found is not None and ISO_DAY.fullmatch(day):
-                out[datetime.date.fromisoformat(day)] = copy.deepcopy(found)
+    for e, r in laid.items():
+        item, day = e.split("/")
+        if years.fullmatch(item) and ISO_DAY.fullmatch(day) and r.get("sources") is not None:
+            out[datetime.date.fromisoformat(day)] = copy.deepcopy(r["sources"])
     return out
 
 
@@ -702,7 +688,7 @@ FETCHED, LIMITS = gale_fetch.FETCHED, gale_fetch.LIMITS
 LATEST = 20
 
 
-def checklist(rows=None, cache=CACHE, docs=None, ledger=None, log=SET_ASIDE,
+def checklist(rows=None, laid=None, docs=None, ledger=None, log=SET_ASIDE,
               fetched=FETCHED, limits=LIMITS, now=None):
     """The Times progress page. tools/gale_fetch.py downloads every wanted
     edition itself, so nothing on it is to click: how many editions are
@@ -713,7 +699,7 @@ def checklist(rows=None, cache=CACHE, docs=None, ledger=None, log=SET_ASIDE,
     now = now or datetime.datetime.now().astimezone()
     rows = wanted() if rows is None else rows
     ledger = archive_coverage.ledger() if ledger is None else ledger
-    matches = staged_matches(cache)
+    matches = staged_matches(laid)
     docs = gale_docs.load() if docs is None else docs
     aside = aside_days(log)
     gone = {day for day, _ in rows if not_on_gale(day, docs, aside)}
@@ -787,7 +773,12 @@ def sync(out=sys.stdout, force=False):
     """One tick: publish the Times progress page when tools/gale_fetch.py
     logged a download since the last (or RENDER_EVERY passed); then start
     the full pass if none runs to read the editions tools/gale_fetch.py
-    laid out (kick). Skipped when another sync is running."""
+    laid out (kick). Skipped when another sync is running, or until the
+    EDITIONS manifest is built (build-manifest)."""
+    if not media_manifest.built(EDITIONS):
+        print(f"{media_manifest.path(EDITIONS)} is not built yet (gale_inbox.py build-manifest); this tick skips",
+              file=out)
+        return
     with locked(wait=False) as mine:
         if not mine:
             # Another sync is doing this same work: waiting behind it ran a
@@ -795,12 +786,10 @@ def sync(out=sys.stdout, force=False):
             print("another sync holds the lock; this one skips", file=out)
             return
         _TICK_HELD[:] = [fa.held_dates(fa.TIMES.series)]
-        dir_cache.load(DIR_CACHE)
         try:
             _sync_locked(out, force)
         finally:
             _TICK_HELD.clear()
-            dir_cache.save(DIR_CACHE)
     kick(out)
 
 
@@ -821,8 +810,12 @@ def main(argv=None):
     sy.add_argument("--render", action="store_true", help="publish even when nothing was downloaded")
     cl = sub.add_parser("checklist", help="write the progress page")
     cl.add_argument("--out", type=Path, default=CHECKLIST)
+    sub.add_parser("build-manifest", help="walk the Gale editions once and write their SSD manifest (never scheduled)")
     sub.add_parser("shrink", help="lay out smaller every staged leaf over MAX_PAGE_PIXELS (its edition comes due)")
     a = ap.parse_args(argv)
+    if a.cmd == "build-manifest":
+        build_manifest()
+        return 0
     if a.cmd == "shrink":
         print(f"{len(shrink_oversized())} edition(s) shrunk")
         return 0

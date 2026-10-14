@@ -25,7 +25,12 @@ trap 'rm -rf "$tree"' EXIT
 # Cached book text lives under tools/downloads.py's root; keep the real one out of it.
 export CT_DOWNLOADS="$tree/downloads"
 mkdir -p "$tree/tools/data" "$tree/puzzles/book/2000"
-cp "$REPO/tools/book_queue.py" "$REPO/tools/downloads.py" "$REPO/tools/json_merge.py" "$tree/tools/"
+cp "$REPO/tools/book_queue.py" "$REPO/tools/downloads.py" "$REPO/tools/json_merge.py" \
+  "$REPO/tools/media_manifest.py" "$tree/tools/"
+# The book texts' manifest (media_manifest.BOOK_TEXTS), as its one-off build leaves it.
+mkdir -p "$CT_DOWNLOADS/.manifest" "$CT_DOWNLOADS/ia-books"
+: > "$CT_DOWNLOADS/.manifest/ia-books.jsonl"
+save_text() { (cd "$tree/tools" && python3 -c 'import sys, book_queue as q; q.save_text(sys.argv[1], "text\n")' "$1"); }
 
 cat > "$tree/tools/data/books.json" <<'JSON'
 {"books": [
@@ -98,9 +103,9 @@ check "--next exits non-zero on an empty queue" "1" "$?"
 # are due. The ones whose text is on disk are re-read with no loan; the rest
 # go back to the borrow queue.
 rm "$tree/tools/data/book_reads.json"
-mkdir -p "$tree/downloads/ia-books"
-echo text > "$tree/downloads/ia-books/read-one.txt"
+save_text read-one
 echo text > "$tree/downloads/ia-books/unread-best.sample-6p.txt"
+echo text > "$tree/downloads/ia-books/unread-worse.txt"  # on disk, never noted: the queue reads no disk
 check "a due book with cached text is re-read, a sample is not a book" "read-one" \
   "$(cd "$tree" && python3 tools/book_queue.py --reread | tr '\n' ' ' | sed 's/ $//')"
 check "a due book whose text is gone is borrowed again" \
@@ -126,7 +131,7 @@ check "a book read by the reader in force is not re-read" "" \
 check "nor borrowed again" "0" "$(cd "$tree" && python3 tools/book_queue.py --count)"
 # A book never read whose text is on disk is re-read, never borrowed.
 rm "$tree/tools/data/book_reads.json" "$tree/puzzles/book/2000/book-2007.json"
-echo text > "$tree/downloads/ia-books/unread-best.txt"
+save_text unread-best
 check "an unread book with text on disk is not borrowed" "" \
   "$(cd "$tree" && python3 tools/book_queue.py | cut -f1 | grep -x unread-best)"
 

@@ -745,12 +745,12 @@ def main(argv):
     # <out>/<id>.txt as THE book, and a truncated file sitting there would
     # be read as a complete one and silently acquire half a book.
     if args.max_pages is None:
-        out_path = args.out / f"{args.identifier}.txt"
+        out_path = book_queue.save_text(args.identifier, text, args.out)
         note = ""
     else:
         out_path = args.out / f"{args.identifier}.sample-{args.max_pages}p.txt"
         note = f" — SAMPLE of the first {args.max_pages} pages, not the book"
-    out_path.write_text(text, encoding="utf-8")
+        out_path.write_text(text, encoding="utf-8")
     print(f"wrote {out_path} ({len(text)} chars){note}")
     return 0
 

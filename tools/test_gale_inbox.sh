@@ -15,6 +15,11 @@ set -euo pipefail
 cd "$(dirname "$0")"
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
+# A temp downloads root, its manifests beside it (media_manifest.DIR), as the
+# one-off build leaves the Gale editions' one.
+export CT_DOWNLOADS="$tmp/dl"
+mkdir -p "$CT_DOWNLOADS/.manifest"
+: > "$CT_DOWNLOADS/.manifest/gale-editions.jsonl"
 python3 - "$tmp" <<'PY'
 import datetime, io, json, re, sys
 from pathlib import Path
@@ -29,7 +34,6 @@ def _no_mac(command, **kw):
 g.ssh = _no_mac
 # Nor read the live caches (~/.cache).
 g.HOME = Path(sys.argv[1]) / "home"
-g.DIR_CACHE = Path(sys.argv[1]) / "dir_cache.pickle"
 
 fails = 0
 def check(what, want, got):
@@ -66,8 +70,8 @@ check("next_up: No 1, the old list in its order, 2014-19, 2000-13, then the rest
 # A page tools/gale_fetch.py downloaded is its date's Times edition, found
 # by the Gale run, fresh until read.
 import PIL.Image, shutil, subprocess, shutil as _sh
-cache = Path(sys.argv[1]) / "cache"
-cache.mkdir()
+cache = fa.CACHE
+cache.mkdir(parents=True)
 _pdf = io.BytesIO()
 PIL.Image.new("RGB", (1200, 1600), "white").save(_pdf, format="PDF")
 d = g.lay_out_fetched(D(1988, 1, 12), "IF0503151598", _pdf.getvalue(),
@@ -80,12 +84,21 @@ check("the Gale run finds the staged edition", [d], [e for e in fa.edition_dirs(
 check("as a Gale page, filed as the Times", (fa.GALE, "times"), (fa.paper_of(d), fa.paper_of(d).series))
 check("and no other run's", ([], []), (fa.edition_dirs(cache, fa.FT), fa.edition_dirs(cache, fa.TIMES)))
 rel = f"{d.parent.name}/{d.name}"
-now = (d / "pages.json").stat().st_mtime
-check("fresh_unread: an edition just laid out and never read is read now", [rel], g.fresh_unread(cache, {}, now))
+now = g.editions()[rel]["at"]
+check("lay_out_fetched notes the edition in the SSD manifest, its files' hash and sources",
+      (fa.input_hash(d), "IF0503151598"), (g.editions()[rel]["files"], g.editions()[rel]["sources"][0]["docId"]))
+check("fresh_unread: an edition just laid out and never read is read now", [rel], g.fresh_unread({}, now))
 check("not once read with its current files", [],
-      g.fresh_unread(cache, {rel: {"inputs": "x", "filesHash": fa.input_hash(d)}}, now))
-check("again once its files change", [rel], g.fresh_unread(cache, {rel: {"inputs": "x", "filesHash": "old"}}, now))
-check("one laid out before FRESH is the full pass's", [], g.fresh_unread(cache, {}, now + g.FRESH + 1))
+      g.fresh_unread({rel: {"inputs": "x", "filesHash": fa.input_hash(d)}}, now))
+check("again once its files change", [rel], g.fresh_unread({rel: {"inputs": "x", "filesHash": "old"}}, now))
+check("one laid out before FRESH is the full pass's", [], g.fresh_unread({}, now + g.FRESH + 1))
+def _no_ledger():
+    raise AssertionError("fresh_unread read the ledger with no fresh edition")
+_real_ledger, g.archive_coverage.ledger = g.archive_coverage.ledger, _no_ledger
+try:
+    check("with none fresh it reads no ledger", [], g.fresh_unread(None, now + g.FRESH + 1))
+finally:
+    g.archive_coverage.ledger = _real_ledger
 launched = []
 class FakePopen:
     pid = 1
@@ -129,7 +142,7 @@ FETCHED.write_text(json.dumps({"IF0502610073": {"date": "1988-01-13", "file": "G
 LIMITS = Path(sys.argv[1]) / "limits.json"
 LIMITS.write_text(json.dumps({"refusals": [{"at": "2026-10-11T15:00:00-06:00", "in_window": 480}],
                               "recoveries": [{"waited": 1800}]}))
-html = g.checklist(rows, cache, docs={}, ledger={}, log=LOG, fetched=FETCHED, limits=LIMITS)
+html = g.checklist(rows, None, docs={}, ledger={}, log=LOG, fetched=FETCHED, limits=LIMITS)
 check("nothing to click: no Download, no script, no instructions; it reloads itself", (False, False, False, True),
       ('class="dl"' in html, "<script>" in html, 'id="instructions"' in html, 'http-equiv="refresh"' in html))
 check("its counts: wanted, to fetch, waiting to be read", (True, True, True),
@@ -141,7 +154,7 @@ check("the years in next_up's order, the worst first", True, html.index("<td>198
 rel88 = "GaleTimes1988UKEnglish/1988-01-12"
 scanned = {rel88: {"edition": rel88, "scan": {"puzzles": [], "solutions": []}, "filesHash": fa.input_hash(d),
                   "scanKey": fa.scan_key(fa.GALE)}}
-html2 = g.checklist(rows, cache, docs={}, ledger=scanned, log=LOG, fetched=FETCHED, limits=LIMITS)
+html2 = g.checklist(rows, None, docs={}, ledger=scanned, log=LOG, fetched=FETCHED, limits=LIMITS)
 check("a read edition counts as read, not waiting", (True, True),
       ("<th>Read, no puzzle filed from it</th><td>1</td>" in html2, "<th>Fetched, waiting to be read</th><td>0</td>" in html2))
 
@@ -154,19 +167,19 @@ check("a fetched page is its date's edition, its match what the download knew", 
       "The Times Crossword Puzzle No 17,565", True),
       ((fd / "leaf_0000.jpg").exists(), _src[0]["how"], _src[0]["docId"], _src[0]["cited"],
        g.cryptic_cited(_src[0])))
-check("and it counts as staged", True, D(1988, 1, 14) in g.staged_matches(cache))
+check("and it counts as staged", True, D(1988, 1, 14) in g.staged_matches())
 shutil.rmtree(fd)
 
 # Another paper's fetched page is laid out under its own item, its link
 # that archive's, and leaves that paper's wanted list.
 _e = {"doc": "IO0700000001", "title": "No. 12,212 across", "page": 14}
-check("an OTHERS paper's date is wanted until laid out", True, D(1965, 3, 2) in g.other_wanted("TGRH", cache))
+check("an OTHERS paper's date is wanted until laid out", True, D(1965, 3, 2) in g.other_wanted("TGRH"))
 od = g.lay_out_fetched(D(1965, 3, 2), "IO0700000001", _pdf.getvalue(), _e, cache, prod="TGRH")
 check("laid out under the paper's own item, with its archive's link", (cache / "GaleTelegraph1965UKEnglish" / "1965-03-02",
       "GaleTelegraph1965UKEnglish", True), (od, json.loads((od / "pages.json").read_text())["item"],
                                            "/TGRH?" in json.loads((od / "pages.json").read_text())["url"]))
-check("and no longer wanted", False, D(1965, 3, 2) in g.other_wanted("TGRH", cache))
-check("no Times edition", False, D(1965, 3, 2) in g.staged_matches(cache))
+check("and no longer wanted", False, D(1965, 3, 2) in g.other_wanted("TGRH"))
+check("no Times edition", False, D(1965, 3, 2) in g.staged_matches())
 shutil.rmtree(od.parent)
 
 # Not on Gale: no issue, or no crossword listed and the page saved for the
@@ -180,7 +193,7 @@ aside = g.aside_days(LOG)
 check("Gale has no cryptic: no issue, or no crossword listed and the page found another puzzle; else still to fetch",
       (True, True, None), (bool(g.not_on_gale(D(1988, 1, 14), docs, aside)), bool(g.not_on_gale(D(1987, 3, 2), docs, aside)),
                            g.not_on_gale(D(1988, 1, 13), docs, aside)))
-html3 = g.checklist(rows, cache, docs=docs, ledger={}, log=LOG, fetched=FETCHED, limits=LIMITS)
+html3 = g.checklist(rows, None, docs=docs, ledger={}, log=LOG, fetched=FETCHED, limits=LIMITS)
 check("such a date counts as not on Gale, not to fetch", True, "<th>Not on Gale</th><td>2</td>" in html3)
 check("only the cryptic's title is the cryptic", (True, False, False),
       (g.cryptic_cited({"cited": cryptic}), g.cryptic_cited({"cited": concise}), g.cryptic_cited({})))
@@ -280,87 +293,46 @@ g.FETCHED.write_text("{}")
 g.sync(out=io.StringIO())
 check("a tick after a download (or RENDER_EVERY) publishes the progress page", ([1], [1]), (pages_made, pushed))
 (g.next_up, g.wanted, g.last_render, g.kick, g.LOCK, g.checklist, g.publish, g.CHECKLIST, g.FETCHED) = real
-# staged_matches reads an unmoved edition dir once, across ticks, and again
-# once it moves; while a year dir is unmoved, it is the one stat. Temp cache
-# and cache file only.
-import os, shutil, time, datetime, dir_cache, archive_coverage
-sc = Path(sys.argv[1]) / "staged_cache"
-def age(*ds):
-    old = time.time() - 3600
-    for d in ds:
-        os.utime(d, (old, old))
-def lay(day, data, key="1"):
-    """As lay_out_fetched lays an edition out: built beside it, then swapped in whole."""
-    d = sc / g.ITEM.format(day.year) / day.isoformat()
-    tmp = d.with_name(d.name + ".new")
-    tmp.mkdir(parents=True)
-    (tmp / f"sources-{key}.json").write_text(json.dumps(data))
-    if d.exists():
-        shutil.rmtree(d)
-    tmp.rename(d)
-    age(d, d.parent)
-d1, d2 = datetime.date(1960, 1, 4), datetime.date(1961, 2, 6)
-lay(d1, [{"file": "a.pdf"}]); lay(d2, [{"file": "b.pdf"}])
-(sc / "GaleTimes1960UKEnglish" / "1960-01-05").mkdir()
-# A dir a killed lay-out left beside its edition is no edition.
-(sc / "GaleTimes1960UKEnglish" / "1960-01-06.new").mkdir()
-(sc / "GaleTimes1960UKEnglish" / "1960-01-06.new" / "sources-9.json").write_text("[]")
-(sc / "other").mkdir()
-age(*(sc / "GaleTimes1960UKEnglish").iterdir(), sc / "GaleTimes1960UKEnglish", sc)
-dir_cache._SEEN.clear()
-want = {d1: [{"file": "a.pdf"}], d2: [{"file": "b.pdf"}]}
-check("staged_matches reads each edition's sources, skipping dirs without and a killed lay-out's .new",
-      want, g.staged_matches(sc))
-dir_cache.save(g.DIR_CACHE)
-dir_cache._SEEN.clear()
-dir_cache.load(g.DIR_CACHE)
-real_read, real_key = Path.read_text, dir_cache.dir_key
-stated = []
-def no_read(self, *a, **k):
-    raise AssertionError(f"re-read an unmoved edition: {self}")
-def counted_key(d):
-    stated.append(Path(d).name)
-    return real_key(d)
-Path.read_text, dir_cache.dir_key = no_read, counted_key
+# A tick reads the editions off the SSD manifest, never the media disk: no
+# listing, glob or stat of the cache.
+import os, time, datetime, archive_coverage
+import media_manifest
+real_fs = (os.listdir, os.scandir, os.stat, Path.glob, Path.iterdir)
+def _no_disk(*a, **k):
+    raise AssertionError(f"a tick looked at the disk: {a[:1]}")
+os.listdir = os.scandir = os.stat = Path.glob = Path.iterdir = _no_disk
 try:
-    got = g.staged_matches(sc)
-    has = (g.has_sources(sc / g.ITEM.format(1960) / "1960-01-04", "sources-1.json"),
-           g.has_sources(sc / g.ITEM.format(1960) / "1960-01-04", "sources-2.json"),
-           g.has_sources(sc / g.ITEM.format(1960) / "1960-01-07", "sources-1.json"),
-           g.has_sources(sc / g.ITEM.format(1962) / "1962-01-01", "sources-1.json"))
+    staged = g.staged_matches()
+    fresh = g.fresh_unread({}, time.time() + g.FRESH + 1)
+    other = D(1965, 3, 2) in g.other_wanted("TGRH", today=D(1966, 1, 1))
 finally:
-    Path.read_text, dir_cache.dir_key = real_read, real_key
-check("a later tick loads the unmoved editions from the cache file, reading none", want, got)
-check("stat-ing the cache and each year dir, no edition dir",
-      ["GaleTimes1960UKEnglish", "GaleTimes1961UKEnglish", "GaleTimes1962UKEnglish", "staged_cache"], sorted(set(stated)))
-check("has_sources: the edition's own sources file, not another key's, a missing day's or year's",
-      (True, False, False, False), has)
-got[d1].append("mutated")
-check("a caller changing a result does not change the next", want, g.staged_matches(sc))
-lay(d1, [{"file": "c.pdf"}], key="2")
-check("an edition swapped in again moves its year dir, so is read again",
-      ({d1: [{"file": "c.pdf"}], d2: [{"file": "b.pdf"}]}, False, True),
-      (g.staged_matches(sc), g.has_sources(sc / g.ITEM.format(1960) / "1960-01-04", "sources-1.json"),
-       g.has_sources(sc / g.ITEM.format(1960) / "1960-01-04", "sources-2.json")))
-shutil.rmtree(sc / g.ITEM.format(1961) / d2.isoformat())
-age(sc / g.ITEM.format(1961))
-check("and one removed is gone", {d1: [{"file": "c.pdf"}]}, g.staged_matches(sc))
-# fresh_unread looks inside a year dir only when it moved within FRESH.
-rel1 = f"{g.ITEM.format(1960)}/{d1.isoformat()}"
-year = sc / g.ITEM.format(1960)
-os.utime(year / d1.isoformat(), None)
-(year / d1.isoformat() / "pages.json").write_text("{}")
-real_glob = Path.glob
-def no_glob(self, pattern):
-    raise AssertionError(f"globbed a year dir unmoved for FRESH: {self}")
-Path.glob = no_glob
+    os.listdir, os.scandir, os.stat, Path.glob, Path.iterdir = real_fs
+check("staged_matches, fresh_unread and other_wanted touch no disk", (True, [], False),
+      (D(1988, 1, 14) in staged, fresh, other))
+staged[D(1988, 1, 14)].append("mutated")
+check("a caller changing a result does not change the next", False, "mutated" in g.staged_matches()[D(1988, 1, 14)])
+# A later row for an edition stands over an earlier; another paper's is no Times match.
+media_manifest.record(g.EDITIONS, fa.CACHE / "x", edition=g.ITEM.format(1960) + "/1960-01-04", files="a",
+                      sources=[{"file": "a.pdf"}])
+media_manifest.record(g.EDITIONS, fa.CACHE / "x", edition=g.ITEM.format(1960) + "/1960-01-04", files="b",
+                      sources=[{"file": "c.pdf"}])
+check("the last row for an edition stands", [{"file": "c.pdf"}], g.staged_matches()[D(1960, 1, 4)])
+media_manifest.record(g.EDITIONS, Path(sys.argv[1]) / "elsewhere", edition="x/y", files="a", sources=[])
+check("a dir outside the downloads root is not recorded", False, "x/y" in g.editions())
+# The one-off build writes the same rows as the lay-outs did.
+laid = {e: (r["files"], r["sources"]) for e, r in g.editions().items() if (fa.CACHE / e).is_dir()}
+built = {r["edition"]: (r["files"], r["sources"]) for r in g.build_manifest(out=io.StringIO())}
+check("gale_inbox.py build-manifest finds every laid-out edition", laid, built)
+os.unlink(media_manifest.path(g.EDITIONS))
 try:
-    stale_year = g.fresh_unread(sc, {}, time.time())
-finally:
-    Path.glob = real_glob
-check("fresh_unread: a year dir unmoved for FRESH is not looked in", [], stale_year)
-os.utime(year, None)
-check("one that moved is, and its fresh edition found", [rel1], g.fresh_unread(sc, {}, time.time()))
+    g.staged_matches()
+    check("a manifest never built is an error, not an empty disk", True, False)
+except SystemExit as e:
+    check("a manifest never built is an error, not an empty disk", True, "media_manifest.py build" in str(e))
+said = io.StringIO()
+g.sync(out=said)
+check("and a sync tick skips until it is built", True, "not built yet" in said.getvalue())
+media_manifest.write(g.EDITIONS, [])
 # wanted() asks unfiled only for the dates archive.org holds no scan of:
 # those it skips need the ledgers and a stat of each edition's dir.
 class _Paper:

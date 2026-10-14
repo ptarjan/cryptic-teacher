@@ -388,9 +388,7 @@ def plan(got, skip=SKIP):
     still fewer, each OTHERS paper's other_wanted; none a document in
     `got`, none Gale has no crossword for. None: not looked up yet (run
     looks it up)."""
-    import dir_cache
     import gale_inbox
-    dir_cache.load(gale_inbox.DIR_CACHE)
     rows = gale_inbox.wanted()
     docs = gale_docs.load()
     aside = gale_inbox.aside_days()
