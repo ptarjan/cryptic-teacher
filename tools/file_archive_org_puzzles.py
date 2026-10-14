@@ -182,6 +182,7 @@ import vlm_reader as vlm
 from file_penguin_puzzle import separators
 from groups import entry_id
 import dir_cache
+import media_manifest
 import downloads
 import edition_commit
 from edition_commit import filer_path, strayed
@@ -1733,16 +1734,31 @@ def build(number, day, grid, how, laid, edition, leaf, series=SERIES, name=None,
 def edition_dirs(cache=CACHE, paper=None):
     """Every cached edition of `paper` (the Times by default), the years taken in turn (each year's first
     edition, then each year's second, ...), so a capped run reaches every
-    decade the fetch has."""
-    if not cache.exists():
-        return []
-    years = [sorted(item / n for n in with_pages(item))
-             for item in (cache / n for n in dir_cache.listed(cache))
-             if any(p.item.match(item.name) for p in run_papers(paper or TIMES))]
+    decade the fetch has. On the media disk, off the edition manifests
+    (media_manifest.edition_rows), never a listing of it."""
+    papers = run_papers(paper or TIMES)
+    if media_manifest.on_media(cache):
+        by_item = {}
+        for rel in media_manifest.edition_rows():
+            item, _, ed = rel.partition("/")
+            if ed and any(p.item.match(item) for p in papers):
+                by_item.setdefault(item, []).append(ed)
+        years = [sorted(Path(cache) / item / ed for ed in eds) for item, eds in sorted(by_item.items())]
+    else:
+        years = _edition_years_listed(cache, papers)
     out = []
     for k in range(max(map(len, years), default=0)):
         out += [y[k] for y in years if k < len(y)]
     return out
+
+
+def _edition_years_listed(cache, papers):
+    """edition_dirs' editions by item of a folder off the media disk (a test's), listed."""
+    if not cache.exists():
+        return []
+    return [sorted(item / n for n in with_pages(item))
+            for item in (cache / n for n in dir_cache.listed(cache))
+            if any(p.item.match(item.name) for p in papers)]
 
 
 def with_pages(item):
@@ -3798,7 +3814,34 @@ _SOLVED_CODE = []
 
 
 def input_hash(d):
-    """The edition's files by name and size."""
+    """The edition's files by name and size (media_manifest.edition_files).
+    On the media disk, off the edition manifests, which the fetcher and
+    gale_inbox append to as they write an edition, so a replan stats no
+    edition; one with no hash there is taken off the disk once and appended
+    (_edition_off_disk)."""
+    if not media_manifest.on_media(d):
+        return _input_hash_listed(d)
+    held = media_manifest.edition_rows().get(media_manifest.edition_rel(d)) or {}
+    if "files" not in held:
+        held = _edition_off_disk(d, held)
+    return held["files"]
+
+
+def _edition_off_disk(d, held):
+    """input_hash's and staged_at's facts of edition dir `d` on the media
+    disk that its manifest row `held` lacks, taken off the disk and appended
+    to archiveorg-editions (its "at" kept: when it was laid out)."""
+    at = held.get("at")
+    if at is None:
+        at = (Path(d) / "pages.json").stat().st_mtime
+    new = {"files": held.get("files") or media_manifest.edition_files(d), "at": at}
+    media_manifest.record(media_manifest.ARCHIVE_EDITIONS, d, edition=media_manifest.edition_rel(d), **new)
+    return new
+
+
+def _input_hash_listed(d):
+    """input_hash of an edition off the media disk (a test's), listed once
+    while its dir_key is unmoved."""
     _, names, memo = dir_cache.seen(d)
     if "inputs" not in memo:
         if "sizes" not in memo:
@@ -4342,7 +4385,19 @@ def day_of(d):
 
 
 def staged_at(d):
-    """When edition dir `d` was laid out: its pages.json's mtime (written last)."""
+    """When edition dir `d` was laid out: its pages.json's mtime (written
+    last); on the media disk, its edition manifest row's "at" (appended as
+    pages.json was written), the dir stat'd only when it has no row."""
+    if not media_manifest.on_media(d):
+        return _staged_listed(d)
+    held = media_manifest.edition_rows().get(media_manifest.edition_rel(d)) or {}
+    if "at" not in held:
+        held = _edition_off_disk(d, held)
+    return held["at"]
+
+
+def _staged_listed(d):
+    """staged_at of an edition off the media disk (a test's)."""
     return (d / "pages.json").stat().st_mtime
 
 
@@ -5195,6 +5250,58 @@ def save(ledger, known):
 
 # ------------------------------------------------------------ the Canberra reprints
 
+#: match_canberra's view of each Times reading in SOURCE, on the SSD:
+#: {"key": file name, "at": its archiveorg-source row's, "id", "date",
+#: "shingles", "grid"} a line, rewritten whole when one moved.
+READINGS_STORE = "archiveorg-source-shingles.jsonl"
+
+
+def source_readings(source=SOURCE):
+    """{file name: {"id", "date", "shingles": set, "grid"}} of each Times
+    reading (times-*.json) in `source`. On the media disk, its files come off
+    the archiveorg-source manifest (edition_commit appends a row as it writes
+    one) and only a file whose row moved since the SSD store (READINGS_STORE)
+    is opened, so a pass lists and opens nothing it read before."""
+    if not media_manifest.on_media(source):
+        return _source_readings_listed(source)
+    files = media_manifest.folder_files("archiveorg-source", source, "times-*.json")
+    store = media_manifest.DIR / READINGS_STORE
+    held = {}
+    try:
+        for ln in store.read_text().splitlines():
+            r = json.loads(ln)
+            held[r["key"]] = r
+    except (FileNotFoundError, ValueError):
+        held = {}
+    out, moved = {}, False
+    for name, row in files.items():
+        r = held.get(name)
+        if r is None or r.get("at") != row.get("at"):
+            r = {"key": name, "at": row.get("at"), **_reading_of(json.loads((Path(source) / name).read_text()))}
+            moved = True
+        out[name] = r
+    if moved or len(out) != len(held):
+        tmp = store.with_name(f".{store.name}.{os.getpid()}.tmp")
+        tmp.write_text("".join(json.dumps(r) + "\n" for r in out.values()))
+        os.replace(tmp, store)
+    return {name: {**r, "shingles": set(r["shingles"])} for name, r in out.items()}
+
+
+def _reading_of(r):
+    """source_readings' row of the Times reading `r` ("grid" None when it lays none out)."""
+    try:
+        grid = trove_solution_ocr.puzzle_grid(r)
+    except (KeyError, IndexError, TypeError):
+        grid = None
+    return {"id": r["id"], "date": r["date"], "shingles": sorted(shingles(r)), "grid": grid}
+
+
+def _source_readings_listed(source):
+    """source_readings of a folder off the media disk (a test's), globbed and read whole."""
+    return {p.name: {**_reading_of(r := json.loads(p.read_text())), "shingles": shingles(r)}
+            for p in sorted(Path(source).glob("times-*.json"))}
+
+
 def shingles(puzzle):
     """The word triples of a puzzle's clues: what two OCR'd copies of one
     clue list share even where each misreads a word or two."""
@@ -5220,10 +5327,9 @@ def match_canberra(source=SOURCE, write=True, out=sys.stdout, canberra=ROOT / "p
     import puzzle_integrity  # it imports the write path, so not at the top
     from fetch_puzzle import read_puzzle_file, write_puzzle_file
     readings, index = {}, {}
-    for p in sorted(source.glob("times-*.json")):
-        r = json.loads(p.read_text())
+    for r in source_readings(source).values():
         readings[r["id"]] = r
-        for sh in shingles(r):
+        for sh in r["shingles"]:
             index.setdefault(sh, set()).add(r["id"])
     found = {}
     for path in sorted(canberra.glob("*/*.json")):
@@ -5240,9 +5346,9 @@ def match_canberra(source=SOURCE, write=True, out=sys.stdout, canberra=ROOT / "p
             continue
         tid, n = ranked[0]
         r = readings[tid]
-        share = n / min(len(mine), len(shingles(r)) or 1)
+        share = n / min(len(mine), len(r["shingles"]) or 1)
         lead = n / ranked[1][1] if len(ranked) > 1 else float("inf")
-        same_grid = trove_solution_ocr.puzzle_grid(c) == trove_solution_ocr.puzzle_grid(r)
+        same_grid = trove_solution_ocr.puzzle_grid(c) == r["grid"]
         if share < MATCH_SHARE or lead < MATCH_LEAD or r["date"] > c["date"] or not same_grid:
             continue
         found[c["id"]] = tid
