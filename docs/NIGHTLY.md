@@ -75,7 +75,7 @@ committed is never filed again. Three mechanisms, one shared helper
 - **Never held on old code.** The full pass moves its tree to `origin/master`
   after every checkpoint, and its units start as fresh processes off the tree.
   A commit `origin`'s pre-push refuses (written by older code than `origin`'s)
-  can't block that move: it is kept under `refs/durable/refused/`, the tree
+  can't block that move: it is kept under `refs/durable/refused/<commit>`, the tree
   moves anyway, and then its sources are read again with the new code from
   their cached readings, so nothing is OCR'd twice.
 
