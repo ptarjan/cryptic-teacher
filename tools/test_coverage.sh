@@ -258,3 +258,15 @@ assert got == {92: "partial-post", 101: "no-grid", 2: "no-grid"}, got
 assert not cov.CAUSES[("bigdave44", "partial-post")].actionable
 print("coverage: ok")
 PY
+
+# ft_pdf_rows asks the ft-pdf manifest which PDFs are fetched, never the disk:
+# 2.pdf on disk but not in the manifest counts as not fetched.
+mkdir -p "$tmp/dl/ft-pdf/pdf" "$tmp/dl/.manifest"
+echo '{"puzzles": {"1": {"date": "2020-01-01"}, "2": {"date": "2020-01-02"}}}' > "$tmp/dl/ft-pdf/index.json"
+: > "$tmp/dl/ft-pdf/pdf/2.pdf"
+echo '{"key": "1.pdf", "at": 1}' > "$tmp/dl/.manifest/ft-pdf.jsonl"
+got=$(cd tools && CT_DOWNLOADS="$tmp/dl" python3 -c "
+import coverage as cov
+print(sorted(cov.ft_pdf_rows()))")
+[ "$got" = "[(1, '2020-01-01', 'not-read'), (2, '2020-01-02', 'not-fetched')]" ] || { echo "FAIL ft_pdf_rows off the manifest: $got"; exit 1; }
+echo "ft_pdf_rows: ok"

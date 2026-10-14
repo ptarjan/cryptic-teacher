@@ -48,6 +48,8 @@ SCHEDULED = {
     "gale_fetch.py": ["have_docs"],
     # edition_queue plan (every corpus slice) dates each due Trove article.
     "file_trove_puzzles.py": ["article_date"],
+    # coverage.py daily (daily_update.sh): the FT PDFs fetched.
+    "coverage.py": ["ft_pdf_rows"],
 }
 #: {file: [function]} that may not run a command on the host either (an ssh
 #: `ls` of the Gale folders is a listing of the media disk too).
