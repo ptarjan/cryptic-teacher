@@ -270,3 +270,14 @@ import coverage as cov
 print(sorted(cov.ft_pdf_rows()))")
 [ "$got" = "[(1, '2020-01-01', 'not-read'), (2, '2020-01-02', 'not-fetched')]" ] || { echo "FAIL ft_pdf_rows off the manifest: $got"; exit 1; }
 echo "ft_pdf_rows: ok"
+
+# coverage.trove_articles lists the disk until trove-titles is complete, then
+# asks only the manifest.
+mkdir -p "$tmp/tv/.manifest" "$tmp/tv/trove/5"
+echo '{}' > "$tmp/tv/trove/5/meta.json"
+echo '{"article": "9", "title": "x", "at": 1}' > "$tmp/tv/.manifest/trove-titles.jsonl"
+before=$(cd tools && CT_DOWNLOADS="$tmp/tv" python3 -c "import coverage as c; print(c.trove_articles())")
+echo '{}' > "$tmp/tv/.manifest/trove-titles.complete"
+after=$(cd tools && CT_DOWNLOADS="$tmp/tv" python3 -c "import coverage as c; print(c.trove_articles())")
+[ "$before $after" = "['5'] ['9']" ] || { echo "FAIL trove_articles: $before $after"; exit 1; }
+echo "trove_articles: ok"

@@ -50,7 +50,7 @@ SCHEDULED = {
     # edition_queue plan (every corpus slice) dates each due Trove article.
     "file_trove_puzzles.py": ["article_date"],
     # coverage.py daily (daily_update.sh): the FT PDFs fetched.
-    "coverage.py": ["ft_pdf_rows"],
+    "coverage.py": ["ft_pdf_rows", "trove_articles"],
     # progress_record.py record (nightly): the read queue's size.
     "edition_backlog.py": ["_editions", "trove_counts"],
 }
