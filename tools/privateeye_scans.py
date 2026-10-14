@@ -186,10 +186,12 @@ def columns(lines):
         for r in mine:
             heading = fa.heading_of(r[4])
             clueish = heading or STARTS.match(r[4]) or COUNTED.search(r[4])
-            if run and (r[1] - run[-1][3] > GAP_LINES * height or (END.search(r[4]) and not heading)):
+            # A clue's own words ("20 This crossword is Cyclops's first") end nothing.
+            ends = bool(END.search(r[4])) and not heading and not STARTS.match(r[4])
+            if run and (r[1] - run[-1][3] > GAP_LINES * height or ends):
                 best = max(best, run, key=score)
                 run = []
-            if END.search(r[4]) and not heading:
+            if ends:
                 continue
             if run or clueish:
                 run.append(r)
