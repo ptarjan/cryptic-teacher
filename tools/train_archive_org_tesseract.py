@@ -13,10 +13,12 @@ Training lines are of two kinds, both in WORK (default ~/.cache/archive_org_tess
   Liberation Serif, then degraded the way the 200dpi scans are (shrunk to
   scan size, blurred, ink bleed, noise, JPEG, slight skew) and enlarged 2x as
   file_archive_org_puzzles.rapid_lines enlarges a crop before reading it;
-- real: Tesseract's line boxes on the "tune" gold editions' clue columns,
-  each line's text taken from the hand transcription (its clue number and
-  count kept only where the read ones are well formed). "heldout" editions
-  are never cropped.
+- real: the "tune" gold editions' printed lines, each line's text taken from
+  the hand transcription (its clue number and count kept only where the read
+  ones are well formed; lines ending in a hyphen skipped). Line boxes are
+  the filer's own cached RapidOCR ones (any layout, ~7x the lines), else
+  Tesseract's on the column under the grid. "heldout" editions are never
+  cropped.
 Training starts from tessdata_best eng (a float model; the fast integer one
 cannot be fine-tuned) and needs lstmtraining, which the conda-forge
 tesseract package does not ship: build it from the tesseract sources with
@@ -191,6 +193,18 @@ def norm(t):
     return re.sub(r"[^a-z0-9]", "", t.lower())
 
 
+def rapid_boxes(edition, number):
+    """[(box, words)] of the filer's cached RapidOCR ("ch") lines for a puzzle, in
+    page pixels, or None when it has not read it."""
+    import file_archive_org_puzzles as fa
+    path = fa.CROPS / "rapid" / f"{edition.split('/')[1]}_{number}.{fa.reader_key('ch')}.json"
+    if not path.exists():
+        return None
+    cached = json.loads(path.read_text())
+    return [((x0, y0, x1, y1), t.split())
+            for x0, y0, x1, y1, t in (cached["words"] if isinstance(cached, dict) else cached)]
+
+
 def real(out, split="tune"):
     """Line crops from the gold editions of `split`, texts from the transcription."""
     import file_archive_org_puzzles as fa
@@ -205,18 +219,23 @@ def real(out, split="tune"):
         if hit is None:
             continue
         img = fa.page(d, hit["leaf"])
-        gx0, gy0, gx1, gy1 = fa.grid_box(img, hit["box"])
-        gw = gx1 - gx0
-        box = (max(0, gx0 - 40), gy1, min(img.width, gx1 + 30), min(img.height, int(gy1 + 1.8 * gw)))
-        crop = img.crop(box).convert("RGB")
-        crop = crop.resize((crop.width * ocr_clues.UPSCALE, crop.height * ocr_clues.UPSCALE)).convert("L")
+        # The filer's own RapidOCR line boxes (page pixels, any layout) when
+        # it has read the puzzle; else Tesseract's on the column under the grid.
+        lines, pad, up = rapid_boxes(ed["edition"], ed["number"]), (4, 1), ocr_clues.UPSCALE
+        crop = img.convert("L")
+        if lines is None:
+            gx0, gy0, gx1, gy1 = fa.grid_box(img, hit["box"])
+            gw = gx1 - gx0
+            box = (max(0, gx0 - 40), gy1, min(img.width, gx1 + 30), min(img.height, int(gy1 + 1.8 * gw)))
+            crop = img.crop(box).convert("RGB")
+            crop = crop.resize((crop.width * ocr_clues.UPSCALE, crop.height * ocr_clues.UPSCALE)).convert("L")
+            lines, pad, up = tess_lines(crop), (8, 8), 1
         # The gold stream: clue number then clue words, across then down.
         gold = []
         for lid, text in ed["clues"].items():
             num = lid.split("-")[0]
             gold.append((num, "num"))
             gold += [(t, "word") for t in text.split()]
-        lines = tess_lines(crop)
         flat = [(norm(t), li, t) for li, (_, ts) in enumerate(lines) for t in ts]
         sm = difflib.SequenceMatcher(None, [norm(g) for g, _ in gold], [f[0] for f in flat],
                                      autojunk=False)
@@ -228,10 +247,12 @@ def real(out, split="tune"):
         for li, ((x0, y0, x1, y1), toks) in enumerate(lines):
             idx = list(range(at, at + len(toks)))
             at += len(toks)
+            if not toks or toks[-1].endswith("-"):
+                continue  # a word broken over lines: the gold has it whole
             body = [i for i in idx if not (i == idx[0] and toks[0].isdigit())
                     and not (i == idx[-1] and COUNT.match(toks[-1]))]
             got = [match[i] for i in body if i in match]
-            if not body or len(got) < 0.75 * len(body) or len(got) < 2:
+            if not body or len(got) < 0.6 * len(body) or len(got) < 2:
                 continue
             lo, hi = min(got), max(got)
             span = gold[lo:hi + 1]
@@ -244,8 +265,8 @@ def real(out, split="tune"):
                 continue
             if COUNT.match(toks[-1]):
                 text = f"{text} {toks[-1]}"
-            pad = 8
-            line = crop.crop((max(0, x0 - pad), max(0, y0 - pad), x1 + pad, y1 + pad))
+            line = crop.crop((max(0, x0 - pad[0]), max(0, y0 - pad[1]), x1 + pad[0], y1 + pad[1]))
+            line = line.resize((line.width * up, line.height * up))
             base = out / f"real{len(made):04d}"
             line.save(f"{base}.png")
             Path(f"{base}.gt.txt").write_text(text.translate(ASCII) + "\n")
