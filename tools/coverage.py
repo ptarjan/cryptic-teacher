@@ -560,6 +560,19 @@ def trove_key(art, dates):
     return series_meta.puzzle_id("canberra", int(day.strftime("%y%m%d"))) if day else f"article-{art}"
 
 
+def trove_articles():
+    """The fetched Trove articles (a dir holding meta.json): off the
+    trove-titles manifest once `media_manifest.py build trove-titles` has
+    completed it (fetch_trove appends to it), else listed."""
+    if media_manifest.on_media(TROVE) and media_manifest.complete(media_manifest.TROVE_TITLES):
+        return sorted(a for a in media_manifest.memo(media_manifest.TROVE_TITLES, "article", "title") if a)
+    return _trove_listed()
+
+
+def _trove_listed():
+    return [p.parent.name for p in TROVE.glob("*/meta.json")]
+
+
 def trove():
     led = Ledger("canberra", "Trove articles read as a cryptic")
     # A reprint filed as the London Times or Guardian puzzle it is counts too.
@@ -582,7 +595,7 @@ def trove():
         file_trove_puzzles.stamp_cause(r, zones)
         if r.get("refused") or r.get("pending"):
             led.claim(key, "trove", r.get("cause") or ("refused-no-cause" if r.get("refused") else "pending-no-cause"))
-    unread = [p.parent.name for p in TROVE.glob("*/meta.json") if p.parent.name not in read]
+    unread = [a for a in trove_articles() if a not in read]
     for art in unread:
         led.exists.add(trove_key(art, dates))
         led.claim(trove_key(art, dates), "trove", "not-read")
