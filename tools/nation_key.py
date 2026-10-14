@@ -49,7 +49,7 @@ ANSWER_ONLY = re.compile(r"^[A-Z\s+()\-.'’,&]+$")
 # capitals may be either way round.
 REVERSED = re.compile(r"\brev\b")
 # How long the search for the one wrong answer may take, per puzzle.
-LEAVE_ONE_OUT_SECONDS = 60
+LEAVE_ONE_OUT_SECONDS = 45
 
 
 def solution_text(lines):
@@ -344,19 +344,28 @@ def merge_filed(held, keyed):
         return None
     got = {entry_id(e): e.get("solution") for e in keyed["entries"]}
     for e in held["entries"]:
-        word = got.get(entry_id(e))
-        if e.get("solution") or not word:
-            continue
-        # An annotation written before the key spells its answer; once the
-        # answer is filed that is derived (annotation.view), and one spelling
-        # other letters is a reading the key contradicts: left for a look.
-        spelt = (e.get("annotation") or {}).get("spelling")
-        if spelt and re.sub(r"[^A-Z]", "", spelt.upper()) != word:
-            continue
-        if spelt:
-            del e["annotation"]["spelling"]
-        e["solution"] = word
+        if not e.get("solution") and got.get(entry_id(e)):
+            e["solution"] = got[entry_id(e)]
     return held
+
+
+def settle_spellings(entries):
+    """An annotation written before the key spells its answer. Once the
+    answer is filed that spelling is derived (annotation.view) and goes; an
+    answer other than the one spelt is a reading the key contradicts, so the
+    light is left open for a look. Returns the ids left open."""
+    from groups import entry_id
+    contradicted = []
+    for e in entries:
+        spelt = (e.get("annotation") or {}).get("spelling")
+        if not spelt or not e.get("solution"):
+            continue
+        if re.sub(r"[^A-Z]", "", spelt.upper()) == e["solution"]:
+            del e["annotation"]["spelling"]
+        else:
+            e["solution"] = None
+            contradicted.append(entry_id(e))
+    return contradicted
 
 
 def by_order(number, read, key):
@@ -412,7 +421,15 @@ def keyed_puzzle(number, keys=None, known=None, braze=None):
     key = key_for(read, (keys.get(number) or ("",))[0], braze)
     if not key:
         return None, "the key's entries did not read"
-    grid, words, dropped, why = place(read, key)
+    import clues_only
+    held = clues_only.read(fn.puzzle_id(fn.SERIES, number))
+    broken = held and clues_only.implausible(held)
+    if broken:
+        # No grid holds the clue list as numbered: only every answer, in
+        # order, can place it.
+        grid, words, dropped, why = None, [], [], broken
+    else:
+        grid, words, dropped, why = place(read, key)
     if grid is None:
         whole = by_order(number, read, key)
         if whole is not None:
@@ -445,6 +462,8 @@ def keyed_puzzle(number, keys=None, known=None, braze=None):
         if puzzle is None:
             return None, "the filed grid is not the one the key places"
     derived = derive(puzzle["entries"], notes)
+    contradicted = settle_spellings(puzzle["entries"])
+    derived = [eid for eid in derived if eid not in contradicted]
     open_ = [entry_id(e) for e in puzzle["entries"] if not e.get("solution")]
     gained = len(puzzle["entries"]) - len(open_) - (before if filed else 0)
     return puzzle, {"keyed": len(answers), "dropped": [lights[k] for k in dropped],

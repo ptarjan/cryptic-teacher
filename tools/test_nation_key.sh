@@ -53,6 +53,7 @@ held["entries"][1]["annotation"] = {"spelling": "HIM"}
 keyed = {"entries": [dict(light(1, "across", 0, 0, 3, ""), solution="HAT"),
                      dict(light(1, "down", 0, 0, 3, ""), solution="HEN")]}
 merged = K.merge_filed(held, keyed)
+print("CONTRADICTED", K.settle_spellings(merged["entries"]))
 print("MERGED", [(e.get("solution"), e["annotation"]) for e in merged["entries"]])
 moved = {"entries": [light(1, "across", 0, 1, 3, ""), light(1, "down", 0, 0, 3, "")]}
 print("MOVED", K.merge_filed(moved, keyed))
@@ -82,4 +83,5 @@ expect "DERIVED ['3-down'] ['HAT', 'HEN', 'TAP', None]"
 expect "OPEN [] None"
 expect "MERGED [('HAT', {}), (None, {'spelling': 'HIM'})]"
 expect "MOVED None"
+expect "CONTRADICTED ['1-down']"
 if [ "$fail" = 0 ]; then echo "PASS: test_nation_key"; else echo "$out"; exit 1; fi
