@@ -171,6 +171,32 @@ same "'See preamble' with a preamble does not" "$(field WITH "$out_pre")" "False
 same "the write path accepts it" "$(field WRITE "$out_pre")" "allowed"
 same "'(see the preamble)' awaits too" "$(field INDEXED "$out_pre")" "True"
 
+echo "a cover-dated weekly may be dated its issue's day, a few days ahead; nothing else may"
+out_cover=$(PYTHONPATH="$REPO/tools" python3 - 2>&1 <<'PY'
+import copy
+from datetime import date, timedelta
+import puzzle_integrity as pi
+import series
+
+today = date(2026, 10, 14)
+for name, pid, ahead in (("TLS2", "tls-1620", 2), ("TLSLEAD", "tls-1620", series.cover_date_lead("tls")),
+                         ("TLSPAST", "tls-1620", series.cover_date_lead("tls") + 1),
+                         ("DAILY1", "cryptic-24104", 1)):
+    p = copy.deepcopy(pi.read_puzzle_file(pi.puzzle_paths.find(pid)))
+    p["date"] = (today + timedelta(days=ahead)).isoformat()
+    flags = []
+    pi.check_shape(p, today, flags)
+    print(name, any("in the future" in f[2] for f in flags))
+print("LISTENER", series.cover_date_lead("listener"))
+PY
+)
+died "$out_cover" "the cover-date fixture"
+same "tls-1621, posted Wednesday and dated Friday's issue, is not in the future" "$(field TLS2 "$out_cover")" "False"
+same "a TLS dated exactly its lead ahead is allowed" "$(field TLSLEAD "$out_cover")" "False"
+same "a TLS dated past its lead is in the future" "$(field TLSPAST "$out_cover")" "True"
+same "a daily dated tomorrow is in the future" "$(field DAILY1 "$out_cover")" "True"
+same "the Listener, printed the day it is dated, has no lead" "$(field LISTENER "$out_cover")" "0"
+
 echo "a run that left answers to a missing preamble marks the puzzle to await one"
 out_await=$(PYTHONPATH="$REPO/tools" SCRATCH="$scratch/await" python3 - 2>&1 <<'PY'
 import copy, json, os

@@ -65,6 +65,10 @@ import re
 #   number_runs). A series without it is still running, so the ledger counts
 #   it up to the number today's paper is due to carry.
 # renumberedFrom — with renumberedBelow: the first number of the newer run.
+# coverDateLead — the paper dates each issue by its cover, and the puzzle is
+#   online up to this many days before that day: a file dated that far ahead
+#   of today is the true print date, not a misread (tools/puzzle_integrity.py
+#   SHAPE). Read through cover_date_lead(); absent means 0.
 SERIES = {
     "cryptic": {
         "kind": "Cryptic",
@@ -131,6 +135,9 @@ SERIES = {
         "bylined": True,
         # Dated off the Eye's covers and its fortnightly cadence.
         "datedFromNeighbours": True,
+        # Every issue is dated to a Friday and on sale from the Wednesday, the
+        # .puz with it (tools/fetch_privateeye.py cover_date).
+        "coverDateLead": 3,
         "badge": "cyclops",
         # A linked clue's count covers its own light, not the whole answer
         # (fetch_puzzle.PER_LIGHT_ENUMERATION).
@@ -265,6 +272,9 @@ SERIES = {
         "blog": "timesforthetimes.co.uk",
         "perLightEnumeration": True,
         "datedFromNeighbours": True,
+        # Posted on the-tls.com on the Wednesday, dated by the Friday issue it
+        # prints in (1620: posted 2026-09-30, dated 10-02; 1621: 10-14, 10-16).
+        "coverDateLead": 3,
     },
     # The Sunday Times's barred puzzle, numbered on its own: the grid's bars
     # rebuilt from the blog's numbered answers (tools/barred_grid.py).
@@ -690,6 +700,13 @@ def is_book(series):
     Asked of the table, never pattern-matched off the key.
     """
     return "books" in meta(series)
+
+
+def cover_date_lead(series):
+    """How many days ahead of today a puzzle of this series may be dated:
+    its cover date when the issue is online before it (`coverDateLead`),
+    else 0. A series no longer in the table gets 0."""
+    return int(meta(series).get("coverDateLead", 0))
 
 
 def carries_reprints(series):
