@@ -214,6 +214,20 @@ tree.
 - `"definedByPreamble": true` replaces `definitions` on an answer the preamble
   defines and the clue does not. It is valid only when the puzzle has a
   `preamble`, and never beside `definitions`.
+- `themeClue` (puzzle level) is the id of the entry whose clue states the
+  theme, `"30-across"`, on a themed puzzle that puts its gimmick in a clue
+  and prints no preamble (nation-3337's 30-across: five Across answers start
+  with a fish their wordplay omits). Someone sets it by hand at filing or
+  review, after reading the puzzle. The annotator sees it and may not set,
+  change or drop it: apply_annotations refuses the key and
+  `check_theme_clue_unchanged` refuses a file whose value differs from HEAD's.
+  It counts as a preamble in one rule only. A block with no `clueFragment`,
+  letters the theme supplies, is allowed, and that clue is their source.
+  `puzzle_integrity.check_theme_clue` requires an entry of the puzzle with
+  clue words. A clues-only record may carry it under the id its printed
+  number will take, and `clues_only.promote` copies it onto the grid puzzle.
+  Filing it changes the puzzle's failed-inputs hash, so a withdrawn annotate
+  run is due again.
 - Hidden-letter devices (`tools/hidden_messages.py`). An annotation's
   `hiddenLetter` is the letter its clue gives to a device the preamble
   describes: `{"kind": "extra" | "omitted" | "misprint" | "clue", "letter"}`,

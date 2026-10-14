@@ -731,6 +731,12 @@ tools/test_hidden_messages.sh                  holds `hiddenLetter` to its clue'
                                                text, `messages` to its clues' letters in order,
                                                the preamble detection's hits and misses, and
                                                the converter
+tools/test_theme_clue.sh                       holds `themeClue`, the hand-filed clue that
+                                               states a themed puzzle's gimmick, to standing in
+                                               for a preamble for clue-word-less blocks, naming
+                                               a worded entry, re-queuing a recorded annotate
+                                               failure, surviving clues-only promotion, and
+                                               never being set or changed by an annotation
 tools/test_defined_by_preamble.sh              holds `definedByPreamble` to standing in for
                                                `definition` only where the puzzle prints a
                                                preamble, and never beside a definition

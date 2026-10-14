@@ -153,6 +153,10 @@ def puzzle_inputs(pid, held=None):
     # is what it always was.
     if puzzle.get("preamble"):
         inputs["preamble"] = puzzle["preamble"]
+    # Likewise a themeClue filed since (nation-3337's 30-across states the
+    # fish its Across wordplay omits): it lets clue-word-less blocks stand.
+    if puzzle.get("themeClue"):
+        inputs["themeClue"] = puzzle["themeClue"]
     # A setter's slip filed since the failure is what lets its clue validate,
     # so the row is an input; absent, the hash is what it always was.
     slips = {k: v for k, v in json.loads(SETTER_ERROR.read_text(encoding="utf-8")).items()

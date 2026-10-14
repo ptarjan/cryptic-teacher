@@ -1165,6 +1165,22 @@ def check_preamble(puzzle, flags):
                       f"(tools/boilerplate.py strips it)")))
 
 
+def check_theme_clue(puzzle, flags):
+    """`themeClue` names the entry whose clue states the theme (a themed
+    puzzle that prints its gimmick in a clue, not a preamble), so it must be
+    an entry of this puzzle with clue words."""
+    tc = puzzle.get("themeClue")
+    if tc is None:
+        return
+    e = {entry_id(e): e for e in puzzle.get("entries", [])}.get(tc)
+    if e is None:
+        flags.append(("SHAPE", puzzle.get("id"), f"themeClue {tc!r} is not an entry of "
+                      f"this puzzle: it names the clue that states the theme"))
+    elif not (e.get("clue") or {}).get("text") or (e.get("clue") or {}).get("missing"):
+        flags.append(("SHAPE", puzzle.get("id"), f"themeClue {tc!r} has no clue words "
+                      f"to state a theme"))
+
+
 def check_puzzle(puzzle, today, flags):
     """Every check that one puzzle file answers on its own. audit() runs it on
     the corpus and fetch_puzzle.write_puzzle_file on every write, so a fetcher
@@ -1189,6 +1205,7 @@ def check_puzzle(puzzle, today, flags):
     check_alterations(puzzle, flags)
     check_puzzle_text(puzzle, flags)
     check_preamble(puzzle, flags)
+    check_theme_clue(puzzle, flags)
     check_duplicated_clues(puzzle, flags)
     check_annotation_quotes(puzzle, flags)
     check_curly_quotes(puzzle, flags)

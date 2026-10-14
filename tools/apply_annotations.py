@@ -365,6 +365,12 @@ def apply(path, annotations, by=None):
     # the _ann file carries it under "messages" beside the entry ids.
     annotations = dict(annotations)
     messages = annotations.pop(MESSAGES_KEY, None)
+    # Which clue states the theme is filed by hand, not by the annotator.
+    if "themeClue" in annotations:
+        raise SystemExit(
+            f"apply_annotations: {path.name}: themeClue is the puzzle's, filed at "
+            f"filing or review, and no annotation sets or changes it. Drop the key; "
+            f"if a clue states the theme and the puzzle names none, withdraw and say which")
     continuations = groups.leader_of(puzzle["entries"])
     ids = [entry_id(e) for e in puzzle["entries"] if entry_id(e) not in continuations]
     # A further answer a light starts (alsoLeads) is a clue of its own.

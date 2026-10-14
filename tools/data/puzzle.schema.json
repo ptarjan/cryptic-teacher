@@ -75,6 +75,11 @@
    "minLength": 1,
    "description": "The paper's note above the clues: a themed puzzle's instructions, or an erratum."
   },
+  "themeClue": {
+   "type": "string",
+   "pattern": "^[0-9]+-(across|down)$",
+   "description": "The entry whose clue states the puzzle's theme, for a themed puzzle that prints no preamble (\"30-across says five Across answers start with a fish their wordplay omits\"): its id, \"<number>-<direction>\". Filed by hand at filing or review, never by an annotator (validate_annotations.check_theme_clue_unchanged refuses a run that adds, changes or drops it). It stands in for a preamble in one rule only: a block with no clueFragment (letters the theme supplies) is allowed, with this clue as their source. It names an entry with clue words (puzzle_integrity.check_theme_clue)."
+  },
   "awaitsPreamble": {
    "description": "The puzzle cannot be explained without the preamble the paper printed, which we do not hold: an annotation run left answers to it (definedByPreamble) and failed on nothing else (tools/await_preamble.py). No annotator is sent it (puzzle_integrity.awaits_preamble). Never beside `preamble`: write_puzzle_file drops it once one is filed.",
    "const": true
@@ -1562,6 +1567,10 @@
     "preamble": {
      "description": "The instruction printed above the clues, as for a grid puzzle: a jigsaw's \"Method:\" line, without the label.",
      "$ref": "#/properties/preamble"
+    },
+    "themeClue": {
+     "description": "As for a grid puzzle: the id its theme-stating clue takes once promoted, from the printed number. clues_only.promote carries it over and refuses an id the built grid lacks.",
+     "$ref": "#/properties/themeClue"
     },
     "cluesUnplaced": {
      "description": "A jigsaw: the book printed one list of clues with no numbers and no across or down, so `clues` holds `unplaced`. The solve answers them in order and clues_only.fit_jigsaw (tools/jigsaw_fit.py) fits the answers into the grid.",
