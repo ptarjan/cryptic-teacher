@@ -351,12 +351,6 @@ UNLINKED_IN_SOURCE = dict([
     # lights reads "See" and one number, so it sits in that one leader's group,
     # and these are the answers left over. (RIGHT AS RAIN is no longer one:
     # 22-across leads it from its second light, 23-down named in selfClued.)
-    (("cryptic-23753",
-      "1-across + 52-across: clue says (4,6-4) = 14, answer holds 4 alone or 8 "
-      "linked"),
-     "DOWN THE RABBIT-HOLE's RABBIT is 24-across, which leads its own THE "
-     "RABBIT SENDS IN A LITTLE BILL, and a light that starts one answer cannot "
-     "continue another; the preamble says THE and A are left out of the grid"),
     (("cryptic-23731",
       "3-down + 16-down + 4-down + 5-down + 11-across + 21-across: "
       "clue says (2,2,4,4,4,3,4,4,5,4,2,4,4,7) = 53, answer holds 4 alone or 49 "
