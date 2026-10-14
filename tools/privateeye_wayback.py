@@ -489,12 +489,16 @@ LOST_CAUSES = {
                      "and its OCR text is not fetched or filed yet: "
                      "privateeye_wayback.py fetch-ia, then file",
     "scan-unparsed": "the issue's archive.org OCR text is fetched and read_capture finds "
-                     "no whole clue list in it (OCR damage or a layout it misses): "
-                     "a reader fix or a re-OCR of the page files it",
+                     "no whole clue list in it (2026-10-14, 133 of 276 scans: the early "
+                     "issues' two clue columns run together, the first clues set above the "
+                     "ACROSS heading, clues or headings lost in the grid's OCR junk): "
+                     "the page through the shared OCR pipeline, with its layout, files it",
     "not-read": "a capture prints its clues and no filing run has tried it: "
                 "privateeye_wayback.py file N",
     "refused": "a capture prints its clues and the filer refused it "
-               "(privateeye_wayback/refused.json says why)",
+               "(privateeye_wayback/refused.json says why; for a scan, mostly a grid "
+               "that does not rebuild from clues the OCR lost or merged: the page "
+               "through the shared OCR pipeline files it)",
 }
 LOST_FIRST, LOST_LAST = 1, 459
 # Numbers 1-459 unfiled on 2026-10-13 whose issue archive.org has no
