@@ -214,3 +214,48 @@ if again != first or not first or media:
     sys.exit(1)
 print("ok   fetch_telegraph.repeated touches nothing on the media disk once its manifest is warm")
 PY
+
+# trove_solution_ocr._articles (every Trove read unit and --fill) and
+# file_trove_puzzles.rekey_unchanged (every ledger_upkeep slice), once the
+# article's files and titles are in the SSD memos, list and stat nothing
+# under the Trove folders.
+t2=$(mktemp -d)
+trap 'rm -rf "$t" "$t2"' EXIT
+mkdir -p "$t2/dl/trove/8" "$t2/dl/trove-clues/8" "$t2/dl/.manifest" "$t2/puzzles" "$t2/home"
+echo '{"title": "SOLUTION - Trove"}' > "$t2/dl/trove/8/meta.json"
+printf 'Monday 5 June 1972\nclues\n' > "$t2/dl/trove/8/ocr.txt"
+echo x > "$t2/dl/trove/8/grid.jpg"
+: > "$t2/dl/trove-clues/8/zone0.png"
+echo '{"article": "8", "title": "SOLUTION - Trove"}' > "$t2/dl/.manifest/trove-titles.jsonl"
+echo '{}' > "$t2/dl/.manifest/trove-titles.complete"
+export PYTHONUSERBASE="$(python3 -m site --user-base)" HOME="$t2/home"
+CT_DOWNLOADS="$t2/dl" VLM_READER_URL= python3 - "$t2/puzzles" <<'PY'
+import json, os, sys
+import downloads, file_trove_puzzles as F, media_manifest as M, scan_queue, trove_solution_ocr as T
+cache = downloads.TROVE
+# Cold: the first run takes the article's files off the disk once into trove-inputs and keeps its day.
+F.input_hash(cache / "8")
+cold = T._articles(cache)
+assert [(str(d), s) for _, d, s in cold] == [(str(cache / "8"), True)], cold
+T._ARTICLES.clear()
+ledger = M.trove_ledger(cache)
+ledger.write_text(json.dumps({"article": "8", "inputs": "old", "skip": "test", "readAt": "2099-01-01T00:00:00+00:00"}) + "\n")
+touched = []
+for name in ("stat", "lstat", "listdir", "scandir"):
+    real = getattr(os, name)
+    setattr(os, name, (lambda real: lambda p=".", *a, **k: (touched.append(p), real(p, *a, **k))[1])(real))
+warm = T._articles(cache)
+touched_articles = sorted({os.fspath(p) for p in touched if isinstance(p, (str, os.PathLike))
+                           and os.fspath(p).startswith(str(cache))})
+if [r[1:] for r in warm] != [r[1:] for r in cold] or touched_articles:
+    print(f"FAIL trove_solution_ocr._articles with the memos held: warm {warm}, Trove paths touched {touched_articles}")
+    sys.exit(1)
+del touched[:]
+rekeyed = F.rekey_unchanged(ledger, cache, puzzles=sys.argv[1])
+under = sorted({os.fspath(p) for p in touched if isinstance(p, (str, os.PathLike))
+                and os.fspath(p).startswith(str(cache))})
+if rekeyed != 1 or under:
+    print(f"FAIL file_trove_puzzles.rekey_unchanged with the memos held: rekeyed {rekeyed}, Trove paths touched {under}")
+    sys.exit(1)
+print("ok   trove_solution_ocr._articles and file_trove_puzzles.rekey_unchanged stat no Trove article dir")
+PY

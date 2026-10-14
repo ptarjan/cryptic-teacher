@@ -78,6 +78,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageFilter
 import downloads
+import media_manifest
 import trove_grid
 
 TOOLS = Path(__file__).resolve().parent
@@ -1360,11 +1361,40 @@ def _articles_index_path(cache):
     return Path.home() / ".cache" / "cryptic-teacher" / f"trove-articles-{key}.json"
 
 
+def _listed(cache):
+    """[(article dir, index key, solution or None)] for each cached article
+    with a grid image. On the media disk, once trove-titles is complete,
+    from the SSD memos (titles; trove-inputs' files string holds the grid's
+    presence and every file's size and mtime): nothing on the disk is
+    listed or statted, bar an article trove-inputs lacks, taken off the
+    disk once and appended (file_trove_puzzles._inputs_off_disk). Else the
+    cache is listed and statted."""
+    if media_manifest.on_media(cache) and media_manifest.complete(media_manifest.TROVE_TITLES):
+        import file_trove_puzzles
+        titles = media_manifest.memo(media_manifest.TROVE_TITLES, "article", "title")
+        inputs = file_trove_puzzles.trove_inputs()
+        for name in sorted(a for a in titles if a):
+            held = inputs.get(name, {})
+            if "files" not in held:
+                held = file_trove_puzzles._inputs_off_disk(cache / name, held)
+            if "grid.jpg:-" not in held["files"]:
+                yield cache / name, held["files"], "solution" in (titles[name] or "").lower().split(" - trove")[0]
+        return
+    for d in sorted(cache.iterdir()) if cache.exists() else ():
+        try:
+            if not (d / "grid.jpg").exists():
+                continue
+            key = [(d / "meta.json").stat().st_mtime_ns, (d / "ocr.txt").stat().st_mtime_ns]
+        except OSError:
+            continue
+        yield d, key, None
+
+
 def _articles(cache):
     """[(print day, article dir, is a solution)] for every cached article with
     a grid image, read once a process. What each dir held is kept in a file
-    keyed by the mtimes of its meta.json and ocr.txt, so a process stats the
-    dirs and reads only the new or changed ones."""
+    keyed by its files (_listed), so a process reads only the new or changed
+    ones."""
     if cache in _ARTICLES:
         return _ARTICLES[cache]
     out = _ARTICLES[cache] = []
@@ -1374,21 +1404,17 @@ def _articles(cache):
     except (OSError, ValueError):
         old = {}
     new = {}
-    for d in sorted(cache.iterdir()) if cache.exists() else ():
-        try:
-            if not (d / "grid.jpg").exists():
-                continue
-            key = [(d / "meta.json").stat().st_mtime_ns, (d / "ocr.txt").stat().st_mtime_ns]
-        except OSError:
-            continue
+    for d, key, solution in _listed(cache):
         got = old.get(d.name)
-        if got and got[:2] == key:
-            read = (datetime.date.fromisoformat(got[2]) if got[2] else None, got[3])
+        if got and len(got) == 3 and got[0] == key:
+            read = (datetime.date.fromisoformat(got[1]) if got[1] else None, got[2])
         else:
             read = _read_article(d)
             if read is None:
                 continue
-        new[d.name] = key + [read[0].isoformat() if read[0] else None, read[1]]
+        if solution is not None:
+            read = (read[0], solution)
+        new[d.name] = [key, read[0].isoformat() if read[0] else None, read[1]]
         if read[0]:
             out.append((read[0], d, read[1]))
     if new != old:
