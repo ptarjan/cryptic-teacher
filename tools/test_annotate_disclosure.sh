@@ -73,7 +73,8 @@ grouped_cont["entries"][1]["group"] = g
 errs = []
 V.check_groups(grouped_cont, errs)
 say("grouped_continuation_flagged",
-    any(e.startswith("2-down:") and "does not start with this entry" in e for e in errs))
+    any(e.startswith("2-down:") and "starts on 1-across, whose clue is a clue of its own" in e
+        for e in errs))
 
 # A fragment retyped with straight quotes where the clue has curly ones.
 clue = "Setter’s back (4)"
