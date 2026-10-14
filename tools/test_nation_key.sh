@@ -43,6 +43,19 @@ print("DERIVED", K.derive(entries, {"3-down": "hidden"}),
 entries = [light(1, "across", 0, 0, 3, ""), light(3, "down", 2, 0, 3, "Tapir")]
 entries[0]["solution"] = "HAT"
 print("OPEN", K.derive(entries, {"3-down": "rev. hidden"}), entries[1].get("solution"))
+
+# A filed puzzle annotated before its key: a spelling the key agrees with is
+# dropped (derived once the answer is filed); one it contradicts keeps the
+# light open.
+held = {"entries": [light(1, "across", 0, 0, 3, ""), light(1, "down", 0, 0, 3, "")]}
+held["entries"][0]["annotation"] = {"spelling": "H AT"}
+held["entries"][1]["annotation"] = {"spelling": "HIM"}
+keyed = {"entries": [dict(light(1, "across", 0, 0, 3, ""), solution="HAT"),
+                     dict(light(1, "down", 0, 0, 3, ""), solution="HEN")]}
+merged = K.merge_filed(held, keyed)
+print("MERGED", [(e.get("solution"), e["annotation"]) for e in merged["entries"]])
+moved = {"entries": [light(1, "across", 0, 1, 3, ""), light(1, "down", 0, 0, 3, "")]}
+print("MOVED", K.merge_filed(moved, keyed))
 PY
 )
 fail=0
@@ -67,4 +80,6 @@ expect "DERIVED ['3-down'] ['HAT', 'HEN', 'TAP', None]"
 # Reversed, "Tapir" reads RIPAT: no three-letter run starts with T, so
 # 3-down stays open.
 expect "OPEN [] None"
+expect "MERGED [('HAT', {}), (None, {'spelling': 'HIM'})]"
+expect "MOVED None"
 if [ "$fail" = 0 ]; then echo "PASS: test_nation_key"; else echo "$out"; exit 1; fi

@@ -344,8 +344,18 @@ def merge_filed(held, keyed):
         return None
     got = {entry_id(e): e.get("solution") for e in keyed["entries"]}
     for e in held["entries"]:
-        if not e.get("solution") and got.get(entry_id(e)):
-            e["solution"] = got[entry_id(e)]
+        word = got.get(entry_id(e))
+        if e.get("solution") or not word:
+            continue
+        # An annotation written before the key spells its answer; once the
+        # answer is filed that is derived (annotation.view), and one spelling
+        # other letters is a reading the key contradicts: left for a look.
+        spelt = (e.get("annotation") or {}).get("spelling")
+        if spelt and re.sub(r"[^A-Z]", "", spelt.upper()) != word:
+            continue
+        if spelt:
+            del e["annotation"]["spelling"]
+        e["solution"] = word
     return held
 
 
@@ -479,10 +489,14 @@ def main(argv):
         except (Exception, SystemExit) as e:  # one bad page never stops the rest
             puzzle, report = None, f"{type(e).__name__}: {e}"
         if puzzle is None:
-            print(f"nation-{n}: {report}")
+            print(f"nation-{n}: {report}", flush=True)
             continue
         if argv[0] == "file" and report["gained"]:
-            fn.write_puzzle_file(fn.puzzle_path(fn.SERIES, n), puzzle, generator=fn.TOOL)
+            try:
+                fn.write_puzzle_file(fn.puzzle_path(fn.SERIES, n), puzzle, generator=fn.TOOL)
+            except Exception as e:  # one refused write never stops the rest
+                print(f"nation-{n}: write refused: {type(e).__name__}: {str(e)[:300]}", flush=True)
+                continue
         print(f"nation-{n}: {report['keyed']} keyed, {len(report['derived'])} derived, "
               f"{len(report['open'])} open, dropped {report['dropped']}"
               + (" (already filed)" if report["filed"] else ""), flush=True)
