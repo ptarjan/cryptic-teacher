@@ -64,9 +64,11 @@ GENERATOR = "tools/genius_puzzles.py"
 UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; github.com/ptarjan/cryptic-teacher)"}
 SITE = "https://www.theguardian.com"
 LISTING = SITE + "/crosswords/series/genius?page={}"
-#: "/crosswords/2025/apr/07/genius-crossword-no-262", "/crosswords/2014/dec/01/genius-crossword-138"
+#: "/crosswords/2025/apr/07/genius-crossword-no-262", "/crosswords/2014/dec/01/genius-crossword-138",
+#: "/crosswords/article/2024/jun/03/genius-crossword-no-252" (252-255 live only under
+#: /article/) and "/crosswords/2016/jun/06/genius-no-156" (155, 156, 171, 179).
 ARTICLE = re.compile(r'href="(?:https://www\.theguardian\.com)?'
-                     r'(/crosswords/(\d{4})/([a-z]{3})/(\d{2})/genius-crossword-(?:no-)?(\d+))"')
+                     r'(/crosswords/(?:article/)?(\d{4})/([a-z]{3})/(\d{2})/genius-(?:crossword-)?(?:no-)?(\d+))"')
 #: An article's picture, by the path its original keeps on static.guim.co.uk.
 STATIC_IMAGE = re.compile(r'https://i\.guim\.co\.uk/img/static/([^"\s?&]+?\.(?:jpe?g|png|gif))', re.IGNORECASE)
 PDF = re.compile(r'https?://(?:uploads|static)\.guim\.co\.uk/[^"\\\s<>&]+?\.pdf', re.IGNORECASE)
@@ -171,8 +173,11 @@ def guess(n, rows, old, footer):
     monday = first + datetime.timedelta(days=(7 - first.weekday()) % 7)
     for day in (monday, monday + datetime.timedelta(days=7), monday - datetime.timedelta(days=7)):
         mon = day.strftime("%b").lower()
-        for slug in (f"genius-crossword-no-{n}", f"genius-crossword-{n}"):
-            url = f"{SITE}/crosswords/{day.year}/{mon}/{day.day:02d}/{slug}"
+        for slug in (f"genius-crossword-no-{n}", f"genius-crossword-{n}", f"genius-no-{n}",
+                     f"article/{day.year}/{mon}/{day.day:02d}/genius-crossword-no-{n}",
+                     f"article/{day.year}/{mon}/{day.day:02d}/genius-crossword-{n}"):
+            url = (f"{SITE}/crosswords/{slug}" if slug.startswith("article/")
+                   else f"{SITE}/crosswords/{day.year}/{mon}/{day.day:02d}/{slug}")
             try:
                 body = get(url).decode("utf-8", "replace")
             except urllib.error.HTTPError:
@@ -1049,7 +1054,7 @@ def assemble(number, pdf, post, date, url):
     # the numbering check and keep no enumeration when filed.
     lights = rg.light_cells(pdf["grid"])
     withheld = [c for c in pdf["clues"] if c["enumeration"] is None and len(c["lights"]) == 1
-                and not fpp.SEE.match(c["clue"]) and c["lights"][0] in lights]
+                and not groups.is_pointer(c["clue"], counted=True) and c["lights"][0] in lights]
     for c in withheld:
         c["enumeration"] = str(len(lights[c["lights"][0]]))
     why = fpp.grid_matches(pdf["grid"], pdf["clues"], misprinted(number))
