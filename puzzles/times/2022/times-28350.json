@@ -21,6 +21,9 @@
   "date": "2022-07-30",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -40,7 +43,31 @@
      }
     ]
    },
-   "solution": "MAKEUP"
+   "solution": "MAKEUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Concoct",
+      "at": 0,
+      "meaning": "first meaning: to invent or fabricate, as a story"
+     },
+     {
+      "text": "pancake?",
+      "at": 8,
+      "meaning": "second meaning: pancake is a brand of face powder, so a kind of cosmetics"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that pancake is not the batter dish but the stage cosmetic; the two-word answer also means to invent.",
+     "definitionFit": "To concoct an excuse is to invent it, and pancake is a thick cosmetic foundation worn by actors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pancake?"
+    }
+   }
   },
   {
    "number": 2,
@@ -54,7 +81,64 @@
     "text": "In extremis, alcoholic has drunk cola up in resort",
     "enumeration": "8"
    },
-   "solution": "ACAPULCO"
+   "solution": "ACAPULCO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "resort",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "In extremis",
+         "at": 0,
+         "note": "in its extremes, so only the outermost letters of the next word are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "alcoholic",
+         "at": 13,
+         "note": "only its first and last letters count"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "drunk",
+         "at": 27,
+         "note": "the letters are tipsily jumbled, so they are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cola up",
+         "at": 33,
+         "note": "the anagram fodder, taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker downs a fizzy drink while at a holiday destination.",
+     "walkthrough": "'has' is just a joining word; 'drunk' looks like it belongs with the alcoholic but scrambles the following words.",
+     "definitionFit": "Acapulco is a well-known Pacific beach resort city in Mexico."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 3,
@@ -68,7 +152,64 @@
     "text": "Ten rolling, lush rises in port for storing goods",
     "enumeration": "8"
    },
-   "solution": "ENTREPOT"
+   "solution": "ENTREPOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "port for storing goods",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rolling",
+         "at": 4,
+         "note": "rolling about, so the letters of ten tumble into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ten",
+         "at": 0,
+         "note": "the anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rises",
+         "at": 18,
+         "note": "in a down clue, rising means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lush",
+         "at": 13,
+         "gives": "TOPER",
+         "note": "a lush is a heavy drinker, a toper"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk staggers about while ten people roll around in a harbour.",
+     "definitionFit": "An entrepot is a trading port where goods are stored and re-exported."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lush"
+    }
+   }
   },
   {
    "number": 4,
@@ -82,7 +223,60 @@
     "text": "Excluding guys in rubbish heap — they're amazing",
     "enumeration": "9"
    },
-   "solution": "PHENOMENA"
+   "solution": "PHENOMENA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "they're amazing",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "the guys-free phrase sits inside the rearranged heap"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rubbish",
+         "at": 18,
+         "note": "treated as poor, so the letters of heap are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heap",
+         "at": 26,
+         "note": "the anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "Excluding guys",
+       "at": 0,
+       "gives": "NOMEN",
+       "note": "no men, i.e. excluding guys"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something on a rubbish tip without men around is described as remarkable.",
+     "walkthrough": "'Excluding guys' reads as an instruction to remove letters, but it supplies a phrase meaning 'no men'.",
+     "definitionFit": "Phenomena are remarkable things or people, so they are amazing wonders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Excluding"
+    }
+   }
   },
   {
    "number": 5,
@@ -96,7 +290,58 @@
     "text": "Concerned with recent delivery of gas the least bit short",
     "enumeration": "8"
    },
-   "solution": "NEONATAL"
+   "solution": "NEONATAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Concerned with recent delivery",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "gas",
+       "at": 34,
+       "gives": "NEON",
+       "note": "neon is a noble gas"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 52,
+         "note": "missing its last letter, as a phrase cut short"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the least bit",
+         "at": 38,
+         "gives": "ATALL",
+         "note": "as in 'not at all' or 'not the least bit'"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gas supply runs a tiny bit short at a recent delivery.",
+     "walkthrough": "Delivery here is childbirth, not a parcel.",
+     "definitionFit": "Neonatal describes newborn babies, those just delivered in childbirth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "number": 5,
@@ -110,7 +355,65 @@
     "text": "Lay claim to occupy no French island with lake",
     "enumeration": "15"
    },
-   "solution": "NONPROFESSIONAL"
+   "solution": "NONPROFESSIONAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lay",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to occupy",
+       "at": 10,
+       "note": "the claim moves in and fills the middle of the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "no French",
+         "at": 20,
+         "gives": "NON",
+         "note": "non is French for no"
+        },
+        {
+         "words": "island",
+         "at": 30,
+         "gives": "IONA",
+         "note": "Iona is an island of the Inner Hebrides"
+        },
+        {
+         "words": "lake",
+         "at": 42,
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "claim",
+       "at": 4,
+       "gives": "PROFESS",
+       "note": "to profess is to claim or declare"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lays claim to a French island beside a lake.",
+     "walkthrough": "'Lay' looks like a verb belonging to 'Lay claim'; it is the adjective meaning not of the clergy or professions.",
+     "definitionFit": "Lay as an adjective means amateur, lacking specialist training, the same as nonprofessional."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Lay"
+    }
+   }
   },
   {
    "number": 6,
@@ -124,7 +427,55 @@
     "text": "What account providers do managed to raise amount of interest?",
     "enumeration": "7"
    },
-   "solution": "NARRATE"
+   "solution": "NARRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What account providers do",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to raise",
+         "at": 34,
+         "note": "in a down clue, raising a word means reading it upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "managed",
+         "at": 26,
+         "gives": "RAN",
+         "note": "ran, as in ran a business"
+        }
+       ]
+      },
+      {
+       "words": "amount of interest",
+       "at": 43,
+       "gives": "RATE",
+       "note": "an interest rate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bank's account service has managed to increase the interest it pays.",
+     "walkthrough": "An account here is a story, not a bank account.",
+     "definitionFit": "Someone who provides an account of events tells the story, which is to narrate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +495,48 @@
      }
     ]
    },
-   "solution": "TALKINTO"
+   "solution": "TALKINTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Convince",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "less",
+       "at": 30,
+       "note": "less means without, so the grand letter is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "to do carpeting",
+       "at": 9,
+       "gives": "TALKINGTO",
+       "note": "a carpeting is a scolding, a talking-to"
+      },
+      {
+       "words": "grand",
+       "at": 35,
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Persuade someone to fit carpets, but more cheaply.",
+     "walkthrough": "'Carpeting' is British slang for a telling-off; a G is a grand, a thousand pounds.",
+     "definitionFit": "To talk someone into something is to persuade them to do it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carpeting"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +556,41 @@
      }
     ]
    },
-   "solution": "LAYASIDE"
+   "solution": "LAYASIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Discard",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "song",
+       "at": 8,
+       "gives": "LAY",
+       "note": "a lay is a poem or ballad meant to be sung"
+      },
+      {
+       "words": "song intended to be popular",
+       "at": 15,
+       "gives": "ASIDE",
+       "note": "the A-side of a single was the track meant to be the hit"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Get rid of one song for another expected to become a hit.",
+     "definitionFit": "To lay aside something is to put it away and abandon it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "popular"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +604,56 @@
     "text": "Resting place for the great cat, not quite running",
     "enumeration": "8"
    },
-   "solution": "PANTHEON"
+   "solution": "PANTHEON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Resting place for the great",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite",
+         "at": 33,
+         "note": "not quite complete, so the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cat",
+         "at": 28,
+         "gives": "PANTHER",
+         "note": "a panther is a big cat"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "words": "running",
+       "at": 43,
+       "gives": "ON",
+       "note": "on, as a machine that is running is on"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big cat, almost running, heads for where famous people lie.",
+     "definitionFit": "A pantheon is a building where illustrious people are buried or honoured, as in Paris."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "great"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +667,48 @@
     "text": "Cook wraps poorly with fancy trimmings",
     "enumeration": "6"
    },
-   "solution": "FRILLY"
+   "solution": "FRILLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with fancy trimmings",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wraps",
+       "at": 5,
+       "note": "the cooking word goes round the outside of the sickness word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cook",
+       "at": 0,
+       "gives": "FRY",
+       "note": "to fry is to cook"
+      },
+      {
+       "words": "poorly",
+       "at": 11,
+       "gives": "ILL",
+       "note": "poorly means unwell, ill"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chef wraps food badly while dressing it with fancy garnish.",
+     "definitionFit": "Frilly clothes are decorated with frills, ornamental edging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poorly"
+    }
+   }
   },
   {
    "number": 11,
@@ -212,7 +728,70 @@
      }
     ]
    },
-   "solution": "AUREVOIR"
+   "solution": "AUREVOIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I'm leaving…",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Gold",
+       "at": 0,
+       "gives": "AU",
+       "note": "Au is gold's chemical symbol"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 19,
+         "note": "the turned car goes round the island letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "reversing",
+           "at": 9,
+           "note": "the car is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "car",
+           "at": 5,
+           "gives": "ROVER",
+           "note": "a Rover is a British make of car"
+          }
+         ]
+        },
+        {
+         "words": "island",
+         "at": 25,
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golden car backs around an island as someone departs.",
+     "definitionFit": "Au revoir is the French farewell said when someone is leaving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "reversing"
+    }
+   }
   },
   {
    "number": 12,
@@ -226,7 +805,48 @@
     "text": "…which is translated on right devices for listeners",
     "enumeration": "6"
    },
-   "solution": "RADIOS"
+   "solution": "RADIOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "devices for listeners",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 21,
+       "note": "in an across answer, one piece written on another follows it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "right",
+       "at": 24,
+       "gives": "R"
+      },
+      {
+       "words": "…which is translated",
+       "at": 0,
+       "gives": "ADIOS",
+       "note": "the previous answer, a French farewell, translated into Spanish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A goodbye is rendered in another language for a listening audience.",
+     "walkthrough": "The ellipsis links back to the previous clue: its French farewell put into Spanish gives the second piece.",
+     "definitionFit": "Radios are receivers people listen to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "translated"
+    }
+   }
   },
   {
    "number": 13,
@@ -246,7 +866,58 @@
      }
     ]
    },
-   "solution": "OPENFIRE"
+   "solution": "OPENFIRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "order for troops",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Frank",
+       "at": 0,
+       "gives": "OPEN",
+       "note": "open, as in candid"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning to",
+         "at": 6,
+         "note": "the beginning of the next word, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "feel",
+         "at": 19,
+         "note": "only its first letter counts"
+        }
+       ]
+      },
+      {
+       "words": "anger",
+       "at": 24,
+       "gives": "IRE",
+       "note": "ire is anger"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An honest person starts to feel anger at a military command.",
+     "definitionFit": "Open fire is the command telling soldiers to start shooting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Frank"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +931,58 @@
     "text": "Bank run with current and diverse changes",
     "enumeration": "9"
    },
-   "solution": "RIVERSIDE"
+   "solution": "RIVERSIDE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bank",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "run",
+       "at": 5,
+       "gives": "R"
+      },
+      {
+       "words": "current",
+       "at": 14,
+       "gives": "I",
+       "note": "I is the symbol for electric current"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changes",
+         "at": 34,
+         "note": "diverse undergoes changes, a rearrangement of its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "diverse",
+         "at": 26,
+         "note": "the anagram fodder"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A financial bank runs a mixed business that keeps changing.",
+     "walkthrough": "R is the cricket abbreviation for run.",
+     "definitionFit": "The bank of a river is the riverside, the land alongside the water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bank"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +996,56 @@
     "text": "Attempt to push back society entertainer",
     "enumeration": "4"
    },
-   "solution": "HOST"
+   "solution": "HOST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "entertainer",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to push back",
+       "at": 8,
+       "note": "the society letter at the front is pushed further back in the word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Attempt",
+         "at": 0,
+         "gives": "SHOT",
+         "note": "a shot is a try"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "society",
+       "at": 21,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An effort to repel high society from a party giver.",
+     "walkthrough": "The S that starts the attempt word is moved back two places.",
+     "definitionFit": "A host entertains guests, so a host is one who entertains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "push"
+    }
+   }
   },
   {
    "number": 15,
@@ -294,7 +1065,31 @@
      }
     ]
    },
-   "solution": "HIGHCAMP"
+   "solution": "HIGHCAMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tents on mountain maybe",
+      "at": 0,
+      "meaning": "first meaning: a camp pitched high up a peak, taken literally"
+     },
+     {
+      "text": "being affected",
+      "at": 24,
+      "meaning": "second meaning: an exaggerated, theatrical style"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half reads the phrase literally, the second gives its sense of flamboyant affectation.",
+     "definitionFit": "High camp describes deliberately exaggerated, theatrical mannerism, an affected style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tents"
+    }
+   }
   },
   {
    "number": 16,
@@ -308,7 +1103,53 @@
     "text": "African swamp-dweller quiet over online invoice",
     "enumeration": "8"
    },
-   "solution": "SHOEBILL"
+   "solution": "SHOEBILL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "African swamp-dweller",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "quiet",
+       "at": 22,
+       "gives": "SH",
+       "note": "sh is the hushing sound asking for quiet"
+      },
+      {
+       "words": "over",
+       "at": 28,
+       "gives": "O",
+       "note": "O is the cricket scorecard abbreviation for over"
+      },
+      {
+       "words": "online",
+       "at": 33,
+       "gives": "E",
+       "note": "e- as in e-mail, meaning electronic"
+      },
+      {
+       "words": "invoice",
+       "at": 40,
+       "gives": "BILL",
+       "note": "a bill is an invoice"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild creature of African marshes gets quiet after an emailed invoice.",
+     "definitionFit": "The shoebill is a large stork-like bird of East African swamps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 17,
@@ -322,7 +1163,67 @@
     "text": "Love games after Pamplona's leader is one releasing bulls",
     "enumeration": "4"
    },
-   "solution": "POPE"
+   "solution": "POPE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one releasing bulls",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 11,
+       "note": "the love and games pieces come after the leader"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 28,
+         "note": "the leading letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pamplona's",
+         "at": 17,
+         "note": "only its first letter counts"
+        }
+       ]
+      },
+      {
+       "words": "Love",
+       "at": 0,
+       "gives": "O",
+       "note": "love is zero in tennis, O"
+      },
+      {
+       "words": "games",
+       "at": 5,
+       "gives": "PE",
+       "note": "PE is physical education"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Games of love follow in Pamplona, where bulls are let loose to run the streets.",
+     "walkthrough": "Pamplona's bull run sets the scene, but the bulls are papal decrees.",
+     "definitionFit": "A papal bull is a formal edict, so the pontiff is the one who issues them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bulls"
+    }
+   }
   },
   {
    "number": 17,
@@ -336,7 +1237,47 @@
     "text": "Moralising Republican, beastly on the outside",
     "enumeration": "8"
    },
-   "solution": "PRIGGISH"
+   "solution": "PRIGGISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Moralising",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on the outside",
+       "at": 31,
+       "note": "the beastly word sits on the outside, wrapping the party letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "beastly",
+       "at": 23,
+       "gives": "PIGGISH",
+       "note": "piggish, like a greedy beast"
+      },
+      {
+       "words": "Republican",
+       "at": 11,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sanctimonious Republican hides a brutish nature underneath.",
+     "definitionFit": "A priggish person is self-righteously moralistic and preachy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beastly"
+    }
+   }
   },
   {
    "number": 18,
@@ -350,7 +1291,65 @@
     "text": "Unbalanced painter with no time to plug rubbish",
     "enumeration": "8"
    },
-   "solution": "PARTISAN"
+   "solution": "PARTISAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unbalanced",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to plug",
+       "at": 32,
+       "note": "the painter fills the middle of the rubbish word like a plug"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rubbish",
+       "at": 40,
+       "gives": "PAN",
+       "note": "to rubbish is to criticise harshly, to pan"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no",
+         "at": 19,
+         "note": "the painter appears with the time letter missing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "painter",
+         "at": 11,
+         "gives": "ARTIST",
+         "note": "an artist"
+        },
+        {
+         "words": "time",
+         "at": 27,
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deranged artist, out of time, tries to stem the rubbish.",
+     "definitionFit": "Partisan means biased, one-sided in favour of a cause."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Unbalanced"
+    }
+   }
   },
   {
    "number": 19,
@@ -370,7 +1369,30 @@
      }
     ]
    },
-   "solution": "PASSOVER"
+   "solution": "PASSOVER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Refuse to promote",
+      "at": 0,
+      "meaning": "first meaning: to skip them for promotion"
+     },
+     {
+      "text": "religious festival",
+      "at": 18,
+      "meaning": "second meaning: the Jewish spring festival"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrasal verb and the Jewish feast share spelling.",
+     "definitionFit": "Passover is the Jewish festival commemorating the Exodus; passing someone over denies them advancement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "promote"
+    }
+   }
   },
   {
    "number": 19,
@@ -384,7 +1406,72 @@
     "text": "Key skill of one cutting power and mains supply",
     "enumeration": "7"
    },
-   "solution": "PIANISM"
+   "solution": "PIANISM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Key skill",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cutting",
+       "at": 17,
+       "note": "the one letter cuts into the following group, sitting inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "power",
+         "at": 25,
+         "gives": "P",
+         "note": "P is the physics symbol for power"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "supply",
+           "at": 41,
+           "note": "read as the adverb of supple, so the letters bend into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mains",
+           "at": 35,
+           "note": "the anagram fodder"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 13,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Electrical supply is cut, power and mains alike.",
+     "walkthrough": "Key means piano key here; 'supply' hides the anagram as supple-ly.",
+     "definitionFit": "Pianism is skill at playing the piano, an instrument played on keys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 20,
@@ -404,7 +1491,56 @@
      }
     ]
    },
-   "solution": "HEEHAW"
+   "solution": "HEEHAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "asinine utterance",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "HEE",
+       "indicators": [
+        {
+         "text": "picked up",
+         "at": 4,
+         "note": "heard as spoken, so the word is replaced by one that sounds the same"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Man",
+         "at": 0,
+         "gives": "HE",
+         "note": "he, a male person"
+        }
+       ]
+      },
+      {
+       "words": "fruit",
+       "at": 14,
+       "gives": "HAW",
+       "note": "a haw is the berry of the hawthorn"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man collects berries, then brays like a fool.",
+     "walkthrough": "Asinine is used literally: of a donkey.",
+     "definitionFit": "Hee-haw is the braying call of a donkey, an ass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "asinine"
+    }
+   }
   },
   {
    "number": 21,
@@ -418,7 +1554,48 @@
     "text": "Protecting arrangement of sails, cross water",
     "enumeration": "8"
    },
-   "solution": "IRRIGATE"
+   "solution": "IRRIGATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "water",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Protecting",
+       "at": 0,
+       "note": "the angry word shelters the sails word inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cross",
+       "at": 33,
+       "gives": "IRATE",
+       "note": "cross means angry, irate"
+      },
+      {
+       "words": "arrangement of sails",
+       "at": 11,
+       "gives": "RIG",
+       "note": "a ship's rig"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Guarding the ship's sails, an angry sailor crosses the sea.",
+     "definitionFit": "To irrigate is to supply land with water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 22,
@@ -432,7 +1609,42 @@
     "text": "Sharp facilitator of trip in charge",
     "enumeration": "6"
    },
-   "solution": "ACIDIC"
+   "solution": "ACIDIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sharp",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "facilitator of trip",
+       "at": 6,
+       "gives": "ACID",
+       "note": "LSD, acid, causes a hallucinogenic trip"
+      },
+      {
+       "words": "in charge",
+       "at": 26,
+       "gives": "IC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cutting remark: a travel organiser is in control.",
+     "walkthrough": "The trip is a drug experience, not a journey.",
+     "definitionFit": "An acidic taste or remark is sharp, sour or biting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trip"
+    }
+   }
   },
   {
    "number": 23,
@@ -446,7 +1658,68 @@
     "text": "Most disruptive cry for attention cut sleep after noon",
     "enumeration": "8"
    },
-   "solution": "NOISIEST"
+   "solution": "NOISIEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most disruptive",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 44,
+       "note": "the cry and sleep pieces follow the noon letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "noon",
+       "at": 50,
+       "gives": "N"
+      },
+      {
+       "words": "cry for attention",
+       "at": 16,
+       "gives": "OI",
+       "note": "oi! is a shout to get attention"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 34,
+         "note": "the sleep word loses its tail"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sleep",
+         "at": 38,
+         "gives": "SIESTA",
+         "note": "a siesta is an afternoon nap"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shouting to get noticed spoils an afternoon nap.",
+     "definitionFit": "The noisiest people make the most racket, so they cause the greatest disturbance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 24,
@@ -466,7 +1739,47 @@
      }
     ]
    },
-   "solution": "PALLMALL"
+   "solution": "PALLMALL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Part of capital",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "China",
+       "at": 19,
+       "gives": "PAL",
+       "note": "rhyming slang: china plate = mate, a pal"
+      },
+      {
+       "words": "large",
+       "at": 30,
+       "gives": "L"
+      },
+      {
+       "words": "retail area",
+       "at": 36,
+       "gives": "MALL",
+       "note": "a shopping mall"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A district in Beijing with a big shopping centre.",
+     "walkthrough": "Pall Mall is a street in London; china means a friend in Cockney rhyming slang.",
+     "definitionFit": "Pall Mall is a well-known street in central London, the capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 25,
@@ -480,7 +1793,41 @@
     "text": "Gas — more than enough bottles",
     "enumeration": "6"
    },
-   "solution": "ETHANE"
+   "solution": "ETHANE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gas",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "bottles",
+       "at": 23,
+       "note": "the phrase holds the answer bottled up within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "more than enough",
+       "at": 6,
+       "note": "the answer runs across the end of 'more', all of 'than' and the start of 'enough'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "There is a surplus of gas cylinders.",
+     "definitionFit": "Ethane is a colourless hydrocarbon found in natural gas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bottles"
+    }
+   }
   }
  ]
 }
