@@ -153,6 +153,26 @@ f.CORPUS_KEYS[old_key] = {**f.CORPUS_KEYS[old_key], "times": "moved"}
 check("(mirror) once that paper's key moves, a scan under the corpus-wide key is stale",
       False, f.scan_current({"edition": "NewsUK1990UKEnglish/x", "scanKey": old_key, "filesHash": "h", "scan": {}}, "h"))
 f.CORPUS_KEYS[old_key] = {**f.CORPUS_KEYS[old_key], "times": f.scan_key()}
+# The queue asks scan_current of every queued scan each pass: _paper_name,
+# current_keys and the edition's paper are cached, answering as the
+# uncached walk does, and a name re-bound is looked up again.
+walk = lambda p: next(k for k, v in vars(f).items() if v is p and k.isupper())
+fake_paper = object()
+f.ZZ_CACHED = fake_paper
+first = f._paper_name(fake_paper)
+f.ZZ_CACHED = None
+f.ZZ_MOVED = fake_paper
+moved_to = f._paper_name(fake_paper)
+del f.ZZ_CACHED, f.ZZ_MOVED
+gt = f.GALE_TELEGRAPH
+row = {"edition": "GaleTelegraph1975UKEnglish/1975-03-04", "scanKey": f.scan_key(gt), "filesHash": "h", "scan": {}}
+check("scan_current's caches: a paper's name as the globals walk finds it, again after a re-bind; one key set "
+      "shared by every ask; an edition named by string read as paper_of's (asked twice, by rel and by row)",
+      (True, "ZZ_CACHED", "ZZ_MOVED", True, {f.scan_key(gt), f.sized_scan_key(gt)}, [True, True, True, False]),
+      (all(f._paper_name(p) == walk(p) for p in f.FILERS.values()), first, moved_to,
+       f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
+       [f.scan_current(row, "h"), f.scan_current(row, "h"), f.scan_current(row, "h", row["edition"]),
+        f.scan_current(row, "h", "NewsUK1990UKEnglish/1990-01-01_1")]))
 
 # The other papers' Gale pages: each item is a paper of its own, filed as
 # its series; the Telegraph's and FT's read in those runs.

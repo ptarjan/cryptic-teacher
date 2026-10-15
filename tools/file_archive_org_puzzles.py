@@ -3838,7 +3838,16 @@ def scan_keys(opaque, texts=None):
 def _paper_name(paper):
     """The module-level name of Paper `paper` (TIMES by default)."""
     paper = paper or TIMES
-    return next(k for k, v in globals().items() if v is paper and k.isupper())
+    name = _PAPER_NAMES.get(id(paper))
+    if name is None or globals().get(name) is not paper:
+        name = _PAPER_NAMES[id(paper)] = next(k for k, v in globals().items() if v is paper and k.isupper())
+    return name
+
+
+#: {id(Paper): _paper_name}, the name checked still bound to it on each hit:
+#: the queue's main thread asks scan_current of every queued scan each pass,
+#: and a walk of the module's ~500 globals was most of each ask.
+_PAPER_NAMES = {}
 
 
 #: The corpus-wide scan keys of the code before each paper had a key of its
@@ -3852,8 +3861,17 @@ CORPUS_KEYS = {"f5d96d62730b57d5": _CORPUS_PAPERS, "631672b37146c86b": _CORPUS_P
 
 def current_keys(paper):
     """The scanKeys a scan of one of `paper`'s editions stands under."""
-    key = scan_key(paper)
-    return {key, sized_scan_key(paper)} | {k for k, keys in CORPUS_KEYS.items() if keys.get(paper.key) == key}
+    key, sized = scan_key(paper), sized_scan_key(paper)
+    corpus = tuple(k for k, keys in CORPUS_KEYS.items() if keys.get(paper.key) == key)
+    hit = _CURRENT_KEYS.get((key, sized, corpus))
+    if hit is None:
+        hit = _CURRENT_KEYS[(key, sized, corpus)] = frozenset({key, sized, *corpus})
+    return hit
+
+
+#: current_keys by everything it is made of, so a pass's thousands of asks
+#: share one set (a test that moves CORPUS_KEYS gets another).
+_CURRENT_KEYS = {}
 
 
 def rekey_scans(ledger):
@@ -4603,8 +4621,22 @@ def rank_of_reason(reason):
 def scan_current(row, fh, rel=None):
     """Whether ledger `row` (of edition `rel`, else its own "edition") holds
     a scan of files `fh` by its paper's scan code."""
-    return (bool(row) and row.get("filesHash") == fh and "scan" in row
-            and row.get("scanKey") in current_keys(paper_of(rel or row.get("edition", ""))))
+    if not (row and row.get("filesHash") == fh and "scan" in row):
+        return False
+    rel = rel or row.get("edition", "")
+    paper = _CURRENT_PAPER.get(rel) if isinstance(rel, str) else None
+    if paper is None:
+        paper = paper_of(rel)
+        if isinstance(rel, str):
+            _CURRENT_PAPER[rel] = paper
+    return row.get("scanKey") in current_keys(paper)
+
+
+#: {"<item>/<edition>": paper_of it} for scan_current, which the queue asks of
+#: every queued scan each pass by name (paper_of memoizes Paths only). Kept
+#: here, not in paper_of: scan() reaches paper_of, so a change there moves
+#: every scan_key.
+_CURRENT_PAPER = {}
 
 
 def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
