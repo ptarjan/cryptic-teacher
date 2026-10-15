@@ -4,6 +4,13 @@
  "setter": "Vlad",
  "date": "2020-05-04",
  "preamble": "Twelve thematic solutions are to be entered in the grid incompletely. Their clues contain a definition of the full solution and wordplay for a different thematic entry in the grid. Wordplay for each of the remaining 23 clues contains a superfluous letter. These letters in clue order give a four-word indication of what the thematic entries are lacking. By a process of elimination, you must deduce the final thematic entry at 29 across, which (similarly completed) you might say is surprising.",
+ "messages": [
+  {
+   "text": "LETTER PAIRS NO REPETITION",
+   "kind": "extra",
+   "order": "clues"
+  }
+ ],
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -17,8 +24,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-15",
+  "check": "36 entries, 58 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,6 +44,54 @@
    "clue": {
     "text": "Reflect on scams by one not working",
     "enumeration": "8"
+   },
+   "solution": "CONSIDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reflect on",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "scams",
+       "at": 11,
+       "gives": "CONS",
+       "note": "cons are swindles, the same sense as scams"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "one not working",
+         "at": 20,
+         "gives": "IDLER",
+         "note": "an idler is someone who does no work"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone told to think hard about frauds committed by a layabout.",
+     "walkthrough": "IDLER gives one letter more than the answer needs; the spare L is the first letter of the hidden message.",
+     "definitionFit": "To consider something is to ponder or think it over carefully, which is what reflecting on it means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scams"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "L"
+    }
    }
   },
   {
@@ -44,6 +105,65 @@
    "clue": {
     "text": "Smoking pot, carve ham",
     "enumeration": "7"
+   },
+   "solution": "OVERACT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ham",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Smoking",
+       "at": 0,
+       "note": "smoking letters are fuming and agitated, so they are stirred into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "pot",
+           "at": 8,
+           "note": "taken as written"
+          },
+          {
+           "words": "carve",
+           "at": 13,
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone high on cannabis slices up a joint of ham.",
+     "walkthrough": "'ham' looks like the meat being carved, but it is a verb: to act too theatrically. The spare letter is one of the Ps.",
+     "definitionFit": "A ham actor exaggerates; to ham it up is to overplay a part on stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ham"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "P"
+    }
    }
   },
   {
@@ -57,6 +177,62 @@
    "clue": {
     "text": "Chucked while taking breather",
     "enumeration": "5"
+   },
+   "solution": "SLUNG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chucked",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "taking",
+       "at": 14,
+       "note": "the first piece takes on the second, picking it up as a companion right after it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "while",
+         "at": 8,
+         "gives": "AS",
+         "note": "as in the sense 'during the time that'"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "words": "breather",
+       "at": 21,
+       "gives": "LUNG",
+       "note": "a lung is an organ we breathe with"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something got thrown while the thrower paused for a rest.",
+     "walkthrough": "'breather' suggests a short rest; here it is the organ that breathes. AS supplies the spare A.",
+     "definitionFit": "Slung is the past tense of sling, to throw carelessly, the same as chucked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "breather"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "A"
+    }
    }
   },
   {
@@ -70,6 +246,54 @@
    "clue": {
     "text": "Assume party's at home",
     "enumeration": "3"
+   },
+   "solution": "DON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Assume",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "party's",
+       "at": 7,
+       "gives": "DO",
+       "note": "a do is a party; the 's is just 'is', joining it to what follows"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "at home",
+         "at": 15,
+         "gives": "IN",
+         "note": "to be in is to be at home"
+        },
+        {
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking it for granted that the celebration is being held at the house.",
+     "walkthrough": "'Assume' reads as 'suppose'; it is the other sense, take on, as you do clothes. IN carries the spare I.",
+     "definitionFit": "To don a garment or a manner is to put it on, which is to assume it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Assume"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "I"
+    }
    }
   },
   {
@@ -83,6 +307,64 @@
    "clue": {
     "text": "OK, Renoir upset English speaker in South Africa",
     "enumeration": "7"
+   },
+   "solution": "ROOINEK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "English speaker in South Africa",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "upset",
+       "at": 11,
+       "note": "upset letters are knocked over and land in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "OK",
+           "at": 0,
+           "note": "taken as written"
+          },
+          {
+           "words": "Renoir",
+           "at": 4,
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fine, so the French painter got upset.",
+     "walkthrough": "Rooinek, Afrikaans for 'red neck', is old slang for a British or English-speaking South African. Renoir supplies the spare R.",
+     "definitionFit": "Afrikaners coined the nickname for sunburnt British settlers, and it came to mean any English-speaking South African."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Renoir"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "R"
+    }
    }
   },
   {
@@ -96,6 +378,40 @@
    "clue": {
     "text": "In turn killed over 50 — that's nothing",
     "enumeration": "5"
+   },
+   "solution": "SWEET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nothing",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "nothing",
+       "at": 32,
+       "note": "this clue's own definition; the grid holds it without the letter pair FA"
+      },
+      {
+       "words": "In turn killed over 50",
+       "at": 0,
+       "note": "wordplay for another answer: SLEW turned round and placed over L (50) gives WELLS, the entry at 7-down"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tally of killings over fifty, which someone shrugs off as nothing.",
+     "walkthrough": "Thematic: the full answer SWEET FA loses its letter pair FA in the grid, and the wordplay here serves a different thematic entry, WELLS.",
+     "definitionFit": "Sweet FA is British slang, short for 'sweet Fanny Adams', meaning nothing whatsoever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
    }
   },
   {
@@ -109,6 +425,40 @@
    "clue": {
     "text": "Writer not happy with lines",
     "enumeration": "5"
+   },
+   "solution": "WELLS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Writer",
+       "at": 0,
+       "note": "this clue's own definition; the grid holds it without the pair HG"
+      },
+      {
+       "words": "not happy with lines",
+       "at": 7,
+       "note": "wordplay for another answer: LOW (not happy) plus RY (railway lines) gives LOWRY at 24-across"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author is unhappy with the lines he has written.",
+     "walkthrough": "Thematic: the full answer H.G. WELLS is entered without HG, and this wordplay builds a different thematic entry, LOWRY.",
+     "definitionFit": "H.G. Wells was the English novelist of The Time Machine and The War of the Worlds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
    }
   },
   {
@@ -122,6 +472,59 @@
    "clue": {
     "text": "Marine right to call for jewellery",
     "enumeration": "7"
+   },
+   "solution": "EARRING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "jewellery",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Marine",
+         "at": 0,
+         "gives": "SEA",
+         "note": "marine means of the sea"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 7,
+       "gives": "R"
+      },
+      {
+       "words": "to call",
+       "at": 13,
+       "gives": "RING",
+       "note": "to ring someone is to phone them"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Royal Marine has the right to ask for some jewels.",
+     "walkthrough": "'Marine' looks like a soldier; it is the adjective, giving SEA, whose S is the spare letter.",
+     "definitionFit": "An earring is a piece of jewellery worn through or on the lobe of the ear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Marine"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "S"
+    }
    }
   },
   {
@@ -135,6 +538,54 @@
    "clue": {
     "text": "Frank working with writer",
     "enumeration": "4"
+   },
+   "solution": "OPEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Frank",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "working",
+         "at": 6,
+         "gives": "ON",
+         "note": "a machine that is on is working"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "writer",
+       "at": 19,
+       "gives": "PEN",
+       "note": "a pen is something that writes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Frank collaborates with an author.",
+     "walkthrough": "'Frank' poses as a man's name; it is the adjective. ON carries the spare N.",
+     "definitionFit": "Someone open is candid and honest about things, which is what being frank means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Frank"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "N"
+    }
    }
   },
   {
@@ -154,6 +605,40 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "RETURNTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fantasy film",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "fantasy film",
+       "at": 33,
+       "note": "this clue's own definition; the grid holds it without OZ"
+      },
+      {
+       "words": "Young lady about to describe new",
+       "at": 0,
+       "note": "wordplay for another answer: GAL turned about, round N (new), gives LANG at 12-across"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl about to describe a newly released fantasy movie.",
+     "walkthrough": "Thematic: RETURN TO OZ is entered without its last pair, OZ, and the wordplay here builds LANG for 12-across.",
+     "definitionFit": "Return to Oz is a 1985 Disney fantasy picture that continues Dorothy's adventures in the land of Oz."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
    }
   },
   {
@@ -167,6 +652,54 @@
    "clue": {
     "text": "Mean to ring and go",
     "enumeration": "6"
+   },
+   "solution": "PALTRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mean",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "to ring",
+         "at": 5,
+         "gives": "PEAL",
+         "note": "bells peal when they ring out"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "go",
+       "at": 17,
+       "gives": "TRY",
+       "note": "to have a go is to have a try"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone intends to phone and then leave.",
+     "walkthrough": "'Mean' looks like a verb (intend) to go with 'to ring', but it is the adjective: stingy, measly. PEAL carries the spare E.",
+     "definitionFit": "A paltry sum is a mean, meagre one, small enough to be almost insulting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mean"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
    }
   },
   {
@@ -180,6 +713,41 @@
    "clue": {
     "text": "Singer-songwriter's number one impressing street",
     "enumeration": "4"
+   },
+   "solution": "LANG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Singer-songwriter's",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Singer-songwriter's",
+       "at": 0,
+       "note": "this clue's own definition, with 's for 'is'; the grid holds the name without the pair KD"
+      },
+      {
+       "words": "number one impressing street",
+       "at": 20,
+       "note": "wordplay for another answer: WEE (a number one, childish for urinating) pressed inside ST gives SWEET at 6-across"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer's chart-topping hit makes an impression on the street.",
+     "walkthrough": "Thematic: K.D. LANG is entered without KD, and this wordplay builds SWEET for 6-across; 'number one' is nursery talk for a wee.",
+     "definitionFit": "k.d. lang is the Canadian singer-songwriter known for Constant Craving and her version of Hallelujah."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "number"
+    }
    }
   },
   {
@@ -199,6 +767,59 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "BANANASKIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "potential for disaster",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Mad",
+       "at": 0,
+       "gives": "BANANAS",
+       "note": "going bananas is going crazy"
+      },
+      {
+       "words": "Kelvin",
+       "at": 4,
+       "gives": "K"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "money",
+         "at": 16,
+         "gives": "TIN",
+         "note": "tin is old slang for cash"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crazed man named Kelvin with cash on him is trouble waiting to happen.",
+     "walkthrough": "Kelvin reads as a man's name; here it is only K, the symbol for the temperature unit. TIN carries the spare T.",
+     "definitionFit": "A banana skin is a hazard to slip on, figuratively any pitfall likely to cause embarrassment or calamity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Kelvin"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "T"
+    }
    }
   },
   {
@@ -212,6 +833,54 @@
    "clue": {
     "text": "One that clings to Chairman's country as it was",
     "enumeration": "5"
+   },
+   "solution": "BURMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "country as it was",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "One that clings",
+       "at": 0,
+       "gives": "BUR",
+       "note": "a bur is a prickly seed case that sticks to clothing and fur"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Chairman's",
+         "at": 19,
+         "gives": "MAO",
+         "note": "Mao Zedong was known as Chairman Mao"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A loyal follower sticking to the Chairman's nation as it used to be.",
+     "walkthrough": "MAO supplies the spare O.",
+     "definitionFit": "Burma was renamed Myanmar in 1989, so it is the country under its former name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "clings"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "O"
+    }
    }
   },
   {
@@ -225,6 +894,43 @@
    "clue": {
     "text": "Where the Taj Mahal is in range",
     "enumeration": "3"
+   },
+   "solution": "AGA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "range",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "parts": [
+      {
+       "words": "Where the Taj Mahal is",
+       "at": 0,
+       "gives": "AGRA",
+       "note": "the Taj Mahal stands in the Indian city of Agra"
+      },
+      {
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking where in a mountain chain you would find the Taj Mahal.",
+     "walkthrough": "'range' suggests mountains; an Aga is a heavy British cooking stove, and such a stove is called a range.",
+     "definitionFit": "A range is a large cast-iron kitchen stove, and the Aga is the best-known make of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "range"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "R"
+    }
    }
   },
   {
@@ -238,6 +944,40 @@
    "clue": {
     "text": "Tall London building worker let out",
     "enumeration": "5"
+   },
+   "solution": "TOWER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tall London building",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Tall London building",
+       "at": 0,
+       "note": "this clue's own definition; the grid holds it without BT"
+      },
+      {
+       "words": "worker let out",
+       "at": 21,
+       "note": "wordplay for another answer: BEE (worker) plus LET rearranged gives BEETLE at 30-across"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worker is allowed out of a London skyscraper.",
+     "walkthrough": "Thematic: BT TOWER is entered without BT, and the wordplay here builds BEETLE for 30-across.",
+     "definitionFit": "The BT Tower, formerly the Post Office Tower, is a tall communications mast-building in central London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
    }
   },
   {
@@ -251,6 +991,76 @@
    "clue": {
     "text": "Feeble tee shot at Wentworth's first",
     "enumeration": "3"
+   },
+   "solution": "WET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feeble",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 31,
+         "note": "only the opening letter of the golf club's name is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Wentworth's",
+         "at": 19,
+         "note": "Wentworth is the golf club, and its first letter is the one taken"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shot",
+         "at": 11,
+         "note": "shot here means wrecked, so the word tee is broken up and reordered"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "tee",
+           "at": 7,
+           "note": "taken as written"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weak drive off the tee at the opening hole of Wentworth golf club.",
+     "walkthrough": "Wentworth is a famous golf club in Surrey. 'tee shot' reads as a golf drive, but 'shot' is the anagram signal.",
+     "definitionFit": "Wet is British slang for weak or ineffectual, describing a feeble, spineless person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
    }
   },
   {
@@ -264,6 +1074,40 @@
    "clue": {
     "text": "Imagined lawyer discussing earnings of Englishman abroad",
     "enumeration": "8"
+   },
+   "solution": "KAVANAGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Imagined lawyer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Imagined lawyer",
+       "at": 0,
+       "note": "this clue's own definition; the grid holds it without QC"
+      },
+      {
+       "words": "discussing earnings of Englishman abroad",
+       "at": 16,
+       "note": "wordplay for another answer: said aloud, POM PAY (an Australian's word for an Englishman, plus earnings) gives POMPEII at 21-down"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A make-believe barrister talks about what an expat Englishman earns.",
+     "walkthrough": "Thematic: KAVANAGH QC, the 1990s TV drama starring John Thaw, is entered without QC; this wordplay builds POMPEII.",
+     "definitionFit": "James Kavanagh QC is a fictional barrister, the title character of the ITV legal drama."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Imagined"
+    }
    }
   },
   {
@@ -277,6 +1121,70 @@
    "clue": {
     "text": "Rod dissects very small rodents",
     "enumeration": "5"
+   },
+   "solution": "VOLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rodents",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "dissects",
+       "at": 4,
+       "note": "the rod cuts through the middle of the other two letters, splitting them apart"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "very",
+         "at": 13,
+         "gives": "V"
+        },
+        {
+         "words": "small",
+         "at": 18,
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Rod",
+         "at": 0,
+         "gives": "POLE",
+         "note": "a pole is a long rod"
+        },
+        {
+         "gives": "P"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rod is used to cut up very small rodents in a lab.",
+     "walkthrough": "POLE supplies the spare P.",
+     "definitionFit": "Voles are small mouse-like rodents of fields and riverbanks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dissects"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "P"
+    }
    }
   },
   {
@@ -290,6 +1198,53 @@
    "clue": {
     "text": "Name sheep only just acquired",
     "enumeration": "3"
+   },
+   "solution": "NEW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "only just acquired",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Name",
+       "at": 0,
+       "gives": "N"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "sheep",
+         "at": 5,
+         "gives": "EWE",
+         "note": "a ewe is a female sheep"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer naming a sheep bought only yesterday.",
+     "walkthrough": "EWE carries the spare E.",
+     "definitionFit": "Something new has recently come into your possession, rather than being old stock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Name"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
    }
   },
   {
@@ -303,6 +1258,69 @@
    "clue": {
     "text": "Top MP last to change light",
     "enumeration": "8"
+   },
+   "solution": "SPOTLAMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "light",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to change",
+       "at": 12,
+       "note": "the letters of the three words are told to change, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Top",
+           "at": 0,
+           "note": "taken as written"
+          },
+          {
+           "words": "MP",
+           "at": 4,
+           "note": "taken as written"
+          },
+          {
+           "words": "last",
+           "at": 7,
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A senior politician is the last one to change a bulb.",
+     "walkthrough": "The fodder holds two Ts; one of them is the spare letter.",
+     "definitionFit": "A spotlamp is a lamp throwing a concentrated beam, a kind of lighting fixture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "light"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "T"
+    }
    }
   },
   {
@@ -316,6 +1334,41 @@
    "clue": {
     "text": "How could you make part of the Bible a comedy?",
     "enumeration": "7"
+   },
+   "solution": "POMPEII",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a comedy",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "a comedy",
+       "at": 37,
+       "note": "this clue's own definition; the grid holds it without UP"
+      },
+      {
+       "words": "How could you make part of the Bible",
+       "at": 0,
+       "note": "wordplay for another answer: RETURN TO, since turning TO round makes OT, the Old Testament; this is RETURNTO at 10-across"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking how a book of scripture could ever be turned into a comedy.",
+     "walkthrough": "Thematic: UP POMPEII is entered without UP. The wordplay is a reverse clue: 'return TO' answers how to make OT.",
+     "definitionFit": "Up Pompeii! was a BBC television sitcom of the early 1970s starring Frankie Howerd as a Roman slave."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bible"
+    }
    }
   },
   {
@@ -329,6 +1382,44 @@
    "clue": {
     "text": "Money's in wallet upstairs",
     "enumeration": "3"
+   },
+   "solution": "LEU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Money's",
+      "at": 0,
+      "note": "the 's is 'is': money is in, so the answer is the money itself"
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "parts": [
+      {
+       "words": "wallet upstairs",
+       "at": 11,
+       "gives": "LETU",
+       "note": "the letters sit in these two words, running across the join from the end of wallet into upstairs, with one letter too many"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Your cash is in the wallet you left upstairs.",
+     "walkthrough": "The leu is the currency of Romania and Moldova. The run of letters holds a spare T.",
+     "definitionFit": "The leu is a national currency unit, so it is a kind of money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upstairs"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "T"
+    }
    }
   },
   {
@@ -342,6 +1433,40 @@
    "clue": {
     "text": "Runs into duke incidentally",
     "enumeration": "7"
+   },
+   "solution": "PASSANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "incidentally",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "incidentally",
+       "at": 15,
+       "note": "this clue's own definition; the grid holds it without EN"
+      },
+      {
+       "words": "Runs into duke",
+       "at": 0,
+       "note": "wordplay for another answer: R (runs) inside FIST (a duke, slang for a fist) gives FIRST at 33-across"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mentioned casually: someone bumps into a duke.",
+     "walkthrough": "Thematic: EN PASSANT is entered without EN, and this wordplay builds FIRST; 'put up your dukes' is old slang for fists.",
+     "definitionFit": "En passant means by the way, a remark made in passing, which is the sense of incidentally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "duke"
+    }
    }
   },
   {
@@ -355,6 +1480,40 @@
    "clue": {
     "text": "Artist drew other piece the wrong way round",
     "enumeration": "5"
+   },
+   "solution": "LOWRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Artist",
+       "at": 0,
+       "note": "this clue's own definition; the grid holds it without LS"
+      },
+      {
+       "words": "drew other piece the wrong way round",
+       "at": 7,
+       "note": "wordplay for another answer: a piece of 'drew other' read backwards gives TOWER at 15-across"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter sketched another work back to front.",
+     "walkthrough": "Thematic: L.S. LOWRY is entered without LS, and this wordplay builds TOWER from letters running backwards inside 'drew other'.",
+     "definitionFit": "L.S. Lowry was the Salford painter famed for industrial scenes peopled with matchstick figures."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
    }
   },
   {
@@ -368,6 +1527,55 @@
    "clue": {
     "text": "Dogs key to Iris having no time off",
     "enumeration": "7"
+   },
+   "solution": "YORKIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dogs",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "off",
+       "at": 32,
+       "note": "off means gone bad or wrong, so the remaining letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "key to Iris having no time",
+         "at": 5,
+         "gives": "KEYOIRIS",
+         "note": "the letters of 'key to Iris' with T, the symbol for time, taken away, as 'having no time' says"
+        },
+        {
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pets hold the key for Iris, who gets no time off work.",
+     "walkthrough": "Yorkies are Yorkshire terriers. The fodder has two Is beyond the answer's one; the extra is the spare letter.",
+     "definitionFit": "Yorkie is the everyday name for the Yorkshire terrier, a small long-haired breed of dog."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "I"
+    }
    }
   },
   {
@@ -381,6 +1589,64 @@
    "clue": {
     "text": "Scribe amuses with inane rambling",
     "enumeration": "10"
+   },
+   "solution": "AMANUENSIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Scribe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "rambling",
+       "at": 25,
+       "note": "rambling talk wanders all over, so these letters wander into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "amuses",
+           "at": 7,
+           "note": "taken as written"
+          },
+          {
+           "words": "inane",
+           "at": 19,
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer entertains people with pointless waffle.",
+     "walkthrough": "The fodder has one E too many; it is the spare letter.",
+     "definitionFit": "An amanuensis is a secretary who writes down dictation or copies manuscripts, a scribe in the old sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "amuses"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
    }
   },
   {
@@ -394,6 +1660,64 @@
    "clue": {
     "text": "Sent to play records",
     "enumeration": "5"
+   },
+   "solution": "NOTES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "records",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "play",
+       "at": 8,
+       "note": "letters at play move about freely, landing in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Sent",
+           "at": 0,
+           "note": "taken as written"
+          },
+          {
+           "words": "to",
+           "at": 5,
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Discs dispatched to be played.",
+     "walkthrough": "'records' looks like vinyl; here it means written jottings. The fodder has two Ts, one of them spare.",
+     "definitionFit": "Notes are brief written records made to help memory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "records"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "T"
+    }
    }
   },
   {
@@ -407,6 +1731,61 @@
    "clue": {
     "text": "Stop working in nurse's garden",
     "enumeration": "4"
+   },
+   "solution": "EDEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "garden",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 13,
+       "note": "the word for stopping goes inside the nurse's letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "nurse's",
+       "at": 16,
+       "gives": "EN",
+       "note": "EN is an Enrolled Nurse"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Stop working",
+         "at": 0,
+         "gives": "DIE",
+         "note": "an engine or battery dies when it stops working"
+        },
+        {
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking a break in the nurse's back garden.",
+     "walkthrough": "DIE carries the spare I.",
+     "definitionFit": "Eden is the garden in Genesis where Adam and Eve lived, and the name stands for any paradisal garden."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stop"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "I"
+    }
    }
   },
   {
@@ -419,7 +1798,8 @@
    "length": 4,
    "clue": {
     "missing": true
-   }
+   },
+   "solution": "WORD"
   },
   {
    "number": 29,
@@ -432,6 +1812,53 @@
    "clue": {
     "text": "Not as good without flower",
     "enumeration": "5"
+   },
+   "solution": "WORSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not as good",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "without",
+         "at": 12,
+         "gives": "WO",
+         "note": "w/o is the written shorthand for without"
+        },
+        {
+         "words": "flower",
+         "at": 20,
+         "gives": "ROSE",
+         "note": "a rose is a flower"
+        }
+       ]
+      },
+      {
+       "gives": "O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A garden is poorer with no blooms.",
+     "walkthrough": "'flower' is the plain bloom here, not a river. One of the two Os is spare.",
+     "definitionFit": "Worse is the comparative of bad, describing something of lower quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "O"
+    }
    }
   },
   {
@@ -445,6 +1872,40 @@
    "clue": {
     "text": "Bug vehicle (Ford camper)? One's close to catching husband",
     "enumeration": "6"
+   },
+   "solution": "BEETLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bug vehicle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Bug vehicle",
+       "at": 0,
+       "note": "this clue's own definition; the grid holds it without VW"
+      },
+      {
+       "words": "(Ford camper)? One's close to catching husband",
+       "at": 12,
+       "note": "wordplay for another answer: KA (a Ford model) plus VAN (camper), A (one), G (close to catching) and H (husband) gives KAVANAGH at 17-across"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is a Volkswagen Bug some kind of Ford camper van, then?",
+     "walkthrough": "Thematic: VW BEETLE is entered without VW. The Ford Ka is a small Ford hatchback, which this wordplay uses to build KAVANAGH.",
+     "definitionFit": "The Volkswagen Beetle is nicknamed the Bug, especially in America, so it is the bug-shaped vehicle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Ford"
+    }
    }
   },
   {
@@ -464,6 +1925,40 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "ANDYRUIZ",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "former world champion",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "former world champion",
+       "at": 29,
+       "note": "this clue's own definition; the grid holds his name without JR"
+      },
+      {
+       "words": "Long to keep American behind",
+       "at": 0,
+       "note": "wordplay for another answer: PANT (long) holding ASS (an American behind) gives PASSANT at 23-down"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A one-time champion, longing to keep an American trailing.",
+     "walkthrough": "Thematic: ANDY RUIZ JR is entered without JR, and this wordplay builds PASSANT for 23-down.",
+     "definitionFit": "Andy Ruiz Jr took the world heavyweight boxing titles from Anthony Joshua in June 2019 and lost them back that December."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Long"
+    }
    }
   },
   {
@@ -477,6 +1972,53 @@
    "clue": {
     "text": "Means of identifying daughter's old relative",
     "enumeration": "3"
+   },
+   "solution": "DNA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Means of identifying",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "daughter's",
+       "at": 21,
+       "gives": "D"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "old relative",
+         "at": 32,
+         "gives": "NAN",
+         "note": "nan is a grandmother, an older relative"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fingerprint or similar that pins down whose daughter belongs to the grandmother.",
+     "walkthrough": "NAN carries the spare N.",
+     "definitionFit": "DNA profiling identifies people from their genetic material, a standard forensic technique."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "relative"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "N"
+    }
    }
   },
   {
@@ -490,6 +2032,40 @@
    "clue": {
     "text": "Best team ruin day — unfortunate end to series",
     "enumeration": "5"
+   },
+   "solution": "FIRST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Best team",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Best team",
+       "at": 0,
+       "note": "this clue's own definition; the grid holds it without XI"
+      },
+      {
+       "words": "ruin day — unfortunate end to series",
+       "at": 10,
+       "note": "wordplay for another answer: RUIN DAY rearranged (unfortunate) plus Z, the end of the alphabet series, gives ANDY RUIZ at 31-across"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The top side's bad day spoils the end of a run of matches.",
+     "walkthrough": "Thematic: FIRST XI is entered without XI, and this wordplay builds ANDY RUIZ. Z ends the A to Z series.",
+     "definitionFit": "A club's first eleven is its strongest side in cricket or football, its best team."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "series"
+    }
    }
   },
   {
@@ -503,6 +2079,71 @@
    "clue": {
     "text": "Increasingly abrupt about artist — very cross",
     "enumeration": "8"
+   },
+   "solution": "TRAVERSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cross",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 20,
+       "note": "the comparative wraps around the other pieces, as if standing about them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Increasingly abrupt",
+         "at": 0,
+         "gives": "TERSER",
+         "note": "terser is more abrupt, the comparative form"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "artist",
+         "at": 26,
+         "gives": "RA",
+         "note": "RA is a Royal Academician"
+        },
+        {
+         "words": "very",
+         "at": 35,
+         "gives": "V"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone growing ever more curt with a painter, and very angry about it.",
+     "walkthrough": "'very cross' reads as one phrase for anger; 'very' belongs to the wordplay and 'cross' alone is the definition, in its sense of going across.",
+     "definitionFit": "To traverse ground is to travel across it, so the verb cross is a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "R"
+    }
    }
   }
  ]
