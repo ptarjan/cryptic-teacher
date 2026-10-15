@@ -162,6 +162,24 @@ def annotate_paused(ledger, now):
                for k, e in ledger.last_end.items())
 
 
+#: The coverage ledger tools/coverage.py saves each morning (05:50, its
+#: plugin), one <local date>.json a day: the known/acquired columns of the
+#: /progress/ row the ratings unit records (tools/progress_record.py).
+COVERAGE_STATE = Path(os.environ.get("COVERAGE_STATE", Path.home() / ".cache" / "coverage_ledger"))
+#: Local hour past which ratings records without today's ledger: a coverage
+#: run that died must not cost the rest of the night's work.
+LEDGER_WAIT_UNTIL = 12
+
+
+def awaits_ledger(now):
+    """Whether ratings waits for today's coverage ledger. Recorded without it,
+    the day's /progress/ row has no known/acquired and the page carries the
+    last ledger's forward for a whole day (2026-10-15: Metro's 10,074 days,
+    fixed in coverage.py at 01:03, stood until the next ratings run)."""
+    t = time.localtime(now)
+    return t.tm_hour < LEDGER_WAIT_UNTIL and not (COVERAGE_STATE / f"{time.strftime('%Y-%m-%d', t)}.json").exists()
+
+
 def plan(ledger, now):
     out = []
     fresh = os.environ.get("DAILY_FRESH", "").split()
@@ -186,6 +204,8 @@ def plan(ledger, now):
                 room -= 1
             out.append(u)
     for key, every, timeout, trigger in PHASES:
+        if key == "ratings" and awaits_ledger(now):
+            continue
         out.append(unit(key, timeout=timeout, every=every, trigger=trigger, after=trigger,
                         cls="claude" if key == "reports" else "backfill" if key in BACKFILLS else ""))
     return out
