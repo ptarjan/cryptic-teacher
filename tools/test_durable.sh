@@ -358,7 +358,13 @@ if n == 1:
     subprocess.run(["git", "-C", edit, "push", "-q", "origin", "HEAD:master"], check=True)
     print("3 left for the next run")
 elif n == 2:
-    time.sleep(0.5)
+    # The push beside this slice may take a while to reach its pre-push (the
+    # first checks out the push gate), so watch for it rather than looking
+    # once; had the slices run in turn it is over, and never shows.
+    for _ in range(100):
+        if os.path.exists(f"{home}/judging"):
+            break
+        time.sleep(0.1)
     print("slice 2 began " + ("while slice 1's push ran" if os.path.exists(f"{home}/judging") else "after slice 1's push"))
     print("2 left for the next run")
 else:
