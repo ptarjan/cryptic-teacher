@@ -434,14 +434,14 @@ class S:
 
 up = {"micro@100.68.145.15"}
 tried = []
-def opened(host, tries=3):
+def opened(host, tries=3, timeout=ocr_remote.CONNECT_TIMEOUT):
     tried.append(host)
     if host not in up:
         raise ocr_remote.Unavailable("Host key verification failed.")
     return S(host)
 ocr_remote.opened = opened
 ocr_remote.matched = lambda s: (s, None)
-ocr_remote.ship = lambda host: (_ for _ in ()).throw(ocr_remote.Unavailable("ship: no route"))
+ocr_remote.ship = lambda host: (_ for _ in ()).throw(ocr_remote.Unavailable("shipping the code failed (255): ssh: connect to host port 22: Connection timed out"))
 ocr_remote._VERSIONS["local"] = {}
 busy = [None]
 ocr_remote.desktop_busy.busy = lambda hosts: busy[0]
@@ -453,6 +453,65 @@ check("every desktop address is tried, not only OCR_REMOTE's", 3, len(set(tried)
 check("the fallback sends one line", 1, sum("fell back to micro@100.68.145.15" in l for l in woken()))
 ocr_remote.connect()
 check("and only once", 1, sum("fell back" in l for l in woken()))
+check("a LAN that never answered says so", True,
+      any("fell back to micro@100.68.145.15 (no LAN address answers)" in l for l in woken()))
+
+# A LAN host that answers but lacks the code dir (2026-10-15: v-9001...)
+# ships it there and waits out its cold start, no other address tried.
+missing = (r"ssh exited (2): C:\Users\micro\AppData\Local\Programs\Python\Python312\python.exe: can't open file "
+           r"'C:\\Users\\micro\\ocrw\\v-9001b5b16ede\\tools\\ocr_remote.py': [Errno 2] No such file or directory")
+check("code_missing reads the hash from python's error", "9001b5b16ede", ocr_remote.code_missing(missing))
+check("an unreachable host is not missing code", None,
+      ocr_remote.code_missing("ssh exited (255): ssh: connect to host 192.168.1.180 port 22: Connection refused"))
+lan = "micro@192.168.1.198"
+on_desk, ships, waits = set(), [], []
+def opened_code(host, tries=3, timeout=ocr_remote.CONNECT_TIMEOUT):
+    tried.append(host)
+    waits.append((host, timeout))
+    if host not in up:
+        raise ocr_remote.Unavailable("ssh exited (255): ssh: connect to host port 22: Connection refused")
+    if "code" not in on_desk:
+        raise ocr_remote.Unavailable(missing)
+    if timeout < cold_start[0]:
+        raise ocr_remote.Unavailable(f"no answer in {timeout}s")
+    return S(host)
+def ship_code(host):
+    ships.append(host)
+    on_desk.add("code")
+ocr_remote.opened, ocr_remote.ship = opened_code, ship_code
+up.clear()
+up.update({lan, "micro@100.68.145.15"})
+cold_start = [90]  # seconds the fresh copy's first serve takes
+del tried[:]
+s = ocr_remote.connect()
+check("a missing code dir on a LAN host is shipped to that host", [lan], ships)
+check("and the session opens there, not on the tailnet", lan, s and s.host)
+check("the open after shipping waits out a cold start", True, (lan, ocr_remote.COLD_TIMEOUT) in waits)
+check("nothing alerts", 1, sum("fell back" in l for l in woken()))
+
+# When the LAN session still fails after the ship, the alert says what
+# failed: the code dir missing and the slow start, not a dead LAN.
+(ocr_remote.ALERT_STAMPS / "fallback-micro@100.68.145.15").unlink(missing_ok=True)
+on_desk.clear()
+del ships[:], waits[:]
+cold_start = [ocr_remote.COLD_TIMEOUT + 1]
+real_ship = ship_code
+def ship_then_warm(host):  # the tailnet's open, after the LAN's, finds it warm
+    real_ship(host)
+    if host == "micro@100.68.145.15":
+        cold_start[0] = 0
+ocr_remote.ship = ship_then_warm
+s = ocr_remote.connect()
+line = [l for l in woken() if "fell back" in l][-1:]
+check("a LAN session that fails after connecting falls back", "micro@100.68.145.15", s and s.host)
+check("its alert does not say no LAN address works", False, any("no LAN address" in l for l in line))
+check("its alert names the missing code dir and the later failure", True,
+      any("after a LAN session failed" in l and "its code dir v-9001b5b16ede was missing" in l
+          and f"no answer in {ocr_remote.COLD_TIMEOUT}s" in l for l in line))
+ocr_remote.opened = opened
+ocr_remote.ship = lambda host: (_ for _ in ()).throw(ocr_remote.Unavailable("shipping the code failed (255): ssh: connect to host port 22: Connection timed out"))
+up.clear()
+up.add("micro@100.68.145.15")
 
 up.clear()
 for _ in range(3):
