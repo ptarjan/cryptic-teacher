@@ -21,6 +21,9 @@
   "date": "2022-08-18",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -34,7 +37,31 @@
     "text": "Gorge? Ravine? Defile? I don't know the answer",
     "enumeration": "4"
    },
-   "solution": "PASS"
+   "solution": "PASS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Gorge? Ravine? Defile?",
+      "at": 0,
+      "meaning": "first meaning: a narrow route through mountains, the setter offering three near-synonyms"
+     },
+     {
+      "text": "I don't know the answer",
+      "at": 23,
+      "meaning": "second meaning: what a quiz contestant says to give up a question"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The run of question marks reads like a baffled solver guessing at a definition, which is exactly the second sense: a contestant who cannot answer says this word.",
+     "definitionFit": "A mountain route through a narrow valley shares its name with the quiz-show word for declining to answer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Defile"
+    }
+   }
   },
   {
    "number": 1,
@@ -48,7 +75,77 @@
     "text": "Extremely patchy artist can ultimately paint such a shrub",
     "enumeration": "10"
    },
-   "solution": "PYRACANTHA"
+   "solution": "PYRACANTHA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shrub",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Extremely",
+         "at": 0,
+         "note": "extremely read as at the extremes: only the two end letters of patchy are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "patchy",
+         "at": 10,
+         "gives": "PY",
+         "note": "its first and last letters"
+        }
+       ]
+      },
+      {
+       "words": "artist",
+       "at": 17,
+       "gives": "RA",
+       "note": "RA is a Royal Academician"
+      },
+      {
+       "words": "can",
+       "at": 24,
+       "gives": "CAN",
+       "note": "taken as written"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 28,
+         "note": "ultimately read as finally: the closing letter of each of paint, such and a is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "paint such a",
+         "at": 39,
+         "note": "the last letter of each of these three words"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter with a patchy style can still paint a particular bush.",
+     "walkthrough": "Royal Academician gives RA, a common shorthand for an artist.",
+     "definitionFit": "Pyracantha, or firethorn, is a thorny evergreen bush with bright berries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "patchy"
+    }
+   }
   },
   {
    "number": 2,
@@ -62,7 +159,60 @@
     "text": "A few always involved in the Spanish uprising",
     "enumeration": "7"
    },
-   "solution": "SEVERAL"
+   "solution": "SEVERAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A few",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involved in",
+       "at": 13,
+       "note": "always is wrapped up inside the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "uprising",
+         "at": 37,
+         "note": "in a down entry rising means read bottom to top, so the letters reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the Spanish",
+         "at": 25,
+         "gives": "LAS",
+         "note": "las is the Spanish feminine plural for the"
+        }
+       ]
+      },
+      {
+       "words": "always",
+       "at": 6,
+       "gives": "EVER",
+       "note": "ever means always"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A few people are forever caught up in a Spanish revolt.",
+     "definitionFit": "Several means more than two but not many, a small number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uprising"
+    }
+   }
   },
   {
    "number": 3,
@@ -82,7 +232,42 @@
      }
     ]
    },
-   "solution": "SAFEBLOWER"
+   "solution": "SAFEBLOWER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Violent criminal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "secure",
+       "at": 19,
+       "gives": "SAFE",
+       "note": "safe means secure, out of danger"
+      },
+      {
+       "words": "telephone",
+       "at": 26,
+       "gives": "BLOWER",
+       "note": "blower is old British slang for the telephone"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A violent criminal makes his calls on a secure phone line.",
+     "walkthrough": "Blower is British slang for the phone. The 's stands for 'is', linking definition to wordplay.",
+     "definitionFit": "A safeblower is a burglar who uses explosives to break open strongboxes, a violent kind of thief."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "secure"
+    }
+   }
   },
   {
    "number": 4,
@@ -96,7 +281,47 @@
     "text": "Eg Australian worker, chap with digital audio player",
     "enumeration": "9"
    },
-   "solution": "ANTIPODAL"
+   "solution": "ANTIPODAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Eg Australian",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "worker",
+       "at": 14,
+       "gives": "ANT",
+       "note": "the worker ant is the crossword's stock worker"
+      },
+      {
+       "words": "digital audio player",
+       "at": 32,
+       "gives": "IPOD",
+       "note": "the iPod, Apple's music player"
+      },
+      {
+       "words": "chap",
+       "at": 22,
+       "gives": "AL",
+       "note": "Al, a man's name"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian worker and his mate share a music player.",
+     "definitionFit": "Antipodal means of the antipodes, the British term for Australia and New Zealand on the far side of the globe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 5,
@@ -110,7 +335,44 @@
     "text": "Dined in brassiere at Enfield",
     "enumeration": "5"
    },
-   "solution": "EATEN"
+   "solution": "EATEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dined",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 6,
+       "note": "the word is contained within the run of letters that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "brassiere at Enfield",
+       "at": 9,
+       "gives": "EATEN",
+       "note": "the answer runs across the end of brassiere, all of at and the start of Enfield"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone had dinner wearing a bra in a north London suburb.",
+     "walkthrough": "Enfield is a borough of north London. Dined, a past participle here, replaces the answer in 'have dined'.",
+     "definitionFit": "Having eaten is having dined, consumed a meal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "brassiere"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +392,42 @@
      }
     ]
    },
-   "solution": "LETTERPERFECT"
+   "solution": "LETTERPERFECT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "ready to act on Broadway?",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Character",
+       "at": 0,
+       "gives": "LETTER",
+       "note": "a letter is a character of the alphabet"
+      },
+      {
+       "words": "complete",
+       "at": 10,
+       "gives": "PERFECT",
+       "note": "perfect means complete, as in a perfect stranger"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor's role is fully learned, ready for a New York stage.",
+     "walkthrough": "Broadway signals the American form of the British word-perfect.",
+     "definitionFit": "An actor who is letter-perfect knows the lines exactly, so is prepared to perform."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Character"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +441,47 @@
     "text": "Make carefree sound when crossing street",
     "enumeration": "7"
    },
-   "solution": "WHISTLE"
+   "solution": "WHISTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make carefree sound",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crossing",
+       "at": 25,
+       "note": "the street letters go across the middle of the other word, inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "when",
+       "at": 20,
+       "gives": "WHILE",
+       "note": "while means when, during the time that"
+      },
+      {
+       "words": "street",
+       "at": 34,
+       "gives": "ST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sounds cheerful as they cross the road.",
+     "definitionFit": "Whistling a tune is the classic sign of a person without worries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "crossing"
+    }
+   }
   },
   {
    "number": 8,
@@ -158,7 +495,60 @@
     "text": "Biscuity food from first of restaurants overlooking Welsh river",
     "enumeration": "4"
    },
-   "solution": "RUSK"
+   "solution": "RUSK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Biscuity food",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "overlooking",
+       "at": 40,
+       "note": "in a down entry, one thing overlooking another stands above it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first of",
+         "at": 19,
+         "note": "only the opening letter of restaurants is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "restaurants",
+         "at": 28,
+         "gives": "R",
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "words": "Welsh river",
+       "at": 52,
+       "gives": "USK",
+       "note": "the Usk flows through south Wales"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant above a Welsh river serves a crisp, biscuity snack.",
+     "definitionFit": "A rusk is a dry, twice-baked bread eaten like a biscuit, often given to babies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overlooking"
+    }
+   }
   },
   {
    "number": 9,
@@ -172,7 +562,49 @@
     "text": "Again call on girl during fresh exam",
     "enumeration": "7"
    },
-   "solution": "REVISIT"
+   "solution": "REVISIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Again call on",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "during",
+       "at": 19,
+       "note": "the girl's name comes during the exam, so it sits inside those letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fresh exam",
+       "at": 26,
+       "gives": "RESIT",
+       "note": "a resit is an exam taken again after failing"
+      },
+      {
+       "words": "girl",
+       "at": 14,
+       "gives": "VI",
+       "note": "Vi is a short form of the girl's name Violet"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl is called upon again in the middle of retaking a test.",
+     "walkthrough": "A resit is the British term for retaking a failed exam.",
+     "definitionFit": "To revisit a place or person is to go and see them once more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "call"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +618,60 @@
     "text": "Severe medic in wooded area, going backwards",
     "enumeration": "13"
    },
-   "solution": "STERNFOREMOST"
+   "solution": "STERNFOREMOST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "going backwards",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Severe",
+       "at": 0,
+       "gives": "STERN",
+       "note": "stern means severe, strict"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 13,
+         "note": "the medic sits in the wooded area, inside its letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wooded area",
+         "at": 16,
+         "gives": "FOREST",
+         "note": "a forest"
+        },
+        {
+         "words": "medic",
+         "at": 7,
+         "gives": "MO",
+         "note": "MO, the medical officer"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stern doctor walks backwards through a wood.",
+     "walkthrough": "'Going backwards' looks like a reversal signal but is the definition.",
+     "definitionFit": "A ship moving stern foremost has its rear leading, so it is travelling in reverse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "backwards"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +685,46 @@
     "text": "Starchy tubers up north — the ropiest, almost",
     "enumeration": "7"
    },
-   "solution": "TATTIES"
+   "solution": "TATTIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Starchy tubers up north",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "almost",
+       "at": 39,
+       "note": "almost the whole word is used, so its final letter is dropped"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the ropiest",
+       "at": 26,
+       "gives": "TATTIEST",
+       "note": "ropy means shabby or poor quality, as does tatty; the ropiest is the tattiest"
+      },
+      {
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Northern potatoes are described as nearly the worst-quality ones going.",
+     "walkthrough": "Ropy and tatty are both British informal words for shabby or poor.",
+     "definitionFit": "Tatties is the Scottish and northern English word for potatoes, starchy root vegetables."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ropiest"
+    }
+   }
   },
   {
    "number": 12,
@@ -214,7 +738,48 @@
     "text": "Reporter's right to obstruct suspected adulterer",
     "enumeration": "13"
    },
-   "solution": "CORRESPONDENT"
+   "solution": "CORRESPONDENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reporter",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to obstruct",
+       "at": 17,
+       "note": "the letter for right gets in the way, placed inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "suspected adulterer",
+       "at": 29,
+       "gives": "CORESPONDENT",
+       "note": "in a divorce case the co-respondent is the person accused of adultery with the spouse"
+      },
+      {
+       "words": "right",
+       "at": 11,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist claims the right to get in the way of an alleged adulterer.",
+     "walkthrough": "The 's is 'is'. Co-respondent is the legal term in divorce for the third party named.",
+     "definitionFit": "A correspondent is a journalist filing news, typically from a particular place or on a specialist topic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 13,
@@ -228,7 +793,53 @@
     "text": "Ministry identified by wiggly stripe on headgear",
     "enumeration": "10"
    },
-   "solution": "PRIESTHOOD"
+   "solution": "PRIESTHOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ministry",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wiggly",
+         "at": 23,
+         "note": "a wiggly line is twisted out of shape, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stripe",
+         "at": 30,
+         "note": "taken as written, its six letters to be rearranged"
+        }
+       ]
+      },
+      {
+       "words": "headgear",
+       "at": 40,
+       "gives": "HOOD",
+       "note": "a hood covers the head"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A government department is known by the squiggly band on its hat.",
+     "walkthrough": "Ministry here is the clergy's calling, not a government office.",
+     "definitionFit": "The priesthood is the office of a priest, the religious ministry of ordained clergy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Ministry"
+    }
+   }
   },
   {
    "number": 14,
@@ -242,7 +853,60 @@
     "text": "Material in US state teacher removed from capital",
     "enumeration": "5"
    },
-   "solution": "NYLON"
+   "solution": "NYLON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "US state",
+       "at": 12,
+       "gives": "NY",
+       "note": "NY is the abbreviation for New York"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "removed from",
+         "at": 29,
+         "note": "the teacher is taken away from the capital city, leaving its remaining letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "capital",
+         "at": 42,
+         "gives": "LONDON",
+         "note": "London, the UK capital"
+        },
+        {
+         "words": "teacher",
+         "at": 21,
+         "gives": "DON",
+         "note": "a don is a university teacher"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fabric is found in an American state once a teacher has left the capital.",
+     "walkthrough": "A don is a university lecturer, especially at Oxford or Cambridge.",
+     "definitionFit": "Nylon is a synthetic fabric, a manufactured textile used for clothing and stockings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 15,
@@ -256,7 +920,59 @@
     "text": "Vanish from area, protected by female military engineer",
     "enumeration": "9"
    },
-   "solution": "DISAPPEAR"
+   "solution": "DISAPPEAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vanish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protected by",
+       "at": 18,
+       "note": "the area letter is guarded by the surrounding letters, so it goes inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "female",
+         "at": 31,
+         "gives": "DI",
+         "note": "Di is a woman's name, short for Diana"
+        },
+        {
+         "words": "military engineer",
+         "at": 38,
+         "gives": "SAPPER",
+         "note": "a sapper is a soldier in the Royal Engineers"
+        }
+       ]
+      },
+      {
+       "words": "area",
+       "at": 12,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vanishes from a zone guarded by a woman serving as a sapper.",
+     "walkthrough": "Sapper is the usual British term for a military engineer.",
+     "definitionFit": "To disappear is to pass out of sight, a direct synonym of vanishing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "protected"
+    }
+   }
   },
   {
    "number": 16,
@@ -270,7 +986,60 @@
     "text": "Lied about trendy lass's informal music-making?",
     "enumeration": "9"
    },
-   "solution": "SINGALONG"
+   "solution": "SINGALONG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "informal music-making?",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 5,
+       "note": "the song goes round the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lied",
+       "at": 0,
+       "gives": "SONG",
+       "note": "a Lied is a German art song"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "trendy",
+         "at": 11,
+         "gives": "IN",
+         "note": "in means fashionable"
+        },
+        {
+         "words": "lass",
+         "at": 18,
+         "gives": "GAL",
+         "note": "gal is an informal word for a girl"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German art song about a fashionable girl becomes a casual musical session.",
+     "walkthrough": "Lied looks like the past of lie but is the German for song. The 's is 'is'.",
+     "definitionFit": "A singalong is a casual gathering where people join in singing popular songs together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lied"
+    }
+   }
   },
   {
    "number": 17,
@@ -284,7 +1053,55 @@
     "text": "Bogey we hear eatin' disgustingly by top of cooker",
     "enumeration": "9"
    },
-   "solution": "HOBGOBLIN"
+   "solution": "HOBGOBLIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bogey",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "top of cooker",
+       "at": 37,
+       "gives": "HOB",
+       "note": "the hob is the top surface of a cooker with the burners"
+      },
+      {
+       "op": "homophone",
+       "spelt": "GOBLIN",
+       "indicators": [
+        {
+         "text": "we hear",
+         "at": 6,
+         "note": "signals a word that sounds like the clue phrase rather than being spelt like it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "eatin' disgustingly",
+         "at": 14,
+         "note": "gobblin', with the dropped g as in the clue, is eating greedily"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sounds like they're wolfing food beside the stove, perhaps a greedy ghoul in the kitchen.",
+     "walkthrough": "The clipped 'eatin'' tells you the sound-alike also ends in -lin, not -ling. Bogey here is the bogeyman, not golf.",
+     "definitionFit": "A hobgoblin is a mischievous imp or bogeyman, a creature of folklore used to frighten."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bogey"
+    }
+   }
   },
   {
    "number": 18,
@@ -298,7 +1115,75 @@
     "text": "Insect initially biting female in humble surroundings",
     "enumeration": "7"
    },
-   "solution": "BLOWFLY"
+   "solution": "BLOWFLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Insect",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 7,
+         "note": "only the first letter of biting is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "biting",
+         "at": 17,
+         "gives": "B",
+         "note": "its first letter"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 31,
+         "note": "the female letter sits in the humble word"
+        },
+        {
+         "text": "surroundings",
+         "at": 41,
+         "note": "the humble word surrounds the female letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "humble",
+         "at": 34,
+         "gives": "LOWLY",
+         "note": "lowly means humble"
+        },
+        {
+         "words": "female",
+         "at": 24,
+         "gives": "F"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bug starts to bite a woman living modestly.",
+     "definitionFit": "A blowfly, or bluebottle, is a fly that lays its eggs on meat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "biting"
+    }
+   }
   },
   {
    "number": 19,
@@ -312,7 +1197,49 @@
     "text": "Frill displayed by honoured companion in Continental street",
     "enumeration": "5"
    },
-   "solution": "RUCHE"
+   "solution": "RUCHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Frill",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 38,
+       "note": "the companion is placed in the street, so the letters go inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Continental street",
+       "at": 41,
+       "gives": "RUE",
+       "note": "rue is French for street, Continental meaning European mainland"
+      },
+      {
+       "words": "honoured companion",
+       "at": 19,
+       "gives": "CH",
+       "note": "CH is the abbreviation for Companion of Honour, a British order"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frilly garment is worn by a decorated dignitary strolling along a European street.",
+     "walkthrough": "The Companion of Honour is a British award, abbreviated CH.",
+     "definitionFit": "A ruche is a gathered strip of fabric used as decorative trim on clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "honoured"
+    }
+   }
   },
   {
    "number": 20,
@@ -326,7 +1253,53 @@
     "text": "Farewell from guerrilla leader going over European port",
     "enumeration": "7"
    },
-   "solution": "CHEERIO"
+   "solution": "CHEERIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Farewell",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "going over",
+       "at": 31,
+       "note": "in a down entry the leader is placed above, on top of the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "guerrilla leader",
+       "at": 14,
+       "gives": "CHE",
+       "note": "Che Guevara, the revolutionary"
+      },
+      {
+       "words": "European",
+       "at": 42,
+       "gives": "E"
+      },
+      {
+       "words": "port",
+       "at": 51,
+       "gives": "RIO",
+       "note": "Rio de Janeiro"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Che Guevara says goodbye as he crosses to a European harbour.",
+     "definitionFit": "Cheerio is an informal British way of saying goodbye."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1313,83 @@
     "text": "Exaggeration about gallery employees in centre of Boston",
     "enumeration": "13"
    },
-   "solution": "OVERSTATEMENT"
+   "solution": "OVERSTATEMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Exaggeration",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "about",
+       "at": 13,
+       "gives": "OVER",
+       "note": "over can mean about, as in arguing over something"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 37,
+         "note": "the gallery and staff sit inside the central letters of the city"
+        }
+       ],
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "centre of",
+           "at": 40,
+           "note": "only the middle letters of the city name are used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Boston",
+           "at": 50,
+           "gives": "ST",
+           "note": "the two letters in the middle of the six-letter city name"
+          }
+         ]
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "gallery",
+           "at": 19,
+           "gives": "TATE",
+           "note": "the Tate is a London art gallery"
+          },
+          {
+           "words": "employees",
+           "at": 27,
+           "gives": "MEN",
+           "note": "men as in workers or staff"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some hype about gallery staff working in the heart of Boston.",
+     "walkthrough": "Boston has six letters, so its centre is the two middle ones.",
+     "definitionFit": "An overstatement claims more than is true, which is the essence of exaggerating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Boston"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1403,57 @@
     "text": "Glower when farm animal gets into small lake",
     "enumeration": "5"
    },
-   "solution": "SCOWL"
+   "solution": "SCOWL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Glower",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gets into",
+       "at": 24,
+       "note": "the animal enters the other letters and is enclosed"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "small",
+         "at": 34,
+         "gives": "S"
+        },
+        {
+         "words": "lake",
+         "at": 40,
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "farm animal",
+       "at": 12,
+       "gives": "COW",
+       "note": "a cow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone frowns when a cow wanders into a little pond.",
+     "definitionFit": "To scowl is to frown in anger, the same look as a glower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lake"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1467,52 @@
     "text": "Literary pirate ultimately hails from the East",
     "enumeration": "4"
    },
-   "solution": "SMEE"
+   "solution": "SMEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Literary pirate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 16,
+         "note": "ultimately read as finally: the closing letter of each of hails, from and the is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hails from the",
+         "at": 27,
+         "note": "the last letter of each of these three words"
+        }
+       ]
+      },
+      {
+       "words": "East",
+       "at": 42,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A storybook pirate turns out to come from the Orient.",
+     "walkthrough": "'Hails from the East' reads as a whole phrase about origin, but only the last letters of three words count.",
+     "definitionFit": "Smee is Captain Hook's bosun in J M Barrie's Peter Pan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hails"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1526,53 @@
     "text": "Sicilian criminal's girl in old Chinese leader's circle",
     "enumeration": "7"
    },
-   "solution": "MAFIOSO"
+   "solution": "MAFIOSO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sicilian criminal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "old Chinese leader's",
+         "at": 28,
+         "gives": "MAOS",
+         "note": "Mao Zedong, with the possessive s kept"
+        },
+        {
+         "words": "girl",
+         "at": 20,
+         "gives": "FI",
+         "note": "Fi is short for Fiona"
+        }
+       ]
+      },
+      {
+       "words": "circle",
+       "at": 49,
+       "gives": "O",
+       "note": "a circle looks like the letter O"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Mafia member's girlfriend moves in Chairman Mao's inner circle.",
+     "walkthrough": "The first 's means 'is'; the second stays as a letter after Mao.",
+     "definitionFit": "A mafioso is a member of the Mafia, the crime organisation that originated in Sicily."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "circle"
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1586,41 @@
     "text": "Oration cracking up a large area of Canada",
     "enumeration": "7"
    },
-   "solution": "ONTARIO"
+   "solution": "ONTARIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a large area of Canada",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "cracking up",
+       "at": 8,
+       "note": "breaking into pieces, so the letters of the speech are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Oration",
+       "at": 0,
+       "note": "taken as written, its seven letters to be rearranged"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speech falls apart, much as a big Canadian region might split.",
+     "definitionFit": "Ontario is one of Canada's provinces, covering a vast territory around the Great Lakes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cracking"
+    }
+   }
   },
   {
    "number": 26,
@@ -410,7 +1634,59 @@
     "text": "English college servant has to enter unknown antiquary's study",
     "enumeration": "10"
    },
-   "solution": "EGYPTOLOGY"
+   "solution": "EGYPTOLOGY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "antiquary's study",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "English",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "words": "college servant",
+       "at": 8,
+       "gives": "GYP",
+       "note": "a gyp is a college servant at Cambridge or Durham"
+      },
+      {
+       "words": "to",
+       "at": 28,
+       "gives": "TO",
+       "note": "taken as written"
+      },
+      {
+       "words": "enter",
+       "at": 31,
+       "gives": "LOG",
+       "note": "to log is to enter in a record"
+      },
+      {
+       "words": "unknown",
+       "at": 37,
+       "gives": "Y",
+       "note": "Y is a mathematical unknown"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English college servant must sign up for some mysterious course on antiquities.",
+     "walkthrough": "Gyp is the Cambridge term for a college servant who cleans rooms.",
+     "definitionFit": "Egyptology is the scholarly study of ancient Egypt, a field for those devoted to antiquities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "enter"
+    }
+   }
   },
   {
    "number": 27,
@@ -424,7 +1700,50 @@
     "text": "Courted sweetheart leaving for club?",
     "enumeration": "4"
    },
-   "solution": "WOOD"
+   "solution": "WOOD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "club",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "leaving",
+       "at": 19,
+       "note": "the heart of sweet goes away, removed from the courting word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Courted",
+       "at": 0,
+       "gives": "WOOED",
+       "note": "wooed means courted, tried to win over"
+      },
+      {
+       "words": "sweetheart",
+       "at": 8,
+       "gives": "E",
+       "note": "the heart of the word sweet is its middle letter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suitor's beloved leaves him for a nightclub, perhaps.",
+     "walkthrough": "Sweetheart reads as a lover but means the centre of 'sweet'. The club is a golf club, not a nightclub.",
+     "definitionFit": "In golf a wood is a long-distance club, once made with a wooden head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sweetheart"
+    }
+   }
   }
  ]
 }
