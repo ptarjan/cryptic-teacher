@@ -354,6 +354,27 @@ e2 = M.edition_rows()
 if e2.get(rel2) != {"files": "cafe", "at": 6} or e2[rel]["files"] != "feedface":
     print(f"FAIL edition_rows missed an edition appended to gale-editions: {e2}")
     sys.exit(1)
+# Another process's append is folded once EDITION_ROWS_FRESH lapses, not on
+# each ask: a queue pass asks once a queued unit and opens no manifest.
+import threading
+rel3 = "NewsUK1980UKEnglish/1980-01-19_1"
+with open(M.path(M.ARCHIVE_EDITIONS), "a") as f:
+    f.write(json.dumps({"edition": rel3, "files": "beef", "at": 7}) + "\n")
+opened = []
+real_open = builtins.open
+builtins.open = lambda p, *a, **k: (opened.append(p), real_open(p, *a, **k))[1]
+try:
+    e3 = M.edition_rows()
+finally:
+    builtins.open = real_open
+if opened or rel3 in e3:
+    print(f"FAIL edition_rows opened {opened} again within EDITION_ROWS_FRESH")
+    sys.exit(1)
+me = threading.get_ident()
+M._EDITION_ROWS[me] = M._EDITION_ROWS[me][:5] + (time.monotonic() - M.EDITION_ROWS_FRESH,)
+if M.edition_rows().get(rel3) != {"files": "beef", "at": 7}:
+    print("FAIL edition_rows missed another process's append once EDITION_ROWS_FRESH lapsed")
+    sys.exit(1)
 print("ok   edition_rows is merged again only when an edition is appended, and shows rows appended since")
 print("ok   edition_queue.fresh, the archive.org filer and fetcher plans and match_canberra stat no archive.org path")
 PY
