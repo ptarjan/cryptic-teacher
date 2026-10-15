@@ -315,6 +315,10 @@ check("a space inside the bracket", P.parse_clue_chunk("14 Give another coat to 
 import enumeration
 check("the worded count stays in the clue text, no count field",
       enumeration.clue(got[0]["clue"]), {"text": got[0]["clue"]})
+import clues_only
+held, _ = clues_only.lights_from_spec([[1, 8, "read", got[0]]], [[7, 5, "read", got[1]]])
+check("a clues-only hold prints the worded count once", held["across"][0],
+      {"clue": {"text": got[0]["clue"]}, "length": 8})
 
 print()
 if failures:
