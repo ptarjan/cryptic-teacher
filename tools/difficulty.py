@@ -953,6 +953,52 @@ def clue_row_deps(path, row):
     return blog_fact_hashes(BLOG_FACTS).get(row[0])
 
 
+def check_row(path):
+    """What tools/difficulty_check.py and tools/snitch_report.py read of one
+    puzzle file: its id, series, day, whether it is annotated, whether the
+    grid is barred, clue_parts() (None for a puzzle that is not a cryptic,
+    which raw() leaves unmeasured) and, per typed clue, (indicators, device
+    types, clue words). checked_score() and checked_raw() rate it as score()
+    and raw() rate the file."""
+    puz = read_puzzle_view(path)
+    clues = []
+    for e in puz["entries"]:
+        a = e.get("annotation") or {}
+        parts = a.get("type") or []
+        if parts:
+            clues.append((len(a.get("indicators") or []), len(parts), len(e["clue"].get("text", "").split())))
+    return {"pid": puz["id"], "series": puz.get("series"), "date": series_meta.puzzle_day(puz),
+            "annotated": puzzle_is_annotated(puz), "bars": bool(puz.get("bars")),
+            "parts": None if puzzle_style.is_straight(puz) else clue_parts(puz, _RANK), "clues": clues}
+
+
+def check_row_deps(path, row):
+    """What check_row() read besides its file, the lexicon and wordnet: the
+    puzzle's blog facts."""
+    return blog_fact_hashes(BLOG_FACTS).get(row["pid"])
+
+
+def checked(paths):
+    """check_row() for each of `paths`, kept per file by tools/row_cache.py.
+    The nightly's difficulty_check and snitch_report each scored their
+    puzzles afresh (every one of ~54k files, serially, for the check)."""
+    return row_cache.cached_map("difficulty", check_row, paths, roots={"_load_clue_inputs"},
+                                salt=_files_hash(LEXICON, WORDNET), deps=check_row_deps,
+                                prepare=_load_clue_inputs)
+
+
+def checked_raw(row, ctx):
+    """raw() of the puzzle check_row() read as `row`."""
+    if row["parts"] is None:
+        return dict.fromkeys(RAW_KEYS)
+    return with_history(row["parts"], ctx.history.get(row["pid"]))
+
+
+def checked_score(row, ctx):
+    """score() of the puzzle check_row() read as `row`."""
+    return rate(checked_raw(row, ctx), row["bars"], ctx.base)
+
+
 def history_row_deps(path, row):
     """What history_row() read besides its file: the puzzle's blog facts."""
     return row and blog_fact_hashes(BLOG_FACTS).get(row[1])

@@ -30,8 +30,7 @@ import hashlib
 import json
 from pathlib import Path
 import difficulty as D
-import series as series_meta
-from fetch_puzzle import puzzle_files, puzzle_is_annotated, read_puzzle_view
+from fetch_puzzle import puzzle_files
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -47,23 +46,25 @@ def fingerprint():
 
 def rows():
     """One row per puzzle that is SNITCH-rated or scored: its series, date,
-    NITCH, index, portable index and component z-scores."""
+    NITCH, index, portable index and component z-scores. Each file is read
+    through difficulty.checked() (tools/row_cache.py), so only files that
+    moved are scored again: scoring all ~54k serially each night was most of
+    the ratings unit's hour on a loaded host."""
     sn, ctx = D.load_snitch(), D.context()
     out = []
-    for path in puzzle_files():
-        puz = read_puzzle_view(path)
-        pid = puz["id"]
-        s = D.score(puz, ctx)
+    for row in D.checked(puzzle_files()):
+        pid = row["pid"]
+        s = D.checked_score(row, ctx)
         rated = pid in sn and pid.rpartition("-")[0] in D.SNITCH_SERIES
         if not rated and not s:
             continue
-        rw = D.raw(puz, ctx)
+        rw = D.checked_raw(row, ctx)
         pz = {k: (rw[k] - ctx.base[k]["mean"]) / ctx.base[k]["sd"]
               for k in D.PORTABLE if rw.get(k) is not None}
         tot = sum(D.WEIGHTS[k] for k in pz)
-        out.append({"pid": pid, "series": puz.get("series") or pid.rpartition("-")[0],
-                    "date": series_meta.puzzle_day(puz), "nitch": sn[pid]["nitch"] if rated else None,
-                    "annotated": puzzle_is_annotated(puz),
+        out.append({"pid": pid, "series": row["series"] or pid.rpartition("-")[0],
+                    "date": row["date"], "nitch": sn[pid]["nitch"] if rated else None,
+                    "annotated": row["annotated"],
                     "index": s["index"] if s else None, "z": s["z"] if s else None,
                     "portable": sum(D.WEIGHTS[k] * z for k, z in pz.items()) / tot if tot else None,
                     "pz": pz})
