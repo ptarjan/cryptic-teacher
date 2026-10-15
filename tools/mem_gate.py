@@ -18,6 +18,9 @@ from sysctl, times the page size. None when neither can be read (then
 plus the units begun this pass, under LOAD_PER_CORE per core. A unit that
 waits on the desktop or the network sleeps and adds no load, so the gate
 holds back only CPU-bound starts on a host already oversubscribed.
+tools/unit_queue.py, whose units all run at nice 19, reads `foreground_load()`
+instead: the run queue less nice-19 work, which yields to anything less nice
+and so never oversubscribes the host for the bridge or a shell.
 
 `idle_room()` asks it of a unit whose work runs on this host's CPU (a Trove
 article's OCR and grid search, the Listener's Tesseract): whether
@@ -128,6 +131,69 @@ def load():
         return os.getloadavg()[0]
     except OSError:
         return None
+
+
+#: The niceness of background work (the corpus job, the OCR, the burn, every
+#: unit_queue unit: tools/unit_queue.py UNIT_NICE). Its threads take a core
+#: only when nothing less nice wants it, so they cost the bridge and a shell
+#: nothing, and foreground_load() leaves them out.
+BACKGROUND_NICE = 19
+#: foreground_load's samples of the run queue, and the gap between them.
+FG_SAMPLES = 4
+FG_GAP_S = 0.25
+
+
+def runnable_by_nice(proc="/proc", skip=()):
+    """{nice: threads runnable now} across `proc`, leaving out the threads of
+    the pids in `skip`; None when it cannot be read (no /proc: macOS)."""
+    counts = {}
+    try:
+        pids = [p for p in os.listdir(proc) if p.isdigit() and int(p) not in skip]
+    except OSError:
+        return None
+    for pid in pids:
+        try:
+            tids = os.listdir(f"{proc}/{pid}/task")
+        except OSError:
+            continue
+        for tid in tids:
+            try:
+                with open(f"{proc}/{pid}/task/{tid}/stat") as f:
+                    stat = f.read()
+            except OSError:
+                continue
+            fields = stat[stat.rfind(")") + 2:].split()
+            try:
+                if fields[0] == "R":
+                    nice = int(fields[16])
+                    counts[nice] = counts.get(nice, 0) + 1
+            except (IndexError, ValueError):
+                continue
+    return counts
+
+
+def foreground_load(sampler=None, samples=None, gap=None, sleep=time.sleep):
+    """The run queue less background work: the mean, over FG_SAMPLES looks
+    FG_GAP_S apart, of runnable threads niced under BACKGROUND_NICE (this
+    process's own left out). None when the run queue cannot be read.
+
+    This, not the load average, is what a nice-19 unit's start must answer
+    to. The load average counts the nice-19 corpus job, OCR and burn too, so
+    while they run it sits over any ceiling and a gate on it never opens
+    (2026-10-13..15: the daily ratings, checks, minute and reports units went
+    days without a slot at load 20-25 on 6 cores, of which nice 0 was ~3)."""
+    sampler = sampler or (lambda: runnable_by_nice(skip=(os.getpid(),)))
+    samples = FG_SAMPLES if samples is None else samples
+    gap = FG_GAP_S if gap is None else gap
+    seen = []
+    for i in range(samples):
+        if i:
+            sleep(gap)
+        counts = sampler()
+        if counts is None:
+            return None
+        seen.append(sum(n for nice, n in counts.items() if nice < BACKGROUND_NICE))
+    return sum(seen) / len(seen) if seen else None
 
 
 def cpu_room(started=0, reader=None, cores=None, per_core=LOAD_PER_CORE):
