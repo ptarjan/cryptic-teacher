@@ -43,7 +43,7 @@ POOL_CHECK_SECS=0   # a checkpoint after every run, so a width change lands at o
 POOL_SYNC_SECS=2    # and a mid-pool sync, at least once
 eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
 for fn in pool_live pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_checkpoint run_pool \
-          pool_replan pool_kill_tree pool_topup pool_finished pool_adopted_done \
+          pool_replan pool_kill_tree pool_topup pool_topup_room pool_finished pool_adopted_done \
           needs_solve solve_applied resumed_first; do
   block="$(sed -n "/^$fn() {/,/^}/p" "$SCRIPT")"
   if [ -z "$block" ]; then echo "FAIL tools/prereset_backfill.sh no longer defines $fn()"; exit 1; fi
@@ -103,7 +103,7 @@ alert() { echo "ALERT $*" >>"$EVENTS"; }
 python3() {
   case "$1" in
     tools/puzzle_paths.py) echo "puzzles/x/2026/$2.json" ;;
-    tools/weekly_usage.py) echo 10 ;;
+    tools/weekly_usage.py) echo "${METER_PCT:-10}" ;;
     tools/prereset_plan.py)
       case "$2" in
         --cover-first) echo "replan" >>"$EVENTS"; [ -z "${PLAN_SLEEP:-}" ] || sleep "$PLAN_SLEEP"
@@ -243,6 +243,21 @@ check "a slow re-plan: runs start while it works, within the width, each id once
   "1 0 8 0" "$(replan_verdict)"
 check "the background re-plan's order is the one launched" "pooltest-$$-s8" \
   "$(awk '$1 == "start" { print $2 }' "$EVENTS" | sed -n 1p)"
+# A run that fails mid re-plan with the five-hour window below LOCKOUT_PCT failed
+# on its own puzzle: the pool goes on filling its slots (10-15 it sank from 7
+# runs to 2 through one re-plan). With the meter at the lockout it stops, since
+# the checkpoint after the plan may nap.
+LOCKOUT_PCT=90
+starts_after_fail() {  # runs started after $1 failed, before the next width read
+  awk -v id="$1" '$1 == "fail" && $2 == id { f = 1; next } f && $1 == "width" { exit }
+       f && $1 == "start" { n++ } END { print n + 0 }' "$EVENTS"
+}
+FAIL_ID="pooltest-$$-f3" PLAN_SLEEP=5 POOL_PLAN_SECS=60 replan_pool f
+check "a failure mid re-plan with the window open: the pool keeps filling its slots" 1 \
+  "$(( $(starts_after_fail "pooltest-$$-f3") > 0 ))"
+FAIL_ID="pooltest-$$-l3" METER_PCT=95 PLAN_SLEEP=5 POOL_PLAN_SECS=60 replan_pool l
+check "a failure mid re-plan at the lockout: no new run starts until the checkpoint" 0 \
+  "$(starts_after_fail "pooltest-$$-l3")"
 # A re-plan that hangs is killed at POOL_PLAN_SECS, everything under it too (a
 # survivor would hold this test's output open for its 30s), and the queue keeps
 # its order.
