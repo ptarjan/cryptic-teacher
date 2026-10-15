@@ -581,18 +581,13 @@
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "three of diamonds",
-         "gives": "DDD",
-         "note": "D for diamonds, three times"
-        },
-        {
-         "words": "one",
-         "note": "taken as written"
-        }
-       ]
+       "words": "three of diamonds",
+       "gives": "DDD",
+       "note": "D for diamonds, three times"
+      },
+      {
+       "words": "one",
+       "note": "taken as written"
       }
      ]
     },
@@ -1117,28 +1112,23 @@
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "one side of",
+         "note": "one side of a word is one of its edges, here the first letter"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "one side of",
-           "note": "one side of a word is one of its edges, here the first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "evidence",
-           "note": "the leading letter of evidence"
-          }
-         ]
-        },
-        {
-         "words": "is bad",
-         "note": "taken as written"
+         "words": "evidence",
+         "note": "the leading letter of evidence"
         }
        ]
+      },
+      {
+       "words": "is bad",
+       "note": "taken as written"
       }
      ]
     },
@@ -1247,33 +1237,28 @@
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "unchecked": true,
+       "gives": "NE",
+       "indicators": [
+        {
+         "text": "second half of",
+         "note": "the second half of a word is its back half, so only those letters are kept"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
          "unchecked": true,
+         "words": "June",
          "gives": "NE",
-         "indicators": [
-          {
-           "text": "second half of",
-           "note": "the second half of a word is its back half, so only those letters are kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "June",
-           "gives": "NE",
-           "select": "last",
-           "note": "the back two of its four letters"
-          }
-         ]
-        },
-        {
-         "words": "isn't",
-         "note": "taken as written, apostrophe dropped"
+         "select": "last",
+         "note": "the back two of its four letters"
         }
        ]
+      },
+      {
+       "words": "isn't",
+       "note": "taken as written, apostrophe dropped"
       }
      ]
     },

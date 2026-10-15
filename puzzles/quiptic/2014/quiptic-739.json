@@ -479,34 +479,29 @@
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "nth",
+         "unchecked": true,
+         "gives": "E",
+         "n": 5,
+         "indicators": [
+          {
+           "text": "penultimate",
+           "note": "penultimate means last but one, so only that letter of the word is kept"
+          }
+         ],
          "parts": [
           {
-           "op": "nth",
            "unchecked": true,
+           "words": "queen's",
            "gives": "E",
-           "n": 5,
-           "indicators": [
-            {
-             "text": "penultimate",
-             "note": "penultimate means last but one, so only that letter of the word is kept"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "queen's",
-             "gives": "E",
-             "select": 5,
-             "note": "the next-to-last letter of queen"
-            }
-           ]
-          },
-          {
-           "words": "chosen",
-           "note": "taken as written, then mixed with the letter from queen"
+           "select": 5,
+           "note": "the next-to-last letter of queen"
           }
          ]
+        },
+        {
+         "words": "chosen",
+         "note": "taken as written, then mixed with the letter from queen"
         }
        ]
       },
@@ -999,31 +994,26 @@
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Crusoe",
+       "note": "the letters to be rearranged"
+      },
+      {
+       "words": "new",
+       "gives": "N",
+       "note": "N is the abbreviation for new"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "source of",
+         "note": "the source of a word is where it starts, its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Crusoe",
-         "note": "the letters to be rearranged"
-        },
-        {
-         "words": "new",
-         "gives": "N",
-         "note": "N is the abbreviation for new"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "source of",
-           "note": "the source of a word is where it starts, its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "gunpowder",
-           "note": "the first letter of gunpowder"
-          }
-         ]
+         "words": "gunpowder",
+         "note": "the first letter of gunpowder"
         }
        ]
       }

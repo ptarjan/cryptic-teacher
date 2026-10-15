@@ -541,36 +541,31 @@
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "one",
+       "gives": "I",
+       "note": "one as the Roman numeral I"
+      },
+      {
+       "words": "catsuit",
+       "note": "the word itself goes into the mix"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "LR",
+       "indicators": [
+        {
+         "text": "openings",
+         "note": "Openings are the beginnings of words, so only the first letters are taken."
+        }
+       ],
        "parts": [
         {
-         "words": "one",
-         "gives": "I",
-         "note": "one as the Roman numeral I"
-        },
-        {
-         "words": "catsuit",
-         "note": "the word itself goes into the mix"
-        },
-        {
-         "op": "first",
          "unchecked": true,
+         "words": "left and right openings",
          "gives": "LR",
-         "indicators": [
-          {
-           "text": "openings",
-           "note": "Openings are the beginnings of words, so only the first letters are taken."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "left and right openings",
-           "gives": "LR",
-           "select": "first",
-           "note": "the first letters of left and right"
-          }
-         ]
+         "select": "first",
+         "note": "the first letters of left and right"
         }
        ]
       }
@@ -1173,29 +1168,24 @@
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "note": "The leader of a word is its first letter."
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader",
-           "note": "The leader of a word is its first letter."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Conservative leader",
-           "gives": "CONSERVATIVE",
-           "note": "the first letter of Conservative"
-          }
-         ]
-        },
-        {
-         "words": "sheer",
-         "note": "the word itself, rearranged"
+         "words": "Conservative leader",
+         "gives": "CONSERVATIVE",
+         "note": "the first letter of Conservative"
         }
        ]
+      },
+      {
+       "words": "sheer",
+       "note": "the word itself, rearranged"
       }
      ]
     },
