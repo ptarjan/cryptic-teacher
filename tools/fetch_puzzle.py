@@ -3286,7 +3286,9 @@ def check_not_copy(puzzle):
             [("NEARDUP", puzzle["id"], why)])
 
 
-def fetch_number(num, series="cryptic"):
+def fetch_number(num, series="cryptic", reindexed=True):
+    """Fetch and file one puzzle, then reindex unless `reindexed` is False
+    (a caller filing several reindexes once, after the last)."""
     data = extract_crossword_data(fetch_page(num, series))
     check_served(num, data, series)
     data["cluePageInstructions"] = fetch_clue_page_instructions(data.get("instructions"))
@@ -3307,7 +3309,8 @@ def fetch_number(num, series="cryptic"):
     # Named explicitly: this IS the acquiring fetcher, so it overwrites any
     # banner a recovery tool left, rather than inheriting it.
     write_puzzle_file(path, puzzle, generator="tools/fetch_puzzle.py")
-    reindex()
+    if reindexed:
+        reindex()
     print(("fetched " if is_new else "refreshed ") + puzzle["id"])
     if graded is not None:
         print_grade(puzzle, graded)
@@ -3589,10 +3592,15 @@ def main(argv):
                 try:
                     # The series too: fetch_page asks only that series' URLs,
                     # so a bare number is a cryptic and every quiptic 404s.
-                    fetch_number(n, series)
+                    fetch_number(n, series, reindexed=False)
                     got.append(str(n))
                 except Exception as err:
                     print(f"{series} {n} failed: {err}")
+        # One reindex for the lot, not one per puzzle: each is a whole-corpus
+        # pass (difficulty's rows across every core), and a gap fill of eight
+        # would make it eight.
+        if got:
+            reindex()
         if up_to_date and not got:
             print("up-to-date " + ", ".join(up_to_date))
             return 3
