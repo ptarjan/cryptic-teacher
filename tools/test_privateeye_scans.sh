@@ -73,6 +73,8 @@ cross = ps.linked_across({"14-across": ("Ramble by the sea?", "10,6", ["14-acros
                           "12-across": ("See 20", None, None), "20-down": ("Linked", "6,6", ["20-down", "12-down"]),
                           "12-down": ("See 20", None, None)})
 print("CROSS", sorted(cross), cross["22-down"][0], cross["12-across"][0])
+print("SLASH3", ps.column_cols([(0, 0, 1000, 1000)])([(10, 10, 60, 40, "ACROSS"), (10, 60, 60, 90, "7,"),
+      (70, 60, 140, 90, "17/23"), (150, 60, 300, 90, "Truss"), (310, 60, 400, 90, "(5,7,6)")])[0][0][4])
 print("TIDY", fa.tidy("ACROSS\n23 Maybe Charles slips one inside 4）").splitlines()[-1])
 PY
 )
@@ -94,6 +96,7 @@ check "two pages reading one number with different clues are refused" \
   "two scans' page images print different clues under this number" "$(get CLASH)"
 check "a link across directions: the other direction's See light kept, the vote's made one gone" \
   "['12-across', '14-across', '20-down', '22-down'] See 14 See 20" "$(get CROSS)"
+check "a three-light head's slash after a comma is a comma too" "7, 17, 23 Truss (5,7,6)" "$(get SLASH3)"
 check "a full-width bracket reads as a round one" "23 Maybe Charles slips one inside (4)" "$(get TIDY)"
 
 [ "$fails" = 0 ] && echo "all ok" || { echo "$fails failed"; exit 1; }

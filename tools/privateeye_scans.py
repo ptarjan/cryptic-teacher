@@ -206,14 +206,19 @@ def score(run):
     return sum(1 for r in run if COUNTED.search(r[4]))
 
 
-SLASH = re.compile(r"^(\W{0,2}\d{1,2})\s*/\s*(?=\d)")
+#: A linked head's slash, after its first number ("20/12") or after a
+#: comma ("7, 17/23", three lights): the shared parser reads commas, and
+#: a slash left in "17/23 Truss" puts the numbers in the clue's words,
+#: which then are no clue and the light is filed blank (Nos 4, 29, 150).
+SLASH = re.compile(r"^(\W{0,2}\d{1,2}(?:\s*,\s*\d{1,2})*)\s*/\s*(?=\d)")
 
 
 def column_cols(boxes):
     """archive_org_listener.vote's `cols`: each reading's words put in the
     column (of `boxes`) their middle falls in, merged into printed rows,
     the columns read in turn and cut at the ACROSS and DOWN headings. A
-    linked head's "20/12" is written "20, 12", as the shared parser reads it."""
+    linked head's "20/12" is written "20, 12" and "7, 17/23" "7, 17, 23",
+    as the shared parser reads them."""
     import file_archive_org_puzzles as fa
 
     def cols(words):
