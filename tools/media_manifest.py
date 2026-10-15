@@ -213,8 +213,16 @@ def memo(name, key, value):
     return out
 
 
+_PATHS = {}
+
+
 def path(name):
-    return DIR / f"{name}.jsonl"
+    """Manifest `name`'s file; the Path is kept per DIR (a plan asks ~20k times)."""
+    k = (DIR, name)
+    hit = _PATHS.get(k)
+    if hit is None:
+        hit = _PATHS[k] = DIR / f"{name}.jsonl"
+    return hit
 
 
 def built(name):

@@ -95,13 +95,21 @@ def appended(ledger, start, fold):
     it while another thread's call folds into its own."""
     k = (os.fspath(ledger), fold, _thread_key())
     try:
+        sst = os.stat(ledger)
+    except FileNotFoundError:
+        _READ.pop(k, None)
+        return start()
+    hit = _READ.get(k)
+    if hit and hit[4] == (sst.st_ino, sst.st_size, sst.st_mtime_ns) and hit[1] == sst.st_size:
+        return hit[3]  # unmoved since the last fold: nothing appended
+    try:
         fh = open(ledger, "rb")
     except FileNotFoundError:
         _READ.pop(k, None)
         return start()
     with fh:
         st = os.fstat(fh.fileno())
-        ino, done, tail, acc = _READ.get(k, (None, 0, b"", None))
+        ino, done, tail, acc = (_READ.get(k) or (None, 0, b"", None))[:4]
         if (acc is None or ino != st.st_ino or st.st_size < done
                 or os.pread(fh.fileno(), len(tail), done - len(tail)) != tail):
             done, tail, acc = 0, b"", start()
@@ -112,7 +120,8 @@ def appended(ledger, start, fold):
         if line.strip():
             fold(acc, line)
     done += end
-    _READ[k] = (st.st_ino, done, (tail + data[:end])[-64:], acc)
+    _READ[k] = (st.st_ino, done, (tail + data[:end])[-64:], acc,
+                (st.st_ino, st.st_size, st.st_mtime_ns) if done == st.st_size else None)
     return acc
 
 

@@ -640,9 +640,16 @@ def mended_at(row, verdict):
     """When the last VOTE_MENDED change that mends a blank clue of
     `verdict` (of ledger `row`) landed, if one landed since its read for
     every blank clue it has; else None (none blank, or one no change mends)."""
-    whys = list((verdict.get("blank") or {}).values())
-    read = row.get("readAt")
-    read = when(read) if read else None
+    try:
+        return _mended_at(row.get("readAt"), tuple((verdict.get("blank") or {}).values()))
+    except TypeError:  # an unhashable reason: not kept
+        return _mended_at.__wrapped__(row.get("readAt"), tuple((verdict.get("blank") or {}).values()))
+
+
+@functools.lru_cache(maxsize=65536)
+def _mended_at(read_at, whys):
+    """mended_at off the row's readAt and the reasons of the verdict's blank clues (pure, so kept: a plan asks ~30k)."""
+    read = when(read_at) if read_at else None
     since = [(at, mends) for at, mends in VOTE_MENDED if read is None or read < when(at)]
     due = [max((at for at, mends in since if any(m in why for m in mends)), default=None) for why in whys]
     return max(due) if whys and all(due) else None
