@@ -422,15 +422,42 @@ REQUESTS = Path(os.environ.get("SCAN_REREAD_REQUESTS")
                 or os.path.expanduser("~/.cache/scan_reread_requests.jsonl"))
 
 
-def jsonl_rows(path):
-    """A jsonl file's rows, in order; none when it is missing. A final line
+#: {path: (stat key, bytes consumed, digest of them, rows)}: a file's parsed
+#: rows. Unchanged (inode, size, mtime_ns): reused. Grown: the bytes already
+#: consumed are re-hashed (cheap) and, if they match, only the appended
+#: lines are parsed (the live ledgers are appended to all the time).
+_PARSED = {}
+
+
+def _parsed(path):
+    """A jsonl file's rows as a tuple (shared: do not mutate). A final line
     still being appended (no newline yet) is not a row."""
     try:
-        text = path.read_text(encoding="utf-8")
+        with open(path, "rb") as f:
+            st = os.fstat(f.fileno())
+            key = (st.st_ino, st.st_size, st.st_mtime_ns)
+            hit = _PARSED.get(path)
+            if hit and hit[0] == key:
+                return hit[3]
+            data = f.read()
     except FileNotFoundError:
-        return []
-    lines = text.split("\n")
-    return [json.loads(line) for line in (lines if text.endswith("\n") else lines[:-1]) if line.strip()]
+        _PARSED.pop(path, None)
+        return ()
+    done, rows = 0, ()
+    if hit and hit[1] <= len(data) and hit[0][0] == key[0] \
+            and hashlib.blake2b(data[:hit[1]]).digest() == hit[2]:
+        done, rows = hit[1], hit[3]
+    end = data.rfind(b"\n") + 1
+    new = tuple(json.loads(line) for line in data[done:end].decode("utf-8").split("\n") if line.strip())
+    rows = rows + new
+    _PARSED[path] = (key if len(data) == st.st_size else (key[0], -1, 0), end,
+                     hashlib.blake2b(data[:end]).digest(), rows)
+    return rows
+
+
+def jsonl_rows(path):
+    """A jsonl file's rows, in order; none when it is missing."""
+    return list(_parsed(path))
 
 
 def sources():
@@ -442,7 +469,10 @@ def sources():
         for v in row.get("verdicts") or ():
             if v.get("id"):
                 out[v["id"]] = ("archive", row["edition"], row)
-    for row in ledger_rows(LEDGERS["trove"], "article").values():
+    trove = {}
+    for row in _parsed(LEDGERS["trove"]):
+        trove[row["article"]] = row
+    for row in trove.values():
         if row.get("id"):
             out[row["id"]] = ("trove", row["article"], row)
     return out
@@ -453,13 +483,15 @@ def clue_key(entries):
     return hashlib.sha256(json.dumps(sorted(entries)).encode()).hexdigest()[:16]
 
 
+def _by_source(known):
+    """{(filer, source key): ledger row} of sources()'s answer."""
+    return {(filer, key): row for filer, key, row in known.values()}
+
+
 def is_open(req, ledgers=None):
     """Whether request `req` waits on its source's re-read: the ledger row for
     it was last read before the request (no row: never read since)."""
-    rows = {}
-    for filer, key, row in (ledgers or sources()).values():
-        rows[(filer, key)] = row
-    row = rows.get((req["filer"], req["source"]))
+    row = _by_source(ledgers or sources()).get((req["filer"], req["source"]))
     return row is None or read_before(row, when(req["requestedAt"]))
 
 
@@ -469,8 +501,13 @@ def requests():
 
 def open_requests():
     """The requests whose source has not been read since."""
-    known = sources()
-    return [r for r in requests() if is_open(r, known)]
+    by = _by_source(sources())
+    out = []
+    for r in requests():
+        row = by.get((r["filer"], r["source"]))
+        if row is None or read_before(row, when(r["requestedAt"])):
+            out.append(r)
+    return out
 
 
 #: Reads before this moment predate the re-read requests; a puzzle
