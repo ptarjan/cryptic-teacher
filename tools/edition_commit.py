@@ -109,11 +109,12 @@ def spaced(puzzle):
 
 def held_paths(series, numbers):
     """The corpus files this tool filed for puzzles `numbers` of `series`."""
-    from fetch_puzzle import puzzle_path
+    import puzzle_paths
+    import series as series_meta
     out = []
     for n in numbers:
-        path = puzzle_path(series, n)
-        if path.exists() and dir_cache.derived(path, acquired_by) == TOOL:
+        path = puzzle_paths.find_listed(series_meta.puzzle_id(series, n))
+        if path is not None and dir_cache.derived(path, acquired_by) == TOOL:
             out.append(path)
     return out
 
