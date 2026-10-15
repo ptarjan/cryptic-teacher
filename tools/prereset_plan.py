@@ -1340,7 +1340,7 @@ def clues_only_rows():
     return rows
 
 
-def fresh_rows(rows, index_path=INDEX, files=None, row_of=None):
+def fresh_rows(rows, index_path=None, files=None, row_of=None):
     """The index's rows, each puzzle file written since the index was rebuilt
     read again (fetch_puzzle.index_row), and a file the index lacks added.
 
@@ -1352,14 +1352,20 @@ def fresh_rows(rows, index_path=INDEX, files=None, row_of=None):
     rows that failed. Every puzzle the run annotated read as un-annotated
     too, so the re-plan could not re-admit any id it had held. A stat of the
     corpus is under a second; only the files newer than the index are read.
+    The corpus is the tree the index belongs to, as held_dir()'s is: INDEX
+    read at call time, so a test that points it at a scratch index does not
+    re-read the whole live corpus (CI 10-15 hung on it, cold row cache).
     files and row_of are for the self-test."""
+    index_path = Path(INDEX if index_path is None else index_path)
     try:
         built = Path(index_path).stat().st_mtime
     except OSError:
         return rows
     if files is None:
         import puzzle_paths
-        files = puzzle_paths.puzzle_files()
+        tree = index_path.parent
+        files = (puzzle_paths.puzzle_files() if tree.resolve() == puzzle_paths.PUZZLE_DIR.resolve()
+                 else sorted(tree.glob("*/*/*-[0-9]*.json")))
     known = {r["id"] for r in rows}
     stale = []
     for f in files:
