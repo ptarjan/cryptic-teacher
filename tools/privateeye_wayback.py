@@ -404,7 +404,7 @@ def build(num, held):
         pages = {json.dumps(r, sort_keys=True) for t, r in clues if t.endswith("_page")}
         if len(pages) > 1:
             return None, "two scans' page images print different clues under this number"
-        puzzle, why = from_rows(num, rows, held.get("answers"))
+        puzzle, why = from_rows(num, rows, held.get("answers"), page_grid(ts))
         if puzzle is None:
             return None, why
         url = capture_url(ts)
@@ -416,7 +416,9 @@ def build(num, held):
     puzzle["source"] = {"publisher": "Private Eye", "url": url,
                         "retrievedFrom": "archive.org" if "/details/" in url else "web.archive.org",
                         "acquiredBy": TOOL, "acquiredOn": datetime.date.today().isoformat(),
-                        **({} if held.get("puz") else {"gridOrigin": "reconstructed"})}
+                        **({} if held.get("puz") else
+                           {"gridOrigin": "published" if puzzle.pop("gridFromScan", False)
+                            else "reconstructed"})}
     if not puzzle.get("date"):
         day = fp.fetch_cover_date(num + ISSUE_OFFSET)
         puzzle["date"] = day.isoformat() if day else None
@@ -434,12 +436,64 @@ def build(num, held):
     return puzzle, None
 
 
-def from_rows(num, rows, answers=None):
+def page_grid(ts):
+    """The grid trove_grid reads off capture `ts`'s scanned page
+    (ia/pages/<issue>_<leaf>.jpg, an "<issue>_page" or "<issue>_djvu"
+    capture), or None: no page image, or none reads as one 15x15 grid."""
+    issue, _, kind = str(ts).partition("_")
+    if kind not in ("page", "djvu") or not issue.isdigit():
+        return None
+    import trove_grid
+    grids = []
+    for path in sorted((DIR / "ia" / "pages").glob(f"{issue}_*.jpg")):
+        try:
+            grid, _why = trove_grid.read_grid(path)
+        except Exception:  # an unreadable leaf is no evidence either way
+            grid = None
+        if grid and len(grid) == 15 and len(grid[0]) == 15:
+            grids.append(grid)
+    return grids[0] if len(grids) == 1 else None
+
+
+def grid_misfits(grid, spec, groups=None):
+    """What of the clue list `spec` ((number, direction, length) in printed
+    order, None where unread) and its linked `groups` ([(direction, index),
+    ...], total) the grid does not print: [] when it prints exactly these
+    lights, the same count each way, numbered and as long as the list says."""
+    import reconstruct_grid as rg
+    lights = rg.lights_from_grid(grid)
+    off, cells = [], {}
+    for d in ("across", "down"):
+        have = [(n, size) for n, dd, size in lights if dd == d]
+        want = [(n, size) for n, dd, size in spec if dd == d]
+        if len(have) != len(want):
+            off.append(f"{len(want)} {d} clues, {len(have)} {d} lights")
+            continue
+        for i, ((gn, gsize), (n, size)) in enumerate(zip(have, want)):
+            if n is not None and n != gn:
+                off.append(f"{n} {d} is numbered {gn}")
+            elif size is not None and size != gsize:
+                off.append(f"{n} {d} counts {size}, {gsize} cells")
+            cells[(d, i)] = gsize
+    for members, total in groups or []:
+        got = [cells.get(tuple(m)) for m in members]
+        if None not in got and sum(got) != total:
+            off.append(f"a linked answer counts {total}, its lights {sum(got)} cells")
+    return off
+
+
+def from_rows(num, rows, answers=None, image=None):
     """A puzzle with no answers from light_spec rows, its grid rebuilt from
     the clue numbers and enumerations (as tools/fetch_nation.py does).
     `answers`, [(ts, answer_rows)] from the solution the next issue printed:
     each single light's answer goes into the search, so the one grid they
-    agree in is found where the clue list alone fits two (Nos 56, 59)."""
+    agree in is found where the clue list alone fits two (Nos 56, 59).
+    `image`, the grid read off the issue's scanned page (page_grid): when it
+    prints exactly the clue list's lights it is the grid, with no search --
+    the evidence that settles a list two grids fit (No 269), or one the
+    search runs out of budget on. One that disagrees is no evidence, and
+    the refusal says where it disagrees (No 30's 22dn reads "(6)" over five
+    cells)."""
     import light_spec
     from clues_only import entries_from_grid
     import reconstruct_grid as rg
@@ -467,10 +521,15 @@ def from_rows(num, rows, answers=None):
         words = None
     # Every Cyclops is 15x15; the linked lights' free lengths need more search
     # than the Nation's budget.
-    grid, why = rg.unique_grid(spec, cols=15, rows=15, max_nodes=MAX_NODES, groups=groups,
-                               words=words)
-    if grid is None:
-        return None, f"grid did not rebuild: {why}"
+    misfits = grid_misfits(image, spec, groups) if image else None
+    if image and not misfits:
+        grid = list(image)
+    else:
+        grid, why = rg.unique_grid(spec, cols=15, rows=15, max_nodes=MAX_NODES, groups=groups,
+                                   words=words)
+        if grid is None:
+            seen = f"; the scan's grid: {', '.join(misfits[:4])}" if misfits else ""
+            return None, f"grid did not rebuild: {why}{seen}"
     entries, problems = entries_from_grid(grid, across, down)
     if problems:
         return None, "; ".join(problems)
@@ -503,7 +562,7 @@ def from_rows(num, rows, answers=None):
     return {"id": f"cyclops-{num}", "number": num, "series": "cyclops",
             "name": f"Private Eye Cyclops crossword No {num}", "setter": "Cyclops",
             "date": None, "dimensions": {"cols": len(grid[0]), "rows": len(grid)},
-            "entries": out}, None
+            "entries": out, **({"gridFromScan": True} if image and not misfits else {})}, None
 
 
 def file(numbers=None, dry_run=False):
