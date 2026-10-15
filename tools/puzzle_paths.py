@@ -25,6 +25,7 @@ crawlable pages at puzzles/<id>/index.html, so no public URL depends on this.
 import functools
 import os
 import sys
+import threading
 from pathlib import Path
 
 import series as series_meta
@@ -70,12 +71,42 @@ def find(pid):
 _LISTED = {}
 
 
+#: This thread's {series: listing} while inside listed_once(), else None.
+_ONCE = threading.local()
+
+
+class listed_once:
+    """Within it (this thread), folder_listing lists each series once: a plan
+    asks find_listed for thousands of ids, and each ask was a scandir and a
+    stat of every year folder to see whether the listing stood. A puzzle filed
+    meanwhile is seen by the next scope, as held_files' held_once does."""
+
+    def __enter__(self):
+        self.outer = getattr(_ONCE, "seen", None) is not None
+        if not self.outer:
+            _ONCE.seen = {}
+
+    def __exit__(self, *exc):
+        if not self.outer:
+            _ONCE.seen = None
+
+
 def folder_listing(series):
     """{id: its file} of every file under a series' year folders (None for an
     id filed twice: find raises), listed again only when a year folder's
     mtime moved (a file written by os.replace, filed or removed moves its
     folder's). Callers asking after a few ids of a series each plan (find
     is a stat per year folder per id) read one stat per folder instead."""
+    once = getattr(_ONCE, "seen", None)
+    if once is not None and series in once:
+        return once[series]
+    out = _folder_listing(series)
+    if once is not None:
+        once[series] = out
+    return out
+
+
+def _folder_listing(series):
     root = PUZZLE_DIR / series
     try:
         folders = sorted((e.path, e.stat().st_mtime_ns) for e in os.scandir(root) if e.is_dir())
