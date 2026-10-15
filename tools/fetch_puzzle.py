@@ -2078,14 +2078,11 @@ SOURCE_LIGHT_WRONG = {
         "issue 917's page image prints \"'Diddles', the familiar topless poser's "
         "catching cold...\" (5), its count on a line of its own; the OCR text "
         "read (6). The grid on the same page gives 22-across five cells"),
-    # Not a misread: the page prints no count at all, and the one filed is
-    # supplied, from the answer the next issue prints.
-    ("cyclops-294", "25-across"): (
-        {"enumeration": "9"}, {"enumeration": "9"},
-        "issue 1139's page image prints \"A snide get, maybe this is how Gordon "
-        "Brown sees himself after the Prime Minister?\" with no count (the crop "
-        "seen); (9) is supplied from DESIGNATE, the answer issue 1140 prints, "
-        "and the grid gives 25-across nine cells"),
+    # Not a row: cyclops-294's 25-across prints no count on issue 1139's page
+    # ("A snide get, maybe this is how Gordon Brown sees himself after the
+    # Prime Minister?", the crop seen), so its clue is filed with none, as the
+    # schema asks; the answer issue 1140 prints, DESIGNATE, and the grid give
+    # it nine cells. A row here must correct what the page serves.
 }
 
 
