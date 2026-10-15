@@ -1756,18 +1756,33 @@ def edition_dirs(cache=CACHE, paper=None):
     (media_manifest.edition_rows), never a listing of it."""
     papers = run_papers(paper or TIMES)
     if media_manifest.on_media(cache):
+        rows = media_manifest.edition_rows()
+        # edition_rows keeps its dict (the same object) while neither fold gained a key, and
+        # this reads only the keys: the same dict and length is the same answer, not a re-sort of ~25k paths.
+        stamp = (str(cache), tuple(p.key for p in papers))
+        hit = _EDITION_DIRS.get(stamp)
+        if hit is not None and hit[0] is rows and hit[1] == len(rows):
+            return list(hit[2])
         by_item = {}
-        for rel in media_manifest.edition_rows():
+        for rel in rows:
             item, _, ed = rel.partition("/")
             if ed and any(p.item.match(item) for p in papers):
                 by_item.setdefault(item, []).append(ed)
         years = [sorted(Path(cache) / item / ed for ed in eds) for item, eds in sorted(by_item.items())]
     else:
+        stamp = None
         years = _edition_years_listed(cache, papers)
     out = []
     for k in range(max(map(len, years), default=0)):
         out += [y[k] for y in years if k < len(y)]
+    if stamp is not None:
+        _EDITION_DIRS[stamp] = (rows, len(rows), out)
+        return list(out)
     return out
+
+
+#: {(cache, paper keys): (edition_rows' dict, its length, edition_dirs' answer)}.
+_EDITION_DIRS = {}
 
 
 def _edition_years_listed(cache, papers):
