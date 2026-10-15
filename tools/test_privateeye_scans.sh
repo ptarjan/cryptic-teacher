@@ -76,6 +76,19 @@ print("CROSS", sorted(cross), cross["22-down"][0], cross["12-across"][0])
 print("SLASH3", ps.column_cols([(0, 0, 1000, 1000)])([(10, 10, 60, 40, "ACROSS"), (10, 60, 60, 90, "7,"),
       (70, 60, 140, 90, "17/23"), (150, 60, 300, 90, "Truss"), (310, 60, 400, 90, "(5,7,6)")])[0][0][4])
 print("TIDY", fa.tidy("ACROSS\n23 Maybe Charles slips one inside 4）").splitlines()[-1])
+# No 279: one reading's "61" for 6 down, the others' 6 (one reading lost it).
+L = lambda *ts: [(0, 0, 0, 0, t) for t in ts]
+rw = {"djvu": [L("1 a"), L("5 b", "6 c", "7 d")], "ch": [L("1 a"), L("5 b", "61 c", "7 d")],
+      "en": [L("1 a"), L("5 b", "7 d")], "tm": [L("1 a"), L("5 b", "6 c", "7 d")]}
+fx = ps.renumbered(rw, lambda ws: ws)
+odd = {"djvu": [L(), L("4 a", "5 b", "6 c", "7 d")], "ch": [L(), L("4 a", "56 c", "7 d")], "tm": [L(), L("4 a", "5 b", "6 c", "7 d")]}
+print("RENUM", [l[4] for l in fx(rw["ch"])[1]], [l[4] for l in ps.renumbered(odd, lambda ws: ws)(odd["ch"])[1]])
+# No 281: "1, 1D" (a link to 1 down, its direction letter set on), 1 down "See 1".
+print("DIRECTED", ps.column_cols([(0, 0, 1000, 1000)])([(10, 10, 60, 40, "ACROSS"), (10, 60, 60, 90, "1,"),
+      (70, 60, 140, 90, "1D"), (150, 60, 300, 90, "Fellow"), (310, 60, 400, 90, "(8,4)")])[0][0][4])
+dl = ps.directed_links({"1-across": ("Fellow", "8,4", None), "1-down": ("See 1 Across", None, None),
+                        "5-down": ("See 7", None, None), "7-across": ("Clue", "4", None)})
+print("LINKS", dl["1-across"][2], dl["1-down"][0], dl["5-down"], ps.page_text(281, ps.linked_across(dl)).split(" DOWN")[0])
 # No 269's clue list: two grids fit it (an edge down light in column 13 or 14).
 import reconstruct_grid as rg
 g269a = ["#............##", "#.#.#.#.#.#.##.", "......#........", "#.#.#.#.#.#.##.", "........#......",
@@ -131,6 +144,12 @@ check "a link across directions: the other direction's See light kept, the vote'
   "['12-across', '14-across', '20-down', '22-down'] See 14 See 20" "$(get CROSS)"
 check "a three-light head's slash after a comma is a comma too" "7, 17, 23 Truss (5,7,6)" "$(get SLASH3)"
 check "a full-width bracket reads as a round one" "23 Maybe Charles slips one inside (4)" "$(get TIDY)"
+check "a number one reading alone prints, a digit too many, is renumbered; an unsure one is not" \
+  "['5 b', '6 c', '7 d'] ['4 a', '56 c', '7 d']" "$(get RENUM)"
+check "a link's tail with a direction letter is dropped before the vote" "1 Fellow (8,4)" "$(get DIRECTED)"
+check "the other list's See 1 Across makes the link back, as the Eye's 1/1" \
+  "['1-across', '1-across'] See 1 ('See 7', None, None) EYE CROSSWORD 281 ACROSS 1/1 Fellow (8,4) 7 Clue (4)" \
+  "$(get LINKS)"
 check "both grids No 269's list allows print it exactly" \
   "[] []" "$(get FITS)"
 check "two grids fitting the clue list alone still refuse" \
