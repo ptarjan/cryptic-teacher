@@ -293,6 +293,29 @@ for head, prose, want in (
 ):
     check(f"section byline of {head!r}", P.section_byline(f"{head}\n{prose}", codes), want)
 
+# ------------------------------------------------------------------ case 6
+# The Listener book's "(8, two words) 39 Motorist's ..." swallowed clue 39
+# whole when the parser kept its own copy of the count grammar; it reads the
+# shared one (enumeration.SPLIT_UNSAID), as ft_pdf_puzzles does.
+print("case 6: a count that withholds its breaks closes its clue")
+WORDED = ["1 Disfigurement hides suffering: make-up required (8, two words) 7 Pays out for turns (5)",
+          "35 Promiscuously have intercourse — hide first! (8, hyphenated)",
+          "36 Sides of Aconcagua producing lava (2)",
+          "12 Crackpot screamed about promoting defences (11*) 14 Two fishes plastered (5)"]
+chunks = P.segment_clues(WORDED)
+check("worded chunks", len(chunks), 6)
+got = [P.parse_clue_chunk(c) for c in chunks]
+check("two words kept in the words, total as the count", got[0],
+      {"number": "1", "clue": "Disfigurement hides suffering: make-up required (8, two words)",
+       "enumeration": "8"})
+check("the next clue its own", got[1], {"number": "7", "clue": "Pays out for turns", "enumeration": "5"})
+check("hyphenated", (got[2]["clue"].endswith("first! (8, hyphenated)"), got[2]["enumeration"]), (True, "8"))
+check("asterisk", (got[4]["clue"][-5:], got[4]["enumeration"]), ("(11*)", "11"))
+check("a space inside the bracket", P.parse_clue_chunk("14 Give another coat to the Venerable Harris? (9 )")["enumeration"], "9")
+import enumeration
+check("the worded count stays in the clue text, no count field",
+      enumeration.clue(got[0]["clue"]), {"text": got[0]["clue"]})
+
 print()
 if failures:
     print(f"FAILED: {len(failures)} problem(s)")

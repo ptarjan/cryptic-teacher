@@ -259,7 +259,10 @@ def build(record, identifier, model, unsolved=False):
         printed = e.pop("enumeration", None)
         # The clue as the book printed it. A continuation ("See 11") is
         # printed without an enumeration and stays that way.
-        line = f"{e['clue']} ({printed})" if printed else e["clue"]
+        # A count that withholds its breaks, "(7, two words)", is already in
+        # the words (tools/parse_penguin_book.py) and printed is its total.
+        line = (f"{e['clue']} ({printed})" if printed and not enumeration.worded(e["clue"])
+                else e["clue"])
         # A justified line's runs of spaces ("Author  of  'Crown") are one.
         line = re.sub(r"[ \t]{2,}", " ", line)
         e["clue"] = enumeration.clue(line, separators=seps.get(entry_id(e)),

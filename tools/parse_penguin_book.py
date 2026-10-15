@@ -88,6 +88,9 @@ import re
 import sys
 from pathlib import Path
 
+# The shared count grammar (tools/enumeration.py); not `enumeration`, which
+# is a clue record's field name throughout this file.
+import enumeration as enumerations
 import ocr_clues
 
 FORM_FEED = "\f"
@@ -115,7 +118,14 @@ KNOWN_SETTERS = {
 # (up to 4 non-word, non-paren characters) rather than a fixed [.:!?]: a
 # stray OCR artifact like the "<" that follows a perfectly good "(6)" on
 # puzzle 49's last down clue must not cost a real, legible enumeration.
-ENUMERATION_RE = re.compile(r"\(([\d]+(?:(?:\s*[,\-]\s*|\s)[\d]+)*)\)[^\w()]{0,4}$")
+#
+# A count that withholds its breaks, "(7, two words)", "(8, hyphenated)",
+# "(11*)", is the shared grammar's (enumeration.SPLIT_UNSAID, as
+# ft_pdf_puzzles reads it): without it such a clue closes no chunk and
+# swallows the next one. parse_clue_chunk keeps it in the clue's words.
+ENUMERATION_RE = re.compile(r"\(([\d]+(?:(?:\s*[,\-]\s*|\s)[\d]+)*"
+                            rf"|\d{{1,2}}{enumerations.SPLIT_UNSAID})\s*\)[^\w()]{{0,4}}$",
+                            re.IGNORECASE)
 # Two clues OCR'd onto one line: an enumeration, then the next clue's number.
 # The line is cut after the enumeration so each clue closes its own chunk.
 RUN_ON_RE = re.compile(r"(?<=\))[.]?\s+(?=\d{1,2}\s+[A-Z‘“\"'])")
@@ -489,15 +499,22 @@ def parse_clue_chunk(chunk: str) -> dict:
     else:
         text = ORPHAN_NUMBER_DOT_RE.sub("", text)
 
-    enumeration = None
+    count = None
     enum_m = ENUMERATION_RE.search(text)
-    if enum_m:
-        enumeration = enum_m.group(1).replace(" ", "")
+    if enum_m and (said := enumerations.worded(f"({enum_m.group(1)})")):
+        # "(7, two words)": the total is the count, and the bracket stays in
+        # the words as printed (enumeration.WORDED), as every other source
+        # files it; file_penguin_puzzle writes no second count after it.
+        count = str(said[0])
+        bracket = enum_m.group(0)
+        text = text[: enum_m.start()].rstrip() + " " + bracket[: bracket.rindex(")") + 1]
+    elif enum_m:
+        count = enum_m.group(1).replace(" ", "")
         text = text[: enum_m.start()].rstrip()
     elif SEE_REFERENCE_RE.match(text.strip()):
-        enumeration = None  # by design: a cross-reference clue has none
+        count = None  # by design: a cross-reference clue has none
 
-    return {"number": number, "clue": text.strip(" ,"), "enumeration": enumeration}
+    return {"number": number, "clue": text.strip(" ,"), "enumeration": count}
 
 
 def split_across_down(lines: list[str]) -> tuple[list[str], list[str]]:
