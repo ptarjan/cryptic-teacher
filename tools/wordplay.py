@@ -640,9 +640,12 @@ def diagnose(node, want):
         return diagnose(real[0] if len(real) == 1 else {"op": "charade", "parts": real}, want)
     if op == "anagram":
         try:
-            bag = min(_bag(parts_of(node)[0]), key=len)
+            bags = _bag(parts_of(node)[0])
         except WordplayError as e:
             return str(e)
+        if not bags:
+            return _gives_nothing(parts_of(node)[0])
+        bag = min(bags, key=len)
         extra = "".join(sorted((_count(bag) - _count(want)).elements()))
         short = "".join(sorted((_count(want) - _count(bag)).elements()))
         return (f"{render(node)} has the letters {bag}; the answer needs an anagram of {want} "
@@ -655,6 +658,23 @@ def diagnose(node, want):
     elif ls is not None and len(want) not in ls:
         msg += f" ({'/'.join(map(str, sorted(ls)))} letters against {len(want)})"
     return msg
+
+
+def _gives_nothing(node):
+    """The deepest node under `node` that can give no letters at all, in words
+    (anagram fodder whose deletion finds no run to take out)."""
+    for p in node.get("parts") or []:
+        try:
+            if not values(p):
+                return _gives_nothing(p)
+        except (_NeedTarget, WordplayError):
+            pass
+    if node.get("op") == "deletion":
+        whole, gone = parts_of(node)
+        return (f"{render(node)} gives nothing: {render(gone)} is not one run of the "
+                f"letters {render(whole)} gives. Letters taken from more than one place "
+                f"are one del per run, e.g. del(del(x, N), OT)")
+    return f"{render(node)} gives no letters"
 
 
 def _count(s):

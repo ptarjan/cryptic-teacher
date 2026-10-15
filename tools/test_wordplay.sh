@@ -105,6 +105,11 @@ BAD = [
     ("homophone spelt wrong", "PIECE", "sound<Sung>([harmony]PEACE, PEACE)", "needs PIECE"),
     ("a palindrome that isn't one", "NIPINS", "pal<either way>([Ulster]NI + [fix]PINS)", "does not read the same"),
     ("an answer alone that isn't a palindrome", "ABBY", "pal<Reversible>()", "ABBY does not read the same"),
+    # book-24021 5D: the fodder's del gives nothing, which crashed diagnose()
+    # with "min() iterable argument is empty" instead of naming the del.
+    ("anagram fodder whose del finds no run", "NARCOTIC",
+     "ana<Unexpected>(del<ruled out>([contraction]CONTRACTION, [not]NOT))",
+     "gives nothing", "not one run", "del(del("),
 ]
 for name, answer, expr, *words in BAD:
     r = refused(expr, answer, *words)
@@ -390,6 +395,24 @@ for pid, extra, want in [
 ]:
     got = series.display_name({"id": pid, **extra})
     check(f"display_name {pid}", got == want, f"got {got!r}")
+
+# independent-11469 21D: a checked tree whose top op is a deletion builds the
+# answer in one chunk, so view() gives no assembly.pieces. The validator must
+# not ask for `assembly`: the schema refuses the key, so a run that obeyed
+# "Give `assembly.pieces`" had its next write refused (one extra turn).
+import validate_annotations as va
+screed = entry(21, "down", "SCREED", "Long document's ruined week off")
+screed["clue"]["enumeration"] = "6"
+screed["annotation"] = {
+    "definitions": [{"text": "Long document", "at": 0}],
+    "wordplay": {"op": "deletion", "indicators": [{"text": "off", "at": 28, "note": "taken away"}],
+                 "parts": [{"words": "ruined", "at": 16, "gives": "SCREWED", "note": "slang for ruined"},
+                           {"words": "week", "at": 23, "gives": "W"}]}}
+_, errs, warns = va.validate_puzzle({"id": "test-1", "entries": [screed]})
+check("a checked deletion tree is not asked for assembly.pieces",
+      not [x for x in warns if "machine-checkable" in x or "assembly.anagrams" in x], warns)
+check("the deletion tree evaluates (no wordplay error)",
+      not [x for x in errs if "wordplay" in x], [x for x in errs if "wordplay" in x])
 
 raise SystemExit(fails > 0)
 PY

@@ -3299,16 +3299,11 @@ def validate_puzzle(puzzle, corpus=False):
     evaluated (one that does not give the answer is an error), and every
     check below reads the fields view() derives (blocks, assembly, type)."""
     schema_errors = [f"schema: {p}" for p in puzzle_schema.validate(puzzle)]
+    treed = {_tag_of(puzzle, where) for where, _, ann in puzzle_schema.annotations(puzzle)
+             if ann.get("wordplay")}
     puzzle, tree_errors, tree_warnings = tree_view(puzzle)
     annotated, errors, warnings = _validate_puzzle(puzzle, corpus, schema=False)
     errors[:0] = schema_errors + tree_errors
-    # A clue with an unchecked step has no assembly to derive (that step's
-    # letters are taken as filed), so the "write the assembly" warnings would
-    # count it a second time under assembly.anagrams: the unchecked-step
-    # warning and its ratchet (wordplay.unchecked) are the one finding.
-    opaque = {w.split(":", 1)[0] for w in tree_warnings}
-    warnings = [w for w in warnings if w.split(":", 1)[0] not in opaque
-                or not any(m in w for m in SUPERSEDED_BY_UNCHECKED)]
     warnings[:0] = tree_warnings
     for i, e in enumerate(puzzle["entries"]):
         for k, item in enumerate(e.get("alsoLeads") or []):
@@ -3331,11 +3326,21 @@ def validate_puzzle(puzzle, corpus=False):
         annotated += n
         errors += [f"{cid}:{m.split(':', 1)[1]}" for m in errs if m.startswith(mine)]
         warnings += [f"{cid}:{m.split(':', 1)[1]}" for m in warns if m.startswith(mine)]
+    # A clue stored as a wordplay tree has nothing to write under `assembly`:
+    # the schema refuses the key, and view() derives it. Either the evaluator
+    # checked every node against the answer (a tree that fails is an error
+    # above, and is left out of the view), or the tree has an unchecked step,
+    # which its own warning and ratchet (wordplay.unchecked) already count. A
+    # top-level deletion, selection or substitution builds the answer in one
+    # chunk, so view() gives it no `pieces`, and "Give `assembly.pieces`" sent
+    # runs to write a key apply_annotations then refused.
+    warnings = [w for w in warnings if w.split(":", 1)[0] not in treed
+                or not any(m in w for m in SUPERSEDED_BY_TREE)]
     return annotated, errors, warnings
 
 
 UNCHECKED_STEP = "unchecked wordplay step"
-SUPERSEDED_BY_UNCHECKED = ("typed anagram but no assembly.anagrams", "no machine-checkable assembly")
+SUPERSEDED_BY_TREE = ("typed anagram but no assembly.anagrams", "no machine-checkable assembly")
 
 
 def _tag_of(puzzle, where):
