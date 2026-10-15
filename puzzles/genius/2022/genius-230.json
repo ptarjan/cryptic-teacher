@@ -4,6 +4,13 @@
  "setter": "Pangakupu",
  "date": "2022-08-01",
  "preamble": "Nine solutions have something in common. Three of these are unclued. The clues to the other six each contain a redundant word. The central pairs of letters in these six words, in clue order, indicate the common feature, thus allowing the correct grid insertions for the three unclued entries. All other clues and solutions are normal.",
+ "messages": [
+  {
+   "text": "BOEHAT",
+   "kind": "clue",
+   "order": "clues"
+  }
+ ],
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -17,8 +24,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-15",
+  "check": "32 entries, 64 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,6 +44,46 @@
    "clue": {
     "text": "Unclued",
     "enumeration": "7"
+   },
+   "solution": "CHARTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unclued",
+      "at": 0,
+      "note": "the light has no clue; the preamble's theme defines it as a word holding a broken heart"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "C",
+       "note": "the first letter, which the crossing down answer supplies"
+      },
+      {
+       "op": "anagram",
+       "parts": [
+        {
+         "gives": "HEART",
+         "note": "the theme word, scrambled because the preamble's message calls the hearts broken"
+        }
+       ]
+      },
+      {
+       "gives": "R",
+       "note": "the last letter, which the crossing down answer supplies"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "One of three unclued theme entries. The message BROKEN HEARTS says each themed answer hides the letters of HEART jumbled, which picks this word from rivals such as CHAPTER that fit the crossing letters.",
+     "definitionFit": "A charter is a formal written grant of rights, and its middle five letters rearrange to the theme word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -44,6 +97,40 @@
    "clue": {
     "text": "Chemical element found in borders of Cleveland?",
     "enumeration": "7"
+   },
+   "solution": "CADMIUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chemical element found in borders of Cleveland?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Chemical element",
+       "at": 0,
+       "note": "the plain reading: a metal of the periodic table"
+      },
+      {
+       "words": "found in borders of Cleveland",
+       "at": 17,
+       "note": "the setter's reading: the element's two-letter symbol is the first and last letters of the city's name"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The symbol for this element is Cd, the outside letters of C-levelan-D, so the question mark warns against hunting for a local mineral.",
+     "definitionFit": "Cadmium is a soft bluish metal, element 48, used in batteries and pigments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "found"
+    }
    }
   },
   {
@@ -57,6 +144,76 @@
    "clue": {
     "text": "Non-drinker mostly tarnished, entering wild bar",
     "enumeration": "9"
+   },
+   "solution": "ABSTAINER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Non-drinker",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entering",
+       "at": 30,
+       "note": "entering means going inside, so the stained word sits within the jumbled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wild",
+         "at": 39,
+         "note": "wild means out of control, so the letters of bar are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bar",
+         "at": 44,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 12,
+         "note": "mostly means all but the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tarnished",
+         "at": 19,
+         "gives": "STAINED",
+         "note": "stained means tarnished"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teetotaller, looking a bit grubby, walks into a rowdy pub.",
+     "walkthrough": "The scene puts the definition in a bar, which is fitting and misleading at once.",
+     "definitionFit": "An abstainer is someone who refrains from alcohol entirely, a teetotaller."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bar"
+    }
    }
   },
   {
@@ -70,6 +227,75 @@
    "clue": {
     "text": "Arena events in that place involving a tug-of-war to begin with",
     "enumeration": "7"
+   },
+   "solution": "THEATRE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Arena",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "involving",
+       "at": 27,
+       "note": "involving means including within, so the word for that place wraps round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in that place",
+       "at": 13,
+       "gives": "THERE",
+       "note": "there means in that place"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 37,
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "to begin with",
+           "at": 50,
+           "note": "to begin with points at the first letter of tug-of-war"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tug-of-war",
+           "at": 39,
+           "note": "taken as written; only its first letter is kept"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stadium events there include a tug-of-war to open the programme.",
+     "walkthrough": "Events is this clue's spare word; its central letters EN are the third pair. The answer holds a jumbled HEART: tHEATRe. Arena here is a sphere of action, as in theatre of war.",
+     "definitionFit": "A theatre of operations is the arena where fighting or action takes place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Arena"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "E",
+     "at": 8
+    }
    }
   },
   {
@@ -83,6 +309,53 @@
    "clue": {
     "text": "Imperious leader picked up a follower of emperor",
     "enumeration": "5"
+   },
+   "solution": "RASTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "follower of emperor",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "picked up",
+         "at": 17,
+         "note": "in a down clue, picked up means lifted so it reads from the bottom upwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Imperious leader",
+         "at": 0,
+         "gives": "TSAR",
+         "note": "a tsar was an autocratic Russian ruler"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 27,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A haughty ruler gathers a disciple of an emperor.",
+     "walkthrough": "The emperor is Haile Selassie of Ethiopia, revered by Rastafarians.",
+     "definitionFit": "Rastafarians venerate Haile Selassie, the last Ethiopian emperor, as divine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "picked"
+    }
    }
   },
   {
@@ -96,6 +369,46 @@
    "clue": {
     "text": "Unclued",
     "enumeration": "7"
+   },
+   "solution": "FARTHER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unclued",
+      "at": 0,
+      "note": "the light has no clue; the preamble's theme defines it as a word holding a broken heart"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "F",
+       "note": "the first letter, which the crossing down answer supplies"
+      },
+      {
+       "op": "anagram",
+       "parts": [
+        {
+         "gives": "HEART",
+         "note": "the theme word, scrambled because the preamble's message calls the hearts broken"
+        }
+       ]
+      },
+      {
+       "gives": "R",
+       "note": "the last letter, which the crossing down answer supplies"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "One of three unclued theme entries. The crossings allow FURTHER too; only this spelling holds the jumbled HEART that the message BROKEN HEARTS asks for.",
+     "definitionFit": "Farther means at a greater distance, and its middle five letters rearrange to the theme word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -109,6 +422,59 @@
    "clue": {
     "text": "County force boss with hesitation promoted Henry",
     "enumeration": "9"
+   },
+   "solution": "FERMANAGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "County",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "force",
+       "at": 7,
+       "gives": "F"
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "with hesitation promoted",
+         "at": 18,
+         "note": "the boss's closing hesitation sound er is moved up to the top of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "boss",
+         "at": 13,
+         "gives": "MANAGER",
+         "note": "a manager is a boss"
+        }
+       ]
+      },
+      {
+       "words": "Henry",
+       "at": 43,
+       "gives": "H",
+       "note": "H is the symbol for the henry, the unit of inductance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A county police chief, after some dithering, promotes a man called Henry.",
+     "walkthrough": "Er is the written form of a hesitation, so the manager word ends in one ready to be moved.",
+     "definitionFit": "Fermanagh is one of the six counties of Northern Ireland, known for its lakes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Henry"
+    }
    }
   },
   {
@@ -122,6 +488,59 @@
    "clue": {
     "text": "Bishop engaged in cause, I see, on an automatic basis",
     "enumeration": "7"
+   },
+   "solution": "ROBOTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "on an automatic basis",
+      "at": 32,
+      "note": "an adverbial phrase standing for the adjective: robotic means done automatically"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "engaged in",
+         "at": 7,
+         "note": "engaged in means taking part inside, so the bishop goes within the word for cause"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cause",
+         "at": 18,
+         "gives": "ROOT",
+         "note": "a root is a cause or source"
+        },
+        {
+         "words": "Bishop",
+         "at": 0,
+         "gives": "B"
+        }
+       ]
+      },
+      {
+       "words": "I see",
+       "at": 25,
+       "gives": "IC",
+       "note": "the letters I and C are said like 'I see'"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop involved in a campaign realises it runs on autopilot.",
+     "definitionFit": "Robotic behaviour is mechanical and unthinking, like a machine running by itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cause"
+    }
    }
   },
   {
@@ -135,6 +554,58 @@
    "clue": {
     "text": "Expedition keeps heading for the East",
     "enumeration": "5"
+   },
+   "solution": "HASTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Expedition",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "keeps",
+       "at": 11,
+       "gives": "HAS",
+       "note": "to have is to keep"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heading for",
+         "at": 17,
+         "note": "the heading of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 29,
+         "note": "taken as written; only its first letter is kept"
+        }
+       ]
+      },
+      {
+       "words": "East",
+       "at": 33,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trek keeps heading east.",
+     "walkthrough": "Expedition looks like a journey, but here it means speed, as in expediting.",
+     "definitionFit": "Expedition in its older sense is promptness or speed, which is what haste means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Expedition"
+    }
    }
   },
   {
@@ -148,6 +619,63 @@
    "clue": {
     "text": "Change a lot of fashion in dance",
     "enumeration": "7"
+   },
+   "solution": "REMODEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Change",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "in places the fashion word inside the dance"
+      }
+     ],
+     "parts": [
+      {
+       "words": "dance",
+       "at": 27,
+       "gives": "REEL",
+       "note": "a reel is a lively Scottish dance"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 7,
+         "note": "a lot of the word means all but its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fashion",
+         "at": 16,
+         "gives": "MODE",
+         "note": "mode means fashion"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Much of the latest style is reworked at a dance.",
+     "definitionFit": "To remodel is to reshape or alter something's structure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fashion"
+    }
    }
   },
   {
@@ -161,6 +689,49 @@
    "clue": {
     "text": "Detective going to poet as source of drugs?",
     "enumeration": "9"
+   },
+   "solution": "DISPENSER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "source of drugs?",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "going to",
+       "at": 10,
+       "note": "going to says the first piece is followed straight away by the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Detective",
+       "at": 0,
+       "gives": "DI",
+       "note": "DI is a Detective Inspector"
+      },
+      {
+       "words": "poet",
+       "at": 19,
+       "gives": "SPENSER",
+       "note": "Edmund Spenser wrote The Faerie Queene"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective visits a poet, suspecting him of supplying drugs.",
+     "walkthrough": "The question mark admits the stretch: a dispenser hands out pills as well as soap or cash.",
+     "definitionFit": "A pill dispenser releases measured doses of medicine, so it can be where a patient's drugs come from."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "source"
+    }
    }
   },
   {
@@ -174,6 +745,57 @@
    "clue": {
     "text": "Happen a few will ditch latest simple household accessory?",
     "enumeration": "5"
+   },
+   "solution": "BESOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "simple household accessory?",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Happen",
+       "at": 0,
+       "gives": "BE",
+       "note": "to be is to happen or take place, as in 'the meeting will be tomorrow'"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "will ditch latest",
+         "at": 13,
+         "note": "ditching the latest letter means the last letter of the word for a few is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a few",
+         "at": 7,
+         "gives": "SOME",
+         "note": "some means a few"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dialect speaker reckons a few will throw out their newest gadget for something plain.",
+     "walkthrough": "Happen is also northern English for perhaps, which hides its use here as a verb.",
+     "definitionFit": "A besom is a broom made of twigs tied round a handle, about the plainest cleaning tool a home can have."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Happen"
+    }
    }
   },
   {
@@ -187,6 +809,57 @@
    "clue": {
     "text": "I drop off last of post, not in the right place",
     "enumeration": "5"
+   },
+   "solution": "INAPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "not in the right place",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "drop off",
+       "at": 2,
+       "gives": "NAP",
+       "note": "to drop off is to fall asleep, a nap"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last of",
+         "at": 11,
+         "note": "last of means only the final letter of post is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "post",
+         "at": 19,
+         "note": "taken as written; only its final letter is kept"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits nodding off just before the final post, which then lands somewhere odd.",
+     "definitionFit": "Inapt means unsuitable or out of place, the opposite of apt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drop"
+    }
    }
   },
   {
@@ -200,6 +873,83 @@
    "clue": {
     "text": "Article amongst standard documentation linked to a hybrid system of discrimination",
     "enumeration": "9"
+   },
+   "solution": "APARTHEID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "system of discrimination",
+      "at": 58
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "linked to",
+       "at": 39,
+       "note": "linked to joins the single letter onto the front of the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a",
+       "at": 49,
+       "gives": "A",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "amongst",
+         "at": 8,
+         "note": "amongst puts the article in the middle of the other two words' letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "standard",
+           "at": 16,
+           "gives": "PAR",
+           "note": "par is the standard or norm"
+          },
+          {
+           "words": "documentation",
+           "at": 25,
+           "gives": "ID",
+           "note": "ID is identity documentation"
+          }
+         ]
+        },
+        {
+         "words": "Article",
+         "at": 0,
+         "gives": "THE",
+         "note": "the is the definite article"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Paperwork with a standard clause underpins a mixed scheme for treating people unequally.",
+     "walkthrough": "Hybrid is this clue's spare word; its central letters BR start the preamble's message. The answer holds a jumbled HEART: apARTHEid.",
+     "definitionFit": "Apartheid was South Africa's legal regime of racial segregation, an official policy of unequal treatment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "B",
+     "at": 53
+    }
    }
   },
   {
@@ -213,6 +963,53 @@
    "clue": {
     "text": "Former Mexican leader introducing Spanish card game to former African leader",
     "enumeration": "9"
+   },
+   "solution": "MONTEZUMA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Former Mexican leader",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "introducing",
+       "at": 22,
+       "note": "introducing one thing to another sets them side by side, the card game coming first"
+      },
+      {
+       "text": "to",
+       "at": 52,
+       "note": "to marks the word that follows the card game"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Spanish card game",
+       "at": 34,
+       "gives": "MONTE",
+       "note": "monte is a gambling card game of Spanish origin"
+      },
+      {
+       "words": "former African leader",
+       "at": 55,
+       "gives": "ZUMA",
+       "note": "Jacob Zuma was President of South Africa"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Aztec ruler teaches a card game to a former African president.",
+     "definitionFit": "Montezuma was the Aztec emperor when Cortés arrived in what is now Mexico."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "introducing"
+    }
    }
   },
   {
@@ -226,6 +1023,79 @@
    "clue": {
     "text": "Unionist almost accepting 40% of these bigheads? Weird",
     "enumeration": "9"
+   },
+   "solution": "UNEARTHLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Weird",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accepting",
+       "at": 16,
+       "note": "accepting means taking in, so the two letters go inside the rest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Unionist",
+         "at": 0,
+         "gives": "U"
+        },
+        {
+         "words": "almost",
+         "at": 9,
+         "gives": "NEARLY",
+         "note": "nearly means almost"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "40% of",
+         "at": 26,
+         "note": "forty per cent of a five-letter word is its first two letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "these",
+         "at": 33,
+         "gives": "THESE",
+         "note": "taken as written; only its first two letters are kept"
+        },
+        {
+         "gives": "ESE"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Unionist nearly accepts that these egotists are strange.",
+     "walkthrough": "Bigheads is this clue's spare word; its central letters HE are the fourth pair. The answer holds a jumbled HEART: unEARTHly.",
+     "definitionFit": "Unearthly means unnatural or eerie, as though not of this world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Unionist"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "H",
+     "at": 42
+    }
    }
   },
   {
@@ -239,6 +1109,60 @@
    "clue": {
     "text": "Type of ship turned up late? Not worried",
     "enumeration": "5"
+   },
+   "solution": "CAMEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Type of ship",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "turned up",
+       "at": 13,
+       "gives": "CAME",
+       "note": "to turn up is to arrive, so came"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not",
+         "at": 29,
+         "note": "not attached to worried means that word's letters are left out of late"
+        }
+       ],
+       "parts": [
+        {
+         "words": "late",
+         "at": 23,
+         "note": "taken as written"
+        },
+        {
+         "words": "worried",
+         "at": 33,
+         "gives": "ATE",
+         "note": "ate can mean worried, as in 'what's eating you?'"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shrugs off a ship's late arrival.",
+     "walkthrough": "The definition is figurative: the camel is the 'ship of the desert'.",
+     "definitionFit": "The camel is called the ship of the desert because it carries loads across sand and sways like a boat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "worried"
+    }
    }
   },
   {
@@ -252,6 +1176,57 @@
    "clue": {
     "text": "Place of worship possibly starts making him mature",
     "enumeration": "9"
+   },
+   "solution": "MITHRAEUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Place of worship",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "possibly",
+       "at": 17,
+       "note": "possibly says the letters can be arranged in another way"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "him",
+         "at": 40,
+         "note": "taken as written"
+        },
+        {
+         "words": "mature",
+         "at": 44,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Going to church might start to make him grow up.",
+     "walkthrough": "Starts is this clue's spare word, central letters AR, and making is a link. The answer holds a jumbled HEART: miTHRAEum.",
+     "definitionFit": "A mithraeum was a Roman temple, often underground, devoted to the god Mithras."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mature"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "A",
+     "at": 28
+    }
    }
   },
   {
@@ -265,6 +1240,68 @@
    "clue": {
     "text": "Knocked over a pain in the neck, almost roughly",
     "enumeration": "5"
+   },
+   "solution": "CIRCA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "roughly",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Knocked over",
+       "at": 0,
+       "note": "something knocked over ends up the other way round, so the letters run backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 13,
+         "note": "taken as written"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 33,
+           "note": "almost means the last letter is not reached"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pain in the neck",
+           "at": 15,
+           "gives": "CRICK",
+           "note": "a crick is a painful stiffness in the neck"
+          },
+          {
+           "gives": "K"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was bowled over by something like a stiff neck.",
+     "walkthrough": "'A pain in the neck' looks like slang for a nuisance, but here it means the literal ache.",
+     "definitionFit": "Circa, from Latin, means approximately and is used with dates, as in c. 1500."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Knocked"
+    }
    }
   },
   {
@@ -278,6 +1315,59 @@
    "clue": {
     "text": "Source of ringing that hurts bomber held in prison",
     "enumeration": "7"
+   },
+   "solution": "COWBELL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Source of ringing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "held in",
+       "at": 36,
+       "note": "held in means kept inside, as a prisoner is"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prison",
+       "at": 44,
+       "gives": "CELL",
+       "note": "a cell is a prison room"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "that hurts",
+         "at": 18,
+         "gives": "OW",
+         "note": "ow is the cry of pain"
+        },
+        {
+         "words": "bomber",
+         "at": 29,
+         "gives": "B",
+         "note": "B is the designation of US bombers, as in B-52"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bomber locked up in jail complains of ringing in the ears.",
+     "definitionFit": "A cowbell hangs from a cow's neck and clanks as it moves, or is struck as a percussion instrument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ringing"
+    }
    }
   },
   {
@@ -291,6 +1381,60 @@
    "clue": {
     "text": "Runner, say, allowed in running heat",
     "enumeration": "7"
+   },
+   "solution": "ATHLETE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Runner, say",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "in places the allowed word inside the jumbled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "running",
+         "at": 24,
+         "note": "running here means in motion, so the letters of heat move around"
+        }
+       ],
+       "parts": [
+        {
+         "words": "heat",
+         "at": 32,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "allowed",
+       "at": 13,
+       "gives": "LET",
+       "note": "let means allowed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runner is permitted into a race heat.",
+     "walkthrough": "Running looks like part of the race picture, but it is the signal to rearrange heat.",
+     "definitionFit": "A runner is one example of an athlete, hence the 'say'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "running"
+    }
    }
   },
   {
@@ -304,6 +1448,59 @@
    "clue": {
     "text": "Once hurried to seize piece put on display",
     "enumeration": "9"
+   },
+   "solution": "EXHIBITED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "put on display",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Once",
+       "at": 0,
+       "gives": "EX",
+       "note": "ex means former, as in ex-wife"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to seize",
+         "at": 13,
+         "note": "to seize is to grab and hold, so the piece goes inside the hurrying word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hurried",
+         "at": 5,
+         "gives": "HIED",
+         "note": "hied is an old word for hurried"
+        },
+        {
+         "words": "piece",
+         "at": 22,
+         "gives": "BIT",
+         "note": "a bit is a piece"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former dasher grabs an item and shows it off.",
+     "definitionFit": "To exhibit is to show something publicly, as a gallery does with paintings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Once"
+    }
    }
   },
   {
@@ -317,6 +1514,57 @@
    "clue": {
     "text": "Inspire origins of Baton Rouge early, at the outset",
     "enumeration": "7"
+   },
+   "solution": "BREATHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Inspire",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "origins of",
+         "at": 8,
+         "note": "origins are beginnings, so each of the next words gives its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Baton Rouge early, at",
+         "at": 19,
+         "note": "taken as written; the first letter of each of these four words is kept"
+        }
+       ]
+      },
+      {
+       "words": "the",
+       "at": 41,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An encouraging start in Baton Rouge, early on.",
+     "walkthrough": "Outset is this clue's spare word; its central letters TS complete BROKEN HEARTS. The answer holds a jumbled HEART: bREATHe. Inspire is used in its literal sense, to draw in breath.",
+     "definitionFit": "To inspire literally means to inhale, from Latin inspirare, to breathe into."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Inspire"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "T",
+     "at": 47
+    }
    }
   },
   {
@@ -330,6 +1578,46 @@
    "clue": {
     "text": "Was contemptuous about retaining university that's no longer operational",
     "enumeration": "7"
+   },
+   "solution": "DISUSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's no longer operational",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "retaining",
+       "at": 23,
+       "note": "retaining means holding within, so the university letter sits inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Was contemptuous",
+       "at": 0,
+       "gives": "DISSED",
+       "note": "dissed is slang for showed disrespect"
+      },
+      {
+       "words": "university",
+       "at": 33,
+       "gives": "U"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sneered at a university that has since closed.",
+     "definitionFit": "Something disused, such as a railway line or mine, has been abandoned and is no longer in service."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -343,6 +1631,65 @@
    "clue": {
     "text": "Unite to secure hooked article yonder, eroded",
     "enumeration": "9"
+   },
+   "solution": "WEATHERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "eroded",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to secure",
+       "at": 6,
+       "note": "to secure something is to hold it fast, so the marrying word wraps round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Unite",
+       "at": 0,
+       "gives": "WED",
+       "note": "to wed is to unite in marriage"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "article",
+         "at": 23,
+         "gives": "A",
+         "note": "a is the indefinite article"
+        },
+        {
+         "words": "yonder",
+         "at": 31,
+         "gives": "THERE",
+         "note": "yonder means over there"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to join forces and grab a distant fish-hooked item, now worn away.",
+     "walkthrough": "Hooked is this clue's spare word; its central letters OK are the message's second pair. The answer holds a jumbled HEART: wEATHEred.",
+     "definitionFit": "Rock that has weathered has been worn down over time by wind and rain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Unite"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "O",
+     "at": 18
+    }
    }
   },
   {
@@ -356,6 +1703,47 @@
    "clue": {
     "text": "Distress grammar school induced in soldier",
     "enumeration": "5"
+   },
+   "solution": "ANGST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Distress",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "induced in",
+       "at": 24,
+       "note": "induced in means led inside, so the school letters go within the soldier"
+      }
+     ],
+     "parts": [
+      {
+       "words": "soldier",
+       "at": 35,
+       "gives": "ANT",
+       "note": "a soldier ant is a worker ant that defends the colony"
+      },
+      {
+       "words": "grammar school",
+       "at": 9,
+       "gives": "GS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grammar school pupil causes anguish in a soldier.",
+     "definitionFit": "Angst is a feeling of deep anxiety or dread."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soldier"
+    }
    }
   },
   {
@@ -369,6 +1757,31 @@
    "clue": {
     "text": "Upland country will do for swallows",
     "enumeration": "5"
+   },
+   "solution": "DOWNS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Upland country",
+      "at": 0,
+      "meaning": "first meaning: rolling chalk hills"
+     },
+     {
+      "text": "swallows",
+      "at": 27,
+      "meaning": "second meaning: gulps a drink down"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Swallows looks like the birds, but it is the verb for drinking quickly.",
+     "definitionFit": "The Downs are grassy chalk uplands of southern England; to down a drink is to gulp it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "swallows"
+    }
    }
   },
   {
@@ -382,6 +1795,60 @@
    "clue": {
     "text": "Unhappy about universal backing for currency",
     "enumeration": "5"
+   },
+   "solution": "EUROS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "currency",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "backing",
+       "at": 24,
+       "note": "backing means going in reverse, so the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 8,
+         "note": "about puts the first word round the letter for universal"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Unhappy",
+         "at": 0,
+         "gives": "SORE",
+         "note": "sore can mean aggrieved or upset"
+        },
+        {
+         "words": "universal",
+         "at": 14,
+         "gives": "U",
+         "note": "U is the film classification for universal viewing"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A disgruntled supporter of a single world currency.",
+     "definitionFit": "Euros are the money of most European Union countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
    }
   },
   {
@@ -395,6 +1862,58 @@
    "clue": {
     "text": "Standard energy line installed in time",
     "enumeration": "5"
+   },
+   "solution": "EAGLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Standard",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "energy",
+       "at": 9,
+       "gives": "E"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "installed in",
+         "at": 21,
+         "note": "installed in means placed inside, so the line letter goes into the word for time"
+        }
+       ],
+       "parts": [
+        {
+         "words": "time",
+         "at": 34,
+         "gives": "AGE",
+         "note": "an age is a period of time"
+        },
+        {
+         "words": "line",
+         "at": 16,
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A power line is fitted on schedule to normal specification.",
+     "walkthrough": "Standard looks like an adjective meaning normal, but it is the noun: a military emblem.",
+     "definitionFit": "The eagle was the standard carried by Roman legions, and many armies have used eagle banners since."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Standard"
+    }
    }
   },
   {
@@ -408,6 +1927,68 @@
    "clue": {
     "text": "Intelligence shown by last character amongst gardeners — they use shells",
     "enumeration": "9"
+   },
+   "solution": "HOWITZERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "they use shells",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "amongst",
+       "at": 37,
+       "note": "amongst puts the clever letters inside the word for gardeners"
+      }
+     ],
+     "parts": [
+      {
+       "words": "gardeners",
+       "at": 45,
+       "gives": "HOERS",
+       "note": "hoers are people using hoes"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "shown by",
+         "at": 13,
+         "note": "shown by sets the two pieces side by side"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Intelligence",
+         "at": 0,
+         "gives": "WIT",
+         "note": "wit is mental sharpness"
+        },
+        {
+         "words": "last character",
+         "at": 22,
+         "gives": "Z",
+         "note": "Z is the last letter of the alphabet"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clever thinking from the final person in a group of gardeners who collect shells.",
+     "walkthrough": "Shells sound like seashells from the garden scene, but they are artillery rounds.",
+     "definitionFit": "A howitzer is a short artillery gun that fires explosive shells in a high arc."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shells"
+    }
    }
   },
   {
@@ -421,6 +2002,46 @@
    "clue": {
     "text": "Unclued",
     "enumeration": "7"
+   },
+   "solution": "LATHERY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unclued",
+      "at": 0,
+      "note": "the light has no clue; the preamble's theme defines it as a word holding a broken heart"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "L",
+       "note": "the first letter, which the crossing down answer supplies"
+      },
+      {
+       "op": "anagram",
+       "parts": [
+        {
+         "gives": "HEART",
+         "note": "the theme word, scrambled because the preamble's message calls the hearts broken"
+        }
+       ]
+      },
+      {
+       "gives": "Y",
+       "note": "the last letter, which the crossing down answer supplies"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "One of three unclued theme entries. The crossings also admit LITHELY; only this word holds the jumbled HEART that the message BROKEN HEARTS asks for.",
+     "definitionFit": "Lathery describes something covered in soapy foam, and its middle five letters rearrange to the theme word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -434,6 +2055,57 @@
    "clue": {
     "text": "Horse carrying a male moved fast",
     "enumeration": "7"
+   },
+   "solution": "STEAMED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "moved fast",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "at": 6,
+       "note": "carrying means holding inside, as a horse carries a rider"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Horse",
+       "at": 0,
+       "gives": "STEED",
+       "note": "a steed is a horse"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 15,
+         "gives": "A",
+         "note": "taken as written"
+        },
+        {
+         "words": "male",
+         "at": 17,
+         "gives": "M"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A horse with a man on its back galloped off.",
+     "definitionFit": "To steam along is to go at speed, like a steam train at full power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
    }
   }
  ]
