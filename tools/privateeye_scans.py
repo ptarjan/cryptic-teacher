@@ -40,7 +40,7 @@ PAGES = DIR / "pages"
 LEAF_WORDS = re.compile(r"cyclops|crossword|across|down", re.IGNORECASE)
 #: A line that starts a clue ("7 TCP-like", "20/12 Paxman", "9ac. See") or
 #: ends one with its count ("(6,4)", "(4-4)").
-STARTS = re.compile(r"^\W{0,2}\d{1,2}(?:\s*/\s*\d{1,2}(?:\s*(?:ac|dn)\.?)?)*\W{0,2}\s+[A-Za-z(\"'‘“]")
+STARTS = re.compile(r"^\W{0,2}\d{1,2}(?:\s*[/+]\s*\d{1,2}(?:\s*(?:ac|dn)\.?)?)*\W{0,2}\s+[A-Za-z(\"'‘“]")
 COUNTED = re.compile(r"\(\s*\d{1,2}(?:\s*[,\-–]\s*\d{1,2})*\s*\)\W{0,2}$")
 #: Where the clue columns stop: the prize and entry notice, the previous
 #: puzzle's solution or winner, the next feature's heading.
@@ -215,7 +215,9 @@ def score(run):
 #: comma ("7, 17/23", three lights): the shared parser reads commas, and
 #: a slash left in "17/23 Truss" puts the numbers in the clue's words,
 #: which then are no clue and the light is filed blank (Nos 4, 29, 150).
-SLASH = re.compile(r"^(\W{0,2}\d{1,2}(?:\s*,\s*\d{1,2})*)\s*/\s*(?=\d)")
+#: A "+" joins them as a slash does ("14+16 Cops ...", No 152): left in,
+#: the line is no clue start and its words ran into the clue above.
+SLASH = re.compile(r"^(\W{0,2}\d{1,2}(?:\s*,\s*\d{1,2})*)\s*[/+]\s*(?=\d)")
 
 
 def column_cols(boxes):
