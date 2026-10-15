@@ -743,6 +743,7 @@ pool_checkpoint() {
   after_wave "$POOL_BEFORE" "$hours" "$avg" "${#WAVE_FAILED_IDS[@]}" "$POOL_BEFORE_S" "$wide" ||
     return 1
   requeue_failed
+  worker_sweep_scratch
   POOL_SPAN_RUNS=$avg
   pool_interval_start
   POOL_SPAN_RUNS=
@@ -1104,6 +1105,7 @@ drop_failed() {
     worker_forget "$RUNS/$id.sid"
     [ "$DRY_RUN" = 1 ] && continue
     discard_puzzle "$id"
+    worker_clean "$id"
     [ "$WAVE_WHAT" = Annotate ] || continue
     python3 tools/failed_inputs.py record annotate "$id" --reason \
       "$(grep -v '^[[:space:]]*$' "/tmp/ct-prereset-$id.txt" | tail -8 | tr '\n' ' ')" \

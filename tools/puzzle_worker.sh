@@ -656,7 +656,33 @@ worker_finish() {   # id what sidfile log
   _worker_finish "$@"
   local rc=$?
   worker_forget "$3"
+  worker_clean "$1"
   return $rc
+}
+
+# Delete the scratch a finished puzzle left in tools/: its payloads
+# (_ann_<id>.json, _puzzle_<id>.json) and whatever else the run named after it
+# (_fill_<id>.json, _patch_<id>.json, _withdrawn_<id>.txt...). Done with once
+# the puzzle is committed or discarded; a discard has salvaged them already
+# (worker_salvage). "_<id>." so cryptic-301 never matches cryptic-30111's.
+# Without this they waited for the sweep at the very end of a run, which a
+# burn that re-execs and gets stopped rarely reaches (2,427 of them, 10-14).
+worker_clean() {   # id
+  rm -f tools/_*_"$1".*
+}
+
+# Delete the unnamed scratch scripts and dumps runs write in tools/ (_peek3.py,
+# _w2.json) once older than $1 minutes (default 360): no run reads another's,
+# and a run that old has finished. The per-puzzle payloads are worker_clean's,
+# since a run resumed after a nap still needs its own. Never a tracked file.
+worker_sweep_scratch() {   # [minutes]
+  local p
+  find tools -maxdepth 1 -type f -name '_*' ! -name '_ann_*' ! -name '_puzzle_*' \
+    ! -name '_withdrawn_*' -mmin +"${1:-360}" 2>/dev/null |
+    while IFS= read -r p; do
+      git ls-files --error-unmatch -- "$p" >/dev/null 2>&1 || rm -f -- "$p"
+    done
+  return 0
 }
 _worker_finish() {
   local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen ran loss wants pending="" why

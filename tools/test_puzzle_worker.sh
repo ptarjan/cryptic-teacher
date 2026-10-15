@@ -379,5 +379,31 @@ check "anything else (a RefusedWrite, a CLI log): its last line, as before" \
 check "the burn's log, the ledger and the mend note all use it" \
   "$(grep -c 'worker_verdict_line "\$verdict"' tools/prereset_backfill.sh) $(grep -c 'worker_verdict_line "\$said"\|worker_verdict_line "\$verdict"' tools/puzzle_worker.sh)" "1 2"
 
+echo "a finished puzzle's scratch in tools/ is deleted, nobody else's"
+check "worker_finish cleans up after the puzzle" \
+  "$(awk '/^worker_finish\(\) \{/,/^\}/' tools/puzzle_worker.sh | grep -c '^ *worker_clean "\$1"$')" "1"
+check "the burn's drop and checkpoint clean up too" \
+  "$(awk '/^drop_failed\(\) \{/,/^\}/' tools/prereset_backfill.sh | grep -c 'worker_clean "\$id"') $(awk '/^pool_checkpoint\(\) \{/,/^\}/' tools/prereset_backfill.sh | grep -c '^ *worker_sweep_scratch$')" "1 1"
+scratch=$(mktemp -d)
+worker=$PWD/tools/puzzle_worker.sh
+(
+  cd "$scratch" && mkdir tools && git init -q . || exit 1
+  . "$worker"
+  for f in _ann_cryptic-301.json _puzzle_cryptic-301.json _fill_cryptic-301.json \
+           _withdrawn_cryptic-301.txt _ann_cryptic-30111.json _puzzle_cryptic-30111.json \
+           _peek3.py _w2.json _tracked_old.py _peek_new.py _ann_old-1.json; do
+    echo x >"tools/$f"
+  done
+  git add -f tools/_tracked_old.py
+  touch -d '-7 hours' tools/_peek3.py tools/_w2.json tools/_tracked_old.py tools/_ann_old-1.json
+  worker_clean cryptic-301
+  worker_sweep_scratch
+  ls tools | tr '\n' ' '
+) >"$scratch.out" 2>&1
+check "worker_clean takes the id's files, worker_sweep_scratch the old unnamed ones" \
+  "$(cat "$scratch.out")" \
+  "_ann_cryptic-30111.json _ann_old-1.json _peek_new.py _puzzle_cryptic-30111.json _tracked_old.py "
+rm -rf "$scratch" "$scratch.out"
+
 [ "$fails" = 0 ] && echo "puzzle worker: all checks passed" || echo "puzzle worker: $fails FAILED"
 exit $((fails > 0))
