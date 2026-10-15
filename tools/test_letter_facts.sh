@@ -449,6 +449,7 @@ rows = [(f"p{i}", "1a", "Great Dane wrecked open-air restaurant (3,6)", "TEAGARD
          {"type": "anagram", "indicators": [{"text": "wrecked", "for": "anagram"}]}) for i in range(3)]
 ours = [("q1", "2d", "Ivan turning up (4)", "NAVI", {"type": "reversal", "indicators": [{"text": "turning up", "for": "reversal"}]})]
 corpus = l.Packed(rows)
+l.fallback_jobs = lambda: 2
 here = l._lexicons(corpus, ours, None)
 one = l._lexicons(l.Packed.of(corpus.pickled()), ours, 1)
 print(all(vars(a) == vars(b) for a, b in zip(here, one)), sorted(here[0].votes) == [("TURNING", "UP"), ("WRECKED",)])
@@ -458,6 +459,47 @@ want="True True
 ('built', '--serve-lexicons')"
 if [ "$lexicons" = "$want" ]; then echo "ok   the lexicons build on the desktop, else here in a pool as in one process"; else
   echo "FAIL lexicons: expected [$want], got [$lexicons]"; fails=$((fails + 1)); fi
+
+# Lexicon.pair is Lexicon(corpus) and Lexicon(corpus, extra=ours) off one
+# pass: equal, down to the order of every dict, so an export ranks ties alike.
+pair=$(cd "$REPO/tools" && python3 -c '
+import letter_facts as l
+rows = [("p1", "1a", "Ape in rage heading west (4)", "LEMUR", {"blocks": [["LE", "rage"], ["MUR", "in"]]}),
+        ("p2", "2d", "Bird on wire to the left (4)", "ERIW", {"blocks": [["ERI", "wire"], ["W", "to the left"]],
+         "definition": ["Bird"]})]
+ours = [("q1", "3a", "Wire bird in rage (5)", "LEMUR", {"blocks": [["LEM", "Wire bird"], ["UR", "in rage"]]}),
+        ("q2", "4d", "New rage (4)", "IRE", {"blocks": [["IRE", "rage"]]})]
+def shape(x):
+    return {k: [(a, list(b.items()) if hasattr(b, "items") else b) for a, b in v.items()] for k, v in vars(x).items()}
+lex, both = l.Lexicon.pair(rows, ours)
+print(shape(lex) == shape(l.Lexicon(rows)), shape(both) == shape(l.Lexicon(rows, extra=ours)), shape(both) != shape(lex))' 2>/dev/null)
+if [ "$pair" = "True True True" ]; then echo "ok   the blog and blog+ours lexicons come off one pass, as two would build them"; else
+  echo "FAIL Lexicon.pair: expected [True True True], got [$pair]"; fails=$((fails + 1)); fi
+
+# The desktop silence limit counts from the last sign of life either way: a
+# request crossing a slow link (here a reader taking 64 KB per 50 ms, a
+# couple of seconds against a 0.5s limit) is not silence, and the BEAT sent
+# once it is in counts; a desktop that takes nothing and says nothing is.
+feed=$(cd "$REPO/tools" && OCR_REMOTE=fake python3 -c '
+import pickle, letter_facts as l, desktop_busy, ocr_remote
+ocr_remote.ship = lambda host: None
+desktop_busy.busy = lambda hosts: None
+l.DESKTOP_SILENCE, l.FEED_CHUNK = 0.5, 1 << 16
+slow = ("import sys, time, pickle\n"
+        "while sys.stdin.buffer.read1(1 << 16): time.sleep(0.05)\n"
+        "out = sys.stdout.buffer\n"
+        "for x in (\"beat\", \"lexicons\", None): pickle.dump(x, out); out.flush(); time.sleep(0.3)\n")
+desktop_busy.SSH = ["python3", "-c", slow]
+got = list(l._desktop("--serve-lexicons", [b"x" * (3 << 20)]))
+print(got == ["beat", "lexicons"])
+desktop_busy.SSH = ["python3", "-c", "import time; time.sleep(30)"]
+try:
+    list(l._desktop("--serve-lexicons", [b"x" * (3 << 20)]))
+except l._Unavailable as e:
+    print("neither took the request nor sent anything in 0.5s" in str(e))' 2>&1)
+if [ "$feed" = "True
+True" ]; then echo "ok   a slow transfer to the desktop is not silence, a dead desktop is"; else
+  echo "FAIL desktop feed: expected [True True], got [$feed]"; fails=$((fails + 1)); fi
 
 # blog_facts runs at NICE from a lower niceness, and never lowers a higher one.
 nice=$(cd "$REPO/tools" && python3 -c '
