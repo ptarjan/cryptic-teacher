@@ -338,6 +338,10 @@ SCAN_SECONDS = 1200
 READ_SECONDS = 1200
 #: How often (seconds) the queue is planned again.
 REPLAN = 60
+#: While no core is idle, a plan is made every REPLAN * IDLE_BACKOFF seconds
+#: (5 minutes), as long as the last plan holds enough untried units to keep
+#: the pools full: the planner thread's stats are CPU the burn wants.
+IDLE_BACKOFF = 5
 #: How often (seconds) the dispatch loop looks for editions just laid out
 #: (fresh): a listing of the cache and a stat of each item dir, ~0.3s.
 FRESH_POLL = 30
@@ -899,6 +903,21 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             scans, reads, fetches = kept
             planned = time.monotonic()
             log(f"started from the last plan: {len(scans)} scans, {len(reads)} reads, {len(fetches)} fetches")
+    queue = []  # the units of the last pass, started or not
+    idle_seen = [None, True]  # when idle cores were last read (monotonic), and whether one was idle
+    pool_width = scan_workers + workers
+
+    def replan_after():
+        """Seconds after the last plan the next is made: `replan`, or
+        IDLE_BACKOFF times it while no core is idle and the last plan still
+        holds more untried units than the pools are wide (read at most every
+        FRESH_POLL seconds)."""
+        if sum(key_of(u) not in tried for u in queue) <= pool_width:
+            return replan
+        if idle_seen[0] is None or time.monotonic() - idle_seen[0] >= FRESH_POLL:
+            idle_seen[:] = [time.monotonic(), mem_gate.idle_room(0, idle_gate_reader)]
+        return replan if idle_seen[1] else replan * IDLE_BACKOFF
+
     upkept = [upkeep] if upkeep else []  # run, and emptied, before the first plan made here
     left = 0
     pools = {"scan": scan_workers, "read": workers, "trove": trove_workers, "listener": LISTENER_WORKERS,
@@ -1086,7 +1105,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         if may_start() and (fresh_at is None or time.monotonic() - fresh_at >= min(replan, FRESH_POLL)):
             fresh_at = time.monotonic()
             fresh_scans, fresh_reads = fresh(papers, cache)
-        if may_start() and planner is None and (plan_done is None or time.monotonic() - plan_done >= replan):
+        if may_start() and planner is None and (
+                plan_done is None or time.monotonic() - plan_done >= replan and time.monotonic() - plan_done >= replan_after()):
             box = {"begun": time.monotonic(), "notes": []}
 
             def make(box=box):
