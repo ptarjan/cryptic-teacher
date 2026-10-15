@@ -538,4 +538,71 @@ rm -rf "$rowsd"
 if [ "$cached" = "True True True True" ]; then echo "ok   rows() through the row cache matches a find and parse per puzzle"; else
   echo "FAIL cached rows: expected [True True True True], got [$cached]"; fails=$((fails + 1)); fi
 
+# The lexicons off the store's chunk counts are the lexicons one pass builds,
+# down to the order of every dict, cold and warm; a changed puzzle recounts
+# its chunk alone; past the deadline a cold count stops cleanly with what it
+# made stored, and the next run counts only the rest. The clue results are
+# read once, then reused, and re-read for a new generation only up to REFRESH.
+storedir=$(mktemp -d)
+store=$(cd "$REPO/tools" && python3 -c '
+import os, sys, letter_facts as l, budget
+rows = []
+for i in range(300):
+    rows.append((f"p{i:03}", "1a", f"Ape in rage heading west no {i} (4)", "LEMUR",
+                 {"blocks": [["LE", "rage"], ["MUR", "in"]], "definition": ["Ape"],
+                  "indicators": [{"text": "heading west", "for": "reversal"}]}))
+    rows.append((f"p{i:03}", "2d", "Bird on wire to the left (4)", "ERIW", {"blocks": [["ERI", "wire"], ["W", "to the left"]]}))
+ours = [("q1", "3a", "Wire bird in rage (5)", "LEMUR", {"blocks": [["LEM", "Wire bird"], ["UR", "in rage"]]})]
+def shape(x):
+    return {k: [(a, list(b.items()) if hasattr(b, "items") else b) for a, b in v.items()]
+            for k, v in vars(x).items() if isinstance(v, dict)}
+same = lambda a, b: all(shape(x) == shape(y) for x, y in zip(a, b))
+conn = l._open_store(sys.argv[1] + "/s.sqlite")
+corpus = l.Packed(rows)
+full = l._lexicons(corpus, ours, 1)
+counted = []
+real = l._chunk_counts
+l._chunk_counts = lambda t: counted.append(1) or real(t)
+cold, gen = l._cached_lexicons(conn, corpus, ours, 1)
+n_cold = len(counted)
+warm, gen2 = l._cached_lexicons(conn, corpus, ours, 1)
+print(same(full, cold), same(full, warm), n_cold > 2, len(counted) == n_cold, gen == gen2)
+rows[10] = (*rows[10][:4], {"blocks": [["LE", "rage"]]})
+counted.clear()
+moved, gen3 = l._cached_lexicons(conn, l.Packed(rows), ours, 1)
+print(same(moved, l._lexicons(l.Packed(rows), ours, 1)), len(counted) == 1, gen3 != gen)
+conn2 = l._open_store(sys.argv[1] + "/t.sqlite")
+os.environ["CT_DEADLINE"], os.environ["UNIT_MORE"] = "0", sys.argv[1] + "/more"
+counted.clear()
+try:
+    l._cached_lexicons(conn2, corpus, ours, 1)
+    print("not stopped")
+except budget.Stopped as e:
+    print(e.code == 0, len(counted) == 1, os.path.exists(sys.argv[1] + "/more"))
+del os.environ["CT_DEADLINE"]
+counted.clear()
+again, _ = l._cached_lexicons(conn2, corpus, ours, 1)
+print(same(full, again), len(counted) == n_cold - 1)
+read = []
+l._WORKER.update(votes=l.indicator_votes(corpus), lex=full[2], ilex=full[0], dlex=full[3])
+realf = l._puzzle_facts
+l._puzzle_facts = lambda item: read.append(item[0]) or realf(item)
+plain = list(l._read_clues(corpus, {}, 1))
+read.clear()
+first = list(l._cached_clues(conn, corpus, {}, 1, "g1"))
+n1 = len(read); read.clear()
+second = list(l._cached_clues(conn, corpus, {}, 1, "g1"))
+n2 = len(read); read.clear()
+l.REFRESH = 7
+third = list(l._cached_clues(conn, corpus, {}, 1, "g2"))
+print(first == plain, second == plain, third == plain, n1 == 300, n2 == 0, len(read) == 7)' "$storedir" 2>/dev/null)
+rm -rf "$storedir"
+want="True True True True True
+True True True
+True True True
+True True
+True True True True True True"
+if [ "$store" = "$want" ]; then echo "ok   the stored lexicon chunks and clue results match a full build, and a deadline stops cleanly"; else
+  echo "FAIL store: expected [$want], got [$store]"; fails=$((fails + 1)); fi
+
 [ "$fails" -eq 0 ] && echo "all letter_facts checks passed" || { echo "$fails failed"; exit 1; }

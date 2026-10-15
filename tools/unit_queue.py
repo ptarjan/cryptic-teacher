@@ -448,6 +448,11 @@ def run(queue, key, timeout, cls, argv, tag=""):
     env["UNIT_MORE"] = str(more)
     ledger = Ledger(queue)
     t0 = time.time()
+    # The unit's soft deadline (tools/budget.py), which a unit that opts in
+    # exports as CT_DEADLINE: its long passes stop there, keeping their
+    # progress, rather than run into the kill below.
+    import budget
+    env["CT_UNIT_DEADLINE"] = str(round(t0 + budget.SHARE * timeout))
     ledger.append({"key": key, "event": "start", "at": t0, "cls": cls, "pid": os.getpid(),
                    "tree": env.get("CT_JOB"), **({"tag": tag} if tag else {})})
     log(f"[{key}] start{' in ' + env['CT_JOB'] if 'CT_JOB' in env else ''} (limit {timeout}s)")

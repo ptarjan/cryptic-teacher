@@ -417,6 +417,25 @@ unit_genius() {
   return $rc
 }
 
+# Paul, 2026-10-15: "Zero jobs should ever be killed by timeouts. Don't make
+# timeouts longer fix the jobs to scale as our repo scales." A unit whose
+# passes keep their progress takes the soft deadline tools/unit_queue.py sets
+# (tools/budget.py, a share of its limit): a long pass stops there cleanly,
+# stored as far as it got, and says the unit has backlog left, so the next
+# tick runs it again and it goes on from there. Opt-in, so a pass whose rc a
+# caller trusts (a reindex) is never cut short by it.
+with_deadline() {
+  [ -n "${CT_UNIT_DEADLINE:-}" ] && export CT_DEADLINE="$CT_UNIT_DEADLINE"
+  return 0
+}
+past_deadline() {
+  [ -n "${CT_DEADLINE:-}" ] && [ "$(date +%s)" -ge "${CT_DEADLINE%.*}" ]
+}
+unit_backlog_left() {
+  [ -n "${UNIT_MORE:-}" ] && touch "$UNIT_MORE"
+  return 0
+}
+
 # Blog hints, re-read off the caches the blog units just topped up.
 # tools/blog_facts.py joins every cached write-up to the puzzle it explains and
 # writes tools/data/blog_facts/, which the site's hints and the validator's
@@ -431,12 +450,17 @@ unit_blog_facts() {
   local facts_out step_start step_rc
   facts_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-facts.XXXXXX")"
   step_start=$SECONDS
+  # Its lexicon chunks and clue results are kept (letter_facts.py's store),
+  # so a run builds what moved; a cold store stops at the deadline with its
+  # slices kept (rc 75, nothing committed) and the retry goes on from them.
+  with_deadline
   # Through tee, so each step's timing line reaches the log as it is printed,
   # and a run killed at its limit still shows where it was.
   python3 tools/blog_facts.py --if-changed 2>&1 | tee "$facts_out"
   step_rc=${PIPESTATUS[0]}
   echo "blog_facts: rc=$step_rc in $((SECONDS - step_start))s"
-  # 75: put off while the desktop is busy (blog_facts.DEFERRED_RC), retried.
+  # 75: put off while the desktop is busy, or out of time with its slices
+  # stored (blog_facts.DEFERRED_RC); retried.
   [ $step_rc -eq 0 ] || [ $step_rc -eq 75 ] ||
     alert "tools/blog_facts.py failed (rc=$step_rc), so new puzzles get no blog hints:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$facts_out" | cut -c1-200)"$'\n'"\`\`\`"
   # Our annotations against the facts just written: the rates, and the puzzles
@@ -455,19 +479,36 @@ unit_ratings() {
   # Each step's name as it starts and its seconds as it ends. The steps after
   # blog_comment_difficulty send their stdout to /dev/null, so the run killed at
   # its limit on 2026-10-15 logged nothing to say which step had the hour.
-  step() { echo "step $1 from $(date +%H:%M:%S)"; step_t0=$SECONDS; }
-  took() { echo "step $1 took $(( SECONDS - step_t0 ))s"; }
+  # A step done today is not run again: a run that stopped at its deadline
+  # (with_deadline) is due again at the next tick and goes on from the step it
+  # stopped in, whose row cache keeps what it made. Past the deadline the
+  # steps left wait for that run.
+  with_deadline
+  local done_file
+  done_file="$(worker_runs daily_update)/ratings-steps-$(date +%F)"
+  step() {
+    if grep -qx "$1" "$done_file" 2>/dev/null; then echo "step $1 done today"; return 1; fi
+    if past_deadline; then echo "step $1 put off: past the unit's deadline; the next tick runs it"; unit_backlog_left; return 1; fi
+    echo "step $1 from $(date +%H:%M:%S)"; step_t0=$SECONDS
+  }
+  took() {
+    echo "step $1 took $(( SECONDS - step_t0 ))s"
+    # Stopped at the deadline (tools/budget.py marks backlog left): not done.
+    [ -n "${UNIT_MORE:-}" ] && [ -e "$UNIT_MORE" ] || echo "$1" >>"$done_file"
+  }
   # Tonight's row of the phase history /progress/ draws: the site is built from
   # a one-commit checkout, so the history it charts has to be committed. It runs
   # first: it reads only the puzzle files, today's coverage ledger and the
   # edition backlog, none of which the steps below write. As the last step it
   # was lost on 2026-10-14 and 10-15, when the unit hit its time limit first.
-  step progress_record
-  python3 tools/progress_record.py record >/dev/null || echo "progress record failed (rc=$?); /progress/ misses tonight's row"
-  took progress_record
-  step fetch_snitch
-  python3 tools/fetch_snitch.py || echo "fetch_snitch failed (rc=$?); continuing with the ratings already held"
-  took fetch_snitch
+  if step progress_record; then
+    python3 tools/progress_record.py record >/dev/null || echo "progress record failed (rc=$?); /progress/ misses tonight's row"
+    took progress_record
+  fi
+  if step fetch_snitch; then
+    python3 tools/fetch_snitch.py || echo "fetch_snitch failed (rc=$?); continuing with the ratings already held"
+    took fetch_snitch
+  fi
 
   # Times for the Times comments: the newest month on disk and any after it are
   # refetched, and the comment table rebuilt from the whole cache.
@@ -476,30 +517,36 @@ unit_ratings() {
   # comments at the next reindex. It leaves the committed table alone when the
   # cache is absent. The report is written to tools/data/snitch_report.txt, whose
   # history is the record of how the numbers move.
-  step fetch_wp_blog
-  python3 tools/fetch_wp_blog.py timesforthetimes --comments || echo "fetch_wp_blog --comments failed (rc=$?); the badges blend the comments already cached"
-  took fetch_wp_blog
-  step blog_comment_difficulty
-  python3 tools/blog_comment_difficulty.py || echo "blog_comment_difficulty: rc=$?; the badges and the per-clue check use the table already committed"
-  took blog_comment_difficulty
-  step snitch_report
-  python3 tools/snitch_report.py --write >/dev/null || echo "snitch_report failed (rc=$?); tools/data/snitch_report.txt is last night's"
-  took snitch_report
+  if step fetch_wp_blog; then
+    python3 tools/fetch_wp_blog.py timesforthetimes --comments || echo "fetch_wp_blog --comments failed (rc=$?); the badges blend the comments already cached"
+    took fetch_wp_blog
+  fi
+  if step blog_comment_difficulty; then
+    python3 tools/blog_comment_difficulty.py || echo "blog_comment_difficulty: rc=$?; the badges and the per-clue check use the table already committed"
+    took blog_comment_difficulty
+  fi
+  if step snitch_report; then
+    python3 tools/snitch_report.py --write >/dev/null || echo "snitch_report failed (rc=$?); tools/data/snitch_report.txt is last night's"
+    took snitch_report
+  fi
   # The held-out scorecard /difficulty/ quotes. The page drops the numbers rather
   # than quote ones measured under other weights, so a missed night shows there.
-  step difficulty_check
-  python3 tools/difficulty_check.py --write >/dev/null || echo "difficulty_check failed (rc=$?); /difficulty/ quotes tools/data/difficulty_check.json from last night"
-  took difficulty_check
+  if step difficulty_check; then
+    python3 tools/difficulty_check.py --write >/dev/null || echo "difficulty_check failed (rc=$?); /difficulty/ quotes tools/data/difficulty_check.json from last night"
+    took difficulty_check
+  fi
   # The authoring checks' link and reversal-axis words, re-measured over the day's
   # annotations. Every annotated clue can move them, so they are refreshed here
   # rather than checked on each push.
-  step build_clue_joints
-  python3 tools/build_clue_joints.py >/dev/null || echo "build_clue_joints failed (rc=$?); the authoring checks use last night's tools/data/clue_joints.json"
-  took build_clue_joints
+  if step build_clue_joints; then
+    python3 tools/build_clue_joints.py >/dev/null || echo "build_clue_joints failed (rc=$?); the authoring checks use last night's tools/data/clue_joints.json"
+    took build_clue_joints
+  fi
   # The grid filler's per-length floors, re-measured over the day's answers.
-  step build_fill_floors
-  python3 tools/build_fill_floors.py >/dev/null || echo "build_fill_floors failed (rc=$?); grid_fill uses last night's tools/data/fill_floors.json"
-  took build_fill_floors
+  if step build_fill_floors; then
+    python3 tools/build_fill_floors.py >/dev/null || echo "build_fill_floors failed (rc=$?); grid_fill uses last night's tools/data/fill_floors.json"
+    took build_fill_floors
+  fi
   return 0
 }
 
@@ -508,13 +555,22 @@ unit_checks() {
   # Each step's output is captured until it ends, so a run killed at its limit
   # logged only its header (2026-10-15) and nobody could say which step it was
   # in. One line per step, before it starts, names it.
-  step() { echo "step $1 from $(date +%H:%M:%S)"; }
-  step coverage_report
-  # A series that has stopped arriving. A feed that stops answering leaves its
-  # series frozen at the day it broke, and the run cannot tell that from a quiet
-  # night — it fetched, nothing failed. Only a series gone QUIET alerts; the full
-  # table is `python3 tools/coverage_report.py`.
-  coverage_stale=$(python3 tools/coverage_report.py --stale-only 2>&1) || alert "a series has stopped arriving:"$'\n'"\`\`\`"$'\n'"$coverage_stale"$'\n'"\`\`\`"
+  # Each pass keeps its rows (tools/row_cache.py); past the unit's deadline one
+  # stops with them stored (with_deadline, rc 0) and the steps left are put off
+  # to the next tick, which goes on from there.
+  with_deadline
+  step() {
+    if past_deadline; then echo "step $1 put off: past the unit's deadline; the next tick runs it"; unit_backlog_left; return 1; fi
+    echo "step $1 from $(date +%H:%M:%S)"
+  }
+  if step coverage_report; then
+    # A series that has stopped arriving. A feed that stops answering leaves its
+    # series frozen at the day it broke, and the run cannot tell that from a quiet
+    # night — it fetched, nothing failed. Only a series gone QUIET alerts; the full
+    # table is `python3 tools/coverage_report.py`.
+    coverage_stale=$(python3 tools/coverage_report.py --stale-only 2>&1) || alert "a series has stopped arriving:"$'\n'"\`\`\`"$'\n'"$coverage_stale"$'\n'"\`\`\`"
+    printf '%s\n' "$coverage_stale" | grep "^out of time" || true
+  fi
 
   # The puzzles themselves, as opposed to what we have written about them.
   # tools/puzzle_integrity.py forgives, by exact finding, the LENGTH sentences
@@ -528,14 +584,17 @@ unit_checks() {
   # CT_JOBS=2: it judges every file each run, and a niced run on a loaded host
   # gets one core from parallel.workers() — alone it ran past 15m (2026-10-15).
   # Two cores at nice 19, like ct_generated's rebuild.
-  step puzzle_integrity
-  integrity=$(CT_JOBS=2 python3 tools/puzzle_integrity.py --quiet 2>&1) ||
-    alert "the corpus has picked up a defect:"$'\n'"\`\`\`"$'\n'"$integrity"$'\n'"\`\`\`"
+  if step puzzle_integrity; then
+    integrity=$(CT_JOBS=2 python3 tools/puzzle_integrity.py --quiet 2>&1) ||
+      alert "the corpus has picked up a defect:"$'\n'"\`\`\`"$'\n'"$integrity"$'\n'"\`\`\`"
+    printf '%s\n' "$integrity" | grep "^out of time" || true
+  fi
   # How many turns a session is taking, logged every day. A number that only
   # exists when somebody goes looking is a number that gets quoted long after it
   # stopped being true, so it is computed here from the transcripts.
-  step turn_cost
-  python3 tools/turn_cost.py 2>&1 || true
+  if step turn_cost; then
+    python3 tools/turn_cost.py 2>&1 || true
+  fi
   return 0
 }
 
@@ -558,6 +617,14 @@ unit_checks() {
 # its limit shows which step it was in; a buffered one printed only at exit.
 solutions_step() {
   local step_start=$SECONDS step_rc
+  # Past the unit's deadline (with_deadline) the steps left wait for the next
+  # tick: a reindex a step runs keeps its rows (tools/row_cache.py) and stops
+  # there with them stored, so the next run goes on from where this one got.
+  if past_deadline; then
+    echo "solutions step $1: put off, past the unit's deadline; the next tick runs it"
+    unit_backlog_left
+    return 0
+  fi
   # shellcheck disable=SC2086  # a step is a script and its arguments
   PYTHONUNBUFFERED=1 python3 tools/$*
   step_rc=$?
@@ -567,6 +634,7 @@ solutions_step() {
 
 unit_solutions() {
   local refreshed graded
+  with_deadline
   solutions_step fetch_privateeye.py --backfill-dates
   refreshed=$( { solutions_step fetch_puzzle.py --refresh-unsolved
                  solutions_step fetch_observer.py --refresh-unsolved

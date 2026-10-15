@@ -67,6 +67,7 @@ import tempfile
 import threading
 import time
 from pathlib import Path
+import code_reach
 import desktop_hosts
 import enumeration
 from blog_facts import (
@@ -1025,6 +1026,16 @@ class Indicators:
         self.votes, self.left, self.inner, self.edge = self._count(itertools.chain(corpus, extra), skip)
         self.left = {k: v for k, v in self.left.items() if v[1] or v[0] >= MIN_LINK_SEEN and len(k) == 1}
 
+    @classmethod
+    def of_counts(cls, votes, left, inner, edge, extra=()):
+        """The Indicators that _count's merged (votes, left, inner, edge) of a
+        corpus and then `extra` make: Indicators(corpus, extra=extra)."""
+        self = cls.__new__(cls)
+        self.own = {(r[2], r[3]): r for r in extra}
+        self.votes, self.left, self.inner, self.edge = votes, left, inner, edge
+        self.left = {k: v for k, v in self.left.items() if v[1] or v[0] >= MIN_LINK_SEEN and len(k) == 1}
+        return self
+
     def less(self, clue, answer):
         """This lexicon without what the `extra` row of this clue added, so a
         clue our annotations explain never confirms itself."""
@@ -1336,6 +1347,18 @@ class Definitions:
     "sad and lonely"."""
 
     def __init__(self, corpus, skip=frozenset()):
+        self._made(*self._count(corpus, skip))
+
+    def _made(self, of, edge):
+        self.of, self.edge = of, edge
+        self.by_words = collections.defaultdict(set)
+        for a, ks in self.of.items():
+            for k in ks:
+                self.by_words[k].add(a)
+        return self
+
+    @staticmethod
+    def _count(corpus, skip=frozenset()):
         of = collections.defaultdict(collections.Counter)
         edge = collections.defaultdict(lambda: [0, 0])
         for pid, eid, clue, answer, facts in corpus:
@@ -1357,11 +1380,7 @@ class Definitions:
                 for k in inside:
                     edge[side, ws[k][1]][0] += 1
                 edge[side, ws[out][1]][1] += 1
-        self.of, self.edge = dict(of), dict(edge)
-        self.by_words = collections.defaultdict(set)
-        for a, ks in self.of.items():
-            for k in ks:
-                self.by_words[k].add(a)
+        return dict(of), dict(edge)
 
     def apart(self, side, word):
         """Whether blogs leave `word` out of a definition it stands beside on
@@ -1841,6 +1860,271 @@ def with_all_blocks(clue, answer, facts, lex, dlex, fuzzy=True):
     return with_blocks(facts, new) if new else facts
 
 
+# --- What a run reuses: lexicon counts by chunk, clue results by puzzle -------
+#
+# Paul, 2026-10-15: "Zero jobs should ever be killed by timeouts. Don't make
+# timeouts longer fix the jobs to scale as our repo scales." The blog-facts
+# unit built every lexicon from all ~1M clue rows and read every puzzle's clues
+# again each run: 2,000-3,300s of lexicons and ~1,300s of clues on a loaded
+# host, growing with the corpus, killed at its 120m limit on 2026-10-15.
+#
+# Each lexicon is a sum over rows (Lexicon.pair), so the rows are cut into
+# chunks (_chunked: content-defined, so a puzzle added or changed moves one
+# chunk's key) and each chunk's counts are kept in the store under the hash of
+# its rows and the counting code; a run counts only the chunks it lacks and
+# adds the rest up in corpus order, which gives the same lexicons, insertion
+# order and all, as one pass. Each puzzle's clue result is kept under the hash
+# of its rows and leads (its input) with the generation of the lexicons it was
+# read under: a run reads the puzzles whose input moved, and refreshes REFRESH
+# of those read under older lexicons or code, oldest first; the rest keep
+# their result. Under a unit's deadline (tools/budget.py) the missing chunks
+# and the moved puzzles are made in slices, stored as made: a cold store is a
+# few runs that each stop cleanly, never a kill.
+
+#: The mean puzzles per lexicon chunk: ~2,000 rows, a few seconds to count.
+CHUNK = 64
+#: Puzzles whose input has not moved but whose result was read under older
+#: lexicons or code, read again per run, oldest read first: a fixed amount,
+#: not a share of the corpus, so a run's cost does not grow with it. A new
+#: blog post moves a lexicon a little; this keeps every result within a few
+#: weeks of the current lexicons.
+REFRESH = 2000
+#: Days a chunk or a puzzle's result unused is kept.
+STORE_DAYS = 14
+#: Results stored per sqlite transaction while they are read.
+STORE_EVERY = 200
+#: Whether write() keeps and reuses its work in the store; off, it builds
+#: and reads everything, as before.
+STORE = True
+
+
+def _store_path():
+    """The store beside tools/row_cache.py's, under the git common dir."""
+    import row_cache
+    return row_cache._store().parent / "ct-letter-facts.sqlite"
+
+
+def _open_store(path=None):
+    import sqlite3
+    conn = sqlite3.connect(path or _store_path(), timeout=600)
+    conn.execute("PRAGMA journal_mode=WAL")
+    conn.execute("PRAGMA synchronous=NORMAL")
+    conn.execute("CREATE TABLE IF NOT EXISTS chunks(key TEXT PRIMARY KEY, val BLOB, used INTEGER) WITHOUT ROWID")
+    conn.execute("CREATE TABLE IF NOT EXISTS clues(pid TEXT PRIMARY KEY, inkey TEXT, gen TEXT, val BLOB,"
+                 " at INTEGER, used INTEGER) WITHOUT ROWID")
+    return conn
+
+
+def _today():
+    return int(time.time() // 86400)
+
+
+def _cut(pid):
+    """Whether a chunk ends after puzzle `pid`: one in CHUNK, by its id's hash."""
+    return int(hashlib.sha1(pid.encode()).hexdigest()[:8], 16) % CHUNK == 0
+
+
+def _chunked(pairs):
+    """Contiguous runs of (row, its pickled bytes) pairs, as (puzzle id,
+    bytes), each ending after a puzzle _cut() picks, so the cuts stay put as
+    puzzles come and go."""
+    chunk, last = [], None
+    for row, raw in pairs:
+        if last is not None and row[0] != last and _cut(last):
+            yield chunk
+            chunk = []
+        chunk.append((row[0], raw))
+        last = row[0]
+    if chunk:
+        yield chunk
+
+
+def _chunk_counts(task):
+    """(Lexicon, Indicators, Definitions or None) _count of one chunk's rows:
+    task is (pickled rows, whether Definitions counts them)."""
+    raws, defs = task
+    rows_ = [pickle.loads(r) for r in raws]
+    return Lexicon._count(rows_), Indicators._count(rows_), Definitions._count(rows_) if defs else None
+
+
+def _add(into, part):
+    """Add one chunk's counts (a dict of Counters, or of [n, n] lists) into
+    `into`, keys in the order one pass would first meet them."""
+    for k, v in part.items():
+        cur = into.get(k)
+        if cur is None:
+            into[k] = collections.Counter(v) if isinstance(v, collections.Counter) else list(v)
+        elif isinstance(cur, collections.Counter):
+            cur.update(v)
+        else:
+            cur[0] += v[0]
+            cur[1] += v[1]
+
+
+def _merged(parts):
+    """(ilex, both, lex, dlex) counts, as their constructors take them, from
+    the chunks' (lex, ind, defs) counts: the corpus's chunks (defs set), then
+    our annotations' (defs None)."""
+    seen, edge, keys = {}, {}, []
+    ind = ({}, {}, {}, {})
+    of, dedge = {}, {}
+    both_seen = both_edge = None
+    more_keys = []
+
+    def fork():
+        # "lex" is done, and "both" goes on from a copy of it (Lexicon.pair).
+        return {k: collections.Counter(v) for k, v in seen.items()}, {k: list(v) for k, v in edge.items()}
+
+    for lex_c, ind_c, defs_c in parts:
+        if defs_c is None:
+            if both_seen is None:
+                both_seen, both_edge = fork()
+            _add(both_seen, lex_c[0])
+            _add(both_edge, lex_c[1])
+            more_keys += lex_c[2]
+        else:
+            _add(seen, lex_c[0])
+            _add(edge, lex_c[1])
+            keys += lex_c[2]
+            _add(of, defs_c[0])
+            _add(dedge, defs_c[1])
+        for into, got in zip(ind, ind_c):
+            _add(into, got)
+    if both_seen is None:
+        both_seen, both_edge = fork()
+    return ind, (both_seen, both_edge, keys + more_keys), (seen, edge, keys), (of, dedge)
+
+
+def _cached_lexicons(conn, corpus, ours, jobs):
+    """(LEXICONS in their order, their generation): _lexicons off the store's
+    chunk counts, counting the chunks it lacks here in up to `jobs` (unset,
+    fallback_jobs()) processes, each stored as it is made."""
+    import budget
+    code = code_reach.key("letter_facts", {"_chunk_counts"})
+    tasks = []
+    for pairs, defs in ((zip(corpus, corpus.pickled()), True),
+                        (((r, pickle.dumps(r, pickle.HIGHEST_PROTOCOL)) for r in ours), False)):
+        for ch in _chunked(pairs):
+            h = hashlib.sha1(f"{code}\0{defs}".encode())
+            for _, raw in ch:
+                h.update(raw)
+            tasks.append((h.hexdigest(), [raw for _, raw in ch], defs))
+    want = [t[0] for t in tasks]
+    got = {}
+    for i in range(0, len(want), 900):
+        part = want[i:i + 900]
+        got.update(conn.execute(f"SELECT key, val FROM chunks WHERE key IN ({','.join('?' * len(part))})", part))
+    today = _today()
+    with conn:
+        conn.executemany("UPDATE chunks SET used=? WHERE key=?", ((today, k) for k in got))
+    missing = [t for t in tasks if t[0] not in got]
+    print(f"letter_facts.write: lexicon chunks: {len(tasks) - len(missing)} stored, {len(missing)} to count",
+          file=sys.stderr, flush=True)
+    if missing:
+        n = min(jobs or fallback_jobs(), len(missing))
+        pool = multiprocessing.get_context("fork").Pool(n, _orphan_exits, (os.getpid(),)) if n > 1 else None
+        try:
+            made = (pool.imap(_chunk_counts, [(r, d) for _, r, d in missing]) if pool
+                    else map(_chunk_counts, ((r, d) for _, r, d in missing)))
+            for i, ((key, _, _), counts) in enumerate(zip(missing, made), 1):
+                got[key] = blob = pickle.dumps(counts, pickle.HIGHEST_PROTOCOL)
+                with conn:
+                    conn.execute("INSERT OR REPLACE INTO chunks VALUES(?,?,?)", (key, blob, today))
+                if i < len(missing) and budget.spent():
+                    budget.stop(f"letter_facts: counted {i} of {len(missing)} missing lexicon chunks"
+                                f" ({len(tasks) - len(missing)} were stored); the rest next run")
+        finally:
+            if pool:
+                pool.terminate()
+    del tasks
+    ind, both, lex, defs = _merged(pickle.loads(got[k]) for k in want)
+    del got
+    lexicons = {"ilex": Indicators.of_counts(*ind, extra=ours),
+                "both": Lexicon.__new__(Lexicon)._made(*both),
+                "lex": Lexicon.__new__(Lexicon)._made(*lex),
+                "dlex": Definitions.__new__(Definitions)._made(*defs)}
+    gen = hashlib.sha1("\0".join([code_reach.key("letter_facts", {"_puzzle_facts"}), *want]).encode())
+    return tuple(lexicons[name] for name in LEXICONS), gen.hexdigest()[:16]
+
+
+def _joined(rows_, got):
+    """A puzzle's rows with its leads (read_leads' entry `got`) joined in, as _read_clues reads them."""
+    return [(*r[:4], {**r[4], "leads": got[r[1]]} if r[1] in got else r[4]) for r in rows_]
+
+
+def _cached_clues(conn, corpus, said, jobs, gen):
+    """(puzzle id, _puzzle_facts) for each of `corpus`'s puzzles, in its order:
+    read (_read_clues) for a puzzle whose input the store lacks, and for
+    REFRESH whose stored result is of an older `gen`, oldest first; the rest
+    off the store."""
+    import budget
+    inkeys = {}
+    for pid, rs in itertools.groupby(zip(corpus, corpus.pickled()), key=lambda p: p[0][0]):
+        h = hashlib.sha1()
+        for _, raw in rs:
+            h.update(raw)
+        h.update(pickle.dumps(said.get(pid, {}), pickle.HIGHEST_PROTOCOL))
+        inkeys[pid] = h.hexdigest()
+    held = {pid: (k, g, at) for pid, k, g, at in conn.execute("SELECT pid, inkey, gen, at FROM clues")}
+    moved = [p for p in inkeys if held.get(p, (None,))[0] != inkeys[p]]
+    moved_set = set(moved)
+    stale = sorted((held[p][2], p) for p in inkeys if p not in moved_set and held[p][1] != gen)
+    again = [p for _, p in stale[:REFRESH]]
+    print(f"letter_facts.write: clues of {len(inkeys)} puzzles: {len(moved)} moved, reading them and"
+          f" {len(again)} of the {len(stale)} read under older lexicons", file=sys.stderr, flush=True)
+    todo = len(moved) + len(again)
+
+    def items(skip=0):
+        # The moved puzzles, then the refreshed: two passes over the rows, so
+        # they are never all held at once.
+        def pass_(wanted):
+            for pid, rs in itertools.groupby(corpus, key=lambda r: r[0]):
+                if pid in wanted:
+                    yield pid, _joined(rs, said.get(pid, {}))
+        return itertools.islice(itertools.chain(pass_(moved_set), pass_(set(again))), skip, None)
+
+    out, today, buf = {}, _today(), []
+
+    def flush():
+        with conn:
+            conn.executemany("INSERT OR REPLACE INTO clues VALUES(?,?,?,?,?,?)", buf)
+        buf.clear()
+
+    if todo:
+        reader = _read_clues(None, said, jobs, items=items)
+        try:
+            for n, (pid, new) in enumerate(reader, 1):
+                out[pid] = new
+                buf.append((pid, inkeys[pid], gen, pickle.dumps(new, pickle.HIGHEST_PROTOCOL), today, today))
+                if len(buf) >= STORE_EVERY:
+                    flush()
+                if n < todo and budget.spent():
+                    if n < len(moved):
+                        flush()
+                        budget.stop(f"letter_facts: read {n} of the {len(moved)} puzzles whose clues moved;"
+                                    " the rest next run")
+                    print(f"letter_facts.write: out of time (CT_DEADLINE) after refreshing {n - len(moved)}"
+                          f" of {len(again)}; the rest keep their stored results", file=sys.stderr, flush=True)
+                    break
+        finally:
+            reader.close()
+            if buf:
+                flush()
+    rest = [p for p in inkeys if p not in out]
+    for i in range(0, len(rest), 900):
+        part = rest[i:i + 900]
+        out.update((pid, pickle.loads(v)) for pid, v in
+                   conn.execute(f"SELECT pid, val FROM clues WHERE pid IN ({','.join('?' * len(part))})", part))
+    with conn:
+        conn.executemany("UPDATE clues SET used=? WHERE pid=?", ((today, p) for p in rest))
+        if conn.execute("PRAGMA user_version").fetchone()[0] != today:
+            conn.execute("DELETE FROM chunks WHERE used < ?", (today - STORE_DAYS,))
+            conn.execute("DELETE FROM clues WHERE used < ?", (today - STORE_DAYS,))
+            conn.execute(f"PRAGMA user_version={today}")
+    for pid in inkeys:
+        yield pid, out.pop(pid)
+
+
 def write(corpus, votes, said=None, jobs=None):
     """Rewrite tools/data/blog_facts/ with the inferred fields in, as
     blog_facts.write lays it out, one file at a time. `corpus` is rows() in
@@ -1848,14 +2132,24 @@ def write(corpus, votes, said=None, jobs=None):
     in here where the rows lack their leads; `jobs`, the processes building the
     lexicons and reading the clues here, unset: on the desktop while one
     answers, else here in fallback_jobs(). {field: clues it was inferred in}."""
+    try:
+        conn = _open_store() if STORE else None
+    except Exception as e:  # sqlite3.Error, or OSError outside a checkout
+        print(f"letter_facts.write: no store ({e!r}): building every lexicon and reading every clue",
+              file=sys.stderr, flush=True)
+        conn = None
     with timed("lexicons built"):
-        ilex, both, lex, dlex = _lexicons(corpus, list(annotation_rows()), jobs)
+        if conn is None:
+            ilex, both, lex, dlex = _lexicons(corpus, list(annotation_rows()), jobs)
+        else:
+            (ilex, both, lex, dlex), gen = _cached_lexicons(conn, corpus, list(annotation_rows()), jobs)
     with timed("lexicons exported"):
         n = collections.Counter(export_lexicons(both, ilex))
     del both
     _WORKER.update(votes=votes, lex=lex, ilex=ilex, dlex=dlex)
     with timed("clues read and written"):
-        done = _read_clues(corpus, said or {}, jobs)
+        done = (_read_clues(corpus, said or {}, jobs) if conn is None
+                else _cached_clues(conn, corpus, said or {}, jobs, gen))
         head = next(done, None)
 
         def filled(f):
@@ -1873,6 +2167,8 @@ def write(corpus, votes, said=None, jobs=None):
             rewrite_rows(f, filled(f))
         done.close()
     _WORKER.clear()
+    if conn is not None:
+        conn.close()
     if head is not None:
         sys.exit(f"letter_facts.write: {head[0]} is out of step with {OUT.relative_to(ROOT)}: corpus must be rows() in order")
     return n
@@ -1957,15 +2253,18 @@ def _chunk_facts(items):
     return [_puzzle_facts(i) for i in items]
 
 
-def _read_clues(corpus, said, jobs):
-    """_puzzle_facts for each of `corpus`'s puzzles, in its order: with `jobs`
-    unset, on the desktop, over up to DESKTOP_TRIES connections while it
-    answers and is not busy, then the rest here in fallback_jobs(); else
+def _read_clues(corpus, said, jobs, items=None):
+    """_puzzle_facts for each of `corpus`'s puzzles, in its order, or of
+    `items(skip)`'s (puzzle id, rows joined to their leads) where given: with
+    `jobs` unset, on the desktop, over up to DESKTOP_TRIES connections while
+    it answers and is not busy, then the rest here in fallback_jobs(); else
     here in a pool of `jobs` processes."""
     def puzzles(skip=0):
+        if items is not None:
+            yield from items(skip)
+            return
         for pid, rs in itertools.islice(itertools.groupby(corpus, key=lambda r: r[0]), skip, None):
-            got = said.get(pid, {})
-            yield pid, [(*r[:4], {**r[4], "leads": got[r[1]]} if r[1] in got else r[4]) for r in rs]
+            yield pid, _joined(rs, said.get(pid, {}))
 
     done = 0
     if jobs is None:
