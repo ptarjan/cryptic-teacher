@@ -184,6 +184,7 @@ from file_penguin_puzzle import separators
 from groups import entry_id
 import dir_cache
 import media_manifest
+import puzzle_paths
 import downloads
 import edition_commit
 from edition_commit import filer_path, strayed
@@ -2833,7 +2834,8 @@ def held_once():
         return
     _HELD_NOW.files = {}
     try:
-        yield
+        with puzzle_paths.listed_once():  # find_listed's year-folder stats too, once a scope
+            yield
     finally:
         _HELD_NOW.files = None
 
