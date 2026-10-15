@@ -12,12 +12,18 @@
   "url": "https://www.thenation.com/article/archive/puzzle-no-3458/",
   "retrievedFrom": "publisher",
   "acquiredBy": "tools/fetch_nation.py",
-  "acquiredOn": "2026-10-14",
+  "acquiredOn": "2026-10-12",
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-14",
+  "check": "30 entries, 58 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,6 +36,40 @@
    "clue": {
     "text": "Mixture made from tonic ingredients, in various proportions",
     "enumeration": "10"
+   },
+   "solution": "CONCOCTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mixture made from tonic ingredients, in various proportions",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Mixture made from tonic ingredients",
+       "at": 0,
+       "note": "reads like a pharmacist's brew, but the ingredients are the letters of the word tonic"
+      },
+      {
+       "words": "in various proportions",
+       "at": 37,
+       "note": "each of those five letters may be used more than once, so some appear three times and some only once"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe note about blending a medicinal tonic in differing amounts.",
+     "walkthrough": "The answer is spelt only with T, O, N, I and C: three Cs, three Os, two Ns, one T and one I.",
+     "definitionFit": "A concoction is a blend of various ingredients, often a drink or remedy, so it names a mixture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ingredients"
+    }
    }
   },
   {
@@ -43,6 +83,40 @@
    "clue": {
     "text": "Rough and cold, like some beers",
     "enumeration": "6"
+   },
+   "solution": "CHOPPY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rough",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "cold",
+       "at": 10,
+       "gives": "C"
+      },
+      {
+       "words": "like some beers",
+       "at": 16,
+       "gives": "HOPPY",
+       "note": "hoppy describes beers strongly flavoured with hops"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a cold, harsh beer.",
+     "definitionFit": "Choppy water is rough, broken by many small waves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rough"
+    }
    }
   },
   {
@@ -56,6 +130,41 @@
    "clue": {
     "text": "Deny the existence of an entrance opposite the southwest corner",
     "enumeration": "6"
+   },
+   "solution": "NEGATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Deny the existence of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "opposite the southwest corner",
+       "at": 34,
+       "gives": "NE",
+       "note": "the northeast corner is diagonally across from the southwest"
+      },
+      {
+       "words": "an entrance",
+       "at": 22,
+       "gives": "GATE",
+       "note": "a gate is a way in"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insists there is no doorway across the room.",
+     "definitionFit": "To negate something is to nullify it or deny that it is so."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "corner"
+    }
    }
   },
   {
@@ -79,6 +188,85 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "ONTHELEFT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to port",
+      "at": 75
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "doesn't start",
+         "at": 20,
+         "note": "the opening letter of the month is not used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "June, for instance",
+         "at": 0,
+         "gives": "MONTH",
+         "note": "June is an example of a month"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "seasick",
+         "at": 42,
+         "note": "a seasick stomach is churned up, so the letters of feel are tossed about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "feel",
+         "at": 37,
+         "note": "the word feel taken as written, to be rearranged"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning",
+         "at": 57,
+         "note": "only the first letter of tack is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tack",
+         "at": 70,
+         "note": "the first letter of tack, as a sailor changes course"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor named June feels queasy before tacking the boat to port.",
+     "walkthrough": "June looks like a person's name; it is the month. Port is the left-hand side of a ship facing forward.",
+     "definitionFit": "Port is the sailor's word for left, so the phrase locates something on that side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "June"
+    }
    }
   },
   {
@@ -92,6 +280,41 @@
    "clue": {
     "text": "Former carrier favored writer",
     "enumeration": "5"
+   },
+   "solution": "TWAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Former carrier",
+       "at": 0,
+       "gives": "TWA",
+       "note": "TWA, Trans World Airlines, an American airline that closed in 2001"
+      },
+      {
+       "words": "favored",
+       "at": 15,
+       "gives": "IN",
+       "note": "in favour, as in being in with the boss"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A defunct airline preferred a certain author.",
+     "definitionFit": "Mark Twain was the pen name of Samuel Clemens, the American author of Huckleberry Finn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carrier"
+    }
    }
   },
   {
@@ -111,6 +334,51 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "OPPOSEDTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "against",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "New",
+       "at": 0,
+       "note": "new means the letters of pope and stood are formed into a fresh arrangement"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "pope",
+         "at": 4,
+         "note": "taken as written, part of the letters to rearrange"
+        },
+        {
+         "words": "stood",
+         "at": 9,
+         "note": "taken as written, the rest of the letters to rearrange"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A freshly elected pontiff took a stand against something, continued in the next clue.",
+     "definitionFit": "Being opposed to something means being against it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
    }
   },
   {
@@ -124,6 +392,58 @@
    "clue": {
     "text": "Eisenhower almost backed up religious leader",
     "enumeration": "4"
+   },
+   "solution": "IMAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "religious leader",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "backed up",
+       "at": 18,
+       "note": "backed up means the shortened name is read from end to start"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 11,
+         "note": "almost the whole name, so its final letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Eisenhower",
+         "at": 0,
+         "gives": "MAMIE",
+         "note": "Mamie Eisenhower, wife of President Dwight Eisenhower and First Lady in the 1950s"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ike, nearly retreating, supports a cleric.",
+     "walkthrough": "Eisenhower suggests Ike, but the Eisenhower needed is his wife Mamie.",
+     "definitionFit": "An imam is the person who leads prayers in a mosque, a Muslim religious leader."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Eisenhower"
+    }
    }
   },
   {
@@ -137,6 +457,42 @@
    "clue": {
     "text": "…spread of schmaltz capacity",
     "enumeration": "8"
+   },
+   "solution": "MUSHROOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spread",
+      "at": 1
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "schmaltz",
+       "at": 11,
+       "gives": "MUSH",
+       "note": "schmaltz is excessive sentimentality, also called mush"
+      },
+      {
+       "words": "capacity",
+       "at": 20,
+       "gives": "ROOM",
+       "note": "room, as in room for ten"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dollop of chicken fat that holds a lot, following on from the previous clue.",
+     "walkthrough": "Schmaltz is also rendered chicken fat, which makes spread look like a noun for bread.",
+     "definitionFit": "To mushroom is to grow or spread rapidly, like the fungus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "spread"
+    }
    }
   },
   {
@@ -150,6 +506,32 @@
    "clue": {
     "text": "Wrong answer to a down clue (DREA), if ________",
     "enumeration": "8"
+   },
+   "solution": "MISTAKEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wrong",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "words": "answer to a down clue (DREA), if ________",
+     "at": 6,
+     "gives": "MISTAKEN",
+     "note": "DREA is the reverie answer at 24 Down with its last letter gone; the blank is filled by a phrase saying that letter has been removed, run together as one word"
+    },
+    "explanation": {
+     "surface": "A solver's complaint that a down entry came out wrong.",
+     "walkthrough": "The blank is filled by the answer split as M IS TAKEN: remove M from the 24 Down answer and DREA is left.",
+     "definitionFit": "Mistaken means in error, the same as wrong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Wrong"
+    }
    }
   },
   {
@@ -163,6 +545,31 @@
    "clue": {
     "text": "Ache for French bread",
     "enumeration": "4"
+   },
+   "solution": "PAIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Ache",
+      "at": 0,
+      "meaning": "first meaning: physical suffering"
+     },
+     {
+      "text": "French bread",
+      "at": 9,
+      "meaning": "second meaning: the French word for bread"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The same four letters are an English word for hurting and the French word for a loaf.",
+     "definitionFit": "In English the word means hurting or suffering, and in French it means bread."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ache"
+    }
    }
   },
   {
@@ -176,6 +583,47 @@
    "clue": {
     "text": "Without force, battled an obligation",
     "enumeration": "5"
+   },
+   "solution": "OUGHT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "obligation",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Without",
+       "at": 0,
+       "note": "without the force abbreviation, so that letter is removed from the word for battled"
+      }
+     ],
+     "parts": [
+      {
+       "words": "battled",
+       "at": 15,
+       "gives": "FOUGHT",
+       "note": "fought, past tense of fight"
+      },
+      {
+       "words": "force",
+       "at": 8,
+       "gives": "F"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fighting a duty without using strength.",
+     "definitionFit": "As a noun, ought is an old word for duty, something one is bound to do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "force"
+    }
    }
   },
   {
@@ -189,6 +637,41 @@
    "clue": {
     "text": "Evaluates program increases",
     "enumeration": "9"
+   },
+   "solution": "APPRAISES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Evaluates",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "program",
+       "at": 10,
+       "gives": "APP",
+       "note": "an app is a computer program"
+      },
+      {
+       "words": "increases",
+       "at": 18,
+       "gives": "RAISES",
+       "note": "raises, as in raises the price"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone judges how well a software scheme grows.",
+     "definitionFit": "To appraise is to assess the worth or quality of something, so it is a synonym for evaluates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "program"
+    }
    }
   },
   {
@@ -202,6 +685,41 @@
    "clue": {
     "text": "Contrived bird design",
     "enumeration": "7"
+   },
+   "solution": "PATTERN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "design",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Contrived",
+       "at": 0,
+       "gives": "PAT",
+       "note": "pat means glib or too neatly contrived, as in a pat answer"
+      },
+      {
+       "words": "bird",
+       "at": 10,
+       "gives": "TERN",
+       "note": "a tern is a seabird"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artificial-looking bird motif.",
+     "definitionFit": "A pattern is a decorative design, such as one printed on fabric."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Contrived"
+    }
    }
   },
   {
@@ -215,6 +733,76 @@
    "clue": {
     "text": "Drink in mountain paradise without the leads in Lost Horizon",
     "enumeration": "7"
+   },
+   "solution": "SANGRIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 27,
+       "note": "without means the following letters are removed from the paradise's name"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "mountain paradise",
+         "at": 9,
+         "gives": "SHANGRILA",
+         "note": "Shangri-La, the hidden Himalayan valley in James Hilton's novel Lost Horizon"
+        },
+        {
+         "op": "first",
+         "parts": [
+          {
+           "words": "Horizon",
+           "at": 53,
+           "note": "Horizon is the second word of the title, and its lead is its opening letter"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "the leads in",
+         "at": 35,
+         "note": "the leads are the opening letters of each word of the book title, as the leads head a cast"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lost",
+         "at": 48,
+         "note": "Lost is the first word of the novel's title, and its lead is its opening letter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Having a drink in the Himalayan utopia of the novel, minus its stars.",
+     "walkthrough": "The leads sound like the film's stars, but they are the first letters of Lost and Horizon.",
+     "definitionFit": "Sangria is a Spanish punch of red wine and fruit, so it is an example of a drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "leads"
+    }
    }
   },
   {
@@ -238,6 +826,31 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "SECONDTONONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Best",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "words": "three units",
+     "at": 8,
+     "gives": "SECONDTONONE",
+     "note": "three units of measure run together: a second of time, a ton of weight and the number one"
+    },
+    "explanation": {
+     "surface": "Sounds like a sports final played over three games.",
+     "walkthrough": "The enumeration splits the letters differently from the three units: 6,2,4 against SECOND, TON, ONE.",
+     "definitionFit": "Something second to none is unsurpassed, so the phrase is an idiom for the best."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "units"
+    }
    }
   },
   {
@@ -251,6 +864,59 @@
    "clue": {
     "text": "Head into messy store for car parts",
     "enumeration": "9"
+   },
+   "solution": "ODOMETERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "car parts",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 5,
+       "note": "the head goes into the jumbled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "messy",
+         "at": 10,
+         "note": "a messy store has its contents jumbled, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "store",
+         "at": 16,
+         "note": "the word store taken as written, to be jumbled"
+        }
+       ]
+      },
+      {
+       "words": "Head",
+       "at": 0,
+       "gives": "DOME",
+       "note": "the dome is the top of the head"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sticks their head into an untidy auto-parts shop.",
+     "definitionFit": "Odometers are the dashboard instruments recording a vehicle's mileage, components of a car."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
    }
   },
   {
@@ -264,6 +930,69 @@
    "clue": {
     "text": "Horrible Bosses 4 finally became fanatical",
     "enumeration": "9"
+   },
+   "solution": "OBSESSIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fanatical",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Horrible",
+         "at": 0,
+         "note": "horrible suggests something mangled, so the letters of Bosses are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bosses",
+         "at": 9,
+         "note": "the word Bosses from the film title, taken as written"
+        }
+       ]
+      },
+      {
+       "words": "4",
+       "at": 16,
+       "gives": "IV",
+       "note": "IV is four in Roman numerals"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 18,
+         "note": "just the last letter of became is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "became",
+         "at": 26,
+         "note": "the last letter of became"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The fourth Horrible Bosses film turned fanatical; the real comedy series stopped at two films.",
+     "definitionFit": "An obsessive person is fixated to an extreme degree, like a zealot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Horrible"
+    }
    }
   },
   {
@@ -277,6 +1006,32 @@
    "clue": {
     "text": "Shortage in Traumaville?",
     "enumeration": "8"
+   },
+   "solution": "SCARCITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Shortage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "words": "Traumaville",
+     "at": 12,
+     "gives": "SCARCITY",
+     "note": "an invented town name: trauma suggests scar and ville means city, giving the answer"
+    },
+    "explanation": {
+     "surface": "A deficit in a town of wounded people.",
+     "walkthrough": "The question mark flags the made-up place name, read as SCAR plus CITY.",
+     "definitionFit": "Scarcity is a lack of supply, which is what a shortage means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Traumaville"
+    }
    }
   },
   {
@@ -290,6 +1045,47 @@
    "clue": {
     "text": "Western university laid off teaching assistant in Indian center, once",
     "enumeration": "8"
+   },
+   "solution": "CALCUTTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Indian center, once",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Western university",
+       "at": 0,
+       "gives": "CAL",
+       "note": "Cal is the nickname of the University of California, Berkeley"
+      },
+      {
+       "words": "laid off",
+       "at": 19,
+       "gives": "CUT",
+       "note": "cut, as staff are cut"
+      },
+      {
+       "words": "teaching assistant",
+       "at": 28,
+       "gives": "TA",
+       "note": "TA, the usual abbreviation for a teaching assistant"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A West Coast college fired a teaching assistant posted to an Indian city.",
+     "definitionFit": "Calcutta was the former name of Kolkata, a major Indian city, hence the once."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "laid"
+    }
    }
   },
   {
@@ -313,6 +1109,40 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "COASTTOCOAST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bits of tacos are all you need to get all over the country",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Bits of tacos are all you need",
+       "at": 0,
+       "note": "the bits are the letters of the word tacos, which are all the answer uses"
+      },
+      {
+       "words": "to get all over the country",
+       "at": 31,
+       "note": "seems to be about food travelling nationwide, but it is the definition of the phrase"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A taco chain boasts its snacks can be found in every state.",
+     "walkthrough": "Each word of the answer is a rearrangement of the letters of tacos, and the linking word between them uses only its letters too.",
+     "definitionFit": "Coast to coast means across the whole of a nation, from one ocean shore to the other."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bits"
+    }
    }
   },
   {
@@ -326,6 +1156,45 @@
    "clue": {
     "text": "Vocalist's cover on the radio",
     "enumeration": "6"
+   },
+   "solution": "RAPPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vocalist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "RAPPER",
+     "indicators": [
+      {
+       "text": "on the radio",
+       "at": 17,
+       "note": "on the radio means as heard, so the word for cover is taken by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "cover",
+       "at": 11,
+       "gives": "WRAPPER",
+       "note": "a wrapper covers a sweet or a package"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer's cover version played on air.",
+     "walkthrough": "The 's is read as is: the vocalist is something that sounds like a cover. A song cover is the false trail.",
+     "definitionFit": "A rapper is a performer who delivers lyrics rhythmically, a kind of vocalist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cover"
+    }
    }
   },
   {
@@ -339,6 +1208,72 @@
    "clue": {
     "text": "Amphibian and insects both curtailed fun",
     "enumeration": "6"
+   },
+   "solution": "FROLIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fun",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "both",
+         "at": 22,
+         "note": "both carries the following curtailing back to the amphibian, so that word also loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Amphibian",
+         "at": 0,
+         "gives": "FROG",
+         "note": "a frog is an amphibian"
+        },
+        {
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "curtailed",
+         "at": 27,
+         "note": "curtailed means cut short at the tail, so the insects word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "insects",
+         "at": 14,
+         "gives": "LICE",
+         "note": "lice are small insects"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frog and some bugs, both cut short, have a good time.",
+     "definitionFit": "A frolic is a bout of playful merriment, so it is a synonym of fun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "curtailed"
+    }
    }
   },
   {
@@ -352,6 +1287,43 @@
    "clue": {
     "text": "In secrecy, clerics use a composting bin, perhaps",
     "enumeration": "7"
+   },
+   "solution": "RECYCLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "use a composting bin, perhaps",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "in says the letters sit inside the run of words that follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "secrecy, clerics",
+       "at": 3,
+       "gives": "RECYCLE",
+       "note": "the answer runs across the end of secrecy and the start of clerics"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Priests quietly compost their scraps.",
+     "definitionFit": "Composting food waste is one way to reuse material rather than throw it out, hence the perhaps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "secrecy"
+    }
    }
   },
   {
@@ -365,6 +1337,31 @@
    "clue": {
     "text": "Fish make a stink",
     "enumeration": "4"
+   },
+   "solution": "CARP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0,
+      "meaning": "first meaning: a freshwater fish"
+     },
+     {
+      "text": "make a stink",
+      "at": 5,
+      "meaning": "second meaning: to complain or find fault persistently"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A fish that stinks is the surface joke; the second sense is complaining.",
+     "definitionFit": "The word names a common freshwater fish and is also a verb meaning to grumble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stink"
+    }
    }
   },
   {
@@ -378,6 +1375,42 @@
    "clue": {
     "text": "Lose hope when changing diapers",
     "enumeration": "7"
+   },
+   "solution": "DESPAIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lose hope",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "changing",
+       "at": 15,
+       "note": "changing a word's letters means rearranging them, while the surface means a baby's change"
+      }
+     ],
+     "parts": [
+      {
+       "words": "diapers",
+       "at": 24,
+       "note": "the word diapers, US for nappies, taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weary parent gives up during yet another nappy change.",
+     "definitionFit": "To despair is to give up all expectation that things will improve."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "changing"
+    }
    }
   },
   {
@@ -391,6 +1424,42 @@
    "clue": {
     "text": "Northwest road reverie",
     "enumeration": "5"
+   },
+   "solution": "DREAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "reverie",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "road",
+       "at": 10,
+       "gives": "DR",
+       "note": "Dr is the abbreviation for drive, a road"
+      },
+      {
+       "words": "Northwest",
+       "at": 0,
+       "gives": "EAM",
+       "note": "Mae West read northward, that is upward in this down entry, so her first name is reversed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A daydream on a highway in the Pacific Northwest.",
+     "walkthrough": "Northwest looks like a region; split it as north plus West, the actress Mae West.",
+     "definitionFit": "A dream can be a waking reverie, a pleasant fantasy or daydream."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Northwest"
+    }
    }
   },
   {
@@ -404,6 +1473,64 @@
    "clue": {
     "text": "Meddle and creatively reinvent wheel's hub",
     "enumeration": "9"
+   },
+   "solution": "INTERVENE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Meddle",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "creatively",
+         "at": 11,
+         "note": "doing something creatively suggests a free rearrangement of the word reinvent"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reinvent",
+         "at": 22,
+         "note": "the word reinvent taken as written, to be rearranged"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "hub",
+         "at": 39,
+         "note": "a hub is the centre of a wheel, so the central letter of that word is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wheel's",
+         "at": 31,
+         "gives": "WHEEL",
+         "note": "the word wheel, whose hub is its central letter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to interfere by reinventing the wheel.",
+     "definitionFit": "To intervene is to step into a situation, which can mean interfering in others' affairs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hub"
+    }
    }
   },
   {
@@ -417,6 +1544,61 @@
    "clue": {
     "text": "Force British politician to wear garland backward",
     "enumeration": "5"
+   },
+   "solution": "IMPEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Force",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to wear",
+       "at": 25,
+       "note": "the politician wears the garland, so is enclosed by it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "backward",
+         "at": 41,
+         "note": "backward means the garland word is read from its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "garland",
+         "at": 33,
+         "gives": "LEI",
+         "note": "a lei is a Hawaiian garland of flowers"
+        }
+       ]
+      },
+      {
+       "words": "British politician",
+       "at": 6,
+       "gives": "MP",
+       "note": "an MP is a Member of Parliament"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Making a Westminster member wear a flower necklace back to front.",
+     "definitionFit": "To impel is to drive or compel someone to act, a synonym of force as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "wear"
+    }
    }
   },
   {
@@ -430,6 +1612,77 @@
    "clue": {
     "text": "The ultimate in typography: one pica, flush right",
     "enumeration": "4"
+   },
+   "solution": "YEAH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "right",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "The ultimate in",
+         "at": 0,
+         "note": "the ultimate letter is the final one of each word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "typography",
+         "at": 16,
+         "note": "its final letter"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "parts": [
+        {
+         "words": "one",
+         "at": 28,
+         "note": "its final letter"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "parts": [
+        {
+         "words": "pica",
+         "at": 32,
+         "note": "its final letter"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "parts": [
+        {
+         "words": "flush",
+         "at": 38,
+         "note": "its final letter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A printer's instruction: set it one pica wide, aligned to the right margin.",
+     "walkthrough": "Flush right sounds like one typesetting term, but right stands alone as the definition.",
+     "definitionFit": "Said in agreement, yeah and right both mean the same thing: an informal yes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "right"
+    }
    }
   },
   {
@@ -443,6 +1696,74 @@
    "clue": {
     "text": "Crazy May's gotten together with Perry — for the most part, that's irregular",
     "enumeration": "10"
+   },
+   "solution": "ASYMMETRIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "irregular",
+      "at": 67
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Crazy",
+         "at": 0,
+         "note": "crazy says the letters of May's are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "May's",
+         "at": 6,
+         "note": "the letters of May's taken as written, apostrophe ignored"
+        }
+       ]
+      },
+      {
+       "words": "gotten together",
+       "at": 12,
+       "gives": "MET",
+       "note": "met, as people meet up"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "for the most part",
+         "at": 41,
+         "note": "most of the name, so its final letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Perry",
+         "at": 33,
+         "gives": "RICK",
+         "note": "Rick Perry, the Texas governor who became US Energy Secretary"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd couple: May and Perry meeting, a strange pairing.",
+     "walkthrough": "May's and Perry suggest Theresa May and Katy Perry; only the first is jumbled, and the Perry wanted is Rick.",
+     "definitionFit": "Something asymmetric lacks balance between its sides, so its shape is uneven or irregular."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Perry"
+    }
    }
   }
  ]
