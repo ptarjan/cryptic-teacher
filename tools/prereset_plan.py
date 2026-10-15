@@ -578,7 +578,7 @@ def self_test():
         (["r", "a", "b"], {"b": {A}}, {A: 5}, ("r", "gone"), ["r", "b", "a"]),
     ]
     bad = (cover_self_test(covers) + width_self_test() + tag_self_test()
-           + first_self_test() + backlog_self_test() + small_self_test())
+           + first_self_test() + backlog_self_test() + small_self_test() + fresh_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MODE_CASES) + len(MEM_CASES)
          + len(CPU_CASES) + len(METER_CASES) + len(REPLAY_CASES) + len(RATIO_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
          + len(BACKLOG_CASES) + 4 + 3)
@@ -1340,8 +1340,83 @@ def clues_only_rows():
     return rows
 
 
+def fresh_rows(rows, index_path=INDEX, files=None, row_of=None):
+    """The index's rows, each puzzle file written since the index was rebuilt
+    read again (fetch_puzzle.index_row), and a file the index lacks added.
+
+    The burn rebuilds the index once, as it starts, and a run lasts days. Its
+    re-plan reads the backlog again so that what was filed or repaired since
+    joins the queue, but off that index it saw neither: 10-14 sundaytough-2,
+    filed five hours into a run, was not in it, and quiptic-71/166/230/321,
+    repaired after the run's annotations failed on them, still read as the
+    rows that failed. Every puzzle the run annotated read as un-annotated
+    too, so the re-plan could not re-admit any id it had held. A stat of the
+    corpus is under a second; only the files newer than the index are read.
+    files and row_of are for the self-test."""
+    try:
+        built = Path(index_path).stat().st_mtime
+    except OSError:
+        return rows
+    if files is None:
+        import puzzle_paths
+        files = puzzle_paths.puzzle_files()
+    known = {r["id"] for r in rows}
+    stale = []
+    for f in files:
+        try:
+            if Path(f).stem not in known or Path(f).stat().st_mtime > built:
+                stale.append(f)
+        except OSError:
+            continue
+    if not stale:
+        return rows
+    if row_of is None:
+        import fetch_puzzle
+        import row_cache
+        fresh = row_cache.cached_map("fetch_puzzle", fetch_puzzle.index_row, stale,
+                                     roots={"index_row_deps"}, deps=fetch_puzzle.index_row_deps)
+    else:
+        fresh = [row_of(f) for f in stale]
+    by_id = {r["id"]: r for r in fresh if not series.unlisted(r["series"])}
+    out = [by_id.pop(r["id"], r) for r in rows]
+    return out + list(by_id.values())
+
+
+def fresh_self_test():
+    import tempfile
+    bad = 0
+    with tempfile.TemporaryDirectory() as d:
+        d = Path(d)
+        old, new, added = d / "quiptic-71.json", d / "quiptic-72.json", d / "sundaytough-2.json"
+        for f in (old, new, added):
+            f.write_text("{}")
+        index = d / "index.json"
+        index.write_text("{}")
+        os.utime(old, (1000, 1000))
+        os.utime(index, (2000, 2000))
+        os.utime(new, (3000, 3000))
+        os.utime(added, (3000, 3000))
+        rows = [_row("quiptic-71", "2001-03-26"), _row("quiptic-72", "2001-04-02")]
+        reread = []
+
+        def row_of(f):
+            reread.append(Path(f).stem)
+            return _row(Path(f).stem, "2022-01-01", annotated=Path(f).stem == "quiptic-72")
+        got = fresh_rows(rows, index, [old, new, added], row_of)
+        want = [("quiptic-71", False), ("quiptic-72", True), ("sundaytough-2", False)]
+        if [(r["id"], r["annotated"]) for r in got] != want or sorted(reread) != ["quiptic-72", "sundaytough-2"]:
+            print(f"FAIL fresh_rows: {[(r['id'], r['annotated']) for r in got]}, re-read {reread} "
+                  f"(want {want}, re-read the two newer than the index)", file=sys.stderr)
+            bad += 1
+        if fresh_rows(rows, d / "missing.json", [old, new, added], row_of) is not rows:
+            print("FAIL fresh_rows without an index should return the rows as they are", file=sys.stderr)
+            bad += 1
+    return bad
+
+
 def print_backlog(annotate_blocked, solve_blocked):
-    """The queue's ids on stdout, from the index; its head and how many of it
+    """The queue's ids on stdout, from the index (fresh_rows: each file written
+    since it was built read again); its head and how many of it
     are to be solved first on stderr, which is the burn's log. A puzzle whose
     scan is queued for an OCR re-read (scan_queue.open_requests) is left out
     like an annotate-blocked one: its clue may be misread, and the re-read
@@ -1354,7 +1429,7 @@ def print_backlog(annotate_blocked, solve_blocked):
         print(f"  {len(rereads)} OCR'd puzzles wait on a re-read of their scan, left out until it lands",
               file=sys.stderr)
     held = clues_only_rows()
-    todo = backlog(index["puzzles"] + held, annotate_blocked.split() + sorted(rereads), solve_blocked.split(),
+    todo = backlog(fresh_rows(index["puzzles"]) + held, annotate_blocked.split() + sorted(rereads), solve_blocked.split(),
                    os.environ.get("CT_SERIES", "").split())
     for p in todo[:5]:
         when = (f"{p['year']:<10}" if "year" in p
