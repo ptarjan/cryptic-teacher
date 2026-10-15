@@ -218,11 +218,13 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
     [in#2]                the second "in" in the clue; #n picks a repeat
     LETTERS               letters with no clue words (a preamble's piece, or
                           the letters a del/sub indicator names: del(x, H))
-    A + B                 a charade, in answer order
+    A + B                 a charade, in answer order (inside ana() it is the
+                          fodder's pieces, stored as the anagram's parts)
     op<indicator>(...)    an operation; <indicator words> follow the op they
                           signal, one <...> per phrase; `+<under>` is an
                           indicator on the charade
-    ana(x)                anagram of x's letters (the answer slice decides order)
+    ana(x)                anagram of x's letters (the answer slice decides order);
+                          ana(x + y + z) shuffles several pieces as one pool
     rev(x)                x backwards
     ins(outer, inner)     inner put inside outer (the answer decides where)
     del(from, removed)    removed taken out of from (the answer decides where)

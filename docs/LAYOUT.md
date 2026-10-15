@@ -696,6 +696,14 @@ tools/test_selector_indicator.sh               a letter selector ("capital of", 
                                                only the words it selects from
 tools/test_anagram_fodder.sh                   an anagram's fodder is drawn from the clue's
                                                wordplay and its blocks' letters
+tools/test_flatten_anagram_fodder.sh           an anagram's pieces are its own parts: ana(x +
+                                               y) stores them there, a join with its own
+                                               indicator inside ana() is refused, the validator
+                                               counts a charade directly under an anagram
+                                               against the wordplay.anagramCharade allowance,
+                                               and flatten_anagram_fodder.py rewrites a filed
+                                               one in clue order without changing view(), and
+                                               changes nothing on a second run
 tools/test_setter_error.sh                     a clue the setter printed wrong is annotated as
                                                printed: the anagram mismatch
                                                tools/data/setter_error.json names for that
@@ -2516,6 +2524,13 @@ tools/fixtures/format-puzzles/                 three Guardian cryptics and a boo
                                                test_shim_format.sh and smoke_test.js
 tools/test_see_pointer.sh                      is a "See N" continuation the pointer and
                                                nothing else, in every reader?
+tools/flatten_anagram_fodder.py                rewrites each indicator-less charade filed under
+                                               a checked anagram as the anagram's own parts, in
+                                               clue order, corpus-wide in one migration commit,
+                                               and records what it leaves (a join with its own
+                                               indicator, or one under an unchecked step) as
+                                               validate_annotations' wordplay.anagramCharade
+                                               allowance
 tools/strip_abbreviation_notes.py              drops the leaf notes that only restate the
                                                abbreviation table (annotation.view() shows that
                                                gloss from build_abbreviations.table()),

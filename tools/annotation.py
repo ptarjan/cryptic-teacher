@@ -230,6 +230,8 @@ def _types(tree):
         op = node.get("op")
         # An anagram's fodder is one heap of letters, not a charade, unless
         # the join has an indicator of its own (its `for` names the charade).
+        # Its pieces are the anagram's own parts now; this reads the charades
+        # filed under one before that (the wordplay.anagramCharade allowance).
         if not op or (op == "charade" and parent and parent.get("op") == "anagram"
                       and not node.get("indicators")):
             continue
@@ -438,22 +440,42 @@ def _first_at(node):
     return min(ats) if ats else None
 
 
+def _fodder_pieces(node):
+    """An anagram's fodder pieces: its parts, or the parts of the one charade
+    filed under it before an anagram could hold several (validate_annotations
+    allows those only up to a puzzle's wordplay.anagramCharade allowance)."""
+    parts = _parts(node)
+    child = parts[0] if len(parts) == 1 else None
+    if child is not None and child.get("op") == "charade" and not child.get("unchecked"):
+        return _parts(child)
+    return parts
+
+
+def _fodder_letters(node, got):
+    """The fodder's letters in stored order, or None when a piece's are unknown."""
+    parts = _parts(node)
+    if len(parts) == 1:
+        return got.get(id(parts[0]))
+    if not parts or not all(id(p) in got for p in parts):
+        return None
+    return "".join(got[id(p)] for p in parts)
+
+
 def _fodder(node, got):
     """An anagram's fodder letters as the clue prints them. Its fodder is one
-    heap, so a charade under it may be filed in any order; the letters are
-    read off its parts in clue order, so the app
-    deals the same tiles and the fodder it shows reads like the clue. A part
-    with no clue words (supplied letters) keeps the tree order."""
-    child = _parts(node)[0]
-    if id(child) not in got:
+    heap, so its pieces may be filed in any order; the letters are read off
+    them in clue order, so the app deals the same tiles and the fodder it
+    shows reads like the clue. A piece with no clue words (supplied letters)
+    keeps the tree order."""
+    whole = _fodder_letters(node, got)
+    if whole is None:
         return "".join(sorted(got[id(node)]))
-    parts = child.get("parts") or []
-    if (child.get("op") != "charade" or child.get("unchecked")
-            or not all(id(p) in got for p in parts)):
-        return got[id(child)]
+    parts = _fodder_pieces(node)
+    if len(parts) < 2 or not all(id(p) in got for p in parts):
+        return whole
     ats = [_first_at(p) for p in parts]
     if None in ats:
-        return got[id(child)]
+        return whole
     return "".join(got[id(p)] for _, p in sorted(zip(ats, parts), key=lambda it: it[0]))
 
 
