@@ -1344,12 +1344,13 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # Each ledger read once a pass, not once a queued scan: a scan unit
         # checks its row again before it scans (scan_unit's "current").
         stands = {}
+        stand_keys, cache_s = {}, os.fspath(cache)  # current_keys by paper, a pass's; the cache's str, not a Path to fspath each ask
 
         def stood(u, stands=stands):
             paper = fa.FILERS[u["paper"]]
             if u["paper"] not in stands:
                 stands[u["paper"]] = fa.standing(paper, cache)
-            return fa.scan_stands(paper, u["rel"], cache, stands[u["paper"]])
+            return fa.scan_stands(paper, u["rel"], cache_s, stands[u["paper"]], stand_keys)
 
         scanning_by = rels_by_paper(scanning)  # kept in step as scans begin below
 
