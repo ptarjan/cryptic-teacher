@@ -13,6 +13,7 @@
 #
 # No ssh, no OCR: temp dirs only.
 set -uo pipefail
+export DESKTOP_HOSTS_STATIC=1  # desktop_hosts.ranked: the json order, no network probe
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
@@ -447,7 +448,8 @@ ocr_remote.desktop_busy.busy = lambda hosts: busy[0]
 
 s = ocr_remote.connect()
 check("a stale LAN address falls back to the tailnet", "micro@100.68.145.15", s and s.host)
-check("the LAN address is tried first", "micro@192.168.1.180", tried[0])
+check("a LAN address is tried first", True, tried[0] in ("micro@192.168.1.180", "micro@192.168.1.198"))
+check("every desktop address is tried, not only OCR_REMOTE's", 3, len(set(tried)))
 check("the fallback sends one line", 1, sum("fell back to micro@100.68.145.15" in l for l in woken()))
 ocr_remote.connect()
 check("and only once", 1, sum("fell back" in l for l in woken()))
@@ -487,13 +489,13 @@ check("a loopback desktop (a test's stand-in) sends no alert", 2, sum("no deskto
 pruned = []
 def prune(host, keep, days=1):
     pruned.append(host)
-    if host.endswith(".180"):
+    if host.endswith((".180", ".198")):
         raise ocr_remote.Unavailable("Host key verification failed.")
     return {"deleted": 0, "failed": 0, "bytes": 0}
 ocr_remote.prune = prune
 check("prune falls back to the next host too", {"deleted": 0, "failed": 0, "bytes": 0},
       ocr_remote.prune_any(ocr_remote.hosts(), keep="v-x"))
-check("prune tries hosts in connect()'s order", ["micro@192.168.1.180", "micro@100.68.145.15"], pruned)
+check("prune tries hosts in connect()'s order", ["micro@192.168.1.198", "micro@192.168.1.180", "micro@100.68.145.15"], pruned)
 raise SystemExit(1 if fails else 0)
 PY
 )

@@ -45,7 +45,8 @@ def desktop():
     """The desktop's account (vlm_health_probe.ps1) from the first address
     that answers, or None when none does."""
     enc = base64.b64encode(PROBE.read_text().encode("utf-16-le")).decode()
-    for host in desktop_busy.DESKTOPS:
+    import desktop_hosts
+    for host in desktop_hosts.ranked(22):  # the ones answering now first
         try:
             r = subprocess.run([*desktop_busy.SSH, f"{desktop_busy.USER}@{host}",
                                 f"powershell -NoProfile -NonInteractive -EncodedCommand {enc}"],
