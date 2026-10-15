@@ -598,6 +598,16 @@ def rels_by_paper(pairs):
 _NONE = frozenset()
 
 
+def unchanged(old, new):
+    """`old` when `new` holds the very same units in the same order, else
+    `new`: dispatch keys its queue memo on the lists' ids, so a list rebuilt
+    each pass to the same units (the stopped sources' fetches left out) must
+    keep its id or the memo misses every pass (~25k units re-keyed)."""
+    if len(old) == len(new) and all(a is b for a, b in zip(old, new)):
+        return old
+    return new
+
+
 def read_waits(u, scanning, unscanned, rescanned):
     """Whether read `u` waits on a scan: one it needs running, its own
     planned and not yet done, or one of a stale-scan re-read's ended since
@@ -1254,7 +1264,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             log(f"planned: {len(scans)} scans, {len(reads)} reads"
                 + (", fetches next" if box.get("partial") else f", {len(fetches)} fetches" if fetch else "")
                 + f" due in {time.monotonic() - planned:.0f}s; running {len(running) + len(adopted)}")
-        fetches = [u for u in fetches if u["paper"] not in stopped]
+        fetches = unchanged(fetches, [u for u in fetches if u["paper"] not in stopped])
         busy = {key_of(u) for _, (u, _) in units_running()}
         # A read of an edition read before, waiting only on a new scan, starts
         # after the plan that follows its scans: the scan may leave it not due.
@@ -1524,7 +1534,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 scans, reads, fetches = replan_all()
                 fresh_scans, fresh_reads = fresh(papers, cache)
                 fresh_at = time.monotonic()
-                fetches = [u for u in fetches if u["paper"] not in stopped]
+                fetches = unchanged(fetches, [u for u in fetches if u["paper"] not in stopped])
                 planned = time.monotonic()
                 if all(key_of(u) in tried for u in first + fresh_scans + fresh_reads + scans + reads + fetches) and not any(b.again and not b.done
                                                                              for b in beside):
