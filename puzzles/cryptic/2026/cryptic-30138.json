@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,67 @@
     "text": "Describe artist engaged in painting in Newcastle?",
     "enumeration": "7"
    },
-   "solution": "NARRATE"
+   "solution": "NARRATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Describe",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 36,
+       "note": "the painting-with-artist group sits in the middle of the Newcastle letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Newcastle",
+       "at": 39,
+       "gives": "NE",
+       "note": "NE is the postcode for Newcastle upon Tyne"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "engaged in",
+         "at": 16,
+         "note": "the artist is engaged, or occupied, inside the painting, so those letters go within"
+        }
+       ],
+       "parts": [
+        {
+         "words": "painting",
+         "at": 27,
+         "gives": "ART",
+         "note": "art in the general sense"
+        },
+        {
+         "words": "artist",
+         "at": 9,
+         "gives": "RA",
+         "note": "RA is a Royal Academician"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A request to describe an artist absorbed in painting somewhere in Newcastle.",
+     "walkthrough": "Newcastle's postcode area is NE; RA stands for a member of the Royal Academy of Arts.",
+     "definitionFit": "To narrate is to tell or recount, the same verb sense as describing events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Newcastle"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +108,32 @@
     "text": "Remarked such a cake is unprepared",
     "enumeration": "7"
    },
-   "solution": "NOTICED"
+   "solution": "NOTICED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Remarked",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "words": "such a cake is unprepared",
+     "at": 9,
+     "gives": "NOTICED",
+     "note": "a cake left unprepared still lacks its sugar topping; describe it in two words and run them together"
+    },
+    "explanation": {
+     "surface": "Someone observed that the cake isn't ready.",
+     "walkthrough": "A cake left unprepared has not been iced, giving NOT ICED.",
+     "definitionFit": "Noticed can mean commented on or remarked upon, an older sense of the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cake"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +147,42 @@
     "text": "Blessed priests venerate MPs maybe",
     "enumeration": "15"
    },
-   "solution": "REPRESENTATIVES"
+   "solution": "REPRESENTATIVES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "MPs maybe",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Blessed",
+       "at": 0,
+       "note": "blessed in the mild-oath sense of confounded, so the letters are thrown about"
+      }
+     ],
+     "parts": [
+      {
+       "words": "priests venerate",
+       "at": 8,
+       "note": "the letters to be rearranged"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Holy priests revere Members of Parliament, possibly.",
+     "walkthrough": "'Blessed' fits the priestly scene but serves as the anagram signal.",
+     "definitionFit": "Members of Parliament are elected representatives; 'maybe' marks them as one example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Blessed"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +196,45 @@
     "text": "Terrible state of justice after beheading",
     "enumeration": "9"
    },
-   "solution": "AWFULNESS"
+   "solution": "AWFULNESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Terrible state",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "after beheading",
+       "at": 26,
+       "note": "the word loses its head, its first letter"
+      }
+     ],
+     "parts": [
+      {
+       "words": "justice",
+       "at": 18,
+       "gives": "LAWFULNESS",
+       "note": "lawfulness is the quality of being just and legal"
+      },
+      {
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The justice system is in an awful state after an execution.",
+     "definitionFit": "Awfulness is the quality of being dreadful, the condition of being terrible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beheading"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +248,69 @@
     "text": "Nietzsche's final, brief broad principle",
     "enumeration": "5"
    },
-   "solution": "ETHIC"
+   "solution": "ETHIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "principle",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "final",
+         "at": 12,
+         "note": "only the last letter of the philosopher's name is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Nietzsche's",
+         "at": 0,
+         "gives": "NIETZSCHE",
+         "note": "the philosopher Friedrich Nietzsche"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brief",
+         "at": 19,
+         "note": "the word is cut short, losing its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "broad",
+         "at": 25,
+         "gives": "THICK",
+         "note": "thick means broad or wide"
+        },
+        {
+         "gives": "K"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nietzsche's final, concise, sweeping principle.",
+     "walkthrough": "A philosopher fits the moral theme but is only there for his last letter.",
+     "definitionFit": "An ethic is a moral principle or set of values guiding behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broad"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +324,45 @@
     "text": "Henry's business delivered foodstuff",
     "enumeration": "7"
    },
-   "solution": "HARICOT"
+   "solution": "HARICOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "foodstuff",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "HARICOT",
+     "indicators": [
+      {
+       "text": "delivered",
+       "at": 17,
+       "note": "words delivered as speech are heard rather than read, so the spoken form gives the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Henry's business",
+       "at": 0,
+       "gives": "HARRYCO",
+       "note": "Harry is the familiar form of Henry, and Co. is a company: Harry Co. is Henry's business"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Henry's firm has brought round some food.",
+     "walkthrough": "'Harry Co.' — Henry's company — said aloud matches the French-style pronunciation with a silent final T.",
+     "definitionFit": "A haricot is a kind of bean, the dried white bean often used in baked beans, so an item of food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "delivered"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +376,42 @@
     "text": "Unusually large one, drone a US hit",
     "enumeration": "9"
    },
-   "solution": "HUMDINGER"
+   "solution": "HUMDINGER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Unusually large one",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "drone",
+       "at": 21,
+       "gives": "HUM",
+       "note": "a drone is a low, continuous hum"
+      },
+      {
+       "words": "US hit",
+       "at": 29,
+       "gives": "DINGER",
+       "note": "a dinger is American slang for a home run in baseball"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge drone becomes a smash hit in America.",
+     "walkthrough": "A dinger is a baseball home run, which American readers will know.",
+     "definitionFit": "A humdinger is an informal word for something outstanding or remarkable of its kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drone"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +425,29 @@
     "text": "Two rivers in the country",
     "enumeration": "5"
    },
-   "solution": "RURAL"
+   "solution": "RURAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in the country",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "words": "Two rivers",
+     "at": 0,
+     "gives": "RURAL",
+     "note": "R is the abbreviation for river, and the Ural is a river running from Russia into Kazakhstan; together they spell the answer"
+    },
+    "explanation": {
+     "surface": "Two rivers flow through the countryside.",
+     "definitionFit": "Rural means relating to the countryside rather than towns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +467,41 @@
      }
     ]
    },
-   "solution": "CHINESETAKEAWAY"
+   "solution": "CHINESETAKEAWAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "food parcel",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "confection",
+       "at": 19,
+       "note": "a confection is something put together or concocted, so the letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Why eat anise cake",
+       "at": 0,
+       "note": "the letters to be rearranged"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Why would anyone eat aniseed cake when there's a takeaway meal to be had?",
+     "definitionFit": "A takeaway is a packaged meal bought ready-cooked; the answer is one from a Chinese restaurant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "confection"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +515,44 @@
     "text": "Eastern country unit reported to be tense",
     "enumeration": "7"
    },
-   "solution": "TIGHTEN"
+   "solution": "TIGHTEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tense",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "TIGHTEN",
+     "indicators": [
+      {
+       "text": "reported",
+       "at": 21,
+       "note": "reported speech is something heard, so the answer sounds like these words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Eastern country unit",
+       "at": 0,
+       "gives": "THAITEN",
+       "note": "a Thai ten: ten is a counting unit, and Thai refers to Thailand in East Asia"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A national unit from Asia is said to be on edge.",
+     "walkthrough": "'Thai ten' spoken aloud gives the answer.",
+     "definitionFit": "To tighten is to make or become taut, so it is the verb tense in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +580,40 @@
      }
     ]
    },
-   "solution": "TOPOFTHEMORNING"
+   "solution": "TOPOFTHEMORNING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tam's Irish greeting?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Tam's",
+       "at": 0,
+       "note": "the word Tam is made of the first letter of 'the' plus the abbreviation for morning"
+      },
+      {
+       "words": "Irish greeting",
+       "at": 6,
+       "note": "a traditional stage-Irish way to say good morning"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "TAM is T, the top of 'the', followed by AM, the morning: so TAM is literally TOP OF THE MORNING, which is also the Irish greeting.",
+     "definitionFit": "The phrase is a stereotypical cheery salutation attributed to Irish speakers early in the day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tam's"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +627,42 @@
     "text": "Third dance, perhaps it's a trap",
     "enumeration": "5"
    },
-   "solution": "CREEL"
+   "solution": "CREEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "trap",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Third",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the third letter of the alphabet"
+      },
+      {
+       "words": "dance",
+       "at": 6,
+       "gives": "REEL",
+       "note": "a reel is a lively Scottish dance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The third dance of the night might be a trap.",
+     "walkthrough": "'perhaps it's a' flags that a creel is one example of a trap.",
+     "definitionFit": "A creel can be a wicker pot used to catch lobsters or crabs, a kind of trap for shellfish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Third"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +676,53 @@
     "text": "Most cold sauce ingredients initially tasty",
     "enumeration": "9"
    },
-   "solution": "CHILLIEST"
+   "solution": "CHILLIEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most cold",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "sauce ingredients",
+       "at": 10,
+       "gives": "CHILLIES",
+       "note": "chillies are what go into a hot chilli sauce"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 28,
+         "note": "only the opening letter of the next word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tasty",
+         "at": 38,
+         "note": "its first letter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A paradox: the coldest thing is the hot pepper ingredients of a tasty sauce.",
+     "walkthrough": "The hot chillies sit oddly beside 'Most cold'; the answer plays on chilly meaning cold.",
+     "definitionFit": "Chilliest is the superlative of chilly, meaning coldest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sauce"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +736,45 @@
     "text": "Dictator's letter writing that's more intense",
     "enumeration": "9"
    },
-   "solution": "DEEPENING"
+   "solution": "DEEPENING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that's more intense",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "DEEPENING",
+     "indicators": [
+      {
+       "text": "Dictator's",
+       "at": 0,
+       "note": "something dictated is spoken aloud, so what follows is judged by its sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "letter writing",
+       "at": 11,
+       "gives": "DPENNING",
+       "note": "the letter D, pronounced dee, followed by penning, which is writing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tyrant's letter-writing grows ever more intense.",
+     "walkthrough": "'Dictator' here is someone dictating aloud, not a tyrant: D plus PENNING, spoken, gives the answer.",
+     "definitionFit": "Deepening describes something growing stronger, as a deepening crisis is one getting more serious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dictator's"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +788,42 @@
     "text": "Irritable setter's one found in hospital",
     "enumeration": "9"
    },
-   "solution": "IMPATIENT"
+   "solution": "IMPATIENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Irritable",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "setter's",
+       "at": 10,
+       "gives": "IM",
+       "note": "the setter refers to themself as I, and setter's is short for setter is, giving I'M"
+      },
+      {
+       "words": "one found in hospital",
+       "at": 19,
+       "gives": "PATIENT",
+       "note": "a patient is someone being treated in hospital"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter admits to being a hospital patient.",
+     "walkthrough": "'setter's' is a contraction of 'setter is', not a possessive.",
+     "definitionFit": "Impatient people are easily annoyed by delay, so short-tempered and irritable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "setter's"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +837,48 @@
     "text": "English family houses spotless",
     "enumeration": "5"
    },
-   "solution": "CLEAN"
+   "solution": "CLEAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "spotless",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "houses",
+       "at": 15,
+       "note": "the family takes the English letter inside it, as a house holds its occupants"
+      }
+     ],
+     "parts": [
+      {
+       "words": "family",
+       "at": 8,
+       "gives": "CLAN",
+       "note": "a clan is an extended family"
+      },
+      {
+       "words": "English",
+       "at": 0,
+       "gives": "E"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English family's homes are spotless.",
+     "walkthrough": "'houses' looks like a noun, but it is a verb here.",
+     "definitionFit": "Clean and spotless both describe something with no dirt or marks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "houses"
+    }
+   }
   },
   {
    "number": 14,
@@ -281,7 +898,70 @@
      }
     ]
    },
-   "solution": "CROSSBEAM"
+   "solution": "CROSSBEAM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spanner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Ford",
+       "at": 13,
+       "gives": "CROSS",
+       "note": "to ford a river is to cross it"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 26,
+         "note": "the English and right letters are not to be included in the car's nickname"
+        }
+       ],
+       "parts": [
+        {
+         "words": "BMW",
+         "at": 22,
+         "gives": "BEAMER",
+         "note": "a Beamer is slang for a BMW car"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "English",
+           "at": 30,
+           "gives": "E"
+          },
+          {
+           "words": "right",
+           "at": 39,
+           "gives": "R"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering if a spanner comes from Ford, or from BMW, which is not English.",
+     "walkthrough": "Ford and BMW pose as carmakers; Ford is a verb meaning to cross.",
+     "definitionFit": "A crossbeam is a beam that spans a gap, so a spanner in the structural sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spanner"
+    }
+   }
   },
   {
    "number": 15,
@@ -295,7 +975,55 @@
     "text": "Entrepreneur Bill upset agribusiness, returned feeds",
     "enumeration": "5"
    },
-   "solution": "GATES"
+   "solution": "GATES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Entrepreneur Bill",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "returned",
+       "at": 38,
+       "note": "the hidden letters come back the other way, read from right to left"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "feeds",
+         "at": 47,
+         "note": "the answer feeds on, or is contained in, the words around it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "upset agribusiness",
+         "at": 18,
+         "gives": "SETAG",
+         "note": "the letters run across the join of these two words"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bill the entrepreneur annoyed the farming industry, which reciprocated by supplying something.",
+     "walkthrough": "'upset' looks like the turnaround signal, but it is just part of the text holding the answer.",
+     "definitionFit": "Bill Gates is the American businessman who co-founded Microsoft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 15,
@@ -309,7 +1037,89 @@
     "text": "Immature girl wearing good, short dress in Northern city",
     "enumeration": "7"
    },
-   "solution": "GLASGOW"
+   "solution": "GLASGOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Northern city",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 14,
+       "note": "the girl wears the good short dress, so she sits inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "good",
+         "at": 22,
+         "gives": "G"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 28,
+           "note": "a short dress is cut off at the end, dropping its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dress",
+           "at": 34,
+           "gives": "GOWN",
+           "note": "a gown is a dress"
+          },
+          {
+           "gives": "N"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Immature",
+         "at": 0,
+         "note": "the word for girl is not fully grown, so it loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "girl",
+         "at": 9,
+         "gives": "LASS",
+         "note": "a lass is a girl"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young girl in a nice short dress in a northern city.",
+     "walkthrough": "Lass is a common word for a girl in Scotland and northern England.",
+     "definitionFit": "Glasgow is Scotland's largest city, in the north of the UK."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Immature"
+    }
+   }
   },
   {
    "number": 16,
@@ -323,7 +1133,62 @@
     "text": "Minister's housing saint, pagan or English rogue",
     "enumeration": "9"
    },
-   "solution": "PARSONAGE"
+   "solution": "PARSONAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Minister's housing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "rogue",
+       "at": 43,
+       "note": "rogue as an adjective means wayward or out of control, so the letters run wild"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "saint",
+         "at": 19,
+         "gives": "S"
+        },
+        {
+         "words": "pagan",
+         "at": 26,
+         "note": "taken as written"
+        },
+        {
+         "words": "or",
+         "at": 32,
+         "note": "taken as written"
+        },
+        {
+         "words": "English",
+         "at": 35,
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar's residence houses a saint, a heathen or an English villain.",
+     "definitionFit": "A parsonage is the house provided by the church for its parish priest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "rogue"
+    }
+   }
   },
   {
    "number": 17,
@@ -337,7 +1202,41 @@
     "text": "Tested article by journalist",
     "enumeration": "7"
    },
-   "solution": "ESSAYED"
+   "solution": "ESSAYED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tested",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "article",
+       "at": 7,
+       "gives": "ESSAY",
+       "note": "an essay is a written article"
+      },
+      {
+       "words": "journalist",
+       "at": 18,
+       "gives": "ED",
+       "note": "an editor is a journalist"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper article by a journalist was put to the test.",
+     "definitionFit": "To essay is to attempt or try, so essayed means tried or tested."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 18,
@@ -351,7 +1250,79 @@
     "text": "King out of uniform is welcoming sex that produces swelling and stiffness",
     "enumeration": "9"
    },
-   "solution": "ARTHRITIS"
+   "solution": "ARTHRITIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "that produces swelling and stiffness",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcoming",
+       "at": 23,
+       "note": "the king-and-is letters take in the word for sex, as a host welcomes a guest"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "out of",
+           "at": 5,
+           "note": "the uniform letter is taken out of the king's name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "King",
+           "at": 0,
+           "gives": "ARTHUR",
+           "note": "King Arthur of legend"
+          },
+          {
+           "words": "uniform",
+           "at": 12,
+           "gives": "U",
+           "note": "U is Uniform in the NATO alphabet"
+          }
+         ]
+        },
+        {
+         "words": "is",
+         "at": 20,
+         "gives": "IS",
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "sex",
+       "at": 33,
+       "gives": "IT",
+       "note": "IT is a coy term for sex"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A racy line about an out-of-uniform king and an encounter that leaves him swollen and stiff.",
+     "walkthrough": "The surface has an innuendo; the definition is a medical one.",
+     "definitionFit": "Arthritis is inflammation of the joints, a disease whose symptoms are painful swollen and stiff joints."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sex"
+    }
+   }
   },
   {
    "number": 19,
@@ -365,7 +1336,56 @@
     "text": "Old, half-hearted rotter disgruntled",
     "enumeration": "5"
    },
-   "solution": "RETRO"
+   "solution": "RETRO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "disgruntled",
+       "at": 25,
+       "note": "being disgruntled the letters are disordered, put out of their places"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half-hearted",
+         "at": 5,
+         "note": "the double heart of the word loses half, one of its two middle letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rotter",
+         "at": 18,
+         "note": "taken as written"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old cad who is half-hearted and grumpy.",
+     "definitionFit": "Retro describes a style imitating the past, so old-fashioned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rotter"
+    }
+   }
   },
   {
    "number": 20,
@@ -379,7 +1399,49 @@
     "text": "Studies about investing in tins",
     "enumeration": "5"
    },
-   "solution": "SCANS"
+   "solution": "SCANS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Studies",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "investing in",
+       "at": 14,
+       "note": "to invest is to put inside, so about goes inside the tins"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tins",
+       "at": 27,
+       "gives": "SNS",
+       "note": "SN is the chemical symbol for tin; tins as plural gives SNS"
+      },
+      {
+       "words": "about",
+       "at": 8,
+       "gives": "CA",
+       "note": "CA is circa, about"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Research into investing in tinned goods.",
+     "walkthrough": "'tins' gives Sn plus a plural S, the chemical symbol for tin.",
+     "definitionFit": "To scan is to examine closely, so scans works as a verb for studies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tins"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1455,40 @@
     "text": "That woman detective takes off",
     "enumeration": "5"
    },
-   "solution": "SHEDS"
+   "solution": "SHEDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "takes off",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "That woman",
+       "at": 0,
+       "gives": "SHE",
+       "note": "she"
+      },
+      {
+       "words": "detective",
+       "at": 11,
+       "gives": "DS",
+       "note": "DS is a detective sergeant"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "She, the detective, removes something.",
+     "definitionFit": "To shed is to cast off or remove, as a snake sheds its skin or a person sheds a coat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -421,7 +1516,40 @@
      }
     ]
    },
-   "solution": "GIVETHEGAMEAWAY"
+   "solution": "GIVETHEGAMEAWAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pass on Monopoly?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Pass on",
+       "at": 0,
+       "note": "to pass on can mean to hand over to someone else"
+      },
+      {
+       "words": "Monopoly",
+       "at": 8,
+       "note": "the property-trading board game"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Literally, handing over a board game to someone; idiomatically, revealing a secret or plan by accident.",
+     "definitionFit": "The idiom means to betray a secret, read here as literally giving away a board game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Monopoly"
+    }
+   }
   },
   {
    "number": 23,
@@ -435,7 +1563,42 @@
     "text": "State bay is a disappointment",
     "enumeration": "7"
    },
-   "solution": "WASHOUT"
+   "solution": "WASHOUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "disappointment",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "State",
+       "at": 0,
+       "gives": "WA",
+       "note": "WA is Western Australia, or Washington state"
+      },
+      {
+       "words": "bay",
+       "at": 6,
+       "gives": "SHOUT",
+       "note": "to bay is to howl or cry out loudly"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A state's bay turns out to be a letdown.",
+     "walkthrough": "'bay' looks like a body of water, but it is the hound's cry.",
+     "definitionFit": "A washout is a complete failure, an event or person that fails to live up to hopes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bay"
+    }
+   }
   },
   {
    "number": 24,
@@ -449,7 +1612,71 @@
     "text": "Short prophet after tip-off played with dog",
     "enumeration": "7"
    },
-   "solution": "SAMOYED"
+   "solution": "SAMOYED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 40
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Short",
+         "at": 0,
+         "note": "only a short form of the prophet's name is kept, like a nickname"
+        }
+       ],
+       "parts": [
+        {
+         "words": "prophet",
+         "at": 6,
+         "gives": "SAMUEL",
+         "note": "Samuel is an Old Testament prophet"
+        },
+        {
+         "gives": "UEL"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after tip-off",
+         "at": 14,
+         "note": "once its tip is taken off, the word loses its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "played with",
+         "at": 28,
+         "gives": "TOYED",
+         "note": "toyed means played with"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shortened prophet, warned in advance, toyed with a dog.",
+     "definitionFit": "The Samoyed is a fluffy white Siberian breed of spitz dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tip-off"
+    }
+   }
   }
  ]
 }
