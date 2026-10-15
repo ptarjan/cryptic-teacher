@@ -77,5 +77,5 @@ check "generated of an unknown kind prints nothing" "$(python3 tools/daily_units
 # /progress/'s row is ratings' first step, so the unit's time limit cannot take
 # it (it was the last, and lost, on 2026-10-14 and 10-15).
 check "unit_ratings records /progress/'s row first" \
-  "$(sed -n '/^unit_ratings() {/,/^}/p' tools/daily_update.sh | grep -oE '^  step [a-z_]+' | head -1)" "  step progress_record"
+  "$(sed -n '/^unit_ratings() {/,/^}/p' tools/daily_update.sh | grep -oE '^  if step [a-z_]+' | head -1)" "  if step progress_record"
 [ "$rc" = 0 ] && [ "$fails" = 0 ]
