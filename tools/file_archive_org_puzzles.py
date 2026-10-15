@@ -1299,6 +1299,23 @@ def lead_column(title, grid, margin=40):
     return max(0, int(2 * cx - grid[0]) - margin), title[3]
 
 
+#: How far right of its title's left edge, as a share of the grid's width,
+#: a grid under its title starts when a clue column is printed left of it.
+TITLE_INDENT = 0.15
+
+
+def indented_column(title, grid, margin=40):
+    """(x0, top) of the clue column left of a grid under its title, set in
+    from the title's left edge by TITLE_INDENT or more (the Times to
+    1967-04-10: ACROSS and the first DOWN clues there, the rest in the
+    columns under the grid, as lead_column()'s), else None. The column's
+    numbers stand out left of the title by up to half the indent."""
+    indent = grid[0] - title[0]
+    if indent < TITLE_INDENT * (grid[2] - grid[0]):
+        return None
+    return max(0, int(title[0] - indent / 2) - margin), title[3]
+
+
 def lead_split(lines, grid, lead, margin=40):
     """`lead` (lead_column()) with the x between it and the column under the
     grid: where the fewest words (`lines`, every reading's) under the grid
@@ -3253,7 +3270,7 @@ REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed"
 #: {cause: ISO time}: an edition a title of which was refused for `cause`
 #: and read before that time is read again (due_reason), when the code
 #: behind that refusal changes; the rest of the corpus is not.
-REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-09T10:00:00+00:00",
+REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-15T07:20:00+00:00",
                   "number-date-mismatch": "2026-10-09T10:00:00+00:00"}
 
 
@@ -3296,7 +3313,8 @@ def read_puzzle(d, found, hit, solutions):
     # width wide (beside), or the one column left_column() finds.
     column = left_column(lines, gbox) if side == "below" and top is None and not paper.four else None
     crop = (gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)) if beside else column and column[::2]
-    lead = lead_column(hit["box"], gbox, m) if side == "right" else None
+    lead = lead_column(hit["box"], gbox, m) if side == "right" else \
+        indented_column(hit["box"], gbox, m) if side == "below" and top is None and not column and not paper.four else None
     rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json", third, m, top,
                                 crop, lead, x0) for which in READERS}
     # The scan's grid, read before the clues: the 1930 Times prints no

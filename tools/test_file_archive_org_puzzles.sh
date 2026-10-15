@@ -2404,6 +2404,13 @@ lead = f.lead_split(lines, gbox, f.lead_column(cases["ftcryptic-5607-right"]["ti
 cols = f.columns(lines, gbox, lead=lead, split=f.under_gutter(lines, gbox))
 text = f.column_text(cols)
 parsed, _ = f.parse(text)
+# The Times to 1967-04-10 sets its grid under the title, indented from the
+# title's left edge, with ACROSS and the first DOWN clues left of it (No
+# 11,509); from No 11,510 the grid starts at the title's edge, its clues under it.
+check("an indented grid under its title has a clue column left of it, a flush one none",
+      ((121, 3865), None),
+      (f.indented_column((271, 3802, 1148, 3865), (491, 3879, 1211, 4595)),
+       f.indented_column((198, 2784, 911, 2819), (190, 2829, 912, 3535))))
 check("the column beside the grid is read first, then the two under it",
       ("ACROSS", "cause lock-jaw(7)", "ofNewport（5)"), tuple(c[0][4] for c in cols))
 check("a clue's run-on line opens the next column and stays with its clue",
