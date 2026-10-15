@@ -384,6 +384,7 @@ def plan(papers, cache=fa.CACHE, reread=None, out=None):
         dir_cache.load(DIR_CACHE)
         fa.load_held(HELD_CACHE)
         fa.load_likely(LIKELY_CACHE)
+        scan_queue.load_count_left(COUNT_LEFT_CACHE)
         _LOADED.append(True)
     try:
         return _plan(papers, cache, reread, out)
@@ -391,6 +392,7 @@ def plan(papers, cache=fa.CACHE, reread=None, out=None):
         dir_cache.save(DIR_CACHE)
         fa.save_held(HELD_CACHE)
         fa.save_likely(LIKELY_CACHE)
+        scan_queue.save_count_left(COUNT_LEFT_CACHE)
 
 
 #: Where plan() keeps the edition and article dirs' listings between
@@ -403,6 +405,10 @@ HELD_CACHE = Path(os.path.expanduser("~/.cache/corpus_queue/held_files.pickle"))
 #: Where plan() keeps what fa.likely read between processes: the solution
 #: headings in each edition's archive.org text, each filed puzzle's state.
 LIKELY_CACHE = Path(os.path.expanduser("~/.cache/corpus_queue/likely.pickle"))
+#: Where plan() keeps scan_queue.count_left_requests' verdict on each filed
+#: puzzle between processes, so a re-exec's first plan parses only the files
+#: that moved, not ~8k (most of a minute on a loaded host).
+COUNT_LEFT_CACHE = Path(os.path.expanduser("~/.cache/corpus_queue/count_left.pickle"))
 #: Non-empty once this process has loaded DIR_CACHE and HELD_CACHE: later
 #: plans hold everything those had, so they are read once a process.
 _LOADED = []
@@ -960,6 +966,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         return list(running.items()) + list(adopted.items())
 
     fetch_made = {}  # source: (when its plan was made, its units)
+    scan_keys = [None, frozenset(), None]  # the lists' (id, len), their scans' (paper, rel), the lists
 
     def replan_all(notes=None):
         sc, rd = plan(papers, cache, reread, notes)
@@ -1214,7 +1221,14 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # was killed leaves the read for the next run); a days-after scan
         # still queued behind a full scan pool stands as last scanned.
         scanning = {(p, r) for k, p, r in busy if k == "scan"}
-        unscanned = {(u["paper"], u["rel"]) for u in fresh_scans + scans + first} - scanned
+        # The (paper, rel) of every queued scan, made again only when one of
+        # its lists is replaced or grows (~25k units, a pass a second).
+        scan_lists = tuple((id(us), len(us)) for us in (fresh_scans, scans, first))
+        if scan_keys[0] != scan_lists:
+            scan_keys[:] = [scan_lists, frozenset((u["paper"], u["rel"]) for u in fresh_scans + scans + first),
+                            (fresh_scans, scans, first)]  # held, so no id is reused while keyed
+        unscanned = set(scan_keys[1])
+        unscanned -= scanned
         free = dict(pools)
         for _, (u, _) in units_running():
             free[slot_of(u)] = free.get(slot_of(u), 0) - 1

@@ -612,17 +612,99 @@ def count_left_requests():
     """A request per filed scan puzzle read before its filer's
     COUNT_LEFT_AT with a clue that ends in its count misread (count_left).
     Derived from the files, so the re-read closes it."""
-    import puzzle_paths
-    from file_archive_org_puzzles import count_left
     out = []
+    held = {}  # series: {id: its file}, one listing of the series' year folders a call
     for i, (f, key, row) in sorted(sources().items()):
-        if not read_before(row, when(COUNT_LEFT_AT[f])) or not (path := puzzle_paths.find(i)):
+        if not read_before(row, when(COUNT_LEFT_AT[f])):
             continue
-        entries = json.loads(path.read_text(encoding="utf-8")).get("entries") or ()
-        lights = {e["number"] for e in entries}
-        if any(count_left((e.get("clue") or {}).get("text"), e.get("length"), lights) for e in entries):
+        path = _held_file(i, held)
+        if path is not None and _count_left_in(path):
             out.append({"id": i, "filer": f, "source": key, "why": ["countLeft"], "requestedAt": COUNT_LEFT_AT[f]})
     return out
+
+
+def _held_file(pid, held):
+    """puzzle_paths.find(pid) off one listing of its series' year folders
+    (kept in `held` for the call): find stats every year folder per id, ~60
+    stats each for the ~8k ids count_left_requests asks (two minutes a plan
+    on a loaded host). An id filed twice is find's to report."""
+    import puzzle_paths
+    series, _ = puzzle_paths.series_meta.parse_id(str(pid))
+    if not series:
+        return None
+    if series not in held:
+        listing = held[series] = {}
+        try:
+            years = list(os.scandir(puzzle_paths.PUZZLE_DIR / series))
+        except (FileNotFoundError, NotADirectoryError):
+            years = []
+        for d in years:
+            if not d.is_dir():
+                continue
+            for e in os.scandir(d.path):
+                if e.name.endswith(".json"):
+                    if e.name[:-5] in listing:
+                        listing[e.name[:-5]] = None  # filed twice: find raises
+                    else:
+                        listing[e.name[:-5]] = Path(e.path)
+    if str(pid) not in held[series]:
+        return None
+    return held[series][str(pid)] or puzzle_paths.find(pid)
+
+
+#: {puzzle file: ((st_mtime_ns, st_size), whether a clue in it ends in its
+#: count misread)}: count_left_requests parses a file again only once its
+#: stat moves, not ~8k files every plan.
+_COUNT_LEFT = {}
+
+
+def _count_left_in(path):
+    from file_archive_org_puzzles import count_left
+    try:
+        st = path.stat()
+    except FileNotFoundError:
+        return False
+    stamp = (st.st_mtime_ns, st.st_size)
+    hit = _COUNT_LEFT.get(path)
+    if hit is not None and hit[0] == stamp:
+        return hit[1]
+    entries = json.loads(path.read_text(encoding="utf-8")).get("entries") or ()
+    lights = {e["number"] for e in entries}
+    found = any(count_left((e.get("clue") or {}).get("text"), e.get("length"), lights) for e in entries)
+    _COUNT_LEFT[path] = (stamp, found)
+    _COUNT_LEFT_MOVED.append(path)
+    return found
+
+
+#: Files _count_left_in parsed since save_count_left last wrote _COUNT_LEFT.
+_COUNT_LEFT_MOVED = []
+
+
+def save_count_left(path):
+    """Write _COUNT_LEFT to `path` when a file was parsed since the last
+    save, for load_count_left in the next process (a re-exec or the next
+    slice): its first plan then parses only the files that moved."""
+    import pickle
+    if not _COUNT_LEFT_MOVED:
+        return
+    _COUNT_LEFT_MOVED.clear()
+    tmp = f"{os.fspath(path)}.{os.getpid()}.tmp"
+    os.makedirs(os.path.dirname(os.fspath(path)) or ".", exist_ok=True)
+    with open(tmp, "wb") as f:
+        pickle.dump(dict(_COUNT_LEFT), f, protocol=pickle.HIGHEST_PROTOCOL)
+    os.replace(tmp, path)
+
+
+def load_count_left(path):
+    """Take the parses save_count_left wrote; each stands only while its file's stat is unmoved."""
+    import pickle
+    try:
+        with open(path, "rb") as f:
+            snap = pickle.load(f)
+    except (OSError, EOFError, pickle.UnpicklingError, AttributeError, ValueError):
+        return
+    for k, v in snap.items():
+        _COUNT_LEFT.setdefault(k, v)
 
 
 def all_open_requests():
