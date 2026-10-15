@@ -74,4 +74,8 @@ check() { if [ "$2" = "$3" ]; then echo "ok   $1"; else echo "FAIL $1: want $3, 
 check "generated fetch:fetch_independent" "$(python3 tools/daily_units.py generated fetch:fetch_independent)" none
 check "generated annotate:x" "$(python3 tools/daily_units.py generated annotate:x)" all
 check "generated of an unknown kind prints nothing" "$(python3 tools/daily_units.py generated nosuch 2>/dev/null)" ""
+# /progress/'s row is ratings' first step, so the unit's time limit cannot take
+# it (it was the last, and lost, on 2026-10-14 and 10-15).
+check "unit_ratings records /progress/'s row first" \
+  "$(sed -n '/^unit_ratings() {/,/^}/p' tools/daily_update.sh | grep -oE '^  step [a-z_]+' | head -1)" "  step progress_record"
 [ "$rc" = 0 ] && [ "$fails" = 0 ]

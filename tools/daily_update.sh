@@ -457,6 +457,14 @@ unit_ratings() {
   # its limit on 2026-10-15 logged nothing to say which step had the hour.
   step() { echo "step $1 from $(date +%H:%M:%S)"; step_t0=$SECONDS; }
   took() { echo "step $1 took $(( SECONDS - step_t0 ))s"; }
+  # Tonight's row of the phase history /progress/ draws: the site is built from
+  # a one-commit checkout, so the history it charts has to be committed. It runs
+  # first: it reads only the puzzle files, today's coverage ledger and the
+  # edition backlog, none of which the steps below write. As the last step it
+  # was lost on 2026-10-14 and 10-15, when the unit hit its time limit first.
+  step progress_record
+  python3 tools/progress_record.py record >/dev/null || echo "progress record failed (rc=$?); /progress/ misses tonight's row"
+  took progress_record
   step fetch_snitch
   python3 tools/fetch_snitch.py || echo "fetch_snitch failed (rc=$?); continuing with the ratings already held"
   took fetch_snitch
@@ -492,11 +500,6 @@ unit_ratings() {
   step build_fill_floors
   python3 tools/build_fill_floors.py >/dev/null || echo "build_fill_floors failed (rc=$?); grid_fill uses last night's tools/data/fill_floors.json"
   took build_fill_floors
-  # Tonight's row of the phase history /progress/ draws: the site is built from
-  # a one-commit checkout, so the history it charts has to be committed.
-  step progress_record
-  python3 tools/progress_record.py record >/dev/null || echo "progress record failed (rc=$?); /progress/ misses tonight's row"
-  took progress_record
   return 0
 }
 
