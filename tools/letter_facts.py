@@ -1534,19 +1534,11 @@ def rows(said=None, as_written=False):
 def annotation_rows():
     """(puzzle id, entry id, clue, answer, facts) for every clue our own
     annotations (puzzles/) explain, in the shape of a blog's facts: a second
-    source for the indicator lexicon."""
-    for path in puzzle_files():
-        p = read_view(path)
-        for e in p.get("entries", []):
-            a = e.get("annotation") or {}
-            if not (a.get("type") and e["clue"].get("text") and e.get("solution")):
-                continue
-            facts = {"type": a["type"], "definition": [d["text"] for d in a.get("definitions", ())],
-                     "blocks": [[b["gives"], b["clueFragment"]] for b in a.get("blocks", ())
-                                if b.get("gives") and b.get("clueFragment")]}
-            if a.get("indicators"):
-                facts["indicators"] = list(a["indicators"])
-            yield p["id"], entry_id(e), enumeration.printed(e["clue"]), e["solution"], facts
+    source for the indicator lexicon. Read off blog_facts.puzzle_rows, which
+    views only the puzzle files that moved since the last run."""
+    import blog_facts
+    for _, r in blog_facts.puzzle_rows():
+        yield from r["annotated"]
 
 
 def read_leads(required=False):

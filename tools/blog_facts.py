@@ -1787,6 +1787,43 @@ def published(pid, blog, url, facts):
     return line, said
 
 
+def puzzle_row(path):
+    """What a run reads off one puzzle file through its view, which costs a
+    deepcopy and a wordplay evaluation a puzzle: its id, number and series,
+    puzzle_entries, the digest load_puzzles keys a join by, and "annotated",
+    letter_facts.annotation_rows' rows for it."""
+    import enumeration
+    p = read_puzzle_view(path)
+    ents = puzzle_entries(p)
+    clues = {entry_id(e): e["clue"].get("text", "") for e in p["entries"]}
+    annotated = []
+    for e in p.get("entries", []):
+        a = e.get("annotation") or {}
+        if not (a.get("type") and e["clue"].get("text") and e.get("solution")):
+            continue
+        facts = {"type": a["type"], "definition": [d["text"] for d in a.get("definitions", ())],
+                 "blocks": [[b["gives"], b["clueFragment"]] for b in a.get("blocks", ())
+                            if b.get("gives") and b.get("clueFragment")]}
+        if a.get("indicators"):
+            facts["indicators"] = list(a["indicators"])
+        annotated.append((p["id"], entry_id(e), enumeration.printed(e["clue"]), e["solution"], facts))
+    return {"id": p["id"], "number": p["number"], "series": p.get("series"),
+            "named_series": p.get("series", "cryptic"), "entries": ents,
+            "digest": hashlib.sha256(json.dumps([ents, clues]).encode()).hexdigest(), "annotated": annotated}
+
+
+def puzzle_rows():
+    """[(path, puzzle_row(path))] for every puzzle file, in puzzle_files()
+    order. A run reads them three times (inputs_digest, load_puzzles,
+    letter_facts.annotation_rows) and the filer commits every few seconds, so
+    --if-changed is nearly always a full run: rows are kept per file by
+    tools/row_cache.py, keyed by the file's blob and the code puzzle_row
+    reaches, and only the files that moved are viewed again."""
+    import row_cache
+    paths = puzzle_files()
+    return list(zip(paths, row_cache.cached_map("blog_facts", puzzle_row, paths)))
+
+
 def load_puzzles(extra=()):
     """{number: [(id, source, digest)]} over our puzzles, plus any `extra`
     records, and {id: series}. A source is where entries_of reads the puzzle's
@@ -1795,14 +1832,10 @@ def load_puzzles(extra=()):
     and, for published(), its clues."""
     by_number = collections.defaultdict(list)
     series = {}
-    for path in puzzle_files():
-        p = read_puzzle_view(path)
-        ents = puzzle_entries(p)
-        if ents:
-            clues = {entry_id(e): e["clue"].get("text", "") for e in p["entries"]}
-            digest = hashlib.sha256(json.dumps([ents, clues]).encode()).hexdigest()
-            by_number[p["number"]].append((p["id"], path, digest))
-            series[p["id"]] = p.get("series", "cryptic")
+    for path, r in puzzle_rows():
+        if r["entries"]:
+            by_number[r["number"]].append((r["id"], path, r["digest"]))
+            series[r["id"]] = r["named_series"]
     for pid, number, source, digest, s in extra:
         by_number[number].append((pid, source, digest))
         series[pid] = s
@@ -2048,9 +2081,8 @@ def inputs_digest():
         h.update(parsed.read_bytes())
     except FileNotFoundError:
         pass
-    for path in puzzle_files():
-        p = read_puzzle_view(path)
-        h.update(json.dumps([p["id"], p["number"], p.get("series"), puzzle_entries(p)]).encode())
+    for _, r in puzzle_rows():
+        h.update(json.dumps([r["id"], r["number"], r["series"], r["entries"]]).encode())
     return h.hexdigest()
 
 
