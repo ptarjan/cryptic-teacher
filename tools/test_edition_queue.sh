@@ -1482,6 +1482,11 @@ cut_w = eq.unchanged(fa_w, [u for u in fa_w if u["paper"] != "b"])
 check("unchanged keeps the list's id while the same units stand, else the new list",
       (True, False, [{"paper": "a"}, {"paper": "c"}]), (same_w is fa_w, cut_w is fa_w, cut_w))
 
+fe_w = [{"paper": "a", "rel": "x"}]
+check("unchanged_eq keeps the old list while an equal one is rebuilt, else the new list",
+      (True, False), (eq.unchanged_eq(fe_w, [{"paper": "a", "rel": "x"}]) is fe_w,
+                      eq.unchanged_eq(fe_w, [{"paper": "a", "rel": "y"}]) is fe_w))
+
 with open(lock_path, "a") as lk:
     fcntl.flock(lk, fcntl.LOCK_EX)
     waiting = subprocess.Popen([sys.executable, "edition_queue.py", "-h"], stdout=subprocess.DEVNULL)
