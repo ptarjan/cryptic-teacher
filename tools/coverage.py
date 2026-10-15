@@ -13,11 +13,13 @@ tools/archive_coverage.py counts by print date (PRINTED there) is keyed by
 date, every other numbered series by its number, a book by its position.
 Denominators:
 
-  printed dailies   every print date back to the first crossword (archive_coverage)
+  printed dailies   every print date back to the first crossword (archive_coverage),
+                    less the dates the paper's own numbering says carried none
+                    (surplus_dates)
   numbered series   first_number() (series.py) to its last issue (lastIssue) if it has
                     ended, else to the number due today: the highest held, carried on
                     at the held run's pace (number_runs); a renumbered series counts
-                    both runs; a day-count series (numberIsDayCount) No 1 to today's
+                    both runs; a day-count series (numberIsDayCount) its firstIssue to today's number
   canberra          print dates with a Trove article the filer read and did not skip as
                     no cryptic, or has not read yet (one puzzle a date: the series is
                     keyed by its print date)
@@ -36,6 +38,7 @@ The ledger reads caches and files only, in well under a minute. It is not a
 corpus job.
 """
 import argparse
+import bisect
 import collections
 import datetime
 import functools
@@ -416,7 +419,47 @@ def printed(series, paper, today):
             led.claim(date, *scanless(series, date))
         else:
             led.claim(date, "trove" if cls == "canberra-reprint" else "archive.org", cls)
+    for date in surplus_dates(led, archive_coverage.corpus(series)[1],
+                              next(archive_coverage.printed_dates(series, today), None)):
+        led.exists.discard(date)
+        led.claims.pop(date, None)
     return led
+
+
+#: The order surplus_dates() gives up a print date in: the claims with the
+#: least evidence that a puzzle was printed that day first.
+SURPLUS_ORDER = [("none", "no-source"), ("archive.org", "no-crossword-found"),
+                 ("gale", "no-crossword-found"), ("gale", "by-hand-only")]
+
+
+def surplus_dates(led, by_number, first):
+    """The missing print dates of a printed daily that its own numbering says
+    carried no crossword. Between two filed puzzles whose numbers and dates
+    both rise, n1 on d1 and n2 on d2, exactly n2 - n1 - 1 puzzles were
+    printed; before the first filed one, n - 1 since `first` (No 1's date).
+    The days a strike, a holiday or a blank page left without one are the
+    surplus of missing dates over the missing numbers, given up in
+    SURPLUS_ORDER, oldest first within a claim."""
+    chain, last = [], ""
+    for n, d in sorted(by_number.items()):
+        if d and d > last and d in led.filed:
+            chain.append((n, d))
+            last = d
+    if first is None or not chain:
+        return []
+    rank = {c: i for i, c in enumerate(SURPLUS_ORDER)}
+    missing = sorted(led.exists - led.filed)
+    filed = sorted(led.filed)
+    out = []
+    for (n1, d1), (n2, d2) in zip([(0, first)] + chain, chain):
+        span = missing[bisect.bisect_right(missing, d1) if n1 else bisect.bisect_left(missing, d1):
+                       bisect.bisect_left(missing, d2)]
+        held = bisect.bisect_left(filed, d2) - bisect.bisect_right(filed, d1)
+        extra = len(span) - max(n2 - n1 - 1 - held, 0)
+        if extra > 0:
+            span.sort(key=lambda d: (rank.get(led.claims.get(d, ("none", "no-source")), len(rank)), d))
+            out += span[:extra]
+    return out
 
 
 def claim_dated(led, source, dates, cause):
@@ -515,14 +558,14 @@ def due_number(series, held, today, dated=number_date):
 
 def number_runs(series, held, today, dated=number_date):
     """[(first, last)] numbers of `series` that exist by `today`, from
-    first_number() (1 for a day-count series). An ended series (series.py
+    first_number() (a day-count series' firstIssue, else 1). An ended series (series.py
     lastIssue) stops at its last issue; a running one reaches its due_number(),
     or for a day-count series today's number. A renumbered series
     (renumberedBelow) ended its old run at its highest held number there, and
     its newer run, from renumberedFrom, is the running one."""
     m = series_meta.meta(series)
     if m.get("numberIsDayCount"):
-        return [(1, max(series_meta.day_count_number(series, today), max(held, default=0)))]
+        return [(m.get("firstIssue", 1), max(series_meta.day_count_number(series, today), max(held, default=0)))]
     first = series_meta.first_number(series)
     if "lastIssue" in m:
         return [(first, m["lastIssue"])]
