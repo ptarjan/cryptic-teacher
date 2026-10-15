@@ -76,6 +76,24 @@ print("CROSS", sorted(cross), cross["22-down"][0], cross["12-across"][0])
 print("SLASH3", ps.column_cols([(0, 0, 1000, 1000)])([(10, 10, 60, 40, "ACROSS"), (10, 60, 60, 90, "7,"),
       (70, 60, 140, 90, "17/23"), (150, 60, 300, 90, "Truss"), (310, 60, 400, 90, "(5,7,6)")])[0][0][4])
 print("TIDY", fa.tidy("ACROSS\n23 Maybe Charles slips one inside 4）").splitlines()[-1])
+# No 269's clue list: two grids fit it (an edge down light in column 13 or 14).
+import reconstruct_grid as rg
+g269a = ["#............##", "#.#.#.#.#.#.##.", "......#........", "#.#.#.#.#.#.##.", "........#......",
+         "###.#.#.#.####.", "....##.........", ".##.#.###.#.##.", ".........##....", ".####.#.#.#.###",
+         "......#........", ".##.#.#.#.#.#.#", "........#......", ".##.#.#.#.#.#.#", "##............#"]
+g269b = ["#............##", "#.#.#.#.#.#.#.#", "......#........", "#.#.#.#.#.#.#.#", "........#......",
+         "###.#.#.#.###.#", "#....#.........", "#.#.#.###.#.#.#", ".........#....#", "#.###.#.#.#.###",
+         "......#........", "#.#.#.#.#.#.#.#", "........#......", "#.#.#.#.#.#.#.#", "##............#"]
+lights = rg.lights_from_grid(g269b)
+rows = {d: [{"number": str(n), "clue": f"Clue {n}", "enumeration": str(size)}
+            for n, dd, size in lights if dd == d] for d in ("across", "down")}
+spec = [(n, d, size) for n, d, size in lights]
+print("FITS", pw.grid_misfits(g269b, spec), pw.grid_misfits(g269a, spec)[:1])
+print("AMBIG", pw.from_rows(269, rows)[1])
+got, _ = pw.from_rows(269, rows, image=g269b)
+print("IMAGE", list(rg.grid_of(got)) == g269b, got.get("gridFromScan"))
+bad = [r if i != 2 else "......#.......#" for i, r in enumerate(g269b)]
+print("MISFIT", pw.from_rows(269, rows, image=bad)[1])
 PY
 )
 echo "$out" | sed 's/^/  | /'
@@ -98,5 +116,13 @@ check "a link across directions: the other direction's See light kept, the vote'
   "['12-across', '14-across', '20-down', '22-down'] See 14 See 20" "$(get CROSS)"
 check "a three-light head's slash after a comma is a comma too" "7, 17, 23 Truss (5,7,6)" "$(get SLASH3)"
 check "a full-width bracket reads as a round one" "23 Maybe Charles slips one inside (4)" "$(get TIDY)"
+check "both grids No 269's list allows print it exactly" \
+  "[] []" "$(get FITS)"
+check "two grids fitting the clue list alone still refuse" \
+  "grid did not rebuild: at least 2 grids fit the clue list" "$(get AMBIG)"
+check "the scan's grid, printing exactly the list's lights, settles it" "True True" "$(get IMAGE)"
+check "a scan's grid that disagrees with the list settles nothing" \
+  "grid did not rebuild: at least 2 grids fit the clue list; the scan's grid: 9 across counts 8, 7 cells" \
+  "$(get MISFIT)"
 
 [ "$fails" = 0 ] && echo "all ok" || { echo "$fails failed"; exit 1; }
