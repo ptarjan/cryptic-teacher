@@ -273,6 +273,47 @@ except RuntimeError:
     pass
 check("a VLM that stops answering mid-run reads as down for the rest of that worker's run", False,
       vlm_reader.reachable())
+# jsonl_rows parses a file once while it is unchanged; an append, a same-size
+# rewrite or a delete is seen at once; a half-written last line is no row.
+jl = Path(os.environ["TMP"]) / "cache.jsonl"
+jl.write_text('{"n": 1}\n')
+check("jsonl_rows reads a file", [{"n": 1}], q.jsonl_rows(jl))
+_loads, calls = q.json.loads, []
+q.json.loads = lambda s: (calls.append(s), _loads(s))[1]
+check("an unchanged file is served from cache", [{"n": 1}], q.jsonl_rows(jl))
+check("...without re-parsing", [], calls)
+with open(jl, "a") as f:
+    f.write('{"n": 2}\n{"n": 3')
+check("an append is seen, a half line is not a row", [{"n": 1}, {"n": 2}], q.jsonl_rows(jl))
+with open(jl, "a") as f:
+    f.write('}\n')
+check("the line completed is a row", [{"n": 1}, {"n": 2}, {"n": 3}], q.jsonl_rows(jl))
+jl.write_text('{"n": 7}\n{"n": 8}\n{"n": 9}\n')
+check("a same-size rewrite is seen", [{"n": 7}, {"n": 8}, {"n": 9}], q.jsonl_rows(jl))
+os.replace(jl, jl.with_name("moved"))
+jl.write_text('{"n": 4}\n{"n": 5}\n{"n": 6}\n')
+os.utime(jl, ns=(1, 1))
+check("a replaced file is seen", [{"n": 4}, {"n": 5}, {"n": 6}], q.jsonl_rows(jl))
+jl.write_text('{"n": 4}\n{"n": 5}\n{"n": 6}\n')
+q.jsonl_rows(jl)
+calls.clear()
+q.json.loads = lambda s: (calls.append(s), _loads(s))[1]
+with open(jl, "a") as f:
+    f.write('{"n": 10}\n')
+check("an append parses only the new line", [{"n": 4}, {"n": 5}, {"n": 6}, {"n": 10}], q.jsonl_rows(jl))
+check("...just that one", ['{"n": 10}'], calls)
+with open(jl, "r+") as f:
+    f.write('{"n": 0}')
+    f.seek(0, 2)
+    f.write('{"n": 11}\n')
+check("an in-place edit of old rows plus an append is seen whole",
+      [{"n": 0}, {"n": 5}, {"n": 6}, {"n": 10}, {"n": 11}], q.jsonl_rows(jl))
+q.json.loads = _loads
+q.jsonl_rows(jl).append({"x": 1})
+check("a caller's list edits do not leak into the cache", 5, len(q.jsonl_rows(jl)))
+jl.unlink()
+check("a deleted file has no rows", [], q.jsonl_rows(jl))
+
 print(f"FAILS {fails}")
 EOF
 )
