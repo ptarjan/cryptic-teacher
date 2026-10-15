@@ -2102,6 +2102,14 @@ PRINTED_COUNT_WRONG = {
         "5,8", "5,3",
         "DITTY BAG fills the eight cells the grid gives 18-down; the Guardian's "
         "page prints (5,8), and no light is blank or spare for five more letters"),
+    ("cyclops-177", "13-across"): (
+        "2,5", "2,3",
+        "MY EYE fills the five cells the grid gives 13-across, every one "
+        "crossed; the source prints (2,5), and no light is spare for two more"),
+    ("cyclops-177", "17-down"): (
+        "3,5", "3,4",
+        "GET LAID fills the seven cells the grid gives 17-down, crossed by "
+        "16-, 20-, 24- and 26-across; the source prints (3,5)"),
     ("ftcryptic-18474", "5-down"): (
         "15", "8,7",
         "HERMIONE GRANGER is two words; the paper printed (15), as the "
