@@ -2419,8 +2419,9 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       takeRung(btn);
     }
     const { gives, clueFragment: frag } = e.blog.blocks.find(piece(e));
-    const body = registry["hint-body"].innerHTML;
-    assert(body.includes(`“${frag}”`) && body.includes(`<span class="gives">${gives}</span>`),
+    // The page sets apostrophes typographically: "Savalas's" shows as "Savalas’s".
+    const body = registry["hint-body"].innerHTML.replace(/’/g, "'");
+    assert(body.includes(`“${frag.replace(/’/g, "'")}”`) && body.includes(`<span class="gives">${gives}</span>`),
       `${target.id} ${entryId(e)}: the blocks rung shows “${frag}” → ${gives}: ${body.slice(0, 400)}`);
   }
 }
