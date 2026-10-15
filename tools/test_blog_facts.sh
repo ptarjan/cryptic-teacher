@@ -8,6 +8,7 @@
 # an underline that cuts into a word, a hedged type, brackets on a post whose
 # key says they hold glosses, two spans that are not a double definition.
 set -uo pipefail
+export DESKTOP_HOSTS_STATIC=1  # desktop_hosts.ranked: the json order, no network probe
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 fails=0
 check() {  # check <what> <expected> <got>

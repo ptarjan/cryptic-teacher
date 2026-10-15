@@ -10,6 +10,7 @@
 #
 # No ssh, no OCR: temp dirs only.
 set -uo pipefail
+export DESKTOP_HOSTS_STATIC=1  # desktop_hosts.ranked: the json order, no network probe
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
@@ -165,8 +166,10 @@ check("lost on every try in a process that does not defer: read here, the deskto
 check("an answer from the desktop marks it seen", True,
       (lost_run(0, True, 3600)[0], time.time() - ocr_remote.SEEN.stat().st_mtime < 60)[1])
 os.environ.pop(ocr_remote.DEFER, None)
-check("LAN hosts are tried before tailnet ones", ["micro@192.168.1.180", "box", "micro@100.68.145.15"],
+check("the desktop's hosts become every address it may be at, LAN before tailnet (unprobed: the json's order), then the rest",
+      ["micro@192.168.1.198", "micro@192.168.1.180", "micro@100.68.145.15", "box"],
       ocr_remote.by_path(["micro@100.68.145.15", "micro@192.168.1.180", "box"]))
+check("other hosts alone: LAN before tailnet", ["box", "me@100.64.0.9"], ocr_remote.by_path(["me@100.64.0.9", "box"]))
 
 size = ledger.stat().st_size
 scan_queue.append(ledger, [{"edition": ctx["rel"], "inputs": "x"}])

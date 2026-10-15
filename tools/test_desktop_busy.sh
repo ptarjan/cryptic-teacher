@@ -8,6 +8,7 @@
 #
 # The probe is stubbed: no ssh, no network, nothing written outside a temp dir.
 set -uo pipefail
+export DESKTOP_HOSTS_STATIC=1  # desktop_hosts.ranked: the json order, no network probe
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT

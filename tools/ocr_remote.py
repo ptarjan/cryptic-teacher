@@ -64,6 +64,7 @@ import threading
 import time
 from pathlib import Path
 import desktop_busy
+import desktop_hosts
 from desktop_busy import SSH
 
 TOOLS = Path(__file__).resolve().parent
@@ -1052,6 +1053,8 @@ def connect():
             if s:
                 return _connected(s, reasons)
         reasons.append(why)
+        if desktop_hosts.is_desktop(host.rpartition("@")[2]):
+            desktop_hosts.forget(22)  # it ranked first and failed: the next connect probes afresh
     said = "; ".join(reasons or ["OCR_REMOTE names no host"])
     log(f"unavailable ({said})")
     # a game-yield is expected, not an outage; a loopback host is a test's
@@ -1114,12 +1117,14 @@ def alert_over(key):
 
 
 def _connected(s, reasons):
-    """`s`, the desktop's outage over; when earlier hosts failed first (a
-    stale LAN address the DHCP lease moved), one line says so."""
+    """`s`, the desktop's outage over; when it is on the tailnet after the
+    LAN addresses failed first, one line says so (a LAN lease moving to
+    another listed or learned address is routine: by_path ranks the live
+    one first, desktop_hosts.ranked)."""
     alert_over("down")
-    if reasons:
-        alert_once(f"fallback-{s.host}", f"desktop OCR: fell back to {s.host}; "
-                   f"failed first: {'; '.join(r[:150] for r in reasons)} (update tools/desktop_hosts.json)")
+    if reasons and desktop_hosts.tailnet(s.host.rpartition("@")[2]):
+        alert_once(f"fallback-{s.host}", f"desktop OCR: fell back to {s.host} (no LAN address works); "
+                   f"failed first: {'; '.join(r[:150] for r in reasons)}")
     return s
 
 
@@ -1132,17 +1137,21 @@ def hosts():
 
 
 def by_path(names):
-    """`names` with LAN addresses before tailnet ones (100.64.0.0/10): the
-    tailnet path to the desktop goes silent for 20-40s in bursts and
-    Tailscale then resets every session over it; the LAN path does not."""
-    import ipaddress
-
-    def tailnet(name):
-        try:
-            return ipaddress.ip_address(name.rpartition("@")[2]) in ipaddress.ip_network("100.64.0.0/10")
-        except ValueError:
-            return False
-    return sorted(names, key=tailnet)
+    """`names` in the order to try them. Those at the desktop's addresses
+    become every address it may be at (desktop_hosts.ranked: the ones
+    answering ssh now first, LAN before tailnet, all probed at once and the
+    order kept host-wide a minute), so neither a stale LAN lease nor a lease
+    added to desktop_hosts.json after OCR_REMOTE was set stalls a session.
+    The rest follow, LAN before tailnet (100.64.0.0/10): the tailnet path
+    to the desktop goes silent for 20-40s in bursts and Tailscale then
+    resets every session over it; the LAN path does not."""
+    tailnet = lambda name: desktop_hosts.tailnet(name.rpartition("@")[2])
+    desk = [n for n in names if desktop_hosts.is_desktop(n.rpartition("@")[2])]
+    rest = sorted((n for n in names if n not in desk), key=tailnet)
+    if not desk:
+        return rest
+    user = desk[0].rpartition("@")[0]
+    return [f"{user}@{a}" if user else a for a in desktop_hosts.ranked(22)] + rest
 
 
 def session(final=True):

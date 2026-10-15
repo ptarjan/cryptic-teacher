@@ -45,8 +45,9 @@ TOOLS = Path(__file__).resolve().parent
 #: first of URLS that answers (resolve()), the LAN one until then.
 URLS = list(desktop_hosts.VLM_URLS)
 URL = os.environ.get("VLM_READER_URL", URLS[0])
-#: Seconds a URL has to answer before the next is tried.
-CONNECT_TIMEOUT = 2
+#: Seconds every URL has to answer, all asked at once (resolve): the tailnet
+#: path goes quiet for seconds in bursts.
+CONNECT_TIMEOUT = 3
 _RESOLVED = [False]
 MODEL = os.environ.get("VLM_READER_MODEL", "qwen3.8-vl-27b")
 PROMPT = TOOLS / "vlm_column_prompt.md"
@@ -160,23 +161,53 @@ def _answers(url):
 
 def resolve():
     """The URL in use, found once a process: URL itself when it is not one of
-    URLS (an override), else the first of URLS (URL's first) that answers,
-    which URL is then set to and kept until it stops answering (reachable
-    then resolves again). A LAN address gone stale (DHCP) costs one short
-    timeout, never the VLM. When none answers URL stays and the next call
-    asks again."""
+    URLS (an override), else the first of URLS (URL's first, then LAN before
+    tailnet) that answers, every one asked at once, which URL is then set to
+    and kept until it stops answering (reachable then resolves again). A LAN
+    address gone stale (DHCP) costs one short timeout in parallel with the
+    rest, never the VLM, and never one timeout per address in turn. When none
+    answers URL stays and the next call asks again."""
     global URL
     if _RESOLVED[0] or not URL:
         return URL
     if URL in URLS:
-        for url in [URL] + [u for u in URLS if u != URL]:
-            if _answers(url):
-                URL = url
-                _RESOLVED[0] = True
-                break
+        found = _first_answering([URL] + sorted((u for u in _candidates() if u != URL), key=_on_tailnet))
+        if found:
+            URL = found
+            _RESOLVED[0] = True
     else:
         _RESOLVED[0] = True
     return URL
+
+
+def _candidates():
+    """URLS, and while it is the json's own list, the VLM at any LAN address
+    the desktop last reported (desktop_hosts.learned): a lease the json
+    never listed is still found."""
+    if list(URLS) != list(desktop_hosts.VLM_URLS):
+        return list(URLS)
+    return list(dict.fromkeys([*URLS, *(f"http://{a}:{desktop_hosts.VLM_PORT}" for a in desktop_hosts.learned())]))
+
+
+def _on_tailnet(url):
+    return desktop_hosts.tailnet(urllib.parse.urlparse(url).hostname or "")
+
+
+def _first_answering(urls):
+    """The first of `urls` that answers (_answers), all asked at once; None
+    when none does within CONNECT_TIMEOUT."""
+    import threading
+    got = {}
+
+    def one(u):
+        got[u] = _answers(u)
+    threads = [threading.Thread(target=one, args=(u,), daemon=True) for u in urls]
+    for t in threads:
+        t.start()
+    end = time.monotonic() + CONNECT_TIMEOUT + 1
+    for t in threads:
+        t.join(max(0.0, end - time.monotonic()))
+    return next((u for u in urls if got.get(u)), None)
 
 
 def busy():

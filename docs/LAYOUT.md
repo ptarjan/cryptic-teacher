@@ -2650,5 +2650,11 @@ tools/test_pdf_edition_broken.sh               does tools/fetch_archive_org_edit
                                                second copy equal to the first (archive.org's
                                                file as it stands), and raise when the two
                                                differ?
+tools/test_desktop_hosts.sh                    does tools/desktop_hosts.py find the desktop's
+                                               live address itself (its LAN lease flaps),
+                                               probing every address at once, keeping the order
+                                               a TTL, probing afresh after forget(), and do
+                                               ocr_remote.by_path and vlm_reader.resolve use
+                                               it, so one dead LAN address stalls nothing?
 ```
 <!-- LAYOUT-END -->

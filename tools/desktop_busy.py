@@ -111,8 +111,11 @@ def _read(path):
 
 def busy(hosts):
     """Why the desktop is busy, or None: `hosts` are ssh targets
-    (user@address), tried in turn; any not at a DESKTOPS address is skipped."""
-    hosts = [h for h in hosts if h.rpartition("@")[2] in DESKTOPS]
+    (user@address); any not at a desktop address is skipped. Every one is
+    the one desktop, so a probe tries the desktop's addresses in
+    desktop_hosts.ranked() order, the ones answering ssh now first: a stale
+    LAN lease never costs a probe its 60s timeout first."""
+    hosts = [h for h in hosts if desktop_hosts.is_desktop(h.rpartition("@")[2])]
     if not hosts:
         return None
     import fcntl
@@ -129,7 +132,8 @@ def busy(hosts):
         if old and clock() - old["t"] < PROBE_EVERY:
             return old["why"]
         reading = None
-        for host in hosts:
+        user = hosts[0].rpartition("@")[0]
+        for host in desktop_hosts.remotes(user) if user else hosts:
             reading = probe(host)
             if reading is not None:
                 break
@@ -158,7 +162,7 @@ def free_mb(hosts):
     """(when it was read, the desktop's free physical memory in MB) at the
     last probe it answered, probing again when older than PROBE_EVERY
     (busy); None when it never answered or `hosts` holds no desktop."""
-    if not [h for h in hosts if h.rpartition("@")[2] in DESKTOPS]:
+    if not [h for h in hosts if desktop_hosts.is_desktop(h.rpartition("@")[2])]:
         return None
     busy(hosts)
     got = _read(STATE / "desktop_busy.json")
