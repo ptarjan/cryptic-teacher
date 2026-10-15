@@ -395,6 +395,19 @@ def alert(text):
                    check=False)
 
 
+#: The niceness every unit runs at. Units are background work, like the
+#: corpus job and the OCR beside them (nice 19), and a unit's own pools size
+#: themselves to the idle cores when niced (tools/parallel.py). At nice 0 the
+#: hourly fetch:fetch_puzzle's reindex (six workers of 750 MB, 2026-10-15) took
+#: the cores from all of them.
+UNIT_NICE = 19
+
+
+def _niced():
+    """In the unit's child before exec: down to UNIT_NICE, never back up."""
+    os.nice(max(0, UNIT_NICE - os.nice(0)))
+
+
 def run(queue, key, timeout, cls, argv, tag=""):
     """One unit in the foreground: its lock, a tree, its time limit, its rows.
     Its output, each line prefixed with its key, goes to this process's
@@ -425,7 +438,7 @@ def run(queue, key, timeout, cls, argv, tag=""):
                    "tree": env.get("CT_JOB"), **({"tag": tag} if tag else {})})
     log(f"[{key}] start{' in ' + env['CT_JOB'] if 'CT_JOB' in env else ''} (limit {timeout}s)")
     child = subprocess.Popen(argv, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                             env=env, pass_fds=pass_fds, start_new_session=True)
+                             env=env, pass_fds=pass_fds, start_new_session=True, preexec_fn=_niced)
     if pass_fds:
         os.close(9)  # the child holds the lease now; it is freed when the unit's last process exits
     tail = []

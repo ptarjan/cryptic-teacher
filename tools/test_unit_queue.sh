@@ -33,7 +33,7 @@ def sh(key, cmd, **kw):
     return Unit(key=key, argv=["sh", "-c", cmd], **kw)
 def plan(ledger, now):
     return [
-        sh("ok", f"echo ran >>{D}/ok.runs", timeout=30, every=3600),
+        sh("ok", f"echo ran $(nice) >>{D}/ok.runs", timeout=30, every=3600),
         sh("fail", "echo boom; exit 2", timeout=30, every=60),
         sh("slow", "sleep 30", timeout=2, every=3600),
         sh("a", f"echo a >>{D}/one.runs; sleep 8", timeout=30, cls="one"),
@@ -71,6 +71,7 @@ grep -q "start a" <<<"$out" || fail "a was not started: $out"
 grep -q "start b" <<<"$out" && fail "b started beside a although cls one allows one: $out"
 grep -q "start late" <<<"$out" && fail "late started while ok, which it is after, was due: $out"
 wait_end ok 0
+grep -qx "ran 19" "$tmp/q/ok.runs" || fail "a unit did not run at nice 19: $(cat "$tmp/q/ok.runs")"
 wait_end fail 2
 wait_end drain 0
 wait_end slow 124
