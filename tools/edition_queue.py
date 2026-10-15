@@ -1005,6 +1005,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         return list(running.items()) + list(adopted.items())
 
     fetch_made = {}  # source: (when its plan was made, its units)
+    # The queue's units with their key and slot, made once per plan (the lists' (id, len)
+    # change with it), not per unit per pass: (signature, queue, keys, slots, last index of
+    # each slot, (unit, key, slot) of the urgent candidates, (unit, key) of the read-slot reads, lists).
+    queue_memo = [None] * 8
     scan_keys = [None, frozenset(), None]  # the lists' (id, len), their scans' (paper, rel), the lists
 
     def replan_all(notes=None):
@@ -1310,8 +1314,19 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # The whole-corpus re-reads (fa.BLANKET) wait until nothing more
         # urgent is left to start, in any pool: new and fixed work first
         # (a read waiting for the VLM holds none back).
-        urgent = any(u["rank"] < fa.BLANKET and key_of(u) not in tried and pools.get(slot_of(u)) and not vlm_waits(u)
-                     for u in fresh_scans + fresh_reads + scans + reads)
+        lists = (first, fresh_scans, fresh_reads, scans, reads, fetches)
+        sig = tuple((id(l), len(l)) for l in lists)
+        if queue_memo[0] != sig:
+            q = first + fresh_scans + fresh_reads + scans + reads + fetches
+            qkeys, qslots, last_of = [key_of(u) for u in q], [slot_of(u) for u in q], {}
+            for i, sl in enumerate(qslots):
+                last_of[sl] = i
+            body = fresh_scans + fresh_reads + scans + reads
+            queue_memo[:] = [sig, q, qkeys, qslots, last_of,
+                             [(u, key_of(u), slot_of(u)) for u in body if u["rank"] < fa.BLANKET and pools.get(slot_of(u))],
+                             [(v, key_of(v)) for v in fresh_reads + reads if slot_of(v) == "read"], lists]  # lists held: no id reused
+        _, queue, qkeys, qslots, last_of, urgent_cands, read_cands, _ = queue_memo
+        urgent = any(k not in tried and not vlm_waits(u) for u, k, _ in urgent_cands)
         # A pass with no free slot starts nothing; and once a gate holds
         # one unit back it holds every later one (begun_now only grows), so
         # the gates are read at most once a unit begun, not once a unit due.
@@ -1336,22 +1351,21 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         ready = []
         heads = {}  # rank: the scans the next full read pool at that rank needs, or None (not full)
 
-        def fed(u, ready=ready, reads=fresh_reads + reads, busy=busy, waits=waits, heads=heads):
+        def fed(u, ready=ready, reads=read_cands, busy=busy, waits=waits, heads=heads):
             """Whether scan `u` only feeds a backlog: the next full read pool
             of ready reads ranked as it or more urgent, in the queue's order,
             are there and none needs it. Then its desktop CPU (scans run above
             reads there) is the reads' instead. Worked out once a pass per
             rank: a pass asks it of every queued scan (~12k)."""
             if not ready:
-                ready.append([v for v in reads if slot_of(v) == "read" and key_of(v) not in tried
-                              and key_of(v) not in busy and not waits(v) and not vlm_waits(v)])
+                ready.append([v for v, k in reads if k not in tried
+                              and k not in busy and not waits(v) and not vlm_waits(v)])
             if u["rank"] not in heads:
                 nxt = [v for v in ready[0] if v["rank"] <= u["rank"]][:pools["read"]]
                 heads[u["rank"]] = ({(v["paper"], r) for v in nxt for r in v["needs"]}
                                     if len(nxt) >= pools["read"] else None)
             needed = heads[u["rank"]]
             return needed is not None and (u["paper"], u["rel"]) not in needed
-        queue = first + fresh_scans + fresh_reads + scans + reads + fetches
         walked = may_start() and any(v > 0 for v in free.values())
 
         def idle_key(gates, urgent=urgent, free=free, starved=starved, yielding=yielding, desk_mem=desk_mem):
@@ -1380,23 +1394,27 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                      and gates_again(idle_walk[0][-1]) == idle_walk[0][-1])
         if skip_walk:
             held_back, desk_held, cpu_held, idle_held, vlm_deferred = idle_walk[1]
-        for u in queue if any(v > 0 for v in free.values()) and not skip_walk else ():
-            if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
+        # The walk ends past the last unit of any pool with a free slot: no later unit can start.
+        reach = max((last_of.get(sl, -1) for sl, v in free.items() if v > 0), default=-1)
+        for i, (u, ukey, uslot) in enumerate(zip(queue, qkeys, qslots) if reach >= 0 and not skip_walk else ()):
+            if i > reach:
+                break
+            if not may_start() or free[uslot] <= 0 or ukey in tried:
                 continue
             if urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET:
                 continue
             # Held before its ledger row is checked: stood() stats the
             # edition's files, and a held scan is asked again every pass.
-            if u["kind"] == "scan" and key_of(u) not in firsts and fed(u):
+            if u["kind"] == "scan" and ukey not in firsts and fed(u):
                 continue
             if u["kind"] == "scan" and u["paper"] in fa.FILERS and stood(u):
                 # Scanned since the plan was made (a kept plan, a read, another queue): its reads may go on.
-                tried.add(key_of(u))
+                tried.add(ukey)
                 scanned.add((u["paper"], u["rel"]))
                 continue
             if u["kind"] == "read" and waits(u):
                 if (u["paper"], u["rel"]) in unscanned and (u["paper"], u["rel"]) in scan_failed:
-                    tried.add(key_of(u))
+                    tried.add(ukey)
                 continue
             if starved or (yielding and u["kind"] != "fetch"):
                 continue
@@ -1405,7 +1423,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
             if costs is None:
                 costs = mem_gate.unit_costs({pid: slot_of(v) for pid, (v, _) in units_running()})
-            cost = costs.get(slot_of(u), mem_gate.UNIT)
+            cost = costs.get(uslot, mem_gate.UNIT)
             if not held_back and (charged, cost) not in mem_read:
                 mem_read[charged, cost] = mem_gate.room(charged, mem_gate_reader, unit=cost)
             if held_back or not mem_read[charged, cost]:
@@ -1438,7 +1456,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             charged += cost
             if began is not PENDING and not load_gated(u):
                 opened.append(time.time())
-            free[slot_of(u)] -= 1
+            free[uslot] -= 1
+            if free[uslot] <= 0:
+                reach = max((last_of.get(sl, -1) for sl, v in free.items() if v > 0), default=-1)
             if began is PENDING:
                 continue
             if u["kind"] == "scan":
@@ -1484,7 +1504,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         if stop:
             break
         if handoff and not may_start() and not any(b.busy() for b in beside):
-            left = sum(key_of(u) not in tried for u in queue) + len(running) + len(adopted)
+            left = sum(k not in tried for k in qkeys) + len(running) + len(adopted)
             hand_over(handoff, units_running())
             keep_untried()
             log(f"slice over: {len(running) + len(adopted)} unit(s) handed over to the next run, still running")
@@ -1492,7 +1512,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             adopted.clear()
             break
         if not running and not adopted and planner is None and not any(b.busy() for b in beside):
-            untried = sum(key_of(u) not in tried for u in queue)
+            untried = sum(k not in tried for k in qkeys)
             if not may_start():
                 left = untried + sum(b.again and not b.done for b in beside)
                 break
