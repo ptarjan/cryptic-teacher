@@ -16,8 +16,31 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "published"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-14",
+  "check": "32 entries, 60 crossings, 0 conflicts, agrees with the 15 answers the paper printed",
+  "printed": {
+   "4-across": "TRANSLATE",
+   "6-down": "STUDENT",
+   "7-down": "AUDACIOUS",
+   "8-down": "EARPLUGS",
+   "9-down": "FRAT",
+   "13-across": "PROVENCAL",
+   "16-down": "SANHEDRIN",
+   "20-down": "ESSENCE",
+   "21-across": "NEEDLESS",
+   "22-down": "LATERAL",
+   "23-across": "CROWSNEST",
+   "27-down": "HASH",
+   "29-across": "INROADS",
+   "30-across": "PASTERNAK",
+   "31-across": "LISP"
+  }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,6 +53,43 @@
    "clue": {
     "text": "Noticed a tool melting",
     "enumeration": "4"
+   },
+   "solution": "THAW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "melting",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "parts": [
+      {
+       "words": "Noticed a tool",
+       "at": 0,
+       "gives": "SAW",
+       "note": "two senses of one word: noticed is the past tense of see, and a tool is the toothed blade for cutting wood; the puzzle's lisp then turns its S into TH"
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "TH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spotted a tool that was melting, like a watch in a Dali painting.",
+     "walkthrough": "One of the nine lisped clues explained at 31-across: two definitions give a word starting with S, and the entry is that word as a lisper says it, defined by the third part.",
+     "definitionFit": "A thaw is the process of ice or snow turning to water, which is what melting describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "melting"
+    }
    }
   },
   {
@@ -43,6 +103,41 @@
    "clue": {
     "text": "Believer behind universal connection",
     "enumeration": "5"
+   },
+   "solution": "HINDU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Believer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "connection",
+       "at": 26,
+       "note": "the answer straddles the join between the two words, so it lies in their connection"
+      }
+     ],
+     "parts": [
+      {
+       "words": "behind universal",
+       "at": 9,
+       "note": "the end of behind runs on into the start of universal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man of faith stands behind the bond that unites everyone.",
+     "definitionFit": "A Hindu is a follower of Hinduism, so a religious believer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "connection"
+    }
    }
   },
   {
@@ -66,6 +161,55 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "WOEISME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Alas!",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "spoonerism",
+     "indicators": [
+      {
+       "text": "according to Spooner",
+       "at": 22,
+       "note": "the Reverend Spooner swapped the starts of words, so the opening sounds trade places"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Stooge is",
+       "at": 6,
+       "gives": "MOEIS",
+       "note": "Moe Howard was one of the Three Stooges comedy act, followed by is as written"
+      },
+      {
+       "op": "homophone",
+       "spelt": "WE",
+       "parts": [
+        {
+         "words": "tiny",
+         "at": 16,
+         "gives": "WEE",
+         "note": "wee means small; a spoonerism works by sound, and wee is said just like we"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lament that one of the Three Stooges is very small.",
+     "definitionFit": "Woe is me is an old exclamation of grief or self-pity, like crying alas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Stooge"
+    }
    }
   },
   {
@@ -80,7 +224,59 @@
     "text": "Put in other words: political center managed group of candidates",
     "enumeration": "9"
    },
-   "solution": "TRANSLATE"
+   "solution": "TRANSLATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Put in other words",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "center",
+         "at": 30,
+         "note": "the center of a word is its middle letter, here the fifth of the nine in political"
+        }
+       ],
+       "parts": [
+        {
+         "words": "political",
+         "at": 20,
+         "note": "its fifth letter sits exactly in the middle of the nine"
+        }
+       ]
+      },
+      {
+       "words": "managed",
+       "at": 37,
+       "gives": "RAN",
+       "note": "managed in the sense of ran a business"
+      },
+      {
+       "words": "group of candidates",
+       "at": 45,
+       "gives": "SLATE",
+       "note": "a slate is a list of candidates put up together for election"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rephrased: a centrist party fielded a group of candidates.",
+     "walkthrough": "Political center reads as a centrist party, but it means the middle letter of the word political.",
+     "definitionFit": "To translate is to render something in another language, putting it in other words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "center"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,6 +289,65 @@
    "clue": {
     "text": "Beat state's top official in pit",
     "enumeration": "5"
+   },
+   "solution": "THUMP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Beat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "top",
+           "at": 13,
+           "note": "the top of a word is its first letter, so only the start of state's is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "state's",
+           "at": 5,
+           "note": "only its opening letter is used"
+          }
+         ]
+        },
+        {
+         "words": "official",
+         "at": 17,
+         "gives": "UMP",
+         "note": "an ump is short for umpire, the official in charge of a game"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "TH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A senior official of the state has been shoved into a pit.",
+     "walkthrough": "A lisped clue: the first letter of state plus an umpire gives SUMP, a pit for draining water, which a lisper says as the entry; Beat defines that entry.",
+     "definitionFit": "To thump is to strike hard and repeatedly, so a heavy beat is a thump."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "official"
+    }
    }
   },
   {
@@ -106,6 +361,43 @@
    "clue": {
     "text": "Allow to turn into a novelist?",
     "enumeration": "9"
+   },
+   "solution": "AUTHORIZE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Allow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a novelist",
+       "at": 19,
+       "gives": "AUTHOR",
+       "note": "a novelist is an author of novels"
+      },
+      {
+       "words": "to turn into",
+       "at": 6,
+       "gives": "IZE",
+       "note": "the suffix -ize means to make into or turn into, as in fossilize"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wish to be allowed to become a novelist.",
+     "walkthrough": "The question mark flags the joke: read as author-ize, the word would mean to make someone an author.",
+     "definitionFit": "To authorize is to give official permission, so to allow something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "novelist"
+    }
    }
   },
   {
@@ -120,7 +412,60 @@
     "text": "Undergrad's trick: capturing central idea",
     "enumeration": "7"
    },
-   "solution": "STUDENT"
+   "solution": "STUDENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Undergrad's",
+      "at": 0,
+      "note": "read as undergrad is, so the definition is the noun undergrad"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "capturing",
+       "at": 19,
+       "note": "capturing means holding the other piece inside, as a captor holds a prisoner"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trick",
+       "at": 12,
+       "gives": "STUNT",
+       "note": "a stunt is a trick or daring feat"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "central",
+         "at": 29,
+         "note": "the central letters of the four-letter word idea are its middle two"
+        }
+       ],
+       "parts": [
+        {
+         "words": "idea",
+         "at": 37,
+         "note": "the two letters either side of the word's midpoint"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A college student pulls a prank built around one key idea.",
+     "definitionFit": "An undergraduate is a university student who has not yet taken a first degree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trick"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +479,88 @@
     "text": "Daring American supports a tragic ending in sound",
     "enumeration": "9"
    },
-   "solution": "AUDACIOUS"
+   "solution": "AUDACIOUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Daring",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supports",
+       "at": 16,
+       "note": "in a down clue the support sits underneath, so the American piece comes last"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 41,
+         "note": "in means the first part is placed inside the word for sound"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sound",
+         "at": 44,
+         "gives": "AUDIO",
+         "note": "audio is recorded sound"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 25,
+           "note": "taken as written"
+          },
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "ending",
+             "at": 34,
+             "note": "the ending of tragic is its last letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "tragic",
+             "at": 27,
+             "note": "the final letter of the word"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "American",
+       "at": 7,
+       "gives": "US",
+       "note": "US is the United States"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bold American shores up a sad finish to a play.",
+     "walkthrough": "Sound looks like a homophone signal, but here it is the word audio, which holds the other letters.",
+     "definitionFit": "Audacious means bold and willing to take risks, which is what daring describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +574,41 @@
     "text": "Lawman schleps noise reducers",
     "enumeration": "8"
    },
-   "solution": "EARPLUGS"
+   "solution": "EARPLUGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "noise reducers",
+      "at": 15
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Lawman",
+       "at": 0,
+       "gives": "EARP",
+       "note": "Wyatt Earp, the famous lawman of the American Old West"
+      },
+      {
+       "words": "schleps",
+       "at": 7,
+       "gives": "LUGS",
+       "note": "to schlep is to carry something heavy with effort, as to lug it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sheriff hauls around devices for cutting out noise.",
+     "definitionFit": "Earplugs are worn in the ears to block out or dampen unwanted sound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lawman"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +622,49 @@
     "text": "Runs into prosperous home for Greeks",
     "enumeration": "4"
    },
-   "solution": "FRAT"
+   "solution": "FRAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "home for Greeks",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 5,
+       "note": "into means one piece is put inside the other"
+      }
+     ],
+     "parts": [
+      {
+       "words": "prosperous",
+       "at": 10,
+       "gives": "FAT",
+       "note": "fat in the sense of rich, as in a fat salary"
+      },
+      {
+       "words": "Runs",
+       "at": 0,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone runs into a wealthy household of Greek people.",
+     "walkthrough": "Greeks here are members of American college fraternities and sororities, named with Greek letters.",
+     "definitionFit": "A frat house is where members of a college fraternity live, and those members are called Greeks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Greeks"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,6 +677,41 @@
    "clue": {
     "text": "Our dean mangled a poem",
     "enumeration": "7"
+   },
+   "solution": "RONDEAU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a poem",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "mangled",
+       "at": 9,
+       "note": "mangled means torn about, so the letters of the two words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Our dean",
+       "at": 0,
+       "note": "the seven letters of these two words, mixed up"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The college dean butchered the recitation of a poem.",
+     "definitionFit": "A rondeau is a French verse form of thirteen or so lines with a refrain, so a type of poem."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mangled"
+    }
    }
   },
   {
@@ -188,6 +725,61 @@
    "clue": {
     "text": "Article in the Süddeutsche Zeitung chases star's split with loud rumbling",
     "enumeration": "7"
+   },
+   "solution": "THUNDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "loud rumbling",
+      "at": 60
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "chases",
+         "at": 35,
+         "note": "the article chases, that is follows behind, the star"
+        }
+       ],
+       "parts": [
+        {
+         "words": "star's",
+         "at": 42,
+         "gives": "SUN",
+         "note": "the sun is our star; read as star is"
+        },
+        {
+         "words": "Article in the Süddeutsche Zeitung",
+         "at": 0,
+         "gives": "DER",
+         "note": "der is a German definite article, as would be used in that Munich newspaper"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "TH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German newspaper piece follows a celebrity's breakup amid a loud rumbling.",
+     "walkthrough": "A lisped clue: the pieces make SUNDER, meaning split, and the lisp turns its S into TH for the entry, defined by loud rumbling.",
+     "definitionFit": "Thunder is the deep crashing noise after lightning, a rumbling sound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "star's"
+    }
    }
   },
   {
@@ -201,6 +793,60 @@
    "clue": {
     "text": "'60s activists surround university with beer and heavy sounds",
     "enumeration": "5"
+   },
+   "solution": "THUDS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "heavy sounds",
+      "at": 49
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "surround",
+         "at": 15,
+         "note": "surround means the activists' letters go around the other piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "'60s activists",
+         "at": 0,
+         "gives": "SDS",
+         "note": "SDS was Students for a Democratic Society, the 1960s American student protest group"
+        },
+        {
+         "words": "university",
+         "at": 24,
+         "gives": "U"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "TH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sixties radicals at a university, with beer and loud music.",
+     "walkthrough": "A lisped clue: the pieces make SUDS, slang for beer, and the lisp turns its first S into TH for the entry, defined by heavy sounds.",
+     "definitionFit": "A thud is a dull heavy noise, as of something falling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "beer"
+    }
    }
   },
   {
@@ -215,7 +861,53 @@
     "text": "Demonstrate switching the internal components of salt from the south of France",
     "enumeration": "9"
    },
-   "solution": "PROVENCAL"
+   "solution": "PROVENCAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "from the south of France",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Demonstrate",
+       "at": 0,
+       "gives": "PROVE",
+       "note": "to prove something is to demonstrate it"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "switching the internal components of",
+         "at": 12,
+         "note": "only the two middle letters of the formula trade places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "salt",
+         "at": 49,
+         "gives": "NACL",
+         "note": "NaCl is the chemical formula for common salt"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry lesson: show how to rearrange the parts of salt from southern France.",
+     "definitionFit": "Provencal means belonging to Provence, the region in the southeast of France."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "salt"
+    }
+   }
   },
   {
    "number": 14,
@@ -234,6 +926,42 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "WATERSKI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "recreational equipment",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "havoc",
+       "at": 10,
+       "note": "havoc is chaos, so the letters are thrown into disorder"
+      }
+     ],
+     "parts": [
+      {
+       "words": "It wreaks",
+       "at": 0,
+       "note": "the eight letters of these two words, mixed up"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something causes chaos among the sports gear.",
+     "walkthrough": "Wreaks havoc reads as one phrase, but wreaks is part of the letters to rearrange and havoc alone signals it.",
+     "definitionFit": "Water skis are boards for gliding across water towed by a boat, sports gear for leisure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wreaks"
+    }
    }
   },
   {
@@ -247,6 +975,42 @@
    "clue": {
     "text": "Regrets a loose pig on a rampage",
     "enumeration": "9"
+   },
+   "solution": "APOLOGIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Regrets",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "on a rampage",
+       "at": 20,
+       "note": "running wild, so these letters scatter into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "a loose pig",
+       "at": 8,
+       "note": "the nine letters of these three words, mixed up"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer is sorry that an escaped pig ran amok.",
+     "definitionFit": "Regrets and apologies are both expressions of sorrow, as in sending one's regrets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "loose"
+    }
    }
   },
   {
@@ -261,7 +1025,41 @@
     "text": "Where a religious judge could be found to be essentially partisan, he drinks",
     "enumeration": "9"
    },
-   "solution": "SANHEDRIN"
+   "solution": "SANHEDRIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Where a religious judge could be found",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "essentially",
+       "at": 45,
+       "note": "essentially here means in the core of the words, so the letters sit inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "partisan, he drinks",
+       "at": 57,
+       "note": "the letters run from the end of partisan through he into drinks"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge of faith would turn out biased if he drinks.",
+     "definitionFit": "The Sanhedrin was the supreme council and court of ancient Jewish law, where its judges sat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "essentially"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,6 +1072,54 @@
    "clue": {
     "text": "Boy with grand air in a skimpy bathing suit",
     "enumeration": "5"
+   },
+   "solution": "THONG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a skimpy bathing suit",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Boy",
+         "at": 0,
+         "gives": "SON",
+         "note": "a son is a boy child"
+        },
+        {
+         "words": "grand",
+         "at": 9,
+         "gives": "G",
+         "note": "G is slang for a grand, a thousand dollars"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "TH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy sings a grand aria wearing very little at the beach.",
+     "walkthrough": "A lisped clue: the pieces make SONG, which air also means, and the lisp turns its S into TH for the entry, defined by the swimwear.",
+     "definitionFit": "A thong is a bathing suit with a narrow strip at the back, so it covers very little."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "air"
+    }
    }
   },
   {
@@ -293,6 +1139,43 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "STOCKTIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Financial advice",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a cow's",
+       "at": 22,
+       "gives": "STOCK",
+       "note": "stock means farm animals such as cows, as in livestock"
+      },
+      {
+       "words": "nose",
+       "at": 30,
+       "gives": "TIP",
+       "note": "the tip of the nose, its very end"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Investment guidance drawn from a cow's snout, the question mark admits.",
+     "walkthrough": "The question mark flags the joke: cattle are stock, and the end of a nose is its tip.",
+     "definitionFit": "A stock tip is a recommendation to buy or sell shares, an item of investment guidance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cow's"
+    }
    }
   },
   {
@@ -306,6 +1189,56 @@
    "clue": {
     "text": "Peg only listening to Ray Charles, Aretha Franklin, et al.",
     "enumeration": "5"
+   },
+   "solution": "THOLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Peg",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "parts": [
+      {
+       "op": "homophone",
+       "spelt": "SOLE",
+       "indicators": [
+        {
+         "text": "listening to",
+         "at": 9,
+         "note": "listening points to how the music genre sounds, not how it is spelt"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ray Charles, Aretha Franklin, et al.",
+         "at": 22,
+         "gives": "SOUL",
+         "note": "these singers are giants of soul music"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "TH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Peg only plays records by classic soul singers.",
+     "walkthrough": "A lisped clue: the genre said aloud gives SOLE, meaning only, and the lisp turns S into TH. Peg looks like a woman's name; a thole is the pin that holds an oar.",
+     "definitionFit": "A thole is a wooden pin set in a boat's gunwale as a pivot for an oar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Peg"
+    }
    }
   },
   {
@@ -320,7 +1253,54 @@
     "text": "Perfume from German city on the outskirts of Cologne",
     "enumeration": "7"
    },
-   "solution": "ESSENCE"
+   "solution": "ESSENCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perfume",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "German city",
+       "at": 13,
+       "gives": "ESSEN",
+       "note": "Essen is a city in the Ruhr in western Germany"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "on the outskirts of",
+         "at": 25,
+         "note": "the outskirts of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cologne",
+         "at": 45,
+         "note": "the first and last letters of the city name"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scent made in a German city just outside Cologne.",
+     "walkthrough": "Cologne tempts as the perfume, but it is only the source of two letters.",
+     "definitionFit": "An essence is a concentrated extract of a plant used as a fragrance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cologne"
+    }
+   }
   },
   {
    "number": 21,
@@ -334,7 +1314,59 @@
     "text": "Like some grapes, after replacing sulfur with nitrogen once for no reason",
     "enumeration": "8"
    },
-   "solution": "NEEDLESS"
+   "solution": "NEEDLESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "for no reason",
+      "at": 60
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "after replacing",
+       "at": 18,
+       "note": "one letter of the grape word is swapped out for another"
+      },
+      {
+       "text": "once",
+       "at": 55,
+       "note": "once means just one time, so only the first of its several such letters changes"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Like some grapes",
+       "at": 0,
+       "gives": "SEEDLESS",
+       "note": "seedless grapes have no pips"
+      },
+      {
+       "words": "sulfur",
+       "at": 34,
+       "gives": "S",
+       "note": "S is the chemical symbol for sulfur"
+      },
+      {
+       "words": "nitrogen",
+       "at": 46,
+       "gives": "N",
+       "note": "N is the chemical symbol for nitrogen"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe swaps one chemical for another in grapes, pointlessly.",
+     "definitionFit": "Needless means unnecessary, so done without any good reason."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grapes"
+    }
+   }
   },
   {
    "number": 22,
@@ -348,7 +1380,57 @@
     "text": "Football pass is, after all, incomplete",
     "enumeration": "7"
    },
-   "solution": "LATERAL"
+   "solution": "LATERAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Football pass",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "after",
+       "at": 18,
+       "gives": "LATER",
+       "note": "later means afterwards"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "incomplete",
+         "at": 29,
+         "note": "incomplete means the word loses its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "all",
+         "at": 24,
+         "note": "the word all with its final letter dropped"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football pass that, in the end, falls incomplete.",
+     "walkthrough": "Incomplete pass is real American football jargon, which makes it read as part of the definition.",
+     "definitionFit": "In American football a lateral is a backward or sideways throw, unlike a forward pass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "incomplete"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1450,59 @@
      }
     ]
    },
-   "solution": "CROWSNEST"
+   "solution": "CROWSNEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lofty perch",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "through",
+       "at": 31,
+       "note": "through means the drifting letters run inside the word for top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "top",
+       "at": 39,
+       "gives": "CREST",
+       "note": "a crest is the top of a hill or wave"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "drifting",
+         "at": 22,
+         "note": "drifting snow is blown about, so its letters move into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "snow",
+         "at": 17,
+         "note": "the four letters of snow, rearranged"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A high perch with snow blowing over the summit.",
+     "definitionFit": "A crow's nest is the lookout platform near the top of a ship's mast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "snow"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,6 +1515,72 @@
    "clue": {
     "text": "\"Dense and ailing\" written thus on back of book",
     "enumeration": "5"
+   },
+   "solution": "THICK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "\"Dense",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "parts": [
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "on",
+         "at": 32,
+         "note": "in a down clue one piece on another sits above it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "written thus",
+         "at": 19,
+         "gives": "SIC",
+         "note": "sic, Latin for thus, marks a quotation printed exactly as written"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "back of",
+           "at": 35,
+           "note": "the back of a word is its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "book",
+           "at": 43,
+           "note": "the final letter of the word"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "TH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cover blurb on the back of a book that calls it dense and ailing.",
+     "walkthrough": "A lisped clue: the pieces make SICK, meaning ailing, and the lisp turns its S into TH for the entry, defined by Dense.",
+     "definitionFit": "Thick means slow-witted, the same sense as dense used of a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "thus"
+    }
    }
   },
   {
@@ -394,6 +1594,58 @@
    "clue": {
     "text": "Spot unfinished chicken part with expression of relief",
     "enumeration": "5"
+   },
+   "solution": "THIGH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "chicken part",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 5,
+         "note": "unfinished means the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Spot",
+         "at": 0,
+         "gives": "SIGHT",
+         "note": "to sight something is to spot it"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "TH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sighting a half-cooked piece of chicken, someone breathes out in relief.",
+     "walkthrough": "A lisped clue: the shortened word is SIGH, which expression of relief also means, and the lisp turns its S into TH for the entry, defined by chicken part.",
+     "definitionFit": "The thigh is the upper part of a chicken's leg, a common cut of poultry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Spot"
+    }
    }
   },
   {
@@ -407,6 +1659,43 @@
    "clue": {
     "text": "Using their heads, independent pharmacists all dispense sleeping tablets",
     "enumeration": "5"
+   },
+   "solution": "IPADS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "tablets",
+      "at": 65
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Using their heads",
+       "at": 0,
+       "note": "the heads of words are their first letters, one taken from each"
+      }
+     ],
+     "parts": [
+      {
+       "words": "independent pharmacists all dispense sleeping",
+       "at": 19,
+       "note": "the first letter of each of these five words"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sensible independent pharmacists all hand out sleeping pills.",
+     "walkthrough": "Sleeping tablets reads as one phrase, but sleeping supplies a letter and tablets alone is the definition.",
+     "definitionFit": "The iPad is Apple's brand of tablet computer, so iPads are tablets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tablets"
+    }
    }
   },
   {
@@ -421,7 +1710,29 @@
     "text": "Chop dope",
     "enumeration": "4"
    },
-   "solution": "HASH"
+   "solution": "HASH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chop",
+      "at": 0,
+      "meaning": "first meaning: to cut food into small pieces"
+     },
+     {
+      "text": "dope",
+      "at": 5,
+      "meaning": "second meaning: slang for hashish, cannabis resin"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word means both to chop food finely and, as slang, cannabis resin, a kind of dope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dope"
+    }
+   }
   },
   {
    "number": 28,
@@ -434,6 +1745,54 @@
    "clue": {
     "text": "Less obese evildoer sabotaged Niners",
     "enumeration": "7"
+   },
+   "solution": "THINNER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Less obese",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "sabotaged",
+       "at": 20,
+       "note": "sabotaged means wrecked, so the team's letters are knocked into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "substitution",
+       "parts": [
+        {
+         "words": "Niners",
+         "at": 30,
+         "note": "the San Francisco 49ers' nickname; rearranged it spells a word for evildoer, and the lisp says its S as TH"
+        },
+        {
+         "gives": "S"
+        },
+        {
+         "gives": "TH"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slimmer villain undermined the San Francisco 49ers.",
+     "walkthrough": "A lisped clue: the rearranged team name gives SINNER, meaning evildoer, and the lisp turns its S into TH for the entry, defined by Less obese.",
+     "definitionFit": "Thinner means more slender, the comparative of thin, so less fat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Niners"
+    }
    }
   },
   {
@@ -448,7 +1807,70 @@
     "text": "Progress with popular bars stocking bit of alcohol",
     "enumeration": "7"
    },
-   "solution": "INROADS"
+   "solution": "INROADS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Progress",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "popular",
+       "at": 14,
+       "gives": "IN",
+       "note": "in means fashionable or popular"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "stocking",
+         "at": 27,
+         "note": "stocking means holding inside, as a shelf is stocked with goods"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bars",
+         "at": 22,
+         "gives": "RODS",
+         "note": "rods are metal bars"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "bit of",
+           "at": 36,
+           "note": "a bit of a word here is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "alcohol",
+           "at": 43,
+           "note": "the first letter of the word"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Popular bars keeping a little liquor on hand are a sign of advance.",
+     "definitionFit": "To make inroads is to make progress, advancing into new territory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bars"
+    }
+   }
   },
   {
    "number": 30,
@@ -462,7 +1884,49 @@
     "text": "Russian writer's father getting back to Alaska",
     "enumeration": "9"
    },
-   "solution": "PASTERNAK"
+   "solution": "PASTERNAK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Russian writer's",
+      "at": 0,
+      "note": "read as Russian writer is, so the definition is a noun"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "father",
+       "at": 17,
+       "gives": "PA",
+       "note": "pa is an informal word for father"
+      },
+      {
+       "words": "back",
+       "at": 32,
+       "gives": "STERN",
+       "note": "the stern is the back of a ship"
+      },
+      {
+       "words": "Alaska",
+       "at": 40,
+       "gives": "AK",
+       "note": "AK is the US postal abbreviation for Alaska"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Russian author's dad returns home to Alaska.",
+     "walkthrough": "Getting back reads as returning, but back is a piece of the wordplay and getting just joins.",
+     "definitionFit": "Boris Pasternak was the Russian novelist and poet who wrote Doctor Zhivago."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 31,
@@ -476,7 +1940,42 @@
     "text": "Nine three-part clues and their corresponding entries are explained by this unfortunate slip",
     "enumeration": "4"
    },
-   "solution": "LISP"
+   "solution": "LISP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nine three-part clues and their corresponding entries are explained by this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unfortunate",
+       "at": 76,
+       "note": "an unfortunate slip is one gone wrong, so its letters are mixed up"
+      }
+     ],
+     "parts": [
+      {
+       "words": "slip",
+       "at": 88,
+       "note": "the four letters of slip, rearranged"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The puzzle's theme: an awkward speech slip accounts for nine odd clues and their entries.",
+     "walkthrough": "This is the theme. In nine clues, two parts give a word starting with S and the third defines the entry, which is that word with S said as TH.",
+     "definitionFit": "A lisp is a speech impediment pronouncing S sounds as TH, which turns each S word into its entry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "unfortunate"
+    }
+   }
   }
  ]
 }
