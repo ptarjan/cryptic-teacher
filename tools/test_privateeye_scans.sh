@@ -78,6 +78,9 @@ cross = ps.linked_across({"14-across": ("Ramble by the sea?", "10,6", ["14-acros
 print("CROSS", sorted(cross), cross["22-down"][0], cross["12-across"][0])
 print("SLASH3", ps.column_cols([(0, 0, 1000, 1000)])([(10, 10, 60, 40, "ACROSS"), (10, 60, 60, 90, "7,"),
       (70, 60, 140, 90, "17/23"), (150, 60, 300, 90, "Truss"), (310, 60, 400, 90, "(5,7,6)")])[0][0][4])
+print("PLUS", ps.column_cols([(0, 0, 1000, 1000)])([(10, 10, 60, 40, "DOWN"), (10, 60, 70, 90, "14+16"),
+      (80, 60, 140, 90, "Cops"), (150, 60, 300, 90, "dirty"), (310, 60, 400, 90, "(6)")])[1][0][4],
+      bool(ps.STARTS.match("14+16 Cops")))
 print("TIDY", fa.tidy("ACROSS\n23 Maybe Charles slips one inside 4）").splitlines()[-1])
 # No 279: one reading's "61" for 6 down, the others' 6 (one reading lost it).
 L = lambda *ts: [(0, 0, 0, 0, t) for t in ts]
@@ -196,6 +199,7 @@ check "a scan grid one misread cell off is flipped back, only when one flip fits
   "True ((9, 0),) True True" "$(get REPAIR)"
 check "a misread count is put right by a SOURCE_LIGHT_WRONG row, never without, a stale row left alone" \
   "True 9 True" "$(get COUNTED)"
+check "a plus-joined head is a link head, as a slash (No 152)" "14, 16 Cops dirty (6) True" "$(get PLUS)"
 check "a count-only misfit names the row to add; a numbering misfit does not" \
   "; if the page prints the scan's length, add fetch_puzzle.SOURCE_LIGHT_WRONG[('cyclops-30', '22-down')] ''" \
   "$(get HINT)"
