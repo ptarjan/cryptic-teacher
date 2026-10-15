@@ -88,7 +88,9 @@ def lights_from_spec(across, down):
                 problems.append(f"{direction} light {i} has no clue text")
                 continue
             count = (printed or {}).get("enumeration")
-            line = f"{text} ({count})" if count else text
+            # A count that withholds its breaks, "(7, two words)", is already
+            # in the words (tools/parse_penguin_book.py), its total the count.
+            line = f"{text} ({count})" if count and not enumeration.worded(text) else text
             item = {"clue": enumeration.clue(
                 line, missing=not has_words(enumeration.split(line)[0]))}
             if light[1]:
