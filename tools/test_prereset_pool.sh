@@ -201,7 +201,7 @@ check "the run is logged as solving it first" "1" \
 : >"$EVENTS"
 stage_puzzle "$HELD_ID"
 check "a clues-only solve stages its grid and its clues-only file's removal" \
-  "staged -- puzzles/*/*/$HELD_ID.json clues_only/*/$HELD_ID.json" \
+  "staged -- puzzles/${HELD_ID%-*}/*/$HELD_ID.json clues_only/*/$HELD_ID.json" \
   "$(grep '^staged' "$EVENTS")"
 # The re-plan blocks the shell for minutes on a loaded machine, so a reordering
 # pool re-plans once per POOL_SYNC_SECS, not at each checkpoint.
