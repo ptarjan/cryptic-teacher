@@ -66,6 +66,25 @@ def find(pid):
     return hits[0] if hits else None
 
 
+def find_many(pids):
+    """{pid: find(pid)} for each of `pids` held, off one puzzle_files()
+    listing: a find per puzzle is a stat per year folder, and the nightly
+    reports looked up thousands. An id the listing misses is found as find()
+    finds it."""
+    by_name = {}
+    for p in puzzle_files():
+        by_name.setdefault(p.stem, []).append(p)
+    out = {}
+    for pid in pids:
+        hits = sorted(p for p in by_name.get(pid, ()) if p.parent.parent == PUZZLE_DIR / series_folder(pid))
+        if len(hits) > 1:
+            raise SystemExit(f"{pid} is filed twice: " + ", ".join(map(str, hits)))
+        path = hits[0] if hits else find(pid)
+        if path is not None:
+            out[pid] = path
+    return out
+
+
 def puzzle_path(series, number):
     """The held file for (series, number); if none is held, where an undated one
     would go — so .exists() answers "do we hold it?". A write never trusts the

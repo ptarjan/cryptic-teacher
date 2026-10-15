@@ -129,7 +129,8 @@ for f in sorted(difficulty.BLOG_FACTS.glob("*.json")):
 KEYED = {("fetch_puzzle", "BLOG_FACTS"), ("puzzle_tags", "NINAS"), ("difficulty", "BLOG_FACTS")}
 for module, roots in [("fetch_puzzle", {"index_row", "index_row_deps"}),
                       ("difficulty", {"history_row", "history_row_deps"}),
-                      ("difficulty", {"clue_row", "clue_row_deps", "_load_clue_inputs"})]:
+                      ("difficulty", {"clue_row", "clue_row_deps", "_load_clue_inputs"}),
+                      ("difficulty", {"check_row", "check_row_deps", "_load_clue_inputs"})]:
     for mod, name in code_reach.reach(module, roots):
         obj = getattr(__import__(mod), name, None)
         if isinstance(obj, Path) and obj.is_relative_to(Path("tools/data").resolve()) and (mod, name) not in KEYED \
@@ -141,6 +142,26 @@ check("books.json is keyed for fetch_puzzle rows",
       any(p.name == "books.json" for p in row_cache.data_files("fetch_puzzle", {"index_row", "index_row_deps"})), True)
 check("lexicon is keyed for clue rows",
       any(p.name == LEX for p in row_cache.data_files("difficulty", {"clue_row", "_load_clue_inputs"})), True)
+
+# difficulty.checked(), the rows tools/difficulty_check.py and
+# tools/snitch_report.py read, rates a file as score() and raw() rate it,
+# cold and warm, and carries the fields those reports read off the file.
+from types import SimpleNamespace
+from fetch_puzzle import puzzle_is_annotated, read_puzzle_view
+real = sorted(Path("puzzles").resolve().glob("*/*/*-[0-9]*.json"))
+sample = real[::max(1, len(real) // 60)]
+ctx = SimpleNamespace(rank=difficulty.ranks(), base=difficulty.load_baseline(),
+                      history={f.stem: {"answer_novelty": 1.5, "pairing_novelty": 0.25} for f in sample[::2]})
+want = []
+for f in sample:
+    puz = read_puzzle_view(f)
+    want.append((puz["id"], puz.get("series"), series_meta.puzzle_day(puz), puzzle_is_annotated(puz),
+                 difficulty.score(puz, ctx), difficulty.raw(puz, ctx)))
+check("the sample holds a rated puzzle", any(w[4] for w in want), True)
+for when in ("cold", "warm"):
+    got = [(r["pid"], r["series"], r["date"], r["annotated"], difficulty.checked_score(r, ctx),
+            difficulty.checked_raw(r, ctx)) for r in difficulty.checked(sample)]
+    check(f"checked() rows rate as score() and raw(), {when}", got, want)
 
 for f in fails:
     print("FAIL", f)

@@ -211,21 +211,24 @@ def per_clue(table):
     the puzzle so that a puzzle's comment count and its overall difficulty
     cancel out."""
     import difficulty as D
+    import row_cache
     rank = D.ranks()
     cols = defaultdict(list)
     puzzles = 0
+    found = puzzle_paths.find_many(table)
+    if len(found) < len(table):  # read as before, so a missing file fails as it did
+        read_puzzle_view(puzzle_paths.find(next(pid for pid in table if pid not in found)))
+    held = dict(zip(found, row_cache.cached_map("blog_comment_difficulty", per_clue_row, list(found.values()))))
     for pid, v in table.items():
-        puz = read_puzzle_view(puzzle_paths.find(pid))
-        if not D.puzzle_is_annotated(puz):
+        annotated, clues = held[pid]
+        if not annotated:
             continue
         rows = []
-        for e in puz["entries"]:
-            cost, ops = D.clue_cost(e), D.clue_machinery(e)
-            words = (e.get("solution") or "").upper().split() or [""]
+        for eid, cost, ops, solution, length in clues:
+            words = solution.upper().split() or [""]
             rare = math.log10(max(max(rank.get(w, D.MISSING_RANK) for w in words), 10))
-            n = v["clues"].get(entry_id(e), [0, 0, 0])
-            if cost is not None:
-                rows.append((cost, ops, rare, e["length"], n[1], n[2]))
+            n = v["clues"].get(eid, [0, 0, 0])
+            rows.append((cost, ops, rare, length, n[1], n[2]))
         if len(rows) < 10:
             continue
         puzzles += 1
@@ -239,6 +242,18 @@ def per_clue(table):
         for y in ("hard", "loi"):
             r, n, p = rho(cols[x], cols[y])
             print(f"  {x:9s} vs {y:4s} rho {r:+.3f} (p={p:.3g})")
+
+
+def per_clue_row(path):
+    """What per_clue() reads of one puzzle file, kept per file by
+    tools/row_cache.py: whether it is annotated and, for each clue with a
+    wordplay cost, (entry id, cost, machinery, answer, length). Was a find
+    and a parse of each of ~7k commented puzzles every night."""
+    import difficulty as D
+    puz = read_puzzle_view(path)
+    return D.puzzle_is_annotated(puz), [
+        (entry_id(e), cost, D.clue_machinery(e), e.get("solution") or "", e["length"])
+        for e in puz["entries"] if (cost := D.clue_cost(e)) is not None]
 
 
 def _pct(xs):

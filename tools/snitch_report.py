@@ -47,15 +47,9 @@ def mean(xs):
     return sum(xs) / len(xs) if xs else None
 
 
-def feats(puz, s):
-    """The index, its z-scores, and the clue counts beside them."""
-    clues = []
-    for e in puz["entries"]:
-        a = e.get("annotation") or {}
-        parts = a.get("type") or []
-        if parts:
-            clue = e["clue"].get("text", "")
-            clues.append((len(a.get("indicators") or []), len(parts), len(clue.split())))
+def feats(clues, s):
+    """The index, its z-scores, and the clue counts beside them: `clues` is
+    difficulty.check_row()'s (indicators, device types, clue words) per typed clue."""
     return {"index": s["index"], **{"z_" + k: v for k, v in s["z"].items()},
             "indicators": mean([c[0] for c in clues]),
             "three_device": mean([c[1] >= 3 for c in clues]),
@@ -65,20 +59,18 @@ def feats(puz, s):
 def rated_rows():
     """{series: [row, ...]} oldest first, each with its NITCH, residual and features."""
     sn, ctx = D.load_snitch(), D.context()
+    wanted = {pid: v for pid, v in sn.items() if pid.rpartition("-")[0] in D.SNITCH_SERIES}
+    paths = puzzle_paths.find_many(wanted)
+    rows = dict(zip(paths, D.checked(list(paths.values()))))
     out = {}
-    for pid, v in sn.items():
-        series = pid.rpartition("-")[0]
-        if series not in D.SNITCH_SERIES:
+    for pid, v in wanted.items():
+        if pid not in paths:
             continue
-        path = puzzle_paths.find(pid)
-        if path is None:
-            continue
-        puz = D.read_puzzle_view(path)
-        s = D.score(puz, ctx)
+        s = D.checked_score(rows[pid], ctx)
         if s:
-            out.setdefault(series, []).append({
+            out.setdefault(pid.rpartition("-")[0], []).append({
                 "date": v["date"], "nitch": v["nitch"],
-                "wd": date.fromisoformat(v["date"]).weekday(), "f": feats(puz, s)})
+                "wd": date.fromisoformat(v["date"]).weekday(), "f": feats(rows[pid]["clues"], s)})
     for rows in out.values():
         rows.sort(key=lambda r: r["date"])
         by = {}
