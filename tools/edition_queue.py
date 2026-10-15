@@ -583,6 +583,10 @@ def unit_argv(unit):
     return [sys.executable, str(UNIT_SCRIPT), "unit", unit["kind"], unit["paper"], unit["rel"]]
 
 
+#: Set in the environment of an image a re-exec started (may_reexec).
+REEXEC_ENV = "EDITION_QUEUE_REEXECED"
+
+
 def code_files():
     """{path: sha1} of this run's own code: every loaded module under tools/
     and the script it was started as."""
@@ -1124,7 +1128,17 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         sys.stdout.flush()
         sys.stderr.flush()
         signal.pthread_sigmask(signal.SIG_BLOCK, {signal.SIGTERM, signal.SIGINT})
+        os.environ[REEXEC_ENV] = "1"
         os.execv(argv[0], argv)
+
+    # A slice's first image (started by the shell, not by a re-exec) runs the
+    # plan the last slice kept, which can be a whole plan (half an hour on a
+    # loaded host) older than the code it was started on, so it re-execs on a
+    # change at once, mid-plan. Every image after a re-exec makes a plan of
+    # its own first: changes landing faster than a plan takes still get plans
+    # made on new code, and the chain re-execs without one at most once.
+    def may_reexec():
+        return plan_done is not None or not os.environ.get(REEXEC_ENV)
 
     while True:
         reap()
@@ -1137,10 +1151,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # goes on reaping and starting from the plan before it.
         # Checked apart from planning: a plan can take minutes (a cold cache
         # on the media mount), and the code it would run is the old. An image
-        # re-execs only once it has made a whole plan of its own (kept in
-        # plan_file for the next), or changes landing faster than a plan
-        # takes would leave every image running the last kept, stale plan.
-        if may_start() and plan_done is not None and time.monotonic() - code_checked >= replan:
+        # a re-exec started re-execs only once it has made a whole plan of
+        # its own (kept in plan_file for the next), or changes landing faster
+        # than a plan takes would leave every image running the last kept,
+        # stale plan; a slice's first image need not (may_reexec).
+        if may_start() and may_reexec() and time.monotonic() - code_checked >= replan:
             code_checked = time.monotonic()
             if not any(b.busy() for b in beside) and any(digest(f) != h for f, h in code.items()):
                 reexec()
@@ -1393,7 +1408,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if not untried:
                 # Nothing left to start: one more plan, in case something
                 # landed, made on the new code when it changed.
-                if plan_done is not None and any(digest(f) != h for f, h in code.items()):
+                if may_reexec() and any(digest(f) != h for f, h in code.items()):
                     reexec()
                 scans, reads, fetches = replan_all()
                 fresh_scans, fresh_reads = fresh(papers, cache)

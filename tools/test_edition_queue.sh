@@ -740,6 +740,33 @@ said = [l.split()[1] if l.startswith("parent ") else l for l in busied.stderr.sp
         if l.startswith("parent ") or l == "plan made by p2"]
 check("mirror: with its units all ended during its first plan, an image still re-execs before its last plan",
       ["p1", "p2", "plan made by p2", "p3"], said)
+# But a slice's first image (started by the shell, running the plan the last
+# slice kept) re-execs on a change to itself mid-plan: its plan can take half
+# an hour on a loaded host, and the dispatcher it runs would be the old all
+# that while (2026-10-15: edition_queue.py landed at 01:51 and a slice begun
+# at 01:45 was still on its first plan at 02:10).
+log.unlink()
+fresh_drv = T / "fresh_driver.py"
+kept = T / "fresh-kept.json"
+fresh_drv.write_text(driver.read_text().replace('VERSION = "p2"', 'VERSION = "p1"').replace("eq.plan = lambda papers", """import time
+def plan(*a, **k):
+    if VERSION == "p1":
+        time.sleep(60)
+    return quick(*a, **k)
+eq.plan = plan
+quick = lambda papers""").replace(
+    'resume = sys.argv[sys.argv.index("--resume") + 1] if "--resume" in sys.argv else None', f"""
+resume = sys.argv[sys.argv.index("--resume") + 1] if "--resume" in sys.argv else {str(kept)!r}
+if "--resume" not in sys.argv:
+    eq.keep_plan(eq.Path(resume + ".plan"), [["times"], {str(cache)!r}, None, []], (*quick(["times"]), []), time.time())
+""").replace("replan=0.3, resume=resume", "replan=0.3, resume=resume, seconds=20"))
+eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
+fake(rewrite_on="long", rewrite=str(fresh_drv), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
+t0 = time.monotonic()
+freshed = subprocess.run([sys.executable, str(fresh_drv)], capture_output=True, text=True, timeout=60)
+check("a slice's first image re-execs on a change to itself while its first plan is still being made",
+      (["p1", "p2"], True), ([l.split()[1] for l in freshed.stderr.splitlines() if l.startswith("parent ")],
+                             time.monotonic() - t0 < 30))
 
 # ---- --handoff: a slice's end hands its running units to the next run,
 # which counts them in its pools and does not start them again.
