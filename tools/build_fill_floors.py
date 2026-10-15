@@ -49,20 +49,30 @@ def quantile(xs, q):
     return xs[int(q * (len(xs) - 1))]
 
 
+def answer_row(path):
+    """One file's single-word answers whose enumeration is their length, as
+    derive() scores them ([] for an authored puzzle). Kept per file by
+    tools/row_cache.py, so a run parses only the files that moved."""
+    p = view_puzzle(json.loads(Path(path).read_text()))
+    if p.get("series") == "authored":
+        return []
+    out = []
+    for e in p.get("entries") or []:
+        s = (e.get("solution") or "").upper()
+        enum = ((e.get("clue") or {}).get("enumeration") or "").strip()
+        if s.isalpha() and re.fullmatch(r"\d+", enum) and int(enum) == len(s):
+            out.append(s)
+    return out
+
+
 def derive():
     table = clueability.scores()
     if not table:
         raise SystemExit("no clueability cache and no lexicon to build one: run tools/fetch_lexicon.sh")
+    import row_cache
     scored = collections.defaultdict(list)  # length -> [(clue, familiarity)]
-    for path in puzzle_files():
-        p = view_puzzle(json.loads(Path(path).read_text()))
-        if p.get("series") == "authored":
-            continue
-        for e in p.get("entries") or []:
-            s = (e.get("solution") or "").upper()
-            enum = ((e.get("clue") or {}).get("enumeration") or "").strip()
-            if not (s.isalpha() and re.fullmatch(r"\d+", enum) and int(enum) == len(s)):
-                continue
+    for answers in row_cache.cached_map("build_fill_floors", answer_row, puzzle_files()):
+        for s in answers:
             if s in table:
                 scored[len(s)].append(table[s][:2])
     floors = {}

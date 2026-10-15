@@ -44,28 +44,46 @@ AXIS_MIN = 10
 AXIS_MAX_CROSS = 0.05
 
 
-def derive():
+def joint_row(path):
+    """One file's part of derive(): None for an authored puzzle, else (its
+    setter, [the words of each link word], [(the words of each reversal
+    indicator, the entry's direction)]). Kept per file by tools/row_cache.py,
+    so a run parses only the files that moved (and, under a unit's deadline,
+    a cold cache stops cleanly and resumes: tools/budget.py)."""
     import validate_annotations as va  # its own tokeniser and readers, so counts match its checks
+    p = view_puzzle(json.loads(Path(path).read_text()))
+    if p.get("series") == "authored":
+        return None
+    links, revs = [], []
+    for e in p.get("entries") or []:
+        a = e.get("annotation")
+        if not a:
+            continue
+        for lw in a.get("linkWords") or []:
+            links.append(sorted(set(va.words_of(lw))))
+        if "reversal" in va.types_of(a) or va.assembly(a).get("reversals"):
+            for ind in a.get("indicators") or []:
+                if ind.get("for") != "reversal":
+                    continue  # an untyped indicator may be the clue's positional one
+                revs.append((sorted(set(va.words_of(ind.get("text")))), e["direction"]))
+    return p.get("setter"), links, revs
+
+
+def derive():
+    import row_cache
+    import validate_annotations as va
     link_uses = collections.Counter()
     link_setters = collections.defaultdict(set)
     reversal_indicators = []  # (words, direction)
-    for path in puzzle_files():
-        p = view_puzzle(json.loads(Path(path).read_text()))
-        if p.get("series") == "authored":
+    for row in row_cache.cached_map("build_clue_joints", joint_row, puzzle_files()):
+        if row is None:
             continue
-        for e in p.get("entries") or []:
-            a = e.get("annotation")
-            if not a:
-                continue
-            for lw in a.get("linkWords") or []:
-                for t in set(va.words_of(lw)):
-                    link_uses[t] += 1
-                    link_setters[t].add(p.get("setter"))
-            if "reversal" in va.types_of(a) or va.assembly(a).get("reversals"):
-                for ind in a.get("indicators") or []:
-                    if ind.get("for") != "reversal":
-                        continue  # an untyped indicator may be the clue's positional one
-                    reversal_indicators.append((set(va.words_of(ind.get("text"))), e["direction"]))
+        setter, links, revs = row
+        for ts in links:
+            for t in ts:
+                link_uses[t] += 1
+                link_setters[t].add(setter)
+        reversal_indicators += [(set(ws), d) for ws, d in revs]
     links = sorted(t for t, n in link_uses.items()
                    if n >= LINK_MIN_USES and len(link_setters[t]) >= LINK_MIN_SETTERS
                    and t not in va.CORE_LINKS)
