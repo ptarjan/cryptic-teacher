@@ -4,6 +4,18 @@
  "setter": "Azed",
  "date": "2025-03-02",
  "preamble": "Clues are of four types: 1 Normal Cryptic 2 Letters Latent From the answer to each clue the solver must omit one letter wherever it occurs (sometimes more than once) before entry in the diagram. Definitions in the clues refer to the full unmutilated answers: subsidiary indications, such as anagrams etc, refer to the mutilated forms to be entered in the diagram. The nine letters omitted, taken in clue order, spell out an appropriate two-word compound. 3 Misprints Each clue contains a misprint of one letter, always occurring in the definition part. The misprinted letters (not the misprints themselves), when taken in clue order, spell out the same two-word compound. 4 Definition and Letter Mixture Each clue contains a definition of the answer and a hidden mixture of its letters plus one additional letter, beginning at the beginning or ending at the end of a word in the clue. The additional letters, taken in clue order, again spell out the same two-word compound. Each group of four clues (except the group containing the asterisked one-word definition at 14 Down) contains one of each of the clue types. Solvers must determine which is which. Numbers in brackets throughout indicate the length of unmutilated answers.",
+ "messages": [
+  {
+   "text": "MOOSE FURS",
+   "kind": "omitted",
+   "order": "clues"
+  },
+  {
+   "text": "MOOSE FURS",
+   "kind": "misprint",
+   "order": "clues"
+  }
+ ],
  "dimensions": {
   "cols": 12,
   "rows": 12
@@ -31,8 +43,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-15",
+  "check": "36 entries, 88 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -45,6 +63,73 @@
    "clue": {
     "text": "Islamite, a rake with bronzed skin",
     "enumeration": "9"
+   },
+   "solution": "AHOETAN",
+   "alteration": {
+    "from": "MAHOMETAN",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Islamite",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "M",
+       "note": "this clue's dropped letter, which the wordplay never supplies; here it goes in twice"
+      },
+      {
+       "words": "a",
+       "at": 10,
+       "gives": "A",
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "rake",
+         "at": 12,
+         "gives": "HOE",
+         "note": "a hoe is a garden tool used much like a rake"
+        },
+        {
+         "gives": "M",
+         "note": "the second M of the full answer, also dropped from the grid"
+        }
+       ]
+      },
+      {
+       "words": "bronzed skin",
+       "at": 22,
+       "gives": "TAN",
+       "note": "a tan is skin bronzed by the sun"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sunburnt Muslim with a dissolute streak.",
+     "walkthrough": "Letters Latent: the full answer is MAHOMETAN, and both its Ms are left out of the grid, so the wordplay builds only A, HOE and TAN.",
+     "definitionFit": "Mahometan is an old, now usually avoided, word for a follower of Islam, named after the Prophet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rake"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "M"
+    }
    }
   },
   {
@@ -58,6 +143,62 @@
    "clue": {
     "text": "A renegade to get one excited",
     "enumeration": "6"
+   },
+   "solution": "ARAT",
+   "alteration": {
+    "from": "AERATE",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "to get one excited",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "gives": "A",
+       "note": "taken as written"
+      },
+      {
+       "gives": "E",
+       "note": "this clue's dropped letter, which the wordplay never supplies; it goes in twice"
+      },
+      {
+       "words": "renegade",
+       "at": 2,
+       "gives": "RAT",
+       "note": "a rat is someone who deserts their side"
+      },
+      {
+       "gives": "E",
+       "note": "the second E of the full answer, also dropped from the grid"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A turncoat whose betrayal is calculated to stir up excitement.",
+     "walkthrough": "Letters Latent: the full answer is AERATE, and both Es are left out, so the wordplay builds only A and RAT.",
+     "definitionFit": "Aerate can mean to make lively or stir up, much as bubbles enliven a drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "excited"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "E"
+    }
    }
   },
   {
@@ -71,6 +212,55 @@
    "clue": {
     "text": "A submariner, ahoy, turned around",
     "enumeration": "9"
+   },
+   "solution": "HYDRONAUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A submariner",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 27,
+       "note": "the letters are moved around into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "ahoy, turned",
+         "at": 14,
+         "gives": "AHOYTURNED",
+         "note": "the two whole words, which hold the answer's letters jumbled plus one spare"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor calls out ahoy and swings round.",
+     "walkthrough": "Definition and Letter Mixture: AHOY TURNED holds the answer's letters plus one spare E.",
+     "definitionFit": "A hydronaut is a crew member trained for deep-diving submersible craft, an underwater counterpart of the astronaut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ahoy"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
    }
   },
   {
@@ -84,6 +274,48 @@
    "clue": {
     "text": "Rendered slat, i.e. to pad out",
     "enumeration": "7"
+   },
+   "solution": "OPIATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rendered slat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 27,
+       "note": "out of order, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "i.e. to pad",
+       "at": 15,
+       "note": "taken as written, the fodder"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Workshop instructions: a slat has been made ready for padding.",
+     "walkthrough": "Misprint clue: slat should read flat, so the correct letter is F. Opiated is dulled as if by opium.",
+     "definitionFit": "Opiated means drugged with an opiate, made dull or sluggish, rendered flat in spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slat"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "F",
+     "printed": "S",
+     "at": 9
+    }
    }
   },
   {
@@ -97,6 +329,71 @@
    "clue": {
     "text": "TNT exploited rattly duck, not active inside",
     "enumeration": "6"
+   },
+   "solution": "TROTYL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "TNT",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "exploited",
+       "at": 4,
+       "note": "letters exploited are put to new use, so they are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 27,
+         "note": "not active means the active letter is taken away"
+        },
+        {
+         "text": "inside",
+         "at": 38,
+         "note": "the duck goes inside, in the place of the removed letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rattly",
+         "at": 14,
+         "note": "taken as written"
+        },
+        {
+         "words": "active",
+         "at": 31,
+         "gives": "A"
+        },
+        {
+         "words": "duck",
+         "at": 21,
+         "gives": "O",
+         "note": "a duck in cricket is a score of nothing, O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A demolition charge made use of, with a clattering, idle duck nearby.",
+     "walkthrough": "Duck is O from cricket's zero score; it takes the place of A in rattly before the letters are shuffled.",
+     "definitionFit": "Trotyl is another name for trinitrotoluene, the high explosive commonly known by its initials."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "duck"
+    }
    }
   },
   {
@@ -110,6 +407,74 @@
    "clue": {
     "text": "Reduction to a fixed sum, deficient, always contained",
     "enumeration": "10"
+   },
+   "solution": "AEERMENT",
+   "alteration": {
+    "from": "AFFEERMENT",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reduction to a fixed sum",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "contained",
+       "at": 44,
+       "note": "the word for always, with the dropped letters, is held within the word for deficient"
+      }
+     ],
+     "parts": [
+      {
+       "words": "deficient",
+       "at": 26,
+       "gives": "AMENT",
+       "note": "an ament is a person who is mentally deficient"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "gives": "F",
+         "note": "this clue's dropped letter, which the wordplay never supplies; it goes in twice"
+        },
+        {
+         "gives": "F",
+         "note": "the second F of the full answer, also dropped from the grid"
+        },
+        {
+         "words": "always",
+         "at": 37,
+         "gives": "EER",
+         "note": "e'er is a poetic contraction of ever"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A settlement cut down to a fixed payment, always falling short.",
+     "walkthrough": "Letters Latent: both Fs of the full answer are left out of the grid, so the clue's wordplay never supplies them. An ament is an old word for someone with a mental deficiency.",
+     "definitionFit": "To affeer, in old law, was to settle or assess an amercement at a fixed sum, so affeerment is that fixing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deficient"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "F"
+    }
    }
   },
   {
@@ -123,6 +488,48 @@
    "clue": {
     "text": "River fish, if riparian",
     "enumeration": "5"
+   },
+   "solution": "PIRAI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "River fish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "if riparian",
+         "at": 12,
+         "gives": "IFRIPA",
+         "note": "the run of letters from the start of if into riparian, holding the answer's letters jumbled plus one spare"
+        },
+        {
+         "gives": "F"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish living on a riverbank, perhaps.",
+     "walkthrough": "Definition and Letter Mixture: IFRIPA, starting at the start of if, holds the answer's letters plus one spare F.",
+     "definitionFit": "Pirai is another name for the piranha, a voracious river fish of South America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "riparian"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "F"
+    }
    }
   },
   {
@@ -136,6 +543,49 @@
    "clue": {
     "text": "Fronts of shirts pressed, usually dirty — one may end in wash",
     "enumeration": "4"
+   },
+   "solution": "SPUD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one may end in wash",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Fronts of",
+       "at": 0,
+       "note": "the fronts of the four words are their opening letters, taken in turn"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shirts pressed, usually dirty",
+       "at": 10,
+       "note": "the four words whose opening letters are taken in turn"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Laundry notes: shirt fronts get pressed, and they are usually grubby.",
+     "walkthrough": "Misprint clue: wash should read mash, so the correct letter is M. A spud is a potato, and a potato may well end up mashed.",
+     "definitionFit": "Spud is informal for a potato, and a potato's usual fate on the plate is to be mashed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wash"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "M",
+     "printed": "W",
+     "at": 57
+    }
    }
   },
   {
@@ -149,6 +599,80 @@
    "clue": {
     "text": "Alluring devices reconfigured, and about time",
     "enumeration": "9"
+   },
+   "solution": "SEDCTIVE",
+   "alteration": {
+    "from": "SEDUCTIVE",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Alluring",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 35,
+       "note": "the shuffled devices go about, around, the letter for time"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "reconfigured",
+         "at": 17,
+         "note": "devices set up afresh, so their letters are put in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "devices",
+           "at": 9,
+           "note": "taken as written"
+          },
+          {
+           "gives": "U",
+           "note": "this clue's dropped letter, which the wordplay never supplies"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "time",
+       "at": 41,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tempting gadgets set up a new way, just in time.",
+     "walkthrough": "Letters Latent: the full answer is SEDUCTIVE, and its U is left out, so DEVICES rearranged round T gives the entry.",
+     "definitionFit": "Seductive means tempting or attractive enough to lead someone astray, which is alluring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "devices"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "U"
+    }
    }
   },
   {
@@ -162,6 +686,48 @@
    "clue": {
     "text": "Spicy cake maiden excluded from March feast",
     "enumeration": "4"
+   },
+   "solution": "PURI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Spicy cake",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "excluded from",
+       "at": 18,
+       "note": "the maiden's letter is left out of the feast's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "March feast",
+       "at": 32,
+       "gives": "PURIM",
+       "note": "Purim is the Jewish festival held in late winter, usually in March"
+      },
+      {
+       "words": "maiden",
+       "at": 11,
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spiced bake, minus the maiden, served at a spring festival.",
+     "walkthrough": "M is the cricket abbreviation for a maiden over; Purim is the Jewish festival commemorating Esther.",
+     "definitionFit": "A puri is a small round Indian bread, deep-fried until it puffs up, served as a snack or side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maiden"
+    }
    }
   },
   {
@@ -175,6 +741,65 @@
    "clue": {
     "text": "Run in wild speeds resulting in crash",
     "enumeration": "7"
+   },
+   "solution": "DEPRESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "crash",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 4,
+       "note": "the letter for run goes into the scrambled speeds"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wild",
+         "at": 7,
+         "note": "wild letters run out of control into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "speeds",
+         "at": 12,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "Run",
+       "at": 0,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Running at reckless speeds ends in a smash.",
+     "walkthrough": "Misprint clue: crash should read crush, so the correct letter is U. R for run is the cricket scorecard abbreviation.",
+     "definitionFit": "To depress is to press down on, and so to flatten or crush, as well as to dispirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crash"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "U",
+     "printed": "A",
+     "at": 34
+    }
    }
   },
   {
@@ -188,6 +813,53 @@
    "clue": {
     "text": "Overly refined lady who's complicated recipe to follow once",
     "enumeration": "9"
+   },
+   "solution": "PRECIEUSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Overly refined lady",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "complicated",
+       "at": 26,
+       "note": "something complicated is tangled up, so the letters are mixed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "recipe",
+         "at": 38,
+         "note": "taken as written"
+        },
+        {
+         "words": "to follow once",
+         "at": 45,
+         "gives": "SUE",
+         "note": "sue once meant to follow, a sense now obsolete, which once signals"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fussy woman whose cooking instructions are too involved to follow.",
+     "walkthrough": "The mixing takes in the old verb as well as the written word; 'once' marks a sense of sue now obsolete, to follow after.",
+     "definitionFit": "A précieuse is a woman affecting extreme refinement, after the salon ladies Molière mocked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recipe"
+    }
    }
   },
   {
@@ -201,6 +873,48 @@
    "clue": {
     "text": "It made opening, underground possibly",
     "enumeration": "4"
+   },
+   "solution": "ADIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "opening, underground possibly",
+      "at": 8
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "It made",
+         "at": 0,
+         "gives": "ITMAD",
+         "note": "the run of letters starting at the start of It and going into made, which holds the answer's letters jumbled plus one spare"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something created a hole, perhaps on the Tube.",
+     "walkthrough": "Definition and Letter Mixture: ITMAD, starting at the start of a word, holds the answer's letters jumbled plus one spare, M.",
+     "definitionFit": "An adit is a horizontal entrance passage into a mine, an opening that leads underground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "underground"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "M"
+    }
    }
   },
   {
@@ -214,6 +928,48 @@
    "clue": {
     "text": "A poor red pendant",
     "enumeration": "7"
+   },
+   "solution": "EARDROP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "pendant",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "A poor red",
+         "at": 0,
+         "gives": "APOORRED",
+         "note": "the three whole words, which hold the answer's letters jumbled plus one spare"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheap red necklace charm.",
+     "walkthrough": "Definition and Letter Mixture: A POOR RED holds the answer's letters plus one spare O.",
+     "definitionFit": "An eardrop is an earring with a hanging ornament, a small pendant worn at the ear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poor"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "O"
+    }
    }
   },
   {
@@ -227,6 +983,96 @@
    "clue": {
     "text": "One serves a lot of pasta, mostly trying after minced tart",
     "enumeration": "9"
+   },
+   "solution": "TRATTRIA",
+   "alteration": {
+    "from": "TRATTORIA",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One serves a lot of pasta",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 41,
+       "note": "the trying part comes after the minced tart"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "minced",
+         "at": 47,
+         "note": "minced food is chopped up, so the letters of tart are cut up and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tart",
+         "at": 54,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 27,
+           "note": "most of the word, its last letter cut"
+          }
+         ],
+         "parts": [
+          {
+           "words": "trying",
+           "at": 34,
+           "gives": "TRIAL",
+           "note": "a trial is a trying, a testing"
+          },
+          {
+           "gives": "L"
+          }
+         ]
+        },
+        {
+         "gives": "O",
+         "note": "this clue's dropped letter, which the wordplay never supplies"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook at work: chopping a tart, then trying out pasta.",
+     "walkthrough": "Letters Latent: the full answer is TRATTORIA, and its O is left out of the grid, so the wordplay builds TRAT plus TRIA.",
+     "definitionFit": "A trattoria is an Italian restaurant, a place that serves plenty of pasta dishes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tart"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "O"
+    }
    }
   },
   {
@@ -240,6 +1086,38 @@
    "clue": {
     "text": "Treeless areas",
     "enumeration": "9"
+   },
+   "solution": "CLEARINGS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Treeless areas",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Treeless",
+       "at": 0,
+       "note": "the plain sense: without trees, the only reading the clue has"
+      },
+      {
+       "words": "areas",
+       "at": 9,
+       "note": "the plain sense: open spaces or tracts of ground"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "This is the competition clue: the puzzle prints only the definition, and entrants write their own clue for it, here one of the letter-mixture type with an extra U.",
+     "definitionFit": "Clearings are open spaces in a wood where the trees have been cut down or never grew."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -253,6 +1131,66 @@
    "clue": {
     "text": "Add too much filling in extreme dentistry",
     "enumeration": "5"
+   },
+   "solution": "DOTTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Add",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "filling in",
+       "at": 13,
+       "note": "the words for too much go in as a filling between the two outside letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "extreme",
+         "at": 24,
+         "note": "the extreme letters are the first and last ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dentistry",
+         "at": 32,
+         "note": "the word whose outside letters frame the filling"
+        }
+       ]
+      },
+      {
+       "words": "too much",
+       "at": 4,
+       "gives": "OTT",
+       "note": "OTT, over the top, means excessive or too much"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Overdoing it with the fillings in some heroic dental work.",
+     "walkthrough": "Misprint clue: Add should read Odd, so the correct letter is O. OTT is the common short form of over the top.",
+     "definitionFit": "Dotty means slightly mad or eccentric, which is to say odd in behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "filling"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "O",
+     "printed": "A",
+     "at": 0
+    }
    }
   },
   {
@@ -266,6 +1204,55 @@
    "clue": {
     "text": "I turn (I try) spinning as threesome",
     "enumeration": "8"
+   },
+   "solution": "TRIUNITY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "threesome",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "spinning",
+       "at": 15,
+       "note": "the letters spin round into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "I turn (I try",
+         "at": 0,
+         "gives": "ITURNITRY",
+         "note": "the four whole words, which hold the answer's letters jumbled plus one spare"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Three people taking turns trying to spin.",
+     "walkthrough": "Definition and Letter Mixture: I TURN I TRY holds the answer's letters plus one spare R.",
+     "definitionFit": "A triunity is a group of three forming one, a trinity, so a set of three."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spinning"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "R"
+    }
    }
   },
   {
@@ -279,6 +1266,56 @@
    "clue": {
     "text": "Capricious king beheaded young",
     "enumeration": "6"
+   },
+   "solution": "KITTLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Capricious",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "king",
+       "at": 11,
+       "gives": "K"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "beheaded",
+         "at": 16,
+         "note": "its first letter is cut off, as the head is from a body"
+        }
+       ],
+       "parts": [
+        {
+         "words": "young",
+         "at": 25,
+         "gives": "LITTLE",
+         "note": "little can mean young, as in little ones"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fickle monarch has his young heir executed.",
+     "walkthrough": "Kittle is mainly Scots, meaning ticklish, tricky to handle or unpredictable.",
+     "definitionFit": "Kittle describes a person or thing that is fickle and unpredictable, hard to manage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beheaded"
+    }
    }
   },
   {
@@ -292,6 +1329,67 @@
    "clue": {
     "text": "Nice dish, reek strangely circling rim",
     "enumeration": "8"
+   },
+   "solution": "KEDGEREE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nice dish",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "circling",
+       "at": 26,
+       "note": "the rearranged reek goes round the word for rim"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "strangely",
+         "at": 16,
+         "note": "letters behaving strangely fall into an odd order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "reek",
+         "at": 11,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "rim",
+       "at": 35,
+       "gives": "EDGE",
+       "note": "an edge is a rim or border"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pleasant plate of food, but it smells odd around the edge.",
+     "walkthrough": "Misprint clue: Nice should read Rice, so the correct letter is R; Nice also suggests the French city.",
+     "definitionFit": "Kedgeree is a dish of rice cooked with flaked fish, eggs and spices, from Anglo-Indian cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nice"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "R",
+     "printed": "N",
+     "at": 0
+    }
    }
   },
   {
@@ -305,6 +1403,64 @@
    "clue": {
     "text": "Old boot, councillor, one to cringe mostly",
     "enumeration": "7"
+   },
+   "solution": "CRACOWE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old boot",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "councillor",
+       "at": 10,
+       "gives": "CR",
+       "note": "Cr is the short form for councillor before a name"
+      },
+      {
+       "words": "one",
+       "at": 22,
+       "gives": "A",
+       "note": "a is the indefinite article, meaning one"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 36,
+         "note": "most of the word, its last letter cut"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to cringe",
+         "at": 26,
+         "gives": "COWER",
+         "note": "to cower is to cringe in fear"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old has-been of a councillor who grovels most of the time.",
+     "walkthrough": "Old boot sounds like an insult for a person, but it is a literal, historical boot.",
+     "definitionFit": "A cracowe was a medieval shoe or boot with a very long pointed toe, named after Kraków."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boot"
+    }
    }
   },
   {
@@ -317,6 +1473,49 @@
    "length": 8,
    "clue": {
     "text": "Fish in water channels — they go with the wind (8, two words)"
+   },
+   "solution": "LEETIDES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "they go with the wind",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 5,
+       "note": "the fish is put inside the word for water channels"
+      }
+     ],
+     "parts": [
+      {
+       "words": "water channels",
+       "at": 8,
+       "gives": "LEETS",
+       "note": "a leet is a watercourse, especially one leading to a mill"
+      },
+      {
+       "words": "Fish",
+       "at": 0,
+       "gives": "IDE",
+       "note": "the ide is a freshwater fish, also called the orfe"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish swimming in mill streams; something else runs with the breeze.",
+     "walkthrough": "The answer is two words, LEE TIDES; the clue spells out its own count because Azed's lengths here are the full answers.",
+     "definitionFit": "A lee tide is a tidal current running in the same direction as the wind blows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Fish"
+    }
    }
   },
   {
@@ -330,6 +1529,70 @@
    "clue": {
     "text": "Papal officers filling terms with sloth",
     "enumeration": "8"
+   },
+   "solution": "DATAIES",
+   "alteration": {
+    "from": "DATARIES",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Papal officers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "filling",
+       "at": 15,
+       "note": "the sloth goes in as filling between the parts of the terms"
+      }
+     ],
+     "parts": [
+      {
+       "words": "terms",
+       "at": 23,
+       "gives": "DATES",
+       "note": "dates are fixed terms or appointed times"
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "sloth",
+         "at": 34,
+         "gives": "AI",
+         "note": "the ai is the three-toed sloth"
+        },
+        {
+         "gives": "R",
+         "note": "this clue's dropped letter, which the wordplay never supplies"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Vatican officials padding out their terms with laziness.",
+     "walkthrough": "Letters Latent: the R of the full answer is left out of the grid, so the clue's wordplay never supplies it. The ai is a three-toed sloth, a crossword favourite.",
+     "definitionFit": "A datary was an officer of the papal curia who handled petitions and dated papal documents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sloth"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "R"
+    }
    }
   },
   {
@@ -343,6 +1606,67 @@
    "clue": {
     "text": "Dire sand drifting — it indicates atmospheric conditions aloft",
     "enumeration": "10"
+   },
+   "solution": "RADISNDE",
+   "alteration": {
+    "from": "RADIOSONDE",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it indicates atmospheric conditions aloft",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "drifting",
+       "at": 10,
+       "note": "drifting sand shifts about, so these letters move into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Dire sand",
+         "at": 0,
+         "note": "the fodder, taken as written"
+        },
+        {
+         "gives": "O",
+         "note": "this clue's dropped letter, which the wordplay never supplies; it goes in twice"
+        },
+        {
+         "gives": "O",
+         "note": "the second O of the full answer, also dropped from the grid"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fearful sandstorm, with a weather instrument up above.",
+     "walkthrough": "Letters Latent: the full answer is RADIOSONDE, and both Os are left out, so the anagram of DIRE SAND gives the eight letters entered.",
+     "definitionFit": "A radiosonde is a balloon-borne instrument pack that radios back pressure, temperature and humidity readings from high up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drifting"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "O"
+    }
    }
   },
   {
@@ -356,6 +1680,59 @@
    "clue": {
     "text": "Chap who's a little tense pursuing birds",
     "enumeration": "6"
+   },
+   "solution": "ERNEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Chap",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "pursuing",
+       "at": 26,
+       "note": "the small piece of tense follows on behind the birds"
+      }
+     ],
+     "parts": [
+      {
+       "words": "birds",
+       "at": 35,
+       "gives": "ERNES",
+       "note": "ernes are sea eagles"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "a little",
+         "at": 11,
+         "note": "a little of the word is just its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tense",
+         "at": 20,
+         "note": "T is the grammar abbreviation for tense, here just its first letter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man, rather nervous, chasing after birds.",
+     "definitionFit": "Ernest is a man's given name, so it stands for any particular chap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "birds"
+    }
    }
   },
   {
@@ -369,6 +1746,55 @@
    "clue": {
     "text": "Astronomical unit accompanied by windy blast inspiring warship?",
     "enumeration": "6"
+   },
+   "solution": "AUGUST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "inspiring warship?",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "accompanied by",
+       "at": 18,
+       "note": "the unit is joined by the blast that follows it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Astronomical unit",
+       "at": 0,
+       "gives": "AU",
+       "note": "AU is the standard symbol for the astronomical unit"
+      },
+      {
+       "words": "windy blast",
+       "at": 33,
+       "gives": "GUST",
+       "note": "a gust is a sudden blast of wind"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A space measurement and a gale feed the image of a sailing warship.",
+     "walkthrough": "Misprint clue: warship should read worship, so the correct letter is O. AU is the standard symbol for the astronomical unit.",
+     "definitionFit": "August as an adjective means majestic, venerable, so grand that it commands reverence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "warship"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "O",
+     "printed": "A",
+     "at": 56
+    }
    }
   },
   {
@@ -382,6 +1808,48 @@
    "clue": {
     "text": "Lakeland's teas satisfied fully",
     "enumeration": "5"
+   },
+   "solution": "SATED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "satisfied fully",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Lakeland's teas",
+         "at": 0,
+         "gives": "DSTEAS",
+         "note": "the run of letters ending at the end of teas and reaching back into Lakeland's, holding the answer's letters jumbled plus one spare"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Afternoon tea in the Lake District leaves everyone full.",
+     "walkthrough": "Definition and Letter Mixture: DSTEAS, ending at the end of teas, holds the answer's letters plus one spare S.",
+     "definitionFit": "Sated means having had as much as one wants, filled to the point of no further appetite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lakeland's"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "S"
+    }
    }
   },
   {
@@ -395,6 +1863,48 @@
    "clue": {
     "text": "To err yet have a second test",
     "enumeration": "5"
+   },
+   "solution": "RETRY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "have a second test",
+      "at": 11
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "To err yet",
+         "at": 0,
+         "gives": "TOERRY",
+         "note": "the run of letters from the start of To into yet, holding the answer's letters jumbled plus one spare"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone still making mistakes has to sit the exam again.",
+     "walkthrough": "Definition and Letter Mixture: TOERRY, starting at the start of To, holds the answer's letters plus one spare O.",
+     "definitionFit": "To retry is to try again, and in law to hold a fresh trial, a second hearing of the case."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "err"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "O"
+    }
    }
   },
   {
@@ -408,6 +1918,74 @@
    "clue": {
     "text": "Beat participant in slow hike",
     "enumeration": "5"
+   },
+   "solution": "WHIK",
+   "alteration": {
+    "from": "WHISK",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Beat",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "participant in",
+           "at": 5,
+           "note": "a participant is part of the phrase, so the outer letters of slow hike are discarded and the inside kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "slow hike",
+           "at": 20,
+           "note": "the run of letters across slow and hike is no coincidence: the grid letters are hidden there, and the outer letters are dropped"
+          },
+          {
+           "gives": "SLO"
+          }
+         ]
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "gives": "S",
+       "note": "this clue's dropped letter, which the wordplay never supplies"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A walker on a gentle ramble, keeping the beat.",
+     "walkthrough": "Letters Latent: the full answer is WHISK, and its S is left out, so the wordplay needs only WHIK, found across slow hike.",
+     "definitionFit": "To whisk eggs or cream is to beat them quickly to add air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Beat"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "S"
+    }
    }
   },
   {
@@ -421,6 +1999,66 @@
    "clue": {
     "text": "Piece of ballet, benefit including ten dancing",
     "enumeration": "8"
+   },
+   "solution": "AVENTAIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Piece of ballet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including",
+       "at": 25,
+       "note": "the word for benefit takes the other letters into itself"
+      }
+     ],
+     "parts": [
+      {
+       "words": "benefit",
+       "at": 17,
+       "gives": "AVAIL",
+       "note": "avail is benefit or use, as in to no avail"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dancing",
+         "at": 39,
+         "note": "letters that dance move about into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ten",
+         "at": 35,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A charity ballet gala features ten dancers.",
+     "walkthrough": "Misprint clue: ballet should read sallet, so the correct letter is S. A sallet is a light medieval helmet.",
+     "definitionFit": "An aventail is the mail curtain hanging from a helmet to guard the neck, a component of the headpiece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ballet"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "S",
+     "printed": "B",
+     "at": 9
+    }
    }
   },
   {
@@ -434,6 +2072,59 @@
    "clue": {
     "text": "Mist approaching, but not cold at first",
     "enumeration": "4"
+   },
+   "solution": "LOSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Mist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 22,
+       "note": "not cold means the letter for cold is taken out"
+      },
+      {
+       "text": "at first",
+       "at": 31,
+       "note": "the letter goes from the start of the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "approaching",
+       "at": 5,
+       "gives": "CLOSE",
+       "note": "close means near, approaching in time or place"
+      },
+      {
+       "words": "cold",
+       "at": 26,
+       "gives": "C"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fog drawing in, though it is not chilly to begin with.",
+     "walkthrough": "Misprint clue: Mist should read Miss, so the correct letter is S.",
+     "definitionFit": "To lose a train or a chance is to miss it, failing to catch or take it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mist"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "S",
+     "printed": "T",
+     "at": 3
+    }
    }
   },
   {
@@ -447,6 +2138,80 @@
    "clue": {
     "text": "University student struck note of hesitancy after work",
     "enumeration": "9"
+   },
+   "solution": "OPHITER",
+   "alteration": {
+    "from": "SOPHISTER",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "University student",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 44,
+       "note": "the striking and the hesitant note follow the word for work"
+      }
+     ],
+     "parts": [
+      {
+       "gives": "S",
+       "note": "this clue's dropped letter, which the wordplay never supplies; it goes in twice"
+      },
+      {
+       "words": "work",
+       "at": 50,
+       "gives": "OP",
+       "note": "op is short for opus, a musical work"
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "struck",
+         "at": 19,
+         "gives": "HIT",
+         "note": "to hit is to strike, so hit is the past tense here"
+        },
+        {
+         "gives": "S",
+         "note": "the second S of the full answer, also dropped from the grid"
+        }
+       ]
+      },
+      {
+       "words": "note of hesitancy",
+       "at": 26,
+       "gives": "ER",
+       "note": "er is the sound of someone hesitating"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student whose working is broken off by an awkward hesitation.",
+     "walkthrough": "Letters Latent: the full answer is SOPHISTER, and both Ss are left out, so the wordplay builds only OP, HIT and ER.",
+     "definitionFit": "At Cambridge and Trinity College Dublin a sophister was a second- or third-year undergraduate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "struck"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "S"
+    }
    }
   },
   {
@@ -460,6 +2225,49 @@
    "clue": {
     "text": "Is wondrous lush",
     "enumeration": "4"
+   },
+   "solution": "WINO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lush",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Is wondrous",
+         "at": 0,
+         "gives": "ISWON",
+         "note": "the run of letters from the start of Is into wondrous, holding the answer's letters jumbled plus one spare"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gushing tribute to something lavish and marvellous.",
+     "walkthrough": "Definition and Letter Mixture: ISWON, starting at the start of Is, holds the answer's letters plus one spare S. Lush is a noun here, a drunk.",
+     "definitionFit": "A wino is someone who drinks cheap wine to excess, an alcoholic, which is a lush in slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lush"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "S"
+    }
    }
   },
   {
@@ -473,6 +2281,52 @@
    "clue": {
     "text": "Being pale the least bit distorted sense",
     "enumeration": "9"
+   },
+   "solution": "WHITENESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Being pale",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "the least bit",
+       "at": 11,
+       "gives": "WHIT",
+       "note": "a whit is the smallest amount, as in not a whit"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "distorted",
+         "at": 25,
+         "note": "distorted means bent out of shape, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sense",
+         "at": 35,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling washed out, with your perception a little warped.",
+     "definitionFit": "Whiteness is the quality of being white, that is lacking colour or pallid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Being"
+    }
    }
   },
   {
@@ -486,6 +2340,66 @@
    "clue": {
     "text": "It may contain bear, chilling — yikes one's left trembling",
     "enumeration": "4"
+   },
+   "solution": "ESKY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It may contain bear, chilling",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "trembling",
+       "at": 49,
+       "note": "trembling letters are shaken into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "left",
+         "at": 44,
+         "note": "one's left means one is departing, taken out of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "yikes",
+         "at": 32,
+         "note": "taken as written"
+        },
+        {
+         "words": "one",
+         "at": 38,
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frightening encounter in the woods: a bear, cold fear, and a shaky escape.",
+     "walkthrough": "Misprint clue: bear should read beer, so the correct letter is E. An Esky is an Australian portable cool box, so the beer is being chilled.",
+     "definitionFit": "Esky is the Australian trade name for an insulated cool box used to keep drinks cold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bear"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "E",
+     "printed": "A",
+     "at": 17
+    }
    }
   },
   {
@@ -499,6 +2413,51 @@
    "clue": {
     "text": "One of mixed race encountered on island south-eastern",
     "enumeration": "7"
+   },
+   "solution": "METISSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One of mixed race",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 30,
+       "note": "in a down or across charade, on puts the met first, followed by the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "encountered",
+       "at": 18,
+       "gives": "MET",
+       "note": "met is the past tense of meet, to encounter"
+      },
+      {
+       "words": "island",
+       "at": 33,
+       "gives": "IS"
+      },
+      {
+       "words": "south-eastern",
+       "at": 40,
+       "gives": "SE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Meeting someone of mixed heritage on a south-eastern island.",
+     "definitionFit": "Métisse is the feminine of métis, a person of mixed descent, especially French and Native American."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
    }
   }
  ]
