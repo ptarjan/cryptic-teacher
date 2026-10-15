@@ -182,6 +182,57 @@ assert "puzzle_is_solved(p)" in inspect.getsource(fetch_puzzle.index_row)
 src = inspect.getsource(R.puzzle_row)
 assert "puzzle_is_solved(p)" in src and "puzzle_is_annotated(p)" in src, src
 
+# puzzle_row views only fully annotated files (2026-10-15: viewing all ~55k
+# serially under nice ran past 900s), and still counts as the view does: an
+# annotation whose tree no longer gives its answer is no hint.
+import json, puzzle_paths
+def viewed_row(f):
+    p = fetch_puzzle.read_puzzle_view(f)
+    got = p["source"]["acquiredOn"]
+    solved = max(got, (p.get("solutions") or {}).get("date") or got) if fetch_puzzle.puzzle_is_solved(p) else None
+    return p["id"], p["series"], got, solved, fetch_puzzle.puzzle_is_annotated(p)
+picked = {}
+for f in puzzle_paths.puzzle_files("times"):
+    picked.setdefault(fetch_puzzle.puzzle_is_annotated(fetch_puzzle.read_puzzle_file(f)), f)
+    if len(picked) == 2:
+        break
+assert len(picked) == 2, picked
+work = Path(os.environ["TMP"]) / "puzzles"
+work.mkdir()
+broken = json.loads(picked[True].read_text())
+e = next(e for e in broken["entries"] if "annotation" in e)
+e["clue"]["text"] = "Xq zv."   # its tree names words the clue no longer has
+files = [work / "a.json", work / "b.json", work / "c.json"]
+files[0].write_text(picked[True].read_text())
+files[1].write_text(picked[False].read_text())
+files[2].write_text(json.dumps(broken))
+assert fetch_puzzle.puzzle_is_annotated(broken), "raw: every clue still has an annotation"
+want = [viewed_row(f) for f in files]
+assert [w[4] for w in want] == [True, False, False], want
+assert [R.puzzle_row(f) for f in files] == want, ([R.puzzle_row(f) for f in files], want)
+
+# The row cache: a second run reads nothing, a file that moved is read again,
+# a gone file is dropped, and a change to the deriving code reads every file.
+cache, reads, real = Path(os.environ["TMP"]) / "rows.json", [], R.puzzle_row
+R.puzzle_row = lambda f: reads.append(f.name) or real(f)
+try:
+    assert R.cached_rows(files, cache) == want and len(reads) == 3, reads
+    reads.clear()
+    assert R.cached_rows(files, cache) == want and reads == [], reads
+    files[2].write_text(picked[True].read_text())
+    assert R.cached_rows(files, cache) == want[:2] + [want[0]] and reads == ["c.json"], reads
+    reads.clear()
+    files[1].unlink()
+    assert R.cached_rows(files, cache) == [want[0], want[0]] and reads == [], reads
+    assert len(json.loads(cache.read_text())["rows"]) == 2
+    R.code_digest, digest = (lambda: "changed"), R.code_digest
+    try:
+        assert R.cached_rows(files, cache) == [want[0], want[0]] and len(reads) == 2, reads
+    finally:
+        R.code_digest = digest
+finally:
+    R.puzzle_row = real
+
 # By series links each series to its own page (Paul 10-12: "clicking By series
 # should take you to that series"): every row whose series has a page is one
 # link, the whole row, to a page the build writes; a series with no page has
