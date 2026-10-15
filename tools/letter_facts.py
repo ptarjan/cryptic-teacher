@@ -469,8 +469,30 @@ class Lexicon:
     on that side and was left out of] (see MAX_ATTACH)."""
 
     def __init__(self, corpus, skip=frozenset(), extra=()):
-        self.seen, self.edge, keys = self._count(itertools.chain(corpus, extra), skip)
-        self.uses = self._uses(keys, self.seen)
+        self._made(*self._count(itertools.chain(corpus, extra), skip))
+
+    def _made(self, seen, edge, keys):
+        self.seen, self.edge = seen, edge
+        self.uses = self._uses(keys, seen)
+        return self
+
+    @classmethod
+    def pair(cls, corpus, extra):
+        """(Lexicon(corpus), Lexicon(corpus, extra=extra)) off one pass over
+        `corpus`: _count is a sum over rows, so the second is the first's
+        counts with `extra`'s added, in the order one chained pass would
+        meet them (dicts keep insertion order, which ties in a ranking keep)."""
+        seen, edge, keys = cls._count(corpus)
+        both_seen = {k: collections.Counter(v) for k, v in seen.items()}
+        both_edge = {k: list(v) for k, v in edge.items()}
+        more_seen, more_edge, more_keys = cls._count(extra)
+        for k, c in more_seen.items():
+            both_seen.setdefault(k, collections.Counter()).update(c)
+        for k, (a, b) in more_edge.items():
+            e = both_edge.setdefault(k, [0, 0])
+            e[0] += a
+            e[1] += b
+        return cls.__new__(cls)._made(seen, edge, keys), cls.__new__(cls)._made(both_seen, both_edge, keys + more_keys)
 
     @staticmethod
     def _uses(keys, seen):
@@ -2026,17 +2048,35 @@ LEXICONS = {"ilex": (Indicators, True), "both": (Lexicon, True), "lex": (Lexicon
 BEAT = "beat"
 
 
-def _build_lexicon(name):
-    """LEXICONS[name] of _WORKER's corpus."""
-    cls, with_ours = LEXICONS[name]
-    return cls(_WORKER["corpus"], extra=_WORKER["ours"]) if with_ours else cls(_WORKER["corpus"])
+#: How _lexicons splits LEXICONS between processes, largest first: "lex"
+#: and "both" are one pass (Lexicon.pair), as each alone is a third of the
+#: serial time and "both" is "lex" plus our annotations.
+LEXICON_TASKS = (("lex", "both"), ("dlex",), ("ilex",))
+
+
+def _build_lexicon(names):
+    """{name: LEXICONS[name] of _WORKER's corpus} for each of `names`, a LEXICON_TASKS item."""
+    corpus, ours = _WORKER["corpus"], _WORKER["ours"]
+    if names == ("lex", "both"):
+        return dict(zip(names, Lexicon.pair(corpus, ours)))
+    got = {}
+    for name in names:
+        cls, with_ours = LEXICONS[name]
+        got[name] = cls(corpus, extra=ours) if with_ours else cls(corpus)
+    return got
+
+
+def _built(parts):
+    """LEXICONS in their order, from _build_lexicon's {name: lexicon} parts."""
+    got = {k: v for part in parts for k, v in part.items()}
+    return tuple(got[name] for name in LEXICONS)
 
 
 def _lexicons(corpus, ours, jobs):
     """LEXICONS of `corpus` in their order, `ours` (annotation_rows) counted
     where they take it: with `jobs` unset, on the desktop while one answers;
-    else here, one process each where `jobs` (unset, fallback_jobs()) has
-    room for them, else in this process."""
+    else here, LEXICON_TASKS spread over up to `jobs` (unset,
+    fallback_jobs()) processes, in this process when that is 1."""
     if jobs is None:
         try:
             return _desktop_lexicons(corpus, ours)
@@ -2044,10 +2084,12 @@ def _lexicons(corpus, ours, jobs):
             print(f"letter_facts.write: {e}; building the lexicons here", file=sys.stderr)
     _WORKER.update(corpus=corpus, ours=ours)
     try:
-        if (jobs or fallback_jobs()) < len(LEXICONS):
-            return tuple(map(_build_lexicon, LEXICONS))
-        with multiprocessing.get_context("fork").Pool(len(LEXICONS)) as pool:
-            return tuple(pool.map(_build_lexicon, LEXICONS))
+        n = min(jobs or fallback_jobs(), len(LEXICON_TASKS))
+        if n <= 1:
+            return _built(map(_build_lexicon, LEXICON_TASKS))
+        print(f"letter_facts.write: building the lexicons here, {n} processes", file=sys.stderr, flush=True)
+        with multiprocessing.get_context("fork").Pool(n, _orphan_exits, (os.getpid(),)) as pool:
+            return _built(pool.imap(_build_lexicon, LEXICON_TASKS))
     finally:
         _WORKER.clear()
 
@@ -2099,8 +2141,11 @@ def _desktop(flag, request):
         pickle.dump(None, sent)
         sent.seek(0)
         cmd = rf"{ocr_remote.HOME}\venv\Scripts\python.exe {ocr_remote.code_dir()}\tools\letter_facts.py {flag}"
-        proc = subprocess.Popen([*desktop_busy.SSH, host, cmd], stdin=sent, stdout=subprocess.PIPE, stderr=err)
+        proc = subprocess.Popen([*desktop_busy.SSH, host, cmd], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                                stderr=err)
         watchdog = _Silence(DESKTOP_SILENCE, proc.kill)
+        feeder = threading.Thread(target=_feed, args=(sent, proc.stdin, watchdog), daemon=True)
+        feeder.start()
         try:
             while (got := pickle.load(proc.stdout)) is not None:
                 watchdog.reset()
@@ -2111,13 +2156,36 @@ def _desktop(flag, request):
             err.seek(0)
             tail = err.read().decode(errors="replace").strip()[-300:]
             if watchdog.fired:
-                raise _Unavailable(f"{host} sent nothing in {DESKTOP_SILENCE}s: {tail or 'no stderr'}") from None
+                raise _Unavailable(f"{host} neither took the request nor sent anything in {DESKTOP_SILENCE}s:"
+                                   f" {tail or 'no stderr'}") from None
             raise _Unavailable(f"{host} stopped ({type(e).__name__}, ssh exit {proc.returncode}): {tail}") from None
         finally:
             watchdog.cancel()
             if proc.poll() is None:
                 proc.kill()
             proc.wait()
+            feeder.join(5)
+
+
+#: Bytes of a request _feed writes to ssh at a time, each a sign of life.
+FEED_CHUNK = 1 << 20
+
+
+def _feed(src, dst, watchdog):
+    """Copy the request `src` into ssh's stdin `dst` a FEED_CHUNK at a time,
+    resetting `watchdog` after each, then close `dst`. The pipe holds only
+    a few chunks, so a write returns as the desktop takes the bytes: on a
+    slow link the corpus takes minutes to cross (~185 MB at ~0.4 MB/s on
+    the desktop's Wi-Fi beside the OCR pass), and that is not silence. A
+    killed ssh ends it quietly."""
+    try:
+        while chunk := src.read(FEED_CHUNK):
+            dst.write(chunk)
+            dst.flush()
+            watchdog.reset()
+        dst.close()
+    except (OSError, ValueError):  # ssh killed (BrokenPipe) or the pipe closed under us
+        pass
 
 
 class _Silence:
@@ -2229,19 +2297,22 @@ def _served():
 def serve_lexicons():
     """--serve-lexicons, on the desktop: _desktop_lexicons' request off stdin
     (the Python, then the corpus's pickled rows and our annotation rows),
-    LEXICONS built one process each and pickled to stdout as a tuple, a BEAT
-    every HEARTBEAT seconds before it, then None."""
+    LEXICON_TASKS built one process each and pickled to stdout as a tuple of
+    LEXICONS, a BEAT once the request is read and every HEARTBEAT seconds
+    after until then, then None."""
     inp, out = _served()
     with tempfile.TemporaryDirectory() as d:
         state = Path(d) / "corpus.pkl"
         state.write_bytes(pickle.dumps(pickle.load(inp), pickle.HIGHEST_PROTOCOL))
-        with multiprocessing.get_context("spawn").Pool(len(LEXICONS), _lexicon_worker, (str(state),)) as pool:
-            got = pool.map_async(_build_lexicon, LEXICONS)
+        pickle.dump(BEAT, out)  # the request is in: the silence limit restarts here, not a HEARTBEAT on
+        out.flush()
+        with multiprocessing.get_context("spawn").Pool(len(LEXICON_TASKS), _lexicon_worker, (str(state),)) as pool:
+            got = pool.map_async(_build_lexicon, LEXICON_TASKS, chunksize=1)
             while not got.ready():
                 got.wait(HEARTBEAT)
                 pickle.dump(BEAT, out)
                 out.flush()
-            pickle.dump(tuple(got.get()), out, pickle.HIGHEST_PROTOCOL)
+            pickle.dump(_built(got.get()), out, pickle.HIGHEST_PROTOCOL)
     pickle.dump(None, out)
     out.flush()
 
