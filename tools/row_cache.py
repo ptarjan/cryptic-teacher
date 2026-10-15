@@ -97,9 +97,19 @@ def data_files(name, roots):
     return sorted(found)
 
 
-def _data_salt(name, roots):
+#: data_files() per (module, roots, code key): following the code to its
+#: data files took ~4s a call, and blog_facts.puzzle_rows calls three times a
+#: run. The files are a function of the code, so the code key keys them; their
+#: bytes are hashed afresh each call.
+_DATA_FILES = {}
+
+
+def _data_salt(name, roots, code_key=None):
+    k = (name, frozenset(roots), code_key)
+    if code_key is None or k not in _DATA_FILES:
+        _DATA_FILES[k] = data_files(name, roots)
     h = hashlib.sha1()
-    for p in data_files(name, roots):
+    for p in _DATA_FILES[k]:
         h.update(p.name.encode() + b"\0" + (p.read_bytes() if p.exists() else b"absent") + b"\0")
     return h.hexdigest()[:16]
 
@@ -111,7 +121,8 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None):
     paths = list(paths)
     try:
         conn = _open()
-        code = f"{name}.{fn.__name__}:{code_reach.key(name, {fn.__name__, *roots})}:{salt}:{_data_salt(name, {fn.__name__, *roots})}"
+        code_key = code_reach.key(name, {fn.__name__, *roots})
+        code = f"{name}.{fn.__name__}:{code_key}:{salt}:{_data_salt(name, {fn.__name__, *roots}, code_key)}"
         keys = {p: _key(code, p, b) for p, b in _blobs(paths).items()}
         stored = {}
         uniq = list(set(keys.values()))

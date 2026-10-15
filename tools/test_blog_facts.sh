@@ -430,4 +430,31 @@ recs = bf.bigdave_records()
 parsed.write_text("{\"series\": \"dt\", \"number\": 0, \"entries\": []}\n" + rec(9, "9-across", "Other (5)", "OTHER"))
 print(json.dumps([bf.entries_of(r[2]) for r in recs]))' 2>&1)"
 
+# puzzle_rows views a puzzle file once per content and code: a second run
+# views none, an edited file alone is viewed again, and what it hands
+# load_puzzles, inputs_digest and letter_facts.annotation_rows is what a
+# fresh view gives. Scratch puzzles and a scratch row store.
+check "puzzle rows are cached per file and equal a fresh view" 'cold 3, warm 0, edited 1, same True' \
+  "$(TMP="$(mktemp -d)" REPO="$REPO" CT_JOBS=1 python3 -c '
+import os, shutil, sys
+from pathlib import Path
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+import blog_facts as bf, letter_facts as lf, puzzle_paths, row_cache
+from fetch_puzzle import read_puzzle_view
+tmp = Path(os.environ["TMP"]); real = puzzle_paths.puzzle_files("azed")[-3:]
+puzzle_paths.PUZZLE_DIR = tmp / "puzzles"; row_cache.STORE = tmp / "rows.sqlite"
+for f in real:
+    (tmp / "puzzles" / f.parent.parent.name / f.parent.name).mkdir(parents=True, exist_ok=True)
+    shutil.copy(f, tmp / "puzzles" / f.parent.parent.name / f.parent.name / f.name)
+viewed = []
+bf.read_puzzle_view = lambda p: (viewed.append(p), read_puzzle_view(p))[1]
+cold = bf.puzzle_rows(); n_cold = len(viewed); viewed.clear()
+warm = bf.puzzle_rows(); n_warm = len(viewed); viewed.clear()
+f = bf.puzzle_files()[0]; f.write_text(f.read_text().replace("\"solution\": \"", "\"solution\": \"X", 1))
+edited = bf.puzzle_rows(); n_edit = len(viewed)
+fresh = [(p, bf.puzzle_row(p)) for p in bf.puzzle_files()]
+same = cold == warm and edited == fresh and edited[0] != cold[0] \
+    and list(lf.annotation_rows()) == [a for _, r in fresh for a in r["annotated"]]
+print(f"cold {n_cold}, warm {n_warm}, edited {n_edit}, same {same}")' 2>&1)"
+
 [ "$fails" -eq 0 ] && echo "all blog_facts checks passed" || { echo "$fails failed"; exit 1; }
