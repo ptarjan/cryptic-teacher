@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,30 @@
     "text": "Movie featuring Michael Caine's depiction of terminal character",
     "enumeration": "4"
    },
-   "solution": "ZULU"
+   "solution": "ZULU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Movie featuring Michael Caine",
+      "at": 0,
+      "meaning": "first meaning: the 1964 war film in which Michael Caine had his breakthrough role"
+     },
+     {
+      "text": "depiction of terminal character",
+      "at": 32,
+      "meaning": "second meaning: the NATO phonetic-alphabet word standing for Z, the last letter"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 's reads as a possessive of Caine but merely joins the two meanings. Terminal character means the final letter of the alphabet.",
+     "definitionFit": "The film about the 1879 battle of Rorke's Drift shares its title with the radio code word for Z."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "terminal"
+    }
+   }
   },
   {
    "number": 2,
@@ -45,7 +71,93 @@
     "text": "Italian chemist and American doctor in turn avoid putting out papers at the beginning",
     "enumeration": "8"
    },
-   "solution": "AVOGADRO"
+   "solution": "AVOGADRO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Italian chemist",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at the beginning",
+       "at": 69,
+       "note": "says the shortened avoid comes first in the answer"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "putting out",
+         "at": 50,
+         "note": "putting the papers out of the word avoid removes them from it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "avoid",
+         "at": 44,
+         "note": "taken as written, before its papers are removed"
+        },
+        {
+         "words": "papers",
+         "at": 62,
+         "gives": "ID",
+         "note": "ID, identity papers"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 36,
+         "note": "the American doctor sits in the word for a turn"
+        }
+       ],
+       "parts": [
+        {
+         "words": "turn",
+         "at": 39,
+         "gives": "GO",
+         "note": "a go is one's turn in a game"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "American",
+           "at": 20,
+           "gives": "A"
+          },
+          {
+           "words": "doctor",
+           "at": 29,
+           "gives": "DR"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling tale of a scientist and a US physician taking turns to dodge the press early on.",
+     "walkthrough": "'In turn' looks like 'one after the other' but means placed inside a word for turn.",
+     "definitionFit": "Amedeo Avogadro was the nineteenth-century Italian scientist behind Avogadro's law and number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +177,69 @@
      }
     ]
    },
-   "solution": "LIVEDANGEROUSLY"
+   "solution": "LIVEDANGEROUSLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "take risks",
+      "at": 51
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "travelling",
+       "at": 6,
+       "note": "letters that are travelling move about, so these words are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Loved",
+         "at": 0,
+         "note": "taken as written as anagram fodder"
+        },
+        {
+         "words": "Aer Lingus",
+         "at": 22,
+         "note": "taken as written as anagram fodder"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 35,
+           "note": "ultimately points to the final letter of they"
+          }
+         ],
+         "parts": [
+          {
+           "words": "they",
+           "at": 46,
+           "note": "supplies only its final letter"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fans of the Irish airline find flying with it a thrill for the adventurous.",
+     "walkthrough": "Aer Lingus is Ireland's national airline.",
+     "definitionFit": "The phrase is an idiom for courting danger and taking chances in how one behaves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "travelling"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +253,56 @@
     "text": "Man, say, is somewhat travel-sick heading north",
     "enumeration": "4"
    },
-   "solution": "ISLE"
+   "solution": "ISLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Man, say",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "heading north",
+       "at": 34,
+       "note": "in a down clue, heading north means the letters read upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "somewhat",
+         "at": 13,
+         "note": "only some of the letters of travel-sick are used, a run inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "travel-sick",
+         "at": 22,
+         "gives": "ELSI",
+         "note": "the run of letters straddling the hyphen is used"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man confesses he is a bit queasy when travelling.",
+     "walkthrough": "'Man' is not a person but the Isle of Man; 'say' marks it as an example.",
+     "definitionFit": "The Isle of Man is an example of an island in the Irish Sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +322,75 @@
      }
     ]
    },
-   "solution": "JEHOVAHSWITNESS"
+   "solution": "JEHOVAHSWITNESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "doorknocker?",
+      "at": 48
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "excited",
+       "at": 31,
+       "note": "excited letters are stirred up, so this collection is rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "Occasionally",
+           "at": 0,
+           "note": "taking letters only occasionally means every other letter of even"
+          }
+         ],
+         "parts": [
+          {
+           "words": "even",
+           "at": 13,
+           "note": "its second and fourth letters are taken"
+          }
+         ]
+        },
+        {
+         "words": "Joe Swash",
+         "at": 18,
+         "note": "taken as written as anagram fodder"
+        },
+        {
+         "words": "is",
+         "at": 28,
+         "note": "taken as written as anagram fodder"
+        },
+        {
+         "words": "the",
+         "at": 44,
+         "note": "taken as written as anagram fodder"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "TV presenter Joe Swash gets thrilled by someone knocking at the door.",
+     "walkthrough": "Joe Swash is a British TV personality, known from EastEnders. The question mark flags the playful definition.",
+     "definitionFit": "Members of this religious group are known for evangelising by calling at homes door to door."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "excited"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +404,70 @@
     "text": "Right for electoral system to cover vote conclusively",
     "enumeration": "6"
    },
-   "solution": "PROPER"
+   "solution": "PROPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Right",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "for",
+       "at": 6,
+       "gives": "PRO",
+       "note": "pro means in favour of"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to cover",
+         "at": 27,
+         "note": "the system's letters go round the vote's letter, covering it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "electoral system",
+         "at": 10,
+         "gives": "PR",
+         "note": "PR is proportional representation"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "conclusively",
+           "at": 41,
+           "note": "conclusively picks the final letter of vote"
+          }
+         ],
+         "parts": [
+          {
+           "words": "vote",
+           "at": 36,
+           "note": "supplies only its final letter"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An argument that a particular voting method suits the way ballots are finally counted.",
+     "definitionFit": "Proper means correct or fitting, the same sense as right in 'the right way'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +481,65 @@
     "text": "Suspect I can't — firstly, peeping Tom will probably like it",
     "enumeration": "6"
    },
-   "solution": "CATNIP"
+   "solution": "CATNIP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tom will probably like it",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Suspect",
+       "at": 0,
+       "note": "as an adjective, suspect means dubious, so the letters are not to be trusted in their order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I can't",
+         "at": 8,
+         "note": "taken as written as anagram fodder"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "firstly",
+           "at": 18,
+           "note": "firstly takes just the opening letter of peeping"
+          }
+         ],
+         "parts": [
+          {
+           "words": "peeping",
+           "at": 27,
+           "note": "supplies only its first letter"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests they cannot be a Peeping Tom, a voyeur, under suspicion.",
+     "walkthrough": "'Peeping Tom' looks like one phrase, but Tom is a tomcat in the definition.",
+     "definitionFit": "A tom is a male cat, and this plant famously excites cats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tom"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +553,84 @@
     "text": "Reveals what's essentially sung over Lily Savage's entrance",
     "enumeration": "7"
    },
-   "solution": "UNVEILS"
+   "solution": "UNVEILS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reveals",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "essentially",
+         "at": 15,
+         "note": "the essence of a word is its core, so the middles of sung, over and Lily are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sung",
+         "at": 27,
+         "note": "only its central letters are used"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "over",
+         "at": 32,
+         "note": "only its central letters are used"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "parts": [
+        {
+         "words": "Lily",
+         "at": 37,
+         "note": "only its central letters are used"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "entrance",
+         "at": 51,
+         "note": "an entrance is the way in, so the first letter of Savage"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Savage's",
+         "at": 42,
+         "note": "supplies only its first letter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer's performance over the drag act's arrival on stage.",
+     "walkthrough": "Lily Savage was the drag persona of the British comedian Paul O'Grady.",
+     "definitionFit": "To unveil something is to disclose it, the same as revealing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lily"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +650,69 @@
      }
     ]
    },
-   "solution": "EARWAX"
+   "solution": "EARWAX",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "obstruction for auditors?",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "supply",
+       "at": 10,
+       "note": "read as the adverb of supple, so the remaining letters bend into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "withdraw",
+         "at": 33,
+         "note": "withdraw tells us the newspaper's letters pull out of the words tax and water"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "Tax water",
+           "at": 0,
+           "note": "taken as written, before both T's are removed"
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        },
+        {
+         "words": "the Times",
+         "at": 23,
+         "gives": "T",
+         "note": "T is the newspaper abbreviation for the Times; the plural Times means a T leaves each word, tax and water"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that the water bill rises once a newspaper pulls out.",
+     "walkthrough": "'Supply' looks like a noun with water but is the adverb from supple. Auditors here are listeners, not accountants.",
+     "definitionFit": "Wax in the ear can block hearing, so it is a blockage for anyone listening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "auditors"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +726,54 @@
     "text": "Displayed antelope hearts on the counter",
     "enumeration": "4"
    },
-   "solution": "HUNG"
+   "solution": "HUNG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Displayed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "on the counter",
+       "at": 26,
+       "note": "counter means running the other way, so the letters are read backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "antelope",
+         "at": 10,
+         "gives": "GNU",
+         "note": "a gnu is a wildebeest, a kind of antelope"
+        },
+        {
+         "words": "hearts",
+         "at": 19,
+         "gives": "H",
+         "note": "H is the card-suit abbreviation"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Antelope hearts set out for sale on a butcher's counter.",
+     "walkthrough": "'On the counter' paints a shop but means in the counter direction.",
+     "definitionFit": "Pictures are hung on a wall when they are exhibited, so hung means put on show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "counter"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +799,68 @@
      }
     ]
    },
-   "solution": "EYEPOPPING"
+   "solution": "EYEPOPPING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Amazing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 9,
+         "note": "a revolution turns something round, so the character's name is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "animated character",
+         "at": 23,
+         "gives": "POPEYE",
+         "note": "Popeye the Sailor Man, the cartoon character"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not for everyone",
+         "at": 50,
+         "note": "U is the film certificate meaning suitable for everyone, so it is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pingu",
+         "at": 42,
+         "note": "the animated penguin, taken as written before losing a letter"
+        },
+        {
+         "gives": "U"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that the children's penguin cartoon is too radical for general viewing.",
+     "walkthrough": "U is the British film classification for universal viewing.",
+     "definitionFit": "Something eye-popping is so startling that it makes one's eyes bulge, hence astonishing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +874,63 @@
     "text": "Group of players missing header right before six-footer arrives for corner?",
     "enumeration": "8"
    },
-   "solution": "QUADRANT"
+   "solution": "QUADRANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "corner?",
+      "at": 68
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing header",
+         "at": 17,
+         "note": "the first letter of the word for the group is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Group of players",
+         "at": 0,
+         "gives": "SQUAD",
+         "note": "a squad is a team's group of players"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 32,
+       "gives": "R"
+      },
+      {
+       "words": "six-footer",
+       "at": 45,
+       "gives": "ANT",
+       "note": "an ant is an insect, and insects have six legs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer taking a header after a tall player arrives for a corner kick.",
+     "walkthrough": "The football words header and corner are misdirection; six-footer is a six-legged creature, not a tall person.",
+     "definitionFit": "A quadrant is one quarter of an area, which can be a corner of it; the question mark flags the stretch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "six-footer"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +944,41 @@
     "text": "Educational establishment ruins it every now and then",
     "enumeration": "3"
    },
-   "solution": "UNI"
+   "solution": "UNI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Educational establishment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "every now and then",
+       "at": 35,
+       "note": "only some letters at regular intervals are kept, every other one"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ruins it",
+       "at": 26,
+       "note": "its second, fourth and sixth letters are taken"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that a school is spoilt from time to time.",
+     "definitionFit": "Uni is the informal short form of university, a place of higher learning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ruins"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +992,55 @@
     "text": "Leaders from Leyton Orient and Northampton Town worried regarding pitch",
     "enumeration": "5"
    },
-   "solution": "TONAL"
+   "solution": "TONAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "regarding pitch",
+      "at": 56
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "worried",
+       "at": 48,
+       "note": "worried letters are fretted over and shaken up into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Leaders from",
+         "at": 0,
+         "note": "the leaders of words are their first letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Leyton Orient and Northampton Town",
+         "at": 13,
+         "note": "each word gives its first letter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bosses at two English football clubs are anxious about the state of their playing surface.",
+     "walkthrough": "Leyton Orient and Northampton Town are English football clubs; 'pitch' is musical, not the field.",
+     "definitionFit": "Tonal describes tone, the musical quality governed by how high or low a note sounds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pitch"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +1054,72 @@
     "text": "A bully briefly seizing power will be short",
     "enumeration": "6"
    },
-   "solution": "ABRUPT"
+   "solution": "ABRUPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "short",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "seizing",
+         "at": 16,
+         "note": "the shortened word takes hold of the power letter, which goes inside"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 8,
+           "note": "cut short, the word loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bully",
+           "at": 2,
+           "gives": "BRUTE",
+           "note": "a brute is a cruel, bullying person"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        },
+        {
+         "words": "power",
+         "at": 24,
+         "gives": "P"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tyrant who grabs power won't last long.",
+     "definitionFit": "Abrupt means curt or sudden, so brief in manner or duration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1133,53 @@
     "text": "Doctor I ran to with diagnosis for disorder",
     "enumeration": "15"
    },
-   "solution": "DISORGANISATION"
+   "solution": "DISORGANISATION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "disorder",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Doctor",
+       "at": 0,
+       "note": "as a verb, to doctor is to tamper with, so the letters are altered"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I ran to",
+         "at": 7,
+         "note": "taken as written as anagram fodder"
+        },
+        {
+         "words": "diagnosis",
+         "at": 21,
+         "note": "taken as written as anagram fodder"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient runs to the GP for a diagnosis of their ailment.",
+     "walkthrough": "'Doctor' and 'disorder' set a medical scene; doctor is the verb and disorder means chaos.",
+     "definitionFit": "Disorganisation is a state of confusion and lack of order, a synonym for disorder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1193,41 @@
     "text": "Queue behind rugby player",
     "enumeration": "8"
    },
-   "solution": "TAILBACK"
+   "solution": "TAILBACK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Queue",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "behind",
+       "at": 6,
+       "gives": "TAIL",
+       "note": "a tail is the rear or behind of something"
+      },
+      {
+       "words": "rugby player",
+       "at": 13,
+       "gives": "BACK",
+       "note": "a back is a rugby position, behind the forwards"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Waiting in line behind a rugby player.",
+     "definitionFit": "A tailback is a line of traffic held up on a road, a vehicle queue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1241,60 @@
     "text": "Published books about defrocked nun",
     "enumeration": "3"
    },
-   "solution": "OUT"
+   "solution": "OUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Published",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 16,
+       "note": "the books go about, around, the letter from nun"
+      }
+     ],
+     "parts": [
+      {
+       "words": "books",
+       "at": 10,
+       "gives": "OT",
+       "note": "OT is the Old Testament, a set of books of the Bible"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "defrocked",
+         "at": 22,
+         "note": "losing her frock strips off the outside, leaving the middle of nun"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nun",
+         "at": 32,
+         "note": "only its central letter is left"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Religious books about a nun who has been thrown out of her order.",
+     "definitionFit": "A book that is out has been released and is available, so it has been published."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "defrocked"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1308,56 @@
     "text": "In court hearing unprepared for commotion",
     "enumeration": "6"
    },
-   "solution": "UPROAR"
+   "solution": "UPROAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "commotion",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "In court",
+       "at": 0,
+       "gives": "UP",
+       "note": "to be up before a judge is to be in court"
+      },
+      {
+       "op": "homophone",
+       "spelt": "ROAR",
+       "indicators": [
+        {
+         "text": "hearing",
+         "at": 9,
+         "note": "heard aloud, the word for unprepared matches another word in a non-rhotic accent"
+        }
+       ],
+       "parts": [
+        {
+         "words": "unprepared",
+         "at": 17,
+         "gives": "RAW",
+         "note": "raw means uncooked or unready"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unready lawyer at a court hearing.",
+     "walkthrough": "In many British accents raw and roar sound the same.",
+     "definitionFit": "An uproar is a noisy disturbance, which is a commotion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hearing"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1371,42 @@
     "text": "Top referee's hiding favour",
     "enumeration": "6"
    },
-   "solution": "PREFER"
+   "solution": "PREFER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "favour",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "hiding",
+       "at": 14,
+       "note": "the words are hiding the answer inside them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Top referee's",
+       "at": 0,
+       "note": "the run of letters straddling these words gives the answer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A senior referee secretly shows bias to one side.",
+     "walkthrough": "'Favour' looks like a noun but is a verb here.",
+     "definitionFit": "To prefer something is to like it better, which is to favour it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "favour"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1426,52 @@
      }
     ]
    },
-   "solution": "ORELSE"
+   "solution": "ORELSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Failing that",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 20,
+         "note": "letters at regular intervals, every other one, are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "course",
+         "at": 13,
+         "note": "its second, fourth and sixth letters are taken"
+        }
+       ]
+      },
+      {
+       "words": "university",
+       "at": 37,
+       "gives": "LSE",
+       "note": "the LSE is the London School of Economics"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student told to take a course before university, or else drop out.",
+     "definitionFit": "Or else introduces an alternative, meaning if not or otherwise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Failing"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1491,74 @@
      }
     ]
    },
-   "solution": "LAIDINTO"
+   "solution": "LAIDINTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "attacked",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 7,
+         "note": "back means the letters run in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "I",
+           "at": 0,
+           "note": "taken as written"
+          },
+          {
+           "words": "ring",
+           "at": 2,
+           "gives": "DIAL",
+           "note": "to ring someone is to dial them"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "prepared",
+         "at": 18,
+         "note": "prepared means made up or worked into shape, so the letters are reworked"
+        }
+       ],
+       "parts": [
+        {
+         "words": "not",
+         "at": 14,
+         "note": "taken as written as anagram fodder"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone calls back to say they are not ready to be criticised.",
+     "definitionFit": "To lay into someone is an idiom for assaulting them, physically or verbally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1578,76 @@
      }
     ]
    },
-   "solution": "VENEZUELAN"
+   "solution": "VENEZUELAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "South American",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "screening",
+         "at": 28,
+         "note": "the venue screens, hides, the shorthand inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cinema maybe",
+         "at": 15,
+         "gives": "VENUE",
+         "note": "a cinema is an example of a venue"
+        },
+        {
+         "words": "Hollywood's Easy",
+         "at": 38,
+         "gives": "EZ",
+         "note": "EZ is American shorthand for easy"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "virtually",
+         "at": 62,
+         "note": "virtually means almost, so the last letter is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Street",
+         "at": 55,
+         "gives": "LANE",
+         "note": "a lane is a narrow street"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cinema showing the film 'Easy Street' to an audience in South America.",
+     "walkthrough": "Hollywood's flags an American form; screening plays on showing films.",
+     "definitionFit": "Venezuela is a country in South America, so a Venezuelan is from that continent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "screening"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1661,49 @@
     "text": "This writer's breaking pound to get quarter",
     "enumeration": "4"
    },
-   "solution": "LIMB"
+   "solution": "LIMB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "quarter",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "breaking",
+       "at": 14,
+       "note": "the setter breaks into the pound letters, splitting them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "pound",
+       "at": 23,
+       "gives": "LB",
+       "note": "lb is the abbreviation for a pound weight"
+      },
+      {
+       "words": "This writer's",
+       "at": 0,
+       "gives": "IM",
+       "note": "I'm, the setter speaking of themselves"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter splurges a pound to buy a quarter of something.",
+     "walkthrough": "'This writer's' is the setter's I'm, the 's being is.",
+     "definitionFit": "A butcher divides a carcass into quarters, each a limb with its leg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quarter"
+    }
+   }
   },
   {
    "number": 25,
@@ -438,7 +1740,43 @@
    "group": [
     "26-down",
     "25-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Picture expert",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "glaze",
+       "at": 25,
+       "gives": "FILM",
+       "note": "a glaze is a thin film over a surface"
+      },
+      {
+       "words": "polish",
+       "at": 36,
+       "gives": "BUFF",
+       "note": "to buff is to polish"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Restoring a painting: a varnish followed by a buffing shine.",
+     "walkthrough": "'Picture' means a movie, not a painting.",
+     "definitionFit": "A buff is an enthusiast with specialist knowledge, and a picture is a movie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Picture"
+    }
+   }
   },
   {
    "number": 27,
@@ -452,7 +1790,59 @@
     "text": "Withstand having been separated — it's beastly",
     "enumeration": "6"
    },
-   "solution": "WEASEL"
+   "solution": "WEASEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "it's beastly",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "having been separated",
+       "at": 10,
+       "note": "once the clue word is separated into with and stand, each half is swapped for a short form or a synonym: W for with, an easel for a stand"
+      }
+     ],
+     "parts": [
+      {
+       "op": "substitution",
+       "parts": [
+        {
+         "words": "Withstand",
+         "at": 0,
+         "note": "taken as written, then split into its two words, with and stand"
+        },
+        {
+         "gives": "WITH"
+        },
+        {
+         "gives": "W"
+        }
+       ]
+      },
+      {
+       "gives": "STAND"
+      },
+      {
+       "gives": "EASEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resisting after being pulled apart from a brute.",
+     "walkthrough": "Split Withstand into with and stand: W is the abbreviation for with, and an easel is a stand for a painting.",
+     "definitionFit": "A weasel is a small carnivorous mammal, so it is an animal, a beast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Withstand"
+    }
+   }
   },
   {
    "number": 28,
@@ -466,7 +1856,61 @@
     "text": "Perhaps South Pacific island's captured by surprisingly calm US",
     "enumeration": "7"
    },
-   "solution": "MUSICAL"
+   "solution": "MUSICAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perhaps South Pacific",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captured by",
+       "at": 31,
+       "note": "the island letter is held inside the rearranged letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "surprisingly",
+         "at": 43,
+         "note": "the letters are arranged in a surprising, unexpected new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "calm US",
+         "at": 56,
+         "note": "taken as written as anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "island's",
+       "at": 22,
+       "gives": "I",
+       "note": "I is the abbreviation for island"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Pacific island seized by a placid America, to everyone's astonishment.",
+     "walkthrough": "South Pacific is the Rodgers and Hammerstein stage show, not the ocean.",
+     "definitionFit": "South Pacific is an example of a stage show with songs, hence 'perhaps'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pacific"
+    }
+   }
   }
  ]
 }
