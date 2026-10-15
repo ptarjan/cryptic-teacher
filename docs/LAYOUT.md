@@ -2678,5 +2678,12 @@ tools/test_unit_idle.sh                        does unit_queue.why_run let the b
                                                a queue whose shell plans the tick (daily) past
                                                the gates; and a full tick at least every
                                                FULL_EVERY?
+tools/test_parallel.sh                         does tools/parallel.py size its pool to the box?
+                                               CT_JOBS wins; a process at nice 0 (the deploy's
+                                               build) takes every core; a niced one (the daily
+                                               units, the corpus job) takes only the cores the
+                                               load leaves idle, down to one, and pmap then
+                                               runs serially with no fork; and pmap's results
+                                               are the serial loop's either way
 ```
 <!-- LAYOUT-END -->
