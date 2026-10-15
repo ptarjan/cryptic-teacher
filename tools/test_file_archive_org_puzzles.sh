@@ -886,10 +886,12 @@ check("a refile of the number holding the page, and the page on another day, are
 parsed, real_loads = [], f.json.loads
 f.json.loads = lambda text, *a, **k: parsed.append(text) or real_loads(text, *a, **k)
 f._HELD.clear()
+f._HELD_LISTED.clear()  # a new process
 f.held_dates("times")
 check("held_scans after held_dates parses no file again", [{(url, "1993-01-16"): [19129]}, 2],
       [f.held_scans("times"), len(parsed)])
 os.utime(scan_root / "puzzles" / "times" / "1993" / "times-19131.json", ns=(1, 1))
+f._HELD_LISTED.clear()  # an in-place change: seen once the listing is HELD_FRESH old
 check("a file whose stat moved is parsed again, the other not",
       [{19129: D("1993-01-16"), 19131: D("1993-01-18")}, 3], [f.held_dates("times"), len(parsed)])
 f.json.loads = real_loads
@@ -1220,6 +1222,7 @@ hc = hp / "held.pickle"
 f.held_files("zz")
 f.save_held(hc)
 f._HELD.clear()
+f._HELD_LISTED.clear()  # a new process
 f.load_held(hc)
 f._HELD_MOVED.clear()
 import time
@@ -1231,6 +1234,28 @@ check("a loaded parse stands for an unmoved file; a moved one is read again",
       (loaded[2][0], loaded[1][0], f._HELD_MOVED))
 f.save_held(hc)
 check("save_held writes only after a parse", [], f._HELD_MOVED)
+# Across briefs the last listing stands while no year folder moved and it
+# is under HELD_FRESH old: no file is stat'ed again. A file filed (its
+# folder moves) is seen at once; an in-place rewrite once HELD_FRESH passes.
+f._HELD_LISTED.clear()
+base = sorted(n for n, _ in f.held_files("zz"))
+real_stat, stats = Path.stat, []
+Path.stat = lambda self, *a, **k: stats.append(self) or real_stat(self, *a, **k)
+again = sorted(n for n, _ in f.held_files("zz"))
+Path.stat = real_stat
+check("held_files reuses its listing while no folder moved (no file stat'ed)", (base, []), (again, stats))
+time.sleep(0.01)
+(hp / "puzzles" / "zz" / "1999" / "zz-4.json").write_text('{"date": "1999-01-04"}')
+check("a new file moves its folder: held_files lists again at once", base + [4],
+      sorted(n for n, _ in f.held_files("zz")))
+time.sleep(0.01)
+(hp / "puzzles" / "zz" / "1999" / "zz-4.json").write_text('{"date": "1999-03-04", "x": 1}')
+stale = dict(f.held_files("zz"))[4][0]
+real_fresh, f.HELD_FRESH = f.HELD_FRESH, 0
+fresh = dict(f.held_files("zz"))[4][0]
+f.HELD_FRESH = real_fresh
+check("an in-place rewrite stands HELD_FRESH, then is read",
+      (datetime.date(1999, 1, 4), datetime.date(1999, 3, 4)), (stale, fresh))
 f.ROOT = real_root
 # plan() lists a settled dir once (dir_cache.seen): a replaced file, a new edition or
 # a moved ledger row each make an edition due again; a fresh dir is not kept.

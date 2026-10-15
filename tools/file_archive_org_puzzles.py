@@ -2858,6 +2858,16 @@ def held_files(series):
     now = getattr(_HELD_NOW, "files", None)
     if now is not None and series in now:
         return list(now[series])
+    # The last listing stands while no year folder moved (a puzzle written
+    # by os.replace, filed or removed moves its folder's mtime) and it is
+    # under HELD_FRESH seconds old: each read's brief stats ~14k files else.
+    folders = _held_folders(series)
+    hit = _HELD_LISTED.get(series)
+    if hit is not None and hit[1] == folders and time.monotonic() - hit[0] < HELD_FRESH:
+        if now is not None:
+            now[series] = list(hit[2])
+        return list(hit[2])
+    listed_at = time.monotonic()
     out = []
     for p in (ROOT / "puzzles" / series).glob("*/*.json"):
         st = p.stat()
@@ -2872,9 +2882,26 @@ def held_files(series):
             _HELD_MOVED.append(p)
         out.append((int(p.stem.split("-")[1]), seen[1]))
         _HELD_PATH[series, out[-1][0]] = p
+    _HELD_LISTED[series] = (listed_at, folders, list(out))
     if now is not None:
         now[series] = list(out)
     return out
+
+
+#: How long held_files trusts its last listing of a series while no year
+#: folder's mtime moved: a backstop for a file rewritten in place.
+HELD_FRESH = 60
+
+#: {series: (when held_files listed it (monotonic), _held_folders then, its list)}.
+_HELD_LISTED = {}
+
+
+def _held_folders(series):
+    """{year folder name: its st_mtime_ns} of a series' puzzle folder."""
+    try:
+        return {e.name: e.stat().st_mtime_ns for e in os.scandir(ROOT / "puzzles" / series) if e.is_dir()}
+    except (FileNotFoundError, NotADirectoryError):
+        return {}
 
 
 class Held(dict):
@@ -4669,11 +4696,26 @@ def brief(paper, rel, cache=CACHE, ledger=None, puzzles=None, source=SOURCE, rer
     read_unit has to run: its scan is stale, or it is not due."""
     ledger = ledger_of(cache, paper, ledger)
     dirs = _PLANNED_DIRS.get((str(cache), paper.key))
-    if dirs is not None and Path(cache) / rel not in dirs:
+    if dirs is None:
+        # Before this process's first plan of the paper (a re-exec's first
+        # minutes) the briefs share one listing a BRIEF_DIRS_FRESH window,
+        # not one each (the interleave of every edition costs seconds).
+        hit = _BRIEF_DIRS.get((str(cache), paper.key))
+        if hit is None or time.monotonic() - hit[0] >= BRIEF_DIRS_FRESH:
+            hit = _BRIEF_DIRS[(str(cache), paper.key)] = (time.monotonic(), edition_dirs(cache, paper))
+        dirs = hit[1]
+    if Path(cache) / rel not in dirs:
         dirs = [*dirs, Path(cache) / rel]
     with held_once():
         return _run(cache, False, ledger, None, puzzles, None, source, paper, None, 1, reread, editions=[rel],
                     unit={"force": force, "dirs": dirs, "brief": True})
+
+
+#: {(cache, paper key): (when listed (monotonic), edition_dirs)} of brief's
+#: listings made before a plan filled _PLANNED_DIRS, each trusted
+#: BRIEF_DIRS_FRESH seconds (a unit's own edition is added regardless).
+_BRIEF_DIRS = {}
+BRIEF_DIRS_FRESH = 30
 
 
 def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, workers, reread, editions=None,

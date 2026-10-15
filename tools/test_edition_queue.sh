@@ -44,6 +44,7 @@ def check(what, want, got):
 
 T = Path(os.environ["TMP"])
 eq.DIR_CACHE, eq.HELD_CACHE, eq.LIKELY_CACHE = T / "dir_cache.pickle", T / "held_files.pickle", T / "likely.pickle"  # never this host's caches
+eq.COUNT_LEFT_CACHE = T / "count_left.pickle"
 q.LEDGERS = {k: T / f"none-{k}.jsonl" for k in ("archive", "gale", "trove")}
 q.REQUESTS = T / "requests.jsonl"
 
@@ -1412,6 +1413,39 @@ check("code_reach answers again from its store, and anew after an edit",
 code_reach.TOOLS, code_reach.STORE = saved
 lock_path = subprocess.run(["git", "rev-parse", "--path-format=absolute", "--git-path", "code.lock"],
                            capture_output=True, text=True, check=True).stdout.strip()
+# count_left_requests finds each id off one listing of its series' year
+# folders and parses a file again only once its stat moves (a plan's ~8k
+# files took two minutes a plan); save/load carries the parses to a re-exec.
+import puzzle_paths
+cl = T / "countleft"
+(cl / "zq" / "1990").mkdir(parents=True)
+(cl / "zq" / "1991").mkdir(parents=True)
+bad = {"entries": [{"number": 1, "length": 7, "clue": {"text": "Overdone quality 7"}}]}
+good = {"entries": [{"number": 1, "length": 7, "clue": {"text": "Overdone quality"}}]}
+(cl / "zq" / "1990" / "zq-1.json").write_text(json.dumps(bad))
+(cl / "zq" / "1991" / "zq-2.json").write_text(json.dumps(good))
+real_cl = (q.sources, q.read_before, puzzle_paths.PUZZLE_DIR, q.json.loads)
+q.sources = lambda: {i: ("archive", f"src-{i}", {}) for i in ("zq-1", "zq-2", "zq-3")}
+q.read_before = lambda row, at: True
+puzzle_paths.PUZZLE_DIR = cl
+cl_parsed = []
+q.json.loads = lambda text, *a, **k: cl_parsed.append(1) or real_cl[3](text, *a, **k)
+q._COUNT_LEFT.clear()
+first_cl = [r["id"] for r in q.count_left_requests()]
+again_cl = [r["id"] for r in q.count_left_requests()]
+check("count_left_requests: the held file with a count left, each parsed once",
+      (["zq-1"], ["zq-1"], 2), (first_cl, again_cl, len(cl_parsed)))
+time.sleep(0.01)
+(cl / "zq" / "1991" / "zq-2.json").write_text(json.dumps(bad) + " ")
+check("a file whose stat moved is parsed again", (["zq-1", "zq-2"], 3),
+      ([r["id"] for r in q.count_left_requests()], len(cl_parsed)))
+q.save_count_left(T / "count_left.pickle")
+q._COUNT_LEFT.clear()
+q.load_count_left(T / "count_left.pickle")
+check("a re-exec's first call parses nothing loaded", (["zq-1", "zq-2"], 3),
+      ([r["id"] for r in q.count_left_requests()], len(cl_parsed)))
+q.sources, q.read_before, puzzle_paths.PUZZLE_DIR, q.json.loads = real_cl
+
 with open(lock_path, "a") as lk:
     fcntl.flock(lk, fcntl.LOCK_EX)
     waiting = subprocess.Popen([sys.executable, "edition_queue.py", "-h"], stdout=subprocess.DEVNULL)
