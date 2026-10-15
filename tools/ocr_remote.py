@@ -75,6 +75,12 @@ HOME = r"C:\Users\micro\ocrw"
 #: Seconds to wait for a session to say it is ready, for one crop and for
 #: one edition.
 CONNECT_TIMEOUT = 60
+#: Seconds to wait for the ready line from a v-<hash> just shipped (connect()):
+#: its first serve compiles every module afresh at idle priority, and on a
+#: box busy with the full pass's sessions that took 90s (2026-10-15: the
+#: LAN session to a freshly shipped v-9001... timed out, the tailnet one a
+#: minute later found it warm, and the alert blamed the LAN).
+COLD_TIMEOUT = 300
 READ_TIMEOUT = 300
 EDITION_TIMEOUT = 1800
 #: A grid search (Session.reconstruct) has no fixed answer time: the node
@@ -729,7 +735,7 @@ class Session:
 
     err = None
 
-    def __init__(self, host):
+    def __init__(self, host, timeout=CONNECT_TIMEOUT):
         self.host = host
         self.err = tempfile.TemporaryFile()  # ssh's stderr for the session's life; close() closes it
         serve = rf"{HOME}\venv\Scripts\python.exe {code_dir()}\tools\ocr_remote.py serve {priority()}"
@@ -737,7 +743,7 @@ class Session:
                                      stderr=self.err)
         self.buf = b""
         try:
-            self.ready = self.answer(CONNECT_TIMEOUT).get("ready")
+            self.ready = self.answer(timeout).get("ready")
         except Unavailable:
             self.close()
             raise
@@ -1009,17 +1015,60 @@ def matched(s):
         f"{k} {s.ready.get(k)} here {local.get(k)}" for k in differ)
 
 
-def opened(host, tries=3):
+def opened(host, tries=3, timeout=CONNECT_TIMEOUT):
     """A Session on `host`, tried `tries` times a few seconds apart (the
-    desktop's sshd turns away a burst of new connections)."""
+    desktop's sshd turns away a burst of new connections); at once when
+    the code is not there (code_missing: trying again finds it no more)."""
     for attempt in range(tries):
         try:
-            return Session(host)
-        except Unavailable:
-            if attempt == tries - 1:
+            return Session(host, timeout)
+        except Unavailable as e:
+            if attempt == tries - 1 or code_missing(str(e)):
                 raise
             time.sleep(random.uniform(2, 8))
     raise AssertionError("unreachable")
+
+
+_CODE_MISSING = re.compile(r"can't open file '[^']*\\v-([0-9a-f]+)\\", re.I)
+
+
+def code_missing(err):
+    """The hash of the v-<hash> a session's error says is not on the desktop
+    (its python could not open the serve script there), else None: the
+    host answered, so it is shipped there, not left for another address."""
+    m = _CODE_MISSING.search(err.replace("\\\\", "\\"))
+    return m and m.group(1)
+
+
+def _unreachable(err):
+    """Whether a session's error is ssh failing to reach the host at all."""
+    return bool(re.search(r"ssh exited \(255\)|Connection (refused|timed out|reset)|No route to host|"
+                          r"Could not resolve|Host key verification failed|Network is unreachable", err))
+
+
+def _stages(reason):
+    """(host, [each stage's error]) of a connect() reason ("host: error[;
+    then host: error]...")."""
+    host, _, rest = reason.partition(": ")
+    return host, [stage.removeprefix(f"{host}: ") for stage in rest.split("; then ")]
+
+
+def dead(reason):
+    """Whether every stage of a connect() reason failed to reach the host."""
+    return all(_unreachable(err) and not code_missing(err) for err in _stages(reason)[1])
+
+
+def brief(reason):
+    """A connect() reason cut to what failed: each stage's error, a missing
+    code directory named as such, so the line still says it when the alert
+    truncates it."""
+    host, stages = _stages(reason)
+    said = []
+    for err in stages:
+        code = code_missing(err)
+        said.append(f"its code dir v-{code} was missing" if code else
+                    f"unreachable ({err.strip()[-100:]})" if _unreachable(err) else err.strip()[:150])
+    return f"{host}: " + ", then ".join(said)
 
 
 def connect():
@@ -1037,17 +1086,23 @@ def connect():
             s, why = None, f"{host}: {e}"
         if s:
             return _connected(s, reasons)
+        # The host answered but lacks the code (code_missing): ship it HERE,
+        # then wait out the fresh copy's cold start (COLD_TIMEOUT) rather
+        # than leave it for another address of the same desktop.
+        missing = code_missing(why or "")
         with open(SHIP_LOCK, "w") as lock:
             fcntl.flock(lock, fcntl.LOCK_EX)
-            try:
-                s, why = matched(opened(host, 1))
-            except Unavailable:
-                s = None
+            try:  # another process may have shipped it meanwhile, its copy as cold
+                s, again = matched(opened(host, 1, COLD_TIMEOUT if missing else CONNECT_TIMEOUT))
+            except Unavailable as e:
+                s, again = None, f"{host}: {e}"
             if s:
                 return _connected(s, reasons)
+            if again and not code_missing(again) and again != why:
+                why = f"{why}; then {again}"
             try:
                 ship(host)
-                s, why = matched(opened(host, 1))
+                s, why = matched(opened(host, 1, COLD_TIMEOUT))
             except (Unavailable, OSError, subprocess.TimeoutExpired) as e:
                 s, why = None, f"{why}; then {host}: {e}"
             if s:
@@ -1120,11 +1175,16 @@ def _connected(s, reasons):
     """`s`, the desktop's outage over; when it is on the tailnet after the
     LAN addresses failed first, one line says so (a LAN lease moving to
     another listed or learned address is routine: by_path ranks the live
-    one first, desktop_hosts.ranked)."""
+    one first, desktop_hosts.ranked). The line says what failed (brief):
+    "no LAN address answers" only when none did; a LAN host that answered
+    and then failed (its code missing, a cold start too slow) is named as
+    that, not as a dead address (2026-10-15)."""
     alert_over("down")
     if reasons and desktop_hosts.tailnet(s.host.rpartition("@")[2]):
-        alert_once(f"fallback-{s.host}", f"desktop OCR: fell back to {s.host} (no LAN address works); "
-                   f"failed first: {'; '.join(r[:150] for r in reasons)}")
+        alert_once(f"fallback-{s.host}", f"desktop OCR: fell back to {s.host} "
+                   + ("(no LAN address answers)" if all(dead(r) for r in reasons)
+                      else "after a LAN session failed")
+                   + f": {'; '.join(brief(r) for r in reasons)}")
     return s
 
 
