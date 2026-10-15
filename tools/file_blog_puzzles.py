@@ -319,17 +319,17 @@ NOTED = re.compile(r"\(\s*(\d{1,2})\s*,\s*should say\s*[“\"']?((?:two|three|fo
 
 
 def worded(clue, enum):
-    """The clue with a count in words, "(11, two words)", written as the
-    enumeration the blog read off the answer, "(5,6)", when that has the same
-    total and as many words; else the clue as it was, the printed count kept
+    """The clue with a count that withholds its breaks, "(11, two words)",
+    "(8, hyphenated)", "(11*)", written as the enumeration the blog read off
+    the answer, "(5,6)", when that fits it (enumeration.fits_worded: the same
+    total and as many words, or hyphens only); else the clue as it was, the printed count kept
     in its text. A blogger's "should say" note is taken only when the answer
     agrees with it."""
     noted = NOTED.search(clue or "")
     m = enumeration.worded(NOTED.sub(r"(\1, \2)", clue or "") if noted else clue)
     if not (m and enum):
         return clue
-    parts = enumeration_parts(enum)
-    if sum(n for n, _ in parts) != m[0] or len(parts) != m[1]:
+    if not enumeration.fits_worded(m, enumeration_parts(enum)):
         return clue
     return with_enumeration(clue, enum)
 
