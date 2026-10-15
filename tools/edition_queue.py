@@ -712,6 +712,8 @@ class Beside:
 mem_gate_reader = None
 #: What the CPU gate reads (tests swap it); None is mem_gate.load.
 cpu_gate_reader = None
+#: What the idle-core gate reads (tests swap it); None is mem_gate.idle_cores.
+idle_gate_reader = None
 #: What the burn-first gate reads (tests swap it); None is mem_gate.burn_state.
 burn_gate_reader = None
 #: Why the desktop is busy, or None (tests swap it); None is desktop_busy.busy over ocr_remote.hosts().
@@ -768,6 +770,22 @@ def load_gated(unit):
     there, and whatever it would read here waits for one of ocr_remote's
     LOCAL_SLOTS, so the burn's load on this host does not idle the desktop."""
     return unit["kind"] == "fetch" or not ocr_remote.hosts()
+
+
+#: The pools whose units work on this host's CPU with a desktop set: a Trove
+#: article's OCR and grid search (file_trove_puzzles), the Listener's
+#: Tesseract. Scans and edition reads wait on the desktop, fetches on the
+#: network: those pools stay their full width.
+LOCAL_POOLS = ("trove", "listener")
+
+
+def local_cpu(unit):
+    """Whether `unit` works on this host's CPU, so starts only while the
+    cores everything else leaves idle hold one more (mem_gate.idle_room): a
+    LOCAL_POOLS unit, or any scan or read with no desktop set. Its pool is
+    then as wide as the idle cores, at most its fixed count; units running
+    are never touched."""
+    return slot_of(unit) in LOCAL_POOLS or (unit["kind"] != "fetch" and not ocr_remote.hosts())
 
 
 def desktop_yielding():
@@ -887,6 +905,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
              **{f"fetch {src}": FETCHERS[src]["workers"] for src in fetch}}
     outages = dict.fromkeys(fetch, 0)
     memory_bound = cpu_bound = desktop_bound = desk_mem_bound = False  # logged once per slice
+    idle_bound = False  # logged once each time the idle cores run out
     opened = []  # when this run started each unit that opens a desktop session (desktop_room), the last hour's
     closed = []  # (start, end) wall times of those units that ended, the last hour's (desktop_sessions)
     burn_bound = False  # logged once each time the burn starts starving
@@ -1119,7 +1138,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             free[slot_of(u)] = free.get(slot_of(u), 0) - 1
         begun_now = charged = 0
         costs = None  # unit_costs, measured at this pass's first start
-        held_back = cpu_held = False
+        held_back = cpu_held = idle_held = False
+        local_now = 0  # local_cpu units begun this pass, a core each
+        idle_read = {}
         starved = mem_gate.burn_starved(burn_gate_reader)
         if starved and not burn_bound:
             log(f"{mem_gate.burn_line(starved)} ({len(running) + len(adopted)} running are left alone)")
@@ -1239,9 +1260,17 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 if cpu_held or not cpu_read[begun_now]:
                     cpu_held = True
                     continue
+            local = local_cpu(u)
+            if local:
+                if not idle_held and local_now not in idle_read:
+                    idle_read[local_now] = mem_gate.idle_room(local_now, idle_gate_reader)
+                if idle_held or not idle_read[local_now]:
+                    idle_held = True
+                    continue
             if not start(u):
                 unscanned.add((u["paper"], u["rel"]))
                 continue
+            local_now += local
             begun_now += 1
             charged += cost
             if not load_gated(u):
@@ -1273,6 +1302,13 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             cpu_bound = True
             log(f"cpu-bound: load over {mem_gate.LOAD_PER_CORE:g} per core; only units the desktop reads start until it falls "
                 f"({len(running) + len(adopted)} running are left alone)")
+        if idle_held and not idle_bound:
+            idle = (idle_gate_reader or mem_gate.idle_cores)()
+            log(f"idle-bound: {idle if idle is None else round(idle, 1)} idle core(s), {local_now} local unit(s) "
+                f"begun this pass; no unit that works on this host's CPU (local_cpu) starts until a core "
+                f"is idle, those waiting on the desktop or the network go on "
+                f"({sum(local_cpu(v) for _, (v, _) in units_running())} local running are left alone)")
+        idle_bound = idle_held
         if stop:
             break
         if handoff and not may_start() and not any(b.busy() for b in beside):

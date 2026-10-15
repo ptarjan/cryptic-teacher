@@ -19,11 +19,22 @@ plus the units begun this pass, under LOAD_PER_CORE per core. A unit that
 waits on the desktop or the network sleeps and adds no load, so the gate
 holds back only CPU-bound starts on a host already oversubscribed.
 
+`idle_room()` asks it of a unit whose work runs on this host's CPU (a Trove
+article's OCR and grid search, the Listener's Tesseract): whether
+`idle_cores()`, the cores /proc/stat found idle over about the last
+IDLE_SPAN_S (everything's busy time counted: the burn's, other agents', the
+queue's own units'), less one core for each such unit begun this pass,
+leaves IDLE_MIN. Such a pool is then as wide as the idle cores, never its
+fixed count on a busy host, and the burn, whose quota expires at each reset,
+keeps the CPU first. The load average is no measure of that: it counts
+processes waiting on disk, and a busy box sits under LOAD_PER_CORE.
+
 `burn_starved()` puts the pre-reset burn first: tools/prereset_plan.py
 writes BURN_STATE (its need, memory cap, cpu cap and width) at every plan,
 and while its cpu cap holds it below what its need and memory allow, no
 unit starts, so the cores the queue would take go to the burn. A state
 older than BURN_STALE_S, or none, means no burn is planning: no gate."""
+import collections
 import functools
 import json
 import os
@@ -125,6 +136,63 @@ def cpu_room(started=0, reader=None, cores=None, per_core=LOAD_PER_CORE):
     now = (reader or load)()
     cores = cores or os.cpu_count()
     return now is None or not cores or now + started < per_core * cores
+
+
+#: idle_cores' window: it measures from the newest sample at least
+#: IDLE_SPAN_S old (or, before there is one, the oldest at least IDLE_FIRST_S
+#: old, sampling that long once when there is none), keeping IDLE_KEEP_S.
+IDLE_SPAN_S = 10
+IDLE_FIRST_S = 0.5
+IDLE_KEEP_S = 60
+#: Idle cores that must be left after a local unit starts (CT_IDLE_MIN overrides).
+IDLE_MIN = float(os.environ.get("CT_IDLE_MIN") or 1)
+_IDLE = collections.deque()  # (monotonic time, busy ticks, all ticks)
+
+
+def stat_ticks(stat):
+    """(busy, all) ticks since boot from /proc/stat's cpu line; busy leaves
+    out idle and iowait."""
+    f = [int(x) for x in stat.split("\n", 1)[0].split()[1:9]]
+    return sum(f) - f[3] - f[4], sum(f)
+
+
+def _read_stat():
+    with open("/proc/stat") as fh:
+        return fh.readline()
+
+
+def idle_cores(reader=None, cores=None, clock=time.monotonic, samples=None, sleep=time.sleep):
+    """Cores this host left idle over about the last IDLE_SPAN_S, from
+    /proc/stat (reader: its first line), or None when it cannot be read."""
+    samples = _IDLE if samples is None else samples
+    cores = cores or os.cpu_count()
+    try:
+        def sample():
+            return (clock(), *stat_ticks((reader or _read_stat)()))
+        now = sample()
+        while samples and now[0] - samples[0][0] > IDLE_KEEP_S:
+            samples.popleft()
+        if not any(now[0] - t >= IDLE_FIRST_S for t, _, _ in samples):
+            samples.append(now)
+            sleep(IDLE_FIRST_S)
+            now = sample()
+        old = [s for s in samples if now[0] - s[0] >= IDLE_SPAN_S]
+        then = old[-1] if old else next(s for s in samples if now[0] - s[0] >= IDLE_FIRST_S)
+        samples.append(now)
+    except (OSError, ValueError, IndexError, StopIteration):
+        return None
+    total = now[2] - then[2]
+    if total <= 0 or not cores:
+        return None
+    return cores * (1 - (now[1] - then[1]) / total)
+
+
+def idle_room(started=0, reader=None, need=None):
+    """True if the idle cores (reader's, else idle_cores()), less one for
+    each local unit `started` this pass, still hold `need` (IDLE_MIN) for
+    one more to start on. An unread figure gates nothing."""
+    idle = (reader or idle_cores)()
+    return idle is None or idle - started >= (IDLE_MIN if need is None else need)
 
 
 #: The burn's plan, in the main checkout (CT_BURN_STATE overrides: tests run

@@ -26,6 +26,7 @@ vlm_reader.reachable = lambda *a, **k: False
 import file_archive_org_puzzles as f
 import edition_queue as eq
 eq.cpu_gate_reader = lambda: 0.0  # this host's load must not gate the tests' starts
+eq.idle_gate_reader = lambda: 1e6  # nor its idle cores
 eq.desktop_gate_reader = lambda: None  # nor whether Paul's desktop is busy
 eq.desktop_mem_reader = lambda: None  # nor its free memory
 eq.vlm_gate_reader = lambda: True  # nor whether its VLM answers
@@ -659,6 +660,7 @@ import edition_queue as eq
 VERSION = "p1"
 print(f"parent {{VERSION}} {{os.getpid()}}", file=sys.stderr, flush=True)
 eq.cpu_gate_reader = lambda: 0.0
+eq.idle_gate_reader = lambda: 1e6
 eq.mem_gate_reader = lambda: 1 << 40
 # As above, in this process too: off Paul's LAN (CI) the real VLM probe says
 # down, and the "times" reads it gates (needs_vlm) never start: a hang.
@@ -929,6 +931,84 @@ check("with a desktop set the load gates fetches, not scans or reads", (True, Fa
 os.environ["OCR_REMOTE"] = ""
 check("mirror: with no desktop the load gates every unit", (True, True, True),
       tuple(eq.load_gated({"kind": k}) for k in ("fetch", "scan", "read")))
+# Paul 10-15 "load average is still pretty high": the pools whose units work
+# on this host's CPU start only while a core is idle, so the burn (its quota
+# expires at each reset) keeps the CPU; the pools waiting on the desktop or
+# the network stay their full width.
+os.environ["OCR_REMOTE"] = "micro@100.68.145.15"
+_kinds = (("read", "trove"), ("read", "listener"), ("read", "times"), ("scan", "gale"), ("fetch", "trove"))
+check("with a desktop set only Trove and Listener units are local CPU", (True, True, False, False, False),
+      tuple(eq.local_cpu({"kind": k, "paper": p}) for k, p in _kinds))
+os.environ["OCR_REMOTE"] = ""
+check("mirror: with no desktop every scan and read is local CPU, a fetch never", (True, True, True, True, False),
+      tuple(eq.local_cpu({"kind": k, "paper": p}) for k, p in _kinds))
+check("idle_room: 1.2 idle cores start one local unit a pass, not two", (True, False),
+      tuple(mg.idle_room(n, lambda: 1.2) for n in (0, 1)))
+check("idle_room: under a core idle starts none", False, mg.idle_room(0, lambda: 0.3))
+check("idle_room: an unread figure gates nothing", True, mg.idle_room(0, lambda: None))
+import collections
+_cpu = {"t": 100.0, "busy": 0.0, "idle": 0.0, "rate": 3.0}
+def _adv(dt):
+    _cpu["busy"] += _cpu["rate"] * dt * 100
+    _cpu["idle"] += (4 - _cpu["rate"]) * dt * 100
+    _cpu["t"] += dt
+_stat = lambda: f"cpu  {int(_cpu['busy'])} 0 0 {int(_cpu['idle'])} 0 0 0 0\ncpu0 1 2 3 4\n"
+_samples = collections.deque()
+def _idle():
+    return mg.idle_cores(_stat, cores=4, clock=lambda: _cpu["t"], samples=_samples, sleep=_adv)
+check("idle_cores: a first call samples IDLE_FIRST_S and reads 3 busy of 4 cores as 1 idle", 1.0, round(_idle(), 2))
+_cpu["rate"] = 0.0
+for _ in range(40):
+    _adv(2)
+    _idle()
+_cpu["rate"] = 4.0
+_seen = []
+for _ in range(6):
+    _adv(2)
+    _seen.append(round(_idle(), 1))
+check("idle_cores: measures about the last IDLE_SPAN_S, so a busy spell shows within it", (True, 0.0),
+      (_seen[0] > 2, _seen[-1]))
+check("idle_cores: keeps no more than IDLE_KEEP_S of samples", True,
+      _cpu["t"] - _samples[0][0] <= mg.IDLE_KEEP_S + 2)
+check("idle_cores: an unreadable /proc/stat is no figure", None,
+      mg.idle_cores(lambda: "", cores=4, samples=collections.deque(), sleep=lambda s: None))
+def _concurrency():
+    most = now = 0
+    for line in log.read_text().splitlines():
+        now += {"start": 1, "end": -1}.get(line.split()[1], 0)
+        most = max(most, now)
+    return most
+def _running():
+    now = 0
+    for line in log.read_text().splitlines():
+        now += {"start": 1, "end": -1}.get(line.split()[1], 0)
+    return now
+# No desktop, so these reads are local: no idle core, none starts.
+eq.idle_gate_reader = lambda: 0.0
+log.unlink(missing_ok=True)
+fake(sleep={f"i{k}": 1.2 for k in range(3)})
+eq.plan = units([], [(f"i{k}", []) for k in range(3)])
+err, out = io.StringIO(), io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(out):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("no idle core: no local unit starts, it says so once, and leaves them for the next run", (False, 1, True),
+      (log.exists(), err.getvalue().count("idle-bound"), "left for the next run" in out.getvalue()))
+# One core idle besides each running unit's: one at a time, all of them in turn, none killed.
+eq.idle_gate_reader = lambda: 1.5 - (_running() if log.exists() else 0)
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, replan=0.5)
+ends = [line.split()[1:4] for line in log.read_text().splitlines() if line.split()[1] == "end"]
+check("one idle core: the local pool runs one at a time, each to its end", (1, 3, 0),
+      (_concurrency(), len(ends), err.getvalue().count("failed")))
+# mirror: cores idle, the same pool runs its full width at once
+eq.idle_gate_reader = lambda: 1e6
+log.unlink(missing_ok=True)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, replan=0.5)
+check("mirror: idle cores, the pool runs its full width at once", 3, _concurrency())
+fake(outcome={}, default=0.1)
 os.environ.pop("OCR_REMOTE")
 eq.desktop_gate_reader = lambda: "a game is running"
 log.unlink(missing_ok=True)
