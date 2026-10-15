@@ -173,6 +173,29 @@ check("scan_current's caches: a paper's name as the globals walk finds it, again
        f.current_keys(gt) is f.current_keys(gt), set(f.current_keys(gt)),
        [f.scan_current(row, "h"), f.scan_current(row, "h"), f.scan_current(row, "h", row["edition"]),
         f.scan_current(row, "h", "NewsUK1990UKEnglish/1990-01-01_1")]))
+# scan_stands keeps each (cache, rel)'s path facts (_STAND_DIRS), never its
+# hash: off the media disk it lists the dir as input_hash does, a file added
+# moving it; on it, it reads the manifest row afresh, a later row standing.
+mm = f.media_manifest
+sc = Path(os.environ["TMP"]) / "standcache"
+(sc / "Item" / "e1").mkdir(parents=True)
+(sc / "Item" / "e1" / "pages.json").write_text("[]")
+off = [f._stand_hash(sc, "Item/e1"), f.input_hash(sc / "Item" / "e1")]
+(sc / "Item" / "e1" / "p1.jpg").write_text("x")
+off += [f._stand_hash(sc, "Item/e1"), f.input_hash(sc / "Item" / "e1")]
+saved_root, saved_rows = mm.downloads.ROOT, mm.edition_rows
+media = Path(os.environ["TMP"]) / "media"
+manifest = {"Item/e2": {"files": "abc"}}
+mm.downloads.ROOT, mm.edition_rows = media, lambda: manifest
+on = [f._stand_hash(media, "Item/e2"), f.input_hash(media / "Item" / "e2")]
+manifest["Item/e2"] = {"files": "def"}
+on += [f._stand_hash(media, "Item/e2"), f.input_hash(media / "Item" / "e2")]
+held = f._STAND_DIRS[(str(media), "Item/e2")]
+mm.downloads.ROOT, mm.edition_rows = saved_root, saved_rows
+check("scan_stands' input hash: input_hash's own off the media disk (moved by a new file) and on it "
+      "(the manifest's latest row), its dir's path facts kept",
+      (True, True, False, ["abc", "abc", "def", "def"], (media / "Item" / "e2", True, "Item/e2")),
+      (off[0] == off[1], off[2] == off[3], off[0] == off[2], on, held))
 
 # The other papers' Gale pages: each item is a paper of its own, filed as
 # its series; the Telegraph's and FT's read in those runs.
