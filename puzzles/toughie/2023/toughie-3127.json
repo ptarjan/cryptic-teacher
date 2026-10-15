@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,52 @@
     "text": "Fed with soups or stews? Healthy stuff",
     "enumeration": "10"
    },
-   "solution": "SUPERFOODS"
+   "solution": "SUPERFOODS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Healthy stuff",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "stews?",
+       "at": 18,
+       "note": "to stew things is to cook them together into a mess, so these letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Fed",
+         "at": 0,
+         "note": "taken as written"
+        },
+        {
+         "words": "soups or",
+         "at": 9,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether eating soups or stews counts as nourishing food.",
+     "walkthrough": "'Fed with soups or stews' reads as a meal, but stews is a verb telling you to mix FED SOUPS OR.",
+     "definitionFit": "Superfoods are foods marketed as especially nutritious, so they are healthy stuff to eat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stews"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +93,60 @@
     "text": "Bar or shaft with half of it missing",
     "enumeration": "4"
    },
-   "solution": "SAVE"
+   "solution": "SAVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bar",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing",
+       "at": 29,
+       "note": "missing means the named letter is left out"
+      }
+     ],
+     "parts": [
+      {
+       "words": "shaft",
+       "at": 7,
+       "gives": "STAVE",
+       "note": "a stave is a staff or wooden shaft"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 18,
+         "note": "half of the two-letter word it is its second letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "at": 26,
+         "note": "the word it has two letters, and the second half of it is removed"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bar or rod with half its length gone.",
+     "walkthrough": "'It' seems to refer to the shaft, but it is the word it, half of which is removed.",
+     "definitionFit": "Save as a preposition means except, as does bar: everyone bar one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "it"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +160,53 @@
     "text": "Study risk if Italy's replaced by America",
     "enumeration": "7"
    },
-   "solution": "PERUSAL"
+   "solution": "PERUSAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Study",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "replaced by",
+       "at": 22,
+       "note": "replaced by means the letter for Italy is swapped out for the American letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "risk",
+       "at": 6,
+       "gives": "PERIL",
+       "note": "peril is danger or risk"
+      },
+      {
+       "words": "Italy's",
+       "at": 14,
+       "gives": "I",
+       "note": "I is Italy's international vehicle code"
+      },
+      {
+       "words": "America",
+       "at": 34,
+       "gives": "USA",
+       "note": "USA, the United States of America"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An analysis of risk if America took Italy's place.",
+     "definitionFit": "A perusal is a careful reading or examination, a study of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +226,66 @@
      }
     ]
    },
-   "solution": "RAILWAYTICKET"
+   "solution": "RAILWAYTICKET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Evidence of fare",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "bar",
+       "at": 20,
+       "gives": "RAIL",
+       "note": "a rail is a bar"
+      },
+      {
+       "words": "means",
+       "at": 24,
+       "gives": "WAY",
+       "note": "a way is a means of doing something"
+      },
+      {
+       "words": "instant",
+       "at": 30,
+       "gives": "TICK",
+       "note": "a tick is a moment or instant"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "on a regular basis",
+         "at": 43,
+         "note": "on a regular basis means every other letter of eats is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "eats",
+         "at": 38,
+         "note": "the first and third letters of eats are kept"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Proof of what food is like in a bar where snacks are served instantly and regularly.",
+     "walkthrough": "'Fare' suggests food, matching eats; it is the price of a journey.",
+     "definitionFit": "A railway ticket proves that the passenger has paid the fare for the journey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fare"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +299,57 @@
     "text": "I will probe zero cost of hiring from China?",
     "enumeration": "8"
    },
-   "solution": "ORIENTAL"
+   "solution": "ORIENTAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "from China?",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "will probe",
+       "at": 2,
+       "note": "to probe is to poke into, so the letter goes inside the other pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "zero",
+         "at": 13,
+         "gives": "O"
+        },
+        {
+         "words": "cost of hiring",
+         "at": 18,
+         "gives": "RENTAL",
+         "note": "a rental is the charge for hiring something"
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "at": 0,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vowing to investigate a nil charge for hiring something from China.",
+     "definitionFit": "Oriental describes things from East Asia, of which China is one example, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "probe"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +363,64 @@
     "text": "Active person on vacation daringly upheld Arab state",
     "enumeration": "6"
    },
-   "solution": "DYNAMO"
+   "solution": "DYNAMO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Active person",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "on vacation",
+         "at": 14,
+         "note": "vacated, a word keeps only its outside letters, its inside emptied"
+        }
+       ],
+       "parts": [
+        {
+         "words": "daringly",
+         "at": 26,
+         "note": "only the first and last letters of daringly remain once it is emptied"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upheld",
+         "at": 35,
+         "note": "upheld in a down clue means lifted up, so the word reads from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Arab state",
+         "at": 42,
+         "gives": "OMAN",
+         "note": "Oman is a sultanate on the Arabian peninsula"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An energetic traveller on holiday boldly supporting a Gulf state.",
+     "definitionFit": "A dynamo is a forceful, energetic person, after the electrical generator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +434,46 @@
     "text": "Introduction being missing from explanation could be considered this",
     "enumeration": "4"
    },
-   "solution": "LOSS"
+   "solution": "LOSS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Introduction being missing from explanation could be considered this",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Introduction being missing from",
+       "at": 0,
+       "note": "the introduction of a word is its first letter, which is taken away here"
+      }
+     ],
+     "parts": [
+      {
+       "words": "explanation",
+       "at": 32,
+       "gives": "GLOSS",
+       "note": "a gloss is an explanatory note on a text"
+      },
+      {
+       "gives": "G"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A comment that an explanation lacking its opening would be deficient.",
+     "walkthrough": "The whole clue is both wordplay and definition: losing the first letter of the gloss is itself a loss.",
+     "definitionFit": "Having part of something go missing is a deprivation, which is what the word names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +493,59 @@
      }
     ]
    },
-   "solution": "ONTRIAL"
+   "solution": "ONTRIAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "facing court",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Criminal",
+       "at": 0,
+       "note": "criminal suggests something crooked, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 12,
+         "note": "not means the European letter is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "4",
+         "at": 9,
+         "gives": "ORIENTAL",
+         "note": "the answer to clue 4, ORIENTAL"
+        },
+        {
+         "words": "European",
+         "at": 16,
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A criminal, not from Europe, appearing before a judge.",
+     "definitionFit": "Someone on trial is facing a court hearing to decide guilt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Criminal"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +559,59 @@
     "text": "Conceal outlay involving large part of Hollywood feature",
     "enumeration": "10"
    },
-   "solution": "SCREENPLAY"
+   "solution": "SCREENPLAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "part of Hollywood feature",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conceal",
+       "at": 0,
+       "gives": "SCREEN",
+       "note": "to screen is to hide or conceal"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "involving",
+         "at": 15,
+         "note": "involving means taking in, so the large letter goes inside the outlay word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "outlay",
+         "at": 8,
+         "gives": "PAY",
+         "note": "pay is money laid out"
+        },
+        {
+         "words": "large",
+         "at": 25,
+         "gives": "L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hiding the large budget that went into a Hollywood movie.",
+     "walkthrough": "'Large part' looks like one phrase, but large gives its letter and 'part of Hollywood feature' is the definition.",
+     "definitionFit": "A screenplay is the script of a film, one component of a feature film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "large"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +625,45 @@
     "text": "I noted part of clever diagram",
     "enumeration": "5"
    },
-   "solution": "VERDI"
+   "solution": "VERDI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I noted part of clever diagram",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "part of",
+       "at": 8,
+       "note": "the answer is a part of the run of letters in these two words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "clever diagram",
+       "at": 16,
+       "gives": "VERDI",
+       "note": "the end of clever and the start of diagram run together to spell the composer"
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "Someone remarking that they spotted a detail in a smart chart.",
+     "walkthrough": "Read as the composer speaking: 'I noted', a composer writing notes, and his name sits inside clever diagram.",
+     "definitionFit": "Giuseppe Verdi was the celebrated Italian opera composer, a man who wrote down musical notes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "noted"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +677,71 @@
     "text": "Pub adding eggs to beer, ultimately the source of a good idea",
     "enumeration": "9"
    },
-   "solution": "INNOVATOR"
+   "solution": "INNOVATOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the source of a good idea",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "adding",
+       "at": 4,
+       "note": "adding puts the following pieces after the pub, building the word along"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Pub",
+       "at": 0,
+       "gives": "INN",
+       "note": "an inn is a pub"
+      },
+      {
+       "words": "eggs",
+       "at": 11,
+       "gives": "OVA",
+       "note": "ova is Latin for eggs, the biological plural"
+      },
+      {
+       "words": "to",
+       "at": 16,
+       "note": "taken as written"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 25,
+         "note": "ultimately points to the final letter of the word beer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beer",
+         "at": 19,
+         "note": "the last letter of beer"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pub's brainwave of mixing eggs into beer, credited as a source of invention.",
+     "definitionFit": "An innovator is someone who comes up with new methods and ideas, an originator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "eggs"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +761,66 @@
      }
     ]
    },
-   "solution": "VICIOUSCIRCLE"
+   "solution": "VICIOUSCIRCLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Worsening situation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "meeting",
+       "at": 60,
+       "note": "meeting joins the next piece on after the first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "stopping",
+         "at": 36,
+         "note": "stopping means plugging up, so the French here goes into the French you"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you, in Paris",
+         "at": 45,
+         "gives": "VOUS",
+         "note": "vous is French for you"
+        },
+        {
+         "words": "here in France",
+         "at": 20,
+         "gives": "ICI",
+         "note": "ici is French for here"
+        }
+       ]
+      },
+      {
+       "words": "group of friends",
+       "at": 68,
+       "gives": "CIRCLE",
+       "note": "a circle is a social group"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A visitor in France getting stuck while meeting a group of friends.",
+     "definitionFit": "A vicious circle is a cycle in which each problem makes the next one worse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stopping"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +840,84 @@
      }
     ]
    },
-   "solution": "SEWINGMACHINE"
+   "solution": "SEWINGMACHINE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One uses a pedal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "with",
+       "at": 53,
+       "note": "the flight and morning pieces go along with the cycled word, set within it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 22,
+         "note": "cycling moves the closing letters of the word round to the front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Beijing, perhaps",
+         "at": 35,
+         "gives": "CHINESE",
+         "note": "Beijing is an example of something Chinese, the capital city"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "flight",
+         "at": 58,
+         "gives": "WING",
+         "note": "a wing is a flight or division of an air force"
+        },
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "pushed back",
+           "at": 77,
+           "note": "pushed back means the two letters are put in reverse order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "before noon",
+           "at": 65,
+           "gives": "AM",
+           "note": "AM, ante meridiem, is the time before noon"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cyclist pedalling away from Beijing, having caught a morning flight that was delayed.",
+     "walkthrough": "'Pedal' and 'cycling' paint a bicycle, but the pedal is a treadle, and cycling moves SE of CHINESE to the front.",
+     "definitionFit": "Many sewing machines are driven by a foot treadle, a pedal that controls the speed of stitching."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +931,54 @@
     "text": "Uphill motorway not that good? Blocked entirely",
     "enumeration": "10"
    },
-   "solution": "IMPASSABLE"
+   "solution": "IMPASSABLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Blocked entirely",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Uphill",
+         "at": 0,
+         "note": "uphill in a down clue means reading from bottom to top, reversing the letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "motorway",
+         "at": 7,
+         "gives": "MI",
+         "note": "the M1 is Britain's main motorway north from London, its digit read as the letter I"
+        }
+       ]
+      },
+      {
+       "words": "not that good",
+       "at": 16,
+       "gives": "PASSABLE",
+       "note": "passable means adequate, not especially good"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A road going uphill that is mediocre and completely closed.",
+     "walkthrough": "The M1 is the motorway from London to Leeds; the digit 1 stands in for I.",
+     "definitionFit": "Impassable means impossible to travel through, so wholly blocked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Uphill"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +998,59 @@
      }
     ]
    },
-   "solution": "MILKYWAY"
+   "solution": "MILKYWAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Galaxy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "exploit",
+       "at": 7,
+       "gives": "MILK",
+       "note": "to milk a situation is to exploit it"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "coming aboard",
+         "at": 38,
+         "note": "coming aboard means getting inside, so the wife letter goes into the cry"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cry of joy",
+         "at": 17,
+         "gives": "YAY",
+         "note": "yay is an exclamation of delight"
+        },
+        {
+         "words": "wife",
+         "at": 33,
+         "gives": "W"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone celebrating with a whoop as their wife joins them on board.",
+     "walkthrough": "Galaxy is also a chocolate brand, as is Milky Way, which adds to the misdirection.",
+     "definitionFit": "The Milky Way is the galaxy containing our solar system, the spiral of stars seen across the night sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Galaxy"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1064,53 @@
     "text": "Party twisted vote a vague amount",
     "enumeration": "6"
    },
-   "solution": "DOLLOP"
+   "solution": "DOLLOP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a vague amount",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Party",
+       "at": 0,
+       "gives": "DO",
+       "note": "a do is a party or social event"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "twisted",
+         "at": 6,
+         "note": "twisted here means turned round, so the word for vote is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "vote",
+         "at": 14,
+         "gives": "POLL",
+         "note": "a poll is a vote"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political party distorting a ballot result by an unclear margin.",
+     "definitionFit": "A dollop is an imprecise lump or spoonful of something soft, a vague quantity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Party"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1124,43 @@
     "text": "Brown loaf or cob?",
     "enumeration": "8"
    },
-   "solution": "HAZELNUT"
+   "solution": "HAZELNUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cob?",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Brown",
+       "at": 0,
+       "gives": "HAZEL",
+       "note": "hazel is a light brown colour"
+      },
+      {
+       "words": "loaf",
+       "at": 6,
+       "gives": "NUT",
+       "note": "loaf and nut are both slang for the head"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing between a brown loaf and a cob, a round loaf.",
+     "walkthrough": "A cob is a round loaf of bread in Britain, which matches the bakery picture; it is also a large hazelnut.",
+     "definitionFit": "Cob is the name for a type of large hazelnut, also called cobnut, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cob"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1174,49 @@
     "text": "Three letters encapsulating Government spies on a small scale",
     "enumeration": "6"
    },
-   "solution": "ATOMIC"
+   "solution": "ATOMIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "on a small scale",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "encapsulating",
+       "at": 14,
+       "note": "encapsulating means enclosing, so the spies go inside the three letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Three letters",
+       "at": 0,
+       "gives": "ATOC",
+       "note": "A to C spans three letters of the alphabet, A, B and C"
+      },
+      {
+       "words": "Government spies",
+       "at": 28,
+       "gives": "MI",
+       "note": "MI, Military Intelligence, as in MI5 and MI6, the state's spy agencies"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short acronym concealing a government intelligence agency.",
+     "walkthrough": "'Three letters' is not an abbreviation but the range A TO C.",
+     "definitionFit": "Atomic describes things at the scale of atoms, so tiny or minute in scale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1230,68 @@
     "text": "Loves American to implicate Democrat and Republican regarding a stink",
     "enumeration": "7"
    },
-   "solution": "ODOROUS"
+   "solution": "ODOROUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "regarding a stink",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to implicate",
+       "at": 15,
+       "note": "to implicate is to involve or entangle, so the party letters go inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Loves",
+           "at": 0,
+           "gives": "OOO",
+           "note": "love is zero in tennis, so loves are O letters"
+          },
+          {
+           "words": "American",
+           "at": 6,
+           "gives": "US"
+          }
+         ]
+        },
+        {
+         "words": "Democrat",
+         "at": 28,
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "Republican",
+       "at": 41,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "American lovers implicating politicians of both parties in a scandal.",
+     "walkthrough": "D and R go into separate gaps between the three O letters.",
+     "definitionFit": "Odorous means having a smell, so it describes anything that carries a stink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Loves"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1305,65 @@
     "text": "A University only brought in arts degree in locations of late?",
     "enumeration": "8"
    },
-   "solution": "MAUSOLEA"
+   "solution": "MAUSOLEA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "locations of late?",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "brought in",
+       "at": 18,
+       "note": "brought in means placed inside, so these pieces go within the degree"
+      }
+     ],
+     "parts": [
+      {
+       "words": "arts degree",
+       "at": 29,
+       "gives": "MA",
+       "note": "MA is Master of Arts"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "note": "taken as written"
+        },
+        {
+         "words": "University",
+         "at": 2,
+         "gives": "U"
+        },
+        {
+         "words": "only",
+         "at": 13,
+         "gives": "SOLE",
+         "note": "sole means only, as in the sole survivor"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A university that admitted only students taking arts degrees in recent times.",
+     "walkthrough": "'Of late' seems to mean recently; here the late are the dead.",
+     "definitionFit": "Mausolea are grand tombs, the resting places of the deceased, who are 'the late'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "late"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1377,48 @@
     "text": "Sticky stuff in residue may be vegetables",
     "enumeration": "7"
    },
-   "solution": "LEGUMES"
+   "solution": "LEGUMES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "vegetables",
+      "at": 31
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 13,
+       "note": "in means the sticky stuff sits inside the residue"
+      }
+     ],
+     "parts": [
+      {
+       "words": "residue",
+       "at": 16,
+       "gives": "LEES",
+       "note": "lees are the dregs left in a wine barrel"
+      },
+      {
+       "words": "Sticky stuff",
+       "at": 0,
+       "gives": "GUM",
+       "note": "gum is a sticky substance"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gooey deposit left in the dregs might turn out to be vegetables.",
+     "definitionFit": "Legumes are pod vegetables such as peas, beans and lentils."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sticky"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1432,53 @@
     "text": "Stony cairn finally reduced to rubble?",
     "enumeration": "6"
    },
-   "solution": "BROKEN"
+   "solution": "BROKEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "reduced to rubble?",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Stony",
+       "at": 0,
+       "gives": "BROKE",
+       "note": "stony broke means having no money, so stony stands for broke"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 12,
+         "note": "finally picks the closing letter of cairn"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cairn",
+         "at": 6,
+         "note": "the last letter of cairn"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pile of stones in the hills ending up as rubble.",
+     "walkthrough": "'Stony' fits the cairn picture; it means penniless, from stony broke.",
+     "definitionFit": "Something reduced to rubble has been smashed apart, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stony"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1492,42 @@
     "text": "Conventional manners may be what's expected at some farms",
     "enumeration": "13"
    },
-   "solution": "STOCKBREEDING"
+   "solution": "STOCKBREEDING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "what's expected at some farms",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Conventional",
+       "at": 0,
+       "gives": "STOCK",
+       "note": "stock as an adjective means standard or conventional, as in a stock reply"
+      },
+      {
+       "words": "manners",
+       "at": 13,
+       "gives": "BREEDING",
+       "note": "good breeding means good manners"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comment that traditional politeness is the norm in rural farming circles.",
+     "definitionFit": "Livestock farms raise animals, so breeding cattle and sheep is what one expects there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "manners"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1541,31 @@
     "text": "A number of horses bolt",
     "enumeration": "4"
    },
-   "solution": "STUD"
+   "solution": "STUD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A number of horses",
+      "at": 0,
+      "meaning": "first meaning: a collection of horses kept for breeding"
+     },
+     {
+      "text": "bolt",
+      "at": 19,
+      "meaning": "second meaning: a short bolt or rivet"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Bolt' tempts as what horses do, running off; here it is a metal fastening.",
+     "definitionFit": "The word names both a breeding establishment of horses and a stout metal stud or fastener."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bolt"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1585,60 @@
      }
     ]
    },
-   "solution": "BOOKTOKEN"
+   "solution": "BOOKTOKEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One's part of exchange deal",
+      "at": 56
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Reserve",
+       "at": 0,
+       "gives": "BOOK",
+       "note": "to book is to reserve"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "among",
+         "at": 19,
+         "note": "among puts the acceptable letters in the middle of the team"
+        }
+       ],
+       "parts": [
+        {
+         "words": "football team after dismissal",
+         "at": 25,
+         "gives": "TEN",
+         "note": "a football side is eleven; with one player sent off it is ten"
+        },
+        {
+         "words": "acceptable",
+         "at": 8,
+         "gives": "OK",
+         "note": "OK means acceptable"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reserve player being brought into a football side after a sending-off, as part of a transfer deal.",
+     "walkthrough": "A book token is a gift voucher exchanged in a shop for books.",
+     "definitionFit": "A book token is a voucher traded in for books, so it is one side of an exchange."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Reserve"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1652,40 @@
     "text": "Military boss encountered historic jet",
     "enumeration": "5"
    },
-   "solution": "COMET"
+   "solution": "COMET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "historic jet",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Military boss",
+       "at": 0,
+       "gives": "CO",
+       "note": "CO is a commanding officer"
+      },
+      {
+       "words": "encountered",
+       "at": 14,
+       "gives": "MET",
+       "note": "met means encountered"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A commanding officer coming across an old jet aircraft.",
+     "definitionFit": "The de Havilland Comet was the world's first commercial jet airliner, from the 1950s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1699,48 @@
     "text": "Comfortable? Not comfortable, without question",
     "enumeration": "4"
    },
-   "solution": "EASY"
+   "solution": "EASY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Comfortable?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 30,
+       "note": "without means lacking, so the question abbreviation is taken away"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Not comfortable",
+       "at": 13,
+       "gives": "QUEASY",
+       "note": "queasy means uneasy or slightly sick"
+      },
+      {
+       "words": "question",
+       "at": 38,
+       "gives": "QU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asked if they are comfortable answers no, without being asked twice.",
+     "walkthrough": "The clue seems to contradict itself; 'not comfortable' is QUEASY, which loses its question.",
+     "definitionFit": "To be easy is to be relaxed and at ease, as in 'I'm easy'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "question"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1754,69 @@
     "text": "Feeling calm, knocked back sweets and most of fruit",
     "enumeration": "10"
    },
-   "solution": "UNSTRESSED"
+   "solution": "UNSTRESSED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feeling calm",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "knocked back",
+       "at": 14,
+       "note": "knocked back means turned backwards, so the whole string is read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sweets",
+         "at": 27,
+         "gives": "DESSERTS",
+         "note": "sweets are desserts, puddings"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "most of",
+           "at": 38,
+           "note": "most of means the final letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "fruit",
+           "at": 46,
+           "gives": "NUT",
+           "note": "a nut is a fruit"
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone relaxed after downing puddings and a lot of fruit.",
+     "walkthrough": "'Knocked back' suggests eating greedily; it reverses the pieces.",
+     "definitionFit": "Unstressed means free of anxiety or tension, relaxed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knocked"
+    }
+   }
   }
  ]
 }
