@@ -2855,18 +2855,34 @@ def held_files(series):
     """[(number, (date or None, source url, date text))] of every puzzle
     filed in a series, each file parsed once a process and again only when
     its stat moves."""
+    return list(_held_listing(series)[1])
+
+
+def _held_listing(series):
+    """(version, tuple of held_files' entries) of a series: the version
+    moves only when what a listing found differs from the last listing, so
+    held_dates and held_scans key their answers on it (a brief inside
+    held_once keeps its own listing while another lists afresh). One thread
+    lists a series at a time: a re-exec's briefs start together, and each
+    parsing the corpus for itself costs minutes of a core."""
     now = getattr(_HELD_NOW, "files", None)
     if now is not None and series in now:
-        return list(now[series])
+        return now[series]
+    with _HELD_LOCKS.setdefault(series, threading.Lock()):
+        got = _held_list(series)
+    if now is not None:
+        now[series] = got
+    return got
+
+
+def _held_list(series):
     # The last listing stands while no year folder moved (a puzzle written
     # by os.replace, filed or removed moves its folder's mtime) and it is
     # under HELD_FRESH seconds old: each read's brief stats ~14k files else.
     folders = _held_folders(series)
     hit = _HELD_LISTED.get(series)
     if hit is not None and hit[1] == folders and time.monotonic() - hit[0] < HELD_FRESH:
-        if now is not None:
-            now[series] = list(hit[2])
-        return list(hit[2])
+        return hit[2]
     listed_at = time.monotonic()
     out = []
     for p in (ROOT / "puzzles" / series).glob("*/*.json"):
@@ -2874,7 +2890,6 @@ def held_files(series):
         stamp = (st.st_mtime_ns, st.st_size)
         seen = _HELD.get(p)
         if seen is None or seen[0] != stamp:
-            _HELD_GEN[series] = _HELD_GEN.get(series, 0) + 1
             d = json.loads(p.read_text())
             date = d.get("date")
             seen = _HELD[p] = (stamp, (date and datetime.date.fromisoformat(date[:10]),
@@ -2882,17 +2897,44 @@ def held_files(series):
             _HELD_MOVED.append(p)
         out.append((int(p.stem.split("-")[1]), seen[1]))
         _HELD_PATH[series, out[-1][0]] = p
-    _HELD_LISTED[series] = (listed_at, folders, list(out))
-    if now is not None:
-        now[series] = list(out)
-    return out
+    out = tuple(out)
+    if hit is None or hit[2][1] != out:
+        _HELD_VERSION[series] = _HELD_VERSION.get(series, 0) + 1
+    got = (_HELD_VERSION[series], out)
+    _HELD_LISTED[series] = (listed_at, folders, got)
+    return got
+
+
+#: {series: threading.Lock} serialising _held_listing's listings of it.
+_HELD_LOCKS = {}
+#: {series: how many listings of it found something the one before did not}.
+_HELD_VERSION = {}
+
+
+def _held_memo(memo, series, make):
+    """make(entries) of the series' current listing, kept per listing
+    version (the last HELD_MEMO of them): the same object while the
+    listing's content stands."""
+    version, files = _held_listing(series)
+    by = memo.setdefault(series, {})
+    if version not in by:
+        by[version] = make(files)
+        while len(by) > HELD_MEMO:
+            del by[min(by)]
+    return by[version]
+
+
+#: How many listing versions held_dates and held_scans keep answers for: a
+#: brief inside held_once may still be on the one before.
+HELD_MEMO = 3
 
 
 #: How long held_files trusts its last listing of a series while no year
 #: folder's mtime moved: a backstop for a file rewritten in place.
 HELD_FRESH = 60
 
-#: {series: (when held_files listed it (monotonic), _held_folders then, its list)}.
+#: {series: (when held_files listed it (monotonic), _held_folders then,
+#: (version, its entries))}.
 _HELD_LISTED = {}
 
 
@@ -2936,21 +2978,13 @@ class Held(dict):
 
 def held_dates(series):
     """{number: date} of every dated puzzle filed in a series (Held): the
-    same object while no file of the series moved (held_files parsed none
-    and listed as many), so a unit start does not sort the corpus again
-    and callers may key memos on its identity."""
-    files = held_files(series)
-    key = (_HELD_GEN.get(series, 0), len(files))
-    hit = _HELD_DATES.get(series)
-    if hit is None or hit[0] != key:
-        hit = _HELD_DATES[series] = (key, Held({n: day for n, (day, _, _) in files if day}))
-    return hit[1]
+    same object while the series' listing finds what it found before
+    (_held_listing's version), so a unit start does not sort the corpus
+    again and callers may key memos on its identity."""
+    return _held_memo(_HELD_DATES, series, lambda files: Held({n: day for n, (day, _, _) in files if day}))
 
 
-#: {series: held_files parses of that series so far}: held_dates' Held stands
-#: while it and the count of files listed do.
-_HELD_GEN = {}
-#: {series: ((generation, files listed), Held)} of held_dates.
+#: {series: {listing version: Held}} of held_dates.
 _HELD_DATES = {}
 
 
@@ -3099,22 +3133,19 @@ BOOK_VOTE = 1
 def held_scans(series):
     """{(source.url, date): [numbers]} of every filed puzzle in a series that
     names a scan page: one page on one day is one puzzle. Worked out again
-    only when a file of the series moved (held_dates' key), not every call:
-    a read's brief asks it of the whole corpus. Callers must not mutate it."""
-    files = held_files(series)
-    key = (_HELD_GEN.get(series, 0), len(files))
-    hit = _HELD_SCANS.get(series)
-    if hit is not None and hit[0] == key:
-        return hit[1]
-    out = {}
-    for n, (_, url, day) in files:
-        if url:
-            out.setdefault((url, day), []).append(n)
-    _HELD_SCANS[series] = (key, out)
-    return out
+    only when the series' listing finds something new (_held_listing's
+    version), not every call: a read's brief asks it of the whole corpus.
+    Callers must not mutate it."""
+    def make(files):
+        out = {}
+        for n, (_, url, day) in files:
+            if url:
+                out.setdefault((url, day), []).append(n)
+        return out
+    return _held_memo(_HELD_SCANS, series, make)
 
 
-#: {series: ((held_files generation, file count), held_scans' answer)}
+#: {series: {listing version: held_scans' answer}}
 _HELD_SCANS = {}
 
 
@@ -3235,6 +3266,29 @@ def hosted(found, held):
         {h - 7 * one for h in on if h.weekday() == 5}
     return {t - 1 for t in days} | {t - 6 for t, d in days.items() if d.weekday() == 5} | \
         {m for d in prior for m in Held.of(held).on_day.get(d, ())}
+
+
+def hosted_window(paper, found):
+    """(first, last) date of the filed puzzles linked_solutions(paper, found,
+    held) reads of `held`, or None when it reads none: hosted's neighbours
+    count only within SOLUTION_DAYS of the edition's day, and its prior days
+    lie at most a week before a day the edition's titles print on. Two helds
+    alike between them link alike (solution_sources)."""
+    if paper not in (TIMES, GALE) or not found["solutions"]:
+        return None
+    day = datetime.date.fromisoformat(found["date"])
+    own = [p["number"] for p in found["puzzles"] if "fromSolutions" not in p]
+    on = {issue_day(day, t, own, found.get("item")) for t in own} | {day}
+    span = datetime.timedelta(days=SOLUTION_DAYS)
+    return min(day - span, min(on) - datetime.timedelta(days=7)), max(day + span, max(on))
+
+
+def held_between(held, window):
+    """The (date, number) pairs of `held` dated within `window` (hosted_window)."""
+    if window is None:
+        return ()
+    pairs = Held.of(held).pairs
+    return tuple(pairs[bisect.bisect_left(pairs, (window[0],)):bisect.bisect_right(pairs, (window[1], math.inf))])
 
 
 def placed(n, day, held):
@@ -4149,11 +4203,7 @@ def solution_sources(dirs, scans, rels, held, sister):
     headings, the first per number standing, over the `sister` ones."""
     first, every = {}, {}
     for d in dirs:
-        scan = scans[rels[d]]
-        hit = _LINKED.get(d)
-        if hit is None or hit[0] is not scan or hit[1] is not held:
-            hit = _LINKED[d] = (scan, held, linked_solutions(paper_of(d), scan, held))
-        for s in hit[2]:
+        for s in _linked(d, scans[rels[d]], held):
             first.setdefault(s["number"], {**s, "dir": d})
             every.setdefault(s["number"], set()).add(solution_source({**s, "dir": d}))
     for n, s in sister.items():
@@ -4161,9 +4211,28 @@ def solution_sources(dirs, scans, rels, held, sister):
     return {**sister, **first}, every
 
 
-#: {edition dir: (its scan, held, linked_solutions of them)} of
-#: solution_sources: a unit start links every edition of its paper, and an
-#: edition's scan row and held_dates' Held stay the same objects until they move.
+def _linked(d, scan, held):
+    """linked_solutions of edition dir `d`'s `scan` and `held`, linked again
+    only when its scan row is another object or the filed puzzles in its
+    hosted_window differ: a puzzle filed anywhere makes held_dates a new
+    Held, and a unit start links every edition of its paper."""
+    hit = _LINKED.get(d)
+    if hit is not None and hit[0] is scan and hit[1] is held:
+        return hit[4]
+    paper = paper_of(d)
+    window = hit[2] if hit is not None and hit[0] is scan else hosted_window(paper, scan)
+    near = held_between(held, window)
+    if hit is not None and hit[0] is scan and hit[3] == near:
+        out = hit[4]
+    else:
+        out = linked_solutions(paper, scan, held)
+    _LINKED[d] = (scan, held, window, near, out)
+    return out
+
+
+#: {edition dir: (its scan, held, hosted_window, held_between then,
+#: linked_solutions of them)} of solution_sources: an edition's scan row and
+#: held_dates' Held stay the same objects until they move.
 _LINKED = {}
 
 
@@ -4272,7 +4341,8 @@ _HEADINGS = {}
 _WHOLE = {}
 _LIKELY_MOVED = []
 #: {edition dir: (its input_hash, its djvu.xml.gz's (mtime_ns, size) or None)}:
-#: text_headings stats the text again only once the edition's files moved.
+#: text_headings stats the text again only once the edition's files moved;
+#: save_likely and load_likely keep it between processes too.
 _HEADINGS_STAT = {}
 #: How long (seconds) one plan spends reading headings out of archive.org
 #: text not yet in _HEADINGS (~0.5s CPU, ~1s an edition on the media
@@ -4300,6 +4370,7 @@ def text_headings(d, deadline=None):
         except OSError:
             st = None
         _HEADINGS_STAT[str(d)] = (files, st)
+        _LIKELY_MOVED.append(True)
     if st is None:
         return []
     paper = paper_of(d)
@@ -4321,14 +4392,14 @@ def text_headings(d, deadline=None):
 
 
 def save_likely(path):
-    """Write _HEADINGS and _WHOLE to `path` when either moved since the last save."""
+    """Write _HEADINGS, _WHOLE and _HEADINGS_STAT to `path` when one moved since the last save."""
     if not _LIKELY_MOVED:
         return
     _LIKELY_MOVED.clear()
     tmp = f"{os.fspath(path)}.{os.getpid()}.tmp"
     os.makedirs(os.path.dirname(os.fspath(path)) or ".", exist_ok=True)
     with open(tmp, "wb") as f:
-        pickle.dump({"headings": dict(_HEADINGS), "whole": dict(_WHOLE)}, f,
+        pickle.dump({"headings": dict(_HEADINGS), "whole": dict(_WHOLE), "stat": dict(_HEADINGS_STAT)}, f,
                     protocol=pickle.HIGHEST_PROTOCOL)
     os.replace(tmp, path)
 
@@ -4346,6 +4417,10 @@ def load_likely(path):
         _WHOLE.setdefault(k, v)
     for k, v in heads.items():
         _HEADINGS.setdefault(k, v)
+    # Each edition's djvu.xml stat stands while its input_hash does, so a
+    # re-exec's first plan stats no edition again (text_headings).
+    for k, v in (snap.get("stat") or {}).items():
+        _HEADINGS_STAT.setdefault(k, v)
 
 
 def likely(paper, known, reads, rels, scans, solutions, held, order):

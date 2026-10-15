@@ -380,12 +380,7 @@ def plan(papers, cache=fa.CACHE, reread=None, out=None):
     first: by rank, then the paper's place in `papers`, then plan's order.
     A paper whose ledger a batch run holds throughout is left out (its units
     could not add their rows)."""
-    if not _LOADED:
-        dir_cache.load(DIR_CACHE)
-        fa.load_held(HELD_CACHE)
-        fa.load_likely(LIKELY_CACHE)
-        scan_queue.load_count_left(COUNT_LEFT_CACHE)
-        _LOADED.append(True)
+    load_caches()
     try:
         return _plan(papers, cache, reread, out)
     finally:
@@ -393,6 +388,24 @@ def plan(papers, cache=fa.CACHE, reread=None, out=None):
         fa.save_held(HELD_CACHE)
         fa.save_likely(LIKELY_CACHE)
         scan_queue.save_count_left(COUNT_LEFT_CACHE)
+
+
+def load_caches():
+    """Take what the last process's plan() saved (DIR_CACHE, HELD_CACHE,
+    LIKELY_CACHE, COUNT_LEFT_CACHE), once a process: plan() and prepare()
+    call it, as a re-exec starts units from the last plan whose briefs would
+    else parse every filed puzzle (held_files) before its first plan loads
+    them."""
+    with _LOAD_LOCK:
+        if not _LOADED:
+            dir_cache.load(DIR_CACHE)
+            fa.load_held(HELD_CACHE)
+            fa.load_likely(LIKELY_CACHE)
+            scan_queue.load_count_left(COUNT_LEFT_CACHE)
+            _LOADED.append(True)
+
+
+_LOAD_LOCK = threading.Lock()
 
 
 #: Where plan() keeps the edition and article dirs' listings between
@@ -653,6 +666,7 @@ def prepare(unit, cache, puzzles, reread):
         return whole(unit, f"desktop busy ({why})")
     try:
         paper = fa.FILERS[unit["paper"]]
+        load_caches()  # a re-exec's briefs start before its first plan loads them
         made = fa.brief(paper, unit["rel"], cache, puzzles=puzzles, reread=reread, force=unit.get("force"))
         if made is None:
             return whole(unit, "not due") if fa.scan_stands(paper, unit["rel"], cache) else SCAN_FIRST

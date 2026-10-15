@@ -895,7 +895,45 @@ f._HELD_LISTED.clear()  # an in-place change: seen once the listing is HELD_FRES
 check("a file whose stat moved is parsed again, the other not",
       [{19129: D("1993-01-16"), 19131: D("1993-01-18")}, 3], [f.held_dates("times"), len(parsed)])
 f.json.loads = real_loads
+# held_dates and held_scans stand per listing version: a re-list finding
+# what the last one did keeps the same Held, and a brief inside held_once
+# on the listing before neither evicts nor is served the newer one.
+kept = f.held_dates("times")
+os.utime(scan_root / "puzzles" / "times" / "1993" / "times-19131.json", ns=(2, 2))
+f._HELD_LISTED[("times")] = (float("-inf"), *f._HELD_LISTED["times"][1:])  # HELD_FRESH old
+check("a re-list finding the same puzzles keeps the same Held", True, f.held_dates("times") is kept)
+with f.held_once():
+    inside = f.held_dates("times")
+    (scan_root / "puzzles" / "times" / "1993" / "times-19132.json").write_text(json.dumps({"date": "1993-01-19"}))
+    f._HELD_LISTED["times"] = (float("-inf"), *f._HELD_LISTED["times"][1:])
+    now = f.held_dates("times")
+    check("held_once keeps its listing's Held while another thread lists afresh", [True, False],
+          [now is inside, 19132 in now])
+fresh = f.held_dates("times")
+check("outside held_once the new listing stands, and stays one object",
+      [D("1993-01-19"), True, True], [fresh[19132], f.held_dates("times") is fresh, fresh is not inside])
+(scan_root / "puzzles" / "times" / "1993" / "times-19132.json").unlink()
+f._HELD_LISTED.clear()
 f.ROOT = real_root
+
+# solution_sources links an edition again only when the filed puzzles in its
+# hosted_window differ: one filed months away reuses the last link, one the
+# day before links afresh, and each equals linked_solutions of that held.
+found = {"date": "1993-01-18", "puzzles": [{"number": 19131, "leaf": 3}],
+         "solutions": [{"number": 19130, "leaf": 3}]}
+d = Path("/nowhere/NewsUK1993UKEnglish/1993-01-18")
+base = {19129: D("1993-01-16"), 19000: D("1992-08-17")}
+f._LINKED.pop(d, None)
+first = f._linked(d, found, f.Held(base))
+far = f.Held({**base, 18990: D("1992-08-05")})
+again = f._linked(d, found, far)
+near = f.Held({**base, 19130: D("1993-01-17")})
+check("a puzzle filed far away reuses the link; one in the window relinks",
+      [True, f.linked_solutions(f.TIMES, found, far), f.linked_solutions(f.TIMES, found, near), True],
+      [again is first, again, f._linked(d, found, near), f._LINKED[d][3] == f.held_between(near, f._LINKED[d][2])])
+check("hosted_window spans SOLUTION_DAYS each side and a week before", (D("1993-01-11"), D("1993-01-25")),
+      f.hosted_window(f.TIMES, found))
+check("an edition with no headings reads no held", None, f.hosted_window(f.TIMES, {**found, "solutions": []}))
 
 # lay_loose(): each clue alone on its own light; a misread count is not laid.
 g = ["...", ".#.", "..."]
