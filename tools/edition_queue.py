@@ -483,9 +483,10 @@ def fresh(papers, cache=fa.CACHE, now=None):
         found.sort(key=lambda t: t[0], reverse=True)
         dirs = [d for _, d in found]
         planned = fa._PLANNED_DIRS.get((str(cache), key))
-        if planned is not None and not set(dirs) <= set(planned):
+        known_dirs = set(planned) if planned is not None and dirs else None
+        if known_dirs is not None and not set(dirs) <= known_dirs:
             # A read prepared here (brief) finds its solution among them.
-            fa._PLANNED_DIRS[(str(cache), key)] = [*planned, *(d for d in dirs if d not in set(planned))]
+            fa._PLANNED_DIRS[(str(cache), key)] = [*planned, *(d for d in dirs if d not in known_dirs)]
         rel = {d: f"{d.parent.name}/{d.name}" for d in dirs}
 
         def needs(d, dirs=dirs, rel=rel):
@@ -747,6 +748,9 @@ vlm_gate_reader = None
 #: that need it, whatever the last answer: the queue does not restart them on
 #: an answer from before it went down.
 VLM_RECHECK = 60
+#: At most this many seconds a pass that would walk the queue as the last
+#: idle one did skips it (dispatch's idle_key): the walk is the loop's CPU.
+IDLE_WALK = 5
 #: The dispatch loop's tick while the reads left wait for the VLM and nothing
 #: runs: it checks again, but does not walk the queue every second for nothing.
 VLM_IDLE = 10
@@ -897,6 +901,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     vlm_lost_at = [float("-inf")]  # when a read last ended deferred for it
     vlm_logged = [None, 0]  # (when the "VLM down" line was last logged, its count)
     vlm_pending = [0]  # the reads waiting for it at the last pass that could start units
+    idle_walk = [None, None]  # (idle_key, (held flags, vlm_deferred)) of the last pass whose walk began nothing
     beside = [Beside(argv) for argv in beside or ()]
     scans = reads = fetches = []
     # The editions just laid out (fresh), looked for every FRESH_POLL
@@ -1296,7 +1301,34 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             return needed is not None and (u["paper"], u["rel"]) not in needed
         queue = first + fresh_scans + fresh_reads + scans + reads + fetches
         walked = may_start() and any(v > 0 for v in free.values())
-        for u in queue if any(v > 0 for v in free.values()) else ():
+
+        def idle_key(gates, urgent=urgent, free=free, starved=starved, yielding=yielding, desk_mem=desk_mem):
+            """What a walk of the queue (~12k units) that begins nothing
+            depends on: the plan, the units running and tried, the gates it
+            read (`gates`: the (mem, cpu, idle) readings by their arguments),
+            and the IDLE_WALK slot of time (a ledger another process moved,
+            the VLM back, a desktop session aged out: noticed within
+            IDLE_WALK seconds)."""
+            return (planned, plan_done, fresh_at, len(queue), len(first), len(tried), len(scanned), len(scan_failed),
+                    sum(losses.values()), len(vlm_held), tuple(running), tuple(adopted), tuple(sorted(free.items())),
+                    len(stopped), urgent, bool(starved), bool(yielding), desk_mem, len(opened), len(closed),
+                    int(time.monotonic() // IDLE_WALK), gates)
+
+        def gates_again(gates):
+            """The gates the last idle walk read, read again with the same
+            arguments: once each, as that walk did."""
+            mem, cpu, idle = gates
+            return (tuple((k, mem_gate.room(k[0], mem_gate_reader, unit=k[1])) for k, _ in mem),
+                    tuple((k, mem_gate.cpu_room(k, cpu_gate_reader)) for k, _ in cpu),
+                    tuple((k, mem_gate.idle_room(k, idle_gate_reader)) for k, _ in idle))
+        # A pass the last idle one's state and gates stand for would begin
+        # nothing again: its outcome stands, the walk is skipped. The state
+        # is compared first: the gates are read only when it matches.
+        skip_walk = (walked and idle_walk[0] is not None and idle_key(idle_walk[0][-1]) == idle_walk[0]
+                     and gates_again(idle_walk[0][-1]) == idle_walk[0][-1])
+        if skip_walk:
+            held_back, desk_held, cpu_held, idle_held, vlm_deferred = idle_walk[1]
+        for u in queue if any(v > 0 for v in free.values()) and not skip_walk else ():
             if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
                 continue
             if urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET:
@@ -1359,6 +1391,12 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
             if u["kind"] == "scan":
                 scanning.add((u["paper"], u["rel"]))
+        if walked and not skip_walk and not begun_now:
+            idle_walk[:] = [idle_key((tuple(sorted(mem_read.items())), tuple(sorted(cpu_read.items())),
+                                      tuple(sorted(idle_read.items())))),
+                            (held_back, desk_held, cpu_held, idle_held, vlm_deferred)]
+        elif not skip_walk:
+            idle_walk[:] = [None, None]
         if held_back and not memory_bound:
             memory_bound = True
             log(f"memory-bound: {((mem_gate_reader or mem_gate.available)() or 0) >> 20} MB available, floor {mem_gate.FLOOR >> 20} MB, "

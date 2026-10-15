@@ -2757,16 +2757,23 @@ def run_papers(paper):
 
 def paper_of(d):
     """The Paper an edition directory's item belongs to (memoized by item
-    name: a unit start asks it of every edition of a paper)."""
+    name, and by the directory itself: a read's brief asks it of every
+    edition of a paper, the same Path objects each time, where Path(d).parent
+    costs more than the dict hit)."""
+    hit = _PAPER_OF.get(d)
+    if hit is not None:
+        return hit
     item = Path(d).parent.name
     hit = _PAPER_OF.get(item)
     if hit is None:
         hit = _PAPER_OF[item] = next((q for p in FILERS.values() for q in run_papers(p) if q.item.match(item)),
                                      TIMES)
+    if isinstance(d, Path):
+        _PAPER_OF[d] = hit
     return hit
 
 
-#: {item name: paper_of's answer}; FILERS is fixed at import.
+#: {item name or edition Path: paper_of's answer}; FILERS is fixed at import.
 _PAPER_OF = {}
 
 
@@ -3064,12 +3071,24 @@ BOOK_VOTE = 1
 
 def held_scans(series):
     """{(source.url, date): [numbers]} of every filed puzzle in a series that
-    names a scan page: one page on one day is one puzzle."""
+    names a scan page: one page on one day is one puzzle. Worked out again
+    only when a file of the series moved (held_dates' key), not every call:
+    a read's brief asks it of the whole corpus. Callers must not mutate it."""
+    files = held_files(series)
+    key = (_HELD_GEN.get(series, 0), len(files))
+    hit = _HELD_SCANS.get(series)
+    if hit is not None and hit[0] == key:
+        return hit[1]
     out = {}
-    for n, (_, url, day) in held_files(series):
+    for n, (_, url, day) in files:
         if url:
             out.setdefault((url, day), []).append(n)
+    _HELD_SCANS[series] = (key, out)
     return out
+
+
+#: {series: ((held_files generation, file count), held_scans' answer)}
+_HELD_SCANS = {}
 
 
 def same_scan(number, url, day, series):
