@@ -608,6 +608,13 @@ def unchanged(old, new):
     return new
 
 
+def unchanged_eq(old, new):
+    """`old` when `new` equals it (fresh() builds new unit dicts each tick),
+    else `new`: the same id-keeping as unchanged() for lists whose units are
+    rebuilt equal, so queue_memo does not miss on every FRESH_POLL."""
+    return old if old == new else new
+
+
 def read_waits(u, scanning, unscanned, rescanned):
     """Whether read `u` waits on a scan: one it needs running, its own
     planned and not yet done, or one of a stale-scan re-read's ended since
@@ -1226,7 +1233,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 reexec()
         if may_start() and (fresh_at is None or time.monotonic() - fresh_at >= min(replan, FRESH_POLL)):
             fresh_at = time.monotonic()
-            fresh_scans, fresh_reads = fresh(papers, cache)
+            new_scans, new_reads = fresh(papers, cache)
+            fresh_scans, fresh_reads = unchanged_eq(fresh_scans, new_scans), unchanged_eq(fresh_reads, new_reads)
         if may_start() and planner is None and (
                 plan_done is None or time.monotonic() - plan_done >= replan and time.monotonic() - plan_done >= replan_after()):
             box = {"begun": time.monotonic(), "notes": []}
@@ -1533,7 +1541,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 if may_reexec() and any(digest(f) != h for f, h in code.items()):
                     reexec()
                 scans, reads, fetches = replan_all()
-                fresh_scans, fresh_reads = fresh(papers, cache)
+                new_scans, new_reads = fresh(papers, cache)
+                fresh_scans, fresh_reads = unchanged_eq(fresh_scans, new_scans), unchanged_eq(fresh_reads, new_reads)
                 fresh_at = time.monotonic()
                 fetches = unchanged(fetches, [u for u in fetches if u["paper"] not in stopped])
                 planned = time.monotonic()
