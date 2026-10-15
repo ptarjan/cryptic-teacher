@@ -966,14 +966,21 @@ found = {"date": "1993-01-18", "puzzles": [{"number": 19131, "leaf": 3}],
          "solutions": [{"number": 19130, "leaf": 3}]}
 d = Path("/nowhere/NewsUK1993UKEnglish/1993-01-18")
 base = {19129: D("1993-01-16"), 19000: D("1992-08-17")}
-f._LINKED.pop(d, None)
+k = (d, f.paper_of(d))
+f._LINKED.pop(k, None)
 first = f._linked(d, found, f.Held(base))
 far = f.Held({**base, 18990: D("1992-08-05")})
 again = f._linked(d, found, far)
 near = f.Held({**base, 19130: D("1993-01-17")})
 check("a puzzle filed far away reuses the link; one in the window relinks",
       [True, f.linked_solutions(f.TIMES, found, far), f.linked_solutions(f.TIMES, found, near), True],
-      [again is first, again, f._linked(d, found, near), f._LINKED[d][3] == f.held_between(near, f._LINKED[d][2])])
+      [again is first, again, f._linked(d, found, near), f._LINKED[k][3] == f.held_between(near, f._LINKED[k][2])])
+# Another thread's fold of the ledger holds an equal scan, not the same object.
+copy = json.loads(json.dumps(found))
+check("an equal scan from another thread's rows reuses the link; a changed one relinks",
+      [True, True, f.linked_solutions(f.TIMES, {**copy, "solutions": []}, near)],
+      [f._linked(d, copy, near) is f._LINKED[k][4], f._LINKED[k][0] is copy,
+       f._linked(d, {**copy, "solutions": []}, near)])
 check("hosted_window spans SOLUTION_DAYS each side and a week before", (D("1993-01-11"), D("1993-01-25")),
       f.hosted_window(f.TIMES, found))
 check("an edition with no headings reads no held", None, f.hosted_window(f.TIMES, {**found, "solutions": []}))
@@ -1453,13 +1460,32 @@ try:
     linked.clear()
     f.sister_solutions(pc, f.GALE)
     check("an unmoved sister ledger and filed puzzles: no heading linked again", [], linked)
+    def cold():
+        """sister_solutions with every memo of it dropped."""
+        keep = dict(f._LINKED), dict(f._SISTER_LINKS)
+        f._LINKED.clear()
+        f._SISTER_LINKS.clear()
+        try:
+            return f.sister_solutions(pc, f.GALE)
+        finally:
+            f._LINKED.clear()
+            f._LINKED.update(keep[0])
+            f._SISTER_LINKS.clear()
+            f._SISTER_LINKS.update(keep[1])
     scan_queue.append(pl, [settled_row(e1)])
-    f.sister_solutions(pc, f.GALE)
-    check("mirror: the sister ledger appended to: its headings linked again", True, bool(linked))
+    got, again = f.sister_solutions(pc, f.GALE), list(linked)
+    check("the sister ledger appended to with unchanged scans: nothing linked again, the same links",
+          ([], cold()), (again, got))
     linked.clear()
     f.held_dates = lambda series: f.Held({**real_held_dates(series), 99999: datetime.date(1999, 1, 1)})
-    f.sister_solutions(pc, f.GALE)
-    check("mirror: a puzzle filed in the series: its headings linked again", True, bool(linked))
+    got, again = f.sister_solutions(pc, f.GALE), list(linked)
+    check("a puzzle filed outside every edition's hosted_window: nothing linked again, the same links",
+          ([], cold()), (again, got))
+    linked.clear()
+    f.held_dates = lambda series: f.Held({**real_held_dates(series), 15558: datetime.date(1981, 6, 21)})
+    got, again = f.sister_solutions(pc, f.GALE), list(linked)
+    check("one filed beside an edition with headings links it again, as a cold link does",
+          (True, cold()), (bool(again), got))
 finally:
     f.linked_solutions, f.held_dates = real_linked, real_held_dates
 held = f.Held({15556: datetime.date(1981, 6, 19), 15557: datetime.date(1981, 6, 20), 15550: datetime.date(1981, 6, 12)})
