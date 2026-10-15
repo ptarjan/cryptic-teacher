@@ -152,6 +152,7 @@ import ast
 import bisect
 import contextlib
 import datetime
+import functools
 import gzip
 import hashlib
 import json
@@ -4572,7 +4573,13 @@ SOLUTION_DAYS = 7
 
 def edition_date(d):
     """The date in an edition dir's name, or None."""
-    m = re.search(r"\d{4}-\d{2}-\d{2}", d.name)
+    return _date_in(d.name)
+
+
+@functools.lru_cache(maxsize=None)
+def _date_in(name):
+    """edition_date of a dir name (pure, so kept: a plan asks it ~200k times for ~25k names)."""
+    m = re.search(r"\d{4}-\d{2}-\d{2}", name)
     return datetime.date.fromisoformat(m.group()) if m else None
 
 
