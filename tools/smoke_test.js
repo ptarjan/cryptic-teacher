@@ -3025,7 +3025,13 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       + JSON.stringify(runs('<mark class="def ind" data-edge="start end">x</mark>')));
     const checkMarks = (id, e) => {
       const ann = e.annotation;
-      const rs = runs(registry["hint-clue"].innerHTML);
+      // A reconstructed clue's label follows the clue (4c693d5357); it is not
+      // clue text, so it is checked and then left out of the runs.
+      const label = /\s*<span class="clue-reconstructed"[^>]*>[^<]*<\/span>/;
+      const html = registry["hint-clue"].innerHTML;
+      assert(label.test(html) === !!e.clue.reconstructed,
+        `${id} ${entryId(e)}: the reconstructed label ${e.clue.reconstructed ? "is missing" : "shows on a printed clue"}`);
+      const rs = runs(html.replace(label, ""));
       const plain = rs.map((r) => r.text).join("");
       assert(plain === printedClue(e),
         `${id} ${entryId(e)}: the marked-up clue is no longer the clue: ${JSON.stringify(plain)}`);
