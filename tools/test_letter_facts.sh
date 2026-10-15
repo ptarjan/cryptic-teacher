@@ -467,4 +467,33 @@ b.renice(b.NICE - 5); print(a == max(b.NICE, a), os.nice(0) == a)')
 if [ "$nice" = "True True" ]; then echo "ok   blog_facts renices up to NICE and never down"; else
   echo "FAIL renice: expected [True True], got [$nice]"; fails=$((fails + 1)); fi
 
+# rows() reads the clues through row_cache, found off one listing: the same rows
+# as a find and a parse per puzzle, cold and warm, and an unheld id skipped.
+rowsd=$(mktemp -d)
+cached=$(cd "$REPO/tools" && python3 -c '
+import json, sys
+from pathlib import Path
+import row_cache, letter_facts as l, enumeration
+from groups import entry_id
+from puzzle_paths import find, puzzle_files
+row_cache.STORE = sys.argv[1] + "/rows.sqlite"
+ids = sorted({p.stem for p in puzzle_files("times")[:3] + puzzle_files("guardian")[:2]} | {"times-999999999"})
+l.OUT = Path(sys.argv[1]) / "out"
+l.OUT.mkdir()
+(l.OUT / "x.json").write_text("{\n" + ",\n".join(json.dumps(i) + ": {\"entries\": {}}" for i in ids) + "\n}\n")
+def old():
+    for pid in ids:
+        path = find(pid)
+        if path is None:
+            continue
+        ents = {entry_id(e): e for e in json.loads(path.read_text())["entries"]}
+        for eid, e in ents.items():
+            if e.get("solution") and e["clue"].get("text"):
+                yield pid, eid, enumeration.printed(e["clue"]), e["solution"], l.stated(l.fact_from_json({}))
+want = list(old())
+print(len(want) > 0, list(l.rows()) == want, list(l.rows()) == want, len(l._held_clues(ids)) == len(ids) - 1)' "$rowsd" 2>&1)
+rm -rf "$rowsd"
+if [ "$cached" = "True True True True" ]; then echo "ok   rows() through the row cache matches a find and parse per puzzle"; else
+  echo "FAIL cached rows: expected [True True True True], got [$cached]"; fails=$((fails + 1)); fi
+
 [ "$fails" -eq 0 ] && echo "all letter_facts checks passed" || { echo "$fails failed"; exit 1; }

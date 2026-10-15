@@ -1516,19 +1516,60 @@ def rows(said=None, as_written=False):
     what the write-up says short of its blocks, where `said` (read_leads) has
     it. The facts are as the blog stated them (see stated), or `as_written`,
     with what this file inferred."""
-    for f in sorted(OUT.glob("*.json")):
+    files = sorted(OUT.glob("*.json"))
+    held = _held_clues([pid for f in files for pid in _file_pids(f)])
+    for f in files:
         for pid, rec in json.loads(f.read_text(encoding="utf-8")).items():
-            path = find_puzzle(pid)
-            if path is None:
-                continue
-            ents = {entry_id(e): e for e in json.loads(path.read_text(encoding="utf-8"))["entries"]}
+            if pid in held:
+                clues = held[pid]
+            else:  # an id _file_pids did not see: looked up as it always was
+                path = find_puzzle(pid)
+                if path is None:
+                    continue
+                clues = puzzle_clues(path)
             got = (said or {}).get(pid, {})
-            for eid, e in ents.items():
-                if e.get("solution") and e["clue"].get("text"):
-                    facts = fact_from_json(rec["entries"].get(eid, {}))
-                    facts = facts if as_written else stated(facts)
-                    yield (pid, eid, enumeration.printed(e["clue"]), e["solution"],
-                           {**facts, "leads": got[eid]} if eid in got else facts)
+            for eid, clue, answer in clues:
+                facts = fact_from_json(rec["entries"].get(eid, {}))
+                facts = facts if as_written else stated(facts)
+                yield (pid, eid, clue, answer, {**facts, "leads": got[eid]} if eid in got else facts)
+
+
+def puzzle_clues(path):
+    """[(entry id, printed clue, answer)] for each clue of the puzzle file at
+    `path` with an answer and a clue, as rows() reads them."""
+    ents = {entry_id(e): e for e in json.loads(path.read_text(encoding="utf-8"))["entries"]}
+    return [(eid, enumeration.printed(e["clue"]), e["solution"])
+            for eid, e in ents.items() if e.get("solution") and e["clue"].get("text")]
+
+
+def _file_pids(path):
+    """The puzzle ids of a tools/data/blog_facts file, off the start of each
+    line (rewrite_rows writes one puzzle a line), without parsing the rows."""
+    dec = json.JSONDecoder()
+    with path.open(encoding="utf-8") as f:
+        for line in f:
+            if line.startswith('"'):
+                yield dec.raw_decode(line)[0]
+
+
+def _held_clues(pids):
+    """{puzzle id: puzzle_clues} for each of `pids` held in puzzles/, found
+    off one listing and kept per file by tools/row_cache.py. Was a
+    puzzle_paths.find per puzzle (a stat per year folder) and a parse of each
+    file every run: ~10 minutes of a loaded host's blog-facts unit."""
+    import row_cache
+    from puzzle_paths import PUZZLE_DIR, series_folder
+    by_name = collections.defaultdict(list)
+    for p in puzzle_files():
+        by_name[p.stem].append(p)
+    found = {}
+    for pid in pids:
+        hits = sorted(p for p in by_name.get(pid, ()) if p.parent.parent == PUZZLE_DIR / series_folder(pid))
+        if len(hits) > 1:
+            raise SystemExit(f"{pid} is filed twice: " + ", ".join(map(str, hits)))
+        if hits:
+            found[pid] = hits[0]
+    return dict(zip(found, row_cache.cached_map("letter_facts", puzzle_clues, list(found.values()))))
 
 
 def annotation_rows():
