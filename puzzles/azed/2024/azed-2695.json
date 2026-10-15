@@ -4,6 +4,20 @@
  "setter": "Azed",
  "date": "2024-02-11",
  "preamble": "From the answer to each across clue one letter must be omitted wherever it occurs (often more than once) before entry in the diagram. To the answer to each down clue one letter must be added, at any point but not unchecked, before entry in the diagram. Definitions in both across and down clues refer to untreated answers; cryptic indications in both refer to the answers as they appear in the diagram. Numbers in brackets show the length of untreated answers, both across and down. The letters omitted from the acrosses followed by the letters added to the downs, read in clue order, form a quotation in the Oxford Dictionary of Quotations, followed by the surname of the author. The line after the quotation indicates its vague relevance to the puzzle’s theme.",
+ "messages": [
+  {
+   "text": "MY TRUE LOVE HATH MY HE",
+   "kind": "omitted",
+   "direction": "across",
+   "order": "clues"
+  },
+  {
+   "text": "ART AND I HAVE HIS SIDNEY",
+   "kind": "extra",
+   "direction": "down",
+   "order": "clues"
+  }
+ ],
  "dimensions": {
   "cols": 12,
   "rows": 12
@@ -31,8 +45,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-15",
+  "check": "38 entries, 90 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -45,6 +65,85 @@
    "clue": {
     "text": "Preserve youth in wild area",
     "enumeration": "9"
+   },
+   "solution": "ARALADE",
+   "alteration": {
+    "from": "MARMALADE",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Preserve",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "the word for a youth is placed inside the jumbled letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wild",
+         "at": 18,
+         "note": "wild letters run free, so area is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "area",
+           "at": 23,
+           "note": "taken as written, the anagram fodder"
+          },
+          {
+           "gives": "M",
+           "note": "one of the two Ms this across answer drops from the grid, so the clue never supplies them"
+          },
+          {
+           "gives": "M",
+           "note": "the second dropped M"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "youth",
+       "at": 9,
+       "gives": "LAD",
+       "note": "a lad is a young man"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conservation plea: keep young people out in the wilderness.",
+     "walkthrough": "Across answers lose one letter wherever it occurs, and the wordplay builds what is entered: MARMALADE loses both Ms to give ARALADE.",
+     "definitionFit": "Marmalade is a citrus jam, and a preserve is any fruit conserve kept in a jar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Preserve"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "M"
+    }
    }
   },
   {
@@ -58,6 +157,68 @@
    "clue": {
     "text": "Australian mountain measure: bit of hiking equipment?",
     "enumeration": "6"
+   },
+   "solution": "ABERGEN",
+   "alteration": {
+    "from": "BERGEN",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "bit of hiking equipment?",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Australian",
+         "at": 0,
+         "gives": "A",
+         "note": "A is the abbreviation for Australian; this is the letter the down answer gains in the grid"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "words": "mountain",
+       "at": 11,
+       "gives": "BERG",
+       "note": "berg is a mountain, as in iceberg"
+      },
+      {
+       "words": "measure",
+       "at": 20,
+       "gives": "EN",
+       "note": "en is a printer's measure, half an em"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian peak's height, or a piece of a walker's kit.",
+     "walkthrough": "Down answers gain one letter, and the wordplay builds the entry: BERGEN gains the A of Australian to be entered as ABERGEN.",
+     "definitionFit": "A bergen is a large rucksack, carried by soldiers and hikers alike."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Australian"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "A"
+    }
    }
   },
   {
@@ -71,6 +232,72 @@
    "clue": {
     "text": "Scream, soil trembling, simultaneously feeling quake",
     "enumeration": "9"
+   },
+   "solution": "RCOSEISMAL",
+   "alteration": {
+    "from": "COSEISMAL",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "simultaneously feeling quake",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "trembling",
+       "at": 13,
+       "note": "trembling soil is shaken about, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "Scream",
+           "at": 0,
+           "note": "taken as written"
+          },
+          {
+           "gives": "R"
+          }
+         ]
+        },
+        {
+         "words": "soil",
+         "at": 8,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People scream as the ground shakes in an earthquake.",
+     "walkthrough": "COSEISMAL gains an R to be entered as RCOSEISMAL, which is what the anagram makes.",
+     "definitionFit": "Coseismal describes points hit by an earthquake's shock wave at the same moment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "trembling"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "R"
+    }
    }
   },
   {
@@ -84,6 +311,68 @@
    "clue": {
     "text": "Assistance required, deserted in small island",
     "enumeration": "3"
+   },
+   "solution": "AIDT",
+   "alteration": {
+    "from": "AID",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Assistance required",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 30,
+       "note": "in the grid the deserted letter goes inside the island word, ahead of the T that only the entry keeps"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "small island",
+         "at": 33,
+         "gives": "AIT",
+         "note": "an ait is a small island in a river"
+        },
+        {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "words": "deserted",
+       "at": 21,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A castaway on a deserted islet needs help.",
+     "walkthrough": "AID gains a T to be entered as AIDT.",
+     "definitionFit": "Aid is help or support given to someone who needs it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deserted"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "T"
+    }
    }
   },
   {
@@ -97,6 +386,102 @@
    "clue": {
     "text": "What swimmers should avoid, a stretch of broken water rising in middle of rain",
     "enumeration": "5"
+   },
+   "solution": "APIRAI",
+   "alteration": {
+    "from": "PIRAI",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What swimmers should avoid",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 61,
+       "note": "in the grid the reversed letters sit inside the middle pair of rain; drop the added A and they simply come first"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 54,
+         "note": "in a down clue rising means read upwards, so the letters reverse"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 28,
+           "note": "taken as written"
+          },
+          {
+           "words": "stretch of broken water",
+           "at": 30,
+           "gives": "RIP",
+           "note": "a rip is a stretch of rough water where currents meet"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "middle of",
+           "at": 64,
+           "note": "the middle of rain is its central two letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rain",
+           "at": 74,
+           "note": "the word whose centre is taken"
+          }
+         ]
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to bathers to keep clear of choppy water in the rain.",
+     "walkthrough": "PIRAI gains an A to be entered as APIRAI.",
+     "definitionFit": "The pirai is the piranha, a sharp-toothed South American fish that bathers would do well to avoid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rain"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "A"
+    }
    }
   },
   {
@@ -110,6 +495,61 @@
    "clue": {
     "text": "Tree with medicinal bark, hollow one",
     "enumeration": "4"
+   },
+   "solution": "DINTA",
+   "alteration": {
+    "from": "DITA",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tree with medicinal bark",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "hollow",
+         "at": 26,
+         "gives": "DINT",
+         "note": "a dint is a dent or hollow"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 33,
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tree whose bark heals, though it is hollow inside.",
+     "walkthrough": "DITA gains an N to be entered as DINTA.",
+     "definitionFit": "Dita is a Philippine and Indian tree whose bitter bark is used as a tonic and fever remedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hollow"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "N"
+    }
    }
   },
   {
@@ -123,6 +563,81 @@
    "clue": {
     "text": "Route for vessels was diverted round drainage channel",
     "enumeration": "6"
+   },
+   "solution": "SEAWA",
+   "alteration": {
+    "from": "SEAWAY",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Route for vessels",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 31,
+         "note": "the jumbled letters go round the short word for a channel"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "diverted",
+           "at": 22,
+           "note": "diverted means turned from its course, so the letters of was are reordered"
+          }
+         ],
+         "parts": [
+          {
+           "words": "was",
+           "at": 18,
+           "note": "taken as written, the anagram fodder"
+          }
+         ]
+        },
+        {
+         "words": "drainage channel",
+         "at": 37,
+         "gives": "EA",
+         "note": "EA is a Fenland word for a river or drainage channel"
+        }
+       ]
+      },
+      {
+       "gives": "Y",
+       "note": "the letter this across answer drops from the grid; the wordplay never supplies it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship was rerouted around a ditch draining the land.",
+     "walkthrough": "EA is a dialect word from the Fens of eastern England for a watercourse; SEAWAY drops its Y to be entered as SEAWA.",
+     "definitionFit": "A seaway is an inland waterway deep enough for ocean-going ships, such as the St Lawrence Seaway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vessels"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "Y"
+    }
    }
   },
   {
@@ -136,6 +651,62 @@
    "clue": {
     "text": "Monkeys, dark-coloured, to caress, tailless",
     "enumeration": "5"
+   },
+   "solution": "SADKIS",
+   "alteration": {
+    "from": "SAKIS",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Monkeys",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "dark-coloured",
+         "at": 9,
+         "gives": "SAD",
+         "note": "sad is an old sense meaning dark or sober in colour"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "words": "to caress, tailless",
+       "at": 24,
+       "gives": "KIS",
+       "note": "to kiss is to caress, and tailless docks its final letter"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dark monkeys stroking each other, with no tails.",
+     "walkthrough": "SAKIS gains a D to be entered as SADKIS.",
+     "definitionFit": "Sakis are bushy-tailed South American monkeys."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caress"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "D"
+    }
    }
   },
   {
@@ -149,6 +720,68 @@
    "clue": {
     "text": "Programme for developing human potential, fit with energy dominating",
     "enumeration": "3"
+   },
+   "solution": "ESIT",
+   "alteration": {
+    "from": "EST",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Programme for developing human potential",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "dominating",
+       "at": 58,
+       "note": "in a down clue the letter for energy dominates by sitting on top"
+      }
+     ],
+     "parts": [
+      {
+       "words": "energy",
+       "at": 51,
+       "gives": "E"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "fit",
+         "at": 42,
+         "gives": "SIT",
+         "note": "a garment that sits well fits well"
+        },
+        {
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fitness course with plenty of energy to unlock what people can do.",
+     "walkthrough": "EST gains an I to be entered as ESIT.",
+     "definitionFit": "Erhard Seminars Training was a 1970s American self-improvement course promising personal growth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "I"
+    }
    }
   },
   {
@@ -162,6 +795,79 @@
    "clue": {
     "text": "Shut up in a ditch? Variable measure of old",
     "enumeration": "7"
+   },
+   "solution": "ARSHHINE",
+   "alteration": {
+    "from": "ARSHINE",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Variable measure of old",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 11,
+       "note": "taken as written"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 8,
+         "note": "the call for silence is shut inside the ditch"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ditch",
+         "at": 13,
+         "gives": "RHINE",
+         "note": "a rhine is a ditch or watercourse in the Somerset Levels"
+        },
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "Shut up",
+           "at": 0,
+           "gives": "SH",
+           "note": "sh is the call for quiet"
+          },
+          {
+           "gives": "H"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone silenced in a trench and an obsolete unit of length.",
+     "walkthrough": "ARSHINE gains an H to be entered as ARSHHINE.",
+     "definitionFit": "The arshine was an old Russian and Turkish unit of length whose size varied from place to place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ditch"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "H"
+    }
    }
   },
   {
@@ -175,6 +881,69 @@
    "clue": {
     "text": "Seeks newts around Austria",
     "enumeration": "4"
+   },
+   "solution": "AASKS",
+   "alteration": {
+    "from": "ASKS",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Seeks",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 12,
+       "note": "the newt word goes around the letter for Austria"
+      }
+     ],
+     "parts": [
+      {
+       "words": "newts",
+       "at": 6,
+       "gives": "ASKS",
+       "note": "ask is a Scots and northern word for a newt"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Austria",
+         "at": 19,
+         "gives": "A",
+         "note": "A is Austria's international vehicle registration letter"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone searches for amphibians around Austria.",
+     "walkthrough": "ASKS gains an A to be entered as AASKS.",
+     "definitionFit": "To ask for something is to request or try to obtain it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "newts"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "A"
+    }
    }
   },
   {
@@ -188,6 +957,88 @@
    "clue": {
     "text": "Pie transformed vapour to expose back abdominal parts",
     "enumeration": "10"
+   },
+   "solution": "EPIGASRIA",
+   "alteration": {
+    "from": "EPIGASTRIA",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "abdominal parts",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "transformed",
+         "at": 4,
+         "note": "something transformed takes a new form, so the letters of Pie are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pie",
+         "at": 0,
+         "note": "taken as written, the anagram fodder"
+        }
+       ]
+      },
+      {
+       "words": "vapour",
+       "at": 16,
+       "gives": "GAS",
+       "note": "gas is matter in vapour form"
+      },
+      {
+       "gives": "T",
+       "note": "the letter this across answer drops from the grid; the wordplay never supplies it"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 33,
+         "note": "back means the word for exposing is read from right to left"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to expose",
+         "at": 23,
+         "gives": "AIR",
+         "note": "to air something is to expose it to view"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pie turns to steam and lays bare somebody's back and belly.",
+     "walkthrough": "EPIGASTRIA loses its T to be entered as EPIGASRIA.",
+     "definitionFit": "The epigastrium is the upper central region of the abdomen; the plural names those regions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Pie"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "T"
+    }
    }
   },
   {
@@ -201,6 +1052,77 @@
    "clue": {
     "text": "An ode I recast to arrange anew",
     "enumeration": "8"
+   },
+   "solution": "EODAIN",
+   "alteration": {
+    "from": "REORDAIN",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "arrange anew",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "recast",
+       "at": 9,
+       "note": "to recast is to cast again in a new shape, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "An",
+         "at": 0,
+         "note": "taken as written"
+        },
+        {
+         "words": "ode",
+         "at": 3,
+         "note": "taken as written"
+        },
+        {
+         "words": "I",
+         "at": 7,
+         "note": "taken as written"
+        },
+        {
+         "gives": "R",
+         "note": "one of the two Rs this across answer drops from the grid"
+        },
+        {
+         "gives": "R",
+         "note": "the second dropped R"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet rewrites a poem in a new order.",
+     "walkthrough": "REORDAIN loses both Rs to be entered as EODAIN, which is all the clue's letters can make.",
+     "definitionFit": "To reordain is to ordain or decree a second time, setting something up afresh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ode"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "R"
+    }
    }
   },
   {
@@ -214,6 +1136,70 @@
    "clue": {
     "text": "Lovers of naturism distilled in opposite parts of compass",
     "enumeration": "7"
+   },
+   "solution": "NDISTS",
+   "alteration": {
+    "from": "NUDISTS",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lovers of naturism",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 29,
+       "note": "the shortened word goes between the two compass points"
+      }
+     ],
+     "parts": [
+      {
+       "words": "opposite parts of compass",
+       "at": 32,
+       "gives": "NS",
+       "note": "north and south are opposite points of the compass"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "gives": "U",
+         "note": "the letter this across answer drops from the grid; the wordplay never supplies it"
+        },
+        {
+         "words": "distilled",
+         "at": 19,
+         "gives": "DIST",
+         "note": "dist. is the standard abbreviation for distilled"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Naturists are distilled between the far north and the far south.",
+     "walkthrough": "NUDISTS loses its U to be entered as NDISTS.",
+     "definitionFit": "Nudists practise naturism, going without clothes as a way of life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "distilled"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "U"
+    }
    }
   },
   {
@@ -226,6 +1212,91 @@
    "length": 10,
    "clue": {
     "text": "Awfully empty, time to stuff meat? It's used for setting (9, two words)"
+   },
+   "solution": "TYPEMVETAL",
+   "alteration": {
+    "from": "TYPEMETAL",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "It's used for setting",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Awfully",
+         "at": 0,
+         "note": "awfully suggests a mess, so the letters of empty are jumbled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "empty",
+         "at": 8,
+         "note": "taken as written, the anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to stuff",
+         "at": 20,
+         "note": "the letter for time is stuffed inside the meat"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "meat",
+           "at": 29,
+           "gives": "VEAL",
+           "note": "veal is calf meat"
+          },
+          {
+           "gives": "V"
+          }
+         ]
+        },
+        {
+         "words": "time",
+         "at": 15,
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook stuffing meat with nothing in the cupboard and no time, then letting it set.",
+     "walkthrough": "Setting here is typesetting. TYPE METAL gains a V to be entered as TYPEMVETAL.",
+     "definitionFit": "Type metal is the lead alloy from which printers cast type for composing pages."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "setting"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "V"
+    }
    }
   },
   {
@@ -239,6 +1310,90 @@
    "clue": {
     "text": "Ringo maybe catching heart of Beatles? He gets going again",
     "enumeration": "9"
+   },
+   "solution": "RSTARTR",
+   "alteration": {
+    "from": "RESTARTER",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "He gets going again",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "catching",
+       "at": 12,
+       "note": "the drummer's name catches a letter and holds it inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "container",
+         "parts": [
+          {
+           "words": "Ringo maybe",
+           "at": 0,
+           "gives": "RSTARR",
+           "note": "Ringo Starr, written with his initial as R. Starr; maybe flags him as one example"
+          },
+          {
+           "gives": "E",
+           "note": "one of the two Es this across answer drops from the grid"
+          }
+         ]
+        },
+        {
+         "gives": "E",
+         "note": "the second dropped E"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "heart of",
+         "at": 21,
+         "note": "the heart of a word is its middle letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Beatles",
+         "at": 30,
+         "note": "the word whose central letter is taken"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Beatles' drummer takes the band's heart and gets them going again.",
+     "walkthrough": "RESTARTER loses both Es to be entered as RSTARTR.",
+     "definitionFit": "A restarter is someone or something that sets a process in motion once more."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Ringo"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "E"
+    }
    }
   },
   {
@@ -252,6 +1407,62 @@
    "clue": {
     "text": "Odd Parisian thoroughfare metre short",
     "enumeration": "3"
+   },
+   "solution": "RUEM",
+   "alteration": {
+    "from": "RUM",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Odd",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Parisian thoroughfare",
+         "at": 4,
+         "gives": "RUE",
+         "note": "rue is French for street"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "metre short",
+       "at": 26,
+       "gives": "M",
+       "note": "M is the short form of metre"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange street in Paris that falls a metre short.",
+     "walkthrough": "RUM gains an E to be entered as RUEM.",
+     "definitionFit": "Rum is British slang for strange or peculiar, as in a rum do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Odd"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
    }
   },
   {
@@ -265,6 +1476,78 @@
    "clue": {
     "text": "Parts of border changing places took shape",
     "enumeration": "6"
+   },
+   "solution": "GEED",
+   "alteration": {
+    "from": "GELLED",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "took shape",
+      "at": 32
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "parts": [
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "Parts of",
+         "at": 0,
+         "note": "the word for border is treated as two parts"
+        },
+        {
+         "text": "changing places",
+         "at": 16,
+         "note": "the two halves of the word swap round"
+        }
+       ],
+       "parts": [
+        {
+         "words": "border",
+         "at": 9,
+         "gives": "EDGE",
+         "note": "an edge is a border"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "gives": "L",
+         "note": "one of the two Ls this across answer drops from the grid"
+        },
+        {
+         "gives": "L",
+         "note": "the second dropped L"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sections of a frontier shifted until the map took shape.",
+     "walkthrough": "GELLED loses both Ls to be entered as GEED.",
+     "definitionFit": "Plans that gelled came together and set firm, like a jelly setting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "border"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "L"
+    }
    }
   },
   {
@@ -278,6 +1561,73 @@
    "clue": {
     "text": "Embrace stirred hopes with practice",
     "enumeration": "7"
+   },
+   "solution": "ESHPOUSE",
+   "alteration": {
+    "from": "ESPOUSE",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Embrace",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "stirred",
+         "at": 8,
+         "note": "stirred hopes are mixed up, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "hopes",
+           "at": 16,
+           "note": "taken as written, the anagram fodder"
+          },
+          {
+           "gives": "H"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "practice",
+       "at": 27,
+       "gives": "USE",
+       "note": "use is custom or practice"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking up a habit with fresh hope.",
+     "walkthrough": "ESPOUSE gains an H to be entered as ESHPOUSE.",
+     "definitionFit": "To espouse a cause is to adopt or take it up wholeheartedly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stirred"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "H"
+    }
    }
   },
   {
@@ -291,6 +1641,84 @@
    "clue": {
     "text": "Broken shin limiting power is confining for Will",
     "enumeration": "7"
+   },
+   "solution": "INHPS",
+   "alteration": {
+    "from": "INHOOPS",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "is confining for Will",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "limiting",
+       "at": 12,
+       "note": "the broken letters limit, or bound, what goes inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Broken",
+         "at": 0,
+         "note": "a broken shin is smashed, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shin",
+         "at": 7,
+         "note": "taken as written, the anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "gives": "O",
+         "note": "one of the two Os this across answer drops from the grid"
+        },
+        {
+         "gives": "O",
+         "note": "the second dropped O"
+        },
+        {
+         "words": "power",
+         "at": 21,
+         "gives": "P"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fractured leg keeps poor Will laid up.",
+     "walkthrough": "Will is Shakespeare, who has Antony 'inhooped' like fighting quails. INHOOPS loses both Os to be entered as INHPS.",
+     "definitionFit": "To inhoop is to enclose as in a hoop, a Shakespearean word for confining."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Will"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "O"
+    }
    }
   },
   {
@@ -304,6 +1732,73 @@
    "clue": {
     "text": "Is suffering with diets, e.g. for biscuits",
     "enumeration": "10"
+   },
+   "solution": "DIGESTIES",
+   "alteration": {
+    "from": "DIGESTIVES",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "biscuits",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "suffering",
+       "at": 3,
+       "note": "suffering letters are knocked about, so they come out in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Is",
+         "at": 0,
+         "note": "taken as written"
+        },
+        {
+         "words": "diets",
+         "at": 18,
+         "note": "taken as written"
+        },
+        {
+         "words": "e.g.",
+         "at": 25,
+         "note": "taken as written, two letters"
+        },
+        {
+         "gives": "V",
+         "note": "the letter this across answer drops from the grid"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dieter suffers, eyeing the biscuit tin.",
+     "walkthrough": "DIGESTIVES loses its V to be entered as DIGESTIES.",
+     "definitionFit": "Digestives are plain semi-sweet British wholemeal biscuits, the classic tea-time dunker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suffering"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "V"
+    }
    }
   },
   {
@@ -317,6 +1812,63 @@
    "clue": {
     "text": "I roam Serengeti etc, causing nuisance to some extent",
     "enumeration": "3"
+   },
+   "solution": "GNUI",
+   "alteration": {
+    "from": "GNU",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I roam Serengeti etc",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "to some extent",
+         "at": 39,
+         "note": "only part of the phrase is used, the letters spanning its two words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "causing nuisance",
+         "at": 22,
+         "gives": "GNUI",
+         "note": "the phrase holding the letters"
+        }
+       ]
+      },
+      {
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wandering animal on the African plains making a pest of itself.",
+     "walkthrough": "The definition speaks as the animal itself. GNU gains an I to be entered as GNUI.",
+     "definitionFit": "The gnu, or wildebeest, migrates in vast herds across the Serengeti plains of Tanzania."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "nuisance"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "I"
+    }
    }
   },
   {
@@ -330,6 +1882,80 @@
    "clue": {
     "text": "Lecturer involved in mounting rows causing hurt",
     "enumeration": "6"
+   },
+   "solution": "SLESION",
+   "alteration": {
+    "from": "LESION",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hurt",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "involved in",
+       "at": 9,
+       "note": "in the grid the lecturer's letter is caught up inside the reversed word, after the S that only the entry keeps"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Lecturer",
+       "at": 0,
+       "gives": "L"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "mounting",
+         "at": 21,
+         "note": "in a down clue mounting means climbing, so the word is read upwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "rows",
+           "at": 30,
+           "gives": "NOISES",
+           "note": "rows are loud noises, rhyming with cows"
+          },
+          {
+           "gives": "S"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lecturer caught up in escalating quarrels gets hurt.",
+     "walkthrough": "LESION gains an S to be entered as SLESION.",
+     "definitionFit": "A lesion is an injury or wound, damage done to tissue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rows"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "S"
+    }
    }
   },
   {
@@ -343,6 +1969,106 @@
    "clue": {
     "text": "Cherishing Indian title separating names to coin I omitted",
     "enumeration": "12"
+   },
+   "solution": "NSHRINMNT",
+   "alteration": {
+    "from": "ENSHRINEMENT",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cherishing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "E",
+       "note": "one of the three Es this across answer drops from the grid"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "separating",
+         "at": 24,
+         "note": "the title comes between the two name letters, keeping them apart"
+        }
+       ],
+       "parts": [
+        {
+         "words": "names",
+         "at": 35,
+         "gives": "NN",
+         "note": "N is the abbreviation for name, so names gives two of them"
+        },
+        {
+         "words": "Indian title",
+         "at": 11,
+         "gives": "SHRI",
+         "note": "Shri is an Indian honorific, like Mr"
+        }
+       ]
+      },
+      {
+       "gives": "E",
+       "note": "the second dropped E"
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "omitted",
+           "at": 51,
+           "note": "omitted means the I is left out of the word for coin"
+          }
+         ],
+         "parts": [
+          {
+           "words": "coin",
+           "at": 44,
+           "gives": "MINT",
+           "note": "to mint is to coin money"
+          },
+          {
+           "words": "I",
+           "at": 49,
+           "note": "taken as written, the letter removed"
+          }
+         ]
+        },
+        {
+         "gives": "E",
+         "note": "the third dropped E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction for printing a respectful Indian title between names on a coin.",
+     "walkthrough": "Shri (also Sri) is a courtesy title in India. ENSHRINEMENT loses all three Es to be entered as NSHRINMNT.",
+     "definitionFit": "Enshrinement is holding something sacred, treasuring it as if in a shrine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coin"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "E"
+    }
    }
   },
   {
@@ -356,6 +2082,62 @@
    "clue": {
     "text": "At home dogs suffer",
     "enumeration": "5"
+   },
+   "solution": "INCURS",
+   "alteration": {
+    "from": "INCUR",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "suffer",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "At home",
+       "at": 0,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "dogs",
+         "at": 8,
+         "gives": "CURS",
+         "note": "curs are mongrel dogs"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Staying in with the dogs is a trial.",
+     "walkthrough": "INCUR gains an S to be entered as INCURS.",
+     "definitionFit": "To incur a loss or penalty is to bring it on oneself and undergo it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dogs"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "S"
+    }
    }
   },
   {
@@ -369,6 +2151,69 @@
    "clue": {
     "text": "End of cooling system brought to the fore? One goes after the dealers",
     "enumeration": "5"
+   },
+   "solution": "NAIRCO",
+   "alteration": {
+    "from": "NARCO",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One goes after the dealers",
+      "at": 43
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "parts": [
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "End of",
+         "at": 0,
+         "note": "the last letter of the word is the one that moves"
+        },
+        {
+         "text": "brought to the fore",
+         "at": 22,
+         "note": "that final letter goes to the front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cooling system",
+         "at": 7,
+         "gives": "AIRCON",
+         "note": "aircon is short for air conditioning"
+        }
+       ]
+      },
+      {
+       "gives": "I"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fridge part moved forward, and someone chasing the card dealers.",
+     "walkthrough": "The dealers are drug dealers. NARCO gains an I to be entered as NAIRCO.",
+     "definitionFit": "A narco is a narcotics agent, an officer who pursues drug traffickers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dealers"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "I"
+    }
    }
   },
   {
@@ -382,6 +2227,81 @@
    "clue": {
     "text": "Decorated drinking glass from Portugal featured in menu strangely",
     "enumeration": "6"
+   },
+   "solution": "UMPEN",
+   "alteration": {
+    "from": "HUMPEN",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Decorated drinking glass",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "H",
+       "note": "the letter this across answer drops from the grid; the wordplay never supplies it"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "featured in",
+         "at": 39,
+         "note": "the country's letter appears within the jumbled word, as an item featured in a list"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "strangely",
+           "at": 56,
+           "note": "strangely signals the letters of menu come out oddly arranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "menu",
+           "at": 51,
+           "note": "taken as written, the anagram fodder"
+          }
+         ]
+        },
+        {
+         "words": "Portugal",
+         "at": 30,
+         "gives": "P",
+         "note": "P is Portugal's international vehicle registration letter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fancy wine glass from Portugal turns up on a restaurant menu.",
+     "walkthrough": "HUMPEN loses its H to be entered as UMPEN.",
+     "definitionFit": "A humpen is a tall cylindrical German beer glass, typically enamelled with painted scenes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Portugal"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "H"
+    }
    }
   },
   {
@@ -395,6 +2315,62 @@
    "clue": {
     "text": "One of a pair in the night sky, colours dazzling in part",
     "enumeration": "4"
+   },
+   "solution": "URSDA",
+   "alteration": {
+    "from": "URSA",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One of a pair in the night sky",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "colours",
+       "at": 32,
+       "gives": "URS",
+       "note": "the closing letters of colours start the run that lies across the two words, there by design and not coincidence"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "dazzling in part",
+         "at": 40,
+         "gives": "DA",
+         "note": "in part says only part of the word is used: its opening letters finish the run"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A constellation whose colours partly dazzle the stargazer.",
+     "walkthrough": "URSA gains a D to be entered as URSDA.",
+     "definitionFit": "Ursa Major and Ursa Minor, the Great and Little Bears, are a famous pair of constellations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "colours"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "D"
+    }
    }
   },
   {
@@ -408,6 +2384,80 @@
    "clue": {
     "text": "Lesson at Glenalmond? Duck French coming up after Latin",
     "enumeration": "4"
+   },
+   "solution": "LNEIR",
+   "alteration": {
+    "from": "LEIR",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lesson at Glenalmond?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 44,
+       "note": "the reversed French word follows the letter for Latin"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Latin",
+       "at": 50,
+       "gives": "L"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "coming up",
+         "at": 34,
+         "note": "in a down clue coming up means read upwards"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "Duck French",
+           "at": 22,
+           "gives": "RIEN",
+           "note": "a duck is a score of nothing, and nothing in French is rien"
+          },
+          {
+           "gives": "N"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish classroom where a French duck follows a Latin lesson.",
+     "walkthrough": "Glenalmond is a boarding school in Perthshire, so the question mark points to a Scots word. LEIR gains an N to be entered as LNEIR.",
+     "definitionFit": "Leir is a Scots form of lear, meaning learning or a lesson."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Duck"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "N"
+    }
    }
   },
   {
@@ -421,6 +2471,69 @@
    "clue": {
     "text": "Rob to prepare for exams is dropping out",
     "enumeration": "5"
+   },
+   "solution": "REVE",
+   "alteration": {
+    "from": "REAVE",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Rob",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dropping out",
+         "at": 28,
+         "note": "the word is drops out, so its letters leave the revision word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to prepare for exams",
+         "at": 4,
+         "gives": "REVISE",
+         "note": "to revise is to study again before a test"
+        },
+        {
+         "words": "is",
+         "at": 25,
+         "note": "taken as written, the letters removed"
+        }
+       ]
+      },
+      {
+       "gives": "A",
+       "note": "the letter this across answer drops from the grid"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student skipping revision and quitting college.",
+     "walkthrough": "REAVE loses its A to be entered as REVE.",
+     "definitionFit": "To reave is an old word meaning to plunder or carry off by force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rob"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "A"
+    }
    }
   },
   {
@@ -434,6 +2547,68 @@
    "clue": {
     "text": "Early English overtaken by American custom",
     "enumeration": "3"
+   },
+   "solution": "USEE",
+   "alteration": {
+    "from": "USE",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "custom",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "overtaken by",
+       "at": 14,
+       "note": "in a down clue the American letters come first, over the English ones"
+      }
+     ],
+     "parts": [
+      {
+       "words": "American",
+       "at": 27,
+       "gives": "US"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Early English",
+         "at": 0,
+         "gives": "EE",
+         "note": "EE is the abbreviation for Early English, the first Gothic style of architecture"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old English tradition swallowed by an American one.",
+     "walkthrough": "USE gains an E to be entered as USEE.",
+     "definitionFit": "Use is habit or customary practice, as in long use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "overtaken"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
    }
   },
   {
@@ -447,6 +2622,84 @@
    "clue": {
     "text": "Marine, small, rebuffed close friends",
     "enumeration": "9"
+   },
+   "solution": "INIMAES",
+   "alteration": {
+    "from": "INTIMATES",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "close friends",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "rebuffed",
+           "at": 15,
+           "note": "rebuffed suggests being pushed back, so the combined letters are read in reverse"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "Marine",
+             "at": 0,
+             "gives": "SEA",
+             "note": "marine means of the sea"
+            },
+            {
+             "words": "small",
+             "at": 8,
+             "gives": "MINI",
+             "note": "mini means small"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "gives": "T",
+         "note": "one of the two Ts this across answer drops from the grid"
+        }
+       ]
+      },
+      {
+       "gives": "T",
+       "note": "the second dropped T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Royal Marine of small stature is turned away by his closest pals.",
+     "walkthrough": "INTIMATES loses both Ts to be entered as INIMAES.",
+     "definitionFit": "Intimates are people one is very familiar with, a person's inner circle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Marine"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "T"
+    }
    }
   },
   {
@@ -460,6 +2713,68 @@
    "clue": {
     "text": "Sort of cuckoo? Some (unspecified) I imported",
     "enumeration": "3"
+   },
+   "solution": "ANIY",
+   "alteration": {
+    "from": "ANI",
+    "steps": [
+     {
+      "op": "insertion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Sort of cuckoo?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "imported",
+       "at": 37,
+       "note": "in the grid the letter I is brought inside the word for some, ahead of the Y that only the entry keeps"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "words": "Some (unspecified)",
+         "at": 16,
+         "gives": "ANY",
+         "note": "any means some, of no particular kind"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "words": "I",
+       "at": 35,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some unnamed cuckoo brought into the country.",
+     "walkthrough": "ANI gains a Y to be entered as ANIY.",
+     "definitionFit": "The ani is a black tropical American bird belonging to the cuckoo family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cuckoo"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "Y"
+    }
    }
   },
   {
@@ -472,6 +2787,75 @@
    "length": 6,
    "clue": {
     "text": "Fill with mortar, usually replacing one in clayey paste (7, two words)"
+   },
+   "solution": "SLUSUP",
+   "alteration": {
+    "from": "SLUSHUP",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fill with mortar",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "parts": [
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "replacing",
+         "at": 26,
+         "note": "the abbreviation for usually takes the place of the letter for one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "clayey paste",
+         "at": 43,
+         "gives": "SLIP",
+         "note": "slip is liquid clay used by potters"
+        },
+        {
+         "words": "one",
+         "at": 36,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
+        },
+        {
+         "words": "usually",
+         "at": 18,
+         "gives": "USU"
+        }
+       ]
+      },
+      {
+       "gives": "H",
+       "note": "the letter this across answer drops from the grid"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bricklayer's tip: grout joints with mortar, usually swapped for potter's clay.",
+     "walkthrough": "SLUSH UP loses its H to be entered as SLUSUP.",
+     "definitionFit": "To slush up is a builder's term for filling joints solidly with mortar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "H"
+    }
    }
   },
   {
@@ -485,6 +2869,76 @@
    "clue": {
     "text": "Malaysian wood component of older antiques",
     "enumeration": "7"
+   },
+   "solution": "ERANTI",
+   "alteration": {
+    "from": "MERANTI",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Malaysian wood",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "M",
+       "note": "the letter this across answer drops from the grid"
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "component of",
+           "at": 15,
+           "note": "only a component of the phrase is wanted, so letters at both ends are discarded"
+          }
+         ],
+         "parts": [
+          {
+           "words": "older antiques",
+           "at": 28,
+           "note": "the run of letters across older and antiques is no coincidence: the entry is hidden there"
+          },
+          {
+           "gives": "OLD",
+           "note": "the front letters thrown away"
+          }
+         ]
+        },
+        {
+         "gives": "QUES",
+         "note": "the back letters thrown away"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A timber used in many old Malaysian antiques.",
+     "walkthrough": "MERANTI loses its M to be entered as ERANTI, which spans the end of older and the start of antiques.",
+     "definitionFit": "Meranti is a Southeast Asian hardwood timber from Shorea trees, widely used for joinery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "component"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "M"
+    }
    }
   },
   {
@@ -497,6 +2951,79 @@
    "length": 9,
    "clue": {
     "text": "Duke errs wildly in place of simplified rite (10, two words)"
+   },
+   "solution": "DRSERVICE",
+   "alteration": {
+    "from": "DRYSERVICE",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "simplified rite",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Duke",
+       "at": 0,
+       "gives": "D"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wildly",
+         "at": 10,
+         "note": "errs used wildly runs about, so its letters come out in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "errs",
+           "at": 5,
+           "note": "taken as written, the anagram fodder"
+          },
+          {
+           "gives": "Y",
+           "note": "the letter this across answer drops from the grid"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "in place of",
+       "at": 17,
+       "gives": "VICE",
+       "note": "vice means in place of, as in vice-captain"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A duke blunders badly during a stripped-down ceremony.",
+     "walkthrough": "DRY SERVICE loses its Y to be entered as DRSERVICE.",
+     "definitionFit": "A dry service is a celebration of Mass shorn of consecration and communion, a shortened rite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "Y"
+    }
    }
   },
   {
@@ -510,6 +3037,72 @@
    "clue": {
     "text": "Acreage calls on grass",
     "enumeration": "8"
+   },
+   "solution": "ASEES",
+   "alteration": {
+    "from": "HASHEESH",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "grass",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "gives": "H",
+       "note": "one of the three Hs this across answer drops from the grid"
+      },
+      {
+       "words": "Acreage",
+       "at": 0,
+       "gives": "A",
+       "note": "A is the abbreviation for acre, a measure of land area"
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "calls on",
+         "at": 8,
+         "gives": "SEES",
+         "note": "to see someone is to visit or call on them"
+        },
+        {
+         "gives": "H",
+         "note": "the second dropped H"
+        }
+       ]
+      },
+      {
+       "gives": "H",
+       "note": "the third dropped H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Land area visits the lawn.",
+     "walkthrough": "Grass is slang for cannabis. HASHEESH loses all three Hs to be entered as ASEES.",
+     "definitionFit": "Hasheesh is an old spelling of hashish, the cannabis resin that slang also calls grass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grass"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "H"
+    }
    }
   },
   {
@@ -523,6 +3116,78 @@
    "clue": {
     "text": "Place name incorporating glutinous hydrocarbon",
     "enumeration": "9"
+   },
+   "solution": "PROPYLN",
+   "alteration": {
+    "from": "PROPYLENE",
+    "steps": [
+     {
+      "op": "deletion"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hydrocarbon",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "incorporating",
+       "at": 11,
+       "note": "the abbreviations take the sticky word inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Place",
+         "at": 0,
+         "gives": "PL"
+        },
+        {
+         "gives": "E",
+         "note": "one of the two Es this across answer drops from the grid"
+        },
+        {
+         "words": "name",
+         "at": 6,
+         "gives": "N"
+        },
+        {
+         "gives": "E",
+         "note": "the second dropped E"
+        }
+       ]
+      },
+      {
+       "words": "glutinous",
+       "at": 25,
+       "gives": "ROPY",
+       "note": "ropy liquid is thick and stringy, so glutinous"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A town's name contains a sticky oil product.",
+     "walkthrough": "Pl. is the address abbreviation for Place. PROPYLENE loses both Es to be entered as PROPYLN.",
+     "definitionFit": "Propylene is a gaseous alkene, a compound of carbon and hydrogen used to make plastics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "glutinous"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "E"
+    }
    }
   }
  ]
