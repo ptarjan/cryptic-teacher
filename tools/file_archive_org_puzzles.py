@@ -3958,7 +3958,12 @@ def input_hash(d):
     (_edition_off_disk)."""
     if not media_manifest.on_media(d):
         return _input_hash_listed(d)
-    held = media_manifest.edition_rows().get(media_manifest.edition_rel(d)) or {}
+    return _held_hash(d, media_manifest.edition_rel(d))
+
+
+def _held_hash(d, erel):
+    """input_hash of edition dir `d` on the media disk, its manifest key `erel`."""
+    held = media_manifest.edition_rows().get(erel) or {}
     if "files" not in held:
         held = _edition_off_disk(d, held)
     return held["files"]
@@ -4140,7 +4145,29 @@ def scan_stands(paper, rel, cache=CACHE, rows=None):
     appended since parsed), apart from plan()'s on the planner thread;
     `rows`, a standing() taken earlier, saves the ledger's re-read."""
     row = (standing(paper, cache) if rows is None else rows).get(rel)
-    return bool(row) and scan_current(row, input_hash(Path(cache) / rel), rel)
+    return bool(row) and scan_current(row, _stand_hash(cache, rel), rel)
+
+
+#: {(cache, rel): (its edition dir, on_media of it, edition_rel of it)} for
+#: _stand_hash: path arithmetic alone, the same for a given absolute cache.
+#: The queue asks scan_stands of every queued scan each pass, and building the
+#: Path and its abspath and normpath anew each time was most of the cost.
+_STAND_DIRS = {}
+
+
+def _stand_hash(cache, rel):
+    """input_hash(Path(cache) / rel), the dir's path facts kept (_STAND_DIRS)
+    when `cache` is absolute (a relative one hangs on the cwd)."""
+    k = (os.fspath(cache), rel)
+    hit = _STAND_DIRS.get(k)
+    if hit is None:
+        d = Path(cache) / rel
+        if not os.path.isabs(k[0]):
+            return input_hash(d)
+        media = media_manifest.on_media(d)
+        hit = _STAND_DIRS[k] = (d, media, media_manifest.edition_rel(d) if media else None)
+    d, media, erel = hit
+    return _held_hash(d, erel) if media else _input_hash_listed(d)
 
 
 def sister_solutions(cache, paper):
