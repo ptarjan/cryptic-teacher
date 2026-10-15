@@ -87,6 +87,8 @@ import signal
 import subprocess
 import sys
 import threading
+import concurrent.futures
+from concurrent.futures import ThreadPoolExecutor
 import time
 from pathlib import Path
 
@@ -612,6 +614,15 @@ BRIEFS = Path(os.environ.get("TMPDIR") or "/tmp") / "edition-briefs"
 #: scan unit runs first, then the read is prepared for the desktop.
 SCAN_FIRST = "scan first"
 
+#: What a read's brief is while a pool thread makes it (brief_of).
+PENDING = object()
+#: Threads making briefs (prepare: held_files, the desktop request) beside the dispatch loop.
+PREPARERS = 3
+#: Seconds the loop waits for a brief it has just asked a pool thread for.
+BRIEF_WAIT = 0.2
+#: Seconds a made brief waits for its unit to be asked again before it is dropped.
+BRIEF_KEEP = 600
+
 
 def prepare(unit, cache, puzzles, reread):
     """The file of an archive.org or Gale read unit's read made here
@@ -956,14 +967,45 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
 
     spec = {"cache": str(cache), "puzzles": puzzles and str(puzzles), "reread": reread and reread.isoformat()}
 
+    preparing = {}  # key: (when submitted, the future of prepare(unit)) of the reads being briefed
+    briefers = ThreadPoolExecutor(PREPARERS, "brief")
+
+    def brief_of(unit):
+        """The prepare() result of read `unit`, made on a pool thread so the
+        loop goes on reaping and starting others meanwhile: PENDING until it
+        is made (asked again every pass), then the result, once."""
+        key = key_of(unit)
+        if key not in preparing:
+            preparing[key] = (time.monotonic(), briefers.submit(lambda: prepare(unit, cache, puzzles, reread)))
+            concurrent.futures.wait([preparing[key][1]], timeout=BRIEF_WAIT)  # a quick one starts this pass
+        if not preparing[key][1].done():
+            return PENDING
+        return preparing.pop(key)[1].result()
+
+    def drop_stale_briefs():
+        """Forget the briefs no pass asked for in BRIEF_KEEP seconds (a
+        unit that left the plan), removing the file each made."""
+        for key, (t, fut) in list(preparing.items()):
+            if time.monotonic() - t >= BRIEF_KEEP and fut.done():
+                del preparing[key]
+                path = fut.result()
+                if path and path is not SCAN_FIRST:
+                    Path(path).unlink(missing_ok=True)
+
     def start(unit):
         """Start `unit`; False when it is not started: a read whose own scan
-        is stale or missing waits on a scan unit queued for it (first)."""
+        is stale or missing waits on a scan unit queued for it (first).
+        PENDING while its brief is being made."""
         sys.stdout.flush()
         sys.stderr.flush()
         argv = unit_argv(unit)
         alone = losses.get(key_of(unit), 0) >= LOST_TRIES
-        made = None if alone else prepare(unit, cache, puzzles, reread)
+        if alone or unit["kind"] != "read" or unit["paper"] not in fa.FILERS:
+            made = None
+        else:
+            made = brief_of(unit)
+            if made is PENDING:
+                return PENDING
         if made == SCAN_FIRST and (unit["paper"], unit["rel"]) in scanned:
             made = whole(unit, "own scan stale or missing, scanned this run already")
         elif made == SCAN_FIRST:
@@ -1287,15 +1329,19 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 if idle_held or not idle_read[local_now]:
                     idle_held = True
                     continue
-            if not start(u):
+            began = start(u)
+            if not began and began is not PENDING:
                 unscanned.add((u["paper"], u["rel"]))
                 continue
+            # A unit whose brief is being made holds its slot and its gates' charges as if begun.
             local_now += local
             begun_now += 1
             charged += cost
-            if not load_gated(u):
+            if began is not PENDING and not load_gated(u):
                 opened.append(time.time())
             free[slot_of(u)] -= 1
+            if began is PENDING:
+                continue
             if u["kind"] == "scan":
                 scanning.add((u["paper"], u["rel"]))
         if held_back and not memory_bound:
@@ -1360,6 +1406,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
         # Only reads waiting for the VLM left to start, and nothing running:
         # look again every VLM_IDLE seconds (vlm_up is asked once a minute).
+        drop_stale_briefs()
         time.sleep(VLM_IDLE if vlm_deferred and not begun_now and not running and not adopted else 1)
     if stop:
         log(f"stop asked: TERM to {len(running) + len(adopted)} running unit(s), up to {STOP_GRACE}s")

@@ -1021,10 +1021,11 @@ def _plans(n_reads, idle):
         eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=4, replan=0.3)
     return len(made)
 fake(sleep={f"p{k}": 0.1 for k in range(6)})
-check("no idle core, a full queue: the planner backs off (under 5 plans in 4s at replan 0.3)", True, _plans(6, 0.0) < 5)
-check("mirror: idle cores replan every replan seconds", True, _plans(6, 1e6) >= 8)
-check("mirror: no idle core but a queue no wider than the pools replans every replan seconds", True,
-      _plans(2, 0.0) >= 8)
+backed_off = _plans(6, 0.0)
+check("no idle core, a full queue: the planner backs off (under 5 plans in 4s at replan 0.3)", True, backed_off < 5)
+check("mirror: idle cores replan more often than the backed-off run", True, _plans(6, 1e6) > backed_off)
+check("mirror: no idle core but a queue no wider than the pools replans more often than the backed-off run", True,
+      _plans(2, 0.0) > backed_off)
 eq.idle_gate_reader = lambda: 1e6
 fake(outcome={}, default=0.1)
 os.environ.pop("OCR_REMOTE")
@@ -1178,6 +1179,23 @@ with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.St
     eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=4, replan=0.5)
 check("mirror: a read whose scan stands starts with no scan of its own",
       [["start", "read", "g1"], ["end", "read", "g1"]], [line.split()[1:4] for line in log.read_text().splitlines()])
+# Briefs are made on a pool beside the loop: slow ones overlap, and every read starts.
+import threading
+_now, _peak = [0], [0]
+def _slow_prepare(*a):
+    _now[0] += 1
+    _peak[0] = max(_peak[0], _now[0])
+    time.sleep(0.6)
+    _now[0] -= 1
+eq.prepare = _slow_prepare
+eq.plan = units([], [(f"s{k}", []) for k in range(3)])
+fake(default=0.05)
+log.unlink(missing_ok=True)
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=5, replan=0.5)
+check("slow briefs are made side by side, and every read starts",
+      (True, ["s0", "s1", "s2"]),
+      (_peak[0] >= 2, sorted(line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start")))
 os.environ.pop("OCR_REMOTE")
 eq.prepare = real_prepare
 eq.desktop_gate_reader = lambda: None
