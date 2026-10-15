@@ -941,6 +941,30 @@ check("cpu_room: units begun this pass count against it", (True, False),
 check("cpu_room: the default ceiling leaves the host usable (at most 2 per core)", True,
       os.environ.get("CT_LOAD_PER_CORE") is not None or mg.LOAD_PER_CORE <= 2)
 check("cpu_room: an unreadable load gates nothing", True, mg.cpu_room(0, lambda: None, cores=4))
+# foreground_load: the run queue less nice-19 work. 2026-10-15: load 24 on 6 cores, ~3 of it nice 0.
+_runq = iter([{0: 3, 19: 17, 10: 1}, {0: 2, 19: 19}, {19: 21}, {0: 6, 19: 15}])
+check("foreground_load: averages the runnable threads niced under 19 over its samples", 3.0,
+      mg.foreground_load(lambda: next(_runq), samples=4, sleep=lambda s: None))
+check("foreground_load: a host busy only with nice-19 work reads idle", 0.0,
+      mg.foreground_load(lambda: {19: 40}, samples=2, sleep=lambda s: None))
+check("foreground_load: an unreadable run queue is None", None,
+      mg.foreground_load(lambda: None, samples=2, sleep=lambda s: None))
+check("cpu_room: nice-19 load over the ceiling does not shut a gate on foreground_load", (False, True),
+      (mg.cpu_room(0, lambda: 24.0, cores=6),
+       mg.cpu_room(0, lambda: mg.foreground_load(lambda: {0: 3, 19: 21}, samples=1), cores=6)))
+import tempfile
+_proc = Path(tempfile.mkdtemp())
+for _pid, _threads in {"10": [("R", 0), ("S", 0)], "11": [("R", 19), ("R", 19)], "12": [("R", 5)], "self": [("R", 0)]}.items():
+    for _i, (_st, _nice) in enumerate(_threads):
+        (_proc / _pid / "task" / str(_i)).mkdir(parents=True)
+        (_proc / _pid / "task" / str(_i) / "stat").write_text(
+            f"{_pid} (a) b) {_st} " + " ".join(["1"] * 15) + f" {_nice} 1 0\n")
+check("runnable_by_nice: counts R threads by nice, past a ')' in the name, skipping non-pids and `skip`",
+      ({0: 1, 19: 2, 5: 1}, {19: 2, 5: 1}),
+      (mg.runnable_by_nice(str(_proc)), mg.runnable_by_nice(str(_proc), skip=(10,))))
+check("runnable_by_nice: no /proc is None", None, mg.runnable_by_nice(str(_proc / "none")))
+import unit_queue as _uq
+check("unit_queue: its units run at the niceness the CPU gate leaves out", mg.BACKGROUND_NICE, _uq.UNIT_NICE)
 eq.cpu_gate_reader = lambda: 1e6
 log.unlink(missing_ok=True)
 eq.plan = units([], [(f"c{k}", []) for k in range(3)])

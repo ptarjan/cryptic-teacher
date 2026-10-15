@@ -262,8 +262,19 @@ def spawn(queue, unit, logfile):
 
 #: What the memory gate reads (tests swap it); None is mem_gate.available.
 MEM_READER = None
-#: What the CPU gate reads (tests swap it); None is mem_gate.load.
+#: What the CPU gate reads (tests swap it); None is unit_load.
 LOAD_READER = None
+
+
+def unit_load():
+    """The CPU gate's figure: the run queue less nice-19 work
+    (mem_gate.foreground_load), where /proc has it, else the load average.
+    Every unit runs at UNIT_NICE, so it takes cores only from other niced
+    work, never from the bridge or a shell; a gate on the whole load average
+    stayed shut for days while the corpus job and the burn (both nice 19)
+    held it at 3-4 per core, and the daily units it held back starved."""
+    fg = mem_gate.foreground_load()
+    return mem_gate.load() if fg is None else fg
 #: What the burn-first gate reads (tests swap it); None is mem_gate.burn_state.
 BURN_READER = None
 
@@ -287,6 +298,7 @@ def tick(queue, dry=False):
     started, waiting = [], []
     memory_bound = cpu_bound = burn_bound = False
     starved = mem_gate.burn_starved(BURN_READER)
+    cpu_now = None
     for unit, why in due_units(mod, ledger, now):
         cap = mod.LIMITS.get(unit.cls)
         if (free is not None and free <= 0) or (cap is not None and per_cls.get(unit.cls, 0) >= cap):
@@ -305,11 +317,13 @@ def tick(queue, dry=False):
                 print(f"{queue}: memory-bound: under {(mem_gate.FLOOR + mem_gate.UNIT) >> 20} MB available; "
                       "due units wait for the next tick")
             continue
-        if not mem_gate.cpu_room(len(started), LOAD_READER):
+        if cpu_now is None:
+            cpu_now = [(LOAD_READER or unit_load)()]  # one read a tick: unit_load samples for ~1 s
+        if not mem_gate.cpu_room(len(started), lambda: cpu_now[0]):
             waiting.append(unit.key)
             if not cpu_bound:
                 cpu_bound = True
-                print(f"{queue}: cpu-bound: load over {mem_gate.LOAD_PER_CORE:g} per core; due units wait for the next tick")
+                print(f"{queue}: cpu-bound: un-niced load over {mem_gate.LOAD_PER_CORE:g} per core; due units wait for the next tick")
             continue
         print(f"{'[dry run] would start' if dry else 'start'} {unit.key} ({why})")
         if not dry:
@@ -351,7 +365,7 @@ def why_run(queue, now=None):
             return f"no full tick in {FULL_EVERY}s"
     except OSError:
         return "no full tick yet"
-    if not mem_gate.room(0, MEM_READER) or not mem_gate.cpu_room(0, LOAD_READER):
+    if not mem_gate.room(0, MEM_READER) or not mem_gate.cpu_room(0, LOAD_READER or unit_load):
         return None
     if not getattr(mod, "SELF_PLANNING", False):
         return "its tick plans in the shell"
@@ -400,7 +414,7 @@ def alert(text):
 #: themselves to the idle cores when niced (tools/parallel.py). At nice 0 the
 #: hourly fetch:fetch_puzzle's reindex (six workers of 750 MB, 2026-10-15) took
 #: the cores from all of them.
-UNIT_NICE = 19
+UNIT_NICE = mem_gate.BACKGROUND_NICE
 
 
 def _niced():
