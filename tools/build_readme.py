@@ -709,6 +709,7 @@ LAYOUT = [
     ("building and checking the site", "tools/privateeye_scans.py", "read a Cyclops crossword's clues off the page image of archive.org's Private Eye scan"),
     ("building and checking the site", "tools/test_privateeye_scans.sh", "does tools/privateeye_scans.py find a Private Eye page's clue columns from its djvu words, take the crossword's number and not the entry address's, read a linked head and a cross-reference, and hand privateeye_wayback's read_capture a list it parses? And does the shared tidy read RapidOCR's full-width bracket as a round one?"),
     ("building and checking the site", "tools/test_sync_retry.js", "a sync push that fails must never lose a save, and must retry on its own"),
+    ("building and checking the site", "tools/test_pdf_edition_broken.sh", "does tools/fetch_archive_org_editions.py read the pages of an image PDF that archive.org holds zero-filled past some page (FT 1981-06-29/30), listing the broken ones in \"unreadable\" instead of raising; and does fetch_pdf fetch a PDF whose md5 is not the metadata's once more, keep a second copy equal to the first (archive.org's file as it stands), and raise when the two differ?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

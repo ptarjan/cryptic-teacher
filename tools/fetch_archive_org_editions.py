@@ -46,7 +46,9 @@ Layout under --out:
   <item>/<slug>/djvu.txt.gz   _djvu.txt, only in the fallback (no hOCR files)
   <item>/<slug>/pages.json    edition name, leaf count, and each crossword page:
                               leaf, enumeration count, the headings found
-                              ("CROSSWORD NO 20,853"), or ocr_empty (below)
+                              ("CROSSWORD NO 20,853"), or ocr_empty (below);
+                              for an image PDF, "unreadable": [leaf, error] of
+                              the pages archive.org's file holds broken
   <item>/<slug>/leaf_NNNN.jpg full-resolution scan of each crossword page
 
 <slug> is YYYY-MM-DD_<issue> for the dated multi-edition items and the
@@ -1167,7 +1169,7 @@ def fetch_edition(fx, item, meta, name):
     bases.append(f"https://archive.org/download/{q(item)}/{q(name)}")
     files = {f["name"] for f in meta["files"]}
     if name + "_djvu.txt" not in files:
-        return fetch_pdf_edition(fx, item, name, d, bases)
+        return fetch_pdf_edition(fx, item, meta, name, d, bases)
     text_path = os.path.join(d, "pagetext.json.gz")
     xml_path = os.path.join(d, "djvu.xml.gz")
     cached = None  # {"texts": [...], "words": {leaf: [width, height]}}: the hOCR route
@@ -1271,20 +1273,33 @@ def reads_as_grid(page, box):
 def pdf_pages(data):
     """({"leaves": page count, "hits": [hit]}, JPEG bytes) of an image PDF:
     each page with a grid on it, at SCAN_WIDTH, its JPEG's length in its
-    hit's "bytes", the JPEGs end to end in the hits' order. Run on the
-    desktop when tools/ocr_remote.py can (~20 s of CPU an edition)."""
+    hit's "bytes", the JPEGs end to end in the hits' order. A page pypdf
+    cannot read (archive.org holds FT 1981-06-29's PDF zero-filled past its
+    15th page) is skipped and listed in "unreadable" as [leaf, error]; a PDF
+    with no page table at all is one [None, error]. Run on the desktop when
+    tools/ocr_remote.py can (~20 s of CPU an edition)."""
     import pypdf
     from PIL import Image
     Image.MAX_IMAGE_PIXELS = None
-    pdf = pypdf.PdfReader(io.BytesIO(data))
+    try:
+        pdf = pypdf.PdfReader(io.BytesIO(data), strict=False)
+        pages = list(pdf.pages)
+    except pypdf.errors.PyPdfError as e:
+        return {"leaves": 0, "hits": [], "unreadable": [[None, f"{type(e).__name__}: {e}"]]}, b""
     shaped = []  # (leaf, page, read as a grid) of each page with grid-shaped ink
-    for leaf, p in enumerate(pdf.pages):
-        images = p.images
-        if len(images) != 1:
-            raise RuntimeError(f"page {leaf} holds {len(images)} images, not one scan")
-        boxes = grid_boxes(images[0].image)
+    unreadable = []
+    for leaf, p in enumerate(pages):
+        try:
+            images = p.images
+            if len(images) != 1:
+                raise RuntimeError(f"page {leaf} holds {len(images)} images, not one scan")
+            scan = images[0].image
+        except (pypdf.errors.PyPdfError, OSError) as e:  # OSError: PIL's truncated image data
+            unreadable.append([leaf, f"{type(e).__name__}: {e}"])
+            continue
+        boxes = grid_boxes(scan)
         if boxes:
-            page = scan_page(images[0].image)
+            page = scan_page(scan)
             shaped.append((leaf, page, any(reads_as_grid(page, box) for box in boxes)))
     # The pages whose grid reads; when none does (a faint grid), every
     # grid-shaped page, so the filer still looks for a title on each.
@@ -1295,17 +1310,36 @@ def pdf_pages(data):
         page.save(buf, "JPEG", quality=90)
         jpegs.append(buf.getvalue())
         hits.append({"leaf": leaf, "pdf": True, "width": page.width, "height": page.height, "bytes": len(jpegs[-1])})
-    return {"leaves": len(pdf.pages), "hits": hits}, b"".join(jpegs)
+    return {"leaves": len(pages), "hits": hits, "unreadable": unreadable}, b"".join(jpegs)
 
 
-def fetch_pdf_edition(fx, item, name, d, bases):
+def fetch_pdf(fx, meta, name, bases):
+    """The edition's PDF bytes. One whose md5 is not the item metadata's (a
+    download cut short) is fetched again once; a second copy the same as the
+    first is archive.org's file as it stands (its metadata can be stale),
+    and a second copy that differs again raises."""
+    want = next((f.get("md5") for f in meta["files"] if f["name"] == name + ".pdf"), None)
+    data = fetch_first(fx, bases, ".pdf", name + ".pdf")
+    if want is None or hashlib.md5(data).hexdigest() == want:
+        return data
+    log(f"  {name}.pdf: {len(data)} bytes, md5 not the metadata's {want}; fetching it again")
+    again = fetch_first(fx, bases, ".pdf", name + ".pdf")
+    if hashlib.md5(again).hexdigest() not in (want, hashlib.md5(data).hexdigest()):
+        raise RuntimeError(f"{name}.pdf: two downloads ({len(data)}, {len(again)} bytes) differ, "
+                           f"neither has the metadata's md5 {want}")
+    return again
+
+
+def fetch_pdf_edition(fx, item, meta, name, d, bases):
     """An edition archive.org holds as an image PDF only (one scanned image a
     page, no OCR): each page with a grid on it is a crossword page, saved as
     its leaf JPEG at SCAN_WIDTH and marked pdf (pdf_pages). The djvu.xml.gz
     holds an empty OBJECT a page, so the filer reads the titles by image
-    (ocr_titles) as it does a blank-OCR leaf."""
+    (ocr_titles) as it does a blank-OCR leaf. Pages archive.org's own file
+    holds unreadable are listed in pages.json's "unreadable" and the edition
+    ends done with the rest: fetching it again gets the same bytes."""
     import ocr_remote
-    data = fetch_first(fx, bases, ".pdf", name + ".pdf")
+    data = fetch_pdf(fx, meta, name, bases)
     got = ocr_remote.call("pdf_pages", data=data)
     if got is None:
         with ocr_remote.local_slot():
@@ -1323,6 +1357,10 @@ def fetch_pdf_edition(fx, item, name, d, bases):
         + b'<OBJECT width="0" height="0"></OBJECT>\n' * count + b"</BODY></DjVuXML>\n", 6))
     doc = {"item": item, "edition": name, "date": edition_date(name),
            "leaves": count, "detector_version": DETECTOR_VERSION, "crossword_pages": hits}
+    if found.get("unreadable"):
+        doc["unreadable"] = found["unreadable"]
+        log(f"  {name}.pdf: {len(found['unreadable'])} page(s) unreadable in archive.org's file, "
+            f"kept the other {count - len(found['unreadable'])}: {found['unreadable'][0][1]}")
     write_atomic(os.path.join(d, "pages.json"), json.dumps(doc, indent=1).encode())
     record_pages(d, media_manifest.record_edition(d), doc)
     return hits

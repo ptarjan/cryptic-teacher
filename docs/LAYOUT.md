@@ -2641,5 +2641,14 @@ tools/test_privateeye_scans.sh                 does tools/privateeye_scans.py fi
                                                as a round one?
 tools/test_sync_retry.js                       a sync push that fails must never lose a save,
                                                and must retry on its own
+tools/test_pdf_edition_broken.sh               does tools/fetch_archive_org_editions.py read
+                                               the pages of an image PDF that archive.org holds
+                                               zero-filled past some page (FT 1981-06-29/30),
+                                               listing the broken ones in "unreadable" instead
+                                               of raising; and does fetch_pdf fetch a PDF whose
+                                               md5 is not the metadata's once more, keep a
+                                               second copy equal to the first (archive.org's
+                                               file as it stands), and raise when the two
+                                               differ?
 ```
 <!-- LAYOUT-END -->
