@@ -2830,8 +2830,10 @@ def save_held(path):
     _HELD_MOVED.clear()
     tmp = f"{os.fspath(path)}.{os.getpid()}.tmp"
     os.makedirs(os.path.dirname(os.fspath(path)) or ".", exist_ok=True)
+    # Keyed by str: pickling ~14k Paths (Path.__reduce__ each) was most of a
+    # plan's save; load_held makes them Paths again.
     with open(tmp, "wb") as f:
-        pickle.dump(dict(_HELD), f, protocol=pickle.HIGHEST_PROTOCOL)
+        pickle.dump({os.fspath(k): v for k, v in list(_HELD.items())}, f, protocol=pickle.HIGHEST_PROTOCOL)
     os.replace(tmp, path)
 
 
@@ -2844,7 +2846,7 @@ def load_held(path):
     except (OSError, EOFError, pickle.UnpicklingError, AttributeError, ValueError):
         return
     for k, v in snap.items():
-        _HELD.setdefault(k, v)
+        _HELD.setdefault(Path(k), v)
 
 
 #: {(series, number): its file} as held_files last listed them.
@@ -4184,9 +4186,13 @@ def sister_solutions(cache, paper):
         st = path.stat()
         stamp = (st.st_mtime_ns, st.st_size)
         hit = _SISTER_LINKS.get(path)
-        if hit is None or hit[0] != stamp or hit[1] != held:
-            links = [(s["number"], {**s, "dir": Path(cache) / rel}) for rel, row in _planned_known(path).items()
-                     for s in linked_solutions(p, row.get("scan") or {"puzzles": [], "solutions": []}, held)]
+        if hit is None or hit[0] != stamp or hit[1] is not held:
+            # Each row links through _linked's memo: a sister ledger moves
+            # with every row a unit appends, and held with every puzzle
+            # filed, and only the rows those touch are linked again.
+            links = [(s["number"], {**s, "dir": d}) for rel, row in _planned_known(path).items()
+                     for d in (_sister_dir(cache, rel),)
+                     for s in _linked(d, row.get("scan") or _NO_SCAN, held, p)]
             hit = _SISTER_LINKS[path] = (stamp, held, links)
         for n, s in hit[2]:
             out.setdefault(n, s)
@@ -4197,6 +4203,22 @@ def sister_solutions(cache, paper):
 #: of sister_solutions: worked out again only when the ledger or the
 #: series' filed puzzles move.
 _SISTER_LINKS = {}
+#: An edition row without a scan, as sister_solutions links it.
+_NO_SCAN = {"puzzles": [], "solutions": []}
+
+
+def _sister_dir(cache, rel):
+    """Path(cache) / rel, kept: sister_solutions asks it of every row of a
+    sister ledger each time that ledger moves."""
+    k = (os.fspath(cache), rel)
+    d = _SISTER_DIRS.get(k)
+    if d is None:
+        d = _SISTER_DIRS[k] = Path(cache) / rel
+    return d
+
+
+#: {(cache, rel): edition dir} of _sister_dir.
+_SISTER_DIRS = {}
 
 
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limit=None,
@@ -4256,28 +4278,36 @@ def solution_sources(dirs, scans, rels, held, sister):
     return {**sister, **first}, every
 
 
-def _linked(d, scan, held):
-    """linked_solutions of edition dir `d`'s `scan` and `held`, linked again
-    only when its scan row is another object or the filed puzzles in its
-    hosted_window differ: a puzzle filed anywhere makes held_dates a new
-    Held, and a unit start links every edition of its paper."""
-    hit = _LINKED.get(d)
-    if hit is not None and hit[0] is scan and hit[1] is held:
+def _linked(d, scan, held, paper=None):
+    """linked_solutions of edition dir `d`'s `scan` and `held` (of `paper`,
+    else paper_of(d)), linked again only when its scan differs or the filed
+    puzzles in its hosted_window do: a puzzle filed anywhere makes
+    held_dates a new Held, and a unit start links every edition of its
+    paper. Each thread folds the ledger into rows of its own
+    (dir_cache.appended), so a scan another thread linked is the same scan
+    when equal, not only when the same object."""
+    if paper is None:
+        paper = paper_of(d)
+    k = (d, paper)
+    hit = _LINKED.get(k)
+    same = hit is not None and (hit[0] is scan or hit[0] == scan)
+    if same and hit[1] is held:
+        if hit[0] is not scan:
+            _LINKED[k] = (scan, *hit[1:])
         return hit[4]
-    paper = paper_of(d)
-    window = hit[2] if hit is not None and hit[0] is scan else hosted_window(paper, scan)
+    window = hit[2] if same else hosted_window(paper, scan)
     near = held_between(held, window)
-    if hit is not None and hit[0] is scan and hit[3] == near:
+    if same and hit[3] == near:
         out = hit[4]
     else:
         out = linked_solutions(paper, scan, held)
-    _LINKED[d] = (scan, held, window, near, out)
+    _LINKED[k] = (scan, held, window, near, out)
     return out
 
 
-#: {edition dir: (its scan, held, hosted_window, held_between then,
-#: linked_solutions of them)} of solution_sources: an edition's scan row and
-#: held_dates' Held stay the same objects until they move.
+#: {(edition dir, paper): (its scan, held, hosted_window, held_between then,
+#: linked_solutions of them)} of solution_sources and sister_solutions: an
+#: edition's scan and held_dates' Held stay the same until they move.
 _LINKED = {}
 
 
