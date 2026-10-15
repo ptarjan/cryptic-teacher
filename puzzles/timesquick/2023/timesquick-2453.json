@@ -22,6 +22,9 @@
   "date": "2023-08-03",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,31 @@
     "text": "An eccentric leading investigator may",
     "enumeration": "8"
    },
-   "solution": "HEADCASE"
+   "solution": "HEADCASE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "An eccentric",
+      "at": 0,
+      "meaning": "first meaning: a ... is an informal name for a crazy or unpredictable person"
+     },
+     {
+      "text": "leading investigator may",
+      "at": 13,
+      "meaning": "second meaning: read as a verb phrase, a lead detective may head a case, that is be in charge of the inquiry"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half is a cryptic reading: split the answer into two words and it becomes what a chief detective does, head (lead) a case.",
+     "definitionFit": "A head case is British slang for someone wildly unpredictable or mad, an informal synonym for an oddball."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leading"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +76,30 @@
     "text": "Give out some cards",
     "enumeration": "4"
    },
-   "solution": "HAND"
+   "solution": "HAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Give",
+      "at": 0,
+      "meaning": "first meaning: to ... something over is to give it"
+     },
+     {
+      "text": "some cards",
+      "at": 9,
+      "meaning": "second meaning: the set of cards a player is dealt in a game"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads like a dealer's instruction; the two meanings are a verb (pass over) and a noun (a player's cards).",
+     "definitionFit": "As a verb the word means pass or present to someone; as a noun it is the group of cards held by one player."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +113,77 @@
     "text": "Vault leaving sprinter's bottom in endless pain",
     "enumeration": "4"
    },
-   "solution": "ARCH"
+   "solution": "ARCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vault",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 32,
+       "note": "the shortened pain word holds the sprinter's last letter inside it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 35,
+         "note": "the word for pain loses its final letter, its end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pain",
+         "at": 43,
+         "gives": "ACHE",
+         "note": "an ache is a dull persistent pain"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "bottom",
+         "at": 25,
+         "note": "in a down clue the bottom of a word is its last letter, here the end of sprinter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sprinter's",
+         "at": 14,
+         "gives": "R",
+         "note": "the last letter of the word sprinter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pole-vaulter quits the event with an aching backside.",
+     "walkthrough": "'Vault' looks like the athletic event, but it is the architectural sense: a curved roof or arch.",
+     "definitionFit": "A vault is an arched roof, and an arch is the curved structure that forms it, so the two are near synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Vault"
+    }
+   }
   },
   {
    "number": 3,
@@ -83,7 +203,70 @@
      }
     ]
    },
-   "solution": "COTTONMILL"
+   "solution": "COTTONMILL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Old Lancashire factory",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "mistaken",
+       "at": 69,
+       "note": "a mistaken version of the words gets them wrong, so their letters are put into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "motto",
+         "at": 25,
+         "note": "taken as written"
+        },
+        {
+         "words": "nil",
+         "at": 32,
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 59,
+           "note": "only the opening letters of carborundum and legitimi are used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "carborundum legitimi",
+           "at": 36,
+           "note": "the first letters of these two words"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mill-owner's mock-Latin slogan, 'don't let the bastards grind you down', is admitted to be bad Latin.",
+     "walkthrough": "'Nil carborundum illegitimi' is a mock-Latin joke motto; the clue garbles it, and that garbling is the hint to rearrange.",
+     "definitionFit": "Lancashire's nineteenth-century economy rested on factories that spun and wove raw cotton, the classic mill of the industrial north."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "motto"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +280,39 @@
     "text": "Drawing of small boat",
     "enumeration": "6"
    },
-   "solution": "SKETCH"
+   "solution": "SKETCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drawing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "small",
+       "at": 11,
+       "gives": "S"
+      },
+      {
+       "words": "boat",
+       "at": 17,
+       "gives": "KETCH",
+       "note": "a ketch is a two-masted sailing boat"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A picture of a little sailing vessel.",
+     "definitionFit": "A sketch is a rough, quick drawing, so the noun is a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +326,46 @@
     "text": "Feature of Asian country left incomplete",
     "enumeration": "4"
    },
-   "solution": "CHIN"
+   "solution": "CHIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feature",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "left incomplete",
+       "at": 25,
+       "note": "the country's name is left without its final letter, so it is incomplete"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Asian country",
+       "at": 11,
+       "gives": "CHINA",
+       "note": "China is the large country in East Asia"
+      },
+      {
+       "gives": "A"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something characteristic of an Asian nation was never finished.",
+     "walkthrough": "'Feature' seems to mean a characteristic of the country, but it is a facial feature.",
+     "definitionFit": "The chin is a part of the face, and parts of the face are called features."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Feature"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +379,41 @@
     "text": "Present non-voluntary movements for nonconformists",
     "enumeration": "8"
    },
-   "solution": "HERETICS"
+   "solution": "HERETICS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "nonconformists",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Present",
+       "at": 0,
+       "gives": "HERE",
+       "note": "here means present, in attendance"
+      },
+      {
+       "words": "non-voluntary movements",
+       "at": 8,
+       "gives": "TICS",
+       "note": "tics are involuntary twitches"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Showing involuntary twitches as a mark of dissent.",
+     "definitionFit": "Heretics hold opinions at odds with accepted religious doctrine, so they refuse to conform."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Present"
+    }
+   }
   },
   {
    "number": 7,
@@ -139,7 +427,69 @@
     "text": "Snort is likely at first to come out of them?",
     "enumeration": "8"
    },
-   "solution": "NOSTRILS"
+   "solution": "NOSTRILS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Snort is likely at first to come out of them?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to come out",
+       "at": 25,
+       "note": "letters that come out differently are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Snort",
+         "at": 0,
+         "note": "taken as written"
+        },
+        {
+         "words": "is",
+         "at": 6,
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at first",
+           "at": 16,
+           "note": "only the opening letter of likely is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "likely",
+           "at": 9,
+           "note": "the opening letter of the word likely"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A snort is most likely to emerge from the nose's openings.",
+     "walkthrough": "The whole clue is both the wordplay and the definition: a snort does come out of these.",
+     "definitionFit": "Nostrils are the two openings of the nose, which is where a snort of breath is expelled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 8,
@@ -153,7 +503,42 @@
     "text": "Drink before matches in formal men's attire",
     "enumeration": "8"
    },
-   "solution": "NECKTIES"
+   "solution": "NECKTIES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "formal men's attire",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Drink",
+       "at": 0,
+       "gives": "NECK",
+       "note": "to neck a drink is British slang for gulping it down"
+      },
+      {
+       "words": "matches",
+       "at": 13,
+       "gives": "TIES",
+       "note": "ties are sporting matches, especially cup ties in football"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drink before the game, in a suit and tie.",
+     "walkthrough": "To neck is British slang for drinking quickly; a cup tie is a knockout football match.",
+     "definitionFit": "Neckties are the strips of cloth worn knotted at the collar as part of formal male dress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "matches"
+    }
+   }
   },
   {
    "number": 9,
@@ -167,7 +552,46 @@
     "text": "Weapons, as intercepted by Royal Marines",
     "enumeration": "4"
    },
-   "solution": "ARMS"
+   "solution": "ARMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Weapons",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "intercepted by",
+       "at": 12,
+       "note": "the word as is intercepted, cut through the middle, by the marines' two letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "as",
+       "at": 9,
+       "gives": "AS",
+       "note": "taken as written"
+      },
+      {
+       "words": "Royal Marines",
+       "at": 27,
+       "gives": "RM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shipment of guns is seized by a commando unit.",
+     "definitionFit": "Arms is the general word for guns and other weaponry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +611,45 @@
      }
     ]
    },
-   "solution": "SETAGAINST"
+   "solution": "SETAGAINST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Compare",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "group",
+       "at": 8,
+       "gives": "SET",
+       "note": "a set is a group of things that belong together"
+      },
+      {
+       "words": "once more",
+       "at": 14,
+       "gives": "AGAIN",
+       "note": "again means once more"
+      },
+      {
+       "words": "street",
+       "at": 27,
+       "gives": "ST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Weighing a gang up against another one down the road.",
+     "definitionFit": "To set one thing against another is to weigh them side by side, a phrasal synonym for compare."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +663,41 @@
     "text": "Hotel that's altered the records",
     "enumeration": "10"
    },
-   "solution": "DORCHESTER"
+   "solution": "DORCHESTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hotel",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "altered",
+       "at": 13,
+       "note": "the letters of the words are altered, changed into a different order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "the records",
+       "at": 21,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hotel has been fiddling its books.",
+     "walkthrough": "The Dorchester is a famous luxury hotel on Park Lane in London.",
+     "definitionFit": "The Dorchester is a specific grand hotel in Mayfair, so it is an example of a hotel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +711,53 @@
     "text": "Hide from animal left with a doctor's family",
     "enumeration": "8"
    },
-   "solution": "LAMBSKIN"
+   "solution": "LAMBSKIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Hide from animal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "left",
+       "at": 17,
+       "gives": "L"
+      },
+      {
+       "words": "a",
+       "at": 27,
+       "gives": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "doctor's",
+       "at": 29,
+       "gives": "MBS",
+       "note": "MB is Bachelor of Medicine, a doctor's degree, and the 's adds S"
+      },
+      {
+       "words": "family",
+       "at": 38,
+       "gives": "KIN",
+       "note": "kin are your relatives"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone leaves with a doctor's relatives, trying to hide from a beast.",
+     "walkthrough": "'Hide' looks like a verb, but it is the noun: an animal's skin.",
+     "definitionFit": "Lambskin is the skin of a young sheep, a hide taken from that particular animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hide"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +771,41 @@
     "text": "Most calm and yet is French!",
     "enumeration": "8"
    },
-   "solution": "STILLEST"
+   "solution": "STILLEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most calm",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "yet",
+       "at": 14,
+       "gives": "STILL",
+       "note": "still and yet both mean nevertheless"
+      },
+      {
+       "words": "is French",
+       "at": 18,
+       "gives": "EST",
+       "note": "est is the French for is"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Calm and yet French: a cool continental temperament.",
+     "definitionFit": "Still means calm and unmoving, so the superlative is the calmest of all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "yet"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +819,40 @@
     "text": "Faculty US monk regularly visited in season",
     "enumeration": "6"
    },
-   "solution": "AUTUMN"
+   "solution": "AUTUMN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "season",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "regular",
+     "indicators": [
+      {
+       "text": "regularly visited",
+       "at": 16,
+       "note": "the phrase is visited at regular intervals, every other letter starting with the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Faculty US monk",
+       "at": 0,
+       "note": "the even-placed letters of these three words, read in order"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American monk calls round at a college department at a certain time of year.",
+     "definitionFit": "Autumn is the season between summer and winter, called fall in American English."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +866,58 @@
     "text": "Package Norm left outside church",
     "enumeration": "6"
    },
-   "solution": "PARCEL"
+   "solution": "PARCEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Package",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "outside",
+       "at": 18,
+       "note": "the norm and left letters sit outside the church abbreviation, around it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Norm",
+         "at": 8,
+         "gives": "PAR",
+         "note": "par is the standard or norm, as in golf"
+        },
+        {
+         "words": "left",
+         "at": 13,
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "words": "church",
+       "at": 26,
+       "gives": "CE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Norm leaves a package at a church door.",
+     "walkthrough": "'Norm' looks like a man's name, but it is the noun norm, a standard; CE is the Church of England.",
+     "definitionFit": "A parcel is a wrapped package sent through the post."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Norm"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +931,44 @@
     "text": "Henry dropping in altitude, with seven in front?",
     "enumeration": "6"
    },
-   "solution": "EIGHTH"
+   "solution": "EIGHTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with seven in front",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "cycling",
+     "indicators": [
+      {
+       "text": "Henry dropping",
+       "at": 0,
+       "note": "H for henry, the unit of inductance, drops from the top of the word to the bottom in this down clue"
+      }
+     ],
+     "parts": [
+      {
+       "words": "altitude",
+       "at": 18,
+       "gives": "HEIGHT",
+       "note": "height is altitude"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king called Henry losing height, with seven others ahead of him in line.",
+     "walkthrough": "Henry looks like a king (the eighth, aptly); here it is H, the physics unit, moved from top to bottom of the down answer.",
+     "definitionFit": "The eighth item in a sequence has exactly seven others ahead of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Henry"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +982,51 @@
     "text": "\"Labials\": aka unusual things for musicians",
     "enumeration": "10"
    },
-   "solution": "BALALAIKAS"
+   "solution": "BALALAIKAS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "things for musicians",
+      "at": 23
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unusual",
+       "at": 15,
+       "note": "the letters are arranged in an unusual way, a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Labials",
+         "at": 1,
+         "note": "taken as written"
+        },
+        {
+         "words": "aka",
+         "at": 11,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lip sounds, otherwise known as odd things for musicians.",
+     "definitionFit": "Balalaikas are triangular Russian stringed instruments, items that musicians play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Labials"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1040,54 @@
     "text": "Singer turning up in Scotland",
     "enumeration": "4"
    },
-   "solution": "ALTO"
+   "solution": "ALTO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "turning up",
+       "at": 7,
+       "note": "in a down clue, turning up means the letters are read from the bottom upwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 18,
+         "note": "the letters sit inside the word Scotland"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Scotland",
+         "at": 21,
+         "gives": "OTLA",
+         "note": "the four letters in the middle of Scotland, after its first two"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vocalist appears in Scotland.",
+     "definitionFit": "An alto is a singer with a low female or high male voice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1101,29 @@
     "text": "One's twice becoming a goddess",
     "enumeration": "4"
    },
-   "solution": "ISIS"
+   "solution": "ISIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a goddess",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "words": "One's twice",
+     "at": 0,
+     "gives": "ISIS",
+     "note": "one is the Roman numeral I, so one's reads as I'S, and twice says to write that pair two times over"
+    },
+    "explanation": {
+     "surface": "Someone doubled becomes divine.",
+     "definitionFit": "Isis was the chief goddess of ancient Egyptian religion, a deity of magic and motherhood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1137,31 @@
     "text": "Bender one proposes to go on?",
     "enumeration": "4"
    },
-   "solution": "KNEE"
+   "solution": "KNEE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bender",
+      "at": 0,
+      "meaning": "first meaning: the joint that bends the leg"
+     },
+     {
+      "text": "one proposes to go on?",
+      "at": 7,
+      "meaning": "second meaning: a man proposing marriage traditionally goes down on one ..."
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Bender' suggests a drinking spree; here it is simply something that bends.",
+     "definitionFit": "The knee is the hinge joint of the leg, and a suitor kneels on it when asking for marriage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bender"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1175,47 @@
     "text": "Painful condition: one's going round hospital",
     "enumeration": "8"
    },
-   "solution": "SHINGLES"
+   "solution": "SHINGLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Painful condition",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going round",
+       "at": 25,
+       "note": "the ones word goes round the hospital letter, enclosing it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "one's",
+       "at": 19,
+       "gives": "SINGLES",
+       "note": "singles are ones, single units; read the apostrophe as a plural"
+      },
+      {
+       "words": "hospital",
+       "at": 37,
+       "gives": "H"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ailment is doing the rounds of the hospital.",
+     "definitionFit": "Shingles is a painful viral rash caused by the chickenpox virus reawakening along a nerve."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one's"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1229,39 @@
     "text": "A, B, C, D, F or G?",
     "enumeration": "4"
    },
-   "solution": "NOTE"
+   "solution": "NOTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A, B, C, D, F or G?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "A, B, C, D, F",
+       "at": 0,
+       "note": "on the surface a list of letters, or a set of grades"
+      },
+      {
+       "words": "or G",
+       "at": 14,
+       "note": "each is a musical pitch name, and E is the one missing from the list"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Each listed letter names a musical note; the trick is that E is left out, so the answer splits as NOT E.",
+     "definitionFit": "Musical pitches are named with the letters A to G, so each of these letters is one of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1275,82 @@
     "text": "Travels around the ramshackle end of district — to see these?",
     "enumeration": "8"
    },
-   "solution": "GHETTOES"
+   "solution": "GHETTOES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Travels around the ramshackle end of district — to see these?",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 8,
+       "note": "the travels word goes around the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Travels",
+       "at": 0,
+       "gives": "GOES",
+       "note": "goes means travels"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "ramshackle",
+           "at": 19,
+           "note": "something ramshackle is tumbledown, so the letters of the are knocked into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the",
+           "at": 15,
+           "note": "taken as written"
+          }
+         ]
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "at": 30,
+           "note": "only the final letter of district is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "district",
+           "at": 37,
+           "note": "the last letter of the word district"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "andLit": true,
+    "explanation": {
+     "surface": "A tourist heads for the run-down side of town to look at its slums.",
+     "walkthrough": "The whole clue doubles as the definition: these are what you would see on a trip to a city's run-down quarter.",
+     "definitionFit": "Ghettoes are poor, crowded urban quarters where a minority group is concentrated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   }
  ]
 }
