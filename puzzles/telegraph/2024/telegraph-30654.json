@@ -17,6 +17,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -30,7 +33,65 @@
     "text": "Maybe Hannah's daughter hosted by friend in Italian city",
     "enumeration": "10"
    },
-   "solution": "PALINDROME"
+   "solution": "PALINDROME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maybe Hannah",
+      "at": 0,
+      "note": "a name, an example of the class of word the answer names"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "hosted by",
+       "at": 24,
+       "note": "a guest hosted by someone is taken in, so the daughter's letter sits inside the friend-in-city string"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "friend",
+         "at": 34,
+         "gives": "PAL",
+         "note": "a pal is a friend"
+        },
+        {
+         "words": "in",
+         "at": 41,
+         "note": "taken as written"
+        },
+        {
+         "words": "Italian city",
+         "at": 44,
+         "gives": "ROME",
+         "note": "Rome, the Italian capital"
+        }
+       ]
+      },
+      {
+       "words": "daughter",
+       "at": 15,
+       "gives": "D"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl's daughter is put up by a friend living in an Italian city.",
+     "walkthrough": "The 's is 'is', linking definition to wordplay; Hannah reads the same either way, so 'Maybe' flags it as an example.",
+     "definitionFit": "Hannah spells identically forwards and backwards, so it is one instance of a word with that property."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Hannah's"
+    }
+   }
   },
   {
    "number": 2,
@@ -44,7 +105,41 @@
     "text": "Stagnant situation taken by economist as issue",
     "enumeration": "6"
    },
-   "solution": "STASIS"
+   "solution": "STASIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stagnant situation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "taken by",
+       "at": 19,
+       "note": "the answer is held within the run of letters across these words, taken by them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "economist as issue",
+       "at": 28,
+       "note": "the letters run across the end of economist, all of as and the start of issue"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An economist identifies a stagnant economy as the problem to address.",
+     "definitionFit": "Stasis is a state of inactivity or equilibrium where nothing develops or changes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "economist"
+    }
+   }
   },
   {
    "number": 3,
@@ -58,7 +153,49 @@
     "text": "Make vocal music including e.g. Scarborough Fair",
     "enumeration": "8"
    },
-   "solution": "SPORTING"
+   "solution": "SPORTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fair",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including",
+       "at": 17,
+       "note": "the singing word includes, that is holds inside it, the harbour town word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Make vocal music",
+       "at": 0,
+       "gives": "SING",
+       "note": "to sing"
+      },
+      {
+       "words": "e.g. Scarborough",
+       "at": 27,
+       "gives": "PORT",
+       "note": "Scarborough is a seaside town on the Yorkshire coast with a harbour, an example of a port"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to sing, perhaps the folk song Scarborough Fair.",
+     "walkthrough": "Scarborough Fair reads as the song title, but Fair is split off as the definition.",
+     "definitionFit": "Sporting behaviour is fair and generous, as in a sporting chance or gesture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fair"
+    }
+   }
   },
   {
    "number": 4,
@@ -72,7 +209,59 @@
     "text": "Outlaw — outlaw pursued by detective over time",
     "enumeration": "6"
    },
-   "solution": "BANDIT"
+   "solution": "BANDIT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Outlaw",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "pursued by",
+       "at": 16,
+       "note": "the ban is chased by the detective, so the detective's letters come after it"
+      },
+      {
+       "text": "over",
+       "at": 37,
+       "note": "in a down entry, being over means sitting above, so the time letter comes last beneath"
+      }
+     ],
+     "parts": [
+      {
+       "words": "outlaw",
+       "at": 9,
+       "gives": "BAN",
+       "note": "to outlaw something is to ban it"
+      },
+      {
+       "words": "detective",
+       "at": 27,
+       "gives": "DI",
+       "note": "DI is Detective Inspector"
+      },
+      {
+       "words": "time",
+       "at": 42,
+       "gives": "T"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wanted outlaw is chased by a police detective over a long stretch of time.",
+     "walkthrough": "The same word is used twice: once as noun (the definition), once as verb meaning prohibit.",
+     "definitionFit": "A bandit is a robber living outside the law, an outlaw."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outlaw"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +281,66 @@
      }
     ]
    },
-   "solution": "STICKSBY"
+   "solution": "STICKSBY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Supports",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 19,
+       "note": "in a down entry the criticism sits over, so above, what follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "criticism",
+       "at": 9,
+       "gives": "STICK",
+       "note": "to give someone stick is to criticise them"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader in",
+         "at": 24,
+         "note": "the leader of a word is its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sunday",
+         "at": 34,
+         "note": "the word whose leading letter is taken"
+        }
+       ]
+      },
+      {
+       "words": "Times",
+       "at": 41,
+       "gives": "BY",
+       "note": "by as in multiplication: three by four means three times four"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone backs a newspaper whose leading article drew criticism in the Sunday Times.",
+     "walkthrough": "'Stick' meaning flak or criticism is informal British usage.",
+     "definitionFit": "To stick by someone is to remain loyal and stand behind them, to back them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 6,
@@ -106,7 +354,40 @@
     "text": "Express disapproval of right philistine",
     "enumeration": "4"
    },
-   "solution": "BOOR"
+   "solution": "BOOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "philistine",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Express disapproval of",
+       "at": 0,
+       "gives": "BOO",
+       "note": "to boo is to jeer in disapproval"
+      },
+      {
+       "words": "right",
+       "at": 23,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone jeers at a right-wing person with no taste for culture.",
+     "definitionFit": "A boor is a crude, uncultured person, much like a philistine who disdains art."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 7,
@@ -126,7 +407,52 @@
      }
     ]
    },
-   "solution": "STARTUP"
+   "solution": "STARTUP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "New business",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "celebrity",
+       "at": 13,
+       "gives": "STAR",
+       "note": "a star is a famous person"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly",
+         "at": 35,
+         "note": "take the odd-numbered letters, the first, third and fifth, of the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Trump",
+         "at": 28,
+         "note": "the surname whose first, third and fifth letters are kept"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fledgling company has a famous figure alongside Donald Trump, which seems strange.",
+     "definitionFit": "A start-up is a newly founded company, often a small tech venture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +472,42 @@
      }
     ]
    },
-   "solution": "SOUTHAMERICAN"
+   "solution": "SOUTHAMERICAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perhaps Lionel Messi",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "strangely",
+       "at": 39,
+       "note": "the letters are arranged strangely, so they are rearranged into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "in a Euros match",
+       "at": 21,
+       "note": "these thirteen letters are the raw material for the rearrangement"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lionel Messi oddly turns up in a match at the European Championship.",
+     "walkthrough": "Messi is Argentine, so he would never play at the Euros; that is the oddity the surface leans on.",
+     "definitionFit": "Messi is an Argentine footballer, so he is one example of a person from that continent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Euros"
+    }
+   }
   },
   {
    "number": 8,
@@ -166,7 +527,46 @@
      }
     ]
    },
-   "solution": "ARTSONG"
+   "solution": "ARTSONG",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "serious composition",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Garfunkel's",
+       "at": 0,
+       "gives": "ARTS",
+       "note": "Art Garfunkel, of Simon and Garfunkel, so his first name plus the S of the possessive"
+      },
+      {
+       "words": "playing",
+       "at": 12,
+       "gives": "ON",
+       "note": "something on is playing or being performed"
+      },
+      {
+       "words": "good",
+       "at": 20,
+       "gives": "G"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Art Garfunkel's performance is fine, a solemn musical work.",
+     "definitionFit": "An art song is a classical vocal piece, a setting of a poem, as opposed to a popular song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Garfunkel's"
+    }
+   }
   },
   {
    "number": 9,
@@ -180,7 +580,49 @@
     "text": "Del and Rodney, for instance, behind London theatre — they travel a lot",
     "enumeration": "13"
    },
-   "solution": "GLOBETROTTERS"
+   "solution": "GLOBETROTTERS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "they travel a lot",
+      "at": 54
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "behind",
+       "at": 30,
+       "note": "Del and Rodney come behind the theatre, so their surname follows it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "London theatre",
+       "at": 37,
+       "gives": "GLOBE",
+       "note": "the Globe, Shakespeare's theatre on London's South Bank"
+      },
+      {
+       "words": "Del and Rodney, for instance",
+       "at": 0,
+       "gives": "TROTTERS",
+       "note": "Del Boy and Rodney Trotter are the brothers in the British sitcom Only Fools and Horses"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The sitcom brothers stand behind a London theatre, a pair who get about.",
+     "walkthrough": "Only Fools and Horses is a classic BBC sitcom about Peckham market traders Del Boy and Rodney Trotter.",
+     "definitionFit": "Globetrotters are people who journey widely around the world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Del"
+    }
+   }
   },
   {
    "number": 10,
@@ -194,7 +636,42 @@
     "text": "Sun ruined ground without cover",
     "enumeration": "9"
    },
-   "solution": "UNINSURED"
+   "solution": "UNINSURED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "without cover",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "ground",
+       "at": 11,
+       "note": "ground as in crushed and broken up, so the letters are reworked"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sun ruined",
+       "at": 0,
+       "note": "the nine letters of these two words are rearranged"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ground has been ruined by the sun and lies exposed.",
+     "walkthrough": "'Ground' reads as earth, but it is the past tense of grind.",
+     "definitionFit": "Being uninsured means having no insurance policy, which is what cover means here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 11,
@@ -208,7 +685,41 @@
     "text": "Goods vehicle set off",
     "enumeration": "5"
    },
-   "solution": "CARGO"
+   "solution": "CARGO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Goods",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "vehicle",
+       "at": 6,
+       "gives": "CAR",
+       "note": "a car is a motor vehicle"
+      },
+      {
+       "words": "set off",
+       "at": 14,
+       "gives": "GO",
+       "note": "to go is to set off on a journey"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A goods vehicle has set off on its delivery run.",
+     "definitionFit": "Cargo is the freight or merchandise carried by a ship, plane or lorry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Goods"
+    }
+   }
   },
   {
    "number": 12,
@@ -222,7 +733,49 @@
     "text": "Sunglasses son removed for underworld boss",
     "enumeration": "5"
    },
-   "solution": "HADES"
+   "solution": "HADES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "underworld boss",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "removed",
+       "at": 15,
+       "note": "the son's letter is taken away from the word for sunglasses"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sunglasses",
+       "at": 0,
+       "gives": "SHADES",
+       "note": "shades is slang for sunglasses"
+      },
+      {
+       "words": "son",
+       "at": 11,
+       "gives": "S"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crime boss whose son took off his sunglasses.",
+     "walkthrough": "'Underworld boss' suggests a gangster; it is the Greek god of the dead.",
+     "definitionFit": "In Greek myth Hades rules the realm of the dead, so he is lord of the underworld."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "underworld"
+    }
+   }
   },
   {
    "number": 13,
@@ -236,7 +789,43 @@
     "text": "Having no will to be seen in main test at Edgbaston",
     "enumeration": "9"
    },
-   "solution": "INTESTATE"
+   "solution": "INTESTATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Having no will",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "to be seen in",
+       "at": 15,
+       "note": "the answer can be seen sitting within the letters of these words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "main test at Edgbaston",
+       "at": 29,
+       "note": "the answer runs from the end of main through test and at to the E of Edgbaston"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer lacking willpower is on view in the main Test at Edgbaston.",
+     "walkthrough": "Edgbaston is a Test cricket ground in Birmingham.",
+     "definitionFit": "Dying intestate means dying without a legal testament setting out one's estate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "will"
+    }
+   }
   },
   {
    "number": 14,
@@ -250,7 +839,54 @@
     "text": "Trying case of assault, then appealing",
     "enumeration": "10"
    },
-   "solution": "ATTEMPTING"
+   "solution": "ATTEMPTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Trying",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "case of",
+         "at": 7,
+         "note": "the case of a word is its outside, its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "assault",
+         "at": 15,
+         "note": "the word whose outer letters, its first and last, are kept"
+        }
+       ]
+      },
+      {
+       "words": "appealing",
+       "at": 29,
+       "gives": "TEMPTING",
+       "note": "tempting means attractive or appealing"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A court is hearing an assault case before an appeal.",
+     "walkthrough": "'Trying', 'case' and 'appealing' all suggest a courtroom, but none is legal here.",
+     "definitionFit": "Attempting means making an effort to do something, which is what trying means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "appealing"
+    }
+   }
   },
   {
    "number": 15,
@@ -264,7 +900,43 @@
     "text": "The setter, having debts, is making beastly noises",
     "enumeration": "7"
    },
-   "solution": "MEOWING"
+   "solution": "MEOWING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "making beastly noises",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "The setter",
+       "at": 0,
+       "gives": "ME",
+       "note": "the setter refers to themselves, so me"
+      },
+      {
+       "words": "having debts",
+       "at": 12,
+       "gives": "OWING",
+       "note": "someone owing has money still to pay"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The compiler, deep in debt, is howling like an animal.",
+     "walkthrough": "'is' links the wordplay to the definition.",
+     "definitionFit": "Meowing is the cry a cat makes, an animal sound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "beastly"
+    }
+   }
   },
   {
    "number": 16,
@@ -278,7 +950,71 @@
     "text": "Fancied a strong drink, tucking into one beside sea",
     "enumeration": "8"
    },
-   "solution": "IMAGINED"
+   "solution": "IMAGINED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fancied",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "tucking into",
+       "at": 24,
+       "note": "the drink is tucked into, so placed inside, the other letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 37,
+         "gives": "I",
+         "note": "the Roman numeral one"
+        },
+        {
+         "words": "sea",
+         "at": 48,
+         "gives": "MED",
+         "note": "the Med is the Mediterranean Sea"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 8,
+         "gives": "A",
+         "note": "taken as written"
+        },
+        {
+         "words": "strong drink",
+         "at": 10,
+         "gives": "GIN",
+         "note": "gin is a spirit"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fancied a gin by the seaside.",
+     "walkthrough": "'Tucking into' suggests eating or drinking, but here it means going inside.",
+     "definitionFit": "Imagined means conceived in the mind, as in fancied that something was so."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tucking"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +1028,49 @@
     "text": "Immoral person's fling with virtuous person? I'm not sure",
     "enumeration": "7"
    },
-   "solution": "SHYSTER"
+   "solution": "SHYSTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Immoral person",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "fling",
+       "at": 17,
+       "gives": "SHY",
+       "note": "to shy is to throw, as at a coconut shy"
+      },
+      {
+       "words": "virtuous person",
+       "at": 28,
+       "gives": "ST",
+       "note": "a saint, abbreviated ST"
+      },
+      {
+       "words": "I'm not sure",
+       "at": 45,
+       "gives": "ER",
+       "note": "er is the hesitant noise of someone unsure"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cad's affair with a saintly partner leaves the speaker doubtful.",
+     "walkthrough": "'Fling' suggests an affair; here it means a throw.",
+     "definitionFit": "A shyster is an unscrupulous operator, especially a dishonest lawyer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fling"
+    }
+   }
   },
   {
    "number": 17,
@@ -306,7 +1084,60 @@
     "text": "Team member wants intro from Sex Pistols?",
     "enumeration": "8"
    },
-   "solution": "SIDEARMS"
+   "solution": "SIDEARMS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pistols",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Team",
+       "at": 0,
+       "gives": "SIDE",
+       "note": "a side is a sports team"
+      },
+      {
+       "words": "member",
+       "at": 5,
+       "gives": "ARM",
+       "note": "an arm is a limb, a member of the body"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "intro from",
+         "at": 18,
+         "note": "the intro of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sex",
+         "at": 29,
+         "note": "the first word of the band's name, whose opening letter is used"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A band member wants an introduction from the punk group the Sex Pistols.",
+     "walkthrough": "The Sex Pistols are a 1970s British punk band; the name is split so that Pistols is the definition.",
+     "definitionFit": "Sidearms are weapons carried at the belt, such as handguns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pistols"
+    }
+   }
   },
   {
    "number": 18,
@@ -326,7 +1157,41 @@
      }
     ]
    },
-   "solution": "REENACTED"
+   "solution": "REENACTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "performed again",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "plays",
+       "at": 11,
+       "note": "the letters play about, moving into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Are decent",
+       "at": 0,
+       "note": "the nine letters of these two words are rearranged"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether respectable plays are put on a second time.",
+     "definitionFit": "Re-enacted means acted out once more, staged a second time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plays"
+    }
+   }
   },
   {
    "number": 19,
@@ -340,7 +1205,53 @@
     "text": "Approach large deer and tiger, say, from the south",
     "enumeration": "6"
    },
-   "solution": "TACKLE"
+   "solution": "TACKLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Approach",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "from the south",
+       "at": 36,
+       "note": "in a down entry, read from the south means read upwards, so backwards"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "large deer",
+         "at": 9,
+         "gives": "ELK",
+         "note": "an elk is a large deer"
+        },
+        {
+         "words": "tiger, say",
+         "at": 24,
+         "gives": "CAT",
+         "note": "a tiger is an example of a big cat"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone approaches a large deer and a tiger coming up from the south.",
+     "definitionFit": "To tackle a problem is to set about dealing with it, to approach it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Approach"
+    }
+   }
   },
   {
    "number": 20,
@@ -354,7 +1265,42 @@
     "text": "Tips of great Alpine mountains upon this range",
     "enumeration": "5"
    },
-   "solution": "GAMUT"
+   "solution": "GAMUT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "range",
+      "at": 41
+     }
+    ],
+    "wordplay": {
+     "op": "first",
+     "indicators": [
+      {
+       "text": "Tips of",
+       "at": 0,
+       "note": "the tips of words are their first letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "great Alpine mountains upon this",
+       "at": 8,
+       "note": "the five opening letters of these five words, in order"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The peaks of the great Alps rise above this mountain range.",
+     "walkthrough": "'Range' looks like a mountain range but means a full scope.",
+     "definitionFit": "The gamut is the complete scale or spectrum of something, its full extent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 20,
@@ -368,7 +1314,42 @@
     "text": "Al Gore eats in great quantities",
     "enumeration": "6"
    },
-   "solution": "GALORE"
+   "solution": "GALORE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "in great quantities",
+      "at": 13
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "eats",
+       "at": 8,
+       "note": "the name is eaten, chewed up so its letters come out in a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Al Gore",
+       "at": 0,
+       "note": "the former US vice-president's name supplies the six letters"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The former US vice-president Al Gore eats a lot.",
+     "definitionFit": "Galore means in abundance, plentiful, placed after the noun it describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "eats"
+    }
+   }
   },
   {
    "number": 21,
@@ -382,7 +1363,42 @@
     "text": "Prickly sorts caught first part of drama",
     "enumeration": "5"
    },
-   "solution": "CACTI"
+   "solution": "CACTI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Prickly sorts",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "caught",
+       "at": 14,
+       "gives": "C"
+      },
+      {
+       "words": "first part of drama",
+       "at": 21,
+       "gives": "ACTI",
+       "note": "Act I is the opening section of a play"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Touchy people were caught in the first act of a play.",
+     "walkthrough": "C is the cricket abbreviation for caught.",
+     "definitionFit": "Cacti are spiny desert plants, so prickly kinds of vegetation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Prickly"
+    }
+   }
   },
   {
    "number": 22,
@@ -396,7 +1412,42 @@
     "text": "Possibly lower large hood",
     "enumeration": "4"
    },
-   "solution": "COWL"
+   "solution": "COWL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hood",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Possibly lower",
+       "at": 0,
+       "gives": "COW",
+       "note": "a lower is something that lows, as a cow does"
+      },
+      {
+       "words": "large",
+       "at": 15,
+       "gives": "L"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Perhaps a large hood can be pulled lower.",
+     "walkthrough": "'Lower' looks like 'more low' but is one who lows, i.e. moos.",
+     "definitionFit": "A cowl is a monk's hood or a hooded robe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lower"
+    }
+   }
   },
   {
    "number": 23,
@@ -410,7 +1461,31 @@
     "text": "Fictional web designer in US city",
     "enumeration": "9"
    },
-   "solution": "CHARLOTTE"
+   "solution": "CHARLOTTE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fictional web designer",
+      "at": 0,
+      "meaning": "... is the spider in E.B. White's novel ... Web, who weaves words into her web"
+     },
+     {
+      "text": "US city",
+      "at": 26,
+      "meaning": "The largest city in North Carolina"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Web designer' suggests an internet worker; the web is a spider's.",
+     "definitionFit": "The name belongs both to a children's-book spider and to a major North Carolina city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "web"
+    }
+   }
   },
   {
    "number": 24,
@@ -430,7 +1505,41 @@
      }
     ]
    },
-   "solution": "NEWDEAL"
+   "solution": "NEWDEAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "presidential policy",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "reforms",
+       "at": 9,
+       "note": "the letters are re-formed, put together in a different shape"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Need law",
+       "at": 0,
+       "note": "the seven letters of these two words are rearranged"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Reforms demand legislation as a president's programme.",
+     "definitionFit": "The New Deal was Franklin Roosevelt's 1930s programme of economic recovery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reforms"
+    }
+   }
   },
   {
    "number": 25,
@@ -444,7 +1553,48 @@
     "text": "Horses sheltering among soldiers",
     "enumeration": "7"
    },
-   "solution": "MARINES"
+   "solution": "MARINES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "soldiers",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "sheltering",
+       "at": 7,
+       "note": "the horses shelter, so enclose, the word for among"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Horses",
+       "at": 0,
+       "gives": "MARES",
+       "note": "mares are female horses"
+      },
+      {
+       "words": "among",
+       "at": 18,
+       "gives": "IN",
+       "note": "in, as in among or within"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Horses are taking cover among troops.",
+     "definitionFit": "Marines are troops trained to serve at sea and on land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Horses"
+    }
+   }
   }
  ]
 }
