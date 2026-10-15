@@ -13,8 +13,13 @@ edition_queue.py plan takes minutes.
   Trove articles                 an article dir holding meta.json with no
                                  ledger row
 
-Counted in puzzles: each edition or Listener page prints one cryptic; a
-Trove article counts the share of read articles that filed a puzzle. An
+Counted in puzzles: each edition prints one cryptic; Listener pages count
+once per puzzle number the ledger read them as (a puzzle can span pages and
+its report page: on 2026-10-15, 606 pages were 552 numbers), an unread or
+unmatched page one each; a Trove article counts the share of read articles
+whose row holds a Canberra puzzle (trove_puzzle(): not a Times reprint, a
+copy of another puzzle, or a print since folded into the Times; on
+2026-10-15, 760 rows held an id and 664 a Canberra puzzle). An
 edition is counted once per series and print date (edition_day()), however
 many copies are on disk: the Gale Times and archive.org's NewsUK Times both
 hold 1970-1999, and an item can hold a date twice, so on 2026-10-13 the Times
@@ -34,11 +39,13 @@ import os
 import re
 import sys
 
+import canberra_london_numbers
 import downloads
 import file_archive_org_puzzles as fa
 import file_trove_puzzles as ftp
 import gale_listener
 import media_manifest
+import renamed_ids
 import scan_queue
 
 
@@ -108,14 +115,54 @@ def archive_counts(cache=downloads.ARCHIVE_ORG):
 
 
 def listener_counts(inbox=gale_listener.SAVED, store=gale_listener.STORE):
-    """[saved pages, never read]."""
-    names = {row.get("file") for row in gale_listener.load_ledger(store).values()}
+    """[saved pages, never read, puzzles, puzzles never read]: a read page
+    counts as the puzzle number its ledger row matched it to, so the pages of
+    one puzzle and its report count once; an unread page, or one matched to
+    no number, counts on its own."""
+    rows = {row.get("file"): row for row in gale_listener.load_ledger(store).values()}
     pages = [p.name for p in gale_listener.page_files(inbox)]
-    return [len(pages), sum(n not in names for n in pages)]
+    unread = sum(n not in rows for n in pages)
+    numbers = {rows[n].get("number") for n in pages if n in rows}
+    unmatched = sum(n in rows and rows[n].get("number") is None for n in pages)
+    return [len(pages), unread, len(numbers - {None}) + unmatched + unread, unread]
 
 
-def trove_counts(cache=ftp.CACHE):
-    """[articles, never read, articles filed, articles read]."""
+#: A refusal naming a print that is another puzzle: a Times reprint, filed as
+#: the Times original, and a page serving the clues of another number.
+COPY_REFUSALS = ("REPRINT reprints ", "but the page served the clues of ")
+
+
+def trove_puzzle(row, held, renamed, london=()):
+    """Does a Trove ledger row hold a Canberra puzzle of its own: an id not
+    renamed into another series (renamed_ids), an article `london`
+    (canberra_london_numbers) does not number as a London Times reprint,
+    whose write was not refused as a copy (COPY_REFUSALS), and that is filed
+    (`held`, the filed ids) or held back (refusedWrite, pending) unfiled? A
+    clean write whose file is gone was folded into the Times (2026-10-08, 44
+    reprints), its row left as read."""
+    pid = row.get("id")
+    if not pid or pid in renamed or row.get("article") in london:
+        return False
+    why = row.get("refusedWrite") or ""
+    if any(c in why for c in COPY_REFUSALS):
+        return False
+    return pid in held or bool(why or row.get("pending"))
+
+
+def trove_ids(series=ftp.SERIES):
+    """(the ids filed under series, off the file names; the ids renamed; the
+    articles numbered as London Times reprints)."""
+    held = {p.stem for p in (renamed_ids.ROOT / "puzzles" / series).glob(f"*/{series}-*.json")}
+    try:
+        renamed = set(renamed_ids.read())
+    except (OSError, ValueError):
+        renamed = set()
+    return held, renamed, set(canberra_london_numbers.load())
+
+
+def trove_counts(cache=ftp.CACHE, ids=None):
+    """[articles, never read, articles holding a puzzle (trove_puzzle), articles read]."""
+    ids = ids or trove_ids()
     rows = scan_queue.ledger_rows(media_manifest.trove_ledger(cache), "article")
     if media_manifest.on_media(cache) and media_manifest.complete(media_manifest.TROVE_TITLES):
         # The articles holding meta.json, off the trove-titles manifest
@@ -126,7 +173,7 @@ def trove_counts(cache=ftp.CACHE):
         names = _trove_listed(cache)
     unread = sum(n not in rows for n in names)
     read = sum(n in rows for n in names)
-    return [read + unread, unread, sum(bool(r.get("id")) for r in rows.values()), len(rows)]
+    return [read + unread, unread, sum(trove_puzzle(r, *ids) for r in rows.values()), len(rows)]
 
 
 def _trove_listed(cache):
@@ -149,7 +196,7 @@ def counts():
         c[1] += round(q)
     for series, c in editions.items():
         add(series, *c)
-    add(gale_listener.lp.SERIES, *raw["listener"])
+    add(gale_listener.lp.SERIES, *raw["listener"][2:])
     n, q, filed, read = raw["trove"]
     share = filed / read if read else 0
     add(ftp.SERIES, n * share, q * share)
@@ -204,7 +251,8 @@ def dated(cache=downloads.ARCHIVE_ORG, inbox=gale_listener.SAVED, store=gale_lis
         add(gale_listener.lp.SERIES, 1, _day(p), read.get(p.name))
     rows = scan_queue.jsonl_rows(media_manifest.trove_ledger(trove))
     last = {r["article"]: r for r in rows if "article" in r}
-    share = sum(bool(r.get("id")) for r in last.values()) / len(last) if last else 0
+    ids = trove_ids()
+    share = sum(trove_puzzle(r, *ids) for r in last.values()) / len(last) if last else 0
     read = _first_reads(rows, "article", "readAt")
     for n in (os.listdir(trove) if trove.is_dir() else ()):
         try:

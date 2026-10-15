@@ -78,6 +78,39 @@ eds = [("times", "1975-03-01", True), ("times", "1975-03-01", False),     # Gale
        ("ftcryptic", "1989-10-11_30970", False)]
 assert E.by_day(eds) == {"times": [3, 2], "ftcryptic": [2, 1]}, E.by_day(eds)
 
+# A Trove row is a Canberra puzzle when it is filed or held back as itself:
+# not a Times reprint (refused, renamed, or numbered by
+# canberra_london_numbers), not a copy of another number's clues, and not a
+# clean write whose file is gone (folded into the Times). On 2026-10-15 760
+# rows held an id and the page said 760 downloaded; 664 were Canberra's.
+held, renamed, london = {"canberra-1"}, {"canberra-3"}, {"a7"}
+rows = [{"article": "a1", "id": "canberra-1"},                       # filed
+        {"article": "a2", "id": "canberra-2", "pending": "clues unread"},  # held back
+        {"article": "a3", "id": "canberra-3", "wrote": True},        # renamed to the Times
+        {"article": "a4", "id": "canberra-4", "refusedWrite": "refusing to write canberra-4: REPRINT reprints times-1: ..."},
+        {"article": "a5", "id": "canberra-5", "refusedWrite": "requested canberra-5 but the page served the clues of canberra-9 (30 of 30 clues are the same)"},
+        {"article": "a6", "id": "canberra-6", "wrote": True},        # folded: file gone
+        {"article": "a7", "id": "canberra-7", "pending": "x"},       # a London reprint
+        {"article": "a8", "id": "canberra-8", "refusedWrite": "refusing to write canberra-8: 9-across holds a clue number"},
+        {"article": "a9"}]                                           # no puzzle
+got = [E.trove_puzzle(r, held, renamed, london) for r in rows]
+assert got == [True, True, False, False, False, False, False, True, False], got
+
+# Listener pages count once per puzzle number read (606 pages were 552
+# numbers on 2026-10-15); an unread page or an unmatched one counts alone.
+import json, tempfile
+from pathlib import Path
+import gale_listener as GL
+with tempfile.TemporaryDirectory() as t:
+    inbox, store = Path(t, "in"), Path(t, "store")
+    inbox.mkdir(), store.mkdir()
+    for n in "abcdef":
+        (inbox / f"{n}.pdf").write_bytes(b"%PDF")
+    led = [{"sha": "1", "file": "a.pdf", "number": 36}, {"sha": "2", "file": "b.pdf", "number": 36},
+           {"sha": "3", "file": "c.pdf", "number": 15}, {"sha": "4", "file": "d.pdf", "number": None}]
+    (store / GL.LEDGER).write_text("".join(json.dumps(r) + "\n" for r in led))
+    assert E.listener_counts(inbox, store) == [6, 2, 5, 2], E.listener_counts(inbox, store)
+
 live = P.with_today(days, {"times": [5, 4, 3], "azed": [1, 1, 1]}, "2026-10-08")
 assert live["2026-10-08"] == {"azed": [None, None, 1, 1, 1, None, None], "times": [10, 3, 5, 4, 3, 110, 30]}, live["2026-10-08"]
 assert P.totals(live["2026-10-08"]) == [10, 3, 6, 5, 4, 110, 30]

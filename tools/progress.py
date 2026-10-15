@@ -27,9 +27,9 @@ above filed. The funnel and the by-series bars draw that chain.
 
 downloaded and queued count puzzles: one per newspaper print date (each
 edition prints one cryptic; a date on disk from both Gale and archive.org, or
-twice in one item, is one puzzle, read once any copy is) or Listener page,
-and a Trove article times the share of read
-articles that filed a puzzle (tools/edition_backlog.py). The queue's daily
+twice in one item, is one puzzle, read once any copy is) or Listener puzzle
+number (its pages and report page once), and a Trove article times the share
+of read articles holding a Canberra puzzle of its own (tools/edition_backlog.py). The queue's daily
 inflow is downloaded's gain, its outflow that gain less queued's. Nights
 before progress_record.py first counted them are backfilled
 (`progress_record.py backfill-queue`): a scan dated by its file's mtime on
