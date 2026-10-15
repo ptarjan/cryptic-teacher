@@ -86,18 +86,41 @@ def post_ids():
     return {r["link"].rstrip("/"): i for i, r in media_manifest.posts(BLOG / "posts").items()}
 
 
+class _Insensitive(dict):
+    """{entry id: the answer's pattern in any case}, each compiled when loi()
+    first asks: only a comment with LOI in it does, and compiling all of a
+    puzzle's answers twice was most of this script's hour (2026-10-15)."""
+
+    def __init__(self, answers):
+        super().__init__()
+        self.patterns = {eid: rx.pattern for eid, rx in answers}
+
+    def __missing__(self, eid):
+        self[eid] = re.compile(self.patterns[eid], re.I)
+        return self[eid]
+
+
 def score(puz, comments):
     answers = [(entry_id(e), answer_regex(e["solution"])) for e in puz["entries"]
                if sum(c.isalpha() for c in e.get("solution") or "") >= 3]
     clues, times, dnf = {}, [], 0
-    lower = {eid: re.compile(rx.pattern, re.I) for eid, rx in answers}
+    lower = _Insensitive(answers)
     for c in comments:
         m = MINUTES.search(c)
         if m and 2 <= float(m.group(1)) <= 240:
             times.append(float(m.group(1)))
         dnf += bool(DNF.search(c))
-        sentences = SENTENCE.split(c)
+        sentences = None
         for eid, rx in answers:
+            # A sentence is a slice of the comment bounded by whitespace or
+            # punctuation the pattern's lookarounds read the same way, so a
+            # sentence that holds the answer means the comment does: one
+            # search of the comment stands in for one per sentence, and
+            # nearly every (comment, answer) pair misses.
+            if not rx.search(c):
+                continue
+            if sentences is None:
+                sentences = SENTENCE.split(c)
             hits = [s for s in sentences if rx.search(s)]
             if not hits:
                 continue
