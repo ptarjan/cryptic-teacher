@@ -156,6 +156,8 @@ assert cov.due_number("azed", {1, 53}, D(2001, 1, 28), weekly) == 57
 assert cov.due_number("azed", {1, 53}, D(2000, 12, 31), weekly) == 53
 assert cov.due_number("azed", {1, 53}, D(2000, 6, 1), weekly) == 53   # never below held
 assert cov.due_number("azed", {53}, D(2030, 1, 1), weekly) == 53      # no pace to carry
+assert cov.due_number("listener", {4016}, D(2026, 10, 15), lambda s, n: None) == 4938, "weekly from the blog's No 4,930"
+assert cov.due_number("listener", {5000}, D(2026, 10, 15), lambda s, n: D(2026, 8, 14) if n == 5000 else None) == 5008, "a later held number is the anchor"
 assert cov.number_runs("nation", {258, 3503}, D(2026, 10, 12), weekly) == [(1, 3529)], "ended at lastIssue"
 monthly = lambda s, n: {20000: D(2000, 1, 1), 270: D(2024, 2, 1), 290: D(2025, 10, 1)}.get(n)
 assert cov.number_runs("timesclub", {20000, 20279, 270, 290}, D(2026, 10, 1), monthly) == \
@@ -177,6 +179,14 @@ assert sorted(cov.surplus_dates(led, {10: "2000-01-01", 13: "2000-01-06"}, "1999
 assert cov.surplus_dates(led, {10: "2000-01-01"}, "1999-12-20") == []
 led.exists |= {"1999-12-%d" % d for d in range(20, 32)}
 assert len(cov.surplus_dates(led, {10: "2000-01-01", 13: "2000-01-06"}, "1999-12-20")) == 3 + 2
+# The reverse: Nos 1 and 5 on two dates with one missing date between leave
+# three numbers for one slot, so two printed puzzles have no date of ours.
+led = cov.Ledger("times", "print dates")
+led.filed = {"2000-01-01", "2000-01-03"}
+led.exists = led.filed | {"2000-01-02"}
+assert cov.undated_numbers(led, {1: "2000-01-01", 5: "2000-01-03"}, "2000-01-01") == {"No 2": 2, "No 3": 3}, \
+    "the paper's own count stands; the numbers with no date slot get their own keys"
+assert cov.undated_numbers(led, {1: "2000-01-01", 3: "2000-01-03"}, "2000-01-01") == {}
 # Every series has a Known rule: printed days, numbers, Trove dates, the book
 # estimates, or none because it is a reprint of another or our own.
 for s in sm.SERIES:

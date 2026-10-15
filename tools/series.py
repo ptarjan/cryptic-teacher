@@ -65,6 +65,11 @@ import re
 #   ledger counts it as existing up to here and no further (tools/coverage.py
 #   number_runs). A series without it is still running, so the ledger counts
 #   it up to the number today's paper is due to carry.
+# issuesPerWeek / knownIssue — the series prints this many numbers a week, and
+#   [number, "YYYY-MM-DD"] is the newest one we know the date of beyond our
+#   files (a blog's). The ledger counts forward from the later of that and the
+#   highest held number, at the weekly rate (coverage.due_number), not at a
+#   pace fitted over a run with wartime gaps.
 # renumberedFrom — with renumberedBelow: the first number of the newer run.
 # coverDateLead — the paper dates each issue by its cover, and the puzzle is
 #   online up to this many days before that day: a file dated that far ahead
@@ -329,6 +334,9 @@ SERIES = {
         "kind": "Listener",
         "publisher": "Listener",
         "group": "Times",
+        # fifteensquared's write-up of No 4,930.
+        "issuesPerWeek": 1,
+        "knownIssue": [4930, "2026-08-14"],
         "badge": "listener",
     },
     # The FT prints no grid a script can reach, so tools/ft_puzzles.py files
