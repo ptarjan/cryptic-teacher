@@ -63,15 +63,32 @@ def lines(v):
     return v if isinstance(v, list) else [] if v is None else [v]
 
 
-def main():
-    w = watchlib.Watcher(STATE)
+def read_state(seen):
+    """The outage state this job keeps in its watcher's seen-list."""
     state = {}
-    for line in w.seen:
+    for line in seen:
         if line.startswith(f"{STATE}\t"):
             try:
                 state = json.loads(line.split("\t", 1)[1])
             except ValueError:
                 state = {}
+    return state
+
+
+def quick():
+    """0 when the VLM serves and was not down at the last tick: nothing to
+    record or send, so tools/vlm_health.sh skips its worktree setup. 1 when
+    the full tick must run. Writes nothing."""
+    if read_state(watchlib.Watcher(STATE).seen).get("down_since"):
+        return 1
+    return 0 if serving() else 1
+
+
+def main():
+    if "--quick" in sys.argv[1:]:
+        return quick()
+    w = watchlib.Watcher(STATE)
+    state = read_state(w.seen)
     w.seen = [s for s in w.seen if not s.startswith(f"{STATE}\t")]
     now = time.time()
 

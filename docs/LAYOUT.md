@@ -2656,5 +2656,16 @@ tools/test_desktop_hosts.sh                    does tools/desktop_hosts.py find 
                                                a TTL, probing afresh after forget(), and do
                                                ocr_remote.by_path and vlm_reader.resolve use
                                                it, so one dead LAN address stalls nothing?
+tools/gale_idle.py                             exit 0 when a cryptic-gale-inbox tick would do
+                                               nothing, so tools/gale_inbox.sh
+tools/test_gale_idle.sh                        does tools/gale_idle.py let a cryptic-gale-inbox
+                                               tick skip its worktree setup only when the tick
+                                               would do nothing: the progress page rendered
+                                               within the hour and no download since (or one,
+                                               but the page under RENDER_MIN old), and no fresh
+                                               edition waiting with no full pass running; and
+                                               does it force a full tick MAX_SKIP after the
+                                               last? Does tools/vlm_health.py --quick skip only
+                                               an up VLM that was not down?
 ```
 <!-- LAYOUT-END -->

@@ -40,7 +40,7 @@ cp "$REPO/puzzles/times/1984/$PID.json" "$tree/puzzles/times/1984/"
 cd "$tree" || exit 1
 git init -q && git add -A && git -c user.name=t -c user.email=t@t commit -qm base
 
-eval "$(sed -n '/^puzzle_spec() {/p' "$REPO/tools/puzzle_worker.sh")"
+eval "$(sed -n '/^puzzle_spec() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
 eval "$(sed -n '/^clues_spec() {/p' "$REPO/tools/puzzle_worker.sh")"
 eval "$(sed -n '/^puzzle_specs() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
 eval "$(sed -n '/^restore_puzzle() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
