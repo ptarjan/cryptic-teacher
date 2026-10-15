@@ -270,7 +270,9 @@ def tidy(text):
     text = re.sub(r"(?<=\w)`", " `", text).replace("`", "\u2018")
     # Specks the scan left before a clue number (". 11", ":. 11").
     text = re.sub(r"^[.:;,'`\u2018\u2019 ]+(?=[\dIl])", "", text, flags=re.MULTILINE)
-    text = re.sub(r"^(\d) (\d) (?=\S)", r"\1\2 ", text, flags=re.MULTILINE)
+    # Not before a lowercase word: "6 3 put more negatively" is 6 down
+    # whose clue opens on a reference to 3 (Cyclops No 19), not 63.
+    text = re.sub(r"^(\d) (\d) (?=[^\sa-z])", r"\1\2 ", text, flags=re.MULTILINE)
     text = re.sub(r"^(\d{1,2})(?=[A-Z]{2})", r"\1 ", text, flags=re.MULTILINE)
     # A reversed light's "rev." read "rey." or glued to its number ("5rey.Last").
     text = re.sub(r"^(\d{1,2})\s?re[vy][.,]?\s*(?=[A-Z\"'\u2018])", r"\1 rev. ", text, flags=re.MULTILINE)

@@ -232,6 +232,7 @@ def column_cols(boxes):
             text = ln[4]
             while SLASH.match(text):
                 text = SLASH.sub(r"\1, ", text, count=1)
+            text = DIRECTED.sub(r"\1", text)
             head = fa.heading_of(text.strip())
             if head:
                 side = 0 if head == "ACROSS" else 1
@@ -272,8 +273,8 @@ def read(issue, get):
     if blank:
         return number, None, f"{len(blank)} clues the readings do not agree on: " + \
             "; ".join(f"{k}: {v}" for k, v in sorted(blank.items())[:4])
-    laid = linked_across(laid)
-    empty = sorted(lid for lid, (t, _, _) in laid.items() if not (t or "").strip())
+    laid = linked_across(directed_links(laid))
+    empty =sorted(lid for lid, (t, _, _) in laid.items() if not (t or "").strip())
     if empty:
         return number, None, f"clues with no words: {', '.join(empty)}"
     return number, page_text(number, laid), None
@@ -302,6 +303,83 @@ def linked_across(laid):
     return out
 
 
+LEAD = re.compile(r"^(\W{0,2})(\d{1,3})(?=\W{0,2}\s)")
+
+
+def renumbered(words, cols):
+    """`cols` with each reading's clue number that no other reading prints
+    put right before the vote, when it is one digit too many (No 279's "61"
+    for 6 down): dropping a digit gives a number most other readings print (two at least)
+    and this one lacks, between this reading's neighbours. Anything less
+    sure is left for the vote."""
+    per = {id(w): cols(w) for w in words.values()}
+    if len(per) < 3:
+        return cols
+
+    def nums(lines):
+        return [int(m.group(2)) for ln in lines if (m := LEAD.match(ln[4]))]
+
+    def fixed(ws):
+        out = cols(ws)
+        mine = id(ws)
+        if mine not in per:
+            return out
+        for side in (0, 1):
+            others = [set(nums(p[side])) for k, p in per.items() if k != mine]
+            seq = nums(out[side])
+            for i, ln in enumerate(out[side]):
+                m = LEAD.match(ln[4])
+                if not m or any(int(m.group(2)) in o for o in others):
+                    continue
+                n = m.group(2)
+                pos = seq.index(int(n))
+                prev, nxt = (seq[pos - 1] if pos else 0), (seq[pos + 1] if pos + 1 < len(seq) else 99)
+                cands = {int(c) for c in (n[:-1], n[1:]) if c and c[0] != "0"}
+                cands = [c for c in cands if 2 <= sum(c in o for o in others) > len(others) / 2 and c not in seq
+                         and prev < c < nxt]
+                if len(cands) == 1:
+                    text = ln[4][:m.start(2)] + str(cands[0]) + ln[4][m.end(2):]
+                    out[side][i] = ln[:4] + (text,)
+                    seq[pos] = cands[0]
+        return out
+    return fixed
+
+
+#: A link to the other direction's light set with its direction letter,
+#: "1, 1D Fellow feeling ..." (No 281): the parser keeps "1D" in the words.
+#: column_cols drops that tail ("1, 1D" read "1, 1" lays the tail on the
+#: head itself); directed_links puts the link back from the tail's own
+#: "See 1 Across" in the other list.
+DIRECTED = re.compile(r"^(\W{0,2}\d{1,2}(?:\s*,\s*\d{1,2})*)\s*,\s*\d{1,2}\s*[AD]\b\.?(?=\s)")
+SEE_SIDE = re.compile(r"\(?\s*see\s+(\d{1,2})\s*(across|down|ac|dn)?\b\W*", re.IGNORECASE)
+
+
+def directed_links(laid):
+    """`laid` with a light whose clue is "See 1 Across", naming the other
+    direction (No 281's 1 down, the head printed "1, 1D"), the tail of that
+    head's link: the head's group gets it, as the Eye's "1/1", and the
+    light reads "See 1". Only a head with words and no group of its own."""
+    out = dict(laid)
+    for lid, (text, _, _) in laid.items():
+        m = SEE_SIDE.fullmatch((text or "").strip())
+        n, side = lid.split("-")
+        if not m:
+            continue
+        if m.group(2):
+            named = "across" if m.group(2).lower().startswith("a") else "down"
+        elif m.group(1) == n:  # "1 See 1": a light never refers to itself
+            named = "down" if side == "across" else "across"
+        else:
+            continue
+        head = f"{m.group(1)}-{named}"
+        htext, henum, hgroup = out.get(head) or ("", None, None)
+        if named == side or hgroup or not (htext or "").strip() or not henum:
+            continue
+        out[head] = (htext, henum, [head, f"{n}-{named}"])
+        out[lid] = ("See " + m.group(1), None, None)
+    return out
+
+
 def voted(words, cols):
     """(verdict, laid) of archive_org_listener.vote over every reading, or,
     when that leaves a clue blank, over every reading but one, whichever
@@ -309,6 +387,7 @@ def voted(words, cols):
     reading's misread count ("(©)" for "(6)") then blanks a clue the
     others all read."""
     import archive_org_listener as listener
+    cols = renumbered(words, cols)
 
     def one(ws):
         verdict, laid = listener.vote(ws, {}, cols=cols)
