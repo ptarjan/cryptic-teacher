@@ -481,6 +481,11 @@ unit_ratings() {
 
 # A series that has stopped arriving, and the puzzles themselves. Daily.
 unit_checks() {
+  # Each step's output is captured until it ends, so a run killed at its limit
+  # logged only its header (2026-10-15) and nobody could say which step it was
+  # in. One line per step, before it starts, names it.
+  step() { echo "step $1 from $(date +%H:%M:%S)"; }
+  step coverage_report
   # A series that has stopped arriving. A feed that stops answering leaves its
   # series frozen at the day it broke, and the run cannot tell that from a quiet
   # night — it fetched, nothing failed. Only a series gone QUIET alerts; the full
@@ -496,11 +501,13 @@ unit_checks() {
   # 2>&1 because the failure that is not a finding — an import error, a missing
   # generated file — is on stderr, and an alert quoting an empty block says only
   # that something happened.
+  step puzzle_integrity
   integrity=$(python3 tools/puzzle_integrity.py --quiet 2>&1) ||
     alert "the corpus has picked up a defect:"$'\n'"\`\`\`"$'\n'"$integrity"$'\n'"\`\`\`"
   # How many turns a session is taking, logged every day. A number that only
   # exists when somebody goes looking is a number that gets quoted long after it
   # stopped being true, so it is computed here from the transcripts.
+  step turn_cost
   python3 tools/turn_cost.py 2>&1 || true
   return 0
 }
