@@ -1009,6 +1009,23 @@ log.unlink(missing_ok=True)
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=3, scan_workers=1, replan=0.5)
 check("mirror: idle cores, the pool runs its full width at once", 3, _concurrency())
+# No idle core: the plan is made every replan * IDLE_BACKOFF seconds while the last holds more untried
+# units than the pools are wide; with a short queue, or an idle core, every replan seconds.
+def _plans(n_reads, idle):
+    made = []
+    inner = units([], [(f"p{k}", []) for k in range(n_reads)])
+    eq.plan = lambda *a, **k: (made.append(1), inner(*a, **k))[1]
+    eq.idle_gate_reader = lambda: idle
+    log.unlink(missing_ok=True)
+    with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+        eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=4, replan=0.3)
+    return len(made)
+fake(sleep={f"p{k}": 0.1 for k in range(6)})
+check("no idle core, a full queue: the planner backs off (under 5 plans in 4s at replan 0.3)", True, _plans(6, 0.0) < 5)
+check("mirror: idle cores replan every replan seconds", True, _plans(6, 1e6) >= 8)
+check("mirror: no idle core but a queue no wider than the pools replans every replan seconds", True,
+      _plans(2, 0.0) >= 8)
+eq.idle_gate_reader = lambda: 1e6
 fake(outcome={}, default=0.1)
 os.environ.pop("OCR_REMOTE")
 eq.desktop_gate_reader = lambda: "a game is running"
