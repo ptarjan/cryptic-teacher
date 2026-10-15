@@ -461,7 +461,8 @@ check("a read whose own scan failed is left for the next run, not read unscanned
       ["start", "read", "bad", "v1"] in ev)
 log.unlink()
 fake()
-hashes, f.input_hash = f.input_hash, lambda d: "h"
+# scan_stands hashes through _stand_hash (its path facts kept), not input_hash.
+(hashes, stand_hash), f.input_hash, f._stand_hash = (f.input_hash, f._stand_hash), lambda d: "h", lambda c, r: "h"
 q.append(cache / "filed.jsonl", [{"edition": "done", "filesHash": "h", "scanKey": f.scan_key(), "scan": scan}])
 eq.plan = units(["done", "s1"], [("done", ["done"])])
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
@@ -470,7 +471,7 @@ ev = [line.split()[1:] for line in log.read_text().splitlines()]
 check("a planned scan whose edition was scanned since (a kept plan) is not started; its read goes on, the others' scans run",
       (False, True, True), (["start", "scan", "done", "v1"] in ev, ["start", "read", "done", "v1"] in ev,
                             ["start", "scan", "s1", "v1"] in ev))
-f.input_hash = hashes
+f.input_hash, f._stand_hash = hashes, stand_hash
 log.unlink()
 fake()
 calls = []
@@ -1445,6 +1446,35 @@ q.load_count_left(T / "count_left.pickle")
 check("a re-exec's first call parses nothing loaded", (["zq-1", "zq-2"], 3),
       ([r["id"] for r in q.count_left_requests()], len(cl_parsed)))
 q.sources, q.read_before, puzzle_paths.PUZZLE_DIR, q.json.loads = real_cl
+
+# read_waits (needs tested by paper, one isdisjoint) decides as the per-need
+# pair test it replaced, on every mix of running, unscanned and rescanned.
+import random
+def waits_before(u, scanning, unscanned, rescanned):
+    return (any((u["paper"], r) in scanning for r in u["needs"]) or (u["paper"], u["rel"]) in unscanned
+            or (u["reason"] in f.STALE_SCAN and any((u["paper"], r) in rescanned for r in u["needs"])))
+rw = random.Random(7)
+pairs_w = [(p, f"e{i}") for p in ("times", "gale", "trove") for i in range(12)]
+stale_w = next(iter(f.STALE_SCAN))
+differ_w = seen_w = 0
+for _ in range(400):
+    scanning_w = set(rw.sample(pairs_w, rw.randrange(6)))
+    rescanned_w = set(rw.sample(pairs_w, rw.randrange(8)))
+    unscanned_w = set(rw.sample(pairs_w, rw.randrange(10)))
+    sb_w, rb_w = eq.rels_by_paper(scanning_w), eq.rels_by_paper(rescanned_w)
+    for p, rel in pairs_w:
+        u = {"kind": "read", "paper": p, "rel": rel, "reason": rw.choice([stale_w, "never read"]),
+             "needs": [r for q_, r in rw.sample(pairs_w, rw.randrange(5)) if q_ == p] + [rel] * rw.randrange(2)}
+        want_w = waits_before(u, scanning_w, unscanned_w, rescanned_w)
+        differ_w += want_w != eq.read_waits(u, sb_w, unscanned_w, rb_w)
+        seen_w += want_w
+check("read_waits decides as the per-need test it replaced (some reads wait)", (0, True), (differ_w, seen_w > 1000))
+held_w = {"kind": "read", "paper": "times", "rel": "e1", "reason": "never read", "needs": ["e0", "e1"]}
+sb_w = eq.rels_by_paper(set())
+before_w = eq.read_waits(held_w, sb_w, set(), {})
+sb_w.setdefault("times", set()).add("e0")  # a scan of e0 begun earlier in the walk
+check("a read waits on a scan begun earlier in the same walk", (False, True),
+      (before_w, eq.read_waits(held_w, sb_w, set(), {})))
 
 with open(lock_path, "a") as lk:
     fcntl.flock(lk, fcntl.LOCK_EX)

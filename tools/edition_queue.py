@@ -77,6 +77,7 @@ A fetch unit loads only its source's module and that module's MODULES
 """
 import argparse
 import datetime
+import functools
 import hashlib
 import importlib
 import importlib.util
@@ -583,6 +584,28 @@ def slot_of(unit):
     if unit["kind"] == "fetch":
         return f"fetch {unit['paper']}"
     return unit["paper"] if unit["paper"] in ("trove", "listener") else unit["kind"]
+
+
+def rels_by_paper(pairs):
+    """{paper: {rel}} of (paper, rel) pairs: what read_waits tests needs against."""
+    out = {}
+    for p, r in pairs:
+        out.setdefault(p, set()).add(r)
+    return out
+
+
+_NONE = frozenset()
+
+
+def read_waits(u, scanning, unscanned, rescanned):
+    """Whether read `u` waits on a scan: one it needs running, its own
+    planned and not yet done, or one of a stale-scan re-read's ended since
+    the plan. `scanning` and `rescanned` are rels_by_paper maps: each read's
+    needs are tested in one isdisjoint, not a pair built per need (a pass
+    asks it of every queued read, ~43k)."""
+    p = u["paper"]
+    return (not scanning.get(p, _NONE).isdisjoint(u["needs"]) or (p, u["rel"]) in unscanned
+            or (u["reason"] in fa.STALE_SCAN and not rescanned.get(p, _NONE).isdisjoint(u["needs"])))
 
 
 def plan_fetches(sources):
@@ -1301,12 +1324,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 stands[u["paper"]] = fa.standing(paper, cache)
             return fa.scan_stands(paper, u["rel"], cache, stands[u["paper"]])
 
-        def waits(u, scanning=scanning, unscanned=unscanned, rescanned=rescanned):
-            """Whether read `u` waits on a scan: one it needs running, its own
-            planned and not yet done, or one of a stale-scan re-read's ended
-            since the plan."""
-            return (any((u["paper"], r) in scanning for r in u["needs"]) or (u["paper"], u["rel"]) in unscanned
-                    or (u["reason"] in fa.STALE_SCAN and any((u["paper"], r) in rescanned for r in u["needs"])))
+        scanning_by = rels_by_paper(scanning)  # kept in step as scans begin below
+
+        # Whether a read waits on a scan; a partial, not a closure: no Python frame of its own.
+        waits = functools.partial(read_waits, scanning=scanning_by, unscanned=unscanned,
+                                  rescanned=rels_by_paper(rescanned))
         # A fresh scan is never held for a backlog's reads (fed).
         firsts = {key_of(u) for u in first + fresh_scans}
         ready = []
@@ -1419,6 +1441,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 continue
             if u["kind"] == "scan":
                 scanning.add((u["paper"], u["rel"]))
+                scanning_by.setdefault(u["paper"], set()).add(u["rel"])
         if walked and not skip_walk and not begun_now:
             idle_walk[:] = [idle_key((tuple(sorted(mem_read.items())), tuple(sorted(cpu_read.items())),
                                       tuple(sorted(idle_read.items())))),
