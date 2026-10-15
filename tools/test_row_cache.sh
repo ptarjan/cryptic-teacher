@@ -73,6 +73,18 @@ check("a changed code key re-parses every file", run(), ([0, 9, 2], ["a-1", "b-2
 code_reach.key = key
 check("back on the first code, its rows are still stored", run(), ([0, 9, 2], []))
 
+# Keys sort by their code, so a map reads its rows in one range scan; a row
+# stored under the bare sha1 key of before 2026-10-15 is still reused, and
+# written under its new key.
+import sqlite3 as _sq
+with _sq.connect(row_cache.STORE) as db:
+    db.execute("UPDATE rows SET key = substr(key, instr(key, ':') + 1) WHERE key LIKE '%:%'")
+check("rows under legacy keys are reused, not parsed", run(), ([0, 9, 2], []))
+with _sq.connect(row_cache.STORE) as db:
+    prefixed = db.execute("SELECT count(*) FROM rows WHERE key LIKE '%:%'").fetchone()[0]
+check("and are written under their new keys", prefixed, 3)
+check("which the next map reads by range", run(), ([0, 9, 2], []))
+
 # The prune (a full scan of a gigabytes store) runs once a day: a row unused
 # for PRUNE_DAYS survives a map on a day the prune already ran, and the first
 # map of a new day drops it and marks the day.

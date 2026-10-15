@@ -77,9 +77,55 @@ def _blob_sha(path):
     return puzzle_integrity._blob_sha(path)
 
 
-def _key(code, path, blob):
+def _legacy_key(code, path, blob):
+    """The key rows were stored under before 2026-10-15: a bare sha1, which
+    scatters one run's rows over the whole store."""
     name = puzzle_paths.relative(path, puzzle_paths.ROOT) or puzzle_paths.real(path)
     return hashlib.sha1(f"{code}\0{name}\0{blob}".encode()).hexdigest()
+
+
+def _prefix(code):
+    return hashlib.sha1(code.encode()).hexdigest()[:16]
+
+
+def _key(code, path, blob):
+    """`<code prefix>:<legacy key>`: every row one code made sorts together,
+    so a map reads its rows in one range scan. Point lookups of ~55k sha1
+    keys in a store of gigabytes cost a random page read each, ~10s per 900
+    keys on a loaded host: most of a warm puzzle_integrity run (2026-10-15)."""
+    return f"{_prefix(code)}:{_legacy_key(code, path, blob)}"
+
+
+#: How many missing keys are looked up under their legacy key before the
+#: rest are: a new code has no legacy rows, and looking up all ~55k of them
+#: would cost minutes for nothing.
+LEGACY_PROBE = 200
+
+
+def _lookup(conn, code, keys):
+    """({key: (val, deps, used)}, {key: legacy key}) for the wanted keys
+    (the values of `keys`) stored under `code`: one range scan, then, for
+    keys it lacks, their legacy keys if a probe of LEGACY_PROBE finds any.
+    A row found only under its legacy key has used None, to be written anew."""
+    lo = _prefix(code) + ":"
+    want = set(keys.values())
+    stored = {k: (v, d, u) for k, v, d, u in conn.execute(
+        "SELECT key, val, deps, used FROM rows WHERE key >= ? AND key < ?", (lo, lo[:-1] + ";")) if k in want}
+    legacy = {k: k[len(lo):] for k in want if k not in stored}
+    names = list(legacy.values())
+    found = {}
+    parts = [names[:LEGACY_PROBE]] + [names[i:i + 900] for i in range(LEGACY_PROBE, len(names), 900)]
+    for n, part in enumerate(p for p in parts if p):
+        if n and not found:
+            break
+        found.update((k, (v, d)) for k, v, d in conn.execute(
+            f"SELECT key, val, deps FROM rows WHERE key IN ({','.join('?' * len(part))})", part))
+    moved = {}
+    for k, old in legacy.items():
+        if old in found:
+            stored[k] = (*found[old], None)
+            moved[k] = old
+    return stored, moved
 
 
 def data_files(name, roots):
@@ -124,12 +170,7 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None):
         code_key = code_reach.key(name, {fn.__name__, *roots})
         code = f"{name}.{fn.__name__}:{code_key}:{salt}:{_data_salt(name, {fn.__name__, *roots}, code_key)}"
         keys = {p: _key(code, p, b) for p, b in _blobs(paths).items()}
-        stored = {}
-        uniq = list(set(keys.values()))
-        for i in range(0, len(uniq), 900):
-            part = uniq[i:i + 900]
-            stored.update((k, (v, d, u)) for k, v, d, u in conn.execute(
-                f"SELECT key, val, deps, used FROM rows WHERE key IN ({','.join('?' * len(part))})", part))
+        stored, moved = _lookup(conn, code, keys)
     except (OSError, sqlite3.Error) as err:
         print(f"row cache for {name}.{fn.__name__}: {err!r}; computing every row", file=sys.stderr)
         if prepare:
@@ -159,8 +200,14 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None):
         with conn:
             conn.executemany("INSERT OR REPLACE INTO rows VALUES(?,?,?,?)",
                              ((keys[p], pickle.dumps(out[p]), pickle.dumps(deps(p, out[p])), today) for p in keep))
+            # A row found under its legacy key is written under its new one;
+            # the legacy row ages out with the prune.
+            conn.executemany("INSERT OR REPLACE INTO rows VALUES(?,?,?,?)",
+                             ((k, stored[k][0], stored[k][1], today)
+                              for k in {keys[p] for p in paths if p not in missed and keys[p] in moved}))
             conn.executemany("UPDATE rows SET used=? WHERE key=?",
-                             ((today, keys[p]) for p in paths if p not in missed and stored[keys[p]][2] != today))
+                             ((today, keys[p]) for p in paths
+                              if p not in missed and keys[p] not in moved and stored[keys[p]][2] != today))
             # The prune is a full scan (`used` has no index, and the store is
             # gigabytes: 2.6GB re-read per call, three calls a reindex, under
             # memory pressure), yet its cutoff moves only when the day does,
