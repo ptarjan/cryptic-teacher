@@ -117,6 +117,13 @@ filed, and the expression cannot write one. The tree, in brief:
   separator at the light's own end means the answer runs on into another
   light, and it is no gap inside this one.
 
+Which whole-clue tree shapes the corpus holds, how common each is, and which
+of them make sense as a cryptic mechanism (and which are redundant, mislabelled
+or unverified) is in [CLUE_SHAPES.md](CLUE_SHAPES.md). `tools/clue_shapes.py`
+generates the numbers and examples from the puzzle files; the judgements live
+in `tools/data/clue_shape_verdicts.json`, which a regeneration keeps and which
+the generated page's top section says is missing for any new common shape.
+
 The schema refuses every derived field, each with the reason:
 
 - top-level `name` and `series` (the file stores `prize`, `title` or `label`
