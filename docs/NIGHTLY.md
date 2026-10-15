@@ -126,6 +126,23 @@ backlog to it and annotate only new arrivals, so the two never buy the same
 puzzle. `cryptic-books` (`*/10 * * * *`, `tools/acquire_books.sh`) is the same
 shape: one loan or one book's read a unit (`tools/book_units.py`).
 
+The frequent ticks check for work before their worktree setup (a fetch, the
+main checkout's follow, a `reset --hard` of the whole tree: ~3 s of CPU each):
+`cryptic-gale-inbox` asks `tools/gale_idle.py` and `cryptic-vlm-health` asks
+`tools/vlm_health.py --quick`, and a tick with nothing to do exits there. Each
+still runs a full tick every 15 minutes (gale) or hour (vlm), which is what
+carries a pushed fix into its worktree.
+
+The shared repo's git config (`.git/config`, so every worktree) sets
+`core.untrackedCache=true` (a whole-tree `git status` beside the ~66k untracked
+`puzzles/<id>/` shims: 2.4 s to 0.36 s) and `index.version=4` (index 5.9 to
+3.9 MB, about 40% less CPU per `git add`); `git config --unset` undoes either.
+Not set: `feature.manyFiles`, whose `index.skipHash` older git on the Mac may
+not read. No repack: the 33 packs cost no measurable time per commit. A pathspec
+with `*` for the series folder (`puzzles/*/*/<id>.json`) opens every shim
+folder, ~2 s of CPU a call, so `puzzle_spec` (tools/puzzle_worker.sh) names
+the series.
+
 - Output (stdout and stderr) goes to `.update.log` and `.prereset.log`. Both are
   untracked on purpose.
 - Each script takes its own lock, so a fire while the last run is still going

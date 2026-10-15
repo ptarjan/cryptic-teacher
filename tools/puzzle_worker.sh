@@ -351,7 +351,17 @@ worker_mend_hints() {   # id fill verdict sidfile notefile
 # One puzzle's file as a git pathspec: puzzles/<series>/<year>/<id>.json in
 # whichever year folder, so a write that moved it to another year is staged or
 # undone as both halves of the rename.
-puzzle_spec() { printf 'puzzles/*/*/%s.json' "$1"; }
+# The series folder is the id's part before its last "-" (series.parse_id,
+# puzzle_paths.series_folder), so it is spelled out: a `*` there matches
+# each of the ~66k untracked puzzles/<id>/ shim folders too, and `ls-files -o`,
+# `status` and `clean` then open every one, ~2 s of CPU a call against
+# ~0.02 s (10-15). A bare-number id keeps the wildcard.
+puzzle_spec() {
+  case $1 in
+    *-*) printf 'puzzles/%s/*/%s.json' "${1%-*}" "$1" ;;
+    *) printf 'puzzles/*/*/%s.json' "$1" ;;
+  esac
+}
 # A puzzle held as its clues alone, as a git pathspec (tools/clues_only.py).
 clues_spec() { printf 'clues_only/*/%s.json' "$1"; }
 # One puzzle's pathspecs into the array named $2: its file, and its clues-only

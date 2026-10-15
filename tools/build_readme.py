@@ -711,6 +711,8 @@ LAYOUT = [
     ("building and checking the site", "tools/test_sync_retry.js", "a sync push that fails must never lose a save, and must retry on its own"),
     ("building and checking the site", "tools/test_pdf_edition_broken.sh", "does tools/fetch_archive_org_editions.py read the pages of an image PDF that archive.org holds zero-filled past some page (FT 1981-06-29/30), listing the broken ones in \"unreadable\" instead of raising; and does fetch_pdf fetch a PDF whose md5 is not the metadata's once more, keep a second copy equal to the first (archive.org's file as it stands), and raise when the two differ?"),
     ("building and checking the site", "tools/test_desktop_hosts.sh", "does tools/desktop_hosts.py find the desktop's live address itself (its LAN lease flaps), probing every address at once, keeping the order a TTL, probing afresh after forget(), and do ocr_remote.by_path and vlm_reader.resolve use it, so one dead LAN address stalls nothing?"),
+    ("building and checking the site", "tools/gale_idle.py", "exit 0 when a cryptic-gale-inbox tick would do nothing, so tools/gale_inbox.sh"),
+    ("building and checking the site", "tools/test_gale_idle.sh", "does tools/gale_idle.py let a cryptic-gale-inbox tick skip its worktree setup only when the tick would do nothing: the progress page rendered within the hour and no download since (or one, but the page under RENDER_MIN old), and no fresh edition waiting with no full pass running; and does it force a full tick MAX_SKIP after the last? Does tools/vlm_health.py --quick skip only an up VLM that was not down?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

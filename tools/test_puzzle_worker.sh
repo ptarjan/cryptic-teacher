@@ -313,11 +313,11 @@ salvage_flow() (
   trap 'rm -rf "$repo"' EXIT
   cp tools/puzzle_worker.sh tools/salvaged.sh "$repo/" 2>/dev/null
   cd "$repo" || exit 1
-  mkdir -p tools puzzles/x/2020 .ct-runs/job && mv puzzle_worker.sh salvaged.sh tools/
+  mkdir -p tools puzzles/pw/2020 .ct-runs/job && mv puzzle_worker.sh salvaged.sh tools/
   git init -q . && git config user.email t@t && git config user.name t
-  echo '{}' >puzzles/x/2020/pw-salv.json && git add puzzles && git commit -qm base
+  echo '{}' >puzzles/pw/2020/pw-salv.json && git add puzzles && git commit -qm base
   printf '.ct-runs/\ntools/_*\n' >.gitignore
-  echo '{"run": 1}' >puzzles/x/2020/pw-salv.json
+  echo '{"run": 1}' >puzzles/pw/2020/pw-salv.json
   echo '{"1-across": {"x": 1}}' >tools/_ann_pw-salv.json
   echo 'sid-9 solve' >.ct-runs/job/pw-salv.sid
   # shellcheck disable=SC2034  # read by the sourced worker

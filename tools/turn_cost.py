@@ -23,6 +23,7 @@ import argparse
 import collections
 import datetime
 import json
+import functools
 import os
 import pathlib
 import statistics
@@ -33,13 +34,22 @@ import sys
 # reports nothing at all rather than failing.
 CLAUDE_DIR = pathlib.Path(os.environ.get("CLAUDE_CONFIG_DIR")
                           or pathlib.Path.home() / ".claude")
-TRANSCRIPTS = sorted(CLAUDE_DIR.glob("projects/*cryptic*/*.jsonl"))
+
+
+
+@functools.cache
+def transcripts():
+    """The annotation runs' transcripts, globbed on first ask: ~21k files and
+    half a second, which every importer (annotate_check.py, through
+    blog_facts) paid at import when this was a module constant, though only
+    sessions() reads it."""
+    return sorted(CLAUDE_DIR.glob("projects/*cryptic*/*.jsonl"))
 ANNOTATE_PREFIX = "Annotate the crossword"
 
 
 def sessions():
     """Yield (started, api_calls, text_turns) for every annotation transcript."""
-    for path in TRANSCRIPTS:
+    for path in transcripts():
         started, first_user = None, None
         # Keyed by the API's own message id, because the CLI writes one JSONL
         # line PER CONTENT BLOCK and stamps every one of them with the whole
