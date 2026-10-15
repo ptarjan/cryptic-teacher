@@ -2073,6 +2073,11 @@ SOURCE_LIGHT_WRONG = {
         "issue 874's page image prints \"These people make Conservative piss "
         "artists extraneous!\" (5); the OCR read (6). The grid on the same page "
         "gives 22-down five cells"),
+    ("cyclops-72", "22-across"): (
+        {"enumeration": "6"}, {"enumeration": "5"},
+        "issue 917's page image prints \"'Diddles', the familiar topless poser's "
+        "catching cold...\" (5), its count on a line of its own; the OCR text "
+        "read (6). The grid on the same page gives 22-across five cells"),
 }
 
 
