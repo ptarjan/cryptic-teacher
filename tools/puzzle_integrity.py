@@ -149,6 +149,9 @@ as it goes.
 
 The corpus it reads is the puzzle files on disk, puzzle_paths.puzzle_files(),
 each read once, the per-file checks spread over every core (parallel.pmap).
+A whole-corpus run keeps each file's own findings in tools/row_cache.py, keyed
+by its git blob sha and the code _file_row reaches, so only files that moved
+(or whose cover date came within reach of today) are viewed again.
 puzzles/index.json is neither read nor rebuilt: the nightly reindexes on its own.
 
 Pass puzzle ids or paths to judge just those files — every per-file check, and
@@ -1758,14 +1761,67 @@ _TODAY = None
 def _one_file(path):
     """Everything audit() needs from one file, for parallel.pmap: its own
     flags, and what the cross-file checks weigh it by."""
+    return _findings(path, read_puzzle_view(path))
+
+
+def _findings(path, puzzle):
+    """_one_file's answer for the file at `path` holding the viewed `puzzle`."""
     flags = []
-    puzzle = read_puzzle_view(path)
     check_filed(path, puzzle, flags)
     pid = puzzle["id"]
     held = (series_meta.of(puzzle) or "cryptic", puzzle["number"], date_of(puzzle), pid)
     row = (pid, content_hash(puzzle), clue_keys(puzzle), held)
     check_puzzle(puzzle, _TODAY, flags)
     return flags, row
+
+
+def _file_row(path):
+    """_one_file(path) plus the first day the file's findings no longer
+    depend on: check_shape's future-date finding is the only one that reads
+    today, and fires while today < date - the series' cover-date lead. None
+    for a file with no calendar date."""
+    puzzle = read_puzzle_view(path)
+    d = date_of(puzzle)
+    horizon = None if d is None else d - timedelta(
+        days=series_meta.cover_date_lead(series_meta.of(puzzle) or "cryptic"))
+    return (*_findings(path, puzzle), horizon)
+
+
+def _today_deps(path, row):
+    """What a cached _file_row read besides its file and code: whether
+    today is before its horizon, so the row is made afresh the day its
+    future-date finding would come or go."""
+    return row[2] is not None and _TODAY < row[2]
+
+
+#: Below this many judged files (a pre-push check of a few edits) the row
+#: cache costs more than it saves: following the code to its key and data
+#: files takes seconds, viewing a file a few milliseconds.
+ROW_CACHE_MIN = 500
+
+
+def _table_salt():
+    """A hash of the tools/data tables that fetch_puzzle.load_source_table
+    reads by a computed name, which row_cache.data_files() cannot follow;
+    _one_file reaches SOURCE_ANSWER_WRONG and SOURCE_CLUE_WRONG."""
+    data = Path(__file__).resolve().parent / "data"
+    src = (Path(__file__).resolve().parent / "fetch_puzzle.py").read_text(encoding="utf-8")
+    h = hashlib.sha1()
+    for name in sorted(set(re.findall(r'load_source_table\("(\w+)"\)', src))):
+        f = data / f"{name}.json"
+        h.update(name.encode() + b"\0" + (f.read_bytes() if f.exists() else b"absent") + b"\0")
+    return h.hexdigest()[:16]
+
+
+def _judge(paths):
+    """[_one_file(p) for p in paths], over every core; a long list through
+    row_cache, so a file whose content, code and horizon are those of its
+    stored row is not viewed again."""
+    if len(paths) < ROW_CACHE_MIN:
+        return parallel.pmap(_one_file, paths)
+    import row_cache
+    rows = row_cache.cached_map("puzzle_integrity", _file_row, paths, salt=_table_salt(), deps=_today_deps)
+    return [(flags, row) for flags, row, _ in rows]
 
 
 CACHE = Path.home() / ".cache" / "cryptic-teacher" / "integrity-rows.sqlite"
@@ -1958,7 +2014,7 @@ def audit(files, paths, today, only=None):
     _TODAY = today
     judged = paths if only is None else [n for n in paths if n in only]
     root = puzzle_paths.PUZZLE_DIR.parent
-    results = parallel.pmap(_one_file, [root / n for n in judged])
+    results = _judge([root / n for n in judged])
     flags, rows = [], {}
     for path, (own, row) in zip(judged, results):
         flags.extend(own)
