@@ -448,7 +448,9 @@ def refresh_unsolved():
             time.sleep(1)
         except Exception as err:  # one bad puzzle is reported, then the next is checked
             print(f"refresh {num} failed: {type(err).__name__}: {err}")
-    if pending:
+    # Only a write moves the index, and a puzzle still in its window writes
+    # nothing: a whole-corpus reindex for it was most of this pass's time.
+    if filled:
         reindex()
     print(f"refresh-unsolved: {filled}/{len(pending)} puzzle(s) gained solutions")
 

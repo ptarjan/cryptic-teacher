@@ -1131,13 +1131,43 @@ def held(adapter):
     return held_paths(adapter.series)
 
 
+# The corpus listing, globbed once per process: held_paths is asked by every
+# adapter's ids() and by some adapters once per copy read, and each ask was a
+# glob and sort of all ~55k files — over a minute of a solutions run on a
+# loaded host. A write here can move a file (a corrected date changes its year
+# folder), so every write goes through _write, which drops the listing.
+_LISTING = None
+
+
+def _listing():
+    global _LISTING
+    if _LISTING is None:
+        _LISTING = puzzle_files()
+    return _LISTING
+
+
+def _write(path, puzzle, **kw):
+    """fetch_puzzle.write_puzzle_file, then forget the listing it may move."""
+    global _LISTING
+    import fetch_puzzle
+    try:
+        return fetch_puzzle.write_puzzle_file(path, puzzle, **kw)
+    finally:
+        _LISTING = None
+
+
 def held_paths(series):
     """{puzzle id: path} for every puzzle on disk in `series`."""
     out = {}
-    for path in puzzle_files():
+    for path in _listing():
         if path.parent.parent.name in series:
             out[path.stem] = path
     return out
+
+
+def model_solved(path):
+    """Does the file hold a model's answers? A substring test on the text."""
+    return '"origin": "model"' in path.read_text(encoding="utf-8")
 
 
 def load(adapter, where):
@@ -1392,7 +1422,7 @@ def refile_guardian(adapter, pid, path, url, found):
     elif lacks_note:
         notes.append(f"the page's note: {new['preamble'][:60]!r}")
     new, more = ft.refile(new, old)
-    fp.write_puzzle_file(path, new, generator="tools/fetch_puzzle.py")
+    _write(path, new, generator="tools/fetch_puzzle.py")
     return notes + more
 
 
@@ -1456,7 +1486,7 @@ def refile_independent(adapter, pid, path, ymd, found):
     if old.get("preamble") and not new.get("preamble"):
         new["preamble"] = old["preamble"]
     new, more = ft.refile(new, old)
-    fp.write_puzzle_file(path, new, generator="tools/fetch_independent.py")
+    _write(path, new, generator="tools/fetch_independent.py")
     return notes + more
 
 
@@ -1522,7 +1552,7 @@ def refile_ft(adapter, pid, path, number, found):
     fp.merge_annotations(new, old)
     new, more = ft.refile(new, old)
     notes += reprint_marks(new, printed)
-    fp.write_puzzle_file(path, new, generator=fpp.GENERATOR if how == "live" else fpp.GENERATOR_WAYBACK)
+    _write(path, new, generator=fpp.GENERATOR if how == "live" else fpp.GENERATOR_WAYBACK)
     return notes + more
 
 
@@ -1900,8 +1930,7 @@ def corroborate_all(series=None, limit=None, only=None, new=False, write=False, 
     elif new:
         todo = sorted(changed_files() & disk.keys())
     elif model:
-        todo = sorted(pid for pid, path in disk.items() if '"origin": "model"' in
-                      path.read_text(encoding="utf-8"))
+        todo = sorted(pid for pid, path in disk.items() if model_solved(path))
     else:
         order = sorted(disk)
         if start is None:
@@ -1934,7 +1963,7 @@ def corroborate_all(series=None, limit=None, only=None, new=False, write=False, 
             import fetch_puzzle
             new_puzzle, wrong, marked, origins = graded
             ledger_majority(pid, verdicts)
-            fetch_puzzle.write_puzzle_file(disk[pid], new_puzzle)
+            _write(disk[pid], new_puzzle)
             fixed_files += 1
             fetch_puzzle.print_grade(new_puzzle, wrong, marked, " and ".join(origins) + "'s answers")
         elif write and any(v["fixed"] for v in verdicts):
@@ -1942,7 +1971,7 @@ def corroborate_all(series=None, limit=None, only=None, new=False, write=False, 
             if new_puzzle != ours:
                 import fetch_puzzle
                 ledger_majority(pid, verdicts)
-                fetch_puzzle.write_puzzle_file(disk[pid], new_puzzle)
+                _write(disk[pid], new_puzzle)
                 fixed_files += 1
                 print(f"fixed {pid}: " + "; ".join(
                     f"{v['light']} {v['class']} {v['ours']!r} -> {v['winner']!r} "

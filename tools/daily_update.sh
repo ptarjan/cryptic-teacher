@@ -550,13 +550,25 @@ unit_checks() {
 # gets the fortnightly cadence's date.
 # A puzzle given its key here is noted by unit_commit (daily_units.py keyed
 # --record), and the tick's queue takes it as a new arrival.
+# solutions_step <script and args>: one step, its time and rc after it.
+# Unbuffered, so a step's lines reach the log as printed and a run killed at
+# its limit shows which step it was in; a buffered one printed only at exit.
+solutions_step() {
+  local step_start=$SECONDS step_rc
+  # shellcheck disable=SC2086  # a step is a script and its arguments
+  PYTHONUNBUFFERED=1 python3 tools/$*
+  step_rc=$?
+  echo "solutions step $1: rc=$step_rc in $((SECONDS - step_start))s"
+  return $step_rc
+}
+
 unit_solutions() {
   local refreshed graded
-  python3 tools/fetch_privateeye.py --backfill-dates
-  refreshed=$( { python3 tools/fetch_puzzle.py --refresh-unsolved
-                 python3 tools/fetch_observer.py --refresh-unsolved
-                 python3 tools/fetch_privateeye.py --refresh-unsolved
-                 python3 tools/cross_validate.py all --model --apply; } 2>&1 | tee /dev/stderr)
+  solutions_step fetch_privateeye.py --backfill-dates
+  refreshed=$( { solutions_step fetch_puzzle.py --refresh-unsolved
+                 solutions_step fetch_observer.py --refresh-unsolved
+                 solutions_step fetch_privateeye.py --refresh-unsolved
+                 solutions_step cross_validate.py all --model --apply; } 2>&1 | tee /dev/stderr)
   graded=$(printf %s "$refreshed" | grep -E "^BLIND SOLVE GRADED|^  miss ")
   # A clean sweep and a bad night are not the same message. Both are worth
   # sending — the grade is the only measurement of derived answers and it

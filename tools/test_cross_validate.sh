@@ -450,3 +450,21 @@ t.offline = True
 assert t.ids() == {}, t.ids()
 print('Globe/Telegraph off the manifest: ok')") || { echo "FAIL Globe/Telegraph off the manifest"; rm -rf "$ct"; exit 1; }
 rm -rf "$ct"
+
+# held_paths lists the corpus once per process (every adapter's ids() and some
+# per-copy reads asked for it, each a glob of ~55k files), and a write, which
+# can move a file to another year folder, drops the listing.
+(cd "$(dirname "$0")" && python3 -c "
+from pathlib import Path
+import cross_validate as cv, fetch_puzzle
+globs = []
+cv.puzzle_files = lambda: globs.append(1) or [Path('p/cryptic/2026/cryptic-1.json'), Path('p/everyman/2026/everyman-2.json')]
+cv._LISTING = None
+assert cv.held_paths(('cryptic',)) == {'cryptic-1': Path('p/cryptic/2026/cryptic-1.json')}
+assert cv.held_paths(('everyman',)) == {'everyman-2': Path('p/everyman/2026/everyman-2.json')}
+assert len(globs) == 1, globs
+fetch_puzzle.write_puzzle_file = lambda path, puzzle, **kw: path
+cv._write(Path('x.json'), {})
+cv.held_paths(('cryptic',))
+assert len(globs) == 2, globs
+print('held_paths: one listing per process, dropped by a write: ok')") || { echo "FAIL held_paths listing"; exit 1; }
