@@ -66,6 +66,40 @@ def find(pid):
     return hits[0] if hits else None
 
 
+#: {series: (stamp, {id: path or None})}: folder_listing's last listing.
+_LISTED = {}
+
+
+def folder_listing(series):
+    """{id: its file} of every file under a series' year folders (None for an
+    id filed twice: find raises), listed again only when a year folder's
+    mtime moved (a file written by os.replace, filed or removed moves its
+    folder's). Callers asking after a few ids of a series each plan (find
+    is a stat per year folder per id) read one stat per folder instead."""
+    root = PUZZLE_DIR / series
+    try:
+        folders = sorted((e.path, e.stat().st_mtime_ns) for e in os.scandir(root) if e.is_dir())
+    except (FileNotFoundError, NotADirectoryError):
+        return {}
+    stamp = (str(root), tuple(folders))
+    hit = _LISTED.get(series)
+    if hit is not None and hit[0] == stamp:
+        return hit[1]
+    out = {}
+    for path, _ in folders:
+        for e in os.scandir(path):
+            if e.name.endswith(".json") and e.is_file():
+                out[e.name[:-5]] = None if e.name[:-5] in out else Path(e.path)
+    _LISTED[series] = (stamp, out)
+    return out
+
+
+def find_listed(pid):
+    """find(pid) off folder_listing."""
+    got = folder_listing(series_folder(pid)).get(str(pid))
+    return got or (find(pid) if str(pid) in folder_listing(series_folder(pid)) else None)
+
+
 def find_many(pids):
     """{pid: find(pid)} for each of `pids` held, off one puzzle_files()
     listing: a find per puzzle is a stat per year folder, and the nightly
