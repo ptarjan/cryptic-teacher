@@ -2065,6 +2065,14 @@ SOURCE_LIGHT_WRONG = {
         _ROTATED_22482 + ("\"Taking flight, running fast\" (6) is FLYING, its "
         "L, I, G from 27-, 29- and 31-across; the page's 9 cells run three "
         "rows off the board")),
+    # Cyclops counts the OCR of an archive.org scan misread
+    # (privateeye_wayback.correct_counts): the page, seen, prints the count
+    # the scan's grid gives the light.
+    ("cyclops-30", "22-down"): (
+        {"enumeration": "6"}, {"enumeration": "5"},
+        "issue 874's page image prints \"These people make Conservative piss "
+        "artists extraneous!\" (5); the OCR read (6). The grid on the same page "
+        "gives 22-down five cells"),
 }
 
 

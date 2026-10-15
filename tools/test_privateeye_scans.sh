@@ -92,8 +92,23 @@ print("FITS", pw.grid_misfits(g269b, spec), pw.grid_misfits(g269a, spec)[:1])
 print("AMBIG", pw.from_rows(269, rows)[1])
 got, _ = pw.from_rows(269, rows, image=g269b)
 print("IMAGE", list(rg.grid_of(got)) == g269b, got.get("gridFromScan"))
-bad = [r if i != 2 else "......#.......#" for i, r in enumerate(g269b)]
+bad = [{2: "......#.......#", 4: "........#.....#", 6: "#....#........#"}.get(i, r) for i, r in enumerate(g269b)]
 print("MISFIT", pw.from_rows(269, rows, image=bad)[1])
+# A scan grid with one cell misread (No 44's 20ac): one flip prints the list.
+one = [r if i != 9 else "#" + r[1:] if r[0] == "." else "." + r[1:] for i, r in enumerate(g269b)]
+fixed, cells = pw.repair_grid(one, spec)
+got, _ = pw.from_rows(269, rows, image=one)
+print("REPAIR", fixed == g269b, cells, got.get("gridFromScan"), list(rg.grid_of(got)) == g269b)
+# An OCR-misread count (No 30's 22dn "(6)" for "(5)"), put right only by a recorded row.
+eid = f"{spec[0][0]}-across"
+misread = {d: [dict(r) for r in rs] for d, rs in rows.items()}
+misread["across"][0]["enumeration"] = "9"
+fx = {("cyclops-269", eid): ({"enumeration": "9"}, {"enumeration": str(spec[0][2])}, "test")}
+print("COUNTED", pw.correct_counts(269, misread, fx)["across"][0]["enumeration"] == str(spec[0][2]),
+      pw.correct_counts(269, misread, {})["across"][0]["enumeration"],
+      pw.correct_counts(269, rows, fx)["across"][0]["enumeration"] == str(spec[0][2]))
+print("HINT", pw.count_hint(30, ["22 down counts 6, 5 cells"]).split(" = ")[0],
+      repr(pw.count_hint(30, ["7 across is numbered 8"])))
 PY
 )
 echo "$out" | sed 's/^/  | /'
@@ -122,7 +137,14 @@ check "two grids fitting the clue list alone still refuse" \
   "grid did not rebuild: at least 2 grids fit the clue list" "$(get AMBIG)"
 check "the scan's grid, printing exactly the list's lights, settles it" "True True" "$(get IMAGE)"
 check "a scan's grid that disagrees with the list settles nothing" \
-  "grid did not rebuild: at least 2 grids fit the clue list; the scan's grid: 9 across counts 8, 7 cells" \
+  "grid did not rebuild: at least 2 grids fit the clue list; the scan's grid: 9 across counts 8, 7 cells, 11 across counts 6, 5 cells, 13 across counts 9, 8 cells; if the page prints the scan's length, add fetch_puzzle.SOURCE_LIGHT_WRONG[('cyclops-269', '9-across')] = ({'enumeration': <as read>}, {'enumeration': <as printed, 7 letters>}, why)" \
   "$(get MISFIT)"
+check "a scan grid one misread cell off is flipped back, only when one flip fits" \
+  "True ((9, 0),) True True" "$(get REPAIR)"
+check "a misread count is put right by a SOURCE_LIGHT_WRONG row, never without, a stale row left alone" \
+  "True 9 True" "$(get COUNTED)"
+check "a count-only misfit names the row to add; a numbering misfit does not" \
+  "; if the page prints the scan's length, add fetch_puzzle.SOURCE_LIGHT_WRONG[('cyclops-30', '22-down')] ''" \
+  "$(get HINT)"
 
 [ "$fails" = 0 ] && echo "all ok" || { echo "$fails failed"; exit 1; }

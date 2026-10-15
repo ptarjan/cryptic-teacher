@@ -482,7 +482,87 @@ def grid_misfits(grid, spec, groups=None):
     return off
 
 
-def from_rows(num, rows, answers=None, image=None):
+def repair_grid(grid, spec, groups=None, max_misfits=3):
+    """(grid, cells) where the scan's `grid` misreads a cell or two -- a
+    black square read white or the reverse (No 44's 20ac read eight cells
+    where the page shows seven) -- and exactly one way of flipping one cell,
+    one cell and its 180-degree partner, or two such pairs makes it print
+    the clue list exactly (grid_misfits empty); else (None, None). The clue
+    list, which the printed counts and answers confirm, is the evidence;
+    two repairs that fit settle nothing."""
+    if len(grid_misfits(grid, spec, groups)) > max_misfits:
+        return None, None
+    size = len(grid)
+    flips = []
+    for y in range(size):
+        for x in range(size):
+            p = (size - 1 - y, size - 1 - x)
+            flips.append(((y, x),))
+            if p > (y, x):
+                flips.append(((y, x), p))
+    def flipped(cells):
+        rows = [list(r) for r in grid]
+        for y, x in cells:
+            rows[y][x] = "." if rows[y][x] == "#" else "#"
+        return ["".join(r) for r in rows]
+    pairs = [f for f in flips if len(f) == 2]
+    for tries in (flips, [a + b for i, a in enumerate(pairs) for b in pairs[i + 1:]]):
+        fits = {}
+        for cells in tries:
+            g = flipped(cells)
+            if not grid_misfits(g, spec, groups):
+                fits.setdefault(tuple(g), cells)
+        if len(fits) == 1:
+            (g, cells), = fits.items()
+            return list(g), cells
+        if fits:
+            return None, None
+    return None, None
+
+
+def correct_counts(num, rows, table=None):
+    """`rows` with each count the OCR misread put right, by the rows of
+    fetch_puzzle.SOURCE_LIGHT_WRONG (or `table`) keyed cyclops-`num`: served
+    {"enumeration": <as read>} -> corrected {"enumeration": <as printed>}.
+    The row holds the evidence (the page seen, the next issue's answer), so
+    no count changes silently; a row whose count the reading no longer
+    serves is warned about and left alone. A linked head ("11,24") is keyed
+    by its first number."""
+    import fetch_puzzle
+    pid = f"cyclops-{num}"
+    table = fetch_puzzle.SOURCE_LIGHT_WRONG if table is None else table
+    rows = {d: [dict(r) for r in rows.get(d) or []] for d in ("across", "down")}
+    for (row_pid, eid), (served, corrected, _why) in table.items():
+        if row_pid != pid:
+            continue
+        n, _, d = eid.partition("-")
+        hit = [r for r in rows.get(d, []) if re.split(r"\D+", str(r.get("number") or ""))[0] == n]
+        if len(hit) != 1 or hit[0].get("enumeration") != served.get("enumeration"):
+            print(f"WARNING: SOURCE_LIGHT_WRONG {pid} {eid} is STALE: the reading serves "
+                  f"{[r.get('enumeration') for r in hit]}, not {served} -- left as read",
+                  file=sys.stderr)
+            continue
+        hit[0]["enumeration"] = corrected["enumeration"]
+        print(f"  {pid}: {eid} counts ({corrected['enumeration']}), the OCR read "
+              f"({served['enumeration']}) (SOURCE_LIGHT_WRONG)")
+    return rows
+
+
+def count_hint(num, misfits):
+    """The refusal's pointer when the scan's grid disagrees with the list only
+    in single lights' counts: each may be a misread count, which a
+    SOURCE_LIGHT_WRONG row puts right once the page or the printed answer
+    confirms the scan's length -- never on the scan's word alone."""
+    if not misfits or not all(re.fullmatch(r"\d+ (across|down) counts \d+, \d+ cells", m)
+                              for m in misfits):
+        return ""
+    m = re.match(r"(\d+) (across|down) counts (\d+), (\d+) cells", misfits[0])
+    return (f"; if the page prints the scan's length, add fetch_puzzle.SOURCE_LIGHT_WRONG"
+            f"[('cyclops-{num}', '{m[1]}-{m[2]}')] = ({{'enumeration': <as read>}}, "
+            f"{{'enumeration': <as printed, {m[4]} letters>}}, why)")
+
+
+def from_rows(num, rows, answers=None, image=None, fixes=None):
     """A puzzle with no answers from light_spec rows, its grid rebuilt from
     the clue numbers and enumerations (as tools/fetch_nation.py does).
     `answers`, [(ts, answer_rows)] from the solution the next issue printed:
@@ -503,6 +583,7 @@ def from_rows(num, rows, answers=None, image=None):
     from groups import entry_id
     from normalise_linked_enumerations import normalise_record, resolve_groups
     import enumeration
+    rows = correct_counts(num, rows, fixes)
     across, down, _notes, damage = light_spec.build_spec(rows)
     if damage:
         return None, "clue list damaged: " + "; ".join(damage)
@@ -522,6 +603,12 @@ def from_rows(num, rows, answers=None, image=None):
     # Every Cyclops is 15x15; the linked lights' free lengths need more search
     # than the Nation's budget.
     misfits = grid_misfits(image, spec, groups) if image else None
+    if misfits:
+        fixed, cells = repair_grid(image, spec, groups)
+        if fixed:
+            print(f"  cyclops-{num}: the scan's grid misread cell(s) {list(cells)} "
+                  f"(row, col): flipped, it prints the clue list exactly ({', '.join(misfits)})")
+            image, misfits = fixed, []
     if image and not misfits:
         grid = list(image)
     else:
@@ -529,7 +616,7 @@ def from_rows(num, rows, answers=None, image=None):
                                    words=words)
         if grid is None:
             seen = f"; the scan's grid: {', '.join(misfits[:4])}" if misfits else ""
-            return None, f"grid did not rebuild: {why}{seen}"
+            return None, f"grid did not rebuild: {why}{seen}{count_hint(num, misfits)}"
     entries, problems = entries_from_grid(grid, across, down)
     if problems:
         return None, "; ".join(problems)
