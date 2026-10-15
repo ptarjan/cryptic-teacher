@@ -42,6 +42,22 @@ for f in du.SLOW_FETCHERS:
 check("fetch:tls_puzzles looks every 6h", [p[1] for p in du.PHASES if p[0] == "fetch:tls_puzzles"], [6 * du.HOUR])
 check("slow fetchers stay out of after_tick's FETCHERS", set(du.SLOW_FETCHERS) & set(du.FETCHERS), set())
 
+# ratings records /progress/'s row off today's coverage ledger, so it waits for
+# that ledger until LEDGER_WAIT_UNTIL, then records without it.
+import tempfile, time
+from pathlib import Path
+du.COVERAGE_STATE = Path(tempfile.mkdtemp())
+def at(hour):
+    return time.mktime((2026, 10, 15, hour, 0, 0, 0, 0, -1))
+def plans_ratings(t):
+    return "ratings" in [u.key for u in du.plan(Ledger(), t)]
+check("ratings waits for today's coverage ledger in the morning", plans_ratings(at(3)), False)
+check("the other phases do not wait for it", "checks" in [u.key for u in du.plan(Ledger(), at(3))], True)
+check("ratings records without the ledger past LEDGER_WAIT_UNTIL", plans_ratings(at(du.LEDGER_WAIT_UNTIL)), True)
+(du.COVERAGE_STATE / "2026-10-15.json").write_text("{}")
+check("ratings runs once today's ledger is saved", plans_ratings(at(3)), True)
+check("yesterday's ledger is not today's", plans_ratings(time.mktime((2026, 10, 16, 3, 0, 0, 0, 0, -1))), False)
+
 # The choice, read off what each unit runs before its own build step.
 for k in [f"fetch:{f}" for f in du.FETCHERS + du.SLOW_FETCHERS] + ["solutions", "blog:times", "blog:telegraph", "bucket:telegraph",
           "xval:globe", "ft", "azed", "blog-facts", "ratings", "minute", "reports"]:
