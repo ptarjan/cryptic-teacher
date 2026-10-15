@@ -50,6 +50,12 @@ cd "$REPO" || exit 1
 # dropped read filed is pushed by the next unit to take its tree
 # (CT_SALVAGE_PATHS), and while a read runs it is committed every few minutes
 # (tools/durable.sh).
+# Most ticks start nothing (tools/unit_queue.py why_run): stop before the
+# worktree setup, a fetch, a follow and a reset of the whole tree (~3 s of
+# CPU). A full tick still runs every FULL_EVERY, which carries a pushed fix in.
+if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ $# -eq 0 ] && [ -z "${UNIT_QUEUE_DRY:-}" ]; then
+  python3 "$REPO/tools/unit_queue.py" idle books && exit 0
+fi
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
 CT_GENERATED=none
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh

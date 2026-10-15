@@ -27,8 +27,11 @@ naming it falls back to calling it a standing convention.
 writes table() to abbreviations.js, so the solver's glossary and the
 clue-writer's cannot drift into two different tables.
 """
+import hashlib
 import json
+import os
 import re
+import tempfile
 from pathlib import Path
 
 #: Between the items of every list the site prints: " · ". app.js LIST_SEP.
@@ -180,6 +183,49 @@ def table():
     spelling."""
     global _TABLE
     if _TABLE is None:
+        _TABLE = _cached_table()
+    return _TABLE
+
+
+#: table() takes ~2.4 s of CPU to build and every importer of blog_facts paid
+#: it. The built table is kept here, keyed on the bytes of everything it is
+#: computed from (the three lexicons and this file, which holds FAMILIES), so
+#: an edited input can never be served a stale table. $ABBREVIATIONS_CACHE
+#: overrides the path (tests); an unwritable cache dir just means no cache.
+TABLE_CACHE = Path(os.environ.get("ABBREVIATIONS_CACHE")
+                   or Path.home() / ".cache" / "cryptic-abbreviations-table.json")
+
+
+def _inputs_key():
+    h = hashlib.sha256()
+    for f in (DICTIONARY, LEXICON, CORPUS, Path(__file__)):
+        h.update(f.read_bytes() if f.exists() else b"-")
+        h.update(b"\0")
+    return h.hexdigest()
+
+
+def _cached_table():
+    key = _inputs_key()
+    try:
+        held = json.loads(TABLE_CACHE.read_text(encoding="utf-8"))
+        if held.get("key") == key:
+            return held["table"]
+    except (OSError, ValueError, KeyError, AttributeError):
+        pass
+    built = _build_table()
+    try:
+        TABLE_CACHE.parent.mkdir(parents=True, exist_ok=True)
+        fd, tmp = tempfile.mkstemp(dir=TABLE_CACHE.parent, suffix=".tmp")
+        with os.fdopen(fd, "w", encoding="utf-8") as fh:
+            json.dump({"key": key, "table": built}, fh)
+        os.replace(tmp, TABLE_CACHE)
+    except OSError:
+        pass
+    return built
+
+
+def _build_table():
+    if True:
         out = {}
         for name, members in parsed():
             if name in SYSTEMATIC:
@@ -195,8 +241,7 @@ def table():
             if (letters_of(w), k) not in have:
                 out.setdefault(k, set()).add(spelled.setdefault(letters_of(w), w))
                 have.add((letters_of(w), k))
-        _TABLE = {k: sorted(out[k]) for k in sorted(out)}
-    return _TABLE
+        return {k: sorted(out[k]) for k in sorted(out)}
 
 
 _TABLE = None
@@ -273,7 +318,10 @@ def by_word():
 
 def letters_of(s):
     """A clue word or reading reduced to the capitals blocks.json keys on."""
-    return re.sub(r"[^A-Z0-9]", "", (s or "").upper())
+    return _NOT_CAPS.sub("", (s or "").upper())
+
+
+_NOT_CAPS = re.compile(r"[^A-Z0-9]")
 
 
 def table_html(senses, links=None):

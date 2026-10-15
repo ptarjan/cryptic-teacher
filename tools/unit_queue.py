@@ -326,6 +326,51 @@ def tick(queue, dry=False):
     return 0
 
 
+#: A skipped tick still runs in full this often, which is what carries a
+#: pushed fix into the tick's worktree (tools/nightly_worktree.sh).
+FULL_EVERY = 3600
+
+
+def why_run(queue, now=None):
+    """Why the scheduled tick must run in full, or None when it would start
+    nothing. Answered before the tick's worktree setup (~3 s of CPU: a fetch,
+    a follow of the main checkout, a reset of the whole tree), so a tick with
+    nothing to do costs one python start.
+
+    Nothing can start while the host is over its memory or CPU gate: tick()
+    holds every due unit back on those, whatever is due. Past the gates, a
+    queue whose plan() reads only the ledger and its own files
+    (SELF_PLANNING, book_units) is asked what is due, the very question the
+    tick asks; one whose tick is planned by its shell (daily_update.sh picks
+    the puzzles) cannot be asked here and always runs."""
+    now = time.time() if now is None else now
+    mod = queue_module(queue)
+    stamp = STATE / f"{queue}.full_tick"
+    try:
+        if now - stamp.stat().st_mtime >= FULL_EVERY:
+            return f"no full tick in {FULL_EVERY}s"
+    except OSError:
+        return "no full tick yet"
+    if not mem_gate.room(0, MEM_READER) or not mem_gate.cpu_room(0, LOAD_READER):
+        return None
+    if not getattr(mod, "SELF_PLANNING", False):
+        return "its tick plans in the shell"
+    due = due_units(mod, Ledger(queue), now)
+    return f"{due[0][0].key} is due" if due else None
+
+
+def idle(queue):
+    """Exit status for the scheduler's shell: 0 when the tick would do
+    nothing (skip it), 1 to run it, stamping that a full tick began."""
+    why = why_run(queue)
+    if why is None:
+        return 0
+    STATE.mkdir(parents=True, exist_ok=True)
+    (STATE / f"{queue}.full_tick").touch()
+    print(f"{queue}: tick runs: {why}", file=sys.stderr)
+    return 1
+
+
 def take_slot(mod):
     """(fd, tree name) of the first free tree of the queue's SLOTS, its lease
     (tools/nightly_worktree.sh) held on fd 9; (None, None) when all are busy."""
@@ -476,6 +521,7 @@ def main(argv=None):
         p = sub.add_parser(name)
         p.add_argument("queue")
     sub.choices["tick"].add_argument("--dry-run", action="store_true")
+    sub.add_parser("idle").add_argument("queue")
     r = sub.add_parser("run")
     r.add_argument("queue")
     r.add_argument("key")
@@ -486,6 +532,8 @@ def main(argv=None):
     args = ap.parse_args(argv)
     if args.cmd == "tick":
         return tick(args.queue, args.dry_run)
+    if args.cmd == "idle":
+        return idle(args.queue)
     if args.cmd == "plan":
         mod = queue_module(args.queue)
         for unit, why in due_units(mod, Ledger(args.queue)):

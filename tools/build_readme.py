@@ -713,6 +713,8 @@ LAYOUT = [
     ("building and checking the site", "tools/test_desktop_hosts.sh", "does tools/desktop_hosts.py find the desktop's live address itself (its LAN lease flaps), probing every address at once, keeping the order a TTL, probing afresh after forget(), and do ocr_remote.by_path and vlm_reader.resolve use it, so one dead LAN address stalls nothing?"),
     ("building and checking the site", "tools/gale_idle.py", "exit 0 when a cryptic-gale-inbox tick would do nothing, so tools/gale_inbox.sh"),
     ("building and checking the site", "tools/test_gale_idle.sh", "does tools/gale_idle.py let a cryptic-gale-inbox tick skip its worktree setup only when the tick would do nothing: the progress page rendered within the hour and no download since (or one, but the page under RENDER_MIN old), and no fresh edition waiting with no full pass running; and does it force a full tick MAX_SKIP after the last? Does tools/vlm_health.py --quick skip only an up VLM that was not down?"),
+    ("building and checking the site", "tools/test_abbreviations_cache.sh", "does build_abbreviations.table() give the same table from its disk cache as from a build, and rebuild the moment an input's bytes change?"),
+    ("building and checking the site", "tools/test_unit_idle.sh", "does unit_queue.why_run let the books and daily ticks skip their worktree setup only when the tick would start nothing: a SELF_PLANNING queue (books) with nothing due, or any queue while the memory or CPU gate holds every unit back; never a queue whose shell plans the tick (daily) past the gates; and a full tick at least every FULL_EVERY?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

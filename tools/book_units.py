@@ -22,6 +22,9 @@ from unit_queue import Unit, main_checkout
 TOOLS = Path(__file__).resolve().parent
 
 LOG = ".books.log"
+#: plan() reads only the ledger and tools/book_queue.py, so
+#: unit_queue.why_run can ask it before the tick's worktree exists.
+SELF_PLANNING = True
 SLOTS = 3
 TREE = "acquire_book"
 READS = 2

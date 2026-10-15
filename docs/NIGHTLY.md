@@ -133,6 +133,24 @@ main checkout's follow, a `reset --hard` of the whole tree: ~3 s of CPU each):
 still runs a full tick every 15 minutes (gale) or hour (vlm), which is what
 carries a pushed fix into its worktree.
 
+`cryptic-books` and `cryptic-daily` do the same through `python3
+tools/unit_queue.py idle <queue>` (`unit_queue.why_run`), asked by
+`tools/acquire_books.sh` and `tools/daily_update.sh` before their worktree
+setup. A tick is skipped when it could start nothing: the host is over the
+memory or CPU gate that makes `tick()` hold every due unit back (both queues),
+or, for books, the planner (`book_units.plan`, marked `SELF_PLANNING` because it
+reads only the ledger and `book_queue.py`) names no due unit. Daily's tick is
+planned by its shell (the annotation picks), so past the gates it always runs.
+Each queue still runs a full tick once an hour (`FULL_EVERY`, stamped in
+`$XDG_STATE_HOME/cryptic-teacher/units/<queue>.full_tick`). A skipped tick
+also skips `daily_units.after_tick`'s every-fetcher-down alert and the ledger
+compaction until the next full tick. `UNIT_QUEUE_DRY=1` never skips.
+
+`tools/build_abbreviations.table()` (2.4 s of CPU to build, paid by every
+import of `blog_facts`) is cached in `~/.cache/cryptic-abbreviations-table.json`,
+keyed on the bytes of the three lexicons and of `build_abbreviations.py`
+itself, so an edit to any of them rebuilds it. `$ABBREVIATIONS_CACHE` moves it.
+
 The shared repo's git config (`.git/config`, so every worktree) sets
 `core.untrackedCache=true` (a whole-tree `git status` beside the ~66k untracked
 `puzzles/<id>/` shims: 2.4 s to 0.36 s) and `index.version=4` (index 5.9 to
