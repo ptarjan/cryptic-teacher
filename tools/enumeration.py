@@ -34,18 +34,45 @@ JUNK_LIMIT = 60
 FORM = re.compile(r"\d+(?:(?:[,\-.;:/']| | and )\d+)*")
 
 
-#: A count in words at a clue's end, the Mephisto's "(11, two words)": the
-#: total and how many words, with no breaks. It stays in the clue's text as
-#: printed, since `enumeration` holds counts and marks alone.
-WORDED = re.compile(r"\(\s*(\d{1,2})\s*,\s*(two|three|four|five|six|seven|eight)\s+words\s*\)\s*$",
-                    re.IGNORECASE)
+#: A count that says the answer breaks without saying where, after the
+#: total: the Mephisto's and Genius 204's ", two words", Genius 204's
+#: ", hyphenated", and Genius 236's "*" (its preamble asterisks the counts of
+#: multi-word and hyphenated answers). ft_pdf_puzzles reads it as a clue's
+#: closing count.
+SPLIT_UNSAID = r"(?:\s*\*|\s*,\s*(?:(?:two|three|four|five|six|seven|eight)\s+words|hyphenated))"
+#: Such a count at a clue's end, "(11, two words)", "(8, hyphenated)",
+#: "(11*)". It stays in the clue's text as printed, since `enumeration` holds
+#: counts and marks alone; the breaks come from the answer when one is known
+#: (file_blog_puzzles.worded).
+WORDED = re.compile(r"\(\s*(\d{1,2})(?:\s*\*|\s*,\s*(?:(two|three|four|five|six|seven|eight)\s+words|(hyphenated)))"
+                    r"\s*\)\s*$", re.IGNORECASE)
 NUMBER_WORDS = {"two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8}
 
 
 def worded(text):
-    """(total, words) for a text ending in a count in words, else None."""
+    """(total, words) for a text ending in a count that withholds its breaks,
+    else None. `words` is how many words "(11, two words)" says, "-" for
+    "(8, hyphenated)" (one hyphenated word, its pieces uncounted), None for
+    "(11*)" (more than one word or hyphenated, nothing more said)."""
     m = WORDED.search(text or "")
-    return (int(m.group(1)), NUMBER_WORDS[m.group(2).lower()]) if m else None
+    if not m:
+        return None
+    if m.group(2):
+        return int(m.group(1)), NUMBER_WORDS[m.group(2).lower()]
+    return int(m.group(1)), ("-" if m.group(3) else None)
+
+
+def fits_worded(said, parts):
+    """Whether an answer's enumeration parts [(count, mark after), ...] fit
+    what worded() read (`said`): the same total in more than one piece, and
+    as many words, or only hyphens between the pieces, or (for "*") any
+    breaks."""
+    total, words = said
+    if sum(n for n, _ in parts) != total or len(parts) < 2:
+        return False
+    if words == "-":
+        return all(mark == "-" for _, mark in parts[:-1])
+    return words is None or len(parts) == words
 
 
 def _spelling(printed):

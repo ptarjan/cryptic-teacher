@@ -394,4 +394,30 @@ import genius_puzzles as G
 print(' '.join(p.name for p in G.image_paths(5)))")"
 rm -rf "$gt"
 
+# A count that withholds its breaks closes a clue: Genius 236's "(11*)" (its
+# preamble asterisks multi-word and hyphenated counts), 204's "(6, two
+# words)" and "(8, hyphenated)". The grammar once missed them, so each such
+# clue swallowed the next and both were held clues-only with merged clues.
+unsaid=$(cd "$(dirname "$0")" && python3 - <<'PY'
+import genius_puzzles as G
+import enumeration as E
+import file_blog_puzzles as F
+text = ("Across 1 Rolled windbreak to cross cricket ground (11*) 6 Person sustaining equality (6) "
+        "10 Sabre-rattling Asian beast (6, two words) 12 Devolved assembly required (8, hyphenated) "
+        "14 Plain clue (5) Down 1 Vehicle taken into ramshackle restroom (12*) 2 Top (3)")
+print("|".join(f"{c['lights'][0][0]}{c['lights'][0][1][0]}:{c['enumeration']}:{c['clue'][-6:]}"
+               for c in G.parse_text(text)["clues"]))
+print(E.worded("x (11*)"), E.worded("x (6, two words)"), E.worded("x (8, hyphenated)"), E.worded("x (11)"))
+print(F.worded("Beast (6, two words)", "3,3"), "|", F.worded("Beast (6, two words)", "2,2,2"), "|",
+      F.worded("Assembly (8, hyphenated)", "4-4"), "|", F.worded("Assembly (8, hyphenated)", "4,4"), "|",
+      F.worded("Ground (11*)", "5-2,4"), "|", F.worded("Ground (11*)", "11"))
+PY
+)
+check "a count withholding its breaks closes its clue, the total its enumeration (236, 204)" \
+  "1a:11: (11*)|6a:6:ty (6)|10a:6:words)|12a:8:nated)|14a:5:ue (5)|1d:12: (12*)|2d:3:op (3)" "$(sed -n 1p <<<"$unsaid")"
+check "enumeration.worded reads (11*), (6, two words), (8, hyphenated)" "(11, None) (6, 2) (8, '-') None" "$(sed -n 2p <<<"$unsaid")"
+check "the answer's breaks replace a withheld split only when they fit it" \
+  "Beast (3,3) | Beast (6, two words) | Assembly (4-4) | Assembly (8, hyphenated) | Ground (5-2,4) | Ground (11*)" \
+  "$(sed -n 3p <<<"$unsaid")"
+
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }

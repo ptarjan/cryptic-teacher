@@ -48,6 +48,7 @@ import parse_timesforthetimes as tftt
 import puzzle_integrity
 import reconstruct_grid as rg
 import downloads
+import enumeration
 import times_grids as tg
 from fetch_puzzle import correct_source_answers, puzzle_path, write_puzzle_file
 from groups import pointer_target
@@ -537,11 +538,17 @@ COUNTS = (r"(?:\d{1,2}(?:['’]s)?|\*)(?:\s*(?:[,\-–.'’:/\s]|\band\b)\s*(?:\
 #: nested inside it ("(6,5 (9))": the lights' count, then the answer's); or
 #: two counts, in one bracket split by a semicolon ("(5;3)") or two brackets
 #: in a row ("(4,3) (7)", "(6,3,5); (6,3,6)"): the answer's, then the entry's.
-ENUM_TEXT = (rf"\(\s*{COUNTS}(?:\s*;\s*{COUNTS})?\s*(?:\(\s*{COUNTS}\s*\)\s*)?\)"
-             rf"(?:\s*;?\s*\(\s*{COUNTS}\s*\))?")
+#: Or a total that withholds its breaks (enumeration.SPLIT_UNSAID): "(11*)",
+#: "(6, two words)", "(8, hyphenated)".
+UNSAID = enumeration.SPLIT_UNSAID
+ENUM_TEXT = (rf"(?:\(\s*\d{{1,2}}{UNSAID}\s*\)"
+             rf"|\(\s*{COUNTS}(?:\s*;\s*{COUNTS})?\s*(?:\(\s*{COUNTS}\s*\)\s*)?\)"
+             rf"(?:\s*;?\s*\(\s*{COUNTS}\s*\))?)")
 #: The closing enumeration's grid count: the outer of a nested pair, the
-#: second of two.
-ENUM = re.compile(rf"\(\s*(?:{COUNTS}\s*(?:\)\s*;?\s*\(|;)\s*)?({COUNTS})\s*(?:\(\s*{COUNTS}\s*\)\s*)?\)\s*$")
+#: second of two; of a count that withholds its breaks, the total alone (the
+#: clue's text keeps the words, enumeration.worded).
+ENUM = re.compile(rf"\(\s*(?:{COUNTS}\s*(?:\)\s*;?\s*\(|;)\s*)?(\d{{1,2}}(?={UNSAID}\s*\))|{COUNTS})"
+                  rf"(?:{UNSAID}(?=\s*\)))?\s*(?:\(\s*{COUNTS}\s*\)\s*)?\)\s*$")
 # A "See N" stub is nothing but the pointer (groups.POINTER): "See 2 if
 # confused ... (7)" opens the same way and is a clue of its own.
 
