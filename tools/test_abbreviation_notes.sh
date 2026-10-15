@@ -34,7 +34,15 @@ p = fp.read_puzzle_file(puzzle_paths.find("quiptic-619"))
 S.strip_puzzle(p)  # the puzzle as migrated, whether or not the corpus is yet
 i = next(k for k, e in enumerate(p["entries"]) if e["number"] == 11 and e["direction"] == "across")
 e = p["entries"][i]
-folio = lambda ann: ann["wordplay"]["parts"][0]["parts"][0]["parts"][0]
+def folio(ann):
+    """The [folio]F leaf, wherever the tree files it (an anagram's own part, or
+    under the charade filed there before tools/flatten_anagram_fodder.py)."""
+    stack = [ann["wordplay"]]
+    while stack:
+        node = stack.pop()
+        if node.get("words") == "folio":
+            return node
+        stack += node.get("parts") or []
 
 def with_note(note):
     q = copy.deepcopy(p)

@@ -3340,6 +3340,26 @@ def validate_puzzle(puzzle, corpus=False):
 
 
 UNCHECKED_STEP = "unchecked wordplay step"
+#: The finding for a charade filed directly under an anagram. An anagram's
+#: fodder is one pool of letters, so its pieces are the anagram's own parts
+#: (`ana(x + y)` stores x and y there): nothing under it is joined in order, and
+#: a charade label there says something that is not happening. wordplay.parse
+#: cannot write one; the ratchet (wordplay.anagramCharade) lets a puzzle keep
+#: the ones tools/flatten_anagram_fodder.py could not flatten as they stand
+#: (a join with an indicator of its own, or an unchecked one), and no more.
+ANAGRAM_CHARADE = "charade directly under an anagram"
+
+
+def anagram_charades(tree):
+    """How many charades sit directly under an anagram anywhere in `tree`."""
+    n, stack = 0, [tree] if isinstance(tree, dict) else []
+    while stack:
+        node = stack.pop()
+        parts = [p for p in node.get("parts") or [] if isinstance(p, dict)]
+        if node.get("op") == "anagram":
+            n += sum(p.get("op") == "charade" for p in parts)
+        stack += parts
+    return n
 SUPERSEDED_BY_TREE = ("typed anagram but no assembly.anagrams", "no machine-checkable assembly")
 
 
@@ -3424,6 +3444,11 @@ def tree_view(puzzle):
             warnings.append(f"{_tag_of(puzzle, where)}: {n} {UNCHECKED_STEP}(s), taken as filed "
                             f"from the old blocks; write the step as an expression the "
                             f"evaluator checks (tools/wordplay.py)")
+        if k := anagram_charades(ann.get("wordplay")):
+            warnings.append(f"{_tag_of(puzzle, where)}: {k} {ANAGRAM_CHARADE}: an anagram's "
+                            f"fodder is one pool of letters, so its pieces are its own parts "
+                            f"(ana(x + y)); a word that only joins them is a link word, and an "
+                            f"anagram indicator goes on ana<...>")
     return viewed, errors, warnings
 
 
@@ -3714,6 +3739,7 @@ BACKLOG_MARKERS = {
     "assembly.anagrams": ("no assembly.anagrams",),
     "messages": ("names a hidden-letter device",),
     "wordplay.unchecked": (UNCHECKED_STEP,),
+    "wordplay.anagramCharade": (ANAGRAM_CHARADE,),
 }
 
 

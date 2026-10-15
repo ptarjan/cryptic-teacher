@@ -14,11 +14,13 @@ Grammar
     [in#2]                the second "in" in the clue; #n picks a repeat
     LETTERS               letters with no clue words (a preamble's piece, or
                           the letters a del/sub indicator names: del(x, H))
-    A + B                 a charade, in answer order
+    A + B                 a charade, in answer order (inside ana() it is the
+                          fodder's pieces, stored as the anagram's parts)
     op<indicator>(...)    an operation; <indicator words> follow the op they
                           signal, one <...> per phrase; `+<under>` is an
                           indicator on the charade
-    ana(x)                anagram of x's letters (the answer slice decides order)
+    ana(x)                anagram of x's letters (the answer slice decides order);
+                          ana(x + y + z) shuffles several pieces as one pool
     rev(x)                x backwards
     ins(outer, inner)     inner put inside outer (the answer decides where)
     del(from, removed)    removed taken out of from (the answer decides where)
@@ -50,6 +52,11 @@ Stored tree: a leaf is {"words", "at", "gives"?, "note"?} ({"gives"} alone
 for letters with no words); an op is {"op", "indicators"?: [{"text", "at",
 "note"?}], "parts": [...]}, with "spelt" on homophone/spoonerism and "n" on
 nth. "at" is filled when `parse` is given the clue.
+
+An anagram's parts are its fodder, one pool of letters: `ana(x + y)` stores
+x and y as the anagram's own parts, never a charade under it, since nothing
+is joined in order (fodder_pool, and validate_annotations refuses a charade
+directly under an anagram).
 """
 import argparse
 import collections
@@ -67,6 +74,7 @@ OPS = {"ana": "anagram", "rev": "reversal", "ins": "container", "del": "deletion
 NAMES = {v: k for k, v in OPS.items()}
 SELECT = ("first", "last", "middle", "outer", "alternate", "regular", "nth")
 # How many parts each op takes: (fewest, most).
+# ana() takes one argument; a charade written there becomes its parts (_fodder_parts).
 ARITY = {"anagram": (1, 1), "reversal": (1, 1), "container": (2, 2), "deletion": (2, 2),
          "hidden": (1, 1), "homophone": (2, 2), "spoonerism": (2, 3),
          "substitution": (3, 3), "cycling": (1, 1), "cryptic": (1, 9), "palindrome": (0, 1),
@@ -200,8 +208,32 @@ class _Parser:
             if set(spelt) != {"gives"}:
                 self.fail(f"{word}'s last argument is the spelling entered, bare LETTERS")
             node["spelt"] = spelt["gives"]
-        node["parts"] = args
+        node["parts"] = _fodder_parts(args[0], self) if op == "anagram" else args
         return node
+
+
+def _fodder_parts(arg, parser=None):
+    """ana(x)'s stored parts: x's pieces when x is a charade (nested ones too),
+    in the order written, since an anagram's fodder is one pool and nothing
+    under it is joined in sequence. A join with an indicator of its own is
+    refused: order means nothing to a pool, so a word between pieces is a link
+    word, and an anagram indicator goes on ana<...>."""
+    if arg.get("op") != "charade" or arg.get("unchecked"):
+        return [arg]
+    if arg.get("indicators") and parser is not None:
+        words = ", ".join(repr(i["text"]) for i in arg["indicators"])
+        parser.fail(f"ana(x + y) is one pool of letters, not a charade, so +<{words}> has nothing "
+                    f"to order: leave a word that only joins the pieces out (it is a link word), "
+                    f"and write an anagram indicator as ana<...>")
+    return [q for p in parts_of(arg) for q in _fodder_parts(p, parser)]
+
+
+def fodder_pool(node):
+    """An anagram's fodder as one node: its part, or its parts as a run (a
+    reading of the pool in stored order). Built fresh, so never a key of
+    evaluate()'s result."""
+    parts = parts_of(node)
+    return parts[0] if len(parts) == 1 else {"op": "charade", "parts": parts}
 
 
 def parse(text, clue=None):
@@ -309,6 +341,8 @@ def render(node):
             out.append(s)
         joiner = f" +{inds} " if inds else " + "
         return joiner.join(out) if not inds else out[0] + joiner + " + ".join(out[1:])
+    if op == "anagram" and len(parts_of(node)) > 1:
+        return f"ana{inds}({render(fodder_pool(node))})"
     args = [render(p) for p in parts_of(node)]
     if "spelt" in node:
         args.append(node["spelt"])
@@ -453,7 +487,9 @@ def lengths(node):
     op = node.get("op")
     if node.get("unchecked"):
         return {len(letters(node.get("gives")))}
-    if op == "anagram" or op == "reversal":
+    if op == "anagram":
+        return lengths(fodder_pool(node))
+    if op == "reversal":
         return lengths(parts_of(node)[0])
     if op == "cryptic":
         return None
@@ -480,7 +516,9 @@ def _bag(node):
         return {"".join(sorted(v)) for v in values(node)}
     except _NeedTarget:
         op = node["op"]
-        if op in ("anagram", "reversal"):
+        if op == "anagram":
+            return _bag(fodder_pool(node))
+        if op == "reversal":
             return _bag(parts_of(node)[0])
         if op == "charade":
             out = {""}
@@ -513,7 +551,7 @@ def match(node, want, got=None):
     elif op == "reversal":
         ok = match(parts_of(node)[0], want[::-1], got) is not None
     elif op == "anagram":
-        child = parts_of(node)[0]
+        child = fodder_pool(node)
         ok = False
         if "".join(sorted(want)) in _bag(child):
             try:
@@ -527,6 +565,8 @@ def match(node, want, got=None):
             ok = True
             if same:
                 match(child, same[0], got)
+                if len(parts_of(node)) > 1:
+                    got.pop(id(child), None)
     elif op == "container":
         ok = _match_container(node, want, got)
     elif op == "deletion":
@@ -640,11 +680,11 @@ def diagnose(node, want):
         return diagnose(real[0] if len(real) == 1 else {"op": "charade", "parts": real}, want)
     if op == "anagram":
         try:
-            bags = _bag(parts_of(node)[0])
+            bags = _bag(fodder_pool(node))
         except WordplayError as e:
             return str(e)
         if not bags:
-            return _gives_nothing(parts_of(node)[0])
+            return _gives_nothing(fodder_pool(node))
         bag = min(bags, key=len)
         extra = "".join(sorted((_count(bag) - _count(want)).elements()))
         short = "".join(sorted((_count(want) - _count(bag)).elements()))
@@ -705,8 +745,9 @@ def _check_ops(node, got):
     for p in node.get("parts") or []:
         _check_ops(p, got)
     if op == "anagram":
-        child = parts_of(node)[0]
-        if id(child) in got and got[id(child)] == got.get(id(node)):
+        parts = parts_of(node)
+        read = "".join(got[id(p)] for p in parts) if all(id(p) in got for p in parts) else None
+        if read is not None and read == got.get(id(node)):
             raise WordplayError(f"{render(node)}: the fodder already reads "
                                 f"{got[id(node)]}, so there is no anagram")
     if op == "reversal" and got.get(id(node)) and got[id(node)] == got[id(node)][::-1]:

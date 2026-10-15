@@ -88,6 +88,18 @@ filed, and the expression cannot write one. The tree, in brief:
   no file stores `[]` or `""`. `pal()` over the answer alone has no `parts`,
   and every reader goes through `wordplay.parts_of`. An unchecked leaf without
   `gives` gives no letters (a block that was only a note).
+- **An anagram's parts are its fodder**, one pool of letters: one part, or
+  several in clue order, verbatim leaves and, for a compound anagram, any
+  other piece (an abbreviation, a synonym, a selection). The expression
+  writes them `ana<Dreadfully>([slay] + [a] + [cut])`, and `parse` stores
+  slay, a and cut as the anagram's own parts (sundaytel-2671 1A, CASUALTY).
+  Nothing under an anagram is joined in sequence, so a charade directly under
+  one is refused: `parse` cannot write one, and `validate_annotations.py`
+  counts them (`wordplay.anagramCharade` in `tools/annotation_backlog.json`)
+  so a puzzle keeps only those `tools/flatten_anagram_fodder.py` left as
+  filed (a join with an indicator of its own, or one under an unchecked step).
+  view() reads the fodder's letters off the parts in clue order (the tiles the
+  ring deals), and the blocks follow the parts.
 - **A double definition** has two `definitions` and no `wordplay` (or a
   partless palindrome when the answer reads both ways). A definition's
   `meaning` is the note on its block, on the blocks rung. Its `note` belongs to
