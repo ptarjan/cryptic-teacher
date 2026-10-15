@@ -606,7 +606,9 @@ h = F.input_hash(d)
 media = [p for p in touched if p.startswith(str(downloads.ROOT)) and '.manifest' not in p]
 print(h, 'statted' if media else 'unstatted', end=' ')
 if '$what' == 'files':
-    (d / 'ocr.txt').write_text('bb')
+    # a new size: trove_files keeps whole seconds, so a rewrite in the
+    # same second as the fixture moves the hash only by its size
+    (d / 'ocr.txt').write_text('bbbb')
     mm.record(mm.TROVE_INPUTS, d, article='42', files=mm.trove_files(d))
 if '$what' == 'zones':
     (d / 'meta.json').write_text('{\"zones\": [{\"page\": 1}]}')
