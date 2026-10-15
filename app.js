@@ -1427,26 +1427,65 @@
     });
   }
 
+  // ---- sync scheduler (tools/test_sync_retry.js runs this block as is) ----
+  /* Every save is in localStorage before any of this runs, and a push only
+     ever reads from there, so a push that fails loses nothing: the letters
+     are still on this device and go up with the next push. What a failure
+     must not do is leave them there until the solver happens to type again —
+     a finished puzzle never types again. So a failure schedules a retry of
+     its own, backing off from 30 seconds to 15 minutes, and coming back
+     online retries at once. The retry is a pull, which pushes only when the
+     server turns out to lack something, so a retry after a push that did
+     land in the end costs a read rather than a write.
+
+     Pushes are at most one a minute. Each one that changes anything is a KV
+     write, the free tier allows 1,000 a day across every solver, and with
+     only "two seconds of quiet" a cryptic solved at thinking pace was a
+     write per answer. A minute is still well inside "I picked up the iPad",
+     and a tab being hidden pushes whatever is waiting straight away. */
+  const SYNC_QUIET_MS = 2000, SYNC_MIN_GAP_MS = 60 * 1000;
+  const SYNC_RETRY_MS = 30 * 1000, SYNC_RETRY_MAX_MS = 15 * 60 * 1000;
   let syncTimer = null, syncBusy = false, syncAgain = false;
+  let syncLastPush = 0, syncFails = 0, syncRetryTimer = null;
   function syncPushSoon() {
     if (!syncOn()) return;
     clearTimeout(syncTimer);
-    // Typing a letter saves; pushing on every keystroke would be a request per
-    // letter. Two seconds of quiet is well inside "I picked up the iPad".
-    syncTimer = setTimeout(syncPush, 2000);
+    const wait = Math.max(SYNC_QUIET_MS, syncLastPush + SYNC_MIN_GAP_MS - Date.now());
+    syncTimer = setTimeout(() => { syncTimer = null; syncPush(); }, wait);
+  }
+  // A push waiting on its timer goes now: the tab is being put down.
+  function syncFlush() {
+    if (syncTimer === null) return;
+    clearTimeout(syncTimer);
+    syncTimer = null;
+    syncPush();
+  }
+  function syncFailed(retry) {
+    syncFails++;
+    syncNote("Can’t reach the sync server — will try again");
+    clearTimeout(syncRetryTimer);
+    const wait = Math.min(SYNC_RETRY_MAX_MS, SYNC_RETRY_MS * Math.pow(2, syncFails - 1));
+    syncRetryTimer = setTimeout(() => { syncRetryTimer = null; (retry || syncPull)(); }, wait);
+  }
+  function syncOk() {
+    syncFails = 0;
+    clearTimeout(syncRetryTimer);
+    syncRetryTimer = null;
+    syncNote("Synced");
   }
   function syncPush() {
     if (!syncOn()) return Promise.resolve();
     if (syncBusy) { syncAgain = true; return Promise.resolve(); }
     syncBusy = true;
+    syncLastPush = Date.now();
     return syncFetch("PUT", localEnvelope())
       .then((merged) => {
         // The response is the merged truth, including anything another machine
         // pushed while this one was typing — so a push is also a pull.
         if (applyEnvelope(merged)) { restoreState(); refreshAll(); }
-        syncNote("Synced");
+        syncOk();
       })
-      .catch(() => syncNote("Can’t reach the sync server — will try again"))
+      .catch(() => syncFailed())
       .then(() => {
         syncBusy = false;
         if (syncAgain) { syncAgain = false; syncPushSoon(); }
@@ -1464,13 +1503,18 @@
         if (!remote) return missing ? missing() : syncPush(); // first machine on this code
         const merged = CTMerge.mergeSaves(localEnvelope(), remote);
         if (applyEnvelope(merged)) { restoreState(); refreshAll(); }
-        syncNote("Synced");
         // Push back whatever the server did not have. Cheap, and it means the
         // machine you just opened is not the only one holding your morning.
         if (JSON.stringify(merged) !== JSON.stringify(remote)) return syncPush();
+        syncOk();
       })
-      .catch(() => syncNote("Can’t reach the sync server — will try again"));
+      // The join's own `missing` goes with the retry: without it a 404 on the
+      // retry would seed a mistyped code with this device's grids.
+      .catch(() => syncFailed(() => syncPull(missing)));
   }
+  if (typeof window !== "undefined" && window.addEventListener)
+    window.addEventListener("online", () => { if (syncFails && syncOn()) syncPull(); });
+  // ---- end sync scheduler ----
 
   // One line of state, under the code, and never a modal or a toast: syncing is
   // background work, and interrupting someone mid-clue to tell them it went
@@ -8152,7 +8196,7 @@
     // Coming back to a tab is exactly when the other machine's work is waiting,
     // and it is the cheapest possible moment to ask.
     document.addEventListener("visibilitychange", () => {
-      if (document.hidden) { pauseTiming(); return; }
+      if (document.hidden) { pauseTiming(); syncFlush(); return; }
       resumeTiming();
       if (syncOn()) syncPull();
     });

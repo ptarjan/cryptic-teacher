@@ -516,17 +516,21 @@ export default {
     const byId = new Map(puzzles.map((p) => [p.id, p]));
 
     const seen = await env.SAVES.get("n:seen", "json");
-    // Only when the set changed: rewriting it every twenty minutes was 72 of
-    // the namespace's 1,000 daily writes spent saying nothing new.
-    const ids = JSON.stringify(puzzles.map((p) => p.id));
-    if (!seen || JSON.stringify(seen) !== ids) await env.SAVES.put("n:seen", ids);
-    if (!seen) return;   // First run of a fresh namespace: the corpus is not news.
-
-    const known = new Set(seen);
     const now = Date.now();
     // `date` is "YYYY-MM-DD", so the cutoff is too, and they compare as strings.
     const cutoff = new Date(now - ANNOUNCE_DAYS * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+    const known = new Set(seen || []);
     const fresh = puzzles.filter((p) => !known.has(p.id) && p.date >= cutoff);
+    /* Written only when there is news, and holding only the announce window.
+       It used to hold every annotated id and be rewritten whenever that set
+       moved — and the annotation backfill moves it with every deploy, so it
+       was a write on nearly every run, 72 of the namespace's 1,000 a day,
+       about puzzles years too old to announce. Only ids inside the window can
+       ever be fresh, so only those need remembering; one that has aged out is
+       filtered by its date whether or not it is still listed here. */
+    if (!seen || fresh.length)
+      await env.SAVES.put("n:seen", JSON.stringify(puzzles.filter((p) => p.date >= cutoff).map((p) => p.id)));
+    if (!seen) return;   // First run of a fresh namespace: the corpus is not news.
 
     // No early return on an empty `fresh`: the run that delivers a held puzzle
     // at seven in the morning is by definition a run with no news of its own.

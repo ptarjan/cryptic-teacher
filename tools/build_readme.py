@@ -708,6 +708,7 @@ LAYOUT = [
     ("building and checking the site", "tools/test_no_media_scans.sh", "does no scheduled tick walk the media disk?"),
     ("building and checking the site", "tools/privateeye_scans.py", "read a Cyclops crossword's clues off the page image of archive.org's Private Eye scan"),
     ("building and checking the site", "tools/test_privateeye_scans.sh", "does tools/privateeye_scans.py find a Private Eye page's clue columns from its djvu words, take the crossword's number and not the entry address's, read a linked head and a cross-reference, and hand privateeye_wayback's read_capture a list it parses? And does the shared tidy read RapidOCR's full-width bracket as a round one?"),
+    ("building and checking the site", "tools/test_sync_retry.js", "a sync push that fails must never lose a save, and must retry on its own"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

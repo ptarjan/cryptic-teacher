@@ -2639,5 +2639,7 @@ tools/test_privateeye_scans.sh                 does tools/privateeye_scans.py fi
                                                read_capture a list it parses? And does the
                                                shared tidy read RapidOCR's full-width bracket
                                                as a round one?
+tools/test_sync_retry.js                       a sync push that fails must never lose a save,
+                                               and must retry on its own
 ```
 <!-- LAYOUT-END -->
