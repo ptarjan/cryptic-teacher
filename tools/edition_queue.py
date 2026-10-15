@@ -386,10 +386,19 @@ def plan(papers, cache=fa.CACHE, reread=None, out=None):
     try:
         return _plan(papers, cache, reread, out)
     finally:
-        dir_cache.save(DIR_CACHE)
+        # The listings are a hint for the next process (each stands only while its dir_key does), and
+        # pickling them is ~1s CPU a plan: written at most every DIR_SAVE_EVERY seconds, first plan included.
+        if time.monotonic() - _DIR_SAVED[0] >= DIR_SAVE_EVERY:
+            dir_cache.save(DIR_CACHE)
+            _DIR_SAVED[0] = time.monotonic()
         fa.save_held(HELD_CACHE)
         fa.save_likely(LIKELY_CACHE)
         scan_queue.save_count_left(COUNT_LEFT_CACHE)
+
+
+#: Seconds between plan()'s writes of DIR_CACHE, and when the last was (monotonic).
+DIR_SAVE_EVERY = 600
+_DIR_SAVED = [float("-inf")]
 
 
 def load_caches():
