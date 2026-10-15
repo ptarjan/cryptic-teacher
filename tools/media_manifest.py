@@ -156,6 +156,14 @@ def edition_rows():
     row dicts, which later rows update in place, so it stays current. The
     queue asks this once a queued scan unit a pass (input_hash), and merging
     ~100k rows afresh each time held a core. Callers only read it."""
+    me = threading.get_ident()
+    hit = _EDITION_ROWS.get(me)
+    now = time.monotonic()
+    # Asked once a queued unit a pass (thousands a pass): the manifests are
+    # opened again only EDITION_ROWS_FRESH seconds on, or once this process
+    # appended to one (record), not on every ask.
+    if hit is not None and hit[4] == _RECORDED[0] and now - hit[5] < EDITION_ROWS_FRESH:
+        return hit[3]
     import dir_cache
     accs = []
     for name in (ARCHIVE_EDITIONS, GALE_EDITIONS):
@@ -164,21 +172,28 @@ def edition_rows():
             rows(name)  # raises, naming its build
         accs.append(acc)
     key = tuple((id(a), len(a)) for a in accs)
-    me = threading.get_ident()
-    hit = _EDITION_ROWS.get(me)
     if hit is not None and hit[0] == key and hit[1] is accs[0] and hit[2] is accs[1]:
+        _EDITION_ROWS[me] = hit[:4] + (_RECORDED[0], now)
         return hit[3]
     out = {}
     for acc in accs:
         out.update(acc)
     if len(_EDITION_ROWS) > 64:  # threads come and go
         _EDITION_ROWS.clear()
-    _EDITION_ROWS[me] = (key, accs[0], accs[1], out)
+    _EDITION_ROWS[me] = (key, accs[0], accs[1], out, _RECORDED[0], now)
     return out
 
 
-#: {thread ident: (fold key, archive fold, gale fold, merged)} of edition_rows.
+#: {thread ident: (fold key, archive fold, gale fold, merged, _RECORDED when
+#: folded, time.monotonic() when folded)} of edition_rows.
 _EDITION_ROWS = {}
+#: How long (seconds) edition_rows trusts its last fold of the manifests
+#: before opening them again: a row another process appended is seen this
+#: late at most.
+EDITION_ROWS_FRESH = 2.0
+#: [how many rows this process appended (record)]: edition_rows folds again
+#: after one, however fresh its last fold.
+_RECORDED = [0]
 
 
 def memo(name, key, value):
@@ -221,6 +236,7 @@ def record(name, written, **row):
         os.write(fd, line)
     finally:
         os.close(fd)
+    _RECORDED[0] += 1
 
 
 def rows(name):

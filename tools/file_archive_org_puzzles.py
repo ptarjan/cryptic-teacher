@@ -4244,6 +4244,9 @@ def short_cause(series, row, v, solutions):
 _HEADINGS = {}
 _WHOLE = {}
 _LIKELY_MOVED = []
+#: {edition dir: (its input_hash, its djvu.xml.gz's (mtime_ns, size) or None)}:
+#: text_headings stats the text again only once the edition's files moved.
+_HEADINGS_STAT = {}
 #: How long (seconds) one plan spends reading headings out of archive.org
 #: text not yet in _HEADINGS (~0.5s CPU, ~1s an edition on the media
 #: mount); the rest wait for the next plan, their reads ranked as if none links.
@@ -4257,11 +4260,23 @@ def text_headings(d, deadline=None):
     and time.monotonic() is past `deadline`."""
     xml = d / "djvu.xml.gz"
     try:
-        st = xml.stat()
+        files = input_hash(d)
     except OSError:
+        files = None
+    seen = _HEADINGS_STAT.get(str(d))
+    if files is not None and seen is not None and seen[0] == files:
+        st = seen[1]  # its files unmoved since that stat: a plan stats no edition again
+    else:
+        try:
+            st = xml.stat()
+            st = (st.st_mtime_ns, st.st_size)
+        except OSError:
+            st = None
+        _HEADINGS_STAT[str(d)] = (files, st)
+    if st is None:
         return []
     paper = paper_of(d)
-    stamp = (st.st_mtime_ns, st.st_size, scan_key(paper))
+    stamp = (*st, scan_key(paper))
     hit = _HEADINGS.get(str(d))
     if hit is not None and hit[0] == stamp:
         return hit[1]
