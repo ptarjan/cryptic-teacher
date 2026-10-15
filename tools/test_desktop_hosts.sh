@@ -135,4 +135,4 @@ print("FAILS", fails)
 PY
 )
 echo "$out"
-echo "$out" | grep -q "^FAILS 0$"
+echo "$out" | grep "^FAILS 0$" >/dev/null
