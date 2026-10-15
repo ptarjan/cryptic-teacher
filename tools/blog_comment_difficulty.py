@@ -151,9 +151,26 @@ def loi(comment, answers, lower):
     return found
 
 
+#: score_row's comments, by puzzle file: set by build() before the row cache's
+#: workers fork, so each reads its puzzle's from here.
+_COMMENTS = {}
+
+
+def score_row(path):
+    """score() of one puzzle file against its comments (_COMMENTS), kept per
+    file by tools/row_cache.py with the comments' hash as its deps: a run
+    scores only the puzzles whose file or comments moved. Scoring every
+    commented puzzle each night took 1,328s of the ratings unit's hour on
+    2026-10-15, growing with every month of comments."""
+    return score(read_puzzle_view(path), _COMMENTS[path])
+
+
 def build():
+    import hashlib
+
+    import row_cache
     by_post, ids = comments_by_post(), post_ids()
-    table = {}
+    wanted = []
     for series in SERIES:
         facts = ROOT / f"tools/data/blog_facts/{series}.json"
         if not facts.exists():
@@ -161,16 +178,22 @@ def build():
         for pid, v in json.loads(facts.read_text()).items():
             if v.get("blog") != "timesforthetimes":
                 continue
-            post = ids.get(v["url"].rstrip("/"))
-            comments = by_post.get(post)
-            path = puzzle_paths.find(pid)
-            if not comments or path is None:
-                continue
-            clues, times, dnf = score(read_puzzle_view(path), comments)
-            table[pid] = {"comments": len(comments), "dnf": dnf,
-                          "median_minutes": statistics.median(times) if times else None,
-                          "stated_times": len(times),
-                          "clues": clues}
+            comments = by_post.get(ids.get(v["url"].rstrip("/")))
+            if comments:
+                wanted.append((pid, comments))
+    found = puzzle_paths.find_many([pid for pid, _ in wanted])
+    wanted = [(pid, found[pid], comments) for pid, comments in wanted if pid in found]
+    _COMMENTS.clear()
+    _COMMENTS.update((path, comments) for _, path, comments in wanted)
+    digest = {path: hashlib.sha1("\0".join(comments).encode()).hexdigest() for _, path, comments in wanted}
+    scored = row_cache.cached_map("blog_comment_difficulty", score_row, [path for _, path, _ in wanted],
+                                  deps=lambda path, row: digest[path])
+    table = {}
+    for (pid, _, comments), (clues, times, dnf) in zip(wanted, scored):
+        table[pid] = {"comments": len(comments), "dnf": dnf,
+                      "median_minutes": statistics.median(times) if times else None,
+                      "stated_times": len(times),
+                      "clues": clues}
     return table
 
 
