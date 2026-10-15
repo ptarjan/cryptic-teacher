@@ -4141,14 +4141,27 @@ def _standing(ledger):
     return dir_cache.appended(ledger, dict, _fold_standing)
 
 
-def scan_stands(paper, rel, cache=CACHE, rows=None):
+def scan_stands(paper, rel, cache=CACHE, rows=None, keys=None):
     """Whether edition `rel`'s ledger row holds a current scan (scan_current)
     now: the queue asks before it starts a scan unit from a plan made
     earlier. Its own fold of the ledger (dir_cache.appended, only lines
     appended since parsed), apart from plan()'s on the planner thread;
-    `rows`, a standing() taken earlier, saves the ledger's re-read."""
+    `rows`, a standing() taken earlier, saves the ledger's re-read; `keys`
+    ({paper name: current_keys(paper)}, the caller's, for a pass) saves
+    asking for them. The row's cheap facts (a scan, a current key) are
+    tested before the files' hash: most queued scans have neither."""
     row = (standing(paper, cache) if rows is None else rows).get(rel)
-    return bool(row) and scan_current(row, _stand_hash(cache, rel), rel)
+    if not row or "scan" not in row:
+        return False
+    p = _CURRENT_PAPER.get(rel)
+    if p is None:
+        p = _CURRENT_PAPER[rel] = paper_of(rel)
+    cur = keys.get(p.key) if keys is not None else None
+    if cur is None:
+        cur = current_keys(p)
+        if keys is not None:
+            keys[p.key] = cur
+    return row.get("scanKey") in cur and row.get("filesHash") == _stand_hash(cache, rel)
 
 
 #: {(cache, rel): (its edition dir, on_media of it, edition_rel of it)} for
