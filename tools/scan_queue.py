@@ -680,20 +680,7 @@ def _held_file(pid, held):
     if not series:
         return None
     if series not in held:
-        listing = held[series] = {}
-        try:
-            years = list(os.scandir(puzzle_paths.PUZZLE_DIR / series))
-        except (FileNotFoundError, NotADirectoryError):
-            years = []
-        for d in years:
-            if not d.is_dir():
-                continue
-            for e in os.scandir(d.path):
-                if e.name.endswith(".json"):
-                    if e.name[:-5] in listing:
-                        listing[e.name[:-5]] = None  # filed twice: find raises
-                    else:
-                        listing[e.name[:-5]] = Path(e.path)
+        held[series] = puzzle_paths.folder_listing(series)  # re-listed only when a year folder moved
     if str(pid) not in held[series]:
         return None
     return held[series][str(pid)] or puzzle_paths.find(pid)
