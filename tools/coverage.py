@@ -15,7 +15,9 @@ Denominators:
 
   printed dailies   every print date back to the first crossword (archive_coverage),
                     less the dates the paper's own numbering says carried none
-                    (surplus_dates)
+                    (surplus_dates), plus the numbers between two filed puzzles that no
+                    print date has room for (undated_numbers, keyed "No <n>"), so the
+                    total is the paper's own count where we hold its numbers
   numbered series   first_number() (series.py) to its last issue (lastIssue) if it has
                     ended, else to the number due today: the highest held, carried on
                     at the held run's pace (number_runs); a renumbered series counts
@@ -419,10 +421,12 @@ def printed(series, paper, today):
             led.claim(date, *scanless(series, date))
         else:
             led.claim(date, "trove" if cls == "canberra-reprint" else "archive.org", cls)
-    for date in surplus_dates(led, archive_coverage.corpus(series)[1],
-                              next(archive_coverage.printed_dates(series, today), None)):
+    by_number = archive_coverage.corpus(series)[1]
+    first = next(archive_coverage.printed_dates(series, today), None)
+    for date in surplus_dates(led, by_number, first):
         led.exists.discard(date)
         led.claims.pop(date, None)
+    led.exists |= set(undated_numbers(led, by_number, first))
     return led
 
 
@@ -430,6 +434,29 @@ def printed(series, paper, today):
 #: least evidence that a puzzle was printed that day first.
 SURPLUS_ORDER = [("none", "no-source"), ("archive.org", "no-crossword-found"),
                  ("gale", "no-crossword-found"), ("gale", "by-hand-only")]
+
+
+def number_spans(led, by_number, first):
+    """[(n1, n2, span, extra)] between consecutive filed puzzles whose numbers
+    and dates both rise (and before the first, from No 1 on `first`): `span` is
+    the missing print dates there and `extra` how many more of them there are
+    than the paper's numbering has puzzles, negative where it has more."""
+    chain, last = [], ""
+    for n, d in sorted(by_number.items()):
+        if d and d > last and d in led.filed:
+            chain.append((n, d))
+            last = d
+    if first is None or not chain:
+        return []
+    missing = sorted(led.exists - led.filed)
+    filed = sorted(led.filed)
+    out = []
+    for (n1, d1), (n2, d2) in zip([(0, first)] + chain, chain):
+        span = missing[bisect.bisect_right(missing, d1) if n1 else bisect.bisect_left(missing, d1):
+                       bisect.bisect_left(missing, d2)]
+        held = bisect.bisect_left(filed, d2) - bisect.bisect_right(filed, d1)
+        out.append((n1, n2, span, len(span) - max(n2 - n1 - 1 - held, 0)))
+    return out
 
 
 def surplus_dates(led, by_number, first):
@@ -440,25 +467,25 @@ def surplus_dates(led, by_number, first):
     The days a strike, a holiday or a blank page left without one are the
     surplus of missing dates over the missing numbers, given up in
     SURPLUS_ORDER, oldest first within a claim."""
-    chain, last = [], ""
-    for n, d in sorted(by_number.items()):
-        if d and d > last and d in led.filed:
-            chain.append((n, d))
-            last = d
-    if first is None or not chain:
-        return []
     rank = {c: i for i, c in enumerate(SURPLUS_ORDER)}
-    missing = sorted(led.exists - led.filed)
-    filed = sorted(led.filed)
     out = []
-    for (n1, d1), (n2, d2) in zip([(0, first)] + chain, chain):
-        span = missing[bisect.bisect_right(missing, d1) if n1 else bisect.bisect_left(missing, d1):
-                       bisect.bisect_left(missing, d2)]
-        held = bisect.bisect_left(filed, d2) - bisect.bisect_right(filed, d1)
-        extra = len(span) - max(n2 - n1 - 1 - held, 0)
+    for _n1, _n2, span, extra in number_spans(led, by_number, first):
         if extra > 0:
             span.sort(key=lambda d: (rank.get(led.claims.get(d, ("none", "no-source")), len(rank)), d))
             out += span[:extra]
+    return out
+
+
+def undated_numbers(led, by_number, first):
+    """{key: number} of the puzzles the paper's numbering has between two
+    filed ones that no print date of ours has room for (a Sunday issue, a
+    date we print wrong). Keyed "No <n>", the lowest numbers not held, so the
+    total is the paper's own count; each is a missing puzzle with no source."""
+    out = {}
+    for n1, n2, _span, extra in number_spans(led, by_number, first):
+        free = [n for n in range(n1 + 1, n2) if n not in by_number]
+        for n in free[:-extra if extra < 0 else 0]:
+            out[f"No {n}"] = n
     return out
 
 
@@ -545,8 +572,14 @@ def due_number(series, held, today, dated=number_date):
     carried on from its print date at the pace the held run kept (its lowest
     and highest dated numbers, `dated(series, n)`). A series still running
     counts every issue printed since our newest, not just the ones filed; one
-    whose run we hold no two dates of stops at its highest held."""
+    whose run we hold no two dates of stops at its highest held. A series
+    with issuesPerWeek counts forward weekly from its newest known number."""
     nums = sorted(held)
+    m = series_meta.meta(series)
+    if "issuesPerWeek" in m:
+        anchor = max([(n, datetime.date.fromisoformat(d)) for n, d in [m.get("knownIssue") or (0, "1900-01-01")]]
+                     + [(n, d) for n in nums[-1:] if (d := dated(series, n))])
+        return max(nums[-1], anchor[0] + max((today - anchor[1]).days, 0) * m["issuesPerWeek"] // 7)
     top = next(((n, d) for n in reversed(nums[-20:]) if (d := dated(series, n))), None)
     low = next(((n, d) for n in nums[:20] if (d := dated(series, n))), None)
     if not top or not low or top[1] <= low[1]:
