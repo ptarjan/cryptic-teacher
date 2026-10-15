@@ -756,6 +756,45 @@ def apostrophes(enum):
     return out
 
 
+def check_unsolved_counts(puzzle, flags):
+    """A light with no answer yet, alone in no linked group, against its own
+    count: the printed enumeration is the one length statement it holds
+    besides its cells, and check_length weighs only solved lights. Without
+    this a misread count on an unsolved puzzle (Cyclops No 30's 22-down read
+    "(6)" over five cells) writes as cleanly as the page itself, and a
+    SOURCE_LIGHT_WRONG row putting it right has nothing to refuse. A
+    continuation prints no count of its own, and a "(6;4,6)" passes when
+    either side is the light's. Only a paper that counts each light
+    (perLightEnumeration): elsewhere a count may be the answer's before an
+    alteration the preamble gives (Azed's specials, the Genius), which no
+    unsolved light can be measured against."""
+    pid = puzzle.get("id")
+    if series_meta.of(puzzle) not in PER_LIGHT_ENUMERATION:
+        return
+    entries = puzzle.get("entries") or []
+    group_of = groups.group_of(entries)
+    for e in entries:
+        eid, length = entry_id(e), e.get("length")
+        if e.get("solution") or not isinstance(length, int):
+            continue
+        if len(group_of.get(eid) or [eid]) > 1 or e.get("alteration"):
+            continue
+        clue = e.get("clue") or {}
+        if is_continuation(clue.get("text", "")):
+            continue
+        printed = clue.get("enumeration")
+        enum = printed_count_wrong(pid, eid, printed) or printed or ""
+        if not enumeration.counts(enum):
+            continue
+        if any(sum(enumeration.counts(side)) == length for side in enum.split(";")):
+            continue
+        finding = (f"{eid}: clue says ({printed}) = {sum(enumeration.counts(enum))}, "
+                   f"its light has {length} cells")
+        if (pid, finding) in PUBLISHED_WRONG or (pid, finding) in UNLINKED_IN_SOURCE:
+            continue
+        flags.append(("LENGTH", pid, finding))
+
+
 def check_apostrophes(puzzle, flags):
     """An apostrophe in a clue's enumeration and an "'" mark in its lights'
     separators, one for one. "6,1'8" over CHARGEDAFFAIRES is the separators
@@ -1209,6 +1248,7 @@ def check_puzzle(puzzle, today, flags):
     check_grid(puzzle, flags)
     check_numbering(puzzle, flags)
     check_length(puzzle, checkable, flags)
+    check_unsolved_counts(puzzle, flags)
     check_semicolon_counts(puzzle, flags)
     check_group_order(puzzle, flags)
     check_printed_counts(puzzle, flags)
