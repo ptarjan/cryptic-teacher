@@ -25,6 +25,7 @@ empty). Outside a git checkout, or when the store cannot be opened, the map
 runs in full and says why on stderr. Rows unused for PRUNE_DAYS are dropped.
 """
 import hashlib
+import json
 import pickle
 import sqlite3
 import subprocess
@@ -134,31 +135,62 @@ def data_files(name, roots):
     """The tools/data files (not folders) that code `roots` (in module
     `name`) reach, as Paths: each is hashed into every row's key by
     cached_map, so a new data-file read is keyed without being declared.
-    A folder a row reads one file of must come through deps()."""
+    A folder a row reads one file of must come through deps(). A file read
+    only through a DERIVED definition is left out: that definition's output
+    keys the row instead."""
+    return keyed_inputs(name, roots)[0]
+
+
+#: Definitions whose output, not the data files behind them, keys a row that
+#: reaches them. build_abbreviations.table() is built from blocks.json's clue
+#: counts (only whether a sense has a clue at all), and the blog-facts unit
+#: commits a new blocks.json each run: keyed on the file's bytes, every
+#: index_row, difficulty, blog_facts and puzzle_integrity row (~55k each) was
+#: made again after each one, though the table rarely moves (2026-10-15).
+DERIVED = {"build_abbreviations.table": lambda: __import__("build_abbreviations").table()}
+
+
+def reach_past_derived(name, roots):
+    """(what `roots` reach short of any DERIVED definition, the DERIVED
+    definitions they reach)."""
+    full = code_reach.reach(name, set(roots))
+    derived = sorted(d for d in DERIVED if tuple(d.split(".", 1)) in full)
+    if not derived:
+        return full, []
+    return code_reach.reach(name, set(roots), opaque=(*code_reach.TRANSPORT, *derived)), derived
+
+
+def keyed_inputs(name, roots):
+    """(data_files(name, roots), the DERIVED definitions they reach)."""
     import importlib
     data = (Path(__file__).resolve().parent / "data").resolve()
     found = set()
-    for mod, attr in code_reach.reach(name, set(roots)):
+    reached, derived = reach_past_derived(name, roots)
+    for mod, attr in reached:
         obj = getattr(importlib.import_module(mod), attr, None)
         if isinstance(obj, Path) and obj.is_relative_to(data) and not obj.is_dir():
             found.add(obj)
-    return sorted(found)
+    return sorted(found), derived
 
 
-#: data_files() per (module, roots, code key): following the code to its
+#: keyed_inputs() per (module, roots, code key): following the code to its
 #: data files took ~4s a call, and blog_facts.puzzle_rows calls three times a
 #: run. The files are a function of the code, so the code key keys them; their
-#: bytes are hashed afresh each call.
+#: bytes, and the DERIVED outputs, are hashed afresh each call.
 _DATA_FILES = {}
 
 
 def _data_salt(name, roots, code_key=None):
     k = (name, frozenset(roots), code_key)
     if code_key is None or k not in _DATA_FILES:
-        _DATA_FILES[k] = data_files(name, roots)
+        _DATA_FILES[k] = keyed_inputs(name, roots)
+    files, derived = _DATA_FILES[k]
     h = hashlib.sha1()
-    for p in _DATA_FILES[k]:
+    for p in files:
         h.update(p.name.encode() + b"\0" + (p.read_bytes() if p.exists() else b"absent") + b"\0")
+    for d in derived:
+        out = json.dumps(DERIVED[d](), sort_keys=True, separators=(",", ":"))
+        h.update(d.encode() + b"\0" + out.encode() + b"\0")
     return h.hexdigest()[:16]
 
 

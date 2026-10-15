@@ -155,7 +155,10 @@ for module, roots in [("fetch_puzzle", {"index_row", "index_row_deps"}),
                       ("difficulty", {"history_row", "history_row_deps"}),
                       ("difficulty", {"clue_row", "clue_row_deps", "_load_clue_inputs"}),
                       ("difficulty", {"check_row", "check_row_deps", "_load_clue_inputs"})]:
+    past, _ = row_cache.reach_past_derived(module, roots)
     for mod, name in code_reach.reach(module, roots):
+        if (mod, name) not in past:  # read only through a DERIVED definition, whose output is keyed
+            continue
         obj = getattr(__import__(mod), name, None)
         if isinstance(obj, Path) and obj.is_relative_to(Path("tools/data").resolve()) and (mod, name) not in KEYED \
                 and obj not in row_cache.data_files(module, roots):
@@ -166,6 +169,45 @@ check("books.json is keyed for fetch_puzzle rows",
       any(p.name == "books.json" for p in row_cache.data_files("fetch_puzzle", {"index_row", "index_row_deps"})), True)
 check("lexicon is keyed for clue rows",
       any(p.name == LEX for p in row_cache.data_files("difficulty", {"clue_row", "_load_clue_inputs"})), True)
+
+# blocks.json, which every blog-facts run rewrites, reaches these rows only
+# through build_abbreviations.table(): the table they read keys them, not the
+# file's bytes, so new clue counts that leave the table alone re-key nothing.
+import build_abbreviations
+IDX = ("fetch_puzzle", {"index_row", "index_row_deps"})
+files, derived = row_cache.keyed_inputs(*IDX)
+check("index rows are keyed on the abbreviation table", derived, ["build_abbreviations.table"])
+check("and not on blocks.json's bytes", [p.name for p in files if p.name == "blocks.json"], [])
+row_cache._DATA_FILES.clear()
+salt = row_cache._data_salt(*IDX)
+real_lexicon, real_table = build_abbreviations.LEXICON, build_abbreviations.table
+counts = json.loads(real_lexicon.read_text())
+word = next(iter(counts))
+counts[word] = {k: n + 1 for k, n in counts[word].items()}
+bumped = tmp / "blocks.json"
+bumped.write_text(json.dumps(counts))
+build_abbreviations.TABLE_CACHE = tmp / "abbreviations-table.json"  # never the user's cache
+build_abbreviations.LEXICON, build_abbreviations._USAGE, build_abbreviations._TABLE = bumped, None, None
+check("a blocks.json with new counts but the same table keeps the key", row_cache._data_salt(*IDX), salt)
+check("(the table was built again from it)", build_abbreviations._TABLE is not None and
+      build_abbreviations._inputs_key() == json.loads(build_abbreviations.TABLE_CACHE.read_text())["key"], True)
+build_abbreviations.LEXICON, build_abbreviations._USAGE, build_abbreviations._TABLE = real_lexicon, None, None
+built = real_table()
+build_abbreviations.table = lambda: {**built, "zzzq": ["new sense"]}
+check("a changed table changes the key", row_cache._data_salt(*IDX) != salt, True)
+build_abbreviations.table = real_table
+check("the real table again, the key again", row_cache._data_salt(*IDX), salt)
+
+# Rows through the cache are the rows the functions make, cold and warm.
+import fetch_puzzle
+import blog_facts
+real_all = sorted(Path("puzzles").resolve().glob("*/*/*-[0-9]*.json"))
+few = real_all[::max(1, len(real_all) // 40)]
+for module, fn, kw in [("fetch_puzzle", fetch_puzzle.index_row, {"roots": {"index_row_deps"}, "deps": fetch_puzzle.index_row_deps}),
+                       ("blog_facts", blog_facts.puzzle_row, {})]:
+    want = [fn(p) for p in few]
+    for when in ("cold", "warm"):
+        check(f"{module}.{fn.__name__} rows through the cache, {when}", row_cache.cached_map(module, fn, few, **kw), want)
 
 # difficulty.checked(), the rows tools/difficulty_check.py and
 # tools/snitch_report.py read, rates a file as score() and raw() rate it,
