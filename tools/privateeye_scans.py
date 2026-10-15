@@ -144,8 +144,13 @@ def number_of(lines, issue):
     for k, w in enumerate(words):
         if re.fullmatch(r"\W*crossword\W*", w[4], re.IGNORECASE) and not (
                 k and re.fullmatch(r"to", words[k - 1][4], re.IGNORECASE)):
-            for nxt in words[k + 1:k + 4]:
-                if re.fullmatch(r"\d{1,3}", nxt[4]) and abs(int(nxt[4]) - want) <= 2:
+            # Rules read as "|" between the heading and its number skipped
+            # (issue 1125: "CROSSWORD | | |_ 280"); "Crossword 279 winner"
+            # names the puzzle before.
+            after = [w for w in words[k + 1:k + 12] if re.search(r"[^\W_]", w[4])][:4]
+            for i, nxt in enumerate(after[:3]):
+                if re.fullmatch(r"\d{1,3}", nxt[4]) and abs(int(nxt[4]) - want) <= 2 and not (
+                        i + 1 < len(after) and re.match(r"winner", after[i + 1][4], re.IGNORECASE)):
                     return int(nxt[4])
     # The heading lost: the solution printed below is the puzzle before's.
     for ws in lines:

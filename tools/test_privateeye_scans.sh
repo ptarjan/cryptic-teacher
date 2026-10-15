@@ -49,6 +49,9 @@ print("SPLIT", len(lines))
 cols = ps.columns(lines)
 print("COLS", len(cols), cols[0][0] < 200, cols[1][0] > 1200 and cols[1][3] > 200 + 45 * 4)
 print("NUMBER", ps.number_of(lines, 858), ps.number_of(lines[1:], 858), ps.number_of(lines[1:], 900))
+W = lambda *ts: [(0, 0, 1, 1, t) for t in ts]
+ruled = [W("EYE", "CROSSWORD", "|", "|", "|_", "280"), W("Crossword", "279", "winner:", "PETER")]
+print("RULED", ps.number_of(ruled, 1125), ps.number_of(ruled[1:], 1125))
 words = [w for ws in lines for w in ws]
 across, down = ps.column_cols(cols)(words)
 print("SIDES", len(across), len(down), down[2][4])
@@ -130,6 +133,7 @@ get() { echo "$out" | sed -n "s/^$1 //p"; }
 check "a LINE across both columns is cut at the gap" "13" "$(get SPLIT)"
 check "two clue columns found, left then right, a clue saying crossword in them" "2 True True" "$(get COLS)"
 check "the heading's number, else the solution's + 1, never the address's 6" "13 13 None" "$(get NUMBER)"
+check "rules between the heading and its number skipped; Crossword N winner is not it" "280 None" "$(get RULED)"
 check "the columns read ACROSS then DOWN, a linked head's slash a comma" "4 4 20, 12 Linked clue (6,6)" "$(get SIDES)"
 check "a linked head prints 20/12 and a continuation See 20" \
   "EYE CROSSWORD 13 ACROSS 1 Clue one here (5) DOWN 1 First down clue (4,4) 12 See 20 20/12 Linked clue (6,6)" \
