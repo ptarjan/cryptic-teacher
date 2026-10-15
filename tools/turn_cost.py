@@ -28,6 +28,7 @@ import os
 import pathlib
 import statistics
 import sys
+import time
 
 # The same directory the CLI wrote them to, which is not under $HOME once the
 # run is not the Mac's: this is called with `|| true`, so a wrong path here
@@ -76,7 +77,7 @@ def sessions(since_days=None):
     """Yield (started, api_calls, text_turns) for every annotation transcript,
     or, with since_days, every one whose file was written within that many days
     (a session cannot have started after its transcript's last write)."""
-    cache, seen = _load_cache(), {}
+    cache, seen, saved = _load_cache(), {}, time.monotonic()
     cut = None if since_days is None else datetime.datetime.now().timestamp() - since_days * 86400
     for path in transcripts():
         try:
@@ -91,6 +92,12 @@ def sessions(since_days=None):
             row = hit[1]
         else:
             row = _parse(path)
+            # Saved as it goes: a cold run (every transcript, 7.5 GB) can be
+            # killed with the unit, and must still leave the next one less to do.
+            if time.monotonic() - saved > 60:
+                cache.update(seen)
+                _save_cache(cache)
+                saved = time.monotonic()
         seen[key] = [sig, row]
         if row and row[3]:
             yield datetime.datetime.fromisoformat(row[0]), row[1], row[2]
