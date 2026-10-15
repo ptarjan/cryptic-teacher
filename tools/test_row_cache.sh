@@ -73,6 +73,27 @@ check("a changed code key re-parses every file", run(), ([0, 9, 2], ["a-1", "b-2
 code_reach.key = key
 check("back on the first code, its rows are still stored", run(), ([0, 9, 2], []))
 
+# The prune (a full scan of a gigabytes store) runs once a day: a row unused
+# for PRUNE_DAYS survives a map on a day the prune already ran, and the first
+# map of a new day drops it and marks the day.
+import sqlite3
+import time
+today = int(time.time() // 86400)
+
+
+def stale_rows(mark):
+    with sqlite3.connect(row_cache.STORE) as db:
+        db.execute("INSERT OR REPLACE INTO rows VALUES('stale', x'', x'', 0)")
+        db.execute(f"PRAGMA user_version={mark}")
+    run()
+    with sqlite3.connect(row_cache.STORE) as db:
+        return (db.execute("SELECT count(*) FROM rows WHERE key='stale'").fetchone()[0],
+                db.execute("PRAGMA user_version").fetchone()[0])
+
+
+check("a map on a day already pruned leaves the stale row", stale_rows(today), (1, today))
+check("the first map of a day prunes it and marks the day", stale_rows(today - 1), (0, today))
+
 # A row's key names its file as Path.resolve() would, though the names are
 # built from each folder resolved once: through a linked folder, a linked
 # file, a missing file, a `..`, and a file outside the root.

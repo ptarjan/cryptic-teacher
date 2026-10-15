@@ -150,7 +150,13 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None):
                              ((keys[p], pickle.dumps(out[p]), pickle.dumps(deps(p, out[p])), today) for p in keep))
             conn.executemany("UPDATE rows SET used=? WHERE key=?",
                              ((today, keys[p]) for p in paths if p not in missed and stored[keys[p]][2] != today))
-            conn.execute("DELETE FROM rows WHERE used < ?", (today - PRUNE_DAYS,))
+            # The prune is a full scan (`used` has no index, and the store is
+            # gigabytes: 2.6GB re-read per call, three calls a reindex, under
+            # memory pressure), yet its cutoff moves only when the day does,
+            # so it runs once a day: user_version holds the day it last ran.
+            if conn.execute("PRAGMA user_version").fetchone()[0] != today:
+                conn.execute("DELETE FROM rows WHERE used < ?", (today - PRUNE_DAYS,))
+                conn.execute(f"PRAGMA user_version={today}")
     except sqlite3.Error as err:
         print(f"row cache for {name}.{fn.__name__}: could not store {len(miss)} rows: {err!r}", file=sys.stderr)
     finally:
