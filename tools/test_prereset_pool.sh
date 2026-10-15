@@ -108,7 +108,7 @@ python3() {
       case "$2" in
         --cover-first) echo "replan" >>"$EVENTS"; [ -z "${PLAN_SLEEP:-}" ] || sleep "$PLAN_SLEEP"
           if [ -n "${PLAN_REVERSE:-}" ]; then tac; else cat; fi ;;
-        --backlog) : ;;
+        --backlog) [ -z "${BACKLOG_FN:-}" ] || "$BACKLOG_FN" ;;
         *) [ "$2" = --unsolved ] && [ "$3" = "$UNSOLVED_ID" ] ;;
       esac ;;
     tools/failed_inputs.py) : ;;
@@ -256,6 +256,24 @@ check "a stopped re-plan is logged and leaves the order as it was" \
   "1 pooltest-$$-h1 pooltest-$$-h2 pooltest-$$-h3" \
   "$(printf '%s\n' "$out" | grep -cm1 '^--- re-plan still running after') $(awk '$1 == "start" { print $2 }' "$EVENTS" | head -3 | tr '\n' ' ' | sed 's/ $//')"
 grep -q '^ALERT' "$EVENTS" && { echo "FAIL alert raised: $(grep '^ALERT' "$EVENTS")"; fails=$((fails + 1)); }
+# The re-read backlog re-admits an id this run already finished once it is
+# due again (10-14: quiptic-71/166/230/321, repaired after their runs failed,
+# waited for the next burn), and adds one filed since. An id still queued or in
+# flight is never added twice. The stub lists r1 once it has been handled, as
+# --backlog does for a puzzle repaired after its run failed, and only once, as
+# the ledger or the annotation then holds it out.
+readmit_backlog() {
+  grep -qE "^(ok|fail) pooltest-$$-r1( |$)" "$EVENTS" || return 0
+  [ -e "$EVENTS.readmitted" ] && return 0
+  : >"$EVENTS.readmitted"
+  echo "pooltest-$$-r1 pooltest-$$-rnew pooltest-$$-r5"
+}
+rm -f "$EVENTS.readmitted"
+BACKLOG_FN=readmit_backlog POOL_PLAN_SECS=60 replan_pool r
+check "a re-plan re-admits a finished id due again and adds a new one; a queued id starts once" \
+  "2 1 1" \
+  "$(awk -v p="pooltest-$$-r" '$1 == "start" { s[$2]++ } END { print s[p "1"] + 0, s[p "new"] + 0, s[p "5"] + 0 }' "$EVENTS")"
+rm -f "$EVENTS.readmitted"
 
 # A sync that brings new shell code: the pool re-execs itself onto it at its
 # loop top, adopts the runs in flight, reaps them with the new code, and goes

@@ -621,10 +621,15 @@ pool_replan() {
   t0=${EPOCHREALTIME/[.,]/}
   (
     # A run lasts days: the backlog is read again, so a puzzle filed or made
-    # eligible since the run started joins the queue. An id the queue already
-    # holds, started or not, is not added again.
+    # eligible since the run started joins the queue. An id still queued or in
+    # flight is not added again. One this run already finished is, when the
+    # backlog holds it again: --backlog reads every file written since the
+    # index (prereset_plan.fresh_rows), so a puzzle annotated here reads as
+    # annotated and a failed one stays out through the ledger, until its
+    # puzzle is repaired (10-14: quiptic-71/166/230/321, repaired after their
+    # runs failed, waited for the next run).
     if [ "$POOL_PLANNED" = 1 ]; then
-      for id in "${queue[@]}"; do held[$id]=1; done
+      for id in "${queue[@]:$at}" "${POOL_RUNS[@]}"; do held[$id]=1; done
       for id in $(python3 tools/prereset_plan.py --backlog \
           "$(python3 tools/failed_inputs.py skipped annotate)" \
           "$(python3 tools/failed_inputs.py skipped solve)" 2>/dev/null); do
@@ -651,7 +656,7 @@ pool_replan() {
   wait "$pid" 2>/dev/null
   if [ -e "$f.done" ]; then
     held=()
-    for id in "${queue[@]}"; do held[$id]=1; done
+    for id in "${queue[@]:$at}" "${POOL_RUNS[@]}"; do held[$id]=1; done
     while read -r id; do
       [ -n "$id" ] && [ -z "${held[$id]:-}" ] && { held[$id]=1; queue+=("$id"); }
     done <"$f.new"
