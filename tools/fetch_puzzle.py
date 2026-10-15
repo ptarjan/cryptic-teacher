@@ -3453,6 +3453,16 @@ def still_worth_refreshing(puzzle, now=None):
     return ((now or datetime.now(timezone.utc)) - when).days <= REFRESH_WINDOW_DAYS
 
 
+def _file_bytes(path):
+    """Where `path` is held and its bytes, or None when nothing is there: before
+    and after a re-fetch, to tell a write that changed the file (or moved it to
+    another year folder) from one that did not."""
+    try:
+        return path, path.read_bytes()
+    except OSError:
+        return None
+
+
 def refresh_unsolved():
     """Re-fetch on-disk puzzles whose solutions weren't published yet.
 
@@ -3483,9 +3493,18 @@ def refresh_unsolved():
         if not all(e.get("solution") for e in p["entries"]) or provenance.solution_detail(p):
             pending.append((p["number"], series_meta.of(p)))
     filled = 0
+    # A reindex is a whole-corpus pass (difficulty over every puzzle plus every
+    # index row), the bulk of this pass on a loaded host: it ran once inside
+    # fetch_number and again below for a single still-withheld puzzle whose
+    # re-fetch wrote back the same bytes. One reindex at the end, and only when
+    # a file on disk actually changed — the index is built from those files
+    # and nothing else here, so an unchanged corpus is an unchanged index.
+    moved = False
     for num, series in pending:
         try:
-            puzzle, _ = fetch_number(num, series)
+            before = _file_bytes(puzzle_path(series, num))
+            puzzle, _ = fetch_number(num, series, reindexed=False)
+            moved |= _file_bytes(puzzle_path(series, num)) != before
             # A carried-over model fill fills every entry too, so "has letters
             # everywhere" is not the test — "the paper said so" is.
             if all(e.get("solution") for e in puzzle["entries"]) and not provenance.solution_detail(puzzle):
@@ -3497,8 +3516,9 @@ def refresh_unsolved():
                 print(f"{num}: solutions still withheld")
         except Exception as err:
             print(f"refresh {num} failed: {err}")
+            moved = True  # a failure part-way may still have written: rebuild to be safe
         time.sleep(1)
-    if pending:
+    if moved:
         reindex()
     print(f"refresh-unsolved: {filled}/{len(pending)} puzzle(s) gained solutions")
 

@@ -85,7 +85,7 @@ raw = {"id": "cryptic-99999", "number": 99999, "date": today,
 asked = []
 fetcher.puzzle_files = lambda *series: ["x"]
 fetcher.read_puzzle_file = lambda path: raw
-fetcher.fetch_number = lambda num, series: (asked.append((num, series)) or (raw, None))
+fetcher.fetch_number = lambda num, series, **kw: (asked.append((num, series)) or (raw, None))
 fetcher.reindex = lambda: None
 fetcher.time.sleep = lambda s: None
 fetcher.refresh_unsolved()
@@ -131,6 +131,66 @@ PY
 echo "a re-fetch is written in the format, its annotations kept; so is a fresh puzzle"
 same "refetch written" "$(grep '^REFETCH ' <<<"$out3" || echo "$out3" | tail -3)" "REFETCH False False True"
 same "fresh puzzle written" "$(grep '^FRESH ' <<<"$out3" || echo "$out3" | tail -3)" "FRESH False False"
+
+out4=$(PYTHONPATH=tools python3 - <<'PY' 2>&1
+import datetime, tempfile
+from pathlib import Path
+import fetch_puzzle as fetcher
+
+# A reindex is a whole-corpus pass. A still-withheld puzzle whose re-fetch
+# writes back the same bytes moves nothing in the index, so the refresh must
+# not reindex for it, nor let fetch_number reindex per puzzle; a re-fetch that
+# changes the file reindexes exactly once, after the lot.
+today = datetime.date.today().isoformat()
+d = Path(tempfile.mkdtemp())
+raws = {n: {"id": f"cryptic-{n}", "number": n, "date": today,
+            "entries": [{"solution": None}]} for n in (99998, 99999)}
+for n in raws:
+    (d / f"cryptic-{n}.json").write_text("held")
+fetcher.puzzle_files = lambda *series: sorted(raws)
+fetcher.read_puzzle_file = lambda path: raws[path]
+fetcher.puzzle_path = lambda series, num: d / f"{series}-{num}.json"
+fetcher.time.sleep = lambda s: None
+reindexed, flags = [], []
+fetcher.reindex = lambda: reindexed.append(1)
+
+def refetch(changes):
+    def fetch_number(num, series, reindexed=True):
+        flags.append(reindexed)
+        if num in changes:
+            (d / f"{series}-{num}.json").write_text("new answers")
+        else:
+            (d / f"{series}-{num}.json").write_text("held")  # same bytes rewritten
+        return raws[num], False
+    return fetch_number
+
+fetcher.fetch_number = refetch(set())
+fetcher.refresh_unsolved()
+print("UNCHANGED", len(reindexed), flags)
+reindexed.clear(); flags.clear()
+fetcher.fetch_number = refetch({99998})
+fetcher.refresh_unsolved()
+print("CHANGED", len(reindexed), flags)
+
+import fetch_observer as obs
+obs.puzzle_files = lambda *series: ["x"]
+obs.read_puzzle_view = lambda path: {"series": "everyman", "number": 4173, "date": today,
+                                     "entries": [{"solution": None}]}
+obs.article_uuid = lambda num: "u"
+obs.puzzle_manifest = lambda uuid: {}
+obs.puzzle_data = lambda m: {"copy": {"settings": {"solution": None}}}
+obs.time.sleep = lambda s: None
+obs_reindexed = []
+obs.reindex = lambda: obs_reindexed.append(1)
+obs.refresh_unsolved()
+print("OBSERVER_WITHHELD", len(obs_reindexed))
+PY
+)
+
+echo "a refresh reindexes once, and only when a re-fetch changed a file"
+same "same bytes back: no reindex, none per puzzle" "$(grep '^UNCHANGED ' <<<"$out4" || echo "$out4" | tail -3)" "UNCHANGED 0 [False, False]"
+same "one file changed: one reindex after the lot" "$(grep '^CHANGED ' <<<"$out4" || echo "$out4" | tail -3)" "CHANGED 1 [False, False]"
+same "an Everyman still in its window: no reindex" "$(grep '^OBSERVER_WITHHELD ' <<<"$out4" || echo "$out4" | tail -3)" "OBSERVER_WITHHELD 0"
 
 echo "the working tree is untouched"
 same "git status unchanged" "$(git status --porcelain)" "$tree_before"
