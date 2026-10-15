@@ -233,6 +233,9 @@ finish() {  # finish <rc>: say so and exit
 # within minutes, and a read waits only on the scans its solution needs.
 # Each slice starts nothing after CHUNK seconds, lets its units finish, and
 # the tree moves to origin/master before the next.
+# TROVE_WORKERS is the Trove pool's ceiling: its units (and the Listener's)
+# work on this host's CPU, so each starts only while a core is idle
+# (edition_queue.local_cpu, mem_gate.idle_room); the burn keeps the rest.
 TROVE_WORKERS="${OCR_FULL_PASS_TROVE_WORKERS:-6}"
 slices "editions off archive.org and Gale, Trove articles, Listener pages, and their fetches" python3 tools/edition_queue.py run \
   --reread "$REREAD_BEFORE" --out "$HOME/.cache/archive_org_crops/unfiled" --trove-workers "$TROVE_WORKERS" \
