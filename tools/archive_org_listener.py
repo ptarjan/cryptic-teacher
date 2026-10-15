@@ -270,6 +270,13 @@ def tidy(text):
     text = re.sub(r"(?<=\w)`", " `", text).replace("`", "\u2018")
     # Specks the scan left before a clue number (". 11", ":. 11").
     text = re.sub(r"^[.:;,'`\u2018\u2019 ]+(?=[\dIl])", "", text, flags=re.MULTILINE)
+    # A clue opening on an ellipsis, its head as a reader prints it: glued
+    # to the number ("5... the"), a speck between ("5_ ... the"), dots lost
+    # ("6 . stabbed"), no space after ("6 ...stabbed"); Cyclops No 119's
+    # 5 and 6 down. Else the number is no clue start and the clue runs on
+    # into the one before. A lone stop glued to the number ("5. the") is
+    # the number's own.
+    text = ELLIPSIS_HEAD.sub(r"\1 ... ", text)
     # Not before a lowercase word: "6 3 put more negatively" is 6 down
     # whose clue opens on a reference to 3 (Cyclops No 19), not 63.
     text = re.sub(r"^(\d) (\d) (?=[^\sa-z])", r"\1\2 ", text, flags=re.MULTILINE)
@@ -280,6 +287,10 @@ def tidy(text):
     text = re.sub(r"\bSee\s?[Il]?(?=\d)", lambda m: "See 1" if m.group(0)[-1] in "Il" else "See ", text)
     return WORDS.sub(r"(\1)", text)
 
+
+#: A clue number and the ellipsis its clue opens on (tidy).
+ELLIPSIS_HEAD = re.compile(r"^(\d{1,2})(?:[ _~]*(?:\.\s?\.(?:\s?\.)?|…)[ ]*(?=[A-Za-z\"'‘])| +\. *(?=[a-z]))",
+                           re.MULTILINE)
 
 #: A count inside a clue's text: the next clue ran on after it.
 RUN_ON = re.compile(r"\(\s*[\dSIl,.\- ]*\)\s*\S")

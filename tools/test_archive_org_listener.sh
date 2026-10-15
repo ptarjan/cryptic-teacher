@@ -169,6 +169,41 @@ parsed, _ = al.parse("ACROSS\n1 Fish (4)\n5 Bird of\n3 prey (5)\nDOWN\n2 Tree (3
 check("a counted list ends its clues at the counts", ["Fish", "Bird of 3 prey"],
       [c["text"] for c in parsed["across"]] if parsed else None)
 
+# A clue opening on an ellipsis, however a reader prints its head, starts at
+# its number (Cyclops No 119, issue 964: djvu "5_ ...", times "5...", ch
+# "6...", en5 "6 . stabbed"); a lone stop glued to a number is its own.
+for head in ("5... the", "5_ ... the", "5 ...the", "5 . the", "5 .. the", "5… the"):
+    check(f"an ellipsis head {head!r} is a clue start", "5 ... the vice (4-3)", al.tidy(f"{head} vice (4-3)"))
+check("a stop glued to a number is no ellipsis (mirror)", "5. the vice (4-3)", al.tidy("5. the vice (4-3)"))
+check("a capital after a spaced stop is no ellipsis (mirror)", "5 . The vice (4-3)", al.tidy("5 . The vice (4-3)"))
+
+# vote on issue 964's four readings of the 4-5-6 down chain: every reader
+# prints 5 and 6 down whole, so neither is blank nor loses its dots.
+def lines(*ls):
+    return [(0, 0, 0, 0, t) for t in ls]
+across = lines("1 Outside broadcast abandons filthy row (5)", "4 Like a bum taking GCE, is wrecked by morphine (9)")
+tail = ["8 It's Bill's place to present gaily over-the-top Trimble (4,5)"]
+head = ["1 Do the dirty on Ray (5)", "3 A great organ on dog, purely for cosmetic purposes (3,6)",
+        "4 Agitated state getting vice-president to protect or back"]
+readings = {
+    "djvu": head + ["his country ... (7)", "5_ ... the vice-president really tried to get elected -", "~",
+                    "failure ... (4-3)", "6... stabbed in the back, perhaps, vice-president fashion? (5)"],
+    "ch": head + ["his country ... (7)", "5 ... the vice-president really tried to get elected --",
+                  "failure ... (4-3)", "6... stabbed in the back, perhaps, vice-president fashion? (5)"],
+    "en5": head + ["his country... (7)", "5 ... the vice-president really tried to get elected",
+                   "failure...(4-3)", "6 . stabbed in the back, perhaps, vice-president fashion? (5)"],
+    "times": head + ["his country ... (7)", "5... the vice-president really tried to get elected -",
+                     "failure ... (4-3)", "6 ...stabbed in the back, perhaps, vice-president fashion? (5)"],
+}
+words = {k: (across, lines(*(v + tail))) for k, v in readings.items()}
+verdict, laid = al.vote(words, {}, cols=lambda w: w)
+got = {lid: (laid or {}).get(lid, ("",))[0] for lid in ("4-down", "5-down", "6-down")}
+check("964: 4 down ends on its ellipsis", True, got["4-down"].startswith("Agitated") and got["4-down"].endswith("..."))
+check("964: 5 down opening on an ellipsis is laid whole", True,
+      got["5-down"].startswith("... the vice-president") and "failure" in got["5-down"] and "(" not in got["5-down"])
+check("964: 6 down keeps its three dots", "... stabbed in the back, perhaps, vice-president fashion?", got["6-down"])
+check("964: nothing blank", None, verdict.get("blank"))
+
 print("FAILS", fails)
 EOF
 )
