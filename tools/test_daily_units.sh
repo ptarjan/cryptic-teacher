@@ -60,9 +60,9 @@ check("yesterday's ledger is not today's", plans_ratings(time.mktime((2026, 10, 
 
 # The choice, read off what each unit runs before its own build step.
 for k in [f"fetch:{f}" for f in du.FETCHERS + du.SLOW_FETCHERS] + ["solutions", "blog:times", "blog:telegraph", "bucket:telegraph",
-          "xval:globe", "ft", "azed", "blog-facts", "ratings", "minute", "reports"]:
+          "xval:globe", "ft", "azed", "blog-facts", "ratings", "minute", "reports", "checks"]:
     check(f"{k} skips the start rebuild", du.reads_generated(k), False)
-for k in ["checks", "annotate:p1", "miss:p1:3a"]:
+for k in ["annotate:p1", "miss:p1:3a"]:
     check(f"{k} keeps the start rebuild", du.reads_generated(k), True)
 sys.exit(1 if fails else 0)
 PY

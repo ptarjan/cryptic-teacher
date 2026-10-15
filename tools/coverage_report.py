@@ -43,12 +43,9 @@ import statistics
 import sys
 from collections import defaultdict
 from datetime import datetime, timezone
-from pathlib import Path
 
+import puzzle_paths
 import series as series_meta
-
-ROOT = Path(__file__).resolve().parent.parent
-INDEX = ROOT / "puzzles" / "index.json"
 
 # A series younger than this has never been walked backwards. Three months is
 # comfortably longer than any gap a live feed leaves and far shorter than any
@@ -292,6 +289,24 @@ def audit(puzzles, today):
     return rows
 
 
+def held_puzzles():
+    """The rows of puzzles/index.json this report reads (id, series, number,
+    date, year), straight from the puzzle files that index is built from.
+    The daily `checks` unit then needs no generated files at start
+    (daily_units.py GENERATED): waiting its turn for a whole-corpus rebuild
+    took 35 of its 45 minutes and got it killed (2026-10-15). It is never
+    staler than the files either. Unlisted series are left out, as the
+    index's "puzzles" leaves them out."""
+    rows = []
+    for path in puzzle_paths.puzzle_files():
+        p = json.loads(path.read_text(encoding="utf-8"))
+        # A file never stores its series; its id names it (annotation.view_puzzle).
+        series = series_meta.parse_id(p["id"])[0]
+        if not series_meta.unlisted(series):
+            rows.append({"series": series, **{k: p[k] for k in ("id", "number", "date", "year") if k in p}})
+    return rows
+
+
 def main(argv):
     quiet = "--quiet" in argv
     # Two audiences, one report. A dead feed is tonight's problem and worth
@@ -299,8 +314,7 @@ def main(argv):
     # fire the same alert every night until the walk finishes, which is how an
     # alert stops being read. --stale-only is the half that is allowed to shout.
     stale_only = "--stale-only" in argv
-    index = json.loads(INDEX.read_text())
-    rows = audit(index["puzzles"], datetime.now(timezone.utc).date())
+    rows = audit(held_puzzles(), datetime.now(timezone.utc).date())
     if stale_only:
         for r in rows:
             r["flags"] = [f for f in r["flags"] if f.startswith("STALE")]
