@@ -452,7 +452,14 @@ unit_blog_facts() {
 # failure only means yesterday's ratings stand; unit_commit's `git add -A`
 # picks up tools/data/snitch.json. Daily.
 unit_ratings() {
+  # Each step's name as it starts and its seconds as it ends. The steps after
+  # blog_comment_difficulty send their stdout to /dev/null, so the run killed at
+  # its limit on 2026-10-15 logged nothing to say which step had the hour.
+  step() { echo "step $1 from $(date +%H:%M:%S)"; step_t0=$SECONDS; }
+  took() { echo "step $1 took $(( SECONDS - step_t0 ))s"; }
+  step fetch_snitch
   python3 tools/fetch_snitch.py || echo "fetch_snitch failed (rc=$?); continuing with the ratings already held"
+  took fetch_snitch
 
   # Times for the Times comments: the newest month on disk and any after it are
   # refetched, and the comment table rebuilt from the whole cache.
@@ -461,21 +468,35 @@ unit_ratings() {
   # comments at the next reindex. It leaves the committed table alone when the
   # cache is absent. The report is written to tools/data/snitch_report.txt, whose
   # history is the record of how the numbers move.
+  step fetch_wp_blog
   python3 tools/fetch_wp_blog.py timesforthetimes --comments || echo "fetch_wp_blog --comments failed (rc=$?); the badges blend the comments already cached"
+  took fetch_wp_blog
+  step blog_comment_difficulty
   python3 tools/blog_comment_difficulty.py || echo "blog_comment_difficulty: rc=$?; the badges and the per-clue check use the table already committed"
+  took blog_comment_difficulty
+  step snitch_report
   python3 tools/snitch_report.py --write >/dev/null || echo "snitch_report failed (rc=$?); tools/data/snitch_report.txt is last night's"
+  took snitch_report
   # The held-out scorecard /difficulty/ quotes. The page drops the numbers rather
   # than quote ones measured under other weights, so a missed night shows there.
+  step difficulty_check
   python3 tools/difficulty_check.py --write >/dev/null || echo "difficulty_check failed (rc=$?); /difficulty/ quotes tools/data/difficulty_check.json from last night"
+  took difficulty_check
   # The authoring checks' link and reversal-axis words, re-measured over the day's
   # annotations. Every annotated clue can move them, so they are refreshed here
   # rather than checked on each push.
+  step build_clue_joints
   python3 tools/build_clue_joints.py >/dev/null || echo "build_clue_joints failed (rc=$?); the authoring checks use last night's tools/data/clue_joints.json"
+  took build_clue_joints
   # The grid filler's per-length floors, re-measured over the day's answers.
+  step build_fill_floors
   python3 tools/build_fill_floors.py >/dev/null || echo "build_fill_floors failed (rc=$?); grid_fill uses last night's tools/data/fill_floors.json"
+  took build_fill_floors
   # Tonight's row of the phase history /progress/ draws: the site is built from
   # a one-commit checkout, so the history it charts has to be committed.
+  step progress_record
   python3 tools/progress_record.py record >/dev/null || echo "progress record failed (rc=$?); /progress/ misses tonight's row"
+  took progress_record
   return 0
 }
 
