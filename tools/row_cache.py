@@ -61,11 +61,13 @@ def _open():
     return conn
 
 
-def _blobs(paths):
-    """{path: git blob sha} for each path."""
+def _blobs(paths, listed=None):
+    """{path: git blob sha} for each path, off `listed`
+    (puzzle_integrity.listing(), read here unless the caller holds it)."""
     import puzzle_integrity  # lazy: it imports fetch_puzzle, which imports this
     root = puzzle_paths.PUZZLE_DIR.parent  # what listing() names files under
-    listed = puzzle_integrity.listing()
+    if listed is None:
+        listed = puzzle_integrity.listing()
     out = {}
     for p in paths:
         out[p] = listed.get(puzzle_paths.relative(p, root)) or _blob_sha(p)
@@ -160,16 +162,18 @@ def _data_salt(name, roots, code_key=None):
     return h.hexdigest()[:16]
 
 
-def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None):
+def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, listed=None):
     """[fn(p) for p in paths], each row reused when its file, its code and
     deps(p, row) are those it was made from. `name` is fn's module:
-    code_reach.key(name, {fn.__name__, *roots})."""
+    code_reach.key(name, {fn.__name__, *roots}). `listed` is
+    puzzle_integrity.listing() where the caller has read it already: read
+    again here, it cost puzzle_integrity's whole-corpus run ~40s."""
     paths = list(paths)
     try:
         conn = _open()
         code_key = code_reach.key(name, {fn.__name__, *roots})
         code = f"{name}.{fn.__name__}:{code_key}:{salt}:{_data_salt(name, {fn.__name__, *roots}, code_key)}"
-        keys = {p: _key(code, p, b) for p, b in _blobs(paths).items()}
+        keys = {p: _key(code, p, b) for p, b in _blobs(paths, listed).items()}
         stored, moved = _lookup(conn, code, keys)
     except (OSError, sqlite3.Error) as err:
         print(f"row cache for {name}.{fn.__name__}: {err!r}; computing every row", file=sys.stderr)

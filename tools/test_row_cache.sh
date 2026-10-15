@@ -85,6 +85,18 @@ with _sq.connect(row_cache.STORE) as db:
 check("and are written under their new keys", prefixed, 3)
 check("which the next map reads by range", run(), ([0, 9, 2], []))
 
+# A caller holding puzzle_integrity.listing() (its own whole-corpus run) hands
+# it in, and the map keys its rows off it without listing the corpus again.
+import puzzle_integrity
+listing = puzzle_integrity.listing
+held = listing()
+calls = []
+puzzle_integrity.listing = lambda: calls.append(1) or listing()
+parsed.clear()
+got = [r["v"] for r in row_cache.cached_map("row_cache", parse, files, deps=deps, listed=held)]
+check("a map handed the listing reads its rows without listing again", (got, sorted(parsed), calls), ([0, 9, 2], [], []))
+puzzle_integrity.listing = listing
+
 # The prune (a full scan of a gigabytes store) runs once a day: a row unused
 # for PRUNE_DAYS survives a map on a day the prune already ran, and the first
 # map of a new day drops it and marks the day.

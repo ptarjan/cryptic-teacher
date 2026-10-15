@@ -1813,14 +1813,16 @@ def _table_salt():
     return h.hexdigest()[:16]
 
 
-def _judge(paths):
+def _judge(paths, files=None):
     """[_one_file(p) for p in paths], over every core; a long list through
     row_cache, so a file whose content, code and horizon are those of its
-    stored row is not viewed again."""
+    stored row is not viewed again. `files` is the caller's listing(), whose
+    blob shas key the rows: not read a second time."""
     if len(paths) < ROW_CACHE_MIN:
         return parallel.pmap(_one_file, paths)
     import row_cache
-    rows = row_cache.cached_map("puzzle_integrity", _file_row, paths, salt=_table_salt(), deps=_today_deps)
+    rows = row_cache.cached_map("puzzle_integrity", _file_row, paths, salt=_table_salt(), deps=_today_deps,
+                                listed=files)
     return [(flags, row) for flags, row, _ in rows]
 
 
@@ -2014,7 +2016,7 @@ def audit(files, paths, today, only=None):
     _TODAY = today
     judged = paths if only is None else [n for n in paths if n in only]
     root = puzzle_paths.PUZZLE_DIR.parent
-    results = _judge([root / n for n in judged])
+    results = _judge([root / n for n in judged], files)
     flags, rows = [], {}
     for path, (own, row) in zip(judged, results):
         flags.extend(own)
