@@ -30,6 +30,7 @@ import importlib
 import json
 import os
 import sys
+import threading
 import time
 from pathlib import Path
 
@@ -148,14 +149,36 @@ def edition_rows():
     when it was laid out}} of every edition under downloads.ARCHIVE_ORG
     holding pages.json, off the archiveorg-editions and gale-editions
     manifests, folding only the rows appended since the last call. Raises
-    SystemExit when either was never built (it would read as no editions)."""
+    SystemExit when either was never built (it would read as no editions).
+
+    The merged dict is this thread's own and kept while neither manifest's
+    fold gained a key or was started afresh: its values are the folds' own
+    row dicts, which later rows update in place, so it stays current. The
+    queue asks this once a queued scan unit a pass (input_hash), and merging
+    ~100k rows afresh each time held a core. Callers only read it."""
     import dir_cache
-    out = {}
+    accs = []
     for name in (ARCHIVE_EDITIONS, GALE_EDITIONS):
-        if not built(name):
+        acc = dir_cache.appended(path(name), dict, _fold_edition)
+        if not acc and not built(name):
             rows(name)  # raises, naming its build
-        out.update(dir_cache.appended(path(name), dict, _fold_edition))
+        accs.append(acc)
+    key = tuple((id(a), len(a)) for a in accs)
+    me = threading.get_ident()
+    hit = _EDITION_ROWS.get(me)
+    if hit is not None and hit[0] == key and hit[1] is accs[0] and hit[2] is accs[1]:
+        return hit[3]
+    out = {}
+    for acc in accs:
+        out.update(acc)
+    if len(_EDITION_ROWS) > 64:  # threads come and go
+        _EDITION_ROWS.clear()
+    _EDITION_ROWS[me] = (key, accs[0], accs[1], out)
     return out
+
+
+#: {thread ident: (fold key, archive fold, gale fold, merged)} of edition_rows.
+_EDITION_ROWS = {}
 
 
 def memo(name, key, value):

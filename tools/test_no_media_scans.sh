@@ -338,6 +338,23 @@ if media or got != want or again != first:
 if fa.input_hash(d) != fa._input_hash_listed(d):
     print("FAIL the edition manifest's hash is not input_hash's form")
     sys.exit(1)
+# edition_rows, asked once a queued scan a pass, merges the manifests again
+# only when a fold gains an edition, and still shows rows appended since.
+e1 = M.edition_rows()
+if M.edition_rows() is not e1:
+    print("FAIL edition_rows merged the edition manifests again with nothing appended")
+    sys.exit(1)
+M.record(M.ARCHIVE_EDITIONS, d, edition=rel, files="feedface", at=5)
+if M.edition_rows()[rel] != {"files": "feedface", "at": 5}:
+    print(f"FAIL edition_rows missed a row appended for a known edition: {M.edition_rows()[rel]}")
+    sys.exit(1)
+rel2 = "NewsUK1980UKEnglish/1980-01-12_1"
+M.record(M.GALE_EDITIONS, ao / rel2, edition=rel2, files="cafe", at=6)
+e2 = M.edition_rows()
+if e2.get(rel2) != {"files": "cafe", "at": 6} or e2[rel]["files"] != "feedface":
+    print(f"FAIL edition_rows missed an edition appended to gale-editions: {e2}")
+    sys.exit(1)
+print("ok   edition_rows is merged again only when an edition is appended, and shows rows appended since")
 print("ok   edition_queue.fresh, the archive.org filer and fetcher plans and match_canberra stat no archive.org path")
 PY
 
