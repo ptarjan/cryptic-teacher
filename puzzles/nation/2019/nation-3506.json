@@ -12,12 +12,18 @@
   "url": "https://www.thenation.com/article/archive/puzzle-no-3506/",
   "retrievedFrom": "publisher",
   "acquiredBy": "tools/fetch_nation.py",
-  "acquiredOn": "2026-10-14",
+  "acquiredOn": "2026-10-12",
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-14",
+  "check": "30 entries, 60 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,6 +42,60 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "SAULBELLOW",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nobel-winning author",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "on the inside",
+       "at": 50,
+       "note": "on the inside tells us the mixed-up letters go within the yellowish word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "yellowish",
+       "at": 24,
+       "gives": "SALLOW",
+       "note": "sallow describes a sickly yellow complexion"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sadly",
+         "at": 39,
+         "note": "sadly signals the letters of blue are knocked out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "blue",
+         "at": 45,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A laureate looks jaundiced and feels down deep within.",
+     "walkthrough": "Blue looks like the author's mood, but it is the anagram fodder; the jumbled letters sit inside SALLOW to give SAUL BELLOW.",
+     "definitionFit": "Saul Bellow, the American novelist of Herzog, won the Nobel Prize in Literature in 1976."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blue"
+    }
    }
   },
   {
@@ -63,6 +123,78 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "SPEAKOFTHEDEVIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Look who's here",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 46,
+         "note": "around says the mild word wraps itself about the summit word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Clement",
+         "at": 17,
+         "gives": "SOFT",
+         "note": "clement weather is mild, or soft"
+        },
+        {
+         "words": "a mountaintop",
+         "at": 53,
+         "gives": "PEAK",
+         "note": "a peak is the top of a mountain"
+        }
+       ]
+      },
+      {
+       "words": "he",
+       "at": 26,
+       "gives": "HE",
+       "note": "taken as written"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 43,
+         "note": "in a down clue, up means the word is read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "used to dwell",
+         "at": 29,
+         "gives": "LIVED",
+         "note": "lived is the past tense of dwell"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A greeting for someone named Clement, who once lived high on a mountain summit.",
+     "walkthrough": "Clement looks like a person's name, but it means mild. LIVED read upward gives DEVIL.",
+     "definitionFit": "The idiom is said when someone being talked about walks in, a jokey way of saying look who has arrived."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Clement"
+    }
    }
   },
   {
@@ -76,6 +208,59 @@
    "clue": {
     "text": "Sports official saw components bearing north, and coming later than at least a dozen",
     "enumeration": "9"
+   },
+   "solution": "UMPTEENTH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "coming later than at least a dozen",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Sports official",
+       "at": 0,
+       "gives": "UMP",
+       "note": "ump is short for umpire"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "bearing",
+         "at": 31,
+         "note": "bearing means carrying, so the saw's points hold the compass letter inside them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "saw components",
+         "at": 16,
+         "gives": "TEETH",
+         "note": "a saw's cutting points are its teeth"
+        },
+        {
+         "words": "north",
+         "at": 39,
+         "gives": "N"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An umpire examines saw blades pointing north, and arrives after a dozen others.",
+     "walkthrough": "Bearing north reads like a compass heading; here bearing means carrying, and north is just N.",
+     "definitionFit": "Umpteenth means the latest in a very long, uncounted series, so it comes after a dozen or more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bearing"
+    }
    }
   },
   {
@@ -89,6 +274,49 @@
    "clue": {
     "text": "Bread supplied by revolutionary vigor? Just the reverse!",
     "enumeration": "7"
+   },
+   "solution": "BRIOCHE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bread",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Just the reverse",
+       "at": 39,
+       "note": "just the reverse tells us to swap the order the surface gives, putting the vigor word before the revolutionary"
+      }
+     ],
+     "parts": [
+      {
+       "words": "vigor",
+       "at": 32,
+       "gives": "BRIO",
+       "note": "brio is lively energy or vigor"
+      },
+      {
+       "words": "revolutionary",
+       "at": 18,
+       "gives": "CHE",
+       "note": "Che Guevara, the Argentine revolutionary"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is the bread provided by a radical's energy? No, the other way round!",
+     "walkthrough": "The surface implies CHE then BRIO; the exclamation reverses that order to BRIO then CHE.",
+     "definitionFit": "Brioche is a rich, buttery French bread made with eggs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reverse"
+    }
    }
   },
   {
@@ -102,6 +330,41 @@
    "clue": {
     "text": "Temptation to break rule",
     "enumeration": "4"
+   },
+   "solution": "LURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Temptation",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "break",
+       "at": 14,
+       "note": "to break the word rule is to smash its letters into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "rule",
+       "at": 20,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The urge to break the rules.",
+     "definitionFit": "A lure is an enticement or bait that draws someone in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "break"
+    }
    }
   },
   {
@@ -115,6 +378,52 @@
    "clue": {
     "text": "Look elsewhere to get couture so refined",
     "enumeration": "9"
+   },
+   "solution": "OUTSOURCE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Look elsewhere",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "refined",
+       "at": 33,
+       "note": "refined here means re-fined, the letters worked over into a new form"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "couture",
+         "at": 22,
+         "note": "taken as written"
+        },
+        {
+         "words": "so",
+         "at": 30,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion house sends work abroad to make its couture more elegant.",
+     "walkthrough": "Refined looks like praise for the fashion, but it is the anagram signal.",
+     "definitionFit": "To outsource is to have work done by an outside supplier rather than in-house, looking beyond your own company."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "refined"
+    }
    }
   },
   {
@@ -128,6 +437,49 @@
    "clue": {
     "text": "50 percent failure dogs onboard computer",
     "enumeration": "4"
+   },
+   "solution": "HALF",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "50 percent",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "dogs",
+       "at": 19,
+       "note": "dogs means follows closely, so the grade letter trails behind"
+      }
+     ],
+     "parts": [
+      {
+       "words": "onboard computer",
+       "at": 24,
+       "gives": "HAL",
+       "note": "HAL 9000 is the spaceship computer in 2001: A Space Odyssey"
+      },
+      {
+       "words": "failure",
+       "at": 11,
+       "gives": "F",
+       "note": "F is the failing grade in American schools"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spaceship's computer keeps failing half the time.",
+     "walkthrough": "50 percent looks like part of the failure rate, but it is the definition.",
+     "definitionFit": "Half is one of two equal parts, the same proportion as fifty percent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dogs"
+    }
    }
   },
   {
@@ -141,6 +493,62 @@
    "clue": {
     "text": "Following a loud unfinished word",
     "enumeration": "5"
+   },
+   "solution": "AFTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Following",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 10,
+       "gives": "A",
+       "note": "taken as written"
+      },
+      {
+       "words": "loud",
+       "at": 12,
+       "gives": "F",
+       "note": "f, forte, is the musical marking for loud"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 17,
+         "note": "unfinished means the word's final letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "word",
+         "at": 28,
+         "gives": "TERM",
+         "note": "a term is a word or expression"
+        },
+        {
+         "gives": "M"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tracks down a noisy remark left incomplete.",
+     "definitionFit": "After, used as a preposition, means coming later or behind, as following does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Following"
+    }
    }
   },
   {
@@ -160,6 +568,70 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "FEDERALREGISTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "account of the government's daily doings",
+      "at": 46
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "engrossed in",
+       "at": 19,
+       "note": "engrossed in says the jumbled letters are absorbed into the middle of the tennis player's name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tennis star's",
+       "at": 32,
+       "gives": "FEDERER",
+       "note": "Roger Federer, the Swiss tennis champion"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Terrible",
+         "at": 0,
+         "note": "terrible says the letters of liar and gets are wrecked into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "liar",
+           "at": 9,
+           "note": "taken as written"
+          },
+          {
+           "words": "gets",
+           "at": 14,
+           "note": "taken as written"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful liar gets wrapped up in a tennis player's story about government business.",
+     "walkthrough": "Gets looks like part of the link, but it belongs to the anagram with liar.",
+     "definitionFit": "The Federal Register is the official US daily journal publishing government rules, proposed regulations and notices."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "gets"
+    }
    }
   },
   {
@@ -173,6 +645,40 @@
    "clue": {
     "text": "Joke and poke in Indian region",
     "enumeration": "6"
+   },
+   "solution": "PUNJAB",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Indian region",
+      "at": 17
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Joke",
+       "at": 0,
+       "gives": "PUN",
+       "note": "a pun is a joke playing on words"
+      },
+      {
+       "words": "poke",
+       "at": 9,
+       "gives": "JAB",
+       "note": "a jab is a quick poke"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Kidding and prodding go on in an area of India.",
+     "definitionFit": "Punjab is a state in northwest India, and also a province of Pakistan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -186,6 +692,57 @@
    "clue": {
     "text": "Comparatively hollow pot, lacking top layer",
     "enumeration": "7"
+   },
+   "solution": "EMPTIER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Comparatively hollow",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking top",
+         "at": 26,
+         "note": "lacking top means the first letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pot",
+         "at": 21,
+         "gives": "HEMP",
+         "note": "pot is slang for cannabis, the hemp plant"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "words": "layer",
+       "at": 38,
+       "gives": "TIER",
+       "note": "a tier is one layer of a cake or a set of seats"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cooking pot made emptier by stripping off its top layer.",
+     "walkthrough": "Pot reads as a cooking vessel, but here it is cannabis, HEMP.",
+     "definitionFit": "Emptier is the comparative of empty, meaning more vacant or hollower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pot"
+    }
    }
   },
   {
@@ -199,6 +756,49 @@
    "clue": {
     "text": "Jeered at relative captivated by Cruz",
     "enumeration": "7"
+   },
+   "solution": "TAUNTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Jeered at",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captivated by",
+       "at": 19,
+       "note": "captivated by means held captive inside, so the relative sits within the senator's first name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Cruz",
+       "at": 33,
+       "gives": "TED",
+       "note": "Ted Cruz, US senator from Texas"
+      },
+      {
+       "words": "relative",
+       "at": 10,
+       "gives": "AUNT",
+       "note": "an aunt is a relative"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was jeered at by a relative charmed by Senator Cruz.",
+     "walkthrough": "Captivated suggests charm; here it means captured inside.",
+     "definitionFit": "To taunt is to mock or jeer at someone provocatively."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "captivated"
+    }
    }
   },
   {
@@ -212,6 +812,61 @@
    "clue": {
     "text": "Sailboat contains piece of veal and beef",
     "enumeration": "6"
+   },
+   "solution": "KVETCH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "beef",
+      "at": 36
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "contains",
+       "at": 9,
+       "note": "contains says the sailboat holds that letter within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Sailboat",
+       "at": 0,
+       "gives": "KETCH",
+       "note": "a ketch is a two-masted sailing vessel"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "piece of",
+         "at": 18,
+         "note": "piece of means just a bit of the word veal, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "veal",
+         "at": 27,
+         "note": "the piece of veal taken is its opening letter"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boat's galley stocks both veal and beef.",
+     "walkthrough": "Beef looks like more meat, but it is a verb or noun meaning complain.",
+     "definitionFit": "Kvetch is Yiddish-derived American slang for complain, and beef is slang for a complaint or to grumble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beef"
+    }
    }
   },
   {
@@ -225,6 +880,43 @@
    "clue": {
     "text": "Magician imprisoned person (someone in a box)",
     "enumeration": "8"
+   },
+   "solution": "CONJUROR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Magician",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "imprisoned person",
+       "at": 9,
+       "gives": "CON",
+       "note": "con is short for convict"
+      },
+      {
+       "words": "someone in a box",
+       "at": 28,
+       "gives": "JUROR",
+       "note": "jurors sit in the jury box"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A magician locks someone up in a box, as in a classic stage trick.",
+     "walkthrough": "Someone in a box suggests a magician's assistant; here it is the jury box.",
+     "definitionFit": "A conjuror is a performer of magic tricks and illusions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "box"
+    }
    }
   },
   {
@@ -244,6 +936,43 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "FANLETTER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Expression of admiration",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a cooler",
+       "at": 42,
+       "gives": "FAN",
+       "note": "a fan cools a room"
+      },
+      {
+       "words": "one renting",
+       "at": 30,
+       "gives": "LETTER",
+       "note": "a letter is one who lets, or rents out, property"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise from someone who hires out air conditioners.",
+     "walkthrough": "Read cryptically, a fan letter is a letter (renter) of a fan (cooler).",
+     "definitionFit": "A fan letter is mail sent by an admirer to a celebrity expressing their admiration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "renting"
+    }
    }
   },
   {
@@ -267,6 +996,55 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "TITFORTAT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a principle of retaliation",
+      "at": 33
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "covers",
+       "at": 5,
+       "note": "in a down clue, covers means sits on top of, so the bird comes before the outpost"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Bird",
+       "at": 0,
+       "gives": "TIT",
+       "note": "a tit is a small songbird"
+      },
+      {
+       "words": "defensive outpost",
+       "at": 12,
+       "gives": "FORT",
+       "note": "a fort is a fortified post"
+      },
+      {
+       "words": "by",
+       "at": 30,
+       "gives": "AT",
+       "note": "by and at both mean next to, as in by the door"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird nests over a fortified position next to something.",
+     "walkthrough": "A principle of retaliation is the whole definition; the a belongs to it, not the wordplay.",
+     "definitionFit": "Tit for tat is the idea of repaying an injury with an equal one in return."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "covers"
+    }
    }
   },
   {
@@ -280,6 +1058,41 @@
    "clue": {
     "text": "Catch the Spanish roll",
     "enumeration": "5"
+   },
+   "solution": "BAGEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "roll",
+      "at": 18
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Catch",
+       "at": 0,
+       "gives": "BAG",
+       "note": "to bag is to catch or capture"
+      },
+      {
+       "words": "the Spanish",
+       "at": 6,
+       "gives": "EL",
+       "note": "el is Spanish for the"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grab a Spanish bread roll.",
+     "definitionFit": "A bagel is a ring-shaped bread roll, boiled then baked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Catch"
+    }
    }
   },
   {
@@ -293,6 +1106,63 @@
    "clue": {
     "text": "Endlessly smooth-spoken in French, Mrs. Garnet shone",
     "enumeration": "9"
+   },
+   "solution": "GLIMMERED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "shone",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Endlessly",
+         "at": 0,
+         "note": "endlessly means the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "smooth-spoken",
+         "at": 10,
+         "gives": "GLIB",
+         "note": "glib means fluent and slick in speech"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      },
+      {
+       "words": "in French, Mrs.",
+       "at": 24,
+       "gives": "MME",
+       "note": "Mme, for Madame, is the French form of Mrs."
+      },
+      {
+       "words": "Garnet",
+       "at": 40,
+       "gives": "RED",
+       "note": "garnet is a deep red colour"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smooth-talking Frenchwoman, Mrs. Garnet, sparkled.",
+     "walkthrough": "Garnet looks like a surname, but it is the gemstone's colour.",
+     "definitionFit": "To glimmer is to give off faint wavering light, a weak way of shining."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Garnet"
+    }
    }
   },
   {
@@ -312,6 +1182,48 @@
       "mark": "-"
      }
     ]
+   },
+   "solution": "HOHUM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Boring",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "chasing",
+       "at": 13,
+       "note": "chasing means coming after, so the drone follows the Yule sound"
+      }
+     ],
+     "parts": [
+      {
+       "words": "start of Yule sound",
+       "at": 21,
+       "gives": "HO",
+       "note": "Santa's ho ho ho starts with one ho"
+      },
+      {
+       "words": "drone",
+       "at": 7,
+       "gives": "HUM",
+       "note": "a drone is a low continuous hum"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dull droning follows the first jingle of Christmas.",
+     "definitionFit": "Ho-hum describes something dull and uninteresting, said with a sigh of boredom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drone"
+    }
    }
   },
   {
@@ -325,6 +1237,55 @@
    "clue": {
     "text": "Tool used in retro hotel lamp",
     "enumeration": "6"
+   },
+   "solution": "MALLET",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Tool",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "retro",
+       "at": 13,
+       "note": "retro means going backwards, so those letters are read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "op": "hidden",
+       "indicators": [
+        {
+         "text": "used in",
+         "at": 5,
+         "note": "used in says the answer is found inside the run of letters of hotel lamp"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hotel lamp",
+         "at": 19,
+         "gives": "TELLAM",
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tool is part of an old-fashioned hotel lamp.",
+     "walkthrough": "Retro looks like a style of lamp, but it signals reversal.",
+     "definitionFit": "A mallet is a hammer with a large wooden or rubber head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retro"
+    }
    }
   },
   {
@@ -344,6 +1305,52 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "THEOFFICE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "sitcom for NBC",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Brewed",
+       "at": 0,
+       "note": "brewed means stewed and stirred, so the letters are mixed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Coffee",
+         "at": 7,
+         "note": "taken as written"
+        },
+        {
+         "words": "hit",
+         "at": 15,
+         "note": "taken as written"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Office coffee is brewed, and the show was a big NBC hit.",
+     "walkthrough": "Hit looks like it describes the sitcom, but it is part of the anagram.",
+     "definitionFit": "The Office was the long-running American mockumentary comedy series broadcast by NBC."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hit"
+    }
    }
   },
   {
@@ -357,6 +1364,52 @@
    "clue": {
     "text": "A woman's cryptic life with spies",
     "enumeration": "7"
+   },
+   "solution": "FELICIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A woman",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cryptic",
+         "at": 10,
+         "note": "cryptic means puzzling, so the letters of life are scrambled"
+        }
+       ],
+       "parts": [
+        {
+         "words": "life",
+         "at": 18,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "spies",
+       "at": 28,
+       "gives": "CIA",
+       "note": "the CIA is the US intelligence agency"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's secretive life among the spooks.",
+     "definitionFit": "Felicia is a female first name, from Latin felix meaning lucky."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cryptic"
+    }
    }
   },
   {
@@ -370,6 +1423,67 @@
    "clue": {
     "text": "Crackpot chases title, accepting love for money",
     "enumeration": "8"
+   },
+   "solution": "DOUBLOON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "money",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "chases",
+       "at": 9,
+       "note": "chases means comes after, so the crackpot follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepting",
+         "at": 23,
+         "note": "accepting means taking in, so the title word holds the zero"
+        }
+       ],
+       "parts": [
+        {
+         "words": "title",
+         "at": 16,
+         "gives": "DUB",
+         "note": "to dub is to give a title or name to"
+        },
+        {
+         "words": "love",
+         "at": 33,
+         "gives": "O",
+         "note": "love is zero in tennis, shaped like O"
+        }
+       ]
+      },
+      {
+       "words": "Crackpot",
+       "at": 0,
+       "gives": "LOON",
+       "note": "a loon is a crazy person"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An eccentric pursues a title, taking love in exchange for cash.",
+     "walkthrough": "Title is a verb here, to dub, not a noun like Sir.",
+     "definitionFit": "A doubloon was a Spanish gold coin, so it is a form of money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "title"
+    }
    }
   },
   {
@@ -383,6 +1497,42 @@
    "clue": {
     "text": "Desires increase, top to bottom",
     "enumeration": "5"
+   },
+   "solution": "URGES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Desires",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cycling",
+     "indicators": [
+      {
+       "text": "top to bottom",
+       "at": 18,
+       "note": "in a down clue, top to bottom means the first letter is moved to the end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "increase",
+       "at": 8,
+       "gives": "SURGE",
+       "note": "a surge is a sudden increase"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cravings rise from head to toe.",
+     "definitionFit": "Urges are strong impulses or wants, the same as desires."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "increase"
+    }
    }
   },
   {
@@ -396,6 +1546,67 @@
    "clue": {
     "text": "Boxer conceals hesitation in front of Penn's latest graduates",
     "enumeration": "6"
+   },
+   "solution": "ALUMNI",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "graduates",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "conceals",
+       "at": 6,
+       "note": "conceals means the boxer hides the other letters inside his name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Boxer",
+       "at": 0,
+       "gives": "ALI",
+       "note": "Muhammad Ali, the heavyweight champion"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "in front of",
+         "at": 26,
+         "note": "in front of means placed before, so the pause comes first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hesitation",
+         "at": 15,
+         "gives": "UM",
+         "note": "um is a pause word"
+        },
+        {
+         "words": "Penn's latest",
+         "at": 38,
+         "gives": "N",
+         "note": "the latest, or last, letter of the name Penn"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer hides his doubts at a Penn commencement.",
+     "walkthrough": "Penn is the University of Pennsylvania, apt for a graduation scene.",
+     "definitionFit": "Alumni are former students or graduates of a school or college."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Boxer"
+    }
    }
   },
   {
@@ -409,6 +1620,42 @@
    "clue": {
     "text": "Get ready to return for criminal",
     "enumeration": "4"
+   },
+   "solution": "PERP",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "criminal",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "to return",
+       "at": 10,
+       "note": "to return means to go back, so the word is read in reverse"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Get ready",
+       "at": 0,
+       "gives": "PREP",
+       "note": "to prep is to prepare"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crook prepares to come back.",
+     "definitionFit": "Perp is American police slang, short for perpetrator, the person who committed a crime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
    }
   },
   {
@@ -422,6 +1669,40 @@
    "clue": {
     "text": "Most shadowy Virginia visitor",
     "enumeration": "7"
+   },
+   "solution": "VAGUEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Most shadowy",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Virginia",
+       "at": 13,
+       "gives": "VA"
+      },
+      {
+       "words": "visitor",
+       "at": 22,
+       "gives": "GUEST",
+       "note": "a guest is a visitor"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The most mysterious guest at a Virginia house.",
+     "definitionFit": "Vaguest means least distinct or clear, and shadowy describes something dim and indistinct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shadowy"
+    }
    }
   },
   {
@@ -435,6 +1716,49 @@
    "clue": {
     "text": "Passage is restricted in bar",
     "enumeration": "7"
+   },
+   "solution": "EXCERPT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Passage",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 22,
+       "note": "in says the rating letter goes inside the other word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "bar",
+       "at": 25,
+       "gives": "EXCEPT",
+       "note": "bar can mean except, as in all bar one"
+      },
+      {
+       "words": "restricted",
+       "at": 11,
+       "gives": "R",
+       "note": "R is the US film rating for restricted"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An alley entrance is off-limits in a pub.",
+     "walkthrough": "Bar reads as a pub, but it is the preposition meaning except.",
+     "definitionFit": "An excerpt is a short extract or passage taken from a longer text."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
    }
   },
   {
@@ -448,6 +1772,30 @@
    "clue": {
     "text": "Lean inventory",
     "enumeration": "4"
+   },
+   "solution": "LIST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lean",
+      "at": 0,
+      "meaning": "first meaning: to tilt or incline"
+     },
+     {
+      "text": "inventory",
+      "at": 5,
+      "meaning": "second meaning: a roster or catalogue of items"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as a slim stock count, but the two words are separate meanings.",
+     "definitionFit": "The word means both a ship's tilt to one side and an itemised record or catalogue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lean"
+    }
    }
   },
   {
@@ -461,6 +1809,50 @@
    "clue": {
     "text": "One way to get a leg up with the German: succeeding spouse's son?",
     "enumeration": "10"
+   },
+   "solution": "STEPLADDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One way to get a leg up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "succeeding",
+       "at": 41,
+       "note": "succeeding means following, so the German word goes last"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spouse's son",
+       "at": 52,
+       "gives": "STEPLAD",
+       "note": "a husband's or wife's son from a previous marriage is a step-lad, a stepson"
+      },
+      {
+       "words": "the German",
+       "at": 29,
+       "gives": "DER",
+       "note": "der is German for the"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Marrying into a German family gives a stepson a social boost.",
+     "walkthrough": "Leg up suggests social advantage; literally it is climbing.",
+     "definitionFit": "A stepladder is a folding ladder used to climb higher, literally giving you a boost upward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leg"
+    }
    }
   }
  ]
