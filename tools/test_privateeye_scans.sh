@@ -92,6 +92,26 @@ print("DIRECTED", ps.column_cols([(0, 0, 1000, 1000)])([(10, 10, 60, 40, "ACROSS
 dl = ps.directed_links({"1-across": ("Fellow", "8,4", None), "1-down": ("See 1 Across", None, None),
                         "5-down": ("See 7", None, None), "7-across": ("Clue", "4", None)})
 print("LINKS", dl["1-across"][2], dl["1-down"][0], dl["5-down"], ps.page_text(281, ps.linked_across(dl)).split(" DOWN")[0])
+# No 294's "4, 16ac./22dn." and No 112's "23, 4dn.": the head's own number
+# goes to the vote, the tails keep their directions for named_links.
+nc = ps.column_cols([(0, 0, 1000, 1000)])
+got = nc([(10, 10, 60, 40, "DOWN"), (10, 60, 60, 90, "4,"), (70, 60, 200, 90, "16ac./22dn."),
+          (210, 60, 300, 90, "Her"), (310, 60, 400, 90, "(4,2,3,4)")])
+print("NAMED", got[1][0][4], nc.named)
+nl = ps.named_links({"4-down": ("Her", "4,2,3,4", None), "16-across": ("See 4dn", None, None),
+                     "22-down": ("", None, None), "16-down": ("Ringo", "7", None)}, nc.named)
+print("NAMEDLINKS", nl["4-down"][2], nl["16-across"][0], nl["22-down"][0], nl["16-down"][0],
+      ps.page_text(294, nl).split(" DOWN ")[1].split(" (")[0])
+held = ps.named_links({"4-down": ("Her", "4,2,3,4", None), "16-across": ("Own words", "4", None)}, nc.named)
+print("NAMEDHELD", held["4-down"][2], held["16-across"][0])
+# privateeye_wayback: "23/4dn" keeps the tail's direction, and 4 down's
+# "See 23" joins 23 across though 23 down has a clue of its own.
+print("LINKSIDES", pw.clue_rows("20 William (4) 23/4dn Cook some fowl (7,9) 25 Piss (7)", scan=True)[1],
+      pw.clue_rows("14/22 A sound (5) 15 Next (4)", scan=True)[0])
+ents = [{"number": 23, "direction": "across", "clue": "Cook"}, {"number": 4, "direction": "down", "clue": "See 23"},
+        {"number": 23, "direction": "down", "clue": "Gets"}]
+was = pw.named_tails({"across": [{"number": "23,4", "linkSides": {"4": "down"}}]}, ents)
+print("TAILS", was, ents[1]["clue"])
 # No 269's clue list: two grids fit it (an edge down light in column 13 or 14).
 import reconstruct_grid as rg
 g269a = ["#............##", "#.#.#.#.#.#.##.", "......#........", "#.#.#.#.#.#.##.", "........#......",
@@ -154,6 +174,16 @@ check "a link's tail with a direction letter is dropped before the vote" "1 Fell
 check "the other list's See 1 Across makes the link back, as the Eye's 1/1" \
   "['1-across', '1-across'] See 1 ('See 7', None, None) EYE CROSSWORD 281 ACROSS 1/1 Fellow (8,4) 7 Clue (4)" \
   "$(get LINKS)"
+check "a head naming its tails' directions keeps only its number for the vote" \
+  "4 Her (4,2,3,4) {('down', 4): {((16, 'across'), (22, 'down')): 1}}" "$(get NAMED)"
+check "named_links groups the head as printed, each tail See 4, another light left alone" \
+  "['4-down', '16-across', '22-down'] See 4 See 4 Ringo 4/16ac/22 Her" "$(get NAMEDLINKS)"
+check "a named tail with words of its own leaves the head alone" "None Own words" "$(get NAMEDHELD)"
+check "a link's tail direction is kept from 23/4dn; a clue's opening A is no direction" \
+  "{'number': '23,4', 'clue': 'Cook some fowl', 'enumeration': '7,9', 'linkSides': {'4': 'down'}} {'number': '14,22', 'clue': 'A sound', 'enumeration': '5'}" \
+  "$(get LINKSIDES)"
+check "the named tail points at its head's direction for grouping, its printed clue kept" \
+  "{'4-down': 'See 23'} See 23 across" "$(get TAILS)"
 check "both grids No 269's list allows print it exactly" \
   "[] []" "$(get FITS)"
 check "two grids fitting the clue list alone still refuse" \

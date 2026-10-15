@@ -225,6 +225,7 @@ def column_cols(boxes):
     linked head's "20/12" is written "20, 12" and "7, 17/23" "7, 17, 23",
     as the shared parser reads them."""
     import file_archive_org_puzzles as fa
+    named = {}
 
     def cols(words):
         lines = []
@@ -245,9 +246,50 @@ def column_cols(boxes):
             if side is None and re.match(r"\W{0,2}1\b", text):
                 side = 0  # the ACROSS heading lost, the list starts at 1
             if side is not None:
+                m = NAMED.match(text)
+                if m:
+                    mine = ("across", "down")[side]
+                    tails = tuple((int(n), {"a": "across", "d": "down"}[d[0].lower()] if d else mine)
+                                  for n, d in NAMED_TAIL.findall(m.group(2)))
+                    lead = int(re.search(r"\d+", m.group(1)).group(0))
+                    got = named.setdefault((mine, lead), {})
+                    got[tails] = got.get(tails, 0) + 1
+                    text = m.group(1) + text[m.end():]
                 out[side].append(ln[:4] + (text,))
         return out
+    cols.named = named
     return cols
+
+
+#: A link head naming a tail's direction, "4, 16ac./22dn." (No 294) or
+#: "23, 4dn." (No 112): the shared parser reads no direction, and the vote
+#: lost the clue's words to it. column_cols leaves the head's own number
+#: for the vote and keeps the tails, in printed order, for named_links.
+NAMED = re.compile(r"^(\W{0,2}\d{1,2})((?:\s*[,/]\s*\d{1,2}\s*(?:(?:across|down|ac|dn)\b\.?)?)*?"
+                   r"\s*[,/]\s*\d{1,2}\s*(?:across|down|ac|dn)\b\.?"
+                   r"(?:\s*[,/]\s*\d{1,2}\s*(?:(?:across|down|ac|dn)\b\.?)?)*)(?=\s)", re.IGNORECASE)
+NAMED_TAIL = re.compile(r"(\d{1,2})\s*(across|down|ac|dn)?\b", re.IGNORECASE)
+
+
+def named_links(laid, named):
+    """`laid` with each head column_cols found naming its tails' directions
+    (cols.named, {(side, head): {tails: readings}}) given its group as
+    printed, and each tail light "See <head>". A tail holding words of its
+    own is no continuation: that head is left as the vote laid it."""
+    out = dict(laid)
+    for (side, head), seen in named.items():
+        lid = f"{head}-{side}"
+        text, enum, _ = out.get(lid) or ("", None, None)
+        if not (text or "").strip():
+            continue
+        tails = [f"{n}-{d}" for n, d in max(seen, key=seen.get)]
+        if any((out.get(t) or ("",))[0].strip() and not SEE_SIDE.fullmatch(out[t][0].strip())
+               for t in tails):
+            continue
+        out[lid] = (text, enum, [lid] + tails)
+        for t in tails:
+            out[t] = (f"See {head}", None, None)
+    return out
 
 
 def read(issue, get):
@@ -271,14 +313,15 @@ def read(issue, get):
         words[which] = []
         for b in boxes:
             words[which] += column_words(img, b, which, f"{img_path.stem}_{'-'.join(map(str, b))}")
-    verdict, laid = voted(words, column_cols(boxes))
+    cols = column_cols(boxes)
+    verdict, laid = voted(words, cols)
     if laid is None:
         return number, None, f"the readings do not parse: {verdict.get('refused')}"
     blank = verdict.get("blank") or {}
     if blank:
         return number, None, f"{len(blank)} clues the readings do not agree on: " + \
             "; ".join(f"{k}: {v}" for k, v in sorted(blank.items())[:4])
-    laid = linked_across(directed_links(laid))
+    laid = linked_across(directed_links(named_links(laid, cols.named)))
     empty =sorted(lid for lid, (t, _, _) in laid.items() if not (t or "").strip())
     if empty:
         return number, None, f"clues with no words: {', '.join(empty)}"
@@ -456,6 +499,10 @@ def see_filled(laid, verdict, words, cols):
     return laid, verdict
 
 
+def side_mark(lid):
+    return "ac" if lid.endswith("-across") else "dn"
+
+
 def page_text(number, laid):
     """The voted clues as a capture's text: "EYE CROSSWORD N ACROSS 7 clue
     (6,4) ... DOWN ...", a linked head "20/12", a continuation "12 See 20"."""
@@ -465,7 +512,9 @@ def page_text(number, laid):
         lids = sorted((lid for lid in laid if lid.endswith("-" + side)), key=lambda l: int(l.split("-")[0]))
         for lid in lids:
             text, enum, group = laid[lid]
-            head = "/".join(g.split("-")[0] for g in group) if group else lid.split("-")[0]
+            # A light of the other direction is named so: "23/4dn".
+            head = "/".join(g.split("-")[0] + ("" if g.endswith("-" + side) else side_mark(g))
+                            for g in group) if group else lid.split("-")[0]
             if re.match(r"See \d", text or ""):
                 parts.append(f"{head} {text}")
             else:

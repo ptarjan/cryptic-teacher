@@ -126,9 +126,11 @@ SOLUTION = re.compile(r"Solution to Crossword No\.?\s*(\d{1,3})|Crossword\s+(\d{
                       r"|(Previous Crossword Solution)", re.I)
 TAIL = re.compile(r"\bEntries to\b|Back to Private Eye|£\s?\d|\bThis site features\b"
                   r"|Arrived here unexpectedly|Send your entries", re.I)
+#: A link's tail naming its direction: "23/4dn" (No 112), "4/16ac/22dn".
+LINK_SIDE = r"\s*(?:across|down|ac|dn)\b\.?|[ad]\b\.?"
 ENUM = r"\((?:\d[\d,\-\s'.]*|see \d{1,2}[^)]{0,12})\)"
 SEE_TAIL = r"See \d{1,2}\s*(?:ac|dn|across|down)?\.?"
-CLUE = re.compile(r"(?:^|(?<=\s))(\d{1,2}(?:\s*/\s*\d{1,2}(?:\s*(?:ac|dn)\.?)?)*)\s+(.*?)\s*(" + ENUM + "|"
+CLUE = re.compile(r"(?:^|(?<=\s))(\d{1,2}(?:\s*/\s*\d{1,2}(?:" + LINK_SIDE + r")?)*)\s+(.*?)\s*(" + ENUM + "|"
                   + SEE_TAIL + r")(?=\s+\d{1,2}\s*[/\s(A-Za-z\"'£]|\s*$)", re.I)
 ANSWER = re.compile(r"(\d{1,2}(?:/\d{1,2})*)\s+([^\d]+?)(?=\s+\d{1,2}[\s/]|\s*\.?\s*$)")
 
@@ -191,6 +193,9 @@ def clue_rows(part, scan=False):
             return None
         pos = m.end()
         nums = re.findall(r"\d{1,2}", m.group(1))
+        # "23/4dn": the tail's direction kept, for from_rows to link by.
+        sides = {n: "across" if d.strip()[0].lower() == "a" else "down"
+                 for n, d in re.findall(r"/\s*(\d{1,2})(" + LINK_SIDE + ")", m.group(1), re.I)}
         text, tail = m.group(2).strip(), m.group(3)
         see = re.match(r"\(?\s*see (\d{1,2})", tail, re.I)
         if see and not text:
@@ -199,7 +204,8 @@ def clue_rows(part, scan=False):
         if see:
             return None
         rows.append({"number": ",".join(nums), "clue": text,
-                     "enumeration": re.sub(r"\s+", "", tail[1:-1]).replace("–", "-")})
+                     "enumeration": re.sub(r"\s+", "", tail[1:-1]).replace("–", "-"),
+                     **({"linkSides": sides} if sides else {})})
     left = part[pos:]
     if scan and not re.search(ENUM, left, re.I) and not re.search(r"\bSee \d", left):
         left = ""
@@ -562,6 +568,25 @@ def count_hint(num, misfits):
             f"{{'enumeration': <as printed, {m[4]} letters>}}, why)")
 
 
+def named_tails(rows, entries):
+    """{entry id: printed clue} of each "See N" tail a head's linkSides names
+    (clue_rows), its clue made "See N <head's direction>" in `entries` so
+    resolve_groups takes that head, not the same number in the tail's own
+    direction."""
+    from groups import entry_id
+    by = {(str(e["number"]), e["direction"]): e for e in entries}
+    printed = {}
+    for side in ("across", "down"):
+        for row in rows.get(side) or []:
+            head = str(row.get("number") or "").split(",")[0]
+            for n, d in (row.get("linkSides") or {}).items():
+                e = by.get((n, d))
+                if e and re.fullmatch(r"See " + head + r"\.?", e["clue"] or "", re.I):
+                    printed[entry_id(e)] = e["clue"]
+                    e["clue"] = f"See {head} {side}"
+    return printed
+
+
 def from_rows(num, rows, answers=None, image=None, fixes=None):
     """A puzzle with no answers from light_spec rows, its grid rebuilt from
     the clue numbers and enumerations (as tools/fetch_nation.py does).
@@ -622,8 +647,14 @@ def from_rows(num, rows, answers=None, image=None, fixes=None):
         return None, "; ".join(problems)
     for e in entries:
         e["clue"] = (e["clue"] or "").strip()
+    # A tail the head names the direction of ("23/4dn", where 4 across has
+    # its own clue and 23 down too) points at the head by number alone,
+    # "See 23": named for the grouping, "See 23 across", then put back.
+    printed = named_tails(rows, entries)
     normalise_record({"puzzle": {"entries": entries}, "fill": {}})
     grouped = resolve_groups(entries)
+    for e in entries:
+        e["clue"] = printed.get(entry_id(e), e["clue"])
     by_id = {entry_id(e): e for e in entries}
     seps = {}
     for e in entries:
