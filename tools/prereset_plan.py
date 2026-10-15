@@ -1340,6 +1340,40 @@ def clues_only_rows():
     return rows
 
 
+PUZZLE_NAME = re.compile(r"-[0-9].*\.json\Z")
+
+
+def corpus_mtimes(tree):
+    """(stem, path, mtime) for every puzzle file one year folder under each
+    series folder of tree: the files puzzle_paths.puzzle_files() globs
+    (*/*/*-[0-9]*.json), in one os.scandir walk. The re-plan stats all ~56k
+    of them every hour; through pathlib's glob and a Path per file that was
+    ~50 of its ~100 CPU seconds, and at nice 19 on a loaded host the whole
+    re-plan ran past POOL_PLAN_SECS and was killed every hour (10-15: 610s,
+    659s, 1110s), so the queue was never re-read."""
+    out = []
+
+    def dirs(path):
+        try:
+            with os.scandir(path) as it:
+                return [e.path for e in it if e.is_dir()]
+        except OSError:
+            return []
+
+    for year in (y for s in dirs(tree) for y in dirs(s)):
+        try:
+            with os.scandir(year) as it:
+                for e in it:
+                    if PUZZLE_NAME.search(e.name):
+                        try:
+                            out.append((e.name[:-5], e.path, e.stat().st_mtime))
+                        except OSError:
+                            continue
+        except OSError:
+            continue
+    return sorted(out, key=lambda t: t[1])
+
+
 def fresh_rows(rows, index_path=None, files=None, row_of=None):
     """The index's rows, each puzzle file written since the index was rebuilt
     read again (fetch_puzzle.index_row), and a file the index lacks added.
@@ -1361,19 +1395,18 @@ def fresh_rows(rows, index_path=None, files=None, row_of=None):
         built = Path(index_path).stat().st_mtime
     except OSError:
         return rows
-    if files is None:
-        import puzzle_paths
-        tree = index_path.parent
-        files = (puzzle_paths.puzzle_files() if tree.resolve() == puzzle_paths.PUZZLE_DIR.resolve()
-                 else sorted(tree.glob("*/*/*-[0-9]*.json")))
     known = {r["id"] for r in rows}
-    stale = []
-    for f in files:
-        try:
-            if Path(f).stem not in known or Path(f).stat().st_mtime > built:
-                stale.append(f)
-        except OSError:
-            continue
+    if files is None:
+        stale = [Path(path) for stem, path, mtime in corpus_mtimes(index_path.parent)
+                 if stem not in known or mtime > built]
+    else:
+        stale = []
+        for f in files:
+            try:
+                if Path(f).stem not in known or Path(f).stat().st_mtime > built:
+                    stale.append(f)
+            except OSError:
+                continue
     if not stale:
         return rows
     if row_of is None:

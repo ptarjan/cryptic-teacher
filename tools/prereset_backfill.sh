@@ -684,11 +684,28 @@ pool_kill_tree() {
 }
 # While a re-plan runs: free slots filled up to the width already in force.
 # Not at the first plan (no width yet), past the deadline, or once a run failed
-# this interval, which may be a lockout for the checkpoint after the plan.
+# this interval while the five-hour meter is at LOCKOUT_PCT or unread: that may
+# be a lockout for the checkpoint after the plan. A failure with the window
+# below it is the puzzle's own (after_wave's test), so the pool goes on. It used
+# to stop at any failure, and a re-plan lasts up to POOL_PLAN_SECS: 10-15 the
+# pool sank from 7 runs to 2 through one, at a planned width of 6-8.
+POOL_TOPUP_READ=""   # how many failures the meter was last read for
+POOL_TOPUP_ROOM=0    # 1 when that read was below LOCKOUT_PCT
+pool_topup_room() {
+  local s
+  [ ${#WAVE_FAILED_IDS[@]} -eq 0 ] && return 0
+  if [ "$POOL_TOPUP_READ" != "${#WAVE_FAILED_IDS[@]}" ]; then
+    POOL_TOPUP_READ=${#WAVE_FAILED_IDS[@]}
+    POOL_TOPUP_ROOM=0
+    s=$(python3 tools/weekly_usage.py --group session 2>/dev/null) &&
+      awk -v s="$s" -v l="$LOCKOUT_PCT" 'BEGIN{exit !(s != "" && s < l)}' && POOL_TOPUP_ROOM=1
+  fi
+  [ "$POOL_TOPUP_ROOM" = 1 ]
+}
 pool_topup() {
   case "${wide:-}" in ''|*[!0-9]*) return ;; esac
   while [ ${#POOL_RUNS[@]} -lt "$wide" ] && [ "$at" -lt "${#queue[@]}" ] &&
-        [ ${#WAVE_FAILED_IDS[@]} -eq 0 ] && ! past_deadline; do
+        pool_topup_room && ! past_deadline; do
     pool_launch "${queue[$at]}"
     at=$((at + 1))
   done
@@ -710,6 +727,7 @@ pool_finished() {
 # shrinks as annotations land.
 pool_interval_start() {
   WAVE_FAILED_IDS=()
+  POOL_TOPUP_READ=""
   POOL_DONE=0
   # The order is tools/prereset_plan.py --cover-first's (head_of_queue), which
   # re-sorts the whole of queue[at..], so what the re-read appends takes its
