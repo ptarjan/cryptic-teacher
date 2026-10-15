@@ -624,6 +624,61 @@ same "a puzzle in the wrong year folder names where it belongs" "$(field WRONG_Y
 same "a stray flat puzzles/<id>.json names where it belongs" "$(field FLAT "$out7")" "True"
 same "a file named for another id is flagged" "$(field MISNAMED "$out7")" "1"
 
+echo "a whole run keeps each file's findings: a warm run views nothing, an edit views its file again"
+out_rows=$(PYTHONPATH="$REPO/tools" SCRATCH="$scratch/rows" CT_JOBS=1 python3 - 2>&1 <<'PY'
+import json, os, shutil
+from datetime import date
+from pathlib import Path
+import puzzle_integrity as pi
+import puzzle_paths
+import row_cache
+
+d = Path(os.environ["SCRATCH"])
+reals = [puzzle_paths.find(pid) for pid in ("cryptic-24104", "times-29329", "times-15602")]
+puzzle_paths.PUZZLE_DIR = d / "puzzles"
+pi.CACHE = d / "integrity-rows.sqlite"
+row_cache.STORE = d / "rows.sqlite"
+pi.ROW_CACHE_MIN = 1
+for real in reals:
+    to = puzzle_paths.file_for(pi.read_puzzle_file(real))
+    to.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy(real, to)
+viewed = []
+view = pi.read_puzzle_view
+pi.read_puzzle_view = lambda p: viewed.append(p.name) or view(p)
+
+def run(today, cached=True):
+    pi.ROW_CACHE_MIN = 1 if cached else 10**9
+    viewed.clear()
+    files = pi.listing()
+    out = pi.audit(files, pi.published(files), today)
+    return out, sorted(viewed)
+
+today = date(2026, 10, 5)
+plain, _ = run(today, cached=False)
+cold, n = run(today)
+print("COLD", len(n), cold == plain)
+warm, n = run(today)
+print("WARM", len(n), warm == plain)
+edited = puzzle_paths.file_for(pi.read_puzzle_file(reals[0]))
+p = json.loads(edited.read_text())
+p["date"] = "2027-01-01"
+edited.write_text(json.dumps(p))
+plain, _ = run(today, cached=False)
+again, n = run(today)
+print("EDITED", n == [edited.name], again == plain, any("in the future" in f[2] for f in again[0]))
+later = date(2027, 1, 2)
+plain, _ = run(later, cached=False)
+past, n = run(later)
+print("HORIZON", n == [edited.name], past == plain, not any("in the future" in f[2] for f in past[0]))
+PY
+)
+died "$out_rows" "the row-cache fixture"
+same "a cold run views every file and finds what an uncached run finds" "$(awk '$1=="COLD"{print $2, $3}' <<<"$out_rows")" "3 True"
+same "a warm run views no file and finds the same" "$(awk '$1=="WARM"{print $2, $3}' <<<"$out_rows")" "0 True"
+same "an edited file alone is viewed again, its new finding found" "$(field EDITED "$out_rows") $(awk '$1=="EDITED"{print $3, $4}' <<<"$out_rows")" "True True True"
+same "a future date reached by today views its file again and drops the finding" "$(field HORIZON "$out_rows") $(awk '$1=="HORIZON"{print $3, $4}' <<<"$out_rows")" "True True True"
+
 echo "a rewrite may not replace the held puzzle with another one"
 out8=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
 import copy
