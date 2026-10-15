@@ -2667,5 +2667,16 @@ tools/test_gale_idle.sh                        does tools/gale_idle.py let a cry
                                                does it force a full tick MAX_SKIP after the
                                                last? Does tools/vlm_health.py --quick skip only
                                                an up VLM that was not down?
+tools/test_abbreviations_cache.sh              does build_abbreviations.table() give the same
+                                               table from its disk cache as from a build, and
+                                               rebuild the moment an input's bytes change?
+tools/test_unit_idle.sh                        does unit_queue.why_run let the books and daily
+                                               ticks skip their worktree setup only when the
+                                               tick would start nothing: a SELF_PLANNING queue
+                                               (books) with nothing due, or any queue while the
+                                               memory or CPU gate holds every unit back; never
+                                               a queue whose shell plans the tick (daily) past
+                                               the gates; and a full tick at least every
+                                               FULL_EVERY?
 ```
 <!-- LAYOUT-END -->

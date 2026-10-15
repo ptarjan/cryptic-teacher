@@ -90,6 +90,12 @@
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
+# Most ticks start nothing (tools/unit_queue.py why_run): stop before the
+# worktree setup, a fetch, a follow and a reset of the whole tree (~3 s of
+# CPU). A full tick still runs every FULL_EVERY, which carries a pushed fix in.
+if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ $# -eq 0 ] && [ -z "${UNIT_QUEUE_DRY:-}" ]; then
+  python3 "$REPO/tools/unit_queue.py" idle daily && exit 0
+fi
 # Re-exec in a checkout of nobody else's — see tools/nightly_worktree.sh for the
 # whole argument. Everything below can then assume one writer: what is modified
 # here was modified by this run.
