@@ -501,8 +501,11 @@ unit_checks() {
   # 2>&1 because the failure that is not a finding — an import error, a missing
   # generated file — is on stderr, and an alert quoting an empty block says only
   # that something happened.
+  # CT_JOBS=2: it judges every file each run, and a niced run on a loaded host
+  # gets one core from parallel.workers() — alone it ran past 15m (2026-10-15).
+  # Two cores at nice 19, like ct_generated's rebuild.
   step puzzle_integrity
-  integrity=$(python3 tools/puzzle_integrity.py --quiet 2>&1) ||
+  integrity=$(CT_JOBS=2 python3 tools/puzzle_integrity.py --quiet 2>&1) ||
     alert "the corpus has picked up a defect:"$'\n'"\`\`\`"$'\n'"$integrity"$'\n'"\`\`\`"
   # How many turns a session is taking, logged every day. A number that only
   # exists when somebody goes looking is a number that gets quoted long after it

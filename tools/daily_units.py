@@ -139,8 +139,10 @@ GENERATED = {
     "minute": False,
     # Only its Claude fix pass does, which builds them first (daily_update.sh).
     "reports": False,
-    # tools/coverage_report.py reads puzzles/index.json.
-    "checks": True,
+    # coverage_report.py reads the puzzle rows through the shared row cache,
+    # puzzle_integrity.py and turn_cost.py nothing generated. Waiting for the
+    # rebuild took 35 of its 45 minutes and got it killed (2026-10-15).
+    "checks": False,
     # The validators and tools/smoke_test.js read index.js, the shims and
     # abbreviations.js, and a run that edits tools/ pushes through its tests.
     "annotate": True,
