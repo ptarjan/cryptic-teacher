@@ -24,7 +24,8 @@ puzzle held as its clues alone (tools/clues_only.py), whose solve derives its
 grid in tools/apply_solution.py as the nightly's does. Those rank by the same
 rules as an index row: clues_only_rows() gives them one. Its order
 is head_of_queue()'s: the puzzles a lockout cut off first,
-then the nearly-done and small series' puzzles (small_series: those at least
+then the partly hinted ones (some clues hinted, some not; fewest clues missing
+first; Paul 10-15: "Partly hinted puzzles should be first"), then the nearly-done and small series' puzzles (small_series: those at least
 NEARLY_DONE hinted whatever their size, then those under SMALL_SERIES known,
 then filed; each tier fewest left to hint first, so a set completes soonest),
 then the puzzles /showcase/ would pick
@@ -990,6 +991,16 @@ def small_self_test():
         print(f"FAIL head_of_queue with small series pins {pinned} at {stages} (want {want})",
               file=sys.stderr)
         bad += 1
+    # partly hinted puzzles go right behind the cut-offs, ahead of the small
+    # series, fewest clues missing first (Paul 10-15)
+    prows = [dict(r, unannotated={"cryptic-1": 5, "book-7": 2}.get(r["id"], 0)) for r in rows]
+    _, pinned, stages = head_of_queue(["cryptic-1", "cryptic-2", "tls-5", "tls-6", "book-7"], ["r"], prows,
+                                      {"cryptic-2"}, small=["tls", "book"])
+    want = ["r", "book-7", "cryptic-1", "tls-6", "tls-5", "cryptic-2"]
+    if pinned != want or stages[4] != 2:
+        print(f"FAIL head_of_queue with partly hinted pins {pinned} at {stages} (want {want})",
+              file=sys.stderr)
+        bad += 1
     return bad
 
 
@@ -1547,9 +1558,25 @@ def small_first(queue, pinned, rows, small):
                      if series_of.get(pid) == name and pid not in taken]
 
 
+def partly_hinted(rows):
+    """{id: clues it lacks} for the puzzles that have hints and lack some (the
+    index's `unannotated`). A run annotates only those clues, so each costs a
+    fraction of a puzzle. Dropped 10-04 (fddc75119c), back at the front 10-15."""
+    return {r["id"]: r["unannotated"] for r in rows if r.get("unannotated")}
+
+
+def partly_first(queue, pinned, rows):
+    """pinned, then the queue's partly hinted puzzles, fewest clues missing
+    first, queue order among equals."""
+    missing = partly_hinted(rows)
+    taken = set(pinned)
+    return pinned + sorted((pid for pid in queue if pid in missing and pid not in taken),
+                           key=lambda pid: missing[pid])
+
+
 def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=()):
     """(the queue newest first, the ids that go ahead of it in order): pinned
-    (cut off by a lockout), then the nearly-done and small series' puzzles
+    (cut off by a lockout), then the partly hinted (partly_first), then the nearly-done and small series' puzzles
     (small_first), then
     /showcase/'s wanted, then each series' No 1,
     then each series' oldest few, then the notable-tagged; each set in queue
@@ -1560,7 +1587,10 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=()):
     queue = newest_first(queue, rows)
     straight = {r["id"] for r in rows if r.get("style")}
     cryptic = [pid for pid in queue if pid not in straight]
-    pinned = small_first(cryptic, list(pinned), rows, small)
+    cut = len(pinned)
+    pinned = partly_first(cryptic, list(pinned), rows)
+    partly = len(pinned) - cut
+    pinned = small_first(cryptic, pinned, rows, small)
     stages = [len(pinned)]
     pinned = promote(cryptic, pinned, wanted)
     stages.append(len(pinned))
@@ -1569,6 +1599,7 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=()):
     stages.append(len(pinned))
     pinned = promote(cryptic, pinned, tagged)
     stages.append(len(pinned))
+    stages.append(partly)
     return queue, pinned, stages
 
 
@@ -1579,7 +1610,9 @@ def cover_first(pinned):
     small, cut = small_series(), len(pinned)
     queue, pinned, n = head_of_queue(sys.stdin.read().split(), pinned, index_rows() + clues_only_rows(),
                                      showcase_wanted(), tagged_puzzles(), small)
-    print(f"nearly-done and small series: {n[0] - cut} queued puzzles of {', '.join(small) or 'none'} go first",
+    print(f"partly hinted: {n[4]} queued puzzles with some clues hinted go first",
+          file=sys.stderr)
+    print(f"nearly-done and small series: {n[0] - cut - n[4]} queued puzzles of {', '.join(small) or 'none'} go first",
           file=sys.stderr)
     print(f"showcase: {n[1] - n[0]} queued puzzles /showcase/ wants go first",
           file=sys.stderr)
