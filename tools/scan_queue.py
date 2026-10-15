@@ -51,6 +51,7 @@ tools/file_trove_puzzles.py).
 """
 import contextlib
 import datetime
+import functools
 import hashlib
 import importlib
 import json
@@ -81,6 +82,13 @@ def when(text):
         return None
     if text == "now":
         return datetime.datetime.now(datetime.timezone.utc)
+    return _parse_when(text)
+
+
+@functools.lru_cache(maxsize=None)
+def _parse_when(text):
+    """`when` of a fixed ISO text, parsed once (a plan asks ~50k times, off
+    a few thousand distinct stamps)."""
     t = datetime.datetime.fromisoformat(text)
     return t if t.tzinfo else t.replace(tzinfo=datetime.timezone.utc)
 
@@ -633,7 +641,9 @@ def mended_at(row, verdict):
     `verdict` (of ledger `row`) landed, if one landed since its read for
     every blank clue it has; else None (none blank, or one no change mends)."""
     whys = list((verdict.get("blank") or {}).values())
-    since = [(at, mends) for at, mends in VOTE_MENDED if read_before(row, when(at))]
+    read = row.get("readAt")
+    read = when(read) if read else None
+    since = [(at, mends) for at, mends in VOTE_MENDED if read is None or read < when(at)]
     due = [max((at for at, mends in since if any(m in why for m in mends)), default=None) for why in whys]
     return max(due) if whys and all(due) else None
 
