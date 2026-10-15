@@ -79,6 +79,7 @@ import argparse
 import datetime
 import functools
 import hashlib
+import itertools
 import importlib
 import importlib.util
 import json
@@ -975,7 +976,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         IDLE_BACKOFF times it while no core is idle and the last plan still
         holds more untried units than the pools are wide (read at most every
         FRESH_POLL seconds)."""
-        if sum(key_of(u) not in tried for u in queue) <= pool_width:
+        # Counting stops past pool_width: the queue is ~25k units and the untried come early.
+        if sum(1 for _ in itertools.islice((u for u in queue if key_of(u) not in tried), pool_width + 1)) <= pool_width:
             return replan
         if idle_seen[0] is None or time.monotonic() - idle_seen[0] >= FRESH_POLL:
             idle_seen[:] = [time.monotonic(), mem_gate.idle_room(0, idle_gate_reader)]
