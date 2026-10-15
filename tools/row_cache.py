@@ -33,11 +33,15 @@ import sys
 import time
 from pathlib import Path
 
+import budget
 import code_reach
 import parallel
 import puzzle_paths
 
 PRUNE_DAYS = 14
+#: Missing rows made between deadline checks, under a deadline (tools/budget.py):
+#: a few minutes of a loaded host at worst, and enough for every worker.
+BATCH = 1024
 #: The store; None finds it under the git common dir. Tests set it.
 STORE = None
 
@@ -223,19 +227,43 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
                 continue
         miss.append(p)
     missed = set(miss)
+    today = int(time.time() // 86400)
+
+    def store(made):
+        # A file rewritten since the listing was read as its new content: its
+        # row is not stored under the old content's key.
+        keep = [p for p in made if p.exists() and _key(code, p, _blob_sha(p)) == keys[p]]
+        conn.executemany("INSERT OR REPLACE INTO rows VALUES(?,?,?,?)",
+                         ((keys[p], pickle.dumps(out[p]), pickle.dumps(deps(p, out[p])), today) for p in keep))
+
+    unstored = miss
     if miss:
         if prepare:
             prepare()
-        made = parallel.pmap(fn, miss)
-        out.update(zip(miss, made))
-    # A file rewritten since the listing was read as its new content: its row
-    # is not stored under the old content's key.
-    keep = [p for p in miss if p.exists() and _key(code, p, _blob_sha(p)) == keys[p]]
-    today = int(time.time() // 86400)
+        if budget.deadline() is None:
+            out.update(zip(miss, parallel.pmap(fn, miss)))
+        else:
+            # Under a unit's deadline (tools/budget.py), a batch at a time,
+            # each stored as it is made: a cold cache (new code, a grown
+            # corpus) is then a few runs that each stop cleanly, not a kill.
+            unstored = []
+            for i in range(0, len(miss), BATCH):
+                part = miss[i:i + BATCH]
+                out.update(zip(part, parallel.pmap(fn, part)))
+                try:
+                    with conn:
+                        store(part)
+                except sqlite3.Error as err:
+                    print(f"row cache for {name}.{fn.__name__}: could not store {len(part)} rows: {err!r}",
+                          file=sys.stderr)
+                done = i + len(part)
+                if done < len(miss) and budget.spent():
+                    conn.close()
+                    budget.stop(f"row cache for {name}.{fn.__name__}: made {done} of {len(miss)} missing rows"
+                                f" ({len(paths) - len(miss)} were stored); the rest next run")
     try:
         with conn:
-            conn.executemany("INSERT OR REPLACE INTO rows VALUES(?,?,?,?)",
-                             ((keys[p], pickle.dumps(out[p]), pickle.dumps(deps(p, out[p])), today) for p in keep))
+            store(unstored)
             # A row found under its legacy key is written under its new one;
             # the legacy row ages out with the prune.
             conn.executemany("INSERT OR REPLACE INTO rows VALUES(?,?,?,?)",

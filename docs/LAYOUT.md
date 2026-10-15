@@ -2065,6 +2065,11 @@ tools/test_scan_queue.sh                       does tools/scan_queue.py read the
                                                included?
 tools/test_ann_normalize.sh                    what apply_annotations.normalize computes, so
                                                the run need not write it
+tools/budget.py                                a unit's soft deadline (CT_DEADLINE, 70% of its
+                                               limit): long passes that keep their progress
+                                               stop there cleanly, backlog left, and the next
+                                               tick resumes them, so no unit is killed at its
+                                               limit
 tools/row_cache.py                             a per-file pass over the corpus that parses only
                                                the files it has not seen: rows stored by code
                                                key, path and git blob under the git common dir

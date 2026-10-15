@@ -2447,6 +2447,11 @@ def main():
     # sharing this machine. So it runs at NICE, and one at a time machine-wide: the lock lives in $HOME, not in the checkout, so a
     # second clone kept for an old-vs-new comparison waits its turn too.
     renice(NICE)
+    # Out of time under the unit's deadline (tools/budget.py), a pass stops
+    # with its slices stored; tools/data/blog_facts/ is half-written by then,
+    # so the exit is DEFERRED_RC, which daily_update.sh commits nothing for.
+    import budget
+    budget.STOP_RC = DEFERRED_RC
     lock = open(Path.home() / ".cache" / "cryptic-blog-facts.lock", "a")  # held until exit: the lock lasts the run
     try:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)

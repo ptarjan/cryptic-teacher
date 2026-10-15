@@ -73,6 +73,27 @@ check("a changed code key re-parses every file", run(), ([0, 9, 2], ["a-1", "b-2
 code_reach.key = key
 check("back on the first code, its rows are still stored", run(), ([0, 9, 2], []))
 
+# Under a unit's deadline (tools/budget.py), a cold map makes a batch, stores
+# it and stops cleanly (budget.Stopped, the unit marked "backlog left"); the
+# next run reuses that batch and makes the rest. Nothing is killed.
+import os as _os
+import budget
+code_reach.key = lambda *a, **k: "deadline code"
+row_cache.BATCH, _os.environ["CT_DEADLINE"] = 2, "0"
+more = tmp / "more"
+_os.environ["UNIT_MORE"] = str(more)
+parsed.clear()
+try:
+    row_cache.cached_map("row_cache", parse, files, deps=deps)
+    stopped = None
+except budget.Stopped as e:
+    stopped = e.code
+check("past the deadline a cold map stops after a batch, rc 0, backlog left",
+      (stopped, sorted(parsed), more.exists()), (0, ["a-1", "b-2"], True))
+del _os.environ["CT_DEADLINE"]
+check("and the next run makes only the rest", run(), ([0, 9, 2], ["c-3"]))
+code_reach.key, row_cache.BATCH = key, 1024
+
 # Keys sort by their code, so a map reads its rows in one range scan; a row
 # stored under the bare sha1 key of before 2026-10-15 is still reused, and
 # written under its new key.
