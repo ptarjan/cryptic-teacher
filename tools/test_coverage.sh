@@ -160,7 +160,23 @@ assert cov.number_runs("nation", {258, 3503}, D(2026, 10, 12), weekly) == [(1, 3
 monthly = lambda s, n: {20000: D(2000, 1, 1), 270: D(2024, 2, 1), 290: D(2025, 10, 1)}.get(n)
 assert cov.number_runs("timesclub", {20000, 20279, 270, 290}, D(2026, 10, 1), monthly) == \
     [(20000, 20279), (270, 302)], "a renumbered series: the old run ends, the new one runs"
-assert cov.number_runs("metro", {9516}, D(2026, 10, 11), weekly) == [(1, 10072)], "a day count: No 1 to today's"
+assert cov.number_runs("metro", {9516}, D(2026, 10, 11), weekly) == [(9516, 10072)], \
+    "a day count: from the oldest puzzle any source holds (firstIssue) to today's, not from No 1"
+# A printed daily's own numbering caps its print dates: Nos 10 and 13 on the
+# 1st and the 6th leave two puzzles for four missing days, so the two with
+# the least evidence (no source, then no crossword found) are not counted.
+led = cov.Ledger("times", "print dates")
+led.filed = {"2000-01-01", "2000-01-06"}
+led.exists = led.filed | {"2000-01-02", "2000-01-03", "2000-01-04", "2000-01-05"}
+led.claim("2000-01-02", "archive.org", "not-read")
+led.claim("2000-01-03", "archive.org", "no-crossword-found")
+led.claim("2000-01-05", "archive.org", "not-read")
+assert sorted(cov.surplus_dates(led, {10: "2000-01-01", 13: "2000-01-06"}, "1999-12-23")) == \
+    ["2000-01-03", "2000-01-04"], "the surplus goes, weakest evidence first"
+# Before the first filed number: No 10 is the tenth, so nine dates before it.
+assert cov.surplus_dates(led, {10: "2000-01-01"}, "1999-12-20") == []
+led.exists |= {"1999-12-%d" % d for d in range(20, 32)}
+assert len(cov.surplus_dates(led, {10: "2000-01-01", 13: "2000-01-06"}, "1999-12-20")) == 3 + 2
 # Every series has a Known rule: printed days, numbers, Trove dates, the book
 # estimates, or none because it is a reprint of another or our own.
 for s in sm.SERIES:

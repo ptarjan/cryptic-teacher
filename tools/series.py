@@ -59,7 +59,8 @@ import re
 # dateIdsUntil — the series was once numberIsDate: each puzzle printed up to
 #   this day also answers to <series>-YYYYMMDD (legacy_ids()).
 # firstIssue — the number the series' first puzzle printed under, when that is
-#   not 1. first_number() reads it.
+#   not 1. first_number() reads it. On a numberIsDayCount series it is the
+#   oldest puzzle any source holds, where the ledger starts counting.
 # lastIssue — the series has ended: this is its last number, and the coverage
 #   ledger counts it as existing up to here and no further (tools/coverage.py
 #   number_runs). A series without it is still running, so the ledger counts
@@ -122,6 +123,10 @@ SERIES = {
         # first edition, 16 March 1999 = No 1: 3 Apr 2025 is No 9,516 and
         # 11 Oct 2026 No 10,072. Our number, not the paper's.
         "numberIsDayCount": "1999-03-16",
+        # The oldest Metro cryptic any source holds: the puzzle page's first
+        # Wayback capture, 3 Apr 2025. No archive of Metro's printed puzzles
+        # is known, so the ledger counts from here, not from 1999.
+        "firstIssue": 9516,
         # Until 2026-10-11 these were numberIsDate, ids metro-YYYYMMDD.
         "dateIdsUntil": "2026-10-11",
     },
