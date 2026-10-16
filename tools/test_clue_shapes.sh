@@ -65,6 +65,27 @@ assert cs.leaf_type({"words": "a rose by", "gives": "ROSE"}, "first") == "V"
 assert cs.leaf_type({"words": "huge", "gives": "OS"}, None) == "A"
 assert cs.leaf_type({"gives": "IE"}, "deletion") == "B"
 
+# tiers: (skeleton, tier 1 mechanism set, tier 2 mechanism tree)
+for skel, t1, t2 in [
+    ("(A+S)", "charade only", "x"),
+    ("(S+S+S)", "charade only", "x"),
+    ("ana(V)", "ana", "ana(x)"),
+    ("ana((V+V))", "ana", "ana(x)"),
+    ("DD", "double definition", "DD"),
+    ("cdef(V,V)", "cdef", "cdef(x)"),
+    ("ins(S,ana(V))", "ana + ins", "ins(ana(x),x)"),
+    ("ins(ana(V),S)", "ana + ins", "ins(ana(x),x)"),
+    ("ana(ins(S,A))", "ana + ins", "ana(ins(x))"),
+    ("(S+first(V)+S)", "select", "+[select(x)]"),
+    ("ins?(first(V),(S+S))", "ins + select", "ins(select(x),x)"),
+    ("(S+ins(S,A)+rev(S))", "ins + rev", "+[ins(x),rev(x)]"),
+    ("rev(rev(rev(rev(A))))", "rev", "4+ ops"),
+]:
+    assert cs.tier1(skel) == t1, (skel, cs.tier1(skel), t1)
+    assert cs.tier2(skel) == t2, (skel, cs.tier2(skel), t2)
+assert cs.tier2("ins(S,ana(V))") != cs.tier2("ana(ins(S,S))")
+assert cs.tier1("ana(rev(del(ins(S,A))))").startswith("4+")
+
 doc = cs.DOC
 if doc.exists():
     text = doc.read_text()
