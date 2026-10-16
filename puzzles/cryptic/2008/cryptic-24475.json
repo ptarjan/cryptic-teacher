@@ -223,50 +223,39 @@
      "indicators": [
       {
        "text": "holding",
-       "note": "to hold something is to keep it inside, so the outer word grips the rest"
+       "at": 16,
+       "note": "the ruff's partner is holding the next letters, so they go inside that word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Partner to ruff",
-         "gives": "REEVE",
-         "note": "a reeve is the female of the ruff, a wading bird"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "TR",
-         "indicators": [
-          {
-           "text": "two of",
-           "note": "two of a word means just a couple of its letters, taken from the front"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "trumps",
-           "gives": "TR",
-           "select": "first",
-           "note": "the first two letters of the word"
-          }
-         ]
-        }
-       ]
+       "words": "Partner to ruff",
+       "at": 0,
+       "gives": "REEVE",
+       "note": "the reeve is the female of the ruff, a wading bird, so she is the ruff's partner"
       },
       {
-       "words": "I",
-       "note": "taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "two of trumps",
+         "at": 24,
+         "gives": "TR",
+         "note": "the first two letters of trumps"
+        },
+        {
+         "words": "I",
+         "at": 40,
+         "gives": "I"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bridge player holding a couple of trumps hopes to get back into the game.",
-     "walkthrough": "'Ruff' looks like trumping at cards, but it is the bird whose female is the reeve. 'two of trumps' means its first two letters.",
-     "definitionFit": "To retrieve something is to get it back again, which is what recovering a lost item means."
+     "surface": "A bridge player ruffs while holding a couple of trumps and declares an intention to win back the trick.",
+     "walkthrough": "The card-game picture of ruffing and trumps is misdirection: ruff is the bird, whose female is called a reeve.",
+     "definitionFit": "To retrieve something is to get it back, which is exactly what recovering it means."
     },
     "features": {
      "answerInScene": false,
@@ -1124,38 +1113,30 @@
    "annotation": {
     "definedByPreamble": true,
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "losing by 100",
+       "at": 6,
+       "note": "losing by a hundredth part, so one is shed: the letter I, the Roman one, goes from the word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "losing",
-         "note": "what is lost is no longer there, so a letter drops out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Horse",
-         "gives": "HEROIN",
-         "note": "horse is slang for heroin"
-        },
-        {
-         "gives": "I"
-        }
-       ]
+       "words": "Horse",
+       "at": 0,
+       "gives": "HEROIN",
+       "note": "horse is drug slang for heroin"
       },
       {
-       "unchecked": true,
-       "words": "by 100",
-       "note": "the letter lost is I, one; the printed 'by 100' does not obviously yield it and may be a garbled 'one'"
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "A racehorse beaten by a hundred lengths.",
-     "walkthrough": "'Horse' looks like a racehorse but is drug slang. Removing I, the Roman one, leaves the bird; how 'by 100' signals that letter is unclear from the clue as printed. The H of the bird alphabet.",
-     "definitionFit": "The heron is a tall grey wading bird that stalks fish in shallow water, filling the H slot of the alphabet."
+     "surface": "A racehorse is beaten by a hundred lengths.",
+     "walkthrough": "This is one of the alphabet clues the preamble calls partial: the definition is the bird hidden in the theme, and 'Horse' is slang for heroin, which drops its I (one).",
+     "definitionFit": "The heron is a long-legged wading bird, the H member of the puzzle's bird alphabet."
     },
     "features": {
      "answerInScene": false,
@@ -1512,7 +1493,35 @@
     "text": "Country saint that's been punched",
     "enumeration": "4"
    },
-   "solution": "CHAD"
+   "solution": "CHAD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0,
+      "meaning": "first meaning: the landlocked African republic"
+     },
+     {
+      "text": "saint",
+      "at": 8,
+      "meaning": "second meaning: St ..., the seventh-century English bishop"
+     },
+     {
+      "text": "that's been punched",
+      "at": 14,
+      "meaning": "third meaning: the scrap of paper punched out of a card or ballot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Three separate meanings of one short word; the last became famous from the 'hanging chads' of the 2000 Florida recount.",
+     "definitionFit": "The one word names an African nation, an Anglo-Saxon bishop, and the confetti left by a hole punch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "punched"
+    }
+   }
   },
   {
    "number": 30,
