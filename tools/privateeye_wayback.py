@@ -239,6 +239,55 @@ def split_merged(rows):
     return out
 
 
+def split_lost(a, d):
+    """(across rows, down rows) with a clue the OCR ran into the one before
+    it split off: the printed numbers skip N (no light carries it, which the
+    grid rebuild refuses) and " N Capital" stands inside another clue's text.
+    Three ways the join happens: that clue's count was lost ("... at one
+    time 17 Go down ..."); its text is only a cross-reference whose count was
+    never there ("(sce 22) 3 Supported", "(see lac.) 22 Vacillating"); or its
+    count stands inside the text ("... chopper (7) 1] Those who've ..."), the
+    row's own count being the later clue's. Only a number the lists skip is
+    split at, and only above the row's own, so a list that was whole is not
+    touched. Nos 71, 96, 98, 111, 113, 116 and others."""
+    def nums(rows):
+        return {int(n) for r in rows for n in r["number"].split(",") if n.isdigit()}
+    while True:
+        have = nums(a) | nums(d)
+        missing = set(range(1, max(have) + 1)) - have if have else set()
+        done = True
+        for rows in (a, d):
+            for i, r in enumerate(rows):
+                head = r["number"].split(",")[0]
+                if not missing or not head.isdigit() or not r["clue"]:
+                    continue
+                for m in re.finditer(r"(?:\((\d[\d,\-–]*)\)\s*)?(?<![\d(])(\d{1,2}|[1l]\])[.:]?\s+(?=[A-Z‘“'\"])",
+                                     r["clue"]):
+                    n = 11 if m.group(2)[-1] == "]" else int(m.group(2))
+                    first = r["clue"][:m.start()].strip()
+                    see = re.match(r"\(?\s*s[ec]e\s*([lI]|\d{1,2})\s*(?:ac|dn|across|down)?\.?\s*\)?$",
+                                   first, re.I)
+                    if n not in missing or n <= int(head) or not first or (m.start() < 3 and not see):
+                        continue
+                    later = {"number": str(n), "clue": r["clue"][m.end():].strip(),
+                             "enumeration": r["enumeration"]}
+                    if see:
+                        ref = "1" if see.group(1) in "lI" else see.group(1)
+                        rows[i:i + 1] = [{"number": r["number"], "clue": f"See {ref}",
+                                          "enumeration": None}, later]
+                    else:
+                        rows[i:i + 1] = [{"number": r["number"], "clue": first,
+                                          "enumeration": m.group(1)}, later]
+                    done = False
+                    break
+                if not done:
+                    break
+            if not done:
+                break
+        if done:
+            return a, d
+
+
 def answer_rows(part, direction):
     """fetch_privateeye.solve_from_rows rows [(key, direction, LETTERS)]."""
     out = []
@@ -296,6 +345,8 @@ def read_capture(raw, encoding="cp1252", plain=False, issue=None):
     dirs = split_dirs(clues)
     if dirs:
         a, d = clue_rows(dirs[0], plain), clue_rows(dirs[1], plain)
+        if a and d:
+            a, d = split_lost(a, d)
         # Square 1 starts a light: a list missing it lost its first clues
         # (a scan's column set above its heading), refused before the
         # minutes a grid search spends finding no grid.
