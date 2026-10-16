@@ -92,4 +92,4 @@ jobs:
       - run: |
           python3 tools/build_abbreviations.py
           python3 tools/fetch_puzzle.py --reindex
-      - run: CT_FULL=1 bash tools/test_reconstruct_grid.sh
+      - run: CT_FULL=1 python3 tools/test_reconstruct_grid.py

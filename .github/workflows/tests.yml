@@ -91,7 +91,7 @@ jobs:
           git diff --exit-code tools/annotate_prompt.md \
             || fails+=("annotate_prompt.md reference section: run tools/build_annotate_prompt.py")
           # The whole corpus through the integrity checker, once per run;
-          # tools/test_puzzle_integrity.sh tests the checker on fixtures.
+          # tools/test_puzzle_integrity.py tests the checker on fixtures.
           python3 tools/puzzle_integrity.py --quiet || fails+=("tools/puzzle_integrity.py found a corpus defect")
           if [ "${#fails[@]}" -gt 0 ]; then
             echo "FAILED: ${#fails[@]}"

@@ -717,7 +717,7 @@
 
   // What a solver reads instead of the stored number: display_number() in
   // tools/series.py, which writes the same row on the archive pages, so the two
-  // must agree character for character (tools/test_date_numbers.sh). "No 3,018"
+  // must agree character for character (tools/test_date_numbers.py). "No 3,018"
   // names a puzzle no book prints, and with one chip for the whole shelf a bare
   // "No 18" would name thirty different puzzles.
   function displayNumber(p) {

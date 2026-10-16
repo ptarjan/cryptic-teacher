@@ -7686,7 +7686,7 @@ global.realSetTimeout(() => {
 // frozen Guardian cryptics): each is booted as its browser form, every
 // annotated clue's ladder is climbed, and every one must have rungs. Each is
 // climbed twice from the same seed, and the two climbs must match: the panel a
-// clue shows depends on nothing but the puzzle. tools/test_shim_format.sh
+// clue shows depends on nothing but the puzzle. tools/test_shim_format.py
 // checks the data.
 for (const puz of JSON.parse(require("child_process").execFileSync("python3", ["-c",
     "import json, fetch_puzzle as fp\n"
