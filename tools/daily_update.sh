@@ -577,6 +577,10 @@ unit_checks() {
     # table is `python3 tools/coverage_report.py`.
     coverage_stale=$(python3 tools/coverage_report.py --stale-only 2>&1) || alert "a series has stopped arriving:"$'\n'"\`\`\`"$'\n'"$coverage_stale"$'\n'"\`\`\`"
     printf '%s\n' "$coverage_stale" | grep "^out of time" || true
+    # A newly filed puzzle still hintless 36h on, with no failure recorded: the
+    # silent miss (tools/hintless_overdue.py). A gate-held one lands here too, and
+    # the text says so.
+    hintless=$(python3 tools/hintless_overdue.py 2>&1) || alert "annotation is overdue:"$'\n'"\`\`\`"$'\n'"$(printf '%s\n' "$hintless" | head -15)"$'\n'"\`\`\`"
   fi
 
   # The puzzles themselves, as opposed to what we have written about them.
