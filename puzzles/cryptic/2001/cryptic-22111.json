@@ -333,8 +333,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "a turn-up",
-       "note": "in a down clue a turn-up flips the column so the string reads from the bottom upwards"
+       "text": "turn-up",
+       "at": 34,
+       "note": "in a down clue a turn-up flips the pieces so they read from bottom to top"
       }
      ],
      "parts": [
@@ -342,55 +343,42 @@
        "op": "charade",
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
+         "words": "Some score",
+         "at": 0,
          "gives": "SC",
-         "indicators": [
-          {
-           "text": "Some",
-           "note": "only some of the following word is wanted, here its opening part"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "score",
-           "gives": "SC",
-           "select": "first",
-           "note": "the opening two letters of the word"
-          }
-         ]
+         "note": "some of the word score: just its first two letters"
         },
         {
          "words": "it",
-         "note": "taken as written"
+         "at": 11
         },
         {
          "words": "a",
-         "note": "taken as written"
+         "at": 14
         },
         {
          "words": "tedious affair",
+         "at": 16,
          "gives": "BORE",
-         "note": "something tedious is a bore"
+         "note": "a bore is a dull, tiresome thing"
         },
         {
          "words": "a",
-         "note": "taken as written, the article before 'turn-up'"
+         "at": 32
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Some people rate a stunt show dull, yet it surprises them with its loops.",
-     "walkthrough": "The string is built in clue order and then read upwards. 'A turn-up for' also reads as 'a surprise', disguising the reversal.",
-     "definitionFit": "Aerobatics are the stunts flown by aircraft, of which loops, rolls and spins are typical examples."
+     "surface": "A sports fan grumbles that the match was a dreary business, apart from a late twist.",
+     "walkthrough": "Chain SC, IT, A, BORE and A to get SCITABOREA, then 'turn-up' reads it upwards. 'Score' looks like a sporting result, but only its opening letters are wanted.",
+     "definitionFit": "Aerobatics are stunt manoeuvres flown by aircraft, of which loops are the classic example."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "turn-up"
+     "misdirectedWord": "score"
     }
    }
   },
@@ -1226,7 +1214,45 @@
     "text": "Big mouth of model talking!",
     "enumeration": "5"
    },
-   "solution": "DELTA"
+   "solution": "DELTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Big mouth",
+      "at": 0,
+      "note": "a river's wide, branching mouth where it meets the sea"
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "of",
+       "at": 10,
+       "note": "the answer is made of letters taken from inside the next two words, so 'of' marks them as its source"
+      }
+     ],
+     "parts": [
+      {
+       "words": "model talking",
+       "at": 13,
+       "gives": "DELTA",
+       "note": "the answer's letters sit in sequence across the end of model and the start of talking"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A loud-mouthed fashion model who just won't stop talking.",
+     "walkthrough": "The letters run across the join of moDEL TAlking. 'Big mouth' looks like an insult for a chatterbox, but it is the river kind.",
+     "definitionFit": "A delta is the broad fan of channels at a river's mouth, such as the Nile's."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mouth"
+    }
+   }
   },
   {
    "number": 25,
