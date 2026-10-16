@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Is a blog post whose answers fit no grid held as its clues alone, and does
 # the solve's fill file it on the grid those answers cross in?
 #
-#     bash tools/test_blog_clues_only.sh
+#     python3 tools/test_blog_clues_only.py
 #
 # A filed georgeho puzzle (sundaytel-2660) is turned back into the blog record
 # it came from, then spoiled the ways a blogger spoils one: an answer at the
@@ -13,10 +13,10 @@
 # blog's wrong answer is named by cross_check and changes nothing. A post that
 # skips a number, or a clue, is not held: the clue is the one thing no solve
 # derives.
-set -u
-cd "$(dirname "$0")/.." || exit 1
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-python3 - <<'EOF'
 import json
 import sys
 import tempfile
@@ -126,4 +126,3 @@ if fails:
     sys.exit(1)
 print("ok test_blog_clues_only: a spoiled blog post held clues-only, queued, and promoted "
       "to its published grid by the solve's answers; the blog's cross-checks only")
-EOF

@@ -1,10 +1,11 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # /abbreviations/ ranks every list by clue count and shows the count: the most
 # common list, the families and the members of each, and each A-to-Z row's
 # readings. A reading no clue uses keeps its place, last, with no count.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import json, re, tempfile
 from pathlib import Path
 import build_abbreviations as b
@@ -56,4 +57,3 @@ check("a rare word still shows its one clue",
       ["ABB", "1"], plain(re.search(r'id="abbr-abbess"><dt>abbess</dt><dd>(.*?)</dd>',
                                     b.table_html(senses)).group(1)))
 raise SystemExit(fails)
-PY

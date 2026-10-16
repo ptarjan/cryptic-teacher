@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # annotate_check files a run's source corrections from the _ann file itself.
 #
-#     bash tools/test_annotate_filed_rows.sh
+#     python3 tools/test_annotate_filed_rows.py
 #
 # An entry's `printedClue` becomes its tools/data/source_clue_wrong.json row and
 # `setterError` its tools/data/setter_error.json row, each in key order, one row
@@ -11,9 +11,11 @@
 # a crossing answer contradicts, or names a model's fill. A malformed one stops the check with the
 # shape to write. The run's view of an OCR'd, model-solved puzzle carries
 # `source.retrievedFrom` and the grid, so neither is read off the puzzle file.
-set -uo pipefail
-cd "$(dirname "$0")/.."
-PYTHONPATH=tools python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
+
 import json, shutil, sys, tempfile
 from pathlib import Path
 import apply_annotations as A
@@ -190,4 +192,3 @@ try:
 finally:
     shutil.rmtree(tmp, ignore_errors=True)
 sys.exit(1 if fails else 0)
-PY

@@ -694,7 +694,7 @@ tools/test_indicator_note_letters.sh           an indicator note may not write a
 tools/test_selector_indicator.sh               a letter selector ("capital of", "initially") is
                                                an indicator, so a new or changed block holds
                                                only the words it selects from
-tools/test_anagram_fodder.sh                   an anagram's fodder is drawn from the clue's
+tools/test_anagram_fodder.py                   an anagram's fodder is drawn from the clue's
                                                wordplay and its blocks' letters
 tools/test_wordplay_shape_rules.sh             each wordplay shape rule is counted by
                                                validate_annotations against its own wordplay.*
@@ -738,7 +738,7 @@ tools/blog_compare.py                          compares every annotated clue's d
                                                (due) to tools/data/blog_compare.json, which the
                                                burn re-checks; --keep files a clue checked and
                                                kept
-tools/test_blocks_against_blog.sh              holds the blog block and type checks to their
+tools/test_blocks_against_blog.py              holds the blog block and type checks to their
                                                fixtures: a piece we spell, reverse, hear,
                                                delete from or anagram is silent, and one we
                                                lack is reported; a type in another family
@@ -845,7 +845,7 @@ tools/build_lexicon.js                         extracts the fillable word list (
                                                family, phonetics) from the lexicon
 tools/build_authored_puzzle.py                 merges a fill and its hand-written clues into a
                                                publishable puzzle file
-tools/test_build_authored_puzzle.sh            builds A001 through the real write path into a
+tools/test_build_authored_puzzle.py            builds A001 through the real write path into a
                                                scratch tree and holds it to the schema, the
                                                integrity checks and the annotation rules, since
                                                no corpus sweep ever sees it; and does a book
@@ -882,7 +882,7 @@ tools/solve_miss_prompt.md                     the prompt the nightly job follow
                                                that nothing generalises
 tools/test_solve_misses.sh                     holds that each graded miss is pending until a
                                                verdict is recorded, and never after
-tools/test_blog_grade.sh                       a model’s solve is graded once, through the
+tools/test_blog_grade.py                       a model’s solve is graded once, through the
                                                paper’s grader, when a solver’s blog or another
                                                copy arrives with answers: the copy’s answer
                                                takes over unless the crossings refute it, and
@@ -1281,7 +1281,7 @@ household-plugins/<name>/plugin.toml           when and where the household brid
 tools/test_annotate_retry.sh                   drives that resume, and a cold solve's run, with
                                                a fake CLI, so it is not first tried on a night
                                                it is needed
-tools/test_apply_refusal.sh                    a refused annotation write names clue ids and no
+tools/test_apply_refusal.py                    a refused annotation write names clue ids and no
                                                traceback, so the model does not map entries[N]
                                                by hand
 tools/annotate_postmortem.py                   why an annotation run died, read off its
@@ -1392,7 +1392,7 @@ tools/annotate_audit.py                        ranks what annotation runs spend 
                                                last 7 days
 tools/annotate_audit.sh                        the scheduled entry: runs the audit from a
                                                worktree at origin/master
-tools/test_annotate_audit.sh                   tests tools/annotate_audit.py: rule naming from
+tools/test_annotate_audit.py                   tests tools/annotate_audit.py: rule naming from
                                                the validator's AST, and that each run picks one
                                                fix target, rotating down the ranking on cooldown
 tools/make_hint_packets.js                     blind solve-packets, to grade a hint by whether
@@ -1857,7 +1857,7 @@ tools/test_link_words.sh                       does tools/validate_annotations.p
                                                a free copy? The placement is app.js
                                                placedFragments(), which would otherwise show a
                                                bought indicator half-erased
-tools/test_abbreviations_rank.sh               /abbreviations/ ranks every list by clue count
+tools/test_abbreviations_rank.py               /abbreviations/ ranks every list by clue count
                                                and shows the count: the most common list, the
                                                families and the members of each, and each
                                                A-to-Z row's readings. A reading no clue uses
@@ -1872,7 +1872,7 @@ tools/cross_validate.py                        check our puzzles against another
                                                cached copy that answers it
 tools/test_cross_validate.sh                   does tools/cross_validate.py name each way two
                                                copies of a puzzle differ?
-tools/test_clue_counts.sh                      does a clue that carries its own letter count,
+tools/test_clue_counts.py                      does a clue that carries its own letter count,
                                                or a stray letter, get refused?
 tools/trove_solution_ocr.py                    read a Canberra Times puzzle's answers off the
                                                paper's printed solution grid
@@ -1980,9 +1980,9 @@ tools/vlm_column_prompt.md                     what the VLM reader is told when 
                                                clue column verbatim
 tools/vlm_pick_prompt.md                       what the VLM reader is told when the readers
                                                disagree on one clue
-tools/test_annotate_partial.sh                 a puzzle that has hints and lacks some is
+tools/test_annotate_partial.py                 a puzzle that has hints and lacks some is
                                                annotated only where it lacks them
-tools/test_annotate_filed_rows.sh              an _ann entry's printedClue, setterError and
+tools/test_annotate_filed_rows.py              an _ann entry's printedClue, setterError and
                                                answerTypo are filed as their source-table rows
                                                by annotate_check (answerTypo's letters into the
                                                grid, refused against a crossing), and the run's
@@ -1998,7 +1998,7 @@ tools/boilerplate.py                           a preamble's publishing boilerpla
 tools/test_clue_page_instructions.sh           a 2005-08 Guardian prize's special instructions
                                                are read off the old-site clue page its note
                                                links to and filed with the note
-tools/test_boilerplate.sh                      a paper's publishing boilerplate in the preamble
+tools/test_boilerplate.py                      a paper's publishing boilerplate in the preamble
                                                goes; a puzzle's instructions, tributes and kept
                                                errata stay; the write gate refuses it
 tools/ocr_clues.py                             the clue-text OCR every scan filer shares: the
@@ -2132,7 +2132,7 @@ tools/test_scan_queue.sh                       does tools/scan_queue.py read the
                                                filers read again, once the VLM answers, the
                                                sources read while it was down, mid-run outages
                                                included?
-tools/test_ann_normalize.sh                    what apply_annotations.normalize computes, so
+tools/test_ann_normalize.py                    what apply_annotations.normalize computes, so
                                                the run need not write it
 tools/budget.py                                a unit's soft deadline (CT_DEADLINE, 70% of its
                                                limit): long passes that keep their progress
@@ -2321,7 +2321,7 @@ tools/test_gale_inbox.sh                       is a page gale_fetch.py downloade
                                                order and wanted() stop at 2014; does the Times
                                                progress page count what is wanted, fetched,
                                                read and not on Gale, with nothing to click?
-tools/test_canberra_reprint_vote.sh            does a Canberra Times reprint vote on the
+tools/test_canberra_reprint_vote.py            does a Canberra Times reprint vote on the
                                                archive.org scan's clues like any other reading,
                                                only for the London number
                                                canberra_london_numbers.py maps it to and only
@@ -2408,7 +2408,7 @@ tools/test_file_gale_listener.sh               does the Gale Listener filer put 
 tools/test_listener_letters.sh                 does trove_solution_ocr.read_grid_letters read
                                                the letters of a drawn, filled Listener report
                                                grid back through listener_grid's lattice?
-tools/test_ann_layout.sh                       annotate_check's fix-ups rewrite only the values
+tools/test_ann_layout.py                       annotate_check's fix-ups rewrite only the values
                                                they change in tools/_ann_<ID>.json, so the
                                                run's next Edit of text it wrote still matches
 tools/commit_subject.py                        a commit subject naming the puzzles staged, for
@@ -2417,11 +2417,11 @@ tools/mem_gate.py                              memory gate: a queue starts a uni
                                                available RAM stays above a floor
 tools/test_hidden_message.js                   a solved clue shows its hidden letter, and the
                                                message fills in under the grid
-tools/test_blocks_link_word.sh                 when a clue's blocks are short by exactly the
+tools/test_blocks_link_word.py                 when a clue's blocks are short by exactly the
                                                letters of a word filed under linkWords, that
                                                word is fodder, and the warning says the edit to
                                                make
-tools/test_blocks_surplus.sh                   when a clue's blocks give too many letters and
+tools/test_blocks_surplus.py                   when a clue's blocks give too many letters and
                                                none too few, the warning names the single-block
                                                edits that take exactly the surplus away
 tools/test_reprints.js                         a paper that reprints another's puzzle is
@@ -2439,7 +2439,7 @@ tools/test_row_cache.sh                        does row_cache re-parse exactly t
                                                row could change (an edited file, a changed
                                                dependency, new code), and is every data file a
                                                cached row reads in its key?
-tools/test_clue_index.sh                       does StoredClueIndex answer exactly what
+tools/test_clue_index.py                       does StoredClueIndex answer exactly what
                                                ClueIndex.build() answers, as files are added,
                                                edited and deleted, and when its store is
                                                corrupt?
@@ -2547,7 +2547,7 @@ tools/unit_more.py                             a unit's backlog_left(): it stopp
                                                left, so tools/unit_queue.py starts it again
                                                next tick; its own module so a unit loads none
                                                of the queue runner
-tools/test_blog_clues_only.sh                  is a blog post whose answers fit no grid held as
+tools/test_blog_clues_only.py                  is a blog post whose answers fit no grid held as
                                                its clues alone, and does the solve's fill file
                                                it on the grid those answers cross in?
 tools/test_session_model.sh                    does apply_annotations find who wrote the hints
@@ -2559,12 +2559,12 @@ tools/test_wordplay.sh                         does wordplay.py parse and check 
                                                derive today's fields from the tree?
 tools/wordplay.py                              a clue's wordplay as one line the model writes,
                                                and the tree a puzzle stores
-tools/test_annotate_model_shape.sh             does a run's output in the model's shape (def,
+tools/test_annotate_model_shape.py             does a run's output in the model's shape (def,
                                                wp, notes) translate to the stored annotation,
                                                name the part of a parse that breaks, and refuse
                                                a clue that writes a derived key (type, blocks)?
 tools/fixtures/quiptic-619.json                quiptic-619 frozen in the format, so
-                                               tools/test_annotate_model_shape.sh has stored
+                                               tools/test_annotate_model_shape.py has stored
                                                trees to render back to the model's shape
                                                whatever the corpus copy becomes
 tools/fixtures/times-18.json                   times-18 frozen in the format with its
@@ -2602,7 +2602,7 @@ tools/strip_abbreviation_notes.py              drops the leaf notes that only re
                                                gloss from build_abbreviations.table()),
                                                corpus-wide in one migration commit, and turns
                                                on validate_annotations' refusal of them
-tools/test_abbreviation_notes.sh               is an abbreviation gloss derived from the table,
+tools/test_abbreviation_notes.py               is an abbreviation gloss derived from the table,
                                                never stored: view shows it, the validator
                                                refuses a note that only restates it, from_model
                                                drops one, and a note that adds anything stays?

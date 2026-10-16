@@ -1,9 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # An anagram's fodder is drawn from the clue: its wordplay's words and the
 # letters its blocks give. GROAN is not the fodder of a clue that says grain.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import validate_annotations as v
 
 fails = 0
@@ -33,4 +34,3 @@ check("a block's letters count", (0, 0),
 check("ours scattered, not in order nor from blocks", (1, 0),
       flagged("Crushed grain makes a complaint", "NIARG", "a complaint", authored=True))
 raise SystemExit(fails)
-PY

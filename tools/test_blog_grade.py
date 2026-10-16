@@ -1,14 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Is a model's solve graded when a solver's blog (or any other copy) arrives
 # with answers, through the same grader as the paper's key?
 #
-#     bash tools/test_blog_grade.sh
+#     python3 tools/test_blog_grade.py
 #
 # Offline: tools/cross_validate.py's grade_model() on a 3x3 model-solved grid
 # against stub copies; blind_misses.json is written under a temp root.
-set -uo pipefail
-cd "$(dirname "$0")/.." || exit 1
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import contextlib
 import copy
 import io
@@ -160,4 +161,3 @@ same("a write-up's answers are the ones a solve must keep",
 
 print("FAILED:", fails if fails else "none")
 sys.exit(1 if fails else 0)
-PY

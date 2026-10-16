@@ -1,10 +1,11 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # check_blocks_against_blog and check_cryptic_definition_against_blog.
 # A blog block our parse accounts for is silent, in
 # every way the two can legitimately differ; one we lack is reported.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import validate_annotations as v
 
 def run(clue, blocks, theirs):
@@ -71,6 +72,6 @@ check("ours as a cryptic definition against named wordplay is the other check's"
       family(["cryptic_definition"], ["anagram"]))
 v.BLOG_DISAGREE[("x-2", "1-across")] = ("definition,type", "the blog's charade misses the second definition")
 check("a clue filed as kept is silent", False, family(["double_definition"], ["charade"], pid="x-2"))
-raise SystemExit(fails)
-PY
-echo "all check_blocks_against_blog checks passed"
+if fails:
+    raise SystemExit(fails)
+print("all check_blocks_against_blog checks passed")

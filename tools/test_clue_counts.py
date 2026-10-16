@@ -1,16 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does a clue that carries its own letter count, or a stray letter, get refused?
 #
-#     bash tools/test_clue_counts.sh
+#     python3 tools/test_clue_counts.py
 #
 # A source that prints the count in the clue, with the answer's count appended
 # after it, leaves "Set meal ... (5,1’4)" over enumeration "5,5"; a feed can
 # leave a stray "d" stuck to a "?". enumeration.split() cuts
 # the echo, and puzzle_integrity (so every write) refuses what is left.
 # A year or a quantity in brackets ("(1917)", "(500)") is the clue's words.
-set -uo pipefail
-cd "$(dirname "$0")/.."
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import copy, json, sys
 
 sys.path.insert(0, "tools")
@@ -102,4 +103,3 @@ bad = copy.deepcopy(puzzle)
 bad["entries"][0]["clue"]["text"] += " (3);"
 check("the first of two counts is kept", shape(bad), [])
 sys.exit(1 if fails else 0)
-PY

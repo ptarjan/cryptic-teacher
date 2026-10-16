@@ -1,19 +1,24 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does a Canberra Times reprint of a London Times puzzle vote on the scan's
 # clues like any other reading (file_archive_org_puzzles.reprint_readings),
 # only for the London number tools/canberra_london_numbers.py maps it to and
 # only in the Times series, and does a reprint downloaded or read after an
 # edition make that edition due again (inputs_of), and no other?
 #
-#     bash tools/test_canberra_reprint_vote.sh
+#     python3 tools/test_canberra_reprint_vote.py
 #
 # A synthetic Trove cache in a temp dir: no scan, no OCR, nothing written
 # outside it.
-set -euo pipefail
-cd "$(dirname "$0")"
-tmp=$(mktemp -d)
-trap 'rm -rf "$tmp"' EXIT
-python3 - "$tmp" <<'PY'
+import os
+import sys
+import atexit
+import shutil
+import tempfile
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+tmp = tempfile.mkdtemp()
+atexit.register(shutil.rmtree, tmp, True)
+sys.argv[1:] = [tmp]
+
 import json, sys
 from pathlib import Path
 import file_archive_org_puzzles as fa
@@ -90,4 +95,3 @@ check("a reprint's columns read after it makes the edition due again", True,
       fa.inputs_of("abc", found, "times") != first)
 print("FAILS", fails)
 sys.exit(1 if fails else 0)
-PY

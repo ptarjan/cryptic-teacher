@@ -1,14 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does the annotate audit name the right check, and pick one fix target a day?
 #
-#     bash tools/test_annotate_audit.sh
+#     python3 tools/test_annotate_audit.py
 #
 # Every run with enough sessions must name exactly one finding to fix, rotating
 # down the ranking past ones woken within the cooldown unless they have grown,
 # and a line must be named by the check that wrote it rather than by its wording.
-set -uo pipefail
-cd "$(dirname "$0")/.." || exit 1
-python3 - <<'EOF'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import sys
 sys.path.insert(0, "tools")
 import annotate_audit as a
@@ -131,4 +132,3 @@ cur = dict(n=40, cost=1.30, turns=10); prev = dict(n=40, cost=1.00, turns=10)
 check([i["key"] for i in a.trend_items(cur, prev)], ["trend:cost"], "a cost regression is a finding")
 check(a.trend_items(dict(cur, n=5), prev), [], "not on too few sessions")
 sys.exit(1 if fails else 0)
-EOF

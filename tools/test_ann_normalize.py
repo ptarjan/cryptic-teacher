@@ -1,10 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # What apply_annotations.normalize computes, so the run need not write it.
 #
-#     bash tools/test_ann_normalize.sh
-set -uo pipefail
-cd "$(dirname "$0")/.."
-PYTHONPATH=tools python3 - <<'PY'
+#     python3 tools/test_ann_normalize.py
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
+
 import copy
 from pathlib import Path
 import apply_annotations as A
@@ -109,4 +111,3 @@ try:
 finally:
     shutil.rmtree(tmp)
 raise SystemExit(1 if fails else 0)
-PY

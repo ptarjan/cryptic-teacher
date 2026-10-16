@@ -35,7 +35,7 @@ too. Prefer, in this order:
    how often it fires: each firing on a correct fill costs the solver a fix
    turn, so keep it only if that rate is low, and give the numbers in your
    note. The refusal must say what to reparse. Add a case to
-   `tools/test_apply_refusal.sh` and run that test. If the check replaces a
+   `tools/test_apply_refusal.py` and run that test. If the check replaces a
    rule in `tools/solve_prompt.md`, delete the rule.
 2. **A rule in `tools/solve_prompt.md`**, only when no check is possible.
    State it in general terms, not about this clue, in the file's plain style,
