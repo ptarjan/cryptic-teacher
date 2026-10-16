@@ -56,6 +56,7 @@ import time
 from pathlib import Path
 import provenance
 import puzzle_integrity
+import shape_queue
 import groups  # linked answers
 from groups import entry_id
 from validate_annotations import committed_entries
@@ -463,6 +464,10 @@ def apply(path, annotations, by=None):
     # for it). Its own uncommitted hints a run may still null.
     committed = committed_entries(path) or {}
     held = []
+    # A clue on the shape re-annotation list (tools/shape_queue.py) keeps its
+    # old hint against a null too, committed or not: it is live until a new
+    # one validates.
+    relisted = shape_queue.flagged(puzzle)
     # Wordplay that does not check refuses the write.
     errors = []
     for entry in puzzle["entries"]:
@@ -470,9 +475,10 @@ def apply(path, annotations, by=None):
             continue
         ann = annotations[entry_id(entry)]
         was = committed.get(entry_id(entry)) or {}
-        if (ann is None and entry.get("annotation") and was.get("annotation") == entry["annotation"]
+        if (ann is None and entry.get("annotation") and (entry_id(entry) in relisted or (
+                was.get("annotation") == entry["annotation"]
                 and was.get("solution") == entry.get("solution")
-                and (was.get("clue") or {}).get("text") == entry["clue"].get("text")):
+                and (was.get("clue") or {}).get("text") == entry["clue"].get("text")))):
             held.append(entry_id(entry))
             continue
         if ann is None:
@@ -505,6 +511,7 @@ def apply(path, annotations, by=None):
         write_puzzle_file(path, puzzle)
     except puzzle_integrity.RefusedWrite as err:
         raise SystemExit(refusal(path, puzzle, err))
+    shape_queue.done(puzzle, {k for k, v in annotations.items() if v is not None and k not in held})
     for eid, new in fixes.items():
         print(f"apply_annotations: {eid} corrected to {new} — it agrees with every "
               f"crossing and printed answer (solutions.corrected)")
