@@ -4255,9 +4255,9 @@ registry["reset-puzzle"].onclick();
     if (annotatedInIndex.has(puz.id)) {
       const continuations = new Set(puz.entries.flatMap((e) => groupsOf(e).flatMap((grp) => grp.slice(1))));
       const answerable = puz.entries.filter((e) => hasWords(clueText(e)) && !continuations.has(entryId(e)));
-      assert(annotatedInIndex.get(puz.id) === answerable.every((e) => e.annotation)
-        // A clue entered off the grid is annotated too (unannotated_clues counts it).
-        && (puz.offGrid || []).every((item) => item.annotation),
+      // A clue entered off the grid is annotated too (unannotated_clues counts it).
+      assert(annotatedInIndex.get(puz.id) === (answerable.every((e) => e.annotation)
+        && (puz.offGrid || []).every((item) => item.annotation)),
         `${puz.id}: index 'annotated' should count only the clues that can be annotated`);
     }
   });
