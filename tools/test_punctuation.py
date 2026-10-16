@@ -153,7 +153,7 @@ with tempfile.TemporaryDirectory() as d:
         try:
             fetch_puzzle.write_puzzle_file(path, pz, generator=gen)
             got = json.loads(path.read_text())["entries"][0]["clue"]["text"]
-        except Exception as err:  # noqa: BLE001 -- the reason is the finding
+        except Exception as err:  # broad on purpose: the reason is the finding
             got = f"{type(err).__name__}: {err}"[:200]
         check(f"write path via {gen}", want, got)
 

@@ -53,7 +53,9 @@ new = copy.deepcopy(old)
 check("the migration flattens it", 1, F.flatten_tree(new["wordplay"]))
 check("into the anagram's parts", ["slay", "a", "cut"], [p["words"] for p in new["wordplay"]["parts"]])
 check("leaving none to count", 0, v.anagram_charades(new["wordplay"]))
-check("view() shows the same before and after", annotation.view(old, entry), annotation.view(new, entry))
+def shown(a):  # view() also echoes the raw wordplay tree, which is what the migration rewrites
+    return {k: v for k, v in annotation.view(a, entry).items() if k != "wordplay"}
+check("view() shows the same before and after", shown(old), shown(new))
 check("the ring deals the clue's fodder", [{"fodder": "SLAYACUT", "gives": "CASUALTY"}],
       annotation.view(new, entry)["assembly"]["anagrams"])
 again = copy.deepcopy(new)

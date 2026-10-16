@@ -43,9 +43,8 @@ import sys
 import types
 
 sys.path.insert(0, "tools")
-try:
-    import requests  # noqa: F401
-except ModuleNotFoundError:
+import importlib.util
+if importlib.util.find_spec("requests") is None:
     # fetch_ia_book.py needs requests only to BUILD a session. Every session
     # in this file is a stub, so a placeholder import keeps these checks
     # RUNNING on a runner with no third-party packages — CI installs none —
