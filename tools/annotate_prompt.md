@@ -120,7 +120,14 @@ shows, so you write none of those. Worked annotations close this file.
   words once (never `cd([a], [b])`; the check flags every extra leaf), with a note, no
   letters. Two readings in two stretches is a double definition instead. A **rebus**
   (a picture of letters, no ordinary words: `HIJKLMNO`, `P?`) has no `def`; `wp` is
-  `rebus([whole clue], "reading")`, the reading naming what it shows (`"H to O"`). An **&lit** has
+  `rebus([whole clue], "reading")`, the reading naming what it shows (`"H to O"`). A
+  **composite anagram** (the fodder is the answer plus letters the clue names, "thirsted"
+  = DERTH + ITS) is `comp<indicator>([fodder], [named letters])`, never `ana(del(...))`: the
+  check is that the fodder's letters are the answer's plus the named ones. A **reverse
+  clue** (the clue words are what the answer's wordplay would produce: "What makes pets"
+  for OUT + STEP) keeps its `def` and its `wp` is `reverse([those clue words], "OUT + STEP")`,
+  the reading the answer's own pieces in capitals joined by spaces or `+`; say in the leaf's
+  note how those pieces make the clue words. An **&lit** has
   `"andLit": true`, `def` the whole clue and the whole clue's wordplay.
 - `answer` only to correct a `(MODEL)` answer, or to spell one with an apostrophe or
   accent (`"CAT-O'-NINE-TAILS"`); the display answer is otherwise worked out.
@@ -260,6 +267,17 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
                           ends, first and last, alternate letters, every
                           2nd/3rd, the nth
     cd([words])           cryptic definition: the words, no letters
+    comp(x, y)            composite (subtractive) anagram: the letters of x are
+                          the answer plus the letters of y, rearranged, so the
+                          answer is an anagram of x with y taken out:
+                          comp<sadly>([thirsted], [it's]) for DERTH
+    reverse([words], "reading")
+                          a reverse clue: the words read as wordplay that would
+                          produce a word of the answer, and "reading" spells the
+                          answer in the pieces they build, capitals joined by
+                          spaces or +: reverse([What makes pets], "OUT + STEP")
+                          for OUTSTEP (out signals an anagram of STEP: pets). It
+                          is the whole wordplay; the definition stays a `def`
     rebus([words], "reading")
                           a rebus: the words are a picture (letters,
                           figures, layout) and "reading" says what it shows,

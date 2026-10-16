@@ -2488,9 +2488,9 @@ def check_definition_not_fodder(entries, errors, warnings):
 
 
 # Mechanisms where the blocks legitimately do not add up to the answer: a
-# deletion or substitution names letters that are taken away, and the three
-# definition-only types plus the sound types claim no letters at all.
-UNBALANCED_TYPES = ("deletion", "substitution", "cryptic_definition",
+# deletion, substitution or composite anagram names letters that are taken away,
+# and the three definition-only types plus the sound types claim no letters at all.
+UNBALANCED_TYPES = ("deletion", "substitution", "composite_anagram", "cryptic_definition",
                     "double_definition", "homophone", "spoonerism", "and_lit")
 
 # A clue whose whole mechanism is one letter selection hands over those letters
@@ -3397,8 +3397,8 @@ ARITY_OTHER = "deletion, substitution, homophone or one-armed op with the wrong 
 DEL_SINGLE = "deletion with one part, so what it removes is not stated"
 IND_IN_LEAF = "indicator word also inside a leaf"
 #: Ops that are signalled by an indicator word. A charade, a cryptic definition,
-#: a rebus and a palindrome of the whole answer are not.
-NEEDS_INDICATOR = frozenset(wordplay.ARITY) - {"cryptic", "rebus", "palindrome"}
+#: a rebus, a reverse clue and a palindrome of the whole answer are not.
+NEEDS_INDICATOR = frozenset(wordplay.ARITY) - {"cryptic", "rebus", "reverse", "palindrome"}
 
 
 #: Until this time (epoch seconds) a push and CI let through a puzzle's shape
@@ -3434,10 +3434,10 @@ def _walk(tree):
 
 def _stored_arity(op):
     """(fewest, most) parts a checked `op` node stores: a homophone or spoonerism
-    keeps its spelling in `spelt` and a rebus its `reading`, not as a part,
+    keeps its spelling in `spelt` and a rebus or reverse clue its `reading`, not as a part,
     and an anagram's parts are its pool."""
     lo, hi = wordplay.ARITY.get(op, (2, 99))
-    if op in ("homophone", "spoonerism", "rebus"):
+    if op in ("homophone", "spoonerism", "rebus", "reverse"):
         lo, hi = lo - 1, hi - 1
     return (lo, 99) if op == "anagram" else (lo, hi)
 
