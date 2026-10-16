@@ -508,8 +508,9 @@ def renumber_to_grid(grid, across, down, groups=None):
     one off (6 across as 7). Each clue keeps its printed place in the list;
     one whose number the grid does not carry takes the grid's number at that
     place if that is +-1 from the read. Accepted only when every number moved
-    by one and the whole list then prints exactly the grid (no misfits);
-    otherwise nothing changes."""
+    by one and the list then carries every number the grid does; a count the
+    grid still disagrees with is left for repair_grid (a misread cell), so a
+    numbering misfit left means nothing changes."""
     import reconstruct_grid as rg
     lights = rg.lights_from_grid(grid)
     moves = []
@@ -532,7 +533,7 @@ def renumber_to_grid(grid, across, down, groups=None):
     for lg, gn in moves:
         lg[0] = gn
     spec = [(lg[0], d, lg[1]) for d, lst in (("across", across), ("down", down)) for lg in lst]
-    if grid_misfits(grid, spec):
+    if any("is numbered" in m or "clues," in m for m in grid_misfits(grid, spec)):
         for (lg, _), n in zip(moves, old):
             lg[0] = n
         return False
