@@ -442,37 +442,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OBELI",
-     "indicators": [
-      {
-       "text": "decapitated",
-       "note": "having the head cut off means losing the first letter of the name"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "decapitated",
+         "at": 25,
+         "note": "losing the head means the first letter of the chemist's name is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "Swedish chemist",
-         "gives": "OBEL",
-         "note": "Alfred Nobel, Swedish chemist and inventor of dynamite, minus his first letter"
+         "at": 9,
+         "gives": "NOBEL",
+         "note": "Alfred Nobel, the Swedish chemist who invented dynamite and founded the Nobel prizes"
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one"
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 40,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A grisly scene: a Swedish scientist beheaded by a single dagger-wielder.",
-     "walkthrough": "NOBEL loses N; 'by' simply places I next to it.",
-     "definitionFit": "In printing an obelus is the dagger mark used for footnotes, and obeli is its plural, so they are typographical daggers."
+     "surface": "A dramatic headline about a Swedish scientist beheaded with knives by a lone assailant.",
+     "walkthrough": "The daggers are printing marks, not weapons: the obelus is the dagger sign used to mark footnotes, and its plural is obeli.",
+     "definitionFit": "An obelus is the typographical dagger symbol, so the plural names several of those reference marks."
     },
     "features": {
      "answerInScene": false,
@@ -497,7 +501,94 @@
    "group": [
     "8-down",
     "3-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fare",
+      "at": 85
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 14,
+       "note": "the word for treks goes around everything else, its first three letters before and the rest after"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Treks",
+       "at": 8,
+       "gives": "MARCHES",
+       "note": "treks are long hard walks, as are marches"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taking in",
+         "at": 33,
+         "note": "the country takes in the shuffled letters, holding them inside itself"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the country",
+         "at": 21,
+         "gives": "MALAWI",
+         "note": "Malawi is a country in south-east Africa"
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "organised",
+           "at": 50,
+           "note": "the letters of Andes plus one more are organised into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Andes",
+           "at": 43
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "primarily",
+             "at": 69,
+             "note": "primarily means only the first letter of deaf is used"
+            }
+           ],
+           "parts": [
+            {
+             "words": "deaf",
+             "at": 64,
+             "note": "first letter D"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller's itinerary: long walks through a South American nation, crossing the Andes, with some food at the end.",
+     "walkthrough": "The clue runs on into 13 down: the answer is the fare taken by Paddington, the bear from Peru. 'The country' looks like Peru from the surrounding clues, but here it is Malawi.",
+     "definitionFit": "Paddington Bear's favourite food is this sticky orange-preserve snack, so it is his fare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 9,
@@ -1340,61 +1431,73 @@
    "annotation": {
     "definitions": [
      {
-      "text": "it",
-      "at": 58,
-      "note": "the pronoun in the bracket refers back to the answer"
+      "text": "in which it was celebrated",
+      "at": 49,
+      "note": "a noun phrase describing the thousand-year period whose start the year 2000 marked"
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MILLENNIUM",
+     "op": "container",
      "indicators": [
       {
-       "text": "turning tail",
-       "note": "turning the tail means the last pair of letters swap round"
+       "text": "in",
+       "at": 33,
+       "note": "the illness and boredom go in the year written as Roman numerals"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "MILLENNIUM",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "in says the earlier letters sit inside the year"
-        }
-       ],
+       "words": "recent year",
+       "at": 36,
+       "gives": "MM",
+       "note": "2000 is MM in Roman numerals, a recent year when this clue was set"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
          "words": "Sick",
+         "at": 0,
          "gives": "ILL",
-         "note": "ill means sick"
+         "note": "sick means ill"
         },
         {
-         "words": "boredom",
-         "gives": "ENNUI",
-         "note": "ennui is listless boredom"
-        },
-        {
-         "words": "recent year",
-         "gives": "MM",
-         "note": "2000 in Roman numerals"
+         "op": "substitution",
+         "indicators": [
+          {
+           "text": "turning tail",
+           "at": 19,
+           "note": "the tail of the word for boredom, its last two letters, is turned round so they swap places"
+          }
+         ],
+         "parts": [
+          {
+           "words": "boredom",
+           "at": 10,
+           "gives": "ENNUI",
+           "note": "ennui is a French-derived word for boredom"
+          },
+          {
+           "gives": "UI"
+          },
+          {
+           "gives": "IU"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fed up with a recent anniversary year and its relentless celebrations.",
-     "walkthrough": "The bracket defines the answer: 2000, written MM, is when the event was celebrated. The year is the container, not the definition.",
-     "definitionFit": "The year 2000 was widely celebrated as the start of a new thousand-year period, which is the event the bracket refers to."
+     "surface": "Someone feeling ill and bored, running away, at a recent new-year party.",
+     "walkthrough": "MM is 2000 in Roman numerals. The 'it' in the brackets is the answer itself: the year 2000 is when the new thousand-year span was celebrated.",
+     "definitionFit": "The year 2000 saw worldwide celebrations marking the turn of a thousand-year period."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "year"
+     "misdirectedWord": "tail"
     }
    }
   },
@@ -1419,53 +1522,50 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "opposite",
+       "at": 9,
+       "note": "the half taken from the first capital is from the opposite end, so its front half goes"
+      }
+     ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "ME",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "opposite halves",
-         "note": "opposite halves means the back half of one name and the front half of the other"
+         "text": "halves of",
+         "at": 18,
+         "note": "only half of each capital's name is kept, so the second capital loses its back half"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "European capitals",
-         "gives": "ME",
-         "select": "last",
-         "note": "the back half of Rome"
+         "at": 28,
+         "gives": "ROMELONDON",
+         "note": "Rome and London, capitals of Italy and the UK"
+        },
+        {
+         "gives": "DON"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LON",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "European capitals",
-         "gives": "LON",
-         "select": "first",
-         "note": "the front half of London"
-        }
-       ]
+       "gives": "RO"
       }
      ]
     },
     "explanation": {
-     "surface": "Produce from contrasting parts of Europe's great cities.",
-     "walkthrough": "The cities are unstated: ROME gives its back half, ME, and LONDON its front half, LON.",
-     "definitionFit": "A melon is a large sweet fruit of the gourd family, such as a cantaloupe or watermelon."
+     "surface": "A greengrocer's puzzle about which fruit is sold in Europe's capital cities.",
+     "walkthrough": "Keep the last half of ROME and the first half of LONDON; the halves come from opposite ends of the two names.",
+     "definitionFit": "A melon is a large, juicy fruit of the gourd family with a hard rind."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "halves"
+     "misdirectedWord": "opposite"
     }
    }
   },
