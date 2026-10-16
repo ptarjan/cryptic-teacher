@@ -233,8 +233,9 @@ assert len(picked) == 2, picked
 work = Path(os.environ["TMP"]) / "puzzles"
 work.mkdir()
 broken = json.loads(picked[True].read_text())
-e = next(e for e in broken["entries"] if "annotation" in e)
-e["clue"]["text"] = "Xq zv."   # its tree names words the clue no longer has
+for e in broken["entries"]:
+    if "annotation" in e:   # every tree names words the clue no longer has
+        e["clue"]["text"] = "Xq zv."   # (not just the first: some trees, e.g. a cryptic definition's, name none)
 files = [work / "a.json", work / "b.json", work / "c.json"]
 files[0].write_text(picked[True].read_text())
 files[1].write_text(picked[False].read_text())
