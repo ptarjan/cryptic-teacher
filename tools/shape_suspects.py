@@ -10,6 +10,7 @@ Imports the skeleton code from tools/clue_shapes.py.
 import collections
 import json
 import random
+import re
 import sys
 from pathlib import Path
 
@@ -160,14 +161,44 @@ def d_singleton(r, c):
         return "skeleton seen once, 3+ brackets"
 
 
+_WORDS = set()
+_REF = re.compile(r"^\d+[AD]?(\s+\d+[AD]?)*\s*\??$")
+
+
+def is_rebus_clue(text, solution):
+    """Whether the clue text is a rebus to read, not words to parse: no lowercase letter,
+    a solution that is not the clue itself (a straight puzzle), no word of 3+ letters the
+    lexicon knows (ordinary capitals: CLUE TO COME), and not a bare clue reference ("9 15")
+    or a lone "?". HIJKLMNO, CO2?, P?, 1984? and 50 + 0 = 0? qualify."""
+    text = (text or "").strip()
+    if not text or not solution or re.search("[a-z]", text) or re.sub(r"\s", "", text) == solution:
+        return False
+    if _REF.match(text) or not re.search(r"[^\s?]", text):
+        return False
+    if not _WORDS:
+        lex = Path(__file__).resolve().parent / "data" / "lexicon.tsv"
+        with lex.open(encoding="utf-8") as f:
+            _WORDS.update(w for w in (ln.split("\t")[0].strip().upper() for ln in f)
+                          if len(w) >= 3 and w.isalpha())
+    return not any(k in _WORDS for k in re.findall("[A-Z]{3,}", text))
+
+
+def d_rebus(r):
+    """A rebus clue (is_rebus_clue) whose tree is not the rebus op: Paul 10-16, "put a rebus
+    puzzle or two at the front of the queue once you build support to annotate them"."""
+    if r["wp"].get("op") not in ("rebus", "picture") and is_rebus_clue(r["clue"], r["sol"]):
+        return f"rebus clue '{r['clue']}' is not annotated with rebus()"
+
+
 DETECTORS = {"arity_ins": d_arity_ins, "arity_other": d_arity_other, "del_single": d_del_single,
-             "span_overlap": d_span_overlap, "ind_in_leaf": d_ind_in_leaf, "unchecked_leaf": d_unchecked_leaf_word}
+             "span_overlap": d_span_overlap, "ind_in_leaf": d_ind_in_leaf, "unchecked_leaf": d_unchecked_leaf_word,
+             "rebus": d_rebus}
 CDETECTORS = {}
 # Hand-measured precision (share of ~8-16 sampled hits per detector whose tree was wrong or unverifiable
 # against the clue text, 2026-10-15). Detectors measured below 50% (leaf-in-definition ~40%, ins-in-ins,
 # del/rev over a charade, rare skeleton alone, repeated leaf words, bare letters under del) are left out.
 PRECISION = {"arity_ins": 0.95, "arity_other": 0.9, "del_single": 0.9, "span_overlap": 0.9, "ind_in_leaf": 0.85,
-             "unchecked_leaf": 0.85}
+             "unchecked_leaf": 0.85, "rebus": 0.9}
 
 
 def run_detectors(rows):
