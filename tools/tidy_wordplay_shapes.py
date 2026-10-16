@@ -53,6 +53,10 @@ FIELDS = {
     "wordplay.singleLeaf": lambda ann: V.single_leaf(ann.get("wordplay")),
     "wordplay.bareInCharade": lambda ann: V.bare_in_charade(ann.get("wordplay")),
     "wordplay.anagramOfContainer": lambda ann: V.anagram_of_container(ann.get("wordplay")),
+    "wordplay.arityIns": lambda ann: V.arity_ins(ann.get("wordplay")),
+    "wordplay.arityOther": lambda ann: V.arity_other(ann.get("wordplay")),
+    "wordplay.delSingle": lambda ann: V.del_single(ann.get("wordplay")),
+    "wordplay.indInLeaf": lambda ann: V.ind_in_leaf(ann.get("wordplay")),
 }
 
 

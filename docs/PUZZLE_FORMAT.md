@@ -117,7 +117,13 @@ filed, and the expression cannot write one. The tree, in brief:
   word of a phrase: one op over one multi-word leaf), `wordplay.singleLeaf`
   (wordplay that is one leaf), `wordplay.bareInCharade` (a charade piece with no
   clue words) and `wordplay.anagramOfContainer` (`ana(ins(..))`: the anagram
-  goes inside, `ins(outer, ana(x))`). `tools/tidy_wordplay_shapes.py` joined the
+  goes inside, `ins(outer, ana(x))`). Four more count what the checked rules skip,
+  in an `unchecked` step (the `tools/shape_suspects.py` detectors measured precise):
+  `wordplay.arityIns` (a container not of two parts), `wordplay.arityOther` (a
+  deletion of 3+, substitution not of 3, homophone of 3+, or a reversal, hidden
+  word, cycling or letter selection not of 1), `wordplay.delSingle` (a deletion
+  with one part: what it removes is not stated) and `wordplay.indInLeaf` (an
+  indicator word also inside a longer leaf). `tools/tidy_wordplay_shapes.py` joined the
   charades in charades whose `view()` is unchanged and recorded the rest.
   A run's own `annotate_check` reports every one as an error. Until
   `SHAPE_GRACE_UNTIL` in `validate_annotations.py` the push hook and CI let through
