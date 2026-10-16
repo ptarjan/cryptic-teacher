@@ -83,7 +83,7 @@ shows, so you write none of those. Worked annotations close this file.
 {
   "def": "exact clue words that define the answer; [\"first\", \"second\"] for a double definition",
   "wp": "ins<in>([order]SORT, [Bird]TIT + [Chinese]CH + [woman]W)",
-  "notes": {"<words as written in wp or def>": "why these words do this job here; none for a plain abbreviation"},
+  "notes": {"<words as written in wp or def>": "why these words do this job here; every indicator and every leaf with letters"},
   "explanation": {
     "surface": "one sentence, 25 words max: what the clue pretends to be about",
     "walkthrough": "optional, 1-2 sentences, 45 words max: what the parse cannot show",
@@ -98,9 +98,11 @@ shows, so you write none of those. Worked annotations close this file.
 }
 ```
 
-- **No note for a plain abbreviation** (`[with]W`, `[folio]F`): the app shows the
-  dictionary's abbreviation from its table, and such a note is dropped. Write one only
-  when it adds something (`C is the cricket abbreviation for caught`).
+- **Write a note for an abbreviation too** (`[with]W`, `[small road]RD`): a note that
+  only says it is an abbreviation is dropped for you when the dictionary table holds
+  the pair, but you cannot see the table and a pair it lacks (`[small road]RD`) fails
+  the first check without a note. So always write one; add the domain when it helps
+  (`C is the cricket abbreviation for caught`).
 - **Every clue word has one job**: in `def`, in a `[leaf]`, or in an `<indicator>`
   placed right after the operation it signals. Words left over are link words, worked
   out for you; an indicator you leave out of `wp` becomes a link word the check questions.
@@ -111,8 +113,7 @@ shows, so you write none of those. Worked annotations close this file.
   piece by its letters). Every indicator and every leaf with letters gets one, in the
   FIRST write: synonyms (`[depressed]SAD`: "depressed means sad"), letter picks
   (`[the]T`: "first letter of the") and names too; a missing leaf note is the commonest
-  failure of the first check. Only a table abbreviation or a leaf that is its own
-  letters (`[a]A`) goes without. A
+  failure of the first check. Only a leaf that is its own letters (`[a]A`) goes without. A
   definition gets one only where it disagrees with the answer in number or part of
   speech; in a double definition each definition's note says what that sense means.
 - A **double definition** is two `def`s and no `wp`. A **cryptic definition** is
