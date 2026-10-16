@@ -129,19 +129,19 @@ tools/fetch_puzzle.py                          fetch/convert the Guardian crypti
                                                prize and Quiptic,
                                                --latest/--backfill/--extend/--reindex
 tools/fetch_independent.py                     the Independent’s daily and Sunday
-tools/test_fetch_independent.sh                drives that parser over the days whose title is
+tools/test_fetch_independent.py                drives that parser over the days whose title is
                                                empty or is the setter’s own scratch note, and
                                                proves each one lands on the right number AND
                                                the right series — the two sequences both ran
                                                under 10,000, so the number never gets a vote
-tools/test_enumeration_separators.sh           holds the word breaks Metro and the Private Eye
+tools/test_enumeration_separators.py           holds the word breaks Metro and the Private Eye
                                                get from each clue’s printed enumeration, single
                                                lights and linked groups
 tools/fetch_telegraph.py                       the Telegraph’s four series from its puzzle
                                                app’s data bucket, grids and answers as printed,
                                                since 2015; fills the numbers bigdave44.com
                                                hinted only in part
-tools/test_fetch_telegraph.sh                  proves the bucket parser files a Sunday under
+tools/test_fetch_telegraph.py                  proves the bucket parser files a Sunday under
                                                the Sunday Telegraph, reads grid, clues and word
                                                breaks, and drops calendar numbers that break
                                                the running order
@@ -277,7 +277,7 @@ tools/groups.py                                linked answers: the leader carrie
                                                maps each light to its group or leader, and
                                                spreads/collapses the per-light claims the
                                                Guardian ships
-tools/test_definitions.sh                      holds each of those rules, the refusal, and the
+tools/test_definitions.py                      holds each of those rules, the refusal, and the
                                                validator's check that `at` points at its text
 tools/puzzle_integrity.py                      checks the puzzles themselves: two puzzles that
                                                are the same puzzle, an answer that does not fit
@@ -298,7 +298,7 @@ tools/test_quotes.js                           a clue stored with straight quote
 tools/dashes.py                                clue text spells a dash between words " — " and
                                                an ellipsis "…": normalises every write with its
                                                offsets moved, converts held files
-tools/test_dashes.sh                           every spelling of a dash between words becomes "
+tools/test_dashes.py                           every spelling of a dash between words becomes "
                                                — " and of an ellipsis "…"; hyphens, blanks and
                                                leaders stay; offsets move with the text; DASH
                                                refuses the rest
@@ -360,7 +360,7 @@ tools/clues_only.py                            puzzles held as their clues alone
                                                them and tools/apply_solution.py derives the one
                                                grid the answers cross in and files the puzzle
                                                in puzzles/
-tools/test_clues_only.sh                       strips a solved book puzzle to its clues, has
+tools/test_clues_only.py                       strips a solved book puzzle to its clues, has
                                                tools/apply_solution.py promote it, and checks
                                                the derived grid and numbering are the published
                                                ones and that no half state (a number, position
@@ -712,7 +712,7 @@ tools/test_walkthrough_follows.sh              a hint can be followed: findings 
                                                tree, or an anagram, reversal or hidden
                                                indicator is separated from its fodder by
                                                content words
-tools/test_flatten_anagram_fodder.sh           an anagram's pieces are its own parts: ana(x +
+tools/test_flatten_anagram_fodder.py           an anagram's pieces are its own parts: ana(x +
                                                y) stores them there, a join with its own
                                                indicator inside ana() is refused, the validator
                                                counts a charade directly under an anagram
@@ -761,7 +761,7 @@ tools/test_theme_clue.sh                       holds `themeClue`, the hand-filed
                                                a worded entry, re-queuing a recorded annotate
                                                failure, surviving clues-only promotion, and
                                                never being set or changed by an annotation
-tools/test_defined_by_preamble.sh              holds `definedByPreamble` to standing in for
+tools/test_defined_by_preamble.py              holds `definedByPreamble` to standing in for
                                                `definition` only where the puzzle prints a
                                                preamble, and never beside a definition
 tools/apply_annotations.py                     translates a run’s annotation JSON (def, wp,
@@ -790,7 +790,7 @@ tools/clue_shapes.py                           the census of every whole-clue wo
                                                tools/data/clue_shape_verdicts.json; writes
                                                docs/CLUE_SHAPES.md (nice -n 19, about ten
                                                minutes; --dump writes every skeleton)
-tools/test_clue_shapes.sh                      does tools/clue_shapes.py reduce hand-built
+tools/test_clue_shapes.py                      does tools/clue_shapes.py reduce hand-built
                                                trees to the right skeleton and verdict (a
                                                redundant anagram-of-charade, a repeating
                                                cryptic definition, a mislabelled
@@ -1583,7 +1583,7 @@ tools/build_corpus_abbreviations.py            counts every leaf whose note call
                                                abbreviation over puzzles/ (read only) and
                                                writes lexicons/abbreviations_corpus.json;
                                                --check
-tools/test_corpus_abbreviations.sh             build_corpus_abbreviations keeps a widely used
+tools/test_corpus_abbreviations.py             build_corpus_abbreviations keeps a widely used
                                                pair, drops one setter's habit and a thin one,
                                                and the committed file holds deserted D
 tools/fetch_abbreviations.py                   streams kaikki.org's Wiktionary abbreviation,
@@ -1591,7 +1591,7 @@ tools/fetch_abbreviations.py                   streams kaikki.org's Wiktionary a
                                                extracts, and Wikipedia's Crossword
                                                abbreviations list, into
                                                lexicons/abbreviations.json
-tools/test_fetch_abbreviations.sh              fetch_abbreviations.senses() reads what a
+tools/test_fetch_abbreviations.py              fetch_abbreviations.senses() reads what a
                                                wiktextract entry says an abbreviation stands
                                                for, and nothing it only mentions; list_senses()
                                                reads the crossword list's readings and skips
@@ -1725,7 +1725,7 @@ tools/test_public_docs.sh                      do the public docs name hosts by 
                                                host, the GPU host, the data disk) rather than
                                                by a local path, home directory, LAN address or
                                                whose machine it is?
-tools/test_doc_staleness.sh                    do the hand-written docs, outside generated
+tools/test_doc_staleness.py                    do the hand-written docs, outside generated
                                                regions, stay free of live counts ("about N
                                                puzzles") and snapshot words ("currently", "as
                                                of") that go stale, with dated history exempt?
@@ -1801,7 +1801,7 @@ tools/test_privateeye_split_lost.sh            does tools/privateeye_wayback.spl
 tools/test_privateeye_missing_size.sh          does tools/clue_repair.fill_missing_sizes size a
                                                plain light whose count the OCR lost from the
                                                answer the next issue printed?
-tools/test_fetch_puzzle_misfiled.sh            does fetch_puzzle.convert() refuse a mis-filed
+tools/test_fetch_puzzle_misfiled.py            does fetch_puzzle.convert() refuse a mis-filed
                                                Guardian page and accept a re-published one?
 scratch/snitch_tune.py                         collect every SNITCH-rated puzzle's raw
                                                components into scratch/snitch_rows.json, for
@@ -1958,7 +1958,7 @@ tools/test_archive_org_jumbo.sh                does tools/archive_org_jumbo.py t
                                                it, keep the clue columns left of the Times
                                                Two's, and match a solution grid by its blocks
                                                when its middle prints grey?
-tools/test_difficulty_barred.sh                is a barred grid's checking rated against barred
+tools/test_difficulty_barred.py                is a barred grid's checking rated against barred
                                                grids, not blocked ones?
 tools/test_no_doubled_paper.sh                 does any series' page say the same word twice
                                                running ("Listener Listener")? Renders a
@@ -1989,13 +1989,13 @@ tools/test_annotate_filed_rows.py              an _ann entry's printedClue, sett
                                                view carries source.retrievedFrom and the grid
 tools/errata.py                                a paper's erratum is a fix to the puzzle, not a
                                                preamble
-tools/test_errata.sh                           a paper's erratum in the preamble fixes its clue
+tools/test_errata.py                           a paper's erratum in the preamble fixes its clue
                                                and leaves the preamble; the instructions beside
                                                it stay, and the write gate refuses one left
                                                behind
 tools/boilerplate.py                           a preamble's publishing boilerplate is not
                                                something a solver needs
-tools/test_clue_page_instructions.sh           a 2005-08 Guardian prize's special instructions
+tools/test_clue_page_instructions.py           a 2005-08 Guardian prize's special instructions
                                                are read off the old-site clue page its note
                                                links to and filed with the note
 tools/test_boilerplate.py                      a paper's publishing boilerplate in the preamble
@@ -2003,7 +2003,7 @@ tools/test_boilerplate.py                      a paper's publishing boilerplate 
                                                errata stay; the write gate refuses it
 tools/ocr_clues.py                             the clue-text OCR every scan filer shares: the
                                                readers, the vote, the check
-tools/test_clue_record_shift.sh                does every Guardian clue record land on the
+tools/test_clue_record_shift.py                does every Guardian clue record land on the
                                                light its number names?
 tools/test_shared_continuation.sh              does a light whose clue names two leaders end
                                                both answers?
@@ -2245,7 +2245,7 @@ tools/gale_fetch.py                            downloads every wanted Times edit
                                                2026-10-11)
 tools/gale_fetch.sh                            gale_fetch.py's long run from its own worktree,
                                                launched through track-job --restart
-tools/test_gale_fetch.sh                       on a fake clock: does gale_fetch keep its pace,
+tools/test_gale_fetch.py                       on a fake clock: does gale_fetch keep its pace,
                                                wait out the window at its cap (counting
                                                downloads made elsewhere), take a page a fresh
                                                session gets past for a logout, record a refusal
@@ -2260,7 +2260,7 @@ tools/test_gale_fetch.sh                       on a fake clock: does gale_fetch 
                                                first and the Listener before the other papers,
                                                and look up and save a Listener report from its
                                                own issue?
-tools/test_gale_docs.sh                        with Gale stood in: is the day's crossword found
+tools/test_gale_docs.py                        with Gale stood in: is the day's crossword found
                                                in an issue's contents (not the Concise or a
                                                competition), its Download link's citation
                                                naming its document, a Listener report found in
@@ -2395,7 +2395,7 @@ tools/file_gale_listener.py                    files the 1930s Listeners saved f
                                                cross_validate.py's listenerreport adapter,
                                                where a solve it disagrees with is a lead; each
                                                puzzle's verdict, or what it lacks, in filed.json
-tools/test_file_gale_listener.sh               does the Gale Listener filer put back a faint
+tools/test_file_gale_listener.py               does the Gale Listener filer put back a faint
                                                bar the numbering hides, file the puzzle
                                                unsolved through the validators (with no report
                                                too), find the report by its bars, settle a cell

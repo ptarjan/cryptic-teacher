@@ -1,11 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # An anagram's fodder is one pool: its pieces are the anagram's own parts, never
 # a charade under it. The parser stores ana(x + y) that way, the validator counts
 # a charade directly under an anagram, and tools/flatten_anagram_fodder.py
 # rewrites the filed ones without changing what view() shows.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import copy, json
 import annotation, wordplay, validate_annotations as v
 import flatten_anagram_fodder as F
@@ -78,4 +79,3 @@ check("the ratchet counts it under wordplay.anagramCharade", 1,
 check("and refuses one more than a puzzle is allowed", 1,
       len(v.backlog_errors("x-1", warn, {"wordplay.anagramCharade": {}})))
 raise SystemExit(fails)
-PY

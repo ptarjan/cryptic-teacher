@@ -1,11 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # A definition's `at` is computed from its text by the rules in
 # tools/definitions.py, refused where they leave it ambiguous, and checked by
 # validate_annotations against the clue; a definitionFit that reads the
 # definition back is refused.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import definitions as D
 import puzzle_schema
 import validate_annotations as v
@@ -99,6 +100,6 @@ check("hint: a misread word names printedClue", True,
       and "printedClue" in v.verbatim_hint("jumbled crowd", "Very hot iumbled crowd"))
 check("hint: unrelated words get the plain rule", True,
       "character for character" in v.verbatim_hint("horserace", "Spectators see chap"))
-raise SystemExit(fails)
-PY
-echo "all definition placement checks passed"
+if fails:
+    raise SystemExit(fails)
+print("all definition placement checks passed")

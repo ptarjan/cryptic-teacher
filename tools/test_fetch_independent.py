@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Can the Independent parser still name a puzzle whose <title> is not a title?
 #
-#     bash tools/test_fetch_independent.sh
+#     python3 tools/test_fetch_independent.py
 #
 # Two separate things decide a file's name, and this feed can get both wrong at
 # once. The NUMBER comes off a title, and for everything before September 2015
@@ -14,9 +14,10 @@
 # The cases below are the real title strings, on their real date keys, around a
 # grid small enough to read. Each asserts the whole id, so a right number under
 # the wrong series fails exactly as loudly as a wrong number.
-set -uo pipefail
-cd "$(dirname "$0")/.."
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import sys
 
 sys.path.insert(0, "tools")
@@ -128,4 +129,3 @@ check("a date key that serves another day's puzzle is refused",
 
 print("FAILED: %d" % fails if fails else "all ok")
 sys.exit(1 if fails else 0)
-PY

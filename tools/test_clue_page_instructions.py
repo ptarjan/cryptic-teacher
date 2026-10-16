@@ -1,11 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # A 2005-08 Guardian prize's special instructions are on the old-site clue page
 # its note links to; the fetcher reads them from there and files them with the
 # note (cryptic-23646's note says only "the numbers on this grid should be
 # ignored"; what defines its asterisked clues is on the clue page).
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import fetch_puzzle as fp
 
 fails = 0
@@ -69,4 +70,3 @@ got = fp.clue_page_instructions(PAGE_23598)
 check("a stray </b> in the note is not the title", got == "Solve the clues and enter solutions in the grid "
       "jigsaw-wise, wherever they will go.", got)
 raise SystemExit(fails)
-PY

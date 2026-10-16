@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # Does the corpus decide which abbreviations are standard?
 #
-#     bash tools/test_corpus_abbreviations.sh
+#     python3 tools/test_corpus_abbreviations.py
 #
 # tools/build_corpus_abbreviations.py counts every leaf whose note calls it an
 # abbreviation and keeps a pair attested in MIN_PUZZLES puzzles from
@@ -10,9 +10,10 @@
 # a thin pair are out, spans the table never holds are not counted, a
 # stripped leaf still counts. Then the committed file: Paul's D for deserted
 # is in the table, so its note now restates it.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import json
 import tempfile
 from pathlib import Path
@@ -85,4 +86,3 @@ check("every committed pair clears the thresholds", all(
 
 print("corpus abbreviations:", "all checks passed" if not fails else f"FAILED {fails}")
 raise SystemExit(1 if fails else 0)
-PY

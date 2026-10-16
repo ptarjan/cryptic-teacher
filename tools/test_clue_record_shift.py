@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does every Guardian clue record land on the light its number names?
 #
-#     bash tools/test_clue_record_shift.sh
+#     python3 tools/test_clue_record_shift.py
 #
 # The page serves each entry as a clue record zipped to a light. Drop one of
 # either and every later record in that direction rides the wrong light:
@@ -9,9 +9,10 @@
 # fetch_puzzle.align_clue_records() moves each record to the light whose grid
 # number it carries; puzzle_integrity's LENGTH check refuses a count that does
 # not fit its light or its group.
-set -uo pipefail
-cd "$(dirname "$0")/.."
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import copy
 import sys
 from datetime import date
@@ -105,4 +106,3 @@ check("a (7) riding a five-letter light is a LENGTH finding",
       any(f[0] == "LENGTH" and "20-across" in f[2] for f in flags), True)
 
 sys.exit(1 if fails else 0)
-PY

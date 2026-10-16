@@ -1,16 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does fetch_puzzle.convert() refuse a mis-filed Guardian page and accept a
 # re-published one?
 #
-#     bash tools/test_fetch_puzzle_misfiled.sh
+#     python3 tools/test_fetch_puzzle_misfiled.py
 #
 # Both arrive with a `date` far from `webPublicationDate`. /crosswords/cryptic/1183
 # serves Quiptic 1,183 under 1934 and must be refused; cryptic 26,752 was
 # re-published on 2016-01-25 with its own date intact between its neighbours
 # and must be filed.
-set -uo pipefail
-cd "$(dirname "$0")/.."
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import json, pathlib, sys, tempfile
 sys.path.insert(0, "tools")
 import fetch_puzzle as fp
@@ -111,4 +112,3 @@ check("a puzzle is not a copy of itself on refresh",
       raises(fp.check_not_copy, served(25545, clues("beta"))) is None)
 print("FAILED: %d" % fails if fails else "all ok")
 sys.exit(1 if fails else 0)
-PY
