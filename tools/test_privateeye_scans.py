@@ -313,6 +313,14 @@ check("a lone 'a' after the tail is no direction", "6, 20 a Heckler",
 _got = [l[4] for l in _ps.relinked([_line("11/14 Link head (4,7)"), _line("14 Own clue (5)")])]
 check("a link's tail with a digit too many is put right (No 80)", "11/4 Link head (4,7)", _got[0])
 
+# No 103: a five-light head's count (3,4,2,3,5,3,4,2,3,4) ends its clue; read as no
+# count, the next clue's line ran into it and 6 across was lost.
+_got, _ = _AL.parse("ACROSS\n1, 15, 22, 8, 26 Reportedly like a Picasso portrait of divi-\n"
+                    "sion among politicians? (3,4,2,3,5,3,4,2,3,4)\n6 Outburst puts one off the PM (5)\n"
+                    "9 The piss-taker (7)\nDOWN\n1 Donald's model (5)\n2 Suffragettes were (9)\n")
+check("a long linked count ends its clue", [({1, 15, 22, 8, 26}, {"3,4,2,3,5,3,4,2,3,4"}), ({6}, {"5"}), ({9}, {"7"})],
+      [(set().union(*c["tokens"]), c["enums"]) for c in _got["across"]])
+
 if fails:
     print(f"{fails} failed")
     sys.exit(1)
