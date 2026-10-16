@@ -213,38 +213,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OPENWAR",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "endless",
-       "note": "endless means the word loses its last letter"
+       "text": "breaks out",
+       "at": 8,
+       "note": "letters that break out escape their order and regroup, so the shortened word is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "breaks out",
-         "note": "breaking out suggests an eruption that scatters the letters into disorder"
+         "text": "endless",
+         "at": 20,
+         "note": "without its end, so the final letter of weaponry is dropped"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "WEAPONR",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "weaponry",
-           "gives": "WEAPONR",
-           "select": "first",
-           "note": "the word without its final letter"
-          }
-         ]
+         "words": "weaponry",
+         "at": 28
+        },
+        {
+         "gives": "Y"
         }
        ]
       }
@@ -252,13 +245,13 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A warning that once hostilities start, arms will be deployed without limit.",
-     "walkthrough": "The whole clue is both wordplay and definition, and it runs on into 6 down.",
-     "definitionFit": "Open war is undisguised, full-scale conflict, exactly the situation in which every weapon gets used."
+     "surface": "A grim warning that once hostilities erupt, arms will be deployed, continued in the next clue.",
+     "walkthrough": "The ellipsis runs on into 6 down, which completes the sentence about the military.",
+     "definitionFit": "Open war is undisguised, declared fighting, exactly the state in which weapons get used."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "breaks"
     }
    }
@@ -499,76 +492,70 @@
     "definitions": [
      {
       "text": "13",
-      "at": 49
+      "at": 49,
+      "note": "13 across is AMERICAN, here an American poet"
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EDGARALLANPOE",
      "indicators": [
       {
-       "text": "Inside",
-       "note": "split as in side, this places the central chain within a word for a side"
+       "text": "between",
+       "at": 24,
+       "note": "between places the run of sea, shortened land and river within the letters of the edge, splitting it"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "most of",
-         "note": "most of means the word loses a letter, here its last"
-        }
-       ],
+       "words": "Inside",
+       "at": 0,
+       "gives": "EDGE",
+       "note": "read as the cricket stroke an inside edge: the word supplies EDGE and also says the rest goes inside it"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "sea",
+         "at": 32,
+         "gives": "ARAL",
+         "note": "the Aral Sea in Central Asia"
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "between",
-           "note": "between places this piece in the middle, with one on either side"
+           "text": "most of",
+           "at": 7,
+           "note": "most of the word asks for all but its last letter"
           }
          ],
          "parts": [
           {
-           "words": "side",
-           "gives": "EDG",
-           "note": "a side is an edge; its letters open and close the answer"
-          },
-          {
-           "words": "sea",
-           "gives": "ARAL",
-           "note": "the Aral Sea in Central Asia"
-          },
-          {
-           "words": "the land",
+           "words": "land",
+           "at": 19,
            "gives": "LAND",
-           "note": "taken as written"
+           "note": "the word land taken as written before shortening"
           },
           {
-           "words": "river",
-           "gives": "PO",
-           "note": "the Po is Italy's longest river"
-          },
-          {
-           "words": "side",
-           "gives": "E",
-           "note": "the last letter of the word for side, closing it round the chain"
+           "gives": "D"
           }
          ]
         },
         {
-         "gives": "D"
+         "words": "river",
+         "at": 40,
+         "gives": "PO",
+         "note": "the Po is Italy's longest river"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzling geography: some territory between sea and river is somehow American.",
-     "walkthrough": "Read 'Inside' as 'in side': the chain of sea, shortened land and river goes into a word for side, just before its final letter. 13 is AMERICAN.",
-     "definitionFit": "Edgar Allan Poe was an American poet and short-story writer, author of The Raven."
+     "surface": "A geography lesson about a strip of territory lying between the sea and a river.",
+     "walkthrough": "Araucaria makes 'Inside' do double duty, as 'inside edge' (a cricket stroke off the bat's inner face): the edge is the container, and the sea, most of the land and the river sit within it.",
+     "definitionFit": "Edgar Allan Poe, author of 'The Raven', was a Boston-born poet, so he is an American writer."
     },
     "features": {
      "answerInScene": false,
@@ -593,7 +580,44 @@
    "group": [
     "10-across",
     "12-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "13",
+      "at": 0,
+      "note": "13 across is AMERICAN, here standing for an American poet, the theme of the puzzle"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "tall",
+       "at": 5,
+       "gives": "LONG",
+       "note": "tall means long, as in a long or lanky figure"
+      },
+      {
+       "words": "guy",
+       "at": 10,
+       "gives": "FELLOW",
+       "note": "a guy is a man, a fellow"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question asking whether some American is simply a tall chap.",
+     "walkthrough": "The 13 cross-reference points to AMERICAN; the puzzle's theme is American poets, and Henry Wadsworth Longfellow is read as a lanky man.",
+     "definitionFit": "Longfellow was a nineteenth-century poet from Maine, so he is an American writer of verse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "guy"
+    }
+   }
   },
   {
    "number": 11,
@@ -871,7 +895,32 @@
     "text": "Disappointing weather for 13",
     "enumeration": "5"
    },
-   "solution": "FROST"
+   "solution": "FROST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Disappointing weather",
+      "at": 0,
+      "meaning": "first meaning: a ... is cold weather that ruins crops, and informally a ... is a letdown or flop"
+     },
+     {
+      "text": "13",
+      "at": 26,
+      "meaning": "second meaning: 13 across is AMERICAN, here an American poet"
+     }
+    ],
+    "explanation": {
+     "surface": "A gardener grumbles that the cold snap was a letdown for an American visitor.",
+     "walkthrough": "13 across is AMERICAN, and the theme is American poets.",
+     "definitionFit": "Robert Frost wrote 'The Road Not Taken'; and icy freezing conditions are weather that disappoints growers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Disappointing"
+    }
+   }
   },
   {
    "number": 18,
