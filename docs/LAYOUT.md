@@ -799,9 +799,10 @@ tools/data/shape_suspects.json                 ranked clues whose wordplay tree
                                                for re-annotation, not read by anything
 tools/data/shape_reannotate.json               the shape suspects tools/fix_shape_suspects.py
                                                could not repair mechanically, one row per clue
-                                               ({id: puzzle#clue, reason}); a work list for
-                                               single-clue re-annotation, not read by anything
-                                               yet
+                                               ({id: puzzle#clue, reason}); the burn's last
+                                               queue tier and the clues an annotate run
+                                               rewrites (tools/shape_queue.py prunes a row once
+                                               its clue is re-filed)
 tools/data/clue_shape_verdicts.json            the judgements tools/clue_shapes.py applies to
                                                wordplay shapes, keyed by exact skeleton or by
                                                regular expression with depth and mechanism
@@ -2752,5 +2753,13 @@ tools/fix_shape_suspects.py                    repair the shape suspects whose r
                                                tools/data/shape_reannotate.json
 tools/tidy_cdef_repeat.py                      rewrite cryptic definitions stored as several
                                                leaves, corpus-wide (wordplay.cdefRepeat)
+tools/shape_queue.py                           the clues whose wordplay tree
+                                               tools/shape_suspects.py flags and
+tools/test_shape_queue.sh                      the shape re-annotation list
+                                               (tools/shape_queue.py): a listed clue is written
+                                               by a run on its hinted puzzle, the old hint is
+                                               never lost, and a filed clue leaves the list.
+                                               The queue tier's ordering is in prereset_plan.py
+                                               --self-test
 ```
 <!-- LAYOUT-END -->
