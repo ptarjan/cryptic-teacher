@@ -27,7 +27,7 @@ does not match the table.
 Everything a fetcher downloads lives outside the repo under one root on a
 data disk (set in `tools/downloads.py` or by `CT_DOWNLOADS`; `python3
 tools/downloads.py` prints it), one folder per source. `tools/downloads.py` is
-the only place a folder is named, and `tools/test_downloads.py` fails on a
+the only place a folder is named, and `tools/test_downloads.sh` fails on a
 download path spelled anywhere else.
 
 | Folder | What is in it | Filled by |
@@ -2454,6 +2454,13 @@ tools/test_row_cache.py                        does row_cache re-parse exactly t
                                                row could change (an edited file, a changed
                                                dependency, new code), and is every data file a
                                                cached row reads in its key?
+tools/test_row_cache_stale.py                  row_cache.cached_map(stale_ok=True): a code
+                                               change keeps the rows of unchanged files until
+                                               fresh ones are made, never-made rows come first,
+                                               and a deadline mid-build returns a complete
+                                               answer with backlog marked, so
+                                               puzzle_integrity's 55k-row rebuild finishes
+                                               across runs
 tools/test_clue_index.py                       does StoredClueIndex answer exactly what
                                                ClueIndex.build() answers, as files are added,
                                                edited and deleted, and when its store is
