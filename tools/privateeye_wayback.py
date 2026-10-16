@@ -601,6 +601,25 @@ def named_tails(rows, entries):
     return printed
 
 
+def pin_word_lengths(groups, across, down):
+    """Give a linked group's lights their lengths when its enumeration has one
+    number per light ("6,7" over 11 across and 1 down): the words are the
+    lights, so nothing is left to search. Mutates the lights, returns the
+    groups still open. Cyclops 63 and 73 ran out of budget with the split
+    free and prove empty in seconds with it pinned."""
+    lights = {"across": across, "down": down}
+    left = []
+    for members, total in groups:
+        lead = lights[members[0][0]][members[0][1]]
+        sizes = [int(t) for t in re.findall(r"\d+", (lead[3] or {}).get("enumeration") or "")]
+        if len(sizes) == len(members) and sum(sizes) == total and min(sizes) > 0:
+            for (d, i), size in zip(members, sizes):
+                lights[d][i][1] = size
+        else:
+            left.append((members, total))
+    return left
+
+
 def from_rows(num, rows, answers=None, image=None, fixes=None):
     """A puzzle with no answers from light_spec rows, its grid rebuilt from
     the clue numbers and enumerations (as tools/fetch_nation.py does).
@@ -629,7 +648,7 @@ def from_rows(num, rows, answers=None, image=None, fixes=None):
     for lg in across + down:
         if lg[2].startswith("linked"):
             lg[1] = None
-    groups = linked_groups(rows, across, down)
+    groups = pin_word_lengths(linked_groups(rows, across, down), across, down)
     given = {}
     for _ts, arows in answers or []:
         given = {(k, d): w for k, d, w in arows if "/" not in k}
