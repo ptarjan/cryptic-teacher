@@ -835,6 +835,31 @@ def preview(path, pending):
         return [], []
 
 
+NO_NOTE_RE = re.compile(
+    r"^\s*(?:ERROR|warn):\s*(\d+)([AD]): block ('(?:[^'\\]|\\.)*'|\"(?:[^\"\\]|\\.)*\") "
+    r"> '(\w+)' " + re.escape(validate_annotations.BLOCK_NO_NOTE))
+
+
+def note_skeleton(report):
+    """One --patch file naming every block the report says has no note, so the
+    commonest first-check failure (a leaf with letters and no note, in over half
+    of all runs) is one Write and one command rather than a fix per clue."""
+    import ast
+    notes = {}
+    for line in report.splitlines():
+        m = NO_NOTE_RE.match(line)
+        if not m:
+            continue
+        num, d, frag, gives = m.groups()
+        try:
+            frag = ast.literal_eval(frag)
+        except (ValueError, SyntaxError):
+            continue
+        key = f"{num}-{'across' if d == 'A' else 'down'}"
+        notes.setdefault(key, {"notes": {}})["notes"][frag] = f"<why {frag!r} gives {gives}>"
+    return json.dumps(notes, indent=1, ensure_ascii=False) if notes else ""
+
+
 def name_checks(report):
     """`report` with each validator line ending in the check that wrote it.
 
@@ -1011,6 +1036,12 @@ def main(argv):
                  for l in vout.splitlines())
     warns = sum(l.startswith(validate_annotations.WARN_PREFIX)
                 for l in vout.splitlines())
+
+    skeleton = note_skeleton(vout)
+    if skeleton:
+        print("\nthe missing block notes as one --patch file (fill each \"<why ...>\" "
+              "with the sentence, Write it, add `--patch <file>`):")
+        print(skeleton)
 
     found = list(leaks([stem]))
     if found:

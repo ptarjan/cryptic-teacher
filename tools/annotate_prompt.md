@@ -108,12 +108,17 @@ shows, so you write none of those. Worked annotations close this file.
 - A leaf's letters come before any operation (`rev([papers]ID)` makes DI), and a
   charade is in answer order whatever the clue's order: "after", "under" are indicators on the `+`.
 - **Notes** are keyed by the words as written in `wp` or `def` (a repeat `#2`, a bare
-  piece by its letters). Every indicator and every leaf with letters gets one. A
+  piece by its letters). Every indicator and every leaf with letters gets one, in the
+  FIRST write: synonyms (`[depressed]SAD`: "depressed means sad"), letter picks
+  (`[the]T`: "first letter of the") and names too; a missing leaf note is the commonest
+  failure of the first check. Only a table abbreviation or a leaf that is its own
+  letters (`[a]A`) goes without. A
   definition gets one only where it disagrees with the answer in number or part of
   speech; in a double definition each definition's note says what that sense means.
 - A **double definition** is two `def`s and no `wp`. A **cryptic definition** is
-  `def` the whole clue and `wp` `cd([surface words], [setter's words])`: the clue in
-  the pieces its two readings turn on, each with a note, no letters. An **&lit** has
+  `def` the whole clue and `wp` `cd([the clue's words])`: ONE leaf holding the clue
+  words once (never `cd([a], [b])`; the check flags every extra leaf), with a note, no
+  letters. Two readings in two stretches is a double definition instead. An **&lit** has
   `"andLit": true`, `def` the whole clue and the whole clue's wordplay.
 - `answer` only to correct a `(MODEL)` answer, or to spell one with an apostrophe or
   accent (`"CAT-O'-NINE-TAILS"`); the display answer is otherwise worked out.
@@ -191,8 +196,8 @@ Four first runs in ten fail, most often on these rules. Get them right first tim
   Its rung comes before the pieces, so it never names a piece's letters or the answer:
   `"returning means the word rats is read backwards"`, not `"returning means RATS becomes STAR"`.
 - No note may contain the answer. Write about the clue words; the walkthrough spells it.
-- A cryptic definition's `cd()` has 2+ leaves, none with letters, and no note that
-  spells the answer.
+- A cryptic definition's `cd()` has exactly one leaf (the clue words), no letters, and
+  no note that spells the answer.
 - `features.misdirectedWord` is one word, copied exactly as printed in the clue.
 
 - To change many clues, Write `{"8-down": {"field": value}}` to a file and add
