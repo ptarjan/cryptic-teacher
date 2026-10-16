@@ -2851,7 +2851,7 @@ def save_held(path):
     # Keyed by str: pickling ~14k Paths (Path.__reduce__ each) was most of a
     # plan's save; load_held makes them Paths again.
     with open(tmp, "wb") as f:
-        pickle.dump({os.fspath(k): v for k, v in list(_HELD.items())}, f, protocol=pickle.HIGHEST_PROTOCOL)
+        pickle.dump(dict(list(_HELD.items())), f, protocol=pickle.HIGHEST_PROTOCOL)
     os.replace(tmp, path)
 
 
@@ -2864,7 +2864,7 @@ def load_held(path):
     except (OSError, EOFError, pickle.UnpicklingError, AttributeError, ValueError):
         return
     for k, v in snap.items():
-        _HELD.setdefault(Path(k), v)
+        _HELD.setdefault(k, v)  # str keys: a Path hashes by re-normalising its string
 
 
 #: {(series, number): its file} as held_files last listed them.
@@ -2919,11 +2919,12 @@ def _held_list(series):
             for p in (ROOT / "puzzles" / series / name).glob("*.json"):
                 st = p.stat()
                 stamp = (st.st_mtime_ns, st.st_size)
-                seen = _HELD.get(p)
+                ps = os.fspath(p)
+                seen = _HELD.get(ps)
                 if seen is None or seen[0] != stamp:
                     d = json.loads(p.read_text())
                     date = d.get("date")
-                    seen = _HELD[p] = (stamp, (date and datetime.date.fromisoformat(date[:10]),
+                    seen = _HELD[ps] = (stamp, (date and datetime.date.fromisoformat(date[:10]),
                                                (d.get("source") or {}).get("url"), (date or "")[:10]))
                     _HELD_MOVED.append(p)
                 entries.append((int(p.stem.split("-")[1]), seen[1], p))
@@ -4344,7 +4345,7 @@ def _linked(d, scan, held, paper=None):
     when equal, not only when the same object."""
     if paper is None:
         paper = paper_of(d)
-    k = (d, paper)
+    k = (os.fspath(d), paper)  # str: a Path key re-normalises its string on every hash
     hit = _LINKED.get(k)
     same = hit is not None and (hit[0] is scan or hit[0] == scan)
     if same and hit[1] is held:

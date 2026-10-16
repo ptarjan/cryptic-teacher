@@ -966,7 +966,7 @@ found = {"date": "1993-01-18", "puzzles": [{"number": 19131, "leaf": 3}],
          "solutions": [{"number": 19130, "leaf": 3}]}
 d = Path("/nowhere/NewsUK1993UKEnglish/1993-01-18")
 base = {19129: D("1993-01-16"), 19000: D("1992-08-17")}
-k = (d, f.paper_of(d))
+k = (os.fspath(d), f.paper_of(d))
 f._LINKED.pop(k, None)
 first = f._linked(d, found, f.Held(base))
 far = f.Held({**base, 18990: D("1992-08-05")})
