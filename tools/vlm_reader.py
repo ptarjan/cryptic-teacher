@@ -116,13 +116,34 @@ UP_EVERY = 60
 _UP_AT = [float("-inf"), False]
 
 
+#: Whether the last reachable() found the server not answering (a timeout or
+#: refusal), as against busy (a game, a chat model) or not listing MODEL.
+_UNREACHED = [False]
+#: A server that answered at the last up() and then fails to answer is asked
+#: again UP_RETRIES times, UP_RETRY_WAIT seconds apart, before up() says down:
+#: the desktop under load answers /v1/models late now and then, and one late
+#: answer must not defer the queue's ~850 scans for a minute (and log "VLM down").
+UP_RETRIES = 2
+UP_RETRY_WAIT = 5
+
+
 def up():
     """reachable() asked afresh at most every UP_EVERY seconds, for a
     long-running process (the edition queue): reachable() itself answers
-    once a process, for a read that must not change its mind half-way."""
+    once a process, for a read that must not change its mind half-way.
+    A server that was up and does not answer is down only after
+    UP_RETRIES more asks also find it silent (UP_RETRY_WAIT apart)."""
     if time.monotonic() - _UP_AT[0] >= UP_EVERY:
+        was = _UP_AT[1]
         _UP.pop(MODEL, None)
-        _UP_AT[:] = [time.monotonic(), reachable()]
+        got = reachable()
+        for _ in range(UP_RETRIES):
+            if got or not was or not _UNREACHED[0]:
+                break
+            time.sleep(UP_RETRY_WAIT)
+            _UP.pop(MODEL, None)
+            got = reachable()
+        _UP_AT[:] = [time.monotonic(), got]
     return _UP_AT[1]
 
 
@@ -228,6 +249,7 @@ def busy():
 def reachable():
     """Whether the server answers and lists MODEL, asked once a process, and
     the desktop it is on is not busy."""
+    _UNREACHED[0] = False
     if not URL:
         return False
     resolve()
@@ -242,6 +264,7 @@ def reachable():
             _RESOLVED[0] = False
             if resolve() != was:
                 ids = _models()
+        _UNREACHED[0] = ids is None
         _UP[MODEL] = MODEL in (ids or ())
     return _UP[MODEL]
 

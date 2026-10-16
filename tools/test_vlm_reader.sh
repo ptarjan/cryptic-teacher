@@ -301,6 +301,24 @@ first = vlm.up()
 check("up() is asked once within UP_EVERY", (False, False, 1), (first, vlm.up(), len(asked)))
 vlm._UP_AT[0] -= vlm.UP_EVERY
 check("and again after it", (True, 2), (vlm.up(), len(asked)))
+# A server that was up and misses one ask is asked again before up() says down.
+def run(answers, was):
+    global seq
+    seq = iter(answers)
+    slept.clear()
+    vlm._UP_AT[:] = [float("-inf"), was]
+    return vlm.up(), len(slept)
+seq = iter(())
+def flaky():
+    ok = next(seq)
+    vlm._UNREACHED[0] = not ok
+    return ok
+vlm.reachable = flaky
+slept = []
+vlm.time.sleep = slept.append
+check("one silent ask of a server that was up is not down", (True, 2), run([False, False, True], True))
+check("three silent asks are", (False, 2), run([False] * 3, True))
+check("a server that was already down is asked once", (False, 0), run([False], False))
 vlm.reachable, vlm.URL, vlm._MISSED[0] = saved
 
 print(f"FAILS {fails}")
