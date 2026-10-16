@@ -22,6 +22,7 @@ Reads the records the blog's parser writes beside its cache (`--blog`,
 timesforthetimes by default); no network, no solving.
 """
 import argparse
+import clue_text
 import collections
 import hashlib
 import itertools
@@ -124,7 +125,7 @@ def length(e):
     """A light's length: its answer's, or for a blank answer its count's."""
     if e["answer"] or not e.get("enumeration"):
         return len(e["answer"]) or None
-    return sum(int(n) for n in re.findall(r"\d+", e["enumeration"]))
+    return clue_text.count_total(e["enumeration"])
 
 
 def triples(rec):
@@ -374,7 +375,7 @@ def loosened(rec):
     for e in printed(rec):
         span, word = length(e), e["answer"] or None
         if word and parser.enum_agrees(e, leaders) is False:
-            span = sum(int(n) for n in re.findall(r"\d+", e["enumeration"])) or None
+            span = clue_text.count_total(e["enumeration"]) or None
             word = None
         lights.append((e["number"], e["direction"], span))
         words.append(word)
@@ -702,7 +703,7 @@ def _fixes(cells, known, blogged, entry, leaders, vocab):
     # eight-letter light -- is the blogger's slip twice, not the paper's count.
     enum = entry.get("enumeration") or ""
     trust_enum = not (len(blogged) != n
-                      and sum(int(d) for d in re.findall(r"\d+", enum)) == len(blogged))
+                      and clue_text.count_total(enum) == len(blogged))
     out = set()
     for w in pool:
         if len(w) != n or any(w[i] != c for i, c in fixed.items()):

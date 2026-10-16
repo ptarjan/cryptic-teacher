@@ -27,6 +27,7 @@ tools/file_trove_puzzles.py for the Canberra Times) reads them the same way:
     corpus's clues know, a name one OCR slip from a dictionary word). A
     puzzle with a suspect clue is not filed.
 """
+import clue_text
 import collections
 import functools
 import gzip
@@ -2903,7 +2904,7 @@ def reprint_count(enum, reprint_enum):
     else the scan's."""
     if enum and reprint_enum and re.fullmatch(r"\d+", enum.strip()) and re.search(r"\D", reprint_enum) \
             and re.fullmatch(r"\d+(?:[,\-]\d+)+", reprint_enum) \
-            and sum(map(int, re.findall(r"\d+", reprint_enum))) == int(enum):
+            and clue_text.count_total(reprint_enum) == int(enum):
         return reprint_enum
     return enum
 
@@ -3202,7 +3203,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False, na
             # the run-on was the next clue's.
             cells = sum(lengths.get(k, 0) for k in (group or [lid]))
             kept = re.search(r"\((\d{1,2}(?:\s*[,\-.]\s*\d{1,2})*)\)", text)
-            if kept and sum(map(int, re.findall(r"\d+", kept.group(1)))) == cells:
+            if kept and clue_text.count_total(kept.group(1)) == cells:
                 text = text[:kept.start()].rstrip()
                 enum = re.sub(r"\s+", "", kept.group(1)).replace(".", ",")
             enum = enum or (str(lengths[lid]) if (lengths or {}).get(lid) else None)
@@ -3368,7 +3369,7 @@ def relaid(texts, laid, blank, parse, lengths, keep_known=False, bare=None):
         words = {k: clean(c["text"]).lower() for k, c in own.items()}
         same = {k: sum(w == o for o in words.values()) for k, w in words.items()}
         for k, clue in sorted(own.items(), key=lambda kc: -same[kc[0]]):
-            fill = sorted(shape(e) for e in clue.get("enums") or () if sum(map(int, re.findall(r"\d+", e))) == cells)
+            fill = sorted(shape(e) for e in clue.get("enums") or () if clue_text.count_total(e) == cells)
             if not fill:
                 continue
             # Borne out: other readings print a like clue for the light, one
@@ -4026,7 +4027,7 @@ def printed_count(enum, counts, cells):
     A reader loses a hyphen or a comma far more often than it makes one,
     so a tie goes to the count with more parts, then to `enum`; two
     counts no rule parts are no count (None, why)."""
-    fill = [next((shape(e) for e in sorted(es) if sum(map(int, re.findall(r"\d+", e))) == cells), None)
+    fill = [next((shape(e) for e in sorted(es) if clue_text.count_total(e) == cells), None)
             for es in counts]
     fill = [f for f in fill if f]
     if not fill or not cells:

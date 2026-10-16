@@ -1423,7 +1423,7 @@ def enum_agrees(entry, leaders=()):
     """
     if not entry.get("enumeration") or entry.get("number") in leaders:
         return None
-    want = sum(int(n) for n in re.findall(r"\d+", entry["enumeration"]))
+    want = clue_text.count_total(entry["enumeration"])
     return want == len(entry["answer"])
 
 

@@ -45,6 +45,7 @@ from PIL import Image, ImageFilter
 
 import fetch_privateeye as fp
 import provenance
+import clue_text
 import downloads
 from fetch_puzzle import write_puzzle_file
 
@@ -78,7 +79,8 @@ SPECIALS = {
 }
 
 TAG = re.compile(r"<[^>]+>")
-ENUM = re.compile(r"\(\s*\d+(?:\s*(?:[,\-.;:/']|and|\s)\s*\d+)*\s*\)")
+ENUM = re.compile(clue_text.ENUM_COUNT)
+# Cyclops's own double-light notation "(& 3dn)" in a clue cell: no other source prints it.
 AMP = re.compile(r"^\(?\s*&\s*((?:\d+\s*(?:ac|dn|a|d|across|down)?\.?\s*[/,&]?\s*)+)\)?\s*", re.I)
 UNCLUED_MIN = 20
 
@@ -232,14 +234,14 @@ def letter_stream(text):
 
 def post_rows(content):
     direction, rows = None, []
-    for m in re.finditer(r"<tr.*?</tr>|<h\d[^>]*>.*?</h\d>|<p[^>]*>\s*(?:<[^>]+>\s*)*(?:Across|Down)\s*(?:<[^>]+>\s*)*</p>",
-                         content, re.S):
+    for m in re.finditer(r"<tr.*?</tr>|<h\d[^>]*>.*?</h\d>|<p[^>]*>.*?</p>", content, re.S):
         t = m.group(0)
-        heading = re.search(r">\s*(Across|Down)\s*<", t)
         cells = [re.sub(r"\s+", " ", html.unescape(TAG.sub("", c))).strip()
                  for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", t, re.S)]
-        if heading and (not cells or all(c in ("", "Across", "Down") for c in cells)):
-            direction = heading.group(1).lower()
+        texts = [c for c in cells if c] or [re.sub(r"\s+", " ", html.unescape(TAG.sub(" ", t))).strip()]
+        heads = [clue_text.PLAIN_HEADING.match(c) for c in texts]
+        if all(heads):
+            direction = heads[0].group(1).lower()
             continue
         if len(cells) < 2:
             continue

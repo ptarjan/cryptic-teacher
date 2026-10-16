@@ -603,6 +603,7 @@ def renumber(parsed):
 count = clue_text.count_total
 
 
+#: Stays here: the slip tables are calibrated on Trove's engine and each reading is confirmed by the grid.
 #: A printed count and the ones OCR reads it as past SLIPS' letters, as
 #: counted over the scans whose grid disagreed with one count: a thin 7 and
 #: a 1, the loops of 3, 5, 6, 8 and 9. A count of several words slips only

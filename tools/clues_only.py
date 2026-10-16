@@ -29,6 +29,7 @@ The site never sees this folder: it reads puzzles/ alone.
 """
 from __future__ import annotations
 
+import clue_text
 import datetime
 import json
 import re
@@ -155,7 +156,7 @@ def from_jigsaw(meta, clues, preamble, generator):
             continue
         line = f"{text} ({count})" if count else text
         item = {"clue": enumeration.clue(line, missing=not has_words(enumeration.split(line)[0]))}
-        cells = sum(map(int, re.findall(r"\d+", count or "")))
+        cells = clue_text.count_total(count or "")
         if cells:
             item["length"] = cells
         out.append(item)

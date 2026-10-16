@@ -33,6 +33,7 @@ post included), or the cached fifteensquared post at the same url's title.
 georgeho is frozen, so this is a one-off run with no nightly step.
 """
 import argparse
+import clue_text
 import collections
 import datetime
 import json
@@ -135,7 +136,7 @@ def whole(answer, count, fuller):
     """`answer`, or `fuller` where georgeho cut the answer off at a break
     (TAM for TAM-O'-SHANTER (3-1-7)) and our parse of the same post has it
     whole: starting with the cut letters and as long as the count."""
-    total = sum(int(n) for n in re.findall(r"\d+", count or ""))
+    total = clue_text.count_total(count or "")
     if fuller and len(letters(answer)) < total == len(letters(fuller)) \
             and letters(fuller).startswith(letters(answer)):
         return fuller

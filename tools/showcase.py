@@ -15,6 +15,7 @@ filter name and pick the same features. The rest are rankings, which no filter
 offers.
 """
 
+import clue_text
 import re
 
 import puzzle_tags
@@ -33,7 +34,7 @@ PER_SECTION = 6
 
 
 def enumeration_letters(enum):
-    return sum(int(n) for n in re.findall(r"\d+", enum or ""))
+    return clue_text.count_total(enum or "")
 
 
 def longest_answer(puz):

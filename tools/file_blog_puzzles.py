@@ -33,6 +33,7 @@ annotations. One whose clues or answers no longer match what this
 would write is named, so a correction made upstream is seen rather than lost.
 """
 import bisect
+import clue_text
 import collections
 import datetime
 import json
@@ -543,7 +544,7 @@ def hold_clues(rec, series, date, setter, tool, n):
             problems.append(f"{e['number']} {e['direction']} has no clue text")
             continue
         light = {"clue": enumeration.clue(text)}
-        cells = sum(int(x) for x in re.findall(r"\d+", e.get("enumeration") or ""))
+        cells = clue_text.count_total(e.get("enumeration") or "")
         if cells and e["number"] not in leaders:
             light["length"] = cells     # a group's leader counts the whole group
         if e.get("answer"):

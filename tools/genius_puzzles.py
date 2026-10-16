@@ -31,6 +31,7 @@ Three steps, each reading the one before off disk: index.json, then
 pdf/<number>.pdf (or article/<number>.html and its images), then puzzles/.
 """
 import argparse
+import clue_text
 import collections
 import datetime
 import html
@@ -934,7 +935,7 @@ def blog_answers(rendered, clues):
         light = c["lights"][0]
         if light in out or not c["enumeration"]:
             continue
-        want = sum(int(x) for x in re.findall(r"\d+", c["enumeration"]))
+        want = clue_text.count_total(c["enumeration"])
         sec = sections.get(light[1], [])
         for i, ln in enumerate(sec):
             m = fpp.LIGHT_HEAD.match(ln)
@@ -1208,7 +1209,7 @@ def place_jigsaw(number, pdf):
         count = m.group(0).strip("() ")
         # An answer altered on entry (ALTERED_BY) counts the answer, not the
         # light: assemble_altered's crossings check that one.
-        if number not in ALTERED_BY and sum(int(n) for n in re.findall(r"\d+", count)) != len(lights[light]):
+        if number not in ALTERED_BY and clue_text.count_total(count) != len(lights[light]):
             return f"{light[0]} {light[1]}'s count is not its length"
         pdf["clues"].append({"lights": [light], "clue": text, "enumeration": count})
         pdf.setdefault("placed", {})[light] = text
@@ -1762,7 +1763,7 @@ def unsolved_special(number, pdf, date, url):
     for c in pdf["clues"]:
         if c["enumeration"] is None and not groups.is_pointer(c["clue"], counted=True):
             return None, f"{c['lights'][0][0]} {c['lights'][0][1]} has no enumeration"
-    loose = any(c["enumeration"] and sum(int(x) for x in re.findall(r"\d+", c["enumeration"]))
+    loose = any(c["enumeration"] and clue_text.count_total(c["enumeration"])
                 != sum(len(lights[l]) for l in c["lights"]) for c in pdf["clues"])
     if (loose or unclued) and not (pdf["preamble"] or pdf.get("article")):
         return None, "the clue list does not cover the grid, and no preamble printed says why"
