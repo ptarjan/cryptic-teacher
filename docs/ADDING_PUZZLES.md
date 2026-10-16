@@ -92,8 +92,8 @@ with no cache, for anything the cache could hide.
 
 ## Generated regions of the docs
 
-`tools/build_readme.py` generates two regions of `README.md` (the hint
-ladder and the corpus paragraph), one of `docs/NIGHTLY.md` (the scheduling
+`tools/build_readme.py` generates one region of `README.md` (the hint
+ladder), one of `docs/NIGHTLY.md` (the scheduling
 defaults) and the file table in `docs/LAYOUT.md`. Each region sits between `<!-- NAME-START -->` and
 `<!-- NAME-END -->` markers. The sources are the puzzle files, `app.js`,
 `git ls-files` and the shell scripts.
@@ -102,11 +102,9 @@ defaults) and the file table in `docs/LAYOUT.md`. Each region sits between `<!--
 - `python3 tools/build_readme.py` rewrites the regions.
   `python3 tools/build_readme.py --check` exits 1 if they are out of date.
 - The check fails instead of leaving a wrong sentence. That happens when a tool
-  has no description line, a described tool has been deleted, a new series has
-  no display name, or a quoted default has been renamed. A rung renamed in
+  has no description line, a described tool has been deleted, or a quoted default has been renamed. A rung renamed in
   `app.js` renames itself in the README.
 - Each region has one builder function in `tools/build_readme.py`:
-  `build_corpus()` counts the puzzle files for the corpus paragraph,
   `build_ladder()` reads `LABELS` in `app.js` for the rung list, and
   `build_knobs()` parses the defaults out of the shell scripts (`KNOB_FILES`).
   `build_layout()` writes the table in `docs/LAYOUT.md` from `LAYOUT`.

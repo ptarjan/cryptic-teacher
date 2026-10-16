@@ -2906,7 +2906,7 @@ def cold_solvable(row):
 
 
 def corpus_row(path):
-    """What the README's corpus line counts in one puzzle: (series, annotated,
+    """What the corpus counts need from one puzzle: (series, annotated,
     blog, clues, annotated clues). The same reads as index_row() with none of its
     writes -- no shim, no hash, no difficulty -- so counting the corpus does not
     rebuild it."""
