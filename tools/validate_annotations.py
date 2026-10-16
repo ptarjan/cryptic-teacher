@@ -2149,7 +2149,7 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
 
 
 def check_cryptic_definition_blocks(tag, ann, errors, warnings):
-    """A cryptic definition's blocks must split the clue, and may not spell the answer.
+    """A cryptic definition's blocks may not give letters or spell the answer.
 
     The cap above asks whether a clue should be a cryptic definition at all.
     This asks a different question of the ones that legitimately are: does the
@@ -2165,13 +2165,11 @@ def check_cryptic_definition_blocks(tag, ann, errors, warnings):
     any fragment — that is the definition of the type — and a `gives` is
     therefore always the whole answer wearing a block's clothes.
 
-    And a single block is banned, because a block spanning the whole clue
-    restates the clue. What a cryptic definition CAN be taken apart into is
-    ideas: the reading the surface pushes you towards and the reading the
-    setter meant. Two blocks is the smallest annotation that shows the seam,
-    as in NUDISM, VANITY and NINETEENTH. It is a presentation rule, not a lie detector: the
-    clue can be a perfectly honest cryptic definition and still be annotated
-    into a rung that hands over the answer.
+    A cryptic definition is one block, the clue words once (cd([clue words]), which
+    wordplay.cdefRepeat holds it to). A clue with two readings in two stretches is a
+    double definition, and is typed as one. It is a presentation rule, not a lie
+    detector: the clue can be a perfectly honest cryptic definition and still be
+    annotated into a rung that hands over the answer.
     """
     if types_of(ann) != ["cryptic_definition"]:
         return
@@ -2184,12 +2182,6 @@ def check_cryptic_definition_blocks(tag, ann, errors, warnings):
             f"wordplay, so the only thing a fragment can give is the whole answer, "
             f"and the blocks rung is shown before the walkthrough. Drop `gives` and "
             f"put the explanation in `note`")
-    if len(blocks) < 2:
-        errors.append(
-            f"{tag}: cryptic definition has {len(blocks)} block(s) — one block spans "
-            f"the whole clue and so only restates it. Split the clue into the reading "
-            f"the surface pushes and the reading the setter meant, one block each, so "
-            f"the rung teaches the seam instead of announcing the answer")
     # Banning `gives` only closes the obvious door. Splitting the clue properly
     # and then writing the answer into a note leaks it just the same, and it is
     # the likelier mistake once the shape is right: 30039 10A VANITY split into
