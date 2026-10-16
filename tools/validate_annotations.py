@@ -1442,7 +1442,12 @@ def check_sound_names_its_source(tag, ann, errors, warnings):
             f"carries the step before the sound: \"Cockney mob loudly\" -> OARED is "
             f"soundsLike ’ORDE, gives OARED, the note saying a mob is a HORDE and a "
             f"Cockney drops the aitch. A mechanism feeding the sound gets its own "
-            f"earlier block")
+            f"earlier block. In `wp` that block is `sound<indicator>(x, SPELT)` "
+            f"where x is ONE leaf, [the clue words you say]LETTERS HEARD (merge a "
+            f"charade of leaves into a single leaf, or put the charade outside the "
+            f"sound), and SPELT is the letters it comes out as. A Spoonerism needs "
+            f"the same on the word it respells: `spoon<indicator>(sound([word]HEARD, "
+            f"SPELT), b)`; `spoon(a, b, SPELT)` alone names no sound")
 
 
 def check_sound_is_not_a_letter_swap(tag, ann, errors, warnings):
