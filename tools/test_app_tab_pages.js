@@ -14,6 +14,8 @@ const d = require("./fake_dom.js").boot({ query: "?p=listener-111" });
 const reg = d.registry;
 const hidden = (id) => reg[id].classList.contains("hidden");
 const pushed = [];
+// The pushed address keeps the puzzle's query; only the hash names the tab.
+const tab = (u) => u === undefined ? undefined : u.replace(/^[^#]*/, "");
 global.location.pathname = "/";
 global.window.history.pushState = (_s, _t, url) => {
   pushed.push(String(url));
@@ -25,13 +27,13 @@ const pop = () => (d.winListeners.popstate || []).forEach((fn) => fn());
 
 reg["btn-picker"].onclick();
 assert(!hidden("picker-panel"), "the Puzzles tab opens the picker");
-assert(pushed[pushed.length - 1] === "/#picker", "opening Puzzles pushes #picker: " + JSON.stringify(pushed));
+assert(tab(pushed[pushed.length - 1]) === "#picker", "opening Puzzles pushes #picker: " + JSON.stringify(pushed));
 reg["btn-stats"].onclick();
 assert(hidden("picker-panel") && !hidden("stats-panel"), "Stats replaces Puzzles, never stacked");
-assert(pushed[pushed.length - 1] === "/#stats", "opening Stats pushes #stats: " + JSON.stringify(pushed));
+assert(tab(pushed[pushed.length - 1]) === "#stats", "opening Stats pushes #stats: " + JSON.stringify(pushed));
 const n = pushed.length;
 reg["btn-stats"].onclick();   // the close path (toggle) leaves for the puzzle
-assert(hidden("stats-panel") && pushed.length === n + 1 && pushed[n] === "/",
+assert(hidden("stats-panel") && pushed.length === n + 1 && tab(pushed[n]) === "",
   "back to the puzzle pushes the bare address: " + JSON.stringify(pushed));
 
 // The back gesture: the address changes, the page follows, nothing is pushed.
