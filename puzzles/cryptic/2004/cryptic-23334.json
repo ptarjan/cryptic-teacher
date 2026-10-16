@@ -615,46 +615,34 @@
      "indicators": [
       {
        "text": "outside",
-       "note": "to be outside is to surround, so these letters wrap round the other piece"
+       "at": 37,
+       "note": "the start of dying sits outside, wrapping round the other piece"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "starts dying",
+       "at": 24,
        "gives": "DY",
-       "indicators": [
-        {
-         "text": "starts",
-         "note": "the starts of words are their opening letters, so only those are kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "dying",
-         "gives": "DY",
-         "select": "first",
-         "note": "the opening pair of letters of this word"
-        }
-       ]
+       "note": "the opening two letters of the word dying"
       },
       {
        "words": "stranger",
+       "at": 15,
        "gives": "ODDER",
-       "note": "stranger means more odd"
+       "note": "stranger means odder, more peculiar"
       }
      ]
     },
     "explanation": {
-     "surface": "An elderly, frail stranger beginning to die.",
-     "walkthrough": "'Starts' is plural, so take the first two letters of 'dying'; those two then go either side of the comparative.",
-     "definitionFit": "Doddery describes someone shaky and tottering from age, so infirm and elderly."
+     "surface": "A frail old person, oddly, beginning to fade away.",
+     "walkthrough": "Here 'starts' gives the first two letters of dying, not just one.",
+     "definitionFit": "Doddery describes someone shaky and unsteady with age, a fair match for old and weak."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "dying"
+     "misdirectedWord": "stranger"
     }
    }
   },
@@ -680,47 +668,51 @@
    "annotation": {
     "definedByPreamble": true,
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LONDONPRIDE",
-     "indicators": [
-      {
-       "text": "I leave",
-       "note": "when one letter leaves a word it simply drops out"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leave",
+         "at": 2,
+         "note": "the letter I is told to go away, so it is dropped from the word lion"
+        }
+       ],
        "parts": [
         {
          "words": "lion",
-         "gives": "LON",
-         "note": "the big cat with its I removed"
+         "at": 8
         },
         {
-         "words": "fellow",
-         "gives": "DON",
-         "note": "a don is a college fellow"
-        },
-        {
-         "words": "lions",
-         "gives": "PRIDE",
-         "note": "a pride is a group of lions"
+         "words": "I",
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "fellow",
+       "at": 16,
+       "gives": "DON",
+       "note": "a don is a fellow of a university college"
+      },
+      {
+       "words": "lions",
+       "at": 23,
+       "gives": "PRIDE",
+       "note": "a group of lions is called a pride"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone bequeathing a lion to the other lions.",
-     "walkthrough": "London pride is a saxifrage with pink starry flowers; a fellow of an Oxbridge college is a don.",
-     "definitionFit": "London pride is a low-growing saxifrage with rosettes and pink blooms, one of the wild plants of the theme."
+     "surface": "A lone lion heads off to join its companions.",
+     "walkthrough": "Per the preamble the clue has no definition: London pride is a saxifrage, a wild flower like the other across answers.",
+     "definitionFit": "London pride is a small pink-flowered saxifrage, one of the wild plants that fill this themed grid."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "leave"
+     "misdirectedWord": "fellow"
     }
    }
   },
@@ -804,63 +796,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HINDRANCE",
-     "indicators": [
-      {
-       "text": "lost leader",
-       "note": "a word that has lost its leader is missing its opening letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "high",
+       "at": 4,
+       "gives": "H",
+       "note": "H is the abbreviation for high, as on a pencil or tap"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "put",
-         "note": "putting pieces down one after another builds the word in sequence"
+         "text": "inside",
+         "at": 42,
+         "note": "the debtor's letters are put inside what remains of finance"
         }
        ],
        "parts": [
         {
-         "words": "high",
-         "gives": "H",
-         "note": "H marks high pressure on a weather map"
-        },
-        {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "inside",
-           "note": "placing something inside means it goes within the other letters"
+           "text": "lost leader",
+           "at": 19,
+           "note": "the finance word has lost its leading letter"
           }
          ],
          "parts": [
           {
            "words": "finance's",
-           "gives": "INANCE",
-           "note": "the money word minus its first letter"
+           "at": 9,
+           "gives": "FINANCE",
+           "note": "the word finance, the 's being 'has' read as part of the link to lost"
           },
           {
-           "words": "debtor",
-           "gives": "DR",
-           "note": "DR is the bookkeeping abbreviation for debtor"
+           "gives": "F"
           }
          ]
+        },
+        {
+         "words": "debtor",
+         "at": 35,
+         "gives": "DR",
+         "note": "DR is the accounting abbreviation for debtor"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to let top-level money men lock up whoever owes.",
-     "walkthrough": "'Let' looks like a verb meaning allow, but it is the noun from tennis and law, as in 'without let or hindrance'.",
-     "definitionFit": "A let is an obstruction or impediment, an old sense surviving in the legal phrase 'without let or hindrance'."
+     "surface": "Banking's fallen chief lets a debtor into the system.",
+     "walkthrough": "'Let' is not the verb: it is the noun of 'without let or hindrance', an obstruction.",
+     "definitionFit": "A let is an old word for an obstacle, surviving in the legal phrase without let or hindrance."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Let"
     }
    }
@@ -2384,43 +2376,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BAMBINO",
+     "op": "container",
      "indicators": [
       {
-       "text": "endless",
-       "note": "without an end means the final letter is gone"
+       "text": "in",
+       "at": 17,
+       "note": "the word for being at home goes in the shortened grass"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "makes",
-         "note": "to make one's dwelling somewhere is to settle within it, so one piece goes inside another"
+         "text": "endless",
+         "at": 20,
+         "note": "the grass loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "long grass",
-         "gives": "BAMBO",
-         "note": "the tall tropical grass, missing its last letter"
+         "at": 28,
+         "gives": "BAMBOO",
+         "note": "bamboo is a tall woody grass"
         },
         {
-         "words": "home",
-         "gives": "IN",
-         "note": "in means at home"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "words": "home",
+       "at": 12,
+       "gives": "IN",
+       "note": "to be in is to be at home"
       }
      ]
     },
     "explanation": {
-     "surface": "A child settles down in tall grass.",
-     "walkthrough": "'In' is not the container signal here: 'home' alone gives IN, as in 'staying in', and 'makes ... in' places it.",
-     "definitionFit": "Bambino is the Italian word for a baby or young child, used informally in English."
+     "surface": "A little one settles down to live among the tall grass.",
+     "definitionFit": "Bambino is the Italian word for a baby or small child, used in English too."
     },
     "features": {
      "answerInScene": true,
@@ -2616,7 +2612,36 @@
     "text": "Not so compos mentis",
     "enumeration": "6"
    },
-   "solution": "MADDER"
+   "solution": "MADDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Not so compos mentis",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Not so compos mentis",
+       "at": 0,
+       "note": "compos mentis is Latin for of sound mind, so someone less so is more mad"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that someone is a little less in their right mind than another.",
+     "walkthrough": "Per the preamble the plant is not defined: the clue describes the comparative of mad, which shares its spelling with the dye plant.",
+     "definitionFit": "Madder is a climbing plant whose roots yield a red dye, one of the wild plants that fill this themed grid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mentis"
+    }
+   }
   },
   {
    "number": 46,
@@ -2745,31 +2770,36 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "IAMBS",
      "indicators": [
       {
        "text": "with new head",
-       "note": "a new head replaces the old one, so the opening letter is swapped"
+       "at": 13,
+       "note": "the young animals' word keeps its body but its first letter is swapped for another"
       }
      ],
      "parts": [
       {
        "words": "Young beasts",
+       "at": 0,
        "gives": "LAMBS",
        "note": "lambs are young sheep"
+      },
+      {
+       "gives": "L"
+      },
+      {
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "Young animals given a fresh head and legs.",
-     "walkthrough": "The new head is I in place of L: the two look almost alike in many fonts. 'Feet' are units of verse metre, not limbs.",
-     "definitionFit": "An iamb is a metrical foot of one unstressed then one stressed syllable, so iambs are poetic feet."
+     "surface": "Baby animals sporting a fresh head and legs.",
+     "walkthrough": "The new first letter is not clued; the crossing letters confirm it.",
+     "definitionFit": "An iamb is a metrical foot of a short then long syllable, so several of them are poetic feet."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "feet"
     }
    }
@@ -2888,41 +2918,29 @@
      "indicators": [
       {
        "text": "accepts",
-       "note": "to accept something is to take it in, so one piece goes inside the other"
+       "at": 10,
+       "note": "the farm machine takes the small piece of luck into itself"
       }
      ],
      "parts": [
       {
        "words": "Harvester",
+       "at": 0,
        "gives": "COMBINE",
-       "note": "a combine harvester"
+       "note": "a combine is a combine harvester"
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "a bit of luck",
+       "at": 18,
        "gives": "LU",
-       "indicators": [
-        {
-         "text": "a bit of",
-         "note": "a bit of something is only a small part, here its start"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "luck",
-         "gives": "LU",
-         "select": "first",
-         "note": "the opening two letters"
-        }
-       ]
+       "note": "the first two letters of the word luck"
       }
      ]
     },
     "explanation": {
-     "surface": "A farm machine gets a stroke of fortune.",
-     "walkthrough": "Columbine, or granny's bonnet, is a wild aquilegia with spurred blue flowers.",
-     "definitionFit": "Columbine is the wild aquilegia, a woodland plant with nodding spurred violet-blue flowers."
+     "surface": "A farm machine gets a stroke of good fortune.",
+     "walkthrough": "Per the preamble there is no definition: columbine, or aquilegia, is a wild flower like the other across answers.",
+     "definitionFit": "Columbine is the common name of aquilegia, a wild flower with spurred petals, fitting the floral theme."
     },
     "features": {
      "answerInScene": false,
