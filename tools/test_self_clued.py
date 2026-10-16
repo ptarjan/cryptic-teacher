@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Can a light with a clue of its own also finish another linked answer?
 #
-#     bash tools/test_self_clued.sh
+#     python3 tools/test_self_clued.py
 #
 # cryptic-21893's 11-across BATTLE HYMN OF "(6,4,2,3,8)" runs on through
 # 21-down THERE and 1-across PUBLIC, each of which carries its own clue (and
@@ -9,9 +9,11 @@
 # `selfClued` (tools/groups.py): they stay answers of their own, and are not
 # continuations. This pins the schema, the groups readers, the shape checks
 # and the length check for that case.
-set -uo pipefail
-cd "$(dirname "$0")/.."
-PYTHONPATH=tools python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
+
 import copy
 
 import groups
@@ -110,4 +112,3 @@ check("the leader still counts the whole answer", any(f[2].startswith("1-across 
 
 print(f"self_clued: {'all checks passed' if not fails else f'{fails} FAILED'}")
 raise SystemExit(1 if fails else 0)
-PY

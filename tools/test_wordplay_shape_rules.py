@@ -1,10 +1,11 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # Wordplay shapes that read wrongly are counted by validate_annotations under their
 # own ratchet fields, and tidy_wordplay_shapes.py joins a charade inside a charade
 # without changing what view() shows.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import copy
 import annotation, wordplay
 import validate_annotations as v
@@ -77,4 +78,3 @@ check("the ratchet refuses one more than a puzzle is allowed", 1,
       len(v.backlog_errors("x-1", warn, {"wordplay.charadeInCharade": {}})))
 check("and allows what it has", 0, len(v.backlog_errors("x-1", warn, {"wordplay.charadeInCharade": {"x-1": 1}})))
 raise SystemExit(fails)
-PY

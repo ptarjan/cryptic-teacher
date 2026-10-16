@@ -1,13 +1,14 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # Does tools/wordplay.py parse every op of the one-line wordplay expression,
 # give the answer's letters at every node, refuse a parse that doesn't with
 # the node that broke, and does annotation.view() derive today's fields
 # (type, answer, indicators' for, linkWords, blocks, assembly) from the tree?
 #
-#     bash tools/test_wordplay.sh
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+#     python3 tools/test_wordplay.py
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import copy
 import annotation
 import wordplay as w
@@ -425,4 +426,3 @@ check("the deletion tree evaluates (no wordplay error)",
       not [x for x in errs if "wordplay" in x], [x for x in errs if "wordplay" in x])
 
 raise SystemExit(fails > 0)
-PY

@@ -1,10 +1,11 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # A letter selector is an indicator: a block holds only the words it selects
 # from ("capital of Bahrain" giving B is the indicator "capital of" and the
 # block "Bahrain"), checked on new or changed annotations only.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import copy, json
 import validate_annotations as v
 
@@ -74,4 +75,3 @@ check("a model leaf with its selector inside is refused", 1,
 check("the selector as the op's indicator passes", [],
       landed("first<Capital of>([Bahrain]) + [oar]OAR"))
 raise SystemExit(fails)
-PY

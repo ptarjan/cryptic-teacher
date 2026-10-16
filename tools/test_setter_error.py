@@ -1,11 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # A clue the setter printed wrong is annotated as printed: the anagram mismatch
 # tools/data/setter_error.json names for that light passes, with a walkthrough
 # saying so, and every other mismatch still fails. A row is a whole-answer or a
 # partial anagram of what the clue prints, or it is refused.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import validate_annotations as v
 
 fails = 0
@@ -98,4 +99,3 @@ for (pid, eid), row in v.load_source_table("setter_error").items():
     check(f"{pid}/{eid} fits a setter_error shape", [],
           v.setter_error_problems(read_puzzle_file(find(pid)), eid, row))
 raise SystemExit(fails)
-PY

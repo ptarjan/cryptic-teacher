@@ -1,16 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # A blank light on a puzzle whose answer key is a blog's write-up is never
 # offered for a solve.
 #
-#     bash tools/test_writeup_keyed.sh
+#     python3 tools/test_writeup_keyed.py
 #
 # apply_solution.check_writeup refuses any model fill there, so a queued solve
 # could only fail and alert. The index row says so (writeupKeyed) and
 # fetch_puzzle.cold_solvable, which the daily solve queue and the burn's
 # backlog share, reads it.
-set -uo pipefail
-cd "$(dirname "$0")/.."
-PYTHONPATH=tools python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
+
 import copy, shutil, sys, tempfile
 from pathlib import Path
 import apply_solution
@@ -52,8 +54,5 @@ try:
     check("a publisher's puzzle with no write-up is not", not provenance.writeup_keyed(cyclops))
 finally:
     shutil.rmtree(tmp)
-sys.exit(fails)
-PY
-rc=$?
-[ $rc = 0 ] && echo "writeup_keyed: all checks passed" || echo "writeup_keyed: FAILED"
-exit $rc
+print("writeup_keyed: all checks passed" if not fails else "writeup_keyed: FAILED")
+raise SystemExit(1 if fails else 0)
