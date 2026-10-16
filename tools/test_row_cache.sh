@@ -92,7 +92,34 @@ check("past the deadline a cold map stops after a batch, rc 0, backlog left",
       (stopped, sorted(parsed), more.exists()), (0, ["a-1", "b-2"], True))
 del _os.environ["CT_DEADLINE"]
 check("and the next run makes only the rest", run(), ([0, 9, 2], ["c-3"]))
-code_reach.key, row_cache.BATCH = key, 1024
+# The batches are paced to the deadline: at 0.5s a row with 0.8s left, the
+# first row's pace sizes the next batch to one row, and the map stops after
+# two, not after the whole batch (1024 cold views ran ~2 minutes past the
+# burn re-plan's deadline, and it was killed).
+import time as _time
+code_reach.key = lambda *a, **k: "paced code"
+row_cache.BATCH, row_cache.FIRST_BATCH = 1024, 1
+_os.environ["CT_DEADLINE"] = str(_time.time() + 0.8)
+parsed.clear()
+
+
+def slow(p):
+    _time.sleep(0.5)
+    return parse(p)
+
+
+try:
+    row_cache.cached_map("row_cache", slow, files, deps=deps)
+    stopped = None
+except budget.Stopped as e:
+    stopped = e.code
+check("under a deadline the batches are cut to the time left at the pace measured",
+      (stopped, len(parsed)), (0, 2))
+check("batch_size: the rows the time left holds, at least one, at most BATCH",
+      [row_cache.batch_size(10, 0.5), row_cache.batch_size(-3, 0.5), row_cache.batch_size(1e9, 0.001),
+       row_cache.batch_size(5, 0)], [20, 1, 1024, 1024])
+del _os.environ["CT_DEADLINE"]
+code_reach.key, row_cache.BATCH, row_cache.FIRST_BATCH = key, 1024, 64
 
 # Keys sort by their code, so a map reads its rows in one range scan; a row
 # stored under the bare sha1 key of before 2026-10-15 is still reused, and

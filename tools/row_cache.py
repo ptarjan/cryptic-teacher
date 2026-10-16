@@ -39,9 +39,22 @@ import parallel
 import puzzle_paths
 
 PRUNE_DAYS = 14
-#: Missing rows made between deadline checks, under a deadline (tools/budget.py):
-#: a few minutes of a loaded host at worst, and enough for every worker.
+#: The most missing rows made between deadline checks, under a deadline
+#: (tools/budget.py): enough for every worker. Each batch is also cut to the
+#: rows the time left holds at the pace measured so far (batch_size), so a stop
+#: lands at the deadline, not a batch past it: 1024 cold puzzle views took
+#: ~2 minutes at nice 19, and the burn's re-plan was killed waiting on one.
 BATCH = 1024
+#: The first batch, which measures the pace.
+FIRST_BATCH = 64
+
+
+def batch_size(left, per_row):
+    """Rows for the next batch: what `left` seconds hold at `per_row` seconds a
+    row, at least one, at most BATCH."""
+    if per_row <= 0:
+        return BATCH
+    return max(1, min(BATCH, int(max(left, 0) / per_row)))
 #: The store; None finds it under the git common dir. Tests set it.
 STORE = None
 
@@ -247,20 +260,24 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
             # each stored as it is made: a cold cache (new code, a grown
             # corpus) is then a few runs that each stop cleanly, not a kill.
             unstored = []
-            for i in range(0, len(miss), BATCH):
-                part = miss[i:i + BATCH]
+            i, n, spent_s = 0, min(BATCH, FIRST_BATCH), 0.0
+            while i < len(miss):
+                part = miss[i:i + n]
+                t = time.time()
                 out.update(zip(part, parallel.pmap(fn, part)))
+                spent_s += time.time() - t
                 try:
                     with conn:
                         store(part)
                 except sqlite3.Error as err:
                     print(f"row cache for {name}.{fn.__name__}: could not store {len(part)} rows: {err!r}",
                           file=sys.stderr)
-                done = i + len(part)
+                done = i = i + len(part)
                 if done < len(miss) and budget.spent():
                     conn.close()
                     budget.stop(f"row cache for {name}.{fn.__name__}: made {done} of {len(miss)} missing rows"
                                 f" ({len(paths) - len(miss)} were stored); the rest next run")
+                n = batch_size(budget.left(), spent_s / done)
     try:
         with conn:
             store(unstored)
