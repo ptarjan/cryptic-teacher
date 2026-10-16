@@ -145,45 +145,38 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 5,
+       "note": "the male word contains, or holds, the size abbreviation inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "holding",
-         "note": "a man holding something has it in his grip, so the next item sits inside him"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Male",
-         "gives": "HE",
-         "note": "the male pronoun"
-        },
-        {
-         "words": "very large",
-         "gives": "OS",
-         "note": "OS is the clothing abbreviation for outsize"
-        }
-       ]
+       "words": "Male",
+       "at": 0,
+       "gives": "HE",
+       "note": "he is a male pronoun"
       },
       {
-       "unchecked": true,
-       "words": "starts to hum October Song etc",
-       "note": "a bonus: the opening letters of these four words spell the same answer again"
+       "words": "very large",
+       "at": 13,
+       "gives": "OS",
+       "note": "OS stands for outsize, a clothing size meaning very large"
       }
      ]
     },
     "explanation": {
-     "surface": "A man clutching an enormous pipe begins humming an autumn tune.",
-     "walkthrough": "The tail of the clue is a second, independent route: read the first letters of hum, October, Song and etc. October Song is also a Robbie Williams track.",
-     "definitionFit": "A hose is a flexible tube or pipe for carrying water, as in a garden hose."
+     "surface": "A man with a huge pipe hums an October song and the like.",
+     "walkthrough": "The clue offers a second route too: the starts of hum, October, Song and etc spell the same four letters.",
+     "definitionFit": "A hose is a flexible pipe for carrying water, as in a garden hose."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Song"
+     "misdirectedWord": "pipe"
     }
    }
   },
@@ -342,52 +335,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TIMBAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "something short is cut down, so the word loses its last letter"
+       "text": "found in",
+       "at": 16,
+       "note": "the one and the doctor are found inside the shortened story word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "found in",
-         "note": "what is found in something sits inside it"
+         "text": "short",
+         "at": 25,
+         "note": "short means the story word loses its last letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "story",
-           "gives": "TAL",
-           "note": "a tale without its last letter"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "the Roman numeral for one"
-          }
-         ]
+         "words": "story",
+         "at": 31,
+         "gives": "TALE",
+         "note": "a tale is a story"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 5,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
         },
         {
          "words": "doctor",
+         "at": 9,
          "gives": "MB",
-         "note": "MB, Bachelor of Medicine, a doctor's degree"
+         "note": "MB is a medical degree, Bachelor of Medicine, so a doctor"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor appears in a brief tale about a drum.",
-     "definitionFit": "A timbal, or timbale, is a kettledrum, the old name for the instrument now called the timpani."
+     "surface": "A doctor turns up in a brief tale about a drum.",
+     "walkthrough": "MB, Bachelor of Medicine, is a common crossword doctor alongside DR and MO.",
+     "definitionFit": "A timbal, or timbale, is a kettledrum, an old word for a percussion instrument."
     },
     "features": {
      "answerInScene": false,
@@ -563,47 +563,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENAMELLED",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "tailless",
-       "note": "without a tail, each of the two words loses its final letter"
+       "text": "to be replaced",
+       "at": 41,
+       "note": "the letters are to be replaced, put back in a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to be replaced",
-         "note": "letters to be replaced are put back in new positions"
+         "text": "tailless",
+         "at": 19,
+         "note": "tailless applies to both words: each loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "llama",
-         "gives": "LLAM",
-         "note": "llama without its last letter"
+         "at": 28
         },
         {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
          "words": "needed",
-         "gives": "NEEDE",
-         "note": "needed without its last letter"
+         "at": 34
+        },
+        {
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A llama has lost its tail and must be swapped for a shinier one.",
-     "walkthrough": "'Needed' looks like a link word, but it is fodder too: tailless trims both llama and needed.",
-     "definitionFit": "Enamelled things have been covered with enamel, a hard shiny coating or glaze."
+     "surface": "A llama with no tail is given a shiny coat to replace it.",
+     "walkthrough": "Tailless docks both llama and needed of their last letters before the remaining letters are rearranged.",
+     "definitionFit": "Enamelled things have a hard shiny surface coating applied, like enamel paint on metal."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "tailless"
     }
    }
@@ -1158,7 +1168,48 @@
     "text": "Slovenly Scotswoman needed to get cleaner? \"Maybe Someday\" covers that",
     "enumeration": "5"
    },
-   "solution": "BESOM"
+   "solution": "BESOM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Slovenly Scotswoman",
+      "at": 0,
+      "meaning": "Scots usage: a besom is a slatternly or troublesome woman"
+     },
+     {
+      "text": "cleaner",
+      "at": 34,
+      "meaning": "a besom is a broom made of twigs, used for sweeping"
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "covers",
+       "at": 59,
+       "note": "the quoted title covers, or holds within it, the letters needed, spanning its two words"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Maybe Someday",
+       "at": 44,
+       "note": "the last two letters of Maybe run on into the first three of Someday"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slatternly Scottish woman needs a song title to inspire her to tidy up.",
+     "walkthrough": "Two meanings sit either side of the hidden word: a Scots term for a slovenly woman and a twig broom. The hidden stretch runs from the end of Maybe into Someday.",
+     "definitionFit": "A besom is a traditional twig broom, a sweeping tool, and in Scots dialect also an insulting word for a woman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "covers"
+    }
+   }
   },
   {
    "number": 21,
@@ -1263,41 +1314,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ROSEHIP",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "briefly means cut short, so the word loses its final letter"
+       "text": "involved",
+       "at": 18,
+       "note": "involved means tangled or intricate, so the letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "His",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "involved",
-         "note": "involved means intricate or tangled, so the letters are mixed up"
+         "text": "briefly",
+         "at": 10,
+         "note": "briefly means the opera word is cut short, losing its last letter"
         }
        ],
        "parts": [
         {
-         "words": "His",
-         "note": "taken as written"
+         "words": "opera",
+         "at": 4
         },
         {
-         "words": "opera",
-         "gives": "OPER",
-         "note": "the word without its last letter"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A composer's short opera involved some fruit.",
-     "definitionFit": "A rosehip is the red fruit of the rose plant, used for syrup and tea."
+     "surface": "Someone's opera was, in short, all about fruit.",
+     "walkthrough": "The definition is the last word; His starts the anagram, not a possessive pointing at a person.",
+     "definitionFit": "A rosehip is the red seed-bearing fruit of a rose bush, used for syrup and tea."
     },
     "features": {
      "answerInScene": false,
