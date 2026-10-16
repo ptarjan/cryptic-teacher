@@ -3192,6 +3192,8 @@ def ocr_check():
             import os
             from pathlib import Path
             from PIL import Image
+            # the body above stubs this module; the .sh read it in a fresh process
+            sys.modules.pop("trove_solution_ocr", None)
             import trove_solution_ocr as tso
             if tso.available():
                 print("skip")
