@@ -65,6 +65,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 import unicodedata
 from pathlib import Path
 import clue_types
@@ -3381,6 +3382,20 @@ ANAGRAM_OF_CONTAINER = "anagram wrapped around a container"
 NEEDS_INDICATOR = frozenset(wordplay.ARITY) - {"cryptic", "palindrome"}
 
 
+#: Until this time (epoch seconds) a push and CI let through a puzzle's shape
+#: findings that have no allowance yet, because a pusher on code from before the
+#: rules writes them without seeing the rule, and cannot sync onto the new code
+#: while its commits are refused. A run's own `annotate_check` still reports every
+#: one as an error. Before it passes, `tools/tidy_wordplay_shapes.py <puzzles>
+#: --write` records what the grace let in as allowances (it adds puzzles the
+#: list lacks), and the same commit sets this to 0.
+SHAPE_GRACE_UNTIL = 1792139124
+SHAPE_GRACE_FIELDS = ("wordplay.anagramCharade", "wordplay.charadeInCharade", "wordplay.noIndicator",
+                      "wordplay.cdefRepeat", "wordplay.arity", "wordplay.spanOverlap",
+                      "wordplay.inDefinition", "wordplay.leafFold", "wordplay.repeatedSelection",
+                      "wordplay.singleLeaf", "wordplay.bareInCharade", "wordplay.anagramOfContainer")
+
+
 def _walk(tree):
     stack = [tree] if isinstance(tree, dict) else []
     while stack:
@@ -4186,6 +4201,11 @@ def main(argv):
     full_run = not argv
     corpus = full_run or deploy
     allowed = load_backlog()
+    if (deploy or full_run) and not tighten and time.time() < SHAPE_GRACE_UNTIL:
+        # The hooks and CI, not a run's own annotate_check, wait for the pushers
+        # still on code from before the shape rules (a pre-reset backfill cannot
+        # sync until its commits push): see SHAPE_GRACE_UNTIL.
+        allowed = {f: v for f, v in allowed.items() if f not in SHAPE_GRACE_FIELDS}
     observed = {}
     failed = False
     for text, seen, bad in check_all(paths, corpus, allowed):
