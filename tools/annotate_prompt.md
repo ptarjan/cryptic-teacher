@@ -19,7 +19,9 @@ group ("See 21") is `null`.
 If the puzzle file lists `annotateOnly`, key only those entries: every other entry's
 annotation is fixed (those in the same group as one you write are shown in
 `existingAnnotations`, in the same shape as yours; the rest are omitted), and
-the check refuses a change to it.
+the check refuses a change to it. An entry under `flagged` already has a hint, and
+the reason it is suspect: write a new annotation for it that fixes that (the old one
+stays until yours validates, so never answer it with null).
 
 Write annotations only; do not write a script to produce them. Each entry's
 `"solution"` is ground truth: your `wp` must produce exactly those letters, and if it

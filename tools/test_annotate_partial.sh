@@ -26,6 +26,7 @@ def check(name, ok):
 
 tmp = Path(tempfile.mkdtemp())
 A.TOOLS = tmp            # the view and the _ann file, away from the real tools/
+import shape_queue; shape_queue.PATH = tmp / "none.json"   # not the live re-annotation list
 try:
     for src in F.puzzle_files():
         puzzle = F.read_puzzle_file(src)

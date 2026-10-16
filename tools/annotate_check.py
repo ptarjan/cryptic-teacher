@@ -82,6 +82,7 @@ import definitions
 import groups
 import provenance
 import puzzle_schema
+import shape_queue
 from groups import entry_id
 import series
 import validate_annotations
@@ -190,6 +191,9 @@ def to_write(puzzle, before):
              if cid in (before or ()) or not item.get("annotation")]
     only += [cid for cid, item in groups.off_grid(puzzle)
              if cid in (before or ()) or not item.get("annotation")]
+    # The shape re-annotation list's clues (tools/shape_queue.py): hinted
+    # already, and the hint stays until the new one validates.
+    only += [cid for cid in shape_queue.flagged(puzzle) if cid not in only]
     if before is None and (not only or not any(e.get("annotation") for e in clues)):
         return None
     return only
@@ -295,6 +299,11 @@ def write_view(path):
         else f"no {pending.name} yet: write it")
     if only is not None:
         view["annotateOnly"] = only
+        # Why a hinted clue is being redone, so the run knows what was wrong.
+        flagged = {c: r for c, r in shape_queue.flagged(puzzle).items() if c in only}
+        if flagged:
+            view["flagged"] = {c: f"the hint on file is suspect ({r}); give it a better tree"
+                               for c, r in flagged.items()}
     leaders = groups.leader_of(puzzle["entries"])
     printed = provenance.printed_answers(puzzle)
     model = ({entry_id(e) for e in puzzle["entries"] if entry_id(e) not in printed}

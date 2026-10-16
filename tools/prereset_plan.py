@@ -561,6 +561,9 @@ def width(arg=None, floor=1):
 def self_test():
     """The backlog order: a puzzle whose blog names an indicator none of our
     annotations links yet jumps the queue, weighted by that indicator's clues."""
+    # The cases name their own rows: the live re-annotation list is not theirs.
+    import shape_queue
+    shape_queue.PATH = Path(os.devnull).parent / "no-such-shape-list.json"
     # queue, {puzzle: pairs its blog gives}, {unlinked pair: clues}, pinned -> order
     A, B = ("anagram", "UPSIDEDOWN"), ("reversal", "UP")
     covers = [
@@ -579,7 +582,8 @@ def self_test():
         (["r", "a", "b"], {"b": {A}}, {A: 5}, ("r", "gone"), ["r", "b", "a"]),
     ]
     bad = (cover_self_test(covers) + width_self_test() + tag_self_test()
-           + first_self_test() + backlog_self_test() + small_self_test() + fresh_self_test())
+           + first_self_test() + backlog_self_test() + small_self_test() + fresh_self_test()
+           + reannotate_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MODE_CASES) + len(MEM_CASES)
          + len(CPU_CASES) + len(METER_CASES) + len(REPLAY_CASES) + len(RATIO_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
          + len(BACKLOG_CASES) + 4 + 3)
@@ -1045,6 +1049,52 @@ BACKLOG_CASES = [
 ]
 
 
+def reannotate_self_test():
+    """The shape re-annotation tier stays LAST: behind un-hinted puzzles in
+    backlog(), and behind them again after newest_first / head_of_queue re-sort
+    the whole queue by date, however new the listed puzzle is."""
+    import tempfile
+    import shape_queue
+    bad = 0
+    real = shape_queue.PATH
+    rows = [_row("times-100", "2026-09-30", annotated=True),     # listed, newest of all
+            _row("times-90", "2026-09-01"),
+            _row("quiptic-5", "2026-08-01", annotated=True),     # listed
+            _row("azed-7", "2020-01-01"),
+            _row("times-95", "2026-09-15", annotated=True),      # hinted, not listed
+            _row("times-99", "2026-09-29", annotated=True, unannotated=2)]
+    rows[-1]["annotated"] = False                                # partly hinted
+    with tempfile.TemporaryDirectory() as tmp:
+        shape_queue.PATH = Path(tmp) / "shape_reannotate.json"
+        shape_queue.PATH.write_text(json.dumps([
+            {"id": "times-100#1a", "reason": "x"}, {"id": "quiptic-5#2d", "reason": "y"},
+            {"id": "quiptic-5#3d", "reason": "z", "tried": True}]))
+        try:
+            got = [p["id"] for p in backlog(rows)]
+            if set(got[-2:]) != {"times-100", "quiptic-5"} or set(got[:-2]) != {"times-90", "azed-7", "times-99"}:
+                print(f"FAIL backlog tier = {got} (want the listed puzzles last)", file=sys.stderr)
+                bad += 1
+            if "times-95" in got:
+                print("FAIL backlog queued a hinted puzzle that is not listed", file=sys.stderr)
+                bad += 1
+            shuffled = ["quiptic-5", "times-100", "azed-7", "times-90", "times-99"]
+            got, pinned, _ = head_of_queue(shuffled, [], rows, tagged=["times-100"], small=["quiptic"])
+            if set(got[-2:]) != {"times-100", "quiptic-5"} or "times-100" in pinned or "quiptic-5" in pinned:
+                print(f"FAIL head_of_queue tier = {got}, pinned {pinned} (the listed stay last, unpinned)",
+                      file=sys.stderr)
+                bad += 1
+            if pinned[:1] != ["times-99"]:
+                print(f"FAIL partly hinted not first: {pinned}", file=sys.stderr)
+                bad += 1
+            # a lockout's pin still resumes first
+            if head_of_queue(shuffled, ["times-100"], rows)[1][:1] != ["times-100"]:
+                print("FAIL a lockout-pinned listed puzzle did not resume first", file=sys.stderr)
+                bad += 1
+        finally:
+            shape_queue.PATH = real
+    return bad
+
+
 def backlog_self_test():
     bad = clues_only_self_test()
     for rows, annotate, solve, only, want in BACKLOG_CASES:
@@ -1306,7 +1356,20 @@ def backlog(rows, annotate_blocked=(), solve_blocked=(), only=()):
             and not p.get("awaitsPreamble")
             and (p.get("hasSolutions") or (cold_solvable(p) and p["id"] not in solve_blocked))
             and (not only or p["series"] in only)]
-    return round_robin(todo)
+    return round_robin(todo) + reannotate_tier(rows, annotate_blocked, only, {p["id"] for p in todo})
+
+
+def reannotate_tier(rows, annotate_blocked=(), only=(), taken=()):
+    """The LAST tier of the queue: the hinted puzzles holding a clue on the shape
+    re-annotation list (tools/shape_queue.py), round-robin like the rest. They
+    already show a hint, so every un-hinted puzzle and every partly hinted one
+    goes ahead of them; newest_first keeps them behind, whatever order they
+    come in."""
+    import shape_queue
+    ids = shape_queue.puzzle_ids()
+    return round_robin([p for p in rows if p["id"] in ids and p["annotated"] and p["id"] not in taken
+                        and p["id"] not in annotate_blocked and not p.get("style")
+                        and (not only or p["series"] in only)])
 
 
 def round_robin(rows):
@@ -1510,8 +1573,16 @@ def unsolved(pid):
 def newest_first(queue, rows):
     """The queue's ids round-robin newest first (round_robin), whatever order
     they came in; ids the index lacks keep their order at the back."""
+    import shape_queue
     by_id = {r["id"]: r for r in rows}
-    return ([r["id"] for r in round_robin([by_id[i] for i in queue if i in by_id])]
+    relist = shape_queue.puzzle_ids()
+    # The re-annotation tier stays behind everything un-hinted, whatever the
+    # dates: it is sorted apart and appended, never mixed into the round-robin.
+    # A puzzle with a hint missing is un-hinted first, wherever it is listed.
+    last = [i for i in queue if i in relist and i in by_id and by_id[i]["annotated"]]
+    held = set(last)
+    return ([r["id"] for r in round_robin([by_id[i] for i in queue if i in by_id and i not in held])]
+            + [r["id"] for r in round_robin([by_id[i] for i in last])]
             + [i for i in queue if i not in by_id])
 
 
@@ -1586,7 +1657,13 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=()):
     (`style`) is pinned only by a lockout: round_robin keeps it last."""
     queue = newest_first(queue, rows)
     straight = {r["id"] for r in rows if r.get("style")}
-    cryptic = [pid for pid in queue if pid not in straight]
+    # The re-annotation tier is pinned by nothing but a lockout: promote(),
+    # first_issues() and oldest_per_series() choose from `cryptic` only.
+    import shape_queue
+    relist = shape_queue.puzzle_ids()
+    by_id = {r["id"]: r for r in rows}
+    cryptic = [pid for pid in queue if pid not in straight
+               and not (pid in relist and by_id.get(pid, {}).get("annotated"))]
     cut = len(pinned)
     pinned = partly_first(cryptic, list(pinned), rows)
     partly = len(pinned) - cut
