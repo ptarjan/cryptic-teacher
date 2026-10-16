@@ -4044,6 +4044,18 @@ def explain(name=None):
 
     found = explain_matches(name, named, lines)
     if not found:
+        # A run passes the words of a message it saw, and a message is built
+        # inside a larger function, so show the lines that print it.
+        words = [w.lower() for w in re.split(r"[_\W]+", name) if w and w.lower() != "check"]
+        hits = [i for i, ln in enumerate(lines) if words and all(w in ln.lower() for w in words)]
+        if not hits and len(words) > 1:
+            hits = [i for i, ln in enumerate(lines)
+                    if sum(w in ln.lower() for w in words) >= max(2, len(words) - 1)]
+        if hits:
+            print(f"# `{name}` is not a check; the source lines that mention it:\n")
+            for i in hits[:2]:
+                print("\n".join(lines[max(0, i - 6):i + 8]) + "\n")
+            return 0
         print(f"no `{name}` in {Path(__file__).name}. Run --explain with no name for the list.")
         return 1
     if len(found) > EXPLAIN_AT_MOST:
@@ -4074,10 +4086,15 @@ def explain_matches(name, named, lines):
     (`double_definition`). A refusal costs them a turn, so the name is taken
     as exact, then as part of a name, then as words every one of which the
     check's source contains."""
-    key = re.sub(r"[-\s]+", "_", re.sub(r"([a-z])([A-Z])", r"\1_\2", name.strip())).strip("_")
+    name = name.strip().split(".")[-1]      # a ratchet field, `wordplay.cdefRepeat`, names its constant
+    key = re.sub(r"[-\s]+", "_", re.sub(r"([a-z])([A-Z])", r"\1_\2", name)).strip("_")
     for exact in (name, key, f"check_{key}", f"check_{key.lower()}"):
         if exact in named:
             return [exact]
+    folded = {k.lower(): k for k in named}      # cdefRepeat -> CDEF_REPEAT
+    for exact in (key.lower(), f"check_{key.lower()}"):
+        if exact in folded:
+            return [folded[exact]]
     checks = [k for k in named if k.startswith("check_")]
     part = [k for k in checks if key.lower() in k.lower()]
     if part:

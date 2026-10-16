@@ -197,6 +197,13 @@ Four first runs in ten fail, most often on these rules. Get them right first tim
   replaced and null removes it, except `notes`, merged note by note.
 - Run it as a single command: no `&&`, `;`, pipes or `rm`. A compound command needs an
   approval this run cannot give, and aborts having run nothing.
+- **Your tools are Read, Write, Edit, `python3` and `node`, nothing else.** `grep`,
+  `sed`, `cat`, `ls`, `awk`, `mkdir`, `rm`, `cd` and any `>` redirect are refused
+  and cost a turn: Read a file, Write a file under `tools/` (a patch is
+  `tools/_patch_<ID>.json`, never `/tmp`). The puzzle file's `entries` are strings
+  (`id | group | SOLUTION | clue`), not objects, so `e['id']` fails; Read it rather
+  than `python3 -c` it. Another puzzle's file in `puzzles/` is a different shape;
+  you do not need one. WebFetch is refused for theguardian.com: skip it.
 - To take back hints you would not stand by, run the check with `--withdraw "<why>"` and
   stop: the puzzle file is put back for you and nothing you wrote ships. Never use git.
 - Don't open `validate_annotations.py`. For a line you cannot act on,

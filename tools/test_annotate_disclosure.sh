@@ -453,6 +453,9 @@ def explained(name):
 say("explain_takes_a_field", explained("definitionFit")[1].count("def check_definition_fit(") == 1)
 say("explain_takes_dashed_words", "def check_cryptic_definition_cap(" in explained("cryptic-definition-cap")[1])
 say("explain_unknown_refused", explained("zzqx")[0] == 1)
+say("explain_takes_a_ratchet_field", "CDEF_REPEAT =" in explained("wordplay.cdefRepeat")[1])
+say("explain_takes_a_message_phrase", explained("check_assembly_machine_checkable")[0] == 0
+    and "machine-checkable assembly" in explained("check_assembly_machine_checkable")[1])
 PY
 )
 echo "$out" | sed 's/^/  /'
@@ -478,6 +481,7 @@ for k in linked_leader_quiet annotated_continuation_flagged \
          light_answer_named_fails function_word_light_passes \
          unlinked_still_whole_answer_only light_name_unnamed \
          line_names_its_check explain_takes_a_field explain_takes_dashed_words \
+         explain_takes_a_ratchet_field explain_takes_a_message_phrase \
          explain_unknown_refused comma_answer_spaced answer_opener_trimmed \
          unname_gives_the_answer unname_partial_block_drops_clause \
          unname_hidden_display unname_leaves_mid_thought \
