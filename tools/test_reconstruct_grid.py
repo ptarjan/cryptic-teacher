@@ -602,6 +602,17 @@ n_10, ex_10, amb_10, miss_10, unc_10, bud_10 = tally(out2, "PARTIAL_10 ")
 least("partial numbering at 10% blanked: most of the sample still resolves",
       (ex_10 + amb_10) * 100 // n_10 if n_10 else 0, 50)
 
+# no_square and min_light are the caller's options, off by default: a lone
+# 2x2 of lights fits the clue list until the caller says no white square, and
+# a free length of two fits until the caller says no light under three.
+import reconstruct_grid as _R
+_sq = [(1, "across", 2), (3, "across", 2), (1, "down", 2), (2, "down", 2)]
+same("a 2x2 white square is found by default", len(_R.reconstruct(_sq, cols=2, rows=2, strict=False)[0]), 1)
+same("no_square refuses it", len(_R.reconstruct(_sq, cols=2, rows=2, strict=False, no_square=True)[0]), 0)
+_free = [(1, "across", None)]
+same("a free length may be two cells", len(_R.reconstruct(_free, cols=2, rows=1, strict=False)[0]), 1)
+same("min_light=3 refuses a two-cell free light", len(_R.reconstruct(_free, cols=2, rows=1, strict=False, min_light=3)[0]), 0)
+
 if fails:
     print(f"reconstruct_grid: {fails} FAILED")
 else:

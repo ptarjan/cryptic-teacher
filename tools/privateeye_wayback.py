@@ -657,7 +657,7 @@ def from_rows(num, rows, answers=None, image=None, fixes=None):
         grid = list(image)
     else:
         grid, why = rg.unique_grid(spec, cols=15, rows=15, max_nodes=MAX_NODES, groups=groups,
-                                   words=words)
+                                   words=words, min_light=3, no_square=True)
         if grid is None:
             seen = f"; the scan's grid: {', '.join(misfits[:4])}" if misfits else ""
             return None, f"grid did not rebuild: {why}{seen}{count_hint(num, misfits)}"
