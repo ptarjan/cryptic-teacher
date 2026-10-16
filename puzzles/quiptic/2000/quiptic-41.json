@@ -1387,38 +1387,33 @@
      "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "unchecked": true,
+       "gives": "IGN",
+       "indicators": [
+        {
+         "text": "a bit of",
+         "note": "only a part of the word is wanted, here its closing letters"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
          "unchecked": true,
+         "words": "foreign",
          "gives": "IGN",
-         "indicators": [
-          {
-           "text": "a bit of",
-           "note": "only a part of the word is wanted, here its closing letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "foreign",
-           "gives": "IGN",
-           "select": "last",
-           "note": "the final three letters"
-          }
-         ]
-        },
-        {
-         "words": "or",
-         "note": "taken as written"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "standard abbreviation"
+         "select": "last",
+         "note": "the final three letters"
         }
        ]
+      },
+      {
+       "words": "or",
+       "note": "taken as written"
+      },
+      {
+       "words": "English",
+       "gives": "E",
+       "note": "standard abbreviation"
       },
       {
        "unchecked": true,

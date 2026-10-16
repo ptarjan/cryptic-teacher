@@ -97,30 +97,25 @@
      "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Head of",
+         "note": "the head of a word is its first letter"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Head of",
-           "note": "the head of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Head of Planning",
-           "gives": "PLANNING",
-           "note": "first letter of Planning"
-          }
-         ]
-        },
-        {
-         "words": "rental agreements",
-         "gives": "LEASES",
-         "note": "leases are rental agreements"
+         "words": "Head of Planning",
+         "gives": "PLANNING",
+         "note": "first letter of Planning"
         }
        ]
+      },
+      {
+       "words": "rental agreements",
+       "gives": "LEASES",
+       "note": "leases are rental agreements"
       },
       {
        "unchecked": true,
@@ -1321,32 +1316,27 @@
      "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "work",
+       "gives": "OP",
+       "note": "op = opus, a work"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "TS",
+       "indicators": [
+        {
+         "text": "initially",
+         "note": "take the initial letters of the words that follow"
+        }
+       ],
        "parts": [
         {
-         "words": "work",
-         "gives": "OP",
-         "note": "op = opus, a work"
-        },
-        {
-         "op": "first",
          "unchecked": true,
+         "words": "initially to stay",
          "gives": "TS",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "take the initial letters of the words that follow"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "initially to stay",
-           "gives": "TS",
-           "select": "first",
-           "note": "first letters of To Stay"
-          }
-         ]
+         "select": "first",
+         "note": "first letters of To Stay"
         }
        ]
       },

@@ -127,34 +127,29 @@
      "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "unchecked": true,
+       "gives": "P",
+       "indicators": [
+        {
+         "text": "minimum",
+         "note": "the least possible amount of the word is just its opening letter"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
          "unchecked": true,
+         "words": "wage",
          "gives": "P",
-         "indicators": [
-          {
-           "text": "minimum",
-           "note": "the least possible amount of the word is just its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "wage",
-           "gives": "P",
-           "select": "first",
-           "note": "a wage is pay, and the first letter of that is kept"
-          }
-         ]
-        },
-        {
-         "words": "increase for American",
-         "gives": "RAISE",
-         "note": "a raise is the American word for a pay increase"
+         "select": "first",
+         "note": "a wage is pay, and the first letter of that is kept"
         }
        ]
+      },
+      {
+       "words": "increase for American",
+       "gives": "RAISE",
+       "note": "a raise is the American word for a pay increase"
       },
       {
        "unchecked": true,
