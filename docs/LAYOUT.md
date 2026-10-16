@@ -797,6 +797,11 @@ tools/data/shape_suspects.json                 ranked clues whose wordplay tree
                                                (id, clue, skeleton, reasons, score from
                                                hand-measured detector precision); a work list
                                                for re-annotation, not read by anything
+tools/data/shape_reannotate.json               the shape suspects tools/fix_shape_suspects.py
+                                               could not repair mechanically, one row per clue
+                                               ({id: puzzle#clue, reason}); a work list for
+                                               single-clue re-annotation, not read by anything
+                                               yet
 tools/data/clue_shape_verdicts.json            the judgements tools/clue_shapes.py applies to
                                                wordplay shapes, keyed by exact skeleton or by
                                                regular expression with depth and mechanism
@@ -2740,5 +2745,10 @@ tools/test_parallel.sh                         does tools/parallel.py size its p
 annotating
 tools/shape_suspects.py                        rank clues whose wordplay tree is probably
                                                wrong, from shape signals (read-only on puzzles/)
+tools/fix_shape_suspects.py                    repair the shape suspects whose right tree
+                                               follows from the clue, answer and tree alone
+                                               (dry run by default; --apply writes puzzles, one
+                                               sweep commit), and list the rest per clue in
+                                               tools/data/shape_reannotate.json
 ```
 <!-- LAYOUT-END -->
