@@ -681,14 +681,17 @@ def date_numbered():
     for every numberIsDate series.
 
     Such a paper prints no number, so a row's date column carries the day and
-    the title slot names the puzzle instead. It is the paper AND the kind
-    ("Canberra Times Cryptic"), never the kind alone: "Cryptic" is what half
-    the corpus is, so a list of them reads as one puzzle repeated with no paper
-    on it, while the answer page's prev/next and series links say "Canberra
-    Times Cryptic". tools/fetch_puzzle.py copies this into the index for app.js's
+    the title slot names the puzzle instead. It is the publisher ("Canberra
+    Times"), never the kind alone: "Cryptic" is what half the corpus is, so a
+    list of them reads as one puzzle repeated with no paper on it. Not the
+    publisher AND kind ("Canberra Times Cryptic", which the answer page's
+    prev/next says): the title slot is the first, content-sized column of every
+    list, and at 22 characters that one row made the column twice as wide as
+    "No 30,089" on the showcase and archive pages, squeezing every other row.
+    tools/fetch_puzzle.py copies this into the index for app.js's
     pickerRow, and build_seo_pages.hub_row reads it, so the two rows agree.
     """
-    return {s: paper_kind(s) for s in sorted(SERIES) if "numberIsDate" in meta(s)}
+    return {s: publisher(s) for s in sorted(SERIES) if "numberIsDate" in meta(s)}
 
 def official_key(series):
     """"never" where no publisher will ever print an answer key for this series.

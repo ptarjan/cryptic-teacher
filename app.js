@@ -708,7 +708,7 @@
   }
 
   // The series whose stored number is the print date (tools/series.py
-  // numberIsDate), each with its row name ("Canberra Times Cryptic", series.py
+  // numberIsDate), each with its row name ("Canberra Times", series.py
   // date_numbered()): the number is shown as the day it names, and the picker
   // row's title slot names the paper. The kind alone ("Cryptic") made every
   // such row look like the same unnamed puzzle.
@@ -7402,7 +7402,7 @@
     // read at a glance where a trailing full "Saturday" would just be length.
     const d = dd.short ? `${dd.short} ${dd.shortWords}` : dd.shortWords;
     // The date column carries the date on every row. A date-keyed paper prints
-    // no number, so its title slot names the paper instead ("Canberra Times Cryptic"),
+    // no number, so its title slot names the paper instead ("Canberra Times"),
     // as hub_row in build_seo_pages.py does.
     const title = isDateNumbered(p) ? DATE_NUMBERED[p.series] : displayNumber(p);
     const btn = document.createElement("button");
