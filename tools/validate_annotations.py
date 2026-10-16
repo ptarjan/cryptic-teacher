@@ -3598,7 +3598,8 @@ def shape_warnings(tag, ann):
         out.append(f"{tag}: {k} {NO_INDICATOR}(s): name the indicator word on the op, "
                    f"or the op is not in the clue")
     if k := cdef_repeats(tree):
-        out.append(f"{tag}: {k} extra leaf(s): {CDEF_REPEAT}; one cd([clue words]) holds it")
+        out.append(f"{tag}: {k} extra leaf(s): {CDEF_REPEAT}; write wp as ONE leaf, "
+                   f"cd([the clue words once]), with one note on it")
     if k := bad_arity(tree):
         out.append(f"{tag}: {k} {STORED_ARITY}")
     if k := span_overlaps(tree):
