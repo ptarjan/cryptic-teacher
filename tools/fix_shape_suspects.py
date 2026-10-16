@@ -18,7 +18,15 @@ clue, the answer and the existing tree with no reading of the clue:
   del_removed  an unchecked one-part deletion: the letter it removes is the
                difference between the fodder's letters and the node's filed letters,
                at the end its indicator names (an end word: almost, short, endless..;
-               a head word: topless, first off, starter..); one letter, one reading.
+               a head word: topless, first off, starter..; a middle word: heartless,
+               empty, gutted..); one run of 1-3 letters, one reading.
+  del_unwrap   an unchecked one-part deletion whose part already gives the node's
+               letters (the removal is inside a leaf's letters): the node goes, when
+               its own indicators are none or sit inside a leaf's words.
+  link_leaf    an unchecked leaf with no letters in a charade of 3+ parts: an
+               indicator of the charade, its note kept.
+  sel_literal  an unchecked leaf under a selection op, filed with the selection's
+               result, where selecting from its own words gives those letters.
   arity_wrap   a unary op (rev, cyc, hid, a selection) with several parts, a 3+ part
                deletion, a 2-part substitution: of the few fixed regroupings, the one
                (exactly one) whose letters are the node's filed letters.
@@ -87,6 +95,7 @@ TAIL = re.compile(r"end|tail|last|finish|clos|short|almost|most|nearly|brief|lar
                   r"unfinish|curtail|dock|abridg|truncat|clip|bottom|all but|not all|not entirely|"
                   r"not fully|not completely|partly|practically|virtually|cut off|chopped", re.I)
 HEAD = re.compile(r"head|top|first|start|lead|open|initial|front|begin|scalp|decapit|behead|cap", re.I)
+MID = re.compile(r"heart|middle|centre|center|core|gut|empt|void|hollow|insides", re.I)
 
 
 # ---------- tree helpers ----------
@@ -221,24 +230,96 @@ def r_del_removed(node, parent, ctx):
     inds = [i.get("text") or "" for i in node.get("indicators") or []]
     if len(inds) != 1:
         return None
-    tail, head = bool(TAIL.search(inds[0])), bool(HEAD.search(inds[0]))
-    if tail == head:
+    tail, head, mid = bool(TAIL.search(inds[0])), bool(HEAD.search(inds[0])), bool(MID.search(inds[0]))
+    if tail + head + mid != 1:
         return None
     want = W.letters(node.get("gives"))
     vs = vals(node["parts"][0])
     if not want or not vs or len(vs) != 1:
         return None
     v = next(iter(vs))
-    if len(v) != len(want) + 1:
+    m = len(v) - len(want)
+    if not 1 <= m <= 3:
         return None
     if tail and v.startswith(want):
-        gone = v[-1]
+        gone = v[len(want):]
     elif head and v.endswith(want):
-        gone = v[0]
+        gone = v[:m]
+    elif mid and len(v) > m + 1:
+        # A central run: the letters kept either side differ in number by at most one.
+        k = (len(v) - m) // 2
+        cuts = {j for j in (k, len(v) - m - k) if v[:j] + v[j + m:] == want}
+        if len(cuts) != 1:
+            return None
+        j = cuts.pop()
+        gone = v[j:j + m]
     else:
         return None
     new = checked(node, parts=[copy.deepcopy(node["parts"][0]), {"gives": gone}])
     return new if gives_ok(new, want) else None
+
+
+def _inside_leaf(ind, tree):
+    """Whether the indicator's words sit inside a leaf's clue words."""
+    t = W.letters(ind.get("text"))
+    for n, _ in walk(tree):
+        if leaf(n) and n.get("words"):
+            if ind.get("at") is not None and n.get("at") is not None:
+                if n["at"] <= ind["at"] and ind["at"] + len(ind.get("text") or "") <= n["at"] + len(n["words"]):
+                    return True
+            elif t and t in [W.letters(w) for w in n["words"].split()] and W.letters(n["words"]) != t:
+                return True
+    return False
+
+
+def r_del_unwrap(node, parent, ctx):
+    """A one-part deletion whose part already gives the node's letters removes nothing:
+    the removal is inside a leaf's letters. The node goes when its own indicators are
+    none or sit inside a leaf's words (the leaf already reads them)."""
+    if node.get("op") != "deletion" or len(node.get("parts") or []) != 1 or not node.get("unchecked"):
+        return None
+    want = W.letters(node.get("gives"))
+    child = node["parts"][0]
+    if not want or not gives_ok(child, want):
+        return None
+    if not all(_inside_leaf(i, ctx["tree"]) for i in node.get("indicators") or []):
+        return None
+    return copy.deepcopy(child)
+
+
+def r_link_leaf(node, parent, ctx):
+    """An unchecked leaf filed with no letters (a link or position word) is an
+    indicator of its op, its note kept; the op keeps two or more parts."""
+    if leaf(node) or node.get("op") != "charade" or node.get("unchecked"):
+        return None
+    parts = node.get("parts") or []
+    k = [i for i, p in enumerate(parts) if leaf(p) and p.get("unchecked") and p.get("words")
+         and not W.letters(p.get("gives"))]
+    if len(k) != 1 or len(parts) - 1 < 2:
+        return None
+    p = parts[k[0]]
+    ind = {"text": p["words"], **({"at": p["at"]} if "at" in p else {}),
+           **({"note": p["note"]} if p.get("note") else {})}
+    new = copy.deepcopy(node)
+    new["parts"] = [copy.deepcopy(x) for i, x in enumerate(parts) if i != k[0]]
+    new["indicators"] = (new.get("indicators") or []) + [ind]
+    return new
+
+
+def r_sel_literal(node, parent, ctx):
+    """An unchecked leaf under a selection op, filed with the selection's result:
+    the selection over its own words gives those letters, so it is literal."""
+    if leaf(node) or node.get("op") not in W.SELECT or len(node.get("parts") or []) != 1:
+        return None
+    p = node["parts"][0]
+    if not leaf(p) or not p.get("unchecked") or not p.get("words"):
+        return None
+    want = W.letters(node.get("gives")) if node.get("unchecked") else W.letters(p.get("gives"))
+    if not want:
+        return None
+    lit = {k: v for k, v in p.items() if k not in ("unchecked", "gives")}
+    new = checked(node, parts=[lit]) if node.get("unchecked") else {**copy.deepcopy(node), "parts": [lit]}
+    return new if vals(new) == {want} else None
 
 
 def r_arity_wrap(node, parent, ctx):
@@ -396,8 +477,9 @@ def r_leaf_check(node, parent, ctx):
     return {"op": ops[0], "indicators": [{"text": sel, "at": node["at"] + si}], "parts": [src]}
 
 
-REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "arity_wrap": r_arity_wrap,
-           "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim, "leaf_check": r_leaf_check}
+REPAIRS = {"ins_split": r_ins_split, "del_removed": r_del_removed, "del_unwrap": r_del_unwrap,
+           "arity_wrap": r_arity_wrap, "leaf_trim": r_leaf_trim, "ind_trim": r_ind_trim,
+           "leaf_check": r_leaf_check, "link_leaf": r_link_leaf, "sel_literal": r_sel_literal}
 
 
 def repair_tree(tree, clue):
@@ -413,6 +495,7 @@ def repair_tree(tree, clue):
     ctx = {"clue": clue}
     for _ in range(12):
         ctx["under_unchecked"] = under_unchecked(tree)
+        ctx["tree"] = tree
         changed = False
         for n, parent in reversed(list(walk(tree))):
             for name, fn in REPAIRS.items():
