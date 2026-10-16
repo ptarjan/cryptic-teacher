@@ -367,18 +367,25 @@ def read_scans(numbers):
     (No 13 is in issue 857), so the issues either side are read too when
     the first holds another number. Returns {number: why not}."""
     import privateeye_scans
-    why, done = {}, set()
+    why, done = {}, {}  # done: issue -> (number it prints, why not)
     for n in numbers:
         last = None
         for issue in (n + ISSUE_OFFSET, n + ISSUE_OFFSET - 1, n + ISSUE_OFFSET + 1):
             path = DIR / "ia" / f"{issue}_page.txt"
-            if issue in done or not (DIR / "ia" / f"{issue}_djvu.txt").exists():
+            if not (DIR / "ia" / f"{issue}_djvu.txt").exists():
                 continue
-            done.add(issue)
+            if issue in done:  # read for the number before: its outcome stands
+                got, reason = done[issue]
+                if got == n:
+                    if reason:
+                        why[n] = reason
+                    break
+                continue
             try:
                 got, text, reason = privateeye_scans.read(issue, get)
             except Exception as e:  # one bad scan is a reason, not the end of the run
                 got, text, reason = None, None, f"{type(e).__name__}: {e}"
+            done[issue] = (got, reason)
             print(f"  issue {issue}: No {got}: {reason or 'read'}", flush=True)
             last = last or (got is None and reason)
             if text:
