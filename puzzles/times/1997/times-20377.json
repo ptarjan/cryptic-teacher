@@ -263,46 +263,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OUTCASTE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter of the second word is lost"
+       "text": "mishandled",
+       "at": 49,
+       "note": "something mishandled is treated roughly and knocked out of shape, so these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "case",
+       "at": 31
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "mishandled",
-         "note": "something mishandled is messed about with, so the letters are jumbled"
+         "text": "mostly",
+         "at": 42,
+         "note": "mostly means most but not all of the word tutor, so its last letter goes"
         }
        ],
        "parts": [
         {
-         "words": "case",
-         "note": "taken as written"
+         "words": "tutor",
+         "at": 36
         },
         {
-         "words": "tutor",
-         "gives": "TUTO",
-         "note": "tutor without its last letter"
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tutor bungles a case and a pupil is expelled.",
-     "walkthrough": "Class looks like a school class; it is a social caste, in India especially.",
-     "definitionFit": "An outcaste is someone thrown out of their caste, the hereditary social class in Hindu society."
+     "surface": "A pupil is thrown out of class in case a teacher had mishandled things.",
+     "walkthrough": "'class' looks like a school lesson, but it means a social rank: the answer is someone cast out of their caste in Hindu society.",
+     "definitionFit": "In the Indian caste system, someone expelled from their hereditary social group loses their place, so a social pariah of that kind."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "class"
     }
    }
@@ -1099,46 +1101,35 @@
    "annotation": {
     "definitions": [
      {
-      "text": "On the contrary",
-      "at": 19,
-      "note": "the opposite of 'in the open'"
+      "text": "About in the open? On the contrary",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "COVERT",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "in means placed inside, so the first piece sits within the next"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "About",
-         "gives": "C",
-         "note": "c, short for circa"
-        },
-        {
-         "words": "the open",
-         "gives": "OVERT",
-         "note": "overt means open, not hidden"
-        }
-       ]
+       "words": "About",
+       "at": 0,
+       "gives": "C",
+       "note": "C is short for circa, Latin for about"
+      },
+      {
+       "words": "in the open",
+       "at": 6,
+       "gives": "OVERT",
+       "note": "overt means done openly, in the open"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A question about being out in the open, answered with a contradiction.",
-     "walkthrough": "The wordplay builds the word, and 'on the contrary' says the answer means the opposite of being in the open.",
-     "definitionFit": "Covert means secret or hidden, the reverse of being out in the open."
+     "surface": "A question about whether something is out in the open, answered with a denial.",
+     "walkthrough": "'About' goes in front of 'in the open' to build the answer, which means the contrary of what that phrase says.",
+     "definitionFit": "Covert means hidden or secret, the exact opposite of overt, which describes things done in plain view."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "contrary"
     }
@@ -1490,7 +1481,31 @@
     "text": "Setting out directions for thrashing? Doesn't sound like it",
     "enumeration": "7"
    },
-   "solution": "ROUTING"
+   "solution": "ROUTING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Setting out directions",
+      "at": 0,
+      "meaning": "first meaning: planning a course, from route, said to rhyme with shooting"
+     },
+     {
+      "text": "thrashing",
+      "at": 27,
+      "meaning": "second meaning: defeating heavily, from rout, said to rhyme with shouting"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The same spelling serves both senses, but they are pronounced differently, which is what the closing remark admits.",
+     "definitionFit": "The word comes from two different verbs: one means plotting a course, the other means crushing an enemy in defeat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "thrashing"
+    }
+   }
   },
   {
    "number": 26,
