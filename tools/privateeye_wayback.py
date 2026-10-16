@@ -440,7 +440,11 @@ def build(num, held):
         pages = {json.dumps(r, sort_keys=True) for t, r in clues if t.endswith("_page")}
         if len(pages) > 1:
             return None, "two scans' page images print different clues under this number"
-        puzzle, why = from_rows(num, rows, held.get("answers"), page_grid(ts))
+        import cyclops_jumbos
+        jumbo = cyclops_jumbos.config(num)
+        puzzle, why = from_rows(num, rows, held.get("answers"), page_grid(ts), jumbo=jumbo)
+        if puzzle is not None and jumbo:
+            puzzle, why = cyclops_jumbos.apply(puzzle, jumbo)
         if puzzle is None:
             return None, why
         url = capture_url(ts)
@@ -640,7 +644,7 @@ def pin_word_lengths(groups, across, down):
     return left
 
 
-def from_rows(num, rows, answers=None, image=None, fixes=None):
+def from_rows(num, rows, answers=None, image=None, fixes=None, jumbo=None):
     """A puzzle with no answers from light_spec rows, its grid rebuilt from
     the clue numbers and enumerations (as tools/fetch_nation.py does).
     `answers`, [(ts, answer_rows)] from the solution the next issue printed:
@@ -652,6 +656,7 @@ def from_rows(num, rows, answers=None, image=None, fixes=None):
     search runs out of budget on. One that disagrees is no evidence, and
     the refusal says where it disagrees (No 30's 22dn reads "(6)" over five
     cells)."""
+    import cyclops_jumbos
     import light_spec
     from clues_only import entries_from_grid
     import reconstruct_grid as rg
@@ -685,6 +690,13 @@ def from_rows(num, rows, answers=None, image=None, fixes=None):
         words = None
     # Every Cyclops is 15x15; the linked lights' free lengths need more search
     # than the Nation's budget.
+    # A jumbo with a perimeter ring: the ring's own edges are no clued lights.
+    if jumbo and "ring" in jumbo:
+        if not image:
+            return None, "a perimeter puzzle's grid is read off the scan, and none reads"
+        image = cyclops_jumbos.ring_masked(image, jumbo["ring"].get("keep", ()))
+    elif jumbo and not image:
+        return None, "a jumbo's grid is read off the scan, and none reads"
     misfits = grid_misfits(image, spec, groups) if image else None
     if misfits:
         fixed, cells = repair_grid(image, spec, groups)
