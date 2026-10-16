@@ -46,6 +46,13 @@ for eid, e in by.items():
     new = copy.deepcopy(new)
     if new.get("wordplay"):
         annotation.strip_abbreviation_notes(new["wordplay"])
+        # The frozen fixture predates the one-heap anagram: its fodder is a lone
+        # charade, which the model shape (and from_model) hold as the anagram's own parts.
+        for node, _ in annotation._walk(new["wordplay"]):
+            ps = node.get("parts") or []
+            if node.get("op") == "anagram" and len(ps) == 1 and ps[0].get("op") == "charade" \
+                    and not ps[0].get("unchecked") and not ps[0].get("indicators"):
+                node["parts"] = ps[0]["parts"]
     m = annotation.to_model(new)
     model[eid] = m
     tried += 1
