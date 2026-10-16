@@ -153,7 +153,7 @@ def split_dirs(part):
     """'ACROSS ... DOWN ...' -> (across text, down text) or None."""
     # Headings by case and a following number, so a clue's "going down on" isn't one
     # (or a scan's "|", "l", "I" misread for 1 before a capital: "DOWN | Picture").
-    m = re.search(r"\b(?:ACROSS|Across)\b\s*:?(.*?)\b(?:DOWN|Down)\b\s*:?(?=\s*(?:\d|[|lIi]\s+[A-Z]))(.*)$", part, re.S)
+    m = re.search(r"\b(?:ACROSS|Across)\b\s*:?(.*?)\b(?:DOWN|Down)\b\s*:?(?=\s*(?:\d|[|lIi]\s+(?:[A-Z]|\(see)))(.*)$", part, re.S)
     return (m.group(1).strip(), m.group(2).strip()) if m else None
 
 
@@ -228,12 +228,19 @@ def answer_rows(part, direction):
     """fetch_privateeye.solve_from_rows rows [(key, direction, LETTERS)]."""
     out = []
     # "DOWN: i Emma 2 Orgasm": the scan's 1 read as a letter (No 54).
-    part = re.sub(r"^\s*[|lIi](?=\s+[A-Z])", "1", part)
+    part = re.sub(r"^\s*[|lIi](?=\s+(?:[A-Z]|\(see))", "1", part)
+    # The page's next item runs on after the last answer ("23 Blair. MONDAY,
+    # MARCH 3, 44 BC ..."): it swallowed No 73's 23dn and added keys 0, 4, 94.
+    part = re.split(r"\.\s+(?=[A-Z]{4,}\b)", part)[0]
+    # A speck before a number ("2 Belgrano -3 Oppo", No 63) hid 2dn's end.
+    part = re.sub(r"\s[-\u2013\u2014~]+(?=\d)", " ", part)
+    seen = set()
     for key, words in ANSWER.findall(part):
-        if re.match(r"\s*\(?see\b", words, re.I):
+        if re.match(r"\s*\(?see\b", words, re.I) or key in seen:
             continue
         letters = re.sub(r"[^A-Z]", "", unicodedata.normalize("NFKD", words).upper())
-        if letters:
+        if letters and len(letters) <= 40 and 0 < int(key.split("/")[0]) <= 40:
+            seen.add(key)
             out.append((key, direction, letters))
     return out
 
