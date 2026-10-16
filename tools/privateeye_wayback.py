@@ -167,6 +167,9 @@ def scan_clean(part):
     # A speck of punctuation after a closing bracket, before the next clue's number
     # ("13 (see 1dn) : 15 Monument"): it hid the see-row and merged 13 into 15 (No 123).
     part = re.sub(r"(\))\s+[:;.,]+(?=\s+\d{1,2}\s)", r"\1", part)
+    # OCR junk after an enumeration, before the next clue ("(7) ins eee 29 2 Leader"):
+    # it hid the count and merged clue 2 into 1 (No 262).
+    part = re.sub(r"(\))(?:\s+[a-z]{1,5}){1,4}(?:\s+\d{1,2})?(?=\s+\d{1,2}\s+[A-Z‘“'\"])", r"\1", part)
     # "(seel3ac)" for "(see 13 ac)": no space, the 1 read as l.
     part = re.sub(r"\(see\s*[lI](?=\d)", "(see 1", part, flags=re.I)
     part = re.sub(r"\(see(?=\d)", "(see ", part, flags=re.I)
@@ -217,7 +220,23 @@ def clue_rows(part, scan=False):
         left = ""
     if left.strip() or not rows:
         return None
-    return rows
+    return split_merged(rows) if scan else rows
+
+
+def split_merged(rows):
+    """A scan clue whose count the OCR lost ("... just as it was writ- ten 27 A
+    division of members (7)") runs into the next: split at " N Capital" where N
+    is the row's number + 1, the first half kept with no enumeration (its
+    length unknown; the search takes it from the grid). Nos 171, 224."""
+    out = []
+    for r in rows:
+        head = r["number"].split(",")[0]
+        m = re.search(r"\s(\d{1,2})\s+(?=[A-Z‘“'\"])", r["clue"] or "") if head.isdigit() else None
+        if m and int(m.group(1)) == int(head) + 1 and m.start() > 8:
+            out.append({"number": r["number"], "clue": r["clue"][:m.start()].strip(), "enumeration": None})
+            r = {**r, "number": m.group(1), "clue": r["clue"][m.end():].strip()}
+        out.append(r)
+    return out
 
 
 def answer_rows(part, direction):
