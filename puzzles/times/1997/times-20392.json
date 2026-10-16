@@ -376,29 +376,30 @@
      }
     ],
     "wordplay": {
-     "op": "last",
-     "unchecked": true,
-     "gives": "AWRY",
+     "op": "deletion",
      "indicators": [
       {
        "text": "Half of",
-       "note": "half of says only four of the eight letters are kept, here the closing four"
+       "at": 0,
+       "note": "only half the word's letters are kept here, its second four, with the first four dropped"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "what Robin Hood was involved in",
-       "gives": "AWRY",
-       "select": "last",
-       "note": "outlawry, life as an outlaw; its second half is kept"
+       "at": 8,
+       "gives": "OUTLAWRY",
+       "note": "Robin Hood lived as an outlaw, so he was involved in outlawry, the condition of being outside the law"
+      },
+      {
+       "gives": "OUTL"
       }
      ]
     },
     "explanation": {
-     "surface": "Something half of Robin Hood's adventures looks bent.",
-     "walkthrough": "Robin Hood was an outlaw, so what he was involved in is outlawry, of which the last four letters are taken.",
-     "definitionFit": "Something awry is askew or out of true, the same as crooked."
+     "surface": "Something about the Sherwood Forest legend seems to have gone wrong or bent.",
+     "walkthrough": "The eight-letter word splits evenly, and the back half is the answer.",
+     "definitionFit": "Something askew or out of true is crooked, the usual synonym pairing."
     },
     "features": {
      "answerInScene": false,
@@ -1239,7 +1240,45 @@
     "text": "Communist reported in German capital",
     "enumeration": "4"
    },
-   "solution": "MARK"
+   "solution": "MARK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "German capital",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "MARK",
+     "indicators": [
+      {
+       "text": "reported",
+       "at": 10,
+       "note": "something reported is passed on by word of mouth, so the name is heard rather than seen"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Communist",
+       "at": 0,
+       "gives": "MARX",
+       "note": "Karl Marx, the founding thinker of communism"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Communist is said to be living in or holding power in Germany's capital city.",
+     "walkthrough": "'German capital' looks like Berlin, but capital here means money: the old West German currency unit.",
+     "definitionFit": "The Deutschmark was Germany's currency before the euro, and capital can mean money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 23,
