@@ -473,6 +473,14 @@ def voted(words, cols):
         verdict, laid = listener.vote(ws, {}, cols=cols)
         if laid is not None:
             laid, verdict = see_filled(laid, verdict, ws, cols)
+            # The vote can lay a light with no words and name no blank (a
+            # clue wrapped past the column's edge, one reading's cut copy
+            # outvoting the whole one): left so it won the fewest-blank
+            # choice and then refused "clues with no words". It is blank.
+            bare = {lid: "no words laid" for lid, (t, _, _) in laid.items()
+                    if not (t or "").strip() and lid not in (verdict.get("blank") or {})}
+            if bare:
+                verdict = dict(verdict, blank=dict(verdict.get("blank") or {}, **bare))
         return verdict, laid
 
     def blanks(got):

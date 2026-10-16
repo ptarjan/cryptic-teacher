@@ -231,6 +231,27 @@ check('a plus-joined head is a link head, as a slash (No 152)',
 check('a count-only misfit names the row to add; a numbering misfit does not',
       "; if the page prints the scan's length, add fetch_puzzle.SOURCE_LIGHT_WRONG[('cyclops-30', '22-down')] ''", got("HINT"))
 
+# A vote that lays a light with no words and names no blank must not win the
+# fewest-blank choice: it is blank, left to the VLM, not "clues with no words".
+import archive_org_listener as _AL
+import privateeye_scans as _ps
+_real_vote = _AL.vote
+
+
+def _fake_vote(words, verdict, cols=None, lengths=None):
+    if len(words) == 4:
+        return {"blank": {"2-across": "x"}}, {"1-across": ("Whole clue", "8", None), "2-across": ("", "4", None)}
+    return {}, {"1-across": ("", "8", None), "2-across": ("Other", "4", None)}
+
+
+_AL.vote = _fake_vote
+try:
+    _v, _l = _ps.voted({"a": [], "b": [], "c": [], "d": []}, lambda w: ([], []))
+finally:
+    _AL.vote = _real_vote
+check("voted counts a bare light as blank, so the reading with the clue wins",
+      "{'2-across': 'x'} Whole clue", f"{_v.get('blank')} {_l['1-across'][0]}")
+
 if fails:
     print(f"{fails} failed")
     sys.exit(1)
