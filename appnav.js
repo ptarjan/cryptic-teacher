@@ -128,6 +128,32 @@
     }
   }
 
+  // The tabs that are other documents (Learn, and the app from a static page)
+  // are fetched before they are tapped, so a switch is a render, not a round
+  // trip. Speculation Rules where the browser has them (a prerender is a
+  // finished page), link prefetch elsewhere. The app's own panels are already
+  // in the page and need nothing.
+  function warm() {
+    var urls = [];
+    if (section() !== "learn") urls.push(home + "learn/");
+    if (!isApp) urls.push(home);
+    var rules = false;
+    try { rules = !!(win.HTMLScriptElement && win.HTMLScriptElement.supports && win.HTMLScriptElement.supports("speculationrules")); }
+    catch (e) { /* no supports() */ }
+    if (rules) {
+      var s = doc.createElement("script");
+      s.type = "speculationrules";
+      s.textContent = JSON.stringify({ prerender: [{ source: "list", urls: urls, eagerness: "eager" }] });
+      doc.head.appendChild(s);
+      return;
+    }
+    urls.forEach(function (u) {
+      var l = doc.createElement("link");
+      l.rel = "prefetch"; l.href = u;
+      doc.head.appendChild(l);
+    });
+  }
+
   function tabBar() {
     var bar = doc.createElement("nav");
     bar.className = "tabbar";
@@ -137,13 +163,22 @@
       a.setAttribute("data-tab", tab.key);
       a.href = tab.href();
       a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + ICON[tab.key] + "</svg><span>" + tab.label + "</span>";
+      // Feedback on the finger going down, not on the click that follows the
+      // lift: iOS only starts :active when a touch listener exists, so the bar
+      // also carries a passive no-op one. "pressed" is cleared on lift or drag.
+      a.addEventListener("pointerdown", function () { a.classList.add("pressed"); });
+      ["pointerup", "pointercancel", "pointerleave"].forEach(function (ev) {
+        a.addEventListener(ev, function () { a.classList.remove("pressed"); });
+      });
       a.addEventListener("click", function (e) {
         a.href = tab.href();   // ct:last moves while the page is open
         onTab(tab, e);
       });
       bar.appendChild(a);
     });
+    try { bar.addEventListener("touchstart", function () {}, { passive: true }); } catch (e) { /* no options */ }
     doc.body.appendChild(bar);
+    warm();
     mark(bar, isApp ? appSection() : section());
     if (isApp && win.MutationObserver) {
       var watch = new win.MutationObserver(function () { mark(bar, appSection()); });
