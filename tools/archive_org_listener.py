@@ -280,7 +280,7 @@ def tidy(text):
     text = re.sub(r"^(\d{1,2})(?=[A-Z]{2})", r"\1 ", text, flags=re.MULTILINE)
     # A reference to 1 read as its lookalike ("10 See lac."): else it is no
     # reference, has no count, and runs on into the next clue (Cyclops 179).
-    text = re.sub(r"\b(see\s+)[lI](?=\s*(?:ac|dn|across|down)\b)", r"\g<1>1", text, flags=re.IGNORECASE)
+    text = "\n".join(clue_text.see_one(l) for l in text.split("\n"))
     # A reversed light's "rev." read "rey." or glued to its number ("5rey.Last").
     text = re.sub(r"^(\d{1,2})\s?re[vy][.,]?\s*(?=[A-Z\"'\u2018])", r"\1 rev. ", text, flags=re.MULTILINE)
     # A cross-reference's number glued on, its 1 read as I or l ("SeeI3.").

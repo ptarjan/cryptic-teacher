@@ -161,6 +161,14 @@ assert ct.mend_scan_text("a clue (6, two words) 7 Next") == "a clue (6) 7 Next"
 assert ct.WORDS_COUNT.sub(r"(\1)", "end (3-2, three words)") == "end (3-2)"
 assert ct.NEXT_NUMBER.search("clue (5) 7 Next") and not ct.NEXT_NUMBER.search("clue see 7 next")
 assert ct.ELLIPSIS_HEAD.sub(r"\1 ... ", "5... the cat\n6 . stabbed") == "5 ... the cat\n6 ... stabbed"
+# see_one / mend_link_tails (Cyclops 80, 103, 179)
+assert ct.see_one("26 (see lac)") == "26 (see 1ac)" and ct.see_one("10 See I across.") == "10 See 1 across."
+assert ct.see_one("See 3 across") == "See 3 across"
+page = ["11/14 Link head (4,7)", "12 Plain (3)", "14 Own clue (5)", "15 See 11"]
+assert ct.mend_link_tails(page) == ["11/4 Link head (4,7)", "12 Plain (3)", "14 Own clue (5)", "15 See 11"]
+assert ct.mend_link_tails(["11/14 Link (4,7)", "14 See 11"]) == ["11/14 Link (4,7)", "14 See 11"]
+assert ct.mend_link_tails(["11/14 Link (4,7)", "12 Plain (3)"]) == ["11/14 Link (4,7)", "12 Plain (3)"]
+assert ct.mend_link_tails(["11, 14 Link (4,7)", "4 Other (3)", "14 Own (5)"]) == ["11, 14 Link (4,7)", "4 Other (3)", "14 Own (5)"]
 import time
 # Digit runs once sent STANDING_FIGURES into catastrophic backtracking (the old form hung on this for minutes).
 for hang in ("word " + "1234567890" * 8 + "!", "word" + " 12345678901234567890" * 30 + " x"):
