@@ -287,7 +287,7 @@ def split_run_on(parsed):
                     n = 11 if m.group(2)[-1] == "]" else int(m.group(2))
                     first = c["text"][:m.start()].strip()
                     see = BARE_SEE.match(first)
-                    if not (n in missing or (after is None and n not in have and n <= 36)) or n <= own or not first or (m.start() < 3 and not see):
+                    if not (n in missing or (after is None and n not in have and n <= 36) or (after is not None and n in have and len(re.findall(RUN_ON, c["text"])) == 1)) or n <= own or not first or (m.start() < 3 and not see):
                         continue
                     if after is not None and n >= after:
                         continue  # a clue between two others numbers between them
