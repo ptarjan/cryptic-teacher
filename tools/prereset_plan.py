@@ -583,7 +583,7 @@ def self_test():
     ]
     bad = (cover_self_test(covers) + width_self_test() + tag_self_test()
            + first_self_test() + backlog_self_test() + small_self_test() + fresh_self_test()
-           + reannotate_self_test() + best_effort_self_test())
+           + reannotate_self_test() + interleave_self_test() + best_effort_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MODE_CASES) + len(MEM_CASES)
          + len(CPU_CASES) + len(METER_CASES) + len(REPLAY_CASES) + len(RATIO_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
          + len(BACKLOG_CASES) + 4 + 4 + 2)
@@ -1117,6 +1117,38 @@ def reannotate_self_test():
             # a lockout's pin still resumes first
             if head_of_queue(shuffled, ["times-100"], rows)[1][:1] != ["times-100"]:
                 print("FAIL a lockout-pinned listed puzzle did not resume first", file=sys.stderr)
+                bad += 1
+        finally:
+            shape_queue.PATH = real
+    return bad
+
+
+def interleave_self_test():
+    """interleave_shape: one shape-tier puzzle per SHAPE_EVERY slots after the
+    head, every id once, and the tail's order kept."""
+    import shape_queue
+    real = shape_queue.PATH
+    import tempfile
+    bad = 0
+    rows = ([_row(f"n-{i}", "2026-01-01") for i in range(12)]
+            + [_row(f"s-{i}", "2026-01-01", annotated=True) for i in range(3)])
+    ordered = ["h-1"] + [f"n-{i}" for i in range(12)] + [f"s-{i}" for i in range(3)]
+    with tempfile.TemporaryDirectory() as tmp:
+        shape_queue.PATH = Path(tmp) / "shape_reannotate.json"
+        shape_queue.PATH.write_text(json.dumps([{"id": f"s-{i}#1a", "reason": "x"} for i in range(3)]))
+        try:
+            got = interleave_shape(ordered, 1, rows)
+            want = (["h-1", "n-0", "n-1", "n-2", "s-0", "n-3", "n-4", "n-5", "s-1",
+                     "n-6", "n-7", "n-8", "s-2", "n-9", "n-10", "n-11"])
+            if got != want:
+                print(f"FAIL interleave_shape = {got}", file=sys.stderr)
+                bad += 1
+            if SHAPE_EVERY != 4 or sorted(interleave_shape(ordered, 0, rows)) != sorted(ordered):
+                print("FAIL interleave_shape lost or added ids", file=sys.stderr)
+                bad += 1
+            few = interleave_shape(["n-0", "s-0", "s-1"], 0, rows)
+            if few != ["n-0", "s-0", "s-1"]:
+                print(f"FAIL interleave_shape with a short rest = {few}", file=sys.stderr)
                 bad += 1
         finally:
             shape_queue.PATH = real
@@ -1776,6 +1808,42 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=())
     return queue, pinned, stages
 
 
+# One queue slot in SHAPE_EVERY after the pinned head goes to the shape
+# re-annotation tier (Paul: reannotate until clean, but keep the hinting slope
+# of new puzzles steepest), so the tier drains instead of waiting behind all.
+SHAPE_EVERY = 4
+
+
+def interleave_shape(ordered, head, rows, every=SHAPE_EVERY):
+    """`ordered` with the shape-tier puzzles (hinted, on the re-annotation
+    list) past its first `head` ids spread one per `every` slots, the rest of
+    the order kept; the same ids, each once. Fewer shape puzzles than slots
+    leave the others in order; the tier runs out and the rest follow."""
+    import shape_queue
+    relist = shape_queue.puzzle_ids()
+    by_id = {r["id"]: r for r in rows}
+    tail = ordered[head:]
+    shape = [i for i in tail if i in relist and by_id.get(i, {}).get("annotated")]
+    if not shape:
+        return list(ordered)
+    sset = set(shape)
+    rest = iter(i for i in tail if i not in sset)
+    shape = iter(shape)
+    out, done = [], False
+    while not done:
+        for slot in range(every):
+            nxt = next(shape, None) if slot == every - 1 else None
+            if nxt is None:
+                nxt = next(rest, None)
+                if nxt is None:
+                    nxt = next(shape, None)
+            if nxt is None:
+                done = True
+                break
+            out.append(nxt)
+    return list(ordered[:head]) + out
+
+
 def best_effort(what, fn, empty, share):
     """fn(), or `empty` when its row cache is too cold to fill within `share`
     of the time left to CT_DEADLINE (tools/budget.py): the re-plan then goes
@@ -1827,6 +1895,7 @@ def cover_first(pinned):
     head = ", ".join(f"{pid} ({len(m)})" for pid, m in picks[:4])
     print(f"indicator cover: {len(picks)} puzzles reach {len(reached)} of {len(weight)} "
           f"unlinked indicators" + (f"; next {head}" if picks else ""), file=sys.stderr)
+    ordered = interleave_shape(ordered, len(pinned), rows)
     print("\n".join(ordered))
     return 0
 
