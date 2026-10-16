@@ -792,6 +792,11 @@ tools/test_clue_shapes.sh                      does tools/clue_shapes.py reduce 
                                                valid?
 
 tables everything else reads
+tools/data/shape_suspects.json                 ranked clues whose wordplay tree
+                                               tools/shape_suspects.py judges probably wrong
+                                               (id, clue, skeleton, reasons, score from
+                                               hand-measured detector precision); a work list
+                                               for re-annotation, not read by anything
 tools/data/clue_shape_verdicts.json            the judgements tools/clue_shapes.py applies to
                                                wordplay shapes, keyed by exact skeleton or by
                                                regular expression with depth and mechanism
@@ -2749,5 +2754,9 @@ tools/test_parallel.sh                         does tools/parallel.py size its p
                                                load leaves idle, down to one, and pmap then
                                                runs serially with no fork; and pmap's results
                                                are the serial loop's either way
+
+annotating
+tools/shape_suspects.py                        rank clues whose wordplay tree is probably
+                                               wrong, from shape signals (read-only on puzzles/)
 ```
 <!-- LAYOUT-END -->
