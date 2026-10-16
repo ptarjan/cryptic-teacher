@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Every puzzle id the repo has renamed, and the id each one is at now.
 
-    python3 tools/renamed_ids.py --check-staged   # pre-commit: refuse a staged rename the map lacks
+    python3 tools/renamed_ids.py --check-staged   # refuse a staged rename the map lacks
     python3 tools/renamed_ids.py --stage          # add the staged renames to the map
     python3 tools/renamed_ids.py --check          # the map against the whole history
     python3 tools/renamed_ids.py --write          # rebuild the map from the whole history
@@ -16,7 +16,7 @@ every file still pairs its few renames exhaustively.
 tools/data/renamed_ids.json holds {old id: new id}, the newest rename of each
 old id, and the site build reads that file rather than history, because the
 build's checkout is shallow. Every commit that renames a puzzle carries its
-row: the pre-commit hook refuses one that does not, and tools/durable.sh and
+row: `--check-staged` refuses one that does not, and tools/durable.sh and
 tools/daily_update.sh stage it. One line per id, merged per key
 (.gitattributes json-keys), since several jobs rename at once.
 
@@ -188,7 +188,7 @@ def main(argv):
         index = MAP.relative_to(ROOT).as_posix()
         have = json.loads(_git(ROOT, "show", f":{index}"))
         if missing := [(a, b) for a, b in new if have.get(a) != b]:
-            print(f"pre-commit: {len(missing)} staged puzzle rename(s) missing from "
+            print(f"renamed_ids: {len(missing)} staged puzzle rename(s) missing from "
                   f"{index} ({', '.join(f'{a} -> {b}' for a, b in missing[:3])}), so the "
                   "old address would 404; run python3 tools/renamed_ids.py --stage",
                   file=sys.stderr)

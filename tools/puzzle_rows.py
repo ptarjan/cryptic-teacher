@@ -2,7 +2,7 @@
 """The rows of the per-puzzle tables, which go wherever their puzzle file goes.
 
     python3 tools/puzzle_rows.py retire OLD [NEW]   # carry OLD's rows to NEW, or discard them
-    python3 tools/puzzle_rows.py --check-staged     # pre-commit: refuse a staged deletion that leaves rows
+    python3 tools/puzzle_rows.py --check-staged     # refuse a staged deletion that leaves rows
     python3 tools/puzzle_rows.py --check            # every row's puzzle file is on disk
 
 A table here describes one puzzle file's content, keyed by its id ("<id>" or
@@ -15,7 +15,7 @@ So whatever deletes or renames a puzzle file takes its rows in the same commit:
 on a rename (the same file under a new id) they move to the new id, on any
 other deletion they go. durable.sh
 retires the id of every D or R line it commits and carries the tables in that
-commit; the pre-commit hook runs --check-staged, which refuses the rest.
+commit; --check-staged refuses the rest.
 SOURCE_LIGHT_WRONG is code in fetch_puzzle.py, not data, so it is checked but
 edited by hand.
 """
@@ -135,7 +135,7 @@ def check_staged(root=ROOT):
         ids = sorted({key_id(k) for _, k in left})
         fix = "; ".join(f"python3 tools/puzzle_rows.py retire {i}"
                         f"{' ' + gone[i] if gone[i] else ''}" for i in ids)
-        print(f"pre-commit: the staged deletion of {', '.join(ids)} leaves "
+        print(f"puzzle_rows: the staged deletion of {', '.join(ids)} leaves "
               f"{len(left)} row(s) in the per-puzzle tables "
               f"({', '.join(f'{t}:{k}' for t, k in left[:4])}), which then name no "
               f"puzzle and fail CI. Fix: {fix}; then stage the tables", file=sys.stderr)
