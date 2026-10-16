@@ -267,8 +267,12 @@ def split_lost(a, d):
                     first = r["clue"][:m.start()].strip()
                     see = re.match(r"\(?\s*s[ec]e\s*([lI]|\d{1,2})\s*(?:ac|dn|across|down)?\.?\s*\)?$",
                                    first, re.I)
+                    after = next((int(x["number"].split(",")[0]) for x in rows[i + 1:]
+                                  if x["number"].split(",")[0].isdigit()), None)
                     if n not in missing or n <= int(head) or not first or (m.start() < 3 and not see):
                         continue
+                    if after is not None and n >= after:
+                        continue  # a clue between two others numbers between them
                     later = {"number": str(n), "clue": r["clue"][m.end():].strip(),
                              "enumeration": r["enumeration"]}
                     if see:
@@ -286,6 +290,34 @@ def split_lost(a, d):
                 break
         if done:
             return a, d
+
+
+def order_lists(a, d):
+    """(across rows, down rows) put in order where the numbers' increase says
+    how. Each list's numbers rise, so (1) a number out of place between two
+    neighbours that bracket it is a misread of the one number in that gap
+    that no list carries; (2) a down list that starts with a rising run past
+    the across list's last number and then falls back is the across list's
+    tail, its columns read in the wrong order (Nos 246, 271, 289)."""
+    def head(r):
+        h = r["number"].split(",")[0]
+        return int(h) if h.isdigit() else None
+    for rows in (a, d):
+        for i in range(1, len(rows) - 1):
+            lo, x, hi = head(rows[i - 1]), head(rows[i]), head(rows[i + 1])
+            if None in (lo, x, hi) or lo >= hi or lo < x < hi:
+                continue
+            have = {int(n) for r in a + d for n in r["number"].split(",") if n.isdigit()}
+            gap = [n for n in range(lo + 1, hi) if n not in have]
+            if len(gap) == 1 and rows[i]["number"].isdigit():
+                rows[i] = {**rows[i], "number": str(gap[0])}
+    nums = [head(r) for r in d]
+    if a and d and None not in nums and head(a[-1]) is not None:
+        k = next((j for j in range(1, len(nums)) if nums[j] <= nums[j - 1]), None)
+        if k and nums[0] > head(a[-1]) and nums[k] < nums[0] and all(
+                nums[j] < nums[j + 1] for j in range(k, len(nums) - 1)):
+            return a + d[:k], d[k:]
+    return a, d
 
 
 def answer_rows(part, direction):
@@ -346,7 +378,7 @@ def read_capture(raw, encoding="cp1252", plain=False, issue=None):
     if dirs:
         a, d = clue_rows(dirs[0], plain), clue_rows(dirs[1], plain)
         if a and d:
-            a, d = split_lost(a, d)
+            a, d = order_lists(*split_lost(a, d))
         # Square 1 starts a light: a list missing it lost its first clues
         # (a scan's column set above its heading), refused before the
         # minutes a grid search spends finding no grid.
