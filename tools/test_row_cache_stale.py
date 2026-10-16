@@ -87,6 +87,24 @@ files[0].write_text("a-1 edited")
 check("an edited file is made afresh even past the deadline (no older row of its content)",
       (run("C", "0"), made), ([("a-1", "C")] + [(f.stem, "B") for f in files[1:]], ["a-1"]))
 os.environ.pop("CT_DEADLINE", None)
+# A stale row's findings are judged again by the current forgiveness tables.
+def _stale_forgiven():
+    import puzzle_integrity as pi
+    key = next(iter(pi.PUBLISHED_WRONG))
+    flag = ("LENGTH", key[0], key[1])
+    real = row_cache.cached_map
+    old_min = pi.ROW_CACHE_MIN
+    row_cache.cached_map = lambda *a, **k: [([flag, ("LENGTH", "x-1", "other")], ("row",), None)]
+    pi.ROW_CACHE_MIN = 1
+    try:
+        got = pi._judge(["p"])
+    finally:
+        row_cache.cached_map, pi.ROW_CACHE_MIN = real, old_min
+    return got
+
+
+check("stale row: finding the current table forgives is not reported",
+      [f for f in _stale_forgiven()[0][0]], [("LENGTH", "x-1", "other")])
 if fails:
     print("\n".join(fails))
     sys.exit(1)
