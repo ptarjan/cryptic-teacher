@@ -28,6 +28,7 @@ import json
 import re
 import sys
 
+import clue_text
 import fetch_wp_blog
 import file_blog_puzzles
 import media_manifest
@@ -99,9 +100,9 @@ WAY = {"a": "Across", "d": "Down", "ac": "Across", "dn": "Down"}
 #: later a linked head may lead from the other direction, and prose cites
 #: lights the same way ("13a,14a and 17a are on my podium").
 LINKED_HEAD = re.compile(r"^(\d{1,2})(ac|dn|[ad])\.?\s*(?:/|,|&|and)\s*\d", re.I)
-COUNTED = re.compile(r"\([\d,\-\s]+\)\s*$")
+COUNTED = clue_text.PRINTED_COUNT
 #: The post's own heading over a clue list: "Across", "Down Clues".
-PRINTED_HEADING = re.compile(r"^\s*(across|down)(?:\s+clues)?[\s:.]*$", re.I)
+PRINTED_HEADING = clue_text.PLAIN_HEADING
 #: Until about 2015 the answer is printed white on white inside braces,
 #: "{ SAPLINGS } An anagram ...", and the shared reader drops braced text.
 HIDDEN = re.compile(r"\{\s*((?:<[^>]+>\s*)*[^<{}]*?(?:\s*</[^>]+>)*)\s*\}")

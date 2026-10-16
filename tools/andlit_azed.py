@@ -1050,7 +1050,7 @@ def assemble(number, copy, url, date, post, kind=""):
     for e in entries:
         if e["enumeration"] is None and not (is_special and not re.search(r"[\d)]\s*$", e["clue"])) \
                 or not is_special and e["enumeration"] and int(re.sub(r"\D.*", "", e["enumeration"]) or 0) and \
-                sum(int(n) for n in re.findall(r"\d+", e["enumeration"])) != len(lights[(e["number"], e["direction"])]):
+                clue_text.count_total(e["enumeration"]) != len(lights[(e["number"], e["direction"])]):
             return None, "enumeration", f"{e['number']} {e['direction']}"
     rec = {"post_id": post["post_id"] if post else f"andlit-{number}",
            "link": post["link"] if post else url, "date": post["date"] if post else None,

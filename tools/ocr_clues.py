@@ -43,8 +43,8 @@ import leading_quote
 import punctuation
 import quotes
 from clue_text import (CAPS_HEADING, COUNT_CLOSES, COUNT_IN, COUNT_OPENS, COUNTED, DIGIT_LETTERS, FIGURE_LETTERS,
-                       HEADING_BEFORE_ONE, HEADING_LINE, LIGHT_WORD, NEXT_CLUE, NUMBER_LETTERS, NUMBERED_IN,
-                       PAGE_TEXT, SEE_RE, STANDING_FIGURES, count_read, cut_at_count, exact_heading, ones_read,
+                       HEADING_BEFORE_ONE, HEADING_IN, HEADING_LINE, LIGHT_WORD, NEXT_CLUE, NUMBER_LETTERS, NUMBERED_IN,
+                       PAGE_TEXT, PUZZLE_HEADING, SEE_RE, STANDING_FIGURES, count_read, count_total, cut_at_count, exact_heading, ones_read,
                        see_numeral, strip_count, trim_torn_count, unpaired)
 
 TOOLS =Path(__file__).resolve().parent
@@ -2921,17 +2921,6 @@ def merged(text):
     return "two clues run together" if RUN_TOGETHER.search(text or "") else None
 
 
-#: A list's heading read into a clue: "ACROSS" or "DOWN" in capitals,
-#: which no clue prints, or either opening the text before the first
-#: clue's number ("Down i Beginning", "ACROSS 1 Fish").
-HEADING_IN = re.compile(CAPS_HEADING.pattern + "|" + HEADING_BEFORE_ONE.pattern)
-
-#: The next puzzle's heading read onto a clue, with that puzzle's preamble
-#: and clues after it: a book prints "Alphabetical Jigsaw" (Araucaria book
-#: 2, read onto the last Down light of No 15, 20, 34, 50 and 66). Only as
-#: a heading sets it, in capitals: a clue may say "alphabetical jigsaw"
-#: (cryptic-28672).
-PUZZLE_HEADING = re.compile(r"(?<![\w'])(?:Alphabetical|ALPHABETICAL)\W{1,3}(?:Jigsaw|JIGSAW)(?![\w'])")
 
 def bracket_reopened(text, readings):
     """`text` with the "(" the vote lost put back, or None: when `text`
@@ -3001,7 +2990,7 @@ def fault(text, enum, cells, printed=()):
     why = bled(text, printed)
     if why:
         return why
-    if enum and cells and sum(int(n) for n in re.findall(r"\d+", enum)) != cells:
+    if enum and cells and count_total(enum) != cells:
         return f"its count ({enum}) does not fill its {cells} squares"
     # A count left on the words with marks after it, read off the same print
     # as `enum` but not the same: "(7.8) ' -" over a voted "(7,6)".

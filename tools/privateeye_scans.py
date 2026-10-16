@@ -42,7 +42,7 @@ LEAF_WORDS = re.compile(r"cyclops|crossword|across|down", re.IGNORECASE)
 #: A line that starts a clue ("7 TCP-like", "20/12 Paxman", "9ac. See") or
 #: ends one with its count ("(6,4)", "(4-4)").
 STARTS = re.compile(r"^\W{0,2}\d{1,2}(?:\s*[/+]\s*\d{1,2}(?:\s*(?:ac|dn)\.?)?)*\W{0,2}\s+[A-Za-z(\"'‘“]")
-COUNTED = re.compile(r"\(\s*\d{1,2}(?:\s*[,\-–]\s*\d{1,2})*\s*\)\W{0,2}$")
+COUNTED = clue_text.PRINTED_COUNT
 #: Where the clue columns stop: the prize and entry notice, the previous
 #: puzzle's solution or winner, the next feature's heading.
 END = re.compile(r"£\s?\d|\bprize\b|\bentries\b|solution\s+to|\bwinner\b|\bcrossword\b", re.IGNORECASE)
@@ -405,7 +405,7 @@ def renumbered(words, cols):
 #: head itself); directed_links puts the link back from the tail's own
 #: "See 1 Across" in the other list.
 DIRECTED = re.compile(r"^(\W{0,2}\d{1,2}(?:\s*,\s*\d{1,2})*)\s*,\s*\d{1,2}\s*[AD]\b\.?(?=\s)")
-SEE_SIDE = re.compile(r"\(?\s*see\s+(\d{1,2})\s*(across|down|ac|dn)?\b\W*", re.IGNORECASE)
+SEE_SIDE = re.compile(r"\(?\s*" + clue_text.SEE_DIRECTED + r"\W*", re.IGNORECASE)
 
 
 def directed_links(laid):
@@ -501,7 +501,7 @@ def column_words(img, box, which, key):
     return got
 
 
-SEE = re.compile(r"^\W{0,2}(\d{1,2})\W{0,2}\s+\(?\s*see\s+(\d{1,2})\s*(across|down|ac|dn)?\b", re.IGNORECASE)
+SEE = re.compile(r"^\W{0,2}(\d{1,2})\W{0,2}\s+\(?\s*" + clue_text.SEE_DIRECTED, re.IGNORECASE)
 
 
 def see_filled(laid, verdict, words, cols):

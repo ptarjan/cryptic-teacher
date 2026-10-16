@@ -135,8 +135,7 @@ RUN_ON_RE = re.compile(r"(?<=\))[.]?\s+(?=\d{1,2}\s+[A-Z‘“\"'])")
 # printed word. Without it the line closes no chunk and silently glues itself
 # onto the next clue, costing two clues instead of one.
 SEE_REFERENCE_RE = re.compile(
-    r"^(?:\d+(?:\s*,\s*\d+)*\s*[,.]?\s*)?See\s+\d+"
-    r"\s*(?:Across|Down|Ac|Dn)?\b\.?\s*$")
+    r"^(?:\d+(?:\s*,\s*\d+)*\s*[,.]?\s*)?" + clue_text.SEE_DIRECTED + r"\.?\s*$", re.IGNORECASE)
 # The lookahead's job is only to reject a bare digit run that isn't
 # actually a clue number (grid-bleed noise, a number embedded mid-sentence)
 # — requiring the very next character start a word/paren/quote is enough
@@ -173,46 +172,6 @@ LEADING_NUMBER_RE = re.compile(
 # than filed as the first character of the clue.
 ORPHAN_NUMBER_DOT_RE = re.compile(r"^\.\s+(?=[A-Za-z(\"'‘])")
 
-# "ACROSS"/"DOWN" headers on guardiancrosswor0000perk sometimes OCR with a
-# stray leading glyph from the facing grid bleeding onto the same leaf
-# ("| ACROSS", "— ACROSS") since, unlike the Penguin volumes, this book has
-# no separate grid leaf to absorb that noise — the grid and clue text share
-# one page. A tolerant match (up to 3 non-letters on either side) recovers
-# these as real headers instead of falling through to the jigsaw-detection
-# path and losing the Across/Down split entirely.
-# The scans also double a letter of the word ("DOwNn" on every Down heading
-# the Times book 21 OCR lost) and leave one stray letter beside it ("DOWN i",
-# the Herald book), so the word allows repeated letters and the line one
-# trailing single-letter token. A clue cannot match that: it has words and an
-# enumeration.
-DIRECTION = clue_text.DIRECTION
-STRAY = r"[^A-Za-z0-9]{0,3}(?:\s+[A-Za-z][^A-Za-z0-9]{0,2})?"
-HEADER_RE = re.compile(r"^[^A-Za-z0-9]{0,3}" + DIRECTION + STRAY + "$", re.IGNORECASE)
-
-# The DOTTED-NUMBER LAYOUT prints its running head on the header line itself
-# ("Cryptic Across", and where the OCR mangled the head, "CryBHE Across"), so
-# nothing anchored at the start of the line can match it. The head is one or
-# two purely alphabetic words: requiring that — no digits anywhere — is what
-# keeps "13. See 14 Across", a real cross-reference clue printed in this very
-# layout, from being read as a section header and throwing away every clue
-# above it. A head that is itself the word "See" is rejected in _header_kind
-# for the same reason, since OCR does lose the leading number.
-GLUED_HEAD_RE = re.compile(
-    r"^(?P<head>(?:[A-Za-z]{2,12}[^A-Za-z0-9\s]{0,2}\s+){1,2})"
-    + DIRECTION + r"[^A-Za-z0-9]{0,3}$",
-    re.IGNORECASE)
-
-
-def _header_kind(line: str) -> str | None:
-    line = line.strip()
-    m = HEADER_RE.match(line)
-    word = m.group(1) if m else None
-    m = None if m else GLUED_HEAD_RE.match(line)
-    if m and "see" not in m.group("head").lower():
-        word = m.group(2)
-    if word is None:
-        return None
-    return "ACROSS" if word[0] in "Aa" else "DOWN"
 
 
 def load_leaves(path: Path) -> list[str]:
@@ -419,7 +378,7 @@ def find_content_start(lines: list[str]) -> tuple[int, str]:
     stray OCR glyph stuck to it ("| ACROSS") — one tolerant check covers
     both instead of a second layout-specific code path."""
     for i, line in enumerate(lines):
-        if _header_kind(line) == "ACROSS":
+        if clue_text.tolerant_heading(line) == "ACROSS":
             return i + 1, "across_down"
     for i, line in enumerate(lines):
         if line.strip().lower().startswith("method:"):
@@ -523,7 +482,7 @@ def split_across_down(lines: list[str]) -> tuple[list[str], list[str]]:
     find_content_start's "Across" check — see its docstring."""
     down_idx = None
     for i, line in enumerate(lines):
-        if _header_kind(line) == "DOWN":
+        if clue_text.tolerant_heading(line) == "DOWN":
             down_idx = i
             break
     if down_idx is None:
@@ -662,7 +621,7 @@ def down_page_lines(leaf: str) -> list[str] | None:
     """
     lines = leaf.split("\n")
     for i, line in enumerate(lines):
-        if _header_kind(line) == "DOWN":
+        if clue_text.tolerant_heading(line) == "DOWN":
             return lines[i + 1:]
         if ENUMERATION_RE.search(line.strip()):
             return None
@@ -675,11 +634,11 @@ def is_continuation_leaf(leaf: str) -> bool:
     has no heading at all, or its only heading is a Down heading above every
     clue on it."""
     lines = leaf.split("\n")
-    if (any(_header_kind(ln) == "ACROSS" for ln in lines)
+    if (any(clue_text.tolerant_heading(ln) == "ACROSS" for ln in lines)
             or any(ln.strip().lower().startswith("method:") for ln in lines)):
         return False
     return (down_page_lines(leaf) is not None
-            or not any(_header_kind(ln) == "DOWN" for ln in lines))
+            or not any(clue_text.tolerant_heading(ln) == "DOWN" for ln in lines))
 
 
 def parse_book(text_path: Path) -> list[dict]:

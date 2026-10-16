@@ -21,6 +21,7 @@
 # throw away every clue above it. That failure is silent and looks like a
 # short puzzle, which is why it is asserted directly.
 import os
+from clue_text import tolerant_heading as ct_tolerant
 import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -61,7 +62,7 @@ for line, want in (
         ("| ACROSS", "ACROSS"),                # and the stray-glyph one
         ("Down", "DOWN"),
 ):
-    check(f"header {line!r}", P._header_kind(line), want)
+    check(f"header {line!r}", ct_tolerant(line), want)
 
 # ------------------------------------------------------------------ case 2
 print("case 2: lines that merely end in a direction word are NOT headers")
@@ -71,7 +72,7 @@ for line in (
         "15. See 4 Down",
         "Take a risk and ardently indulge in the game across",
 ):
-    got = P._header_kind(line)
+    got = ct_tolerant(line)
     if got is None:
         ok(f"not a header: {line!r}")
     else:
@@ -136,7 +137,7 @@ print("case 4e: a Down heading the OCR mangled or never printed still splits")
 # guardiancrosswor0000perk #12: no Down heading on the leaf at all.
 for line, want in (("DOwNn", "DOWN"), ("DOWN i", "DOWN"), ("ACROSS", "ACROSS"),
                    ("Down a pint (4)", None)):
-    check(f"header {line!r}", P._header_kind(line), want)
+    check(f"header {line!r}", ct_tolerant(line), want)
 times = """ACROSS
 1 Agree to redraft of letters (6,3)
 6 Note rolls filled with uncooked meat (5)

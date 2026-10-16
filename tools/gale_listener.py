@@ -749,11 +749,6 @@ def numbered(run, n):
     return kept
 
 
-#: A clue number in the 1930s' old-style figures, read as letters: "I."
-#: for 1, "II." for 11, "Io." for 10, "I3." for 13 (No 97's, No 103's),
-#: "4S." for 48 (No 3's); a lone "S." is a word.
-FIGURES = re.compile(r"^(\W{0,2})([IlO\d]?[IloO\d]|\dS)([.,:])(?=\s|[A-Z]|$)")
-AS_DIGIT = str.maketrans("IlOoS", "11008")
 
 
 #: A clue number run into its first word, as the "ch" reader drops the
@@ -790,10 +785,7 @@ def figures(words):
             # or the gutter read into it (No 17's "7." from x 784, where the
             # column's numbers start at ~864). The number ends where it does.
             w = (int(w[2] - NUMBER_WIDTH * len(w[4]) * (w[3] - w[1])), *w[1:])
-        m = FIGURES.match(w[4])
-        n = m and m.group(2).translate(AS_DIGIT)
-        if m and n.isdigit() and n[0] != "0" and not m.group(2).isdigit():
-            w = (*w[:4], m.group(1) + n + m.group(3) + w[4][m.end():])
+        w = (*w[:4], clue_text.old_figures(w[4]))
         # A reversed light's number run into "rev." and its linked light's
         # ("20rev.,24.Charade:" for "20 rev., 24. Charade:").
         w = (*w[:4], REV_GLUED.sub(lambda m: f"{m.group(1)} rev." + (f", {m.group(2)}." if m.group(2) else "") + " ",

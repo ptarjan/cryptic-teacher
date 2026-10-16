@@ -157,30 +157,6 @@ def split_dirs(part):
     return (m.group(1).strip(), m.group(2).strip()) if m else None
 
 
-def scan_clean(part):
-    """An archive.org scan's clue text with its common OCR slips mended: a
-    stray rule ("|"), "S" and "A" read for 5 and 4 in a clue number ("4S",
-    "2A", "1/Sac", "See Sdn"), a clue number run into its first word ("12T he",
-    "20ac.They"), and "|", "l" or "I" read for the 1 that opens a list ("DOWN |
-    Picture of crack plugged (8)", No 328)."""
-    part = re.sub(r"^\s*[|lI](?=\s+[A-Z‘“'\"])", " 1", part)
-    part = re.sub(r"\s[|]+(?=\s|$)", " ", part)
-    part = re.sub(r"(?<=[\s/])S(?=\s*(?:ac|dn)\b)", "5", part)
-    # A speck of punctuation after a closing bracket, before the next clue's number
-    # ("13 (see 1dn) : 15 Monument"): it hid the see-row and merged 13 into 15 (No 123).
-    part = re.sub(r"(\))\s+[:;.,]+(?=\s+\d{1,2}\s)", r"\1", part)
-    # OCR junk after an enumeration, before the next clue ("(7) ins eee 29 2 Leader"):
-    # it hid the count and merged clue 2 into 1 (No 262).
-    part = re.sub(r"(\))(?:\s+[a-z]{1,5}){1,4}(?:\s+\d{1,2})?(?=\s+\d{1,2}\s+[A-Z‘“'\"])", r"\1", part)
-    # "(seel3ac)" for "(see 13 ac)": no space, the 1 read as l.
-    part = clue_text.see_numeral(part)
-    part = re.sub(r"(?<=\s)(\d)S(?=\s)", r"\g<1>5", part)
-    part = re.sub(r"(?<=\s)(\d)A(?=\s+[A-Z‘“'\"])", r"\g<1>4", part)
-    part = re.sub(r"(?<=\s)(\d{1,2})([A-Z]) ([a-z]{1,3})\b", r"\1 \2\3", part)
-    part = re.sub(r"(?<=\d)(ac|dn)\.(?=[A-Z‘“'\"])", r"\1. ", part)
-    return part
-
-
 def clue_rows(part, scan=False):
     """light_spec rows ({"number", "clue", "enumeration"}) of one direction's
     text, or None if any text is left between or after the clues. A scan's
@@ -188,7 +164,7 @@ def clue_rows(part, scan=False):
     last across clue the grid's OCR junk: text with no enumeration in it,
     dropped (a real clue lost in it leaves a light the grid rebuild refuses)."""
     if scan:
-        part = scan_clean(" " + part)
+        part = clue_text.mend_scan_text(" " + part)
         # Grid junk with no digit straight after the last clue's enumeration
         # ("... Dead mad-looking (4-4) eS ; i aes Ane", No 328) hid that clue.
         last = None

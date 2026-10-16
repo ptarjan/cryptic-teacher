@@ -692,7 +692,7 @@ def grid_matches(grid, clues, forgiven=()):
             if pointer_target(c["clue"], counted=True) is None:
                 return f"{c['lights'][0][0]} {c['lights'][0][1]} has no enumeration"
             continue
-        want = sum(int(n) for n in re.findall(r"\d+", c["enumeration"]))
+        want = clue_text.count_total(c["enumeration"])
         if c["lights"][0] not in forgiven and want != sum(len(lights[l]) for l in c["lights"]):
             return f"{c['lights'][0][0]} {c['lights'][0][1]}'s enumeration disagrees with the grid"
     return None
@@ -812,7 +812,7 @@ def backsolve(clues, answers):
         light = tuple(c["lights"][0])
         if c["enumeration"] is None or light in linked:
             continue
-        spec[light] = sum(int(n) for n in re.findall(r"\d+", c["enumeration"]))
+        spec[light] = clue_text.count_total(c["enumeration"])
         word = (answers or {}).get(light)
         if word and len(word) == spec[light]:
             words[light] = word

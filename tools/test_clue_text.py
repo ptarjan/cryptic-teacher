@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """clue_text: ACROSS/DOWN heading readings every old copy accepted."""
+import re
 import clue_text as ct
 
 # fuzzy (the old file_archive_org_puzzles copy)
@@ -119,3 +120,30 @@ assert ct.trim_torn_count("hair-dresser (6") == "hair-dresser" and ct.trim_torn_
 assert ct.trim_torn_count("currency 1 7).") == "currency" and ct.trim_torn_count("a clue [5]") == "a clue"
 assert ct.trim_torn_count(") The man") == "The man" and ct.trim_torn_count("a clue (5)") == "a clue (5)"
 assert ct.trim_torn_count("a clue ( 8 .") == "a clue" and ct.trim_torn_count("plain words") == "plain words"
+
+# shared by privateeye_scans, parse_bigdave44, parse_penguin_book, gale_listener, privateeye_wayback, ocr_clues
+assert ct.count_total("3,7") == 10 and ct.count_total("4-4") == 8 and ct.count_total(None) == 0 and ct.count_total("") == 0
+for ok in ("a clue (8)", "a clue (3,7).", "a clue (4-4)", "a clue (2 , 3)", "a clue (4–4)"):
+    assert ct.PRINTED_COUNT.search(ok), ok
+for bad in ("a clue (8", "a clue (S)", "(8) and more", "a clue (x)"):
+    assert not ct.PRINTED_COUNT.search(bad), bad
+assert ct.PUZZLE_HEADING.search("end (5) Alphabetical Jigsaw 1") and not ct.PUZZLE_HEADING.search("an alphabetical jigsaw (5)")
+assert ct.HEADING_IN.search("Fish ACROSS 1 more") and ct.HEADING_IN.match("Down i Beginning") and not ct.HEADING_IN.search("going down (5)")
+for line, want in [("| ACROSS", "ACROSS"), ("DOwNn", "DOWN"), ("DOWN i", "DOWN"), ("Cryptic Across", "ACROSS"),
+                   ("CryBHE Across", "ACROSS"), ("- DOWN -", "DOWN")]:
+    assert ct.tolerant_heading(line) == want, (line, ct.tolerant_heading(line))
+for line in ("13. See 14 Across", "See Across", "Fish and chips (5)", "", "Acid"):
+    assert ct.tolerant_heading(line) is None, line
+assert ct.PLAIN_HEADING.match("Across clues:").group(1) == "Across" and ct.PLAIN_HEADING.match("  Down.").group(1) == "Down"
+assert not ct.PLAIN_HEADING.match("Down to earth")
+m = re.compile(ct.SEE_DIRECTED, re.I).search("(see 14 Across)")
+assert m.groups() == ("14", "Across") and re.compile(ct.SEE_DIRECTED, re.I).search("See 3").group(2) is None
+for word, want in [("II.", "11."), ("I.", "1."), ("4S.", "48."), ("Io,", "10,"), ("I3.", "13."), ("O.", "O."), ("S.", "S."),
+                   ("12.", "12."), ("Foo", "Foo")]:
+    assert ct.old_figures(word) == want, (word, ct.old_figures(word))
+for text, want in [("| Picture of crack (8) 4S Fish", " 1 Picture of crack (8) 45 Fish"),
+                   ("(5) 12T he cat (3)", "(5) 12 The cat (3)"), ("1/Sac Fish", "1/5ac Fish"),
+                   ("15 Monument (4) 20ac.They", "15 Monument (4) 20ac. They"), ("(see13)", "(see 13)"),
+                   ("13 (see 1dn) : 15 Monument", "13 (see 1dn) 15 Monument")]:
+    assert ct.mend_scan_text(text).replace("  ", " ").strip() == want.strip(), (text, ct.mend_scan_text(text))
+print("clue_text ok")
