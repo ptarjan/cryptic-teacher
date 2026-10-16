@@ -1992,6 +1992,9 @@ tools/vlm_column_prompt.md                     what the VLM reader is told when 
                                                clue column verbatim
 tools/vlm_pick_prompt.md                       what the VLM reader is told when the readers
                                                disagree on one clue
+tools/test_drop_derived_keys.py                a clue written with wp and a derived key
+                                               (assembly, type) is applied with the key
+                                               dropped, not refused
 tools/test_annotate_partial.py                 a puzzle that has hints and lacks some is
                                                annotated only where it lacks them
 tools/test_annotate_filed_rows.py              an _ann entry's printedClue, setterError and
