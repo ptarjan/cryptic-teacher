@@ -324,22 +324,39 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LA",
+       "op": "deletion",
        "indicators": [
         {
          "text": "some",
-         "note": "only some of the word is wanted, here its opening part"
+         "at": 11,
+         "note": "only some of the word lager is used, its opening pair of letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "lager",
-         "gives": "LA",
-         "select": "first",
-         "note": "the first two letters of this word"
+         "at": 16,
+         "note": "the first two letters of lager"
+        },
+        {
+         "gives": "GER"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at the start",
+         "at": 35,
+         "note": "only the opening letters of dead and drunk are taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dead drunk",
+         "at": 24,
+         "note": "first letters of dead and drunk"
         }
        ]
       },
@@ -348,28 +365,15 @@
        "indicators": [
         {
          "text": "problem",
-         "note": "a problem is something to be worked out, so the letters of the word next to it must be sorted"
+         "at": 54,
+         "note": "his letters pose a problem, so they are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "at the start",
-           "note": "the words just before are wanted only for their opening letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "dead drunk",
-           "note": "the first letter of each word"
-          }
-         ]
-        },
-        {
          "words": "his",
-         "note": "taken as written, to be rearranged"
+         "at": 50,
+         "note": "his rearranged"
         }
        ]
       }
@@ -377,9 +381,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A young man has had a few beers and was legless early on; is drink his problem?",
-     "walkthrough": "The whole clue is the definition as well as the wordplay: the lad who drinks lager until he is drunk is behaving in this way.",
-     "definitionFit": "Laddish behaviour is the loud, boozy conduct of young men out drinking beer together."
+     "surface": "A young man has downed some beer and is drunk early on: that, the clue suggests, is his trouble.",
+     "walkthrough": "The whole clue is both the wordplay and a picture of boorish young-male drinking, which is what the answer describes.",
+     "definitionFit": "Laddish describes the rowdy, beer-swilling behaviour typical of young men, so getting drunk early is a fitting example."
     },
     "features": {
      "answerInScene": true,
@@ -832,7 +836,36 @@
      }
     ]
    },
-   "solution": "ARMSANDTHEMAN"
+   "solution": "ARMSANDTHEMAN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Opening of epic",
+      "at": 0,
+      "meaning": "first meaning: the first words of Dryden's translation of Virgil's Aeneid"
+     },
+     {
+      "text": "play",
+      "at": 16,
+      "meaning": "second meaning: the title of George Bernard Shaw's comedy of 1894"
+     },
+     {
+      "text": "what can hold a note in song, if historic",
+      "at": 23,
+      "meaning": "third meaning: limbs that can hold a note, plus the hero who is sung of in a historic song"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Araucaria plays on the Aeneid's opening line: arms can hold things, and the man (Aeneas) is the hero of that historic song. Shaw took his title from the same line.",
+     "definitionFit": "The phrase is both the famous opening of Virgil's poem in English and the title Shaw borrowed for his comedy about soldiers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hold"
+    }
+   }
   },
   {
    "number": 15,
@@ -1204,51 +1237,51 @@
      {
       "text": "was fatal to Samson",
       "at": 32,
-      "note": "a description of the answer, not a synonym"
+      "note": "a verb phrase standing for the noun: the thing that was fatal to him"
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HAIRCUT",
      "indicators": [
       {
        "text": "sheltering",
-       "note": "to shelter something is to keep it under cover, enclosed"
+       "at": 6,
+       "note": "the hat shelters the other letters by going round them"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "HAIRCUT",
+       "words": "Cover",
+       "at": 0,
+       "gives": "HAT",
+       "note": "a hat is a cover for the head"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "most of",
-         "note": "only most of the word is wanted, so some letters are shed from it"
+         "at": 17,
+         "note": "most of the word circus, with its outer letters dropped"
         }
        ],
        "parts": [
         {
-         "words": "Cover",
-         "gives": "HAT",
-         "note": "a hat is a head covering"
-        },
-        {
          "words": "circus",
-         "note": "taken as written, before trimming both ends"
+         "at": 25,
+         "note": "circus without its first and last letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A canopy over the big top proved the death of the strongman from the Bible.",
-     "walkthrough": "Here 'most of' removes both the first and last letters. Samson lost his strength when Delilah had his hair cut, which led to his death.",
-     "definitionFit": "In the Bible, having his locks shorn stripped Samson of strength and led to his downfall."
+     "surface": "Some covering that protected most of a circus proved deadly to the biblical strongman Samson.",
+     "walkthrough": "Samson's strength lay in his uncut hair; once Delilah had it shorn he was captured by the Philistines.",
+     "definitionFit": "In the Bible story, losing his hair stripped Samson of his strength and led to his downfall and death."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "circus"
     }
