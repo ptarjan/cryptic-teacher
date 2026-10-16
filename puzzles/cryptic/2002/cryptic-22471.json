@@ -473,63 +473,83 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SPECIALBRANCH",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Short",
-       "note": "a short name is missing its last letter"
+       "text": "on",
+       "at": 30,
+       "note": "in a down clue, one piece placed on top of another comes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "at": 23,
+         "note": "in a down clue, raised means the letters are read upwards, backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
+         "op": "charade",
          "indicators": [
           {
-           "text": "raised",
-           "note": "in a down answer, raising letters means writing them upwards, so they read backwards"
+           "text": "added",
+           "at": 11,
+           "note": "added joins the trimmed surname and the fungi into one string"
           }
          ],
          "parts": [
           {
-           "op": "charade",
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "Short",
+             "at": 5,
+             "note": "short means cut off at the end, so the last letter of the surname goes"
+            }
+           ],
            "parts": [
             {
              "words": "Tony",
-             "gives": "BLAI",
-             "note": "Tony Blair, then Prime Minister, with his surname's last letter dropped"
+             "at": 0,
+             "gives": "BLAIR",
+             "note": "Tony Blair, the former British Prime Minister"
             },
             {
-             "words": "fungi",
-             "gives": "CEPS",
-             "note": "ceps are edible mushrooms"
+             "gives": "R"
             }
            ]
+          },
+          {
+           "words": "fungi",
+           "at": 17,
+           "gives": "CEPS",
+           "note": "ceps are edible mushrooms (porcini)"
           }
          ]
-        },
-        {
-         "words": "the farm",
-         "gives": "RANCH",
-         "note": "a ranch is a large farm"
         }
        ]
+      },
+      {
+       "words": "the farm",
+       "at": 33,
+       "gives": "RANCH",
+       "note": "a ranch is a large farm"
       }
      ]
     },
     "explanation": {
-     "surface": "Tony Blair, briefly, adding mushrooms grown on the farm to the restaurant bill.",
-     "walkthrough": "'The bill' is British slang for the police; Special Branch is the police unit for national security. Tony was then Prime Minister Blair; 'on' puts the farm below the raised pair.",
-     "definitionFit": "Special Branch is a department of British police forces, so it is one division of the Old Bill."
+     "surface": "A man called Tony Short brings home-grown mushrooms to market as part of the bill.",
+     "walkthrough": "'Tony Short' looks like a person's name, but Clare Short and Tony Blair were Labour colleagues; here Tony gives BLAIR. 'The Bill' is British slang for the police.",
+     "definitionFit": "Special Branch is the police unit dealing with national security, so it is a division of the police force, the Bill."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "bill"
+     "misdirectedWord": "Short"
     }
    }
   },
@@ -722,7 +742,29 @@
     "text": "2 type of beetle",
     "enumeration": "8"
    },
-   "solution": "COLORADO"
+   "solution": "COLORADO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "2",
+      "at": 0,
+      "meaning": "first meaning: the answer to 2-down, STATE, so a US state"
+     },
+     {
+      "text": "type of beetle",
+      "at": 2,
+      "meaning": "second meaning: the striped beetle that is a notorious potato pest"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The bare number points to the answer of 2-down, so the first definition is simply 'state'. The second is the Colorado beetle, a famous pest of potato crops.",
+     "definitionFit": "The Rocky Mountain US state shares its name with the potato-destroying beetle named after it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -1079,46 +1121,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INSULAR",
-     "indicators": [
-      {
-       "text": "Endlessly",
-       "note": "without its end, the word loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Endlessly",
+         "at": 0,
+         "note": "endlessly means the word loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "abuse",
-         "gives": "INSUL",
-         "note": "abuse is insult, minus its final letter"
+         "at": 10,
+         "gives": "INSULT",
+         "note": "to abuse someone verbally is to insult them"
         },
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the abbreviation for right"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 16,
+       "gives": "A"
+      },
+      {
+       "words": "right",
+       "at": 18,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who keeps on abusing a right will end up being taken away.",
-     "walkthrough": "'Withdrawn' looks like taken back, a right withdrawn, but it means reserved in character.",
-     "definitionFit": "An insular person is inward-looking and cut off from others, as an island is, so withdrawn."
+     "surface": "Constantly insulting people may be your right, but it makes you a recluse.",
+     "definitionFit": "An insular person is inward-looking and unsociable, keeping apart from others like an island."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "withdrawn"
+     "misdirectedWord": "abuse"
     }
    }
   },
@@ -1260,54 +1305,53 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a province",
-      "at": 35
+      "text": "province",
+      "at": 37
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MANITOBA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Absurd",
-       "note": "something absurd is nonsensical, so the letters are thrown into disorder"
+       "text": "to end",
+       "at": 25,
+       "note": "to end says this letter comes last in the answer"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MANITOBA",
+       "op": "composite",
        "indicators": [
         {
-         "text": "not one",
-         "note": "not having one means a letter standing for one is taken away"
+         "text": "Absurd",
+         "at": 0,
+         "note": "absurd suggests something nonsensical, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "ambition",
-         "note": "taken as written"
+         "at": 7
         },
         {
          "words": "one",
+         "at": 21,
          "gives": "I",
-         "note": "I is the Roman numeral for one"
-        },
-        {
-         "words": "to end",
-         "gives": "A",
-         "note": "the letter A from the clue is put at the end"
+         "note": "the Roman numeral for one"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 35,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "An absurd ambition, not one that will end in a province.",
-     "walkthrough": "One I comes out of AMBITION, the remainder is rearranged, and A is added at the end.",
-     "definitionFit": "Manitoba is one of the ten provinces of Canada, in the middle of the country."
+     "surface": "An absurd ambition, lacking a single goal, ends up in a province.",
+     "walkthrough": "'Not one' means the I is taken out of the letters of ambition before they are rearranged.",
+     "definitionFit": "Manitoba is one of Canada's prairie provinces, capital Winnipeg."
     },
     "features": {
      "answerInScene": false,
@@ -1547,7 +1591,35 @@
     "27-across",
     "25-across",
     "2-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "The once fruitless condition re-called by Nelson?",
+      "at": 12
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "The once fruitless condition re-called by Nelson",
+       "at": 12,
+       "note": "read jokily as a condition with no citrus fruit in it, a former Boer republic whose name was changed in Nelson Mandela's South Africa"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The answer splits as ORANGE-FREE STATE, a 'fruitless condition'. 'Re-called' means renamed: after 1994, under Nelson Mandela, the province became simply Free State.",
+     "definitionFit": "The Orange Free State was a nineteenth-century Boer republic, later a South African province, renamed in the Mandela era."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nelson"
+    }
+   }
   }
  ]
 }
