@@ -765,13 +765,14 @@ class Session:
                 continue
             chunk = os.read(fd, 1 << 16)
             if not chunk:
-                self.err.seek(0)
+                if self.err is not None:  # a session built without __init__ has no stderr file
+                    self.err.seek(0)
                 try:
                     rc = self.proc.wait(5)
                 except subprocess.TimeoutExpired:
                     rc = None
-                raise Unavailable(f"ssh exited ({rc}): "
-                                  f"{self.err.read().decode(errors='replace').strip()[-300:]}")
+                said = self.err.read().decode(errors="replace").strip()[-300:] if self.err is not None else ""
+                raise Unavailable(f"ssh exited ({rc}): {said}")
             self.buf += chunk
         line, self.buf = self.buf.split(b"\n", 1)
         return json.loads(line)
