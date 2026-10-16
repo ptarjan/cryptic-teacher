@@ -262,6 +262,7 @@ LAYOUT = [
      "tools/test_blog_grade.py", "a model’s solve is graded once, through the paper’s grader, when a solver’s blog or another copy arrives with answers: the copy’s answer takes over unless the crossings refute it, and each miss lands in blind_misses.json"),
 
     ("building and checking the site", "tools/build_seo_pages.py", "one static page per puzzle, for search engines and unfurls"),
+    ("building and checking the site", "tools/test_build_shards.py", "holds the sharded page render to one stable split in every process, an unmoved page-cache fingerprint, and a tail that refuses a missing shard, since a shard that drops or doubles a page breaks the site silently"),
     ("building and checking the site", "tools/build_clue_joints.py", "measures clue_joints.json from published annotations; the nightly reruns it"),
     ("building and checking the site", "tools/build_fill_floors.py", "measures fill_floors.json from published answers; the nightly reruns it"),
     ("building and checking the site", "tools/build_abbreviations.py", "publishes the abbreviations table to the browser as abbreviations.js, so the solver’s glossary can’t drift from the clue-writer’s"),
@@ -286,6 +287,7 @@ LAYOUT = [
     ("building and checking the site", "tools/test_puzzle_tag_badges.js", "does a tagged puzzle's title badge its tag, and does the picker's feature menu list exactly the puzzles with that tag, the double pangrams under pangram?"),
     ("building and checking the site", "tools/test_jigsaw.js", "does a jigsaw (tools/puzzle_tags.is_jigsaw) list its clues alphabetically with no numbers, and does picking one leave the grid unlit, so nothing says where an answer goes?"),
     ("building and checking the site", "tools/smoke_test.js", "the whole app driven headless against the real corpus"),
+    ("building and checking the site", "tools/test_app_tab_pages.js", "holds the home-screen app's Puzzles and Stats tabs to full pages with their own #picker/#stats history entries, so the back gesture walks between tabs, while a browser tab keeps the old panels"),
     ("building and checking the site", "tools/fake_dom.js", "the fake DOM that boots the real app.js under Node, shared by every harness"),
     ("building and checking the site", "tools/reindex.js", "rebuilds the puzzle manifest before a node harness reads it, through the same --reindex the site's build runs"),
     ("building and checking the site", "tools/e2e_analytics.py", "drives a real browser through a solve and checks every event lands in KV"),
