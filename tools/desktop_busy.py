@@ -8,10 +8,11 @@ busy while
 - a game runs there: GAMES by process name, or any process run from a
   GAME_DIRS folder (Paul installs his games on D:, so a small one that
   barely touches the GPU, like Mina the Hollower, still counts), or
+- VLC has a video open (its window title names the file), or
 - its 3D engines are more than GPU_3D percent busy, summed over every
   process but VLM_SERVERS (llama-server's CUDA work shows there as 3D).
 
-desktop_probe.ps1 reads both, and the desktop's free memory (free_mb), over ssh at low priority, at most once every
+desktop_probe.ps1 reads these, and the desktop's free memory (free_mb), over ssh at low priority, at most once every
 PROBE_EVERY seconds: the reading is shared by every process on this host
 through a state file, and the process that probes logs one line when the
 verdict changes. While the desktop is busy each probe also ends its OCR
@@ -58,7 +59,7 @@ def _list(v):
 
 
 def probe(host):
-    """The desktop's reading {"games", "gpu3d", "serving", "freeMB"} over ssh to
+    """The desktop's reading {"games", "video", "gpu3d", "serving", "freeMB"} over ssh to
     `host`, or None when it does not answer one."""
     script = ("$Names = " + ", ".join(f"'{g}'" for g in GAMES) + "\n"
               + "$GameDirs = " + ", ".join(f"'{d}'" for d in GAME_DIRS) + "\n"
@@ -76,6 +77,7 @@ def probe(host):
     if not isinstance(got, dict):
         return None
     return {"games": [str(g) for g in _list(got.get("games"))], "gpu3d": float(got.get("gpu3d") or 0),
+            "video": [str(v) for v in _list(got.get("video"))],
             "serving": [int(p) for p in _list(got.get("serving"))],
             "freeMB": None if got.get("freeMB") is None else int(got["freeMB"])}
 
@@ -85,7 +87,9 @@ def verdict(reading):
     if reading is None:
         return None
     if reading["games"]:
-        return "playing " + ", ".join(sorted(set(reading["games"])))
+        return "game: playing " + ", ".join(sorted(set(reading["games"])))
+    if reading.get("video"):
+        return "vlc: playing " + ", ".join(sorted(set(reading["video"])))
     if reading["gpu3d"] > GPU_3D:
         return f"3D engines {reading['gpu3d']:.0f}% busy"
     return None
@@ -154,7 +158,7 @@ def busy(hosts):
         if why and not was:
             log(f"yielding: {why}; desktop OCR and VLM wait until it is idle")
         elif was and not why:
-            log("resuming: " + (f"idle (3D {reading['gpu3d']:.0f}%, no game)" if reading else "not answering"))
+            log("resuming: " + (f"idle (3D {reading['gpu3d']:.0f}%, no game or video)" if reading else "not answering"))
     return why
 
 
