@@ -4,6 +4,7 @@
 definitionFit); `assembly` rebuilds the answer for a machine to check (pieces,
 anagrams, reversals). tools/data/puzzle.schema.json says what each key means.
 """
+import functools
 import re
 import unicodedata
 
@@ -25,9 +26,29 @@ def assembly(ann):
     return x if isinstance(x, dict) else {}
 
 
+_NOT_AZ = re.compile(r"[^A-Z]")
+
+
+@functools.lru_cache(maxsize=1 << 16)   # spaced() asks it of every character of every answer
+def _letters_of_str(s):
+    return _NOT_AZ.sub("", unicodedata.normalize("NFD", s).upper())
+
+
 def _letters(s):
     """A-Z letters, accents folded (É is E), as validate_annotations.letters."""
-    return re.sub(r"[^A-Z]", "", unicodedata.normalize("NFD", str(s or "")).upper())
+    return _letters_of_str(str(s or ""))
+
+
+def _clone(x):
+    """copy.deepcopy for the JSON a puzzle file holds: dicts, lists and scalars."""
+    if isinstance(x, dict):
+        return {k: _clone(v) for k, v in x.items()}
+    if isinstance(x, list):
+        return [_clone(v) for v in x]
+    if x is None or isinstance(x, (str, int, float, bool)):
+        return x
+    import copy
+    return copy.deepcopy(x)
 
 
 def wordplay_letters(ann, entry):
@@ -560,17 +581,16 @@ def view(ann, entry, puzzle=None):
     definitions make a double definition, with or without wordplay beside
     them. Raises wordplay.WordplayError when the tree does not give the
     answer, or names words the clue does not have."""
-    import copy
 
     import wordplay
     clue = ((entry or {}).get("clue") or {}).get("text") or ""
     defs = ann.get("definitions") or []
-    tree = copy.deepcopy(ann.get("wordplay"))
+    tree = _clone(ann.get("wordplay"))
     # The setter's enumeration spaces the answer, whatever a spelling says.
     answer = spaced(ann.get("spelling") or display_answer(entry, puzzle), entry, puzzle)
     got, types = {}, (["double_definition"] if len(defs) > 1 else [])
     def_spans = [(d["at"], d["at"] + len(d["text"])) for d in defs if "at" in d]
-    def_inds = [copy.deepcopy(i) for d in defs for i in d.get("indicators") or []]
+    def_inds = [_clone(i) for d in defs for i in d.get("indicators") or []]
     if def_inds:
         wordplay.locate({"indicators": def_inds}, clue, def_spans)
     if tree:

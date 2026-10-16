@@ -88,6 +88,7 @@ anagram's container is the outer step, ins(outer, ana(x)), not ana(ins(...)).
 """
 import argparse
 import collections
+import functools
 import json
 import re
 import sys
@@ -117,9 +118,17 @@ class WordplayError(ValueError):
     """A parse or evaluation failure, worded for the model to act on."""
 
 
+_NOT_AZ = re.compile(r"[^A-Z]")
+
+
+@functools.lru_cache(maxsize=1 << 16)
+def _letters_of_str(s):
+    return _NOT_AZ.sub("", unicodedata.normalize("NFD", s).upper())
+
+
 def letters(s):
     """A-Z, accents folded (É is E), everything else dropped."""
-    return re.sub(r"[^A-Z]", "", unicodedata.normalize("NFD", str(s or "")).upper())
+    return _letters_of_str(str(s or ""))
 
 
 # ---------- parse ----------

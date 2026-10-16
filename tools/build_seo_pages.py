@@ -1920,9 +1920,12 @@ def showcase_list_pages(secs, meta):
 
 # --------------------------------------------------------- abbreviations page
 
+_NOT_AZ09 = re.compile(r"[^A-Z0-9]")
+
+
 def letters_of(s):
     """A block's `gives` and a glossary key reduced to the same comparable form."""
-    return re.sub(r"[^A-Z0-9]", "", (s or "").upper())
+    return _NOT_AZ09.sub("", (s or "").upper())
 
 
 def fragment_re(word):
@@ -2770,8 +2773,23 @@ def relative_links(page, root):
     content= and JSON rather than href/src: all of them are read by machines
     that want an absolute URL.
     """
-    return re.sub(r'(?<!rel="canonical" )\b(href|src)="' + re.escape(BASE) + "/",
-                  lambda m: f'{m.group(1)}="{root}', page)
+    # str.split rather than one regex: the pattern has no literal prefix for the
+    # engine to skip ahead by, so it tried every position of a 100 KB page.
+    needle, bare = f'="{BASE}/', f'="{root}'
+    parts = page.split(needle)
+    out = [parts[0]]
+    for before, part in zip(parts, parts[1:]):
+        for name in ("href", "src"):
+            if before.endswith(name):
+                head = before[:-len(name)]
+                if (not head or not (head[-1].isalnum() or head[-1] == "_")) \
+                        and not head.endswith('rel="canonical" '):
+                    out.append(bare)
+                    break
+        else:
+            out.append(needle)
+        out.append(part)
+    return "".join(out)
 
 
 def assert_no_root_relative(path, text):
