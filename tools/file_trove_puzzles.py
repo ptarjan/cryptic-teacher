@@ -95,6 +95,7 @@ import edition_commit
 import enumeration
 import media_manifest
 import clue_repair
+import clue_text
 import ocr_clues
 import reconstruct_grid as rg
 import scan_queue
@@ -315,7 +316,7 @@ def rejoin(lines):
     return out
 
 
-HEADING_RE = re.compile(r"\s*(clues\s+)?(across|down)\b\W*", re.IGNORECASE)
+HEADING_RE = clue_text.LEADING_HEADING
 #: A line led by a clue's number: "12 Forcing", "I1 If he's", "S What".
 LEAD = re.compile(rf"\s*({NUM})[.,]?\s+[^\W\d_]")
 #: The fewest clues a list put back without its heading must number in order.
@@ -341,7 +342,7 @@ def heads(lines):
     unless each side numbers HEADLESS_RUN clues in order."""
     def mark(word):
         return next((i for i, line in enumerate(lines)
-                     if (m := HEADING_RE.match(line)) and m.group(2).lower() == word), None)
+                     if (m := HEADING_RE.match(line)) and clue_text.direction(m.group(2)) == word), None)
     across, down = mark("across"), mark("down")
     if across is not None and down is not None:
         return lines
@@ -376,8 +377,8 @@ def sections(ocr):
     marks = {}
     for i, line in enumerate(lines):
         m = HEADING_RE.match(line)
-        if m and m.group(2).lower() not in marks:
-            marks[m.group(2).lower()] = (i, line[m.end():])
+        if m and clue_text.direction(m.group(2)) not in marks:
+            marks[clue_text.direction(m.group(2))] = (i, line[m.end():])
     if set(marks) != {"across", "down"} or marks["across"][0] > marks["down"][0]:
         return None
     (a, a_rest), (d, d_rest) = marks["across"], marks["down"]

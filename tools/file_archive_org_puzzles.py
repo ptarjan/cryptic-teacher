@@ -169,6 +169,7 @@ import xml.etree.ElementTree as ET
 from difflib import SequenceMatcher
 from pathlib import Path
 import clue_repair
+from clue_text import heading_of, numbered_heading  # noqa: F401 (re-exported: fa.heading_of)
 import enumeration
 import file_trove_puzzles as ftp
 import ocr_clues
@@ -1509,33 +1510,6 @@ def uncounted_dropped(lines):
         else:
             k = end
     return out
-
-
-#: A list heading led by the puzzle's number: the Telegraph's "No. 18,340
-#: ACROSS", read "No. T8,338ACROSS", "Ko. 18.339 ACROSS", "No. 18-340ACROM",
-#: "No. 18.339ACR0SS".
-NUMBERED_HEADING = re.compile(r"^\W*[NK][o0]\W{0,3}\s*[\dTIl]\d?[,.\-\s]?\d{3}\s*([A-Za-z0']{3,8})\W*$")
-
-
-def numbered_heading(line):
-    """"ACROSS" or "DOWN" for a heading led by the puzzle's number; else None."""
-    m = NUMBERED_HEADING.match(line)
-    return heading_of(m.group(1)) if m else None
-
-
-def heading_of(line):
-    """"ACROSS" or "DOWN" for a line that is the list's heading alone, read
-    however badly ("DOW'N", "DOIN", "AROSS"); else None."""
-    letters = re.sub(r"[^A-Za-z]", "", line)
-    if len(line) <= 9 and letters in ("Across", "Down"):
-        # The Guardian's, in title case: read whole, never guessed at.
-        return letters.upper()
-    if len(line) > 9 or not 3 <= len(letters) <= 7 or not letters.isupper():
-        return None
-    for word in ("ACROSS", "DOWN"):
-        if SequenceMatcher(None, letters, word).ratio() >= 0.7:
-            return word
-    return None
 
 
 #: A brace, square, angle or full-width bracket (RapidOCR's ch recogniser)

@@ -33,6 +33,7 @@ import re
 import urllib.parse
 import xml.etree.ElementTree as ET
 
+import clue_text
 import downloads
 
 DIR = downloads.PRIVATE_EYE_WAYBACK / "ia"
@@ -189,7 +190,7 @@ def columns(lines):
         best = []
         run = []
         for r in mine:
-            heading = fa.heading_of(r[4])
+            heading = clue_text.heading_of(r[4])
             clueish = heading or STARTS.match(r[4]) or COUNTED.search(r[4])
             # A clue's own words ("20 This crossword is Cyclops's first") end nothing.
             ends = bool(END.search(r[4])) and not heading and not STARTS.match(r[4])
@@ -241,7 +242,7 @@ def column_cols(boxes):
             while SLASH.match(text):
                 text = SLASH.sub(r"\1, ", text, count=1)
             text = DIRECTED.sub(r"\1", text)
-            head = fa.heading_of(text.strip())
+            head = clue_text.heading_of(text.strip())
             if head:
                 side = 0 if head == "ACROSS" else 1
                 continue

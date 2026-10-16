@@ -47,6 +47,7 @@ import media_manifest
 import parse_timesforthetimes as tftt
 import puzzle_integrity
 import reconstruct_grid as rg
+import clue_text
 import downloads
 import enumeration
 import times_grids as tg
@@ -597,7 +598,6 @@ def join_lines(a, b):
 
 #: A section heading. The FT has set "D0WN" with a zero (No 13,767), and a
 #: heading the reader misses ends the clue list there.
-SECTION = re.compile(r"(?i)(acr[o0]ss|d[o0]wn)")
 
 
 def parse_clues(text):
@@ -620,8 +620,8 @@ def parse_clues(text):
     for ln in lines:
         if not ln:
             continue
-        if SECTION.fullmatch(ln):
-            direction, last, current = ln.lower().replace("0", "o"), 0, None
+        if clue_text.exact_heading(ln):
+            direction, last, current = clue_text.exact_heading(ln).lower(), 0, None
             continue
         if direction is None:
             # Above the first section, past the header and the grid's numbers

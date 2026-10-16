@@ -57,6 +57,7 @@ import fetch_fifteensquared as fsq
 import file_blog_puzzles
 import ft_pdf_puzzles as fpp
 import listener_puzzles as lp
+import clue_text
 import reconstruct_grid as rg
 from fetch_puzzle import (
     correct_source_answers,
@@ -393,7 +394,7 @@ def column_lines(runs, size, skip):
     """The page's lines of clue-sized type in reading order: columns left to
     right, each top to bottom. A column starts where a line's left edge sits
     60pt or more right of the last column's. `skip` drops runs by position."""
-    runs = [r for r in runs if (abs(r[3] - size) < 0.6 or HEADING.match(r[4].strip()))
+    runs = [r for r in runs if (abs(r[3] - size) < 0.6 or clue_text.exact_heading(r[4]))
             and not skip(r[1], r[2])]
     starts = []
     for x in sorted(r[1] for r in runs):
@@ -604,7 +605,7 @@ def pdf_preamble(runs, lines, size, xs, ys):
     printed beside the text go after it, a row a line. "" for none."""
     head = []
     for line in lines:
-        if HEADING.match(line[2]):
+        if clue_text.exact_heading(line[2]):
             break
         if not FORM_LABELS.match(line[2]):
             head.append(line)
@@ -649,17 +650,14 @@ def split_numbers(printed, starts):
     return out
 
 
-HEADING = re.compile(r"^(?:A\s*C\s*R\s*O\s*S\s*S|D\s*O\s*W\s*N)$", re.IGNORECASE)
-
-
 def sections(lines):
     """{"across": [line...], "down": [...]}: each heading's lines, read on
     through the columns until the next heading. The previous puzzle's notes
     print "Across 1, ..." on one line, which is no heading."""
     out, way = {"across": [], "down": []}, None
     for _c, _y, t in lines:
-        if HEADING.match(t):
-            way = re.sub(r"\s", "", t).lower()
+        if clue_text.exact_heading(t):
+            way = clue_text.exact_heading(t).lower()
             continue
         if way:
             out[way].append(t)

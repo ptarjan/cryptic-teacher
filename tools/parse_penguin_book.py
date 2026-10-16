@@ -91,6 +91,7 @@ from pathlib import Path
 # The shared count grammar (tools/enumeration.py); not `enumeration`, which
 # is a clue record's field name throughout this file.
 import enumeration as enumerations
+import clue_text
 import ocr_clues
 
 FORM_FEED = "\f"
@@ -184,7 +185,7 @@ ORPHAN_NUMBER_DOT_RE = re.compile(r"^\.\s+(?=[A-Za-z(\"'‘])")
 # the Herald book), so the word allows repeated letters and the line one
 # trailing single-letter token. A clue cannot match that: it has words and an
 # enumeration.
-DIRECTION = r"(A+C+R+O+S+|D+O+W+N+)"
+DIRECTION = clue_text.DIRECTION
 STRAY = r"[^A-Za-z0-9]{0,3}(?:\s+[A-Za-z][^A-Za-z0-9]{0,2})?"
 HEADER_RE = re.compile(r"^[^A-Za-z0-9]{0,3}" + DIRECTION + STRAY + "$", re.IGNORECASE)
 

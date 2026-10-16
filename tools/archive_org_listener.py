@@ -37,6 +37,7 @@ from pathlib import Path
 import file_archive_org_puzzles as fa
 import file_trove_puzzles as ftp
 import ocr_clues
+import clue_text
 
 
 NUMBER = r"(\d[,.]?\d{3})"
@@ -118,7 +119,7 @@ def heading_word(words, name, below=None):
     words: the topmost, at or below `below`'s line when given (the title
     "No. 3444: 8 DOWN 12 DOWN" is above the lists)."""
     for w in sorted(words, key=lambda w: w[1]):
-        if fa.heading_of(w[4]) == name and (below is None or w[1] >= below[1] - 20):
+        if clue_text.heading_of(w[4]) == name and (below is None or w[1] >= below[1] - 20):
             return w
     return None
 
@@ -235,7 +236,7 @@ def by_lines(text):
     starting with a number starts a clue, any other line continues it."""
     out, side = {"across": [], "down": []}, None
     for line in text.splitlines():
-        head = fa.heading_of(line.strip())
+        head = clue_text.heading_of(line.strip())
         if head:
             side = head.lower()
             continue

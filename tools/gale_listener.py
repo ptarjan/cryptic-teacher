@@ -61,6 +61,7 @@ import file_archive_org_puzzles as fa
 import gale_inbox as gi
 import listener_puzzles as lp
 import media_manifest as mm
+import clue_text
 import ocr_clues
 
 TOOLS = Path(__file__).resolve().parent
@@ -331,7 +332,7 @@ CLUES = re.compile(r"^\W*CLU[A-Z]{0,3}\W*")
 def heading(text):
     """fa.heading_of the text, a CLUES word opening it dropped."""
     m = CLUES.match(text)
-    return fa.heading_of(text[m.end():] if m and m.end() < len(text) else text)
+    return clue_text.heading_of(text[m.end():] if m and m.end() < len(text) else text)
 
 
 def headings(words):
