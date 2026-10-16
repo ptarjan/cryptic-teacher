@@ -526,7 +526,32 @@
     "text": "Painting extra when taught outside school?",
     "enumeration": "5"
    },
-   "solution": "MURAL"
+   "solution": "MURAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Painting",
+      "at": 0,
+      "meaning": "first meaning: a picture painted directly on a wall"
+     },
+     {
+      "text": "extra when taught outside school",
+      "at": 9,
+      "meaning": "second meaning, cryptically: put EXTRA in front and you get extramural, describing teaching given outside a school or university"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzled question whether a painting counts as extra work when lessons happen off the premises.",
+     "walkthrough": "The second half is playful: the answer is the word that, with 'extra' attached, means taught outside the institution (extramural).",
+     "definitionFit": "A wall painting is called by this name, from the Latin for wall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "extra"
+    }
+   }
   },
   {
    "number": 9,
@@ -1467,57 +1492,72 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "THESPIANS",
-     "indicators": [
-      {
-       "text": "excite",
-       "note": "to excite is to stir up, so the letters are agitated into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "THESPIANS",
        "indicators": [
         {
          "text": "nearly all",
-         "note": "nearly all of a word is everything but its final letter, so the last one is cut"
-        },
-        {
-         "text": "without",
-         "note": "without means lacking, so the letter for love is removed from the fodder"
+         "at": 17,
+         "note": "nearly all of the word they means it loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "they",
-         "note": "taken as written before trimming"
+         "at": 12
         },
         {
-         "words": "passion",
-         "note": "taken as written"
-        },
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "love",
-         "gives": "O",
-         "note": "love is zero in tennis, which looks like O"
+         "text": "excite",
+         "at": 28,
+         "note": "to excite is to stir up, so the remaining letters are churned into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "without",
+           "at": 43,
+           "note": "without means lacking, so the letter for love is dropped from passion"
+          }
+         ],
+         "parts": [
+          {
+           "words": "passion",
+           "at": 35
+          },
+          {
+           "words": "love",
+           "at": 51,
+           "gives": "O",
+           "note": "love is zero in tennis, which looks like the letter O"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Actors who almost all stir up passion while lacking love themselves.",
-     "walkthrough": "THEY loses its Y; PASSION loses its O and the rest is reshuffled.",
-     "definitionFit": "Thespians are actors, named after Thespis, the legendary first performer of Greek drama."
+     "surface": "Actors are said to stir up passion in almost everyone watching, but somehow without any love involved.",
+     "walkthrough": "'Nearly all' looks like it describes the audience, but it trims the word they.",
+     "definitionFit": "Thespis was the legendary first Greek actor, so his name gives a stagey word for actors."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "excite"
+     "misdirectedWord": "nearly"
     }
    }
   },
