@@ -185,6 +185,16 @@ say("surface_counted_by_ratchet", V.count_backlog(w)["explanation.surface"] == 1
 say("note_backlog_counts_clues", V.count_backlog(
     ["7D: indicator 'in' has no note", "7D: indicator 'lifting' has no note",
      "9A: no indicator notes"])["indicators.note"] == 2)
+# A block's missing note is its own field: it must not be counted as an
+# indicator note (which sent annotators to the wrong field), and a fragment
+# that is its own letters needs none.
+w = []
+V.check_blocks_carry_notes([{"number": 1, "direction": "across", "annotation": {"blocks": [
+    {"clueFragment": "worker", "gives": "ANT"}, {"clueFragment": "a", "gives": "A"},
+    {"clueFragment": "in", "gives": "IN"}, {"clueFragment": "setter", "gives": "ME", "note": "x"}]}}], w)
+c = V.count_backlog(w)
+say("block_note_own_field", len(w) == 1 and c["blocks.note"] == 1 and c["indicators.note"] == 0
+    and "notes" in w[0] and "'worker'" in w[0])
 w = []
 V.check_surface("1A", {"type": ["charade"]}, "Flat pack", w)
 V.check_surface("1A", {"type": ["double_definition"]}, "Seize part of a finger", w)

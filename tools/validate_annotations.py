@@ -2737,6 +2737,11 @@ def check_blocks_in_answer_order(entries, errors, warnings):
             f"clue order rather than answer order")
 
 
+#: What the block warning says in place of "has no note", so the ratchet's
+#: indicators.note marker ("has no note") cannot count it.
+BLOCK_NO_NOTE = "has no block note"
+
+
 def check_blocks_carry_notes(entries, warnings):
     """A block that claims letters has to say why it gets them.
 
@@ -2751,11 +2756,20 @@ def check_blocks_carry_notes(entries, warnings):
             continue
         tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
         for b in ann.get("blocks", []):
-            if letters(b.get("gives")) and not str(b.get("note") or "").strip():
-                warnings.append(
-                    f"{tag}: block {b.get('clueFragment')!r} > {b.get('gives')!r} has "
-                    f"no note. Say why those words give those letters — that sentence "
-                    f"is the teaching, and its absence is how an invented block hides")
+            if not letters(b.get("gives")) or str(b.get("note") or "").strip():
+                continue
+            # A fragment that is its own letters ('a' > A, 'in' > IN) has
+            # nothing to teach and app.js shows its letters without a note.
+            if letters(b.get("clueFragment")) == letters(b.get("gives")):
+                continue
+            frag = str(b.get("clueFragment") or "")
+            warnings.append(
+                f"{tag}: block {b.get('clueFragment')!r} > {b.get('gives')!r} {BLOCK_NO_NOTE}. "
+                f"Say why those words give those letters — that sentence is the "
+                f"teaching, and its absence is how an invented block hides. In the "
+                f"annotation add the leaf's words to `notes`: \"notes\": {{{frag!r}: "
+                f"\"<why {frag!r} gives {b.get('gives')}>\"}} (wp `[{frag}]{b.get('gives')}`); "
+                f"this is a block note, not an indicator note")
 
 
 #: A tag, an entity, or a tag's remnant with its "<" lost to a reader that
@@ -3938,6 +3952,7 @@ BACKLOG_PATH = ROOT / "tools" / "annotation_backlog.json"
 BACKLOG_MARKERS = {
     "explanation.definitionFit": ("no explanation.definitionFit",),
     "indicators.note": ("no indicator notes", "has no note"),
+    "blocks.note": (BLOCK_NO_NOTE,),
     "indicators.for": ("lack `for`",),
     "features": ("no features",),
     "explanation.surface": ("no explanation.surface",),
@@ -4095,10 +4110,14 @@ def backlog_errors(stem, warnings, allowed=None):
             continue
         cap = allowed[field].get(stem, 0)
         if n > cap:
+            ms = BACKLOG_MARKERS[field]
+            named = [w.split(": ", 1)[1].split(". ", 1)[0] for w in warnings
+                     if any(m in w for m in ms) and ": " in w][:4]
             errors.append(
                 f"{n} clue(s) missing {field}, and this puzzle is allowed {cap} — "
                 f"{field} is required on everything annotated since it was added. "
-                f"The warnings above name them and say what to write.")
+                f"The warnings above name them and say what to write."
+                + (f" Missing: {'; '.join(named)}." if field == "blocks.note" else ""))
     return errors
 
 
