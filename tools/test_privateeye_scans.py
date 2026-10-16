@@ -287,6 +287,18 @@ check("a word 'a' after the tail is no mark", "6, 15 a Hurley's", _ps.same_side_
 check("pick takes the count another reading laid when the sound reading lost it", "9",
       _AL.pick([{"18-across": ("State if Tones broken promises to voters", None, None)},
                 {"18-across": ("State if Tones broken promises to voters", "9", None)}])["18-across"][1])
+# No 103: every reader took the "1" of "26 (see 1ac)" for a letter.
+_lac = [(10, 10, 60, 40, "ACROSS"), (10, 60, 60, 90, "26"), (70, 60, 200, 90, "(see lac)")]
+_seen, _v = _ps.see_filled({"26-across": ("", None, None)}, {"blank": {"26-across": "no count read"}},
+                           {k: _lac for k in ("a", "b", "c")}, _ps.column_cols([(0, 0, 1000, 1000)]))
+check("a reference whose number every reading took for a letter is that reference", "See 1",
+      _seen["26-across"][0])
+check("and the clue is no longer blank", {}, _v.get("blank", {}))
+# No 20: "6/20d" prints the tail's direction in lower case, glued to the number.
+check("a lower-case direction glued to a link's tail is dropped", "6 Heckler (7,6)",
+      _ps.DIRECTED.sub(r"\1", "6, 20d Heckler (7,6)"))
+check("a lone 'a' after the tail is no direction", "6, 20 a Heckler",
+      _ps.DIRECTED.sub(r"\1", "6, 20 a Heckler"))
 
 if fails:
     print(f"{fails} failed")
