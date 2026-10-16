@@ -2756,6 +2756,15 @@ tools/test_privateeye_scans.py                 does tools/privateeye_scans.py fi
                                                read_capture a list it parses? And does the
                                                shared tidy read RapidOCR's full-width bracket
                                                as a round one?
+tools/test_read_scans.py                       does read_scans report a Private Eye number
+                                               whose issue was already read for the one before
+                                               by what that reading said, not as 'not read'?
+tools/cyclops_jumbos.py                        Cyclops jumbos with a preamble: carries the
+                                               preamble, unclued lights and a perimeter ring
+                                               read from the page's caption
+tools/data/cyclops_jumbos.json                 per Cyclops jumbo number, the preamble and
+                                               unclued/perimeter entries
+                                               tools/cyclops_jumbos.py adds to the filed puzzle
 tools/test_sync_retry.js                       a sync push that fails must never lose a save,
                                                and must retry on its own
 tools/test_pdf_edition_broken.py               does tools/fetch_archive_org_editions.py read
