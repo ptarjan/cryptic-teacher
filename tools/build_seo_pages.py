@@ -137,8 +137,16 @@ def pct(n, d):
     return "&lt;1%" if 100 * n < d else f"{100 * n // d}%"
 
 
+@functools.lru_cache(maxsize=1 << 16)
+def _esc_str(s):
+    return html.escape(s, quote=True)
+
+
 def esc(s):
-    return html.escape(str(s or ""), quote=True)
+    # The same strings come round again and again (an answer in its heading,
+    # its blocks and its walkthrough; a clue's words in its blocks and its
+    # indicators), so each is escaped once.
+    return _esc_str(s if type(s) is str else str(s or ""))
 
 
 #: The assets a puzzle page's render asked asset() for, while one renders:
@@ -168,9 +176,14 @@ def _asset(rel):
 # italics are code-point ranges beside it (clue.italics [{at, length}]), so the
 # page escapes the text and wraps exactly those ranges in <i>, the way app.js's
 # markUp does.
+@functools.lru_cache(maxsize=1 << 16)
+def _cesc_str(s):
+    return esc(quotes.curl(s))
+
+
 def cesc(s):
     """esc() for words taken from a clue: stored straight, shown curled."""
-    return esc(quotes.curl(s or ""))
+    return _cesc_str(s) if type(s) is str else esc(quotes.curl(s or ""))
 
 
 def clue_html_text(clue):
