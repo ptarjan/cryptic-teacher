@@ -78,6 +78,7 @@ LAYOUT = [
     ("fetching", "tools/fetch_puzzle.py", "fetch/convert the Guardian cryptic, Saturday prize and Quiptic, --latest/--backfill/--extend/--reindex"),
     ("fetching", "tools/fetch_independent.py", "the Independent’s daily and Sunday"),
     ("fetching", "tools/test_fetch_independent.py", "drives that parser over the days whose title is empty or is the setter’s own scratch note, and proves each one lands on the right number AND the right series — the two sequences both ran under 10,000, so the number never gets a vote"),
+    ("fetching", "tools/test_privateeye_scans_vlm.py", "does tools/privateeye_scans.py put a Cyclops clue the readers leave blank to the desktop VLM (ocr_clues.vlm_pick), and leave it blank, the page deferred, with the VLM down?"),
     ("fetching", "tools/test_enumeration_separators.py", "holds the word breaks Metro and the Private Eye get from each clue’s printed enumeration, single lights and linked groups"),
     ("fetching", "tools/fetch_telegraph.py", "the Telegraph’s four series from its puzzle app’s data bucket, grids and answers as printed, since 2015; fills the numbers bigdave44.com hinted only in part"),
     ("fetching", "tools/test_fetch_telegraph.py", "proves the bucket parser files a Sunday under the Sunday Telegraph, reads grid, clues and word breaks, and drops calendar numbers that break the running order"),
