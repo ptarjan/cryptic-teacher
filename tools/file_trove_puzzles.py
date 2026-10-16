@@ -106,7 +106,7 @@ import vlm_reader as vlm
 from fetch_puzzle import puzzle_path, source_clue, write_puzzle_file
 from file_penguin_puzzle import separators
 from groups import entry_id
-from ocr_clues import SEE_RE
+from clue_text import SEE_RE
 
 TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent

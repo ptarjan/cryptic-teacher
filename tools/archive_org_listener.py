@@ -249,7 +249,7 @@ def by_lines(text):
             out[side].append({"tokens": [{int(m.group(1))}, {int(linked.group(2))}],
                               "text": words, "enums": set(), "see": None})
         elif side and m:
-            see = ocr_clues.SEE_RE.match(m.group(2))
+            see = clue_text.SEE_RE.match(m.group(2))
             out[side].append({"tokens": [{int(m.group(1))}], "text": m.group(2).strip(), "enums": set(),
                               "see": int(see.group(1)) if see else None})
         elif side and out[side] and line.strip():

@@ -169,8 +169,10 @@ import xml.etree.ElementTree as ET
 from difflib import SequenceMatcher
 from pathlib import Path
 import clue_repair
-from clue_text import (CAPS_HEADING, COUNT_END, HEADING_AFTER_COUNT, HEADING_BEFORE_ONE, NUMBERED_HEADING, direction,
-                       heading_of, is_count_end, is_stray_count, mend_count, numbered_heading)
+from clue_text import (CAPS_HEADING, COUNT_END, HEADING_AFTER_COUNT, HEADING_ALONE, HEADING_BEFORE_ONE,
+                       NUMBERED_HEADING, OPENING_NUMBER, OPENING_SPECK, clue_number_opening, count_closed,
+                       count_closed_open, count_left, direction, heading_of, is_count_end, is_stray_count,
+                       mend_count, number_digits, numbered_heading)
 import enumeration
 import file_trove_puzzles as ftp
 import ocr_clues
@@ -514,7 +516,7 @@ def headings(lines, pattern):
             if m and not re.search(r"\w", text[m.end():]):
                 box = (min(v[0] for v in ws[:k + 1]), min(v[1] for v in ws[:k + 1]),
                        max(v[2] for v in ws[:k + 1]), max(v[3] for v in ws[:k + 1]))
-                found.append((digits(m.group(1)), box))
+                found.append((number_digits(m.group(1)), box))
                 break
     return found
 
@@ -1185,12 +1187,12 @@ def counted(text, grid):
         last = clues[-1][0] if clues else 0
         nxt = min((n for n, d in lights if d == section and n > last), default=None)
         # The number, maybe run into its first word: "25Recipient", "21.Measures".
-        m = re.match(r"^\W{0,2}([\dIl|]{1,2}?)(?:[.,:;\-]\s*|\s+|(?=[A-Z\"'\u2018\u201c]))(?=\S)", line)
+        m = OPENING_NUMBER.match(line)
         m = m if m and re.search(r"\d", m[1]) else None
         read = [n for n in (ftp.readings(m[1]) if m else ()) if (n, section) in lights]
         nums = sorted(n for n in read if n > last)
         # A number read with a speck ("151", "128") holding the next light's.
-        speck = re.match(r"^\W{0,2}(\d{3})\W{0,2}\s*(?=[A-Z\"'\u2018\u201c])", line)
+        speck = OPENING_SPECK.match(line)
         if nums:
             clues.append([nums[0], [line[m.end():]], False, False])
         elif read and clues:
@@ -1272,8 +1274,6 @@ def left_columns(lines, grid):
 #: column left of a Times Saturday prize grid runs (DOWN goes on past the
 #: grid, beside the solution grids under it).
 COLUMN_DROP = 1.1
-#: ACROSS or DOWN set alone on its line: a clue column's heading.
-HEADING_WORD = re.compile(r"\W*(?:across|down)\W*$", re.IGNORECASE)
 
 
 def left_column(lines, grid, margin=60):
@@ -1287,7 +1287,7 @@ def left_column(lines, grid, margin=60):
     under it)."""
     gx0, gy0, gx1, gy1 = grid
     gh = gy1 - gy0
-    heads = [ws[0] for ws in lines if len(ws) == 1 and HEADING_WORD.match(ws[0][4])
+    heads = [ws[0] for ws in lines if len(ws) == 1 and HEADING_ALONE.match(ws[0][4])
              and gx0 - (gx1 - gx0) <= ws[0][0] and ws[0][2] < gx0
              and gy0 - LEFT_RISE <= ws[0][1] < gy1]
     if not heads:
@@ -1400,21 +1400,7 @@ def tidy(text):
             prev = out[-1]
             continue
         if is_count_end(prev) or heading_of(prev) or not out:
-            # A speck or star before a clue's number: ". 1 Miss", ":1 An", "*1 Land".
-            line = re.sub(r"^[.,:;*'_•·]{1,2}\s?(?=[\dIl]\d?\s)", "", line)
-            # A clue's number 1 read as I or l: "I7 More", "IA fruitful".
-            line = re.sub(r"^[Il](?=\d\b|\d\s|[A-Z]\s)", "1", line)
-            # A clue's number with a speck run into its first word: "1'In the",
-            # "1.Associate's", "l^Finished", ". 1. Maltreat", "-1--He said".
-            line = re.sub(r"^(?:[^\w\s(]|_){1,3}\s?(?=[Il]?\d{1,2}(?:[^\w\s(]|_){0,3}\s?[A-Z\"'])", "", line)
-            line = re.sub(r"^[Il]?(\d{1,2})(?:[^\w\s(]|_){1,3}\s?(?=[A-Z\"'])", r"\1 ", line)
-            line = re.sub(r"^[Il](\d)?(?:[^\w\s(]|_){1,3}\s?(?=[A-Z][a-z])", lambda m: f"1{m[1] or ''} ", line)
-            # A 1 read as I, J, ! or | run into a capitalised word: "IPheasant",
-            # "JTool", "!What makes".
-            line = re.sub(r"^[IlJ!|](?=[A-Z][a-z])", "1 ", line)
-            # A number read as specks alone: ") With", "• £■ So"; the grid
-            # places the clue ("?" below).
-            line = re.sub(r"^(?:[^\w\s(\"'][^\w\s(]{0,2}\s?){1,3}(?=[A-Z][a-z])", "", line)
+            line = clue_number_opening(line)
         line = re.sub(r"^(\d{1,2})(?=[A-Z][a-z]|[A-Z]\s)", r"\1 ", line)
         # "15 Adanger out east": a clue's opening "A" run into the next word,
         # unless the whole is a misspelling of a commoner word ("Arived").
@@ -1425,9 +1411,7 @@ def tidy(text):
         if glued and is_word(word) and not is_word("a" + word) and not any(
                 (rank(e) or 10 ** 9) < (rank(word) or 10 ** 9) for e in edits("a" + word) if e != word):
             line = f"{glued.group(1)}A {line[glued.end(1) + 1:]}"
-        line = re.sub(r"(?<=[a-z])\s?\(?(\d{1,2}(?:[,.\-]\d{1,2})*)[)jJ]$", r" (\1)", line)
-        # Specks after a clue's count ("(8)'", "(5).·", "(5). _") end nothing.
-        line = re.sub(r"(\(\s*[\dSIl,.\- ]{1,9}\))(?:[^\w(]|_){1,3}$", r"\1", line)
+        line = count_closed(line)
         if (is_count_end(prev) or heading_of(prev)) and re.match(r"[A-Z][a-z]", line):
             line = "? " + line
         out.append(line)
@@ -1436,7 +1420,7 @@ def tidy(text):
     # took its bracket, as nothing follows to carry it on.
     for k, line in enumerate(out):
         if k + 1 == len(out) or heading_of(out[k + 1]):
-            out[k] = re.sub(r"\((\d{1,2})[^\d)\s]?$", r"(\1)", line)
+            out[k] = count_closed_open(line)
     return "\n".join(uncounted_dropped(counts_mended(out)))
 
 
@@ -2414,11 +2398,6 @@ TELEGRAPH_SOLUTION = re.compile(r"^\W*s\w?[l1]ut[il1]on\s+n[o0]\W{0,3}\s*([\dTIl
 TELEGRAPH_SOLUTION_SPAN = 380
 
 
-def digits(text):
-    """A number as OCR reads it, its leading 1 read as T, I, i or l mended."""
-    return number_of(re.sub(r"^[TIil]", "1", text.strip()))
-
-
 def telegraph_headings(lines, titles=()):
     """([(number, box, None)], [(number, box)]): each Telegraph cryptic's
     title, "No. 18,340 ACROSS" over the left clue column, and each
@@ -2428,12 +2407,12 @@ def telegraph_headings(lines, titles=()):
         text = " ".join(w[4] for w in ws)
         m = TELEGRAPH_SOLUTION.match(text)
         if m:
-            solutions.append((digits(m.group(1)), centred(box_of(ws), TELEGRAPH_SOLUTION_SPAN)))
+            solutions.append((number_digits(m.group(1)), centred(box_of(ws), TELEGRAPH_SOLUTION_SPAN)))
             continue
         m = NUMBERED_HEADING.match(text)
         if m and heading_of(m.group(1)) == "ACROSS":
             num = re.search(r"[\dTIl]\d?[,.\-\s]?\d{3}", text)
-            puzzles.append((digits(num.group(0)), box_of(ws), None))
+            puzzles.append((number_digits(num.group(0)), box_of(ws), None))
     return puzzles, solutions
 
 
@@ -2448,7 +2427,7 @@ def gale_telegraph_headings(lines, titles=()):
     for ws in lines:
         m = TELEGRAPH_BANNER.match(" ".join(w[4] for w in ws))
         if m:
-            puzzles.append((digits(m.group(1)), box_of(ws), None))
+            puzzles.append((number_digits(m.group(1)), box_of(ws), None))
     return puzzles, solutions
 
 
@@ -2466,12 +2445,12 @@ def titled_headings(lines, title, solution):
         text = " ".join(w[4] for w in ws)
         m = solution.match(text)
         if m:
-            solutions.append((digits(m.group(1)), box_of(ws)))
+            solutions.append((number_digits(m.group(1)), box_of(ws)))
             continue
         m = title.match(text)
         if m:
             setter = FT_SETTER.search(m.group(2))
-            puzzles.append((digits(m.group(1)), box_of(ws), setter.group(1).title() if setter else None))
+            puzzles.append((number_digits(m.group(1)), box_of(ws), setter.group(1).title() if setter else None))
     return puzzles, solutions
 
 
@@ -5356,32 +5335,6 @@ def corrects(was, now, printed=()):
         if v != "a" and not any(pairs.get(f"{a} {b}") for a, b in [(u, v) if k < j else (v, u) for k, u in near]):
             return False
     return True
-
-
-#: Words a clue does not end on, so a number after one is a reference the
-#: clue makes ("See 15", "No 10", "Channel 5", "company in 18", "being 8").
-REFERENCE_WORDS = frozenset("""see no nos number channel in of by for from to with at on about under
-    before after around into over than as and or nor the a an is are was were be being been""".split())
-
-
-def count_left(text, cells, lights):
-    """`text` without the figures standing after its last word when they are
-    its count misread, filling its `cells` ("Song of joy 141" for "(4)",
-    "restaurant? 15-41" for "(5-4)": brackets read as ones); else None. A
-    figure with a unit ("8s", "100p") is the clue's, and so is a reference:
-    numbers that are all `lights` (the puzzle's clue numbers) after a word
-    of REFERENCE_WORDS ("See 15")."""
-    m = ocr_clues.STANDING_FIGURES.search(text or "")
-    if not m or not cells or any(ocr_clues.COUNTED.fullmatch(t) for t in m.group().split()):
-        return None
-    word = re.search(r"([A-Za-z]+)\.?$", text[:m.start()])
-    if (word and word.group(1).lower() in REFERENCE_WORDS
-            and all(int(n) in lights for n in re.findall(r"\d+", m.group()))):
-        return None
-    groups = re.findall(r"\d+", re.sub(r"^\D*1(?=\d)|1(?=\D*$)", "", m.group().strip()))
-    if not (ocr_clues.count_read(m.group(), str(cells)) or len(groups) > 1 and sum(map(int, groups)) == cells):
-        return None
-    return text[:m.start()].rstrip(" ,;:")
 
 
 def count_dropped(was, now, cells, lights, printed=()):

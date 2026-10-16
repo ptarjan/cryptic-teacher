@@ -31,6 +31,7 @@ import json
 import re
 import sys
 import time
+import clue_text
 import fetch_fifteensquared as fsq
 import media_manifest
 import file_blog_puzzles
@@ -102,7 +103,7 @@ def tidy(ln):
 
 
 def heading(ln):
-    m = tftt.HEADING.match(ln)
+    m = clue_text.PLAIN_HEADING.match(ln)
     return m.group(1).lower() if m else None
 
 
