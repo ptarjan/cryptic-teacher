@@ -241,7 +241,8 @@ def page_url(d, found, leaf):
     return url or PAGE_URL.format(edition=edition_of(d, found), leaf=leaf)
 
 
-NUMBER = r"(\d{2}[,.\s]?\d{3})"
+#: The Times's numbers ran 4 digits ("8,565") until No 10,000 in May 1962.
+NUMBER = r"(\d{1,2}[,.\s]?\d{3})"
 #: The daily cryptic's title: not the Concise, the Jumbo, Times Two, the
 #: Listener or a solution heading (none of those words before "Crossword").
 #: The OCR garbles the words before "Crossword" ("Tfee Th:es", "THETIMES",
@@ -249,12 +250,13 @@ NUMBER = r"(\d{2}[,.\s]?\d{3})"
 #: "No" on ("PuzzleNo") and "Times" into it ("TimesCrossword"), garbles
 #: "Puzzle" before a "No" ("Pnzzle No", "Pu/zle No"), splits "Crossword" ("Or ossword"), drops "No",
 #: splits the number ("1 8,862", "17,1 11"),
-#: reads its comma as any mark ("21*065") and its 1 as i ("i.5,543");
+#: reads its comma as any mark ("21*065") and its 1 as i ("i.5,543"); the
+#: number is four digits before No 10,000 (1962: "No. 8,565");
 #: read_puzzle checks the number against the date.
 TITLE = re.compile(r"^\W*(?:(?!(?:sunday|conc\w*|jumbo|two|quick|\w*stener|solutions?|to|of)\b)\S{1,8}\s+){0,4}?"
                    r"(?:(?:the)?\s?t[il1]mes)?\W{0,3}[co0]r\s?ossword\W{0,3}"
                    r"(?:puzzle\W{0,3}|[^\s\d]{4,7}?\s*(?=n[o0]\b))?(?:n[o0]\W{0,3})?\s*"
-                   r"([\dTIil][.,]?\s?\d[^\w\s]{0,2}\s?\d\s?\d\s?\d)(?!\d)", re.IGNORECASE)
+                   r"([\dTIil][.,]?\s?\d[^\w\s]{0,2}\s?\d\s?\d(?:\s?\d)?)(?!\d)", re.IGNORECASE)
 #: The previous puzzle's solution, printed under the clues ("to" read "tn").
 SOLUTION = re.compile(r"^\W*solution\s+(?:t[o0n]|o[fl])\s+puzzle\s+n[o0]\.?\s*" + NUMBER, re.I)
 #: How many puzzles before a page's title the solutions under it are: the day
