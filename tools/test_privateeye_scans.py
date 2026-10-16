@@ -102,6 +102,10 @@ print("CROSS", sorted(cross), cross["22-down"][0], cross["12-across"][0])
 lost = ps.linked_across({"16-across": ("Top", "5,10", ["16-across", "1-across", "11-across"]), "1-across": ("See 16", None, None),
                           "1-down": ("see", "6", None)})
 assert lost["1-down"][0] == "See 16" and "1-across" not in lost, lost  # "(see 16)" read "see (6)" (Cyclops 29)
+# No 266: head "5/25" down, and 25 across prints "(see 5dn)": that is the tail, no 25 down.
+_dn = ps.linked_across({"5-down": ("Member's pack", "6,5", ["5-down", "25-down"]), "25-down": ("See 5", None, None),
+                        "25-across": ("See 5dn", "9", None)})
+assert _dn["25-across"][0] == "See 5" and "25-down" not in _dn, _dn
 print("SLASH3", ps.column_cols([(0, 0, 1000, 1000)])([(10, 10, 60, 40, "ACROSS"), (10, 60, 60, 90, "7,"),
       (70, 60, 140, 90, "17/23"), (150, 60, 300, 90, "Truss"), (310, 60, 400, 90, "(5,7,6)")])[0][0][4])
 print("PLUS", ps.column_cols([(0, 0, 1000, 1000)])([(10, 10, 60, 40, "DOWN"), (10, 60, 70, 90, "14+16"),
