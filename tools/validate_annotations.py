@@ -3389,7 +3389,7 @@ NEEDS_INDICATOR = frozenset(wordplay.ARITY) - {"cryptic", "palindrome"}
 #: one as an error. Before it passes, `tools/tidy_wordplay_shapes.py <puzzles>
 #: --write` records what the grace let in as allowances (it adds puzzles the
 #: list lacks), and the same commit sets this to 0.
-SHAPE_GRACE_UNTIL = 1792139124
+SHAPE_GRACE_UNTIL = 0
 SHAPE_GRACE_FIELDS = ("wordplay.anagramCharade", "wordplay.charadeInCharade", "wordplay.noIndicator",
                       "wordplay.cdefRepeat", "wordplay.arity", "wordplay.spanOverlap",
                       "wordplay.inDefinition", "wordplay.leafFold", "wordplay.repeatedSelection",
