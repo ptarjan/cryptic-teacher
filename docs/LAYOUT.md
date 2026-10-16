@@ -2761,5 +2761,8 @@ tools/test_shape_queue.sh                      the shape re-annotation list
                                                never lost, and a filed clue leaves the list.
                                                The queue tier's ordering is in prereset_plan.py
                                                --self-test
+tools/test_annotate_note_skeleton.sh           annotate_check prints every missing block note
+                                               as one --patch file, so the commonest
+                                               first-check failure is one Write and one command
 ```
 <!-- LAYOUT-END -->
