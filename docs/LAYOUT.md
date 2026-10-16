@@ -1650,7 +1650,7 @@ tools/data/puzzle.schema.json                  the puzzle file's shape as a JSON
 tools/data/clue_types.json                     the clue types and the nine families they fall
                                                in, with the labels and blurbs the app and the
                                                tools show; the seven commoner families are the
-                                               type picker's buttons, a rarer one names the
+                                               type picker's buttons, and a rarer one names the
                                                `picker` family it folds into
 tools/data/blog_facts/                         per series, the blog facts tools/blog_facts.py
                                                read off the write-ups, each clue in the
@@ -1789,6 +1789,9 @@ tools/test_privateeye_dates.sh                 does tools/fetch_privateeye.py re
                                                off every title shape the archive ships, and
                                                take the Eye's Christmas cover date as it prints
                                                it?
+tools/test_privateeye_split_lost.sh            does tools/privateeye_wayback.split_lost split a
+                                               clue the OCR ran into the one before it, only at
+                                               a number the lists skip?
 tools/test_fetch_puzzle_misfiled.sh            does fetch_puzzle.convert() refuse a mis-filed
                                                Guardian page and accept a re-published one?
 scratch/snitch_tune.py                         collect every SNITCH-rated puzzle's raw
