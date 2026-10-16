@@ -105,6 +105,41 @@ check("the loaded-model check stands for CHAT_EVERY seconds, then reads again", 
       (first, vlm.chat_model(), (vlm._CHAT.__setitem__(0, float("-inf")), vlm.chat_model())[1]))
 urllib.request.urlopen = real
 
+# A 429 (llama-swap's queue full under many concurrent reads) is the server
+# busy, not down: the ask waits and asks again, marks nothing missed, and only
+# gives up (as a failure) after QUEUE_FULL_TRIES.
+import time
+import urllib.error
+n429 = [2]
+def fake_429(req, timeout=None):
+    if n429[0] > 0:
+        n429[0] -= 1
+        raise urllib.error.HTTPError(req.full_url, 429, "Too Many Requests", {}, None)
+    return io.BytesIO(json.dumps({"choices": [{"message": {"content": "OK429"}}]}).encode())
+urllib.request.urlopen = fake_429
+slept = []
+real_sleep, vlm.time.sleep = vlm.time.sleep, slept.append
+vlm._MISSED[0] = False
+vlm._UP[vlm.MODEL] = True
+vlm._CHAT[:] = [time.monotonic(), None, True]
+vlm._YIELDED[0] = float("-inf")
+img3 = Image.new("L", (400, 300), 7)
+check("a 429 is waited out and asked again: the reply, two waits, nothing missed, still up",
+      ("OK429", 2, False, True), (vlm.ask(img3, "q429"), len(slept), vlm.missed(), vlm._UP[vlm.MODEL]))
+n429[0] = 99
+slept.clear()
+img4 = Image.new("L", (400, 300), 9)
+try:
+    vlm.ask(img4, "q429b")
+    got = "replied"
+except RuntimeError:
+    got = "failed"
+check("a 429 that never clears fails after QUEUE_FULL_TRIES asks", ("failed", vlm.QUEUE_FULL_TRIES - 1),
+      (got, len(slept)))
+vlm.time.sleep = real_sleep
+vlm._MISSED[0] = False
+urllib.request.urlopen = real
+
 # The LAN address went stale (DHCP): its connect times out, the tailnet one
 # answers, and the VLM is reachable, at that address, probed once.
 import socket
