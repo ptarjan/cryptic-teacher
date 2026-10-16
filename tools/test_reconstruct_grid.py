@@ -613,6 +613,18 @@ _free = [(1, "across", None)]
 same("a free length may be two cells", len(_R.reconstruct(_free, cols=2, rows=1, strict=False)[0]), 1)
 same("min_light=3 refuses a two-cell free light", len(_R.reconstruct(_free, cols=2, rows=1, strict=False, min_light=3)[0]), 0)
 
+# A linked group whose enumeration has a number per light has no split to
+# search: Cyclops 63 ("11,1" = 6,7) and 73 ("12,7,27" = 5,10,10).
+import privateeye_wayback as _PW
+_acr = [[11, None, "linked", {"enumeration": "6,7"}]]
+_dwn = [[1, None, "linked", {}]]
+_left = _PW.pin_word_lengths([([("across", 0), ("down", 0)], 13)], _acr, _dwn)
+same("one number per light pins both lengths", (_acr[0][1], _dwn[0][1], _left), (6, 7, []))
+_acr = [[5, None, "linked", {"enumeration": "5,3,3,5"}]]
+_dwn = [[1, None, "linked", {}]]
+_left = _PW.pin_word_lengths([([("across", 0), ("down", 0)], 16)], _acr, _dwn)
+same("more words than lights leaves the group open", (_acr[0][1], _dwn[0][1], len(_left)), (None, None, 1))
+
 if fails:
     print(f"reconstruct_grid: {fails} FAILED")
 else:
