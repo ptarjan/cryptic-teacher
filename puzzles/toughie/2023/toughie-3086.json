@@ -18,6 +18,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,7 +34,61 @@
     "text": "Perhaps security detail drove veteran back inside",
     "enumeration": "7"
    },
-   "solution": "PADLOCK"
+   "solution": "PADLOCK",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Perhaps security",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 43,
+       "note": "inside places the reversed veteran within the herd word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "drove",
+       "at": 24,
+       "gives": "PACK",
+       "note": "a drove is a herd of animals, as is a pack"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 38,
+         "note": "back tells us the word for veteran is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "veteran",
+         "at": 30,
+         "gives": "OLD",
+         "note": "a veteran is old"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A security guard's job description: he drove an old soldier back home.",
+     "walkthrough": "'Perhaps security' is the definition by example; 'detail' and 'drove' look like a security squad's work.",
+     "definitionFit": "A padlock is one example of a device that provides security, hence the 'Perhaps'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "detail"
+    }
+   }
   },
   {
    "number": 1,
@@ -45,7 +102,41 @@
     "text": "Field doctor tears up",
     "enumeration": "7"
    },
-   "solution": "PASTURE"
+   "solution": "PASTURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Field",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "doctor",
+       "at": 6,
+       "note": "to doctor something is to tamper with it, so these letters are altered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "tears up",
+       "at": 13
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor in the field weeps.",
+     "walkthrough": "'Field doctor' looks like an army medic; 'doctor' is the anagram signal.",
+     "definitionFit": "Pasture is grassland for grazing, a field."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 2,
@@ -59,7 +150,58 @@
     "text": "First to do drug trials can't stand",
     "enumeration": "7"
    },
-   "solution": "DETESTS"
+   "solution": "DETESTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "can't stand",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "First to",
+         "at": 0,
+         "note": "first to means the opening letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "do",
+         "at": 9,
+         "note": "first letter of do"
+        }
+       ]
+      },
+      {
+       "words": "drug",
+       "at": 12,
+       "gives": "E",
+       "note": "E is ecstasy"
+      },
+      {
+       "words": "trials",
+       "at": 17,
+       "gives": "TESTS",
+       "note": "trials are tests"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient who loathes being first in line for drug trials.",
+     "definitionFit": "To detest something is to loathe it, so to be unable to bear it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trials"
+    }
+   }
   },
   {
    "number": 3,
@@ -73,7 +215,77 @@
     "text": "Work in parade essentially supporting opening of Olympic Games",
     "enumeration": "5"
    },
-   "solution": "OPERA"
+   "solution": "OPERA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Work",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "supporting",
+       "at": 27,
+       "note": "in a down clue, supporting means placed below the earlier pieces"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening of",
+         "at": 38,
+         "note": "opening of means the first letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Olympic",
+         "at": 49,
+         "note": "first letter of Olympic"
+        }
+       ]
+      },
+      {
+       "words": "Games",
+       "at": 57,
+       "gives": "PE",
+       "note": "PE, physical education, is school games"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "essentially",
+         "at": 15,
+         "note": "essentially means the essence, the middle letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "parade",
+         "at": 8,
+         "note": "the two middle letters of parade"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The work at the heart of an Olympic opening ceremony parade.",
+     "walkthrough": "Opus, Latin for work, gives opera, so an opera is a musical work.",
+     "definitionFit": "An opera is a dramatic work set to music, so a work in the arts sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Games"
+    }
+   }
   },
   {
    "number": 4,
@@ -97,7 +309,80 @@
    "group": [
     "4-down",
     "23-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "yielding to pressure",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to interrupt",
+         "at": 14,
+         "note": "to interrupt means to break into the monarch word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "monarch",
+         "at": 27,
+         "gives": "KING",
+         "note": "a king is a monarch"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Note",
+           "at": 0,
+           "gives": "N"
+          },
+          {
+           "op": "anagram",
+           "indicators": [
+            {
+             "text": "bad",
+             "at": 5,
+             "note": "bad suggests the letters of luck are spoilt, so they are rearranged"
+            }
+           ],
+           "parts": [
+            {
+             "words": "luck",
+             "at": 9
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "subordinate",
+       "at": 40,
+       "gives": "UNDER",
+       "note": "under means lower in rank, subordinate"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king's bad luck is that a junior official gives in under pressure.",
+     "walkthrough": "'With' is a link here.",
+     "definitionFit": "To knuckle under is an idiom for submitting or giving in, so knuckling under is yielding under pressure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bad"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +396,67 @@
     "text": "Guilty can use the camp beds once stripped",
     "enumeration": "7"
    },
-   "solution": "ASHAMED"
+   "solution": "ASHAMED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Guilty",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "once stripped",
+       "at": 29,
+       "note": "once stripped tells us every word in the run loses its outer letters, leaving only the middle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "can",
+       "at": 7,
+       "gives": "A",
+       "note": "can stripped of its first and last letters"
+      },
+      {
+       "words": "use",
+       "at": 11,
+       "gives": "S",
+       "note": "use stripped of its first and last letters"
+      },
+      {
+       "words": "the",
+       "at": 15,
+       "gives": "H",
+       "note": "the stripped of its first and last letters"
+      },
+      {
+       "words": "camp",
+       "at": 19,
+       "gives": "AM",
+       "note": "camp stripped of its first and last letters"
+      },
+      {
+       "words": "beds",
+       "at": 24,
+       "gives": "ED",
+       "note": "beds stripped of its first and last letters"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone feels bad about borrowing camp beds once the bedding has been stripped off.",
+     "walkthrough": "Strip the first and last letter from each of can, use, the, camp and beds, and keep what is left.",
+     "definitionFit": "Feeling ashamed is feeling guilty about something you have done; the two are close synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stripped"
+    }
+   }
   },
   {
    "number": 5,
@@ -135,7 +480,50 @@
    "group": [
     "5-down",
     "16-down"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with no fault seen",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Amazing",
+       "at": 0,
+       "note": "amazing suggests letters thrown into confusion and rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "ace",
+       "at": 8
+      },
+      {
+       "words": "obvious",
+       "at": 13
+      },
+      {
+       "words": "spin",
+       "at": 21
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis commentator praising an ace with obvious spin that was not called out.",
+     "walkthrough": "The tennis scene points to a fault call, but the definition is about blamelessness.",
+     "definitionFit": "Someone above suspicion is so trusted that nobody sees any fault or wrongdoing in them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fault"
+    }
+   }
   },
   {
    "number": 6,
@@ -155,7 +543,35 @@
      }
     ]
    },
-   "solution": "HENHOUSES"
+   "solution": "HENHOUSES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Structures with many layers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Structures with many layers",
+       "at": 0,
+       "note": "layers reads as strata or tiers, but means birds that lay eggs"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The clue suggests multi-storey buildings; the layers are egg-laying hens.",
+     "definitionFit": "Coops for laying chickens are structures holding many egg producers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "layers"
+    }
+   }
   },
   {
    "number": 7,
@@ -169,7 +585,50 @@
     "text": "Fury following low fee paid by bank?",
     "enumeration": "7"
    },
-   "solution": "MOORAGE"
+   "solution": "MOORAGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "fee paid by bank?",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "following",
+       "at": 5,
+       "note": "following means the fury word comes after the low word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "low",
+       "at": 15,
+       "gives": "MOO",
+       "note": "to low is to moo like cattle"
+      },
+      {
+       "words": "Fury",
+       "at": 0,
+       "gives": "RAGE",
+       "note": "fury is rage"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Anger at a low fee charged by a bank.",
+     "walkthrough": "The bank is a river bank, where a boat ties up, not a lender.",
+     "definitionFit": "Moorage is the charge for mooring a boat, a fee paid for a berth alongside the bank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 8,
@@ -183,7 +642,54 @@
     "text": "Least inspiring and stupidest students replacing doctor",
     "enumeration": "7"
    },
-   "solution": "DULLEST"
+   "solution": "DULLEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Least inspiring",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "replacing",
+       "at": 39,
+       "note": "replacing means the students take the place of the doctor in the word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "stupidest",
+       "at": 20,
+       "gives": "DUMBEST",
+       "note": "dumbest means stupidest"
+      },
+      {
+       "words": "doctor",
+       "at": 49,
+       "gives": "MB",
+       "note": "MB, Bachelor of Medicine, is a doctor's qualification"
+      },
+      {
+       "words": "students",
+       "at": 30,
+       "gives": "LL",
+       "note": "L is a learner, so two Ls are students"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ranking of the dullest, dimmest medical students.",
+     "definitionFit": "The dullest thing is the most boring, the one that inspires least interest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 9,
@@ -203,7 +709,60 @@
      }
     ]
    },
-   "solution": "SETMENU"
+   "solution": "SETMENU",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "limited fare?",
+      "at": 34
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 6,
+       "note": "wearing puts the staff inside the word for station, as if clothed by it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "station",
+         "at": 14,
+         "gives": "SET",
+         "note": "to station something is to set it in position"
+        },
+        {
+         "words": "uniform",
+         "at": 22,
+         "gives": "U"
+        }
+       ]
+      },
+      {
+       "words": "Staff",
+       "at": 0,
+       "gives": "MEN",
+       "note": "staff are the people employed, the men"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Railway staff in station uniform get only restricted fares on the trains.",
+     "walkthrough": "U is Uniform in the NATO alphabet. 'Fare' means food, not a ticket price.",
+     "definitionFit": "A set menu offers a restricted choice of dishes at a fixed price, so the food on offer is limited."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fare"
+    }
+   }
   },
   {
    "number": 10,
@@ -223,7 +782,68 @@
      }
     ]
    },
-   "solution": "OWNGOAL"
+   "solution": "OWNGOAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "blunder",
+      "at": 72
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "penning",
+       "at": 21,
+       "note": "penning means enclosing, so the owl word wraps round the rest"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Member of parliament",
+       "at": 0,
+       "gives": "OWL",
+       "note": "a group of owls is called a parliament, so an owl is a member of one"
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "on",
+         "at": 37,
+         "note": "on means the article is placed after the organisation's letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "non-governmental organisation's",
+         "at": 40,
+         "gives": "NGO",
+         "note": "NGO is the usual abbreviation for a non-governmental organisation"
+        },
+        {
+         "words": "article",
+         "at": 29,
+         "gives": "A",
+         "note": "A is the indefinite article"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An MP writes an article attacking a charity's blunder.",
+     "walkthrough": "'Member of parliament' is not an MP: a parliament is the collective noun for owls.",
+     "definitionFit": "An own goal is a football goal scored against your own side, and figuratively any self-inflicted blunder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "parliament"
+    }
+   }
   },
   {
    "number": 11,
@@ -237,7 +857,51 @@
     "text": "Incredible Hulk's ace new release",
     "enumeration": "9"
    },
-   "solution": "UNSHACKLE"
+   "solution": "UNSHACKLE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "release",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Incredible",
+       "at": 0,
+       "note": "incredible suggests something wildly changed, so these letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Hulk's",
+       "at": 11,
+       "note": "taken as written, including the S"
+      },
+      {
+       "words": "ace",
+       "at": 18
+      },
+      {
+       "words": "new",
+       "at": 22,
+       "gives": "N"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puff for the new release of an Incredible Hulk comic or film starring a crack hero.",
+     "walkthrough": "'Incredible Hulk' is the comic character's full name, but 'Incredible' is the anagram signal.",
+     "definitionFit": "To unshackle someone is to free them from chains, so to release them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Incredible"
+    }
+   }
   },
   {
    "number": 12,
@@ -251,7 +915,41 @@
     "text": "Harangue Oscar judge",
     "enumeration": "5"
    },
-   "solution": "ORATE"
+   "solution": "ORATE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Harangue",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Oscar",
+       "at": 9,
+       "gives": "O",
+       "note": "O is Oscar in the NATO alphabet"
+      },
+      {
+       "words": "judge",
+       "at": 15,
+       "gives": "RATE",
+       "note": "to rate something is to judge its worth"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Oscar winner's speech berates the judging panel.",
+     "definitionFit": "To orate is to speak pompously at length, much as a harangue is a long ranting address."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 13,
@@ -265,7 +963,44 @@
     "text": "Stand that supports hire cycles",
     "enumeration": "5"
    },
-   "solution": "EASEL"
+   "solution": "EASEL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stand that supports",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cycling",
+     "indicators": [
+      {
+       "text": "cycles",
+       "at": 25,
+       "note": "cycles means the letters go round, the first moving to the end"
+      }
+     ],
+     "parts": [
+      {
+       "words": "hire",
+       "at": 20,
+       "gives": "LEASE",
+       "note": "to lease something is to hire it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rack that holds rental bicycles.",
+     "walkthrough": "'Hire cycles' reads as bikes for rent; 'cycles' is a verb telling you to move the first letter to the back.",
+     "definitionFit": "An easel is a frame that props up a painting or blackboard, a stand that supports it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cycles"
+    }
+   }
   },
   {
    "number": 14,
@@ -285,7 +1020,77 @@
      }
     ]
    },
-   "solution": "LARDYCAKE"
+   "solution": "LARDYCAKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Something Hollywood might produce",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Los Angeles",
+       "at": 37,
+       "gives": "LA"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "principally",
+         "at": 69,
+         "note": "principally means the first letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "religious",
+         "at": 81,
+         "note": "first letter of religious"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "filling",
+         "at": 61,
+         "note": "filling means California goes inside the channel word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "channel",
+         "at": 91,
+         "gives": "DYKE",
+         "note": "a dyke is a ditch or drainage channel"
+        },
+        {
+         "words": "California",
+         "at": 50,
+         "gives": "CA",
+         "note": "CA is the postal abbreviation for California"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Hollywood production set in LA with a religious TV channel.",
+     "walkthrough": "Hollywood is not the film industry but Paul Hollywood, a judge on the TV show The Great British Bake Off. Lardy cake is a traditional English sweet bread made with lard.",
+     "definitionFit": "A baker such as Paul Hollywood might bake this traditional sticky bread, so it is something he might produce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hollywood"
+    }
+   }
   },
   {
    "number": 15,
@@ -299,7 +1104,42 @@
     "text": "Adamant Berlin's is ten times smaller at both ends",
     "enumeration": "9"
    },
-   "solution": "INSISTENT"
+   "solution": "INSISTENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Adamant",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "smaller at both ends",
+       "at": 30,
+       "note": "the phrase is cut down at both its start and its end, leaving a run of letters inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Berlin's is ten times",
+       "at": 8,
+       "note": "the letters run straight through these words once the outer ones are trimmed"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone insists that Berlin is ten times smaller than claimed.",
+     "walkthrough": "Trim the first four letters and the last four from the phrase.",
+     "definitionFit": "Someone insistent refuses to back down, which is what being adamant means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Berlin's"
+    }
+   }
   },
   {
    "number": 16,
@@ -332,7 +1172,36 @@
      }
     ]
    },
-   "solution": "ALTEREGOS"
+   "solution": "ALTEREGOS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Batman and Robin, say",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Cryptically goes",
+       "at": 0,
+       "note": "read cryptically, the answer is an instruction: alter the word egos and you get goes"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle-setter's aside on how to clue the caped crusaders.",
+     "walkthrough": "A reverse clue: the answer is the wordplay, and 'goes' is what it produces. Bruce Wayne's alter ego is Batman; Dick Grayson's is Robin.",
+     "definitionFit": "Batman and Robin are the secret second identities of their wearers, which is what an alter ego is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "goes"
+    }
+   }
   },
   {
    "number": 17,
@@ -346,7 +1215,60 @@
     "text": "Clean and jerk holding up when used with energy and power",
     "enumeration": "7"
    },
-   "solution": "ASEPTIC"
+   "solution": "ASEPTIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clean",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "holding up",
+       "at": 15,
+       "note": "in a down clue, holding up means the jerk word sits under the rest, supporting it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "when",
+       "at": 26,
+       "gives": "AS",
+       "note": "as can mean when, as in 'as I left'"
+      },
+      {
+       "words": "energy",
+       "at": 41,
+       "gives": "E"
+      },
+      {
+       "words": "power",
+       "at": 52,
+       "gives": "P"
+      },
+      {
+       "words": "jerk",
+       "at": 10,
+       "gives": "TIC",
+       "note": "a tic is an involuntary jerk"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weightlifter's clean and jerk, done with energy and power.",
+     "walkthrough": "The clean and jerk is a weightlifting lift; 'jerk' is in the wordplay.",
+     "definitionFit": "Aseptic means free from germs, sterile, so clean in a medical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Clean"
+    }
+   }
   },
   {
    "number": 18,
@@ -360,7 +1282,53 @@
     "text": "For example spaghetti junction's highest point over city motorway",
     "enumeration": "7"
    },
-   "solution": "TOPONYM"
+   "solution": "TOPONYM",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "For example spaghetti junction",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "highest point",
+       "at": 33,
+       "gives": "TOP",
+       "note": "the top is the highest point"
+      },
+      {
+       "words": "over",
+       "at": 47,
+       "gives": "O",
+       "note": "O is over in cricket scoring"
+      },
+      {
+       "words": "city",
+       "at": 52,
+       "gives": "NY",
+       "note": "NY is New York City"
+      },
+      {
+       "words": "motorway",
+       "at": 57,
+       "gives": "M"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spaghetti Junction's highest point rises above the city motorway.",
+     "walkthrough": "Spaghetti Junction is the nickname of a tangled motorway interchange in Birmingham, England. The 's stands for 'is'.",
+     "definitionFit": "A toponym is a place name, and Spaghetti Junction is the popular name of a place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "junction's"
+    }
+   }
   },
   {
    "number": 19,
@@ -374,7 +1342,44 @@
     "text": "Capital city, south of Iowa",
     "enumeration": "5"
    },
-   "solution": "SOFIA"
+   "solution": "SOFIA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Capital city",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "south",
+       "at": 14,
+       "gives": "S"
+      },
+      {
+       "words": "of",
+       "at": 20
+      },
+      {
+       "words": "Iowa",
+       "at": 23,
+       "gives": "IA",
+       "note": "IA is the postal abbreviation for the US state of Iowa"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geography quiz asking for a capital south of Iowa.",
+     "definitionFit": "Sofia is the capital of Bulgaria."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Iowa"
+    }
+   }
   },
   {
    "number": 20,
@@ -388,7 +1393,62 @@
     "text": "Daft place to go climbing in skates for example",
     "enumeration": "7"
    },
-   "solution": "FOOLISH"
+   "solution": "FOOLISH",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Daft",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 26,
+       "note": "in places the reversed word inside the fish"
+      }
+     ],
+     "parts": [
+      {
+       "words": "skates for example",
+       "at": 29,
+       "gives": "FISH",
+       "note": "skates are flat fish"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "climbing",
+         "at": 17,
+         "note": "in a down clue, climbing means the word is read upwards, in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "place to go",
+         "at": 5,
+         "gives": "LOO",
+         "note": "the place to go is a euphemism for the loo, the toilet"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A silly place to go rock climbing is on ice skates.",
+     "walkthrough": "Skates are taken as ice skates, but they are fish.",
+     "definitionFit": "Foolish and daft are both informal words for silly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "skates"
+    }
+   }
   },
   {
    "number": 21,
@@ -402,7 +1462,65 @@
     "text": "Assistance as airline served up coffee on the counter",
     "enumeration": "7"
    },
-   "solution": "ABETTAL"
+   "solution": "ABETTAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Assistance",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "served up",
+         "at": 22,
+         "note": "in a down clue, served up means the word is read upwards, in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "airline",
+         "at": 14,
+         "gives": "BA",
+         "note": "BA is British Airways"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "on the counter",
+         "at": 39,
+         "note": "on the counter suggests running counter, read the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "coffee",
+         "at": 32,
+         "gives": "LATTE",
+         "note": "a latte is a milky coffee"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An airline serves coffee from the counter as a help to passengers.",
+     "definitionFit": "Abettal is a rare noun for abetment, helping someone, so assistance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "counter"
+    }
+   }
   },
   {
    "number": 22,
@@ -416,7 +1534,71 @@
     "text": "Vacuous politician going through the escort agency's terms",
     "enumeration": "5"
    },
-   "solution": "EMPTY"
+   "solution": "EMPTY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Vacuous",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "going through",
+       "at": 19,
+       "note": "going through places the politician inside the run of end letters"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "terms",
+           "at": 53,
+           "note": "terms are ends or limits, so take the last letter of each word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "the escort",
+           "at": 33,
+           "note": "the last letters of the and escort"
+          }
+         ]
+        },
+        {
+         "words": "agency's",
+         "at": 44,
+         "gives": "Y",
+         "note": "the last letter of agency, its term, with the 's read as belonging to it"
+        }
+       ]
+      },
+      {
+       "words": "politician",
+       "at": 8,
+       "gives": "MP",
+       "note": "an MP is a Member of Parliament"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shallow MP is reading the small print of an escort agency.",
+     "walkthrough": "'Terms' looks like contract conditions but means the ends of words.",
+     "definitionFit": "Empty here means lacking meaning or thought, which is what vacuous describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "terms"
+    }
+   }
   },
   {
    "number": 23,
@@ -440,7 +1622,77 @@
      }
     ]
    },
-   "solution": "UPINSMOKE"
+   "solution": "UPINSMOKE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "where some plans go?",
+      "at": 50
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 18,
+       "note": "about means the shuffled letters go round the word for sanctimonious"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "angry",
+         "at": 12,
+         "note": "angry suggests the letters are thrown about in a rage and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "hiding",
+           "at": 43,
+           "note": "hiding means the letter for left is put out of sight"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Elon Musk",
+           "at": 0,
+           "gives": "ELONMUSK"
+          },
+          {
+           "words": "left",
+           "at": 38,
+           "gives": "L"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "words": "sanctimonious",
+       "at": 24,
+       "gives": "PI",
+       "note": "pi is informal for pious, sanctimonious"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elon Musk is cross about a self-righteous left-winger.",
+     "walkthrough": "The 's after Musk stands for 'is'. Musk's own plans, from rockets to cars, give the surface its point.",
+     "definitionFit": "Failed schemes are said to go up in smoke, vanishing like burnt paper; the question mark marks the idiom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 23,
@@ -467,7 +1719,52 @@
     "text": "Drink beer occasionally — excellent",
     "enumeration": "5"
    },
-   "solution": "SUPER"
+   "solution": "SUPER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "excellent",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Drink",
+       "at": 0,
+       "gives": "SUP",
+       "note": "to sup is to drink"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "occasionally",
+         "at": 11,
+         "note": "occasionally means take only some of the letters, every other one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beer",
+         "at": 6,
+         "note": "the second and fourth letters of beer"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker's verdict on a sip of beer now and then.",
+     "definitionFit": "Super is a slightly dated informal word for wonderful or very good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drink"
+    }
+   }
   },
   {
    "number": 25,
@@ -481,7 +1778,72 @@
     "text": "Aquarium commercial including introduction from Rick Stein?",
     "enumeration": "7"
    },
-   "solution": "TANKARD"
+   "solution": "TANKARD",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stein?",
+      "at": 53
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Aquarium",
+       "at": 0,
+       "gives": "TANK",
+       "note": "an aquarium is a fish tank"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "including",
+         "at": 20,
+         "note": "including means the advert takes in the next letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "commercial",
+         "at": 9,
+         "gives": "AD",
+         "note": "a commercial is an advert, AD"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "introduction from",
+           "at": 30,
+           "note": "introduction from means the first letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Rick",
+           "at": 48,
+           "note": "first letter of Rick"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An advert for a fish tank fronted by TV chef Rick Stein.",
+     "walkthrough": "Rick Stein is a British TV cook famous for seafood; here 'Stein' alone is the definition, a German beer mug.",
+     "definitionFit": "A stein is a large beer mug, an example of a tankard, so the question mark is needed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stein"
+    }
+   }
   },
   {
    "number": 26,
@@ -495,7 +1857,60 @@
     "text": "This writer's books receiving hype with Independent publishing house",
     "enumeration": "7"
    },
-   "solution": "IMPRINT"
+   "solution": "IMPRINT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "publishing house",
+      "at": 52
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "receiving",
+       "at": 20,
+       "note": "receiving tells us the books come after the hype and Independent pieces they take on"
+      }
+     ],
+     "parts": [
+      {
+       "words": "This writer's",
+       "at": 0,
+       "gives": "IM",
+       "note": "this writer's means the setter is, I'M"
+      },
+      {
+       "words": "hype",
+       "at": 30,
+       "gives": "PR",
+       "note": "PR is public relations, hype"
+      },
+      {
+       "words": "Independent",
+       "at": 40,
+       "gives": "I"
+      },
+      {
+       "words": "books",
+       "at": 14,
+       "gives": "NT",
+       "note": "NT is the New Testament, a set of books"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer boasts that his books get hype from an independent publisher.",
+     "walkthrough": "'This writer's' stands for I'M, the setter speaking.",
+     "definitionFit": "An imprint is a brand name under which a publisher issues books, often a house within a larger firm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 27,
@@ -509,7 +1924,75 @@
     "text": "MC Hammer ultimately going to back companion",
     "enumeration": "7"
    },
-   "solution": "COMPEER"
+   "solution": "COMPEER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "companion",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to back",
+       "at": 27,
+       "note": "to back means the letter is moved to the end"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "going",
+         "at": 21,
+         "note": "going means the letter leaves its place in the word for MC"
+        }
+       ],
+       "parts": [
+        {
+         "words": "MC",
+         "at": 0,
+         "gives": "COMPERE",
+         "note": "an MC, master of ceremonies, is a compere"
+        },
+        {
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 10,
+         "note": "ultimately means the last letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hammer",
+         "at": 3,
+         "note": "last letter of Hammer"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The rapper MC Hammer finally returns to his old companion.",
+     "walkthrough": "MC Hammer is a rapper, but here MC is the title. The last letter of Hammer is already in the MC word and moves to the back.",
+     "definitionFit": "A compeer is an equal or associate, an archaic word for a companion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hammer"
+    }
+   }
   },
   {
    "number": 28,
@@ -523,7 +2006,48 @@
     "text": "Somehow warn Harry, one has a point",
     "enumeration": "7"
    },
-   "solution": "NARWHAL"
+   "solution": "NARWHAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one has a point",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Somehow",
+       "at": 0,
+       "note": "somehow suggests the letters are put together in some other way"
+      }
+     ],
+     "parts": [
+      {
+       "words": "warn",
+       "at": 8
+      },
+      {
+       "words": "Harry",
+       "at": 13,
+       "gives": "HAL",
+       "note": "Hal is a familiar form of Harry, as with Shakespeare's Prince Hal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone must find a way to tell Harry that someone has a point.",
+     "walkthrough": "'Has a point' sounds like conceding an argument; it means a creature with a spike.",
+     "definitionFit": "The narwhal is an Arctic whale whose male bears a long spiral tusk, so it literally has a point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "point"
+    }
+   }
   }
  ]
 }
