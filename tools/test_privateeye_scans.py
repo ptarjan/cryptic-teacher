@@ -65,6 +65,12 @@ lines = ps.page_lines(xml)
 print("SPLIT", len(lines))
 cols = ps.columns(lines)
 print("COLS", len(cols), cols[0][0] < 200, cols[1][0] > 1200 and cols[1][3] > 200 + 45 * 4)
+# A line the djvu layer breaks mid-row starts inside the column and runs past
+# its clue lines' right edge: the box takes it in (No 43's "Paisley (8)").
+wide = list(lines)
+wide.insert(5, ps.page_lines(("<OBJECT>" + line((700, 200 + 45 * 2 + 5, 800, "Paisley"), (820, 200 + 45 * 2 + 5, 1100, "(8)"))
+                              + "</OBJECT>").encode())[0])
+assert ps.columns(wide)[0][2] >= 1100, ps.columns(wide)
 print("NUMBER", ps.number_of(lines, 858), ps.number_of(lines[1:], 858), ps.number_of(lines[1:], 900))
 W = lambda *ts: [(0, 0, 1, 1, t) for t in ts]
 ruled = [W("EYE", "CROSSWORD", "|", "|", "|_", "280"), W("Crossword", "279", "winner:", "PETER")]
