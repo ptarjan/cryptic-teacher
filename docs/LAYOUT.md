@@ -2787,5 +2787,10 @@ tools/test_shape_queue.sh                      the shape re-annotation list
 tools/test_annotate_note_skeleton.sh           annotate_check prints every missing block note
                                                as one --patch file, so the commonest
                                                first-check failure is one Write and one command
+tools/hintless_overdue.py                      a newly filed puzzle that is still hintless long
+                                               after it should have been annotated
+tools/test_hintless_overdue.py                 hintless_overdue.overdue() on fixtures: only a
+                                               recent, solved, hintless, unblocked puzzle past
+                                               the threshold
 ```
 <!-- LAYOUT-END -->
