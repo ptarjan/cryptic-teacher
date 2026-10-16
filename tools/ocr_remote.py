@@ -1091,6 +1091,13 @@ def connect():
         # then wait out the fresh copy's cold start (COLD_TIMEOUT) rather
         # than leave it for another address of the same desktop.
         missing = code_missing(why or "")
+        if not missing and _unreachable(why or ""):
+            # Never answered: there is nothing to ship to, and hashing the
+            # code costs ~15 git runs (a refused host took 33s under load).
+            reasons.append(why)
+            if desktop_hosts.is_desktop(host.rpartition("@")[2]):
+                desktop_hosts.forget(22)
+            continue
         with open(SHIP_LOCK, "w") as lock:
             fcntl.flock(lock, fcntl.LOCK_EX)
             try:  # another process may have shipped it meanwhile, its copy as cold
