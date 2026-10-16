@@ -62,6 +62,7 @@ import argparse
 import datetime
 import json
 import os
+import re
 import signal
 import subprocess
 import sys
@@ -92,6 +93,11 @@ LABEL = "corpus OCR full pass"
 ROOM = "cryptic-crosswords"
 NAME = "full_pass"
 STALL_MINUTES = 60
+# The pass's last YIELD_WINDOW scans that found fewer than YIELD_FLOOR of a puzzle
+# each (a collapse like the pre-1962 Times, 7 in 500) wake the room once.
+YIELD_WINDOW = 100
+YIELD_FLOOR = 0.05
+YIELD_TAIL_BYTES = 1 << 20
 #: Launches in a row that end unfinished with no ledger row read before the pass is held.
 DEAD_LAUNCHES = 2
 #: What the pass's wrapper runs as it ends (command()): chain().
@@ -471,6 +477,44 @@ def stall_check(run, state, dry):
         save_state(state)
 
 
+SCANNED = re.compile(r"^\S+ scanned (\S+): (\d+) puzzle\(s\)")
+
+
+def yield_collapse(lines, window=YIELD_WINDOW, floor=YIELD_FLOOR):
+    """The last `window` "scanned <edition>: N puzzle(s)" lines of a log, when
+    they hold fewer than floor*window puzzles: (first edition, last edition,
+    puzzles, scans); else None."""
+    scans = [(m.group(1), int(m.group(2))) for m in map(SCANNED.match, lines) if m][-window:]
+    if len(scans) < window or sum(n for _, n in scans) >= floor * window:
+        return None
+    return scans[0][0], scans[-1][0], sum(n for _, n in scans), len(scans)
+
+
+def yield_check(run, state, dry):
+    log = LOG if run.get("name") == NAME else STATE_DIR / f"{run['name']}.log"
+    try:
+        with open(log, "rb") as f:
+            f.seek(0, 2)
+            f.seek(max(0, f.tell() - YIELD_TAIL_BYTES))
+            lines = f.read().decode(errors="replace").splitlines()
+    except OSError:
+        return
+    found = yield_collapse(lines)
+    if not found:
+        if state.pop("yieldAlerted", None) and not dry:
+            save_state(state)  # recovered: the next collapse is a new episode
+        return
+    if state.get("yieldAlerted"):
+        return
+    first, last, puzzles, scans = found
+    wake(f"{run['name']}'s last {scans} scans ({first} .. {last}) found {puzzles} puzzle(s), under "
+         f"{YIELD_FLOOR:.0%}: the scanner is probably missing the crossword in these editions "
+         f"(layout, heading or page). Log: {log}", dry)
+    if not dry:
+        state["yieldAlerted"] = f"{first}..{last}"
+        save_state(state)
+
+
 def reap(state, dry):
     """running.json names a job whose leader is no longer running: kill what
     is left of its session, then account for the launch."""
@@ -528,6 +572,7 @@ def tick(dry, chained=False):
     if run:
         print(f"running: {run['name']} (pid {run['pid']}, since {run.get('launched', '?')})")
         stall_check(run, state, dry)
+        yield_check(run, state, dry)
         return "running"
     if RUNNING.exists():
         reap(state, dry)

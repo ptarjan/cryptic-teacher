@@ -737,6 +737,7 @@ LAYOUT = [
     ("annotating", "tools/test_annotate_note_skeleton.sh", "annotate_check prints every missing block note as one --patch file, so the commonest first-check failure is one Write and one command"),
     ("annotating", "tools/hintless_overdue.py", "a newly filed puzzle that is still hintless long after it should have been annotated"),
     ("annotating", "tools/test_hintless_overdue.py", "hintless_overdue.overdue() on fixtures: only a recent, solved, hintless, unblocked puzzle past the threshold"),
+    ("annotating", "tools/test_corpus_queue_yield.py", "corpus_queue.yield_collapse() on fixture logs: the last 100 scans with under 5 puzzles wake the room, a healthy or short window does not"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
