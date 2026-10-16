@@ -42,6 +42,8 @@ import enumeration
 import leading_quote
 import punctuation
 import quotes
+from clue_text import (CAPS_HEADING, HEADING_BEFORE_ONE, HEADING_LINE, exact_heading, ones_read, see_numeral,
+                       strip_count)
 
 TOOLS =Path(__file__).resolve().parent
 
@@ -2457,7 +2459,7 @@ def number_read(end, digits, side):
         return False
     words = [t for t in end if t not in MARKS]
     if side == "start":
-        if words and words[0] in ("down", "across"):
+        if words and exact_heading(words[0]):
             words = words[1:]
         if len(words) > 1 and len(words[0]) == 1 and len("".join(words)) > len(digits):
             words = words[1:]
@@ -2480,7 +2482,7 @@ def number_shaped(end, side):
     letters or fewer, each one FIGURE_LETTERS has ("is" for "(5)", "fS",
     "i i" for 11), after a heading ("down i") before the clue."""
     words = [t for t in end if t not in MARKS]
-    if side == "start" and words and words[0] in ("down", "across"):
+    if side == "start" and words and exact_heading(words[0]):
         words = words[1:]
     read = "".join(words)
     return len(read) <= 3 and set(read) <= FIGURE_LETTERS
@@ -2490,7 +2492,7 @@ def figure_specks(end, side):
     """Whether `end` is number_shaped and holds no word of the lexicon
     ("fS", "ll", "i i"; not "is" or "it", which may be a word lost)."""
     words = [t for t in end if t not in MARKS]
-    if side == "start" and words and words[0] in ("down", "across"):
+    if side == "start" and words and exact_heading(words[0]):
         words = words[1:]
     return number_shaped(end, side) and not any(is_word(t) for t in words)
 
@@ -2584,8 +2586,8 @@ def clean(text):
     # HYPHENED_A_TO and "a-" before an -ing word ("a-hunting") stand.
     text = re.sub(r"\b([Aa]|[Tt]o)-(?!(?:" + "|".join(HYPHENED_A_TO) + r"|[a-z]+ing)\b)(?=[a-z]{2,}\b)",
                   r"\1 ", text)
-    # A one read as l or I before another digit ("l9th-century").
-    text = re.sub(r"\b[lI](?=\d)", "1", text)
+    # A one read as l or I before another digit ("l9th-century", "See I3").
+    text = ones_read(see_numeral(text))
     # The space before a bracket opening on a word lost ("slang(from").
     text = re.sub(r"(?<=[a-z]{2})\((?=[a-z]{3})", " (", text)
     # The space after a question or exclamation mark lost ("Worried?Pulse").
@@ -2725,7 +2727,7 @@ def unhyphen(text):
     return re.sub(r"(?<![\w-])([A-Za-z]+)-([a-z]+)(?![\w-])", join, text)
 
 
-HEADING = re.compile(r"^\W*(?:clues\s+)?(?:across|down)\W*$", re.IGNORECASE | re.MULTILINE)
+HEADING = HEADING_LINE
 
 
 def numbers_joined(clue, streams):
@@ -2992,8 +2994,7 @@ PAGE_TEXT = re.compile(r"\bcr\w{4,8}d\W{1,3}(?:page|p)\W{0,2}\d"
 #: A list's heading read into a clue: "ACROSS" or "DOWN" in capitals,
 #: which no clue prints, or either opening the text before the first
 #: clue's number ("Down i Beginning", "ACROSS 1 Fish").
-HEADING_IN = re.compile(r"(?<![\w'])(?:ACROSS|DOWN)(?![\w'])"
-                        r"|^\W*(?i:across|down)\W*\s+(?:\d{1,2}|[iIl|!])\W?\s+(?=[A-Z\"'])")
+HEADING_IN = re.compile(CAPS_HEADING.pattern + "|" + HEADING_BEFORE_ONE.pattern)
 
 #: The next puzzle's heading read onto a clue, with that puzzle's preamble
 #: and clues after it: a book prints "Alphabetical Jigsaw" (Araucaria book
@@ -3137,7 +3138,7 @@ def trimmed(text, lid, voted=True):
         word = lid.split("-")[1]
         text = re.sub(rf"^(?:{word}|{word.capitalize()}|{word.upper()})(?:\W+|\W*\s+[1iIl|!]\W?\s+)(?=[A-Z][a-z])",
                       "", text)
-    text = re.sub(r"\s*(?<![\w'])(?:ACROSS|DOWN)(?![\w'])\W*?(?=\s|$)", "", text).strip()
+    text = re.sub(rf"\s*{CAPS_HEADING.pattern}\W*?(?=\s|$)", "", text).strip()
     text = re.sub(r"\b([A-Za-z]+)-\s+(?=[^\w\s]|\d)[^\w\s]*\d?[^\w\s]*\s*([a-z]+)\b", line_end_hyphen, text)
     while "(" not in text or ((k := unpaired(text)) is not None and text[k] in ")]"):
         head, _, last = text.rpartition(" ")
@@ -4042,10 +4043,6 @@ def printed_alike(text, readings, unanimous=False):
 
 # ------------------------------------------------------------ the VLM's pick
 
-#: A count at a clue's end, which the VLM's pick may carry.
-COUNT_END = re.compile(r"\s*\(([\d\s,.\-]+)\)\W*$")
-
-
 def candidates(texts, lid, parse):
     """Each reading's text for one light ("N-across"), with its count;
     `parse` turns a reading into {"across": clues, "down": clues} (or None)
@@ -4075,7 +4072,7 @@ def held(text, cands):
         return text or ""
     low = [m.group().lower() for m in words]
     there = [[] for _ in words]
-    theirs = [tokens(COUNT_END.sub("", c)) for c in cands]
+    theirs = [tokens(strip_count(c)) for c in cands]
     for ws in theirs:
         for i, j in align(low, [w.lower() for w in ws]):
             if i is not None and j is not None:
@@ -4111,7 +4108,7 @@ def vlm_pick(texts, laid, blank, parse, pick):
         cands = candidates(texts, lid, parse)
         if not cands:
             continue
-        got = trimmed(held(clean(COUNT_END.sub("", pick(lid, cands) or "")), cands), lid)
+        got = trimmed(held(clean(strip_count(pick(lid, cands) or "")), cands), lid)
         if not tokens(got) or merged(got):
             continue
         laid[lid] = (got, laid[lid][1], laid[lid][2])

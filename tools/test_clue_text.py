@@ -55,3 +55,22 @@ for text, want in [("SeeI3.", "See 13."), ("See 13", "See 13"), ("See13", "See 1
 assert ct.as_digits("I3") == "13" and ct.as_digits("lO") == "10" and ct.as_digits("4S") == "45"
 assert ct.as_digits("4S", s="8") == "48"
 print("ok")
+
+# shared by ocr_clues and file_archive_org_puzzles
+assert ct.HEADING_LINE.sub("0", "Clues Across:\n1 Fish (4)\nD0WN\nDOWNN") == "0\n1 Fish (4)\n0\n0"
+assert ct.HEADING_LINE.search("Across the board") is None
+assert ct.CAPS_HEADING.search("on the DOWN board") and not ct.CAPS_HEADING.search("Down the hatch")
+assert not ct.CAPS_HEADING.search("DOWNING")
+m = ct.HEADING_BEFORE_ONE.match("Down i Beginning")
+assert ct.direction(m[1]) == "down" and "Down i Beginning"[m.end():] == "Beginning"
+assert ct.HEADING_BEFORE_ONE.match("ACROSS 1 Fish") and ct.HEADING_BEFORE_ONE.match("across 1 Fish")
+assert ct.HEADING_BEFORE_ONE.match("D0WN l Fish")
+assert not ct.HEADING_BEFORE_ONE.match("Across 1, 4")
+assert ct.HEADING_AFTER_COUNT.search("chance (5) DOWN")[1] == "DOWN"
+assert ct.ones_read("l9th-century and I3 more, still it") == "19th-century and 13 more, still it"
+assert ct.strip_count("hair (8)") == "hair" and ct.strip_count("hair (8") == "hair"
+assert ct.strip_count("writer 17).") == "writer" and ct.strip_count("two words (3,4).") == "two words"
+assert ct.strip_count("Fish (S)") == "Fish" and ct.strip_count("no count") == "no count"
+assert ct.is_stray_count("U0).") and ct.is_stray_count("5).") and not ct.is_stray_count("a word (5)")
+assert ct.heading_of("AcRoss") == "ACROSS" and ct.heading_of("dOwN") == "DOWN"
+assert ct.heading_of("acr0ss") == "ACROSS" and ct.heading_of("A C R O S S") == "ACROSS"
