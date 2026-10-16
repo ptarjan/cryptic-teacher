@@ -1806,11 +1806,11 @@ tools/test_privateeye_dates.py                 does tools/fetch_privateeye.py re
                                                off every title shape the archive ships, and
                                                take the Eye's Christmas cover date as it prints
                                                it?
-tools/test_clue_repair_one_reading.sh          does tools/clue_repair.py split a clue the OCR
+tools/test_clue_repair_one_reading.py          does tools/clue_repair.py split a clue the OCR
                                                ran into the one before it only at a number the
                                                lists skip, and put misnumbered clues in order,
                                                for every filer that parses clue lists?
-tools/test_privateeye_missing_size.sh          does tools/clue_repair.fill_missing_sizes size a
+tools/test_privateeye_missing_size.py          does tools/clue_repair.fill_missing_sizes size a
                                                plain light whose count the OCR lost from the
                                                answer the next issue printed?
 tools/test_fetch_puzzle_misfiled.py            does fetch_puzzle.convert() refuse a mis-filed
@@ -2121,7 +2121,7 @@ tools/coverage.py                              the coverage ledger: every series
                                                room
 tools/coverage.sh                              the scheduled entry point for coverage.py daily,
                                                from a worktree
-tools/test_coverage.sh                         does every ledger bucket name a module that
+tools/test_coverage.py                         does every ledger bucket name a module that
                                                exists, every filer refusal have a bucket, every
                                                missing puzzle land in exactly one bucket, and
                                                the daily run queue a note only when it carries
@@ -2684,7 +2684,7 @@ tools/desktop_hosts.py                         the desktop's LAN and tailnet add
 tools/desktop_hosts.json                       the desktop's addresses, LAN first, tailnet as
                                                fallback: the one place to edit when its DHCP
                                                lease changes
-tools/test_clue_repair.sh                      does tools/clue_repair.py give a clue whose
+tools/test_clue_repair.py                      does tools/clue_repair.py give a clue whose
                                                bracket its own reading lost the count another
                                                reading prints, in its parts, so the scan filers
                                                file "3,6,5" and not the bare letter total "14"?
@@ -2732,10 +2732,10 @@ tools/test_pct.sh                              does the site's progress percent 
                                                say 100% when it is?
 tools/media_manifest.py                        what the media disk holds, kept on the SSD so no
                                                scheduled job walks it
-tools/test_no_media_scans.sh                   does no scheduled tick walk the media disk?
+tools/test_no_media_scans.py                   does no scheduled tick walk the media disk?
 tools/privateeye_scans.py                      read a Cyclops crossword's clues off the page
                                                image of archive.org's Private Eye scan
-tools/test_privateeye_scans.sh                 does tools/privateeye_scans.py find a Private
+tools/test_privateeye_scans.py                 does tools/privateeye_scans.py find a Private
                                                Eye page's clue columns from its djvu words,
                                                take the crossword's number and not the entry
                                                address's, read a linked head and a

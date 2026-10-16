@@ -1,23 +1,47 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does every coverage-ledger bucket name a module that exists; does every
 # refusal the archive.org filer can stamp have a bucket; does a missing
 # puzzle land in exactly one bucket, a recoverable claim beating one that is
 # not; and does the daily run queue a note only when it carries work (a
 # recoverable bucket or a regression), with -q, and never otherwise?
-set -euo pipefail
-cd "$(dirname "$0")/.."
-tmp=$(mktemp -d)
-trap 'rm -rf "$tmp"' EXIT
-COVERAGE_STATE="$tmp/state" WAKE_SH="$tmp/wake.sh" python3 - "$tmp" <<'PY'
-import json, os, sys
+#
+#     python3 tools/test_coverage.py
+import atexit
+import json
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
 from pathlib import Path
+
+REPO = Path(__file__).resolve().parent.parent
+os.chdir(REPO)
 sys.path.insert(0, "tools")
+
+tmp = Path(tempfile.mkdtemp())
+atexit.register(shutil.rmtree, tmp, ignore_errors=True)
+os.environ["COVERAGE_STATE"] = str(tmp / "state")
+os.environ["WAKE_SH"] = str(tmp / "wake.sh")
+
+
+def fail(msg):
+    print(f"FAIL {msg}")
+    sys.exit(1)
+
+
+def tools_py(code, **env):
+    """`code` in a fresh interpreter run from tools/, as the shell's python3 -c did."""
+    r = subprocess.run([sys.executable, "-c", code], cwd=REPO / "tools", check=True, text=True,
+                       stdout=subprocess.PIPE, env={**os.environ, **env})
+    return r.stdout.rstrip("\n")
+
+
 import archive_coverage as ac
 import coverage as cov
 ROOT_REAL = cov.ROOT
 import file_archive_org_puzzles as filer
 
-tmp = Path(sys.argv[1])
 
 # Every bucket names an owner that exists, a fix, and its flags.
 for (source, cause), c in cov.CAUSES.items():
@@ -301,57 +325,65 @@ got = {n: cause for _b, _s, n, _d, cause in cov.blog_rows()}
 assert got == {92: "partial-post", 101: "no-grid", 2: "no-grid"}, got
 assert not cov.CAUSES[("bigdave44", "partial-post")].actionable
 print("coverage: ok")
-PY
 
 # ft_pdf_rows asks the ft-pdf manifest which PDFs are fetched, never the disk:
 # 2.pdf on disk but not in the manifest counts as not fetched.
-mkdir -p "$tmp/dl/ft-pdf/pdf" "$tmp/dl/.manifest"
-echo '{"puzzles": {"1": {"date": "2020-01-01"}, "2": {"date": "2020-01-02"}}}' > "$tmp/dl/ft-pdf/index.json"
-: > "$tmp/dl/ft-pdf/pdf/2.pdf"
-echo '{"key": "1.pdf", "at": 1}' > "$tmp/dl/.manifest/ft-pdf.jsonl"
-got=$(cd tools && CT_DOWNLOADS="$tmp/dl" python3 -c "
-import coverage as cov
-print(sorted(cov.ft_pdf_rows()))")
-[ "$got" = "[(1, '2020-01-01', 'not-read'), (2, '2020-01-02', 'not-fetched')]" ] || { echo "FAIL ft_pdf_rows off the manifest: $got"; exit 1; }
-echo "ft_pdf_rows: ok"
+(tmp / "dl" / "ft-pdf" / "pdf").mkdir(parents=True)
+(tmp / "dl" / ".manifest").mkdir(parents=True)
+(tmp / "dl" / "ft-pdf" / "index.json").write_text(
+    '{"puzzles": {"1": {"date": "2020-01-01"}, "2": {"date": "2020-01-02"}}}\n')
+(tmp / "dl" / "ft-pdf" / "pdf" / "2.pdf").write_text("")
+(tmp / "dl" / ".manifest" / "ft-pdf.jsonl").write_text('{"key": "1.pdf", "at": 1}\n')
+got = tools_py("import coverage as cov\nprint(sorted(cov.ft_pdf_rows()))", CT_DOWNLOADS=str(tmp / "dl"))
+if got != "[(1, '2020-01-01', 'not-read'), (2, '2020-01-02', 'not-fetched')]":
+    fail(f"ft_pdf_rows off the manifest: {got}")
+print("ft_pdf_rows: ok")
 
 # coverage.trove_articles lists the disk until trove-titles is complete, then
 # asks only the manifest.
-mkdir -p "$tmp/tv/.manifest" "$tmp/tv/trove/5"
-echo '{}' > "$tmp/tv/trove/5/meta.json"
-echo '{"article": "9", "title": "x", "at": 1}' > "$tmp/tv/.manifest/trove-titles.jsonl"
-before=$(cd tools && CT_DOWNLOADS="$tmp/tv" python3 -c "import coverage as c; print(c.trove_articles())")
-echo '{}' > "$tmp/tv/.manifest/trove-titles.complete"
-after=$(cd tools && CT_DOWNLOADS="$tmp/tv" python3 -c "import coverage as c; print(c.trove_articles())")
-[ "$before $after" = "['5'] ['9']" ] || { echo "FAIL trove_articles: $before $after"; exit 1; }
-echo "trove_articles: ok"
+(tmp / "tv" / ".manifest").mkdir(parents=True)
+(tmp / "tv" / "trove" / "5").mkdir(parents=True)
+(tmp / "tv" / "trove" / "5" / "meta.json").write_text("{}\n")
+(tmp / "tv" / ".manifest" / "trove-titles.jsonl").write_text('{"article": "9", "title": "x", "at": 1}\n')
+tv = {"CT_DOWNLOADS": str(tmp / "tv")}
+code = "import coverage as c; print(c.trove_articles())"
+before = tools_py(code, **tv)
+(tmp / "tv" / ".manifest" / "trove-titles.complete").write_text("{}\n")
+after = tools_py(code, **tv)
+if f"{before} {after}" != "['5'] ['9']":
+    fail(f"trove_articles: {before} {after}")
+print("trove_articles: ok")
 
 # coverage.trove_dates reads the index listings until trove-dates is complete,
 # then only the manifest; stamp_cause's zone check likewise off trove-zones.
-mkdir -p "$tmp/tv/trove/index" "$tmp/tv/trove-clues/7"
-echo '{"id": 5, "date": "Thursday 11 December 1980"}' > "$tmp/tv/trove/index/1980.jsonl"
-: > "$tmp/tv/trove-clues/7/zone0.png"
-echo '{"article": "8", "date": "Friday 12 December 1980", "at": 1}' > "$tmp/tv/.manifest/trove-dates.jsonl"
-printf '%s\n' '{"article": "8", "readings": true, "at": 1}' '{"article": "7", "readings": false, "at": 1}' \
-    > "$tmp/tv/.manifest/trove-zones.jsonl"
-q='import coverage as c, downloads, file_trove_puzzles as t
+(tmp / "tv" / "trove" / "index").mkdir(parents=True)
+(tmp / "tv" / "trove-clues" / "7").mkdir(parents=True)
+(tmp / "tv" / "trove" / "index" / "1980.jsonl").write_text('{"id": 5, "date": "Thursday 11 December 1980"}\n')
+(tmp / "tv" / "trove-clues" / "7" / "zone0.png").write_text("")
+(tmp / "tv" / ".manifest" / "trove-dates.jsonl").write_text(
+    '{"article": "8", "date": "Friday 12 December 1980", "at": 1}\n')
+(tmp / "tv" / ".manifest" / "trove-zones.jsonl").write_text(
+    '{"article": "8", "readings": true, "at": 1}\n{"article": "7", "readings": false, "at": 1}\n')
+q = '''import coverage as c, downloads, file_trove_puzzles as t
 row = lambda a: {"article": a, "inputs": "h", "grid": "image", "pending": "x"}
-print(c.trove_dates(), [a for a in "78" if not t.stamp_cause(row(a), downloads.TROVE_CLUES)])'
-before=$(cd tools && CT_DOWNLOADS="$tmp/tv" python3 -c "$q")
-echo '{}' > "$tmp/tv/.manifest/trove-dates.complete"
-echo '{}' > "$tmp/tv/.manifest/trove-zones.complete"
-after=$(cd tools && CT_DOWNLOADS="$tmp/tv" python3 -c "$q")
-[ "$before" = "{'5': datetime.date(1980, 12, 11)} ['8']" ] || { echo "FAIL trove_dates/zones listed: $before"; exit 1; }
-[ "$after" = "{'8': datetime.date(1980, 12, 12)} ['7']" ] || { echo "FAIL trove_dates/zones manifest: $after"; exit 1; }
-echo "trove_dates, stamp_cause zones: ok"
+print(c.trove_dates(), [a for a in "78" if not t.stamp_cause(row(a), downloads.TROVE_CLUES)])'''
+before = tools_py(q, **tv)
+(tmp / "tv" / ".manifest" / "trove-dates.complete").write_text("{}\n")
+(tmp / "tv" / ".manifest" / "trove-zones.complete").write_text("{}\n")
+after = tools_py(q, **tv)
+if before != "{'5': datetime.date(1980, 12, 11)} ['8']":
+    fail(f"trove_dates/zones listed: {before}")
+if after != "{'8': datetime.date(1980, 12, 12)} ['7']":
+    fail(f"trove_dates/zones manifest: {after}")
+print("trove_dates, stamp_cause zones: ok")
 
 # privateeye_wayback.lost reads the SSD summary fetch/fetch-ia/file write, not
 # the captures: with it saved, the scans can go and the causes stand; a
 # changed privateeye_wayback.py (version) indexes the disk again once.
-mkdir -p "$tmp/pe/privateeye-wayback/ia"
-echo "no clues here" > "$tmp/pe/privateeye-wayback/ia/848_djvu.txt"
-echo '{"5": "grid does not rebuild"}' > "$tmp/pe/privateeye-wayback/refused.json"
-got=$(cd tools && CT_DOWNLOADS="$tmp/pe" python3 -c "
+(tmp / "pe" / "privateeye-wayback" / "ia").mkdir(parents=True)
+(tmp / "pe" / "privateeye-wayback" / "ia" / "848_djvu.txt").write_text("no clues here\n")
+(tmp / "pe" / "privateeye-wayback" / "refused.json").write_text('{"5": "grid does not rebuild"}\n')
+got = tools_py('''
 import json, shutil, privateeye_wayback as pw
 causes = lambda: {n: c for n, c in pw.lost().items() if n in (2, 3, 69)}
 first = causes()
@@ -361,7 +393,8 @@ shutil.rmtree(pw.DIR)
 second = causes()
 s['version'] = 'old'
 pw.summary_path().write_text(json.dumps(s))
-print(first == second, first, causes())")
-[ "$got" = "True {2: 'scan-not-read', 3: 'scan-unparsed', 69: 'no-capture'} {2: 'scan-not-read', 3: 'scan-not-read', 69: 'no-capture'}" ] \
-    || { echo "FAIL privateeye_wayback.lost off the summary: $got"; exit 1; }
-echo "privateeye_wayback.lost: ok"
+print(first == second, first, causes())''', CT_DOWNLOADS=str(tmp / "pe"))
+if got != ("True {2: 'scan-not-read', 3: 'scan-unparsed', 69: 'no-capture'} "
+           "{2: 'scan-not-read', 3: 'scan-not-read', 69: 'no-capture'}"):
+    fail(f"privateeye_wayback.lost off the summary: {got}")
+print("privateeye_wayback.lost: ok")

@@ -1,19 +1,36 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does tools/clue_repair.repair_rows (split_run_on and order, the repairs a
 # single reading needs) split a clue the OCR ran into the one before it only at a
 # number the lists skip, and put misnumbered clues in order? (Cyclops Nos 71, 96, 98, 111, 113.)
 #
-#     bash tools/test_clue_repair_one_reading.sh
+#     python3 tools/test_clue_repair_one_reading.py
 #
 # Offline.
-set -uo pipefail
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
-fails=0
-check() {
-  if [ "$2" = "$3" ]; then echo "ok   $1"; else echo "FAIL $1: want [$2] got [$3]"; fails=$((fails + 1)); fi
-}
+import io
+import os
+import sys
+from pathlib import Path
 
-out=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO / "tools"))
+
+fails = 0
+
+
+def check(what, want, got):
+    global fails
+    if want == got:
+        print(f"ok   {what}")
+    else:
+        print(f"FAIL {what}: want [{want}] got [{got}]")
+        fails += 1
+
+
+# What the shell's $(...) captured: everything the checks below print.
+_stdout = sys.stdout
+sys.stdout = io.StringIO()
+
+
 import clue_repair as pw
 
 
@@ -60,18 +77,29 @@ a = [r("1", "A", "4"), r("7", "B", "4"), r("4", "C", "4"), r("5", "D", "4")]
 d = [r("2", "E", "4"), r("6", "F", "4")]
 a2, d2 = pw.repair_rows(a, d)
 print("MISREAD", [x["number"] for x in a2])
-PY
-)
-get() { echo "$out" | sed -n "s/^$1 //p"; }
 
-check "a lost count: the clue splits at the skipped number" \
-  "[('15', 'Action at one time', None), ('17', 'Go down sportingly', '6')]" "$(get LOST)"
-check "a bare cross-reference splits off as See N" \
-  "[('1', 'One', '4'), ('5', 'Five', '5'), ('2', 'See 4', None), ('3', 'Supported while bestowing', '4'), ('6', 'Six', '5')]" "$(get SEE)"
-check "a count inside the text is the earlier clue's" \
-  "[('10', 'Quite able', '7'), ('11', 'Those who have been honoured', '5')]" "$(get INSIDE)"
-check "a list with no skipped number is left alone" "('1', 'Whole 2 Clue here', '5')" "$(get WHOLE)"
-check "a down list opening with the across tail moves to across" "['1', '5', '6', '8'] ['2', '3']" "$(get TAIL)"
-check "a number out of place between neighbours is the one gap number" "['1', '3', '4', '5']" "$(get MISREAD)"
+out_text = sys.stdout.getvalue()
+sys.stdout = _stdout
 
-[ "$fails" = 0 ] && echo "all ok" || { echo "$fails failed"; exit 1; }
+
+def got(key):
+    return "\n".join(l[len(key) + 1:] for l in out_text.splitlines() if l.startswith(key + " "))
+
+
+check('a lost count: the clue splits at the skipped number',
+      "[('15', 'Action at one time', None), ('17', 'Go down sportingly', '6')]", got("LOST"))
+check('a bare cross-reference splits off as See N',
+      "[('1', 'One', '4'), ('5', 'Five', '5'), ('2', 'See 4', None), ('3', 'Supported while bestowing', '4'), ('6', 'Six', '5')]", got("SEE"))
+check("a count inside the text is the earlier clue's",
+      "[('10', 'Quite able', '7'), ('11', 'Those who have been honoured', '5')]", got("INSIDE"))
+check('a list with no skipped number is left alone',
+      "('1', 'Whole 2 Clue here', '5')", got("WHOLE"))
+check('a down list opening with the across tail moves to across',
+      "['1', '5', '6', '8'] ['2', '3']", got("TAIL"))
+check('a number out of place between neighbours is the one gap number',
+      "['1', '3', '4', '5']", got("MISREAD"))
+
+if fails:
+    print(f"{fails} failed")
+    sys.exit(1)
+print("all ok")
