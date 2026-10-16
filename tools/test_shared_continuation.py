@@ -1,16 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does a light whose clue names two leaders end both answers?
 #
-#     bash tools/test_shared_continuation.sh
+#     python3 tools/test_shared_continuation.py
 #
 # cryptic-23753's 51-across LIKE reads "See 6 and 48 down": it ends SOME LIKE IT
 # HOT and WARLIKE, though the page groups it with 6-across alone. A light already in one
 # group is spare for another leader only when its own clue names that leader
 # among two or more (fetch_puzzle._spare_light); a pointer naming one leader is
 # never taken from the group it sits in.
-set -uo pipefail
-cd "$(dirname "$0")/.."
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import copy
 import sys
 
@@ -65,4 +66,3 @@ check("a light naming two leaders is not taken by a third", leaders(other),
       {"6-across": SOME, "48-down": ["48-down"]})
 
 sys.exit(1 if fails else 0)
-PY

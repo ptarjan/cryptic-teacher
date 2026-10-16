@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # Does the puzzle format hold: the schema refuses every field that can be
 # derived from others (top-level name and series, an annotation's type, answer,
 # blocks, ...), the validator evaluates each wordplay tree against its answer
@@ -6,14 +6,15 @@
 # need, and series.name_facts turns a fetched name into the prize, title or
 # label display_name needs?
 #
-#     bash tools/test_puzzle_format.sh
+#     python3 tools/test_puzzle_format.py
 #
 # The puzzles here are tools/fixtures/format-puzzles (three Guardian cryptics
 # and a book puzzle, frozen copies of corpus files), edited in memory or in temp
 # dirs; nothing in the corpus is read or written.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import copy
 import json
 import os
@@ -320,4 +321,3 @@ check(f"every fixture's shim unpacks to browser_puzzle() ({len(want)})",
 
 print("PASS" if not fails else f"{fails} FAILED")
 sys.exit(1 if fails else 0)
-PY

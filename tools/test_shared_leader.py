@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Can one light start more than one linked answer?
 #
-#     bash tools/test_shared_leader.sh
+#     python3 tools/test_shared_leader.py
 #
 # Genius 209's 22 across, IVOR, starts both IVOR HUGH JEGO (22,17,3) and IVOR
 # SORE BEACH BUM (22,2,5): two printed clues on one light. The light's first
@@ -9,9 +9,11 @@
 # its `alsoLeads` {clue, group, annotation} (tools/groups.py). This pins the
 # schema, the groups readers, the shape checks, the annotate run's view and
 # write, and the Genius parser's "See N" placing for that case.
-set -uo pipefail
-cd "$(dirname "$0")/.."
-PYTHONPATH=tools python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
+
 import copy
 import sys
 
@@ -137,4 +139,3 @@ check("first 22 keeps its own lights", clues[0]["lights"], [(22, "across"), (17,
 
 print("FAIL" if fails else "PASS")
 sys.exit(1 if fails else 0)
-PY

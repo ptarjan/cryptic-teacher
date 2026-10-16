@@ -1,12 +1,13 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # tools/puzzle_style.py calls a puzzle straight (not a cryptic) when its clues
 # are definitions with no wordplay, and nothing else: each verdict on a real
 # puzzle read by eye, with its look-alike on the other side. A straight puzzle
 # is unrated (difficulty.raw) and goes behind every cryptic in the hinting
 # queue (prereset_plan), a No 1 or a series' oldest included.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import copy
 import fetch_puzzle as fp
 import prereset_plan as pp
@@ -80,4 +81,3 @@ check("head_of_queue pins no straight puzzle, though it is the listener's No 1 a
 check("(mirror) a lockout's own pin still holds it",
       pp.head_of_queue([r["id"] for r in rows], ["listener-1"], rows)[1][0] == "listener-1")
 raise SystemExit(fails)
-PY

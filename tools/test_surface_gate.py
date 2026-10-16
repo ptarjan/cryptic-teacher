@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does tools/author_trial.py refuse a candidate the clue judge refuses, and does
 # the judge refuse "Hacks are on the stouts" and the nerazzurri INTER?
 #
-#     bash tools/test_surface_gate.sh
+#     python3 tools/test_surface_gate.py
 #
 # The plumbing half stubs the model: a candidate is refused only when both
 # judge calls refuse it, and a reply missing a verdict is an error. The
@@ -10,10 +10,11 @@
 # clues Paul refused, a surface that is not a real sentence ("Hacks are on the
 # stouts") and a definition that needs a football fan ("Milan side" for INTER,
 # explained by the nerazzurri), and wants those two refused and A001 passed.
-set -uo pipefail
-cd "$(dirname "$0")/.."
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
 
-PYTHONPATH=tools python3 - <<'PY'
 import json
 import os
 import shutil
@@ -74,4 +75,3 @@ for f in fails:
 if fails:
     sys.exit(1)
 print("  ok: the clue judge refuses what it should, and only when both calls agree")
-PY

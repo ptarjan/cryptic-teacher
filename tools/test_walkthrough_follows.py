@@ -1,12 +1,13 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # A hint has to be followable: the walkthrough names each indicator and shows each
 # intermediate result, and an anagram, reversal or hidden indicator touches its fodder.
 # The two clues a solver could not follow: times-8 56D (EWE: "may come to" sits
 # beyond "lamb", and the walkthrough never names it) and cryptic-21785 16D
 # (DOMINATE: the walkthrough explains DOME and never says ANTI makes INAT).
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import validate_annotations as v
 
 fails = 0
@@ -53,4 +54,3 @@ tag = v.follow_warnings("56D", {"wordplay": ewe, "explanation": {"walkthrough": 
 check("both findings are warnings with their markers", [True, True],
       [any(m in w for w in tag) for m in (v.INDICATOR_APART, v.WALKTHROUGH_GAP)])
 raise SystemExit(fails)
-PY

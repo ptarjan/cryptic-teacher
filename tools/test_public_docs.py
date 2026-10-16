@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Do the public docs describe the project rather than one person's machines?
 #
-#     bash tools/test_public_docs.sh
+#     python3 tools/test_public_docs.py
 #
 # The repo is public. Its docs name hosts by role (the OCR host, the GPU host,
 # the data disk whose path tools/downloads.py sets), never by a local path,
@@ -9,9 +9,10 @@
 # those in README.md, docs/*.md, BACKFILLS.md, APP.md or tools/data/README.md.
 # docs/LAYOUT.md is generated from tools/build_readme.py's table, so a hit
 # there is fixed in that table.
-set -euo pipefail
-cd "$(dirname "$0")/.."
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import glob
 import re
 import sys
@@ -42,4 +43,3 @@ if bad:
           "(the OCR host, the GPU host, the data disk)", file=sys.stderr)
     sys.exit(1)
 print(f"ok: {len(files)} public docs name no local path, home, LAN address or owner's machine")
-PY

@@ -695,12 +695,12 @@ tools/validate_annotations.py                  proves every annotation actually 
                                                may and may not say
 tools/test_indicator_note_letters.py           an indicator note may not write a block's
                                                letters, since its rung comes before the blocks
-tools/test_selector_indicator.sh               a letter selector ("capital of", "initially") is
+tools/test_selector_indicator.py               a letter selector ("capital of", "initially") is
                                                an indicator, so a new or changed block holds
                                                only the words it selects from
 tools/test_anagram_fodder.py                   an anagram's fodder is drawn from the clue's
                                                wordplay and its blocks' letters
-tools/test_wordplay_shape_rules.sh             each wordplay shape rule is counted by
+tools/test_wordplay_shape_rules.py             each wordplay shape rule is counted by
                                                validate_annotations against its own wordplay.*
                                                allowance (a charade inside a charade, an op
                                                with no indicator, a cryptic definition's extra
@@ -710,7 +710,7 @@ tools/test_wordplay_shape_rules.sh             each wordplay shape rule is count
                                                a charade, an anagram around a container), and
                                                tidy_wordplay_shapes.py joins a charade inside a
                                                charade once
-tools/test_walkthrough_follows.sh              a hint can be followed: findings (not errors)
+tools/test_walkthrough_follows.py              a hint can be followed: findings (not errors)
                                                when a walkthrough never names an indicator or
                                                shows an intermediate result of the wordplay
                                                tree, or an anagram, reversal or hidden
@@ -724,7 +724,7 @@ tools/test_flatten_anagram_fodder.py           an anagram's pieces are its own p
                                                and flatten_anagram_fodder.py rewrites a filed
                                                one in clue order without changing view(), and
                                                changes nothing on a second run
-tools/test_setter_error.sh                     a clue the setter printed wrong is annotated as
+tools/test_setter_error.py                     a clue the setter printed wrong is annotated as
                                                printed: the anagram mismatch
                                                tools/data/setter_error.json names for that
                                                light passes, with a walkthrough saying so,
@@ -759,7 +759,7 @@ tools/test_hidden_messages.py                  holds `hiddenLetter` to its clue'
                                                text, `messages` to its clues' letters in order,
                                                the preamble detection's hits and misses, and
                                                the converter
-tools/test_theme_clue.sh                       holds `themeClue`, the hand-filed clue that
+tools/test_theme_clue.py                       holds `themeClue`, the hand-filed clue that
                                                states a themed puzzle's gimmick, to standing in
                                                for a preamble for clue-word-less blocks, naming
                                                a worded entry, re-queuing a recorded annotate
@@ -945,7 +945,7 @@ tools/puzzle_style.py                          whether a puzzle is a cryptic at 
                                                indicator, clue-type and blocks rungs,
                                                difficulty and the family counts skip it, and
                                                the hinting queues take it last
-tools/test_puzzle_style.sh                     is each real puzzle read by eye as straight
+tools/test_puzzle_style.py                     is each real puzzle read by eye as straight
                                                called straight, and its cryptic look-alike (an
                                                Azed special, a terse 2021 Guardian, 1967
                                                cryptic definitions) not; is a straight puzzle
@@ -955,7 +955,7 @@ tools/test_straight_ladder.js                  does Listener No 1, a straight pu
                                                above its clues and offer no indicator,
                                                clue-type or blocks rung, while a 1930 Times
                                                puzzle with wordplay keeps them?
-tools/test_puzzle_tags.sh                      is each tag on a real puzzle that has it and off
+tools/test_puzzle_tags.py                      is each tag on a real puzzle that has it and off
                                                the look-alike that does not (a feed that lost
                                                its clues is not unclued, an erratum is not
                                                special rules, a model's solve is never a
@@ -968,7 +968,7 @@ tools/showcase.py                              the puzzles /showcase/ picks out 
                                                come from build_seo_pages as it renders each
                                                page; only annotated puzzles are shown, and
                                                wanted() tells the burn which to annotate first
-tools/test_showcase.sh                         is each showcase detector on a real puzzle that
+tools/test_showcase.py                         is each showcase detector on a real puzzle that
                                                has the feature and off the look-alike (hidden
                                                in the clue is not hidden in the grid, a book's
                                                year is not a print date), is each section on
@@ -1414,7 +1414,7 @@ tools/surface_judge.md                         author_trial.py's clue judge: is 
                                                sentence a native speaker would say or write,
                                                does it lean on nothing a general solver would
                                                look up, and does one word mislead
-tools/test_surface_gate.sh                     proves author_trial.py refuses a candidate only
+tools/test_surface_gate.py                     proves author_trial.py refuses a candidate only
                                                when both clue-judge calls do, and, where claude
                                                is on PATH, that the judge refuses "Hacks are on
                                                the stouts" and the nerazzurri INTER and passes
@@ -1725,7 +1725,7 @@ tools/test_book_queue.sh                       does tools/book_queue.py still of
                                                book to tools/acquire_books.sh?
 tools/test_build_readme.sh                     does tools/build_readme.py still read the header
                                                of every file it is asked about?
-tools/test_public_docs.sh                      do the public docs name hosts by role (the OCR
+tools/test_public_docs.py                      do the public docs name hosts by role (the OCR
                                                host, the GPU host, the data disk) rather than
                                                by a local path, home directory, LAN address or
                                                whose machine it is?
@@ -2009,7 +2009,7 @@ tools/ocr_clues.py                             the clue-text OCR every scan file
                                                readers, the vote, the check
 tools/test_clue_record_shift.py                does every Guardian clue record land on the
                                                light its number names?
-tools/test_shared_continuation.sh              does a light whose clue names two leaders end
+tools/test_shared_continuation.py              does a light whose clue names two leaders end
                                                both answers?
 tools/ocr_full_pass.sh                         the one standing corpus job: read every
                                                archive.org edition, Gale page and Trove article
@@ -2479,7 +2479,7 @@ tools/track_prereset.sh                        register the pre-reset burn as a 
                                                the lane's text is the last line of
                                                .prereset.log, which states the mode, never a
                                                label typed here
-tools/test_writeup_keyed.sh                    a blank light on a puzzle whose answer key is a
+tools/test_writeup_keyed.py                    a blank light on a puzzle whose answer key is a
                                                blog's write-up is never offered for a solve
 tools/test_post_index.sh                       does a single-puzzle write find its
                                                fifteensquared posts off the local post index,
@@ -2534,12 +2534,12 @@ tools/test_genius_puzzles.sh                   does tools/genius_puzzles.py read
                                                any string?
 tools/test_linked_group_sums.py                does the grid search use a linked answer's
                                                printed total?
-tools/test_self_clued.sh                       can a light with a clue of its own also finish
+tools/test_self_clued.py                       can a light with a clue of its own also finish
                                                another linked answer (cryptic-21893's THERE and
                                                PUBLIC in BATTLE HYMN OF THE REPUBLIC)? the
                                                holder's selfClued through the schema,
                                                groups.py, the shape checks and the length check
-tools/test_shared_leader.sh                    can one light start two linked answers (Genius
+tools/test_shared_leader.py                    can one light start two linked answers (Genius
                                                209's IVOR)? the entry's alsoLeads through the
                                                schema, groups.py, the shape checks, the
                                                annotate run and the Genius parser
@@ -2558,7 +2558,7 @@ tools/test_session_model.sh                    does apply_annotations find who w
                                                when the model never ran it?
 tools/salvaged.sh                              lists or restores what tools/puzzle_worker.sh
                                                salvaged from a discarded run
-tools/test_wordplay.sh                         does wordplay.py parse and check every op of the
+tools/test_wordplay.py                         does wordplay.py parse and check every op of the
                                                wordplay expression, and does annotation.view()
                                                derive today's fields from the tree?
 tools/wordplay.py                              a clue's wordplay as one line the model writes,
@@ -2572,20 +2572,20 @@ tools/fixtures/quiptic-619.json                quiptic-619 frozen in the format,
                                                trees to render back to the model's shape
                                                whatever the corpus copy becomes
 tools/fixtures/times-18.json                   times-18 frozen in the format with its
-                                               annotations, so tools/test_puzzle_style.sh
+                                               annotations, so tools/test_puzzle_style.py
                                                judges an annotated puzzle whatever the corpus
                                                copy becomes
 tools/fixtures/telegraph-31356.json            telegraph-31356 frozen in the format, so
-                                               tools/test_selector_indicator.sh has letter
+                                               tools/test_selector_indicator.py has letter
                                                selections to check whatever the corpus copy
                                                becomes
-tools/test_puzzle_format.sh                    do the schema and validator refuse every derived
+tools/test_puzzle_format.py                    do the schema and validator refuse every derived
                                                field (top-level name and series included),
                                                evaluate the trees and ratchet their unchecked
                                                steps, and does series.name_facts turn a fetched
                                                name into the prize, title or label it needs?
 tools/fixtures/format-puzzles/                 three Guardian cryptics and a book puzzle frozen
-                                               in the format, read by test_puzzle_format.sh,
+                                               in the format, read by test_puzzle_format.py,
                                                test_shim_format.sh and smoke_test.js
 tools/test_see_pointer.sh                      is a "See N" continuation the pointer and
                                                nothing else, in every reader?
@@ -2778,7 +2778,7 @@ tools/tidy_cdef_repeat.py                      rewrite cryptic definitions store
                                                leaves, corpus-wide (wordplay.cdefRepeat)
 tools/shape_queue.py                           the clues whose wordplay tree
                                                tools/shape_suspects.py flags and
-tools/test_shape_queue.sh                      the shape re-annotation list
+tools/test_shape_queue.py                      the shape re-annotation list
                                                (tools/shape_queue.py): a listed clue is written
                                                by a run on its hinted puzzle, the old hint is
                                                never lost, and a filed clue leaves the list.

@@ -1,9 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # tools/puzzle_tags.py tags what the file states and nothing it only suggests:
 # each tag on a real puzzle that has it, and off the look-alike that does not.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import copy
 import fetch_puzzle as fp
 import puzzle_tags as pt
@@ -134,6 +135,6 @@ plain = fp.index_row(fp.resolve_puzzle("cryptic-30066"))
 check("a row with nothing unusual has no tags key", "tags" not in plain, plain.get("tags"))
 check("every label and blurb is a sentence without a count of the archive",
       all(not any(ch.isdigit() for ch in v["label"] + v["blurb"]) for v in pt.TAGS.values()))
-raise SystemExit(fails)
-PY
-echo "all puzzle tag checks passed"
+if fails:
+    raise SystemExit(fails)
+print("all puzzle tag checks passed")

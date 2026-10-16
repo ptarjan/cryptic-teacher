@@ -201,7 +201,7 @@ the fields `view()` derives. An `unchecked` node warns, and the ratchet
 (`wordplay.unchecked` in `tools/annotation_backlog.json`) lets a puzzle keep
 only the ones it already has, so a new annotation can add none. The site's
 build reads `view_puzzle()` too (`fetch_puzzle.browser_puzzle`), so app.js
-sees the derived fields. `tools/test_puzzle_format.sh`,
+sees the derived fields. `tools/test_puzzle_format.py`,
 `tools/test_shim_format.sh` and `tools/smoke_test.js` hold this.
 
 **What the annotate run writes** (`tools/annotate_prompt.md`'s Schema) is a

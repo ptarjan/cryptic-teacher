@@ -1,12 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # The shape re-annotation list (tools/shape_queue.py): a listed clue is written
 # by a run on its hinted puzzle, the old hint is never lost, and a filed clue
 # leaves the list. The queue tier's ordering is in prereset_plan.py --self-test.
 #
-#     bash tools/test_shape_queue.sh
-set -uo pipefail
-cd "$(dirname "$0")/.."
-PYTHONPATH=tools python3 - <<'PY'
+#     python3 tools/test_shape_queue.py
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
+
 import json, shutil, tempfile
 from pathlib import Path
 import apply_annotations as A
@@ -174,4 +176,3 @@ check("two definitions leaving a clue word uncovered are refused",
 
 print("FAILED" if fails else "shape queue: all pass")
 raise SystemExit(1 if fails else 0)
-PY

@@ -1,11 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # themeClue: the entry whose clue states the theme, filed by hand on a themed
 # puzzle that prints no preamble. It lets a block with no clue words stand as
 # a preamble would, must name a worded entry, re-queues a recorded annotate
 # failure, survives clues-only promotion, and no annotation may set or change it.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import copy
 from pathlib import Path
 import apply_annotations
@@ -91,6 +92,6 @@ p, probs = clues_only.promote({**record, "themeClue": "1-across"}, {})
 check("promote carries themeClue", p and p.get("themeClue") == "1-across", probs)
 p, probs = clues_only.promote({**record, "themeClue": "4-down"}, {})
 check("promote refuses an id the grid lacks", p is None and probs, probs)
-raise SystemExit(fails)
-PY
-echo "all themeClue checks passed"
+if fails:
+    raise SystemExit(fails)
+print("all themeClue checks passed")
