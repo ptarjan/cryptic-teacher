@@ -735,6 +735,8 @@ LAYOUT = [
     ("annotating", "tools/shape_queue.py", "the clues whose wordplay tree tools/shape_suspects.py flags and"),
     ("annotating", "tools/test_shape_queue.sh", "the shape re-annotation list (tools/shape_queue.py): a listed clue is written by a run on its hinted puzzle, the old hint is never lost, and a filed clue leaves the list. The queue tier's ordering is in prereset_plan.py --self-test"),
     ("annotating", "tools/test_annotate_note_skeleton.sh", "annotate_check prints every missing block note as one --patch file, so the commonest first-check failure is one Write and one command"),
+    ("annotating", "tools/hintless_overdue.py", "a newly filed puzzle that is still hintless long after it should have been annotated"),
+    ("annotating", "tools/test_hintless_overdue.py", "hintless_overdue.overdue() on fixtures: only a recent, solved, hintless, unblocked puzzle past the threshold"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
