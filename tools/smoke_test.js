@@ -791,7 +791,7 @@ const TYPE_FAMILY = Object.fromEntries(CLUE_TYPES.types.map((t) => [t.name, t.fa
   // Shares rather than raw counts, because the corpus only grows and a count
   // that grew with it is not wrong.
   const fams = CLUE_TYPES.families;
-  assert(fams.length === 7 && fams.every((f) => f.n > 0),
+  assert(fams.length === 9 && fams.every((f) => f.n > 0),
     "every clue family in clue_types.json declares its corpus count: " + JSON.stringify(fams.map((f) => [f.name, f.n])));
 
   const seen = {};
@@ -5894,9 +5894,9 @@ global.realSetTimeout(() => {
       `the span rule only fires on an odd count and there are ${choices().size} families`);
   }
   assert(!html.includes('id="guess-check"'),
-    "and one of seven is a tap, not a tap and then a confirm: " + html);
-  assert(choices().size === 7,
-    "all seven families are offered every time, never narrowed to the plausible "
+    "and one of nine is a tap, not a tap and then a confirm: " + html);
+  assert(choices().size === 9,
+    "all nine families are offered every time, never narrowed to the plausible "
       + "ones — the list is the vocabulary: " + choices().size);
 
   // What it wanted, learned the expensive way, so the two answers below can be
