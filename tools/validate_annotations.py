@@ -3713,6 +3713,127 @@ def check_no_abbreviation_notes(tag, tree, errors):
     errors += [_abbreviation_error(tag, node) for node in _restating(tree)]
 
 
+#: Ops that rearrange, cut or reshape letters, so the letters they give are a step
+#: a solver cannot see from the leaves alone. A charade only joins.
+TRANSFORMING_OPS = frozenset({"anagram", "reversal", "container", "deletion", "substitution",
+                              "cycling", "hidden", "homophone", "spoonerism", "composite",
+                              "palindrome", *wordplay.SELECT})
+#: Indicators that must stand against what they work on.
+ADJACENT_OPS = ("anagram", "reversal", "hidden")
+WALKTHROUGH_GAP = "walkthrough does not follow the wordplay"
+INDICATOR_APART = "indicator not next to its fodder"
+
+
+def _stem_match(a, b):
+    """True when two lower-case words are one word inflected (wild/wildly, get/getting)."""
+    if a == b:
+        return True
+    p = len(os.path.commonprefix([a, b]))
+    return p >= 3 and p >= min(len(a), len(b)) - 1 and abs(len(a) - len(b)) <= 4
+
+
+def _mentions_phrase(walk_words, phrase):
+    """The phrase's words, inflections allowed, appear in order and adjacent in the walkthrough."""
+    want = words_of(phrase)
+    n = len(want)
+    return bool(n) and any(all(_stem_match(v, w) for v, w in zip(walk_words[i:i + n], want))
+                           for i in range(len(walk_words) - n + 1))
+
+
+def walkthrough_gaps(tree, answer, walkthrough):
+    """What the walkthrough leaves out of the wordplay tree: the text of each
+    indicator it never names, and the letters each transforming op gives (bar
+    the answer itself, and a single letter) that it never shows. `tree` must
+    give `answer` (wordplay.evaluate). Returns [(kind, text)], kind "indicator"
+    or "gives"."""
+    got = wordplay.evaluate(tree, answer)
+    walk_words = words_of(walkthrough)
+    # Letters as the walkthrough writes them: a word, or a run of capitals and
+    # hyphens or spaces ("I-N-A-T"), with the separators dropped.
+    shown = {w.upper() for w in re.findall(r"[^\W\d_]+", walkthrough or "")}
+    shown |= {letters(w) for w in re.findall(r"[A-Z](?:[- ][A-Z])+", walkthrough or "")}
+    whole = letters(answer)
+    out = []
+    for node in _walk(tree):
+        if node.get("unchecked"):
+            continue
+        for ind in node.get("indicators") or []:
+            if not _mentions_phrase(walk_words, ind["text"]):
+                out.append(("indicator", ind["text"]))
+        g = got.get(id(node))
+        if node.get("op") in TRANSFORMING_OPS and g and len(g) > 1 and g != whole:
+            if g not in {letters(w) for w in shown}:
+                out.append(("gives", g))
+    return out
+
+
+def _span_of(node):
+    """(start, end) in the clue of every located leaf and indicator under `node`, or None."""
+    spans = []
+    for n in _walk(node):
+        if "words" in n and "at" in n:
+            spans.append((n["at"], n["at"] + len(n["words"])))
+        spans += [(i["at"], i["at"] + len(i["text"])) for i in n.get("indicators") or [] if "at" in i]
+    return (min(s for s, _ in spans), max(e for _, e in spans)) if spans else None
+
+
+def apart_indicators(tree, clue):
+    """[(indicator text, content words in the gap)] for each anagram, reversal or
+    hidden indicator with a word between it and what it works on that is not a
+    link word. The fodder is the located leaves under the op; an indicator among
+    them is touching."""
+    allowed = link_vocabulary()
+    out = []
+    for node in _walk(tree):
+        if node.get("op") not in ADJACENT_OPS or node.get("unchecked"):
+            continue
+        fodder = [_span_of(p) for p in node.get("parts") or []]
+        fodder = [f for f in fodder if f]
+        if not fodder:
+            continue
+        fs, fe = min(s for s, _ in fodder), max(e for _, e in fodder)
+        for ind in node.get("indicators") or []:
+            if "at" not in ind:
+                continue
+            i0, i1 = ind["at"], ind["at"] + len(ind["text"])
+            gap = clue[fe:i0] if i0 >= fe else clue[i1:fs] if i1 <= fs else ""
+            bad = [w for w in words_of(gap) if w not in allowed]
+            if bad:
+                out.append((ind["text"], bad))
+    return out
+
+
+def follow_warnings(tag, ann, held, puzzle):
+    """Findings a solver would hit following the hint: a walkthrough that never
+    names an indicator or an intermediate result (WALKTHROUGH_GAP), and an
+    anagram, reversal or hidden indicator with content words between it and its
+    fodder (INDICATOR_APART). Findings only: no ratchet field counts them."""
+    tree = ann.get("wordplay")
+    clue = ((held.get("clue") or {}).get("text")) or ""
+    if not tree or not clue:
+        return []
+    out = []
+    for ind, bad in apart_indicators(tree, clue):
+        out.append(f"{tag}: {INDICATOR_APART}: {ind!r} is separated from what it works on by "
+                   f"{', '.join(bad)}; an indicator operates on what it touches")
+    walk = (ann.get("explanation") or {}).get("walkthrough")
+    if walk:
+        alt = held.get("alteration")
+        try:
+            gaps = walkthrough_gaps(tree, alt["from"] if isinstance(alt, dict) and alt.get("from")
+                                    else annotation.display_answer(held, puzzle), walk)
+        except (wordplay.WordplayError, KeyError, TypeError, ValueError):
+            gaps = []   # a tree that does not give its answer is already an error
+        if gaps:
+            inds = [t for k, t in gaps if k == "indicator"]
+            mids = [t for k, t in gaps if k == "gives"]
+            said = ([f"names the indicator{'s' if len(inds) > 1 else ''} " + ", ".join(map(repr, inds))]
+                    if inds else []) + (["shows the intermediate letters " + ", ".join(mids)] if mids else [])
+            out.append(f"{tag}: {WALKTHROUGH_GAP}: it never " + " or ".join(said)
+                       + ". A solver must be able to follow every step from the walkthrough")
+    return out
+
+
 def tree_view(puzzle):
     """(the puzzle as annotation.view_puzzle shows it, errors, warnings). A
     tree that does not give the answer is an error, and its annotation is
@@ -3723,7 +3844,7 @@ def tree_view(puzzle):
     viewed = annotation.view_puzzle(puzzle, problems)
     errors = [f"{_tag_of(puzzle, where)}: wordplay: {msg}" for where, msg in problems]
     warnings = []
-    for where, _, ann in puzzle_schema.annotations(puzzle):
+    for where, held, ann in puzzle_schema.annotations(puzzle):
         stack, n = [ann.get("wordplay")] if ann.get("wordplay") else [], 0
         while stack:
             node = stack.pop()
@@ -3741,6 +3862,7 @@ def tree_view(puzzle):
                             f"(ana(x + y)); a word that only joins them is a link word, and an "
                             f"anagram indicator goes on ana<...>")
         warnings += shape_warnings(_tag_of(puzzle, where), ann)
+        warnings += follow_warnings(_tag_of(puzzle, where), ann, held, puzzle)
     return viewed, errors, warnings
 
 
