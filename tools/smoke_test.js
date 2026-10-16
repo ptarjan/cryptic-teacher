@@ -6026,7 +6026,10 @@ global.realSetTimeout(() => {
         }
         if (hit) break;
       }
-      assert(hit, `some clue is purely ${f.name}`);
+      // A family this rare is in a sixteenth of the corpus at best: a slice or the
+      // sample may hold no clue purely of it. shape() skips this family then, and
+      // the nightly's check_shapes.js fails if no slice at all found one.
+      if (!shape(`a clue purely ${f.name}`, hit)) continue;
       found = hit;
       open();
       assert(!choices().has(f.label), `${f.label} is not a chip`);
