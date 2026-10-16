@@ -2769,6 +2769,12 @@ def check_blocks_carry_notes(entries, warnings):
         for b in ann.get("blocks", []):
             if not letters(b.get("gives")) or str(b.get("note") or "").strip():
                 continue
+            # No clue words: nothing to key a note on (`notes` is keyed by the
+            # fragment, so the advice below would say `notes: {'': ...}`). The
+            # block is either preamble-supplied letters or already an error in
+            # _validate_puzzle ("a block with no clueFragment"); one cause, one line.
+            if not str(b.get("clueFragment") or "").strip():
+                continue
             # A fragment that is its own letters ('a' > A, 'in' > IN) has
             # nothing to teach and app.js shows its letters without a note.
             if letters(b.get("clueFragment")) == letters(b.get("gives")):

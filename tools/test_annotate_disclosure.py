@@ -214,6 +214,12 @@ V.check_blocks_carry_notes([{"number": 1, "direction": "across", "annotation": {
 c = V.count_backlog(w)
 say("block_note_own_field", len(w) == 1 and c["blocks.note"] == 1 and c["indicators.note"] == 0
     and "notes" in w[0] and "'worker'" in w[0])
+# A block with no clue words has no fragment to key a note on, and the
+# no-clueFragment check already speaks for it: no second, unanswerable line.
+w = []
+V.check_blocks_carry_notes([{"number": 9, "direction": "down", "annotation": {"blocks": [
+    {"gives": "EDGE"}, {"clueFragment": "", "gives": "EDGE"}]}}], w)
+say("fragmentless_block_no_note_line", not w)
 w = []
 V.check_surface("1A", {"type": ["charade"]}, "Flat pack", w)
 V.check_surface("1A", {"type": ["double_definition"]}, "Seize part of a finger", w)
