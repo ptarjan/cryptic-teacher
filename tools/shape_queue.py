@@ -136,6 +136,14 @@ def _accounted(ann, with_leaves=True):
     return got
 
 
+def _double_definition(ann, clue):
+    """True when `ann` is a double (or triple) definition: two or more
+    definitions and no wordplay tree, whose texts and link words cover every
+    clue word."""
+    defs = ann.get("definitions") or []
+    return len(defs) >= 2 and _words(clue) <= _accounted(ann)
+
+
 def regressions(entry, new):
     """Ways a listed clue's new annotation `new` gives up what the old one on
     file (the entry's own) had, as strings; [] when it gives up nothing. The
@@ -149,12 +157,12 @@ def regressions(entry, new):
     old = entry.get("annotation") or {}
     out = []
     wp = (new or {}).get("wordplay")
-    if not wp or not (wp.get("op") or wp.get("words")):
-        if old.get("wordplay"):
-            out.append("no_tree: the new annotation has no wordplay tree where the old one had one")
-        return out
     clue = (entry.get("clue") or {}).get("text", "")
-    if "spooner" in clue.lower() and not any(n.get("op") == "spoonerism" for n in _tree_nodes(new["wordplay"])):
+    if not wp or not (wp.get("op") or wp.get("words")):
+        if old.get("wordplay") and not _double_definition(new, clue):
+            out.append("no_tree: the new annotation has no wordplay tree where the old one had one")
+            return out
+    elif "spooner" in clue.lower() and not any(n.get("op") == "spoonerism" for n in _tree_nodes(new["wordplay"])):
         out.append("lost_spoonerism: the clue names Spooner and the tree has no spoonerism op")
     if old.get("wordplay"):
         lost = (_accounted(old) - _accounted(new)) & _words(clue)
