@@ -4221,9 +4221,15 @@ def sister_solutions(cache, paper):
             # Each row links through _linked's memo: a sister ledger moves
             # with every row a unit appends, and held with every puzzle
             # filed, and only the rows those touch are linked again.
-            links = [(s["number"], {**s, "dir": d}) for rel, row in _planned_known(path).items()
-                     for d in (_sister_dir(cache, rel),)
-                     for s in _linked(d, row.get("scan") or _NO_SCAN, held, p)]
+            links = []
+            memo = _SISTER_ROWS.setdefault(path, {})
+            for rel, row in _planned_known(path).items():
+                m = memo.get(rel)
+                if m is None or m[0] is not row or m[1] is not held:
+                    d = _sister_dir(cache, rel)
+                    m = memo[rel] = (row, held, [(s["number"], {**s, "dir": d})
+                                                 for s in _linked(d, row.get("scan") or _NO_SCAN, held, p)])
+                links += m[2]
             hit = _SISTER_LINKS[path] = (stamp, held, links)
         for n, s in hit[2]:
             out.setdefault(n, s)
@@ -4234,6 +4240,10 @@ def sister_solutions(cache, paper):
 #: of sister_solutions: worked out again only when the ledger or the
 #: series' filed puzzles move.
 _SISTER_LINKS = {}
+#: {sister ledger: {edition: (its row, held, its [(number, heading)])}}: a
+#: ledger that moved relinks only the rows (the planner's fold keeps the
+#: identity of one no line touched) or the held that did.
+_SISTER_ROWS = {}
 #: An edition row without a scan, as sister_solutions links it.
 _NO_SCAN = {"puzzles": [], "solutions": []}
 
