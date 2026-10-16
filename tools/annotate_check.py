@@ -729,6 +729,32 @@ def seen_as(a, entry, entries):
     return annotation.view(stored, here, {"entries": entries})
 
 
+def drop_derived_keys(pending):
+    """Remove the keys view() derives (`assembly`, `type`, `blocks`, `indicators`,
+    `linkWords`, and `definitions` beside a `def`) from each clue written in the
+    model's shape; the entry ids changed.
+    The validator's "Give `assembly.pieces`" warning invites a run to write them,
+    and from_model refuses the whole file over "unknown key assembly" (658
+    mentions in 48h): the key is derived from `wp`, so dropping it loses nothing
+    and saves the turn."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+    except ValueError:
+        return []
+    changed = []
+    for eid, a in (ann.items() if isinstance(ann, dict) else ()):
+        if not (isinstance(a, dict) and "wp" in a and annotation.is_model(a)):
+            continue
+        for k in annotation.DERIVED_KEYS:
+            if k in a and (k != "definitions" or "def" in a):
+                del a[k]
+                if eid not in changed:
+                    changed.append(eid)
+    if changed:
+        write_pending(pending, ann)
+    return changed
+
+
 def unname_block_notes(path, pending):
     """Rewrite each block note that names its answer, where find_answer_leaks.unname
     can do it without judgement, or blank the answer in a note on one sense of
@@ -999,6 +1025,10 @@ def main(argv):
         if spaced:
             print(f"answers written with commas, now spaced in {pending.name}: "
                   f"{', '.join(spaced)}\n")
+        derived = drop_derived_keys(pending)
+        if derived:
+            print(f"keys worked out from `wp` (assembly, type, blocks, ...), dropped "
+                  f"from {pending.name}: {', '.join(derived)}\n")
         unnamed = unname_block_notes(path, pending)
         if unnamed:
             print(f"block notes that named the answer, rewritten without it in "
