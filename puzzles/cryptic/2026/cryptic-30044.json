@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -111,45 +112,50 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "taking"
+       "text": "taking",
+       "at": 9,
+       "note": "the word takes one letter in place of another, signalling a swap of letters"
+      },
+      {
+       "text": "instead of",
+       "at": 23,
+       "note": "says which letter goes out: the one for rook is replaced by the one for bishop"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "BECKON",
-       "indicators": [
-        {
-         "text": "instead of"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Consider",
-         "gives": "ECKON",
-         "note": "RECKON = consider, minus its R"
-        },
-        {
-         "words": "bishop",
-         "gives": "B",
-         "note": "chess notation — it takes the R's place"
-        }
-       ]
+       "words": "Consider",
+       "at": 0,
+       "gives": "RECKON",
+       "note": "to consider something is to reckon it"
       },
       {
-       "unchecked": true,
        "words": "rook",
-       "note": "R in chess notation, the letter removed"
+       "at": 34,
+       "gives": "R",
+       "note": "R is the chess notation for a rook"
+      },
+      {
+       "words": "bishop",
+       "at": 16,
+       "gives": "B",
+       "note": "B is the chess notation for a bishop"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Attempt to draw' looks like part of the chess game the rest of the clue is describing, and it is nothing of the sort. The definition hiding inside the surface's own subject is the clue's best moment.",
-     "definitionFit": "Signalling to someone with a gesture to come closer is literally trying to pull them towards you."
+     "surface": "A chess player weighs swapping one piece for another while trying to force a drawn game.",
+     "walkthrough": "The chess surface makes 'draw' look like a tied game; here it means to pull someone towards you.",
+     "definitionFit": "To beckon is to gesture to someone in an effort to summon them closer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "draw"
     }
    }
   },
@@ -213,40 +219,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PROTRACTED",
+     "op": "charade",
      "indicators": [
       {
-       "text": "cut"
+       "text": "on",
+       "at": 18,
+       "note": "in a down answer, one piece sitting on another means it comes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "for",
+       "at": 5,
+       "gives": "PRO",
+       "note": "pro means in favour of, or for"
+      },
+      {
+       "words": "pamphlet",
+       "at": 9,
+       "gives": "TRACT",
+       "note": "a tract is a short pamphlet, often religious or political"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 31,
+         "note": "the word education is cut short, leaving only its opening two letters"
+        }
+       ],
        "parts": [
         {
-         "words": "for",
-         "gives": "PRO",
-         "note": "pro = for, as in pros and cons"
-        },
-        {
-         "words": "pamphlet",
-         "gives": "TRACT",
-         "note": "a tract is a short pamphlet"
-        },
-        {
          "words": "education",
-         "gives": "ED",
-         "note": "EDUCATION 'cut' down to its familiar short form"
+         "at": 21
+        },
+        {
+         "gives": "UCATION"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Long for' reads as yearning, and the split falls right between the two words — 'Long' is the definition and 'for' has already started the wordplay. Seeing that seam is the hard part.",
-     "definitionFit": "Drawn out in time, as a dispute or meeting can be, the word is a plain synonym for lengthy."
+     "surface": "Someone yearns for a leaflet about cuts to schooling budgets.",
+     "walkthrough": "'Long for' reads as a verb meaning yearn, but 'Long' alone is the definition and 'for' gives the first piece.",
+     "definitionFit": "Something protracted is drawn out or prolonged, lasting a long time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Long"
     }
    }
   },
@@ -699,40 +722,45 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "yields to",
+       "at": 54,
+       "note": "one letter gives way to another, so the first is replaced by the second"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "UNWEARABLE",
-       "indicators": [
-        {
-         "text": "yields to"
-        }
-       ],
-       "parts": [
-        {
-         "words": "it's hard to accept",
-         "gives": "UNBEARABLE",
-         "note": "the starting word — its first B will give way"
-        },
-        {
-         "words": "opponent",
-         "gives": "W",
-         "note": "W = White, who takes Black's place"
-        }
-       ]
+       "words": "hard to accept",
+       "at": 21,
+       "gives": "UNBEARABLE",
+       "note": "something unbearable is too hard to accept or endure"
       },
       {
-       "unchecked": true,
        "words": "chess player",
-       "note": "B = Black, the player who drops out"
+       "at": 41,
+       "gives": "B",
+       "note": "B stands for Black, one of the two players in chess"
+      },
+      {
+       "words": "opponent",
+       "at": 64,
+       "gives": "W",
+       "note": "W stands for White, Black's opponent in chess"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition turns on an older sense of assume — to assume a garment is to put it on, so what cannot be worn cannot be assumed. Without that, 'Wrong to assume' looks like more chess talk.",
-     "definitionFit": "To assume clothing is to put it on, so a garment that is wrong to put on is unfit to be worn."
+     "surface": "Conceding defeat in chess is hard to take when one player gives in to the other.",
+     "walkthrough": "'Assume' here means to put on, as clothing; Black and White are the two sides in chess, abbreviated B and W.",
+     "definitionFit": "A garment that is unwearable is unfit to put on, and to assume clothes is to don them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "assume"
     }
    }
   },
