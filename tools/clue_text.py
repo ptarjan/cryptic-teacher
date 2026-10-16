@@ -149,6 +149,49 @@ def see_numeral(text):
     return _SEE_NUMERAL.sub(lambda m: m[1] + (" 1" if m[2] else " "), text)
 
 
+#: A cross-reference's number 1 read as a letter or bar: "(see lac)", "10 See I
+#: across", "See | Down"; at a text's end or before the way it runs.
+_SEE_LETTER_ONE = re.compile(r"(\bsee\s+)[lI|](?=\s*(?:ac|dn|across|down)\b|\W*$)", re.IGNORECASE)
+
+
+def see_one(text):
+    """`text` with a cross-reference to 1 read as a lookalike put back:
+    "(see lac)" is "(see 1ac)", "See I across" is "See 1 across"."""
+    return _SEE_LETTER_ONE.sub(r"\g<1>1", text)
+
+
+#: A linked head's number list as a list prints it: "11, 14 Clue words".
+_LINK_HEAD = re.compile(r"^(\W{0,2})(\d{1,2}(?:\s*[,/+]\s*\d{1,2})+)(?=\s)")
+
+
+def mend_link_tails(lines):
+    """`lines`, one list's printed clue lines, with a linked head's tail that is
+    one digit too many put right: "11/14" for "11/4" when 14 also opens a
+    clue of its own in this list (a tail is the head's, it prints no clue of
+    its own but a "See" row) and 4 opens none; the digit is dropped only when
+    that leaves a number the list lacks. Lines not so linked are returned
+    as they were."""
+    leads = {}
+    for ln in lines:
+        m = re.match(r"^\W{0,2}(\d{1,2})\W{0,2}\s+(?!see\b)\S", ln, re.IGNORECASE)
+        if m:
+            leads[int(m[1])] = leads.get(int(m[1]), 0) + 1
+    out = []
+    for ln in lines:
+        m = _LINK_HEAD.match(ln)
+        if m:
+            nums = re.split(r"\s*[,/+]\s*", m[2])
+            sep = re.findall(r"\s*[,/+]\s*", m[2])
+            for i, n in enumerate(nums[1:], 1):
+                if len(n) == 2 and leads.get(int(n)) and not any(
+                        int(c) in leads for c in (n[1:],)) and n[1] != "0" and int(n) != int(nums[0]):
+                    nums[i] = n[1:]
+            joined = nums[0] + "".join(sp + n for sp, n in zip(sep, nums[1:]))
+            ln = m[1] + joined + ln[m.end():]
+        out.append(ln)
+    return out
+
+
 def as_digits(text, s="5"):
     """`text` with the letters OCR reads for numerals put back: I and l are 1,
     O and o are 0, S is `s` (5 in a count; 8 in a 1930s old-style clue number,

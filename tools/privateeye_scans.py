@@ -254,13 +254,14 @@ def column_cols(boxes):
             lines += fa.merge_rows(col)
         side, out = None, [[], []]
         for ln in lines:
-            text = ln[4]
+            text = clue_text.mend_count(clue_text.mend_opening(ln[4]))
             while SLASH.match(text):
                 text = SLASH.sub(r"\1, ", text, count=1)
             if side is not None:
                 text = same_side_tail(text, side)
             text = DIRECTED.sub(r"\1", text)
-            head = clue_text.heading_of(text.strip())
+            head = clue_text.heading_of(text.strip()) or (
+                side is None and clue_text.tolerant_heading(text)) or None
             if head:
                 side = 0 if head == "ACROSS" else 1
                 continue
@@ -277,7 +278,7 @@ def column_cols(boxes):
                     got[tails] = got.get(tails, 0) + 1
                     text = m.group(1) + text[m.end():]
                 out[side].append(ln[:4] + (text,))
-        return [closed_clues(side) for side in out]
+        return [closed_clues(relinked(side)) for side in out]
     cols.named = named
     return cols
 
@@ -287,6 +288,13 @@ def column_cols(boxes):
 CLUE_NUMBER = re.compile(r"^\W{0,2}(\d{1,2})\W{0,2}\s+[A-Za-z(\"'\u2018\u201c]")
 NEXT_CLUE_WITHIN = 12
 SEE_CLUE = re.compile(r"^\W{0,2}\d{1,2}(?:\W{0,2}[,/]\s*\d{1,2}\W*)*\s+\(?\s*see\b", re.IGNORECASE)
+
+
+def relinked(lines):
+    """`lines` with a linked head's misread tail put right
+    (clue_text.mend_link_tails: "11/14" for "11/4", No 80)."""
+    mended = clue_text.mend_link_tails([ln[4] for ln in lines])
+    return [ln[:4] + (t,) for ln, t in zip(lines, mended)]
 
 
 def closed_clues(lines):
@@ -567,10 +575,6 @@ def column_words(img, box, which, key):
 SEE = re.compile(r"^\W{0,2}(\d{1,2})\W{0,2}\s+\(?\s*" + clue_text.SEE_DIRECTED, re.IGNORECASE)
 
 
-#: The reference's number read as a letter: "(see lac)" for "(see 1ac)".
-SEE_LETTER_ONE = re.compile(r"(\bsee\s+)[lI|](?=(?:ac|dn|across|down)?\W*$)", re.IGNORECASE)
-
-
 def see_filled(laid, verdict, words, cols):
     """A blank light two readings print as a cross-reference ("12 (See 20
     down)", which carries no count for the vote to lay it by) is that
@@ -583,7 +587,7 @@ def see_filled(laid, verdict, words, cols):
     for reading in words.values():
         for side, lines in zip(("across", "down"), cols(reading)):
             for ln in lines:
-                m = SEE.match(SEE_LETTER_ONE.sub(r"\g<1>1", ln[4]))
+                m = SEE.match(clue_text.see_one(ln[4]))
                 if m:
                     seen.setdefault(f"{int(m.group(1))}-{side}", []).append(m.group(2))
     laid = dict(laid)

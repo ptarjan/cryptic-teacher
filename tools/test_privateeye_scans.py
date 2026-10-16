@@ -300,6 +300,9 @@ check("a lower-case direction glued to a link's tail is dropped", "6 Heckler (7,
 check("a lone 'a' after the tail is no direction", "6, 20 a Heckler",
       _ps.DIRECTED.sub(r"\1", "6, 20 a Heckler"))
 
+_got = [l[4] for l in _ps.relinked([_line("11/14 Link head (4,7)"), _line("14 Own clue (5)")])]
+check("a link's tail with a digit too many is put right (No 80)", "11/4 Link head (4,7)", _got[0])
+
 if fails:
     print(f"{fails} failed")
     sys.exit(1)
