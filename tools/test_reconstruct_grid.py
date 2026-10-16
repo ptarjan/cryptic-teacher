@@ -625,6 +625,18 @@ _dwn = [[1, None, "linked", {}]]
 _left = _PW.pin_word_lengths([([("across", 0), ("down", 0)], 16)], _acr, _dwn)
 same("more words than lights leaves the group open", (_acr[0][1], _dwn[0][1], len(_left)), (None, None, 1))
 
+# The printed solutions (issues 909, 919) the OCR garbled: "DOWN: I (see 11)"
+# opens with a see-row, "-3" is a speck before 3, and the page's next item
+# ("MONDAY, MARCH 3, 44 BC") runs on after the last answer.
+_sol = "ACROSS: 5 Vampire 8 Pep pill DOWN: I (see 11) 2 Belgrano -3 Oppo 4 Fatah"
+_split = _PW.split_dirs(_sol)
+same("a see-row after DOWN opens the list", _split is not None, True)
+same("a speck before a number does not hide the answer before it",
+     _PW.answer_rows(_split[1], "down"), [("2", "down", "BELGRANO"), ("3", "down", "OPPO"), ("4", "down", "FATAH")])
+same("junk after the last answer adds no keys",
+     _PW.answer_rows("1 Copper 22 Nation 23 Blair. MONDAY, MARCH 3, 44 BC INSIDE MELVYNUS", "down"),
+     [("1", "down", "COPPER"), ("22", "down", "NATION"), ("23", "down", "BLAIR")])
+
 if fails:
     print(f"reconstruct_grid: {fails} FAILED")
 else:
