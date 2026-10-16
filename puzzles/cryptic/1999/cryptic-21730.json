@@ -84,7 +84,36 @@
     "text": "Very rich and very drunk, which is not to be sniffed at",
     "enumeration": "8"
    },
-   "solution": "STINKING"
+   "solution": "STINKING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Very rich",
+      "at": 0,
+      "meaning": "first sense: in '... rich' the word is an intensifier meaning extremely wealthy"
+     },
+     {
+      "text": "very drunk",
+      "at": 14,
+      "meaning": "second sense: slang for thoroughly intoxicated"
+     },
+     {
+      "text": "which is not to be sniffed at",
+      "at": 26,
+      "meaning": "third sense, read literally: something foul-smelling is the last thing you would want to sniff"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The idiom 'not to be sniffed at' normally means worth having, which fits the rich reading; taken literally it describes a bad smell.",
+     "definitionFit": "The word is slang for drunk, an intensifier before 'rich', and literally means smelling foul."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sniffed"
+    }
+   }
   },
   {
    "number": 3,
@@ -793,64 +822,64 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Walker at the gate",
-      "at": 0,
-      "note": "a cryptic reading of the phrase word by word"
+      "text": "Walker at the gate to grow feeble changing 14 across's heart",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LEGBEFOREWICKET",
-     "indicators": [
-      {
-       "text": "changing",
-       "note": "changing says the letters of the phrase before it are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Walker",
+       "at": 0,
+       "gives": "LEG",
+       "note": "a leg is what one walks with"
+      },
+      {
+       "words": "at the gate",
+       "at": 7,
+       "gives": "BEFORE",
+       "note": "standing at a gate means being in front of it, so this gives a word for 'in front of'"
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "changing",
+         "at": 34,
+         "note": "the middle letter of one word is exchanged for the letters named next, so it signals a swap"
+        }
+       ],
        "parts": [
         {
-         "words": "grow feeble",
-         "gives": "LEGBEFOREW",
-         "note": "the ten letters of these two words rearranged"
+         "words": "to grow feeble",
+         "at": 19,
+         "gives": "WILT",
+         "note": "plants that wilt droop and lose their strength"
         },
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "ICKET",
-         "indicators": [
-          {
-           "text": "heart",
-           "note": "the heart of a word is its middle, so its outer letters are dropped"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "14 across's",
-           "gives": "ICKET",
-           "select": "middle",
-           "note": "the cross-referenced word without its first two and last two letters"
-          }
-         ]
+         "gives": "L"
+        },
+        {
+         "words": "14 across's heart",
+         "at": 43,
+         "gives": "CKE",
+         "note": "14 across is CRICKETER, and its heart is its three central letters"
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A pedestrian standing at a gate starts to weaken, changing their heart about something.",
-     "walkthrough": "The definition is literal: a leg is a walker, before means at or in front of, and a wicket is a small gate. 14 across is CRICKETER, whose centre is ICKET.",
-     "definitionFit": "Leg is the limb used for walking, before means in front of, and wicket is an old word for a small gate."
+     "surface": "A walker loiters at a garden gate, weakening as some sportsman loses heart.",
+     "walkthrough": "The answer is defined by the theme: 7 down lists the ways a batsman is out, and this is one. A batsman out this way is a 'walker' at the wicket, the cricket gate.",
+     "definitionFit": "This is the cricket dismissal where the ball strikes the batsman's pad in line with the stumps, a theme member alongside bowled and caught."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "feeble"
+     "aptDefinition": false,
+     "misdirectedWord": "Walker"
     }
    }
   },
