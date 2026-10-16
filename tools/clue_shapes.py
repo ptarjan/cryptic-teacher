@@ -23,6 +23,10 @@ Leaf types, read off the leaf alone:
     B bare letters, no clue words (the letters a deletion names)
     U an unchecked leaf ("unchecked": true; its gives is taken as filed)
     D under a cryptic definition only: a leaf whose words repeat, or contain, another leaf's
+Two coarser groupings are computed from the skeleton string (tier1, tier2): the set
+of mechanisms, and the op tree with charades and leaf types collapsed. The doc opens
+with them; the skeleton tables and the not-ok sections stay, for finding errors.
+
 A charade is written (a+b+c), any other op name(children). Besides the skeleton a
 clue has a DEFINITION descriptor: how many definitions and where (S start, E end,
 W the whole clue, M middle), and "&lit" when andLit is set or one definition is
@@ -63,6 +67,8 @@ SHORT = {"anagram": "ana", "reversal": "rev", "container": "ins", "deletion": "d
 FODDER_OPS = {"anagram", "hidden", *wordplay.SELECT}
 UNJUDGED_FROM = 150   # a skeleton this common with no verdict is listed at the top
 TOP = 80
+TOP1 = 30    # tier-1 rows in the doc
+TOP2 = 40    # tier-2 rows in the doc
 
 
 def letters(s):
@@ -311,6 +317,75 @@ def judge(sk, v, pats):
     return None, None
 
 
+# ---- coarser groupings of a skeleton -------------------------------------------------------------
+
+def parse_skeleton(sk):
+    """A skeleton string as a tree: ("leaf",), ("+", kids) for a charade, (op, kids) for any other op."""
+    pos = 0
+
+    def node():
+        nonlocal pos
+        m = re.compile(r"([a-z]*)(\??)\(").match(sk, pos)
+        if not m:
+            if pos < len(sk) and sk[pos] not in ",+)":
+                pos += 1
+            return ("leaf", [])
+        pos = m.end()
+        kids = []
+        while True:
+            kids.append(node())
+            ch = sk[pos] if pos < len(sk) else ")"
+            pos += 1
+            if ch == ")":
+                break
+        return (m.group(1) or "+", kids)
+    return node()
+
+
+COARSE = {o: "select" for o in ("first", "last", "mid", "outer", "alt", "reg", "nth")}
+MAXOPS = 3   # a tree with more op nodes than this is one group in tier 2
+MANY = 3   # a clue using more distinct mechanisms than this is one group in tier 1
+
+
+def op_names(t):
+    out = [] if t[0] in ("leaf", "+") else [COARSE.get(t[0], t[0])]
+    for k in t[1]:
+        out += op_names(k)
+    return out
+
+
+def tier1(sk):
+    """The mechanism set: which non-charade ops the clue uses, in any nesting or number."""
+    if sk == "DD":
+        return "double definition"
+    ops = sorted(set(op_names(parse_skeleton(sk))))
+    if len(ops) > MANY:
+        return f"{MANY + 1}+ different ops"
+    return " + ".join(ops) if ops else "charade only"
+
+
+def _mech(t, top=True):
+    """Mechanism tree text: leaves collapse to x, a charade of leaves is x, children order-free and deduplicated."""
+    name, kids = t
+    if name == "leaf":
+        return "x"
+    sub = sorted({_mech(k, name == "+" and top) for k in kids})
+    if name == "+":
+        ops = [s for s in sub if s != "x"]
+        if not ops:
+            return "x"
+        return "+[" + ",".join(ops) + "]" if top else ops[0] if len(ops) == 1 else ",".join(ops)
+    return f"{COARSE.get(name, name)}({','.join(sub)})"
+
+
+def tier2(sk):
+    """The mechanism tree: op nesting with each charade collapsed, leaf types and definition placement dropped."""
+    if sk == "DD":
+        return "DD"
+    m = _mech(parse_skeleton(sk))
+    return m if len(re.findall(r"[a-z]+\(", m)) <= MAXOPS else f"{MAXOPS + 1}+ ops"
+
+
 # ---- the document --------------------------------------------------------------------------------
 
 def pct(n, total):
@@ -327,6 +402,89 @@ def ex_line(e, width=150):
     return s if len(s) <= width * 2 else s[:width * 2] + "..."
 
 
+def rollup(c, v, pats, key):
+    """Fold the skeletons into the groups `key` names: clues, skeletons, clues judged not ok, commonest skeleton."""
+    g = {}
+    for sk, r in c.shapes.items():
+        e = g.setdefault(key(sk), {"n": 0, "skels": 0, "bad": 0, "top": (sk, r), "t2": set()})
+        e["n"] += r[0]
+        e["skels"] += 1
+        row, _ = judge(sk, v, pats)
+        if row and row["verdict"] != "ok":
+            e["bad"] += r[0]
+        if r[0] > e["top"][1][0]:
+            e["top"] = (sk, r)
+        e["t2"].add(tier2(sk))
+    return g
+
+
+def coverage(counts, n):
+    cum, hit = 0, {}
+    for i, x in enumerate(sorted(counts, reverse=True), 1):
+        cum += x
+        for m in (0.5, 0.9, 0.99):
+            if m not in hit and cum >= m * n:
+                hit[m] = i
+    return hit
+
+
+def tier_sections(c, v, pats, w):
+    n = c.n
+    t1, t2 = rollup(c, v, pats, tier1), rollup(c, v, pats, tier2)
+    w("## Three ways to group the shapes")
+    w("")
+    w("The skeleton (tier 3) keeps charade order and arity and every leaf type, so there are thousands. "
+      "Two coarser groupings sit above it; each is computed from the skeleton, so the verdicts still key on tier 3, "
+      "and the full skeleton tables further down stay as the place to look for errors.")
+    w("")
+    w("- **Tier 1, mechanism set**: which non-charade ops the clue uses, in any number and nesting. The letter "
+      "selections (`first last mid outer alt reg nth`) count as one op, `select`; a clue with more than "
+      f"{MANY} different ops is one group; `charade only` is a clue with no other op.")
+    w("- **Tier 2, mechanism tree**: the op nesting with each leaf (any type) written `x`, siblings sorted and "
+      "deduplicated so order and arity vanish, a charade that is only leaves written `x`, and a charade of ops "
+      "written `+[...]` at the top of the tree (a charade that merely builds one operand of an op is dropped). "
+      "`ins(ana(x),x)` (an anagram put inside a word) and `ana(ins(x))` (an anagram of a container) stay "
+      f"distinct. A tree of more than {MAXOPS} op nodes is one group, `{MAXOPS + 1}+ ops`. Definition placement "
+      "is dropped.")
+    w("- **Tier 3, skeleton**: the exact skeleton, as in the tables further down.")
+    w("")
+    w("| tier | groups | cover 50% | cover 90% | cover 99% | groups with one clue |")
+    w("|---|---:|---:|---:|---:|---:|")
+    for name, g in (("1 mechanism set", t1), ("2 mechanism tree", t2),
+                    ("3 skeleton", {k: {"n": r[0]} for k, r in c.shapes.items()})):
+        h = coverage([e["n"] for e in g.values()], n)
+        w(f"| {name} | {len(g):,} | {h.get(0.5, '-')} | {h.get(0.9, '-')} | {h.get(0.99, '-')} | "
+          f"{sum(1 for e in g.values() if e['n'] == 1):,} |")
+    w("")
+    w("### Tier 1: mechanism sets")
+    w("")
+    w("Not ok is the share of the group's clues whose skeleton is judged other than ok.")
+    w("")
+    w("| # | mechanisms | clues | share | cumulative | tier-2 groups | skeletons | not ok | example |")
+    w("|---:|---|---:|---:|---:|---:|---:|---:|---|")
+    cum = 0
+    for i, (k, e) in enumerate(sorted(t1.items(), key=lambda kv: -kv[1]["n"])[:TOP1], 1):
+        cum += e["n"]
+        w(f"| {i} | {esc(k)} | {e['n']:,} | {pct(e['n'], n)} | {pct(cum, n)} | {len(e['t2']):,} | {e['skels']:,} | "
+          f"{pct(e['bad'], e['n'])} | {esc(ex_line(e['top'][1][1][0], 55))} |")
+    w("")
+    if len(t1) > TOP1:
+        w(f"{len(t1) - TOP1} smaller sets not shown.")
+        w("")
+    w(f"### Tier 2: the {TOP2} commonest mechanism trees")
+    w("")
+    w("`x` is any leaf. Skeletons is how many tier-3 skeletons fold into the tree.")
+    w("")
+    w("| # | tree | clues | share | cumulative | skeletons | not ok | commonest skeleton | example |")
+    w("|---:|---|---:|---:|---:|---:|---:|---|---|")
+    cum = 0
+    for i, (k, e) in enumerate(sorted(t2.items(), key=lambda kv: -kv[1]["n"])[:TOP2], 1):
+        cum += e["n"]
+        w(f"| {i} | `{esc(k)}` | {e['n']:,} | {pct(e['n'], n)} | {pct(cum, n)} | {e['skels']:,} | "
+          f"{pct(e['bad'], e['n'])} | `{esc(e['top'][0])}` | {esc(ex_line(e['top'][1][1][0], 45))} |")
+    w("")
+
+
 def build_doc(c, v):
     pats = [(p, re.compile(p.get("re", "."))) for p in v["patterns"]]
     n = c.n
@@ -338,7 +496,7 @@ def build_doc(c, v):
     w(START)
     w("")
     w(f"Every annotated clue's wordplay tree reduced to a skeleton (op tree, leaves abstracted to a type), "
-      f"over {n:,} clues in {c.files:,} puzzles: {len(ranked):,} distinct skeletons. "
+      f"over {n:,} clues in {c.files:,} puzzles: {len(ranked):,} distinct skeletons, folded into coarser groups below. "
       "Generated by `tools/clue_shapes.py` (`nice -n 19 python3 tools/clue_shapes.py`, about five minutes); "
       "the judgements come from `tools/data/clue_shape_verdicts.json`, which the tool never writes.")
     w("")
@@ -351,6 +509,7 @@ def build_doc(c, v):
       "`?` after an op name means its node is unchecked. Definition key: `2d` is the number of "
       "definitions, then where each sits (S start, E end, W whole clue, M middle); `&lit` when andLit is set.")
     w("")
+    tier_sections(c, v, pats, w)
     # unjudged
     unj = [(sk, r) for sk, r in ranked if r[0] >= UNJUDGED_FROM and judge(sk, v, pats)[0] is None
            and sk not in ("DD",)]
@@ -416,7 +575,7 @@ def build_doc(c, v):
         w(f"| {k} | {cnt:,} |")
     w("")
     # top table
-    w(f"## The {TOP} commonest skeletons")
+    w(f"## The {TOP} commonest skeletons (tier 3)")
     w("")
     w("| # | clues | share | skeleton | commonest definitions | verdict | example |")
     w("|---:|---:|---:|---|---|---|---|")
@@ -472,7 +631,7 @@ def build_doc(c, v):
             if m not in hit and cum >= m * n:
                 hit[m] = i
     once = sum(1 for _, r in ranked if r[0] == 1)
-    w(f"**Coverage.** {hit.get(0.5, '-')} skeletons cover half the clues, {hit.get(0.9, '-')} cover 90%, "
+    w(f"**Coverage of tier 3.** {hit.get(0.5, '-')} skeletons cover half the clues, {hit.get(0.9, '-')} cover 90%, "
       f"{hit.get(0.99, '-')} cover 99%; {once:,} of the {len(ranked):,} skeletons occur once.")
     w("")
     lt = sum(c.leaves.values())
