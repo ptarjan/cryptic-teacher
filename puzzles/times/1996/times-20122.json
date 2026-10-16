@@ -282,36 +282,36 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "PRE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "semi-detached",
-         "note": "semi means half, so only half of the word pretty is detached and kept"
+         "at": 7,
+         "note": "only half of the word stays attached, so the second half of pretty is cut away"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Pretty",
-         "gives": "PRE",
-         "select": "first",
-         "note": "the first half of the six-letter word"
+         "at": 0
+        },
+        {
+         "gives": "TTY"
         }
        ]
       },
       {
        "words": "wonderful",
+       "at": 23,
        "gives": "FAB",
-       "note": "fab is slang short for fabulous"
+       "note": "fab is slang for fabulous, wonderful"
       }
      ]
     },
     "explanation": {
-     "surface": "An estate agent gushing over a charming semi-detached home.",
-     "walkthrough": "Semi-detached looks like a kind of house, chiming with the definition, but it tells you to keep half of pretty.",
-     "definitionFit": "A prefab is a small factory-built dwelling, put up quickly in Britain after the war."
+     "surface": "An estate agent gushes over a pretty semi-detached home, calling the little house wonderful.",
+     "walkthrough": "'Semi-detached' reads as house-agent jargon, but it tells you to keep half of 'Pretty'.",
+     "definitionFit": "A prefab is a small prefabricated dwelling, common as temporary housing in post-war Britain."
     },
     "features": {
      "answerInScene": true,
@@ -613,46 +613,48 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CRITTER",
      "indicators": [
       {
+       "text": "taking",
+       "at": 16,
+       "note": "taking signals that the credit letters come into the word in place of something"
+      },
+      {
        "text": "for",
-       "note": "one thing given for another is a swap, so the abbreviation takes the place of the selected letter"
+       "at": 30,
+       "note": "for marks the swap: the credit letters stand in for the first letter"
+      },
+      {
+       "text": "origin of",
+       "at": 34,
+       "note": "origin points to the first letter of litter as the one replaced"
       }
      ],
      "parts": [
       {
-       "words": "credit",
-       "gives": "CR",
-       "note": "CR is the accounting abbreviation for credit"
+       "words": "litter",
+       "at": 44
       },
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "origin of",
-         "note": "the origin of a word is where it starts, its opening letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "litter",
-         "note": "the opening letter, which is swapped out"
-        }
-       ]
+       "gives": "L"
+      },
+      {
+       "words": "credit",
+       "at": 23,
+       "gives": "CR",
+       "note": "CR is the accounting abbreviation for credit"
       }
      ]
     },
     "explanation": {
-     "surface": "An American animal getting the blame for the litter scattered about.",
-     "walkthrough": "Take LITTER, drop its opening L and put CR in its place.",
-     "definitionFit": "Critter is the American colloquial form of creature, used for any animal."
+     "surface": "An American creature getting the credit for starting a litter of young.",
+     "walkthrough": "Litter looks like a brood of the animal, but it is just the word to be altered.",
+     "definitionFit": "Critter is a US dialect form of creature, used for any animal."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "credit"
+     "misdirectedWord": "litter"
     }
    }
   },
@@ -849,10 +851,52 @@
    },
    "length": 5,
    "clue": {
-    "text": "Invigorating air found beyond Australia",
+    "text": "Invigorating air I found beyond Australia",
     "enumeration": "5"
    },
-   "solution": "OZONE"
+   "solution": "OZONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Invigorating air",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "found beyond",
+       "at": 19,
+       "note": "beyond places the second piece after the first, so the Australian name comes first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Australia",
+       "at": 32,
+       "gives": "OZ",
+       "note": "Oz is the informal name for Australia"
+      },
+      {
+       "words": "I",
+       "at": 17,
+       "gives": "ONE",
+       "note": "the Roman numeral I is one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller praises the bracing breeze discovered somewhere past the Australian coast.",
+     "walkthrough": "The digit-like I is the Roman numeral for one, not the pronoun.",
+     "definitionFit": "Ozone is popularly, if loosely, used for the fresh bracing air of the seaside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 16,
