@@ -1,17 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does tools/archive_org_listener.py find the Listener's own heading (not the
 # coupon's), split the clue columns at DOWN (not the title's "8 DOWN"), carry
 # across clues that run into the second column, read a list past a line that
 # does not parse, read an uncounted list a clue a line past a stray count,
 # and blank a clue no two readings agree on or that runs on?
 #
-#     bash tools/test_archive_org_listener.sh
+#     python3 tools/test_archive_org_listener.py
 #
 # Pure functions on made-up words: no scan, no OCR, nothing written.
-set -uo pipefail
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-out=$(cd "$REPO/tools" && python3 - <<'EOF'
 import archive_org_listener as al
 
 fails = 0
@@ -205,7 +205,4 @@ check("964: 6 down keeps its three dots", "... stabbed in the back, perhaps, vic
 check("964: nothing blank", None, verdict.get("blank"))
 
 print("FAILS", fails)
-EOF
-)
-echo "$out"
-grep -q "^FAILS 0$" <<<"$out"
+raise SystemExit(1 if fails else 0)

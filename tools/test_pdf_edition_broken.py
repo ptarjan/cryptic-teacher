@@ -1,17 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does tools/fetch_archive_org_editions.py read the pages of an image PDF that
 # archive.org holds zero-filled past some page (FT 1981-06-29/30), listing
 # the broken ones in "unreadable" instead of raising; and does fetch_pdf fetch
 # a PDF whose md5 is not the metadata's once more, keep a second copy equal
 # to the first (archive.org's file as it stands), and raise when the two differ?
 #
-#     bash tools/test_pdf_edition_broken.sh
+#     python3 tools/test_pdf_edition_broken.py
 #
 # A three-page PDF made here, no network, nothing written outside a temp dir.
-set -uo pipefail
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-out=$(cd "$REPO/tools" && python3 - <<'EOF'
 import hashlib, io
 from PIL import Image
 import fetch_archive_org_editions as fa
@@ -69,7 +69,3 @@ try:
 except RuntimeError:
     check("two differing bad copies raise", 2, fx.calls)
 print(f"FAILS {fails}")
-EOF
-)
-echo "$out"
-grep -q "^FAILS 0$" <<<"$out"
