@@ -124,6 +124,16 @@ def answer_parts(answer):
     return parts
 
 
+def overflows(entry):
+    """Does `entry`'s printed count hold more letters than its own light?"""
+    if not entry.get("enumeration") or not isinstance(entry.get("length"), int):
+        return False
+    try:
+        return sum(n for n, _ in enumeration_parts(entry["enumeration"])) > entry["length"]
+    except SystemExit:
+        return False
+
+
 def resolve_groups(entries):
     """Link each "See N" continuation to the light that carries its clue.
 
@@ -159,6 +169,12 @@ def resolve_groups(entries):
                 f"which names no other light")
         clued = [c for c in candidates if continuation_target(c.get("clue")) is None]
         pool = clued or candidates
+        if len(pool) > 1:
+            # A count longer than its own light needs a continuation: nation-3235's
+            # 15-down "See 1" goes on 1-across "(4,9)" in four cells, not on
+            # 1-down "(7)" in seven.
+            short = [c for c in pool if overflows(c)]
+            pool = short if len(short) == 1 else pool
         if len(pool) > 1:
             same = [c for c in pool if c["direction"] == entry["direction"]]
             pool = same or pool
