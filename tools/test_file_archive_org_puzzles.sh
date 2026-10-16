@@ -1344,6 +1344,20 @@ fresh = dict(f.held_files("zz"))[4][0]
 f.HELD_FRESH = real_fresh
 check("an in-place rewrite stands HELD_FRESH, then is read",
       (datetime.date(1999, 1, 4), datetime.date(1999, 3, 4)), (stale, fresh))
+# Under HELD_FRESH, a folder that moved is listed again alone: the other
+# folders' files keep their entries, unstat'ed.
+(hp / "puzzles" / "zz" / "2000").mkdir()
+(hp / "puzzles" / "zz" / "2000" / "zz-5.json").write_text('{"date": "2000-01-05"}')
+f.held_files("zz")
+time.sleep(0.01)
+(hp / "puzzles" / "zz" / "2000" / "zz-6.json").write_text('{"date": "2000-01-06"}')
+stats = []
+Path.stat = lambda self, *a, **k: stats.append(self) or real_stat(self, *a, **k)
+moved = dict(f.held_files("zz"))
+Path.stat = real_stat
+check("a moved folder is listed again alone, the others' entries kept",
+      (base + [4, 5, 6], datetime.date(2000, 1, 6), ["zz-5.json", "zz-6.json"]),
+      (sorted(moved), moved[6][0], sorted(p.name for p in stats if p.suffix == ".json")))
 f.ROOT = real_root
 # plan() lists a settled dir once (dir_cache.seen): a replaced file, a new edition or
 # a moved ledger row each make an edition due again; a fresh dir is not kept.
