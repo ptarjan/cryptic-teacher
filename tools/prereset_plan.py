@@ -583,10 +583,10 @@ def self_test():
     ]
     bad = (cover_self_test(covers) + width_self_test() + tag_self_test()
            + first_self_test() + backlog_self_test() + small_self_test() + fresh_self_test()
-           + reannotate_self_test())
+           + reannotate_self_test() + best_effort_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MODE_CASES) + len(MEM_CASES)
          + len(CPU_CASES) + len(METER_CASES) + len(REPLAY_CASES) + len(RATIO_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
-         + len(BACKLOG_CASES) + 4 + 3)
+         + len(BACKLOG_CASES) + 4 + 4 + 2)
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -1158,6 +1158,11 @@ def clues_only_self_test():
                       f"the barred book-31039 has no builder and stays out)",
                       file=sys.stderr)
                 bad += 1
+            if clues_only_rows({"book-6039"}):
+                print(f"FAIL clues_only_rows(filed=book-6039) = {clues_only_rows({'book-6039'})}: a "
+                      "puzzle both filed and held would be queued twice (10-16: 40 nation ids), "
+                      "and the burn's re-plan discarded", file=sys.stderr)
+                bad += 1
             if not unsolved("book-6039"):
                 print("FAIL unsolved(a clues-only id) is False: the burn would annotate "
                       "a puzzle with no grid", file=sys.stderr)
@@ -1182,6 +1187,34 @@ TAG_CASES = [
     # a tagged puzzle not in the queue (already annotated) is not queued
     (["a"], [], {"z": ["asymmetric"]}, []),
 ]
+
+
+def best_effort_self_test():
+    """best_effort(): a cold cache's stop gives `empty`, fn runs under its
+    share of the time left, and CT_DEADLINE is the caller's again after."""
+    import budget
+    bad = 0
+    saved = os.environ.get("CT_DEADLINE")
+    os.environ["CT_DEADLINE"] = str(time.time() + 100)
+    try:
+        def cold():
+            raise budget.Stopped(0)
+        if best_effort("t", cold, "empty", 0.5) != "empty":
+            print("FAIL best_effort: a stopped fn did not give `empty`; a cold cache "
+                  "would sink the whole re-plan", file=sys.stderr)
+            bad += 1
+        whole = os.environ["CT_DEADLINE"]
+        got = best_effort("t", budget.left, None, 0.5)
+        if not (got is not None and 40 < got <= 50 and os.environ["CT_DEADLINE"] == whole):
+            print(f"FAIL best_effort: fn saw {got}s left (want ~50 of 100) or CT_DEADLINE "
+                  f"was not restored ({os.environ['CT_DEADLINE']} vs {whole})", file=sys.stderr)
+            bad += 1
+    finally:
+        if saved is None:
+            os.environ.pop("CT_DEADLINE", None)
+        else:
+            os.environ["CT_DEADLINE"] = saved
+    return bad
 
 
 def tag_self_test():
@@ -1303,12 +1336,14 @@ def showcase_wanted(index_path=INDEX):
 def first_issues(queue, pinned):
     """pinned, then the queue's series-first puzzles in queue order: a
     series' No 1 is a special puzzle."""
-    return pinned + [pid for pid in queue if series.is_first_issue(pid) and pid not in pinned]
+    taken = set(pinned)
+    return pinned + [pid for pid in queue if series.is_first_issue(pid) and pid not in taken]
 
 
 def promote(queue, pinned, tagged):
     """pinned, then the queue's tagged puzzles in queue order: the new pinned."""
-    return pinned + [pid for pid in queue if pid in tagged and pid not in pinned]
+    taken = set(pinned)
+    return pinned + [pid for pid in queue if pid in tagged and pid not in taken]
 
 
 # How many of each series' oldest puzzles go ahead of the rest of the queue.
@@ -1333,7 +1368,8 @@ def oldest_per_series(queue, pinned, rows, n=OLDEST_PER_SERIES):
             lanes.setdefault(r["series"], []).append((day, r["id"]))
     oldest = sorted(x for lane in lanes.values() for x in sorted(lane)[:n])
     queued = set(queue)
-    return pinned + [pid for _, pid in oldest if pid in queued and pid not in pinned]
+    taken = set(pinned)
+    return pinned + [pid for _, pid in oldest if pid in queued and pid not in taken]
 
 
 # Series order within a round, so a window cut short by a lockout has spent
@@ -1427,14 +1463,19 @@ def held_dir():
     return INDEX.parent.parent / "clues_only"
 
 
-def clues_only_rows():
+def clues_only_rows(filed=()):
     """An index-shaped row for each puzzle held as its clues alone that a
     builder can promote (clues_only.solvable): unannotated, no answers, every
     clue readable, dated by its `year` or `date`. The index lists puzzles/
-    alone, so without these the queue never sees them."""
+    alone, so without these the queue never sees them. An id in `filed` (the
+    rows already read from puzzles/) is skipped: its puzzle file is the row,
+    and a second row would queue it twice."""
     import clues_only
+    filed = set(filed)
     rows = []
     for record in clues_only.solvable(held_dir()):
+        if record["id"] in filed:
+            continue
         row = {"id": record["id"], "series": record["series"],
                "annotated": False, "hasSolutions": False}
         row.update({k: record[k] for k in ("year", "date") if k in record})
@@ -1569,8 +1610,9 @@ def print_backlog(annotate_blocked, solve_blocked):
     if rereads:
         print(f"  {len(rereads)} OCR'd puzzles wait on a re-read of their scan, left out until it lands",
               file=sys.stderr)
-    held = clues_only_rows()
-    todo = backlog(fresh_rows(index["puzzles"]) + held, annotate_blocked.split() + sorted(rereads), solve_blocked.split(),
+    rows = fresh_rows(index["puzzles"])
+    held = clues_only_rows({r["id"] for r in rows})
+    todo = backlog(rows + held, annotate_blocked.split() + sorted(rereads), solve_blocked.split(),
                    os.environ.get("CT_SERIES", "").split())
     for p in todo[:5]:
         when = (f"{p['year']:<10}" if "year" in p
@@ -1734,14 +1776,40 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=())
     return queue, pinned, stages
 
 
+def best_effort(what, fn, empty, share):
+    """fn(), or `empty` when its row cache is too cold to fill within `share`
+    of the time left to CT_DEADLINE (tools/budget.py): the re-plan then goes
+    without it, and the rows made are stored, so a later re-plan has them.
+    The head of the queue (lockout pins, the partly hinted, the small series)
+    is read off the index alone, so a cold cache never holds it back."""
+    import budget
+    whole, left = os.environ.get("CT_DEADLINE"), budget.left()
+    if left is not None:
+        os.environ["CT_DEADLINE"] = str(time.time() + max(left, 0) * share)
+    try:
+        return fn()
+    except budget.Stopped:
+        print(f"{what}: its row cache is cold, so this re-plan goes without it; "
+              "the rows made are kept for the next", file=sys.stderr)
+        return empty
+    finally:
+        if whole is not None:
+            os.environ["CT_DEADLINE"] = whole
+
+
 def cover_first(pinned):
-    """The ids on stdin, in head_of_queue()'s order with the indicator cover
-    behind its pins. The summary goes to stderr, which is the burn's log."""
+    """The ids on stdin, each once, in head_of_queue()'s order with the
+    indicator cover behind its pins: exactly the ids given, which is what
+    pool_replan checks before taking the order. /showcase/'s wanted and the
+    cover are best_effort(): each gets a share of the time to CT_DEADLINE.
+    The summary goes to stderr, which is the burn's log."""
     import indicator_cover
     small, cut = small_series(), len(pinned)
-    rows = index_rows() + clues_only_rows()
-    queue, pinned, n = head_of_queue(sys.stdin.read().split(), pinned, rows,
-                                     showcase_wanted(), tagged_puzzles(), small, requested(rows))
+    rows = index_rows()
+    rows = rows + clues_only_rows({r["id"] for r in rows})
+    wanted = best_effort("showcase", showcase_wanted, set(), 0.4)
+    queue, pinned, n = head_of_queue(list(dict.fromkeys(sys.stdin.read().split())), pinned, rows,
+                                     wanted, tagged_puzzles(), small, requested(rows))
     print(f"requested: {n[5]} queued puzzles on tools/data/burn_requests.json go first"
           + (f" ({', '.join(pinned[cut:cut + n[5]])})" if n[5] else ""), file=sys.stderr)
     print(f"partly hinted: {n[4]} queued puzzles with some clues hinted go first",
@@ -1752,7 +1820,9 @@ def cover_first(pinned):
           file=sys.stderr)
     print(f"tagged: {n[3] - n[2]} queued puzzles with a notable tag go first",
           file=sys.stderr)
-    ordered, picks, weight = indicator_cover.plan(queue, pinned)
+    ordered, picks, weight = best_effort(
+        "indicator cover", lambda: indicator_cover.plan(queue, pinned),
+        (indicator_cover.order(queue, {}, {}, pinned)[0], [], {}), 1.0)
     reached = set().union(*(m for _, m in picks))
     head = ", ".join(f"{pid} ({len(m)})" for pid, m in picks[:4])
     print(f"indicator cover: {len(picks)} puzzles reach {len(reached)} of {len(weight)} "

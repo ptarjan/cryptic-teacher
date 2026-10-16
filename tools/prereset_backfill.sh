@@ -612,7 +612,7 @@ pool_drain() {
 POOL_PLAN_SECS="${POOL_PLAN_SECS:-600}"
 POOL_PLAN_POLL="${POOL_PLAN_POLL:-1}"
 pool_replan() {
-  local f pid id t0 waited p
+  local f pid id t0 waited p why
   local -A held=() pending=() placed=()
   local rest=()
   f=$(mktemp "${TMPDIR:-/tmp}/ct-prereset-plan.XXXXXX") || return
@@ -620,6 +620,13 @@ pool_replan() {
   : >"$f.new"
   t0=${EPOCHREALTIME/[.,]/}
   (
+    # The planner's soft deadline (tools/budget.py), well inside the kill: a
+    # cold row cache (new wordplay code, a grown corpus) is made a batch at a
+    # time, each stored, and what it cannot finish by then the plan goes
+    # without (prereset_plan.best_effort); the next re-plan resumes off the
+    # stored rows rather than starting again.
+    export CT_DEADLINE=$(( t0 / 1000000 + POOL_PLAN_SECS * 7 / 10 ))
+    unset UNIT_MORE
     # A run lasts days: the backlog is read again, so a puzzle filed or made
     # eligible since the run started joins the queue. An id still queued or in
     # flight is not added again. One this run already finished is, when the
@@ -637,7 +644,8 @@ pool_replan() {
       done >"$f.new"
       cat "$f.new" >>"$f.in"
     fi
-    python3 tools/prereset_plan.py --cover-first "$requeued$resumed" <"$f.in" >"$f.out" || true
+    python3 tools/prereset_plan.py --cover-first "$requeued$resumed" <"$f.in" >"$f.out"
+    echo "$?" >"$f.rc"
     touch "$f.done"
   ) &
   pid=$!
@@ -660,20 +668,43 @@ pool_replan() {
     while read -r id; do
       [ -n "$id" ] && [ -z "${held[$id]:-}" ] && { held[$id]=1; queue+=("$id"); }
     done <"$f.new"
-    # Only a whole permutation of what went in counts. It is cut to what is
-    # still unlaunched (runs started meanwhile came off the front in the old
-    # order), and anything else still queued keeps its place after it.
-    if [ "$(sort "$f.in")" = "$(sort "$f.out")" ]; then
+    # The order counts when it holds the same ids as went in, each once: a
+    # queue can hold an id twice and the planner lists it once. It is cut to
+    # what is still unlaunched (runs started meanwhile came off the front in
+    # the old order), each id once, and anything else still queued keeps its
+    # place after it. Any other outcome is logged with its reason.
+    waited=$(( (${EPOCHREALTIME/[.,]/} - t0) / 1000000 ))
+    why=$(pool_plan_mismatch "$f.in" "$f.out" "$(cat "$f.rc" 2>/dev/null)")
+    if [ -z "$why" ]; then
       for id in "${queue[@]:$at}"; do pending[$id]=1; done
       while read -r id; do
         [ -n "$id" ] && [ -n "${pending[$id]:-}" ] && [ -z "${placed[$id]:-}" ] &&
           { placed[$id]=1; rest+=("$id"); }
       done <"$f.out"
-      for id in "${queue[@]:$at}"; do [ -n "${placed[$id]:-}" ] || rest+=("$id"); done
-      queue=("${queue[@]:0:$at}" "${rest[@]}")
+      for id in "${queue[@]:$at}"; do
+        [ -n "${placed[$id]:-}" ] || { placed[$id]=1; rest+=("$id"); }
+      done
+      queue=("${queue[@]:0:$at}" ${rest[@]+"${rest[@]}"})
+      echo "--- re-plan done in ${waited}s: order taken, next ${queue[*]:$at:5} ---"
+    else
+      echo "--- re-plan done in ${waited}s but discarded, the queue keeps its order: $why ---"
     fi
   fi
-  rm -f "$f" "$f.in" "$f.new" "$f.out" "$f.done"
+  rm -f "$f" "$f.in" "$f.new" "$f.out" "$f.done" "$f.rc"
+}
+# Why a re-plan's output cannot replace the queue, or nothing when it can:
+# the planner failed, or the ids out are not the ids in (each counted once).
+pool_plan_mismatch() {
+  local missing extra
+  case "$3" in
+    0) ;;
+    '') echo "the planner left no exit status"; return ;;
+    *) echo "the planner exited $3"; return ;;
+  esac
+  missing=$(comm -23 <(sort -u "$1") <(sort -u "$2"))
+  extra=$(comm -13 <(sort -u "$1") <(sort -u "$2"))
+  [ -z "$missing$extra" ] && return
+  echo "$(printf '%s' "$missing" | grep -c .) ids in went missing (${missing:0:200}), $(printf '%s' "$extra" | grep -c .) not queued came out (${extra:0:200})" | tr '\n' ' '
 }
 # Kill a process and everything under it, the parent first so it starts nothing new.
 pool_kill_tree() {
@@ -731,8 +762,9 @@ pool_interval_start() {
   POOL_DONE=0
   # The order is tools/prereset_plan.py --cover-first's (head_of_queue), which
   # re-sorts the whole of queue[at..], so what the re-read appends takes its
-  # date's place. Cut-off puzzles stay first. Anything but a whole permutation
-  # back leaves the order as it was. A dry run plans once. The re-plan takes
+  # date's place. Cut-off puzzles stay first. An order that does not hold the
+  # ids sent, each once, leaves the queue as it was and logs why. A dry run
+  # plans once. The re-plan takes
   # minutes on a loaded machine, so it runs at most once per POOL_SYNC_SECS,
   # not at every checkpoint, and bounded, the pool kept topped up meanwhile
   # (pool_replan).
