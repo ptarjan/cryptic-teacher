@@ -73,6 +73,7 @@ import enumeration  # a clue's printed counts; tools/enumeration.py
 import groups  # linked answers; tools/groups.py
 import provenance  # where each puzzle came from; tools/provenance.py
 import puzzle_schema  # tools/data/puzzle.schema.json
+import wordplay  # tools/wordplay.py
 import annotation  # the derived fields: view(), view_puzzle()
 from annotation import assembly, explanation, whole_anagram, wordplay_letters
 from fetch_puzzle import (  # one reader, one exemption
@@ -3360,6 +3361,189 @@ def anagram_charades(tree):
             n += sum(p.get("op") == "charade" for p in parts)
         stack += parts
     return n
+#: Wordplay tree shapes that parse() cannot write or that say something the clue
+#: does not. Each is a finding with its own ratchet field (below): a puzzle keeps
+#: the clues it already has (tools/tidy_wordplay_shapes.py rewrote every one that
+#: could be rewritten without changing view(), and recorded the rest), and no more.
+CHARADE_IN_CHARADE = "charade directly inside a charade"
+NO_INDICATOR = "operation with no indicator"
+CDEF_REPEAT = "cryptic definition with more than one leaf"
+STORED_ARITY = "operation with the wrong number of parts"
+SPAN_OVERLAP = "clue words claimed twice"
+IN_DEFINITION = "wordplay words inside the definition"
+LEAF_FOLD = "leaf gives a stretch of its own words"
+REPEATED_SELECTION = "same letter selection repeated word by word"
+SINGLE_LEAF = "wordplay that is one leaf"
+BARE_IN_CHARADE = "answer letters with no clue words in a charade"
+ANAGRAM_OF_CONTAINER = "anagram wrapped around a container"
+#: Ops that are signalled by an indicator word. A charade, a cryptic definition
+#: and a palindrome of the whole answer are not.
+NEEDS_INDICATOR = frozenset(wordplay.ARITY) - {"cryptic", "palindrome"}
+
+
+def _walk(tree):
+    stack = [tree] if isinstance(tree, dict) else []
+    while stack:
+        node = stack.pop()
+        yield node
+        stack += [p for p in node.get("parts") or [] if isinstance(p, dict)]
+
+
+def _stored_arity(op):
+    """(fewest, most) parts a checked `op` node stores: a homophone or spoonerism
+    keeps its spelling in `spelt`, not as a part, and an anagram's parts are its pool."""
+    lo, hi = wordplay.ARITY.get(op, (2, 99))
+    if op in ("homophone", "spoonerism"):
+        lo, hi = lo - 1, hi - 1
+    return (lo, 99) if op == "anagram" else (lo, hi)
+
+
+def charade_in_charade(tree):
+    """How many charades with no indicator sit directly inside another charade:
+    a join of a join, which is the one charade written in pieces."""
+    n = 0
+    for node in _walk(tree):
+        if node.get("op") == "charade" and not node.get("unchecked"):
+            n += sum(p.get("op") == "charade" and not p.get("indicators") and not p.get("unchecked")
+                     and "gives" not in p for p in node.get("parts") or [] if isinstance(p, dict))
+    return n
+
+
+def unindicated_ops(tree):
+    """How many checked ops that need an indicator word have none."""
+    return sum(1 for n in _walk(tree) if n.get("op") in NEEDS_INDICATOR
+               and not n.get("unchecked") and not n.get("indicators"))
+
+
+def cdef_repeats(tree):
+    """Extra leaves under a cryptic definition: the clue words once is the whole of it."""
+    return sum(max(0, len(n.get("parts") or []) - 1) for n in _walk(tree)
+               if n.get("op") == "cryptic" and not n.get("unchecked"))
+
+
+def bad_arity(tree):
+    """How many checked ops store a part count their op cannot take."""
+    n = 0
+    for node in _walk(tree):
+        op = node.get("op")
+        if op and op != "charade" and not node.get("unchecked"):
+            lo, hi = _stored_arity(op)
+            n += not lo <= len(node.get("parts") or []) <= hi
+        elif op == "charade" and not node.get("unchecked"):
+            n += len(node.get("parts") or []) < 2
+    return n
+
+
+def _claimed(tree):
+    """(kind, start, end, text) for each indicator and clue-word leaf with an `at`,
+    leaving out whatever is under a cryptic definition (its leaves are the clue)."""
+    out, stack = [], [tree] if isinstance(tree, dict) else []
+    while stack:
+        node = stack.pop()
+        if node.get("op") == "cryptic":
+            continue
+        for i in node.get("indicators") or []:
+            if "at" in i:
+                out.append(("indicator", i["at"], i["at"] + len(i["text"]), i["text"]))
+        if "words" in node and "at" in node:
+            out.append(("leaf", node["at"], node["at"] + len(node["words"]), node["words"]))
+        stack += [p for p in node.get("parts") or [] if isinstance(p, dict)]
+    return out
+
+
+def span_overlaps(tree):
+    """Pairs of indicator/leaf spans that share clue words."""
+    sp = _claimed(tree)
+    return sum(1 for i, a in enumerate(sp) for b in sp[i + 1:] if a[1] < b[2] and b[1] < a[2])
+
+
+def in_definition(ann):
+    """Wordplay spans inside a definition of a clue that is not &lit."""
+    if ann.get("andLit"):
+        return 0
+    ds = [(d["at"], d["at"] + len(d["text"])) for d in ann.get("definitions") or []
+          if isinstance(d, dict) and "at" in d and d.get("text")]
+    return sum(1 for s in _claimed(ann.get("wordplay")) if any(s[1] < b and a < s[2] for a, b in ds))
+
+
+def leaf_folds(tree):
+    """Leaves that give a stretch (3+ letters) of their own words and say nothing
+    else: the stretch is a selection, a deletion or a hidden word, written as a leaf."""
+    n = 0
+    for node in _walk(tree):
+        if "words" in node and "gives" in node and not node.get("unchecked") and not node.get("note"):
+            w, g = wordplay.letters(node["words"]), node["gives"]
+            n += len(g) >= 3 and g != w and g in w
+    return n
+
+
+def repeated_selections(tree):
+    """Charades holding two or more of the same letter selection, each over one
+    leaf (an acrostic written word by word): one selection over a multi-word leaf
+    is the same pick."""
+    n = 0
+    for node in _walk(tree):
+        if node.get("op") == "charade" and not node.get("unchecked"):
+            picks = collections.Counter(
+                (p["op"], p.get("n")) for p in node.get("parts") or []
+                if isinstance(p, dict) and p.get("op") in wordplay.SELECT and not p.get("unchecked")
+                and len(p.get("parts") or []) == 1 and "words" in p["parts"][0])
+            n += sum(k > 1 for k in picks.values())
+    return n
+
+
+def single_leaf(tree):
+    """1 when the whole wordplay is one leaf: a synonym for the answer, no mechanism."""
+    return int(isinstance(tree, dict) and "op" not in tree and not tree.get("unchecked"))
+
+
+def bare_in_charade(tree):
+    """Pieces of a checked charade that are bare letters with no clue words."""
+    return sum(1 for node in _walk(tree) if node.get("op") == "charade" and not node.get("unchecked")
+               for p in node.get("parts") or []
+               if isinstance(p, dict) and "op" not in p and "words" not in p and not p.get("unchecked"))
+
+
+def anagram_of_container(tree):
+    """Anagrams whose fodder is a container's result: the container is the
+    outer step in nearly every such clue, with the anagram its inner arm."""
+    return sum(1 for node in _walk(tree) if node.get("op") == "anagram"
+               and any(isinstance(p, dict) and p.get("op") == "container" for p in node.get("parts") or []))
+
+
+def shape_warnings(tag, ann):
+    """The findings for one annotation's tree shape, each a ratchet marker."""
+    tree = ann.get("wordplay")
+    out = []
+    if k := charade_in_charade(tree):
+        out.append(f"{tag}: {k} {CHARADE_IN_CHARADE}: join the pieces in one charade")
+    if k := unindicated_ops(tree):
+        out.append(f"{tag}: {k} {NO_INDICATOR}(s): name the indicator word on the op, "
+                   f"or the op is not in the clue")
+    if k := cdef_repeats(tree):
+        out.append(f"{tag}: {k} extra leaf(s): {CDEF_REPEAT}; one cd([clue words]) holds it")
+    if k := bad_arity(tree):
+        out.append(f"{tag}: {k} {STORED_ARITY}")
+    if k := span_overlaps(tree):
+        out.append(f"{tag}: {k} {SPAN_OVERLAP}: two leaves or indicators share clue words")
+    if k := in_definition(ann):
+        out.append(f"{tag}: {k} {IN_DEFINITION}: the definition and the wordplay do not share words "
+                   f"unless the clue is &lit")
+    if k := leaf_folds(tree):
+        out.append(f"{tag}: {k} {LEAF_FOLD}: a selection, deletion or hidden word is an op, "
+                   f"not a leaf")
+    if k := repeated_selections(tree):
+        out.append(f"{tag}: {k} {REPEATED_SELECTION}: one selection over a multi-word leaf")
+    if single_leaf(tree):
+        out.append(f"{tag}: {SINGLE_LEAF}: a synonym for the answer is no wordplay; parse it, "
+                   f"or it is a cryptic or double definition")
+    if k := bare_in_charade(tree):
+        out.append(f"{tag}: {k} {BARE_IN_CHARADE}: put the clue word that supplies them in a leaf")
+    if k := anagram_of_container(tree):
+        out.append(f"{tag}: {k} {ANAGRAM_OF_CONTAINER}: ins(outer, ana(...)) puts the anagram inside")
+    return out
+
+
 SUPERSEDED_BY_TREE = ("typed anagram but no assembly.anagrams", "no machine-checkable assembly")
 
 
@@ -3449,6 +3633,7 @@ def tree_view(puzzle):
                             f"fodder is one pool of letters, so its pieces are its own parts "
                             f"(ana(x + y)); a word that only joins them is a link word, and an "
                             f"anagram indicator goes on ana<...>")
+        warnings += shape_warnings(_tag_of(puzzle, where), ann)
     return viewed, errors, warnings
 
 
@@ -3740,6 +3925,17 @@ BACKLOG_MARKERS = {
     "messages": ("names a hidden-letter device",),
     "wordplay.unchecked": (UNCHECKED_STEP,),
     "wordplay.anagramCharade": (ANAGRAM_CHARADE,),
+    "wordplay.charadeInCharade": (CHARADE_IN_CHARADE,),
+    "wordplay.noIndicator": (NO_INDICATOR,),
+    "wordplay.cdefRepeat": (CDEF_REPEAT,),
+    "wordplay.arity": (STORED_ARITY,),
+    "wordplay.spanOverlap": (SPAN_OVERLAP,),
+    "wordplay.inDefinition": (IN_DEFINITION,),
+    "wordplay.leafFold": (LEAF_FOLD,),
+    "wordplay.repeatedSelection": (REPEATED_SELECTION,),
+    "wordplay.singleLeaf": (SINGLE_LEAF,),
+    "wordplay.bareInCharade": (BARE_IN_CHARADE,),
+    "wordplay.anagramOfContainer": (ANAGRAM_OF_CONTAINER,),
 }
 
 

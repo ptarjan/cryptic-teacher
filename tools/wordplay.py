@@ -57,6 +57,17 @@ An anagram's parts are its fodder, one pool of letters: `ana(x + y)` stores
 x and y as the anagram's own parts, never a charade under it, since nothing
 is joined in order (fodder_pool, and validate_annotations refuses a charade
 directly under an anagram).
+
+Shapes that read wrongly are refused for a new annotation (validate_annotations):
+join pieces in one charade, never a charade with no indicator inside a charade;
+give every op that needs one its indicator word (ana, rev, ins, del, hid, sound,
+first/last/...); a cryptic definition is one cd([clue words]); no clue word sits
+in two leaves or indicators, or in both the definition and the wordplay (unless
+&lit); a selection over several words is one op over one multi-word leaf; a
+leaf that gives a stretch of its own words is the selection, deletion or hidden
+word as an op; the wordplay is never one leaf; every charade piece has clue words
+(a bare-letters piece belongs in a leaf of the clue word that supplies it); an
+anagram's container is the outer step, ins(outer, ana(x)), not ana(ins(...)).
 """
 import argparse
 import collections
