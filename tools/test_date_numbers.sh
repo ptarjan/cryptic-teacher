@@ -46,15 +46,15 @@ for key, prefix in dated.items():
 print("PAGES", ok)
 
 # The archive row: the date in the date column like every other row, the
-# paper and kind in the title slot ("Canberra Times Cryptic"), as the answer page's
-# prev/next links name it. The kind alone ("Cryptic") named no paper.
+# publisher in the title slot ("Canberra Times"); the kind alone ("Cryptic")
+# named no paper, and publisher plus kind made the column too wide.
 rows = True
 for key in dated:
     num = int("20260922"[len(dated[key]):])
     day = S.number_date(key, num)
     row = B.hub_row({"id": f"{key}-{num}", "series": key, "number": num, "setter": None,
                      "date": day.isoformat()})
-    want_num = f'<span class="p-num">{B.esc(S.paper_kind(key))}</span>'
+    want_num = f'<span class="p-num">{B.esc(S.publisher(key))}</span>'
     meta = re.search(r'<span class="p-meta">(.*?)</span>', row).group(1)
     if want_num not in row or not meta or str(day.year) not in meta:
         rows = False

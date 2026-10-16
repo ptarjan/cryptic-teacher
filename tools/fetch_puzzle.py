@@ -3140,7 +3140,7 @@ def reindex():
     books = {str(i): {"shelf": r["shelf"], "volume": r["volume"], "was": r["was"]}
              for i, r in sorted(series_meta.BOOKS.items())}
     # The series whose number is a print date (numberIsDate), each with its
-    # row name ("Canberra Times Cryptic"): app.js prints the day in the date
+    # row name ("Canberra Times"): app.js prints the day in the date
     # column and this in the title slot, as hub_row() does, and cannot read
     # series.py.
     dated = series_meta.date_numbered()
