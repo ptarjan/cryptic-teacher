@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # A leader that prints its clue on a later light, and a count the paper
 # printed wrong.
 #
-#     bash tools/test_off_start_leader.sh
+#     python3 tools/test_off_start_leader.py
 #
 # cryptic-21673 prints VESTED INTEREST's clue at 26-across and nothing at
 # 25-across, so 26-across holds ["25-across", "26-across"]: the group is in
@@ -12,9 +12,11 @@
 # readers, collapse(), check_groups, the GROUP_ORDER pin and the length check
 # for that shape; then fetch_puzzle.PRINTED_COUNT_WRONG's write-time mend and
 # puzzle_integrity.check_printed_counts.
-set -uo pipefail
-cd "$(dirname "$0")/.."
-PYTHONPATH=tools python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
+
 import copy
 
 import fetch_puzzle
@@ -159,4 +161,3 @@ check("the length check measures the intended count", flags, [])
 
 print("off_start_leader: all checks passed" if not fails else f"off_start_leader: {fails} FAILED")
 raise SystemExit(1 if fails else 0)
-PY

@@ -1,16 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Is a linked answer's group stored in the order its words read, on every
 # write, and does the corpus sweep report one that is not?
 #
-#     bash tools/test_group_order.sh
+#     python3 tools/test_group_order.py
 #
 # cryptic-24447's ALL AND SUNDRY is four three-letter lights under "(3,3,6)":
 # every order of them cuts, so only the words say which is right. The groups
 # here are built so that the stored order spells a non-word.
-set -uo pipefail
-cd "$(dirname "$0")/.." || exit 1
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
 
-PYTHONPATH=tools python3 - <<'PY'
 import copy
 import json
 import sys
@@ -129,4 +130,3 @@ lead = next(e for e in written["entries"] if entry_id(e) == "13-across")
 check("write_puzzle_file writes the group in word order", lead["group"], want)
 
 sys.exit(1 if fails else 0)
-PY

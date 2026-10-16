@@ -1,10 +1,11 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # An indicator note may name a block's clue words but never its letters or the
 # answer: the indicator rung is shown before the blocks, and every note in the
 # corpus is held to it.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import validate_annotations as v
 
 fails = 0
@@ -35,4 +36,3 @@ v.check_indicator_notes_name_no_block("1A", {
     "indicators": [{"text": "at first", "note": "the lips come first, before TEND"}]}, errors)
 check("an error on any note, not only a new one", 1, len(errors))
 raise SystemExit(fails)
-PY

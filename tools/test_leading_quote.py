@@ -1,13 +1,14 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # An OCR'd clue opens with a quote only when it is a quotation
 # (tools/leading_quote.py): a stray unclosed quote and a clue number leaked
 # after one go, an attributed quotation that lost its closing quote is closed,
 # a matched quotation, an elision and a dropped h stand, offsets move with the
 # text, a publisher's clue is never touched, both OCR readers finish a clue
 # through it, and the write gate refuses what it would still mend.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import copy
 import leading_quote as lq
 import light_spec
@@ -112,4 +113,3 @@ check("jigsaw LEAD names unplaced clue 2", ["unplaced clue 2"], lead_flags(jig))
 
 print("FAILS", fails)
 raise SystemExit(1 if fails else 0)
-PY

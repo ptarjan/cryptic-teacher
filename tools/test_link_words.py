@@ -1,15 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does tools/validate_annotations.py refuse a link word that app.js would place
 # on top of an indicator or a definition, wholly or in part, and pass one with
 # a free copy?
 # The placement is app.js placedFragments(), so these are the clues that
 # reached the screen with a bought indicator half-erased.
 #
-#     bash tools/test_link_words.sh
-set -uo pipefail
-cd "$(dirname "$0")/.." || exit 1
+#     python3 tools/test_link_words.py
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
 
-PYTHONPATH=tools python3 - <<'PY'
 from validate_annotations import check_link_word_is_clear_of_other_marks as check
 
 def refused(clue, inds, links, defs=()):
@@ -52,4 +53,3 @@ for clue, inds, links, defs, want in cases:
         print(f"FAIL: {clue!r} link {links} — refused={got}, want {want}")
 print(f"{len(cases) - bad}/{len(cases)} link-word cases")
 raise SystemExit(1 if bad else 0)
-PY

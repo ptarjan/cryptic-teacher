@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does tools/gale_idle.py let a cryptic-gale-inbox tick skip its worktree
 # setup only when the tick would do nothing: the progress page rendered
 # within the hour and no download since (or one, but the page under
@@ -6,14 +6,20 @@
 # and does it force a full tick MAX_SKIP after the last? Does
 # tools/vlm_health.py --quick skip only an up VLM that was not down?
 #
-#     bash tools/test_gale_idle.sh
+#     python3 tools/test_gale_idle.py
 #
 # Files in a temp dir; no network, no git.
-set -euo pipefail
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
-tmp=$(mktemp -d)
-trap 'rm -rf "$tmp"' EXIT
-PYTHONPATH="$REPO/tools" python3 - "$tmp" <<'PY'
+import os
+import sys
+import atexit
+import shutil
+import tempfile
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
+tmp = tempfile.mkdtemp()
+atexit.register(shutil.rmtree, tmp, True)
+sys.argv[1:] = [tmp]
+
 import json, os, sys, types
 from pathlib import Path
 import gale_idle as g
@@ -72,4 +78,3 @@ seen[:] = []
 v.serving = lambda: False
 check("vlm down: full tick", 1, v.quick())
 sys.exit(1 if fails else 0)
-PY

@@ -377,11 +377,11 @@ tools/test_ia_borrow.sh                        holds the one archive.org refusal
                                                that needs no loan, and keeps the account-wide
                                                lending limit a third answer that stops the run
                                                rather than a twenty-fourth per-book failure
-tools/test_ia_loan_leak.sh                     kills a real borrow with SIGTERM and SIGKILL
+tools/test_ia_loan_leak.py                     kills a real borrow with SIGTERM and SIGKILL
                                                against a stub archive.org to prove the loan
                                                does leak, then proves the next run gives it
                                                back before borrowing anything of its own
-tools/test_penguin_layout.sh                   gates the dotted-number print layout — glued
+tools/test_penguin_layout.py                   gates the dotted-number print layout — glued
                                                running head, "13." numbers, "1 & 4 Ac." links —
                                                whose loss costs a whole book to jigsaw mode and
                                                0% of its clue numbers
@@ -390,7 +390,7 @@ tools/test_linked_enumerations.sh              proves a per-light solve record i
                                                leader form is never re-derived, and that every
                                                linked answer in the book series on disk still
                                                carries its count on the leader alone
-tools/test_group_order.sh                      proves a linked answer's group is written in the
+tools/test_group_order.py                      proves a linked answer's group is written in the
                                                order its words read, and that the integrity
                                                sweep reports one that is not
 tools/test_blank_clue_carry.sh                 proves a re-fetch cannot empty a puzzle whose
@@ -492,7 +492,7 @@ tools/indicator_keys.py                        the one spelling of an indicator 
                                                each indicator is credited to, its own `for`;
                                                the /indicators/ page and the burn's indicator
                                                cover both match through it
-tools/test_indicator_keys.sh                   holds which (type, key) pairs a clue's
+tools/test_indicator_keys.py                   holds which (type, key) pairs a clue's
                                                indicators give: a phrase links the longest key
                                                inside it only in a one-type clue, never through
                                                link words alone; and which clue /indicators/
@@ -689,7 +689,7 @@ tools/test_annotate_disclosure.sh              proves each rule cut from the ann
 tools/validate_annotations.py                  proves every annotation actually spells its
                                                answer, plus the other rules about what a rung
                                                may and may not say
-tools/test_indicator_note_letters.sh           an indicator note may not write a block's
+tools/test_indicator_note_letters.py           an indicator note may not write a block's
                                                letters, since its rung comes before the blocks
 tools/test_selector_indicator.sh               a letter selector ("capital of", "initially") is
                                                an indicator, so a new or changed block holds
@@ -727,9 +727,9 @@ tools/test_setter_error.sh                     a clue the setter printed wrong i
                                                every other mismatch still fails, and a row that
                                                is neither a whole-answer nor a partial anagram
                                                of what the clue prints is refused
-tools/test_indicator_straddle.sh               an indicator may sit inside a definition but not
+tools/test_indicator_straddle.py               an indicator may sit inside a definition but not
                                                across its edge
-tools/test_indicator_repeats.sh                an indicator may repeat in `indicators` only as
+tools/test_indicator_repeats.py                an indicator may repeat in `indicators` only as
                                                often as the clue prints it
 tools/blog_compare.py                          compares every annotated clue's definition, type
                                                and blocks with what its blog marked, using the
@@ -751,7 +751,7 @@ tools/hidden_messages.py                       hidden-letter devices: checks eac
                                                flags preambles that name a device, and converts
                                                existing annotations whose blocks already carry
                                                the letters
-tools/test_hidden_messages.sh                  holds `hiddenLetter` to its clue's blocks or
+tools/test_hidden_messages.py                  holds `hiddenLetter` to its clue's blocks or
                                                text, `messages` to its clues' letters in order,
                                                the preamble detection's hits and misses, and
                                                the converter
@@ -852,7 +852,7 @@ tools/test_build_authored_puzzle.py            builds A001 through the real writ
                                                copy of a newspaper puzzle become a reading of
                                                it whichever was filed first, by one job or by
                                                two
-tools/test_hidden_edges.sh                     holds the builder's refusal of a hidden answer
+tools/test_hidden_edges.py                     holds the builder's refusal of a hidden answer
                                                that sits inside one word or starts or ends on a
                                                word boundary, forwards or reversed
 
@@ -865,12 +865,12 @@ tools/apply_solution.py                        writes a blind solve in only if e
 tools/reopen_answers.py                        blanks the model answers an annotate run found
                                                no parse for, once each, so the burn solves them
                                                again instead of parking the puzzle
-tools/test_model_answers.sh                    an annotator’s correction of a model answer
+tools/test_model_answers.py                    an annotator’s correction of a model answer
                                                lands only if every crossing and printed answer
                                                still agrees; a reopen happens once and never to
                                                a printed answer
 tools/fixtures/times-17379-model-solved.json   times-17379 as the model first solved it, frozen
-                                               so tools/test_model_answers.sh does not move
+                                               so tools/test_model_answers.py does not move
                                                with the live corpus file
 tools/solve_misses.py                          lists the graded misses no diagnosis has looked
                                                at, packs one up for it, records the verdict,
@@ -1133,7 +1133,7 @@ tools/test_validate_scope.sh                   does a puzzle edit or an unrelate
                                                change force the full check, and the
                                                core-parallel full check print what the serial
                                                one does?
-tools/test_page_cache.sh                       does the deploy keep last build's puzzle pages
+tools/test_page_cache.py                       does the deploy keep last build's puzzle pages
                                                through a fetcher, test, doc or hub-page edit,
                                                and re-render them all when the page's own code
                                                or a table it reads changes?
@@ -1851,7 +1851,7 @@ tools/test_publish_fetched.sh                  can a puzzle the burn fetched eve
                                                sync's rebase? Checked against a real origin,
                                                with origin filing the same path first and
                                                without
-tools/test_link_words.sh                       does tools/validate_annotations.py refuse a link
+tools/test_link_words.py                       does tools/validate_annotations.py refuse a link
                                                word that app.js would place on top of an
                                                indicator, wholly or in part, and pass one with
                                                a free copy? The placement is app.js
@@ -2266,7 +2266,7 @@ tools/test_gale_docs.py                        with Gale stood in: is the day's 
                                                naming its document, a Listener report found in
                                                the weeks after its puzzle, and a miss looked up
                                                again only when an older matcher made it?
-tools/test_gale_listener.sh                    is a saved Listener page matched by its name,
+tools/test_gale_listener.py                    is a saved Listener page matched by its name,
                                                citation title, citation date (across a line
                                                break) or title, not by a browser's "(1)" copy
                                                suffix, a "Competition No." or a week with no
@@ -2304,7 +2304,7 @@ tools/listener_grid.py                         reads a 1930s Listener grid off a
                                                painted out) and says whether it is exact,
                                                barring 2-cell runs shut when the page leaves
                                                them unnumbered; no symmetry assumed
-tools/test_listener_grid.sh                    does listener_grid read a drawn, slightly
+tools/test_listener_grid.py                    does listener_grid read a drawn, slightly
                                                turned, non-square barred grid with a block back
                                                exactly, among prose, a column rule and a boxed
                                                advert, and number it as light_cells does, a
@@ -2405,7 +2405,7 @@ tools/test_file_gale_listener.py               does the Gale Listener filer put 
                                                say what a puzzle short of a step lacks (with
                                                the page its page sends the grid to), and are a
                                                blocked grid's blocks no bars?
-tools/test_listener_letters.sh                 does trove_solution_ocr.read_grid_letters read
+tools/test_listener_letters.py                 does trove_solution_ocr.read_grid_letters read
                                                the letters of a drawn, filled Listener report
                                                grid back through listener_grid's lattice?
 tools/test_ann_layout.py                       annotate_check's fix-ups rewrite only the values
@@ -2497,7 +2497,7 @@ tools/resolve_promotion_conflict.py            settle the one conflict a promoti
                                                for tools/push_puzzle_commit.sh
 tools/leading_quote.py                         an OCR'd clue opens with a quote mark only when
                                                it is a quotation
-tools/test_leading_quote.sh                    an OCR'd clue opens with a quote only when it is
+tools/test_leading_quote.py                    an OCR'd clue opens with a quote only when it is
                                                a quotation (tools/leading_quote.py): a stray
                                                unclosed quote and a clue number leaked after
                                                one go, an attributed quotation that lost its
@@ -2528,7 +2528,7 @@ tools/test_genius_puzzles.sh                   does tools/genius_puzzles.py read
                                                keep the Genius's printed pair of counts, and
                                                does the write gate refuse a tag's remnant in
                                                any string?
-tools/test_linked_group_sums.sh                does the grid search use a linked answer's
+tools/test_linked_group_sums.py                does the grid search use a linked answer's
                                                printed total?
 tools/test_self_clued.sh                       can a light with a clue of its own also finish
                                                another linked answer (cryptic-21893's THERE and
@@ -2541,7 +2541,7 @@ tools/test_shared_leader.sh                    can one light start two linked an
                                                annotate run and the Genius parser
 tools/jigsaw_fit.py                            fit a jigsaw's answers into the one blocked grid
                                                they interlock in
-tools/test_jigsaw_fit.sh                       does a jigsaw held as its clues alone become a
+tools/test_jigsaw_fit.py                       does a jigsaw held as its clues alone become a
                                                filed puzzle once answered?
 tools/unit_more.py                             a unit's backlog_left(): it stopped with work
                                                left, so tools/unit_queue.py starts it again
@@ -2666,7 +2666,7 @@ tools/test_clue_repair.sh                      does tools/clue_repair.py give a 
                                                bracket its own reading lost the count another
                                                reading prints, in its parts, so the scan filers
                                                file "3,6,5" and not the bare letter total "14"?
-tools/test_off_start_leader.sh                 a leader that prints its clue on a later light,
+tools/test_off_start_leader.py                 a leader that prints its clue on a later light,
                                                and a count the paper printed wrong
 
 building and checking the site
@@ -2734,7 +2734,7 @@ tools/test_desktop_hosts.sh                    does tools/desktop_hosts.py find 
                                                it, so one dead LAN address stalls nothing?
 tools/gale_idle.py                             exit 0 when a cryptic-gale-inbox tick would do
                                                nothing, so tools/gale_inbox.sh
-tools/test_gale_idle.sh                        does tools/gale_idle.py let a cryptic-gale-inbox
+tools/test_gale_idle.py                        does tools/gale_idle.py let a cryptic-gale-inbox
                                                tick skip its worktree setup only when the tick
                                                would do nothing: the progress page rendered
                                                within the hour and no download since (or one,

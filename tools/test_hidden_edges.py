@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does tools/build_authored_puzzle.py refuse a hidden answer that sits inside one
 # word or starts or ends on a word boundary, forwards or reversed, and pass one
 # that crosses a space and begins and ends inside words? And does
@@ -7,16 +7,17 @@
 # back or middle a deletion or selection keeps, when the type has no
 # hidden_word and no block or indicator note calls it a coincidence?
 #
-#     bash tools/test_hidden_edges.sh
+#     python3 tools/test_hidden_edges.py
 #
 # "Some Che apparel is shoddy" starts CHEAP on the whole word "Che"; published
 # setters almost never do that (2 of 2,578 forward hidden words start on a
 # boundary, 2 end on one), so our own clues may not. "Osprey swallows victim"
 # hides PREY inside one word; 267 of those published clues do that, and we don't.
-set -uo pipefail
-cd "$(dirname "$0")/.." || exit 1
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
 
-PYTHONPATH=tools python3 - <<'PY'
 import sys
 import wordplay
 from build_authored_puzzle import hidden_edge_errors
@@ -133,4 +134,3 @@ for f in bad:
 if bad:
     sys.exit(1)
 print(f"  ok: {len(checks)} unmarked hidden words judged")
-PY

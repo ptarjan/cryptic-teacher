@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does tools/parse_penguin_book.py still read the DOTTED-NUMBER LAYOUT?
 #
-#     bash tools/test_penguin_layout.sh
+#     python3 tools/test_penguin_layout.py
 #
 # A scan set in that convention (running head glued to the header line,
 # dotted clue numbers, "1 & 4 Ac." links, "See 14 Across" cross-references)
@@ -20,10 +20,10 @@
 # enough to accept "Cryptic Across" will read it as a section header and
 # throw away every clue above it. That failure is silent and looks like a
 # short puzzle, which is why it is asserted directly.
-set -u
-cd "$(dirname "$0")/.."
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-python3 - <<'PYEOF'
 import sys
 import tempfile
 from pathlib import Path
@@ -325,4 +325,3 @@ if failures:
     print(f"FAILED: {len(failures)} problem(s)")
     sys.exit(1)
 print("PASSED")
-PYEOF

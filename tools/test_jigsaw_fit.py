@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does a jigsaw held as its clues alone become a filed puzzle once answered?
 #
-#     bash tools/test_jigsaw_fit.sh
+#     python3 tools/test_jigsaw_fit.py
 #
 # A small synthetic jigsaw: a 7x7 blocked grid of random letters (four rows,
 # four columns), its eight lights' answers given as one unnumbered list, two of
@@ -12,10 +12,10 @@
 # refuse a wrong answer and file the right ones, in a scratch tree, as a
 # puzzle with positions, numbered, `cluesUnplaced` kept, the linked answer a
 # leader and its "See N", and the clues-only copy gone.
-set -u
-cd "$(dirname "$0")/.." || exit 1
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-python3 - <<'EOF'
 import contextlib
 import io
 import json
@@ -132,4 +132,3 @@ for f in fails:
     print("FAIL", f)
 print(f"test_jigsaw_fit: {len(fails)} failure(s)")
 sys.exit(1 if fails else 0)
-EOF
