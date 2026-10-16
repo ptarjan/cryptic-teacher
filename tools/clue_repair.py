@@ -239,6 +239,145 @@ def repair(parsed, stream):
     return parsed, notes
 
 
+# ------------------------------------------------- the repairs from one reading
+
+def heads(c):
+    """The one number a clue carries, or None."""
+    return next(iter(c["tokens"][0])) if len(c["tokens"][0]) == 1 else None
+
+
+def taken(parsed):
+    """Every number a clue of either list names, its links too."""
+    return {n for v in parsed.values() for c in v for t in c["tokens"] for n in t if len(t) == 1}
+
+
+#: A clue number opening a clue inside another clue's text, with the count of
+#: the clue before it in front when that count stands inside the text.
+RUN_ON = re.compile(r"(?:\((\d[\d,\-\u2013]*)\)\s*)?(?<![\d(])(\d{1,2}|[1l]\])[.:]?\s+(?!(?i:across|down|ac|dn)\b)(?=[A-Z\u2018\u201c'\"])")
+#: A clue that is only a cross-reference, its count never there.
+BARE_SEE = re.compile(r"\(?\s*s[ec]e\s*([lI]|\d{1,2})\s*(?:ac|dn|across|down)?\.?\s*\)?$", re.I)
+
+
+def split_run_on(parsed):
+    """`parsed` with a clue the OCR ran into the one before it split off: the
+    printed numbers skip N (no clue carries it, which the grid rebuild
+    refuses) and " N Capital" stands inside another clue's text. Three ways
+    the join happens: that clue's count was lost ("... at one time 17 Go down
+    ..."); the text before it is only a cross-reference whose count was never
+    there ("(sce 22) 3 Supported", "(see lac.) 22 Vacillating"); or its count
+    stands inside the text ("... chopper (7) 1] Those who've ..."), the
+    clue's own count being the later clue's. Only a number the lists skip is
+    split at, only above the clue's own and below the next clue's, so a list
+    that was whole is not touched. Needs no second reading.
+    (parsed, [what changed])."""
+    parsed = {d: [dict(c) for c in v] for d, v in parsed.items()}
+    notes = []
+    while True:
+        have = taken(parsed)
+        missing = set(range(1, max(have) + 1)) - have if have else set()
+        if not have:
+            return parsed, notes
+        for direction, out in parsed.items():
+            for i, c in enumerate(out):
+                own = heads(c)
+                if own is None or not c["text"] or c["see"] is not None:
+                    continue
+                after = next((heads(x) for x in out[i + 1:] if heads(x) is not None), None)
+                for m in RUN_ON.finditer(c["text"]):
+                    n = 11 if m.group(2)[-1] == "]" else int(m.group(2))
+                    first = c["text"][:m.start()].strip()
+                    see = BARE_SEE.match(first)
+                    if not (n in missing or (after is None and n not in have and n <= 36)) or n <= own or not first or (m.start() < 3 and not see):
+                        continue
+                    if after is not None and n >= after:
+                        continue  # a clue between two others numbers between them
+                    later = {"tokens": [{n}], "text": c["text"][m.end():].strip(),
+                             "enums": c["enums"], "see": None}
+                    if see:
+                        ref = "1" if see.group(1) in "lI" else see.group(1)
+                        head = dict(c, text=f"See {ref}", enums=set(), see=int(ref))
+                    else:
+                        head = dict(c, text=first, enums={m.group(1).replace("\u2013", "-")} if m.group(1) else set())
+                    out[i:i + 1] = [head, later]
+                    notes.append(f"{n} {direction}: split off {own} {direction}, which ran on into it")
+                    break
+                else:
+                    continue
+                break
+            else:
+                continue
+            break
+        else:
+            return parsed, notes
+
+
+def order(parsed):
+    """`parsed` with its numbers put in order where their increase says how.
+    Each list's numbers rise, so (1) a number out of place between two
+    neighbours that bracket it is a misread of the one number in that gap
+    that no clue carries; (2) a down list that starts with a rising run past
+    the across list's last number and then falls back is the across list's
+    tail, its columns read in the wrong order. (parsed, [what changed])."""
+    parsed = {d: [dict(c) for c in v] for d, v in parsed.items()}
+    notes = []
+    for direction, rows in parsed.items():
+        for i in range(1, len(rows) - 1):
+            lo, x, hi = heads(rows[i - 1]), heads(rows[i]), heads(rows[i + 1])
+            if None in (lo, x, hi) or lo >= hi or lo < x < hi:
+                continue
+            gap = [n for n in range(lo + 1, hi) if n not in taken(parsed)]
+            if len(gap) == 1 and len(rows[i]["tokens"]) == 1:
+                rows[i] = dict(rows[i], tokens=[{gap[0]}])
+                notes.append(f"{gap[0]} {direction}: number, the list read {x}")
+    a, d = parsed.get("across", []), parsed.get("down", [])
+    nums = [heads(c) for c in d]
+    if a and d and None not in nums and heads(a[-1]) is not None:
+        k = next((j for j in range(1, len(nums)) if nums[j] <= nums[j - 1]), None)
+        if k and nums[0] > heads(a[-1]) and nums[k] < nums[0] and all(
+                nums[j] < nums[j + 1] for j in range(k, len(nums) - 1)):
+            notes.append(f"{nums[0]}..{nums[k - 1]}: moved from down to across")
+            parsed = dict(parsed, across=a + d[:k], down=d[k:])
+    return parsed, notes
+
+
+def from_rows(rows):
+    """Parsed clues of light_spec rows ({"number": "23,4", "clue",
+    "enumeration"}), each keeping its row."""
+    out = []
+    for r in rows:
+        nums = r["number"].split(",")
+        see = re.fullmatch(r"See (\d{1,2})", r["clue"] or "")
+        out.append({"tokens": [{int(n)} if n.isdigit() else set() for n in nums],
+                    "text": r["clue"] or "", "see": int(see.group(1)) if see else None,
+                    "enums": {r["enumeration"]} if r["enumeration"] else set(), "row": r})
+    return out
+
+
+def to_rows(clues):
+    """The rows of parsed clues from_rows made, a repaired clue's number, text
+    and count replaced and its other keys (linkSides) kept."""
+    rows = []
+    for c in clues:
+        r = c.get("row") or {"number": "", "clue": "", "enumeration": None}
+        was = from_rows([r])[0] if r["number"] else None
+        if was and (was["tokens"], was["text"], was["enums"]) == (c["tokens"], c["text"], c["enums"]):
+            rows.append(r)
+            continue
+        number = ",".join(str(next(iter(t))) for t in c["tokens"]) if all(len(t) == 1 for t in c["tokens"]) else r["number"]
+        rows.append({**r, "number": number, "clue": c["text"],
+                     "enumeration": next(iter(c["enums"])) if len(c["enums"]) == 1 else None})
+    return rows
+
+
+def repair_rows(across, down):
+    """(across rows, down rows) with split_run_on() and order() applied: the
+    repairs of lists no second reading backs."""
+    parsed = {"across": from_rows(across), "down": from_rows(down)}
+    parsed, _ = split_run_on(parsed)
+    parsed, _ = order(parsed)
+    return to_rows(parsed["across"]), to_rows(parsed["down"])
+
+
 def complete(parsed):
     """Whether a clue list pins every number and count down: each clue one
     number and (unless a "See") one enumeration, each list increasing, and
@@ -259,7 +398,7 @@ def complete(parsed):
 def repaired(parsed, readings):
     """(parsed, [what changed]) with the list repaired from each reading in
     `readings` (texts) in turn until it is complete()."""
-    notes = []
+    parsed, notes = split_run_on(parsed)
     for text in readings:
         if complete(parsed):
             break

@@ -515,7 +515,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/test_json_merge.sh", "do the keyed JSON data files merge per key in a real rebase?"),
     ("tables everything else reads", "tools/test_refresh_window.sh", "does refresh_unsolved ever stop asking for an answer that is never coming?"),
     ("tables everything else reads", "tools/test_privateeye_dates.sh", "does tools/fetch_privateeye.py read the issue off every title shape the archive ships, and take the Eye's Christmas cover date as it prints it?"),
-    ("tables everything else reads", "tools/test_privateeye_split_lost.sh", "does tools/privateeye_wayback.split_lost split a clue the OCR ran into the one before it, only at a number the lists skip?"),
+    ("tables everything else reads", "tools/test_clue_repair_one_reading.sh", "does tools/clue_repair.py split a clue the OCR ran into the one before it only at a number the lists skip, and put misnumbered clues in order, for every filer that parses clue lists?"),
     ("tables everything else reads", "tools/test_privateeye_missing_size.sh", "does tools/clue_repair.fill_missing_sizes size a plain light whose count the OCR lost from the answer the next issue printed?"),
     ("tables everything else reads", "tools/test_fetch_puzzle_misfiled.py", "does fetch_puzzle.convert() refuse a mis-filed Guardian page and accept a re-published one?"),
     ("tables everything else reads", "scratch/snitch_tune.py", "collect every SNITCH-rated puzzle's raw components into scratch/snitch_rows.json, for snitch_weights.py"),

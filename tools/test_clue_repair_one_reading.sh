@@ -1,8 +1,9 @@
 #!/bin/bash
-# Does tools/privateeye_wayback.split_lost split a clue the OCR ran into the
-# one before it, only at a number the lists skip? (Cyclops Nos 71, 96, 98, 111, 113.)
+# Does tools/clue_repair.repair_rows (split_run_on and order, the repairs a
+# single reading needs) split a clue the OCR ran into the one before it only at a
+# number the lists skip, and put misnumbered clues in order? (Cyclops Nos 71, 96, 98, 111, 113.)
 #
-#     bash tools/test_privateeye_split_lost.sh
+#     bash tools/test_clue_repair_one_reading.sh
 #
 # Offline.
 set -uo pipefail
@@ -13,7 +14,7 @@ check() {
 }
 
 out=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
-import privateeye_wayback as pw
+import clue_repair as pw
 
 
 def r(n, clue, enum):
@@ -27,37 +28,37 @@ def show(a, d):
 # A lost count: 15's "(6)" is 17's, the numbers skip 17.
 a = [r("1", "One", "4"), r("15", "Action at one time 17 Go down sportingly", "6"), r("18", "Eighteen", "5")]
 d = [r("2", "Two", "3"), r("16", "Sixteen", "4")]
-a2, d2 = pw.split_lost([x.copy() for x in a], [x.copy() for x in d])
+a2, d2 = pw.repair_rows(a, d)
 print("LOST", show(a2, d2)[1:3])
 
 # A cross-reference with no count, run into the next clue.
 a = [r("1", "One", "4"), r("5", "Five", "5")]
 d = [r("2", "(sce 4) 3 Supported while bestowing", "4"), r("6", "Six", "5")]
-a2, d2 = pw.split_lost([x.copy() for x in a], [x.copy() for x in d])
+a2, d2 = pw.repair_rows(a, d)
 print("SEE", show(a2, d2))
 
 # A count inside the text: the row's own is the later clue's.
 a = [r("%d" % n, "Clue", "4") for n in (1, 3, 5, 7, 9)] + [r("10", "Quite able (7) 1] Those who have been honoured", "5")]
 d = [r("%d" % n, "Clue", "4") for n in (2, 4, 6, 8, 12)]
-a2, d2 = pw.split_lost([x.copy() for x in a], [x.copy() for x in d])
+a2, d2 = pw.repair_rows(a, d)
 print("INSIDE", show(a2, d2)[5:7])
 
 # No number skipped: nothing is touched.
 a = [r("1", "Whole 2 Clue here", "5")]
 d = [r("2", "Two", "3")]
-a2, d2 = pw.split_lost([x.copy() for x in a], [x.copy() for x in d])
+a2, d2 = pw.repair_rows(a, d)
 print("WHOLE", show(a2, d2)[0])
 
 # A down list that starts with the across list's tail.
 a = [r("1", "A", "4"), r("5", "B", "4")]
 d = [r("6", "C", "4"), r("8", "D", "4"), r("2", "E", "4"), r("3", "F", "4")]
-a2, d2 = pw.order_lists([x.copy() for x in a], [x.copy() for x in d])
+a2, d2 = pw.repair_rows(a, d)
 print("TAIL", [x["number"] for x in a2], [x["number"] for x in d2])
 
 # A misread number between two good neighbours.
 a = [r("1", "A", "4"), r("7", "B", "4"), r("4", "C", "4"), r("5", "D", "4")]
 d = [r("2", "E", "4"), r("6", "F", "4")]
-a2, d2 = pw.order_lists([x.copy() for x in a], [x.copy() for x in d])
+a2, d2 = pw.repair_rows(a, d)
 print("MISREAD", [x["number"] for x in a2])
 PY
 )

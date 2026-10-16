@@ -1799,9 +1799,10 @@ tools/test_privateeye_dates.sh                 does tools/fetch_privateeye.py re
                                                off every title shape the archive ships, and
                                                take the Eye's Christmas cover date as it prints
                                                it?
-tools/test_privateeye_split_lost.sh            does tools/privateeye_wayback.split_lost split a
-                                               clue the OCR ran into the one before it, only at
-                                               a number the lists skip?
+tools/test_clue_repair_one_reading.sh          does tools/clue_repair.py split a clue the OCR
+                                               ran into the one before it only at a number the
+                                               lists skip, and put misnumbered clues in order,
+                                               for every filer that parses clue lists?
 tools/test_privateeye_missing_size.sh          does tools/clue_repair.fill_missing_sizes size a
                                                plain light whose count the OCR lost from the
                                                answer the next issue printed?
