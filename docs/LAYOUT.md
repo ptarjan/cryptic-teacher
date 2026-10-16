@@ -1944,7 +1944,7 @@ tools/train_archive_org_tesseract.py           fine-tune Tesseract's English LST
                                                lines, for the archive.org filer
 tools/archive_org_listener.py                  read the Listener crosswords in archive.org's
                                                scans of The Times' Saturday editions
-tools/test_archive_org_listener.sh             does tools/archive_org_listener.py find the
+tools/test_archive_org_listener.py             does tools/archive_org_listener.py find the
                                                Listener's own heading (not the coupon's), split
                                                the clue columns at DOWN (not the title's "8
                                                DOWN"), carry across clues that run into the
@@ -1954,7 +1954,7 @@ tools/test_archive_org_listener.sh             does tools/archive_org_listener.p
                                                readings agree on or that runs on?
 tools/archive_org_jumbo.py                     file the Times Jumbo cryptics in archive.org's
                                                scans of The Times' Saturday editions
-tools/test_archive_org_jumbo.sh                does tools/archive_org_jumbo.py take the Jumbo's
+tools/test_archive_org_jumbo.py                does tools/archive_org_jumbo.py take the Jumbo's
                                                number from the prize text (the banner's is cut
                                                short), read "SOLUTION TO JUMBO 17 8" as 178,
                                                look for an unheaded solution in the edition two
@@ -2587,7 +2587,7 @@ tools/test_puzzle_format.py                    do the schema and validator refus
 tools/fixtures/format-puzzles/                 three Guardian cryptics and a book puzzle frozen
                                                in the format, read by test_puzzle_format.py,
                                                test_shim_format.sh and smoke_test.js
-tools/test_see_pointer.sh                      is a "See N" continuation the pointer and
+tools/test_see_pointer.py                      is a "See N" continuation the pointer and
                                                nothing else, in every reader?
 tools/tidy_wordplay_shapes.py                  joins each indicator-less charade inside a
                                                charade corpus-wide where annotation.view() is
@@ -2721,7 +2721,7 @@ tools/test_privateeye_scans.sh                 does tools/privateeye_scans.py fi
                                                as a round one?
 tools/test_sync_retry.js                       a sync push that fails must never lose a save,
                                                and must retry on its own
-tools/test_pdf_edition_broken.sh               does tools/fetch_archive_org_editions.py read
+tools/test_pdf_edition_broken.py               does tools/fetch_archive_org_editions.py read
                                                the pages of an image PDF that archive.org holds
                                                zero-filled past some page (FT 1981-06-29/30),
                                                listing the broken ones in "unreadable" instead

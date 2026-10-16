@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does tools/archive_org_jumbo.py take the Jumbo's number from the prize text
 # (the banner's is cut short), read "SOLUTION TO JUMBO 17 8" as 178, look for
 # an unheaded solution in the edition two weeks on, blank a light whose count
@@ -7,13 +7,13 @@
 # down past the window under the prize text, and read a 27x27 grid whose
 # rows widen down a curled page?
 #
-#     bash tools/test_archive_org_jumbo.sh
+#     python3 tools/test_archive_org_jumbo.py
 #
 # Pure functions on made-up words and drawn grids: no scan, no OCR, nothing written.
-set -uo pipefail
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-out=$(cd "$REPO/tools" && python3 - <<'EOF'
 import numpy as np
 from pathlib import Path
 import archive_org_jumbo as aj
@@ -138,7 +138,4 @@ check("rows counted from their neighbours", [0, 1, 2, 4, 5],
       trove_grid.steps([0.0, 1.04, 2.1, 4.2, 5.25]))
 
 print("FAILS", fails)
-EOF
-)
-echo "$out"
-grep -q "^FAILS 0$" <<<"$out"
+raise SystemExit(1 if fails else 0)

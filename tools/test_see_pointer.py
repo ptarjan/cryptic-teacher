@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Is a "See N" continuation the pointer and nothing else, in every reader?
 #
-#     bash tools/test_see_pointer.sh
+#     python3 tools/test_see_pointer.py
 #
 # The Nation's 3257 printed 1-across "See 2 if confused about final two parts
 # of clues (7)": a real clue (WITNESS, TWINS+ES) whose wordplay names 2-down's
@@ -15,9 +15,11 @@
 # Also: the page chrome above The Nation's clue list (share bar, byline, issue
 # line, newsletter blurbs) is not a preamble (fetch_nation.preamble_of,
 # tools/boilerplate.py).
-set -uo pipefail
-cd "$(dirname "$0")/.."
-PYTHONPATH="$PWD/tools" python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
+
 import glob
 import json
 import sys
@@ -107,4 +109,3 @@ check("nation corpus: the sweep found linked legs at all", seen > 0, True)
 
 print(f"{len(fails)} failure(s)")
 sys.exit(1 if fails else 0)
-PY
