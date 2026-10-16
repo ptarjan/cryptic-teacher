@@ -457,7 +457,7 @@ def renumbered(words, cols):
 #: column_cols drops that tail ("1, 1D" read "1, 1" lays the tail on the
 #: head itself); directed_links puts the link back from the tail's own
 #: "See 1 Across" in the other list.
-DIRECTED = re.compile(r"^(\W{0,2}\d{1,2}(?:\s*,\s*\d{1,2})*)\s*,\s*\d{1,2}\s*[AD]\b\.?(?=\s)")
+DIRECTED = re.compile(r"^(\W{0,2}\d{1,2}(?:\s*,\s*\d{1,2})*)\s*,\s*\d{1,2}(?:\s*[AD]|[ad])\b\.?(?=\s)")
 SEE_SIDE = re.compile(r"\(?\s*" + clue_text.SEE_DIRECTED + r"\W*", re.IGNORECASE)
 
 
@@ -567,10 +567,15 @@ def column_words(img, box, which, key):
 SEE = re.compile(r"^\W{0,2}(\d{1,2})\W{0,2}\s+\(?\s*" + clue_text.SEE_DIRECTED, re.IGNORECASE)
 
 
+#: The reference's number read as a letter: "(see lac)" for "(see 1ac)".
+SEE_LETTER_ONE = re.compile(r"(\bsee\s+)[lI|](?=(?:ac|dn|across|down)?\W*$)", re.IGNORECASE)
+
+
 def see_filled(laid, verdict, words, cols):
     """A blank light two readings print as a cross-reference ("12 (See 20
     down)", which carries no count for the vote to lay it by) is that
-    reference: "See 20"."""
+    reference: "See 20". A reference number every reader misread as a letter
+    ("26 (see lac)", No 103) is read as the one it is, 1."""
     blank = dict(verdict.get("blank") or {})
     if not blank:
         return laid, verdict
@@ -578,7 +583,7 @@ def see_filled(laid, verdict, words, cols):
     for reading in words.values():
         for side, lines in zip(("across", "down"), cols(reading)):
             for ln in lines:
-                m = SEE.match(ln[4])
+                m = SEE.match(SEE_LETTER_ONE.sub(r"\g<1>1", ln[4]))
                 if m:
                     seen.setdefault(f"{int(m.group(1))}-{side}", []).append(m.group(2))
     laid = dict(laid)
