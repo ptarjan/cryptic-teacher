@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -291,44 +292,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TWISTED",
+     "indicators": [
+      {
+       "text": "hosted by",
+       "at": 21,
+       "note": "something hosted by another is held within it, so the rearranged word sits inside the provider's name"
+      }
+     ],
      "parts": [
+      {
+       "words": "talks provider?",
+       "at": 31,
+       "gives": "TED",
+       "note": "TED is the organisation famous for its online talks; the question mark flags the definition by example"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "warped"
+         "text": "warped",
+         "at": 9,
+         "note": "warped means bent out of shape, so the letters of the following word are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "hosted by"
-          }
-         ],
-         "parts": [
-          {
-           "words": "wits",
-           "gives": "WIST",
-           "note": "WITS 'warped' — anagrammed"
-          },
-          {
-           "words": "talks provider?",
-           "gives": "TED",
-           "note": "TED talks; the ? nods to defining by brand"
-          }
-         ]
+         "words": "wits",
+         "at": 16
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "TED — the talks brand — hosts warped WITS. The definition and the anagram indicator sit shoulder to shoulder, so 'Peculiar warped' reads like one description.",
-     "definitionFit": "A synonym in the sense of perverse or odd, as in a warped sense of humour."
+     "surface": "Someone with a strange sense of humour is invited on stage to give a talk.",
+     "walkthrough": "TED is the conference series known for TED Talks, filmed short lectures.",
+     "definitionFit": "Twisted can mean odd or perverse in a strange way, a synonym of peculiar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wits"
     }
    }
   },
@@ -1561,35 +1565,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CLANG",
-     "indicators": [
-      {
-       "text": "estranging nearly all?"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "family",
+       "at": 13,
+       "gives": "CLAN",
+       "note": "a clan is an extended family"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "estranging nearly all",
+         "at": 26,
+         "note": "estranging means driving away, so nearly all the letters of the next word are sent off, leaving only its first"
+        }
+       ],
        "parts": [
         {
-         "words": "family",
-         "gives": "CLAN",
-         "note": "a clan is a family"
+         "words": "group",
+         "at": 20,
+         "note": "taken as written before almost all of it goes"
         },
         {
-         "words": "group",
-         "gives": "G",
-         "note": "GROUP, estranging nearly all of its letters, keeps only its G"
+         "gives": "ROUP"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Family group' looks like one unit, but only 'family' gives CLAN; 'group' then estranges nearly all of itself down to a single G. The question mark owns up to that playful liberty.",
-     "definitionFit": "The answer is a loud ringing metallic sound, so it is one kind of big noise."
+     "surface": "A loud row breaks out in a family when most of them fall out.",
+     "definitionFit": "A clang is a loud metallic ringing sound, so it counts as a big noise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "estranging"
     }
    }
   },
