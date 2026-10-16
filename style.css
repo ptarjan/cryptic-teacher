@@ -1849,3 +1849,15 @@ html.standalone.kbd-up .tabbar { display: none; }
   flex-basis: 100%; order: -1; margin-bottom: -6px;
   font: 1rem/1.4 -apple-system, system-ui, sans-serif; color: var(--accent); text-decoration: none;
 }
+
+/* Home-screen app: the Puzzles and Stats tabs are pages, not sheets. Each fills
+   the screen above the tab bar like a native tab, with no close button (the tab
+   bar is how you leave) and nothing floating over the puzzle. */
+html.standalone #picker-panel, html.standalone #stats-panel {
+  position: fixed; z-index: 40; left: 0; right: 0; top: 0;
+  bottom: calc(56px + env(safe-area-inset-bottom, 0px));
+  width: auto; max-height: none; border: 0; border-radius: 0; box-shadow: none;
+  background: var(--bg); padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 12px;
+  box-sizing: border-box; overflow-y: auto; -webkit-overflow-scrolling: touch;
+}
+html.standalone #btn-picker-close, html.standalone #btn-stats-close { display: none; }
