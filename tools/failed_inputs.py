@@ -247,7 +247,27 @@ def due(kind, pid, rec):
     if "code" not in rec:
         return any((TOOLS / f"{m}.py").exists()
                    for m in NAMED_MODULE.findall(rec.get("reason") or ""))
-    return rec["code"] != code_version(kind, pid, rec.get("reason"))
+    if rec["code"] == code_version(kind, pid, rec.get("reason")):
+        return False
+    # The code moved, the puzzle did not. A named module such as
+    # puzzle_integrity is edited many times a day, and each edit made every
+    # row naming it due: tls-1133 and nation-3490 were bought 3-4 times in
+    # three days for the same refusal (10-16 audit). So a code-only release
+    # waits out a cooldown that doubles each time the run was bought and
+    # failed again with the puzzle unchanged (1, 2, 4... days, at most 16).
+    return code_age_days(rec) >= code_cooldown_days(rec)
+
+
+def code_cooldown_days(rec):
+    return min(2 ** rec.get("retries", 0), 16)
+
+
+def code_age_days(rec, today=None):
+    try:
+        then = datetime.fromisoformat(rec["date"]).date()
+    except (KeyError, ValueError):
+        return 10 ** 6   # undated: nothing to wait out
+    return ((today or datetime.now(timezone.utc).date()) - then).days
 
 
 def load():
@@ -292,8 +312,14 @@ def cmd_record(args):
         sys.exit(3)   # a caller that alerts on a real failure tests for this
     data = load()
     reason = (args.reason or "")[:300]
+    puzzle = input_hash(args.id, committed(args.id))
+    old = data[args.kind].get(args.id)
+    # Bought again on the same puzzle (released by a code change alone):
+    # back off the next code-only release.
+    retries = old.get("retries", 0) + 1 if old and old.get("puzzle") == puzzle else 0
     data[args.kind][args.id] = {
-        "puzzle": input_hash(args.id, committed(args.id)),
+        "retries": retries,
+        "puzzle": puzzle,
         "code": code_version(args.kind, args.id, reason),
         "date": datetime.now(timezone.utc).date().isoformat(),
         "reason": reason,
