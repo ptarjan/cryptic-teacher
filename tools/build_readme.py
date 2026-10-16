@@ -727,6 +727,8 @@ LAYOUT = [
     ("annotating", "tools/shape_suspects.py", "rank clues whose wordplay tree is probably wrong, from shape signals (read-only on puzzles/)"),
     ("annotating", "tools/fix_shape_suspects.py", "repair the shape suspects whose right tree follows from the clue, answer and tree alone (dry run by default; --apply writes puzzles, one sweep commit), and list the rest per clue in tools/data/shape_reannotate.json"),
     ("annotating", "tools/tidy_cdef_repeat.py", "rewrite cryptic definitions stored as several leaves, corpus-wide (wordplay.cdefRepeat)"),
+    ("annotating", "tools/shape_queue.py", "the clues whose wordplay tree tools/shape_suspects.py flags and"),
+    ("annotating", "tools/test_shape_queue.sh", "the shape re-annotation list (tools/shape_queue.py): a listed clue is written by a run on its hinted puzzle, the old hint is never lost, and a filed clue leaves the list. The queue tier's ordering is in prereset_plan.py --self-test"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
