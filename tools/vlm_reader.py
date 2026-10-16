@@ -128,7 +128,9 @@ def up():
 
 #: How long llama-swap's /running answer stands, like desktop_busy.PROBE_EVERY's.
 CHAT_EVERY = 30
-_CHAT = [float("-inf"), None]
+#: ... and when it did not answer (a server down costs its 3s connect each ask).
+CHAT_DOWN_EVERY = 120
+_CHAT = [float("-inf"), None, True]
 
 
 def chat_model():
@@ -137,15 +139,16 @@ def chat_model():
     it. Its ttl unloads it after idle minutes, then ours loads again. An
     answer that does not come or parse is no chat model; asked at most once
     every CHAT_EVERY seconds."""
-    if time.monotonic() - _CHAT[0] < CHAT_EVERY:
+    if time.monotonic() - _CHAT[0] < (CHAT_EVERY if _CHAT[2] else CHAT_DOWN_EVERY):
         return _CHAT[1]
+    answered = True
     try:
         req = urllib.request.Request(f"{URL}/running", headers={"User-Agent": "cryptic-teacher"})
         loaded = json.load(urllib.request.urlopen(req, timeout=3)).get("running", [])
         other = sorted(m["model"] for m in loaded if m.get("state") == "ready" and m.get("model") != MODEL)
     except (OSError, ValueError, TypeError, KeyError, AttributeError):
-        other = []
-    _CHAT[:] = [time.monotonic(), other[0] if other else None]
+        other, answered = [], False
+    _CHAT[:] = [time.monotonic(), other[0] if other else None, answered]
     return _CHAT[1]
 
 
