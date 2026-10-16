@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -627,40 +628,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "NAUTICAL",
+     "spelt": "NAUTICAL",
      "indicators": [
       {
-       "text": "Called out"
+       "text": "Called out",
+       "at": 0,
+       "note": "something called out is spoken aloud, so the sound of the pieces gives the answer's spelling"
       }
      ],
      "parts": [
       {
-       "words": "indecent",
-       "gives": "NAUGHTY",
-       "note": "indecent = naughty"
-      },
-      {
-       "words": "state",
-       "gives": "CAL",
-       "note": "California, the US state, abbreviated CAL"
-      },
-      {
-       "op": "homophone",
-       "spelt": "NAUTICAL",
-       "parts": [
-        {
-         "words": "Called out",
-         "gives": "NAUGHTYCAL",
-         "note": "run the two together and say them: the indecent state of the crew becomes the answer"
-        }
-       ]
+       "words": "indecent state",
+       "at": 11,
+       "gives": "NAUGHTYCAL",
+       "note": "indecent means naughty, as in a naughty joke, and CAL is an abbreviation for the US state of California"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Say the pieces aloud and 'naughty-cal' falls out — the homophone is the whole clue. 'State' for CAL is the kind of abbreviation to expect once a charade needs three letters from nowhere.",
-     "definitionFit": "The adjective relates to ships and sailors, so it describes anything belonging to a vessel's company."
+     "surface": "Someone has publicly denounced the scandalous condition of a ship's sailors.",
+     "walkthrough": "'State of the crew' reads as one phrase, but 'state' belongs to the wordplay and only 'of the crew' defines.",
+     "definitionFit": "Nautical means relating to ships and sailors, so 'of the crew' is a loose adjectival paraphrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "state"
     }
    }
   },
@@ -947,32 +941,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "bad",
+       "at": 21,
+       "note": "bad describes the words as spoiled or gone wrong, so their letters are rearranged"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "from bad",
-       "note": "surface only — the familiar phrase 'from bad to worse' is split, and only the second half is fodder"
+       "words": "to",
+       "at": 25,
+       "note": "taken as written"
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "develops"
-        }
-       ],
-       "parts": [
-        {
-         "words": "to worse",
-         "note": "anagram fodder, 7 letters"
-        }
-       ]
+       "words": "worse",
+       "at": 28,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A familiar phrase split in half so that only 'to worse' is fodder. You read 'from bad to worse' as a single unit, which is exactly how the letters hide in the open.",
-     "definitionFit": "Bertie is the first name of P. G. Wodehouse's hapless gentleman, rescued from scrapes by his valet Jeeves."
+     "surface": "A character called Bertie goes downhill, getting steadily worse.",
+     "walkthrough": "Bertie Wooster is the hapless young gentleman of P. G. Wodehouse's Jeeves stories; 'from bad to worse' is the familiar idiom, cleverly split.",
+     "definitionFit": "Bertie is the first name of Wodehouse's comic hero, so the forename stands for his surname by association."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bad"
     }
    }
   },
@@ -1181,23 +1179,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "timeless"
-      },
-      {
-       "text": "dancing"
+       "text": "dancing",
+       "at": 37,
+       "note": "dancing letters move about and change places, signalling a rearrangement"
       }
      ],
      "parts": [
       {
-       "words": "timeless ballet",
-       "gives": "BALLE",
-       "note": "BALLET minus T ('time')"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "timeless",
+         "at": 21,
+         "note": "timeless means without time, and T is the usual abbreviation for time, so that letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ballet",
+         "at": 30,
+         "note": "taken as written before the removal"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Timeless' for a word with its T removed is worth filing away. Setters lean on it constantly, alongside 'endless' and 'heartless' for the letters at the other ends.",
-     "definitionFit": "A tag or short descriptive name attached to something sums it up in a word or two."
+     "surface": "A short programme note describing an ageless classic ballet performance.",
+     "definitionFit": "A label is a short descriptive word or tag attached to something, a brief characterisation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "timeless"
     }
    }
   },
