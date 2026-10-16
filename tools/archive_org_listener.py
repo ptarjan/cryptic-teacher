@@ -384,7 +384,9 @@ def pick(lays, texts=(), guessed=()):
         good = [v for k, v in enumerate(have) if sound(v[0]) and any(
             j != k and ocr_clues.similar(texts[k], t) >= CORROBORATE for j, t in enumerate(texts))]
         enum = next((v[1] for v in have if v[1]), None)
-        if not good and len(have) == 1:
+        # A reading that runs the clue on into the next (unsound) is no second
+        # opinion: Cyclops No 172's 11 across, one reading's alone clean.
+        if not good and sum(1 for v in have if sound(v[0])) == 1:
             good = [v for k, laid in enumerate(lays) if lid in laid and lid not in guessed[k]
                     and (v := laid[lid]) and sound(v[0]) and printed_elsewhere(v, lid, k, lays, lines, guessed)]
         out[lid] = good[0] if good else ("", enum, None)

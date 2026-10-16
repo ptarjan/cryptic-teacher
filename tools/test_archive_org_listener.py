@@ -96,6 +96,17 @@ texts = ["ACROSS\nA tree that grows in Burma.\n", "A tree that grows in Burma.\n
 check("a clue unlike its number's other-way clue is laid (mirror)", "A tree that grows in Burma.",
       al.pick([a, b], texts)["28-across"][0])
 
+# Cyclops No 172's 11 across: one reading lays it clean, another runs it on
+# into the next clue (unsound). That one is no second opinion, so the clean
+# clue stands when another reading prints its words on a line of its own.
+texts = ["9 Top dog/cat (5,4)\n11 Before Lady Thatcher (4)\n12 Lord King set about getting one\n"] * 2
+a = {"11-across": ("Before Lady Thatcher", "4", None)}
+b = {"11-across": ("Before Lady Thatcher (4) 12 Lord King set about getting one", "4", None)}
+check("a clue one reading runs on and another lays clean is the clean one", "Before Lady Thatcher",
+      al.pick([a, b], texts)["11-across"][0])
+c = {"11-across": ("Quite another thing entirely", "4", None)}
+check("two clean readings that differ stay blank (mirror)", "", al.pick([a, c], texts)["11-across"][0])
+
 # Readings parsing as many clues: the one with more known words leads.
 check("a reading running words together knows fewer of them", True,
       al.spaced("Indian servant looks forward to.") > al.spaced("Indian servantlooksforwardto."))
