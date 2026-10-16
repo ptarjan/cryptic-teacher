@@ -88,7 +88,7 @@ from fetch_puzzle import (  # one reader, one exemption
     source_clue,
     SOURCE_CLUE_WRONG,
 )
-from find_answer_leaks import light_solutions, named, pieces_of, says  # one matcher, shared with the finder
+from find_answer_leaks import _run, light_solutions, named, pieces_of, says  # one matcher, shared with the finder
 from groups import entry_id
 from hidden_messages import block_letters, check_preamble, letter_problems, message_problems
 from puzzle_paths import (  # one glob, one id resolver
@@ -1303,8 +1303,11 @@ def check_block_notes_dont_name_the_answer(tag, ann, errors, warnings, lights=()
             continue
         what = ("the answer" if name == answer
                 else f"{name!r}, the answer to one of this clue's linked lights")
+        note = str(block.get("note"))
+        span = _run(note, name, pieces)
+        words = f" (the words {note[span[0]:span[1]]!r})" if span else ""
         errors.append(
-            f"{tag}: block note {block.get('note')!r} names {what}, and "
+            f"{tag}: block note {block.get('note')!r} names {what}{words}, and "
             f"the blocks are the rung before the walkthrough. Write the note "
             f"about the fragment — what it means, where its letters sit, "
             f"which convention is in play — and let the walkthrough spell it.")
