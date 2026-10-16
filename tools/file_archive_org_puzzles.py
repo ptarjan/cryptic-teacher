@@ -2899,29 +2899,43 @@ def _held_list(series):
     # The last listing stands while no year folder moved (a puzzle written
     # by os.replace, filed or removed moves its folder's mtime) and it is
     # under HELD_FRESH seconds old: each read's brief stats ~14k files else.
+    # Under HELD_FRESH since the last full listing, only the folders whose
+    # mtime moved are listed again (filing one puzzle moves one folder, and
+    # the times series alone is ~14k files); a full listing, the backstop
+    # for in-place rewrites, comes HELD_FRESH after the one before.
     folders = _held_folders(series)
     hit = _HELD_LISTED.get(series)
-    if hit is not None and hit[1] == folders and time.monotonic() - hit[0] < HELD_FRESH:
+    now = time.monotonic()
+    if hit is not None and hit[1] == folders and now - hit[0] < HELD_FRESH:
         return hit[2]
-    listed_at = time.monotonic()
-    out = []
-    for p in (ROOT / "puzzles" / series).glob("*/*.json"):
-        st = p.stat()
-        stamp = (st.st_mtime_ns, st.st_size)
-        seen = _HELD.get(p)
-        if seen is None or seen[0] != stamp:
-            d = json.loads(p.read_text())
-            date = d.get("date")
-            seen = _HELD[p] = (stamp, (date and datetime.date.fromisoformat(date[:10]),
-                                       (d.get("source") or {}).get("url"), (date or "")[:10]))
-            _HELD_MOVED.append(p)
-        out.append((int(p.stem.split("-")[1]), seen[1]))
-        _HELD_PATH[series, out[-1][0]] = p
+    partial = hit is not None and now - hit[0] < HELD_FRESH and len(hit) > 3
+    listed_at = hit[0] if partial else now
+    out, by_folder = [], {}
+    for name, mtime in folders.items():
+        if partial and hit[1].get(name) == mtime and name in hit[3]:
+            entries = hit[3][name]
+        else:
+            entries = []
+            for p in (ROOT / "puzzles" / series / name).glob("*.json"):
+                st = p.stat()
+                stamp = (st.st_mtime_ns, st.st_size)
+                seen = _HELD.get(p)
+                if seen is None or seen[0] != stamp:
+                    d = json.loads(p.read_text())
+                    date = d.get("date")
+                    seen = _HELD[p] = (stamp, (date and datetime.date.fromisoformat(date[:10]),
+                                               (d.get("source") or {}).get("url"), (date or "")[:10]))
+                    _HELD_MOVED.append(p)
+                entries.append((int(p.stem.split("-")[1]), seen[1], p))
+        by_folder[name] = entries
+        for number, entry, p in entries:
+            out.append((number, entry))
+            _HELD_PATH[series, number] = p
     out = tuple(out)
     if hit is None or hit[2][1] != out:
         _HELD_VERSION[series] = _HELD_VERSION.get(series, 0) + 1
     got = (_HELD_VERSION[series], out)
-    _HELD_LISTED[series] = (listed_at, folders, got)
+    _HELD_LISTED[series] = (listed_at, folders, got, by_folder)
     return got
 
 
@@ -2953,8 +2967,9 @@ HELD_MEMO = 3
 #: folder's mtime moved: a backstop for a file rewritten in place.
 HELD_FRESH = 60
 
-#: {series: (when held_files listed it (monotonic), _held_folders then,
-#: (version, its entries))}.
+#: {series: (when held_files last listed every folder of it (monotonic),
+#: _held_folders then, (version, its entries), {folder: [(number, entry,
+#: path)] as last listed})}.
 _HELD_LISTED = {}
 
 

@@ -388,12 +388,14 @@ def plan(papers, cache=fa.CACHE, reread=None, out=None):
     finally:
         # The listings are a hint for the next process (each stands only while its dir_key does), and
         # pickling them is ~1s CPU a plan: written at most every DIR_SAVE_EVERY seconds, first plan included.
+        # So are the parse caches (~35 MB, rewritten on nearly every plan as puzzles are filed): each entry
+        # stands only while its file's stat does, so an older snapshot costs the next process a few re-parses.
         if time.monotonic() - _DIR_SAVED[0] >= DIR_SAVE_EVERY:
             dir_cache.save(DIR_CACHE)
+            fa.save_held(HELD_CACHE)
+            fa.save_likely(LIKELY_CACHE)
+            scan_queue.save_count_left(COUNT_LEFT_CACHE)
             _DIR_SAVED[0] = time.monotonic()
-        fa.save_held(HELD_CACHE)
-        fa.save_likely(LIKELY_CACHE)
-        scan_queue.save_count_left(COUNT_LEFT_CACHE)
 
 
 #: Seconds between plan()'s writes of DIR_CACHE, and when the last was (monotonic).
@@ -1033,8 +1035,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     fetch_made = {}  # source: (when its plan was made, its units)
     # The queue's units with their key and slot, made once per plan (the lists' (id, len)
     # change with it), not per unit per pass: (signature, queue, keys, slots, last index of
-    # each slot, (unit, key, slot) of the urgent candidates, (unit, key) of the read-slot reads, lists).
-    queue_memo = [None] * 8
+    # each slot, (unit, key, slot) of the urgent candidates, (unit, key) of the read-slot reads, lists,
+    # the urgent candidates' keys, {key: its first index among them}).
+    queue_memo = [None] * 10
     scan_keys = [None, frozenset(), None]  # the lists' (id, len), their scans' (paper, rel), the lists
 
     def replan_all(notes=None):
@@ -1349,11 +1352,22 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             for i, sl in enumerate(qslots):
                 last_of[sl] = i
             body = fresh_scans + fresh_reads + scans + reads
-            queue_memo[:] = [sig, q, qkeys, qslots, last_of,
-                             [(u, key_of(u), slot_of(u)) for u in body if u["rank"] < fa.BLANKET and pools.get(slot_of(u))],
-                             [(v, key_of(v)) for v in fresh_reads + reads if slot_of(v) == "read"], lists]  # lists held: no id reused
-        _, queue, qkeys, qslots, last_of, urgent_cands, read_cands, _ = queue_memo
-        urgent = any(k not in tried and not vlm_waits(u) for u, k, _ in urgent_cands)
+            cands = [(u, key_of(u), slot_of(u)) for u in body if u["rank"] < fa.BLANKET and pools.get(slot_of(u))]
+            first_at = {}  # each urgent candidate's key: its first index in cands
+            for i, (_, k, _) in enumerate(cands):
+                first_at.setdefault(k, i)
+            queue_memo[:] = [sig, q, qkeys, qslots, last_of, cands,
+                             [(v, key_of(v)) for v in fresh_reads + reads if slot_of(v) == "read"], lists,  # lists held: no id reused
+                             frozenset(first_at), first_at]
+        _, queue, qkeys, qslots, last_of, urgent_cands, read_cands, _, urgent_keys, urgent_first = queue_memo
+        # Whether an untried urgent unit is not waiting for the VLM. The untried keys come from one set
+        # difference (stored hashes, C speed), not a key built and looked up per candidate each pass
+        # (~half the loop's CPU while all are tried); the walk then starts at the first untried one, so
+        # vlm_waits is asked of the same units in the same order as a walk of them all.
+        untried_urgent = urgent_keys - tried
+        urgent = bool(untried_urgent) and any(
+            k not in tried and not vlm_waits(u)
+            for u, k, _ in itertools.islice(urgent_cands, min(map(urgent_first.__getitem__, untried_urgent)), None))
         # A pass with no free slot starts nothing; and once a gate holds
         # one unit back it holds every later one (begun_now only grows), so
         # the gates are read at most once a unit begun, not once a unit due.
