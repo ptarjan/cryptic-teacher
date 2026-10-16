@@ -141,7 +141,7 @@ cases = [
    ann({"op": "charade", "indicators": [{"text": "on"}], "parts": [leaf("lot", "ALL"), leaf("ecstasy", "E"), leaf("bloody", "GORY")]}, ("Moral tale",)), "the"),
   ("22139 20a: wordplay nulled", "Fast runner doesn't sound honest",
    ann({"op": "homophone", "spelt": "CHEETAH", "indicators": [{"text": "sound"}], "parts": [leaf("doesn't sound honest", "CHEATER")]}, ("Fast runner",)),
-   {"definitions": [{"text": "Fast runner"}, {"text": "doesn't sound honest"}]}, "no_tree"),
+   {"definitions": [{"text": "Fast runner"}]}, "no_tree"),
   ("16642 15a: leaf cut to one word", "Two outspoken characters gelling together in a German town",
    ann({"op": "homophone", "spelt": "ESSEN", "indicators": [{"text": "outspoken"}], "parts": [leaf("Two outspoken characters gelling together", "SN")]}, ("a German town",)),
    ann({"op": "homophone", "spelt": "ESSEN", "indicators": [{"text": "outspoken"}], "parts": [leaf("characters", "SN")]}, ("a German town",)), "gelling"),
@@ -162,6 +162,15 @@ check("a word moved into the definition passes",
                         ann({"op": "charade", "parts": [leaf("of", "DE"), leaf("100", "CENT")]}, ("Quite good translation",))))
 check("a Spooner clue with a spoonerism passes",
       not Q.regressions(ent(cases[4][1], cases[4][2]), json.loads(json.dumps(cases[4][2]))))
+# 24a of book-16004: "Assign no Gospels?" is a double definition, two definitions and no tree.
+allot = ent("Assign no Gospels?", {"definitions": [{"text": "Assign"}],
+            "wordplay": {"words": "no Gospels", "gives": "ALLOT"}})
+check("a double definition with no tree passes",
+      not Q.regressions(allot, {"definitions": [{"text": "Assign"}, {"text": "no Gospels"}]}))
+check("one definition with no tree is still refused",
+      bool(Q.regressions(allot, {"definitions": [{"text": "Assign"}]})))
+check("two definitions leaving a clue word uncovered are refused",
+      bool(Q.regressions(allot, {"definitions": [{"text": "Assign"}, {"text": "Gospels"}]})))
 
 print("FAILED" if fails else "shape queue: all pass")
 raise SystemExit(1 if fails else 0)
