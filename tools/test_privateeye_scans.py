@@ -252,6 +252,36 @@ finally:
 check("voted counts a bare light as blank, so the reading with the clue wins",
       "{'2-across': 'x'} Whole clue", f"{_v.get('blank')} {_l['1-across'][0]}")
 
+# No 215: two readers lost the "(9)" ending 18 across, so "20 Enjoy sport ..."
+# ran into it and 20 across was lost from the list. A clue with no count is
+# closed "(?)" where the next clue's number starts a line, a "See" clue and a
+# wrapped line that starts with a digit are left, and a count the chosen
+# reading lost is the one another reading laid.
+def _line(text):
+    return (0, 0, 0, 0, text)
+
+
+_got = [l[4] for l in _ps.closed_clues([
+    _line("15 Removed clothing and 'did'"), _line("someone? (6,3)"),
+    _line("18 State if Tone's promises to voters"),
+    _line("20 Enjoy sport with member but don't overdo"), _line("it (5)"),
+    _line("22 Dutch produce crack loyalists (5)"), _line("24 See 10 ac."),
+    _line("25 Pock-mark on star (7)"),
+    _line("26 Wrapped clue about the"), _line("3 Oceans (7)"),
+    _line("27 Exit (8)")])]
+check("a clue whose count is lost is closed before the next clue",
+      "18 State if Tone's promises to voters (?)", _got[2])
+check("a clue with its count on the next line is left",
+      "20 Enjoy sport with member but don't overdo", _got[3])
+check("a See clue is left", "24 See 10 ac.", _got[6])
+check("a wrapped line that starts with a number starts no clue", "26 Wrapped clue about the", _got[8])
+_parsed, _ = _AL.parse("ACROSS\n" + "\n".join(_got[2:]) + "\nDOWN\n2 A (3)\n3 B (4)")
+check("the closed list parses 18 and 20 as clues of their own", [18, 20, 22, 24, 25, 26, 27],
+      [min(c["tokens"][0]) for c in _parsed["across"]])
+check("pick takes the count another reading laid when the sound reading lost it", "9",
+      _AL.pick([{"18-across": ("State if Tones broken promises to voters", None, None)},
+                {"18-across": ("State if Tones broken promises to voters", "9", None)}])["18-across"][1])
+
 if fails:
     print(f"{fails} failed")
     sys.exit(1)

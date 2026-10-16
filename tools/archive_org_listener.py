@@ -381,7 +381,9 @@ def pick(lays, texts=(), guessed=()):
         if not good and sum(1 for v in have if sound(v[0])) == 1:
             good = [v for k, laid in enumerate(lays) if lid in laid and lid not in guessed[k]
                     and (v := laid[lid]) and sound(v[0]) and printed_elsewhere(v, lid, k, lays, lines, guessed)]
-        out[lid] = good[0] if good else ("", enum, None)
+        # The clue's words from the reading that is sound; a count that
+        # reading lost ("(?)", closed_clues) is the one another lays.
+        out[lid] = (good[0][0], good[0][1] or enum, good[0][2]) if good else ("", enum, None)
     return unlaid(by_lost_figure(out, lays, guessed), lays, guessed)
 
 

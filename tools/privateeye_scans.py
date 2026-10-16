@@ -259,9 +259,44 @@ def column_cols(boxes):
                     got[tails] = got.get(tails, 0) + 1
                     text = m.group(1) + text[m.end():]
                 out[side].append(ln[:4] + (text,))
-        return out
+        return [closed_clues(side) for side in out]
     cols.named = named
     return cols
+
+
+#: A clue's number at the start of a printed line, and how far above the
+#: clue before it a real next clue's number can be.
+CLUE_NUMBER = re.compile(r"^\W{0,2}(\d{1,2})\W{0,2}\s+[A-Za-z(\"'\u2018\u201c]")
+NEXT_CLUE_WITHIN = 12
+SEE_CLUE = re.compile(r"^\W{0,2}\d{1,2}(?:\W{0,2}[,/]\s*\d{1,2}\W*)*\s+\(?\s*see\b", re.IGNORECASE)
+
+
+def closed_clues(lines):
+    """`lines` (one side's printed lines) with each clue a reader left with
+    no count closed by "(?)": the next clue's number, just above this one's,
+    starts a line, and a count lost at the end of its last line (No 215's
+    "18 State if Tone's broken promises to voters", the "(9)" unread by two
+    readers) would otherwise run the next clue ("20 Enjoy sport ...") into
+    it, and that clue is lost from the list. "(?)" is how the shared parser reads a
+    count it could not read: the vote takes the count the other readings
+    print. A "See 10" clue prints none and is left."""
+    out = list(lines)
+    starts = []  # (index, number) of each clue's first line
+    for i, ln in enumerate(out):
+        m = CLUE_NUMBER.match(ln[4])
+        if not m:
+            continue
+        n = int(m.group(1))
+        if starts and not starts[-1][1] < n <= starts[-1][1] + NEXT_CLUE_WITHIN:
+            continue  # a wrapped line that happens to start with a number
+        if starts:
+            j = starts[-1][0]
+            text = " ".join(l[4] for l in out[j:i])
+            if not (clue_text.PRINTED_COUNT.search(text) or re.search(r"\(\s*\??\s*\)\W*$", text)
+                    or SEE_CLUE.match(out[j][4])):
+                out[i - 1] = out[i - 1][:4] + (out[i - 1][4].rstrip() + " (?)",)
+        starts.append((i, n))
+    return out
 
 
 #: A link head naming a tail's direction, "4, 16ac./22dn." (No 294) or
