@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -376,24 +377,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "CIA",
      "indicators": [
       {
-       "text": "brief"
+       "text": "brief",
+       "at": 9,
+       "note": "a brief word is cut short, so the last letter of the farewell is dropped"
       }
      ],
      "parts": [
       {
        "words": "goodbye",
-       "gives": "CIA",
-       "note": "CIAO, the Italian goodbye, stopped just before the O"
+       "at": 15,
+       "gives": "CIAO",
+       "note": "ciao is the Italian goodbye, used in English too"
+      },
+      {
+       "gives": "O"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The Central Intelligence Agency, made by cutting a farewell short. In a three-letter entry, 'brief' doing the trimming is nearly always the whole trick.",
-     "definitionFit": "The initials stand for Central Intelligence Agency, America's foreign spy service, so the bare word names it by its final element."
+     "surface": "A spy agency signs off with a curt farewell.",
+     "walkthrough": "The 's is a link ('Agency is'): the definition is the agency itself.",
+     "definitionFit": "The CIA is the American Central Intelligence Agency, the best-known intelligence organisation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brief"
     }
    }
   },
@@ -460,40 +471,53 @@
     "definitions": [
      {
       "text": "left like this?",
-      "at": 53,
-      "note": "The definition works by completion rather than substitution: someone in the clue's sorry state has been 'left FOR DEAD', so 'left like this?' points at the phrase the answer finishes."
+      "at": 53
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FORDEAD",
+     "op": "container",
      "indicators": [
       {
-       "text": "shot by arrow"
+       "text": "shot by",
+       "at": 22,
+       "note": "something shot by an arrow has it lodged in it, so one piece goes inside the other"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Having crossed river",
+       "at": 0,
+       "gives": "FORDED",
+       "note": "to ford a river is to wade across it, so having done so is forded"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "in the head",
+         "at": 36,
+         "note": "the head of a word is its first letter, so only the start of arrow is used"
+        }
+       ],
        "parts": [
         {
-         "words": "Having crossed river",
-         "gives": "FORD",
-         "note": "a ford is where you cross a river"
-        },
-        {
-         "words": "the head",
-         "gives": "EAD",
-         "note": "HEAD with its top letter shot away — 'EAD"
+         "words": "arrow",
+         "at": 30,
+         "note": "only its first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "In a down entry the first letter of HEAD really is its head, and the arrow shoots it off. The whole grisly scene — river forded, arrow in the head — leaves someone for dead.",
-     "definitionFit": "The idiom 'left for dead' describes someone abandoned as beyond saving, and the definition invites the solver to complete that phrase."
+     "surface": "A traveller wades a river, takes an arrow to the head and is abandoned.",
+     "walkthrough": "The definition completes the phrase 'left for dead', and the whole scene shows how someone might end up so.",
+     "definitionFit": "Someone left for dead is abandoned in the belief that they will not survive, as an arrow-shot traveller might be."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "shot"
     }
    }
   },
@@ -813,24 +837,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "STARKER",
      "indicators": [
       {
-       "text": "nearly"
+       "text": "nearly",
+       "at": 16,
+       "note": "nearly means not quite all, so the final letter of the word is lost"
       }
      ],
      "parts": [
       {
        "words": "naked",
-       "gives": "STARKER",
-       "note": "informal British slang for stripped bare, one letter longer than the answer with an extra S on the end — drop it"
+       "at": 23,
+       "gives": "STARKERS",
+       "note": "starkers is British slang for stark naked"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Stark means bleak, so its comparative answers 'more grim'. STARKERS is gloriously British slang for naked — setters adore it, so file it away.",
-     "definitionFit": "Stark means bleak or severe, so its comparative form is a plain synonym for 'grimmer'."
+     "surface": "Being almost unclothed makes things all the bleaker.",
+     "walkthrough": "Starkers is jokey British slang for completely naked.",
+     "definitionFit": "Stark means bleak or harsh, so its comparative describes something bleaker and harsher."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grim"
     }
    }
   },
@@ -893,39 +927,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AGESAGO",
-     "indicators": [
-      {
-       "text": "first to drop"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "first to drop",
+         "at": 21,
+         "note": "the first letter drops down to the bottom of this downward word, moving to the end"
+        }
+       ],
        "parts": [
         {
          "words": "wise guy's",
-         "gives": "AGES",
-         "note": "SAGE'S — a wise guy's — without its opening S"
-        },
-        {
-         "words": "a",
-         "note": "straight from the clue"
-        },
-        {
-         "words": "board game",
-         "gives": "GO",
-         "note": "the ancient Japanese board game"
+         "at": 10,
+         "gives": "SAGE",
+         "note": "a sage is a wise man"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 35,
+       "gives": "A"
+      },
+      {
+       "words": "board game",
+       "at": 37,
+       "gives": "GO",
+       "note": "Go is the ancient East Asian game of stones on a grid"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Way back' is the adverb, as in 'way back when'. Note that SAGE keeps its possessive S when its own first letter drops — the apostrophe simply disappears.",
-     "definitionFit": "An informal idiom for a very long time in the past, which is what 'way back' conveys in casual speech."
+     "surface": "Long ago, a clever chap was first to give up on a board game.",
+     "walkthrough": "In a down entry, 'drop' sends the sage's first letter down to the end.",
+     "definitionFit": "Ages ago means a very long time in the past, which is what way back means as a time phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drop"
     }
    }
   },
@@ -1005,53 +1048,57 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "wanting"
+       "text": "in",
+       "at": 40,
+       "note": "the stripped youngster sits in the pubs, so it goes inside them"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Youngster with",
-       "note": "with the Guardian alongside, this describes a WARD"
+       "words": "pubs",
+       "at": 43,
+       "gives": "INNS",
+       "note": "inns are pubs"
       },
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in"
+         "text": "wanting",
+         "at": 24,
+         "note": "wanting means lacking, so the letter is removed"
         }
        ],
        "parts": [
         {
-         "words": "pubs",
-         "gives": "INNS",
-         "note": "the ARD goes inside"
+         "words": "Youngster with Guardian",
+         "at": 0,
+         "gives": "WARD",
+         "note": "a ward is a young person placed under a guardian's care"
         },
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "Guardian",
-           "gives": "WARD",
-           "note": "a youngster with a guardian is a ward — the italics wink at this very newspaper"
-          },
-          {
-           "words": "whiskey",
-           "gives": "W",
-           "note": "W in the phonetic alphabet; 'wanting' removes it, leaving ARD"
-          }
-         ]
+         "words": "whiskey",
+         "at": 32,
+         "gives": "W",
+         "note": "Whiskey is W in the NATO phonetic alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The italicised Guardian is the setter's wink: a youngster with a guardian is a WARD in the legal sense. Whiskey is the radio operator's W, not the drink the pubs suggest.",
-     "definitionFit": "An informal word for the internal organs, a plain synonym for guts in the bodily sense."
+     "surface": "A newspaper-reading youngster turns down whiskey in pubs and shows some nerve.",
+     "walkthrough": "Guardian is the newspaper on the surface but a legal guardian in the wordplay; 'shows' links wordplay to definition.",
+     "definitionFit": "Innards are the internal organs, especially the stomach and intestines, that is the guts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Guardian"
     }
    }
   },
@@ -1122,39 +1169,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RAVIOLI",
-     "indicators": [
-      {
-       "text": "brief"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Run",
+       "at": 0,
+       "gives": "R"
+      },
+      {
+       "words": "a",
+       "at": 4,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brief",
+         "at": 6,
+         "note": "brief means cut short, so the instrument's last letter goes"
+        }
+       ],
        "parts": [
         {
-         "words": "Run",
-         "gives": "R",
-         "note": "cricket scorecard abbreviation"
-        },
-        {
-         "words": "a",
-         "note": "straight from the clue"
-        },
-        {
          "words": "fiddle",
-         "gives": "VIOLI",
-         "note": "VIOLIN — a fiddle — cut short"
+         "at": 12,
+         "gives": "VIOLIN",
+         "note": "a fiddle is a violin"
+        },
+        {
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Fiddle and violin are the same instrument, one word posher than the other; only the N is lost. The surface's 'brief fiddle' sounds like a minor swindle, which is the misdirection.",
-     "definitionFit": "Small stuffed parcels of dough, it is one particular type of Italian pasta, so the definition works by category."
+     "surface": "Someone runs a quick scam that ends up producing pasta.",
+     "walkthrough": "Fiddle suggests a swindle, but here it is the instrument; R is the cricket abbreviation for run.",
+     "definitionFit": "Ravioli are small square parcels of filled pasta, an example of the Italian food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fiddle"
     }
    }
   },
