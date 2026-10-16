@@ -325,6 +325,20 @@ _got, _ = _AL.parse("ACROSS\n1, 15, 22, 8, 26 Reportedly like a Picasso portrait
 check("a long linked count ends its clue", [({1, 15, 22, 8, 26}, {"3,4,2,3,5,3,4,2,3,4"}), ({6}, {"5"}), ({9}, {"7"})],
       [(set().union(*c["tokens"]), c["enums"]) for c in _got["across"]])
 
+# No 199: "See Preamble" prints no count, and "15/44*" has a star after its tail number;
+# neither is allowed to run 15/44 into the clue above.
+_got, _ = _AL.parse("ACROSS\n1, 29, 40 See Preamble\n15, 44* Not much time to have a shag (6,4)\n"
+                    "16 Gay magazine (4-3)\nDOWN\n2 Red Ken (10)\n3 Fancy semen (5,2)\n")
+check("a 'See Preamble' clue and a starred tail", [({1, 29, 40}, "See Preamble", set()), ({15, 44}, "Not much time to have a shag", {"6,4"}),
+                                                   ({16}, "Gay magazine", {"4-3"})],
+      [(set().union(*c["tokens"]), c["text"], c["enums"]) for c in _got["across"]])
+
+_rows = pw.clue_rows("1/29/40 See Preamble 15/44 Not much time to have a shag (6,4) 16 Gay magazine (4-3)", scan=True)
+check("a 'See Preamble' row is a clue of its own", [("1,29,40", "See Preamble", None), ("15,44", "Not much time to have a shag", "6,4"),
+                                                    ("16", "Gay magazine", "4-3")],
+      [(r["number"], r["clue"], r["enumeration"]) for r in _rows or []])
+check("a 27x27 scan grid is read like a 15x15", (15, 27), pw.GRID_SIZES)
+
 if fails:
     print(f"{fails} failed")
     sys.exit(1)

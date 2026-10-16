@@ -131,7 +131,8 @@ TAIL = re.compile(r"\bEntries to\b|Back to Private Eye|£\s?\d|\bThis site featu
 #: A link's tail naming its direction: "23/4dn" (No 112), "4/16ac/22dn".
 LINK_SIDE = r"\s*(?:across|down|ac|dn)\b\.?|[ad]\b\.?"
 ENUM = clue_text.ENUM_OR_SEE
-SEE_TAIL = r"See \d{1,2}\s*(?:ac|dn|across|down)?\.?"
+#: "See Preamble" is a clue's whole text too (Cyclops 199's 1/29/40/78/58/60).
+SEE_TAIL = r"See (?:\d{1,2}\s*(?:ac|dn|across|down)?|Preamble)\.?"
 CLUE = re.compile(r"(?:^|(?<=\s))(\d{1,2}(?:\s*/\s*\d{1,2}(?:" + LINK_SIDE + r")?)*)\s+(.*?)\s*(" + ENUM + "|"
                   + SEE_TAIL + r")(?=\s+\d{1,2}\s*[/\s(A-Za-z\"'£]|\s*$)", re.I)
 ANSWER = re.compile(r"(\d{1,2}(?:/\d{1,2})*)\s+([^\d]+?)(?=\s+\d{1,2}[\s/]|\s*\.?\s*$)")
@@ -183,6 +184,9 @@ def clue_rows(part, scan=False):
         sides = {n: "across" if d.strip()[0].lower() == "a" else "down"
                  for n, d in re.findall(r"/\s*(\d{1,2})(" + LINK_SIDE + ")", m.group(1), re.I)}
         text, tail = m.group(2).strip(), m.group(3)
+        if re.match(r"see preamble", tail, re.I) and not text:
+            rows.append({"number": ",".join(nums), "clue": "See Preamble", "enumeration": None})
+            continue
         see = re.match(r"\(?\s*see (\d{1,2})", tail, re.I)
         if see and not text:
             rows.append({"number": nums[0], "clue": f"See {see.group(1)}", "enumeration": None})
@@ -468,10 +472,14 @@ def build(num, held):
     return puzzle, None
 
 
+#: The sizes a Cyclops grid prints: 15x15, and the yearly jumbo's 27x27.
+GRID_SIZES = (15, 27)
+
+
 def page_grid(ts):
     """The grid trove_grid reads off capture `ts`'s scanned page
     (ia/pages/<issue>_<leaf>.jpg, an "<issue>_page" or "<issue>_djvu"
-    capture), or None: no page image, or none reads as one 15x15 grid."""
+    capture), or None: no page image, or none reads as one 15x15 or 27x27 grid."""
     issue, _, kind = str(ts).partition("_")
     if kind not in ("page", "djvu") or not issue.isdigit():
         return None
@@ -482,7 +490,7 @@ def page_grid(ts):
             grid, _why = trove_grid.read_grid(path)
         except Exception:  # an unreadable leaf is no evidence either way
             grid = None
-        if grid and len(grid) == 15 and len(grid[0]) == 15:
+        if grid and len(grid) in GRID_SIZES and len(grid[0]) == len(grid):
             grids.append(grid)
     return grids[0] if len(grids) == 1 else None
 

@@ -463,7 +463,7 @@ def clues(text):
     previous clue's enumeration; its text runs to its own enumeration. A
     "See N" continuation carries no enumeration and ends where the next
     number starts."""
-    start = re.compile(rf"\s*((?:{NUM}|{JUNK_NUM}(?-i:(?=\s+[\"']?[A-Z])))(?:\s*(?:,|&|and)\s*\d{{1,2}}(?:\s*(?:across|down|ac|dn))?)*)[.,]?\s+(?=\S)",
+    start = re.compile(rf"\s*((?:{NUM}|{JUNK_NUM}(?-i:(?=\s+[\"']?[A-Z])))(?:\s*(?:,|&|and)\s*\d{{1,2}}(?:\s*(?:across|down|ac|dn))?)*)[.,*]?\s+(?=\S)",
                        re.IGNORECASE)
     # A speck the OCR read between two clues ("(3-6). _ 3 It's") is not text.
     text = re.sub(r"(\)\.?)\s+[_|*•~^#=+\-—.]{1,3}(?=\s)", r"\1", text)
@@ -504,6 +504,14 @@ def clues(text):
             out.append({"tokens": tokens, "text": tail.group(0).rstrip("."),
                         "enums": set(), "see": int(see.group(1))})
             pos = body_from + tail.end()
+            continue
+        # "See Preamble" prints no count and names no number (Cyclops 199's
+        # 1/29/40/78/58/60): it ends where the next clue's number starts, as
+        # a "See N" does, not at the next clue's bracket.
+        pre = re.match(r"see\s+preamble\b\.?", rest, re.IGNORECASE)
+        if pre:
+            out.append({"tokens": tokens, "text": pre.group(0).rstrip("."), "enums": set(), "see": None})
+            pos = body_from + pre.end()
             continue
         # The clue ends at the first bracket that is followed by the next
         # clue's number or the list's end. Its content is the count, read
