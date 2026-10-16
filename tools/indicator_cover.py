@@ -24,7 +24,9 @@ import tempfile
 from pathlib import Path
 
 import indicator_keys
-from fetch_puzzle import puzzle_files, read_puzzle_view
+import puzzle_schema
+from annotation import OP_TYPE, _walk, definition_indicator_type
+from fetch_puzzle import puzzle_files, read_puzzle_file
 from indicator_keys import clue_pairs
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -42,12 +44,30 @@ def entry_pairs(lex, indicators):
 _LEX = {}
 
 
+def stored_indicators(ann):
+    """A stored annotation's indicators, each with the `for` its op gives:
+    what annotation.view() derives as `indicators`, read off the tree with
+    no wordplay evaluation. view() also drops an annotation whose tree does
+    not give its answer, which the validator keeps out of the corpus; this
+    keeps it, so at worst such a clue's indicator reads as linked."""
+    tree = ann.get("wordplay")
+    nodes = [n for n, _ in _walk(tree)] if isinstance(tree, dict) else []
+    dtype = definition_indicator_type(ann)
+    return ([{"text": i["text"], "for": OP_TYPE.get(n.get("op"))}
+             for n in nodes for i in n.get("indicators") or []]
+            + [{"text": i["text"], "for": dtype}
+               for d in ann.get("definitions") or [] for i in d.get("indicators") or []])
+
+
 def _file_pairs(path):
-    """The (type, key) pairs one puzzle file's annotations link under _LEX."""
+    """The (type, key) pairs one puzzle file's annotations link under _LEX.
+    The raw file, not read_puzzle_view(): the view evaluates every tree, and
+    its code reach (the whole wordplay engine) changes most days, which made
+    each re-plan after a code change read the corpus cold, past the burn's
+    POOL_PLAN_SECS. This reach is the tree walk alone."""
     out = set()
-    for e in read_puzzle_view(path).get("entries", ()):
-        ann = e.get("annotation") or {}
-        out |= entry_pairs(_LEX, ann.get("indicators"))
+    for _, _, ann in puzzle_schema.annotations(read_puzzle_file(path)):
+        out |= entry_pairs(_LEX, stored_indicators(ann))
     return out
 
 
@@ -130,8 +150,10 @@ def cover(queue, pairs_of, weight):
 def order(queue, pairs_of, weight, pinned=()):
     """The queue with `pinned` (in queue) first, then the cover, then the rest
     as it came; and the cover's picks."""
-    pin = [p for p in dict.fromkeys(pinned) if p in set(queue)]
-    rest = [p for p in queue if p not in set(pin)]
+    queued = set(queue)
+    pin = [p for p in dict.fromkeys(pinned) if p in queued]
+    pinset = set(pin)
+    rest = [p for p in queue if p not in pinset]
     picks, _ = cover(rest, pairs_of, weight)
     first = {pid for pid, _ in picks}
     return pin + [pid for pid, _ in picks] + [p for p in rest if p not in first], picks

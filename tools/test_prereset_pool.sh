@@ -43,7 +43,7 @@ POOL_CHECK_SECS=0   # a checkpoint after every run, so a width change lands at o
 POOL_SYNC_SECS=2    # and a mid-pool sync, at least once
 eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
 for fn in pool_live pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_checkpoint run_pool \
-          pool_replan pool_kill_tree pool_topup pool_topup_room pool_finished pool_adopted_done \
+          pool_replan pool_plan_mismatch pool_kill_tree pool_topup pool_topup_room pool_finished pool_adopted_done \
           needs_solve solve_applied resumed_first; do
   block="$(sed -n "/^$fn() {/,/^}/p" "$SCRIPT")"
   if [ -z "$block" ]; then echo "FAIL tools/prereset_backfill.sh no longer defines $fn()"; exit 1; fi
@@ -106,8 +106,14 @@ python3() {
     tools/weekly_usage.py) echo "${METER_PCT:-10}" ;;
     tools/prereset_plan.py)
       case "$2" in
-        --cover-first) echo "replan" >>"$EVENTS"; [ -z "${PLAN_SLEEP:-}" ] || sleep "$PLAN_SLEEP"
-          if [ -n "${PLAN_REVERSE:-}" ]; then tac; else cat; fi ;;
+        --cover-first) echo "replan deadline=${CT_DEADLINE:-} now=$(date +%s)" >>"$EVENTS"
+          [ -z "${PLAN_SLEEP:-}" ] || sleep "$PLAN_SLEEP"
+          case "${PLAN_REVERSE:-}" in
+            '') cat ;;
+            dedup) tac | awk '!seen[$0]++' ;;   # each id once, as the planner lists them
+            drop) tac | sed 1d ;;               # an id lost: the order is not taken
+            *) tac ;;
+          esac ;;
         --backlog) [ -z "${BACKLOG_FN:-}" ] || "$BACKLOG_FN" ;;
         *) [ "$2" = --unsolved ] && [ "$3" = "$UNSOLVED_ID" ] ;;
       esac ;;
@@ -117,6 +123,7 @@ python3() {
     tools/solve_misses.py) [ "$2" = keep-log ] ;;
     tools/annotate_check.py) echo "hints $2" >>"$EVENTS" ;;
     tools/own_rows.py) : ;;
+    tools/clues_only.py) return 1 ;;   # implausible: no clue list here is
     *) echo "unexpected python3 $*" >&2; return 1 ;;
   esac
 }
@@ -225,6 +232,7 @@ replan_pool() {  # replan_pool <tag>: run a reordering pool of 8, re-planning ea
   POOL_SYNC_SECS=1 POOL_REPLANNED_US=0 handled=0
   echo 2 >"$WIDTH_FILE"
   queue=(); for i in $(seq 1 8); do queue+=("pooltest-$$-$1$i"); done
+  [ -z "${QUEUE_DUP:-}" ] || queue+=("pooltest-$$-$1$QUEUE_DUP")
   at=0
   out=$(run_pool "Annotate" "Annotate @ in @PATH@" 1 2>&1)
 }
@@ -243,6 +251,23 @@ check "a slow re-plan: runs start while it works, within the width, each id once
   "1 0 8 0" "$(replan_verdict)"
 check "the background re-plan's order is the one launched" "pooltest-$$-s8" \
   "$(awk '$1 == "start" { print $2 }' "$EVENTS" | sed -n 1p)"
+# A queue holding an id twice (10-16: 40 nation puzzles both filed and held
+# clues-only) gets its order back with each id once: that order is taken, and
+# the id runs once. An order that loses an id is not taken, and says why.
+PLAN_REVERSE=dedup QUEUE_DUP=3 POOL_PLAN_SECS=60 replan_pool d
+check "a re-plan listing a twice-queued id once is taken, and the id runs once" \
+  "pooltest-$$-d3 1 1" \
+  "$(awk '$1 == "start" { print $2 }' "$EVENTS" | sed -n 1p) $(grep -c "^start pooltest-$$-d3 " "$EVENTS") $(printf '%s\n' "$out" | grep -cm1 '^--- re-plan done in [0-9]*s: order taken')"
+PLAN_REVERSE=drop POOL_PLAN_SECS=60 replan_pool m
+check "a re-plan that loses an id is discarded, with the id named, and the order kept" \
+  "1 pooltest-$$-m1" \
+  "$(printf '%s\n' "$out" | grep -cm1 "but discarded.*1 ids in went missing (pooltest-$$-m8)") $(awk '$1 == "start" { print $2 }' "$EVENTS" | sed -n 1p)"
+# The planner gets a soft deadline (CT_DEADLINE) at 70% of POOL_PLAN_SECS, so a
+# cold row cache stops short of the kill with its rows stored
+# (prereset_plan.best_effort).
+PLAN_REVERSE=1 POOL_PLAN_SECS=60 replan_pool t
+check "the re-plan's planner runs under a deadline 42s out of 60" 1 \
+  "$(awk '$1 == "replan" { sub("deadline=", "", $2); sub("now=", "", $3); d = $2 - $3; print (d >= 40 && d <= 42); exit }' "$EVENTS")"
 # A run that fails mid re-plan with the five-hour window below LOCKOUT_PCT failed
 # on its own puzzle: the pool goes on filling its slots (10-15 it sank from 7
 # runs to 2 through one re-plan). With the meter at the lockout it stops, since
