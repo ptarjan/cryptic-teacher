@@ -669,7 +669,31 @@
     "text": "Wave provided by hair-dresser",
     "enumeration": "6"
    },
-   "solution": "COMBER"
+   "solution": "COMBER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wave",
+      "at": 0,
+      "meaning": "first meaning: a long curling sea wave that breaks on the shore"
+     },
+     {
+      "text": "hair-dresser",
+      "at": 17,
+      "meaning": "second meaning: read literally, one who dresses hair with a comb"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Hair-dresser' looks like a salon worker, but read literally it is someone who combs; 'provided by' only joins the two meanings.",
+     "definitionFit": "A comber is both a big rolling breaker at sea and, whimsically, a person who combs or grooms locks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hair-dresser"
+    }
+   }
   },
   {
    "number": 13,
@@ -1128,7 +1152,41 @@
     "text": "Maybe cast gold in, and won",
     "enumeration": "5"
    },
-   "solution": "INGOT"
+   "solution": "INGOT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Maybe cast gold",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "in",
+       "at": 16,
+       "gives": "IN"
+      },
+      {
+       "words": "won",
+       "at": 24,
+       "gives": "GOT",
+       "note": "to have won something is to have got it"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A goldsmith pours molten gold into a mould and comes away the winner.",
+     "walkthrough": "'Maybe' warns that cast gold is only one example: other metals are cast in such blocks too.",
+     "definitionFit": "An ingot is a block of metal poured into a mould, and gold bars are the best-known instance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 23,
@@ -1308,55 +1366,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ROLLINGPIN",
+     "op": "composite",
      "indicators": [
       {
        "text": "worked",
-       "note": "worked means kneaded or reshaped, so these letters are formed into a new order"
+       "at": 14,
+       "note": "dough or clay that is worked is kneaded into a new shape, so these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ROLLINGPIN",
-       "indicators": [
-        {
-         "text": "without",
-         "note": "without means lacking, so the following letter is taken out of the mix"
-        }
-       ],
-       "parts": [
-        {
-         "words": "No",
-         "note": "taken as written"
-        },
-        {
-         "words": "plain",
-         "note": "taken as written"
-        },
-        {
-         "words": "girl",
-         "note": "taken as written"
-        },
-        {
-         "words": "a",
-         "note": "taken as written, the letter removed"
-        }
-       ]
+       "words": "No plain girl",
+       "at": 0,
+       "note": "the anagram fodder, taken as written"
+      },
+      {
+       "words": "a",
+       "at": 29,
+       "note": "the letter named by 'without', removed from the fodder before rearranging"
       }
      ]
     },
     "explanation": {
-     "surface": "An attractive girl got on with the job without a pastry utensil.",
-     "definitionFit": "A rolling pin is a cylinder used in cooking to flatten dough, a standard kitchen utensil."
+     "surface": "A girl who is far from plain has been put to work, minus a kitchen gadget.",
+     "walkthrough": "'without a' tells you to drop one A from the letters of 'No plain girl' before rearranging the rest.",
+     "definitionFit": "This wooden cylinder is used by bakers to flatten pastry and dough on a worktop."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "worked"
+     "misdirectedWord": "plain"
     }
    }
   },
