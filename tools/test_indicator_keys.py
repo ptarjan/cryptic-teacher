@@ -1,10 +1,11 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # The (type, key) pairs a clue's indicators give /indicators/ and the burn's
 # indicator cover: each phrase under its own `for` only, the longest key inside
 # it, and never through link words alone. /learn/ shows each type's most used, with counts.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 from indicator_keys import clue_pairs
 
 LEX = {"anagram": {"VARIETY": 9, "TOUCHED": 5, "OF": 1, "ALL OVER": 3, "OVER": 2},
@@ -72,4 +73,3 @@ check("the table has a row per type, each capped and linked to its full list",
       [(lab, cell.count("<em>"), t, n) for lab, cell, t, n in
        re.findall(r"<tr><td>(\w+)</td><td>(.*?)<a href=\"[^\"]*#(\w+)\">all (\d+)", table)])
 raise SystemExit(fails)
-PY

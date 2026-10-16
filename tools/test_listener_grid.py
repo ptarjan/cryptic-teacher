@@ -1,16 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does tools/listener_grid.py read a drawn grid's size, blocks and bars back,
 # and number it as reconstruct_grid.light_cells does?
 #
-#     bash tools/test_listener_grid.sh
+#     python3 tools/test_listener_grid.py
 #
 # A page is drawn: prose lines, a column rule and a boxed advertisement (no
 # grid), and a 7 x 9 grid (not square, not symmetric) with thin rules, thick
 # bars, a block and a number in each cell's corner, turned a fraction of a
 # degree. The reader must find exactly one grid and give back the rows drawn.
-set -uo pipefail
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
-PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
+
 import sys
 import numpy as np
 from PIL import Image, ImageDraw
@@ -332,4 +334,3 @@ check("a stray out of reading order contradicts the lights (mirror)", None,
       lg.as_printed(OPEN, {(0, 0): 1, (1, 1): 2}))
 check("one number printed twice is no numbering (mirror)", None, lg.as_printed(OPEN, {(0, 0): 1, (0, 1): 1}))
 sys.exit(1 if fails else 0)
-PY

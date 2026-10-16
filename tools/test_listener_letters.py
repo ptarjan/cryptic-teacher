@@ -1,16 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does trove_solution_ocr.read_grid_letters read the letters of a drawn,
 # filled Listener report grid back through listener_grid's lattice?
 #
-#     bash tools/test_listener_letters.sh
+#     python3 tools/test_listener_letters.py
 #
 # A 5 x 5 barred grid is drawn filled with words (a bar ends 1A's row early)
 # and found by listener_grid.find_grids; its lattice and light_cells are
 # handed to the letter reader, which must give every cell's letter back.
 # Skipped without RapidOCR.
-set -uo pipefail
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
-PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
+
 import sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
@@ -47,4 +49,3 @@ if grids:
     check("every letter read back", list(WORDS), out["grid"])
     check("1A stops at the bar", "CAT", out["lights"][(1, "across")])
 sys.exit(1 if fails else 0)
-PY

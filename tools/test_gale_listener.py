@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does a saved Listener page (tools/gale_listener.py)
 # match its puzzle by the date or number in its name, the Gale citation or
 # its title, a report page as the solution of the puzzle it names; are its
@@ -12,15 +12,20 @@
 # first, and each one's missing solution report; and is a downloaded page
 # saved whole under a name match() reads?
 #
-#     bash tools/test_gale_listener.sh
+#     python3 tools/test_gale_listener.py
 #
 # Synthetic rows and words in a temp dir: no OCR, nothing asked of the Mac,
 # Gale or listenercrossword.com, nothing written outside it.
-set -euo pipefail
-cd "$(dirname "$0")"
-tmp=$(mktemp -d)
-trap 'rm -rf "$tmp"' EXIT
-python3 - "$tmp" <<'PY'
+import os
+import sys
+import atexit
+import shutil
+import tempfile
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+tmp = tempfile.mkdtemp()
+atexit.register(shutil.rmtree, tmp, True)
+sys.argv[1:] = [tmp]
+
 import datetime, json, sys
 from pathlib import Path
 from PIL import Image
@@ -922,4 +927,3 @@ with tempfile.TemporaryDirectory() as tmp:
 
 print(f"FAILS {fails}")
 sys.exit(1 if fails else 0)
-PY

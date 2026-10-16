@@ -1,11 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # Hidden-letter devices: each hiddenLetter agrees with its clue's blocks or
 # text, a message is spelt by its clues' letters in order, a preamble naming
 # a device without `messages` is counted by the ratchet, and the converter reads
 # letters off existing blocks.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import copy
 import annotation
 import hidden_messages as hm
@@ -142,6 +143,6 @@ status, text, new = hm.convert(puzzle(four))
 check("converter reads the across omissions", True, status == "converted" and text == "OPEN" or [])
 if new:
     check("converted puzzle is clean", False, problems(new))
-raise SystemExit(fails)
-PY
-echo "all hidden-message checks passed"
+if fails:
+    raise SystemExit(fails)
+print("all hidden-message checks passed")

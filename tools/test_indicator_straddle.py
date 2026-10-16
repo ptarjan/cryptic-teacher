@@ -1,9 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # An indicator may sit inside a definition (an &lit) but not across its edge,
 # where app.js cannot mark both.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import validate_annotations as v
 
 fails = 0
@@ -22,4 +23,3 @@ check("clear of the definition", 0, CLUE, "in the middle", "of the sea")
 check("inside the definition", 0, "What acknowledges performance of USA", "performance", "What acknowledges performance")
 check("a free copy elsewhere", 0, "Of the sea, in the middle of reefs", "in the middle of", "Of the sea")
 raise SystemExit(fails)
-PY

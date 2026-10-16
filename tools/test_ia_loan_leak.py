@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does a killed borrow leak its loan, and does the next run clean it up?
 #
-#     bash tools/test_ia_loan_leak.sh
+#     python3 tools/test_ia_loan_leak.py
 #
 # tools/fetch_ia_book.py's borrowed() returns the loan from a finally clause,
 # and tools/test_ia_borrow.sh case 9 shows that clause covering normal exit,
@@ -23,10 +23,10 @@
 # `requests` when it is missing rather than skipping: CI installs no
 # third-party packages, and a check that quietly does not run on the only
 # machine that runs it on every push is not a check.
-set -u
-cd "$(dirname "$0")/.."
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-python3 - <<'PYEOF'
 import json
 import os
 import signal
@@ -313,4 +313,3 @@ if failures:
     print(f"FAILED: {len(failures)} problem(s)")
     sys.exit(1)
 print("PASSED")
-PYEOF

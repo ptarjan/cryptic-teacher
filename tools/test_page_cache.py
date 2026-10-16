@@ -1,13 +1,14 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # The deploy reuses last build's puzzle pages (tools/page_cache.py) unless
 # something a puzzle page is made from moved. The build-wide part of that key
 # is the code build_seo_pages' puzzle-page path reaches (tools/code_reach.py)
 # plus the data files that code names: a fetcher, a test, the hub page's code,
 # a comment or the budgets table leaves every page reusable; an edit to the
 # page's code or to a table it reads re-renders them all.
-set -euo pipefail
-cd "$(dirname "$0")/.."
-python3 - <<'EOF'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import sys
 sys.path.insert(0, "tools")
 import page_cache as pc
@@ -90,7 +91,7 @@ row = {"id": "cryptic-30000", "number": 30000, "series": "cryptic", "date": "202
        "difficulty": {"band": "Moderate", "index": -0.148, "percentile": 32, "basis": ["rarity"]}}
 puz = {"id": "cryptic-30000", "number": 30000, "series": "cryptic", "date": "2026-05-01",
        "setter": "Pan", "dimensions": {"cols": 15, "rows": 15}, "entries": []}
-pf = Path("tools/test_page_cache.sh")
+pf = Path("tools/test_page_cache.py")
 
 def key(r):
     B._PAGES = [(pf, {"id": row["id"], "series": "cryptic"})], [(None, None)], {row["id"]: r}, True, "fp", {}
@@ -146,4 +147,3 @@ fresh = changed(index=0.5, tags=["big-grid"])
 if showcase.with_meta(showcase.file_facts(puz), fresh) != showcase.facts(puz, fresh):
     sys.exit("test_page_cache: a reused page's showcase facts are not the fresh row's")
 print("test_page_cache: all passed")
-EOF

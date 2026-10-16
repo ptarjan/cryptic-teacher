@@ -1,11 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # A model-solved grid's answers can be corrected by the annotator, or sent back
 # to be solved again, but never so that a crossing or a printed answer breaks.
 #
-#     bash tools/test_model_answers.sh
-set -uo pipefail
-cd "$(dirname "$0")/.." || exit 1
-python3 - <<'PY'
+#     python3 tools/test_model_answers.py
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import copy, sys
 sys.path.insert(0, "tools")
 import apply_annotations as A, fetch_puzzle, provenance, reopen_answers as R
@@ -332,8 +333,5 @@ printed_order = list(reversed([{"clue": e["clue"]} for e in jig["entries"]]))
 got = R.jigsaw_answers({"clues": {"unplaced": printed_order}}, jig)["unplaced"]
 check("a jigsaw's answers are found by clue text, in the printed order",
       got == [e["solution"] for e in reversed(jig["entries"])])
-sys.exit(fails)
-PY
-rc=$?
-[ $rc = 0 ] && echo "model_answers: all checks passed" || echo "model_answers: FAILED"
-exit $rc
+print("model_answers: all checks passed" if not fails else "model_answers: FAILED")
+raise SystemExit(1 if fails else 0)

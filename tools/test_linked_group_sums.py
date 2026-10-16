@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does the grid search use a linked answer's printed total?
 #
-#     bash tools/test_linked_group_sums.sh
+#     python3 tools/test_linked_group_sums.py
 #
 # A linked clue ("8 and 1 down (5,6,3,5,1,3,5)") counts words, not lights, so
 # each light's length is unknown but their sum (28) is printed, and the "See 8"
@@ -10,10 +10,10 @@
 # refused, and the group prunes grids the free lengths alone would allow.
 # Then tools/fetch_nation.py's linked_groups on The Nation No 1249 (when its
 # page is held): 8-down and 1-down, 28 letters, a grid found only with the sum.
-set -u
-cd "$(dirname "$0")/.." || exit 1
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-python3 - <<'EOF'
 import sys
 sys.path.insert(0, "tools")
 import reconstruct_grid as rg
@@ -83,4 +83,3 @@ for fail in fails:
     print("FAIL:", fail)
 print("ok" if not fails else f"{len(fails)} failure(s)")
 sys.exit(1 if fails else 0)
-EOF

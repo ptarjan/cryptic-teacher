@@ -1,9 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # An indicator's text may repeat in `indicators` only as often as the clue
 # prints it: "about time? That is about time" signals two containers.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import validate_annotations as v
 
 fails = 0
@@ -25,4 +26,3 @@ check("printed twice, listed twice", [], repeat_errors(TWICE, 2))
 check("printed twice, listed three times", 1, len(repeat_errors(TWICE, 3)))
 check("printed once, listed twice", 1, len(repeat_errors("Time about (4)", 2)))
 raise SystemExit(fails)
-PY
