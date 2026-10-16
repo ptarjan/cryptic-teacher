@@ -1,21 +1,38 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does tools/privateeye_scans.py find a Private Eye page's clue columns from
 # its djvu words, take the crossword's number and not the entry address's,
 # read a linked head and a cross-reference, and hand privateeye_wayback's
 # read_capture a list it parses? And does the shared tidy read RapidOCR's
 # full-width bracket as a round one?
 #
-#     bash tools/test_privateeye_scans.sh
+#     python3 tools/test_privateeye_scans.py
 #
 # Offline: the page's words are written here.
-set -uo pipefail
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
-fails=0
-check() {
-  if [ "$2" = "$3" ]; then echo "ok   $1"; else echo "FAIL $1: want [$2] got [$3]"; fails=$((fails + 1)); fi
-}
+import io
+import os
+import sys
+from pathlib import Path
 
-out=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO / "tools"))
+
+fails = 0
+
+
+def check(what, want, got):
+    global fails
+    if want == got:
+        print(f"ok   {what}")
+    else:
+        print(f"FAIL {what}: want [{want}] got [{got}]")
+        fails += 1
+
+
+# What the shell's $(...) captured: everything the checks below print.
+_stdout = sys.stdout
+sys.stdout = io.StringIO()
+
+
 import privateeye_scans as ps
 import privateeye_wayback as pw
 import file_archive_org_puzzles as fa
@@ -148,60 +165,73 @@ print("COUNTED", pw.correct_counts(269, misread, fx)["across"][0]["enumeration"]
       pw.correct_counts(269, rows, fx)["across"][0]["enumeration"] == str(spec[0][2]))
 print("HINT", pw.count_hint(30, ["22 down counts 6, 5 cells"]).split(" = ")[0],
       repr(pw.count_hint(30, ["7 across is numbered 8"])))
-PY
-)
-echo "$out" | sed 's/^/  | /'
-get() { echo "$out" | sed -n "s/^$1 //p"; }
 
-check "a LINE across both columns is cut at the gap" "13" "$(get SPLIT)"
-check "two clue columns found, left then right, a clue saying crossword in them" "2 True True" "$(get COLS)"
-check "the heading's number, else the solution's + 1, never the address's 6" "13 13 None" "$(get NUMBER)"
-check "rules between the heading and its number skipped; Crossword N winner is not it" "280 None" "$(get RULED)"
-check "the columns read ACROSS then DOWN, a linked head's slash a comma" "4 4 20, 12 Linked clue (6,6)" "$(get SIDES)"
-check "a linked head prints 20/12 and a continuation See 20" \
-  "EYE CROSSWORD 13 ACROSS 1 Clue one here (5) DOWN 1 First down clue (4,4) 12 See 20 20/12 Linked clue (6,6)" \
-  "$(get TEXT)"
-check "read_capture parses the page text" \
-  "13 [('1', 'First down clue', '4,4'), ('12', 'See 20', None), ('20,12', 'Linked clue', '6,6')]" \
-  "$(get CAPTURE)"
-check "a blank two readings print as (See 20 down) is See 20; others stay blank" "See 20 ['5-across']" "$(get SEE)"
-check "two pages reading one number with different clues are refused" \
-  "two scans' page images print different clues under this number" "$(get CLASH)"
-check "a link across directions: the other direction's See light kept, the vote's made one gone" \
-  "['12-across', '14-across', '20-down', '22-down'] See 14 See 20" "$(get CROSS)"
-check "a three-light head's slash after a comma is a comma too" "7, 17, 23 Truss (5,7,6)" "$(get SLASH3)"
-check "a full-width bracket reads as a round one" "23 Maybe Charles slips one inside (4)" "$(get TIDY)"
-check "a number one reading alone prints, a digit too many, is renumbered; an unsure one is not" \
-  "['5 b', '6 c', '7 d'] ['4 a', '56 c', '7 d']" "$(get RENUM)"
-check "a link's tail with a direction letter is dropped before the vote" "1 Fellow (8,4)" "$(get DIRECTED)"
-check "the other list's See 1 Across makes the link back, as the Eye's 1/1" \
-  "['1-across', '1-across'] See 1 ('See 7', None, None) EYE CROSSWORD 281 ACROSS 1/1 Fellow (8,4) 7 Clue (4)" \
-  "$(get LINKS)"
-check "a head naming its tails' directions keeps only its number for the vote" \
-  "4 Her (4,2,3,4) {('down', 4): {((16, 'across'), (22, 'down')): 1}}" "$(get NAMED)"
-check "named_links groups the head as printed, each tail See 4, another light left alone" \
-  "['4-down', '16-across', '22-down'] See 4 See 4 Ringo 4/16ac/22 Her" "$(get NAMEDLINKS)"
-check "a named tail with words of its own leaves the head alone" "None Own words" "$(get NAMEDHELD)"
-check "a link's tail direction is kept from 23/4dn; a clue's opening A is no direction" \
-  "{'number': '23,4', 'clue': 'Cook some fowl', 'enumeration': '7,9', 'linkSides': {'4': 'down'}} {'number': '14,22', 'clue': 'A sound', 'enumeration': '5'}" \
-  "$(get LINKSIDES)"
-check "the named tail points at its head's direction for grouping, its printed clue kept" \
-  "{'4-down': 'See 23'} See 23 across" "$(get TAILS)"
-check "both grids No 269's list allows print it exactly" \
-  "[] []" "$(get FITS)"
-check "two grids fitting the clue list alone still refuse" \
-  "grid did not rebuild: at least 2 grids fit the clue list" "$(get AMBIG)"
-check "the scan's grid, printing exactly the list's lights, settles it" "True True" "$(get IMAGE)"
-check "a scan's grid that disagrees with the list settles nothing" \
-  "grid did not rebuild: at least 2 grids fit the clue list; the scan's grid: 9 across counts 8, 7 cells, 11 across counts 6, 5 cells, 13 across counts 9, 8 cells; if the page prints the scan's length, add fetch_puzzle.SOURCE_LIGHT_WRONG[('cyclops-269', '9-across')] = ({'enumeration': <as read>}, {'enumeration': <as printed, 7 letters>}, why)" \
-  "$(get MISFIT)"
-check "a scan grid one misread cell off is flipped back, only when one flip fits" \
-  "True ((9, 0),) True True" "$(get REPAIR)"
-check "a misread count is put right by a SOURCE_LIGHT_WRONG row, never without, a stale row left alone" \
-  "True 9 True" "$(get COUNTED)"
-check "a plus-joined head is a link head, as a slash (No 152)" "14, 16 Cops dirty (6) True" "$(get PLUS)"
-check "a count-only misfit names the row to add; a numbering misfit does not" \
-  "; if the page prints the scan's length, add fetch_puzzle.SOURCE_LIGHT_WRONG[('cyclops-30', '22-down')] ''" \
-  "$(get HINT)"
+out_text = sys.stdout.getvalue()
+sys.stdout = _stdout
 
-[ "$fails" = 0 ] && echo "all ok" || { echo "$fails failed"; exit 1; }
+
+def got(key):
+    return "\n".join(l[len(key) + 1:] for l in out_text.splitlines() if l.startswith(key + " "))
+
+
+check('a LINE across both columns is cut at the gap',
+      '13', got("SPLIT"))
+check('two clue columns found, left then right, a clue saying crossword in them',
+      '2 True True', got("COLS"))
+check("the heading's number, else the solution's + 1, never the address's 6",
+      '13 13 None', got("NUMBER"))
+check('rules between the heading and its number skipped; Crossword N winner is not it',
+      '280 None', got("RULED"))
+check("the columns read ACROSS then DOWN, a linked head's slash a comma",
+      '4 4 20, 12 Linked clue (6,6)', got("SIDES"))
+check('a linked head prints 20/12 and a continuation See 20',
+      'EYE CROSSWORD 13 ACROSS 1 Clue one here (5) DOWN 1 First down clue (4,4) 12 See 20 20/12 Linked clue (6,6)', got("TEXT"))
+check('read_capture parses the page text',
+      "13 [('1', 'First down clue', '4,4'), ('12', 'See 20', None), ('20,12', 'Linked clue', '6,6')]", got("CAPTURE"))
+check('a blank two readings print as (See 20 down) is See 20; others stay blank',
+      "See 20 ['5-across']", got("SEE"))
+check('two pages reading one number with different clues are refused',
+      "two scans' page images print different clues under this number", got("CLASH"))
+check("a link across directions: the other direction's See light kept, the vote's made one gone",
+      "['12-across', '14-across', '20-down', '22-down'] See 14 See 20", got("CROSS"))
+check("a three-light head's slash after a comma is a comma too",
+      '7, 17, 23 Truss (5,7,6)', got("SLASH3"))
+check('a full-width bracket reads as a round one',
+      '23 Maybe Charles slips one inside (4)', got("TIDY"))
+check('a number one reading alone prints, a digit too many, is renumbered; an unsure one is not',
+      "['5 b', '6 c', '7 d'] ['4 a', '56 c', '7 d']", got("RENUM"))
+check("a link's tail with a direction letter is dropped before the vote",
+      '1 Fellow (8,4)', got("DIRECTED"))
+check("the other list's See 1 Across makes the link back, as the Eye's 1/1",
+      "['1-across', '1-across'] See 1 ('See 7', None, None) EYE CROSSWORD 281 ACROSS 1/1 Fellow (8,4) 7 Clue (4)", got("LINKS"))
+check("a head naming its tails' directions keeps only its number for the vote",
+      "4 Her (4,2,3,4) {('down', 4): {((16, 'across'), (22, 'down')): 1}}", got("NAMED"))
+check('named_links groups the head as printed, each tail See 4, another light left alone',
+      "['4-down', '16-across', '22-down'] See 4 See 4 Ringo 4/16ac/22 Her", got("NAMEDLINKS"))
+check('a named tail with words of its own leaves the head alone',
+      'None Own words', got("NAMEDHELD"))
+check("a link's tail direction is kept from 23/4dn; a clue's opening A is no direction",
+      "{'number': '23,4', 'clue': 'Cook some fowl', 'enumeration': '7,9', 'linkSides': {'4': 'down'}} {'number': '14,22', 'clue': 'A sound', 'enumeration': '5'}", got("LINKSIDES"))
+check("the named tail points at its head's direction for grouping, its printed clue kept",
+      "{'4-down': 'See 23'} See 23 across", got("TAILS"))
+check("both grids No 269's list allows print it exactly",
+      '[] []', got("FITS"))
+check('two grids fitting the clue list alone still refuse',
+      'grid did not rebuild: at least 2 grids fit the clue list', got("AMBIG"))
+check("the scan's grid, printing exactly the list's lights, settles it",
+      'True True', got("IMAGE"))
+check("a scan's grid that disagrees with the list settles nothing",
+      "grid did not rebuild: at least 2 grids fit the clue list; the scan's grid: 9 across counts 8, 7 cells, 11 across counts 6, 5 cells, 13 across counts 9, 8 cells; if the page prints the scan's length, add fetch_puzzle.SOURCE_LIGHT_WRONG[('cyclops-269', '9-across')] = ({'enumeration': <as read>}, {'enumeration': <as printed, 7 letters>}, why)", got("MISFIT"))
+check('a scan grid one misread cell off is flipped back, only when one flip fits',
+      'True ((9, 0),) True True', got("REPAIR"))
+check('a misread count is put right by a SOURCE_LIGHT_WRONG row, never without, a stale row left alone',
+      'True 9 True', got("COUNTED"))
+check('a plus-joined head is a link head, as a slash (No 152)',
+      '14, 16 Cops dirty (6) True', got("PLUS"))
+check('a count-only misfit names the row to add; a numbering misfit does not',
+      "; if the page prints the scan's length, add fetch_puzzle.SOURCE_LIGHT_WRONG[('cyclops-30', '22-down')] ''", got("HINT"))
+
+if fails:
+    print(f"{fails} failed")
+    sys.exit(1)
+print("all ok")

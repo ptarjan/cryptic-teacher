@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does tools/clue_repair.py give a clue whose bracket its own reading lost
 # the count another reading prints, in its parts, so the scan filers file
 # "3,6,5" and not the bare letter total "14"?
 #
-#     bash tools/test_clue_repair.sh
+#     python3 tools/test_clue_repair.py
 #
 # The readings are real: the Times of 31 August 1990 (No 18,387), 17 across,
 # SIR EDWARD ELGAR, as RapidOCR's two models read its clue column
@@ -12,11 +12,13 @@
 # only the total of a count in parts (count_only), file_trove_puzzles.match
 # laid no count, and ocr_clues.reconcile filed the grid's "14". The Times of
 # 7 May 1974 (No 13,681) prints 5 down's "(7, 2. 3, 3)."
-set -uo pipefail
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
-export VLM_READER_URL=
-cd "$REPO/tools" && python3 - <<'EOF'
+import os
 import sys
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO / "tools"))
+os.environ["VLM_READER_URL"] = ""
 import clue_repair
 import enumeration
 import file_trove_puzzles as ftp
@@ -70,4 +72,3 @@ for name, line in (("ch", "composer (3,6.5)."), ("en5", "composer (3.6.5).")):
           (filed.get("enumeration"), [s["at"] for s in filed.get("separators", [])]))
 
 sys.exit(1 if fails else 0)
-EOF
