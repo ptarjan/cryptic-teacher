@@ -243,6 +243,23 @@ def main_puzzle(o_path, a_path, b_path):
     return 0
 
 
+def is_rows(x):
+    """A list of objects each with a string "id" (tools/data/shape_reannotate.json)."""
+    return isinstance(x, list) and all(isinstance(r, dict) and isinstance(r.get("id"), str) for r in x)
+
+
+def merge_rows(o, a, b):
+    """Rows merged per id, the same three-way walk as a keyed object: a row one
+    side dropped is dropped, one side changed takes that side. In %A's order,
+    rows only %B has after. One row per line, the layout its writers use."""
+    def keyed(rows):
+        return {r["id"]: r for r in rows}
+    held = merge(keyed(o), keyed(a), keyed(b))
+    order = [r["id"] for r in a] + [r["id"] for r in b]
+    out = [held[k] for k in dict.fromkeys(order) if k in held]
+    return "[\n" + ",\n".join(json.dumps(r, ensure_ascii=False) for r in out) + "\n]\n"
+
+
 def main(o_path, a_path, b_path):
     texts = []
     for p in (o_path, a_path, b_path):
@@ -253,6 +270,11 @@ def main(o_path, a_path, b_path):
     except ValueError as err:
         print(f"json_merge: not JSON ({err}); leaving the conflict", file=sys.stderr)
         return 1
+    if is_rows(a) and is_rows(b) and (o == {} or is_rows(o)):   # {}: no ancestor
+        o = o or []
+        with open(a_path, "w", encoding="utf-8") as f:
+            f.write(merge_rows(o, a, b))
+        return 0
     if not all(isinstance(x, dict) for x in (o, a, b)):
         print("json_merge: not a JSON object; leaving the conflict", file=sys.stderr)
         return 1

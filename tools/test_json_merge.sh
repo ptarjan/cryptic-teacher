@@ -169,7 +169,7 @@ done
 
 # What is committed: every json-keys file in its one-line-per-key layout, which
 # is what lets the merge and the filter be no-ops on it.
-for f in $(sed -n 's/^\([^#][^ ]*\) .*merge=json-keys.*/\1/p' "$ROOT/.gitattributes"); do
+for f in $(sed -n 's/^\([^#][^ ]*\) .*merge=json-keys.*filter=json-keys.*/\1/p' "$ROOT/.gitattributes"); do
   check "$f is one line per key" "$(canonical < "$ROOT/$f")" True
 done
 

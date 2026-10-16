@@ -10,9 +10,16 @@ reason in the view (`flagged`). The old annotation stays live until the new one
 validates; a null never blanks it (apply_annotations holds it).
 
 A clue leaves the list when apply_annotations files its new annotation (done(),
-at the end of apply): the row is pruned when the detectors no longer flag the new
-tree. A tree still flagged keeps its row marked "tried", so it is not redone and
-the list never grows: pending() skips tried rows."""
+at the end of apply). The detectors are the gate, not the prompt: apply refuses
+a tree for a listed clue that they still flag (findings()), so a run cannot
+re-file the old tree with new prose and call it done. A clue the run nulls keeps
+its old hint and its row, marked "tried", so it is not redone; pending() skips
+tried rows. A later write in the same run still settles it (done() looks at
+every listed row, tried or not).
+
+The row changes ship in the puzzle's own commit (tools/own_rows.py), so a
+pruned row reaches master with the tree that settled it, and a discarded run
+puts its rows back."""
 import fcntl
 import json
 import sys
@@ -58,38 +65,62 @@ def clue_key(entry):
     return f"{entry.get('number')}{(entry.get('direction') or '?')[:1]}"
 
 
-def flagged(puzzle):
-    """{entry id ("22-across"): reason} for this puzzle's pending clues."""
-    want = pending().get(puzzle.get("id"))
+def _by_entry(puzzle, want):
     if not want:
         return {}
     return {f"{e['number']}-{e['direction']}": want[clue_key(e)]
             for e in puzzle.get("entries") or [] if clue_key(e) in want}
 
 
-def still_flagged(entry):
-    """The detectors' verdict on this entry's annotation as it stands now."""
+def flagged(puzzle):
+    """{entry id ("22-across"): reason} for this puzzle's pending clues."""
+    return _by_entry(puzzle, pending().get(puzzle.get("id")))
+
+
+def listed(puzzle):
+    """{entry id: reason} for every listed clue of this puzzle, tried or not:
+    the ones apply holds to the detectors."""
+    want = {}
+    for r in rows():
+        pid, _, clue = r["id"].partition("#")
+        if pid == puzzle.get("id"):
+            want[clue] = r.get("reason", "")
+    return _by_entry(puzzle, want)
+
+
+def findings(entry, ann=None):
+    """The precise detectors' findings on `ann` (default: the entry's own
+    annotation) as "detector: what" strings; [] when they pass it."""
     import clue_shapes as cs
     import shape_suspects as ss
-    ann = entry.get("annotation")
+    ann = entry.get("annotation") if ann is None else ann
     if not ann or ann.get("wordplay") is None:
-        return False
+        return []
     wp = ann["wordplay"]
     row = {"id": "", "series": "", "clue": (entry.get("clue") or {}).get("text", ""),
            "sol": entry.get("solution", ""), "sk": cs.analyse(wp)[0], "line": cs.compact(wp),
            "wp": wp, "defs": ann.get("definitions") or [], "andLit": bool(ann.get("andLit"))}
-    return any(k in ss.PRECISION for _, hits in ss.run_detectors([row]) for k in hits)
+    return [f"{k}: {v}" if isinstance(v, str) else k
+            for _, hits in ss.run_detectors([row]) for k, v in hits.items() if k in ss.PRECISION]
 
 
-def done(puzzle, written):
+def still_flagged(entry):
+    """The detectors' verdict on this entry's annotation as it stands now."""
+    return bool(findings(entry))
+
+
+def done(puzzle, written, held=()):
     """Account for the clues a run just filed: `written` is the entry ids it
-    gave an annotation. Prune those no longer flagged, mark the rest tried.
+    gave an annotation, `held` the ones whose null kept the old hint. A written
+    clue the detectors pass is pruned; a held one (or a written one they still
+    flag, which apply refuses before it gets here) is marked tried. Every
+    listed row counts, tried or not, so a fix later in the run still prunes.
     Returns how many listed clues it settled."""
     by_id = {f"{e['number']}-{e['direction']}": e for e in puzzle["entries"]}
-    mine = {k for k in flagged(puzzle) if k in written and k in by_id}
+    mine = {k for k in listed(puzzle) if (k in written or k in held) and k in by_id}
     if not mine:
         return 0
-    verdict = {clue_key(by_id[k]): still_flagged(by_id[k]) for k in mine}
+    verdict = {clue_key(by_id[k]): k in held or still_flagged(by_id[k]) for k in mine}
     with open(PATH, "r+") as f:
         fcntl.flock(f, fcntl.LOCK_EX)
         out = []
@@ -102,5 +133,32 @@ def done(puzzle, written):
             out.append(r)
         f.seek(0)
         f.truncate()
-        f.write("[\n" + ",\n".join(json.dumps(r, ensure_ascii=False) for r in out) + "\n]\n")
+        f.write(dump(out))
     return len(mine)
+
+
+def dump(out):
+    """The list's layout: one row per line, as tools/fix_shape_suspects.py
+    writes it, so rows of different puzzles are different lines."""
+    return "[\n" + ",\n".join(json.dumps(r, ensure_ascii=False) for r in out) + "\n]\n"
+
+
+def splice(base, donor, pid):
+    """`base` (the list's text) with pid's rows as `donor` has them, each after
+    the row it follows in donor that base also holds, so splicing back the
+    text a splice started from gives it byte for byte (tools/own_rows.py)."""
+    def ours(r):
+        return r["id"].partition("#")[0] == pid
+    b, d = json.loads(base or "[]"), json.loads(donor or "[]")
+    others = {r["id"] for r in b if not ours(r)}
+    after, anchor = {}, None
+    for r in d:
+        if not ours(r):
+            anchor = r["id"] if r["id"] in others else anchor
+        else:
+            after.setdefault(anchor, []).append(r)
+    out = list(after.get(None, []))
+    for r in b:
+        if not ours(r):
+            out += [r] + after.get(r["id"], [])
+    return dump(out)

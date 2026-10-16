@@ -14,6 +14,9 @@ tools/data/renamed_ids.json merge=json-keys filter=json-keys
 tools/data/setter_error.json merge=json-keys filter=json-keys
 tools/data/source_answer_wrong.json merge=json-keys filter=json-keys
 tools/data/source_clue_wrong.json merge=json-keys filter=json-keys
+# A list of {"id": ...} rows, one per line, that every puzzle commit of a
+# re-annotation prunes (tools/own_rows.py): merged per id, no clean filter.
+tools/data/shape_reannotate.json merge=json-keys
 
 # Puzzle files the daily update and the pre-reset burn can both annotate in one
 # night: merged entry by entry by `tools/json_merge.py --puzzle`, registered as

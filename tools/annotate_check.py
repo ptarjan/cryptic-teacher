@@ -302,7 +302,9 @@ def write_view(path):
         # Why a hinted clue is being redone, so the run knows what was wrong.
         flagged = {c: r for c, r in shape_queue.flagged(puzzle).items() if c in only}
         if flagged:
-            view["flagged"] = {c: f"the hint on file is suspect ({r}); give it a better tree"
+            view["flagged"] = {c: f"the hint on file has a wrongly shaped wordplay tree ({r}): "
+                                  f"parse the clue again and write a new `wp`; the check refuses "
+                                  f"a tree with that fault, the old one included"
                                for c, r in flagged.items()}
     leaders = groups.leader_of(puzzle["entries"])
     printed = provenance.printed_answers(puzzle)

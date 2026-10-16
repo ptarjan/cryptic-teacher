@@ -467,7 +467,9 @@ def apply(path, annotations, by=None):
     # A clue on the shape re-annotation list (tools/shape_queue.py) keeps its
     # old hint against a null too, committed or not: it is live until a new
     # one validates.
-    relisted = shape_queue.flagged(puzzle)
+    # The detectors are its gate: a tree they still flag is refused, so the
+    # old tree re-filed with new prose does not pass for a re-annotation.
+    relisted = shape_queue.listed(puzzle)
     # Wordplay that does not check refuses the write.
     errors = []
     for entry in puzzle["entries"]:
@@ -485,6 +487,15 @@ def apply(path, annotations, by=None):
             entry.pop("annotation", None)
         else:
             new = landed(ann, entry, puzzle["entries"], entry_id(entry), errors)
+            found = shape_queue.findings(entry, new) if new is not None and entry_id(entry) in relisted else []
+            if found:
+                same = (new.get("wordplay") == (entry.get("annotation") or {}).get("wordplay"))
+                errors.append(
+                    f"{entry_id(entry)}: is on the shape re-annotation list ({relisted[entry_id(entry)]}) "
+                    f"and this {'is the same tree as the one on file' if same else 'tree is still flagged'}: "
+                    f"{'; '.join(found)}. Write the wordplay tree again so no step has those faults "
+                    f"(changing only the prose does not settle it), or give null to keep the old hint.")
+                new = None
             if new is not None:
                 entry["annotation"] = new
                 move_alteration(entry)
@@ -511,7 +522,8 @@ def apply(path, annotations, by=None):
         write_puzzle_file(path, puzzle)
     except puzzle_integrity.RefusedWrite as err:
         raise SystemExit(refusal(path, puzzle, err))
-    shape_queue.done(puzzle, {k for k, v in annotations.items() if v is not None and k not in held})
+    shape_queue.done(puzzle, {k for k, v in annotations.items() if v is not None and k not in held},
+                     {k for k in held if k in relisted})
     for eid, new in fixes.items():
         print(f"apply_annotations: {eid} corrected to {new} — it agrees with every "
               f"crossing and printed answer (solutions.corrected)")
