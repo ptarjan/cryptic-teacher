@@ -600,7 +600,30 @@
     "text": "18 for a change in station",
     "enumeration": "10"
    },
-   "solution": "CONNECTION"
+   "solution": "CONNECTION",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "18",
+      "at": 0,
+      "meaning": "first meaning: the answer to 18 down, a relative"
+     },
+     {
+      "text": "a change in station",
+      "at": 7,
+      "meaning": "second meaning: a transfer from one train to another at a station"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'18' points to the answer of 18 down, RELATIVE; a relative is a connection, and a connection is also where travellers change trains.",
+     "definitionFit": "A relation by family is a connection, and the railway term names the onward train a passenger switches to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 14,
@@ -810,7 +833,29 @@
     "text": "Pertinent to 13",
     "enumeration": "8"
    },
-   "solution": "RELATIVE"
+   "solution": "RELATIVE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pertinent",
+      "at": 0,
+      "meaning": "first meaning: relevant, bearing on the matter"
+     },
+     {
+      "text": "13",
+      "at": 13,
+      "meaning": "second meaning: the answer to 13 across, a connection, i.e. a family member"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'13' points to the answer of 13 across, CONNECTION, which here means a family member.",
+     "definitionFit": "Something relative to a subject has a bearing on it, and a relative is a kinsman or family connection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -1138,40 +1183,38 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "deletion",
+     "indicators": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "attached aft",
-         "note": "attached aft says the answer is the longer word once the trailing addition is taken back off its end"
-        }
-       ],
-       "parts": [
-        {
-         "words": "unnecessary",
-         "gives": "NEEDLESS",
-         "note": "needless means unnecessary"
-        },
-        {
-         "words": "ship",
-         "gives": "SS",
-         "note": "SS is the abbreviation for steamship"
-        }
-       ]
+       "text": "head",
+       "at": 27,
+       "note": "a misprint for 'had': the clue says the answer would become the other word only had something been added, so that piece is taken away from it here"
       },
       {
-       "unchecked": true,
-       "words": "head",
-       "note": "surface padding, most likely a garbled 'had' in the newspaper text"
+       "text": "attached aft",
+       "at": 42,
+       "note": "aft is the stern, so the ship's letters belong at the back end and come off from there"
+      }
+     ],
+     "parts": [
+      {
+       "words": "unnecessary",
+       "at": 15,
+       "gives": "NEEDLESS",
+       "note": "needless means unnecessary"
+      },
+      {
+       "words": "ship",
+       "at": 37,
+       "gives": "SS",
+       "note": "SS is the abbreviation for steamship"
       }
      ]
     },
     "explanation": {
-     "surface": "A drain would be pointless if a ship were fixed to its stern.",
-     "walkthrough": "Sewer means one who sews, not a drain. Add SS to the answer and it becomes needless. The newspaper text around 'head' is garbled, probably 'had' in print.",
-     "definitionFit": "A needle is the tool that does the sewing, so it is literally a sewer, one who sews."
+     "surface": "A puzzling remark about drains and ships, as if some sewer would be pointless with a vessel tied behind.",
+     "walkthrough": "'Sewer' is not a drain but something that sews. Read the clue backwards: the answer plus SS at the end would spell a word for unnecessary.",
+     "definitionFit": "A sewing implement threads the stitches, so it is literally a thing that sews."
     },
     "features": {
      "answerInScene": false,
