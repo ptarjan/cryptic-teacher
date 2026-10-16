@@ -6855,6 +6855,11 @@
   // Both toggles return whether the panel ended up open, so a click that
   // opened it can be counted and one that closed it is not.
   function toggleStats(show) {
+    const open = toggleStatsPanel(show);
+    syncRoute();
+    return open;
+  }
+  function toggleStatsPanel(show) {
     if (!showPanel("stats-panel", show)) return false;
     if (P) flushState();
     whenStartedLoaded(() => { if (!$("stats-panel").classList.contains("hidden")) renderStats(); }, true);
@@ -7779,7 +7784,38 @@
     return !!(window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
   }
 
+  // The home-screen app's Puzzles and Stats tabs are pages: each has its own
+  // hash (#picker, #stats), pushed when it opens or closes so the back gesture
+  // walks between them, and applied again on popstate/hashchange. Browser tabs
+  // keep the panels as they were and touch no history.
+  const isAppMode = () => !!(document.documentElement && document.documentElement.classList &&
+    document.documentElement.classList.contains("standalone"));
+  const tabHash = () => !$("picker-panel").classList.contains("hidden") ? "#picker"
+    : !$("stats-panel").classList.contains("hidden") ? "#stats" : "";
+  let applyingRoute = false;
+  function syncRoute() {
+    if (applyingRoute || !isAppMode() || typeof history === "undefined" || !history.pushState) return;
+    const want = tabHash();
+    if (want === (location.hash || "")) return;
+    try { history.pushState(null, "", location.pathname + location.search + want); } catch (e) { /* no history */ }
+  }
+  function applyRoute() {
+    if (!isAppMode()) return;
+    applyingRoute = true;
+    try {
+      const h = location.hash || "";
+      if (h === "#picker") togglePicker(true);
+      else if (h === "#stats") toggleStats(true);
+      else { showPanel("picker-panel", false); showPanel("stats-panel", false); }
+    } finally { applyingRoute = false; }
+  }
+
   function togglePicker(show) {
+    const open = togglePickerPanel(show);
+    syncRoute();
+    return open;
+  }
+  function togglePickerPanel(show) {
     const el = $("picker-panel");
     const want = showPanel("picker-panel", show);
     // The search box starts empty, but the menus keep what they were last set
@@ -8335,6 +8371,8 @@
     // #picker opens it, as #stats does the stats: the home-screen app's
     // Puzzles tab (appnav.js) links here from pages that are not the app.
     if (location.hash === "#picker") togglePicker(true);
+    window.addEventListener("popstate", applyRoute);
+    window.addEventListener("hashchange", applyRoute);
 
     // ---- sync ----
     // The button is only offered if there is somewhere to sync to. A control
