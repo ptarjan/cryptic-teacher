@@ -706,6 +706,12 @@ tools/test_wordplay_shape_rules.sh             each wordplay shape rule is count
                                                a charade, an anagram around a container), and
                                                tidy_wordplay_shapes.py joins a charade inside a
                                                charade once
+tools/test_walkthrough_follows.sh              a hint can be followed: findings (not errors)
+                                               when a walkthrough never names an indicator or
+                                               shows an intermediate result of the wordplay
+                                               tree, or an anagram, reversal or hidden
+                                               indicator is separated from its fodder by
+                                               content words
 tools/test_flatten_anagram_fodder.sh           an anagram's pieces are its own parts: ana(x +
                                                y) stores them there, a join with its own
                                                indicator inside ana() is refused, the validator
