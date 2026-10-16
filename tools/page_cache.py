@@ -80,6 +80,10 @@ OPAQUE = ("stamp_assets.asset_url", "annotation.abbreviation_pairs")
 #: writes one in code_reach's hashed form.
 NAMED = re.compile(r"Constant\(value='(?:[^'\\]*/)?([\w.\-]+\.(?:json|tsv|txt|md|csv|yaml|yml|html|js|"
                    r"css|webmanifest|svg|png|ico|xml))'")
+#: Data files read only through a parser that keeps part of them: the page is
+#: made from that part, so it (not the file's bytes) is in the key. An edit to
+#: app.js's comments or its browser code leaves every page reusable.
+DERIVED = {"app.js"}
 TOOLS_PY = re.compile(r"tools/[^/]+\.py")
 
 
@@ -107,7 +111,21 @@ def inputs(code, paths):
     (the code itself is hashed by definition) and not a per-page input."""
     names = {m for v in code.values() for m in NAMED.findall(v)}
     return sorted(p for p in paths if p.rsplit("/", 1)[-1] in names
-                  and not _per_page(p) and not TOOLS_PY.fullmatch(p))
+                  and p not in DERIVED and not _per_page(p) and not TOOLS_PY.fullmatch(p))
+
+
+def derived(code):
+    """[(name, value)] for the DERIVED files the reached `code` names: what
+    app_tables parses out of app.js, or the file's bytes if it does not parse."""
+    names = {m for v in code.values() for m in NAMED.findall(v)}
+    if not names & DERIVED:
+        return []
+    import app_tables
+    try:
+        src = app_tables.APP.read_text(encoding="utf-8")
+        return [("app.js", repr((app_tables.ladder(src), app_tables.series_blurbs(src))))]
+    except (OSError, SystemExit):
+        return [("app.js", file_hash(app_tables.APP) or "gone")]
 
 
 def fingerprint(texts=None):
@@ -136,6 +154,8 @@ def fingerprint(texts=None):
             p = ROOT / path
             blob = hashlib.sha1(p.read_bytes()).hexdigest() if p.exists() else "gone"
         h.update(f"{path}\0{blob}\0".encode("utf-8", "surrogateescape"))
+    for name, value in derived(code):
+        h.update(f"{name}\0{value}\0".encode("utf-8", "surrogateescape"))
     return h.hexdigest()
 
 
