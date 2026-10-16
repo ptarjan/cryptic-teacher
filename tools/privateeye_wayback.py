@@ -502,6 +502,45 @@ def grid_misfits(grid, spec, groups=None):
     return off
 
 
+def renumber_to_grid(grid, across, down, groups=None):
+    """True when the clue numbers `across`/`down` (light_spec lists, number
+    first) were put right against the scan's `grid`: the OCR read a number
+    one off (6 across as 7). Each clue keeps its printed place in the list;
+    one whose number the grid does not carry takes the grid's number at that
+    place if that is +-1 from the read. Accepted only when every number moved
+    by one and the whole list then prints exactly the grid (no misfits);
+    otherwise nothing changes."""
+    import reconstruct_grid as rg
+    lights = rg.lights_from_grid(grid)
+    moves = []
+    for d, lst in (("across", across), ("down", down)):
+        have = [n for n, dd, _s in lights if dd == d]
+        if len(have) != len(lst):
+            return False
+        for lg, gn in zip(lst, have):
+            try:
+                n = int(lg[0])
+            except (TypeError, ValueError):
+                continue
+            if n != gn:
+                if abs(n - gn) != 1:
+                    return False
+                moves.append((lg, gn))
+    if not moves:
+        return False
+    old = [lg[0] for lg, _ in moves]
+    for lg, gn in moves:
+        lg[0] = gn
+    spec = [(lg[0], d, lg[1]) for d, lst in (("across", across), ("down", down)) for lg in lst]
+    if grid_misfits(grid, spec):
+        for (lg, _), n in zip(moves, old):
+            lg[0] = n
+        return False
+    print(f"  renumbered {len(moves)} clue(s) to the scan's grid: "
+          + ", ".join(f"{o}->{g}" for o, (_, g) in zip(old, moves)))
+    return True
+
+
 def repair_grid(grid, spec, groups=None, max_misfits=3):
     """(grid, cells) where the scan's `grid` misreads a cell or two -- a
     black square read white or the reverse (No 44's 20ac read eight cells
@@ -647,6 +686,10 @@ def from_rows(num, rows, answers=None, image=None, fixes=None):
     # Every Cyclops is 15x15; the linked lights' free lengths need more search
     # than the Nation's budget.
     misfits = grid_misfits(image, spec, groups) if image else None
+    if misfits and renumber_to_grid(image, across, down, groups):
+        spec = [(lg[0], d, lg[1]) for d, lights in (("across", across), ("down", down))
+                for lg in lights]
+        misfits = grid_misfits(image, spec, groups)
     if misfits:
         fixed, cells = repair_grid(image, spec, groups)
         if fixed:
