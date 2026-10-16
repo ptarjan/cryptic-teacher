@@ -278,6 +278,7 @@ check "a clue whose number OCR lost is split off the one before" "None [([[1]], 
 got=$(cd "$REPO/tools" && python3 -c "
 import file_trove_puzzles as F
 cl, why = F.clues('1 Take 2 Down and run (5). 3 Silence, actually 5 Where new jobs (11, 4) 6 Urges (5).')
+cl = F.renumber({'across': cl, 'down': []})[0]['across']
 print(why, [(sorted(map(sorted, c['tokens'])), c['text'], sorted(c['enums'])) for c in cl])")
 check "a clue glued on after a lost count is split off at its number" "None [([[1]], 'Take 2 Down and run', ['5']), ([[3]], 'Silence, actually', []), ([[5]], 'Where new jobs', ['11,4']), ([[6]], 'Urges', ['5'])]" "$got"
 

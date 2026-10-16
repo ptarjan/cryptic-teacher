@@ -1553,7 +1553,7 @@ def parse(text):
         parsed[direction], why = ftp.clues(t)
         if why:
             return None, f"{direction} clues do not parse: {why}"
-    return parsed, None
+    return clue_repair.split_run_on(parsed)[0], None
 
 
 def merge_rows(col):

@@ -38,6 +38,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
+import clue_repair
 import downloads
 import provenance
 
@@ -220,104 +221,7 @@ def clue_rows(part, scan=False):
         left = ""
     if left.strip() or not rows:
         return None
-    return split_merged(rows) if scan else rows
-
-
-def split_merged(rows):
-    """A scan clue whose count the OCR lost ("... just as it was writ- ten 27 A
-    division of members (7)") runs into the next: split at " N Capital" where N
-    is the row's number + 1, the first half kept with no enumeration (its
-    length unknown; the search takes it from the grid). Nos 171, 224."""
-    out = []
-    for r in rows:
-        head = r["number"].split(",")[0]
-        m = re.search(r"\s(\d{1,2})\s+(?=[A-Z‘“'\"])", r["clue"] or "") if head.isdigit() else None
-        if m and int(m.group(1)) == int(head) + 1 and m.start() > 8:
-            out.append({"number": r["number"], "clue": r["clue"][:m.start()].strip(), "enumeration": None})
-            r = {**r, "number": m.group(1), "clue": r["clue"][m.end():].strip()}
-        out.append(r)
-    return out
-
-
-def split_lost(a, d):
-    """(across rows, down rows) with a clue the OCR ran into the one before
-    it split off: the printed numbers skip N (no light carries it, which the
-    grid rebuild refuses) and " N Capital" stands inside another clue's text.
-    Three ways the join happens: that clue's count was lost ("... at one
-    time 17 Go down ..."); its text is only a cross-reference whose count was
-    never there ("(sce 22) 3 Supported", "(see lac.) 22 Vacillating"); or its
-    count stands inside the text ("... chopper (7) 1] Those who've ..."), the
-    row's own count being the later clue's. Only a number the lists skip is
-    split at, and only above the row's own, so a list that was whole is not
-    touched. Nos 71, 96, 98, 111, 113, 116 and others."""
-    def nums(rows):
-        return {int(n) for r in rows for n in r["number"].split(",") if n.isdigit()}
-    while True:
-        have = nums(a) | nums(d)
-        missing = set(range(1, max(have) + 1)) - have if have else set()
-        done = True
-        for rows in (a, d):
-            for i, r in enumerate(rows):
-                head = r["number"].split(",")[0]
-                if not missing or not head.isdigit() or not r["clue"]:
-                    continue
-                for m in re.finditer(r"(?:\((\d[\d,\-–]*)\)\s*)?(?<![\d(])(\d{1,2}|[1l]\])[.:]?\s+(?=[A-Z‘“'\"])",
-                                     r["clue"]):
-                    n = 11 if m.group(2)[-1] == "]" else int(m.group(2))
-                    first = r["clue"][:m.start()].strip()
-                    see = re.match(r"\(?\s*s[ec]e\s*([lI]|\d{1,2})\s*(?:ac|dn|across|down)?\.?\s*\)?$",
-                                   first, re.I)
-                    after = next((int(x["number"].split(",")[0]) for x in rows[i + 1:]
-                                  if x["number"].split(",")[0].isdigit()), None)
-                    if n not in missing or n <= int(head) or not first or (m.start() < 3 and not see):
-                        continue
-                    if after is not None and n >= after:
-                        continue  # a clue between two others numbers between them
-                    later = {"number": str(n), "clue": r["clue"][m.end():].strip(),
-                             "enumeration": r["enumeration"]}
-                    if see:
-                        ref = "1" if see.group(1) in "lI" else see.group(1)
-                        rows[i:i + 1] = [{"number": r["number"], "clue": f"See {ref}",
-                                          "enumeration": None}, later]
-                    else:
-                        rows[i:i + 1] = [{"number": r["number"], "clue": first,
-                                          "enumeration": m.group(1)}, later]
-                    done = False
-                    break
-                if not done:
-                    break
-            if not done:
-                break
-        if done:
-            return a, d
-
-
-def order_lists(a, d):
-    """(across rows, down rows) put in order where the numbers' increase says
-    how. Each list's numbers rise, so (1) a number out of place between two
-    neighbours that bracket it is a misread of the one number in that gap
-    that no list carries; (2) a down list that starts with a rising run past
-    the across list's last number and then falls back is the across list's
-    tail, its columns read in the wrong order (Nos 246, 271, 289)."""
-    def head(r):
-        h = r["number"].split(",")[0]
-        return int(h) if h.isdigit() else None
-    for rows in (a, d):
-        for i in range(1, len(rows) - 1):
-            lo, x, hi = head(rows[i - 1]), head(rows[i]), head(rows[i + 1])
-            if None in (lo, x, hi) or lo >= hi or lo < x < hi:
-                continue
-            have = {int(n) for r in a + d for n in r["number"].split(",") if n.isdigit()}
-            gap = [n for n in range(lo + 1, hi) if n not in have]
-            if len(gap) == 1 and rows[i]["number"].isdigit():
-                rows[i] = {**rows[i], "number": str(gap[0])}
-    nums = [head(r) for r in d]
-    if a and d and None not in nums and head(a[-1]) is not None:
-        k = next((j for j in range(1, len(nums)) if nums[j] <= nums[j - 1]), None)
-        if k and nums[0] > head(a[-1]) and nums[k] < nums[0] and all(
-                nums[j] < nums[j + 1] for j in range(k, len(nums) - 1)):
-            return a + d[:k], d[k:]
-    return a, d
+    return rows
 
 
 def answer_rows(part, direction):
@@ -378,7 +282,7 @@ def read_capture(raw, encoding="cp1252", plain=False, issue=None):
     if dirs:
         a, d = clue_rows(dirs[0], plain), clue_rows(dirs[1], plain)
         if a and d:
-            a, d = order_lists(*split_lost(a, d))
+            a, d = clue_repair.repair_rows(a, d)
         # Square 1 starts a light: a list missing it lost its first clues
         # (a scan's column set above its heading), refused before the
         # minutes a grid search spends finding no grid.
