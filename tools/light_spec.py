@@ -318,7 +318,19 @@ def build_spec(puzzle):
                                  f"part of a linked clue but redirected from "
                                  f"{hd}'s own 'See' entry; filed as {hd}")
             else:
-                _insert_sorted(parsed[d], number, length, "linked", notes, d,
+                # The group's label names no direction ("1, 13") and this
+                # direction already prints its own plain 13 while the other
+                # prints none: the extra is the other direction's, whose
+                # "See" entry the OCR lost (Cyclops 123, 287).
+                od = "down" if d == "across" else "across"
+                own = any(lg[0] == number for lg in parsed[d])
+                if own and not any(lg[0] == number for lg in parsed[od]):
+                    ins = od
+                    notes.append(f"{od} {number}: linked to {leader} but {d} prints its own "
+                                 f"{number} and {od} none; filed as {od}")
+                else:
+                    ins = d
+                _insert_sorted(parsed[ins], number, length, "linked", notes, ins,
                                {"clue": f"See {leader}", "enumeration": None,
                                 "synthesised": True})
                 notes.append(f"{d} {number}: no 'See {leader}' entry survived the "

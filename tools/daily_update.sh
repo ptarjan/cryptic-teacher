@@ -276,6 +276,13 @@ unit_fetch() {  # fetcher: the newest puzzle of its series (exit 3 = nothing new
   local rc
   python3 "tools/$1.py" --latest
   rc=$?
+  # Cyclops numbers whose clues the Wayback/archive.org captures print and no
+  # filing run has tried (privateeye_wayback.lost "not-read"): tried once each
+  # (refused.json remembers the refusals), to the unit's soft deadline.
+  if [ "$1" = fetch_privateeye ] && [ -d "$(python3 -c 'import sys; sys.path.insert(0, "tools"); import downloads; print(downloads.PRIVATE_EYE_WAYBACK)')" ]; then
+    with_deadline
+    python3 tools/privateeye_wayback.py file --daily || echo "privateeye_wayback file --daily failed (not fatal)"
+  fi
   [ $rc -eq 3 ] && return 0
   [ $rc -eq 0 ] || echo "$1 fetch failed (rc=$rc)"
   return $rc

@@ -151,7 +151,7 @@ def split_dirs(part):
     """'ACROSS ... DOWN ...' -> (across text, down text) or None."""
     # Headings by case and a following number, so a clue's "going down on" isn't one
     # (or a scan's "|", "l", "I" misread for 1 before a capital: "DOWN | Picture").
-    m = re.search(r"\b(?:ACROSS|Across)\b\s*:?(.*?)\b(?:DOWN|Down)\b\s*:?(?=\s*(?:\d|[|lI]\s+[A-Z]))(.*)$", part, re.S)
+    m = re.search(r"\b(?:ACROSS|Across)\b\s*:?(.*?)\b(?:DOWN|Down)\b\s*:?(?=\s*(?:\d|[|lIi]\s+[A-Z]))(.*)$", part, re.S)
     return (m.group(1).strip(), m.group(2).strip()) if m else None
 
 
@@ -164,6 +164,12 @@ def scan_clean(part):
     part = re.sub(r"^\s*[|lI](?=\s+[A-Z‘“'\"])", " 1", part)
     part = re.sub(r"\s[|]+(?=\s|$)", " ", part)
     part = re.sub(r"(?<=[\s/])S(?=\s*(?:ac|dn)\b)", "5", part)
+    # A speck of punctuation after a closing bracket, before the next clue's number
+    # ("13 (see 1dn) : 15 Monument"): it hid the see-row and merged 13 into 15 (No 123).
+    part = re.sub(r"(\))\s+[:;.,]+(?=\s+\d{1,2}\s)", r"\1", part)
+    # "(seel3ac)" for "(see 13 ac)": no space, the 1 read as l.
+    part = re.sub(r"\(see\s*[lI](?=\d)", "(see 1", part, flags=re.I)
+    part = re.sub(r"\(see(?=\d)", "(see ", part, flags=re.I)
     part = re.sub(r"(?<=\s)(\d)S(?=\s)", r"\g<1>5", part)
     part = re.sub(r"(?<=\s)(\d)A(?=\s+[A-Z‘“'\"])", r"\g<1>4", part)
     part = re.sub(r"(?<=\s)(\d{1,2})([A-Z]) ([a-z]{1,3})\b", r"\1 \2\3", part)
@@ -217,6 +223,8 @@ def clue_rows(part, scan=False):
 def answer_rows(part, direction):
     """fetch_privateeye.solve_from_rows rows [(key, direction, LETTERS)]."""
     out = []
+    # "DOWN: i Emma 2 Orgasm": the scan's 1 read as a letter (No 54).
+    part = re.sub(r"^\s*[|lIi](?=\s+[A-Z])", "1", part)
     for key, words in ANSWER.findall(part):
         if re.match(r"\s*\(?see\b", words, re.I):
             continue
@@ -683,12 +691,24 @@ def from_rows(num, rows, answers=None, image=None, fixes=None):
             "entries": out, **({"gridFromScan": True} if image and not misfits else {})}, None
 
 
-def file(numbers=None, dry_run=False):
+def file(numbers=None, dry_run=False, daily=False):
+    """File what the captures print. `daily` (the daily job): only numbers
+    nothing has tried yet (not in refused.json), newest first, stopping at the
+    unit's soft deadline (tools/budget.py) with the rest due next run; a
+    parser fix is carried in by a by-hand run over refused.json's numbers."""
     from fetch_puzzle import puzzle_path, write_puzzle_file
+    import budget
     import puzzle_paths
     got = index()
     filed, why = [], {}
-    for num in sorted(numbers or got):
+    tried = set(json.loads(REFUSED.read_text())) if daily and REFUSED.exists() else set()
+    todo = sorted(numbers or got, reverse=daily)
+    for i, num in enumerate(todo):
+        if daily and str(num) in tried:
+            continue
+        if daily and budget.spent(300):
+            print(f"  out of time: {len(todo) - i} numbers left for the next run")
+            break
         if num not in got or (not numbers and puzzle_paths.find(f"cyclops-{num}")):
             continue
         try:
@@ -835,6 +855,7 @@ def main(argv):
     ap.add_argument("cmd", choices=["fetch", "fetch-ia", "index", "file", "read-scans"])
     ap.add_argument("numbers", nargs="*", type=int)
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--daily", action="store_true", help="file: only numbers not yet tried, to the unit deadline")
     args = ap.parse_args(argv)
     if args.cmd == "fetch":
         fetch()
@@ -844,7 +865,7 @@ def main(argv):
         for n, reason in sorted(read_scans(args.numbers).items()):
             print(f"cyclops-{n}: not read: {reason}")
     elif args.cmd == "file":
-        file(args.numbers, args.dry_run)
+        file(args.numbers, args.dry_run, args.daily)
     else:
         for n, h in sorted(index().items()):
             print(n, "clues" if h.get("clues") else "-", "answers" if h.get("answers") else "-",
