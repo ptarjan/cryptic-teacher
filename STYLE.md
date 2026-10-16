@@ -128,14 +128,7 @@ fetched puzzle, two or more is a warning that names each one, so a human can
 check none of them hides wordplay. Never leave a clue unannotated to get under
 the cap: `check_every_clue_is_annotated()` makes a blank annotation an error.
 
-**A cryptic definition still needs useful blocks.** Its `blocks` may not carry
-`gives`, and it needs at least two blocks; both are validator ERRORs
-(`check_cryptic_definition_blocks`). Do not use one block that maps the whole
-clue to the whole answer: on the hint ladder that gives away the solve one rung
-early (for example "Might this keep you to time?" → WATCHSTRAP). A cryptic
-definition does not split into letters, but it does split into two readings:
-the sense the surface pushes, and the sense the setter meant. Give one block to
-each. `app.js` also hides `gives` on this type, so an old annotation cannot leak
+**A cryptic definition is one block.** Its `blocks` may not carry `gives` (validator ERROR, `check_cryptic_definition_blocks`), and it is written cd([clue words]): one leaf over the clue words, its note saying both readings (`wordplay.cdefRepeat` refuses a second leaf). A clue whose two readings sit in separate stretches of the clue is a double definition: write two `def`s. Do not map the whole clue to the whole answer in a note that names it: on the hint ladder that gives away the solve one rung early (for example "Might this keep you to time?" → WATCHSTRAP). `app.js` also hides `gives` on this type, so an old annotation cannot leak
 the answer while it waits to be rewritten.
 
 ### The definition must be substitutable
