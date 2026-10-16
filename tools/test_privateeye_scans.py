@@ -93,6 +93,9 @@ cross = ps.linked_across({"14-across": ("Ramble by the sea?", "10,6", ["14-acros
                           "12-across": ("See 20", None, None), "20-down": ("Linked", "6,6", ["20-down", "12-down"]),
                           "12-down": ("See 20", None, None)})
 print("CROSS", sorted(cross), cross["22-down"][0], cross["12-across"][0])
+lost = ps.linked_across({"16-across": ("Top", "5,10", ["16-across", "1-across", "11-across"]), "1-across": ("See 16", None, None),
+                          "1-down": ("see", "6", None)})
+assert lost["1-down"][0] == "See 16" and "1-across" not in lost, lost  # "(see 16)" read "see (6)" (Cyclops 29)
 print("SLASH3", ps.column_cols([(0, 0, 1000, 1000)])([(10, 10, 60, 40, "ACROSS"), (10, 60, 60, 90, "7,"),
       (70, 60, 140, 90, "17/23"), (150, 60, 300, 90, "Truss"), (310, 60, 400, 90, "(5,7,6)")])[0][0][4])
 print("PLUS", ps.column_cols([(0, 0, 1000, 1000)])([(10, 10, 60, 40, "DOWN"), (10, 60, 70, 90, "14+16"),

@@ -411,7 +411,10 @@ def linked_across(laid):
             other = n + "-" + ("down" if side == "across" else "across")
             text, enum, _ = out.get(other, ("", None, None))
             text = (text or "").strip()
-            if other in out and (text == see or (not text and enum == head)):
+            # "(see 16)" read "see (6)": the reference lost its first digit and
+            # became the count, a suffix of the head's number.
+            lost = text.lower() == "see" and bool(enum) and head.endswith(str(enum)) and str(enum) != head
+            if other in out and (text == see or (not text and enum == head) or lost):
                 out[other] = (see, None, None)
                 if (out.get(tail) or ("",))[0] == see:
                     del out[tail]
