@@ -1250,6 +1250,14 @@ fi
 
 # Not "Guardian crossword": the queue spans every series. The puzzle file
 # records its own series and publisher.
+# The shape re-annotation tier (tools/shape_queue.py) redid puzzles that a field
+# or blog backfill run had just been through (14 in 48h): those prompts say
+# "change nothing else, do not rewrite existing hints", so the run left the
+# clues the puzzle's view lists under `flagged` as they were, their rows stayed
+# pending, and the tier bought the puzzle a second time. One run clears both:
+# this sentence is the exception, appended to every prompt of that kind.
+SHAPE_EXCEPTION=" One exception to that: if python3 tools/annotate_check.py --view @ writes tools/_puzzle_@.json with entries under \`flagged\`, those hints are already marked for a rewrite (a wrongly shaped wordplay tree): write a new annotation for each as the view says, in this same run, so the puzzle is not redone for them later."
+
 ANNOTATE_PROMPT="Annotate the crossword @ in this repo, whose clues and answers are in tools/_puzzle_@.json. Follow tools/annotate_prompt.md exactly (it is your system prompt's appendix; do not open the file), including running 'python3 tools/annotate_check.py @' until it reports clean. Do not commit — the calling script commits."
 
 # The prompt's Reference section, restated from the code that enforces it. Same
@@ -1307,7 +1315,7 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
       what="{fodder, gives} for the clue's shuffle: every letter that goes in, and what it becomes" ;;
     *) what="the field as tools/annotate_prompt.md describes it" ;;
   esac
-  prompt="In this repo, add the missing $name to every annotated clue in @PATH@ that lacks one. It is $what. tools/annotate_prompt.md (appended to your system prompt) and STYLE.md set the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicator texts or assembly. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
+  prompt="In this repo, add the missing $name to every annotated clue in @PATH@ that lacks one. It is $what. tools/annotate_prompt.md (appended to your system prompt) and STYLE.md set the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicator texts or assembly. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits.$SHAPE_EXCEPTION"
   # The field a re-exec came back into keeps its queue.
   if [ "$POOL_PHASE" != "$field" ]; then
     POOL_PHASE=$field
@@ -1334,7 +1342,7 @@ if [ "$burn_stopped" = 0 ] && ! past_deadline; then
     at=0
     echo "blog re-check backlog: ${#queue[@]} puzzles"
   fi
-  BLOG_PROMPT="In this repo, the annotated crossword @ (@PATH@) has clues whose definition, type or building blocks disagree with what its blog marked: run python3 tools/annotate_check.py @ and read the warnings naming the blog. For each such clue, solve it fresh from the clue and answer. If the blog is right, fix our annotation in @PATH@ (the definition, type or blocks, and every hint and walkthrough line that depends on them, in the same voice). If ours is right, run python3 tools/blog_compare.py --keep @ <entry id> <definition|type|blocks> \"<one sentence: why ours stands>\". The blog can be wrong; never copy its wording. Change nothing else. Run python3 tools/annotate_check.py @ until no blog warning is left and it reports clean. Do not commit — the calling script commits."
+  BLOG_PROMPT="In this repo, the annotated crossword @ (@PATH@) has clues whose definition, type or building blocks disagree with what its blog marked: run python3 tools/annotate_check.py @ and read the warnings naming the blog. For each such clue, solve it fresh from the clue and answer. If the blog is right, fix our annotation in @PATH@ (the definition, type or blocks, and every hint and walkthrough line that depends on them, in the same voice). If ours is right, run python3 tools/blog_compare.py --keep @ <entry id> <definition|type|blocks> \"<one sentence: why ours stands>\". The blog can be wrong; never copy its wording. Change nothing else. Run python3 tools/annotate_check.py @ until no blog warning is left and it reports clean. Do not commit — the calling script commits.$SHAPE_EXCEPTION"
   [ ${#queue[@]} -gt 0 ] && run_pool "Re-check against its blog:" "$BLOG_PROMPT"
 fi
 
