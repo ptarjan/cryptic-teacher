@@ -30,7 +30,9 @@ import hashlib
 import io
 import json
 import os
+import random
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -338,6 +340,13 @@ def png_as(img, theirs):
                               for c in chunks] + after)
 
 
+#: A 429 from the server (its queue is full) is asked again after a wait, this
+#: many tries in all: 19 of 328 asks drew one at 14 concurrent reads, and each
+#: used to end its read deferred and log "VLM down" with the VLM serving.
+QUEUE_FULL_TRIES = 8
+QUEUE_FULL_WAIT = 10
+
+
 def ask(img, prompt, max_tokens=1500):
     """The model's reply to `prompt` about a PIL image, cached."""
     return ask_png(png(img), prompt, max_tokens)
@@ -362,7 +371,16 @@ def ask_png(data, prompt, max_tokens=1500):
     req = urllib.request.Request(f"{URL}/v1/chat/completions", data=json.dumps(body).encode(),
                                  headers={"Content-Type": "application/json", "User-Agent": "cryptic-teacher"})
     try:
-        reply = json.load(urllib.request.urlopen(req, timeout=600))
+        for tried in range(QUEUE_FULL_TRIES):
+            try:
+                reply = json.load(urllib.request.urlopen(req, timeout=600))
+                break
+            except urllib.error.HTTPError as e:
+                # 429: llama-swap's queue is full (many reads ask at once). The
+                # server is up and busy, not down: wait for room and ask again.
+                if e.code != 429 or tried == QUEUE_FULL_TRIES - 1:
+                    raise
+                time.sleep(min(QUEUE_FULL_WAIT * (tried + 1), 120) * (0.5 + random.random()))
     except OSError as e:
         # Down mid-run (the desktop rebooted): the rest of the run reads without it.
         _UP[MODEL] = False
