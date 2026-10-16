@@ -44,6 +44,7 @@ check("1 9 is 19", "19 Nurse with silly plait (5)", al.tidy("1 9 Nurse with sill
 check("a number then a reference opening the clue is not joined", "6 3 put more negatively (4)", al.tidy("6 3 put more negatively (4)"))
 check("a count set wide is one number", "Dealing with deliveries (11)", al.tidy("Dealing with deliveries (1 1)"))
 check("specks before a number go", "11 To some extent (6)", al.tidy(":. 11 To some extent (6)"))
+check("a reference to lac. is See 1ac., not a clue running on", "10 See 1ac.\n11 Endless neck (7)", al.tidy("10 See lac.\n11 Endless neck (7)"))
 check("a backtick is an opening quote, its lost space put back",
       "26 Of a \u2018squatter's right'.", al.tidy("26 Of a`squatter's right'."))
 check("an opening quote read as one stands (mirror)",
