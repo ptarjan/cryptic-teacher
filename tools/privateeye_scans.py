@@ -204,7 +204,14 @@ def columns(lines):
         best = max(best, run, key=score)
         if (sum(1 for r in best if STARTS.match(r[4])) >= MIN_STARTS
                 and sum(1 for r in best if COUNTED.search(r[4])) >= MIN_COUNTED):
-            out.append((x0 - 8, best[0][1] - 6, max(r[2] for r in best) + 8, best[-1][3] + 8))
+            # A line the djvu layer breaks mid-row ("— it's crap ... Paisley (8)"
+            # after "11 The sex act") starts inside the column and runs past
+            # its clue lines' right edge: the box takes it in, or the words
+            # past the edge are lost (No 43's clue 11 and 12/14).
+            top, bottom = best[0][1], best[-1][3]
+            reach = max([r[2] for r in best] + [r[2] for r in rows
+                        if x0 <= r[0] <= right and r[2] <= right + 15 and top <= r[1] and r[3] <= bottom])
+            out.append((x0 - 8, top - 6, reach + 8, bottom + 8))
     return out
 
 
