@@ -39,6 +39,7 @@ import urllib.request
 from pathlib import Path
 
 import clue_repair
+import clue_text
 import downloads
 import provenance
 
@@ -172,8 +173,7 @@ def scan_clean(part):
     # it hid the count and merged clue 2 into 1 (No 262).
     part = re.sub(r"(\))(?:\s+[a-z]{1,5}){1,4}(?:\s+\d{1,2})?(?=\s+\d{1,2}\s+[A-Z‘“'\"])", r"\1", part)
     # "(seel3ac)" for "(see 13 ac)": no space, the 1 read as l.
-    part = re.sub(r"\(see\s*[lI](?=\d)", "(see 1", part, flags=re.I)
-    part = re.sub(r"\(see(?=\d)", "(see ", part, flags=re.I)
+    part = clue_text.see_numeral(part)
     part = re.sub(r"(?<=\s)(\d)S(?=\s)", r"\g<1>5", part)
     part = re.sub(r"(?<=\s)(\d)A(?=\s+[A-Z‘“'\"])", r"\g<1>4", part)
     part = re.sub(r"(?<=\s)(\d{1,2})([A-Z]) ([a-z]{1,3})\b", r"\1 \2\3", part)

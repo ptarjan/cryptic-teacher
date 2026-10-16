@@ -11,6 +11,11 @@ is the ACROSS / DOWN list heading: read however badly ("DOW'N", "AROSS",
   LEADING_HEADING           regex: a heading opening a line that goes on
   direction(word)           "across" / "down" for any reading of the word
   DIRECTION                 regex source for the word with repeated letters
+  COUNT_BODY, COUNT_END, COUNT_INSIDE, is_count_end(line)
+                            a clue's "(5,3)" count, its digits read as letters
+  mend_count(line)          a count torn at a line's end, read whole again
+  see_numeral(text)         "See I3" / "(seel3" put back as "See 13"
+  as_digits(text, s)        letters for numerals ("I3", "lO") put back in digits
 """
 import re
 from difflib import SequenceMatcher
@@ -64,3 +69,62 @@ def heading_of(line):
     return None
 
 
+
+
+#: What a clue's count may hold, OCR'd: digits, S for 5, I or l for 1.
+COUNT_BODY = r"[\dSIl,.\- ]"
+#: A closed count ending a line ("(8)", "(3,7)."), the bracket's body read badly.
+_COUNT_CLOSED_END = re.compile(rf"\(\s*{COUNT_BODY}{{1,9}}\)\W{{0,2}}$")
+#: A count closing a line, its bracket maybe torn: "(8)", "(8", "(3,7)".
+COUNT_END = re.compile(rf"\(\s*{COUNT_BODY}{{1,9}}\)?\W{{0,2}}$")
+#: A closed count with text after it: the next clue ran on.
+COUNT_INSIDE = re.compile(rf"\(\s*{COUNT_BODY}*\)\s*\S")
+
+
+def is_count_end(line):
+    """True when `line` ends on a whole count ("(7)", "(S)", "(3,7)." )."""
+    return bool(_COUNT_CLOSED_END.search(line))
+
+
+#: A count torn at a clue's end: "(" read as 1, I or l ("17).", "IS).") or
+#: lost, ")" read as a letter or lost ("(5X", "(8k", "(8"); both torn: "("
+#: read as T, t, f or j and ")" lost ("T10"), or a lone digit between
+#: "(" read as 1, I or l and ")" as j, J, l or I ("16j", "I6l").
+TORN_COUNT = re.compile(r"(?<=\S)\s*(?:\(([\dS]{1,2})[A-Za-z]?|(?<=\s)[1Il]([\dS]{1,2})\)"
+                        r"|(?<=\s)[Ttfj]([\dS]{1,2})\)?|(?<=\s)([1Il][\dS])[jJlI])\W{0,2}$")
+
+
+def mend_count(line):
+    """`line` with a count torn at its end read whole: "writer 17)." is
+    "writer (7)" (a count of 17 could not go in a 15-square grid), "hair (8"
+    is "hair (8)". The line is returned as it was when its count is whole,
+    absent, or too doubtful ("12)" may be 12 or 2): the caller decides whether
+    this line ends a clue. S in a count is 5 only where the caller reads digits."""
+    if is_count_end(line):
+        return line
+    m = TORN_COUNT.search(line)
+    if not m:
+        return line
+    if m[2] and m[2].isdigit() and int("1" + m[2]) <= 15:
+        return line  # "12)": a count of 12 lost its bracket, or of 2 its "(": unsure
+    if m[4] and m[4].isdigit() and int(m[4]) <= 15:
+        return line  # "12l": a count of 12 or of 2: unsure
+    return line[:m.start()] + f" ({m[1] or m[2] or m[3] or m[4][1:]})"
+
+
+#: A cross-reference's number whose 1 was read as I or l and run on to "see":
+#: "SeeI3", "(seel3", "see l3", or the space lost ("(see13").
+_SEE_NUMERAL = re.compile(r"\b(see)\s*([Il])?(?=\d)", re.IGNORECASE)
+
+
+def see_numeral(text):
+    """`text` with a cross-reference's number put back: "SeeI3." is "See 13.",
+    "(seel3ac)" is "(see 13ac)", "(see13)" is "(see 13)"."""
+    return _SEE_NUMERAL.sub(lambda m: m[1] + (" 1" if m[2] else " "), text)
+
+
+def as_digits(text, s="5"):
+    """`text` with the letters OCR reads for numerals put back: I and l are 1,
+    O and o are 0, S is `s` (5 in a count; 8 in a 1930s old-style clue number,
+    "4S." for 48)."""
+    return text.translate(str.maketrans("IlOoS", "1100" + s))
