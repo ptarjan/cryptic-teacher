@@ -1044,22 +1044,22 @@
      "op": "charade",
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "EM",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half of",
-         "note": "only half the word's letters are kept, here its back half"
+         "at": 6,
+         "note": "half of signals that only two of the four letters of them are kept, here the back pair"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "them",
-         "gives": "EM",
-         "select": "last",
-         "note": "the second half of the word"
+         "at": 14,
+         "note": "the word them, losing its first half"
+        },
+        {
+         "gives": "TH"
         }
        ]
       },
@@ -1068,37 +1068,41 @@
        "indicators": [
         {
          "text": "upsetting",
-         "note": "in a down clue, upsetting tips a word over so it reads bottom to top"
+         "at": 20,
+         "note": "in a down clue, upsetting turns the words above it upside down, so they read bottom to top"
         }
        ],
        "parts": [
         {
-         "words": "work",
-         "gives": "OP",
-         "note": "op is short for opus, a work"
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "parts": [
-        {
-         "words": "atmosphere",
-         "gives": "AIR",
-         "note": "air is the atmosphere"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "atmosphere",
+           "at": 39,
+           "gives": "AIR",
+           "note": "atmosphere means air"
+          },
+          {
+           "words": "work",
+           "at": 30,
+           "gives": "OP",
+           "note": "OP is short for opus, a musical work"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Half the shops are disrupting both the work and the mood.",
-     "definitionFit": "Emporia is the Latin plural of emporium, a large store, so the word means shops or trading centres."
+     "surface": "Someone complains that the shops make half the customers upset with their work and atmosphere.",
+     "walkthrough": "In a down clue the turn-over applies to both of the last two words together, so their order also flips; the opus abbreviation is the standard crossword stand-in for a work.",
+     "definitionFit": "Emporia is a plural of emporium, a large store selling many kinds of goods."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "atmosphere"
+     "misdirectedWord": "upsetting"
     }
    }
   },
@@ -1335,7 +1339,71 @@
     "text": "Communicate with a destroyer initially in port",
     "enumeration": "5"
    },
-   "solution": "RADIO"
+   "solution": "RADIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Communicate with",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 39,
+       "note": "in places the letters before it inside the word for the port"
+      }
+     ],
+     "parts": [
+      {
+       "words": "port",
+       "at": 42,
+       "gives": "RIO",
+       "note": "Rio de Janeiro, the Brazilian port, is often just Rio"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 17,
+         "gives": "A"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 29,
+           "note": "initially says only the opening letter of destroyer is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "destroyer",
+           "at": 19,
+           "gives": "D",
+           "note": "its first letter"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naval signaller contacts a warship that is lying in harbour.",
+     "walkthrough": "The destroyer looks like the ship being contacted, but only its first letter counts; A and D go inside RIO.",
+     "definitionFit": "To radio someone is to send them a message by wireless, a way of communicating with them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "destroyer"
+    }
+   }
   },
   {
    "number": 25,
