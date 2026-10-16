@@ -330,7 +330,31 @@
     "text": "Giving not outstanding due",
     "enumeration": "5"
    },
-   "solution": "OWING"
+   "solution": "OWING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "outstanding",
+      "at": 11,
+      "meaning": "first meaning: still unpaid, as a debt is"
+     },
+     {
+      "text": "due",
+      "at": 23,
+      "meaning": "second meaning: payable to someone, as money owed is"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone refusing to give money that is overdue.",
+     "walkthrough": "'Giving not' sets the scene of a debtor who has not yet given, which is what both definitions describe: money not handed over yet.",
+     "definitionFit": "A debt that is owing is one still unpaid, and unpaid sums are both outstanding and payable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outstanding"
+    }
+   }
   },
   {
    "number": 7,
@@ -693,7 +717,8 @@
     "definitions": [
      {
       "text": "Not favouring",
-      "at": 0
+      "at": 0,
+      "note": "an adjective phrase; the answer here is an adjective meaning opposed"
      }
     ],
     "wordplay": {
@@ -701,43 +726,42 @@
      "indicators": [
       {
        "text": "is missing",
-       "note": "what is missing has gone, so those letters are removed from the wine"
+       "at": 42,
+       "note": "something missing has been taken away, so these letters are dropped from the wine"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "parts": [
-        {
-         "words": "wine",
-         "gives": "CHIANTI",
-         "note": "Chianti is an Italian red wine"
-        },
-        {
-         "gives": "I"
-        }
-       ]
+       "words": "wine",
+       "at": 14,
+       "gives": "CHIANTI",
+       "note": "Chianti is a red wine from Tuscany"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "CH",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "some of",
+         "at": 24,
+         "note": "only part of the word chill is wanted, its opening three letters"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "some of the chill",
-         "gives": "CH",
-         "select": "first",
-         "note": "the opening letters of chill"
+         "words": "chill",
+         "at": 36
+        },
+        {
+         "gives": "LL"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who dislikes wine that is served less than chilled.",
-     "walkthrough": "Remove CH, the start of chill, from CHIANTI.",
-     "definitionFit": "Anti as a preposition or adjective means opposed to something, the reverse of being in favour."
+     "surface": "A wine drinker complains that it is not chilled enough.",
+     "walkthrough": "Chianti is an Italian red wine; take its opening CHI away.",
+     "definitionFit": "Someone who is anti a proposal is opposed to it, the opposite of being in favour."
     },
     "features": {
      "answerInScene": false,
