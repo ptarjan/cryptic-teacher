@@ -118,9 +118,9 @@ shows, so you write none of those. Worked annotations close this file.
 - A **double definition** is two `def`s and no `wp`. A **cryptic definition** is
   `def` the whole clue and `wp` `cd([the clue's words])`: ONE leaf holding the clue
   words once (never `cd([a], [b])`; the check flags every extra leaf), with a note, no
-  letters. Two readings in two stretches is a double definition instead. A **letter
-  picture** (no ordinary words: `HIJKLMNO`, `P?`) has no `def`; `wp` is
-  `pic([whole clue], "reading")`, the reading naming what it shows (`"H to O"`). An **&lit** has
+  letters. Two readings in two stretches is a double definition instead. A **rebus**
+  (a picture of letters, no ordinary words: `HIJKLMNO`, `P?`) has no `def`; `wp` is
+  `rebus([whole clue], "reading")`, the reading naming what it shows (`"H to O"`). An **&lit** has
   `"andLit": true`, `def` the whole clue and the whole clue's wordplay.
 - `answer` only to correct a `(MODEL)` answer, or to spell one with an apostrophe or
   accent (`"CAT-O'-NINE-TAILS"`); the display answer is otherwise worked out.
@@ -260,11 +260,11 @@ Generated from tools/wordplay.py, the parser `wp` must satisfy; do not read it t
                           ends, first and last, alternate letters, every
                           2nd/3rd, the nth
     cd([words])           cryptic definition: the words, no letters
-    pic([words], "reading")
-                          a letter picture: the words are a picture (letters,
+    rebus([words], "reading")
+                          a rebus: the words are a picture (letters,
                           figures, layout) and "reading" says what it shows,
                           naming the picture's own capitals or figures:
-                          pic([HIJKLMNO], "H to O") for WATER. It is the whole
+                          rebus([HIJKLMNO], "H to O") for WATER. It is the whole
                           wordplay; with no `def` it is the whole clue
 A double definition has no wordplay: two definitions and no expression.
 ```

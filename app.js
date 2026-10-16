@@ -3565,7 +3565,7 @@
       also: ["a question mark at the end"] },
     and_lit: { learn: "and-lit", means: "the whole clue is both the wordplay and the definition",
       also: ["an exclamation mark at the end"] },
-    letter_picture: { learn: "letter-picture", means: "describe the picture the letters make, and the description is the answer",
+    rebus: { learn: "rebus", means: "describe the picture the letters make, and the description is the answer",
       also: ["a clue with no lower-case letters", "a question mark at the end"] }
   };
   // The type rung names only the family, so its rule is the family's: how to
@@ -3578,7 +3578,7 @@
     and_lit: { learn: "and-lit",
       spot: "suspect one when the whole clue is wordplay and yet still describes a single thing; an exclamation mark often flags it",
       also: [] },
-    picture: { learn: "letter-picture",
+    rebus: { learn: "rebus",
       spot: "suspect one when the clue has no ordinary words: only capitals, figures and symbols",
       also: [] },
     anagram: { learn: "anagram",
@@ -4304,7 +4304,7 @@
     const isDD = t.includes("double_definition");
     const isCD = t.includes("cryptic_definition");
     const isLit = t.includes("and_lit");
-    const isPic = t.includes("letter_picture");
+    const isPic = t.includes("rebus");
     const inds = ann.indicators || [];
     const defs = ann.definitions || [];
     const blocks = buildingBlocks(ann);
@@ -4382,7 +4382,7 @@
           does: <q>${esc((P && P.preamble) || "")}</q></p>`
       });
     } else if (!defs.length && isPic) {
-      // A letter picture defines nothing. The rung says so without naming the
+      // A rebus defines nothing. The rung says so without naming the
       // family, which is the type rung's to sell.
       steps.push({
         key: "definition",

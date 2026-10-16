@@ -39,11 +39,11 @@ Grammar
                           ends, first and last, alternate letters, every
                           2nd/3rd, the nth
     cd([words])           cryptic definition: the words, no letters
-    pic([words], "reading")
-                          a letter picture: the words are a picture (letters,
+    rebus([words], "reading")
+                          a rebus: the words are a picture (letters,
                           figures, layout) and "reading" says what it shows,
                           naming the picture's own capitals or figures:
-                          pic([HIJKLMNO], "H to O") for WATER. It is the whole
+                          rebus([HIJKLMNO], "H to O") for WATER. It is the whole
                           wordplay; with no `def` it is the whole clue
 A double definition has no wordplay: two definitions and no expression.
 
@@ -86,7 +86,7 @@ import unicodedata
 OPS = {"ana": "anagram", "rev": "reversal", "ins": "container", "del": "deletion",
        "hid": "hidden", "sound": "homophone", "spoon": "spoonerism",
        "sub": "substitution", "cyc": "cycling", "cd": "cryptic", "pal": "palindrome",
-       "pic": "picture",
+       "rebus": "rebus",
        "first": "first", "last": "last", "middle": "middle", "outer": "outer",
        "alt": "alternate", "regular": "regular", "nth": "nth"}
 NAMES = {v: k for k, v in OPS.items()}
@@ -96,7 +96,7 @@ SELECT = ("first", "last", "middle", "outer", "alternate", "regular", "nth")
 ARITY = {"anagram": (1, 1), "reversal": (1, 1), "container": (2, 2), "deletion": (2, 2),
          "hidden": (1, 1), "homophone": (2, 2), "spoonerism": (2, 3),
          "substitution": (3, 3), "cycling": (1, 1), "cryptic": (1, 9), "palindrome": (0, 1),
-         "picture": (2, 2),
+         "rebus": (2, 2),
          **{s: (1, 1) for s in SELECT}}
 # A search that grows past this many candidate strings stops: no clue needs it.
 CAP = 20000
@@ -211,7 +211,7 @@ class _Parser:
         args = [] if op == "palindrome" and self.peek() == ")" else [self.expr()]
         while args and self.peek() == ",":
             self.i += 1
-            args.append(self.quoted() if op == "picture" else self.expr())
+            args.append(self.quoted() if op == "rebus" else self.expr())
         self.take(")")
         inds += self.indicators()
         if inds:
@@ -221,25 +221,25 @@ class _Parser:
             want = {"homophone": "sound(x, SPELT)", "spoonerism": "spoon(a, b) or spoon(a, b, SPELT)",
                     "container": "ins(outer, inner)", "deletion": "del(from, removed)",
                     "substitution": "sub(x, OLD, NEW)",
-                    "picture": 'pic([words], "reading")'}.get(op, f"{word}(x)")
+                    "rebus": 'rebus([words], "reading")'}.get(op, f"{word}(x)")
             self.fail(f"{word} takes {want}, got {len(args)} argument(s)")
         if op in ("homophone", "spoonerism") and len(args) == hi:
             spelt = args.pop()
             if set(spelt) != {"gives"}:
                 self.fail(f"{word}'s last argument is the spelling entered, bare LETTERS")
             node["spelt"] = spelt["gives"]
-        if op == "picture":
+        if op == "rebus":
             if "reading" not in args[1] or "words" not in args[0] or set(args[0]) - {"words"}:
-                self.fail('pic takes pic([picture words], "what it reads as"): the clue words '
+                self.fail('rebus takes rebus([picture words], "what it reads as"): the clue words '
                           'with no letters, then the reading in double quotes')
             node["reading"] = args.pop()["reading"]
         node["parts"] = _fodder_parts(args[0], self) if op == "anagram" else args
         return node
 
     def quoted(self):
-        """A "reading": text in double quotes (pic's second argument)."""
+        """A "reading": text in double quotes (rebus's second argument)."""
         if self.peek() != '"':
-            self.fail('expected the reading in double quotes: pic([words], "reading")')
+            self.fail('expected the reading in double quotes: rebus([words], "reading")')
         self.i += 1
         text = self.until('"').strip()
         if not text:
@@ -381,7 +381,7 @@ def render(node):
     args = [render(p) for p in parts_of(node)]
     if "spelt" in node:
         args.append(node["spelt"])
-    if op == "picture":
+    if op == "rebus":
         args.append(f'"{node.get("reading", "")}"')
     head = NAMES[op] + (f"({node['n']})" if op == "nth" else "")
     return f"{head}{inds}({', '.join(args)})"
@@ -459,7 +459,7 @@ def values(node):
     op, parts = node["op"], parts_of(node)
     if op == "anagram":
         raise _NeedTarget(node)
-    if op in ("cryptic", "picture"):
+    if op in ("cryptic", "rebus"):
         raise _NeedTarget(node)
     if op == "charade":
         out = {""}
@@ -528,7 +528,7 @@ def lengths(node):
         return lengths(fodder_pool(node))
     if op == "reversal":
         return lengths(parts_of(node)[0])
-    if op in ("cryptic", "picture"):
+    if op in ("cryptic", "rebus"):
         return None
     if op == "charade":
         out = {0}
@@ -581,7 +581,7 @@ def match(node, want, got=None):
             _fill(p, got)
     elif op is None:
         ok = leaf_letters(node) == want
-    elif op in ("cryptic", "picture"):
+    elif op in ("cryptic", "rebus"):
         ok = True
     elif op == "charade":
         ok = _match_run(parts_of(node), want, got)
@@ -771,7 +771,7 @@ def evaluate(tree, answer):
                             f"order (inside del, sub, a selection or a homophone): write the "
                             f"letters it gives as a leaf instead") from None
     _check_ops(tree, got)
-    _check_pictures(tree, want)
+    _check_rebus(tree, want)
     return got
 
 
@@ -790,16 +790,16 @@ def _in_order(token, picture):
     return all(ch in it for ch in token)
 
 
-def _check_pictures(tree, want):
-    """A letter picture is the whole wordplay, and its reading names characters
+def _check_rebus(tree, want):
+    """A rebus is the whole wordplay, and its reading names characters
     the picture shows (so it reads the picture rather than restating the
     answer) without being the answer itself."""
     for node in _walk(tree):
-        if node.get("op") != "picture" or node.get("unchecked"):
+        if node.get("op") != "rebus" or node.get("unchecked"):
             continue
         if node is not tree:
-            raise WordplayError(f"{render(node)}: a letter picture is the whole wordplay, "
-                                f"never a piece of it; write pic(...) alone")
+            raise WordplayError(f"{render(node)}: a rebus is the whole wordplay, "
+                                f"never a piece of it; write rebus(...) alone")
         words = parts_of(node)[0].get("words")
         reading = node.get("reading") or ""
         named = PICTURE_TOKEN.findall(reading)

@@ -129,15 +129,15 @@ filed, and the expression cannot write one. The tree, in brief:
   `SHAPE_GRACE_UNTIL` in `validate_annotations.py` the push hook and CI let through
   findings that have no allowance yet (a pusher still on code from before the
   rules cannot see them); `tidy_wordplay_shapes.py --write` then records them.
-- **A letter picture** (a rebus: `HIJKLMNO` for WATER, `P?` for APPLE CORE)
-  is `{"op": "picture", "reading": "H to O", "parts": [{"words": "HIJKLMNO"}]}`,
-  written `pic([HIJKLMNO], "H to O")`: the clue words are the picture and
+- **A rebus** (a picture of letters: `HIJKLMNO` for WATER, `P?` for APPLE CORE)
+  is `{"op": "rebus", "reading": "H to O", "parts": [{"words": "HIJKLMNO"}]}`,
+  written `rebus([HIJKLMNO], "H to O")`: the clue words are the picture and
   `reading` says what it shows, the phrase that means the answer. It is the
   whole wordplay and gives no letters of its own, so `evaluate` checks the
   reading instead: it names some of the picture's capitals or figures, each
   shown in the picture in that order (`IOU` in `IO2U?`), and is not the answer
   itself. A picture of the whole clue needs no `definitions`; its type is
-  `letter_picture` (family "Letter picture"), its block is the picture with
+  `rebus` (family "Rebus"), its block is the picture with
   the reading as its note, and validate_annotations refuses a note that names
   the answer there as on any block.
 - **A double definition** has two `definitions` and no `wordplay` (or a
