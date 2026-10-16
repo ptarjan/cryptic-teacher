@@ -649,6 +649,7 @@ LAYOUT = [
     ("fetching", "tools/deleted_paths.py", "the commit that last deleted a path, read from a cache"),
     ("fetching", "tools/test_deleted_paths.py", "does deleted_paths.last_deletion() give what `git log -1 --diff-filter=D -- <path>` gives, as HEAD moves forward, back, sideways and is rewritten?"),
     ("fetching", "tools/test_row_cache.py", "does row_cache re-parse exactly the files whose row could change (an edited file, a changed dependency, new code), and is every data file a cached row reads in its key?"),
+    ("fetching", "tools/test_row_cache_stale.py", "row_cache.cached_map(stale_ok=True): a code change keeps the rows of unchanged files until fresh ones are made, never-made rows come first, and a deadline mid-build returns a complete answer with backlog marked, so puzzle_integrity's 55k-row rebuild finishes across runs"),
     ("fetching", "tools/test_clue_index.py", "does StoredClueIndex answer exactly what ClueIndex.build() answers, as files are added, edited and deleted, and when its store is corrupt?"),
     ("fetching", "tools/test_worker_resume.sh", "does a run stopped from outside resume its own conversation, with its edits back when that is honest and a note saying so when not?"),
     ("fetching", "tools/test_session_ids.sh", "does every `claude -p` in tools/ name its conversation, so a run stopped from outside is resumed rather than bought again?"),

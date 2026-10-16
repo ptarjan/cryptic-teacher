@@ -1822,7 +1822,7 @@ def _judge(paths, files=None):
         return parallel.pmap(_one_file, paths)
     import row_cache
     rows = row_cache.cached_map("puzzle_integrity", _file_row, paths, salt=_table_salt(), deps=_today_deps,
-                                listed=files)
+                                listed=files, stale_ok=True)
     return [(flags, row) for flags, row, _ in rows]
 
 

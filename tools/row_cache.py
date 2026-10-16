@@ -19,6 +19,10 @@ afresh when the two differ.
 `prepare()` runs only when some row is missing, before the workers fork:
 the place to load what only a miss needs (the lexicon, wordnet).
 
+A map with `stale_ok` (puzzle_integrity's) also keeps, per file, a pointer to
+the last row made for it; a code change then leaves the answer complete from
+the older rows while fresh ones are made, deadline by deadline.
+
 The store is one sqlite file under the git common dir, shared by every
 worktree of the checkout and by nothing else (a fresh clone, CI, starts
 empty). Outside a git checkout, or when the store cannot be opened, the map
@@ -37,6 +41,7 @@ import budget
 import code_reach
 import parallel
 import puzzle_paths
+import unit_more
 
 PRUNE_DAYS = 14
 #: The most missing rows made between deadline checks, under a deadline
@@ -211,18 +216,55 @@ def _data_salt(name, roots, code_key=None):
     return h.hexdigest()[:16]
 
 
-def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, listed=None):
+def _pointers(conn, ns):
+    """{path under the repo: (blob, key, used)}: for each file, the key of the
+    last row made for it by any code (written when `stale_ok`)."""
+    lo = f"L:{ns}:"
+    return {k[len(lo):]: (*pickle.loads(v), u) for k, v, u in conn.execute(
+        "SELECT key, val, used FROM rows WHERE key >= ? AND key < ?", (lo, lo[:-1] + ";"))}
+
+
+def _carry_over(conn, ptrs, want):
+    """{path: row} for the files in `want` ({path: (rel, blob)}) whose pointer
+    names a row of the same content made by older code: one range scan per old
+    code (a code's rows sort together), not a point lookup per row."""
+    by_code = {}
+    for p, (rel, blob) in want.items():
+        ptr = ptrs.get(rel)
+        if ptr and ptr[0] == blob:
+            by_code.setdefault(ptr[1].split(":", 1)[0], {})[ptr[1]] = p
+    out = {}
+    for prefix, keys in by_code.items():
+        lo = prefix + ":"
+        for k, v in conn.execute("SELECT key, val FROM rows WHERE key >= ? AND key < ?", (lo, lo[:-1] + ";")):
+            if k in keys:
+                out[keys[k]] = pickle.loads(v)
+    return out
+
+
+def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, listed=None, stale_ok=False):
     """[fn(p) for p in paths], each row reused when its file, its code and
     deps(p, row) are those it was made from. `name` is fn's module:
     code_reach.key(name, {fn.__name__, *roots}). `listed` is
     puzzle_integrity.listing() where the caller has read it already: read
-    again here, it cost puzzle_integrity's whole-corpus run ~40s."""
+    again here, it cost puzzle_integrity's whole-corpus run ~40s.
+
+    `stale_ok`: every code change makes every row missing, and a map whose
+    rows take longer than a unit's deadline to make (puzzle_integrity's
+    validator changes most days; 55k rows, ~30 minutes) would never finish a
+    build before the code moved again (2026-10-16: "0 were stored" at the
+    start of each run). With it, a file whose content is unchanged since a
+    row made by OLDER code keeps that row until a fresh one is made; rows no
+    code has made come first; at the deadline the map returns, with the
+    unit marked as having backlog left, instead of stopping, so the caller
+    always has a complete answer and the rows catch up across runs."""
     paths = list(paths)
     try:
         conn = _open()
         code_key = code_reach.key(name, {fn.__name__, *roots})
         code = f"{name}.{fn.__name__}:{code_key}:{salt}:{_data_salt(name, {fn.__name__, *roots}, code_key)}"
-        keys = {p: _key(code, p, b) for p, b in _blobs(paths, listed).items()}
+        blobs = _blobs(paths, listed)
+        keys = {p: _key(code, p, b) for p, b in blobs.items()}
         stored, moved = _lookup(conn, code, keys)
     except (OSError, sqlite3.Error) as err:
         print(f"row cache for {name}.{fn.__name__}: {err!r}; computing every row", file=sys.stderr)
@@ -241,6 +283,26 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
         miss.append(p)
     missed = set(miss)
     today = int(time.time() // 86400)
+    ns = f"{name}.{fn.__name__}"
+    root = puzzle_paths.PUZZLE_DIR.parent
+    rels = {p: puzzle_paths.relative(p, root) for p in paths} if stale_ok else {}
+    ptrs, fresh_from = {}, 0
+    if stale_ok:
+        try:
+            ptrs = _pointers(conn, ns)
+            old = _carry_over(conn, ptrs, {p: (rels[p], blobs[p]) for p in miss}) if miss else {}
+        except sqlite3.Error as err:
+            print(f"row cache for {ns}: could not read older rows: {err!r}", file=sys.stderr)
+            old = {}
+        # Rows no code has made first; the ones with an older row after them.
+        miss = [p for p in miss if p not in old] + [p for p in miss if p in old]
+        fresh_from = len(miss) - len(old)
+        out.update(old)
+
+    def point(ps):
+        """Pointer rows for `ps`, written where they are not those stored."""
+        return ((f"L:{ns}:{rels[p]}", pickle.dumps((blobs[p], keys[p])), pickle.dumps(None), today)
+                for p in ps if ptrs.get(rels[p], (None, None))[:2] != (blobs[p], keys[p]))
 
     def store(made):
         # A file rewritten since the listing was read as its new content: its
@@ -248,6 +310,8 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
         keep = [p for p in made if p.exists() and _key(code, p, _blob_sha(p)) == keys[p]]
         conn.executemany("INSERT OR REPLACE INTO rows VALUES(?,?,?,?)",
                          ((keys[p], pickle.dumps(out[p]), pickle.dumps(deps(p, out[p])), today) for p in keep))
+        if stale_ok:
+            conn.executemany("INSERT OR REPLACE INTO rows VALUES(?,?,?,?)", point(keep))
 
     unstored = miss
     if miss:
@@ -262,7 +326,14 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
             unstored = []
             i, n, spent_s = 0, min(BATCH, FIRST_BATCH), 0.0
             while i < len(miss):
-                part = miss[i:i + n]
+                if stale_ok and i >= fresh_from and budget.spent():
+                    # Only rows that have an older row are left: the answer is
+                    # complete, so keep it and finish them next run.
+                    unit_more.backlog_left()
+                    print(f"out of time (CT_DEADLINE): row cache for {ns}: {i - fresh_from} of {len(old)} rows"
+                          f" made afresh; the rest keep the row older code made, next run", file=sys.stderr)
+                    break
+                part = miss[i:min(i + n, fresh_from) if stale_ok and i < fresh_from else i + n]
                 t = time.time()
                 out.update(zip(part, parallel.pmap(fn, part)))
                 spent_s += time.time() - t
@@ -273,7 +344,7 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
                     print(f"row cache for {name}.{fn.__name__}: could not store {len(part)} rows: {err!r}",
                           file=sys.stderr)
                 done = i = i + len(part)
-                if done < len(miss) and budget.spent():
+                if done < len(miss) and budget.spent() and not (stale_ok and done >= fresh_from):
                     conn.close()
                     budget.stop(f"row cache for {name}.{fn.__name__}: made {done} of {len(miss)} missing rows"
                                 f" ({len(paths) - len(miss)} were stored); the rest next run")
@@ -286,6 +357,12 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None, list
             conn.executemany("INSERT OR REPLACE INTO rows VALUES(?,?,?,?)",
                              ((k, stored[k][0], stored[k][1], today)
                               for k in {keys[p] for p in paths if p not in missed and keys[p] in moved}))
+            if stale_ok:
+                conn.executemany("INSERT OR REPLACE INTO rows VALUES(?,?,?,?)",
+                                 point(p for p in paths if p not in missed))
+                conn.executemany("UPDATE rows SET used=? WHERE key=?",
+                                 ((today, f"L:{ns}:{rels[p]}") for p in paths
+                                  if p not in missed and ptrs.get(rels[p], (0, 0, today))[2] != today))
             conn.executemany("UPDATE rows SET used=? WHERE key=?",
                              ((today, keys[p]) for p in paths
                               if p not in missed and keys[p] not in moved and stored[keys[p]][2] != today))
