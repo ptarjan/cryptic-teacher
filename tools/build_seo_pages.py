@@ -401,6 +401,10 @@ def head(title, description, canonical, extra="", image=None, image_alt=None):
 <link rel="icon" href="{asset("favicon.svg")}" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{asset("apple-touch-icon.png")}">
 <meta name="apple-mobile-web-app-title" content="{esc(app_name())}">
+<link rel="manifest" href="{BASE}/site.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Cryptic Teacher">
 <meta property="og:title" content="{esc(title)}">

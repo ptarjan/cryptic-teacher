@@ -74,7 +74,7 @@ function run({ page = "/learn/", referrer = "", standalone = true, iosFlag = fal
     MutationObserver: class { constructor(f) { this.f = f; observers.push(this); } observe() {} },
   };
   const document = {
-    documentElement: html, body, currentScript: script, referrer, readyState: "complete",
+    documentElement: html, body, head: new El("head"), currentScript: script, referrer, readyState: "complete",
     createElement: (t) => new El(t),
     getElementById: (id) => byId[id] || null,
     querySelector: (sel) => (sel === "header" ? header : null),
@@ -92,7 +92,7 @@ function run({ page = "/learn/", referrer = "", standalone = true, iosFlag = fal
   const litNow = () => tabs.filter((a) => a.getAttribute("aria-current") === "page").map((a) => a.getAttribute("data-tab"));
   const back = header.children.find((c) => c.className === "app-back") || null;
   const press = (a) => { let stopped = false; a.handlers.click({ preventDefault: () => { stopped = true; } }); return stopped; };
-  return { html, bar, tab, get lit() { return litNow(); }, back, backs, clicked, press, byId, observers };
+  return { head: document.head, html, bar, tab, get lit() { return litNow(); }, back, backs, clicked, press, byId, observers };
 }
 
 // A browser tab: nothing at all.
@@ -173,6 +173,33 @@ assert(run({ last: null }).tab("puzzle").href === ORIGIN + "/", "with no ct:last
   const appJs = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
   assert(!/href="learn\//.test(appJs),
     "app.js writes no relative learn/ link: under /puzzles/<id>/ it resolves to /puzzles/<id>/learn/");
+}
+
+// Opening as a real app, and feeling like one.
+{
+  const idx = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  const seo = fs.readFileSync(path.join(ROOT, "tools/build_seo_pages.py"), "utf8");
+  for (const [name, src] of [["index.html", idx], ["build_seo_pages.py head()", seo]]) {
+    assert(/<link rel="manifest" href="[^"]*site\.webmanifest">/.test(src), `${name} links the manifest: a page without one is outside the installed app`);
+    assert(/<meta name="apple-mobile-web-app-capable" content="yes">/.test(src), `${name} sets apple-mobile-web-app-capable`);
+    assert(/<meta name="mobile-web-app-capable" content="yes">/.test(src), `${name} sets mobile-web-app-capable`);
+  }
+  const man = JSON.parse(fs.readFileSync(path.join(ROOT, "site.webmanifest"), "utf8"));
+  assert(man.display === "standalone" && man.start_url === "./" && man.scope === "./", "manifest is standalone, start_url and scope the site root");
+  const css = fs.readFileSync(path.join(ROOT, "style.css"), "utf8");
+  assert(/\.tabbar a \{[^}]*touch-action: manipulation/.test(css), "tab links drop the tap delay");
+  assert(/\.tabbar a\.pressed/.test(css), "tab links have a pressed state");
+  assert(/@view-transition \{ navigation: auto; \}/.test(css), "cross-document view transition is on");
+  const r = run({ page: "/learn/" });
+  const a = r.tab("puzzle");
+  a.handlers.pointerdown();
+  assert(a.classList.contains("pressed"), "pointerdown lights the tab at once");
+  a.handlers.pointerup();
+  assert(!a.classList.contains("pressed"), "pointerup clears the pressed state");
+  const app = run({ page: "/learn/" }).head.children.map((c) => c.href).join(" ");
+  assert(app.includes(ORIGIN + "/"), "a static page prefetches the app");
+  const fromApp = run({ page: "/", app: true }).head.children.map((c) => c.href).join(" ");
+  assert(fromApp.includes(ORIGIN + "/learn/"), "the app prefetches Learn");
 }
 
 if (fails.length) {
