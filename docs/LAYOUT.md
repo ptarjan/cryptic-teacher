@@ -1649,7 +1649,9 @@ tools/data/puzzle.schema.json                  the puzzle file's shape as a JSON
                                                lists it draws from
 tools/data/clue_types.json                     the clue types and the nine families they fall
                                                in, with the labels and blurbs the app and the
-                                               tools show
+                                               tools show; the seven commoner families are the
+                                               type picker's buttons, a rarer one names the
+                                               `picker` family it folds into
 tools/data/blog_facts/                         per series, the blog facts tools/blog_facts.py
                                                read off the write-ups, each clue in the
                                                annotation's keys and shapes ($defs/blogFacts in

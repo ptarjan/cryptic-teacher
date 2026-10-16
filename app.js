@@ -3332,7 +3332,20 @@
   // precedence order, so that order cannot also be the order a solver reads: read
   // as one it would open with "Definitions only" and "&lit", which are among the
   // rarest families, in front of every solver on every clue.
-  const FAMILY_CHIPS = FAMILIES.slice().sort((a, b) => b.n - a.n).map((f) => f.label);
+  //
+  // Only the families that are a real share of the corpus get a chip (at least
+  // PICKER_SHARE of all the family counts). A rarer one -- rebus, reverse clue --
+  // would be a button that is almost never right, so it is folded into the
+  // family its `picker` names: a clue of that family is answered by that chip,
+  // while the hint, the walkthrough and the explanation still name the real
+  // type. See APP.md.
+  const PICKER_SHARE = 0.005;
+  const FAMILY_TOTAL = FAMILIES.reduce((s, f) => s + f.n, 0);
+  const PICKED = FAMILIES.filter((f) => f.n >= PICKER_SHARE * FAMILY_TOTAL);
+  const FAMILY_CHIPS = PICKED.slice().sort((a, b) => b.n - a.n).map((f) => f.label);
+  function pickerOf(f) {
+    return PICKED.includes(f) ? f : FAMILIES.find((g) => g.name === f.picker);
+  }
 
   // Every family a compound type actually uses, dominant one first. A clue can be
   // more than one thing at once, and on a type like "charade with
@@ -4845,7 +4858,7 @@
     // there is no question and the rung is simply handed over.
     // A core type (ann.typeCore) is a lower bound: the clue may also cut a word
     // or select letters from one, so those families are right answers too.
-    const right = familiesOf((ann.type || []).concat(ann.typeCore ? ["deletion", "letter_selection"] : [])).map((f) => f.label);
+    const right = familiesOf((ann.type || []).concat(ann.typeCore ? ["deletion", "letter_selection"] : [])).map((f) => pickerOf(f).label);
     if (!right.length) return null;
     // The families are named for the devices themselves, which means a chip can
     // be a word that is somewhere an answer — 30103 28A is a cryptic definition

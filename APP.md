@@ -152,6 +152,12 @@ Terms used below:
   The families and the 15 types live in `tools/data/clue_types.json`; each
   type names its one family there. The app reads that file through
   `puzzles/index.js`.
+
+  The type rung offers a button only for a family that is at least 0.5% of
+  the family counts (computed from `n`: seven of nine). A rarer family
+  (Rebus, Reverse clue) names a `picker` family in the JSON and is answered
+  by that button; its hint, walkthrough and explanation still name the real
+  type.
 - **Every clue shows its exact type**, styled `.mechanism`, on the
   building-blocks rung, or on the walkthrough if there is no blocks rung. The
   smoke test checks every clue. This includes double and cryptic definitions:

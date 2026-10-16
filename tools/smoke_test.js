@@ -791,7 +791,8 @@ const TYPE_FAMILY = Object.fromEntries(CLUE_TYPES.types.map((t) => [t.name, t.fa
   // Shares rather than raw counts, because the corpus only grows and a count
   // that grew with it is not wrong.
   const fams = CLUE_TYPES.families;
-  assert(fams.length === 9 && fams.every((f) => f.n > 0),
+  assert(fams.length === 9 && fams.every((f) => f.n > 0)
+    && fams.filter((f) => f.picker).every((f) => fams.some((g) => g.name === f.picker && !g.picker)),
     "every clue family in clue_types.json declares its corpus count: " + JSON.stringify(fams.map((f) => [f.name, f.n])));
 
   const seen = {};
@@ -5897,9 +5898,10 @@ global.realSetTimeout(() => {
   }
   assert(!html.includes('id="guess-check"'),
     "and one of nine is a tap, not a tap and then a confirm: " + html);
-  assert(choices().size === 9,
-    "all nine families are offered every time, never narrowed to the plausible "
-      + "ones — the list is the vocabulary: " + choices().size);
+  assert(choices().size === 7,
+    "all seven picker families are offered every time, never narrowed to the plausible "
+      + "ones — the list is the vocabulary (rebus and reverse clue are folded into "
+      + "their `picker` family, not offered): " + choices().size);
 
   // What it wanted, learned the expensive way, so the two answers below can be
   // told apart without this test knowing the app's own table of families.
@@ -5951,6 +5953,36 @@ global.realSetTimeout(() => {
   assert(registry["hint-meter"].innerHTML.includes("worked out"),
     "which the meter says, because that is the number this is all for: "
       + registry["hint-meter"].innerHTML);
+
+  // A family too rare for a chip (rebus, reverse clue) is answered by the chip
+  // its `picker` names, while the rung still names the real family.
+  {
+    const fams = CLUE_TYPES.families;
+    const total = fams.reduce((a, f) => a + f.n, 0);
+    const rare = fams.filter((f) => f.n < 0.005 * total);
+    assert(rare.length === 2 && rare.every((f) => f.picker), "two folded families, each with a picker: " + JSON.stringify(rare));
+    for (const f of rare) {
+      const target = fams.find((g) => g.name === f.picker).label;
+      let hit = null;
+      for (const id of Object.keys(puzzles).sort()) {
+        for (const e of puzzles[id].entries || []) {
+          const t = (e.annotation && e.annotation.type) || [];
+          if (t.length && TYPE_FAMILY[t[0]] === f.name && t.every((k) => TYPE_FAMILY[k] === f.name)) { hit = { id, e }; break; }
+        }
+        if (hit) break;
+      }
+      assert(hit, `some clue is purely ${f.name}`);
+      found = hit;
+      open();
+      assert(!choices().has(f.label), `${f.label} is not a chip`);
+      registry["guess-tell"].onclick();
+      assert(named(registry["hint-body"].innerHTML)[0] === f.label,
+        `the rung still names the real type ${f.label}: ` + named(registry["hint-body"].innerHTML));
+      const v = graded();
+      assert(v[target] && Object.keys(v).filter((k) => v[k]).length === 1,
+        `${f.label} is answered by ${target} only: ` + JSON.stringify(v));
+    }
+  }
 
   // A compound clue names one family and grades every one it is made of right.
   // Which clue is compound is read off clue_types.json's families; what the rung
