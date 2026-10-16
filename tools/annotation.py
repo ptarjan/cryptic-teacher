@@ -39,8 +39,17 @@ def _letters(s):
     return _letters_of_str(str(s or ""))
 
 
+_ATOMS = frozenset((str, int, float, bool, type(None)))
+
+
 def _clone(x):
     """copy.deepcopy for the JSON a puzzle file holds: dicts, lists and scalars."""
+    # Leaves are passed over without a call: a tree is mostly strings and numbers.
+    t = type(x)
+    if t is dict:
+        return {k: v if type(v) in _ATOMS else _clone(v) for k, v in x.items()}
+    if t is list:
+        return [v if type(v) in _ATOMS else _clone(v) for v in x]
     if isinstance(x, dict):
         return {k: _clone(v) for k, v in x.items()}
     if isinstance(x, list):
@@ -240,9 +249,14 @@ def spaced(text, entry, puzzle=None):
 
 def _walk(node, parent=None):
     """(node, parent) for every node, its parts before the op joining them."""
-    for p in node.get("parts") or []:
-        yield from _walk(p, node)
-    yield node, parent
+    out = []
+
+    def go(n, parent):  # a list, not a generator: nested yields cost per level
+        for p in n.get("parts") or ():
+            go(p, n)
+        out.append((n, parent))
+    go(node, parent)
+    return out
 
 
 def _types(tree):
@@ -551,18 +565,18 @@ def _assembly(tree, got):
 
 def link_words(clue, spans):
     """The clue's runs of words no (at, text) span covers, punctuation trimmed."""
-    covered = [False] * len(clue)
-    for at, text in spans:
-        for k in range(at, min(len(clue), at + len(text))):
-            covered[k] = True
-    out, run = [], ""
-    for ch, c in zip(clue + "\0", covered + [True]):
-        if not c:
-            run += ch
-            continue
-        if run.strip(LINK_STRIP):
-            out.append(run.strip(LINK_STRIP))
-        run = ""
+    # The uncovered gaps between the spans' merged intervals.
+    n, out, pos = len(clue), [], 0
+    for at, end in sorted((at, min(n, at + len(text))) for at, text in spans if 0 <= at < n and text):
+        if at > pos:
+            run = clue[pos:at].strip(LINK_STRIP)
+            if run:
+                out.append(run)
+        pos = max(pos, end)
+    if pos < n:
+        run = clue[pos:].strip(LINK_STRIP)
+        if run:
+            out.append(run)
     return out
 
 
