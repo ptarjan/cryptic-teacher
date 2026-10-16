@@ -18,6 +18,7 @@ import shutil
 import stat
 import sys
 import tempfile
+import textwrap
 import traceback
 from pathlib import Path
 
@@ -206,11 +207,13 @@ def block1():
     acquire_book._reconstruct_one = slow
     ocr_remote.serve()
     """
+    desktop = textwrap.dedent(desktop)  # python -c takes no indented first line
     def session_on(code):
         s = ocr_remote.Session.__new__(ocr_remote.Session)
         s.host, s.buf = "nohost", b""
+        s.err = tempfile.TemporaryFile()  # so a child that dies says why
         s.proc = subprocess.Popen([sys.executable, "-c", code], stdin=subprocess.PIPE,
-                                  stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+                                  stdout=subprocess.PIPE, stderr=s.err)
         s.answer(10)  # the ready line
         return s
     ocr_remote.SEARCH_SILENCE = ocr_remote.READ_TIMEOUT = 1  # a fixed 1s total would lose the 2.5s search

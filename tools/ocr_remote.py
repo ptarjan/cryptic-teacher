@@ -771,7 +771,7 @@ class Session:
                     rc = self.proc.wait(5)
                 except subprocess.TimeoutExpired:
                     rc = None
-                said = self.err.read().decode(errors="replace").strip()[-300:] if self.err is not None else ""
+                said = self.err.read().decode(errors="replace").strip()[-300:] if self.err is not None else "(stderr not captured)"
                 raise Unavailable(f"ssh exited ({rc}): {said}")
             self.buf += chunk
         line, self.buf = self.buf.split(b"\n", 1)
