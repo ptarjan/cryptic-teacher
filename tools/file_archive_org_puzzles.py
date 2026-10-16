@@ -169,7 +169,8 @@ import xml.etree.ElementTree as ET
 from difflib import SequenceMatcher
 from pathlib import Path
 import clue_repair
-from clue_text import NUMBERED_HEADING, heading_of, numbered_heading
+from clue_text import (CAPS_HEADING, COUNT_END, HEADING_AFTER_COUNT, HEADING_BEFORE_ONE, NUMBERED_HEADING, direction,
+                       heading_of, is_count_end, is_stray_count, mend_count, numbered_heading)
 import enumeration
 import file_trove_puzzles as ftp
 import ocr_clues
@@ -1380,14 +1381,14 @@ def tidy(text):
         # "ACROSS 1 Fish"), or after the last clue of the list before
         # ("chance (5) DOWN"), is a line of its own; one inside a line,
         # another column's read across ("on the DOWN board"), is no word.
-        m = HEADING_LEAD.match(line)
+        m = HEADING_BEFORE_ONE.match(line)
         if m:
-            lines += [m[1].upper(), (m[2] if m[2].isdigit() else "1") + " " + line[m.end():]]
+            lines += [direction(m[1]).upper(), (re.search(r"\d+", line[m.end(1):m.end()]) or ["1"])[0] + " " + line[m.end():]]
             continue
-        m = HEADING_TAIL.search(line)
+        m = HEADING_AFTER_COUNT.search(line)
         tail = [m[1]] if m else []
         line = line[:m.start()] if m else line
-        lines += [re.sub(r"(?<=\S)\s+(?:ACROSS|DOWN)(?=\s+\S)", "", line)] + tail
+        lines += [re.sub(rf"(?<=\S)\s+{CAPS_HEADING.pattern}(?=\s+\S)", "", line)] + tail
     for line in lines:
         line = line.translate(BRACKETS).strip()
         heading = heading_of(line) or numbered_heading(line)
@@ -1398,7 +1399,7 @@ def tidy(text):
             out[-1] += " " + line
             prev = out[-1]
             continue
-        if re.search(r"\(\s*[\dSIl,.\- ]{1,9}\)\W{0,2}$", prev) or heading_of(prev) or not out:
+        if is_count_end(prev) or heading_of(prev) or not out:
             # A speck or star before a clue's number: ". 1 Miss", ":1 An", "*1 Land".
             line = re.sub(r"^[.,:;*'_•·]{1,2}\s?(?=[\dIl]\d?\s)", "", line)
             # A clue's number 1 read as I or l: "I7 More", "IA fruitful".
@@ -1427,8 +1428,7 @@ def tidy(text):
         line = re.sub(r"(?<=[a-z])\s?\(?(\d{1,2}(?:[,.\-]\d{1,2})*)[)jJ]$", r" (\1)", line)
         # Specks after a clue's count ("(8)'", "(5).·", "(5). _") end nothing.
         line = re.sub(r"(\(\s*[\dSIl,.\- ]{1,9}\))(?:[^\w(]|_){1,3}$", r"\1", line)
-        if (re.search(r"\(\s*[\dSIl,.\- ]{1,9}\)\W{0,2}$", prev)
-                or re.fullmatch(r"\W*(across|down)\W*", prev, re.I)) and re.match(r"[A-Z][a-z]", line):
+        if (is_count_end(prev) or heading_of(prev)) and re.match(r"[A-Z][a-z]", line):
             line = "? " + line
         out.append(line)
         prev = line
@@ -1438,21 +1438,6 @@ def tidy(text):
         if k + 1 == len(out) or heading_of(out[k + 1]):
             out[k] = re.sub(r"\((\d{1,2})[^\d)\s]?$", r"(\1)", line)
     return "\n".join(uncounted_dropped(counts_mended(out)))
-
-
-#: A list's heading opening a line before its first clue's number, a 1
-#: read as i, I, l or |: "Down i Beginning", "ACROSS 1 Fish".
-HEADING_LEAD = re.compile(r"^\W*(ACROSS|DOWN|Across|Down)\W*\s+(\d{1,2}|[iIl|!])\W?\s+(?=[A-Z\"'])")
-#: A heading in capitals closing a line after a clue's count: "(5) DOWN".
-HEADING_TAIL = re.compile(r"(?<=\))\W{0,2}\s+(ACROSS|DOWN)\W*$")
-
-
-#: A count torn at a clue's end: "(" read as 1, I or l ("17).", "IS).") or
-#: lost, ")" read as a letter or lost ("(5X", "(8k", "(8"); both torn: "("
-#: read as T, t, f or j and ")" lost ("T10"), or a lone digit between
-#: "(" read as 1, I or l and ")" as j, J, l or I ("16j", "I6l").
-TORN_COUNT = re.compile(r"(?<=\S)\s*(?:\(([\dS]{1,2})[A-Za-z]?|(?<=\s)[1Il]([\dS]{1,2})\)"
-                        r"|(?<=\s)[Ttfj]([\dS]{1,2})\)?|(?<=\s)([1Il][\dS])[jJlI])\W{0,2}$")
 
 
 def counts_mended(lines):
@@ -1465,27 +1450,19 @@ def counts_mended(lines):
         nxt = out[k + 1] if k + 1 < len(out) else None
         if nxt is not None and not (re.match(r"\d{1,2}\s+\S", nxt) or heading_of(nxt)):
             continue
-        if re.search(r"\(\s*[\dSIl,.\- ]{1,9}\)\W{0,2}$", line):
+        if is_count_end(line):
             continue
-        m = TORN_COUNT.search(line)
-        if not m:
-            if re.fullmatch(r"\W{0,2}(?:[A-Za-z]?\d{1,2}|\d[A-Za-z])\)\W{0,2}", line) and not (
+        mended = mend_count(line)
+        if mended == line:
+            if is_stray_count(line) and not (
                     k and out[k - 1].count("(") > out[k - 1].count(")")):
                 # A line of nothing but a bracket and a digit or so ("U0).")
                 # is the clue's count, unread: the grid gives it; after a
                 # count left open ("(5-"), it is that count's end.
                 out[k] = "(?)"
             continue
-        if m[2] and m[2].isdigit() and int("1" + m[2]) <= 15:
-            continue  # "12)": a count of 12 lost its bracket, or of 2 its "(": unsure
-        if m[4] and m[4].isdigit() and int(m[4]) <= 15:
-            continue  # "12l": a count of 12 or of 2: unsure
-        out[k] = line[:m.start()] + f" ({m[1] or m[2] or m[3] or m[4][1:]})"
+        out[k] = mended
     return out
-
-
-#: A count closing a line, its bracket maybe torn: "(8)", "(8", "(3,7)".
-COUNT_END = re.compile(r"\(\s*[\dSIl,.\- ]{1,9}\)?\W{0,2}$")
 
 
 def uncounted_dropped(lines):
@@ -3382,7 +3359,7 @@ REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed"
 #: {cause: ISO time}: an edition a title of which was refused for `cause`
 #: and read before that time is read again (due_reason), when the code
 #: behind that refusal changes; the rest of the corpus is not.
-REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-15T07:20:00+00:00",
+REREAD_REFUSED = {"not-a-grid": "2026-10-09T10:00:00+00:00", "no-reading-parses": "2026-10-16T18:11:30+00:00",
                   "number-date-mismatch": "2026-10-09T10:00:00+00:00"}
 
 
@@ -3664,7 +3641,7 @@ def screened(texts, grid):
         if not t.strip():
             continue
         cs = clues[k]
-        if not ocr_clues.tokens(re.sub(r"\b(?:ACROSS|DOWN)\b", "", t)) or (
+        if not ocr_clues.tokens(CAPS_HEADING.sub("", t)) or (
                 cs and not any(ocr_clues.tokens(text) for text, _ in cs.values())):
             dropped[k] = "no clue words"
             continue
