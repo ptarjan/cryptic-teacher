@@ -1798,6 +1798,9 @@ tools/test_privateeye_dates.sh                 does tools/fetch_privateeye.py re
 tools/test_privateeye_split_lost.sh            does tools/privateeye_wayback.split_lost split a
                                                clue the OCR ran into the one before it, only at
                                                a number the lists skip?
+tools/test_privateeye_missing_size.sh          does tools/privateeye_wayback.fill_missing_sizes
+                                               size a plain light whose count the OCR lost from
+                                               the answer the next issue printed?
 tools/test_fetch_puzzle_misfiled.sh            does fetch_puzzle.convert() refuse a mis-filed
                                                Guardian page and accept a re-published one?
 scratch/snitch_tune.py                         collect every SNITCH-rated puzzle's raw
