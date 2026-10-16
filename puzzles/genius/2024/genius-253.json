@@ -4,6 +4,14 @@
  "setter": "Eccles",
  "date": "2024-07-01",
  "preamble": "The answers to six clues must be manipulated before entry. Each remaining clue contains a single misprint. The erroneous letters, in clue order, indicate the manipulation. Submitted answers should be of final grid entries, which are all real words.",
+ "messages": [
+  {
+   "text": "CAESAR CIPHER WITH CLUE NUMBER",
+   "kind": "misprint",
+   "order": "clues",
+   "printed": true
+  }
+ ],
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -17,8 +25,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-16",
+  "check": "32 entries, 62 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,6 +45,72 @@
    "clue": {
     "text": "Cantered with Chas and Dave on return after vacation",
     "enumeration": "6"
+   },
+   "solution": "TEASED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Cantered",
+      "at": 0,
+      "note": "misprinted: the clue really reads Bantered, and to banter with someone is to tease them"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Chas",
+       "at": 14,
+       "gives": "TEAS",
+       "note": "cha is slang for tea, so chas are teas"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "on return",
+         "at": 28,
+         "note": "coming back means the letters are taken in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "after vacation",
+           "at": 38,
+           "note": "a vacated word has been emptied, leaving only its first and last letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Dave",
+           "at": 23,
+           "note": "Dave emptied of its middle leaves its first and last letters"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rider trots along beside the Cockney duo Chas and Dave on the way home from a holiday.",
+     "walkthrough": "Chas and Dave look like the singing duo, but each name works alone: chas are cups of tea, and Dave is emptied to its outer letters.",
+     "definitionFit": "Bantering means joking with someone in a mocking but friendly way, which is what teasing them is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Chas"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "B",
+     "printed": "C",
+     "at": 0
+    }
    }
   },
   {
@@ -44,6 +124,66 @@
    "clue": {
     "text": "Former partner despised keeping American hired",
     "enumeration": "9"
+   },
+   "solution": "EXHAUSTED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "hired",
+      "at": 41,
+      "note": "misprinted: the clue really reads tired, an adjective like the answer"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Former partner",
+       "at": 0,
+       "gives": "EX",
+       "note": "an ex is a former partner"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "keeping",
+         "at": 24,
+         "note": "keeping means holding the next piece inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "despised",
+         "at": 15,
+         "gives": "HATED",
+         "note": "despised means hated"
+        },
+        {
+         "words": "American",
+         "at": 32,
+         "gives": "US"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scorned former partner is now keeping an American on the payroll.",
+     "walkthrough": "Hired is the misprint for tired.",
+     "definitionFit": "Exhausted means utterly worn out, a stronger form of being tired."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hired"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "T",
+     "printed": "H",
+     "at": 41
+    }
    }
   },
   {
@@ -57,6 +197,56 @@
    "clue": {
     "text": "Maybe 5 run over for card game",
     "enumeration": "7"
+   },
+   "solution": "SULPHUR",
+   "alteration": {
+    "from": "PRIMERO",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "card game",
+      "at": 21
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Maybe 5",
+       "at": 0,
+       "gives": "PRIME",
+       "note": "five is a prime number, so it is an example of one"
+      },
+      {
+       "words": "run",
+       "at": 8,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for run"
+      },
+      {
+       "words": "over",
+       "at": 12,
+       "gives": "O",
+       "note": "O is the cricket abbreviation for an over"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Perhaps answer 5 overran, making it a card game.",
+     "walkthrough": "The 5 looks like a cross-reference to 5 Down, but here it is just the number five. This is an altered answer: each letter moves three places on (its clue number) for the grid.",
+     "definitionFit": "Primero is an old gambling card game popular in Tudor England, an ancestor of poker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "5"
+    }
    }
   },
   {
@@ -70,6 +260,47 @@
    "clue": {
     "text": "I didn't use combs in Split",
     "enumeration": "9"
+   },
+   "solution": "DISUNITED",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Split",
+      "at": 22
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "combs",
+       "at": 13,
+       "note": "misprinted: the clue really reads bombs, and the letters before it are bombed into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "I didn't use",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holidaymaker confesses to skipping the comb while staying in the Croatian city of Split.",
+     "walkthrough": "Split looks like the Croatian city, but it is the definition, a past participle meaning divided.",
+     "definitionFit": "Disunited means broken apart into factions, which is what a split group or party is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Split"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "B",
+     "printed": "C",
+     "at": 13
+    }
    }
   },
   {
@@ -83,6 +314,66 @@
    "clue": {
     "text": "Drag boring family and little sister, making random movement",
     "enumeration": "7"
+   },
+   "solution": "KINESIS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "random movement",
+      "at": 45
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "boring",
+       "at": 5,
+       "note": "something boring drills its way into the middle of what follows it"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "family",
+         "at": 12,
+         "gives": "KIN",
+         "note": "kin means one's family or relations"
+        },
+        {
+         "words": "little sister",
+         "at": 23,
+         "gives": "SIS",
+         "note": "sis is a short, familiar form of sister"
+        }
+       ]
+      },
+      {
+       "words": "Drag",
+       "at": 0,
+       "gives": "E",
+       "note": "misprinted: the clue really reads Drug, and E is short for the drug ecstasy"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pulling the whole family plus the youngest sister along produces some aimless shuffling about.",
+     "walkthrough": "Drag is the misprint; read as Drug it gives E, which drills into the family and sister.",
+     "definitionFit": "In biology a kinesis is an organism's undirected movement in response to a stimulus, as opposed to a purposeful turn towards it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boring"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "U",
+     "printed": "A",
+     "at": 2
+    }
    }
   },
   {
@@ -96,6 +387,62 @@
    "clue": {
     "text": "Bubbly provided on the counter by 3 unknowns",
     "enumeration": "5"
+   },
+   "solution": "KNEED",
+   "alteration": {
+    "from": "FIZZY",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bubbly",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "on the counter",
+         "at": 16,
+         "note": "counter as in anticlockwise, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "provided",
+         "at": 7,
+         "gives": "IF",
+         "note": "provided and if both introduce a condition"
+        }
+       ]
+      },
+      {
+       "words": "3 unknowns",
+       "at": 34,
+       "gives": "ZZY",
+       "note": "in algebra x, y and z are unknowns; here three are drawn from the last two"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Champagne is served at the bar beside three mysterious strangers.",
+     "walkthrough": "This is an altered answer: each letter moves five places on (its clue number) for the grid.",
+     "definitionFit": "Fizzy drinks are full of rising bubbles, so bubbly and fizzy are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "counter"
+    }
    }
   },
   {
@@ -109,6 +456,48 @@
    "clue": {
     "text": "Silly people from Norway getting lols",
     "enumeration": "7"
+   },
+   "solution": "NOODLES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Silly people",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Norway",
+       "at": 18,
+       "gives": "N",
+       "note": "N is the international vehicle code for Norway"
+      },
+      {
+       "words": "lols",
+       "at": 33,
+       "gives": "OODLES",
+       "note": "misprinted: the clue really reads lots, and oodles means lots"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some daft Norwegians have a good laugh online.",
+     "walkthrough": "Lols is the misprint for lots.",
+     "definitionFit": "Noodle is British slang for a fool, so noodles are silly people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lols"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "T",
+     "printed": "L",
+     "at": 35
+    }
    }
   },
   {
@@ -122,6 +511,49 @@
    "clue": {
     "text": "Exalt unusual plant product",
     "enumeration": "5"
+   },
+   "solution": "SHALE",
+   "alteration": {
+    "from": "LATEX",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "plant product",
+      "at": 14
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unusual",
+       "at": 6,
+       "note": "something unusual is out of its normal form, so the letters of the first word are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Exalt",
+       "at": 0
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sings the praises of a remarkable thing a plant produces.",
+     "walkthrough": "This is an altered answer: each letter moves seven places on (its clue number) for the grid.",
+     "definitionFit": "Latex is the milky sap that rubber trees and other plants exude, a natural product of the plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Exalt"
+    }
    }
   },
   {
@@ -135,6 +567,78 @@
    "clue": {
     "text": "Reflux begins around middle of gut, forming cloud",
     "enumeration": "7"
+   },
+   "solution": "STRATUS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "cloud",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 14,
+       "note": "around means wrapping round the piece that follows"
+      }
+     ],
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Reflux",
+         "at": 0,
+         "note": "misprinted: the clue really reads Reflex, which means bent back, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "begins",
+         "at": 7,
+         "gives": "STARTS",
+         "note": "begins and starts are synonyms"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 21,
+         "note": "middle of means only the central letter of the word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gut",
+         "at": 31,
+         "note": "the central letter of gut"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Acid reflux starts up round the middle of the stomach, causing a cloudy feeling.",
+     "walkthrough": "Reflux looks medical, but it is the misprint for Reflex; a reflex angle is bent back on itself.",
+     "definitionFit": "Stratus is a low, flat grey sheet of cloud, one of the main cloud types."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reflux"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "E",
+     "printed": "U",
+     "at": 4
+    }
    }
   },
   {
@@ -148,6 +652,57 @@
    "clue": {
     "text": "Reality of extremely gripping sex",
     "enumeration": "6"
+   },
+   "solution": "ENARCH",
+   "alteration": {
+    "from": "VERITY",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Reality",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gripping",
+       "at": 21,
+       "note": "gripping means holding the next piece tightly inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "extremely",
+       "at": 11,
+       "gives": "VERY",
+       "note": "extremely and very are synonyms"
+      },
+      {
+       "words": "sex",
+       "at": 30,
+       "gives": "IT",
+       "note": "it is a coy word for sex, or sex appeal"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid reports the truth about some thrilling sex.",
+     "walkthrough": "Gripping looks like an adjective, exciting, but it is the containment signal. This is an altered answer: each letter moves nine places on (its clue number) for the grid.",
+     "definitionFit": "Verity is a formal word for truth, and truth is what is real, so it stands for reality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gripping"
+    }
    }
   },
   {
@@ -161,6 +716,55 @@
    "clue": {
     "text": "Nothing stops Martine hillwalking",
     "enumeration": "5"
+   },
+   "solution": "NIHIL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Nothing",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "stops",
+       "at": 8,
+       "note": "the answer sits inside the words that follow, as a stopper sits inside a bottle"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Martine",
+       "at": 14,
+       "gives": "NI",
+       "note": "misprinted: the clue really reads Martini, and the hidden answer starts in its last two letters"
+      },
+      {
+       "words": "hillwalking",
+       "at": 22,
+       "gives": "HIL",
+       "note": "the hidden answer ends in the first three letters of hillwalking"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nothing can halt a woman called Martine once she is out walking the hills.",
+     "walkthrough": "Martine is misprinted for Martini; the answer then sits across the join of Martini and hillwalking.",
+     "definitionFit": "Nihil is the Latin word for nothing, used in English in phrases such as nihil obstat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stops"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "I",
+     "printed": "E",
+     "at": 20
+    }
    }
   },
   {
@@ -174,6 +778,47 @@
    "clue": {
     "text": "Six argue toss for large vegetarian",
     "enumeration": "9"
+   },
+   "solution": "STEGOSAUR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "large vegetarian",
+      "at": 19
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Six",
+       "at": 0,
+       "note": "misprinted: the clue really reads Mix, telling us to mix up the letters of the two words that follow"
+      }
+     ],
+     "parts": [
+      {
+       "words": "argue toss",
+       "at": 4
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Half a dozen people squabble over a coin toss to decide who gets the big vegetarian meal.",
+     "walkthrough": "Six looks like a number to turn into VI, but it is the misprint: Mix is the signal for rearranging argue and toss.",
+     "definitionFit": "The stegosaur was a huge plated dinosaur that ate only plants, a large herbivore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Six"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "M",
+     "printed": "S",
+     "at": 0
+    }
    }
   },
   {
@@ -187,6 +832,65 @@
    "clue": {
     "text": "Make lass flat out refuse initially? Enough!",
     "enumeration": "7"
+   },
+   "solution": "ROUGHEN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make lass flat",
+      "at": 0,
+      "note": "misprinted: the clue really reads Make less flat, a verb phrase like the answer"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 15,
+       "note": "out here means put out of order, so the letters are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 26,
+         "note": "initially means only the first letter of the word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "refuse",
+         "at": 19,
+         "note": "first letter of refuse"
+        }
+       ]
+      },
+      {
+       "words": "Enough",
+       "at": 37
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone demands a girl be flattened, then refuses: Enough!",
+     "walkthrough": "Enough! looks like an exclamation closing the clue, but it is the anagram fodder.",
+     "definitionFit": "To roughen a surface is to give it bumps and texture, the opposite of smoothing or levelling it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Enough"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "E",
+     "printed": "A",
+     "at": 6
+    }
    }
   },
   {
@@ -200,6 +904,67 @@
    "clue": {
     "text": "Possibly Root claims Lille, oddly, to be the most boring",
     "enumeration": "7"
+   },
+   "solution": "DULLEST",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "the most boring",
+      "at": 41,
+      "note": "a superlative phrase matching the superlative answer"
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "claims",
+       "at": 14,
+       "note": "to claim something is to take hold of it, so the word wraps round what follows"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Possibly Root",
+       "at": 0,
+       "gives": "DUST",
+       "note": "misprinted: the clue really reads Possibly Soot, and soot is one kind of dust"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly",
+         "at": 28,
+         "note": "oddly means the first, third and fifth letters of the city name are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lille",
+         "at": 21,
+         "note": "the first, third and fifth letters of Lille"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "England batsman Joe Root insists that the French city of Lille is the dreariest place.",
+     "walkthrough": "Root looks like the cricketer Joe Root, but it is the misprint for soot.",
+     "definitionFit": "Dull means tedious or uninteresting, so its superlative describes whatever is the most tedious of all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Root"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "S",
+     "printed": "R",
+     "at": 9
+    }
    }
   },
   {
@@ -213,6 +978,66 @@
    "clue": {
     "text": "I begrudge Henry wanting to kill coot",
     "enumeration": "5"
+   },
+   "solution": "HATER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "I begrudge",
+      "at": 0,
+      "note": "what a person who resents others' success would say, so it describes the answer as a noun"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Henry",
+       "at": 11,
+       "gives": "H"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to kill",
+         "at": 25,
+         "note": "to kill a letter is to get rid of it from the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wanting",
+         "at": 17,
+         "gives": "AFTER",
+         "note": "to be after something is to want it"
+        },
+        {
+         "words": "coot",
+         "at": 33,
+         "gives": "F",
+         "note": "misprinted: the clue really reads foot, abbreviated F"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jealous confession that King Henry hankered to do away with a water bird.",
+     "walkthrough": "Coot is the misprint for foot. Wanting looks like lacking, but here it means desiring, being after something.",
+     "definitionFit": "A hater is someone who resents or begrudges other people, so I begrudge is the hater's own creed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "wanting"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "F",
+     "printed": "C",
+     "at": 33
+    }
    }
   },
   {
@@ -232,6 +1057,48 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "TAKESTEPS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "act",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Picket",
+       "at": 0,
+       "gives": "TAKE",
+       "note": "misprinted: the clue really reads Pocket, and to pocket something is to take it"
+      },
+      {
+       "words": "dance-pop band's",
+       "at": 7,
+       "gives": "STEPS",
+       "note": "Steps are a British dance-pop group of the late 1990s"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pickets protest outside a venue where a dance-pop group is performing its routine.",
+     "walkthrough": "Picket is the misprint for Pocket.",
+     "definitionFit": "To take steps is an idiom for doing something about a problem, which is to act."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Picket"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "O",
+     "printed": "I",
+     "at": 1
+    }
    }
   },
   {
@@ -245,6 +1112,52 @@
    "clue": {
     "text": "Read boundary marker on treks and be agitated",
     "enumeration": "9"
+   },
+   "solution": "KERBSTONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Read boundary marker",
+      "at": 0,
+      "note": "misprinted: the clue really reads Road boundary marker"
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "agitated",
+       "at": 37,
+       "note": "agitated means stirred up, so these letters are shaken into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "words": "on treks",
+       "at": 21
+      },
+      {
+       "words": "be",
+       "at": 34
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reads a boundary post while out on long walks and gets flustered.",
+     "walkthrough": "Read is the misprint for Road.",
+     "definitionFit": "A kerbstone is one of the stones forming the raised edge between a road and the pavement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Read"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "O",
+     "printed": "E",
+     "at": 1
+    }
    }
   },
   {
@@ -258,6 +1171,55 @@
    "clue": {
     "text": "Dune, for example, in capital city with flies",
     "enumeration": "9"
+   },
+   "solution": "ELLINGTON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Dune, for example",
+      "at": 0,
+      "note": "misprinted: the clue really reads Duke, for example, as in the jazz musician Duke Ellington"
+     }
+    ],
+    "wordplay": {
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "flies",
+       "at": 40,
+       "note": "flies means goes away, so this letter leaves the city"
+      }
+     ],
+     "parts": [
+      {
+       "words": "capital city",
+       "at": 22,
+       "gives": "WELLINGTON",
+       "note": "Wellington is the capital of New Zealand"
+      },
+      {
+       "words": "with",
+       "at": 35,
+       "gives": "W"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The film Dune is showing in a capital city teeming with flies.",
+     "walkthrough": "Dune looks like the novel or film, but it is the misprint for Duke.",
+     "definitionFit": "Duke was the nickname of Edward Ellington, the American bandleader and composer, so he is one Duke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dune"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "K",
+     "printed": "N",
+     "at": 2
+    }
    }
   },
   {
@@ -271,6 +1233,55 @@
    "clue": {
     "text": "Comedian Bette with pills for Brummie?",
     "enumeration": "9"
+   },
+   "solution": "MIDLANDER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Brummie",
+      "at": 30
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "pills",
+       "at": 20,
+       "note": "misprinted: the clue really reads fills, so the second word goes into the first"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Comedian Bette",
+       "at": 0,
+       "gives": "MIDLER",
+       "note": "Bette Midler is an American singer, actress and comedian"
+      },
+      {
+       "words": "with",
+       "at": 15,
+       "gives": "AND",
+       "note": "with and and both mean together with"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether Bette Midler with a handful of pills would pass for a Birmingham native.",
+     "walkthrough": "A Brummie is someone from Birmingham, England's second city, which lies in the Midlands.",
+     "definitionFit": "Birmingham sits in the English Midlands, so a Brummie is one example of a person from that region."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pills"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "F",
+     "printed": "P",
+     "at": 20
+    }
    }
   },
   {
@@ -284,6 +1295,49 @@
    "clue": {
     "text": "Drunk composed with Gershwin",
     "enumeration": "7"
+   },
+   "solution": "MADEIRA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Drunk",
+      "at": 0,
+      "note": "misprinted: the clue really reads Drink, a noun like the answer"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "composed",
+       "at": 6,
+       "gives": "MADE",
+       "note": "to compose something is to make it"
+      },
+      {
+       "words": "Gershwin",
+       "at": 20,
+       "gives": "IRA",
+       "note": "Ira Gershwin wrote the lyrics for his brother George's songs"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tipsy writes a song together with Gershwin.",
+     "walkthrough": "Drunk is the misprint for Drink; Gershwin is lyricist Ira, not the composer George.",
+     "definitionFit": "Madeira is a fortified wine from the Portuguese island of the same name, so it is a drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gershwin"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "I",
+     "printed": "U",
+     "at": 2
+    }
    }
   },
   {
@@ -297,6 +1351,55 @@
    "clue": {
     "text": "Professional Tom, single and solvent",
     "enumeration": "7"
+   },
+   "solution": "ACETONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "solvent",
+      "at": 29
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Professional",
+       "at": 0,
+       "gives": "ACE",
+       "note": "an ace is an expert, someone highly skilled at their job"
+      },
+      {
+       "words": "Tom",
+       "at": 13,
+       "gives": "T",
+       "note": "misprinted: the clue really reads ton, abbreviated T"
+      },
+      {
+       "words": "single",
+       "at": 18,
+       "gives": "ONE",
+       "note": "single means one"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Tom, an unmarried professional, is financially sound.",
+     "walkthrough": "Solvent looks like financial health, but it is the chemical. Tom is the misprint for ton.",
+     "definitionFit": "Acetone is a common chemical solvent, the main ingredient of most nail-varnish remover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "solvent"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "N",
+     "printed": "M",
+     "at": 15
+    }
    }
   },
   {
@@ -310,6 +1413,66 @@
    "clue": {
     "text": "Get together with Miles Kane, say, leaving husband",
     "enumeration": "5"
+   },
+   "solution": "GULLS",
+   "alteration": {
+    "from": "MARRY",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Get together",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Miles",
+       "at": 18,
+       "gives": "M"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 35,
+         "note": "leaving means the letter for husband walks out of the name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Kane, say",
+         "at": 24,
+         "gives": "HARRY",
+         "note": "Harry Kane, England's football captain, is one Harry"
+        },
+        {
+         "words": "husband",
+         "at": 43,
+         "gives": "H"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wish to team up with the rock singer Miles Kane, minus one's husband.",
+     "walkthrough": "Miles Kane is a real singer, but the two words work separately: M for miles and Kane standing for his footballing namesake Harry. This is an altered answer: each letter is moved twenty places on (its clue number) for the grid.",
+     "definitionFit": "To marry is to get together with someone in the most formal sense, joining as a couple."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kane"
+    }
    }
   },
   {
@@ -323,6 +1486,60 @@
    "clue": {
     "text": "Language rules spread over bar",
     "enumeration": "7"
+   },
+   "solution": "GRAMMAR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Language rules",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 22,
+         "note": "over means turned over, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spread",
+         "at": 15,
+         "gives": "MARG",
+         "note": "marg is short for margarine, a spread for bread"
+        }
+       ]
+      },
+      {
+       "words": "bar",
+       "at": 27,
+       "gives": "MAR",
+       "note": "misprinted: the clue really reads mar, taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Speech rules have spread across the pub.",
+     "walkthrough": "Bar is the misprint for mar.",
+     "definitionFit": "Grammar is the system of rules for how words are formed and combined in a language."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spread"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "M",
+     "printed": "B",
+     "at": 27
+    }
    }
   },
   {
@@ -336,6 +1553,72 @@
    "clue": {
     "text": "Clergyman's speech led entertaining session, but time to leave",
     "enumeration": "6"
+   },
+   "solution": "SERMON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Clergyman's speech",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertaining",
+       "at": 23,
+       "note": "to entertain guests is to have them inside, so this word holds the next"
+      }
+     ],
+     "parts": [
+      {
+       "words": "led",
+       "at": 19,
+       "gives": "SON",
+       "note": "misprinted: the clue really reads lad, and a son is a lad"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to leave",
+         "at": 54,
+         "note": "to leave means this letter goes out of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "session",
+         "at": 36,
+         "gives": "TERM",
+         "note": "a term is a session of a school or court"
+        },
+        {
+         "words": "time",
+         "at": 49,
+         "gives": "T"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar's talk ran a session, but it was time to go.",
+     "walkthrough": "Led is the misprint for lad.",
+     "definitionFit": "A sermon is the address a priest or minister delivers to the congregation during a service."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "led"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "A",
+     "printed": "E",
+     "at": 20
+    }
    }
   },
   {
@@ -349,6 +1632,65 @@
    "clue": {
     "text": "Hate starter of undercooked game for lady",
     "enumeration": "7"
+   },
+   "solution": "DUCHESS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "lady",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Hate",
+       "at": 0,
+       "gives": "D",
+       "note": "misprinted: the clue really reads Date, and d is the dictionary abbreviation for date"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starter of",
+         "at": 5,
+         "note": "a starter is the first course, so only the opening letter of the word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "undercooked",
+         "at": 16,
+         "note": "first letter of undercooked"
+        }
+       ]
+      },
+      {
+       "words": "game",
+       "at": 28,
+       "gives": "CHESS",
+       "note": "chess is a board game"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner loathes the first bite of underdone game meat served to a woman.",
+     "walkthrough": "Hate is the misprint for Date; game looks like meat but is the board game.",
+     "definitionFit": "A duchess is a woman of high rank, the wife of a duke, and so a lady in the titled sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "D",
+     "printed": "H",
+     "at": 0
+    }
    }
   },
   {
@@ -362,6 +1704,56 @@
    "clue": {
     "text": "Couples perhaps welcoming University psychoanalyst",
     "enumeration": "5"
+   },
+   "solution": "COBRA",
+   "alteration": {
+    "from": "FREUD",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "psychoanalyst",
+      "at": 37
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "welcoming",
+       "at": 16,
+       "note": "welcoming means taking the next letter inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Couples perhaps",
+       "at": 0,
+       "gives": "FRED",
+       "note": "Fred Couples is an American golfer, so Couples gives his first name"
+      },
+      {
+       "words": "University",
+       "at": 26,
+       "gives": "U"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pairs of people in therapy perhaps welcome a university analyst.",
+     "walkthrough": "Couples looks like pairs in couples therapy, but it is the golfer. This is an altered answer: each letter moves twenty-three places on (its clue number), so three back, for the grid.",
+     "definitionFit": "Sigmund Freud founded psychoanalysis, so he is the archetypal practitioner of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Couples"
+    }
    }
   },
   {
@@ -375,6 +1767,55 @@
    "clue": {
     "text": "Colleague is after second rest",
     "enumeration": "5"
+   },
+   "solution": "SALLY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "rest",
+      "at": 26,
+      "note": "misprinted: the clue really reads jest, a witty remark"
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "is after",
+       "at": 10,
+       "note": "is after means the colleague piece comes after the second"
+      }
+     ],
+     "parts": [
+      {
+       "words": "second",
+       "at": 19,
+       "gives": "S"
+      },
+      {
+       "words": "Colleague",
+       "at": 0,
+       "gives": "ALLY",
+       "note": "an ally is someone on your side, a colleague"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A workmate is after a quick break.",
+     "walkthrough": "Rest is the misprint for jest.",
+     "definitionFit": "A sally is a witty or lively retort, which is a kind of jest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rest"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "J",
+     "printed": "R",
+     "at": 26
+    }
    }
   },
   {
@@ -388,6 +1829,58 @@
    "clue": {
     "text": "Small Cube found by Queen and King in electronic device",
     "enumeration": "7"
+   },
+   "solution": "SCANNER",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "electronic device",
+      "at": 38
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Small",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "Cube",
+       "at": 6,
+       "gives": "C",
+       "note": "misprinted: the clue really reads Cuba, whose international vehicle code is C"
+      },
+      {
+       "words": "Queen",
+       "at": 20,
+       "gives": "ANNE",
+       "note": "Anne was queen of Great Britain from 1702 to 1714"
+      },
+      {
+       "words": "King",
+       "at": 30,
+       "gives": "R"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny cube turns up beside the monarchs inside some electronic gadget.",
+     "walkthrough": "Cube is the misprint for Cuba; Queen gives a particular queen, Anne, not the usual ER.",
+     "definitionFit": "A scanner is an electronic machine that reads an image or document and turns it into digital data."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Queen"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "A",
+     "printed": "E",
+     "at": 9
+    }
    }
   },
   {
@@ -401,6 +1894,86 @@
    "clue": {
     "text": "Briefly, Australian singer's love for union role creates complicated situation",
     "enumeration": "9"
+   },
+   "solution": "IMBROGLIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "complicated situation",
+      "at": 57
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 34,
+         "note": "for means one letter stands in place of the other"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Briefly",
+           "at": 0,
+           "note": "cut short, so the surname loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Australian singer's",
+           "at": 9,
+           "gives": "IMBRUGLIA",
+           "note": "Natalie Imbruglia is an Australian singer, best known for Torn"
+          },
+          {
+           "gives": "A"
+          }
+         ]
+        },
+        {
+         "words": "union",
+         "at": 38,
+         "gives": "U"
+        },
+        {
+         "words": "love",
+         "at": 29,
+         "gives": "O",
+         "note": "love is nil in tennis scoring, shaped like the letter O"
+        }
+       ]
+      },
+      {
+       "words": "role",
+       "at": 44,
+       "gives": "O",
+       "note": "misprinted: the clue really reads hole, and O looks like a hole"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer's love for a union post lands her in a tangled mess.",
+     "walkthrough": "Role is the misprint for hole.",
+     "definitionFit": "An imbroglio is a confused, embarrassing or complicated state of affairs, an Italian borrowing for a tangle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "union"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "H",
+     "printed": "R",
+     "at": 44
+    }
    }
   },
   {
@@ -420,6 +1993,48 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "METOO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "movement for change",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Got introduced to",
+       "at": 0,
+       "gives": "MET",
+       "note": "to have met someone is to have been introduced to them"
+      },
+      {
+       "words": "Wings",
+       "at": 18,
+       "gives": "OO",
+       "note": "misprinted: the clue really reads Rings, and two rings look like two Os"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Meeting Paul McCartney's band Wings leads to a campaign for reform.",
+     "walkthrough": "Wings is the misprint for Rings.",
+     "definitionFit": "Me Too is the campaign against sexual harassment that spread from 2017, a social movement for change."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wings"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "R",
+     "printed": "W",
+     "at": 18
+    }
    }
   },
   {
@@ -433,6 +2048,70 @@
    "clue": {
     "text": "Covered aria, but not right next to my school",
     "enumeration": "7"
+   },
+   "solution": "ACADEMY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "school",
+      "at": 39
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "next to",
+       "at": 28,
+       "note": "next to means the possessive word is placed straight after the covered walkway"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "but not",
+         "at": 14,
+         "note": "but not means the letter for right is left out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Covered aria",
+         "at": 0,
+         "gives": "ARCADE",
+         "note": "misprinted: the clue really reads Covered area, and an arcade is a roofed walkway"
+        },
+        {
+         "words": "right",
+         "at": 22,
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "words": "my",
+       "at": 36
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A song with a cover version plays, except for one track, beside the singer's old school.",
+     "walkthrough": "Aria is the misprint for area.",
+     "definitionFit": "An academy is a place of learning, in Britain often a state-funded secondary school."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aria"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "E",
+     "printed": "I",
+     "at": 10
+    }
    }
   },
   {
@@ -446,6 +2125,61 @@
    "clue": {
     "text": "Mother rat tried to accept stray",
     "enumeration": "6"
+   },
+   "solution": "ERRANT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "stray",
+      "at": 27
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to accept",
+       "at": 17,
+       "note": "the run of words accepts, or holds, the answer within it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Mother",
+       "at": 0,
+       "gives": "ER",
+       "note": "the hidden answer starts in the last two letters of Mother"
+      },
+      {
+       "words": "rat",
+       "at": 7,
+       "gives": "RAN",
+       "note": "misprinted: the clue really reads ran, which sits whole in the middle of the hidden answer"
+      },
+      {
+       "words": "tried",
+       "at": 11,
+       "gives": "T",
+       "note": "the hidden answer ends on the first letter of tried"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mother rat does her best to take in an abandoned animal.",
+     "walkthrough": "Rat is the misprint for ran; then the answer spans mother, ran and tried.",
+     "definitionFit": "Errant means wandering from the proper course, an adjective close in sense to stray as in a stray bullet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stray"
+    },
+    "hiddenLetter": {
+     "kind": "misprint",
+     "letter": "N",
+     "printed": "T",
+     "at": 9
+    }
    }
   }
  ]
