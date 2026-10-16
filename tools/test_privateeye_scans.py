@@ -98,6 +98,7 @@ print("SLASH3", ps.column_cols([(0, 0, 1000, 1000)])([(10, 10, 60, 40, "ACROSS")
 print("PLUS", ps.column_cols([(0, 0, 1000, 1000)])([(10, 10, 60, 40, "DOWN"), (10, 60, 70, 90, "14+16"),
       (80, 60, 140, 90, "Cops"), (150, 60, 300, 90, "dirty"), (310, 60, 400, 90, "(6)")])[1][0][4],
       bool(ps.STARTS.match("14+16 Cops")))
+assert ps.STARTS.match("19 ...in Massachusetts city") and ps.STARTS.match("19 \u2026in x"), "ellipsis opener starts a clue"
 print("TIDY", fa.tidy("ACROSS\n23 Maybe Charles slips one inside 4）").splitlines()[-1])
 # No 279: one reading's "61" for 6 down, the others' 6 (one reading lost it).
 L = lambda *ts: [(0, 0, 0, 0, t) for t in ts]

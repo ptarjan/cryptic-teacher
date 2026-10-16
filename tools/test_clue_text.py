@@ -169,6 +169,8 @@ assert ct.mend_link_tails(page) == ["11/4 Link head (4,7)", "12 Plain (3)", "14 
 assert ct.mend_link_tails(["11/14 Link (4,7)", "14 See 11"]) == ["11/14 Link (4,7)", "14 See 11"]
 assert ct.mend_link_tails(["11/14 Link (4,7)", "12 Plain (3)"]) == ["11/14 Link (4,7)", "12 Plain (3)"]
 assert ct.mend_link_tails(["11, 14 Link (4,7)", "4 Other (3)", "14 Own (5)"]) == ["11, 14 Link (4,7)", "4 Other (3)", "14 Own (5)"]
+# A head whose tail prints "(see 16)" has no clue of its own: 11 stays 11 (Cyclops 29, "16/1/11")
+assert ct.mend_link_tails(["11 (see 16)", "16/1/11 Top (5,10)", "19 Next (5)"]) == ["11 (see 16)", "16/1/11 Top (5,10)", "19 Next (5)"]
 import time
 # Digit runs once sent STANDING_FIGURES into catastrophic backtracking (the old form hung on this for minutes).
 for hang in ("word " + "1234567890" * 8 + "!", "word" + " 12345678901234567890" * 30 + " x"):
