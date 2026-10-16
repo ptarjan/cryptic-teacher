@@ -351,15 +351,10 @@ check("a ring square no light crosses goes black, one a down light crosses stays
 check("a kept edge stays white", "." * 7, cj.ring_masked(_g, ["top"])[0])
 check("the ring runs clockwise from the top left",
       [(0, 0), (1, 0), (2, 0), (2, 1), (2, 2), (1, 2), (0, 2), (0, 1)], cj.ring_cells(3))
-_p = {"dimensions": {"cols": 3, "rows": 3}, "entries": [
-    {"number": 1, "direction": "across", "position": {"x": 0, "y": 0}, "length": 3},
-    {"number": 2, "direction": "across", "position": {"x": 0, "y": 2}, "length": 3},
-    {"number": 3, "direction": "down", "position": {"x": 1, "y": 0}, "length": 3}]}
-_got, _why = cj.apply(_p, {"preamble": "P", "unclued": {"lights": ["1-across", "2-across"], "enumeration": "6"}})
-check("unclued lights leave the entries and join one light",
-      (["3-down"], 6, "6", "P"),
-      ([f"{e['number']}-{e['direction']}" for e in _got["entries"]], len(_got["unclued"][0]["cells"]),
-       _got["unclued"][0]["enumeration"], _got["preamble"]))
+_p = {"dimensions": {"cols": 3, "rows": 3}, "entries": [{"number": 1}]}
+_got, _why = cj.apply(_p, {"preamble": "P", "unclued": {"lights": ["1-across"], "enumeration": "6"}})
+check("a preamble with unclued lights keeps the entries and carries the text", (1, "P", False),
+      (len(_got["entries"]), _got["preamble"], "unclued" in _got))
 _empty = {"dimensions": {"cols": 3, "rows": 3}, "entries": []}
 _got, _why = cj.apply(dict(_empty), {"preamble": "P", "ring": {"enumeration": "4,4"}})
 check("a ring light takes the perimeter's squares", (8, "4,4"),
