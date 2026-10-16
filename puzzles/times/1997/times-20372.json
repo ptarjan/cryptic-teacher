@@ -132,10 +132,76 @@
    },
    "length": 9,
    "clue": {
-    "text": "Judgment of a friend includes endless* approval",
+    "text": "Judgment of a friend includes endless approval",
     "enumeration": "9"
    },
-   "solution": "APPRAISAL"
+   "solution": "APPRAISAL",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Judgment",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "a",
+       "at": 12,
+       "gives": "A"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "includes",
+         "at": 21,
+         "note": "the friend word takes the next piece inside it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "friend",
+         "at": 14,
+         "gives": "PAL",
+         "note": "a pal is a friend"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endless",
+           "at": 30,
+           "note": "the approval word loses its final letter, so it has no end"
+          }
+         ],
+         "parts": [
+          {
+           "words": "approval",
+           "at": 38,
+           "gives": "PRAISE",
+           "note": "praise is approval"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's opinion of a mate turns out to be warm approval without limit.",
+     "definitionFit": "An appraisal is an assessment or evaluation, a considered judgment of worth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "endless"
+    }
+   }
   },
   {
    "number": 3,
@@ -1141,12 +1207,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SUGGEST",
      "indicators": [
       {
        "text": "to split up",
-       "note": "a piece that splits up a word goes into its middle"
+       "at": 25,
+       "note": "the letter splits the other piece apart by sitting inside it"
       }
      ],
      "parts": [
@@ -1155,42 +1220,44 @@
        "indicators": [
         {
          "text": "drunken",
-         "note": "a drunken thing staggers about, so its letters are jumbled"
+         "at": 37,
+         "note": "drunken implies the letters of guests are reeling about in a new order"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "eventually",
-           "note": "what comes eventually comes at the end, so only the last letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "going",
-           "note": "the final letter of going"
-          }
-         ]
-        },
-        {
          "words": "guests",
-         "gives": "SUGEST",
-         "note": "these letters rearranged"
+         "at": 45
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "eventually",
+         "at": 14,
+         "note": "eventually points to what comes at the end, so take the final letter of going"
+        }
+       ],
+       "parts": [
+        {
+         "words": "going",
+         "at": 8,
+         "note": "the word whose final letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone suggests going home at last to break up the party of tipsy visitors.",
-     "definitionFit": "To suggest something is to put it forward for consideration, which is what propose means."
+     "surface": "A host hints that it is finally time to break up the party of tipsy guests.",
+     "definitionFit": "To put forward an idea for others to consider is to propose it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "going"
+     "misdirectedWord": "split"
     }
    }
   },
