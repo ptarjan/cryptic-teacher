@@ -665,6 +665,9 @@ worker_failed() {   # id what notefile sidfile [how] [moved]
 worker_finish() {   # id what sidfile log
   _worker_finish "$@"
   local rc=$?
+  # 3 (only with WORKER_KEEP_CUTOFF_FIX set): the fix run was cut off (a limit, a crash) and the file still fails, so
+  # the conversation and its scratch are kept for the caller to resume.
+  [ "$rc" -eq 3 ] && return 3
   worker_forget "$3"
   worker_clean "$1"
   return $rc
@@ -695,7 +698,7 @@ worker_sweep_scratch() {   # [minutes]
   return 0
 }
 _worker_finish() {
-  local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen ran loss wants pending="" why
+  local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen ran loss wants pending="" why fix_rc=0
   # A run that took its work back ships none of it, however it validates.
   if why=$(worker_withdrawn "$id" "$log"); then
     worker_withdraw "$id" "$why"
@@ -711,7 +714,7 @@ _worker_finish() {
     # Even a fix run the limit cuts off may have landed its edit, so the second
     # validation runs either way and decides on what is on disk.
     declare -F on_fix_run >/dev/null && on_fix_run 1
-    worker_annotate "$id" "$log" "$sidfile" "$fix" "$fix" || true
+    worker_annotate "$id" "$log" "$sidfile" "$fix" "$fix" || fix_rc=$?
     declare -F on_fix_run >/dev/null && on_fix_run 0
     # The fix run may take the work back instead (genius-268, 10-13: the
     # validator passed what the run had asked to revert, and it shipped).
@@ -723,6 +726,16 @@ _worker_finish() {
   fi
   if ! python3 tools/validate_annotations.py "$id" >"$vlog" 2>&1; then
     tail -5 "$vlog"
+    # The fix run died before it could answer (not the API's refusal, which
+    # worker_flagged-style handling keeps fresh): its conversation is not
+    # evidence the clues cannot be fixed, so it is kept and resumed, not
+    # discarded and bought again from scratch.
+    if [ "$fix_rc" -ne 0 ] && [ -n "${WORKER_KEEP_CUTOFF_FIX:-}" ] && ! grep -q "safeguards flagged this message" "$log" 2>/dev/null &&
+       session_exists "$(worker_sid "$sidfile")"; then
+      echo "  [$id] its fix run was cut off (exit $fix_rc) and the file still fails — keeping the conversation to resume"
+      rm -f "$vlog"
+      return 3
+    fi
     # A model's answer the run could not parse may be the wrong word, and a
     # failure record would hold it until its inputs change, which is never. So
     # those answers are blanked and solved again instead, once per entry, the

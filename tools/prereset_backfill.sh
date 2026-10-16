@@ -1153,18 +1153,30 @@ after_wave() {
 # itself when the run's last words were a limit or the network.
 #   $1 the five-hour meter the failure was read at
 drop_failed() {
-  local id
+  local id out rc
   for id in ${WAVE_FAILED_IDS[@]+"${WAVE_FAILED_IDS[@]}"}; do
     echo "  [$id] failed with the five-hour window at ${1}% — not a lockout, dropped for this run"
     rm -f "/tmp/ct-prereset-$id.resume"
+    if [ "$DRY_RUN" != 1 ] && [ "$WAVE_WHAT" = Annotate ]; then
+      # A failure that was ours or the network's (a crash, an API 5xx, a login
+      # blip) says nothing about the puzzle, and its conversation is still good:
+      # failed_inputs refuses it as transient (exit 3), and then the session is
+      # KEPT, so the next start resumes it (worker_put_back) rather than buying
+      # the puzzle again (10-12..16: 59 repeat starts were fresh conversations).
+      out=$(python3 tools/failed_inputs.py record annotate "$id" --reason \
+        "$(grep -v '^[[:space:]]*$' "/tmp/ct-prereset-$id.txt" | tail -8 | tr '\n' ' ')")
+      rc=$?
+      echo "$out" | sed 's/^/  /'
+      if [ "$rc" -eq 3 ]; then
+        echo "  [$id] transient failure — its conversation is kept to resume at the next start"
+        discard_puzzle "$id"
+        continue
+      fi
+    fi
     worker_forget "$RUNS/$id.sid"
     [ "$DRY_RUN" = 1 ] && continue
     discard_puzzle "$id"
     worker_clean "$id"
-    [ "$WAVE_WHAT" = Annotate ] || continue
-    python3 tools/failed_inputs.py record annotate "$id" --reason \
-      "$(grep -v '^[[:space:]]*$' "/tmp/ct-prereset-$id.txt" | tail -8 | tr '\n' ' ')" \
-      | sed 's/^/  /'
   done
 }
 
@@ -1173,9 +1185,13 @@ drop_failed() {
 commit_puzzle() {
   local id="$1" what="$2"
   if [ "$DRY_RUN" = 1 ]; then echo "  would commit $what $id"; return 0; fi
-  worker_finish "$id" "$what" "$RUNS/$id.sid" "/tmp/ct-prereset-$id.txt"
+  WORKER_KEEP_CUTOFF_FIX=1 worker_finish "$id" "$what" "$RUNS/$id.sid" "/tmp/ct-prereset-$id.txt"
   case $? in
     0) return 0 ;;
+    3) # Its validation-fix run was cut off: resumed, like any cut-off run.
+       worker_failed "$id" "$what" "/tmp/ct-prereset-$id.resume" "$RUNS/$id.sid" || true
+       WAVE_FAILED_IDS+=("$id")
+       return 1 ;;
     2) queue=("${queue[@]:0:$at}" "$id" "${queue[@]:$at}")
        echo "  [$id] solving it again next"
        return 1 ;;

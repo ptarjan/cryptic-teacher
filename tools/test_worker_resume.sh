@@ -182,5 +182,22 @@ start_run "$tree" s-e >/dev/null
 fl flagged.txt >/dev/null
 check "a fresh run flagged twice: recorded as a failed input" "record annotate s-e" "$(cat "$t/recorded" 2>/dev/null)"
 
+echo "a validation-fix run the limit cuts off: the conversation is kept to resume, not forgotten"
+start_run "$tree" s-f >/dev/null
+echo '{"clues": "BROKEN"}' >"$tree/puzzles/s/2026/s-f.json"
+echo '{"1a": "hint"}' >"$tree/tools/_ann_s-f.json"
+: >"$t/flog"
+worker_annotate() { return 1; }
+(cd "$tree" && WORKER_KEEP_CUTOFF_FIX=1 worker_finish s-f Annotate "$runs/s-f.sid" "$t/flog" >/dev/null 2>&1); rc=$?
+check "cut-off fix run: returns 3, session and scratch kept" "3 yes yes" \
+  "$rc $([ -s "$runs/s-f.sid" ] && echo yes || echo no) $([ -e "$tree/tools/_ann_s-f.json" ] && echo yes || echo no)"
+(cd "$tree" && worker_finish s-f Annotate "$runs/s-f.sid" "$t/flog" >/dev/null 2>&1); rc=$?
+check "without the opt-in (the nightly) it is the old discard" "1 no" "$rc $([ -s "$runs/s-f.sid" ] && echo yes || echo no)"
+start_run "$tree" s-f >/dev/null
+echo '{"clues": "BROKEN"}' >"$tree/puzzles/s/2026/s-f.json"
+printf 'API Error: safeguards flagged this message (x)\n' >"$t/flog"
+(cd "$tree" && WORKER_KEEP_CUTOFF_FIX=1 worker_finish s-f Annotate "$runs/s-f.sid" "$t/flog" >/dev/null 2>&1); rc=$?
+check "a flagged fix run is not kept" "1 no" "$rc $([ -s "$runs/s-f.sid" ] && echo yes || echo no)"
+
 if [ "$fails" -gt 0 ]; then echo "worker resume: $fails check(s) failed"; exit 1; fi
 echo "worker resume: all checks passed"
