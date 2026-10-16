@@ -34,7 +34,31 @@
     "text": "What 13 does is 8",
     "enumeration": "8"
    },
-   "solution": "TELLTALE"
+   "solution": "TELLTALE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "What 13 does",
+      "at": 0,
+      "meaning": "first meaning: 13 is RACONTEUSE, a storyteller, and what she does is tell a tale"
+     },
+     {
+      "text": "8",
+      "at": 16,
+      "meaning": "second meaning: 8 is BETRAYER, and the answer as one word is a sneak who gives away secrets"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both halves lean on other answers: 13-down is a female storyteller, 8-across one who betrays. Read as two words the answer is her activity; as one it is a sneak.",
+     "definitionFit": "A telltale is an informer who gives away others' secrets, so the noun is a fair synonym for a betrayer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "does"
+    }
+   }
   },
   {
    "number": 2,
@@ -506,45 +530,49 @@
      "indicators": [
       {
        "text": "in",
-       "note": "in places the selected piece inside the soft French cheese"
+       "at": 20,
+       "note": "in places the half-word inside the cheese named after it"
       }
      ],
      "parts": [
       {
        "words": "cheese",
+       "at": 23,
        "gives": "BRIE",
-       "note": "a soft French cheese"
+       "note": "Brie is a soft French cheese"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "AR",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half",
-         "note": "half keeps only the front portion of the word named by the number"
+         "at": 13,
+         "note": "only half of the cross-referenced word is wanted, so its second half is dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "2",
-         "gives": "AR",
-         "select": "first",
-         "note": "the first half of the answer at 2 down"
+         "at": 18,
+         "gives": "AREA",
+         "note": "the answer to 2-down, a region"
+        },
+        {
+         "gives": "EA"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A playwright with half of something stuck in his cheese.",
-     "walkthrough": "The first two of the four letters of 2 down sit in the cheese after its B.",
-     "definitionFit": "J. M. Barrie was the Scottish playwright who wrote Peter Pan."
+     "surface": "A cryptic boast that a dramatist is half-buried in a wedge of cheese.",
+     "walkthrough": "The 2 points to 2-down; its first two letters sit inside the cheese.",
+     "definitionFit": "J. M. Barrie, the Scottish dramatist, wrote the stage play Peter Pan."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "cheese"
     }
    }
   },
@@ -1265,7 +1293,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Friday's child?",
+      "text": "Friday's child",
       "at": 0
      }
     ],
@@ -1273,56 +1301,58 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "GI",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Some",
-         "note": "some takes only part of the word that follows, its front"
+         "at": 16,
+         "note": "only some of the word giving is wanted, its opening pair, so the rest goes"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "giving",
-         "gives": "GI",
-         "select": "first",
-         "note": "the opening of giving"
+         "at": 21,
+         "note": "taken as written before trimming"
+        },
+        {
+         "gives": "VING"
         }
        ]
       },
       {
        "words": "right",
-       "gives": "R",
-       "note": "R for right"
+       "at": 29,
+       "gives": "R"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "a little",
-         "note": "a little takes just a small portion, the opening letter"
+         "at": 40,
+         "note": "just a little of the word loving is used, its first letter"
         }
        ],
        "parts": [
         {
          "words": "loving",
-         "note": "the first letter of loving"
+         "at": 49,
+         "note": "first letter of loving"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The nursery rhyme says Friday's child is loving and giving.",
-     "walkthrough": "The rhyme 'Monday's child' has 'Friday's child is loving and giving', but the definition points to Girl Friday, a female assistant.",
-     "definitionFit": "A Girl Friday is a woman assistant, named after Man Friday in Robinson Crusoe."
+     "surface": "The nursery rhyme says Friday's child is loving and giving, so the clue seems to quote it back.",
+     "walkthrough": "The rhyme 'Monday's child is fair of face' gives each weekday child a trait; Friday's is 'loving and giving', and the clue raids exactly those two words.",
+     "definitionFit": "Any child born on a Friday is Friday's child, and a daughter or young female is an example."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun"
+     "misdirectedWord": "Some"
     }
    }
   },
