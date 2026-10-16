@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -299,45 +300,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WAITRESS",
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "WAITRESS",
+       "indicators": [
+        {
+         "text": "half of",
+         "at": 18,
+         "note": "only half of the word ward is kept, its first two letters, with the rest dropped"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "half of"
-          },
-          {
-           "text": "replacement"
-          }
-         ],
-         "parts": [
-          {
-           "words": "half of ward",
-           "gives": "WA",
-           "note": "the first half of WArd — the RD is dropped"
-          },
-          {
-           "words": "sister",
-           "gives": "ITRESS",
-           "note": "'replacement' redeals the letters of SISTER"
-          }
-         ]
+         "words": "ward",
+         "at": 26
+        },
+        {
+         "gives": "RD"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "replacement",
+         "at": 40,
+         "note": "a replacement for the letters of sister puts them in a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sister's",
+         "at": 31,
+         "gives": "SISTER",
+         "note": "the word sister, with the possessive ending only joining it to what follows"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface stays on the hospital ward, but 'female serving' means waiting tables. A word's 'replacement' — its letters redealt — is a gentler anagram signal than the usual chaos words.",
-     "definitionFit": "She is a woman employed to bring food and drink to tables in a restaurant, so the phrase describes her by her job."
+     "surface": "A hospital worker is stood in for by someone covering half the ward sister's duties.",
+     "walkthrough": "The phrase ward sister, a senior hospital nurse in Britain, splits in two: the front half of ward, then sister rearranged.",
+     "definitionFit": "A waitress is a woman whose job is serving customers at tables in a restaurant or cafe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "replacement"
     }
    }
   },
@@ -582,54 +594,71 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "heard"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "left on board",
+       "at": 17,
+       "gives": "PORT",
+       "note": "on board ship, the left-hand side is port"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "consuming"
+         "text": "consuming",
+         "at": 48,
+         "note": "consuming means swallowing something up, so one piece goes inside the other"
         }
        ],
        "parts": [
         {
-         "words": "left on board",
-         "gives": "PORT",
-         "note": "port is the left side when you're on board ship"
-        },
-        {
-         "words": "guy",
-         "gives": "MAN",
-         "note": "man = guy"
-        },
-        {
-         "op": "homophone",
-         "spelt": "U",
+         "op": "charade",
          "parts": [
           {
-           "words": "you heard",
-           "gives": "YOU",
-           "note": "the letter U is said exactly like 'you'"
+           "words": "guy",
+           "at": 34,
+           "gives": "MAN",
+           "note": "guy means a man"
+          },
+          {
+           "op": "homophone",
+           "spelt": "U",
+           "indicators": [
+            {
+             "text": "heard",
+             "at": 42,
+             "note": "heard tells us to take the word before it by how it sounds when spoken"
+            }
+           ],
+           "parts": [
+            {
+             "words": "you",
+             "at": 38,
+             "note": "the word you, which sounds just like the letter U"
+            }
+           ]
           }
          ]
+        },
+        {
+         "words": "drink",
+         "at": 58,
+         "gives": "TEA",
+         "note": "tea is a drink"
         }
        ]
-      },
-      {
-       "words": "drink",
-       "gives": "TEA",
-       "note": "TEA is swallowed ('consuming') by MAN + U"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Portmanteau — Lewis Carroll's word for two meanings packed into one case — is this puzzle's theme named in a single answer. On board ship, left is always PORT.",
-     "definitionFit": "A large travelling case opening into two hinged halves, an old-fashioned kind of suitcase."
+     "surface": "A suitcase is left on a ship by a man who keeps having a drink.",
+     "definitionFit": "A portmanteau is a large old-fashioned travelling case that opens into two halves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
     }
    }
   },
@@ -996,29 +1025,41 @@
     "definitions": [
      {
       "text": "having a row",
-      "at": 28
+      "at": 28,
+      "note": "a phrase meaning rowing, matching the answer's -ing form"
      }
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "OARING",
      "indicators": [
       {
-       "text": "losing head"
+       "text": "losing head",
+       "at": 11,
+       "note": "losing its head means the first letter of the word is taken away"
       }
      ],
      "parts": [
       {
-       "words": "Bellowing, losing head",
-       "gives": "OARING",
-       "note": "ROARING (bellowing) loses its head — the R goes"
+       "words": "Bellowing",
+       "at": 0,
+       "gives": "ROARING",
+       "note": "bellowing means roaring"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two rows: the definition's row rhymes with 'go' — pulling oars — while the surface's shouting match rhymes with 'cow'. Beheading ROARING settles which one you need.",
-     "definitionFit": "Pulling oars propels a boat, so the participle means rowing, with row taken in its boating sense."
+     "surface": "Someone shouting angrily, then calming, while in the middle of an argument.",
+     "walkthrough": "The surface reads row as a quarrel (rhymes with cow); the definition uses the other row, of a boat.",
+     "definitionFit": "Oaring is an uncommon word for propelling a boat with oars, that is, rowing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "row"
     }
    }
   },
