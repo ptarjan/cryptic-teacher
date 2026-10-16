@@ -697,6 +697,17 @@ def named_tails(rows, entries):
     return printed
 
 
+def fill_missing_sizes(across, down, given):
+    """A plain light whose count the OCR lost (No 164's 17ac) takes the length
+    of the answer the next issue printed for it. `given`: {(number, direction):
+    LETTERS}. A linked light's length is the group's to split, so it keeps None."""
+    for d, lights in (("across", across), ("down", down)):
+        for lg in lights:
+            word = given.get((str(lg[0]), d))
+            if lg[1] is None and word and not lg[2].startswith("linked"):
+                lg[1] = len(word)
+
+
 def from_rows(num, rows, answers=None, image=None, fixes=None):
     """A puzzle with no answers from light_spec rows, its grid rebuilt from
     the clue numbers and enumerations (as tools/fetch_nation.py does).
@@ -726,14 +737,18 @@ def from_rows(num, rows, answers=None, image=None, fixes=None):
         if lg[2].startswith("linked"):
             lg[1] = None
     groups = linked_groups(rows, across, down)
-    spec = [(lg[0], d, lg[1]) for d, lights in (("across", across), ("down", down)) for lg in lights]
-    words = None
+    given = {}
     for _ts, arows in answers or []:
         given = {(k, d): w for k, d, w in arows if "/" not in k}
-        words = [given.get((str(n), d)) if n and size and len(given.get((str(n), d)) or "") == size
-                 else None for n, d, size in spec]
-        if any(words):
+        if any(given.get((str(lg[0]), d)) for d, lights in (("across", across), ("down", down))
+               for lg in lights):
             break
+        given = {}
+    fill_missing_sizes(across, down, given)
+    spec = [(lg[0], d, lg[1]) for d, lights in (("across", across), ("down", down)) for lg in lights]
+    words = [given.get((str(n), d)) if n and size and len(given.get((str(n), d)) or "") == size
+             else None for n, d, size in spec]
+    if not any(words):
         words = None
     # Every Cyclops is 15x15; the linked lights' free lengths need more search
     # than the Nation's budget.
