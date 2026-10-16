@@ -49,10 +49,6 @@ SOLUTION = re.compile(r"^\W*solution\s+(?:and\s+notes\s+)?(?:for|to)\s+no\.?\s*"
 END = re.compile(r"^\W*(?:the\s+)?solution\b", re.IGNORECASE)
 #: Listener numbers the Times printed (Oct 1991 - Apr 1999), padded.
 NUMBERS = range(3000, 3600)
-#: "(6, two words)": the count of words is the print's, not an enumeration.
-WORDS = re.compile(r"\(\s*(\d{1,2}(?:\s*[,\-]\s*\d{1,2})*)\s*[,.]\s*\(?\s*[a-z]{2,5}\s+w[a-z]{3,4}\s*\)",
-                   re.IGNORECASE)
-
 
 def line_text(ws):
     return " ".join(w[4] for w in ws)
@@ -277,7 +273,7 @@ def tidy(text):
     # 5 and 6 down. Else the number is no clue start and the clue runs on
     # into the one before. A lone stop glued to the number ("5. the") is
     # the number's own.
-    text = ELLIPSIS_HEAD.sub(r"\1 ... ", text)
+    text = clue_text.ELLIPSIS_HEAD.sub(r"\1 ... ", text)
     # Not before a lowercase word: "6 3 put more negatively" is 6 down
     # whose clue opens on a reference to 3 (Cyclops No 19), not 63.
     text = re.sub(r"^(\d) (\d) (?=[^\sa-z])", r"\1\2 ", text, flags=re.MULTILINE)
@@ -289,12 +285,8 @@ def tidy(text):
     text = re.sub(r"^(\d{1,2})\s?re[vy][.,]?\s*(?=[A-Z\"'\u2018])", r"\1 rev. ", text, flags=re.MULTILINE)
     # A cross-reference's number glued on, its 1 read as I or l ("SeeI3.").
     text = clue_text.see_numeral(text)
-    return WORDS.sub(r"(\1)", text)
+    return clue_text.WORDS_COUNT.sub(r"(\1)", text)
 
-
-#: A clue number and the ellipsis its clue opens on (tidy).
-ELLIPSIS_HEAD = re.compile(r"^(\d{1,2})(?:[ _~]*(?:\.\s?\.(?:\s?\.)?|…)[ ]*(?=[A-Za-z\"'‘])| +\. *(?=[a-z]))",
-                           re.MULTILINE)
 
 #: A count inside a clue's text: the next clue ran on after it.
 RUN_ON = clue_text.COUNT_INSIDE
@@ -349,9 +341,6 @@ def slipped(nums, last, after):
 #: for: the old-style 8 read "3" (No 3's "48." read "43."), 9 read "0".
 FIGURE_SLIPS = {"3": "8", "8": "3", "0": "9", "9": "0"}
 
-#: The next clue's number (">0" for a misread 10) and first word inside a
-#: clue's text.
-NEXT_NUMBER = re.compile(r"\s\S?\d{1,2}\s+[A-Z]")
 #: How alike two readings' texts for a light must be to corroborate it.
 CORROBORATE = 0.7
 
@@ -362,7 +351,7 @@ def sound(text):
     "\u2020Not far from 13", a reversed light's "rev. He'd"), with no count
     or clue number inside it."""
     return bool(text and re.match(r"(?:rev\.\s)?[*\u2020\u2021]?\s?(?:[A-Z\"'.\u2018\u201c]|1\s)", text)
-                and not RUN_ON.search(text) and not NEXT_NUMBER.search(text))
+                and not RUN_ON.search(text) and not clue_text.NEXT_NUMBER.search(text))
 
 
 def pick(lays, texts=(), guessed=()):

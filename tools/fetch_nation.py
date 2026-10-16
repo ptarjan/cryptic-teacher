@@ -19,6 +19,7 @@ and left held in downloads.NATION for a later builder.
 The puzzle number is the one the page's title prints, and its date is the
 issue it first appeared in.
 """
+import clue_text
 import collections
 import datetime
 import functools
@@ -396,7 +397,7 @@ def linked_groups(lists, across, down):
     for direction in ("across", "down"):
         for row in lists[direction]:
             nums = [int(x) for x in re.findall(r"\d+", str(row.get("number") or ""))]
-            total = sum(int(t) for t in re.findall(r"\d+", row.get("enumeration") or ""))
+            total = clue_text.count_total(row.get("enumeration") or "")
             if len(nums) < 2 or not total:
                 continue
             lead = [(direction, i) for i, lg in enumerate(lights[direction])

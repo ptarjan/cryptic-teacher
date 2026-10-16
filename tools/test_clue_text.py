@@ -146,4 +146,26 @@ for text, want in [("| Picture of crack (8) 4S Fish", " 1 Picture of crack (8) 4
                    ("15 Monument (4) 20ac.They", "15 Monument (4) 20ac. They"), ("(see13)", "(see 13)"),
                    ("13 (see 1dn) : 15 Monument", "13 (see 1dn) 15 Monument")]:
     assert ct.mend_scan_text(text).replace("  ", " ").strip() == want.strip(), (text, ct.mend_scan_text(text))
+for text, want in [("20rev.,24.Charade:", "20 rev., 24. Charade:"), ("1.An African", "1. An African"),
+                   ("29A town", "29 A town"), ("28.tNot far", "28. \u2020Not far"), ("29tA town", "29 \u2020A town"),
+                   ("fA famous", "\u2020A famous"), ("12 Forcing", "12 Forcing"), ("tent", "tent")]:
+    assert ct.mend_opening(text) == want, (text, ct.mend_opening(text))
+assert ct.clue_number_opening("28.tNot far from 13 (5)") == "28. \u2020Not far from 13 (5)"
+assert re.compile(ct.ENUM_COUNT).search("a clue (3 and 4) x").group() == "(3 and 4)"
+for ok in ("(5)", "(3,4)", "(4-4 )", "(5.)", "(2/3)"):
+    assert re.fullmatch(ct.ENUM_COUNT, ok), ok
+for bad in ("(and)", "(x)", "(see 3)"):
+    assert not re.fullmatch(ct.ENUM_COUNT, bad), bad
+assert re.fullmatch(ct.ENUM_OR_SEE, "(see 14 across)") and re.fullmatch(ct.ENUM_OR_SEE, "(4-4)")
+assert ct.mend_scan_text("a clue (6, two words) 7 Next") == "a clue (6) 7 Next"
+assert ct.WORDS_COUNT.sub(r"(\1)", "end (3-2, three words)") == "end (3-2)"
+assert ct.NEXT_NUMBER.search("clue (5) 7 Next") and not ct.NEXT_NUMBER.search("clue see 7 next")
+assert ct.ELLIPSIS_HEAD.sub(r"\1 ... ", "5... the cat\n6 . stabbed") == "5 ... the cat\n6 ... stabbed"
+import time
+# Digit runs once sent STANDING_FIGURES into catastrophic backtracking (the old form hung on this for minutes).
+for hang in ("word " + "1234567890" * 8 + "!", "word" + " 12345678901234567890" * 30 + " x"):
+    t0 = time.time()
+    ct.STANDING_FIGURES.search(hang)
+    ct.count_left(hang, 10, {})
+    assert time.time() - t0 < 0.1, hang
 print("clue_text ok")

@@ -668,7 +668,7 @@ def sections(lines):
 
 CLUE_START = re.compile(r"^\*?(\d{1,2})\s*(?![\d,.;])(\S.*)$")
 #: A count read glued to the clue's last word, its bracket unclosed:
-#: "centrepiece(10,3words".
+#: "centrepiece(10,3words". Stays here: it needs the count the page's readers voted.
 GLUED_COUNT = re.compile(r"\s*\((\d+),\s*(\d)\s*words?\)?\s*$")
 ENUM_END = re.compile(r"\(([^()]*\d[^()]*)\)\s*$")
 
@@ -695,12 +695,13 @@ def clue_list(lines, wanted):
     return {k: re.sub(r"\s+", " ", v).replace(" ,", ",").strip() for k, v in out.items()}
 
 
-#: "(5, 2 words or 1)": the count, and its words.
+#: "(5, 2 words or 1)": the count, and its words. Azed's own print notation, not an OCR slip.
 LOOSE_WORDS = re.compile(r"\(\s*(\d{1,2})\s*,\s*\d\s+words?\s+or\s+\d\s*\)\s*$")
 
 
+#: A PDF text layer is exact, so "6)" is a lost "(" ; a scan's "12)" may be 12 or 2, which clue_text.mend_count refuses.
 LOST_BRACKET = re.compile(r"\s(\d{1,2}(?:[,\-]\s?\d{1,2})*)\)\s*$")
-#: "(11, 3 words, apostrophe)".
+#: "(11, 3 words, apostrophe)": Azed's own print notation.
 APOSTROPHE_COUNT = re.compile(r"\((\d{1,2}),\s*(\d)\s*words?,\s*apostrophe\)\s*$")
 
 

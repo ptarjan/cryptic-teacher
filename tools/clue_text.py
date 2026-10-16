@@ -250,7 +250,10 @@ COUNTED = re.compile(r"\d+(?:st|nd|rd|th|s|d|p|cc|pm|am|k|m|ac|dn|a|d|x\d+)", re
 #: Figures standing after a clue's last word: its count with the brackets
 #: read as ones or lost, or any numbers, from a bracket at most on either
 #: side ("7", "151.", "i7j", "1 7V 3").
-STANDING_FIGURES = re.compile(r"(?<=[A-Za-z?!.'\u2019])(?:\s+[A-Za-z]?[^\sA-Za-z?!]*\d[^\sA-Za-z]*[A-Za-z]?[^\sA-Za-z]*)+\s*$")
+#: Each figure token parses one way only (its first digit, then at most one
+#: letter), so a long run of digits and specks cannot backtrack.
+STANDING_FIGURES = re.compile(r"(?<=[A-Za-z?!.'\u2019])"
+                              r"(?:\s+[A-Za-z]?[^\sA-Za-z?!\d]*\d[^\sA-Za-z]*(?:[A-Za-z][^\sA-Za-z]*)?)+\s*$")
 
 
 def count_read(figures, count):
@@ -324,12 +327,35 @@ HEADING_ALONE = re.compile(r"\W*(?:across|down)\W*$", re.IGNORECASE)
 PLAIN_HEADING = re.compile(r"^\s*(across|down)(?:\s+clues)?\b[\s:.]*$", re.I)
 
 
+#: A clue number run into its first word, as a reader drops the space: "1.An
+#: African bird", or its stop and a dagger lost too: "29A town".
+GLUED = re.compile(r"^(\W{0,2}\d{1,2}[.,:])(?=[A-Za-z*\u2020\u2021'\"\u2018\u201c])"
+                   r"|^(\W{0,2}\d{1,2})(?=[A-Z][a-z]|[AI]\s)")
+#: A footnote's dagger opening a clue ("28.\u2020Not far from 13"), read as
+#: a small t or f run into the clue's capital ("tNot", "fA famous"), or
+#: run into its number ("29tA town").
+DAGGER = re.compile(r"^(\W{0,2}\d{1,2}[.,:]? ?)?[tf\u2020](?=[A-Z](?:[a-z]|\s|$))")
+#: A clue number glued to "rev." (and to a linked light's number).
+REV_GLUED = re.compile(r"^(\W{0,2}\d{1,2})\s*rev\.\s*(?:,\s*(\d{1,2})\.)?\s*")
+
+
+def mend_opening(text):
+    """`text`, a clue's opening, with a number run into "rev." ("20rev.,24.Charade:"
+    is "20 rev., 24. Charade:"), a number run into its first word parted, and
+    a footnote's dagger read as a letter put back (GLUED, DAGGER, REV_GLUED)."""
+    text = REV_GLUED.sub(lambda m: f"{m.group(1)} rev." + (f", {m.group(2)}." if m.group(2) else "") + " ",
+                         text).rstrip()
+    text = GLUED.sub(lambda m: (m.group(1) or m.group(2)) + " ", text)
+    return DAGGER.sub(lambda m: (m.group(1) or "").rstrip() + (" " if m.group(1) else "") + "\u2020", text)
+
+
 def clue_number_opening(line):
     """`line`, a clue's line after a count or a heading, with its clue number
     put right: a speck before the number dropped, its 1 read as I, l, J, ! or
     | back, a speck run into its first word taken out ("1'In the" is "1 In
     the"), and a number read as specks alone dropped (the grid places that
     clue)."""
+    line = mend_opening(line)
     # A speck or star before a clue's number: ". 1 Miss", ":1 An", "*1 Land".
     line = re.sub(r"^[.,:;*'_\u2022\u00b7]{1,2}\s?(?=[\dIl]\d?\s)", "", line)
     # A clue's number 1 read as I or l: "I7 More", "IA fruitful".
@@ -405,6 +431,31 @@ def count_total(enum):
 #: joined: "(8)", "(3,7).", "(4-4)", "(2 , 3)". Strict (no OCR letters, a
 #: closed bracket); COUNT_END is the loose reading of a scan.
 PRINTED_COUNT = re.compile(r"\(\s*\d{1,2}(?:\s*[,\-–]\s*\d{1,2})*\s*\)\W{0,2}$")
+
+
+#: A printed count anywhere in a clue, as a source's text spells it: digits
+#: split by a comma, hyphen, stop, colon, slash, apostrophe, "and" or a
+#: space, a separator left dangling before the bracket ("(4-4 )", "(5.)").
+ENUM_COUNT = r"\(\s*\d(?:[\d,\-.;:/'\s]|and(?=\s*\d))*\)"
+
+#: That, or the "(see 14 across)" a linked light prints in its place. Source
+#: of a pattern.
+ENUM_OR_SEE = (r"\((?:\d(?:[\d,\-.;:/'\s]|and(?=\s*\d))*"
+               r"|see \d{1,2}[^)]{0,12})\)")
+
+#: "(6, two words)": the count of words is the print's, not an enumeration.
+WORDS_COUNT = re.compile(r"\(\s*(\d{1,2}(?:\s*[,\-]\s*\d{1,2})*)\s*[,.]\s*\(?\s*[a-z]{2,5}\s+w[a-z]{3,4}\s*\)",
+                         re.IGNORECASE)
+
+#: The next clue's number (">0" for a misread 10) and first word inside a
+#: clue's text.
+NEXT_NUMBER = re.compile(r"\s\S?\d{1,2}\s+[A-Z]")
+
+#: A clue number and the ellipsis its clue opens on: glued to the number
+#: ("5... the"), a speck between ("5_ ... the"), dots lost ("6 . stabbed"),
+#: no space after ("6 ...stabbed"). Line-anchored; apply per line of text.
+ELLIPSIS_HEAD = re.compile(r"^(\d{1,2})(?:[ _~]*(?:\.\s?\.(?:\s?\.)?|…)[ ]*(?=[A-Za-z\"'‘])| +\. *(?=[a-z]))",
+                           re.MULTILINE)
 
 
 # ------------------------------------------------------- list headings read in
@@ -496,4 +547,4 @@ def mend_scan_text(part):
     part = re.sub(r"(?<=\s)(\d)A(?=\s+[A-Z‘“'\"])", r"\g<1>4", part)
     part = re.sub(r"(?<=\s)(\d{1,2})([A-Z]) ([a-z]{1,3})\b", r"\1 \2\3", part)
     part = re.sub(r"(?<=\d)(ac|dn)\.(?=[A-Z‘“'\"])", r"\1. ", part)
-    return part
+    return WORDS_COUNT.sub(r"(\1)", part)

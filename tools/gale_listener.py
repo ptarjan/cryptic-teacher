@@ -749,27 +749,11 @@ def numbered(run, n):
     return kept
 
 
-
-
-#: A clue number run into its first word, as the "ch" reader drops the
-#: space: "1.An African bird", or its stop and a dagger lost too: "29A town".
-GLUED = re.compile(r"^(\W{0,2}\d{1,2}[.,:])(?=[A-Za-z*\u2020\u2021'\"\u2018\u201c])"
-                   r"|^(\W{0,2}\d{1,2})(?=[A-Z][a-z]|[AI]\s)")
-#: A footnote's dagger opening a clue ("28.\u2020Not far from 13"), read as
-#: a small t or f run into the clue's capital ("tNot", "fA famous"), or
-#: run into its number ("29tA town").
-DAGGER = re.compile(r"^(\W{0,2}\d{1,2}[.,:]? ?)?[tf\u2020](?=[A-Z](?:[a-z]|\s|$))")
-
-
-#: A clue number glued to "rev." (and to a linked light's number).
-REV_GLUED = re.compile(r"^(\W{0,2}\d{1,2})\s*rev\.\s*(?:,\s*(\d{1,2})\.)?\s*")
-
-
 def figures(words):
     """The words with a line's opening clue number read as letters put back
     in digits (a number cannot open on 0, so "O." and "Oo." stay words),
     parted from a first word run into it, and a footnote's dagger read as a
-    letter (DAGGER) put back; a speck's box taller than a line goes, and a
+    letter put back (clue_text.mend_opening); a speck's box taller than a line goes, and a
     bare number's box too wide for it is cut to its right end."""
     out = []
     tall = 1.5 * sorted(w[3] - w[1] for w in words)[len(words) // 2] if words else 0
@@ -786,12 +770,7 @@ def figures(words):
             # column's numbers start at ~864). The number ends where it does.
             w = (int(w[2] - NUMBER_WIDTH * len(w[4]) * (w[3] - w[1])), *w[1:])
         w = (*w[:4], clue_text.old_figures(w[4]))
-        # A reversed light's number run into "rev." and its linked light's
-        # ("20rev.,24.Charade:" for "20 rev., 24. Charade:").
-        w = (*w[:4], REV_GLUED.sub(lambda m: f"{m.group(1)} rev." + (f", {m.group(2)}." if m.group(2) else "") + " ",
-                                   w[4]).rstrip())
-        w = (*w[:4], DAGGER.sub(lambda m: (m.group(1) or "").rstrip() + (" " if m.group(1) else "") + "\u2020",
-                                GLUED.sub(lambda m: (m.group(1) or m.group(2)) + " ", w[4])))
+        w = (*w[:4], clue_text.mend_opening(w[4]))
         out.append(w)
     return out
 

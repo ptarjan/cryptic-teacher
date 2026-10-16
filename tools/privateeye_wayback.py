@@ -130,7 +130,7 @@ TAIL = re.compile(r"\bEntries to\b|Back to Private Eye|£\s?\d|\bThis site featu
                   r"|Arrived here unexpectedly|Send your entries", re.I)
 #: A link's tail naming its direction: "23/4dn" (No 112), "4/16ac/22dn".
 LINK_SIDE = r"\s*(?:across|down|ac|dn)\b\.?|[ad]\b\.?"
-ENUM = r"\((?:\d[\d,\-\s'.]*|see \d{1,2}[^)]{0,12})\)"
+ENUM = clue_text.ENUM_OR_SEE
 SEE_TAIL = r"See \d{1,2}\s*(?:ac|dn|across|down)?\.?"
 CLUE = re.compile(r"(?:^|(?<=\s))(\d{1,2}(?:\s*/\s*\d{1,2}(?:" + LINK_SIDE + r")?)*)\s+(.*?)\s*(" + ENUM + "|"
                   + SEE_TAIL + r")(?=\s+\d{1,2}\s*[/\s(A-Za-z\"'£]|\s*$)", re.I)

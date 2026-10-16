@@ -38,6 +38,7 @@ source added anything.
 """
 import argparse
 import bisect
+import clue_text
 import datetime
 import html
 import itertools
@@ -480,7 +481,7 @@ def close(a, b):
 
 
 def counts(enum):
-    return sum(int(n) for n in re.findall(r"\d+", enum or ""))
+    return clue_text.count_total(enum or "")
 
 
 def annotation_fits(annotation, text, answer):
