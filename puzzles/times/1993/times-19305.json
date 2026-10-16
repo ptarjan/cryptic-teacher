@@ -928,37 +928,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCIMITAR",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "incomplete",
-       "note": "incomplete means the word is missing its end"
+       "text": "Deploying",
+       "at": 0,
+       "note": "deploying arranges troops into new positions, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Deploying",
-         "note": "deploying means spreading out and rearranging, so the letters move"
+         "text": "incomplete",
+         "at": 43,
+         "note": "an incomplete word lacks its last letter, so the final letter of armistice is dropped"
         }
        ],
        "parts": [
         {
          "words": "armistice",
-         "gives": "ARMISTIC",
-         "note": "this word without its final letter"
+         "at": 33
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Using a particular weapon would leave a truce only partly in force.",
-     "definitionFit": "A scimitar is a short curved sword of the Middle East, so it is an example of a weapon."
+     "surface": "Using a sword in battle would undermine a truce that has just been agreed.",
+     "walkthrough": "The clue nearly reads as a whole: rearrange the weapon's letters and you get a truce word missing its end.",
+     "definitionFit": "A scimitar is a curved oriental sword, an example of a weapon."
     },
     "features": {
      "answerInScene": true,
@@ -1163,7 +1166,31 @@
     "text": "7's significance",
     "enumeration": "6"
    },
-   "solution": "MOMENT"
+   "solution": "MOMENT",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "7",
+      "at": 0,
+      "meaning": "first meaning: the answer to 7 down, SMALL TIME, taken literally, a brief span of time"
+     },
+     {
+      "text": "significance",
+      "at": 4,
+      "meaning": "second meaning: importance"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The cross-reference is read literally: 7 down's answer describes a little bit of time, which is one sense of this word; the other is importance.",
+     "definitionFit": "The word means both an instant (a small time) and weight or consequence, as in 'of no great moment'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "significance"
+    }
+   }
   },
   {
    "number": 22,
@@ -1427,45 +1454,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TREADMILL",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "endlessly means the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 3,
+         "note": "without its end, so the last letter of the word To is cut off"
+        }
+       ],
        "parts": [
         {
          "words": "To",
-         "gives": "T",
-         "note": "this word without its last letter"
+         "at": 0
         },
         {
-         "words": "study",
-         "gives": "READ",
-         "note": "to read a subject is to study it"
-        },
-        {
-         "words": "philosopher",
-         "gives": "MILL",
-         "note": "John Stuart Mill, the English philosopher"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "words": "study",
+       "at": 13,
+       "gives": "READ",
+       "note": "to read a subject is to study it, as at university"
+      },
+      {
+       "words": "philosopher",
+       "at": 19,
+       "gives": "MILL",
+       "note": "John Stuart Mill, the English utilitarian philosopher"
       }
      ]
     },
     "explanation": {
-     "surface": "Endless study of a thinker can feel like a grind.",
-     "walkthrough": "'To endlessly' looks like a split infinitive, but 'endlessly' only trims the word 'To'.",
-     "definitionFit": "A treadmill is a monotonous, wearisome routine, so it serves as a figurative synonym of drudgery."
+     "surface": "Studying a philosopher without end can feel like a dreary grind.",
+     "walkthrough": "'To endlessly' looks like a split infinitive but is the word To losing its last letter.",
+     "definitionFit": "A treadmill figuratively means tedious, repetitive work that goes nowhere, i.e. monotonous toil."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "endlessly"
     }
