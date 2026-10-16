@@ -285,7 +285,7 @@ def tidy(text):
     # A reversed light's "rev." read "rey." or glued to its number ("5rey.Last").
     text = re.sub(r"^(\d{1,2})\s?re[vy][.,]?\s*(?=[A-Z\"'\u2018])", r"\1 rev. ", text, flags=re.MULTILINE)
     # A cross-reference's number glued on, its 1 read as I or l ("SeeI3.").
-    text = re.sub(r"\bSee\s?[Il]?(?=\d)", lambda m: "See 1" if m.group(0)[-1] in "Il" else "See ", text)
+    text = clue_text.see_numeral(text)
     return WORDS.sub(r"(\1)", text)
 
 
@@ -294,7 +294,7 @@ ELLIPSIS_HEAD = re.compile(r"^(\d{1,2})(?:[ _~]*(?:\.\s?\.(?:\s?\.)?|…)[ ]*(?=
                            re.MULTILINE)
 
 #: A count inside a clue's text: the next clue ran on after it.
-RUN_ON = re.compile(r"\(\s*[\dSIl,.\- ]*\)\s*\S")
+RUN_ON = clue_text.COUNT_INSIDE
 
 
 def lay(parsed, guessed=None):

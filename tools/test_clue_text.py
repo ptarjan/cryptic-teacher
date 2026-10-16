@@ -32,4 +32,26 @@ assert not ct.LEADING_HEADING.match("Acrossword")
 import re
 for w in ("ACROSS", "DOwNn", "AAcross", "D0WN"):
     assert re.fullmatch(ct.DIRECTION, w, re.I), w
+
+# counts: torn, S for 5, I/l for 1 (file_archive_org_puzzles COUNT_END/TORN_COUNT/counts_mended,
+# archive_org_listener RUN_ON)
+for line, want in [("writer 17).", "writer (7)"), ("a clue (8", "a clue (8)"), ("a clue (5X", "a clue (5)"),
+                   ("a clue T10", "a clue (10)"), ("a clue I6l", "a clue (6)"), ("a clue (S", "a clue (S)"),
+                   ("a clue (7)", "a clue (7)"), ("a clue (3,7).", "a clue (3,7)."),
+                   ("a clue 12)", "a clue 12)"), ("a clue 12l", "a clue 12l"), ("no count", "no count")]:
+    assert ct.mend_count(line) == want, (line, ct.mend_count(line))
+assert ct.is_count_end("a clue (S).") and ct.is_count_end("a clue (l0)") and not ct.is_count_end("a clue (8")
+assert ct.COUNT_END.search("a clue (8") and ct.COUNT_END.search("a clue (3,7)") and not ct.COUNT_END.search("a clue")
+assert ct.COUNT_INSIDE.search("saint? (S) 27 Can a farm") and not ct.COUNT_INSIDE.search("a clue (5)")
+assert ct.COUNT_INSIDE.search("a (l0) b")
+
+# cross-references (archive_org_listener tidy, privateeye_wayback)
+for text, want in [("SeeI3.", "See 13."), ("See 13", "See 13"), ("See13", "See 13"), ("(seel3ac)", "(see 13ac)"),
+                   ("(see13)", "(see 13)"), ("(see l3 ac)", "(see 13 ac)"), ("see you", "see you"),
+                   ("foresee3", "foresee3")]:
+    assert ct.see_numeral(text) == want, (text, ct.see_numeral(text))
+
+# numerals
+assert ct.as_digits("I3") == "13" and ct.as_digits("lO") == "10" and ct.as_digits("4S") == "45"
+assert ct.as_digits("4S", s="8") == "48"
 print("ok")
