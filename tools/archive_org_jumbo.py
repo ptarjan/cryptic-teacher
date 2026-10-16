@@ -30,6 +30,7 @@ import re
 import sys
 from pathlib import Path
 import archive_org_listener as listener
+import clue_text
 import file_archive_org_puzzles as fa
 import file_trove_puzzles as ftp
 import reconstruct_grid as rg
@@ -134,7 +135,7 @@ def lay_on(laid, grid):
         text, enum, group = laid.get(lid, ("", None, None))
         if lid not in laid:
             blank[lid] = "no clue read for it"
-        elif text and enum and not ftp.SEE_RE.match(text) and ftp.count(enum) < len(cells):
+        elif text and enum and not clue_text.SEE_RE.match(text) and ftp.count(enum) < len(cells):
             blank[lid] = f"its count ({enum}) is short of the light's {len(cells)}"
             text = ""
         elif text and enum and ftp.count(enum) > len(cells):

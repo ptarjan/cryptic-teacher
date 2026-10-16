@@ -22,6 +22,7 @@ import json
 import re
 import sys
 import unicodedata
+import clue_text
 import downloads
 import media_manifest
 from groups import pointer_target
@@ -59,7 +60,6 @@ PLAUSIBLE = {
 BREAKS = re.compile(r"</?(?:br|p|div|tr|td|th|li|h[1-6]|table|tbody)\b[^>]*>",
                     re.I)
 TAG = re.compile(r"<[^>]+>")
-HEADING = re.compile(r"^(across|down)\b[\s:.]*$", re.I)
 #: A clue can open with a time or a decimal -- "5:37, perhaps, is when most
 #: are watching?" -- and that is clue text, not clue number 5. Nor is a longer
 #: number a clue number: "1066 Pevensey event" is not clue 10.
@@ -1088,7 +1088,7 @@ def read_entries(rendered):
     # every light after the typo with it. A post with no Down heading at all,
     # or no heading of either kind, starts its Down list where the numbers
     # restart at 1 or 2.
-    headed_down = any(HEADING.match(ln) and HEADING.match(ln).group(1).lower()
+    headed_down = any(clue_text.PLAIN_HEADING.match(ln) and clue_text.PLAIN_HEADING.match(ln).group(1).lower()
                       == "down" for ln in rendered)
     last, answered = 0, set()
     headed = {}
@@ -1198,8 +1198,8 @@ def read_entries(rendered):
             ln = stray.group(1) or stray.group(2)
         # DOWN and ACROSS are answers too: under a clue still waiting for its
         # answer, a heading-shaped line its enumeration counts is that answer.
-        if HEADING.match(ln) and not (lights and clue and enum_fits(ln.upper(), enum)):
-            heading = HEADING.match(ln).group(1).lower()
+        if clue_text.PLAIN_HEADING.match(ln) and not (lights and clue and enum_fits(ln.upper(), enum)):
+            heading = clue_text.PLAIN_HEADING.match(ln).group(1).lower()
             if direction is None and heading == "across":
                 # Whatever came before the Across list is the blogger's
                 # preamble -- "1ac END UP went straight in", then a glossary

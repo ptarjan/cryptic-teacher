@@ -176,3 +176,218 @@ def is_stray_count(line):
     """True when `line` is only the tail of a count whose "(" and digits were
     unread ("U0).", "5)."); the caller knows the count from elsewhere."""
     return bool(_STRAY_COUNT.fullmatch(line))
+
+
+# ---------------------------------------------------------------- numerals
+
+#: A "See N" clue, which carries no words of its own.
+SEE_RE = re.compile(r"^see\s+(\d+)", re.IGNORECASE)
+
+#: The letters a digit standing alone may be a reader's misread of.
+DIGIT_LETTERS = {"0": "o", "1": "ilt", "3": "a", "5": "s"}
+
+#: The letters a printed digit is misread as in a clue's number or count
+#: ("I I" for 11, "is" for 18, "ig" for 4), and the brackets about a count.
+NUMBER_LETTERS = {"0": "oqd", "1": "ilj", "2": "z", "3": "a", "4": "ag", "5": "s", "6": "bh",
+                  "7": "t", "8": "sb", "9": "gq"}
+COUNT_OPENS, COUNT_CLOSES = "ijlft", "ijl"
+
+#: Every letter a printed figure or a count's bracket is misread as.
+FIGURE_LETTERS = set("".join(NUMBER_LETTERS.values()) + COUNT_OPENS + COUNT_CLOSES)
+
+
+def number_digits(text):
+    """A clue-list number as OCR reads it, as an int, its leading 1 read as T,
+    I, i or l mended ("T8,339" is 18339)."""
+    return int(re.sub(r"\D", "", re.sub(r"^[TIil]", "1", text.strip())))
+
+
+# ------------------------------------------------------------------ counts
+
+#: A count: "(15)", "(5,4)", "(3-2)".
+COUNT_IN = r"\(\d{1,2}(?:\s*[,;\-.]\s*\d{1,2})*\)"
+#: What follows a clue number standing for a light, not a word.
+LIGHT_WORD = re.compile(r"(?:across|down|ac|dn|ack|dwn)\b", re.IGNORECASE)
+#: A clue number opening a capitalised clue, not a cross-reference ("1
+#: Down", "No. 1 Court", "e.g. 10 Downing Street").
+NEXT_CLUE = r"\s+\d{1,2}\.?\s+(?!(?:Down|Across|Ac|Dn)\b)[A-Z\"'][a-z]"
+
+#: A clue number opening a capitalised clue anywhere in a filed clue's
+#: text: another clue, or the page's text, read into this one ("Poles 22
+#: Affected by", "Saturday 26 The point is"). A cross-reference names its
+#: list ("9 Across", "17 Down") and a date its month ("5 November").
+NUMBERED_IN = re.compile(
+    r"(?:^|\s)\d{1,2}\.?\s+(?!(?:Down|Across|Ac|Dn|Up|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)"
+    r"[a-z]*\b)(?:[A-Z][a-z]|[\"'\u201c\u2018][A-Z])")
+
+#: The page's own words read into a clue: a pointer to another page's
+#: puzzle ("Concise crossword, page 22"), a notice of a solution ("The
+#: solution to the Collins Competition", "Prize Puzzle No 18,178"), or a
+#: count with text after it ("(41. Times Two", "(5 _ Concise", the
+#: previous clue's "(6;3). Covered" run in ahead), not an aside the clue
+#: closes ("(2 Hen. IV)").
+PAGE_TEXT = re.compile(r"\bcr\w{4,8}d\W{1,3}(?:page|p)\W{0,2}\d"
+                       r"|\bpuzzle\s+no\W{0,2}\s*\d"
+                       r"|\bsolution\s+(?:to|of)\s+(?:\S+\s+){0,4}(?:puzzle|competition)\b"
+                       r"|(?-i:\(\s*\d{1,2}(?:\s?[,.;:\-]\s?\d{1,2})*(?:\)[.,;:]?|\.)?\s+(?:_|[A-Z])(?![^()]*\)))",
+                       re.IGNORECASE)
+
+
+def cut_at_count(text, enum):
+    """A clue's text cut at its own count (`enum`) inside it: what follows
+    is the next clue's specks or start, or the page's text, run on. The
+    count's bracket may read as a full stop or be lost ("spotty (6. The
+    solution", "outs (5 _ Concise")."""
+    for m in re.finditer(r"\s*\((\d{1,2}(?:\s*[,;\-.]\s*\d{1,2})*)(?:\)|\.|(?=\s))\W*\S", text or ""):
+        if enum and re.sub(r"\D+", ",", m.group(1)) == re.sub(r"\D+", ",", enum):
+            return text[:m.start()].rstrip()
+    return text
+
+
+#: A cross-reference or a count with its unit, which may run digits into letters.
+COUNTED = re.compile(r"\d+(?:st|nd|rd|th|s|d|p|cc|pm|am|k|m|ac|dn|a|d|x\d+)", re.IGNORECASE)
+
+#: Figures standing after a clue's last word: its count with the brackets
+#: read as ones or lost, or any numbers, from a bracket at most on either
+#: side ("7", "151.", "i7j", "1 7V 3").
+STANDING_FIGURES = re.compile(r"(?<=[A-Za-z?!.'\u2019])(?:\s+[A-Za-z]?[^\sA-Za-z?!]*\d[^\sA-Za-z]*[A-Za-z]?[^\sA-Za-z]*)+\s*$")
+
+
+def count_read(figures, count):
+    """Whether `figures` read as the clue's count (digits, groups joined),
+    its brackets read as ones or lost ("151" for "(5)", "15" for "(5")."""
+    digits, want = re.sub(r"\D", "", figures), re.sub(r"\D", "", count or "")
+    return bool(want) and re.fullmatch(rf"1?{want}1?", digits) is not None
+
+
+#: Words a clue does not end on, so a number after one is a reference the
+#: clue makes ("See 15", "No 10", "Channel 5", "company in 18", "being 8").
+REFERENCE_WORDS = frozenset("""see no nos number channel in of by for from to with at on about under
+    before after around into over than as and or nor the a an is are was were be being been""".split())
+
+
+def count_left(text, cells, lights):
+    """`text` without the figures standing after its last word when they are
+    its count misread, filling its `cells` ("Song of joy 141" for "(4)",
+    "restaurant? 15-41" for "(5-4)": brackets read as ones); else None. A
+    figure with a unit ("8s", "100p") is the clue's, and so is a reference:
+    numbers that are all `lights` (the puzzle's clue numbers) after a word
+    of REFERENCE_WORDS ("See 15")."""
+    m = STANDING_FIGURES.search(text or "")
+    if not m or not cells or any(COUNTED.fullmatch(t) for t in m.group().split()):
+        return None
+    word = re.search(r"([A-Za-z]+)\.?$", text[:m.start()])
+    if (word and word.group(1).lower() in REFERENCE_WORDS
+            and all(int(n) in lights for n in re.findall(r"\d+", m.group()))):
+        return None
+    groups = re.findall(r"\d+", re.sub(r"^\D*1(?=\d)|1(?=\D*$)", "", m.group().strip()))
+    if not (count_read(m.group(), str(cells)) or len(groups) > 1 and sum(map(int, groups)) == cells):
+        return None
+    return text[:m.start()].rstrip(" ,;:")
+
+
+#: A closed count with specks after it ("(8)'", "(5).·", "(5). _").
+_COUNT_SPECKS = re.compile(r"(\(\s*[\dSIl,.\- ]{1,9}\))(?:[^\w(]|_){1,3}$")
+#: A count whose ")" was read as j or J, or whose "(" was lost, after a word.
+_COUNT_CLOSE_MISREAD = re.compile(r"(?<=[a-z])\s?\(?(\d{1,2}(?:[,.\-]\d{1,2})*)[)jJ]$")
+#: A count left open at its end, a speck where the bracket was: "(5r", "(5".
+_COUNT_OPEN_END = re.compile(r"\((\d{1,2})[^\d)\s]?$")
+
+
+def count_closed(line):
+    """`line` with a count ending it mended: its ")" read as j or J, or its "("
+    lost ("hair 8j" is "hair (8)"), and the specks after a whole count dropped
+    ("(8)'" is "(8)")."""
+    line = _COUNT_CLOSE_MISREAD.sub(r" (\1)", line)
+    return _COUNT_SPECKS.sub(r"\1", line)
+
+
+def count_closed_open(line):
+    """`line` whose count is left open at its very end ("(5r") with it closed
+    ("(5)"): for a list's last clue, where nothing follows to carry it on."""
+    return _COUNT_OPEN_END.sub(r"(\1)", line)
+
+
+# ------------------------------------------------------- clue-number reads
+
+#: The number opening a clue's line, maybe run into its first word:
+#: "25Recipient", "21.Measures"; group 1 holds the digits, read with I, l, |.
+OPENING_NUMBER = re.compile(r"^\W{0,2}([\dIl|]{1,2}?)(?:[.,:;\-]\s*|\s+|(?=[A-Z\"'\u2018\u201c]))(?=\S)")
+#: A number read with a speck ("151", "128") holding the next light's.
+OPENING_SPECK = re.compile(r"^\W{0,2}(\d{3})\W{0,2}\s*(?=[A-Z\"'\u2018\u201c])")
+#: ACROSS or DOWN set alone on its line, however set: a clue column's heading.
+HEADING_ALONE = re.compile(r"\W*(?:across|down)\W*$", re.IGNORECASE)
+
+
+#: A line that is a list heading in plain words, "Across" or "Down:" with a colon
+#: or stop after it: group 1 is the word.
+PLAIN_HEADING = re.compile(r"^(across|down)\b[\s:.]*$", re.I)
+
+
+def clue_number_opening(line):
+    """`line`, a clue's line after a count or a heading, with its clue number
+    put right: a speck before the number dropped, its 1 read as I, l, J, ! or
+    | back, a speck run into its first word taken out ("1'In the" is "1 In
+    the"), and a number read as specks alone dropped (the grid places that
+    clue)."""
+    # A speck or star before a clue's number: ". 1 Miss", ":1 An", "*1 Land".
+    line = re.sub(r"^[.,:;*'_\u2022\u00b7]{1,2}\s?(?=[\dIl]\d?\s)", "", line)
+    # A clue's number 1 read as I or l: "I7 More", "IA fruitful".
+    line = re.sub(r"^[Il](?=\d\b|\d\s|[A-Z]\s)", "1", line)
+    # A clue's number with a speck run into its first word: "1'In the",
+    # "1.Associate's", "l^Finished", ". 1. Maltreat", "-1--He said".
+    line = re.sub(r"^(?:[^\w\s(]|_){1,3}\s?(?=[Il]?\d{1,2}(?:[^\w\s(]|_){0,3}\s?[A-Z\"'])", "", line)
+    line = re.sub(r"^[Il]?(\d{1,2})(?:[^\w\s(]|_){1,3}\s?(?=[A-Z\"'])", r"\1 ", line)
+    line = re.sub(r"^[Il](\d)?(?:[^\w\s(]|_){1,3}\s?(?=[A-Z][a-z])", lambda m: f"1{m[1] or ''} ", line)
+    # A 1 read as I, J, ! or | run into a capitalised word: "IPheasant",
+    # "JTool", "!What makes".
+    line = re.sub(r"^[IlJ!|](?=[A-Z][a-z])", "1 ", line)
+    # A number read as specks alone: ") With", "\u2022 \u00a3\u25a0 So"; the grid
+    # places the clue.
+    return re.sub(r"^(?:[^\w\s(\"'][^\w\s(]{0,2}\s?){1,3}(?=[A-Z][a-z])", "", line)
+
+
+# ----------------------------------------------------------- torn brackets
+
+#: The brackets a clue pairs.
+PAIRS = {")": "(", "]": "["}
+
+
+def unpaired(text):
+    """The index of the first bracket `text` never closes or never opened
+    ("is (this", "for ) record", "[9)"), or None."""
+    stack = []
+    for i, c in enumerate(text or ""):
+        if c in "([":
+            stack.append((c, i))
+        elif c in PAIRS:
+            if not stack or stack[-1][0] != PAIRS[c]:
+                return i
+            stack.pop()
+    return stack[0][1] if stack else None
+
+
+def trim_torn_count(text):
+    """A clue's text without the torn count and specks round its brackets:
+      - a last token with no word in it and a bracket the clue never opened
+        ("0,6)", "S).", "writer 1 7).") or a digit among symbols ("&%S4),");
+      - a square-bracketed count ending it ("[5]", "[3,4)");
+      - a count torn open at its end ("hair-dresser (6", "(5.41.", "( 8 .")
+        and a speck read as a bracket before its first word (") The man")."""
+    while "(" not in text or ((k := unpaired(text)) is not None and text[k] in ")]"):
+        head, _, last = text.rpartition(" ")
+        if not head or re.search(r"[A-Za-z]{2}", last) or not (
+                ")" in last or (re.search(r"\d", last) and re.search(r"[&#@]", last))):
+            break
+        text = head.rstrip()
+        if re.fullmatch(r"[1l]", text.rpartition(" ")[2]) and re.search(r"\d", last):
+            text = text.rpartition(" ")[0].rstrip()  # "currency 1 7).": the count's "(" read as 1
+    text = re.sub(r"\s*\[\s*\d{1,2}(?:\s*[,\-]\s*\d{1,2})*\s*[\])][^\w(\[]*$", "", text)
+    k = unpaired(text)
+    if k is not None and text[k] in "([" and re.fullmatch(r"[(\[]\s*[\dSIl$]{0,2}(?:\s*[,.\-]\s*[\dSIl]{0,2})*[^\w(\[]*",
+                                                         text[k:]):
+        text = text[:k].rstrip()
+    k = unpaired(text)
+    if k is not None and not text[:k].strip():
+        text = text[k + 1:].lstrip()
+    return text

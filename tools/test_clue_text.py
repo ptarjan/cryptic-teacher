@@ -74,3 +74,48 @@ assert ct.strip_count("Fish (S)") == "Fish" and ct.strip_count("no count") == "n
 assert ct.is_stray_count("U0).") and ct.is_stray_count("5).") and not ct.is_stray_count("a word (5)")
 assert ct.heading_of("AcRoss") == "ACROSS" and ct.heading_of("dOwN") == "DOWN"
 assert ct.heading_of("acr0ss") == "ACROSS" and ct.heading_of("A C R O S S") == "ACROSS"
+import re
+
+# --- round 2: counts, numerals, torn brackets
+assert ct.SEE_RE.match("See 13") and ct.SEE_RE.match("see 5 down") and not ct.SEE_RE.match("Seeing 13")
+assert ct.number_digits("T8,339") == 18339 and ct.number_digits(" l8-340") == 18340 and ct.number_digits("18,340") == 18340
+assert ct.NUMBER_LETTERS["8"] == "sb" and ct.DIGIT_LETTERS["1"] == "ilt" and "j" in ct.FIGURE_LETTERS
+assert ct.COUNT_OPENS == "ijlft" and ct.COUNT_CLOSES == "ijl"
+assert ct.LIGHT_WORD.match("Across") and ct.LIGHT_WORD.match("dn ") and not ct.LIGHT_WORD.match("acrobat")
+assert ct.NUMBERED_IN.search("Poles 22 Affected by") and ct.NUMBERED_IN.search("Saturday 26 The point")
+assert not ct.NUMBERED_IN.search("see 9 Across") and not ct.NUMBERED_IN.search("on 5 November")
+assert re.search(ct.NEXT_CLUE, "floor? 2 Seek") and not re.search(ct.NEXT_CLUE, "in 1 Down it")
+assert re.fullmatch(ct.COUNT_IN, "(3-2)") and re.fullmatch(ct.COUNT_IN, "(5,4)") and not re.fullmatch(ct.COUNT_IN, "(S)")
+assert ct.PAGE_TEXT.search("Concise crossword, page 22") and ct.PAGE_TEXT.search("Prize Puzzle No 18,178")
+assert ct.PAGE_TEXT.search("spotty (6. The solution") and ct.PAGE_TEXT.search("outs (5 _ Concise")
+assert not ct.PAGE_TEXT.search("one (2 Hen. IV) here")
+assert ct.cut_at_count("spotty (6. The solution", "6") == "spotty"
+assert ct.cut_at_count("Entice Fortune? (5,4) - 18 &", "5,4") == "Entice Fortune?"
+assert ct.cut_at_count("Entice Fortune? (5,4)", "5,4") == "Entice Fortune? (5,4)"
+assert ct.cut_at_count("none (3) x", "") == "none (3) x" and ct.cut_at_count(None, "3") is None
+assert ct.count_read("151", "5") and ct.count_read("15", "5") and not ct.count_read("17", "5")
+assert ct.count_left("Song of joy 141", 4, {1}) == "Song of joy"
+assert ct.count_left("restaurant? 15-41", 9, {1}) == "restaurant?"
+assert ct.count_left("See 15", 5, {1, 15, 21}) is None and ct.count_left("it is 8s", 8, {1}) is None
+assert ct.count_left("Mercenary backing Channel 5", 5, {5, 10}) is None
+assert ct.count_left("Compare with a man who is under 51", 5, {5, 15}) == "Compare with a man who is under"
+assert ct.count_closed("some hair 8j") == "some hair (8)" and ct.count_closed("hair (8)'") == "hair (8)"
+assert ct.count_closed("hair (3,4)._") == "hair (3,4)" and ct.count_closed("no count here") == "no count here"
+assert ct.count_closed_open("a word (5r") == "a word (5)" and ct.count_closed_open("a word (5") == "a word (5)"
+assert ct.count_closed_open("a word (5)") == "a word (5)"
+assert ct.clue_number_opening("I7 More") == "17 More" and ct.clue_number_opening("IA fruitful") == "1A fruitful"
+assert ct.clue_number_opening(". 1 Miss") == "1 Miss" and ct.clue_number_opening("*1 Land") == "1 Land"
+assert ct.clue_number_opening("IPheasant") == "1 Pheasant" and ct.clue_number_opening("JTool") == "1 Tool"
+assert ct.clue_number_opening("!What makes") == "1 What makes" and ct.clue_number_opening("|What") == "1 What"
+assert ct.clue_number_opening("1'In the") == "1 In the" and ct.clue_number_opening("1.Associate's") == "1 Associate's"
+assert ct.clue_number_opening(") With") == "With" and ct.clue_number_opening("12 Fish") == "12 Fish"
+assert ct.HEADING_ALONE.match("ACROSS") and ct.HEADING_ALONE.match(" - Down.") and not ct.HEADING_ALONE.match("Across 1")
+assert ct.PLAIN_HEADING.match("Across:").group(1) == "Across" and not ct.PLAIN_HEADING.match("Across 1")
+assert ct.OPENING_NUMBER.match("25Recipient")[1] == "25" and ct.OPENING_NUMBER.match("21.Measures")[1] == "21"
+assert ct.OPENING_NUMBER.match("l7 Fish")[1] == "l7" and ct.OPENING_SPECK.match("151 Meta-")[1] == "151"
+assert ct.unpaired("is (this") == 3 and ct.unpaired("for ) record") == 4 and ct.unpaired("fine (ok)") is None
+assert ct.unpaired("[9)") == 2
+assert ct.trim_torn_count("hair-dresser (6") == "hair-dresser" and ct.trim_torn_count("a clue 0,6)") == "a clue"
+assert ct.trim_torn_count("currency 1 7).") == "currency" and ct.trim_torn_count("a clue [5]") == "a clue"
+assert ct.trim_torn_count(") The man") == "The man" and ct.trim_torn_count("a clue (5)") == "a clue (5)"
+assert ct.trim_torn_count("a clue ( 8 .") == "a clue" and ct.trim_torn_count("plain words") == "plain words"
