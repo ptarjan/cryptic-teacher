@@ -220,58 +220,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INSIGNIA",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "half",
-       "note": "half of a word keeps only part of it, so the second pair of letters is dropped"
+       "text": "retreating",
+       "at": 8,
+       "note": "something retreating goes backwards, so the whole string of pieces is read from right to left"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "retreating",
-         "note": "troops retreating go back the way they came, so the whole string runs backwards up the column"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Scots' own",
-           "gives": "AIN",
-           "note": "ain is the Scots word for own"
-          },
-          {
-           "words": "soldiers",
-           "gives": "GIS",
-           "note": "GIs are American soldiers"
-          },
-          {
-           "words": "nine",
-           "gives": "NI",
-           "note": "the first half of the word nine"
-          }
-         ]
+         "words": "Scots' own",
+         "at": 19,
+         "gives": "AIN",
+         "note": "ain is the Scots word for own"
+        },
+        {
+         "words": "soldiers",
+         "at": 30,
+         "gives": "GIS",
+         "note": "GIs are American soldiers"
+        },
+        {
+         "words": "half nine",
+         "at": 42,
+         "gives": "NI",
+         "note": "the first half of the word nine"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Scottish troops in retreat with their own soldiers flash something at half past eight.",
-     "walkthrough": "'Flashes' looks like a verb, but it is a noun: the badges sewn on a uniform sleeve. The reversal covers all three pieces together.",
-     "definitionFit": "Military flashes are the cloth badges on uniform showing unit or rank, which are insignia."
+     "surface": "Scottish soldiers in retreat show their own badges at half past nine.",
+     "walkthrough": "'Half nine' reads as a time of day but means half the letters of the word. Military flashes are cloth badges worn on a uniform.",
+     "definitionFit": "Flashes are badges of rank or unit sewn on uniforms, and such distinguishing badges are insignia."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Flashes"
+     "misdirectedWord": "half"
     }
    }
   },
@@ -1104,36 +1095,37 @@
     "definitions": [
      {
       "text": "£1",
-      "at": 37
+      "at": 37,
+      "note": "a nicker is British slang for one pound sterling"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NICKER",
+     "op": "middle",
      "indicators": [
       {
        "text": "Take away top and bottom",
-       "note": "removing the top and bottom of a down word drops its first and last letters"
+       "at": 0,
+       "note": "removing the top and the bottom of a down entry leaves only its middle letters"
       }
      ],
      "parts": [
       {
        "words": "drawers",
+       "at": 25,
        "gives": "KNICKERS",
-       "note": "drawers is an old word for underpants"
+       "note": "drawers are underpants, in British English knickers"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks whether a pair of underwear can be removed from top to bottom for a pound.",
-     "walkthrough": "Knickers are British women's underpants. 'Take away' sounds like stealing, but it strips the ends of the word.",
-     "definitionFit": "Nicker is British slang for a pound sterling, plural also nicker, much like quid."
+     "surface": "Someone is offered a pound to steal a set of underwear.",
+     "walkthrough": "'Bottom drawers' suggests a chest of drawers, and 'take away' suggests stealing; a nicker is London slang for a pound.",
+     "definitionFit": "In British slang a nicker is a pound note or coin, a single unit of the currency."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "drawers"
     }
    }
@@ -1150,7 +1142,32 @@
     "text": "He, one of the Loos (WW1) top brass, sir, stands before 10",
     "enumeration": "4"
    },
-   "solution": "JOHN"
+   "solution": "JOHN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "one of the Loos",
+      "at": 4,
+      "meaning": "first meaning: slang for a lavatory, or loo"
+     },
+     {
+      "text": "(WW1) top brass, sir, stands before 10",
+      "at": 20,
+      "meaning": "second meaning: Field Marshal Sir ... French, British commander at the Battle of Loos in 1915, whose first name comes before the answer to 10"
+     }
+    ],
+    "explanation": {
+     "surface": "A First World War general, knighted and senior, is introduced as a man from the Battle of Loos.",
+     "walkthrough": "Loos is a French town and the 1915 battle there, but read as plural 'loos' it means toilets. Sir John French commanded the British army at Loos; 10 is FRENCH.",
+     "definitionFit": "John is everyday slang for a toilet, and it was also the forename of the field marshal Sir John French."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Loos"
+    }
+   }
   },
   {
    "number": 23,
