@@ -902,6 +902,11 @@ tools/test_blog_grade.py                       a model’s solve is graded once,
 building and checking the site
 tools/build_seo_pages.py                       one static page per puzzle, for search engines
                                                and unfurls
+tools/test_build_shards.py                     holds the sharded page render to one stable
+                                               split in every process, an unmoved page-cache
+                                               fingerprint, and a tail that refuses a missing
+                                               shard, since a shard that drops or doubles a
+                                               page breaks the site silently
 tools/build_clue_joints.py                     measures clue_joints.json from published
                                                annotations; the nightly reruns it
 tools/build_fill_floors.py                     measures fill_floors.json from published
@@ -995,6 +1000,11 @@ tools/test_jigsaw.js                           does a jigsaw (tools/puzzle_tags.
                                                nothing says where an answer goes?
 tools/smoke_test.js                            the whole app driven headless against the real
                                                corpus
+tools/test_app_tab_pages.js                    holds the home-screen app's Puzzles and Stats
+                                               tabs to full pages with their own #picker/#stats
+                                               history entries, so the back gesture walks
+                                               between tabs, while a browser tab keeps the old
+                                               panels
 tools/fake_dom.js                              the fake DOM that boots the real app.js under
                                                Node, shared by every harness
 tools/reindex.js                               rebuilds the puzzle manifest before a node
