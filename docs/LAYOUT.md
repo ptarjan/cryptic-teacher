@@ -2812,5 +2812,7 @@ tools/test_corpus_queue_yield.py               corpus_queue.yield_collapse() on 
 tools/test_times_four_digit_title.py           the Times title and solution headings of the
                                                four-digit numbers (before No 10,000, May 1962)
                                                read as puzzles, five-digit ones as before
+tools/test_resume_not_redo.py                  pins the two fixes for burn waste found in the
+                                               10-16 audit of .prereset.log
 ```
 <!-- LAYOUT-END -->
