@@ -277,7 +277,8 @@ def write_view(path):
     in place of an object per entry: the run needs the clue, the answer and
     which lights are linked, and a pretty-printed object per entry was five
     times the reading for it. An annotation already on an entry the run
-    leaves alone is kept in `existingAnnotations`, for context."""
+    leaves alone is kept in `existingAnnotations` only when linked (same group)
+    to one being written; the others are left out of the view."""
     puzzle = read_puzzle_file(path)
     top = {**puzzle, "series": series.of(puzzle), "name": series.display_name(puzzle)}
     view = {k: top[k] for k in VIEW_KEYS if k in top and k != "entries"}
@@ -312,14 +313,22 @@ def write_view(path):
         grid = grid_rows(puzzle)
         if grid:
             view["grid"] = grid
+    # Only annotations of lights linked (same group) to one being written are
+    # context worth sending; the rest were ~90% of a tail run's puzzle read and
+    # nothing in the check or apply path reads them back from the view.
+    linked_ids = set()
+    for e in puzzle["entries"]:
+        eid = entry_id(e)
+        members = set(e.get("group") or ()) | ({eid, leaders[eid]} if eid in leaders else set())
+        if members and (members | {eid}) & set(only or ()):
+            linked_ids |= members | {eid}
     kept = {entry_id(e): in_notation(e["annotation"], e, puzzle) for e in puzzle["entries"]
-            if e.get("annotation") and only is not None and entry_id(e) not in only}
+            if e.get("annotation") and only is not None and entry_id(e) not in only
+            and entry_id(e) in linked_ids}
     kept.update({cid: in_notation(item["annotation"], groups.as_leader(puzzle, i, k)["entries"][i], puzzle)
                  for cid, i, k, item in groups.also_clues(puzzle["entries"])
-                 if item.get("annotation") and only is not None and cid not in only})
-    kept.update({cid: in_notation(item["annotation"], groups.as_entry(puzzle, cid), puzzle)
-                 for cid, item in groups.off_grid(puzzle)
-                 if item.get("annotation") and only is not None and cid not in only})
+                 if item.get("annotation") and only is not None and cid not in only
+                 and entry_id(puzzle["entries"][i]) in linked_ids})
     if kept:
         view["existingAnnotations"] = kept
     scan = scan_path(puzzle)
