@@ -479,7 +479,7 @@ def check_link_word_is_not_inside_a_block(tag, ann, clue, errors):
     links = [t for t in ann.get("linkWords") or [] if isinstance(t, str) and t]
     frags = [b.get("clueFragment") for b in ann.get("blocks") or [] if isinstance(b, dict)]
     frags = [f for f in frags if isinstance(f, str) and f]
-    hits = lambda t: [(m.start(), m.start() + len(t)) for m in re.finditer(re.escape(t), clue)]
+    hits = lambda t: [(i, i + len(t)) for i in _starts(t, clue)]
     link_hits, frag_hits = [hits(t) for t in links], [hits(f) for f in frags]
     if not links or not frags or not all(link_hits + frag_hits):
         return              # a fragment not in the clue is reported elsewhere
@@ -606,7 +606,7 @@ def check_indicator_does_not_straddle_a_definition(tag, ann, clue, errors):
         if t and at is not None and at >= 0:
             spans.append((at, at + len(t)))
     for ind in indicator_texts(ann):
-        hits = [m.start() for m in re.finditer(re.escape(ind), clue)] if ind else []
+        hits = list(_starts(ind, clue)) if ind else []
         if hits and all(any(i < e and i + len(ind) > s and not s <= i < i + len(ind) <= e
                                 for s, e in spans) for i in hits):
             errors.append(
@@ -1517,6 +1517,22 @@ def letters(s):
     return re.sub(r"[^A-Z]", "", s)
 
 
+def _starts(needle, text):
+    """Where `needle` (non-empty) occurs in `text`, not overlapping: re.finditer
+    over re.escape(needle) without compiling a pattern per needle, which at
+    ~1 per link word and fragment per clue overran the re cache and was
+    ~1/3 of the full check's time."""
+    i = text.find(needle)
+    while i >= 0:
+        yield i
+        i = text.find(needle, i + len(needle))
+
+
+@functools.lru_cache(maxsize=None)
+def _whole_word(word):
+    return re.compile(r"(?<!\w)" + re.escape(word) + r"(?!\w)")
+
+
 def words_of(s):
     """Lowercase word list, with markup, the (8) enumeration and punctuation dropped.
 
@@ -1730,7 +1746,7 @@ def check_features(tag, ann, clue, errors, warnings):
         elif len(word.split()) > 1:
             errors.append(f"{tag}: features.misdirectedWord {word!r} is more than "
                           f"one word — name the single word that misleads")
-        elif not re.search(r"(?<!\w)" + re.escape(plain(word.strip())) + r"(?!\w)", plain(clue or "")):
+        elif not _whole_word(plain(word.strip())).search(plain(clue or "")):
             errors.append(f"{tag}: features.misdirectedWord {word!r} does not occur "
                           f"in the clue {clue!r}")
 
