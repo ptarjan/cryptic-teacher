@@ -232,9 +232,24 @@ jobs:
       # One tar file, not a glob over puzzles/: see tools/cache_tar.sh.
       - name: Unpack the puzzle pages
         run: bash tools/cache_tar.sh unpack .page-cache.tar
-      - name: Generate the crawlable pages
+      # A cold render of the ~42k puzzle pages is ~175s of one step, which a 160s
+      # budget cannot hold and a bigger one would only hide. So the pages are
+      # rendered in 4 shards, one step each (`--shard i/n`: pages whose id
+      # hashes to i), and the step after them (`--assemble 4`) checks every
+      # page was rendered by exactly one shard, then writes the hub, listings
+      # and sitemaps from what the shards left in .page-shards/. Same files,
+      # byte for byte, as `python3 tools/build_seo_pages.py` makes alone.
+      - name: Generate the crawlable pages, shard 1 of 4
+        run: python3 tools/build_seo_pages.py --shard 0/4
+      - name: Generate the crawlable pages, shard 2 of 4
+        run: python3 tools/build_seo_pages.py --shard 1/4
+      - name: Generate the crawlable pages, shard 3 of 4
+        run: python3 tools/build_seo_pages.py --shard 2/4
+      - name: Generate the crawlable pages, shard 4 of 4
+        run: python3 tools/build_seo_pages.py --shard 3/4
+      - name: Assemble the crawlable pages
         id: pages
-        run: python3 tools/build_seo_pages.py
+        run: python3 tools/build_seo_pages.py --assemble 4
       # Every page that is not a puzzle gets a card of its own title and
       # description, so these are drawn from the pages and come after them.
       # Their URLs are stamped with a hash of what they are drawn from, not of

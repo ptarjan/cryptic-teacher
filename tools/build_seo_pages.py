@@ -2676,9 +2676,60 @@ def write_output(p, text, check):
     return True
 
 
-def outputs(check=False):
+#: Where `--shard i/n` leaves what the tail step needs from its pages.
+SHARD_DIR = ROOT / ".page-shards"
+
+
+def shard_of(pid, n):
+    """Which of n shards renders puzzle page `pid`: a stable hash of the id,
+    not Python's per-process hash(), so every step agrees on the split."""
+    return int.from_bytes(hashlib.sha256(pid.encode("utf-8")).digest()[:8], "big") % n
+
+
+def shard_file(i, n):
+    return SHARD_DIR / f"{i}-of-{n}.pickle"
+
+
+def read_shards(n, solved):
+    """{page id: job result} from the n shard files, or exit unless every page
+    of `solved` was rendered by exactly one shard (the one its id hashes to)."""
+    import pickle
+    got, errors = {}, []
+    for i in range(n):
+        try:
+            with open(shard_file(i, n), "rb") as f:
+                part = pickle.load(f)
+        except (OSError, pickle.PickleError, EOFError) as err:
+            errors.append(f"shard {i}/{n}: no usable {shard_file(i, n).name} ({err!r})")
+            continue
+        for pid, result in part.items():
+            if shard_of(pid, n) != i:
+                errors.append(f"shard {i}/{n} rendered {pid}, which belongs to shard {shard_of(pid, n)}")
+            elif pid in got:
+                errors.append(f"{pid} was rendered twice")
+            got[pid] = result
+    want = [stub["id"] for _, stub in solved]
+    missing = [pid for pid in want if pid not in got]
+    extra = sorted(got.keys() - set(want))
+    if len(set(want)) != len(want):
+        errors.append("the puzzle list repeats an id")
+    if missing:
+        errors.append(f"{len(missing)} page(s) were rendered by no shard, e.g. {missing[:5]}")
+    if extra:
+        errors.append(f"{len(extra)} rendered page(s) are not in the puzzle list, e.g. {extra[:5]}")
+    if errors:
+        raise SystemExit("the shards do not cover the pages exactly once:\n  " + "\n  ".join(errors))
+    return got
+
+
+def outputs(check=False, shard=None, shards=None):
     """Every generated file as (path, stale): the puzzle pages first, written
     across the cores by puzzle_page_job(), then the rest, one at a time.
+
+    shard=(i, n) renders only the pages whose id hashes to i of n, leaves
+    their results in SHARD_DIR and yields nothing; shards=n is the tail that
+    reads all n shards' results in place of rendering, then runs as the
+    unsharded build does. Byte for byte the same files either way.
 
     Pages are written as they are made and only their paths kept, because the
     site does not fit in memory: tens of thousands of puzzle pages.
@@ -2687,12 +2738,13 @@ def outputs(check=False):
     idx = index_json()
     meta = {p["id"]: p for p in idx["puzzles"]}
     # The whole-site copy checks go first, so a refusal writes nothing.
-    home = patch_homepage(idx)
+    home = patch_homepage(idx) if not shard else None
     # The manifest is hand-written and generates nothing, but it is copy about
     # the whole site — an installed icon's description — so it is held to the
     # same rule as the pages that are generated.
-    assert_names_all_papers("site.webmanifest",
-                            (ROOT / "site.webmanifest").read_text(encoding="utf-8"), idx)
+    if not shard:
+        assert_names_all_papers("site.webmanifest",
+                                (ROOT / "site.webmanifest").read_text(encoding="utf-8"), idx)
     started = time.monotonic()
     solved = puzzles()
     stubs = [stub for _, stub in solved]
@@ -2714,8 +2766,28 @@ def outputs(check=False):
     blog_fact_hashes()  # once, before the workers fork
     _PAGES = solved, series_neighbours(stubs), meta, check, fp, stored
     keep, reused, why = {}, 0, collections.Counter()
-    for path, stale, page_blocks, page_found, page_facts, kept in parallel.pmap(
-            puzzle_page_job, range(len(solved))):
+    if shard:
+        import pickle
+        i, n = shard
+        mine = [j for j, (_, stub) in enumerate(solved) if shard_of(stub["id"], n) == i]
+        SHARD_DIR.mkdir(exist_ok=True)
+        shard_file(i, n).unlink(missing_ok=True)
+        part = {solved[j][1]["id"]: r for j, r in zip(mine, parallel.pmap(puzzle_page_job, mine))}
+        _PAGES = None
+        tmp = shard_file(i, n).with_suffix(f".{os.getpid()}.tmp")
+        with open(tmp, "wb") as f:
+            pickle.dump(part, f, protocol=pickle.HIGHEST_PROTOCOL)
+        os.replace(tmp, shard_file(i, n))
+        print(f"page shard {i}/{n}: {len(part)} of {len(solved)} puzzle page(s); "
+              f"reused {sum(bool(r[5] and r[5][2]) for r in part.values())}", file=sys.stderr)
+        took(f"the puzzle pages of shard {i}/{n}", started)
+        return
+    if shards:
+        got = read_shards(shards, solved)
+        results = [got[stub["id"]] for _, stub in solved]
+    else:
+        results = parallel.pmap(puzzle_page_job, range(len(solved)))
+    for path, stale, page_blocks, page_found, page_facts, kept in results:
         if kept:
             reused += kept[2]
             keep[kept[0]] = kept[1]
@@ -2900,12 +2972,38 @@ def orphans(files):
     return dead, unexpected
 
 
+def shard_arg(argv):
+    """(i, n) from `--shard i/n`, or None."""
+    if "--shard" not in argv:
+        return None
+    try:
+        i, n = map(int, argv[argv.index("--shard") + 1].split("/"))
+    except (IndexError, ValueError):
+        raise SystemExit("--shard takes i/n, e.g. --shard 0/4")
+    if not 0 <= i < n:
+        raise SystemExit(f"--shard {i}/{n}: i must be from 0 to n-1")
+    return i, n
+
+
 def main():
     check = "--check" in sys.argv
+    shard = shard_arg(sys.argv)
+    shards = None
+    if "--assemble" in sys.argv:       # the tail: --assemble N, after N --shard runs
+        try:
+            shards = int(sys.argv[sys.argv.index("--assemble") + 1])
+        except (IndexError, ValueError):
+            raise SystemExit("--assemble takes the number of shards, e.g. --assemble 4")
+    if shard and (shards or check):
+        raise SystemExit("--shard renders pages: it takes neither --assemble nor --check")
+    if shard:
+        for _ in outputs(shard=shard):
+            pass
+        return 0
     # Each file is compared, written and dropped as it is made; only the paths
     # are kept, for orphans().
     files, stale = set(), []
-    for p, changed in outputs(check):
+    for p, changed in outputs(check, shards=shards):
         files.add(p)
         if changed:
             stale.append(p)
