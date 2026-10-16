@@ -458,45 +458,42 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "LOVEBITE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "obit",
+       "at": 9,
+       "gives": "LOVEBIT",
+       "note": "obit is read as O plus BIT, and the O, a round zero, is love as in tennis scoring, so the word stands for love followed by bit"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 15,
+         "note": "the end of a word is its final letter, so only the last letter of life is used"
+        }
+       ],
        "parts": [
         {
-         "words": "obit",
-         "gives": "LOVEBIT",
-         "note": "read as O then BIT, with the O being love, the tennis score of zero, written out in full"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "end of",
-           "note": "the end of a word is its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "life",
-           "note": "last letter of life"
-          }
-         ]
+         "words": "life",
+         "at": 22,
+         "note": "the word whose final letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper obituary for someone named Hickey, marking his death.",
-     "walkthrough": "Split obit into O and BIT, swap the O for the word it stands for in tennis, love, and add E.",
-     "definitionFit": "Hickey is the American word for a love bite, the bruise left by a passionate kiss."
+     "surface": "A newspaper's obituary for someone named Hickey, marking the end of a life.",
+     "walkthrough": "Hickey looks like a surname with an obituary; it is the American word for a love bite. The O of obit stands for love, as zero does in tennis.",
+     "definitionFit": "A hickey is the American slang term for the bruise left on skin by sucking or kissing, the same mark."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Hickey"
     }
    }
@@ -922,7 +919,42 @@
    "group": [
     "17-across",
     "24-across"
-   ]
+   ],
+   "annotation": {
+    "definitions": [
+     {
+      "text": "informant?",
+      "at": 24
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Some",
+       "at": 0,
+       "gives": "ALITTLE",
+       "note": "a little means some, a small amount"
+      },
+      {
+       "words": "time in prison",
+       "at": 5,
+       "gives": "BIRD",
+       "note": "bird is British slang for a prison sentence, from rhyming slang birdlime = time"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a stint behind bars might be the price of grassing on someone.",
+     "walkthrough": "Doing bird is British slang for serving a prison term. The question mark flags the definition as a playful one, from the saying 'a little bird told me'.",
+     "definitionFit": "The idiom 'a little bird told me' names an unnamed source of secret news, so the phrase fits an informant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "prison"
+    }
+   }
   },
   {
    "number": 18,
