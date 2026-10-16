@@ -173,7 +173,7 @@ def mend_link_tails(lines):
     as they were."""
     leads = {}
     for ln in lines:
-        m = re.match(r"^\W{0,2}(\d{1,2})\W{0,2}\s+(?!see\b)\S", ln, re.IGNORECASE)
+        m = re.match(r"^\W{0,2}(\d{1,2})\W{0,2}\s+(?!\(?\s*see\b)\S", ln, re.IGNORECASE)
         if m:
             leads[int(m[1])] = leads.get(int(m[1]), 0) + 1
     out = []

@@ -41,7 +41,7 @@ PAGES = DIR / "pages"
 LEAF_WORDS = re.compile(r"cyclops|crossword|across|down", re.IGNORECASE)
 #: A line that starts a clue ("7 TCP-like", "20/12 Paxman", "9ac. See") or
 #: ends one with its count ("(6,4)", "(4-4)").
-STARTS = re.compile(r"^\W{0,2}\d{1,2}(?:\s*[/+]\s*\d{1,2}(?:\s*(?:ac|dn)\.?)?)*\W{0,2}\s+[A-Za-z(\"'‘“]")
+STARTS = re.compile(r"^\W{0,2}\d{1,2}(?:\s*[/+]\s*\d{1,2}(?:\s*(?:ac|dn)\.?)?)*\W{0,2}\s+[A-Za-z(.…\"'‘“]")
 COUNTED = clue_text.PRINTED_COUNT
 #: Where the clue columns stop: the prize and entry notice, the previous
 #: puzzle's solution or winner, the next feature's heading.
