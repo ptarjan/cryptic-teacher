@@ -140,6 +140,25 @@ filed, and the expression cannot write one. The tree, in brief:
   `rebus` (family "Rebus"), its block is the picture with
   the reading as its note, and validate_annotations refuses a note that names
   the answer there as on any block.
+- **A composite anagram** (the fodder holds the answer plus letters the clue names:
+  "thirsted" is DERTH and ITS) is `{"op": "composite", "indicators": [...], "parts":
+  [fodder, taken out]}`, written `comp<Sadly>([thirsted], [it's])`, never an
+  `anagram` over a `deletion`, which reads the steps in the wrong order. `evaluate`
+  checks that the fodder's sorted letters are the answer's plus the taken-out
+  letters'; its indicator's `for` and the clue type are `composite_anagram` (family
+  Anagram), its blocks (the fodder, the letters taken out) add up to more than
+  the answer, which that type is let off, and there is no ring: the fodder is
+  longer than the answer.
+- **A reverse clue** (the clue words are what the answer's own wordplay would
+  produce: "What makes pets" for OUT + STEP, out anagramming STEP) is
+  `{"op": "reverse", "reading": "OUT + STEP", "parts": [{"words": "What makes pets"}]}`,
+  written `reverse([What makes pets], "OUT + STEP")`. The clue words are the
+  wordplay-like stretch and the leaf's note says how the pieces make them; the
+  reading is the answer in two or more pieces, capitals joined by spaces or `+`,
+  and `evaluate` checks that they spell the answer; the reading is the walkthrough's to
+  say, so the block carries only the leaf's note. It gives no letters of its own
+  and is the whole wordplay, but the definition stays a `definitions` entry. Type
+  `reverse_clue`, family "Reverse clue".
 - **A double definition** has two `definitions` and no `wordplay` (or a
   partless palindrome when the answer reads both ways). A definition's
   `meaning` is the note on its block, on the blocks rung. Its `note` belongs to

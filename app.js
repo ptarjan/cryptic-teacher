@@ -3495,6 +3495,7 @@
   // content — naming the term would only be the label.
   const INDICATOR_OPS = [
     ["anagram", "rearrange the letters it points at"],
+    ["composite_anagram", "rearrange the letters it points at, once the extra letters the clue names are taken out of them"],
     ["container", "put one piece inside another"],
     ["reversal", "write a piece backwards"],
     ["deletion", "drop letters from a word"],
@@ -3566,7 +3567,11 @@
     and_lit: { learn: "and-lit", means: "the whole clue is both the wordplay and the definition",
       also: ["an exclamation mark at the end"] },
     rebus: { learn: "rebus", means: "describe the picture the letters make, and the description is the answer",
-      also: ["a clue with no lower-case letters", "a question mark at the end"] }
+      also: ["a clue with no lower-case letters", "a question mark at the end"] },
+    composite_anagram: { learn: "composite-anagram", means: "the letters beside it are the answer plus some extra letters, shuffled together: take the extras out, then rearrange what is left",
+      also: ["broken", "wild", "mixed", "novel", "drunk", "poorly", "off", "about"] },
+    reverse_clue: { learn: "reverse-clue", means: "the clue is what the answer's wordplay would produce, so run the wordplay forwards from the answer's pieces",
+      also: ["a question mark at the end", "a clue that reads like an instruction but names the result"] }
   };
   // The type rung names only the family, so its rule is the family's: how to
   // spot one next time, without saying which member this clue is. `learn` is
@@ -3580,6 +3585,9 @@
       also: [] },
     rebus: { learn: "rebus",
       spot: "suspect one when the clue has no ordinary words: only capitals, figures and symbols",
+      also: [] },
+    reverse: { learn: "reverse-clue",
+      spot: "suspect one when the clue reads like a piece of wordplay yet the definition leaves nothing else to build: try splitting the answer so its halves, put through the operation the clue describes, give the clue's words",
       also: [] },
     anagram: { learn: "anagram",
       spot: "look for a word suggesting mess or change beside a run of letters to shuffle",

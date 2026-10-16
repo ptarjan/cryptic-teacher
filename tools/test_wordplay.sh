@@ -58,6 +58,11 @@ OK = [
     ("PARODIED", "ana<clumsily>(del<after the start>([Harpo], H)) + [did not get laughs]DIED"),
     ("FLUTTERBY", "spoon<Spooner's>([butter]BUTTER, [fly]FLY)"),
     ("CROW", "spoon<Spooner's>([bed]BED, [knob]KNOB, CROW)"),
+    # A composite anagram: the fodder is the answer plus the letters named.
+    ("DERTH", "comp<Sadly>([thirsted], [it's])"),
+    ("BISK", "comp<possibly>([This is baked], [tea dish]TEADISH)"),
+    # A reverse clue: the answer's pieces build the clue's words.
+    ("OUTSTEP", 'reverse([What makes pets], "OUT + STEP")'),
     ("NIP IN", "pal<works either way>([Ulster]NI + [fix]PIN)"),
     ("ABBA", "pal<Reversible>()"),
     ("SIEVE", "[special]S + [one]I + pal<reflective>([woman]EVE)"),
@@ -97,6 +102,11 @@ BAD = [
     ("letters short", "DEFAMATORY", "ana([folio]F + [made]) + [a] + [conservative]TOR", "9 letters against 10"),
     ("anagram short of a letter", "UNSOILED", "ana<crazy>([delusio])", "lacks N"),
     ("an anagram that changes nothing", "OVAL", "ana<broken>([oval])", "no anagram"),
+    ("a composite anagram whose fodder lacks a letter", "DEATH", "comp<Sadly>([thirsted], [it's])", "lacks A"),
+    ("a composite anagram with nothing taken out", "DERTH", "comp<Sadly>([dearth], [it's])", "to spare"),
+    ("a reverse clue read as one piece", "OUTSTEP", 'reverse([What makes pets], "OUTSTEP")', "two or more"),
+    ("a reverse clue whose pieces spell something else", "OUTSTEP", 'reverse([What makes pets], "OUT + PETS")', "not the answer"),
+    ("a reverse clue inside a charade", "OUTSTEP", 'reverse([What makes], "OUT") + [pets]STEP', "whole wordplay"),
     ("a reversal of a palindrome", "LEVEL", "rev<back>([level])", "reads the same backwards"),
     ("not hidden", "LEVER", "hid<in>([trap ever])", "needs LEVER"),
     ("hidden letters not in the words", "LEVER", "hid<in>([trap ever]LEVER)", "gives nothing"),
