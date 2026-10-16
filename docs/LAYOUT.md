@@ -27,7 +27,7 @@ does not match the table.
 Everything a fetcher downloads lives outside the repo under one root on a
 data disk (set in `tools/downloads.py` or by `CT_DOWNLOADS`; `python3
 tools/downloads.py` prints it), one folder per source. `tools/downloads.py` is
-the only place a folder is named, and `tools/test_downloads.sh` fails on a
+the only place a folder is named, and `tools/test_downloads.py` fails on a
 download path spelled anywhere else.
 
 | Folder | What is in it | Filled by |
