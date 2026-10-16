@@ -53,6 +53,7 @@ LATTICE_PAIRS = 30
 
 
 SOLID = 0.9  # share of the best score a cell needs to be a block unmirrored
+BARE = 0.02  # share of the best score a cell may hold and still be a light against a solid mirror (a pale stippled block holds more)
 
 
 def otsu(gray):
@@ -333,11 +334,11 @@ def read_grid(path):
     # is a block whatever its mirror reads: a grid printed off 180-degree
     # symmetry (No 121's row-10 bar is five blocks, its mirror four) would
     # otherwise average to half a block and read white.
-    # Likewise a cell clearly empty on its own, whose mirror is solid, is a
+    # Likewise a cell bare on its own (no ink but paper), whose mirror is solid, is a
     # light.
     top = score.max()
-    pair = np.where(score >= SOLID * top, score,
-                    np.where((score <= (1 - SOLID) * top) & ~hidden & (mirror >= SOLID * top), score, pair))
+    pair = np.where((score >= SOLID * top) & ~hidden, score,
+                    np.where((score <= BARE * top) & ~hidden & ~hidden[::-1, ::-1] & (mirror >= SOLID * top), score, pair))
     vals = np.unique(pair)
     if len(vals) < 2:
         return None, "every cell reads alike"
