@@ -439,27 +439,48 @@
      "indicators": [
       {
        "text": "have a filling",
-       "note": "something with a filling holds another piece inside it, like a sandwich"
+       "at": 25,
+       "note": "the letters picked from the dessert are given a filling, so the other piece goes inside them"
       }
      ],
      "parts": [
       {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "PLI",
-       "indicators": [
-        {
-         "text": "Even slices",
-         "note": "even-numbered portions mean the second, fourth and so on of each word are kept"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "apple pie",
-         "gives": "PLI",
-         "select": "alternate",
-         "note": "the even letters of each word: P and L of 'apple', I of 'pie'"
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "Even",
+           "at": 0,
+           "note": "even signals the even-numbered letters, here the second and fourth of apple"
+          }
+         ],
+         "parts": [
+          {
+           "words": "apple",
+           "at": 15,
+           "note": "the even slices of apple are its second and fourth letters"
+          }
+         ]
+        },
+        {
+         "op": "nth",
+         "n": 2,
+         "indicators": [
+          {
+           "text": "slices of",
+           "at": 5,
+           "note": "the same even slicing carried on to pie, whose only even-numbered letter is its second"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pie",
+           "at": 21,
+           "note": "the even slice of pie is its second letter"
+          }
+         ]
         }
        ]
       },
@@ -468,27 +489,29 @@
        "indicators": [
         {
          "text": "strange",
-         "note": "strange means odd or out of the ordinary, so these letters come out in an unusual order"
+         "at": 55,
+         "note": "strange signals that the letters of a touch are rearranged"
         }
        ],
        "parts": [
         {
          "words": "a touch",
-         "note": "taken as written"
+         "at": 47,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A slice of apple pie has a slightly odd-tasting filling.",
-     "walkthrough": "The preamble's 'of a kind' is scents: this answer has no definition in the clue. 'A touch strange' looks like a description of the taste but is the scrambled filling.",
-     "definitionFit": "Patchouli is a heavy aromatic oil from an Asian shrub, used in perfumes, so it belongs with the other scents."
+     "surface": "A cook samples a slice of apple pie and finds its filling a little odd.",
+     "walkthrough": "Per the preamble, this answer has no definition: it is one of the puzzle's several scents, a fragrant oil from an Asian shrub.",
+     "definitionFit": "Undefined by design: patchouli is a heavy, musky perfume oil, one of the theme's fragrances."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "slices"
+     "misdirectedWord": "Even"
     }
    }
   },
@@ -514,46 +537,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "PHOTO",
      "indicators": [
       {
        "text": "design",
-       "note": "a design is a new arrangement, so the letters are laid out afresh"
+       "at": 10,
+       "note": "a design is an arrangement, so these letters are laid out anew"
       }
      ],
      "parts": [
       {
+       "words": "Top",
+       "at": 0,
+       "note": "taken as written, as anagram fodder"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "PHOTO",
        "indicators": [
         {
          "text": "no",
-         "note": "'no' means without, so these letters are dropped"
+         "at": 17,
+         "note": "no use means the letters of use are dropped from the word before it"
         }
        ],
        "parts": [
         {
-         "words": "Top",
-         "note": "taken as written"
-        },
-        {
          "words": "house",
-         "note": "taken as written"
+         "at": 4,
+         "note": "the word whose letters lose those of use"
         },
         {
          "words": "use",
-         "note": "taken as written, to be taken away"
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A top architect's house design proves useless when it appears in a picture.",
-     "walkthrough": "Strip USE from the end of 'house' to leave HO, then rearrange it with TOP.",
-     "definitionFit": "Photo is the everyday short form of photograph, a picture taken with a camera."
+     "surface": "An architect's showpiece penthouse plan proves useless when shown in a picture.",
+     "walkthrough": "'Top house' suggests a penthouse, but the words work separately: house minus use leaves HO, mixed with Top.",
+     "definitionFit": "A photo is a photograph, a picture taken with a camera."
     },
     "features": {
      "answerInScene": true,
@@ -950,54 +973,25 @@
    "annotation": {
     "definedByPreamble": true,
     "wordplay": {
-     "op": "charade",
+     "op": "reverse",
+     "reading": "Y LANG Y LANG",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Yankees",
-         "gives": "Y",
-         "note": "Yankee is the radio-alphabet code word for the letter Y; the plural gives two of them"
-        },
-        {
-         "words": "a great pianist",
-         "gives": "LANG",
-         "note": "Lang Lang is a celebrated Chinese concert pianist"
-        },
-        {
-         "words": "Yankees",
-         "gives": "Y",
-         "note": "the second of the two code-word letters"
-        },
-        {
-         "words": "a great pianist",
-         "gives": "LANG",
-         "note": "the second half of the pianist's name"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "Would have been",
-       "note": "surface padding framing the joke: without the Ys the answer would be the pianist"
-      },
-      {
-       "unchecked": true,
-       "words": "if it weren't for the",
-       "note": "surface padding: the Ys are what stop it being the pianist's name"
+       "words": "Would have been a great pianist, if it weren't for the Yankees",
+       "at": 0,
+       "note": "take away the two Ys (Yankees, Y being Yankee in the radio alphabet) and what is left is Lang Lang, the celebrated Chinese concert pianist"
       }
      ]
     },
     "explanation": {
-     "surface": "An American sports fan laments that the Yankees spoiled a fine musical career.",
-     "walkthrough": "The clue works backwards: remove the two Ys from the answer and you are left with the pianist Lang Lang. The New York Yankees suggest baseball but they are the letter Y.",
-     "definitionFit": "Ylang-ylang is a fragrant oil from the flowers of a tropical Asian tree, widely used in perfumery."
+     "surface": "A wistful remark about a musician whose career was ruined by American baseball fans.",
+     "walkthrough": "Per the preamble, this answer has no definition: it is one of the theme's scents, an oil from a tropical tree's flowers. Lang Lang is a famous Chinese pianist.",
+     "definitionFit": "Undefined by design: ylang-ylang is a sweet floral perfume oil, one of the theme's fragrances."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "Yankees"
     }
    }
@@ -1507,7 +1501,44 @@
     "text": "Stood up to recite lines",
     "enumeration": "4"
    },
-   "solution": "ROSE"
+   "solution": "ROSE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Stood up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "ROSE",
+     "indicators": [
+      {
+       "text": "to recite",
+       "at": 9,
+       "note": "reciting is saying out loud, so the word for lines is heard rather than seen"
+      }
+     ],
+     "parts": [
+      {
+       "words": "lines",
+       "at": 19,
+       "gives": "ROWS",
+       "note": "lines means rows"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor got to their feet to deliver their lines.",
+     "walkthrough": "The answer is also one of the theme's scents, but here it is defined as a verb.",
+     "definitionFit": "Rose is the past tense of rise, so it means got to one's feet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 26,
