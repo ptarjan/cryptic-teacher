@@ -7794,10 +7794,11 @@
     : !$("stats-panel").classList.contains("hidden") ? "#stats" : "";
   let applyingRoute = false;
   function syncRoute() {
-    if (applyingRoute || !isAppMode() || typeof history === "undefined" || !history.pushState) return;
+    const h = window.history;
+    if (applyingRoute || !isAppMode() || !h || !h.pushState) return;
     const want = tabHash();
     if (want === (location.hash || "")) return;
-    try { history.pushState(null, "", location.pathname + location.search + want); } catch (e) { /* no history */ }
+    try { h.pushState(null, "", location.pathname + location.search + want); } catch (e) { /* no history */ }
   }
   function applyRoute() {
     if (!isAppMode()) return;
