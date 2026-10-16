@@ -27,7 +27,7 @@ does not match the table.
 Everything a fetcher downloads lives outside the repo under one root on a
 data disk (set in `tools/downloads.py` or by `CT_DOWNLOADS`; `python3
 tools/downloads.py` prints it), one folder per source. `tools/downloads.py` is
-the only place a folder is named, and `tools/test_downloads.sh` fails on a
+the only place a folder is named, and `tools/test_downloads.py` fails on a
 download path spelled anywhere else.
 
 | Folder | What is in it | Filled by |
@@ -160,7 +160,7 @@ tools/fetch_times_feed.py                      the Times Quick Cryptic from the 
                                                player feed, grids and answers as printed, back
                                                to No 1; fills the numbers the blog wrote no
                                                clues for
-tools/test_fetch_times_feed.sh                 proves the Times feed's data.json becomes a
+tools/test_fetch_times_feed.py                 proves the Times feed's data.json becomes a
                                                puzzle with its lights placed and enumerations
                                                kept, and that a light with no clue is refused
 tools/fetch_privateeye.py                      Private Eye’s Cyclops — the grid from the paper,
@@ -189,7 +189,7 @@ tools/trove_grid.py                            reads a crossword's black squares
                                                grid image: walled white cells, a lattice fitted
                                                to them through any skew, solid ink for blocks;
                                                refuses rather than guesses
-tools/test_fetch_trove.sh                      fetch_trove.py with a stubbed opener: a timeout
+tools/test_fetch_trove.py                      fetch_trove.py with a stubbed opener: a timeout
                                                and a 500 retried to success, a persistent 500
                                                named by URL, a 4xx not retried, no retry past
                                                an article's ITEM_SECONDS, a run of failures
@@ -219,17 +219,17 @@ tools/fixtures/archive-org-grids/              archive.org page crops whose grid
                                                its title or has text touching its foot
                                                (cases.json: scan, title box, and the FT one's
                                                words), the grids
-                                               test_file_archive_org_puzzles.sh locates
+                                               test_file_archive_org_puzzles.py locates
 tools/fixtures/archive-org-clues/              real clue-column readings of archive.org Times
                                                editions with each one's scanned grid
                                                (cases.json; 16,960 also RapidOCR's words), the
                                                blank, cut-off and misnumbered clues
-                                               test_file_archive_org_puzzles.sh files whole
+                                               test_file_archive_org_puzzles.py files whole
 tools/fixtures/archive-org-titles/             five archive.org page crops whose title
                                                archive.org's own text lacks (cases.json: scan,
                                                paper, date, and our readers' words in each
                                                title band), the titles
-                                               test_file_archive_org_puzzles.sh reads
+                                               test_file_archive_org_puzzles.py reads
 tools/fixtures/trove-repair/                   the 14 July 1967 cryptic, whose OCR glued 6-down
                                                onto 5-down, with our three readers' text of its
                                                clue columns: the repair and vote
@@ -249,7 +249,7 @@ tools/repair_fetched.py                        applies the fetchers’ current r
                                                cross-reference in the wordplay, a linked answer
                                                the paper never grouped — and reports the dates
                                                their own neighbours contradict
-tools/test_repair_fetched.sh                   builds a puzzle file with each of those defects
+tools/test_repair_fetched.py                   builds a puzzle file with each of those defects
                                                and proves the repair fixes it, leaves a clean
                                                file and a real Cyclops per-light group
                                                byte-identical, and is clean on the second run
@@ -313,11 +313,11 @@ tools/test_dashes.py                           every spelling of a dash between 
                                                — " and of an ellipsis "…"; hyphens, blanks and
                                                leaders stay; offsets move with the text; DASH
                                                refuses the rest
-tools/test_puzzle_integrity.sh                 proves the two LENGTH exception tables match by
+tools/test_puzzle_integrity.py                 proves the two LENGTH exception tables match by
                                                nothing looser than the exact sentence they’re
                                                keyed on, and that baselining one finding never
                                                silences the rest of its puzzle
-tools/test_puzzle_invariants.sh                proves every puzzle write refuses what the
+tools/test_puzzle_invariants.py                proves every puzzle write refuses what the
                                                corpus sweep would report
 tools/fetch_ia_book.py                         borrows a lending-restricted archive.org book,
                                                saves its OCR text outside the repo, returns the
@@ -377,12 +377,12 @@ tools/test_clues_only.py                       strips a solved book puzzle to it
                                                ones and that no half state (a number, position
                                                or answer on a clues-only light, an id in both
                                                states) can be written
-tools/test_acquire_book.sh                     gates that pipeline on ten control puzzles from
+tools/test_acquire_book.py                     gates that pipeline on ten control puzzles from
                                                Penguin volume 5, failing if a single recovered
                                                grid or a single search node count moves; and is
                                                a reprint of a held puzzle kept as its reading,
                                                never filed?
-tools/test_ia_borrow.sh                        holds the one archive.org refusal string that
+tools/test_ia_borrow.py                        holds the one archive.org refusal string that
                                                means two different things apart, so a book
                                                whose copies are all out is never read as one
                                                that needs no loan, and keeps the account-wide
@@ -396,7 +396,7 @@ tools/test_penguin_layout.py                   gates the dotted-number print lay
                                                running head, "13." numbers, "1 & 4 Ac." links —
                                                whose loss costs a whole book to jigsaw mode and
                                                0% of its clue numbers
-tools/test_linked_enumerations.sh              proves a per-light solve record is converted
+tools/test_linked_enumerations.py              proves a per-light solve record is converted
                                                rather than filed, that a record already in
                                                leader form is never re-derived, and that every
                                                linked answer in the book series on disk still
@@ -404,29 +404,29 @@ tools/test_linked_enumerations.sh              proves a per-light solve record i
 tools/test_group_order.py                      proves a linked answer's group is written in the
                                                order its words read, and that the integrity
                                                sweep reports one that is not
-tools/test_blank_clue_carry.sh                 proves a re-fetch cannot empty a puzzle whose
+tools/test_blank_clue_carry.py                 proves a re-fetch cannot empty a puzzle whose
                                                clues were recovered by hand off the Guardian’s
                                                old site, that the paper still wins wherever it
                                                prints words, and that the sixteen recovered
                                                prize puzzles still carry every clue
-tools/test_alteration.sh                       holds an entry's `alteration` (the clue's own
+tools/test_alteration.py                       holds an entry's `alteration` (the clue's own
                                                word and the steps that turn it into what the
                                                grid holds) to its letters at the write gate,
                                                every op one mapping accepted and one refused,
                                                and an annotation's wordplay to building that
                                                word
-tools/test_unclued_printed.sh                  holds a puzzle's unclued lights and printed
+tools/test_unclued_printed.py                  holds a puzzle's unclued lights and printed
                                                letters to its grid at the write gate: on the
                                                board, one letter per square, no square twice,
                                                and the same letter as every crossing entry
-tools/test_empty_keys.sh                       holds the rule that a puzzle file never writes a
+tools/test_empty_keys.py                       holds the rule that a puzzle file never writes a
                                                key that says nothing: the fetchers omit an
                                                empty clue.separators and an un-written
                                                annotation, a file without them round-trips, and
                                                every reader — app.js, the difficulty scorer,
                                                the crawlable pages, the social cards — takes
                                                the absence as the empty value it replaced
-tools/test_source_answer_wrong.sh              proves the table of answers the PAPER got wrong
+tools/test_source_answer_wrong.py              proves the table of answers the PAPER got wrong
                                                still corrects the letters it names, still
                                                leaves every other light alone, and names itself
                                                stale rather than overriding a key the paper has
@@ -539,7 +539,7 @@ tools/corroborate.py                           checks every puzzle written again
                                                print sequence, independent votes and a measured
                                                rank, and ledgering every call; never refuses a
                                                write
-tools/test_corroborate.sh                      decides one case by each of corroboration's
+tools/test_corroborate.py                      decides one case by each of corroboration's
                                                rules, and proves a fill never overwrites, a
                                                disagreement never raises, and every write goes
                                                through it
@@ -557,7 +557,7 @@ tools/parse_bigdave44.py                       reads the bigdave44.com cache int
                                                clue, answer and light-length record per puzzle,
                                                with its series, setter and print date, through
                                                the Times parser's clue-list reader
-tools/test_parse_bigdave44.sh                  holds that parser to hand-built posts: each
+tools/test_parse_bigdave44.py                  holds that parser to hand-built posts: each
                                                era's answer markup, the setter never the
                                                blogger, and a print date only from what the
                                                posts or the cadence prove
@@ -568,13 +568,13 @@ tools/times_grids.py                           runs the numbering backwards on e
                                                light list's digest, so a parser fix re-tries
                                                the posts it changes; --budget-seconds stops
                                                starting posts when the nightly's time is spent
-tools/test_times_grids.sh                      holds that rebuilder to a hand-built grid,
+tools/test_times_grids.py                      holds that rebuilder to a hand-built grid,
                                                because a wrong grid looks exactly like a right
                                                one
 tools/barred_grid.py                           rebuilds a barred grid's bars (the Mephisto)
                                                from the blog's numbered answers, where every
                                                cell holds a letter
-tools/test_barred_grid.sh                      holds that rebuilder to a hand-built barred
+tools/test_barred_grid.py                      holds that rebuilder to a hand-built barred
                                                grid: the bars that come back are the bars it
                                                was numbered from
 tools/fetch_times_listing.py                   caches the Wayback Machine's copies of the
@@ -591,10 +591,10 @@ tools/file_times_puzzles.py                    files the Times grids through it,
 tools/file_telegraph_puzzles.py                files the Telegraph grids through it, with the
                                                setter and print date the parser read; the
                                                nightly top-up
-tools/test_file_times_puzzles.sh               holds that filer to a hand-built grid: what it
+tools/test_file_times_puzzles.py               holds that filer to a hand-built grid: what it
                                                refuses, what it dates, and that a second run
                                                touches nothing
-tools/test_times_dates.sh                      holds every filed Times, Jumbo and Sunday Times
+tools/test_times_dates.py                      holds every filed Times, Jumbo and Sunday Times
                                                date to its paper's weekday and number order, so
                                                a prize puzzle dated by its blog post fails
 tools/ft_puzzles.py                            files the Financial Times cryptic from
@@ -607,7 +607,7 @@ tools/indy_puzzles.py                          the same pipeline on fifteensquar
                                                Independent category: files the daily and Sunday
                                                puzzles older than the paper's feed, routed by
                                                title and number, never a number already on disk
-tools/test_indy_puzzles.sh                     holds its title routing to both papers' post
+tools/test_indy_puzzles.py                     holds its title routing to both papers' post
                                                titles and its Sunday dates to their order
 tools/ft_pdf_puzzles.py                        files the FT cryptic of 2007-2012 from the FT's
                                                own printable PDFs, found through Wayback's
@@ -630,7 +630,7 @@ tools/andlit_azed.py                           files the Azed from the Guardian'
                                                fifteensquared's answers where a post has them;
                                                the azed unit fetches until andlit's index is
                                                drained
-tools/test_andlit_azed.sh                      holds that reader to hand-drawn lattices,
+tools/test_andlit_azed.py                      holds that reader to hand-drawn lattices,
                                                stroked and filled, beside a smaller solution
                                                grid, a bordered HTML table, cell numbers run
                                                together, and a clue list with notes and form
@@ -657,16 +657,16 @@ tools/listener_puzzles.py                      files the Listener crossword from
                                                from the solution notes' answers; an answer
                                                entered altered files the entry, the clue's word
                                                in its `alteration`
-tools/test_listener_puzzles.sh                 holds that reader to hand-drawn cell sides and a
+tools/test_listener_puzzles.py                 holds that reader to hand-drawn cell sides and a
                                                two-column clue page whose right-hand numbers
                                                sit on the left's lines, and the Times side to
                                                its preamble rules (a run moved, S and N out and
                                                T in), bar symmetry and the notes' answer column
-tools/test_ft_pdf_puzzles.sh                   holds that reader to a hand-drawn grid of
+tools/test_ft_pdf_puzzles.py                   holds that reader to a hand-drawn grid of
                                                content-stream rectangles, a wrapped clue list
                                                and an answers-only post, because a misread
                                                block renumbers the whole grid
-tools/test_ft_puzzles.sh                       holds that parser to each layout fifteensquared
+tools/test_ft_puzzles.py                       holds that parser to each layout fifteensquared
                                                prints an FT post in, and the filer to a
                                                hand-built grid, because a misread answer
                                                becomes a wrong light length
@@ -693,7 +693,7 @@ tools/blog_post.py                             prints the cached blog post and c
 tools/annotate_check.py                        the one command an annotation run needs after
                                                every edit: applies, validates, audits,
                                                reindexes, and says everything wrong at once
-tools/test_annotate_disclosure.sh              proves each rule cut from the annotation prompt
+tools/test_annotate_disclosure.py              proves each rule cut from the annotation prompt
                                                still arrives through its check, and that the
                                                blog lookup is disclosed only once the last few
                                                clues are null — never earlier, never blind
@@ -845,7 +845,7 @@ tools/grid_rules.py                            what makes a British blocked grid
 tools/reconstruct_grid.py                      recovers a puzzle’s black squares from its clue
                                                list alone, for grids we have no readable
                                                picture of
-tools/test_reconstruct_grid.sh                 scores that reconstruction against real grids,
+tools/test_reconstruct_grid.py                 scores that reconstruction against real grids,
                                                with and without the clue numbers, and re-counts
                                                the conventions it leans on
 tools/grid_fill.py                             fills a legal grid with answers you can actually
@@ -891,7 +891,7 @@ tools/solve_miss_prompt.md                     the prompt the nightly job follow
                                                graded miss: name the mechanism, fix the class
                                                in the solve prompt or the checker, or record
                                                that nothing generalises
-tools/test_solve_misses.sh                     holds that each graded miss is pending until a
+tools/test_solve_misses.py                     holds that each graded miss is pending until a
                                                verdict is recorded, and never after
 tools/test_blog_grade.py                       a model’s solve is graded once, through the
                                                paper’s grader, when a solver’s blog or another
@@ -917,7 +917,7 @@ tools/make_og_card.py                          picks a puzzle’s best clue and 
 tools/make_og.sh                               screenshots those cards with headless Chrome
 tools/og_list.py                               prunes the cards no puzzle gets and lists the
                                                stale ones for make_og.sh, in one pass
-tools/test_og_card_key.sh                      is a social card redrawn only when what it shows
+tools/test_og_card_key.py                      is a social card redrawn only when what it shows
                                                could change? Its key is the hash of the page
                                                Chrome is handed, so an edit to the drawing code
                                                or the site card moves no key, a reworded clue
@@ -926,7 +926,7 @@ tools/test_og_card_key.sh                      is a social card redrawn only whe
 tools/parallel.py                              pmap(): a map over the corpus on every core,
                                                results in order, for the build’s per-puzzle
                                                passes
-tools/test_shim_format.sh                      holds the packed puzzle shims to unpacking into
+tools/test_shim_format.py                      holds the packed puzzle shims to unpacking into
                                                exactly the puzzle the browser should hold
 tools/og_palette.py                            rewrites each card as a 64-colour palette PNG,
                                                under a third of the size
@@ -1004,7 +1004,7 @@ tools/e2e_analytics.py                         drives a real browser through a s
                                                every event lands in KV
 tools/wait_for_deploy.py                       blocks until Pages is serving the pushed commit,
                                                so nobody is told to reload early
-tools/test_wait_for_deploy.sh                  proves that check reads the live page before it
+tools/test_wait_for_deploy.py                  proves that check reads the live page before it
                                                calls a deploy failed, and finds its expected
                                                hashes in the assets rather than in an
                                                index.html the nightly has already unstamped
@@ -1083,7 +1083,7 @@ tools/test_app_nav.js                          can a home-screen app user get ba
                                                from the app or another page must offer a back
                                                link that is history.back(), and a browser tab
                                                must get none of it
-tools/test_difficulty_page.sh                  can /difficulty/ describe a rating other than
+tools/test_difficulty_page.py                  can /difficulty/ describe a rating other than
                                                the one the badges show? It must refuse to build
                                                when its prose and difficulty.WEIGHTS name
                                                different components, quote the scorecard only
@@ -1105,17 +1105,17 @@ tools/progress_record.py                       writes that history: `record` nig
                                                build overlays today's filed, solved and hinted
                                                from its own index at every deploy
 tools/data/progress.json                       tools/progress.py's history, one day a line
-tools/test_progress.sh                         does /progress/ date each phase, carry the
+tools/test_progress.py                         does /progress/ date each phase, carry the
                                                ledger's counts to today, pace by days rather
                                                than points, and draw every chart?
-tools/test_series_hub.sh                       does /puzzles/ describe each series without
+tools/test_series_hub.py                       does /puzzles/ describe each series without
                                                counting it? A series blurb with a count or
                                                puzzle number must be refused, the hub must not
                                                print a series' puzzle total, and each series
                                                with enough rated puzzles gets a difficulty
                                                strip whose median sits where its middle puzzle
                                                is
-tools/test_sitemaps.sh                         do new puzzles get found fast? /sitemap.xml must
+tools/test_sitemaps.py                         do new puzzles get found fast? /sitemap.xml must
                                                be a sitemap index (the URL Search Console
                                                holds) over a small sitemap-recent.xml, carrying
                                                the last RECENT_DAYS of puzzles and every page
@@ -1139,7 +1139,7 @@ tools/validate_scope.py                        what the deploy's validate job mu
                                                validator reaches (computed with code_reach) or
                                                a data file those modules name, else just the
                                                changed puzzle files
-tools/test_validate_scope.sh                   does a puzzle edit or an unrelated tools/ edit
+tools/test_validate_scope.py                   does a puzzle edit or an unrelated tools/ edit
                                                stay incremental, a rule, table or workflow
                                                change force the full check, and the
                                                core-parallel full check print what the serial
@@ -1176,13 +1176,13 @@ tools/test_renamed_ids.sh                      does a renamed puzzle's old id ke
                                                was deleted get no page, and the page at an old
                                                id is canonical to the new one with a refresh
                                                indexnow.py never sends
-tools/test_indexnow.sh                         does a deploy tell IndexNow only what changed? A
+tools/test_indexnow.py                         does a deploy tell IndexNow only what changed? A
                                                page whose only difference is its ?v= stamps is
                                                unchanged, a redirect page is never sent, a cold
                                                cache sends the recent sitemap rather than the
                                                site, and the key file is served from the site
                                                root
-tools/test_date_numbers.sh                     is a date-keyed puzzle number (Metro, the
+tools/test_date_numbers.py                     is a date-keyed puzzle number (Metro, the
                                                Canberra Times) named by its day? Their papers
                                                print no number, so the stored number is the
                                                print date, and formatting it as a number gave
@@ -1237,7 +1237,7 @@ tools/test_unit_queue.sh                       drives a fake queue through tools
                                                alerted, a failure waits out its retry, a class
                                                cap and a running unit hold starts back, `after`
                                                and `trigger` order them
-tools/test_daily_units.sh                      pins which daily unit kinds get the generated
+tools/test_daily_units.py                      pins which daily unit kinds get the generated
                                                files rebuilt as their tree is set up
                                                (daily_units.py GENERATED): a unit that reads
                                                none of them skips the whole-corpus pass
@@ -1655,7 +1655,7 @@ tools/data/book_reads.json                     each archive.org book's last read
                                                filed); tools/book_queue.py re-reads a book
                                                whose read predates its REREAD_BEFORE
 tools/data/penguin5_control.json               the ten-puzzle Penguin volume 5 control
-                                               tools/test_acquire_book.sh gates on: light
+                                               tools/test_acquire_book.py gates on: light
                                                specs, black-square patterns and a digest of the
                                                parser's output, and none of the book's words
 tools/data/sample_fill_11.json                 the worked 11x11 fill tools/AUTHORING.md walks
@@ -1704,9 +1704,9 @@ tools/backfill_provenance.py                   write `source` and `solutions` bl
                                                puzzle that hasn't got them
 tools/provenance.py                            where a puzzle came from — and, the part that
                                                matters, where its ANSWERS came from
-tools/test_provenance.sh                       does provenance actually REFUSE a puzzle that
+tools/test_provenance.py                       does provenance actually REFUSE a puzzle that
                                                lies about where it came from?
-tools/test_puzzle_source.sh                    holds where a puzzle came from to `source`,
+tools/test_puzzle_source.py                    holds where a puzzle came from to `source`,
                                                whose answers it holds to `solutions` and who
                                                wrote its hints to `annotatedBy`: a write lands
                                                all three and nothing that repeats them, the
@@ -1740,11 +1740,11 @@ tools/test_doc_staleness.py                    do the hand-written docs, outside
                                                regions, stay free of live counts ("about N
                                                puzzles") and snapshot words ("currently", "as
                                                of") that go stale, with dated history exempt?
-tools/test_downloads.sh                        does every fetcher keep its downloads under
+tools/test_downloads.py                        does every fetcher keep its downloads under
                                                tools/downloads.py's root: fails on a home path,
                                                ~/.cache folder or container path spelled
                                                anywhere else in tools/
-tools/test_doc_pointers.sh                     does every backticked path and function in the
+tools/test_doc_pointers.py                     does every backticked path and function in the
                                                prose docs still exist?
 tools/test_prereset_lock.sh                    does the pre-reset backfill still take over a
                                                lock nobody is holding?
@@ -1800,9 +1800,9 @@ tools/test_source_tables_merge.sh              do two writers adding different r
                                                conflict?
 tools/test_json_merge.sh                       do the keyed JSON data files merge per key in a
                                                real rebase?
-tools/test_refresh_window.sh                   does refresh_unsolved ever stop asking for an
+tools/test_refresh_window.py                   does refresh_unsolved ever stop asking for an
                                                answer that is never coming?
-tools/test_privateeye_dates.sh                 does tools/fetch_privateeye.py read the issue
+tools/test_privateeye_dates.py                 does tools/fetch_privateeye.py read the issue
                                                off every title shape the archive ships, and
                                                take the Eye's Christmas cover date as it prints
                                                it?
@@ -1826,7 +1826,7 @@ tools/fetch_snitch.py                          fetch the SNITCH's ratings of The
 tools/test_fetch_snitch.sh                     does tools/fetch_snitch.py read the SNITCH's
                                                week table into the right puzzle ids, and drop
                                                the cells that are not a rating of that puzzle?
-tools/test_comment_blend.sh                    does tools/difficulty.py blend() move only
+tools/test_comment_blend.py                    does tools/difficulty.py blend() move only
                                                puzzles with enough stated solve times, re-rate
                                                one as its comments arrive, and keep each
                                                series' mean and spread?
@@ -1874,7 +1874,7 @@ tools/test_abbreviations_rank.py               /abbreviations/ ranks every list 
                                                families and the members of each, and each
                                                A-to-Z row's readings. A reading no clue uses
                                                keeps its place, last, with no count
-tools/test_clue_number_residue.sh              does puzzle_integrity refuse a blog clue that
+tools/test_clue_number_residue.py              does puzzle_integrity refuse a blog clue that
                                                opens with what is left of the blog's clue
                                                number, and pass the clues that only look like
                                                one?
@@ -1882,7 +1882,7 @@ tools/cross_validate.py                        check our puzzles against another
                                                same puzzle, class by class; `all --model`
                                                grades each model-solved file against every
                                                cached copy that answers it
-tools/test_cross_validate.sh                   does tools/cross_validate.py name each way two
+tools/test_cross_validate.py                   does tools/cross_validate.py name each way two
                                                copies of a puzzle differ?
 tools/test_clue_counts.py                      does a clue that carries its own letter count,
                                                or a stray letter, get refused?
@@ -1890,12 +1890,12 @@ tools/trove_solution_ocr.py                    read a Canberra Times puzzle's an
                                                paper's printed solution grid
 tools/file_georgeho_puzzles.py                 file the puzzles only georgeho's ODbL clue
                                                database holds into puzzles/
-tools/test_file_georgeho_puzzles.sh            does tools/file_georgeho_puzzles.py read
+tools/test_file_georgeho_puzzles.py            does tools/file_georgeho_puzzles.py read
                                                georgeho's rows into the record the grid rebuild
                                                and file_blog_puzzles.build take?
 tools/fetch_archive_org_editions.py            fetch archive.org newspaper editions' OCR, word
                                                positions and crossword page scans
-tools/test_fetch_archive_org_editions.sh       fetch_archive_org_editions.py with urlopen
+tools/test_fetch_archive_org_editions.py       fetch_archive_org_editions.py with urlopen
                                                stubbed: 500s retried within an edition's
                                                ITEM_SECONDS, none past it, so one bad edition
                                                cannot hold the queue; an edition whose text
@@ -1920,7 +1920,7 @@ tools/file_archive_org_puzzles.py              files the daily Times, FT, Guardi
                                                every reading kept for cross_validate.py's
                                                archiveorg adapter; names the Times puzzle each
                                                canberra file reprints
-tools/test_file_archive_org_puzzles.sh         does tools/file_archive_org_puzzles.py find the
+tools/test_file_archive_org_puzzles.py         does tools/file_archive_org_puzzles.py find the
                                                Times cryptic's title and not its neighbours',
                                                read the clue columns in order, keep only the
                                                clues both readings agree on, and match a
@@ -1972,7 +1972,7 @@ tools/test_archive_org_jumbo.py                does tools/archive_org_jumbo.py t
                                                when its middle prints grey?
 tools/test_difficulty_barred.py                is a barred grid's checking rated against barred
                                                grids, not blocked ones?
-tools/test_no_doubled_paper.sh                 does any series' page say the same word twice
+tools/test_no_doubled_paper.py                 does any series' page say the same word twice
                                                running ("Listener Listener")? Renders a
                                                crawlable page for every series in
                                                tools/series.py and refuses a repeated adjacent
@@ -1980,7 +1980,7 @@ tools/test_no_doubled_paper.sh                 does any series' page say the sam
                                                series name; and each title leads with the paper
                                                and the number as searched ("Guardian Cryptic
                                                30111 answers"), no thousands comma
-tools/test_vlm_reader.sh                       does tools/vlm_reader.py stay out of the way
+tools/test_vlm_reader.py                       does tools/vlm_reader.py stay out of the way
                                                when the GPU host's VLM does not answer, cache
                                                what it asks, crop each clue column alone, and
                                                does file_archive_org_puzzles.py fill a blank
@@ -2057,13 +2057,13 @@ tools/edition_commit.py                        an archive.org or Gale edition re
                                                loading none of the reader's code; the shared
                                                filing pieces (filer_path, the row, the inputs'
                                                stray-clue part)
-tools/test_edition_commit.sh                   does a prepared read write what the OCR host
+tools/test_edition_commit.py                   does a prepared read write what the OCR host
                                                decided and append its row, loading no tree
                                                module past its MODULES, hand an undecided
                                                title, a lost OCR host or an edition read since
                                                to the whole unit, and keep ocr_remote's code
                                                hash only for the commit it was made from?
-tools/test_edition_queue.sh                    does the edition queue append rows (the last
+tools/test_edition_queue.py                    does the edition queue append rows (the last
                                                standing, a half-written line skipped), keep one
                                                unit per edition, take Gale pages saved by hand
                                                first, read only after the scans its solution
@@ -2095,7 +2095,7 @@ tools/canberra_london_numbers.py               the London Times number of each c
                                                words, or bracketed between two matched days
                                                with as many days as numbers;
                                                file_trove_puzzles.py stamps reprintOf from it
-tools/test_canberra_london_numbers.sh          does canberra_london_numbers.py number a reprint
+tools/test_canberra_london_numbers.py          does canberra_london_numbers.py number a reprint
                                                only by a clue match or an exact bracket, refuse
                                                a span whose counts disagree and a re-run out of
                                                order, and date a bracket only when the London
@@ -2126,7 +2126,7 @@ tools/test_coverage.sh                         does every ledger bucket name a m
                                                missing puzzle land in exactly one bucket, and
                                                the daily run queue a note only when it carries
                                                work?
-tools/test_corpus_queue.sh                     does corpus_queue.py take a recycled pid for a
+tools/test_corpus_queue.py                     does corpus_queue.py take a recycled pid for a
                                                dead job, see a filer's ledger lock, kill all of
                                                a dead job's session, start the full pass with
                                                no edition list, hold it after two dead launches
@@ -2135,12 +2135,12 @@ tools/test_corpus_queue.sh                     does corpus_queue.py take a recyc
                                                any edition-list job; does archive_coverage.py
                                                count the Times' printed days and class an
                                                unfiled edition by its ledger row?
-tools/test_scan_reread.sh                      does an annotation that meets a misread clue on
+tools/test_scan_reread.py                      does an annotation that meets a misread clue on
                                                an OCR'd puzzle queue its scan for a re-read,
                                                once per reading of its clues, does the burn
                                                leave the puzzle alone until the re-read lands,
                                                and take it back after?
-tools/test_scan_queue.sh                       does tools/scan_queue.py read the never-read
+tools/test_scan_queue.py                       does tools/scan_queue.py read the never-read
                                                first, never send the queue back to the start,
                                                keep N sources in flight, stop at its deadline,
                                                and let only one run hold a ledger; do both scan
@@ -2166,7 +2166,7 @@ tools/page_cache.py                            last build's puzzle pages, reused
                                                with actions/cache)
 tools/clue_index.py                            which puzzle files share clues: normalised clue
                                                text -> puzzle ids
-tools/test_placeholder_clues.sh                a puzzle whose clues are pointers at clues
+tools/test_placeholder_clues.py                a puzzle whose clues are pointers at clues
                                                printed elsewhere has no clues
 tools/sweep_series.py                          probe every number of a Guardian series between
                                                two bounds, file what is served
@@ -2186,9 +2186,9 @@ tools/test_sync_skip_published.sh              the burn's sync with runs in flig
                                                whole over a file origin changed
 tools/scan_crop.py                             the printed clues of an archive.org scan, cut
                                                out for the annotator
-tools/test_scan_crop.sh                        does the annotator get the printed clues of a
+tools/test_scan_crop.py                        does the annotator get the printed clues of a
                                                puzzle filed off a scan?
-tools/test_ocr_remote.sh                       does tools/ocr_remote.py compare every reader
+tools/test_ocr_remote.py                       does tools/ocr_remote.py compare every reader
                                                model a read can load, send back an edition
                                                whose read on the OCR host opened a file it was
                                                not sent, give the same grids from a search run
@@ -2329,7 +2329,7 @@ tools/test_listener_grid.py                    does listener_grid read a drawn, 
                                                its 2-cell runs fit with them barred shut, and a
                                                number read in two cells the run could each hold
                                                kept in neither?
-tools/test_gale_inbox.sh                       is a page gale_fetch.py downloaded laid out as
+tools/test_gale_inbox.py                       is a page gale_fetch.py downloaded laid out as
                                                its date's edition, another paper's under its
                                                own item, read first by the full pass
                                                (fresh_unread, kick); does next_up keep its
@@ -2343,16 +2343,16 @@ tools/test_canberra_reprint_vote.py            does a Canberra Times reprint vot
                                                in the Times series, and does a reprint
                                                downloaded or read later make that edition due
                                                again, and no other?
-tools/test_fold_reprints.sh                    does fold_reprints.rekeyer rename a folded id
+tools/test_fold_reprints.py                    does fold_reprints.rekeyer rename a folded id
                                                both as a whole JSON string and as the lead of
                                                one, and leave a longer number, a mid-string
                                                mention and other ids alone?
-tools/test_punctuation.sh                      does tools/punctuation.py flag only the marks a
+tools/test_punctuation.py                      does tools/punctuation.py flag only the marks a
                                                reader made and mend only the certain ones,
                                                offsets moved, and do the OCR write gate, the
                                                write path, strayed(), corrects() and the vote
                                                use it?
-tools/test_ocr_vote_checks.sh                  does the clue vote file each word, count,
+tools/test_ocr_vote_checks.py                  does the clue vote file each word, count,
                                                capital and hyphen as the readings print them,
                                                and settle a word they all misread on the known
                                                word their slips point to; does a reading that
@@ -2360,7 +2360,7 @@ tools/test_ocr_vote_checks.sh                  does the clue vote file each word
                                                together part, and a figure run onto a word go?
 tools/test_prereset_index_lock.sh              do the pool's concurrent runs commit only their
                                                own puzzle?
-tools/test_anagram_ring.sh                     a clue typed anagram gets the anagram ring:
+tools/test_anagram_ring.py                     a clue typed anagram gets the anagram ring:
                                                app.js deals the whole-answer anagram's fodder,
                                                else the longest part-anagram's, and the
                                                validator warns (ratcheted as assembly.anagrams)
@@ -2381,7 +2381,7 @@ tools/desktop_busy.py                          whether the OCR host is busy with
 tools/desktop_probe.ps1                        the OCR host's foreground processes, 3D load
                                                (the VLM's own left out), OCR sessions and free
                                                memory, as JSON, for tools/desktop_busy.py
-tools/test_desktop_busy.sh                     does OCR and VLM work on the OCR host yield
+tools/test_desktop_busy.py                     does OCR and VLM work on the OCR host yield
                                                while the host is busy, and resume after?
 tools/vlm_health.py                            wake the room when the GPU host's VLM has been
                                                down for DOWN_FOR while the host was not busy
@@ -2446,11 +2446,11 @@ tools/test_reprints.js                         a paper that reprints another's p
                                                and counted in its series at its own number
 tools/deleted_paths.py                         the commit that last deleted a path, read from a
                                                cache
-tools/test_deleted_paths.sh                    does deleted_paths.last_deletion() give what
+tools/test_deleted_paths.py                    does deleted_paths.last_deletion() give what
                                                `git log -1 --diff-filter=D -- <path>` gives, as
                                                HEAD moves forward, back, sideways and is
                                                rewritten?
-tools/test_row_cache.sh                        does row_cache re-parse exactly the files whose
+tools/test_row_cache.py                        does row_cache re-parse exactly the files whose
                                                row could change (an edited file, a changed
                                                dependency, new code), and is every data file a
                                                cached row reads in its key?
@@ -2466,13 +2466,13 @@ tools/test_session_ids.sh                      does every `claude -p` in tools/ 
                                                resumed rather than bought again?
 tools/load_watch.py                            wake the room when the machine is overloaded,
                                                with who is using the CPU
-tools/test_load_watch.sh                       does load_watch.py rank CPU by job, charge
+tools/test_load_watch.py                       does load_watch.py rank CPU by job, charge
                                                exited children to their parent, and wake only
                                                on two high runs in a row, once an hour unless
                                                the top consumer changes?
 tools/dir_cache.py                             what a planner re-reads every minute off a slow
                                                disk, kept until it moves
-tools/test_trove_articles_index.sh             does tools/trove_solution_ocr.py's _articles
+tools/test_trove_articles_index.py             does tools/trove_solution_ocr.py's _articles
                                                keep what it read in a file, reread only an
                                                article whose files changed, and return the same
                                                list warm?
@@ -2497,7 +2497,7 @@ tools/test_post_index.sh                       does a single-puzzle write find i
                                                opening only the posts it lacks, and do
                                                corroborate, blog_post and other_setters find
                                                what a full read found?
-tools/test_fifteensquared_index.sh             do the fifteensquared readers find a category's
+tools/test_fifteensquared_index.py             do the fifteensquared readers find a category's
                                                posts off the index, without opening every
                                                cached post, and does tools/ft_puzzles.py's
                                                budget count its parse?
@@ -2523,7 +2523,7 @@ tools/test_leading_quote.py                    an OCR'd clue opens with a quote 
                                                the write gate refuses what it would still mend
 tools/gale_http.py                             the Chrome-like browsing of Gale and its portal,
                                                shared by gale_fetch.py
-tools/test_gale_page_cap.sh                    is a Gale page laid out within
+tools/test_gale_page_cap.py                    is a Gale page laid out within
                                                gale_inbox.MAX_PAGE_PIXELS however small the
                                                grid it is scaled by (a crossword-centenary
                                                article's printed grid scaled the 2013-12-17
@@ -2538,7 +2538,7 @@ tools/test_ctc_title_date.py                   does a CtC video title's date pin
                                                when the year is short or absent?
 tools/fetch_nation.py                          the Nation's weekly cryptic, from the magazine's
                                                own article pages
-tools/test_genius_puzzles.sh                   does tools/genius_puzzles.py read an old
+tools/test_genius_puzzles.py                   does tools/genius_puzzles.py read an old
                                                Guardian article page's text without markup,
                                                keep the Genius's printed pair of counts, and
                                                does the write gate refuse a tag's remnant in
@@ -2597,7 +2597,7 @@ tools/test_puzzle_format.py                    do the schema and validator refus
                                                name into the prize, title or label it needs?
 tools/fixtures/format-puzzles/                 three Guardian cryptics and a book puzzle frozen
                                                in the format, read by test_puzzle_format.py,
-                                               test_shim_format.sh and smoke_test.js
+                                               test_shim_format.py and smoke_test.js
 tools/test_see_pointer.py                      is a "See N" continuation the pointer and
                                                nothing else, in every reader?
 tools/tidy_wordplay_shapes.py                  joins each indicator-less charade inside a
@@ -2621,7 +2621,7 @@ tools/test_abbreviation_notes.py               is an abbreviation gloss derived 
                                                never stored: view shows it, the validator
                                                refuses a note that only restates it, from_model
                                                drops one, and a note that adds anything stays?
-tools/test_validate_speed.sh                   the deploy's "Check every annotation" step runs
+tools/test_validate_speed.py                   the deploy's "Check every annotation" step runs
                                                validate_annotations over the whole corpus
                                                (~51,000 files), so a per-file cost that creeps
                                                up becomes minutes (124s -> 247s in a day,
@@ -2647,13 +2647,13 @@ tools/trim_codeql_caches.py                    delete all but the newest CodeQL 
                                                database per language from the repo's Actions
                                                cache, so CodeQL default setup stops evicting
                                                the deploy's caches
-tools/test_fetch_nation_clue_list.sh           does fetch_nation read a Nation clue list whole,
+tools/test_fetch_nation_clue_list.py           does fetch_nation read a Nation clue list whole,
                                                through the sidebars and typesetting slips the
                                                site drops into it?
 tools/test_fetch_nation_dates.sh               does fetch_nation date a page printing no issue
                                                on the issue clock, so it sorts between its
                                                neighbours instead of before the number below it?
-tools/test_genius_instructions.sh              is a puzzle whose clues point at instructions we
+tools/test_genius_instructions.py              is a puzzle whose clues point at instructions we
                                                do not hold kept from the annotators, and does
                                                filing a preamble later let a parked failure
                                                retry?
@@ -2714,7 +2714,7 @@ tools/file_livejournal_puzzles.py              file the Club Monthly posts only
                                                times-for-the-times' old LiveJournal holds
 tools/nation_key.py                            the Nation's answers, from the setters' own
                                                solution printed a week later
-tools/test_nation_key.sh                       does nation_key read The Nation's answers from
+tools/test_nation_key.py                       does nation_key read The Nation's answers from
                                                the setters' printed solution and Braze's posts,
                                                and only the letters they really spell?
 tools/nation_images.py                         the Nation's own pictures of its grids: the
@@ -2747,7 +2747,7 @@ tools/test_pdf_edition_broken.py               does tools/fetch_archive_org_edit
                                                second copy equal to the first (archive.org's
                                                file as it stands), and raise when the two
                                                differ?
-tools/test_desktop_hosts.sh                    does tools/desktop_hosts.py find the desktop's
+tools/test_desktop_hosts.py                    does tools/desktop_hosts.py find the desktop's
                                                live address itself (its LAN lease flaps),
                                                probing every address at once, keeping the order
                                                a TTL, probing afresh after forget(), and do
@@ -2764,10 +2764,10 @@ tools/test_gale_idle.py                        does tools/gale_idle.py let a cry
                                                does it force a full tick MAX_SKIP after the
                                                last? Does tools/vlm_health.py --quick skip only
                                                an up VLM that was not down?
-tools/test_abbreviations_cache.sh              does build_abbreviations.table() give the same
+tools/test_abbreviations_cache.py              does build_abbreviations.table() give the same
                                                table from its disk cache as from a build, and
                                                rebuild the moment an input's bytes change?
-tools/test_unit_idle.sh                        does unit_queue.why_run let the books and daily
+tools/test_unit_idle.py                        does unit_queue.why_run let the books and daily
                                                ticks skip their worktree setup only when the
                                                tick would start nothing: a SELF_PLANNING queue
                                                (books) with nothing due, or any queue while the
@@ -2775,7 +2775,7 @@ tools/test_unit_idle.sh                        does unit_queue.why_run let the b
                                                a queue whose shell plans the tick (daily) past
                                                the gates; and a full tick at least every
                                                FULL_EVERY?
-tools/test_parallel.sh                         does tools/parallel.py size its pool to the box?
+tools/test_parallel.py                         does tools/parallel.py size its pool to the box?
                                                CT_JOBS wins; a process at nice 0 (the deploy's
                                                build) takes every core; a niced one (the daily
                                                units, the corpus job) takes only the cores the
@@ -2801,7 +2801,7 @@ tools/test_shape_queue.py                      the shape re-annotation list
                                                never lost, and a filed clue leaves the list.
                                                The queue tier's ordering is in prereset_plan.py
                                                --self-test
-tools/test_annotate_note_skeleton.sh           annotate_check prints every missing block note
+tools/test_annotate_note_skeleton.py           annotate_check prints every missing block note
                                                as one --patch file, so the commonest
                                                first-check failure is one Write and one command
 tools/hintless_overdue.py                      a newly filed puzzle that is still hintless long

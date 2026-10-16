@@ -9,7 +9,7 @@
 # a row whose served text the file never held. After the discard:
 #   - the puzzle file is back as committed;
 #   - every SOURCE_CLUE_WRONG row for it names a clue the file shows, which is
-#     what tools/test_source_answer_wrong.sh holds CI to;
+#     what tools/test_source_answer_wrong.py holds CI to;
 #   - the rows committed with its earlier annotation are kept;
 #   - tools/data/source_clue_wrong.json is byte for byte as committed;
 #   - a puzzle the run wrote new is removed, with its rows.

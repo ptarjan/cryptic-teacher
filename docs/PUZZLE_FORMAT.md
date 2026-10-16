@@ -202,7 +202,7 @@ the fields `view()` derives. An `unchecked` node warns, and the ratchet
 only the ones it already has, so a new annotation can add none. The site's
 build reads `view_puzzle()` too (`fetch_puzzle.browser_puzzle`), so app.js
 sees the derived fields. `tools/test_puzzle_format.py`,
-`tools/test_shim_format.sh` and `tools/smoke_test.js` hold this.
+`tools/test_shim_format.py` and `tools/smoke_test.js` hold this.
 
 **What the annotate run writes** (`tools/annotate_prompt.md`'s Schema) is a
 shape of its own, the model's, which is never stored: per clue `def` (the
@@ -441,7 +441,7 @@ Other fields:
 
 Every allowed value is listed in `tools/provenance.py` and nowhere else.
 `tools/puzzle_integrity.py` validates against those same dicts.
-`tools/test_provenance.sh` proves it: it deletes a value and checks that the
+`tools/test_provenance.py` proves it: it deletes a value and checks that the
 corpus is then rejected. `tools/backfill_provenance.py` writes the blocks. It is
 idempotent and safe to re-run. New puzzles get the blocks automatically, because
 `write_puzzle_file` stamps them on every write.

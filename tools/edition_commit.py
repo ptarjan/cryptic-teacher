@@ -37,7 +37,7 @@ EXITS = {"read": 0, "scanned": 0, "current": 0, "fetched": 0, "busy": 3, "held":
          "throttled": 6, "disk": 7, "deferred": 8, "lost": 9, "vlm": 10}
 #: The tools modules main() runs, loaded as the unit starts (under the
 #: queue's code lock, edition_queue.snapshot): none of them is loaded later
-#: from a tree that moved meanwhile (test_edition_commit.sh checks a commit
+#: from a tree that moved meanwhile (test_edition_commit.py checks a commit
 #: loads nothing past these).
 MODULES = ("annotation", "desktop_busy", "dir_cache", "fetch_puzzle", "find_answer_leaks", "groups", "hidden_messages",
            "ocr_clues", "ocr_remote", "puzzle_integrity", "puzzle_paths", "reprints", "scan_queue",

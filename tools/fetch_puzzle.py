@@ -856,7 +856,7 @@ def pack_entry(e):
     """An entry as a shim spells it: [number, 0 across | 1 down, x, y, length,
     clue, solution, {everything else}], or the entry itself when it does not
     have exactly that shape. SHIM_UNPACK is the inverse, and
-    tools/test_shim_format.sh holds the two to it over the whole corpus.
+    tools/test_shim_format.py holds the two to it over the whole corpus.
 
     The field names were a third of every shim, repeated on each of a million
     entries. For the same reason a clue that is only text is packed as the bare string, and one that
@@ -878,7 +878,7 @@ def browser_puzzle(puzzle):
     """The puzzle as window.CRYPTIC_PUZZLES holds it once its shim has run.
     The file goes through annotation.view_puzzle() first, so the app reads
     the derived fields (name, series, type, answer, blocks, ...);
-    tools/test_shim_format.sh holds a puzzle's shim to that view."""
+    tools/test_shim_format.py holds a puzzle's shim to that view."""
     import annotation
     out = {k: v for k, v in with_blog_facts(annotation.view_puzzle(puzzle)).items() if k not in SHIM_DROP}
     def holder(h):
@@ -1894,7 +1894,7 @@ def load_source_table(name):
 # must be deleted, exactly as a stale key in tools/puzzle_integrity.py's
 # PUBLISHED_WRONG must. Liveness is checked at fetch time, the one moment the
 # source is actually in front of us, because nothing in this repo's tests
-# touches the network; tools/test_source_answer_wrong.sh holds the half that can
+# touches the network; tools/test_source_answer_wrong.py holds the half that can
 # be proved offline.
 #
 # This is for answers the source got WRONG, never for a guess or a preference.

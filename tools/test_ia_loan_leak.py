@@ -4,7 +4,7 @@
 #     python3 tools/test_ia_loan_leak.py
 #
 # tools/fetch_ia_book.py's borrowed() returns the loan from a finally clause,
-# and tools/test_ia_borrow.sh case 9 shows that clause covering normal exit,
+# and tools/test_ia_borrow.py case 9 shows that clause covering normal exit,
 # an exception and a Ctrl-C. None of that is a signal. A process killed by
 # SIGKILL runs no Python at all on the way out, and neither does one killed by
 # plain SIGTERM, which is what `timeout N` sends and therefore how a hung book

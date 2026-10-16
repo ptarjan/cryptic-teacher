@@ -950,7 +950,7 @@ def check_cross(puzzle, checkable, flags):
         # is as much "the Guardian contradicting itself" as an off-grid light
         # is — cryptic-22482 is one grid's worth of them — and without this the
         # table could hold a key no run could ever reach, which is the one thing
-        # test_puzzle_integrity.sh fails on.
+        # test_puzzle_integrity.py fails on.
         if (pid, p) in PUBLISHED_WRONG:
             continue
         flags.append(("CROSS", pid, p))
@@ -1998,7 +1998,7 @@ def check_table_ids(held, flags):
     ahead of its puzzle (or left after it went) forgives nothing, and is a
     finding here rather than a crash in whatever reads the puzzle it names.
     Not part of audit(): its test repos hold none of the tables' puzzles, so
-    test_puzzle_integrity.sh runs it over the real corpus instead."""
+    test_puzzle_integrity.py runs it over the real corpus instead."""
     for name, table in (("PUBLISHED_WRONG", PUBLISHED_WRONG), ("UNLINKED_IN_SOURCE", UNLINKED_IN_SOURCE)):
         for pid in sorted({pid for pid, _ in table} - held):
             flags.append(("FILED", pid, f"{name} forgives findings of {pid}, which is not filed"))

@@ -14,7 +14,7 @@
 #     other data files and none of B's rows, which its clue does not show yet;
 #   - after B's discard the tree is clean, so nothing of B's reaches master;
 #   - every SOURCE_CLUE_WRONG row committed names a clue its file shows, which
-#     is what tools/test_source_answer_wrong.sh holds CI to;
+#     is what tools/test_source_answer_wrong.py holds CI to;
 #   - a puzzle with no rows commits fetch_puzzle.py as HEAD has it.
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
