@@ -660,36 +660,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TOPIC",
-     "indicators": [
-      {
-       "text": "reduced",
-       "note": "A reduced PICK loses its last letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "to",
+       "at": 8,
+       "gives": "TO"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 11,
+         "note": "reduced means the word is cut short, losing its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "to",
-         "note": "as printed"
+         "words": "choice",
+         "at": 19,
+         "gives": "PICK",
+         "note": "a pick is a choice, as in 'take your pick'"
         },
         {
-         "words": "choice",
-         "gives": "PIC",
-         "note": "PICK, a choice, without its K"
+         "gives": "K"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone finds their options cut back.",
-     "walkthrough": "\"Subject to\" reads as one phrase; split it, and \"Subject\" is the definition while \"to\" gives letters.",
-     "definitionFit": "Plain synonym: the matter under discussion, as in the subject of a talk."
+     "surface": "Something that has been made subject to a narrower set of options.",
+     "walkthrough": "'Subject to' reads as one phrase, but 'to' is a separate piece of the wordplay.",
+     "definitionFit": "A topic is the theme or matter under discussion, a synonym of subject as a noun."
     },
     "features": {
      "answerInScene": false,
@@ -763,35 +767,23 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Boat",
+      "text": "Boat's the same even when capsized",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "palindrome",
-     "indicators": [
-      {
-       "text": "the same even when capsized",
-       "note": "Capsized turns it upside down, which in a down clue reverses the letters, and the word still reads the same."
-      }
-     ],
+     "op": "cryptic",
      "parts": [
       {
-       "unchecked": true,
-       "words": "Boat",
-       "note": "the definition: a small craft"
-      },
-      {
-       "unchecked": true,
-       "words": "the same even when capsized",
-       "note": "five letters that read the same upside down, bottom to top"
+       "words": "Boat's the same even when capsized",
+       "at": 0,
+       "note": "a capsized boat is turned over; this boat's name reads identically when turned backwards, since it is a palindrome"
       }
      ]
     },
     "explanation": {
-     "surface": "A boat that looks no different after rolling over.",
-     "walkthrough": "The surface is also true: this boat is built to roll over and come back upright.",
-     "definitionFit": "Definition by example: a small covered canoe paddled with a double-bladed paddle."
+     "walkthrough": "Kayakers practise rolling upright after capsizing, so the surface is apt, while the cryptic sense is that the word reads the same in either direction.",
+     "definitionFit": "A kayak is a small, narrow canoe-like craft paddled with a double-bladed paddle, and its name is a palindrome."
     },
     "features": {
      "answerInScene": true,
@@ -1357,7 +1349,31 @@
     "text": "Wake up in the nick of time?",
     "enumeration": "4"
    },
-   "solution": "STIR"
+   "solution": "STIR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Wake up",
+      "at": 0,
+      "meaning": "first meaning: to rouse or begin to move after sleep"
+     },
+     {
+      "text": "nick of time",
+      "at": 15,
+      "meaning": "second meaning: slang for prison, the nick where a convict does time"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The familiar phrase 'in the nick of time' hides a second reading: the nick is prison, where time is served. In British slang both nick and the answer mean jail.",
+     "definitionFit": "To stir is to rouse from sleep, and the same word is old slang for a prison, where sentences are served."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nick"
+    }
+   }
   },
   {
    "number": 27,
