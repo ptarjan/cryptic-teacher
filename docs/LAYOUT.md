@@ -2809,5 +2809,8 @@ tools/test_hintless_overdue.py                 hintless_overdue.overdue() on fix
 tools/test_corpus_queue_yield.py               corpus_queue.yield_collapse() on fixture logs:
                                                the last 100 scans with under 5 puzzles wake the
                                                room, a healthy or short window does not
+tools/test_times_four_digit_title.py           the Times title and solution headings of the
+                                               four-digit numbers (before No 10,000, May 1962)
+                                               read as puzzles, five-digit ones as before
 ```
 <!-- LAYOUT-END -->
