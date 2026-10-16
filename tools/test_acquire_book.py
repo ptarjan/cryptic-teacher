@@ -280,6 +280,8 @@ def part2(argv1):
     ab.build_quality_report = lambda _p: {"puzzles": []}
     ab.build_spec = lambda _p: ([(1, 5, "plain")], [], [], [])
     ab.grid_verdict.screen_spec = lambda _a, _d: []
+    # The guard refuses an unregistered item, rightly; the fake book is registered here.
+    ab.book_number.__globals__["BOOK_BY_IDENTIFIER"]["some-book"] = {"book_index": 1, "title": "Some Book"}
 
 
     class Killed(Exception):
