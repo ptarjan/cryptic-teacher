@@ -625,6 +625,61 @@ const APP_BLOCKS = (() => {
   assert(edges("Cheese right it's", "right it's") === "",
     "an apostrophe inside a word keeps it a word that carries meaning: " + edges("Cheese right it's", "right it's"));
 }
+// The walkthrough rung steps through the wordplay tree: each indicator named,
+// each intermediate result shown (worked out from the siblings when the tree
+// does not store it), and a liberty named when an indicator is not next to its
+// fodder. Fixtures are the three clues Paul could not follow.
+{
+  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const from = src.indexOf("const WP_FUNCTION_WORDS");
+  const to = src.indexOf("\n  // \"Entered as SAPIR", from);
+  assert(from > 0 && to > from, "wordplaySteps is still in app.js to be read");
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const wordplaySteps = new Function("esc", "escClue", "LIST_SEP", src.slice(from, to) + "\nreturn wordplaySteps;")(esc, esc, " · ");
+  const text = (h) => h.replace(/<[^>]*>/g, "").replace(/&#39;/g, "'").replace(/&amp;/g, "&");
+  const dominate = wordplaySteps({ op: "container",
+    indicators: [{ text: "getting into", at: 13, note: "getting into says the jumbled letters enter the building" }],
+    parts: [{ words: "13 millennium 11", at: 26, gives: "DOME", note: "the naff Millennium project was the Dome" },
+      { op: "anagram", indicators: [{ text: "Wildly", at: 0, note: "wildly says the letters are thrown about" }],
+        parts: [{ words: "anti", at: 7, note: "taken as written" }] }] },
+    "DOMINATE", "Wildly anti, getting into 13 millennium 11? That's 8", []);
+  const dom = dominate.lines.map(text);
+  assert(dom.length === 3, "DOMINATE shows DOME, the anagram and the container: " + dom.join(" | "));
+  assert(/→ DOME/.test(dom[0]), "DOMINATE: the 13 millennium 11 piece gives DOME: " + dom[0]);
+  assert(/Wildly — rearrange the letters of ANTI → INAT/.test(dom[1]),
+    "DOMINATE: the anagram node gets its derived result INAT: " + dom[1]);
+  assert(/getting into — put INAT inside DOME → DOMINATE/.test(dom[2]),
+    "DOMINATE: INAT goes inside DOME: " + dom[2]);
+  assert(dominate.liberties.length === 0, "DOMINATE takes no liberty: " + dominate.liberties);
+
+  const enthral = wordplaySteps({ op: "charade", parts: [
+    { op: "deletion", indicators: [{ text: "non", at: 10, note: "non says the standard is absent" }],
+      parts: [{ words: "parent", at: 23 }, { words: "standard", at: 14, gives: "PAR", note: "par is the standard score" }] },
+    { words: "time", at: 35, gives: "HR", note: "hr is the abbreviation for hour" },
+    { words: "other things", at: 44, gives: "AL", note: "al. is short for alia" }] },
+    "ENTHRAL", "Fascinate non-standard parent with time for other things", []);
+  const ent = enthral.lines.map(text);
+  assert(ent.some((l) => /“time” → HR/.test(l)) && ent.some((l) => /“other things” → AL/.test(l)),
+    "ENTHRAL names HR (time) and AL (other things): " + ent.join(" | "));
+  assert(ent.some((l) => /non — take PAR out of PARENT → ENT/.test(l)), "ENTHRAL: the deletion leaves ENT: " + ent.join(" | "));
+  assert(/join ENT \+ HR \+ AL in order → ENTHRAL/.test(ent[ent.length - 1]), "ENTHRAL ends joining the pieces into the answer: " + ent[ent.length - 1]);
+
+  const ewe = wordplaySteps({ op: "anagram", indicators: [{ text: "may come to", at: 13, note: "letters that come to another word become it once rearranged" }],
+    parts: [{ words: "wee", at: 4, note: "taken as written" }] }, "EWE", "The wee lamb may come to this.", []);
+  assert(ewe.lines.length === 1 && /may come to — rearrange the letters of WEE → EWE/.test(text(ewe.lines[0])),
+    "EWE names the indicator may come to: " + ewe.lines.map(text));
+  assert(ewe.liberties.length === 1 &&
+    ewe.liberties[0] === "This clue takes a liberty: 'may come to' isn't next to its fodder (it is separated by 'lamb').",
+    "times-8 56d takes the liberty of an indicator apart from its fodder: " + ewe.liberties);
+  // A joining word in the gap is no liberty, and an insertion that fits two ways shows no guessed result.
+  const near = wordplaySteps({ op: "anagram", indicators: [{ text: "wild", at: 0 }],
+    parts: [{ words: "wee", at: 8 }] }, "EWE", "wild is wee", []);
+  assert(near.liberties.length === 0, "a joining word between indicator and fodder is no liberty: " + near.liberties);
+  const twice = wordplaySteps({ op: "container", indicators: [{ text: "in", at: 5 }],
+    parts: [{ words: "abab", at: 0, gives: "ABAB" }, { op: "anagram", indicators: [{ text: "odd", at: 8 }], parts: [{ words: "ab", at: 12 }] }] },
+    "ABABAB", "abab in odd ab", []);
+  assert(!/→/.test(text(twice.lines[0])), "an insertion that fits two ways shows no guessed result: " + twice.lines.map(text).join(" | "));
+}
 // Which puzzle boots is NOT pinned here on purpose: the nightly job adds one
 // every day, and a test that only ever exercises a frozen fixture stops
 // covering the puzzles people actually land on. Everything below therefore

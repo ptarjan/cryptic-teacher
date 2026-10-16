@@ -170,6 +170,12 @@ disagree, it wins.
   the solver may not know (`ER` = Queen), why a definition is fair. Naming a chunk is
   fine when the sentence teaches (`OCT is the calendar abbreviation`); narrating
   fragment to letters is not.
+- A walkthrough a solver must be able to follow step by step names every indicator by its
+  words and, where an anagram, reversal or deletion makes letters the parse does not
+  state, those letters: `'getting into' puts INAT (the anagram of ANTI, from 'Wildly')
+  inside DOME`. A walkthrough that skips an indicator or an intermediate result is a
+  fault, the same as a wrong note; the app lists the steps from the parse, so the prose
+  is the why, but it may not contradict or skip them.
 - Where there is one false path a competent solver really takes first, name it and what
   kills it: `"Flowers" wants to be the definition; it is the river.` Most clues have
   none, and an invented one is worse than none. Every "the X" must be an X the reader

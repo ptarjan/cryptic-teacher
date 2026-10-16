@@ -4308,6 +4308,177 @@
     ghostRingTile(removedRect, removedText);
   }
 
+  // ---------- the walkthrough's steps, read off the wordplay tree ----------
+  // The prose walkthrough says why; the tree says what happens, so every step
+  // is listed from it: each part's words and what they give, each operation's
+  // indicator and what it does to which pieces, ending in the answer. Letters
+  // a node does not store (the shuffle of an anagram, the outer of a container)
+  // are worked out here from its siblings and the answer, never stored; where
+  // that has two readings the step shows no result.
+  const WP_FUNCTION_WORDS = new Set(["a", "an", "the", "of", "to", "for", "and", "with", "by", "in", "on", "as",
+    "at", "is", "are", "was", "be", "has", "from", "that", "it", "its", "this"]);
+  const WP_ADJACENT = ["anagram", "reversal", "hidden"];
+  const WP_PICK = { first: "the first letter of", last: "the last letter of", middle: "the middle of",
+    outer: "the outer letters of", alternate: "alternate letters of", regular: "regularly spaced letters of",
+    nth: "regularly spaced letters of" };
+  const wpLetters = (s) => String(s || "").normalize("NFD").replace(/[^A-Za-z]/g, "").toUpperCase();
+  const wpSorted = (s) => s.split("").sort().join("");
+
+  // The letters a node gives from its own parts alone, or null.
+  function wpKnown(n) {
+    if (typeof n.gives === "string") return wpLetters(n.gives);
+    if (!n.op) return "words" in n ? wpLetters(n.words) : null;
+    const ks = (n.parts || []).map(wpKnown);
+    if (n.op === "charade" && ks.length && ks.every((k) => k != null)) return ks.join("");
+    if (n.op === "reversal" && ks[0] != null) return ks[0].split("").reverse().join("");
+    return null;
+  }
+
+  // The letters of the inner step that make `target` with `outer` around it,
+  // or null unless exactly one reading fits. `fodder` (letters the inner step
+  // is built from, when known) must be a rearrangement of the result.
+  function wpInside(target, outer, fodder) {
+    const found = new Set();
+    for (let k = 1; k < outer.length; k++) {
+      if (target.length > outer.length && target.startsWith(outer.slice(0, k)) && target.endsWith(outer.slice(k))) {
+        const x = target.slice(k, target.length - (outer.length - k));
+        if (fodder == null || wpSorted(x) === wpSorted(fodder)) found.add(x);
+      }
+    }
+    return found.size === 1 ? [...found][0] : null;
+  }
+  function wpAround(target, inner) {
+    const found = new Set();
+    for (let j = 1; j + inner.length < target.length; j++) {
+      if (target.startsWith(inner, j)) found.add(target.slice(0, j) + target.slice(j + inner.length));
+    }
+    return found.size === 1 ? [...found][0] : null;
+  }
+
+  // Map node -> the letters it gives into the answer, for every op node that can be told.
+  function wpResults(root, answer) {
+    const out = new Map();
+    const fodderOf = (n) => {
+      const ks = (n.parts || []).map(wpKnown);
+      return n.op === "anagram" && ks.length && ks.every((k) => k != null) ? ks.join("") : null;
+    };
+    const walk = (n, target) => {
+      if (!n.op || n.unchecked) return;
+      const ks = (n.parts || []).map(wpKnown);
+      let own = typeof n.gives === "string" ? wpLetters(n.gives) : target != null ? target : wpKnown(n);
+      if (own != null && n.op === "anagram" && fodderOf(n) != null && wpSorted(fodderOf(n)) !== wpSorted(own)) own = null;
+      if (own != null) out.set(n, own);
+      const want = (n.parts || []).map((p, i) => ks[i]);
+      if (own != null) {
+        if (n.op === "charade") {
+          const un = ks.map((k, i) => (k == null ? i : -1)).filter((i) => i >= 0);
+          if (un.length === 1) {
+            const pre = ks.slice(0, un[0]).join(""), post = ks.slice(un[0] + 1).join("");
+            if (own.length > pre.length + post.length && own.startsWith(pre) && own.endsWith(post)) {
+              want[un[0]] = own.slice(pre.length, own.length - post.length);
+            }
+          }
+        } else if (n.op === "reversal") {
+          want[0] = own.split("").reverse().join("");
+        } else if (n.op === "container") {
+          if (ks[0] != null && ks[1] == null) want[1] = wpInside(own, ks[0], fodderOf(n.parts[1]));
+          else if (ks[1] != null && ks[0] == null) want[0] = wpAround(own, ks[1]);
+        }
+      }
+      (n.parts || []).forEach((p, i) => walk(p, want[i]));
+    };
+    const whole = wpLetters(answer), known = wpKnown(root);
+    walk(root, known != null && known !== whole ? null : whole);
+    return out;
+  }
+
+  // Code-point slice of the clue, as the stored `at` offsets count.
+  function wpSpan(n) {
+    const spans = [];
+    const visit = (m) => {
+      if ("words" in m && "at" in m) spans.push([m.at, m.at + [...m.words].length]);
+      (m.indicators || []).forEach((i) => { if ("at" in i) spans.push([i.at, i.at + [...i.text].length]); });
+      (m.parts || []).forEach(visit);
+    };
+    visit(n);
+    return spans.length ? [Math.min(...spans.map((s) => s[0])), Math.max(...spans.map((s) => s[1]))] : null;
+  }
+
+  // Each anagram, reversal or hidden indicator with a content word between it
+  // and its fodder: [{ind, gap}]. Link words the annotation declares, and the
+  // small words that join, do not count.
+  function wpApart(root, clue, linkWords) {
+    const cps = [...clue];
+    const ok = new Set(WP_FUNCTION_WORDS);
+    (linkWords || []).forEach((l) => (String(l).toLowerCase().match(/[a-z]+/g) || []).forEach((w) => ok.add(w)));
+    const out = [];
+    const visit = (n) => {
+      if (n.op && WP_ADJACENT.includes(n.op) && !n.unchecked) {
+        const fod = (n.parts || []).map(wpSpan).filter(Boolean);
+        if (fod.length) {
+          const fs = Math.min(...fod.map((s) => s[0])), fe = Math.max(...fod.map((s) => s[1]));
+          (n.indicators || []).forEach((ind) => {
+            if (!("at" in ind)) return;
+            const i0 = ind.at, i1 = ind.at + [...ind.text].length;
+            const gap = i0 >= fe ? cps.slice(fe, i0).join("") : i1 <= fs ? cps.slice(i1, fs).join("") : "";
+            const bad = (gap.toLowerCase().replace(/\([^)]*\)/g, " ").match(/[a-z]+/g) || []).filter((w) => !ok.has(w));
+            if (bad.length) out.push({ ind: ind.text, gap: gap.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, "") });
+          });
+        }
+      }
+      (n.parts || []).forEach(visit);
+    };
+    visit(root);
+    return out;
+  }
+
+  // {lines: [<li> html], liberties: [text]}; both empty when the tree has no steps to show.
+  function wordplaySteps(tree, answer, clue, linkWords) {
+    const none = { lines: [], liberties: [] };
+    if (!tree || !tree.op || ["cryptic", "rebus", "reverse"].includes(tree.op)) return none;
+    const results = wpResults(tree, answer);
+    const g = (s) => `<span class="gives">${esc(s)}</span>`;
+    const piece = (p) => {
+      const k = results.get(p) || wpKnown(p);
+      return k != null ? g(k) : p.words ? `“${escClue(p.words)}”` : "the step above";
+    };
+    const joined = (parts, sep) => parts.map(piece).filter(Boolean).join(sep);
+    const lines = [];
+    const visit = (n, top) => {
+      (n.parts || []).forEach((p) => visit(p, false));
+      if (!n.op) {
+        if (typeof n.gives === "string" && n.words && wpLetters(n.gives) !== wpLetters(n.words)) {
+          lines.push(`<li>“${escClue(n.words)}” → ${g(n.gives)}${n.note ? ` <span class="muted">— ${esc(n.note)}</span>` : ""}</li>`);
+        }
+        return;
+      }
+      const P = (n.parts || []).map(piece);
+      const res = top ? g(answer) : results.get(n) != null ? g(results.get(n)) : "";
+      let what;
+      switch (n.op) {
+        case "charade": what = `join ${joined(n.parts, " + ")} in order`; break;
+        case "anagram": what = `rearrange the letters of ${joined(n.parts, " + ")}`; break;
+        case "reversal": what = `reverse ${P[0]}`; break;
+        case "container": what = `put ${P[1]} inside ${P[0]}`; break;
+        case "deletion": what = `take ${P[1]} out of ${P[0]}`; break;
+        case "hidden": what = `find the answer hidden in ${P[0]}`; break;
+        case "homophone": what = `${P[0]} sounds like ${g(n.spelt || "")}`; break;
+        case "substitution": what = `in ${P[0]}, swap ${P[1]} for ${P[2]}`; break;
+        case "cycling": what = `move letters round from one end of ${P[0]} to the other`; break;
+        default: what = WP_PICK[n.op] ? `take ${WP_PICK[n.op]} ${P[0]}` : `apply ${esc(n.op)} to ${joined(n.parts, " + ")}`;
+      }
+      const inds = n.indicators || [];
+      const marks = inds.map((i) => `<mark class="ind">${escClue(i.text)}</mark>`).join(LIST_SEP);
+      const why = inds.filter((i) => i.note).map((i) => i.note).join("; ");
+      lines.push(`<li>${marks ? marks + " — " : ""}${what}${res ? ` → ${res}` : ""}` +
+        `${why ? ` <span class="muted">— ${esc(why)}</span>` : ""}</li>`);
+    };
+    visit(tree, true);
+    const liberties = wpApart(tree, clue, linkWords).map((a) =>
+      `This clue takes a liberty: '${a.ind}' isn't next to its fodder (it is separated by '${a.gap}').`);
+    return { lines, liberties };
+  }
+
   // "Entered as SAPIR: RIPAS → reversal → SAPIR": each step's op by its own
   // name (alterationOp in tools/data/puzzle.schema.json), so no table here can drift from it.
   function enteredHTML(ann) {
@@ -4639,11 +4810,15 @@
     if (straightLadder(ann)) steps.splice(0, steps.length, ...steps.filter((s) => s.key === "definition"));
     // A blog-derived ladder stops at what the blogger marked; the rest of the
     // explanation is theirs, and the panel links to it (blogCreditHTML).
+    const wp = ann.fromBlog || straightLadder(ann) ? { lines: [], liberties: [] }
+      : wordplaySteps(ann.wordplay, ann.answer, clue, ann.linkWords);
+    const wpHTML = (wp.lines.length ? `<div class="wp-steps"><b class="wt-part">Step by step</b><ol>${wp.lines.join("")}</ol></div>` : "")
+      + wp.liberties.map((l) => `<p class="liberty">${esc(l)}</p>`).join("");
     if (!ann.fromBlog) steps.push({
       key: "walkthrough",
       label: LABELS.walkthrough,
       html: (steps.some((s) => s.key === "blocks") ? "" : mechanics) +
-        joke + (prose.walkthrough ? `<p><b class="wt-part">The trick</b>${esc(prose.walkthrough)}</p>` : "") + fit + note +
+        joke + wpHTML + (prose.walkthrough ? `<p><b class="wt-part">${wpHTML ? "Why" : "The trick"}</b>${esc(prose.walkthrough)}</p>` : "") + fit + note +
         `<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>` + enteredHTML(ann)
     });
     // Ordered by how much each rung gives away, cheapest first — not by the
