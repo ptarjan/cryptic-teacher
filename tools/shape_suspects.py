@@ -14,10 +14,9 @@ import re
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import clue_shapes as cs  # noqa: E402
-import puzzle_paths  # noqa: E402
-import wordplay  # noqa: E402
+import clue_shapes as cs
+import puzzle_paths
+import wordplay
 
 OUT = Path(__file__).resolve().parent / "data" / "shape_suspects.json"
 

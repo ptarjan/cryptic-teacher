@@ -79,13 +79,12 @@ import re
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import annotation  # noqa: E402
-import clue_shapes as cs  # noqa: E402
-import puzzle_paths  # noqa: E402
-import shape_suspects as ss  # noqa: E402
-import validate_annotations as V  # noqa: E402
-import wordplay as W  # noqa: E402
+import annotation
+import clue_shapes as cs
+import puzzle_paths
+import shape_suspects as ss
+import validate_annotations as V
+import wordplay as W
 
 DATA = Path(__file__).resolve().parent / "data"
 SUSPECTS = DATA / "shape_suspects.json"
@@ -329,7 +328,9 @@ def r_arity_wrap(node, parent, ctx):
     if not node.get("unchecked") or not want:
         return None
     cands = []
-    P = lambda: copy.deepcopy(parts)  # noqa: E731
+    def P():
+        return copy.deepcopy(parts)
+
     if op in UNARY and len(parts) >= 2:
         cands.append(checked(node, parts=[charade(P())]))
         p = P()
