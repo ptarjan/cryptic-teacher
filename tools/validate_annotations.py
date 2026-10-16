@@ -3512,12 +3512,21 @@ def in_definition(ann):
 
 def leaf_folds(tree):
     """Leaves that give a stretch (3+ letters) of their own words and say nothing
-    else: the stretch is a selection, a deletion or a hidden word, written as a leaf."""
+    else: the stretch is a selection, a deletion or a hidden word, written as a leaf.
+
+    Not folds: a leaf directly under a hidden-word op (the prompt's own form,
+    hid([say no before]YNOBE): the op is there and the leaf names what it finds)
+    and a leaf that only drops a possessive or plural S ([Mike's]MIKE)."""
     n = 0
-    for node in _walk(tree):
+    stack = [(tree, None)] if isinstance(tree, dict) else []
+    while stack:
+        node, parent = stack.pop()
+        stack += [(p, node) for p in node.get("parts") or [] if isinstance(p, dict)]
         if "words" in node and "gives" in node and not node.get("unchecked") and not node.get("note"):
+            if parent and parent.get("op") == "hidden":
+                continue
             w, g = wordplay.letters(node["words"]), node["gives"]
-            n += len(g) >= 3 and g != w and g in w
+            n += len(g) >= 3 and g != w and g in w and w != g + "S"
     return n
 
 
