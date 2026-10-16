@@ -3564,7 +3564,9 @@
     cryptic_definition: { learn: "cryptic-definition", means: "a word is used in an odd sense",
       also: ["a question mark at the end"] },
     and_lit: { learn: "and-lit", means: "the whole clue is both the wordplay and the definition",
-      also: ["an exclamation mark at the end"] }
+      also: ["an exclamation mark at the end"] },
+    letter_picture: { learn: "letter-picture", means: "describe the picture the letters make, and the description is the answer",
+      also: ["a clue with no lower-case letters", "a question mark at the end"] }
   };
   // The type rung names only the family, so its rule is the family's: how to
   // spot one next time, without saying which member this clue is. `learn` is
@@ -3575,6 +3577,9 @@
       also: [] },
     and_lit: { learn: "and-lit",
       spot: "suspect one when the whole clue is wordplay and yet still describes a single thing; an exclamation mark often flags it",
+      also: [] },
+    picture: { learn: "letter-picture",
+      spot: "suspect one when the clue has no ordinary words: only capitals, figures and symbols",
       also: [] },
     anagram: { learn: "anagram",
       spot: "look for a word suggesting mess or change beside a run of letters to shuffle",
@@ -4299,6 +4304,7 @@
     const isDD = t.includes("double_definition");
     const isCD = t.includes("cryptic_definition");
     const isLit = t.includes("and_lit");
+    const isPic = t.includes("letter_picture");
     const inds = ann.indicators || [];
     const defs = ann.definitions || [];
     const blocks = buildingBlocks(ann);
@@ -4374,6 +4380,15 @@
         label: LABELS.definition,
         html: `<p>No words in this clue define the answer: the puzzle's preamble
           does: <q>${esc((P && P.preamble) || "")}</q></p>`
+      });
+    } else if (!defs.length && isPic) {
+      // A letter picture defines nothing. The rung says so without naming the
+      // family, which is the type rung's to sell.
+      steps.push({
+        key: "definition",
+        label: LABELS.definition,
+        html: `<p>No words in this clue define the answer: every character in it is wordplay,
+          and none of it is an instruction to follow.</p>`
       });
     } else if (!defs.length) {
       // A blog fact with a type and no clean underline: no definition rung.
