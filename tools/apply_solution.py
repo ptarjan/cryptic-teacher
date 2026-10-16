@@ -472,6 +472,10 @@ def main():
     else:
         path = resolve_puzzle(args.number)
         puzzle = read_puzzle_file(path)
+    # An entry the preamble alters (Letters Latent) gives its full answer as
+    # "from", as promote_clues_only reads it.
+    froms = {eid: normalise(v["from"]) for eid, v in fill.items()
+             if isinstance(v, dict) and v.get("from")}
     fill, defs = split_fill(fill)
 
     cells, crossings, problems = check_fill(puzzle, fill)
@@ -510,6 +514,14 @@ def main():
         if entry.get("solution") and entry["solution"] != new:
             entry.pop("annotation", None)
         entry["solution"] = new
+        frm = froms.get(entry_id(entry))
+        if frm and frm != new:
+            import genius_puzzles
+            import puzzle_integrity
+            steps = genius_puzzles.steps_for(frm, new, set(puzzle_integrity.ALTERATION_OPS))
+            if not steps:
+                raise SystemExit(f"{entry_id(entry)}: no alteration turns {frm} into {new}")
+            entry["alteration"] = {"from": frm, "steps": steps}
     for cid, item in groups.off_grid(puzzle):
         item["solution"] = normalise(fill[cid])
     detail = {

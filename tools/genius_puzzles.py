@@ -1357,18 +1357,22 @@ def promote_jigsaw(record, answers, grid=None):
                        f"match their clue's count: {', '.join(wrong)}")]
     starts = sorted({(x, y) for _, x, y, _ in placed}, key=lambda c: (c[1], c[0]))
     numbers = {c: k for k, c in enumerate(starts, 1)}
-    clues, parts = [], {}
+    # A jigsaw printing no counts (No 240) takes its answer's length as a
+    # stand-in count for build(), withheld again once filed.
+    clues, parts, withheld = [], {}, []
     for n, x, y, d in placed:
         c = lights[n]["clue"]
         light = (numbers[(x, y)], d)
-        clues.append({"lights": [light], "enumeration": c.get("enumeration"),
+        if not c.get("enumeration"):
+            withheld.append({"lights": [light]})
+        clues.append({"lights": [light], "enumeration": c.get("enumeration") or str(len(given[n])),
                       "clue": f"{c['text']} ({c['enumeration']})" if c.get("enumeration") else c["text"]})
         parts[groups.entry_id({"number": light[0], "direction": d})] = (n, given[n])
     clues.sort(key=lambda c: (c["lights"][0][1] != "across", c["lights"][0][0]))
     pdf = {"clues": clues, "grid": grid, "setter": record.get("setter"),
            "preamble": record.get("preamble"), "origin": "the Guardian's printable PDF"}
     puzzle, why = unsolved(number, pdf, datetime.date.fromisoformat(record["date"]),
-                           record["source"]["url"])
+                           record["source"]["url"], withheld=withheld)
     if why:
         return None, [f"{why[0]}: {why[1]}"]
     puzzle["cluesUnplaced"] = True
