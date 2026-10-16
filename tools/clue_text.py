@@ -320,8 +320,8 @@ HEADING_ALONE = re.compile(r"\W*(?:across|down)\W*$", re.IGNORECASE)
 
 
 #: A line that is a list heading in plain words, "Across" or "Down:" with a colon
-#: or stop after it: group 1 is the word.
-PLAIN_HEADING = re.compile(r"^(across|down)\b[\s:.]*$", re.I)
+#: or stop after it, "Across clues" too: group 1 is the word.
+PLAIN_HEADING = re.compile(r"^\s*(across|down)(?:\s+clues)?\b[\s:.]*$", re.I)
 
 
 def clue_number_opening(line):
@@ -391,3 +391,109 @@ def trim_torn_count(text):
     if k is not None and not text[:k].strip():
         text = text[k + 1:].lstrip()
     return text
+
+
+# ---------------------------------------------------------------- counts
+
+def count_total(enum):
+    """The squares a printed count spans: "3,7" and "3-7" are 10, "(5)" is 5;
+    0 for text with no figures."""
+    return sum(int(n) for n in re.findall(r"\d+", enum or ""))
+
+
+#: A clean printed count ending a line, however its digits are spaced and
+#: joined: "(8)", "(3,7).", "(4-4)", "(2 , 3)". Strict (no OCR letters, a
+#: closed bracket); COUNT_END is the loose reading of a scan.
+PRINTED_COUNT = re.compile(r"\(\s*\d{1,2}(?:\s*[,\-–]\s*\d{1,2})*\s*\)\W{0,2}$")
+
+
+# ------------------------------------------------------- list headings read in
+
+#: The next puzzle's heading read onto a clue, with that puzzle's preamble
+#: and clues after it: a book prints "Alphabetical Jigsaw" (Araucaria book
+#: 2, read onto the last Down light of No 15, 20, 34, 50 and 66). Only as
+#: a heading sets it, in capitals: a clue may say "alphabetical jigsaw"
+#: (cryptic-28672).
+PUZZLE_HEADING = re.compile(r"(?<![\w'])(?:Alphabetical|ALPHABETICAL)\W{1,3}(?:Jigsaw|JIGSAW)(?![\w'])")
+
+#: A list's heading read into a clue: "ACROSS" or "DOWN" in capitals,
+#: which no clue prints, or either opening the text before the first
+#: clue's number ("Down i Beginning", "ACROSS 1 Fish").
+HEADING_IN = re.compile(CAPS_HEADING.pattern + "|" + HEADING_BEFORE_ONE.pattern)
+
+#: A heading with a stray glyph or a lone letter beside it ("| ACROSS",
+#: "DOwNn", "DOWN i"): a book's grid shares the leaf, the scans double a
+#: letter. A clue cannot match: it has words and a count.
+_STRAY = r"[^A-Za-z0-9]{0,3}(?:\s+[A-Za-z][^A-Za-z0-9]{0,2})?"
+_STRAY_HEADING = re.compile(r"^[^A-Za-z0-9]{0,3}" + DIRECTION + _STRAY + "$", re.IGNORECASE)
+#: A heading led by the book's running head ("Cryptic Across", "CryBHE
+#: Across"): one or two alphabetic words, no digits, so "13. See 14 Across"
+#: (a real clue) is no heading; a head that is itself "See" is refused too,
+#: for OCR loses the leading number.
+_RUNNING_HEADING = re.compile(r"^(?P<head>(?:[A-Za-z]{2,12}[^A-Za-z0-9\s]{0,2}\s+){1,2})"
+                              + DIRECTION + r"[^A-Za-z0-9]{0,3}$", re.IGNORECASE)
+
+
+def tolerant_heading(line):
+    """"ACROSS" or "DOWN" for a line that is a heading with specks or a
+    running head round it (see _STRAY_HEADING, _RUNNING_HEADING); else None."""
+    line = line.strip()
+    m = _STRAY_HEADING.match(line)
+    word = m.group(1) if m else None
+    m = None if m else _RUNNING_HEADING.match(line)
+    if m and "see" not in m.group("head").lower():
+        word = m.group(2)
+    if word is None:
+        return None
+    return "ACROSS" if word[0] in "Aa" else "DOWN"
+
+
+# ------------------------------------------------------------ cross-references
+
+#: "see 14", "See 14 Across", "see 3 dn": the number and, if printed, the
+#: way it runs. Source of a pattern; compile it with IGNORECASE.
+SEE_DIRECTED = r"see\s+(\d{1,2})\s*(across|down|ac|dn)?\b"
+
+
+# ------------------------------------------------------ clue numbers read badly
+
+#: A clue number in the 1930s' old-style figures, read as letters: "I."
+#: for 1, "II." for 11, "Io." for 10, "I3." for 13, "4S." for 48; a lone
+#: "S." is a word.
+OLD_FIGURES = re.compile(r"^(\W{0,2})([IlO\d]?[IloO\d]|\dS)([.,:])(?=\s|[A-Z]|$)")
+
+
+def old_figures(word):
+    """`word` with its opening clue number read as letters put back in
+    digits ("II." is "11."; "4S." is "48."); a number cannot open on 0, so
+    "O." and "Oo." stay words. Returns `word` unchanged when it holds none."""
+    m = OLD_FIGURES.match(word)
+    n = m and as_digits(m.group(2), "8")
+    if m and n.isdigit() and n[0] != "0" and not m.group(2).isdigit():
+        return m.group(1) + n + m.group(3) + word[m.end():]
+    return word
+
+
+def mend_scan_text(part):
+    """A scan's run-together clue text with its common OCR slips mended: a
+    stray rule ("|"), "S" and "A" read for 5 and 4 in a clue number ("4S",
+    "2A", "1/Sac", "See Sdn"), a clue number run into its first word ("12T he",
+    "20ac.They"), specks and junk between a count and the next clue, and "|",
+    "l" or "I" read for the 1 that opens a list ("DOWN | Picture of crack
+    plugged (8)", Private Eye No 328)."""
+    part = re.sub(r"^\s*[|lI](?=\s+[A-Z‘“'\"])", " 1", part)
+    part = re.sub(r"\s[|]+(?=\s|$)", " ", part)
+    part = re.sub(r"(?<=[\s/])S(?=\s*(?:ac|dn)\b)", "5", part)
+    # A speck of punctuation after a closing bracket, before the next clue's number
+    # ("13 (see 1dn) : 15 Monument"): it hid the see-row and merged 13 into 15 (No 123).
+    part = re.sub(r"(\))\s+[:;.,]+(?=\s+\d{1,2}\s)", r"\1", part)
+    # OCR junk after an enumeration, before the next clue ("(7) ins eee 29 2 Leader"):
+    # it hid the count and merged clue 2 into 1 (No 262).
+    part = re.sub(r"(\))(?:\s+[a-z]{1,5}){1,4}(?:\s+\d{1,2})?(?=\s+\d{1,2}\s+[A-Z‘“'\"])", r"\1", part)
+    # "(seel3ac)" for "(see 13 ac)": no space, the 1 read as l.
+    part = see_numeral(part)
+    part = re.sub(r"(?<=\s)(\d)S(?=\s)", r"\g<1>5", part)
+    part = re.sub(r"(?<=\s)(\d)A(?=\s+[A-Z‘“'\"])", r"\g<1>4", part)
+    part = re.sub(r"(?<=\s)(\d{1,2})([A-Z]) ([a-z]{1,3})\b", r"\1 \2\3", part)
+    part = re.sub(r"(?<=\d)(ac|dn)\.(?=[A-Z‘“'\"])", r"\1. ", part)
+    return part

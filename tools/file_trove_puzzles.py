@@ -600,8 +600,7 @@ def renumber(parsed):
 
 # ------------------------------------------------------------ the cross-check
 
-def count(enum):
-    return sum(int(n) for n in re.findall(r"\d+", enum))
+count = clue_text.count_total
 
 
 #: A printed count and the ones OCR reads it as past SLIPS' letters, as
