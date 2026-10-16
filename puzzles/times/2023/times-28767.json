@@ -1388,8 +1388,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ESCHEW",
      "indicators": [
       {
        "text": "boxed by",
@@ -1406,16 +1404,16 @@
          "note": "E is the abbreviation for English"
         },
         {
-         "words": "seconds",
-         "gives": "S",
-         "note": "s is the abbreviation for seconds"
-        },
-        {
          "words": "champ",
          "gives": "CHEW",
          "note": "to champ is to chew noisily"
         }
        ]
+      },
+      {
+       "words": "seconds",
+       "gives": "S",
+       "note": "s is the abbreviation for seconds"
       }
      ]
     },
@@ -1721,20 +1719,23 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "INKBOTTLE",
-     "indicators": [
-      {
-       "text": "first to last",
-       "note": "moving the first letter to the end rotates the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Family",
-       "gives": "KIN",
-       "note": "kin are family"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "first to last",
+         "note": "moving the first letter to the end rotates the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Family",
+         "gives": "KIN",
+         "note": "kin are family"
+        }
+       ]
       },
       {
        "words": "courage",

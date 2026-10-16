@@ -536,24 +536,27 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "ARRIVE",
-     "indicators": [
-      {
-       "text": "when moving from last to first place",
-       "note": "the final letter of the stream word travels to the front of it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "a",
        "note": "taken as written"
       },
       {
-       "words": "stream",
-       "gives": "RIVER",
-       "note": "a river is a large stream"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "when moving from last to first place",
+         "note": "the final letter of the stream word travels to the front of it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stream",
+         "gives": "RIVER",
+         "note": "a river is a large stream"
+        }
+       ]
       }
      ]
     },
@@ -656,8 +659,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LAMENTATIONS",
      "indicators": [
       {
        "text": "in",
@@ -666,15 +667,7 @@
      ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "LAMENTATIONS",
-       "indicators": [
-        {
-         "text": "with second delay",
-         "note": "s is short for second, and delaying it sends that letter from the front to the end"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Louisiana",
@@ -682,15 +675,26 @@
          "note": "the US state abbreviation"
         },
         {
-         "words": "dudes",
-         "gives": "MEN",
-         "note": "dudes are guys"
-        },
-        {
-         "words": "station",
-         "note": "taken as written, with its first letter then moved"
+         "op": "cycling",
+         "indicators": [
+          {
+           "text": "with second delay",
+           "note": "s is short for second, and delaying it sends that letter from the front to the end"
+          }
+         ],
+         "parts": [
+          {
+           "words": "station",
+           "note": "taken as written, with its first letter then moved"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "dudes",
+       "gives": "MEN",
+       "note": "dudes are guys"
       }
      ]
     },

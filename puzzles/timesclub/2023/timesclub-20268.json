@@ -1337,8 +1337,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LINHAY",
      "indicators": [
       {
        "text": "tears",
@@ -1360,16 +1358,16 @@
          "note": "someone at home is in"
         },
         {
-         "words": "hot",
-         "gives": "H",
-         "note": "H for hot, as on a tap"
-        },
-        {
          "words": "indeed",
          "gives": "AY",
          "note": "ay, yes indeed"
         }
        ]
+      },
+      {
+       "words": "hot",
+       "gives": "H",
+       "note": "H for hot, as on a tap"
       }
      ]
     },
@@ -1474,8 +1472,6 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "YATRA",
      "indicators": [
       {
        "text": "After raising yen",
@@ -1484,14 +1480,19 @@
      ],
      "parts": [
       {
-       "words": "busy with",
-       "gives": "AT",
-       "note": "at as in 'at work', busy with"
-      },
-      {
-       "words": "some light",
-       "gives": "RAY",
-       "note": "a ray is a beam of light"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "busy with",
+         "gives": "AT",
+         "note": "at as in 'at work', busy with"
+        },
+        {
+         "words": "some light",
+         "gives": "RAY",
+         "note": "a ray is a beam of light"
+        }
+       ]
       }
      ]
     },
@@ -1579,15 +1580,7 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "AYONT",
-     "indicators": [
-      {
-       "text": "going to end",
-       "note": "the leading letter, the one for time, goes off to the end of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Scot's ever",
@@ -1595,9 +1588,20 @@
        "note": "ay is a Scots word for always"
       },
       {
-       "words": "Time for high speed's",
-       "gives": "TON",
-       "note": "a ton is a hundred miles an hour; its T stands for time"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "going to end",
+         "note": "the leading letter, the one for time, goes off to the end of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Time for high speed's",
+         "gives": "TON",
+         "note": "a ton is a hundred miles an hour; its T stands for time"
+        }
+       ]
       }
      ]
     },

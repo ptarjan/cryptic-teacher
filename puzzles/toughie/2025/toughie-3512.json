@@ -258,8 +258,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "REDPEPPER",
      "indicators": [
       {
        "text": "in",
@@ -275,6 +273,16 @@
          "gives": "RE",
          "note": "re means about"
         },
+        {
+         "words": "a",
+         "gives": "PER",
+         "note": "per means a, as in 'five pounds a head'"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "op": "first",
          "indicators": [
@@ -294,11 +302,6 @@
          "words": "go",
          "gives": "PEP",
          "note": "go and pep both mean energy, vim"
-        },
-        {
-         "words": "a",
-         "gives": "PER",
-         "note": "per means a, as in 'five pounds a head'"
         }
        ]
       }
@@ -774,8 +777,6 @@
      "parts": [
       {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "ENTREPOT",
        "indicators": [
         {
          "text": "cycling",
@@ -784,14 +785,19 @@
        ],
        "parts": [
         {
-         "words": "shelter",
-         "gives": "TENT",
-         "note": "a tent is a shelter"
-        },
-        {
-         "words": "property taken back",
-         "gives": "REPO",
-         "note": "a repo is goods repossessed, taken back by a lender"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "shelter",
+           "gives": "TENT",
+           "note": "a tent is a shelter"
+          },
+          {
+           "words": "property taken back",
+           "gives": "REPO",
+           "note": "a repo is goods repossessed, taken back by a lender"
+          }
+         ]
         }
        ]
       }

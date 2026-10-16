@@ -1582,8 +1582,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DUEDATE",
      "indicators": [
       {
        "text": "around",
@@ -1600,30 +1598,30 @@
          "note": "du is French for of the"
         },
         {
-         "op": "nth",
-         "unchecked": true,
-         "gives": "E",
-         "n": 2,
-         "indicators": [
-          {
-           "text": "2nd of",
-           "note": "the second of a word is its second character, so only that is kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "June",
-           "gives": "E",
-           "select": 2,
-           "note": "the second letter of June"
-          }
-         ]
-        },
-        {
          "words": "fruit",
          "gives": "DATE",
          "note": "a date is the fruit of the date palm"
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "unchecked": true,
+       "gives": "E",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "2nd of",
+         "note": "the second of a word is its second character, so only that is kept"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "June",
+         "gives": "E",
+         "select": 2,
+         "note": "the second letter of June"
         }
        ]
       }
@@ -1716,15 +1714,7 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "ATSEA",
-     "indicators": [
-      {
-       "text": "moving back",
-       "note": "moving back means one letter shifts from the end round to the front of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "One single",
@@ -1732,9 +1722,20 @@
        "note": "a means one, a single item"
       },
       {
-       "words": "Spanish vehicle",
-       "gives": "SEAT",
-       "note": "SEAT is a Spanish car maker"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "moving back",
+         "note": "moving back means one letter shifts from the end round to the front of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Spanish vehicle",
+         "gives": "SEAT",
+         "note": "SEAT is a Spanish car maker"
+        }
+       ]
       }
      ]
     },

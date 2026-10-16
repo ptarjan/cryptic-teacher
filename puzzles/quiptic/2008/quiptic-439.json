@@ -145,8 +145,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "APPLE",
      "indicators": [
       {
        "text": "contains",
@@ -155,37 +153,27 @@
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "drink",
+       "gives": "ALE",
+       "note": "ale is a drink; its first letter opens the outer word"
+      },
+      {
+       "op": "alternate",
+       "unchecked": true,
+       "gives": "PP",
+       "indicators": [
+        {
+         "text": "odd",
+         "note": "odd here means the odd-numbered positions, first and third, are taken from the word"
+        }
+       ],
        "parts": [
         {
-         "words": "drink",
-         "gives": "A",
-         "note": "ale is a drink; its first letter opens the outer word"
-        },
-        {
-         "op": "alternate",
          "unchecked": true,
+         "words": "pips",
          "gives": "PP",
-         "indicators": [
-          {
-           "text": "odd",
-           "note": "odd here means the odd-numbered positions, first and third, are taken from the word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "pips",
-           "gives": "PP",
-           "select": "alternate",
-           "note": "the first and third letters of pips"
-          }
-         ]
-        },
-        {
-         "words": "drink",
-         "gives": "LE",
-         "note": "the rest of the beer word closes around the inserted letters"
+         "select": "alternate",
+         "note": "the first and third letters of pips"
         }
        ]
       }
@@ -395,8 +383,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SENTIMENT",
      "indicators": [
       {
        "text": "about",
@@ -405,32 +391,22 @@
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Aware",
+       "gives": "SENTIENT",
+       "note": "sentient means aware; its first part opens around the insertion"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Prime",
+         "note": "prime means first, so only the leading letter of the next word is used"
+        }
+       ],
        "parts": [
         {
-         "words": "Aware",
-         "gives": "SENTI",
-         "note": "sentient means aware; its first part opens around the insertion"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Prime",
-           "note": "prime means first, so only the leading letter of the next word is used"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Minister",
-           "note": "the first letter of Minister"
-          }
-         ]
-        },
-        {
-         "words": "Aware",
-         "gives": "ENT",
-         "note": "the rest of the word for aware"
+         "words": "Minister",
+         "note": "the first letter of Minister"
         }
        ]
       }
@@ -470,8 +446,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DESISTS",
      "indicators": [
       {
        "text": "holding",
@@ -480,32 +454,22 @@
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "believers",
+       "gives": "DEISTS",
+       "note": "deists are believers in a creator God; the first part opens around the insertion"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "final",
+         "note": "final means only the last letter of the next word is taken"
+        }
+       ],
        "parts": [
         {
-         "words": "believers",
-         "gives": "DE",
-         "note": "deists are believers in a creator God; the first part opens around the insertion"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "final",
-           "note": "final means only the last letter of the next word is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "mass",
-           "note": "the last letter of mass"
-          }
-         ]
-        },
-        {
-         "words": "believers",
-         "gives": "ISTS",
-         "note": "the rest of the word for believers"
+         "words": "mass",
+         "note": "the last letter of mass"
         }
        ]
       }
@@ -692,8 +656,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CAMERA",
      "indicators": [
       {
        "text": "about",
@@ -710,16 +672,16 @@
          "note": "came means arrived"
         },
         {
-         "words": "recipe",
-         "gives": "R",
-         "note": "R is the abbreviation for recipe, from Latin, seen on prescriptions"
-        },
-        {
          "words": "article",
          "gives": "A",
          "note": "the indefinite article"
         }
        ]
+      },
+      {
+       "words": "recipe",
+       "gives": "R",
+       "note": "R is the abbreviation for recipe, from Latin, seen on prescriptions"
       }
      ]
     },
@@ -758,8 +720,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NEEDIEST",
      "indicators": [
       {
        "text": "enters",
@@ -768,24 +728,14 @@
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "home",
-         "gives": "NE",
-         "note": "a nest is a home; its first part opens around the insertion"
-        },
-        {
-         "words": "Woman",
-         "gives": "EDIE",
-         "note": "Edie is a woman's name"
-        },
-        {
-         "words": "home",
-         "gives": "ST",
-         "note": "the rest of the word for home"
-        }
-       ]
+       "words": "home",
+       "gives": "NEST",
+       "note": "a nest is a home; its first part opens around the insertion"
+      },
+      {
+       "words": "Woman",
+       "gives": "EDIE",
+       "note": "Edie is a woman's name"
       }
      ]
     },
@@ -880,8 +830,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CORPOREAL",
      "indicators": [
       {
        "text": "in",
@@ -890,24 +838,14 @@
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "pink",
-         "gives": "COR",
-         "note": "coral is a pinkish colour; its first part opens around the insertion"
-        },
-        {
-         "words": "Hole",
-         "gives": "PORE",
-         "note": "a pore is a tiny hole, as in skin"
-        },
-        {
-         "words": "pink",
-         "gives": "AL",
-         "note": "the rest of the colour word"
-        }
-       ]
+       "words": "pink",
+       "gives": "CORAL",
+       "note": "coral is a pinkish colour; its first part opens around the insertion"
+      },
+      {
+       "words": "Hole",
+       "gives": "PORE",
+       "note": "a pore is a tiny hole, as in skin"
       }
      ]
     },
@@ -983,8 +921,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CORD",
      "indicators": [
       {
        "text": "surrounding",
@@ -993,24 +929,14 @@
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Fish",
-         "gives": "CO",
-         "note": "a cod is a fish; its first part opens around the insertion"
-        },
-        {
-         "words": "river",
-         "gives": "R",
-         "note": "R for river, as on maps"
-        },
-        {
-         "words": "Fish",
-         "gives": "D",
-         "note": "the end of the fish word"
-        }
-       ]
+       "words": "Fish",
+       "gives": "COD",
+       "note": "a cod is a fish; its first part opens around the insertion"
+      },
+      {
+       "words": "river",
+       "gives": "R",
+       "note": "R for river, as on maps"
       }
      ]
     },

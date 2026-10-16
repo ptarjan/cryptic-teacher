@@ -308,8 +308,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ATLAS",
      "indicators": [
       {
        "text": "guards",
@@ -326,24 +324,24 @@
          "note": "A is the abbreviation for answer"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "heading for",
-           "note": "the heading of a word is its front, so only the first letter is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Team",
-           "note": "first letter of the word"
-          }
-         ]
-        },
-        {
          "words": "the Spanish",
          "gives": "LAS",
          "note": "las is a Spanish word for the (feminine plural)"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heading for",
+         "note": "the heading of a word is its front, so only the first letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Team",
+         "note": "first letter of the word"
         }
        ]
       }
@@ -1112,15 +1110,7 @@
      ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "REDSALMON",
-       "indicators": [
-        {
-         "text": "cycling",
-         "note": "letters cycling go round, so the last letter of the word moves to the front"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "op": "first",
@@ -1143,9 +1133,20 @@
          ]
         },
         {
-         "words": "nuts",
-         "gives": "ALMONDS",
-         "note": "almonds are nuts"
+         "op": "cycling",
+         "indicators": [
+          {
+           "text": "cycling",
+           "note": "letters cycling go round, so the last letter of the word moves to the front"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nuts",
+           "gives": "ALMONDS",
+           "note": "almonds are nuts"
+          }
+         ]
         }
        ]
       }

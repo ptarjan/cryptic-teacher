@@ -1407,8 +1407,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SAILS",
      "indicators": [
       {
        "text": "on",
@@ -1417,24 +1415,14 @@
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "board",
-         "gives": "S",
-         "note": "first S of SS, steamship, the board in 'on board'"
-        },
-        {
-         "words": "trouble",
-         "gives": "AIL",
-         "note": "to ail is to trouble, as in what ails you"
-        },
-        {
-         "words": "board",
-         "gives": "S",
-         "note": "second S of SS, the ship enclosing the trouble"
-        }
-       ]
+       "words": "board",
+       "gives": "SS",
+       "note": "first S of SS, steamship, the board in 'on board'"
+      },
+      {
+       "words": "trouble",
+       "gives": "AIL",
+       "note": "to ail is to trouble, as in what ails you"
       }
      ]
     },
@@ -1472,8 +1460,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ADAGIO",
      "indicators": [
       {
        "text": "in",
@@ -1482,37 +1468,27 @@
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "bother",
+       "gives": "ADO",
+       "note": "first part of ado, meaning fuss or bother"
+      },
+      {
+       "op": "alternate",
+       "unchecked": true,
+       "gives": "AGI",
+       "indicators": [
+        {
+         "text": "occasionally",
+         "note": "occasionally means every now and then, so only every other letter is used"
+        }
+       ],
        "parts": [
         {
-         "words": "bother",
-         "gives": "AD",
-         "note": "first part of ado, meaning fuss or bother"
-        },
-        {
-         "op": "alternate",
          "unchecked": true,
+         "words": "languid",
          "gives": "AGI",
-         "indicators": [
-          {
-           "text": "occasionally",
-           "note": "occasionally means every now and then, so only every other letter is used"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "languid",
-           "gives": "AGI",
-           "select": "alternate",
-           "note": "the second, fourth and sixth letters"
-          }
-         ]
-        },
-        {
-         "words": "bother",
-         "gives": "O",
-         "note": "last letter of ado, wrapping round the selected letters"
+         "select": "alternate",
+         "note": "the second, fourth and sixth letters"
         }
        ]
       }

@@ -888,8 +888,6 @@
      "parts": [
       {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "INGLENOOKS",
        "indicators": [
         {
          "text": "first to last",
@@ -898,18 +896,23 @@
        ],
        "parts": [
         {
-         "words": "one",
-         "gives": "SINGLE",
-         "note": "single means one"
-        },
-        {
-         "words": "No",
-         "note": "taken as written"
-        },
-        {
-         "words": "agreement",
-         "gives": "OK",
-         "note": "OK signals agreement"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "one",
+           "gives": "SINGLE",
+           "note": "single means one"
+          },
+          {
+           "words": "No",
+           "note": "taken as written"
+          },
+          {
+           "words": "agreement",
+           "gives": "OK",
+           "note": "OK signals agreement"
+          }
+         ]
         }
        ]
       }

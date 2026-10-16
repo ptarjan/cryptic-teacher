@@ -118,8 +118,6 @@
      "parts": [
       {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "RUSTIC",
        "indicators": [
         {
          "text": "after cycling",
@@ -128,22 +126,27 @@
        ],
        "parts": [
         {
-         "words": "piece of bread",
-         "gives": "CRUST",
-         "note": "the hard outer piece of a loaf"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "back from",
-           "note": "the back of a word is its end, so only its final letter is taken"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "deli",
-           "note": "the last letter of the word"
+           "words": "piece of bread",
+           "gives": "CRUST",
+           "note": "the hard outer piece of a loaf"
+          },
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "back from",
+             "note": "the back of a word is its end, so only its final letter is taken"
+            }
+           ],
+           "parts": [
+            {
+             "words": "deli",
+             "note": "the last letter of the word"
+            }
+           ]
           }
          ]
         }
@@ -1192,8 +1195,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CATCALLS",
      "indicators": [
       {
        "text": "eating",
@@ -1208,11 +1209,6 @@
          "words": "Maybe Tiger",
          "gives": "CAT",
          "note": "a tiger is one example of a big cat"
-        },
-        {
-         "words": "demand",
-         "gives": "CALL",
-         "note": "a call for something is a demand for it"
         },
         {
          "op": "last",
@@ -1230,6 +1226,11 @@
          ]
         }
        ]
+      },
+      {
+       "words": "demand",
+       "gives": "CALL",
+       "note": "a call for something is a demand for it"
       }
      ]
     },

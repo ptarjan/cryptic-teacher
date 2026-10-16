@@ -306,8 +306,6 @@
      "parts": [
       {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "DESPERADO",
        "indicators": [
         {
          "text": "recycling",
@@ -316,19 +314,24 @@
        ],
        "parts": [
         {
-         "words": "poet's works",
-         "gives": "ODES",
-         "note": "odes are lyric poems"
-        },
-        {
-         "words": "on a",
-         "gives": "PER",
-         "note": "as in a price per item, so much on each"
-        },
-        {
-         "words": "trailer",
-         "gives": "AD",
-         "note": "a trailer advertises a film"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "poet's works",
+           "gives": "ODES",
+           "note": "odes are lyric poems"
+          },
+          {
+           "words": "on a",
+           "gives": "PER",
+           "note": "as in a price per item, so much on each"
+          },
+          {
+           "words": "trailer",
+           "gives": "AD",
+           "note": "a trailer advertises a film"
+          }
+         ]
         }
        ]
       }
@@ -848,8 +851,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CHIMERA",
      "indicators": [
       {
        "text": "in",
@@ -866,16 +867,16 @@
          "note": "C is the Roman numeral for one hundred"
         },
         {
-         "words": "that woman? Not",
-         "gives": "HIM",
-         "note": "not her but the masculine object pronoun"
-        },
-        {
          "words": "years",
          "gives": "ERA",
          "note": "an era is a long span of years"
         }
        ]
+      },
+      {
+       "words": "that woman? Not",
+       "gives": "HIM",
+       "note": "not her but the masculine object pronoun"
       }
      ]
     },

@@ -263,8 +263,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AISLE",
      "indicators": [
       {
        "text": "surrounded by",
@@ -273,23 +271,13 @@
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "beer",
-         "gives": "A",
-         "note": "ale is a type of beer; it opens here"
-        },
-        {
-         "words": "Is",
-         "note": "taken as written"
-        },
-        {
-         "words": "beer",
-         "gives": "LE",
-         "note": "the rest of the beer"
-        }
-       ]
+       "words": "beer",
+       "gives": "ALE",
+       "note": "ale is a type of beer; it opens here"
+      },
+      {
+       "words": "Is",
+       "note": "taken as written"
       }
      ]
     },
@@ -460,8 +448,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DISAPPEAR",
      "indicators": [
       {
        "text": "crossing",
@@ -479,28 +465,23 @@
         },
         {
          "words": "soldier",
-         "gives": "SAPPE",
+         "gives": "SAPPER",
          "note": "a sapper is an army engineer; most of the word comes here"
-        },
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "top of",
-           "note": "the top of a word written downward is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Alps",
-           "note": "the first letter of Alps"
-          }
-         ]
-        },
+         "text": "top of",
+         "note": "the top of a word written downward is its first letter"
+        }
+       ],
+       "parts": [
         {
-         "words": "soldier",
-         "gives": "R",
-         "note": "the last letter of the engineer"
+         "words": "Alps",
+         "note": "the first letter of Alps"
         }
        ]
       }
@@ -540,8 +521,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SLIDE",
      "indicators": [
       {
        "text": "going round",
@@ -550,33 +529,23 @@
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Team",
+       "gives": "SIDE",
+       "note": "a side is a team; it opens here"
+      },
+      {
+       "op": "nth",
+       "n": 2,
+       "indicators": [
+        {
+         "text": "second of",
+         "note": "'second of' picks out the letter in position two of the following word"
+        }
+       ],
        "parts": [
         {
-         "words": "Team",
-         "gives": "S",
-         "note": "a side is a team; it opens here"
-        },
-        {
-         "op": "nth",
-         "n": 2,
-         "indicators": [
-          {
-           "text": "second of",
-           "note": "'second of' picks out the letter in position two of the following word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "cliffs",
-           "note": "the second letter of cliffs"
-          }
-         ]
-        },
-        {
-         "words": "Team",
-         "gives": "IDE",
-         "note": "the rest of the team word"
+         "words": "cliffs",
+         "note": "the second letter of cliffs"
         }
        ]
       }
@@ -749,8 +718,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MAVIS",
      "indicators": [
       {
        "text": "about",
@@ -767,15 +734,15 @@
          "note": "ma is an informal word for mother"
         },
         {
-         "words": "five",
-         "gives": "V",
-         "note": "V is the Roman numeral for five"
-        },
-        {
          "words": "is",
          "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "five",
+       "gives": "V",
+       "note": "V is the Roman numeral for five"
       }
      ]
     },
@@ -1285,8 +1252,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NORSE",
      "indicators": [
       {
        "text": "breaking",
@@ -1295,32 +1260,22 @@
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "hooter",
+       "gives": "NOSE",
+       "note": "hooter is slang for the nose; its first part opens the word"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginner in",
+         "note": "the beginner of a word is its opening letter"
+        }
+       ],
        "parts": [
         {
-         "words": "hooter",
-         "gives": "NO",
-         "note": "hooter is slang for the nose; its first part opens the word"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "beginner in",
-           "note": "the beginner of a word is its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "ring",
-           "note": "the opening letter of ring"
-          }
-         ]
-        },
-        {
-         "words": "hooter",
-         "gives": "SE",
-         "note": "the rest of the slang word for the nose"
+         "words": "ring",
+         "note": "the opening letter of ring"
         }
        ]
       }
@@ -1635,8 +1590,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EUREKA",
      "indicators": [
       {
        "text": "visiting",
@@ -1652,6 +1605,16 @@
          "note": "taken as written"
         },
         {
+         "words": "area",
+         "gives": "A",
+         "note": "A is the abbreviation for area"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
          "words": "about",
          "gives": "RE",
          "note": "re means about or concerning"
@@ -1660,11 +1623,6 @@
          "words": "king",
          "gives": "K",
          "note": "K is the chess abbreviation for king"
-        },
-        {
-         "words": "area",
-         "gives": "A",
-         "note": "A is the abbreviation for area"
         }
        ]
       }

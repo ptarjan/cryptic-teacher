@@ -249,8 +249,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PUBLICITY",
      "indicators": [
       {
        "text": "secured by",
@@ -267,29 +265,29 @@
          "note": "a local is the pub nearest your home"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "LI",
-         "indicators": [
-          {
-           "text": "leaders",
-           "note": "leaders go in front, so each word gives up only its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "lousy independent",
-           "gives": "LI",
-           "select": "first",
-           "note": "the opening letters of lousy and independent"
-          }
-         ]
-        },
-        {
          "words": "financial centre",
          "gives": "CITY",
          "note": "the City is London's financial district"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "LI",
+       "indicators": [
+        {
+         "text": "leaders",
+         "note": "leaders go in front, so each word gives up only its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "unchecked": true,
+         "words": "lousy independent",
+         "gives": "LI",
+         "select": "first",
+         "note": "the opening letters of lousy and independent"
         }
        ]
       }

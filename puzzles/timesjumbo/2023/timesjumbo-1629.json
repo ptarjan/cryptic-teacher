@@ -215,8 +215,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SAINTLIER",
      "indicators": [
       {
        "text": "detected in",
@@ -233,11 +231,6 @@
          "note": "S is the abbreviation for small"
         },
         {
-         "words": "isn't commonly",
-         "gives": "AINT",
-         "note": "ain't is the colloquial form of isn't"
-        },
-        {
          "words": "untruth",
          "gives": "LIE",
          "note": "a lie is an untruth"
@@ -248,6 +241,11 @@
          "note": "R is the abbreviation for right"
         }
        ]
+      },
+      {
+       "words": "isn't commonly",
+       "gives": "AINT",
+       "note": "ain't is the colloquial form of isn't"
       }
      ]
     },
@@ -790,20 +788,23 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "UNSKILLED",
-     "indicators": [
-      {
-       "text": "leader moved",
-       "note": "when the leader is moved, the front letter goes from the head to the tail"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Sun's",
-       "gives": "SUN",
-       "note": "taken as written"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "leader moved",
+         "note": "when the leader is moved, the front letter goes from the head to the tail"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sun's",
+         "gives": "SUN",
+         "note": "taken as written"
+        }
+       ]
       },
       {
        "words": "taken out",

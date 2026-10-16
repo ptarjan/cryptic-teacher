@@ -1003,8 +1003,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "COMPLICIT",
      "indicators": [
       {
        "text": "about",
@@ -1021,16 +1019,16 @@
          "note": "CO = company"
         },
         {
-         "words": "member",
-         "gives": "MP",
-         "note": "MP = Member of Parliament"
-        },
-        {
          "words": "sanctioned",
          "gives": "LICIT",
          "note": "licit = lawful, sanctioned"
         }
        ]
+      },
+      {
+       "words": "member",
+       "gives": "MP",
+       "note": "MP = Member of Parliament"
       }
      ]
     },
@@ -1565,8 +1563,6 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "THEME",
      "indicators": [
       {
        "text": "when cycling",
@@ -1575,14 +1571,19 @@
      ],
      "parts": [
       {
-       "words": "that man",
-       "gives": "HE",
-       "note": "he = that man"
-      },
-      {
-       "words": "encountered",
-       "gives": "MET",
-       "note": "met = encountered"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "that man",
+         "gives": "HE",
+         "note": "he = that man"
+        },
+        {
+         "words": "encountered",
+         "gives": "MET",
+         "note": "met = encountered"
+        }
+       ]
       }
      ]
     },
@@ -1689,8 +1690,7 @@
        ],
        "parts": [
         {
-         "words": "therapy essentially",
-         "gives": "THERAPY",
+         "words": "therapy",
          "note": "middle letter of THERAPY"
         }
        ]

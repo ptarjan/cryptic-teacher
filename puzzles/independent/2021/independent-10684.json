@@ -55,8 +55,6 @@
      "parts": [
       {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "BODEGA",
        "indicators": [
         {
          "text": "Cycling",
@@ -65,22 +63,27 @@
        ],
        "parts": [
         {
-         "words": "home",
-         "gives": "ABODE",
-         "note": "an abode is a dwelling place"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "finally points at the very end of the word that follows it, keeping only its closing letter"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "stopping",
-           "note": "the closing letter of the word"
+           "words": "home",
+           "gives": "ABODE",
+           "note": "an abode is a dwelling place"
+          },
+          {
+           "op": "last",
+           "indicators": [
+            {
+             "text": "finally",
+             "note": "finally points at the very end of the word that follows it, keeping only its closing letter"
+            }
+           ],
+           "parts": [
+            {
+             "words": "stopping",
+             "note": "the closing letter of the word"
+            }
+           ]
           }
          ]
         }
@@ -122,8 +125,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ADIT",
      "indicators": [
       {
        "text": "to seal off",
@@ -139,16 +140,16 @@
          "note": "taken as written"
         },
         {
-         "words": "copper",
-         "gives": "DI",
-         "note": "a copper is a policeman; DI is a Detective Inspector"
-        },
-        {
          "words": "time",
          "gives": "T",
          "note": "T is the standard abbreviation for time"
         }
        ]
+      },
+      {
+       "words": "copper",
+       "gives": "DI",
+       "note": "a copper is a policeman; DI is a Detective Inspector"
       }
      ]
     },
@@ -483,20 +484,23 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "GOODFORYOU",
-     "indicators": [
-      {
-       "text": "Partly swapped",
-       "note": "with its parts swapped, the two halves of the phrase change places, back half first"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "permanently",
-       "gives": "FORGOOD",
-       "note": "for good means for ever"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "Partly swapped",
+         "note": "with its parts swapped, the two halves of the phrase change places, back half first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "permanently",
+         "gives": "FORGOOD",
+         "note": "for good means for ever"
+        }
+       ]
       },
       {
        "op": "homophone",

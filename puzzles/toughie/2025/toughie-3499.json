@@ -265,8 +265,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LOOSEEND",
      "indicators": [
       {
        "text": "traps",
@@ -293,27 +291,6 @@
          ]
         },
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "overlooking",
-           "note": "overlooking something means missing it out, so those letters are dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "James Bond",
-           "gives": "OOSEVEN",
-           "note": "Bond is agent 007, spoken as double-O seven"
-          },
-          {
-           "words": "very",
-           "gives": "V",
-           "note": "V is the usual abbreviation for very"
-          }
-         ]
-        },
-        {
          "op": "last",
          "parts": [
           {
@@ -321,6 +298,27 @@
            "note": "final letter of the word"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "overlooking",
+         "note": "overlooking something means missing it out, so those letters are dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "James Bond",
+         "gives": "OOSEVEN",
+         "note": "Bond is agent 007, spoken as double-O seven"
+        },
+        {
+         "words": "very",
+         "gives": "V",
+         "note": "V is the usual abbreviation for very"
         }
        ]
       }
@@ -807,20 +805,23 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "EARTHY",
-     "indicators": [
-      {
-       "text": "cycling",
-       "note": "cycling means going round in a loop, so a letter moves from one end of the word to the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Love",
-       "gives": "HEART",
-       "note": "your heart is your love, as in sweetheart"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "note": "cycling means going round in a loop, so a letter moves from one end of the word to the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Love",
+         "gives": "HEART",
+         "note": "your heart is your love, as in sweetheart"
+        }
+       ]
       },
       {
        "op": "last",
