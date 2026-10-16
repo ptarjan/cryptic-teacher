@@ -15,25 +15,11 @@
 # an edit someone else pushed to the same file in the meantime is merged, or
 # refused as a conflict, instead of silently reverted.
 #
-# The pre-push check (tools/pre_push.py) judges the commit about to be pushed
-# with that commit's own tools/, checked out in a worktree kept for it in the
-# git dir (push-gate), never with this checkout's: a pusher behind master (the
-# burn, until a push lands and it resets onto origin) would otherwise be held
-# to gates master has since loosened, so never catch up, and be let past
-# gates master has tightened. git push then skips the hook, which would run
-# this checkout's copy.
-#
 # A rejected push (origin moved) or a lost race on the shared
 # refs/remotes/origin/master (a sibling worktree fetching) is retried against a
-# fresh fetch. Only the first push runs the pre-push check: a retry pushes the
-# same change onto a newer origin, and the check's seconds are the window
-# another pusher wins in. A conflict exits CONFLICT (3), read off merge-tree's
+# fresh fetch. A conflict exits CONFLICT (3), read off merge-tree's
 # own status (1: conflicts), so a caller can set the commit aside and go on to
-# the next (tools/durable.sh). A commit the pre-push check refuses (its own
-# exit 1, no crash) exits REFUSED (4): origin's code judges it, so it is
-# refused at every try until it is made again with that code, and the caller
-# sets it aside and has its source read again (tools/durable.sh; 10-13: a
-# pass on old code stuck 5 hours behind such commits). Anything else exits
+# the next (tools/durable.sh). Anything else exits
 # non-zero (1, 2) with git's own words on stderr. The one conflict settled instead of refused is a
 # promotion racing a re-read of its clues-only file (modify/delete on
 # clues_only/X.json): tools/resolve_promotion_conflict.py keeps the promoted
@@ -41,7 +27,6 @@
 # where the filed clue was never corrected.
 set -uo pipefail
 CONFLICT=3
-REFUSED=4
 
 # Pushers on this machine (burn, daily units, re-date batches) take turns from
 # fetch to push: unserialised, a 100-commit batch starved a daily unit through
@@ -55,29 +40,6 @@ commit=$(git rev-parse --verify -q "${1:-HEAD}^{commit}") || {
 parent=$(git rev-parse --verify -q "$commit^") || {
   echo "push_puzzle_commit: $commit has no parent to diff against" >&2; exit 2; }
 
-gate="$(git rev-parse --path-format=absolute --git-common-dir)/push-gate"
-judge() {  # $1 base, $2 the commit to push: 0 passed, REFUSED, else 1 (it could not judge)
-  local out rc
-  if [ ! -e "$gate/.git" ]; then
-    echo "push_puzzle_commit: checking out $gate for the pre-push check (first push only)" >&2
-    git worktree prune
-    git worktree add -q --detach "$gate" "$2" || return 1
-  fi
-  git -C "$gate" checkout -q -f --detach "$2" && git -C "$gate" clean -fdq || return 1
-  [ -f "$gate/tools/pre_push.py" ] || return 0
-  out=$(python3 "$gate/tools/pre_push.py" "$1" "$2" </dev/null 2>&1)
-  rc=$?
-  [ -n "$out" ] && printf '%s\n' "$out" >&2
-  [ "$rc" = 0 ] && return 0
-  # Its verdict, not a crash (a traceback, a signal): a crash is tried again later.
-  if [ "$rc" = 1 ] && ! printf '%s' "$out" | grep "^Traceback " >/dev/null; then
-    echo "push_puzzle_commit: the pre-push check refuses $(git log -1 --format=%s "$commit")" >&2
-    return "$REFUSED"
-  fi
-  return 1
-}
-
-judged=
 for attempt in 1 2 3 4 5 6 7 8 9 10; do
   if ! out=$(git fetch -q origin master 2>&1); then
     printf '%s\n' "$out" >&2
@@ -119,12 +81,6 @@ for attempt in 1 2 3 4 5 6 7 8 9 10; do
     GIT_AUTHOR_EMAIL=$(git log -1 --format=%ae "$commit") \
     GIT_AUTHOR_DATE=$(git log -1 --format=%aD "$commit") \
     git commit-tree "${sign[@]}" "$tree" -p "$base") || exit 1
-  if [ -z "$judged" ]; then
-    judge "$base" "$sha"
-    rc=$?
-    [ "$rc" = 0 ] || exit "$rc"
-    judged=1
-  fi
   out=$(git push -q --no-verify origin "$sha:refs/heads/master" 2>&1) && exit 0
   printf '%s\n' "$out" >&2
   printf '%s' "$out" | grep -E "rejected|fetch first|non-fast-forward|cannot lock ref" >/dev/null || exit 1

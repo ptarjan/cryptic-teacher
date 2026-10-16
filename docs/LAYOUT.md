@@ -1009,9 +1009,11 @@ tools/ci_shards.js                             splits the test scripts across th
                                                parallel jobs, so the suite takes as long as its
                                                slowest single script rather than all of them
                                                added up
-tools/pre_push.py                              the pre-push hook's check (.githooks/pre-push):
-                                               refuses in seconds a push that would turn CI
-                                               red, saying why
+tools/code_checks.py                           the code lint CI runs: ruff's syntax and
+                                               undefined-name rules, no `| grep -q` under
+                                               pipefail, and the scratch-copy check (a test
+                                               that copies a tools/ module copies what it
+                                               imports)
 tools/test_ci_coverage.js                      checks every test in tools/ is run, in exactly
                                                one shard, by the workflow a later push cannot
                                                cancel, so no check is quietly optional
@@ -1125,28 +1127,18 @@ tools/indexnow.py                              tells IndexNow (Bing and the engi
                                                deploy is live
 tools/renamed_ids.py                           every puzzle id a commit renamed, read from git
                                                history into tools/data/renamed_ids.json;
-                                               --check-staged is the pre-commit refusal of a
-                                               rename without its row, --stage adds the row
+                                               --check-staged refuses a staged rename without
+                                               its row, --stage adds the row
 tools/puzzle_rows.py                           the per-puzzle tables' rows follow their file:
                                                retire carries a renamed id's rows to its new id
-                                               and discards a dropped one's; --check-staged is
-                                               the pre-commit refusal of a deletion or rename
-                                               that leaves rows, --check that every row names a
-                                               file on disk
+                                               and discards a dropped one's; --check-staged
+                                               refuses a staged deletion or rename that leaves
+                                               rows, --check that every row names a file on disk
 tools/test_puzzle_rows.sh                      do a puzzle's table rows go where its file goes?
-                                               retire discards and carries, the pre-commit gate
+                                               retire discards and carries, --check-staged
                                                refuses a drop or rename leaving rows,
                                                durable.sh commits a drop with its rows gone,
                                                and every real row names a file
-tools/precommit_puzzles.py                     the pre-commit hook's checks on the staged
-                                               puzzle files (puzzle_integrity's QUOTE,
-                                               validate_annotations --deploy) in one Python
-                                               start
-tools/test_precommit_speed.sh                  does .githooks/pre-commit run each check only
-                                               when the commit stages what it reads? a commit
-                                               staging none of it starts no Python and stays
-                                               within its time budget; a filed puzzle runs only
-                                               precommit_puzzles.py
 tools/test_renamed_ids.sh                      does a renamed puzzle's old id keep resolving? A
                                                rename inside a commit that moves every file is
                                                still paired, a staged rename the map lacks is
@@ -1230,10 +1222,9 @@ tools/durable.sh                               sourced by a long job that files 
                                                pushes what a SIGKILL left
 tools/unstage_unparsable.sh                    sourced by durable.sh and nightly_worktree.sh:
                                                unstages a .json a kill cut off, and a puzzle
-                                               the pre-push would refuse (puzzle_integrity.py
-                                               --refused), held in the tree and named, so no
-                                               commit carries one and one bad puzzle strands no
-                                               checkpoint
+                                               puzzle_integrity.py --refused names, held in the
+                                               tree and named, so no commit carries one and one
+                                               bad puzzle strands no checkpoint
 tools/commit_puzzles.sh                        commits each staged puzzle or clues-only file on
                                                its own (`File <id>`, a rename's two paths
                                                together), so no writer batches a run's puzzles
@@ -1732,12 +1723,13 @@ tools/test_nightly_worktree.sh                 which tree does a scheduled job e
 tools/test_durable.sh                          does a long job keep what it filed when left
                                                running, sent SIGTERM, or SIGKILLed and
                                                restarted, without filing anything twice; does a
-                                               checkpoint hold back a puzzle the pre-push would
-                                               refuse and push the rest; does corpus_queue.py
-                                               stop let the pass commit; does every long
-                                               scheduled job use tools/durable.sh, committing
-                                               all of puzzles/ so a file a write moved between
-                                               folders is deleted on origin too?
+                                               checkpoint hold back a puzzle
+                                               puzzle_integrity.py --refused names and push the
+                                               rest; does corpus_queue.py stop let the pass
+                                               commit; does every long scheduled job use
+                                               tools/durable.sh, committing all of puzzles/ so
+                                               a file a write moved between folders is deleted
+                                               on origin too?
 tools/data/source_answer_wrong.json            answers a source's key got wrong, keyed puzzle
                                                id/entry id: what it serves, the corrected
                                                letters, the evidence; read as
@@ -2621,16 +2613,6 @@ tools/test_fetch_nation_clue_list.sh           does fetch_nation read a Nation c
 tools/test_fetch_nation_dates.sh               does fetch_nation date a page printing no issue
                                                on the issue clock, so it sorts between its
                                                neighbours instead of before the number below it?
-tools/test_push_gate_target_tree.sh            does tools/push_puzzle_commit.sh judge a commit
-                                               with the checking code of the tree it publishes
-                                               (origin/master plus the commit), not the
-                                               pusher's own checkout? The burn
-                                               (tools/prereset_backfill.sh) pushes from a
-                                               checkout that is behind master until its push
-                                               succeeds and it resets, so a gate judged from
-                                               that checkout deadlocks it once master loosens
-                                               the gate, and lets it past a gate master has
-                                               tightened
 tools/test_genius_instructions.sh              is a puzzle whose clues point at instructions we
                                                do not hold kept from the annotators, and does
                                                filing a preamble later let a parked failure
