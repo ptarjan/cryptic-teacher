@@ -418,6 +418,12 @@ def linked_across(laid):
             other = n + "-" + ("down" if side == "across" else "across")
             text, enum, _ = out.get(other, ("", None, None))
             text = (text or "").strip()
+            # "25 (see 5dn)": the reference names the head's direction, which
+            # is the head's own side here (No 266's 5/25 down, 25 across).
+            ref = SEE_SIDE.fullmatch(text)
+            if ref and ref.group(1) == head and ref.group(2) and \
+                    ("across" if ref.group(2).lower().startswith("a") else "down") == lid.split("-")[1]:
+                text = see
             # "(see 16)" read "see (6)": the reference lost its first digit and
             # became the count, a suffix of the head's number.
             lost = text.lower() == "see" and bool(enum) and head.endswith(str(enum)) and str(enum) != head
