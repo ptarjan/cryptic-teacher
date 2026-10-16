@@ -1332,16 +1332,6 @@ python3 tools/fetch_puzzle.py --reindex
 # The glossary is generated from the annotated corpus, so rebuild it before the
 # final commit.
 python3 tools/build_abbreviations.py
-# The README's corpus counts are generated too, and annotating is what moves
-# them; nothing else rebuilds them on every run (daily_update.sh does only when
-# its rebase conflicts on a generated file), so without this line the counts
-# stall at whatever the last rebuild saw. They are worth
-# saying and not worth stopping for, so a refusal here names itself and the run
-# carries on -- the puzzles are the point.
-if ! readme_err=$(python3 tools/build_readme.py 2>&1); then
-  printf '%s\n' "$readme_err"
-  alert "the pre-reset backfill could not regenerate the README, so its corpus counts stay at their last good value:"$'\n'"\`\`\`"$'\n'"$(printf '%s' "$readme_err" | head -12)"$'\n'"\`\`\`"
-fi
 # A failed build leaves last week's pages on disk, and the smoke test below
 # would grade those instead, so the refusal is the alert and the smoke test is
 # skipped rather than run against output this tree did not make.

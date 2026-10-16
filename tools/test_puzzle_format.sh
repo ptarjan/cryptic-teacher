@@ -252,7 +252,7 @@ for n in cryptics:
         puzzle_integrity.check_puzzle(fp.read_puzzle_view(path), __import__("datetime").date(2099, 1, 1), flags)
         return flags
     readers = {
-        "fetch_puzzle.corpus_row (the README's corpus line)": fp.corpus_row,
+        "fetch_puzzle.corpus_row (the corpus counts)": fp.corpus_row,
         "fetch_puzzle.index_row (the reindex's index row)":
             lambda p: {k: v for k, v in fp.index_row(p).items() if k != "hash"},
         "puzzle_style.style": lambda p: puzzle_style.style(fp.read_puzzle_view(p)),

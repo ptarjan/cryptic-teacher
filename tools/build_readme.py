@@ -12,7 +12,6 @@ docs/NIGHTLY.md and docs/LAYOUT.md are generated between HTML-comment markers, f
 the app and the schedulers read:
 
     LADDER   the hint rungs, with app.js's own labels and in its order
-    CORPUS   how many puzzles and clues there are, and how many are annotated
     KNOBS    the scheduling defaults, parsed out of the shell scripts (docs/NIGHTLY.md)
     LAYOUT   what is in the repo, file by file (docs/LAYOUT.md)
 
@@ -23,11 +22,12 @@ number into it, put the number in here instead.
     python3 tools/build_readme.py           rewrite the generated regions
     python3 tools/build_readme.py --check   exit 1 if they are out of date
 
-tools/prereset_backfill.sh runs the first before it commits, and
-tools/daily_update.sh when its rebase conflicts, so the corpus block follows the
-annotations. The second is what makes the other regions safe: a tool added
-without a description, or a default changed without the README following,
-fails the check rather than rotting quietly.
+tools/daily_update.sh runs it when its rebase conflicts. Counts of puzzles and
+clues are not generated here: they change every day, so they live on the live
+site (/progress/, built from the same puzzle files at each deploy). The check
+is what makes the regions safe: a tool added without a description, or a
+default changed without the README following, fails it rather than rotting
+quietly.
 """
 import ast
 import json
@@ -726,6 +726,7 @@ LAYOUT = [
     ("building and checking the site", "tools/test_parallel.sh", "does tools/parallel.py size its pool to the box? CT_JOBS wins; a process at nice 0 (the deploy's build) takes every core; a niced one (the daily units, the corpus job) takes only the cores the load leaves idle, down to one, and pmap then runs serially with no fork; and pmap's results are the serial loop's either way"),
     ("annotating", "tools/shape_suspects.py", "rank clues whose wordplay tree is probably wrong, from shape signals (read-only on puzzles/)"),
     ("annotating", "tools/fix_shape_suspects.py", "repair the shape suspects whose right tree follows from the clue, answer and tree alone (dry run by default; --apply writes puzzles, one sweep commit), and list the rest per clue in tools/data/shape_reannotate.json"),
+    ("annotating", "tools/tidy_cdef_repeat.py", "rewrite cryptic definitions stored as several leaves, corpus-wide (wordplay.cdefRepeat)"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
@@ -793,95 +794,6 @@ def read_knobs():
                  f"quoting it.")
         knobs[name] = m.group(1)
     return knobs
-
-
-SERIES_NAMES = {
-    "cryptic": "Guardian cryptic",
-    "quiptic": "Guardian Quiptic",
-    "everyman": "Observer Everyman",
-    "independent": "Independent daily",
-    "indysunday": "Independent Sunday",
-    "cyclops": "Private Eye Cyclops",
-    "nation": "The Nation cryptic",
-    "metro": "Metro cryptic",
-    "globeandmail": "Globe and Mail cryptic",
-    "times": "Times cryptic",
-    "timesquick": "Times Quick Cryptic",
-    "timesjumbo": "Times Jumbo",
-    "sundaytimes": "Sunday Times cryptic",
-    "timesclub": "Times Club Monthly Special",
-    "tls": "TLS crossword",
-    "mephisto": "Times Mephisto",
-    "listener": "Listener crossword",
-    "azed": "Observer Azed",
-    "genius": "Guardian Genius",
-    "canberra": "Canberra Times cryptic",
-    "ftcryptic": "Financial Times cryptic",
-    "telegraph": "Telegraph cryptic",
-    "toughie": "Telegraph Toughie",
-    "sundaytel": "Sunday Telegraph cryptic",
-    "sundaytough": "Sunday Telegraph Toughie",
-    # ONE ENTRY FOR THE WHOLE SHELF: every scanned printed book is the `book`
-    # series, and which book a puzzle came out of is in its number
-    # (tools/series.py, book_index * 1000 + position). The count beside it is
-    # the shelf's, which is what a reader of this corpus line wants — a line
-    # per book of a few dozen each would be a bibliography, not a corpus.
-    "book": "scanned book reprints",
-}
-
-
-def about(n):
-    """`n` to two significant figures ("8,700", "46,000"), or to the ten under
-    100: the README is committed, so an exact count would change it with every
-    puzzle filed."""
-    if n < 10:
-        return str(n)
-    step = 10 ** max(1, len(str(n)) - 2)
-    return f"{round(n / step) * step:,}"
-
-
-def build_corpus():
-    # Rebuilt, not read: the manifest is generated and untracked, and these
-    # counts go into a file that IS committed. Reading whatever the tree happened
-    # to hold is how a README comes to name a corpus size nobody has any more.
-    import parallel
-    import series as series_meta
-    from fetch_puzzle import corpus_row, puzzle_files
-    # Counted from the puzzle files in one pass that writes nothing: a reindex
-    # would rewrite every shim and rescore every difficulty to learn the same
-    # counts, minutes on a loaded host. "Annotated" is per puzzle for the
-    # headline and per clue for the percentage: a puzzle counts as annotated
-    # only with every clue done, and a clue with one left blank still counts.
-    rows = [r for r in parallel.pmap(corpus_row, puzzle_files())
-            if not series_meta.unlisted(r[0])]
-
-    by_series = {}
-    for r in rows:
-        by_series[r[0]] = by_series.get(r[0], 0) + 1
-    unknown = set(by_series) - set(SERIES_NAMES)
-    if unknown:
-        fail(f"a new series is being fetched that the README has no name for: "
-             f"{', '.join(sorted(unknown))}. Add it to SERIES_NAMES.")
-
-    clues = sum(r[3] for r in rows)
-    done = sum(r[4] for r in rows)
-    annotated = sum(1 for r in rows if r[1])
-    blogged = sum(1 for r in rows if r[2])
-    parts = ", ".join(f"{SERIES_NAMES[s]} {about(n)}"
-                      for s, n in sorted(by_series.items(),
-                                         key=lambda kv: -kv[1]))
-    pct = 5 * round(20 * done / clues) if clues else 0
-    return (
-        f"**Corpus** — about {about(len(rows))} puzzles across {len(by_series)} series "
-        f"({parts}). About {about(annotated)} of them are annotated clue-for-clue, all six "
-        f"rungs, machine-validated: about {pct}% of {about(clues)} clues. The "
-        f"rest are backlog the daily job is still draining. About {about(blogged)} of those "
-        f"carry hints marked up from a solving blog's write-up (definitions, clue "
-        f"types, pieces) and are badged <em>hints via</em> that blog; the other "
-        f"{about(len(rows) - annotated - blogged)} show an <em>answers only</em> badge "
-        f"and degrade gracefully (checking and letter reveals still work; the "
-        f"teaching ladder appears once a puzzle is annotated)."
-    )
 
 
 def build_layout():
@@ -1149,7 +1061,7 @@ def build_ladder():
 # nightly jobs it describes, and the layout table is 300 lines of inventory with
 # a page of its own.
 REGIONS = {
-    README: {"CORPUS": build_corpus, "LADDER": build_ladder},
+    README: {"LADDER": build_ladder},
     NIGHTLY_DOC: {"KNOBS": lambda: build_knobs(read_knobs())},
     LAYOUT_DOC: {"LAYOUT": build_layout},
 }

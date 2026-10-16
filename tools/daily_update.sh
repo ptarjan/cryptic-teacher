@@ -1136,8 +1136,7 @@ GONE
       done <<CONFLICTED
 $conflicted
 CONFLICTED
-      # The builders also rewrite files the rebase never conflicted in — the
-      # README's corpus counts move with every puzzle. A rebase refuses to
+      # The builders also rewrite files the rebase never conflicted in. A rebase refuses to
       # continue with those left unstaged, so stage them under the same rule: a
       # path only qualifies once a builder has rewritten it, and a rewrite is
       # exactly what leaves no conflict markers behind.

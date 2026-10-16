@@ -2750,5 +2750,7 @@ tools/fix_shape_suspects.py                    repair the shape suspects whose r
                                                (dry run by default; --apply writes puzzles, one
                                                sweep commit), and list the rest per clue in
                                                tools/data/shape_reannotate.json
+tools/tidy_cdef_repeat.py                      rewrite cryptic definitions stored as several
+                                               leaves, corpus-wide (wordplay.cdefRepeat)
 ```
 <!-- LAYOUT-END -->

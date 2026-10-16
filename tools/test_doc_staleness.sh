@@ -95,7 +95,7 @@ for f in files:
         print(f"{f}:{n}: {why}: {m!r}", file=sys.stderr)
 if bad:
     print(f"FAIL: {bad} number(s) or snapshot word(s) that go stale; say how and why, "
-          "point to /progress/ or a build_readme.py region for live counts, "
+          "point to /progress/ for live counts, "
           "or date it (MM-DD) if it is history", file=sys.stderr)
     sys.exit(1)
 print(f"ok: {len(files)} hand-written docs hold no live count or snapshot word")
