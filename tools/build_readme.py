@@ -222,6 +222,7 @@ LAYOUT = [
     ("annotating", "tools/clue_shapes.py", "the census of every whole-clue wordplay tree shape (op tree, leaves abstracted to V/F/A/S/B/U) over the annotated corpus: counts, families, op nesting, mix by series, three examples each, and each shape's verdict from tools/data/clue_shape_verdicts.json; writes docs/CLUE_SHAPES.md (nice -n 19, about ten minutes; --dump writes every skeleton)"),
     ("annotating", "tools/test_clue_shapes.sh", "does tools/clue_shapes.py reduce hand-built trees to the right skeleton and verdict (a redundant anagram-of-charade, a repeating cryptic definition, a mislabelled anagram-over-container), and is the verdict file valid?"),
     ("tables everything else reads", "tools/data/shape_suspects.json", "ranked clues whose wordplay tree tools/shape_suspects.py judges probably wrong (id, clue, skeleton, reasons, score from hand-measured detector precision); a work list for re-annotation, not read by anything"),
+    ("tables everything else reads", "tools/data/shape_reannotate.json", "the shape suspects tools/fix_shape_suspects.py could not repair mechanically, one row per clue ({id: puzzle#clue, reason}); a work list for single-clue re-annotation, not read by anything yet"),
     ("tables everything else reads", "tools/data/clue_shape_verdicts.json", "the judgements tools/clue_shapes.py applies to wordplay shapes, keyed by exact skeleton or by regular expression with depth and mechanism bounds: ok, rare, redundant, mislabelled, implausible or unverified, why, and the right shape; the tool never writes it"),
     ("annotating", "tools/app_tables.py", "the rung ladder and series blurbs, read out of app.js by the tools so there is no copy of the app’s order or wording to keep in step"),
 
@@ -724,6 +725,7 @@ LAYOUT = [
     ("building and checking the site", "tools/test_unit_idle.sh", "does unit_queue.why_run let the books and daily ticks skip their worktree setup only when the tick would start nothing: a SELF_PLANNING queue (books) with nothing due, or any queue while the memory or CPU gate holds every unit back; never a queue whose shell plans the tick (daily) past the gates; and a full tick at least every FULL_EVERY?"),
     ("building and checking the site", "tools/test_parallel.sh", "does tools/parallel.py size its pool to the box? CT_JOBS wins; a process at nice 0 (the deploy's build) takes every core; a niced one (the daily units, the corpus job) takes only the cores the load leaves idle, down to one, and pmap then runs serially with no fork; and pmap's results are the serial loop's either way"),
     ("annotating", "tools/shape_suspects.py", "rank clues whose wordplay tree is probably wrong, from shape signals (read-only on puzzles/)"),
+    ("annotating", "tools/fix_shape_suspects.py", "repair the shape suspects whose right tree follows from the clue, answer and tree alone (dry run by default; --apply writes puzzles, one sweep commit), and list the rest per clue in tools/data/shape_reannotate.json"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
