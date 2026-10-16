@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does tools/gale_fetch.py keep a hand's pace (a jittered gap, never more
 # than WINDOW_MAX in WINDOW seconds, a rest after the learned session cap),
 # record each refusal (login page, HTML, non-PDF) and how long until a
@@ -8,15 +8,20 @@
 # waits? Does it plan the Listener after the Times and before the other
 # papers, and fetch a Listener report from its own issue?
 #
-#     bash tools/test_gale_fetch.sh
+#     python3 tools/test_gale_fetch.py
 #
 # Gale, the Mac and the clock are stand-ins: nothing is asked of Gale or the
 # Mac, nobody is woken, nothing is written outside a temp dir.
-set -euo pipefail
-cd "$(dirname "$0")"
-tmp=$(mktemp -d)
-trap 'rm -rf "$tmp"' EXIT
-python3 - "$tmp" <<'PY'
+import os
+import sys
+import atexit
+import shutil
+import tempfile
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+tmp = tempfile.mkdtemp()
+atexit.register(shutil.rmtree, tmp, True)
+sys.argv[1:] = [tmp]
+
 import bisect, datetime, json, random, sys, urllib.error, urllib.parse
 from pathlib import Path
 import gale_fetch as gf
@@ -378,4 +383,3 @@ cites = [urllib.parse.unquote(urllib.parse.unquote(u)) for u in urls]
 assert "Listener, 16 June 1955" in cites[1] and "Listener, 2 June 1955" in cites[0], cites
 assert gf.key("LSNR", lday, 1309, True) == "LSNR/report/1309" and gf.key("LSNR", lday) == "LSNR/1955-06-02"
 print("test_gale_fetch: ok")
-PY

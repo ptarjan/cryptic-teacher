@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does tools/file_gale_listener.py join a Gale Listener's clue reading and
 # its exact grid into an unsolved puzzle the write path's validators pass
 # (one with a clue unread only to --out): a faint bar the numbering hides put
@@ -10,14 +10,20 @@
 # short of a step (inexact grid, a blank clue) said so, and one with no
 # report filed all the same?
 #
-#     bash tools/test_file_gale_listener.sh
+#     python3 tools/test_file_gale_listener.py
 #
 # Synthetic readings, grids and letters in a temp dir: no OCR, no page image.
-set -euo pipefail
-REPO="$(cd "$(dirname "$0")/.." && pwd)"
-tmp=$(mktemp -d)
-trap 'rm -rf "$tmp"' EXIT
-PYTHONPATH="$REPO/tools" python3 - "$tmp" <<'PY'
+import os
+import sys
+import atexit
+import shutil
+import tempfile
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
+tmp = tempfile.mkdtemp()
+atexit.register(shutil.rmtree, tmp, True)
+sys.argv[1:] = [tmp]
+
 import io, json, sys
 from pathlib import Path
 import fetch_puzzle
@@ -336,4 +342,3 @@ check("a side read surely a rule is never flipped (mirror)", None, rows)
 rows, *_ = f.fit_to_clues({"rows": BARRED, "sides": wide, "thin": 1.0}, {"rows": BARRED}, lambda rows: (three, {}))
 check("a page numbered as its lights are tries one flip alone (mirror)", None, rows)
 sys.exit(1 if fails else 0)
-PY

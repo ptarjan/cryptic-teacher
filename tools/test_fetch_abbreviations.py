@@ -1,10 +1,11 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # fetch_abbreviations.senses() reads what a wiktextract entry says an
 # abbreviation stands for, and nothing it only mentions; list_senses() reads
 # the crossword list's readings and skips the synonyms it mentions.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import fetch_abbreviations as f
 
 def entry(word, *senses, pos="noun"):
@@ -63,4 +64,3 @@ for name, e, want in cases:
     fails += not ok
     print(f"  {'ok' if ok else 'FAIL'}: {name}" + ("" if ok else f"\n    want {want}\n    got  {got}"))
 raise SystemExit(fails)
-PY

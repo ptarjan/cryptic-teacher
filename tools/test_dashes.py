@@ -1,11 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # A dash between words is stored " — " and an ellipsis "…" (tools/dashes.py),
 # whatever the source spelt; hyphens, blanks and a continued clue's leader
 # stay; every offset into the clue moves with the text; the write gate refuses
 # any other spelling.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import copy
 import dashes
 import puzzle_integrity
@@ -232,4 +233,3 @@ check("ligature: italics moved", [{"at": 12, "length": 9}], got["clue"]["italics
 check("ligature: caller's puzzle untouched", 34, lig["annotation"]["definitions"][1]["at"])
 
 raise SystemExit(fails)
-PY

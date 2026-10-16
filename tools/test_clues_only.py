@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does a puzzle held as its clues alone become a grid puzzle once answered,
 # and can nothing in between be written?
 #
-#     bash tools/test_clues_only.sh
+#     python3 tools/test_clues_only.py
 #
 # A solved book puzzle from the corpus (book-8001) is stripped to its clues in
 # printed order (no numbers, no positions, no answers) and written to a scratch
@@ -12,10 +12,10 @@
 # carrying a number, position or answer; an unknown filer; a grid kind with no
 # builder (a Listener book's barred grid), which no solve queue takes either;
 # an id already held with its grid; a fill that no grid holds.
-set -u
-cd "$(dirname "$0")/.." || exit 1
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-python3 - <<'EOF'
 import contextlib
 import io
 import json
@@ -198,4 +198,3 @@ if fails:
     sys.exit(1)
 print("ok test_clues_only: clues-only book-8001 promoted to its published grid; "
       "half states and a barred grid refused")
-EOF

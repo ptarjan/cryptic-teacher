@@ -1,15 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Do word breaks read off a clue's printed enumeration land where the paper puts them?
 #
-#     bash tools/test_enumeration_separators.sh
+#     python3 tools/test_enumeration_separators.py
 #
 # Metro and the Private Eye ship clue text but no word breaks, so
 # fetch_puzzle.enumeration_separators() reads "(5,4)" off the clue. Without it
 # every phrase there is one word to the grid, the letter strip and the scorer.
 # An apostrophe is an "'" mark, never a "," (puzzle_integrity.check_apostrophes).
-set -uo pipefail
-cd "$(dirname "$0")/.."
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import sys
 
 sys.path.insert(0, "tools")
@@ -119,4 +120,3 @@ check("the write gate refuses it", "APOSTROPHE 10-across" in refused, True)
 
 print(f"FAILED: {fails}" if fails else "all ok")
 sys.exit(1 if fails else 0)
-PY

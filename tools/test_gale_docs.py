@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does tools/gale_docs.py find the day's crossword in a Gale issue's contents
 # (the numbered Times or Listener puzzle, not the Concise or a competition)
 # and a Listener report in the weeks after its puzzle, build Gale's Download
@@ -6,15 +6,20 @@
 # when an older matcher made it? Does tools/gale_listener.py want each
 # Listener puzzle not filed or read, then its report?
 #
-#     bash tools/test_gale_docs.sh
+#     python3 tools/test_gale_docs.py
 #
 # Gale is a stand-in object: nothing is asked of Gale, the portal, the Mac or
 # the desktop, and nothing is written outside a temp dir.
-set -euo pipefail
-cd "$(dirname "$0")"
-tmp=$(mktemp -d)
-trap 'rm -rf "$tmp"' EXIT
-python3 - "$tmp" <<'PY'
+import os
+import sys
+import atexit
+import shutil
+import tempfile
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+tmp = tempfile.mkdtemp()
+atexit.register(shutil.rmtree, tmp, True)
+sys.argv[1:] = [tmp]
+
 import datetime, sys, urllib.parse
 from pathlib import Path
 import gale_docs as gd
@@ -151,4 +156,3 @@ check("report_lookups asks for the solutions a fixed number of times", True, len
 
 print(f"{fails} failure(s)")
 sys.exit(1 if fails else 0)
-PY

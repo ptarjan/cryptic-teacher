@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does the Telegraph bucket parser file each puzzle under the right series and number?
 #
-#     bash tools/test_fetch_telegraph.sh
+#     python3 tools/test_fetch_telegraph.py
 #
 # The cryptic and prize-cryptic variants carry two papers, and only the print
 # day tells them apart: a Sunday is the Sunday Telegraph's sequence, any other
@@ -9,9 +9,10 @@
 # 100,000 and a few reprints under old numbers; those must never be filed as
 # the puzzle the sequence says is due. Offline: a hand-built 3x3 puzzle in the
 # bucket's own shape.
-set -uo pipefail
-cd "$(dirname "$0")/.."
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import datetime
 import sys
 
@@ -246,4 +247,3 @@ same("the bucket's era is its own", [ft.served("telegraph", 27737), ft.served("t
      [False, True, True, False])
 print("FAILED:", fails if fails else "none")
 sys.exit(1 if fails else 0)
-PY

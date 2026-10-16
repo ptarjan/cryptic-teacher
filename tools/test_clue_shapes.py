@@ -1,16 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does tools/clue_shapes.py reduce a tree to the right skeleton, and does its judgement file hold together?
 #
-#     bash tools/test_clue_shapes.sh
+#     python3 tools/test_clue_shapes.py
 #
 # Hand-built trees stand in for the corpus (the real census takes minutes): a charade, an anagram whose
 # fodder is cut into verbatim leaves, a cryptic definition that repeats its own words, a tree four
 # levels deep. Each must give its skeleton and the verdict tools/data/clue_shape_verdicts.json holds
 # for it, and the verdict file must pass its own check, so a typo in a regular expression or a verdict
 # name fails here and not in the nightly. docs/CLUE_SHAPES.md, if present, must keep its markers.
-set -euo pipefail
-cd "$(dirname "$0")/.."
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import re
 import sys
 sys.path.insert(0, "tools")
@@ -91,4 +92,3 @@ if doc.exists():
     text = doc.read_text()
     assert cs.START in text and cs.END in text, "docs/CLUE_SHAPES.md lost its generated markers"
 print("clue_shapes: ok")
-PY

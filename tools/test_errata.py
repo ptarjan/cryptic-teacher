@@ -1,9 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # A paper's erratum in the preamble fixes its clue and leaves the preamble;
 # the instructions beside it stay, and the write gate refuses one left behind.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import copy
 import errata
 import puzzle_integrity
@@ -165,6 +166,6 @@ except ValueError as err:
 flags = []
 puzzle_integrity.check_preamble({"id": "x", "preamble": "Clue 5 down should read: Something"}, flags)
 check("the write gate refuses an erratum left in a preamble", bool(flags), flags)
-raise SystemExit(fails)
-PY
-echo "all errata checks passed"
+if fails:
+    raise SystemExit(fails)
+print("all errata checks passed")

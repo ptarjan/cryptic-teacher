@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Do the hand-written docs stay free of numbers that go stale?
 #
-#     bash tools/test_doc_staleness.sh
+#     python3 tools/test_doc_staleness.py
 #
 # Docs describe how and why, not current numbers. "About 17,000 puzzles are
 # annotated" is false next week; "currently" and "as of" announce a snapshot.
@@ -14,9 +14,10 @@
 #
 # It checks README.md, APP.md, BACKFILLS.md, STYLE.md, tools/data/README.md
 # and docs/*.md, and first checks itself on a fixture.
-set -euo pipefail
-cd "$(dirname "$0")/.."
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import glob
 import re
 import sys
@@ -99,4 +100,3 @@ if bad:
           "or date it (MM-DD) if it is history", file=sys.stderr)
     sys.exit(1)
 print(f"ok: {len(files)} hand-written docs hold no live count or snapshot word")
-PY
