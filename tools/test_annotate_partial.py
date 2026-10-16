@@ -1,16 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # A puzzle that has hints and lacks some is annotated only where it lacks them.
 #
-#     bash tools/test_annotate_partial.sh
+#     python3 tools/test_annotate_partial.py
 #
 # A data fix clears the annotation on just the entries whose clue or answer
 # changed. The run's copy of the puzzle (annotate_check.py --view) then lists
 # those ids as `annotateOnly`, apply_annotations.py needs keys for them alone
 # and refuses to change any other annotation, and a run that started on the
 # whole puzzle stays on the whole puzzle.
-set -uo pipefail
-cd "$(dirname "$0")/.."
-PYTHONPATH=tools python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
+
 import copy, json, shutil, sys, tempfile
 from pathlib import Path
 import apply_annotations as A
@@ -176,8 +178,5 @@ try:
           seven_down(out).get("annotation", {}).get("wordplay") == fresh["wordplay"])
 finally:
     shutil.rmtree(tmp)
-sys.exit(fails)
-PY
-rc=$?
-[ $rc = 0 ] && echo "annotate_partial: all checks passed" || echo "annotate_partial: FAILED"
-exit $rc
+print("annotate_partial: all checks passed" if not fails else "annotate_partial: FAILED")
+raise SystemExit(1 if fails else 0)

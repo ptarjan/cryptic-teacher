@@ -78,7 +78,7 @@ const matches = (rel) => globs.some((g) =>
    it. Empty today, and that is the honest state: every such file is a test. */
 const NOT_A_TEST = [];
 const candidates = fs.readdirSync(path.join(ROOT, "tools"))
-  .filter((f) => /\.(js|sh)$/.test(f) && /test/i.test(f))
+  .filter((f) => /\.(js|sh|py)$/.test(f) && /test/i.test(f))
   .sort();
 assert(candidates.length > 5, "tools/ still holds the test scripts: " + candidates.length);
 NOT_A_TEST.forEach((f) => assert(candidates.includes(f),
@@ -99,8 +99,9 @@ assert(entryPoints.includes("smoke_test.js"),
 /* --- and the loop can actually run each of them --- */
 // A glob that matches a file the loop then feeds to the wrong interpreter is a
 // test that fails for the wrong reason.
-assert(/case\s+"\$t"\s+in\s+\*\.sh\)\s*run=bash/.test(body) && /run=node/.test(body),
-  "the loop picks its interpreter from the extension, so both spellings run");
+assert(/case\s+"\$t"\s+in\s+\*\.sh\)\s*run=bash/.test(body) && /\*\.py\)\s*run=python3/.test(body) &&
+  /run=node/.test(body),
+  "the loop picks its interpreter from the extension, so every spelling runs");
 
 /* --- the shards partition what the globs matched --- */
 // Asserting the splitter is only worth anything while the workflow is the thing

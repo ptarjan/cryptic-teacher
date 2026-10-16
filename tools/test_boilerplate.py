@@ -1,9 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # A paper's publishing boilerplate in the preamble goes; a puzzle's
 # instructions, tributes and kept errata stay; the write gate refuses it.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import boilerplate
 import puzzle_integrity
 
@@ -113,6 +114,6 @@ check("the write gate refuses boilerplate left in a preamble", bool(flags), flag
 flags = []
 puzzle_integrity.check_preamble({"id": "x", "preamble": KEEP[0]}, flags)
 check("the write gate passes instructions", not flags, flags)
-raise SystemExit(fails)
-PY
-echo "all boilerplate checks passed"
+if fails:
+    raise SystemExit(fails)
+print("all boilerplate checks passed")

@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # Is an abbreviation gloss derived from the table, never stored?
 #
-#     bash tools/test_abbreviation_notes.sh
+#     python3 tools/test_abbreviation_notes.py
 #
 # A wordplay leaf whose clue words -> letters pair is in
 # build_abbreviations.table() needs no note: annotation.view() shows
@@ -10,9 +10,10 @@
 # from the corpus by strip_abbreviation_notes.py.
 # A note that adds anything (a domain, a source) stays. All in memory, on a
 # copy of quiptic-619 (11-across: [folio]F).
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import copy
 import json
 from pathlib import Path
@@ -128,4 +129,3 @@ check("strip leaves other notes", folio(kept["entries"][i]["annotation"]).get("n
 
 print("abbreviation notes:", "all checks passed" if not fails else f"FAILED {fails}")
 raise SystemExit(1 if fails else 0)
-PY

@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # Does an annotate run's output in the model's shape (`def`, `wp`, `notes`:
 # tools/annotate_prompt.md's Schema) translate to the stored annotation, with a
 # precise message when it does not check, and land in the file as the tree?
 #
-#     bash tools/test_annotate_model_shape.sh
+#     python3 tools/test_annotate_model_shape.py
 #
 # A puzzle's stored trees are rendered in the model's shape (annotation.to_model)
 # and translated back (annotation.from_model); the view of both must agree.
@@ -11,9 +11,10 @@
 # keeps a stored tree as it is, and refuses an old-prompt clue (type, blocks:
 # the view's keys) with a message naming `def`, `wp` and `notes`.
 # Everything is in memory except --patch, which works on a temp file.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import copy
 import json
 import tempfile
@@ -124,4 +125,3 @@ check("one note replaced, one removed, the rest kept",
 
 print("model shape:", "all checks passed" if not fails else f"FAILED {fails}")
 raise SystemExit(1 if fails else 0)
-PY

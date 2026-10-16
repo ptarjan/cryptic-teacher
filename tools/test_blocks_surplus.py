@@ -1,9 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # When a clue's blocks give too many letters and none too few, the warning names
 # the single-block edits that take exactly the surplus away.
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import validate_annotations as v
 
 fails = 0
@@ -47,4 +48,3 @@ w = warned("OBSESSION", [{"clueFragment": "old boy", "gives": "OB"},
                          {"clueFragment": "meeting", "gives": "SESSION"}])
 check("blocks already add up: no warning", [], w)
 raise SystemExit(fails)
-PY

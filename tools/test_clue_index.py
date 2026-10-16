@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does StoredClueIndex answer exactly what ClueIndex.build() answers, as files
 # are added, edited and deleted, and when its store is corrupt?
 #
-#     bash tools/test_clue_index.sh
+#     python3 tools/test_clue_index.py
 #
 # A scratch git checkout holds a few real puzzles plus a copy of one filed
 # under another id. After each change to the tree (an untracked copy, an
@@ -11,10 +11,10 @@
 # and only the changed files may be parsed again. A store overwritten with
 # garbage is rebuilt, and add()/discard() change one process's view as they
 # do on a ClueIndex. Never reads ~/.cache: the store is in the scratch dir.
-set -u
-cd "$(dirname "$0")/.." || exit 1
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-python3 - <<'EOF'
 import json
 import shutil
 import subprocess
@@ -113,4 +113,3 @@ for f in fails:
     print("  FAIL:", f)
 print("ok" if not fails else f"{len(fails)} failure(s)")
 sys.exit(1 if fails else 0)
-EOF

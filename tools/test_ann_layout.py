@@ -1,11 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # annotate_check's fix-ups rewrite only the values they change in
 # tools/_ann_<ID>.json, so the run's next Edit of text it wrote still matches.
 #
-#     bash tools/test_ann_layout.sh
-set -euo pipefail
-cd "$(dirname "$0")"
-python3 - <<'PY'
+#     python3 tools/test_ann_layout.py
+import os
+import sys
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 import json, pathlib, tempfile
 import annotate_check as C
 
@@ -67,6 +68,6 @@ check("1 and true are not the same value",
 pending.write_text("{not json", encoding="utf-8")
 C.write_pending(pending, {"a": 1})
 check("a file that does not parse is written whole", json.loads(pending.read_text()) == {"a": 1})
-raise SystemExit(fails)
-PY
-echo "all _ann layout checks passed"
+if fails:
+    raise SystemExit(fails)
+print("all _ann layout checks passed")

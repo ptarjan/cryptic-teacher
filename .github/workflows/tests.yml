@@ -10,7 +10,7 @@
 # pages.yml has its own group, and even there a queued build dies the moment
 # the next push arrives, so a check must never live in pages.yml.
 #
-# So the loop globs both of the repo's test-file spellings, tools/test_*.{sh,js}
+# So the loop globs both of the repo's test-file spellings, tools/test_*.{sh,js,py}
 # and tools/*_test.{sh,js}, rather than naming files: a test is wired in by
 # being written, and a list to add to is a list somebody forgets. The one file
 # that spells it the second way is tools/smoke_test.js.
@@ -152,7 +152,7 @@ jobs:
           SHARDS: ${{ strategy.job-total }}
         run: |
           all=()
-          for t in tools/test_*.sh tools/test_*.js tools/*_test.sh tools/*_test.js; do
+          for t in tools/test_*.sh tools/test_*.js tools/test_*.py tools/*_test.sh tools/*_test.js; do
             [ -e "$t" ] || continue
             all+=("$t")
           done
@@ -214,7 +214,7 @@ jobs:
             t=${item%% *}
             slice=
             [ "$item" = "$t" ] || slice=${item#* }
-            case "$t" in *.sh) run=bash ;; *) run=node ;; esac
+            case "$t" in *.sh) run=bash ;; *.py) run=python3 ;; *) run=node ;; esac
             echo "::group::$run $item"
             CI_SLICE="$slice" "$run" "$t" || fails+=("$item")
             echo "::endgroup::"

@@ -1,18 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # Does tools/build_authored_puzzle.py still write A001 (id authored-1), and does what it writes
 # pass everything a fetched puzzle must?
 #
-#     bash tools/test_build_authored_puzzle.sh
+#     python3 tools/test_build_authored_puzzle.py
 #
 # The authored puzzle is never committed — its clues JSON is the source — so no
 # corpus sweep ever sees it, and a change to the schema, the provenance rules
 # or the annotation rules can leave it unbuildable without failing anything.
 # This builds it through the real write path into a scratch puzzles/ tree and
 # holds the result to the schema, puzzle_integrity and validate_annotations.
-set -uo pipefail
-cd "$(dirname "$0")/.."
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ["PYTHONPATH"] = os.path.dirname(os.path.abspath(__file__))
 
-PYTHONPATH=tools python3 - <<'PY'
 import datetime
 import json
 import sys
@@ -156,4 +157,3 @@ for f in fails:
 if fails:
     sys.exit(1)
 print("  ok: authored-1 builds, files, and passes schema, integrity and annotations")
-PY

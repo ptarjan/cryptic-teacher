@@ -1,10 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env python3
 # A refused write must name entries by the id the _ann file uses, with no traceback.
 #
-#     bash tools/test_apply_refusal.sh
-set -uo pipefail
-cd "$(dirname "$0")/.."
-python3 - <<'PY'
+#     python3 tools/test_apply_refusal.py
+import os
+import sys
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import sys, copy, io
 from pathlib import Path
 sys.path.insert(0, "tools")
@@ -81,8 +82,5 @@ def refused(anns):
 check("a wordless clue is not owed an annotation", "12-across" not in refused({}))
 check("an annotation on a wordless clue is refused",
       "printed no words for 12-across" in refused({"12-across": {"def": "spirit", "wp": "GIN"}}))
-sys.exit(fails)
-PY
-rc=$?
-[ $rc = 0 ] && echo "apply_refusal: all checks passed" || echo "apply_refusal: FAILED"
-exit $rc
+print("apply_refusal: all checks passed" if not fails else "apply_refusal: FAILED")
+raise SystemExit(1 if fails else 0)
