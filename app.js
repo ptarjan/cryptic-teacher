@@ -7775,6 +7775,10 @@
     return true;
   }
 
+  function isTouchPrimary() {
+    return !!(window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
+  }
+
   function togglePicker(show) {
     const el = $("picker-panel");
     const want = showPanel("picker-panel", show);
@@ -7799,7 +7803,10 @@
       loadStartedPuzzles(() => {
         if (!el.classList.contains("hidden")) renderPicker();
       });
-      if (box && box.focus) box.focus();
+      // Focus the search box for a keyboard user only. On a touch device the
+      // focus raises the soft keyboard over the list before anyone has chosen
+      // to search; tapping the box still focuses it.
+      if (box && box.focus && !isTouchPrimary()) box.focus();
     }
     return want;
   }
