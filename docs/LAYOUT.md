@@ -797,6 +797,11 @@ tools/data/shape_suspects.json                 ranked clues whose wordplay tree
                                                (id, clue, skeleton, reasons, score from
                                                hand-measured detector precision); a work list
                                                for re-annotation, not read by anything
+tools/data/burn_requests.json                  puzzle ids Paul wants the burn to hint first
+                                               (rebus puzzles), a hand list;
+                                               tools/prereset_plan.py puts the queued ones
+                                               ahead of everything but a lockout's pins and
+                                               drops an id once its puzzle is fully annotated
 tools/data/shape_reannotate.json               the shape suspects tools/fix_shape_suspects.py
                                                could not repair mechanically, one row per clue
                                                ({id: puzzle#clue, reason}); the burn's last
