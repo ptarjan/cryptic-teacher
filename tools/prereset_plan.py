@@ -925,8 +925,36 @@ _HEAD_ROWS = ([_dated(f"cryptic-{22640 + i}", f"2002-{1 + i // 28:02}-{1 + i % 2
                  _dated("everyman-4000", "2026-09-28")])
 
 
-def head_self_test():
+def requests_self_test():
+    """The hand-request list: its queued ids go first, after a lockout's pins; an id
+    drops once its puzzle is fully annotated, one partly hinted stays."""
+    import tempfile
     bad = 0
+    rows = [_row("cryptic-1", "2026-01-01"), _row("cryptic-2", "2026-01-02"),
+            _row("cryptic-3", "2026-01-03"), _row("cryptic-4", "2026-01-04", annotated=True),
+            _row("cryptic-5", "2026-01-05", annotated=True, unannotated=2)]
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "burn_requests.json"
+        path.write_text('["cryptic-1", "cryptic-4", "cryptic-5", "cryptic-9"]')
+        want = requested(rows, path)
+        if want != ["cryptic-1", "cryptic-5", "cryptic-9"]:
+            print(f"FAIL requested = {want} (a fully annotated id drops, an unknown stays)", file=sys.stderr)
+            bad += 1
+        queue = ["cryptic-1", "cryptic-2", "cryptic-3", "cryptic-5"]
+        _, pinned, stages = head_of_queue(queue, ["cryptic-3"], rows, asked=want)
+        if pinned[:3] != ["cryptic-3", "cryptic-1", "cryptic-5"] or stages[5] != 2:
+            print(f"FAIL head_of_queue with requests pins {pinned} at {stages} "
+                  "(want lockout pin, then the requests in list order)", file=sys.stderr)
+            bad += 1
+        path.write_text("not json")
+        if requested(rows, path):
+            print("FAIL an unreadable request list is not empty", file=sys.stderr)
+            bad += 1
+    return bad
+
+
+def head_self_test():
+    bad = requests_self_test()
     # the queue as a re-plan hands it over: ascending, newly eligible at the back
     queue = sorted((r["id"] for r in _HEAD_ROWS), key=lambda i: int(i.rsplit("-", 1)[1]))
     queue.remove("cryptic-30128")
@@ -1629,6 +1657,29 @@ def small_first(queue, pinned, rows, small):
                      if series_of.get(pid) == name and pid not in taken]
 
 
+REQUESTS = REPO / "tools" / "data" / "burn_requests.json"
+
+
+def requested(rows, path=None):
+    """The hand-request list (tools/data/burn_requests.json, puzzle ids Paul wants
+    hinted first, e.g. rebus puzzles) minus the puzzles now fully annotated: an id
+    drops out once the index shows its puzzle annotated with no clue missing."""
+    try:
+        ids = json.loads(Path(path or REQUESTS).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return []
+    by_id = {r["id"]: r for r in rows}
+    return [i for i in dict.fromkeys(ids)
+            if not (by_id.get(i, {}).get("annotated") and not by_id[i].get("unannotated"))]
+
+
+def requested_first(queue, pinned, want):
+    """pinned, then the queue's puzzles named in want (the request list), in the
+    list's order."""
+    taken, inq = set(pinned), set(queue)
+    return pinned + [i for i in want if i in inq and i not in taken]
+
+
 def partly_hinted(rows):
     """{id: clues it lacks} for the puzzles that have hints and lack some (the
     index's `unannotated`). A run annotates only those clues, so each costs a
@@ -1645,9 +1696,9 @@ def partly_first(queue, pinned, rows):
                            key=lambda pid: missing[pid])
 
 
-def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=()):
+def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=()):
     """(the queue newest first, the ids that go ahead of it in order): pinned
-    (cut off by a lockout), then the partly hinted (partly_first), then the nearly-done and small series' puzzles
+    (cut off by a lockout), then the hand requests (asked, requested()), then the partly hinted (partly_first), then the nearly-done and small series' puzzles
     (small_first), then
     /showcase/'s wanted, then each series' No 1,
     then each series' oldest few, then the notable-tagged; each set in queue
@@ -1664,8 +1715,10 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=()):
     by_id = {r["id"]: r for r in rows}
     cryptic = [pid for pid in queue if pid not in straight
                and not (pid in relist and by_id.get(pid, {}).get("annotated"))]
+    pinned = requested_first(queue, list(pinned), list(asked))
+    asked_n = len(pinned) - len(set(pinned) - set(asked)) if asked else 0
     cut = len(pinned)
-    pinned = partly_first(cryptic, list(pinned), rows)
+    pinned = partly_first(cryptic, pinned, rows)
     partly = len(pinned) - cut
     pinned = small_first(cryptic, pinned, rows, small)
     stages = [len(pinned)]
@@ -1677,6 +1730,7 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=()):
     pinned = promote(cryptic, pinned, tagged)
     stages.append(len(pinned))
     stages.append(partly)
+    stages.append(asked_n)
     return queue, pinned, stages
 
 
@@ -1685,8 +1739,11 @@ def cover_first(pinned):
     behind its pins. The summary goes to stderr, which is the burn's log."""
     import indicator_cover
     small, cut = small_series(), len(pinned)
-    queue, pinned, n = head_of_queue(sys.stdin.read().split(), pinned, index_rows() + clues_only_rows(),
-                                     showcase_wanted(), tagged_puzzles(), small)
+    rows = index_rows() + clues_only_rows()
+    queue, pinned, n = head_of_queue(sys.stdin.read().split(), pinned, rows,
+                                     showcase_wanted(), tagged_puzzles(), small, requested(rows))
+    print(f"requested: {n[5]} queued puzzles on tools/data/burn_requests.json go first"
+          + (f" ({', '.join(pinned[cut:cut + n[5]])})" if n[5] else ""), file=sys.stderr)
     print(f"partly hinted: {n[4]} queued puzzles with some clues hinted go first",
           file=sys.stderr)
     print(f"nearly-done and small series: {n[0] - cut - n[4]} queued puzzles of {', '.join(small) or 'none'} go first",
