@@ -2735,6 +2735,11 @@ tools/media_manifest.py                        what the media disk holds, kept o
 tools/test_no_media_scans.py                   does no scheduled tick walk the media disk?
 tools/privateeye_scans.py                      read a Cyclops crossword's clues off the page
                                                image of archive.org's Private Eye scan
+tools/test_renumber_to_grid.py                 does privateeye_wayback.renumber_to_grid put a
+                                               clue number read one off right against the
+                                               scan's grid, still renumbering when a count
+                                               disagrees (left for repair_grid), and leave a
+                                               bigger slip alone
 tools/test_privateeye_scans.py                 does tools/privateeye_scans.py find a Private
                                                Eye page's clue columns from its djvu words,
                                                take the crossword's number and not the entry

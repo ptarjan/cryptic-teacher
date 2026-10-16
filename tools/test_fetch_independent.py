@@ -83,7 +83,7 @@ def check(why, got, want):
 def named(xml, ymd):
     try:
         p = fi.parse(xml, ymd)
-    except Exception as err:  # noqa: BLE001 — a raise here is a failure, not a crash
+    except Exception as err:  # broad on purpose: a raise here is a failure, not a crash
         return "%s: %s" % (type(err).__name__, err)
     return "%s/%s" % (p["id"], p["setter"])
 
