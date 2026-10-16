@@ -294,10 +294,6 @@ PUBLISHED_WRONG = {
         "STEE (CASTERED less C-A-R-D; STEEPLY less PLY) fills the four cells "
         "the grid gives it under a preamble saying bracketed numbers are entry "
         "lengths; the Observer's own AZ_2636 PDF prints the clue (5)",
-    ("azed-2168", "26-down: clue says (6) = 6, answer holds 5"):
-        "LUKIE (LUCKIE with its C omitted, as every down entry is) fills the "
-        "five cells the grid gives it under a preamble saying the numbers are "
-        "entry lengths; the publisher prints the clue (6), the untreated length",
 }
 
 # The LENGTH findings that are a light the Guardian never linked, not a mistake in
