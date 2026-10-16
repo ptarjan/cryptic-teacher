@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+# A hint has to be followable: the walkthrough names each indicator and shows each
+# intermediate result, and an anagram, reversal or hidden indicator touches its fodder.
+# The two clues a solver could not follow: times-8 56D (EWE: "may come to" sits
+# beyond "lamb", and the walkthrough never names it) and cryptic-21785 16D
+# (DOMINATE: the walkthrough explains DOME and never says ANTI makes INAT).
+set -euo pipefail
+cd "$(dirname "$0")"
+python3 - <<'PY'
+import validate_annotations as v
+
+fails = 0
+def check(name, want, got):
+    global fails
+    ok = want == got
+    fails += not ok
+    print(("ok  " if ok else "FAIL"), name, "" if ok else f"want {want!r}, got {got!r}")
+
+EWE = "The wee lamb may come to this."
+ewe = {"op": "anagram",
+       "indicators": [{"text": "may come to", "at": 13}],
+       "parts": [{"words": "wee", "at": 4}]}
+check("EWE: the indicator is apart from its fodder by lamb", [("may come to", ["lamb"])],
+      v.apart_indicators(ewe, EWE))
+check("EWE: a walkthrough that never says 'may come to' is a gap", [("indicator", "may come to")],
+      v.walkthrough_gaps(ewe, "EWE", "The whole clue does both jobs: a little lamb grows up to be a ewe."))
+check("EWE: naming it closes the gap", [],
+      v.walkthrough_gaps(ewe, "EWE", "'May come to' tells you to rearrange 'wee'; a lamb may come to be a ewe."))
+
+DOM = "Wildly anti, getting into 13 millennium 11? That's 8"
+dom = {"op": "container",
+       "indicators": [{"text": "getting into", "at": 13}],
+       "parts": [{"words": "13 millennium 11", "at": 26, "gives": "DOME"},
+                 {"op": "anagram", "indicators": [{"text": "Wildly", "at": 0}],
+                  "parts": [{"words": "anti", "at": 7}]}]}
+bad = ("The Millennium Dome, built in Greenwich for the year 2000, was widely mocked "
+       "as a naff project; the cross-references to 13 and 11 point to it.")
+check("DOMINATE: the walkthrough never says ANTI becomes INAT or names either indicator",
+      [("indicator", "getting into"), ("indicator", "Wildly"), ("gives", "INAT")],
+      v.walkthrough_gaps(dom, "DOMINATE", bad))
+good = ("13 Across is NAFF and 11 Across PROJECT: the Millennium Dome is DOME. Wildly says "
+        "to jumble ANTI into INAT, and getting into puts INAT inside DOME: DOM(INAT)E.")
+check("DOMINATE: INAT, 'Wildly' and 'getting into' named, no gap", [], v.walkthrough_gaps(dom, "DOMINATE", good))
+check("DOMINATE: its indicators touch their fodder", [], v.apart_indicators(dom, DOM))
+
+check("an inflected indicator counts as named", [],
+      v.walkthrough_gaps(ewe, "EWE", "A lamb may come to this: wee rearranged."))
+check("a link word between indicator and fodder is allowed", [], v.apart_indicators(
+    {"op": "anagram", "indicators": [{"text": "mixed", "at": 0}], "parts": [{"words": "wee", "at": 9}]},
+    "mixed up wee"))
+tag = v.follow_warnings("56D", {"wordplay": ewe, "explanation": {"walkthrough": "A lamb grows up."}},
+                        {"clue": {"text": EWE}, "solution": "EWE", "length": 3}, {})
+check("both findings are warnings with their markers", [True, True],
+      [any(m in w for w in tag) for m in (v.INDICATOR_APART, v.WALKTHROUGH_GAP)])
+raise SystemExit(fails)
+PY
