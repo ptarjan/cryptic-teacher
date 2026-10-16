@@ -6772,9 +6772,13 @@ global.realSetTimeout(() => {
   assert(stale.puzzles["cryptic-30066"].hintsShown[entryId(entry)].indexOf("walkthrough") < 0,
     "the stale copy predates the walkthrough, which is the whole point of it");
 
+  // The panel prints the text HTML-escaped, so a walkthrough that opens on an
+  // apostrophe is on screen as &#39; -- compare what the reader sees, not the source.
+  const onScreen = (t) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   walk.onclick();
   const shown = reg["hint-body"].innerHTML;
-  assert(shown.includes(entry.annotation.explanation.walkthrough.slice(0, 40)),
+  assert(shown.includes(onScreen(entry.annotation.explanation.walkthrough.slice(0, 40))),
     "the walkthrough is on screen after the click");
 
   // The reply to a push that left before that click now lands.
@@ -6787,7 +6791,7 @@ global.realSetTimeout(() => {
   assert(pushed, "the click really did schedule a push");
   assert(pushed.puzzles["cryptic-30066"].hintsShown[entryId(entry)].indexOf("walkthrough") >= 0,
     "and what we pushed includes the rung — a save still in its debounce is flushed first");
-  assert(reg["hint-body"].innerHTML.includes(entry.annotation.explanation.walkthrough.slice(0, 40)),
+  assert(reg["hint-body"].innerHTML.includes(onScreen(entry.annotation.explanation.walkthrough.slice(0, 40))),
     "the walkthrough survives the reply: " + reg["hint-body"].innerHTML.slice(0, 120));
   assert(save().hintsShown[entryId(entry)].indexOf("walkthrough") >= 0,
     "and it survives in the saved state, not just on the screen");
