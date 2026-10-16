@@ -221,6 +221,22 @@ def score(run):
 SLASH = re.compile(r"^(\W{0,2}\d{1,2}(?:\s*,\s*\d{1,2})*)\s*[/+]\s*(?=\d)")
 
 
+#: A linked head's tail marked with its own direction, "6, 15a Hurley's"
+#: (No 49's "6/15a": 6 and 15 across, the answer's 7,5,8 over both).
+TAIL_MARKED = re.compile(r"^(\W{0,2}\d{1,2}(?:\s*,\s*\d{1,2})*\s*,\s*\d{1,2})(a|d)(?:c|n)?\b\.?(?=\s)")
+
+
+def same_side_tail(text, side):
+    """`text` with a tail's direction mark dropped when it names the side the
+    clue is printed in (an "a" in the across list): the head links two lights
+    of its own list, and the mark only keeps the shared parser from reading
+    "15a" as no number. A mark naming the other side is left to DIRECTED."""
+    m = TAIL_MARKED.match(text)
+    if m and m.group(2).lower() == ("a", "d")[side]:
+        return m.group(1) + text[m.end():]
+    return text
+
+
 def column_cols(boxes):
     """archive_org_listener.vote's `cols`: each reading's words put in the
     column (of `boxes`) their middle falls in, merged into printed rows,
@@ -241,6 +257,8 @@ def column_cols(boxes):
             text = ln[4]
             while SLASH.match(text):
                 text = SLASH.sub(r"\1, ", text, count=1)
+            if side is not None:
+                text = same_side_tail(text, side)
             text = DIRECTED.sub(r"\1", text)
             head = clue_text.heading_of(text.strip())
             if head:
@@ -507,7 +525,6 @@ def voted(words, cols):
     def one(ws):
         verdict, laid = listener.vote(ws, {}, cols=cols)
         if laid is not None:
-            laid, verdict = see_filled(laid, verdict, ws, cols)
             # The vote can lay a light with no words and name no blank (a
             # clue wrapped past the column's edge, one reading's cut copy
             # outvoting the whole one): left so it won the fewest-blank
@@ -516,6 +533,9 @@ def voted(words, cols):
                     if not (t or "").strip() and lid not in (verdict.get("blank") or {})}
             if bare:
                 verdict = dict(verdict, blank=dict(verdict.get("blank") or {}, **bare))
+            # A light the page prints as a reference, "24 (see 8)", has no
+            # words and is blank to the vote: it is that reference.
+            laid, verdict = see_filled(laid, verdict, ws, cols)
         return verdict, laid
 
     def blanks(got):
