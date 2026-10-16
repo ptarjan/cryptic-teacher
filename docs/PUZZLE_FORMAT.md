@@ -119,6 +119,10 @@ filed, and the expression cannot write one. The tree, in brief:
   clue words) and `wordplay.anagramOfContainer` (`ana(ins(..))`: the anagram
   goes inside, `ins(outer, ana(x))`). `tools/tidy_wordplay_shapes.py` joined the
   charades in charades whose `view()` is unchanged and recorded the rest.
+  A run's own `annotate_check` reports every one as an error. Until
+  `SHAPE_GRACE_UNTIL` in `validate_annotations.py` the push hook and CI let through
+  findings that have no allowance yet (a pusher still on code from before the
+  rules cannot see them); `tidy_wordplay_shapes.py --write` then records them.
 - **A double definition** has two `definitions` and no `wordplay` (or a
   partless palindrome when the answer reads both ways). A definition's
   `meaning` is the note on its block, on the blocks rung. Its `note` belongs to
