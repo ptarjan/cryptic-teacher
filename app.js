@@ -4442,7 +4442,7 @@
       const k = results.get(p) || wpKnown(p);
       return k != null ? g(k) : p.words ? `“${escClue(p.words)}”` : "the step above";
     };
-    const joined = (parts, sep) => parts.map(piece).filter(Boolean).join(sep);
+    const joined = (parts, sep) => (parts || []).map(piece).filter(Boolean).join(sep);
     const lines = [];
     const visit = (n, top) => {
       (n.parts || []).forEach((p) => visit(p, false));
