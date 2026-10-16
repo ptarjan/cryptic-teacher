@@ -39,6 +39,10 @@ FETCHER = TOOLS / "fetch_puzzle.py"
 REL = "tools/fetch_puzzle.py"
 DATA_RELS = ("tools/data/setter_error.json", "tools/data/source_answer_wrong.json",
              "tools/data/source_clue_wrong.json", "tools/data/blog_disagree.json")
+#: Lists of {"id": "<puzzle>#<clue>", ...} rows, spliced by tools/shape_queue.splice:
+#: the shape re-annotation list, whose rows a run prunes as it files their trees.
+#: Skipped where the file is not there (a test repo without it).
+LIST_RELS = ("tools/data/shape_reannotate.json",)
 
 
 def tables(source):
@@ -136,12 +140,40 @@ def _stage_blob(rel, blob):
     git("update-index", "--cacheinfo", f"{mode},{sha},{rel}")
 
 
+def splice_list(base, donor, pid):
+    import shape_queue
+    return shape_queue.splice(base, donor, pid)
+
+
+def _lists():
+    """The LIST_RELS this tree and its HEAD both hold as a JSON list (a test
+    repo may hold none, or a symlink, whose blob is its target's path)."""
+    out = []
+    for rel in LIST_RELS:
+        path = TOOLS.parent / rel
+        head = subprocess.run(["git", "-C", str(TOOLS.parent), "show", f"HEAD:{rel}"],
+                              capture_output=True, text=True)
+        try:
+            ok = (path.is_file() and not path.is_symlink() and head.returncode == 0
+                  and isinstance(json.loads(head.stdout), list)
+                  and isinstance(json.loads(path.read_text()), list))
+        except ValueError:
+            ok = False
+        if ok:
+            out.append(rel)
+    return out
+
+
+def _merger(rel):
+    return splice if rel == REL else splice_list if rel in LIST_RELS else splice_json
+
+
 def stage(pid):
     head = git("show", f"HEAD:{REL}")
     _stage_blob(REL, splice(head, FETCHER.read_text(), pid))
-    for rel in DATA_RELS:
-        _stage_blob(rel, splice_json(git("show", f"HEAD:{rel}"),
-                                     (TOOLS.parent / rel).read_text(), pid))
+    for rel in (*DATA_RELS, *_lists()):
+        _stage_blob(rel, _merger(rel)(git("show", f"HEAD:{rel}"),
+                                      (TOOLS.parent / rel).read_text(), pid))
 
 
 def revert(pid):
@@ -150,23 +182,23 @@ def revert(pid):
     if kept != tree:
         FETCHER.write_text(kept)
         print(f"  [{pid}] put its rows of {REL} back as HEAD has them")
-    for rel in DATA_RELS:
+    for rel in (*DATA_RELS, *_lists()):
         path = TOOLS.parent / rel
         text = path.read_text()
-        kept = splice_json(text, git("show", f"HEAD:{rel}"), pid)
+        kept = _merger(rel)(text, git("show", f"HEAD:{rel}"), pid)
         if kept != text:
             path.write_text(kept)
             print(f"  [{pid}] put its rows of {rel} back as HEAD has them")
 
 
 def graft(pid, donor_dir):
-    for rel in (REL, *DATA_RELS):
+    for rel in (REL, *DATA_RELS, *LIST_RELS):
         donor = Path(donor_dir) / rel
-        if not donor.is_file():
+        if not donor.is_file() or not (TOOLS.parent / rel).is_file():
             continue
         path = TOOLS.parent / rel
         text = path.read_text()
-        merge = splice if rel == REL else splice_json
+        merge = _merger(rel)
         kept = merge(text, donor.read_text(), pid)
         if kept != text:
             path.write_text(kept)
@@ -175,7 +207,7 @@ def graft(pid, donor_dir):
 
 def main(argv):
     if argv == ["paths"]:
-        print("\n".join((REL, *DATA_RELS)))
+        print("\n".join((REL, *DATA_RELS, *LIST_RELS)))
         return
     if len(argv) == 3 and argv[0] == "graft":
         graft(argv[1], argv[2])
