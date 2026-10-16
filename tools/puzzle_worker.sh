@@ -177,7 +177,7 @@ worker_annotate() {   # id log sidfile task [note] [fill]
     if [ -n "$fill" ]; then
       kind=solve
       rm -f "$fill"
-      prompt="Solve the cryptic crossword $id cold first: its answers have not all been published, so there is no key. Read tools/solve_prompt.md and follow it exactly, writing your fill to $fill; it ends by handing you this task: $prompt"
+      prompt="Solve the cryptic crossword $id cold first: its answers have not all been published, so there is no key. Read tools/solve_prompt.md and follow it exactly, writing your fill to $fill; WebSearch and WebFetch are refused in this run, and the puzzle file the task names does not exist until the solve is applied: call neither, and do not Read it before then. It ends by handing you this task: $prompt"
     fi
     if sid=$(session_id); then
       sess=(--session-id "$sid")
