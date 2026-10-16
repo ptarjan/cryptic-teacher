@@ -1647,9 +1647,9 @@ tools/data/authored_A001_clues.json            the hand-written clues for that f
 tools/data/puzzle.schema.json                  the puzzle file's shape as a JSON Schema
                                                (2020-12): every key, its type, and the closed
                                                lists it draws from
-tools/data/clue_types.json                     the fifteen clue types and the seven families
-                                               they fall in, with the labels and blurbs the app
-                                               and the tools show
+tools/data/clue_types.json                     the clue types and the nine families they fall
+                                               in, with the labels and blurbs the app and the
+                                               tools show
 tools/data/blog_facts/                         per series, the blog facts tools/blog_facts.py
                                                read off the write-ups, each clue in the
                                                annotation's keys and shapes ($defs/blogFacts in
