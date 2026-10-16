@@ -192,10 +192,33 @@
    },
    "length": 8,
    "clue": {
-    "text": "A valued servant accra accumulated 23",
+    "text": "A valued servant accumulated 23",
     "enumeration": "8"
    },
-   "solution": "TREASURE"
+   "solution": "TREASURE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "A valued servant",
+      "at": 0,
+      "meaning": "first meaning: a much-prized helper, such as a loyal housekeeper"
+     },
+     {
+      "text": "accumulated 23",
+      "at": 17,
+      "meaning": "second meaning: 23 across is WEALTH"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The number 23 points to the answer of 23 across, so the second definition reads as accumulated riches.",
+     "definitionFit": "The word is used both for an indispensable employee and for a stored hoard of gold or riches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "servant"
+    }
+   }
   },
   {
    "number": 4,
@@ -557,7 +580,7 @@
    },
    "length": 5,
    "clue": {
-    "text": "It's rum poor l-Fatima losing a thousand",
+    "text": "It's rum poor Fatima losing a thousand",
     "enumeration": "5"
    },
    "solution": "TAFIA",
@@ -570,58 +593,48 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "TAFIA",
      "indicators": [
       {
        "text": "poor",
-       "note": "poor suggests a shabby, disordered state, so the letters are rearranged"
+       "at": 9,
+       "note": "poor suggests something in a bad or broken state, so the name's remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 21,
+         "note": "losing tells us to drop a piece from the name before it is reworked"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "l",
-         "note": "a stray mark in the scanned newspaper text, taken as padding"
+         "words": "Fatima",
+         "at": 14
         },
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "TAFIA",
-         "indicators": [
-          {
-           "text": "losing a thousand",
-           "note": "losing says something is taken away, here the Roman numeral for a thousand"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Fatima",
-           "note": "the name taken as written"
-          },
-          {
-           "words": "a thousand",
-           "gives": "M",
-           "note": "M is the Roman numeral for a thousand"
-          }
-         ]
+         "words": "a thousand",
+         "at": 28,
+         "gives": "M",
+         "note": "M is the Roman numeral for a thousand"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone pitying poor Fatima, perhaps after a drink of rum.",
-     "walkthrough": "Remove M from FATIMA, then rearrange what is left. The stray 'l-' before Fatima is a printing blemish in the scanned page.",
-     "definitionFit": "Tafia is a cheap rum distilled from sugar-cane molasses, made in the West Indies."
+     "surface": "A remark that poor Fatima's financial loss of a thousand is a strange business.",
+     "walkthrough": "'Rum' looks like the British slang for odd; it is the drink. TAFIA is a cheap West Indian rum distilled from molasses.",
+     "definitionFit": "Tafia is a type of crude rum made in the Caribbean from sugar-cane refuse, so it is an example of the spirit."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "poor"
+     "joke": "pun",
+     "misdirectedWord": "rum"
     }
    }
   },
@@ -889,7 +902,7 @@
    },
    "length": 9,
    "clue": {
-    "text": "Machine regulators essential lor sortie old carriages",
+    "text": "Machine regulators essential for some old carriages",
     "enumeration": "9"
    },
    "solution": "FLYWHEELS",
@@ -897,38 +910,24 @@
     "definitions": [
      {
       "text": "Machine regulators",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: heavy rotating wheels that smooth out the running speed of an engine"
+     },
+     {
+      "text": "essential for some old carriages",
+      "at": 19,
+      "meaning": "second meaning, split as two words: a light horse-drawn hire carriage was called by an insect's name, and the round parts it rolls on are essential to it"
      }
     ],
-    "wordplay": {
-     "op": "charade",
-     "parts": [
-      {
-       "unchecked": true,
-       "words": "lor",
-       "note": "a scanning misreading of 'for', taken as padding joining the definition to the wordplay"
-      },
-      {
-       "words": "sortie",
-       "gives": "FLY",
-       "note": "a sortie is a flight, and to fly is to make one"
-      },
-      {
-       "words": "old carriages",
-       "gives": "WHEELS",
-       "note": "wheels is slang for a vehicle, here old-fashioned carriages"
-      }
-     ]
-    },
     "explanation": {
-     "surface": "A list of parts needed for an outing in old horse-drawn carriages.",
-     "walkthrough": "'Essential for' joins definition to wordplay. A fly was also a light horse-drawn carriage, which helps the surface.",
-     "definitionFit": "A flywheel is a heavy wheel that smooths out a machine's speed, so flywheels regulate machinery."
+     "walkthrough": "A fly was a one-horse hackney carriage of the 19th century; read the answer as two words for the second sense.",
+     "definitionFit": "A flywheel stores rotational energy to keep a machine's speed steady, so a set of them acts as governors of the motion."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "sortie"
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "essential"
     }
    }
   },
