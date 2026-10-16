@@ -10,6 +10,7 @@ import sys
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import sys
+from pathlib import Path
 sys.path.insert(0, "tools")
 import page_cache as pc
 
@@ -56,6 +57,24 @@ same("a comment", fp({"build_seo_pages": src + "\n# a comment\n"}))
 same("the hub page's code", fp(edit("def hub_page(idx):", "def hub_page(idx, unused=None):")))
 same("a fetcher nothing reaches", fp({"fetch_telegraph": "def nothing():\n    return 1\n"}))
 moved("the puzzle page's code", fp(edit("def puzzle_page(puz, meta, prev_p, next_p):", "def puzzle_page(puz, meta, prev_p, next_p, unused=None):")))
+import tempfile
+import app_tables
+real_app = app_tables.APP
+app_src = real_app.read_text(encoding="utf-8")
+
+def app_fp(text):
+    with tempfile.TemporaryDirectory() as d:
+        app_tables.APP = Path(d) / "app.js"
+        app_tables.APP.write_text(text, encoding="utf-8")
+        try:
+            return pc.fingerprint()
+        finally:
+            app_tables.APP = real_app
+
+same("app.js with a comment added", app_fp(app_src + "\n// a comment\n"))
+same("app.js with browser code added", app_fp(app_src + "\nfunction unused() {}\n"))
+first = app_tables.ladder(app_src)[0][0]
+moved("app.js with a rung label changed", app_fp(app_src.replace(f'{first}: "', f'{first}: "X', 1)))
 Z = "0" * 40
 moved("a table the page reads", fp(blob_of={"tools/data/clue_types.json": Z}))
 # The two lexicons every "daily blog-facts" commit rewrites: a page's own
