@@ -1,5 +1,5 @@
 #!/bin/bash
-# Does tools/privateeye_wayback.fill_missing_sizes give a plain light whose
+# Does tools/clue_repair.fill_missing_sizes give a plain light whose
 # count the OCR lost the length of the answer the next issue printed, and leave
 # a linked light's length to its group? (Cyclops No 164's 17ac.)
 #
@@ -14,7 +14,7 @@ check() {
 }
 
 out=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
-import privateeye_wayback as pw
+import clue_repair as pw
 
 across = [[1, 5, "plain"], [17, None, "plain"], [11, None, "linked"], [20, None, "plain"]]
 down = [[17, None, "plain"], [2, 4, "plain"]]
