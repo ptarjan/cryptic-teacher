@@ -1827,7 +1827,24 @@ def _judge(paths, files=None):
     import row_cache
     rows = row_cache.cached_map("puzzle_integrity", _file_row, paths, salt=_table_salt(), deps=_today_deps,
                                 listed=files, stale_ok=True)
-    return [(flags, row) for flags, row, _ in rows]
+    return [([f for f in flags if not _forgiven(f)], row) for flags, row, _ in rows]
+
+
+_OFF_BOARD = re.compile(r": \d+ cells (?:across|down) from \(")
+
+
+def _forgiven(flag):
+    """Whether the tables as they are now forgive `flag`. The check_* functions
+    forgive as they go, but a stale_ok row was made by older code, so its
+    findings are judged again here by the current PUBLISHED_WRONG and
+    UNLINKED_IN_SOURCE, with the same keys and scope: UNLINKED_IN_SOURCE
+    forgives LENGTH only, and an off-board GRID finding is forgiven by none."""
+    kind, pid, finding = flag
+    if kind == "GRID" and _OFF_BOARD.search(finding):
+        return False
+    if (pid, finding) in PUBLISHED_WRONG:
+        return kind in ("LENGTH", "GRID", "NUMBER", "CROSS", "DATE")
+    return kind == "LENGTH" and (pid, finding) in UNLINKED_IN_SOURCE
 
 
 CACHE = Path.home() / ".cache" / "cryptic-teacher" / "integrity-rows.sqlite"
