@@ -5,8 +5,9 @@ Two kinds of Cyclops puzzle print a caption the clue list does not carry
 and checked against the issue's archive.org OCR text):
 
   "unclued": lights the preamble says have no clue (No 199's
-      1/29/40/78/58/60, "See Preamble"). The listed entries leave the clue list
-      and their squares, in the order listed, become one `unclued` light.
+      1/29/40/78/58/60, "See Preamble"). They stay entries, because the
+      numbering is read off the entries' grid; the caption's list of counts is
+      the head's enumeration, in place of the one the lights' lengths invent.
   "ring": the outer ring of squares, an unclued light running clockwise from
       the top left square (Nos 205, 226, 277). The scan's grid prints the
       ring's four edges as lights the clue list never numbers, so
@@ -60,26 +61,11 @@ def ring_masked(grid, keep=()):
     return ["".join(r) for r in rows]
 
 
-def cells_of(entry):
-    x, y = entry["position"]["x"], entry["position"]["y"]
-    dx, dy = (1, 0) if entry["direction"] == "across" else (0, 1)
-    return [{"x": x + dx * i, "y": y + dy * i} for i in range(entry["length"])]
-
-
 def apply(puzzle, cfg):
     """Carry the preamble into `puzzle`, make its unclued light(s), or return
     (None, why)."""
     puzzle["preamble"] = cfg["preamble"]
     unclued = []
-    if "unclued" in cfg:
-        by_id = {f"{e['number']}-{e['direction']}": e for e in puzzle["entries"]}
-        names = cfg["unclued"]["lights"]
-        if any(n not in by_id for n in names):
-            return None, f"the unclued lights {names} are not all in the grid"
-        cells = [c for n in names for c in cells_of(by_id[n])]
-        gone = set(names)
-        puzzle["entries"] = [e for e in puzzle["entries"] if f"{e['number']}-{e['direction']}" not in gone]
-        unclued.append({"cells": cells, "enumeration": cfg["unclued"]["enumeration"]})
     if "ring" in cfg:
         d = puzzle["dimensions"]
         ring = [{"x": x, "y": y} for x, y in ring_cells(d["cols"])]
@@ -90,5 +76,6 @@ def apply(puzzle, cfg):
                 return None, f"the ring's counts {enum} do not make its {len(ring)} squares"
             light["enumeration"] = enum
         unclued.append(light)
-    puzzle["unclued"] = unclued
+    if unclued:
+        puzzle["unclued"] = unclued
     return puzzle, None

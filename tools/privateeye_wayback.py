@@ -667,6 +667,11 @@ def from_rows(num, rows, answers=None, image=None, fixes=None, jumbo=None):
     from normalise_linked_enumerations import normalise_record, resolve_groups
     import enumeration
     rows = correct_counts(num, rows, fixes)
+    # "See Preamble" prints no count; the caption's list is the head's count.
+    if jumbo and "unclued" in jumbo:
+        for r in rows["across"] + rows["down"]:
+            if r.get("clue") == "See Preamble" and not r.get("enumeration"):
+                r["enumeration"] = jumbo["unclued"]["enumeration"]
     across, down, _notes, damage = light_spec.build_spec(rows)
     if damage:
         return None, "clue list damaged: " + "; ".join(damage)
@@ -723,6 +728,15 @@ def from_rows(num, rows, answers=None, image=None, fixes=None, jumbo=None):
     printed = named_tails(rows, entries)
     normalise_record({"puzzle": {"entries": entries}, "fill": {}})
     grouped = resolve_groups(entries)
+    # The preamble's order of the unclued lights (1/29/40/78/58/60) is the order
+    # the caption's counts run in, not the numbers' order.
+    if jumbo and "unclued" in jumbo:
+        order = jumbo["unclued"]["lights"]
+        for lead, ids in list(grouped.items()):
+            if sorted(ids) == sorted(order):
+                grouped[lead] = list(order)
+                for i in order:
+                    grouped[i] = list(order)
     for e in entries:
         e["clue"] = printed.get(entry_id(e), e["clue"])
     by_id = {entry_id(e): e for e in entries}
