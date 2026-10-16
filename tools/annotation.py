@@ -59,7 +59,7 @@ OP_TYPE = {"charade": "charade", "anagram": "anagram", "reversal": "reversal",
            "container": "container", "deletion": "deletion", "hidden": "hidden_word",
            "homophone": "homophone", "spoonerism": "spoonerism",
            "substitution": "substitution", "cycling": "cycling",
-           "cryptic": "cryptic_definition", "picture": "letter_picture",
+           "cryptic": "cryptic_definition", "rebus": "rebus",
            "palindrome": "palindrome", "first": "letter_selection",
            "last": "letter_selection", "middle": "letter_selection",
            "outer": "letter_selection", "alternate": "letter_selection",
@@ -384,7 +384,7 @@ def _blocks(node, got):
         return [b for p in parts for b in _blocks(p, got)]
     if op == "cryptic":
         return [_block(clueFragment=p.get("words"), note=p.get("note")) for p in parts]
-    if op == "picture":
+    if op == "rebus":
         # The picture and how it reads; its letters are the whole answer, so none.
         return [_block(clueFragment=parts[0].get("words"),
                        note="; ".join(x for x in (node.get("reading"), parts[0].get("note")) if x))]
@@ -496,7 +496,7 @@ def _slip_size(fodder, gives):
 
 
 def _assembly(tree, got):
-    if tree.get("op") in ("cryptic", "picture"):
+    if tree.get("op") in ("cryptic", "rebus"):
         return {}
     out = {}
     pieces = [p for p in _pieces(tree, got) if p]

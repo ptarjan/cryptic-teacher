@@ -61,7 +61,7 @@ END = "<!-- CLUE_SHAPES-END -->"
 KINDS = ("ok", "rare", "redundant", "mislabelled", "implausible", "unverified")
 SHORT = {"anagram": "ana", "reversal": "rev", "container": "ins", "deletion": "del", "hidden": "hid",
          "homophone": "sound", "spoonerism": "spoon", "substitution": "sub", "cycling": "cyc",
-         "cryptic": "cdef", "picture": "pic", "palindrome": "pal", "first": "first", "last": "last", "middle": "mid",
+         "cryptic": "cdef", "rebus": "rebus", "palindrome": "pal", "first": "first", "last": "last", "middle": "mid",
          "outer": "outer", "alternate": "alt", "regular": "reg", "nth": "nth"}
 FODDER_OPS = {"anagram", "hidden", *wordplay.SELECT}
 UNJUDGED_FROM = 150   # a skeleton this common with no verdict is listed at the top
@@ -107,7 +107,7 @@ def analyse(node, parent_op=None):
     body = ("+" if op == "charade" else ",").join(k[0] for k in kids)
     sk = f"({body})" if op == "charade" else f"{name}({body})"
     ncc = ([] if op == "charade" else [op]) + [o for k in kids for o in k[3]]
-    noind = int(op not in ("charade", "cryptic", "picture", "palindrome") and not node.get("indicators"))
+    noind = int(op not in ("charade", "cryptic", "rebus", "palindrome") and not node.get("indicators"))
     pairs = [(op, c["op"]) for c in wordplay.parts_of(node) if "op" in c] + [p for k in kids for p in k[6]]
     return (sk, 1 + max([k[1] for k in kids] or [0]), 1 + sum(k[2] for k in kids), ncc,
             noind + sum(k[4] for k in kids), int(bool(node.get("unchecked"))) + sum(k[5] for k in kids), pairs)
@@ -134,8 +134,8 @@ def family(node, ndefs, sk, depth, ncc):
         return "single leaf"
     if node["op"] == "cryptic":
         return "cryptic definition"
-    if node["op"] == "picture":
-        return "letter picture"
+    if node["op"] == "rebus":
+        return "rebus"
     if not ncc:
         return "charade, nested" if depth > 1 else "charade"
     u = sorted(set(ncc))
@@ -506,7 +506,7 @@ def build_doc(c, v):
       "selection swallowed by the leaf), **A** one or two letters from other words (abbreviation, symbol), "
       "**S** synonym or other `gives`, **B** bare letters with no clue words, **U** unchecked leaf. "
       "`(a+b)` is a charade; `ana`, `ins` (container), `del`, `rev`, `hid`, `sound`, `spoon`, `sub`, `cyc`, `pal`, "
-      "`cdef` (cryptic definition), `pic` (letter picture), `first last mid outer alt reg nth` (letter selection) name the other ops; "
+      "`cdef` (cryptic definition), `rebus` (a picture of letters), `first last mid outer alt reg nth` (letter selection) name the other ops; "
       "`?` after an op name means its node is unchecked. Definition key: `2d` is the number of "
       "definitions, then where each sits (S start, E end, W whole clue, M middle); `&lit` when andLit is set.")
     w("")

@@ -3397,8 +3397,8 @@ ARITY_OTHER = "deletion, substitution, homophone or one-armed op with the wrong 
 DEL_SINGLE = "deletion with one part, so what it removes is not stated"
 IND_IN_LEAF = "indicator word also inside a leaf"
 #: Ops that are signalled by an indicator word. A charade, a cryptic definition,
-#: a letter picture and a palindrome of the whole answer are not.
-NEEDS_INDICATOR = frozenset(wordplay.ARITY) - {"cryptic", "picture", "palindrome"}
+#: a rebus and a palindrome of the whole answer are not.
+NEEDS_INDICATOR = frozenset(wordplay.ARITY) - {"cryptic", "rebus", "palindrome"}
 
 
 #: Until this time (epoch seconds) a push and CI let through a puzzle's shape
@@ -3416,11 +3416,11 @@ SHAPE_GRACE_FIELDS = ("wordplay.anagramCharade", "wordplay.charadeInCharade", "w
                       "wordplay.arityIns", "wordplay.arityOther", "wordplay.delSingle", "wordplay.indInLeaf")
 
 
-def whole_picture(ann, clue):
-    """True when a viewed annotation is a letter picture of the whole clue (every
+def whole_rebus(ann, clue):
+    """True when a viewed annotation is a rebus of the whole clue (every
     letter and figure in it), which leaves no words to define the answer."""
     blocks = ann.get("blocks") or []
-    return (ann.get("type") == ["letter_picture"] and len(blocks) == 1
+    return (ann.get("type") == ["rebus"] and len(blocks) == 1
             and wordplay._alnum(blocks[0].get("clueFragment")) == wordplay._alnum(clue))
 
 
@@ -3434,10 +3434,10 @@ def _walk(tree):
 
 def _stored_arity(op):
     """(fewest, most) parts a checked `op` node stores: a homophone or spoonerism
-    keeps its spelling in `spelt` and a letter picture its `reading`, not as a part,
+    keeps its spelling in `spelt` and a rebus its `reading`, not as a part,
     and an anagram's parts are its pool."""
     lo, hi = wordplay.ARITY.get(op, (2, 99))
-    if op in ("homophone", "spoonerism", "picture"):
+    if op in ("homophone", "spoonerism", "rebus"):
         lo, hi = lo - 1, hi - 1
     return (lo, 99) if op == "anagram" else (lo, hi)
 
@@ -3764,7 +3764,7 @@ def _validate_puzzle(puzzle, corpus=False, schema=True):
         clue = e["clue"].get("text", "")
         for key in ("type", "definitions", "answer", "blocks"):
             if key == "definitions" and (ann.get("definedByPreamble") is True
-                                         or whole_picture(ann, clue)):
+                                         or whole_rebus(ann, clue)):
                 continue
             if not ann.get(key):
                 errors.append(f"{tag}: missing annotation field '{key}'")
