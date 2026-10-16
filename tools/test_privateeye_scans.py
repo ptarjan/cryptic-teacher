@@ -278,6 +278,12 @@ check("a wrapped line that starts with a number starts no clue", "26 Wrapped clu
 _parsed, _ = _AL.parse("ACROSS\n" + "\n".join(_got[2:]) + "\nDOWN\n2 A (3)\n3 B (4)")
 check("the closed list parses 18 and 20 as clues of their own", [18, 20, 22, 24, 25, 26, 27],
       [min(c["tokens"][0]) for c in _parsed["across"]])
+# No 49: "6/15a Hurley's" is 6 and 15 across; the mark made "6, 15a" no head.
+check("a tail marked with the list's own direction is a plain link", "6, 15 Hurley's (7,5,8)",
+      _ps.same_side_tail("6, 15a Hurley's (7,5,8)", 0))
+check("a tail marked with the other direction is left", "6, 15d Hurley's",
+      _ps.same_side_tail("6, 15d Hurley's", 0))
+check("a word 'a' after the tail is no mark", "6, 15 a Hurley's", _ps.same_side_tail("6, 15 a Hurley's", 0))
 check("pick takes the count another reading laid when the sound reading lost it", "9",
       _AL.pick([{"18-across": ("State if Tones broken promises to voters", None, None)},
                 {"18-across": ("State if Tones broken promises to voters", "9", None)}])["18-across"][1])
