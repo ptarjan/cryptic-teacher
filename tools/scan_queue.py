@@ -471,19 +471,50 @@ def jsonl_rows(path):
 def sources():
     """{puzzle id: (filer, source key, ledger row)} for every puzzle a scan
     filer's ledger says it read: an archive.org edition's verdicts, a Trove
-    article's id (its last row: the Trove ledger is appended to)."""
+    article's id (its last row: the Trove ledger is appended to). The same
+    dict (shared: do not mutate) while no ledger moved (_parsed hands back
+    the same tuple of rows), as a plan asks it of four requests' sources."""
+    return _sources_state()
+
+
+def _sources_state():
+    """sources(), kept while the ledgers' parsed rows are the same objects."""
+    keys = [key for key in ("archive", "gale") if key in LEDGERS]
+    parts = [_parsed(LEDGERS[key]) for key in keys] + [_parsed(LEDGERS["trove"])]
+    hit = _SOURCES_MEMO[0]
+    if hit is not None and hit[0] == keys and len(hit[1]) == len(parts) \
+            and all(x is y for x, y in zip(hit[1], parts)):
+        return hit[2]
     out = {}
-    for row in [r for key in ("archive", "gale") if key in LEDGERS for r in jsonl_rows(LEDGERS[key])]:
+    for row in [r for rows in parts[:-1] for r in rows]:
         for v in row.get("verdicts") or ():
             if v.get("id"):
                 out[v["id"]] = ("archive", row["edition"], row)
     trove = {}
-    for row in _parsed(LEDGERS["trove"]):
+    for row in parts[-1]:
         trove[row["article"]] = row
     for row in trove.values():
         if row.get("id"):
             out[row["id"]] = ("trove", row["article"], row)
+    _SOURCES_MEMO[0] = (keys, parts, out)
     return out
+
+
+def _sorted_sources(known):
+    """(sorted items of `known`, _by_source of it): sources()'s answer, which
+    is the same dict until a ledger moves, derived once (tests that swap
+    sources() hand another dict and get their own)."""
+    hit = _DERIVED_MEMO[0]
+    if hit is None or hit[0] is not known:
+        hit = _DERIVED_MEMO[0] = (known, sorted(known.items()), _by_source(known))
+    return hit[1], hit[2]
+
+
+_DERIVED_MEMO = [None]
+
+
+#: (ledger keys, their parsed row tuples, sources()) of the last call.
+_SOURCES_MEMO = [None]
 
 
 def clue_key(entries):
@@ -509,7 +540,7 @@ def requests():
 
 def open_requests():
     """The requests whose source has not been read since."""
-    by = _by_source(sources())
+    by = _sorted_sources(sources())[1]
     out = []
     for r in requests():
         row = by.get((r["filer"], r["source"]))
@@ -531,9 +562,9 @@ def flagged_requests():
     the source's next read closes it. Derived from the table, so it cannot go
     stale."""
     ids = {k.split("/", 1)[0] for k in json.loads(CLUE_ROWS.read_text(encoding="utf-8"))}
-    known, t = sources(), when(FLAGGED_BEFORE)
+    t = when(FLAGGED_BEFORE)
     return [{"id": i, "filer": f, "source": key, "why": ["printedClue"], "requestedAt": FLAGGED_BEFORE}
-            for i, (f, key, row) in sorted(known.items()) if i in ids and read_before(row, t)]
+            for i, (f, key, row) in _sorted_sources(sources())[0] if i in ids and read_before(row, t)]
 
 
 #: Each clue-vote change that mends blanks a held scan read left, as (when
@@ -626,7 +657,7 @@ def vote_mended_requests():
     change made since its read mends (another blank would hold it again).
     Derived from the ledger, so the re-read closes it."""
     out = []
-    for i, (f, key, row) in sorted(sources().items()):
+    for i, (f, key, row) in _sorted_sources(sources())[0]:
         if f != "archive":
             continue
         v = next((v for v in row.get("verdicts") or () if v.get("id") == i), {})
@@ -668,7 +699,7 @@ def count_left_requests():
     Derived from the files, so the re-read closes it."""
     out = []
     held = {}  # series: {id: its file}, one listing of the series' year folders a call
-    for i, (f, key, row) in sorted(sources().items()):
+    for i, (f, key, row) in _sorted_sources(sources())[0]:
         if not read_before(row, when(COUNT_LEFT_AT[f])):
             continue
         path = _held_file(i, held)
