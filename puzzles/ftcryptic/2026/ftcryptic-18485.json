@@ -1669,8 +1669,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "UNTIE",
      "indicators": [
       {
        "text": "wearing",
@@ -1679,37 +1677,24 @@
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "UNTIE",
-       "indicators": [
-        {
-         "text": "disheartened",
-         "note": "heart removed: the middle letter goes"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "uniform",
-           "gives": "U",
-           "note": "Uniform is U in the NATO phonetic alphabet"
-          },
-          {
-           "words": "Not disheartened",
-           "gives": "NT",
-           "note": "NOT without its middle letter, O"
-          },
-          {
-           "words": "that is",
-           "gives": "IE",
-           "note": "i.e. = that is"
-          }
-         ]
+         "words": "uniform",
+         "gives": "U",
+         "note": "Uniform is U in the NATO phonetic alphabet"
+        },
+        {
+         "words": "that is",
+         "gives": "IE",
+         "note": "i.e. = that is"
         }
        ]
+      },
+      {
+       "words": "Not disheartened",
+       "gives": "NT",
+       "note": "NOT without its middle letter, O"
       }
      ]
     },
@@ -1846,29 +1831,22 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TWIRLER",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "almost finished",
+       "note": "a word that is almost finished stops one letter short of its end"
+      },
+      {
+       "text": "novel",
+       "note": "new, so the letters take a new order"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "almost finished",
-         "note": "a word that is almost finished stops one letter short of its end"
-        },
-        {
-         "text": "novel",
-         "note": "new, so the letters take a new order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "writerly almost finished",
-         "gives": "WRITERL",
-         "note": "WRITERLY without its last letter"
-        }
-       ]
+       "words": "writerly almost finished",
+       "gives": "WRITERL",
+       "note": "WRITERLY without its last letter"
       }
      ]
     },
@@ -1905,30 +1883,17 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RATHER",
-     "indicators": [
-      {
-       "text": "snubbed",
-       "note": "cut short, like a snub nose, so the word loses its end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "despicable person",
-         "gives": "RAT",
-         "note": "a rat is a despicable person"
-        },
-        {
-         "words": "snubbed present",
-         "gives": "HER",
-         "note": "HERE = present, without its last letter"
-        }
-       ]
+       "words": "despicable person",
+       "gives": "RAT",
+       "note": "a rat is a despicable person"
+      },
+      {
+       "words": "snubbed present",
+       "gives": "HER",
+       "note": "HERE = present, without its last letter"
       }
      ]
     },

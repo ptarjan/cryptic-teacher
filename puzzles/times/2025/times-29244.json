@@ -1622,45 +1622,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STANDOUT",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "case of",
+       "note": "the case of Sekt is its outer letters"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "unchecked": true,
+       "gives": "ST",
        "indicators": [
         {
-         "text": "case of",
-         "note": "the case of Sekt is its outer letters"
+         "text": "Cockney's",
+         "note": "Cockneys drop their Hs, so HANDOUT loses its H"
         }
        ],
        "parts": [
         {
-         "op": "outer",
          "unchecked": true,
+         "words": "case of Sekt",
          "gives": "ST",
-         "indicators": [
-          {
-           "text": "Cockney's",
-           "note": "Cockneys drop their Hs, so HANDOUT loses its H"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "case of Sekt",
-           "gives": "ST",
-           "select": "outer",
-           "note": "outer letters of Sekt"
-          }
-         ]
-        },
-        {
-         "words": "Cockney's charitable donation",
-         "gives": "ANDOUT",
-         "note": "handout without its H"
+         "select": "outer",
+         "note": "outer letters of Sekt"
         }
        ]
+      },
+      {
+       "words": "Cockney's charitable donation",
+       "gives": "ANDOUT",
+       "note": "handout without its H"
       }
      ]
     },

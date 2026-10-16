@@ -298,45 +298,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CAPACITY",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "uncovered",
+       "note": "strip the cover, the outer letters, from UCAS"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "unchecked": true,
+       "gives": "CA",
        "indicators": [
         {
-         "text": "uncovered",
-         "note": "strip the cover, the outer letters, from UCAS"
+         "text": "less",
+         "note": "take away the letter for university"
         }
        ],
        "parts": [
         {
-         "op": "outer",
          "unchecked": true,
+         "words": "UCAS uncovered",
          "gives": "CA",
-         "indicators": [
-          {
-           "text": "less",
-           "note": "take away the letter for university"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "UCAS uncovered",
-           "gives": "CA",
-           "select": "outer",
-           "note": "UCAS without its first and last letters"
-          }
-         ]
-        },
-        {
-         "words": "shortage, less university",
-         "gives": "PACITY",
-         "note": "PAUCITY, a shortage, minus U for university"
+         "select": "outer",
+         "note": "UCAS without its first and last letters"
         }
        ]
+      },
+      {
+       "words": "shortage, less university",
+       "gives": "PACITY",
+       "note": "PAUCITY, a shortage, minus U for university"
       }
      ]
     },

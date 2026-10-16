@@ -402,41 +402,34 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "anagram",
      "unchecked": true,
      "gives": "CALAMARI",
+     "indicators": [
+      {
+       "text": "manoeuvring",
+       "note": "the letters of 'racial' are moved about"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "CALAMARI",
+       "op": "container",
        "indicators": [
         {
-         "text": "manoeuvring",
-         "note": "the letters of 'racial' are moved about"
+         "text": "uncovered",
+         "note": "the cover, the outer letters, of 'Game' is taken off"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "uncovered",
-           "note": "the cover, the outer letters, of 'Game' is taken off"
-          }
-         ],
-         "parts": [
-          {
-           "words": "racial",
-           "gives": "CALARI",
-           "note": "anagram of RACIAL, split to take the next piece: CAL…ARI"
-          },
-          {
-           "words": "Game uncovered",
-           "gives": "AM",
-           "note": "the inside of 'Game' once its outer letters are stripped, set in the middle of the rearranged letters"
-          }
-         ]
+         "words": "racial",
+         "gives": "CALARI",
+         "note": "anagram of RACIAL, split to take the next piece: CAL…ARI"
+        },
+        {
+         "words": "Game uncovered",
+         "gives": "AM",
+         "note": "the inside of 'Game' once its outer letters are stripped, set in the middle of the rearranged letters"
         }
        ]
       }
@@ -869,50 +862,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EUNUCH",
+     "op": "charade",
      "indicators": [
       {
-       "text": "unopened",
-       "note": "the list loses its opening letter"
+       "text": "around"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "around"
+         "text": "on"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "on"
-          }
-         ],
-         "parts": [
-          {
-           "words": "unopened list of options",
-           "gives": "ENU",
-           "note": "a menu without its first letter, split to hold U: E(U)NU"
-          },
-          {
-           "words": "university",
-           "gives": "U",
-           "note": "U = university"
-          }
-         ]
+         "words": "unopened list of options",
+         "gives": "ENU",
+         "note": "a menu without its first letter, split to hold U: E(U)NU"
         },
         {
-         "words": "check",
-         "gives": "CH",
-         "note": "CH = check, the chess abbreviation"
+         "words": "university",
+         "gives": "U",
+         "note": "U = university"
         }
        ]
+      },
+      {
+       "words": "check",
+       "gives": "CH",
+       "note": "CH = check, the chess abbreviation"
       }
      ]
     },
@@ -949,43 +929,36 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CANOODLE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "not wrapped",
+       "note": "the word's wrapping, its outer letters, is removed"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "something waxy",
+       "gives": "CANDLE",
+       "note": "a candle, split to hold the next piece: CAN…DLE"
+      },
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "OO",
        "indicators": [
         {
-         "text": "not wrapped",
-         "note": "the word's wrapping, its outer letters, is removed"
+         "text": "in",
+         "note": "the result goes inside the candle"
         }
        ],
        "parts": [
         {
-         "words": "something waxy",
-         "gives": "CANDLE",
-         "note": "a candle, split to hold the next piece: CAN…DLE"
-        },
-        {
-         "op": "outer",
          "unchecked": true,
+         "words": "food not wrapped",
          "gives": "OO",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "the result goes inside the candle"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "food not wrapped",
-           "gives": "OO",
-           "select": "outer",
-           "note": "fOOd without its first and last letters, placed within the waxy thing"
-          }
-         ]
+         "select": "outer",
+         "note": "fOOd without its first and last letters, placed within the waxy thing"
         }
        ]
       }

@@ -46,48 +46,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "QUOTA",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "cut",
+       "note": "a word that is cut loses its end"
+      },
+      {
+       "text": "third quarter of",
+       "note": "a four-letter word's third quarter is its third letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "price estimate",
+       "gives": "QUOT",
+       "note": "a QUOTE (price estimate) with its last letter cut"
+      },
+      {
+       "op": "nth",
+       "unchecked": true,
+       "gives": "A",
+       "n": 3,
        "indicators": [
         {
-         "text": "cut",
-         "note": "a word that is cut loses its end"
-        },
-        {
-         "text": "third quarter of",
-         "note": "a four-letter word's third quarter is its third letter"
+         "text": "before",
+         "note": "the first piece comes ahead of the second"
         }
        ],
        "parts": [
         {
-         "words": "price estimate cut",
-         "gives": "QUOT",
-         "note": "a QUOTE (price estimate) with its last letter cut"
-        },
-        {
-         "op": "nth",
          "unchecked": true,
+         "words": "third quarter of year",
          "gives": "A",
-         "n": 3,
-         "indicators": [
-          {
-           "text": "before",
-           "note": "the first piece comes ahead of the second"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "third quarter of year",
-           "gives": "A",
-           "select": 3,
-           "note": "YEAR has four letters, so its third quarter is its third letter, A"
-          }
-         ]
+         "select": 3,
+         "note": "YEAR has four letters, so its third quarter is its third letter, A"
         }
        ]
       }
@@ -126,36 +119,23 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "QUARTERSTAFF",
+     "op": "charade",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "most of the word, so drop its last letter"
+       "text": "by",
+       "note": "the next piece sits beside it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "by",
-         "note": "the next piece sits beside it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "army accommodation mostly",
-         "gives": "QUARTER",
-         "note": "QUARTERS, where soldiers are lodged, minus its last letter"
-        },
-        {
-         "words": "servants",
-         "gives": "STAFF",
-         "note": "household staff are servants"
-        }
-       ]
+       "words": "army accommodation mostly",
+       "gives": "QUARTER",
+       "note": "QUARTERS, where soldiers are lodged, minus its last letter"
+      },
+      {
+       "words": "servants",
+       "gives": "STAFF",
+       "note": "household staff are servants"
       }
      ]
     },
@@ -792,29 +772,16 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RAFFIA",
-     "indicators": [
-      {
-       "text": "stripped",
-       "note": "the word loses its outer layer, its first and last letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Movement of vehicles stripped",
-         "gives": "RAFFI",
-         "note": "TRAFFIC without its outer letters"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        }
-       ]
+       "words": "Movement of vehicles stripped",
+       "gives": "RAFFI",
+       "note": "TRAFFIC without its outer letters"
+      },
+      {
+       "words": "a",
+       "note": "taken as written"
       }
      ]
     },
@@ -851,35 +818,22 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FRAGRANCE",
+     "op": "container",
      "indicators": [
       {
-       "text": "Endless",
-       "note": "the word loses its final letter"
+       "text": "being immersed in"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "being immersed in"
-        }
-       ],
-       "parts": [
-        {
-         "words": "our neighbour",
-         "gives": "FRANCE",
-         "note": "France is Britain's nearest neighbour across the Channel"
-        },
-        {
-         "words": "Endless anger",
-         "gives": "RAG",
-         "note": "RAGE without its end"
-        }
-       ]
+       "words": "our neighbour",
+       "gives": "FRANCE",
+       "note": "France is Britain's nearest neighbour across the Channel"
+      },
+      {
+       "words": "Endless anger",
+       "gives": "RAG",
+       "note": "RAGE without its end"
       }
      ]
     },

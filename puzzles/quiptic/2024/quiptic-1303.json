@@ -489,58 +489,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENHANCE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at the margins",
+       "note": "keep only the edge letters of 'education'"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "unchecked": true,
+       "gives": "EN",
        "indicators": [
         {
-         "text": "at the margins",
-         "note": "keep only the edge letters of 'education'"
+         "text": "initially",
+         "note": "points to the first letter of 'opportunity's' synonym"
         }
        ],
        "parts": [
         {
-         "op": "outer",
          "unchecked": true,
+         "words": "education at the margins",
          "gives": "EN",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "points to the first letter of 'opportunity's' synonym"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "education at the margins",
-           "gives": "EN",
-           "select": "outer",
-           "note": "first and last letters of education"
-          }
-         ]
-        },
+         "select": "outer",
+         "note": "first and last letters of education"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "HANCE",
+       "indicators": [
         {
-         "op": "first",
+         "text": "missed",
+         "note": "that first letter is left out"
+        }
+       ],
+       "parts": [
+        {
          "unchecked": true,
+         "words": "opportunity initially missed",
          "gives": "HANCE",
-         "indicators": [
-          {
-           "text": "missed",
-           "note": "that first letter is left out"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "opportunity initially missed",
-           "gives": "HANCE",
-           "select": "first",
-           "note": "CHANCE without its first letter C"
-          }
-         ]
+         "select": "first",
+         "note": "CHANCE without its first letter C"
         }
        ]
       }
@@ -778,30 +771,17 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FRACKING",
-     "indicators": [
-      {
-       "text": "with no end of",
-       "note": "the last letter of 'interest' is taken away from the following word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Fellow",
-         "gives": "F",
-         "note": "f = fellow"
-        },
-        {
-         "words": "following with no end of interest",
-         "gives": "RACKING",
-         "note": "TRACKING (following) minus T, the last letter of 'interest'"
-        }
-       ]
+       "words": "Fellow",
+       "gives": "F",
+       "note": "f = fellow"
+      },
+      {
+       "words": "following with no end of interest",
+       "gives": "RACKING",
+       "note": "TRACKING (following) minus T, the last letter of 'interest'"
       }
      ]
     },

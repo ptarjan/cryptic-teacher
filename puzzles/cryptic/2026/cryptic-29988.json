@@ -947,47 +947,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BEACONS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Unfinished",
+       "note": "Something unfinished stops short of the end, so the word for the monster arrives without its final letter."
+      },
+      {
+       "text": "regularly",
+       "note": "Taking letters regularly means stepping through the word at an even beat, keeping every second one and dropping the rest."
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Monster",
+       "gives": "BEAS",
+       "note": "a monster is a beast, arriving here with its tail lopped off"
+      },
+      {
+       "op": "alternate",
+       "unchecked": true,
+       "gives": "CON",
        "indicators": [
         {
-         "text": "Unfinished",
-         "note": "Something unfinished stops short of the end, so the word for the monster arrives without its final letter."
-        },
-        {
-         "text": "regularly",
-         "note": "Taking letters regularly means stepping through the word at an even beat, keeping every second one and dropping the rest."
+         "text": "Munches",
+         "note": "Munching is eating, and what is eaten goes inside, so the letters in front close around the letters picked out next."
         }
        ],
        "parts": [
         {
-         "words": "Monster",
-         "gives": "BEAS",
-         "note": "a monster is a beast, arriving here with its tail lopped off"
-        },
-        {
-         "op": "alternate",
          "unchecked": true,
+         "words": "account",
          "gives": "CON",
-         "indicators": [
-          {
-           "text": "Munches",
-           "note": "Munching is eating, and what is eaten goes inside, so the letters in front close around the letters picked out next."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "account",
-           "gives": "CON",
-           "select": "alternate",
-           "note": "the second, fourth and sixth letters of 'account', which are C, O and N"
-          }
-         ]
+         "select": "alternate",
+         "note": "the second, fourth and sixth letters of 'account', which are C, O and N"
         }
        ]
       }
@@ -1296,42 +1289,35 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MOBLAW",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Untidy",
+       "note": "An untidy room has everything in the wrong place, and untidy letters are out of their proper order too."
+      },
+      {
+       "text": "embracing",
+       "note": "An embrace gathers something in, so the letter named next joins the pile being shuffled."
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "charade",
        "indicators": [
         {
-         "text": "Untidy",
-         "note": "An untidy room has everything in the wrong place, and untidy letters are out of their proper order too."
-        },
-        {
-         "text": "embracing",
-         "note": "An embrace gathers something in, so the letter named next joins the pile being shuffled."
+         "text": "briefly",
+         "note": "Said briefly, a word is cut short, so the name gives up its final letter."
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "briefly",
-           "note": "Said briefly, a word is cut short, so the name gives up its final letter."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Womble",
-           "gives": "WOMBL",
-           "note": "the Wombles are the litter-collecting creatures of a British children's series, and this one arrives a letter short"
-          },
-          {
-           "words": "a",
-           "note": "the bare article, taken in as one more letter of the fodder"
-          }
-         ]
+         "words": "Womble",
+         "gives": "WOMBL",
+         "note": "the Wombles are the litter-collecting creatures of a British children's series, and this one arrives a letter short"
+        },
+        {
+         "words": "a",
+         "note": "the bare article, taken in as one more letter of the fodder"
         }
        ]
       }

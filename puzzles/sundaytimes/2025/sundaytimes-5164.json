@@ -267,30 +267,17 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STUFFEDSHIRT",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so SHIRTY loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "loaded",
-         "gives": "STUFFED",
-         "note": "stuffed = loaded, full"
-        },
-        {
-         "words": "ill-tempered mostly",
-         "gives": "SHIRT",
-         "note": "SHIRTY (British slang: bad-tempered) without its Y"
-        }
-       ]
+       "words": "loaded",
+       "gives": "STUFFED",
+       "note": "stuffed = loaded, full"
+      },
+      {
+       "words": "ill-tempered mostly",
+       "gives": "SHIRT",
+       "note": "SHIRTY (British slang: bad-tempered) without its Y"
       }
      ]
     },
@@ -326,44 +313,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DIRGES",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "second",
+       "note": "the second of a word is its second letter"
+      },
+      {
+       "text": "contains",
+       "note": "a thing that contains another holds it inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "compendium mostly",
+       "gives": "DIGES",
+       "note": "DIGEST without its T"
+      },
+      {
+       "op": "nth",
+       "n": 2,
        "indicators": [
         {
-         "text": "second",
-         "note": "the second of a word is its second letter"
-        },
-        {
-         "text": "contains",
-         "note": "a thing that contains another holds it inside"
+         "text": "mostly",
+         "note": "mostly means not quite all, so DIGEST loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "compendium mostly",
-         "gives": "DIGES",
-         "note": "DIGEST without its T"
-        },
-        {
-         "op": "nth",
-         "n": 2,
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "mostly means not quite all, so DIGEST loses its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Gray's second",
-           "gives": "GRAYSECOND",
-           "note": "second letter of GRAY"
-          }
-         ]
+         "words": "Gray's second",
+         "gives": "GRAYSECOND",
+         "note": "second letter of GRAY"
         }
        ]
       }
@@ -551,45 +531,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ADDENDUM",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so DUMP loses its final letter"
+       "text": "in"
       }
      ],
      "parts": [
       {
        "op": "container",
-       "indicators": [
-        {
-         "text": "in"
-        }
-       ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "a ditch almost",
-           "gives": "ADUM",
-           "note": "A + DUMP (to ditch) without its P; D END goes after its D"
-          },
-          {
-           "words": "finish",
-           "gives": "END",
-           "note": "end = finish"
-          }
-         ]
+         "words": "a ditch almost",
+         "gives": "ADUM",
+         "note": "A + DUMP (to ditch) without its P; D END goes after its D"
         },
         {
-         "words": "daughter",
-         "gives": "D",
-         "note": "D = daughter"
+         "words": "finish",
+         "gives": "END",
+         "note": "end = finish"
         }
        ]
+      },
+      {
+       "words": "daughter",
+       "gives": "D",
+       "note": "D = daughter"
       }
      ]
     },
@@ -959,30 +926,17 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WEDGWOOD",
-     "indicators": [
-      {
-       "text": "contracted",
-       "note": "a contracted word is shortened, so WEDGE loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Golf club contracted",
-         "gives": "WEDG",
-         "note": "WEDGE, a golf club, without its E"
-        },
-        {
-         "words": "another",
-         "gives": "WOOD",
-         "note": "a wood is another kind of golf club"
-        }
-       ]
+       "words": "Golf club contracted",
+       "gives": "WEDG",
+       "note": "WEDGE, a golf club, without its E"
+      },
+      {
+       "words": "another",
+       "gives": "WOOD",
+       "note": "a wood is another kind of golf club"
       }
      ]
     },

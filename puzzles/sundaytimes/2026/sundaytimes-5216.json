@@ -118,8 +118,6 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BLUECHEESE",
      "indicators": [
       {
        "text": "eating",
@@ -128,41 +126,24 @@
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "BLUECHEESE",
-       "indicators": [
-        {
-         "text": "half-cut",
-         "note": "only half of CASE is kept"
-        },
-        {
-         "text": "mostly",
-         "note": "CHEER loses its last letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Sad",
-           "gives": "BLUE",
-           "note": "blue = sad"
-          },
-          {
-           "words": "mostly",
-           "gives": "CHEE",
-           "note": "CHEER (comfort) mostly = CHEE, eaten between BLUE and SE"
-          },
-          {
-           "words": "case, half-cut",
-           "gives": "SE",
-           "note": "the second half of CASE"
-          }
-         ]
+         "words": "Sad",
+         "gives": "BLUE",
+         "note": "blue = sad"
+        },
+        {
+         "words": "case, half-cut",
+         "gives": "SE",
+         "note": "the second half of CASE"
         }
        ]
+      },
+      {
+       "words": "mostly",
+       "gives": "CHEE",
+       "note": "CHEER (comfort) mostly = CHEE, eaten between BLUE and SE"
       }
      ]
     },
@@ -206,30 +187,17 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GENERALELECTION",
-     "indicators": [
-      {
-       "text": "not taking sides",
-       "note": "the letters at both sides of SELECTIONS are dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "officer",
-         "gives": "GENERAL",
-         "note": "a general is a senior army officer"
-        },
-        {
-         "words": "picks, not taking sides",
-         "gives": "ELECTION",
-         "note": "SELECTIONS (picks) without its first and last S"
-        }
-       ]
+       "words": "officer",
+       "gives": "GENERAL",
+       "note": "a general is a senior army officer"
+      },
+      {
+       "words": "picks, not taking sides",
+       "gives": "ELECTION",
+       "note": "SELECTIONS (picks) without its first and last S"
       }
      ]
     },
@@ -1147,36 +1115,23 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SPLICE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "short",
-       "note": "SPLIT loses its last letter"
+       "text": "after",
+       "note": "the church comes after it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "after",
-         "note": "the church comes after it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "short divorce",
-         "gives": "SPLI",
-         "note": "SPLIT (divorce) cut short"
-        },
-        {
-         "words": "church",
-         "gives": "CE",
-         "note": "CE = Church of England"
-        }
-       ]
+       "words": "short divorce",
+       "gives": "SPLI",
+       "note": "SPLIT (divorce) cut short"
+      },
+      {
+       "words": "church",
+       "gives": "CE",
+       "note": "CE = Church of England"
       }
      ]
     },
@@ -1544,29 +1499,22 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "outer",
      "unchecked": true,
      "gives": "HOE",
+     "indicators": [
+      {
+       "text": "with scratched edges",
+       "note": "the first and last letters are scratched out"
+      }
+     ],
      "parts": [
       {
-       "op": "outer",
        "unchecked": true,
+       "words": "footwear with scratched edges",
        "gives": "HOE",
-       "indicators": [
-        {
-         "text": "with scratched edges",
-         "note": "the first and last letters are scratched out"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "footwear with scratched edges",
-         "gives": "HOE",
-         "select": "outer",
-         "note": "SHOES without its outer S and S"
-        }
-       ]
+       "select": "outer",
+       "note": "SHOES without its outer S and S"
       }
      ]
     },
@@ -1603,44 +1551,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CONTROL",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "TOLL loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "fake",
+       "gives": "CON",
+       "note": "a con = a fake, a swindle"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "wearing",
+         "note": "the queen is worn inside the ring"
+        }
+       ],
        "parts": [
         {
-         "words": "fake",
-         "gives": "CON",
-         "note": "a con = a fake, a swindle"
+         "words": "ring, briefly",
+         "gives": "TOL",
+         "note": "TOLL (to ring a bell) cut short, split T|OL"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "wearing",
-           "note": "the queen is worn inside the ring"
-          }
-         ],
-         "parts": [
-          {
-           "words": "ring, briefly",
-           "gives": "TOL",
-           "note": "TOLL (to ring a bell) cut short, split T|OL"
-          },
-          {
-           "words": "Queen",
-           "gives": "R",
-           "note": "R = Regina, queen"
-          }
-         ]
+         "words": "Queen",
+         "gives": "R",
+         "note": "R = Regina, queen"
         }
        ]
       }

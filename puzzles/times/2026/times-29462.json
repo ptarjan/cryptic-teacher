@@ -668,36 +668,23 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BETA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "has abolished repeats",
-       "note": "abolishing repeats gets rid of every letter that appears a second time"
+       "text": "after",
+       "note": "one piece placed after another comes later in the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "after",
-         "note": "one piece placed after another comes later in the answer"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Beeb has abolished repeats",
-         "gives": "BE",
-         "note": "BEEB with its doubled letters removed leaves B and E once each"
-        },
-        {
-         "words": "thanks",
-         "gives": "TA",
-         "note": "ta = thanks"
-        }
-       ]
+       "words": "Beeb has abolished repeats",
+       "gives": "BE",
+       "note": "BEEB with its doubled letters removed leaves B and E once each"
+      },
+      {
+       "words": "thanks",
+       "gives": "TA",
+       "note": "ta = thanks"
       }
      ]
     },
@@ -1469,50 +1456,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HAITI",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "West end of",
+       "note": "on a map west is the left, and the left end of a word is its first letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "unchecked": true,
+       "gives": "H",
        "indicators": [
         {
-         "text": "West end of",
-         "note": "on a map west is the left, and the left end of a word is its first letter"
+         "text": "not all of",
+         "note": "not all of a word means it is cut short, losing its last letter"
         }
        ],
        "parts": [
         {
-         "op": "first",
          "unchecked": true,
+         "words": "West end of Hispaniola",
          "gives": "H",
-         "indicators": [
-          {
-           "text": "not all of",
-           "note": "not all of a word means it is cut short, losing its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "West end of Hispaniola",
-           "gives": "H",
-           "select": "first",
-           "note": "the left-hand, western, letter of HISPANIOLA"
-          }
-         ]
-        },
-        {
-         "words": "island",
-         "gives": "AIT",
-         "note": "an ait is a small river island"
-        },
-        {
-         "words": "not all of it",
-         "gives": "I",
-         "note": "IT cut short"
+         "select": "first",
+         "note": "the left-hand, western, letter of HISPANIOLA"
         }
        ]
+      },
+      {
+       "words": "island",
+       "gives": "AIT",
+       "note": "an ait is a small river island"
+      },
+      {
+       "words": "not all of it",
+       "gives": "I",
+       "note": "IT cut short"
       }
      ]
     },

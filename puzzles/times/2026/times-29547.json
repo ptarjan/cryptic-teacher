@@ -1628,43 +1628,36 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ROAST",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Unfinished",
+       "note": "the word loses its final letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "highway",
+       "gives": "ROA",
+       "note": "ROAD with its last letter cut"
+      },
+      {
+       "op": "outer",
+       "unchecked": true,
+       "gives": "ST",
        "indicators": [
         {
-         "text": "Unfinished",
-         "note": "the word loses its final letter"
+         "text": "outside of",
+         "note": "the outside of a word is its skin, its first and last letters, so only those are kept"
         }
        ],
        "parts": [
         {
-         "words": "Unfinished highway",
-         "gives": "ROA",
-         "note": "ROAD with its last letter cut"
-        },
-        {
-         "op": "outer",
          "unchecked": true,
+         "words": "outside of skinflint",
          "gives": "ST",
-         "indicators": [
-          {
-           "text": "outside of",
-           "note": "the outside of a word is its skin, its first and last letters, so only those are kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "outside of skinflint",
-           "gives": "ST",
-           "select": "outer",
-           "note": "the outer letters of SkinflinT"
-          }
-         ]
+         "select": "outer",
+         "note": "the outer letters of SkinflinT"
         }
        ]
       }
@@ -1757,46 +1750,33 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FLORIN",
+     "op": "container",
      "indicators": [
       {
-       "text": "skinned",
-       "note": "the fish loses its skin, its outer letters"
+       "text": "covering",
+       "note": "the fin covers, so goes around, the other letters"
       }
      ],
      "parts": [
       {
        "op": "container",
-       "indicators": [
-        {
-         "text": "covering",
-         "note": "the fin covers, so goes around, the other letters"
-        }
-       ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "part of fish",
-           "gives": "FIN",
-           "note": "a fin is part of a fish"
-          },
-          {
-           "words": "large",
-           "gives": "L",
-           "note": "L = large"
-          }
-         ]
+         "words": "part of fish",
+         "gives": "FIN",
+         "note": "a fin is part of a fish"
         },
         {
-         "words": "skinned dory",
-         "gives": "OR",
-         "note": "DORY without its outer letters"
+         "words": "large",
+         "gives": "L",
+         "note": "L = large"
         }
        ]
+      },
+      {
+       "words": "skinned dory",
+       "gives": "OR",
+       "note": "DORY without its outer letters"
       }
      ]
     },

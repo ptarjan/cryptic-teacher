@@ -1637,56 +1637,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AFTERMATH",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Bizarre",
+       "note": "weird, so the letters are rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "charade",
        "indicators": [
         {
-         "text": "Bizarre",
-         "note": "weird, so the letters are rearranged"
+         "text": "not the first",
+         "note": "DREAM loses its first letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "words": "dream",
+         "gives": "REAM",
+         "note": "DREAM without its D"
+        },
+        {
+         "words": "that",
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
+         "unchecked": true,
+         "gives": "F",
          "indicators": [
           {
-           "text": "not the first",
-           "note": "DREAM loses its first letter"
+           "text": "intro to",
+           "note": "the first letter of FINNEGANS"
           }
          ],
          "parts": [
           {
-           "words": "dream, not the first",
-           "gives": "REAM",
-           "note": "DREAM without its D"
-          },
-          {
-           "words": "that",
-           "note": "taken as written"
-          },
-          {
-           "op": "first",
            "unchecked": true,
+           "words": "intro to Finnegans",
            "gives": "F",
-           "indicators": [
-            {
-             "text": "intro to",
-             "note": "the first letter of FINNEGANS"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "intro to Finnegans",
-             "gives": "F",
-             "select": "first",
-             "note": "first letter"
-            }
-           ]
+           "select": "first",
+           "note": "first letter"
           }
          ]
         }

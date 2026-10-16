@@ -744,29 +744,22 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "outer",
      "unchecked": true,
      "gives": "HIC",
+     "indicators": [
+      {
+       "text": "walls collapsing",
+       "note": "a word's walls are its outside letters, and collapsing walls fall away"
+      }
+     ],
      "parts": [
       {
-       "op": "outer",
        "unchecked": true,
+       "words": "Thick",
        "gives": "HIC",
-       "indicators": [
-        {
-         "text": "walls collapsing",
-         "note": "a word's walls are its outside letters, and collapsing walls fall away"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Thick",
-         "gives": "HIC",
-         "select": "outer",
-         "note": "THICK without its outer letters T and K"
-        }
-       ]
+       "select": "outer",
+       "note": "THICK without its outer letters T and K"
       }
      ]
     },
@@ -1584,43 +1577,36 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANGLER",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "detailed",
+       "note": "read as de-tailed: with its tail, the last letter, cut off"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Hulk director's",
+       "gives": "ANGLE",
+       "note": "Ang Lee directed Hulk (2003); ANGLEE loses its tail"
+      },
+      {
+       "op": "last",
+       "unchecked": true,
+       "gives": "R",
        "indicators": [
         {
-         "text": "detailed",
-         "note": "read as de-tailed: with its tail, the last letter, cut off"
+         "text": "tip to",
+         "note": "a tip is an end, so take the last letter of actor"
         }
        ],
        "parts": [
         {
-         "words": "Hulk director's",
-         "gives": "ANGLE",
-         "note": "Ang Lee directed Hulk (2003); ANGLEE loses its tail"
-        },
-        {
-         "op": "last",
          "unchecked": true,
+         "words": "tip to actor",
          "gives": "R",
-         "indicators": [
-          {
-           "text": "tip to",
-           "note": "a tip is an end, so take the last letter of actor"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "tip to actor",
-           "gives": "R",
-           "select": "last",
-           "note": "the tip of actor is its last letter"
-          }
-         ]
+         "select": "last",
+         "note": "the tip of actor is its last letter"
         }
        ]
       }

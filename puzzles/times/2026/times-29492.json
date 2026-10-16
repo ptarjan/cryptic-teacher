@@ -845,33 +845,26 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "YOYO",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "Scratching head",
+       "note": "scratching out the head removes the first letter"
+      },
+      {
+       "text": "repeatedly",
+       "note": "something done repeatedly happens more than once, so the headless son appears twice in a row"
+      },
+      {
+       "text": "twisted",
+       "note": "turned round, reversing the letters"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "Scratching head",
-         "note": "scratching out the head removes the first letter"
-        },
-        {
-         "text": "repeatedly",
-         "note": "something done repeatedly happens more than once, so the headless son appears twice in a row"
-        },
-        {
-         "text": "twisted",
-         "note": "turned round, reversing the letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "son repeatedly",
-         "gives": "OYOY",
-         "note": "son = BOY, twice, each losing its head B: OY OY, then turned round"
-        }
-       ]
+       "words": "son",
+       "gives": "OYOY",
+       "note": "son = BOY, twice, each losing its head B: OY OY, then turned round"
       }
      ]
     },
@@ -969,61 +962,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FLYWEIGHT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "extremely",
+       "note": "take the extreme letters of lucky"
+      }
+     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "extremely",
-         "note": "take the extreme letters of lucky"
+         "text": "cut",
+         "note": "a word that is cut is shortened, here by losing its final letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "boxing match",
+         "gives": "FIGHT",
+         "note": "a fight; opened after F to take the rest"
+        },
+        {
+         "op": "outer",
+         "unchecked": true,
+         "gives": "LY",
          "indicators": [
           {
-           "text": "cut",
-           "note": "a word that is cut is shortened, here by losing its final letter"
+           "text": "during",
+           "note": "these letters go in the middle of the fight"
           }
          ],
          "parts": [
           {
-           "words": "boxing match",
-           "gives": "FIGHT",
-           "note": "a fight; opened after F to take the rest"
-          },
-          {
-           "op": "outer",
            "unchecked": true,
+           "words": "extremely lucky",
            "gives": "LY",
-           "indicators": [
-            {
-             "text": "during",
-             "note": "these letters go in the middle of the fight"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "extremely lucky",
-             "gives": "LY",
-             "select": "outer",
-             "note": "the outer letters of LuckY"
-            }
-           ]
+           "select": "outer",
+           "note": "the outer letters of LuckY"
           }
          ]
-        },
-        {
-         "words": "tiny cut",
-         "gives": "WE",
-         "note": "tiny = WEE, cut short"
         }
        ]
+      },
+      {
+       "words": "tiny cut",
+       "gives": "WE",
+       "note": "tiny = WEE, cut short"
       }
      ]
     },

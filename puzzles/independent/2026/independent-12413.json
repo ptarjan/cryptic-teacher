@@ -840,36 +840,23 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OUTWARD",
+     "op": "container",
      "indicators": [
       {
-       "text": "Mostly",
-       "note": "most of a word is all of it bar the final letter, so the tail is left off"
+       "text": "to keep",
+       "note": "to keep something is to hold it within, so one word shuts around another"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "to keep",
-         "note": "to keep something is to hold it within, so one word shuts around another"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Mostly better",
-         "gives": "OUTD",
-         "note": "to better a rival is to outdo them, and the last letter is not wanted"
-        },
-        {
-         "words": "hostilities",
-         "gives": "WAR",
-         "note": "open hostilities between countries are war"
-        }
-       ]
+       "words": "Mostly better",
+       "gives": "OUTD",
+       "note": "to better a rival is to outdo them, and the last letter is not wanted"
+      },
+      {
+       "words": "hostilities",
+       "gives": "WAR",
+       "note": "open hostilities between countries are war"
       }
      ]
     },
@@ -1207,45 +1194,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MANANA",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Bit of",
+       "note": "a bit of a word is a piece of it, and the smallest piece a setter can mean is the letter it starts with"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "unchecked": true,
+       "gives": "M",
        "indicators": [
         {
-         "text": "Bit of",
-         "note": "a bit of a word is a piece of it, and the smallest piece a setter can mean is the letter it starts with"
+         "text": "topped",
+         "note": "in a down entry the top is the first letter, and a topped word has had it cut away"
         }
        ],
        "parts": [
         {
-         "op": "first",
          "unchecked": true,
+         "words": "Bit of mango",
          "gives": "M",
-         "indicators": [
-          {
-           "text": "topped",
-           "note": "in a down entry the top is the first letter, and a topped word has had it cut away"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Bit of mango",
-           "gives": "M",
-           "select": "first",
-           "note": "the opening letter of mango"
-          }
-         ]
-        },
-        {
-         "words": "fruit topped",
-         "gives": "ANANA",
-         "note": "the fruit is a banana, and this entry runs downwards so its top letter comes away"
+         "select": "first",
+         "note": "the opening letter of mango"
         }
        ]
+      },
+      {
+       "words": "fruit topped",
+       "gives": "ANANA",
+       "note": "the fruit is a banana, and this entry runs downwards so its top letter comes away"
       }
      ]
     },
@@ -1524,43 +1504,36 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "anagram",
      "unchecked": true,
      "gives": "APENNINES",
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "APENNINES",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "mostly",
+         "note": "most of a word is all of it bar the last letter, so the ending is dropped"
+        },
+        {
+         "text": "found in",
+         "note": "what is found in something lies within it, so this piece goes inside rather than after"
+        },
+        {
+         "text": "lively",
+         "note": "a lively crowd will not stand still, and letters that will not stand still come out in a new order"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "most of a word is all of it bar the last letter, so the ending is dropped"
-          },
-          {
-           "text": "found in",
-           "note": "what is found in something lies within it, so this piece goes inside rather than after"
-          },
-          {
-           "text": "lively",
-           "note": "a lively crowd will not stand still, and letters that will not stand still come out in a new order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "lively Siena",
-           "gives": "AINES",
-           "note": "the five letters of the Tuscan city shaken up, then opened out to take a filling"
-          },
-          {
-           "words": "Type of pasta mostly",
-           "gives": "PENN",
-           "note": "penne are the short quill-shaped tubes, and the final letter is left behind"
-          }
-         ]
+         "words": "lively Siena",
+         "gives": "AINES",
+         "note": "the five letters of the Tuscan city shaken up, then opened out to take a filling"
+        },
+        {
+         "words": "Type of pasta mostly",
+         "gives": "PENN",
+         "note": "penne are the short quill-shaped tubes, and the final letter is left behind"
         }
        ]
       }

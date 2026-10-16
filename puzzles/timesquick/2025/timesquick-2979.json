@@ -150,29 +150,22 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "outer",
      "unchecked": true,
      "gives": "RATCHET",
+     "indicators": [
+      {
+       "text": "stripped",
+       "note": "stripping a word takes off its outer layer, its first and last letters"
+      }
+     ],
      "parts": [
       {
-       "op": "outer",
        "unchecked": true,
+       "words": "Fantasy author stripped",
        "gives": "RATCHET",
-       "indicators": [
-        {
-         "text": "stripped",
-         "note": "stripping a word takes off its outer layer, its first and last letters"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Fantasy author stripped",
-         "gives": "RATCHET",
-         "select": "outer",
-         "note": "Terry PRATCHETT, author of the Discworld fantasy novels, loses his first and last letters"
-        }
-       ]
+       "select": "outer",
+       "note": "Terry PRATCHETT, author of the Discworld fantasy novels, loses his first and last letters"
       }
      ]
     },
@@ -801,35 +794,22 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TINSEL",
-     "indicators": [
-      {
-       "text": "cut",
-       "note": "ELF is cut short, losing its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Can",
-         "gives": "TIN",
-         "note": "a tin is a can"
-        },
-        {
-         "words": "small",
-         "gives": "S",
-         "note": "S = small"
-        },
-        {
-         "words": "elf cut",
-         "gives": "EL",
-         "note": "ELF minus its last letter"
-        }
-       ]
+       "words": "Can",
+       "gives": "TIN",
+       "note": "a tin is a can"
+      },
+      {
+       "words": "small",
+       "gives": "S",
+       "note": "S = small"
+      },
+      {
+       "words": "elf cut",
+       "gives": "EL",
+       "note": "ELF minus its last letter"
       }
      ]
     },

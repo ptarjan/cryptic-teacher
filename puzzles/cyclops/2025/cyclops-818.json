@@ -1233,47 +1233,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FROLIC",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "opening",
+       "note": "the opening of a word is the letter it starts with, taken here from each of the two words in front"
+      },
+      {
+       "text": "in",
+       "note": "letters put in a word go inside it, the word parting to hold them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "short dress",
+       "gives": "FROC",
+       "note": "a dress is a frock, then docked of its final letter"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "LI",
        "indicators": [
         {
-         "text": "opening",
-         "note": "the opening of a word is the letter it starts with, taken here from each of the two words in front"
-        },
-        {
-         "text": "in",
-         "note": "letters put in a word go inside it, the word parting to hold them"
+         "text": "short",
+         "note": "a word made short has been docked, losing the letter off its end"
         }
        ],
        "parts": [
         {
-         "words": "short dress",
-         "gives": "FROC",
-         "note": "a dress is a frock, then docked of its final letter"
-        },
-        {
-         "op": "first",
          "unchecked": true,
+         "words": "Large immodest",
          "gives": "LI",
-         "indicators": [
-          {
-           "text": "short",
-           "note": "a word made short has been docked, losing the letter off its end"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Large immodest",
-           "gives": "LI",
-           "select": "first",
-           "note": "the first letter of each of these two words, taken in the order written"
-          }
-         ]
+         "select": "first",
+         "note": "the first letter of each of these two words, taken in the order written"
         }
        ]
       }

@@ -1448,33 +1448,26 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VEGAN",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eating",
+       "note": "what is eating something has it inside, so the van closes around the next letters"
+      },
+      {
+       "text": "mostly",
+       "note": "mostly means all but a little, so the last letter of the next word is dropped"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "eating",
-         "note": "what is eating something has it inside, so the van closes around the next letters"
-        },
-        {
-         "text": "mostly",
-         "note": "mostly means all but a little, so the last letter of the next word is dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "van",
-         "note": "the word taken as it stands"
-        },
-        {
-         "words": "egg",
-         "gives": "EG",
-         "note": "EGG without its last letter"
-        }
-       ]
+       "words": "van",
+       "note": "the word taken as it stands"
+      },
+      {
+       "words": "egg",
+       "gives": "EG",
+       "note": "EGG without its last letter"
       }
      ]
     },
@@ -1512,38 +1505,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VERTS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "short",
+       "note": "something short has been cut, so the word loses its last letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "very",
+       "gives": "VER",
+       "note": "the word very cut short by removing its last letter, Y"
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
-         "text": "short",
-         "note": "something short has been cut, so the word loses its last letter"
+         "text": "ends of",
+         "note": "a word's ends are its first and last letters, so only those two are kept"
         }
        ],
        "parts": [
         {
-         "words": "very",
-         "gives": "VER",
-         "note": "the word very cut short by removing its last letter, Y"
-        },
-        {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "ends of",
-           "note": "a word's ends are its first and last letters, so only those two are kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "trousers",
-           "note": "the first and last letters of trousers"
-          }
-         ]
+         "words": "trousers",
+         "note": "the first and last letters of trousers"
         }
        ]
       }

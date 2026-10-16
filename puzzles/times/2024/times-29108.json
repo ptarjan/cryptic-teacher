@@ -1141,43 +1141,36 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "anagram",
      "unchecked": true,
      "gives": "SANDERLING",
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "SANDERLING",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "mostly",
+         "note": "most of the word, so the last letter goes"
+        },
+        {
+         "text": "seen in",
+         "note": "something seen in a place is inside it, so these letters go inside the others"
+        },
+        {
+         "text": "wild",
+         "note": "untamed, so the letters run free"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "mostly",
-           "note": "most of the word, so the last letter goes"
-          },
-          {
-           "text": "seen in",
-           "note": "something seen in a place is inside it, so these letters go inside the others"
-          },
-          {
-           "text": "wild",
-           "note": "untamed, so the letters run free"
-          }
-         ],
-         "parts": [
-          {
-           "words": "wild gardens",
-           "gives": "SANDERG",
-           "note": "GARDENS rearranged"
-          },
-          {
-           "words": "of course mostly",
-           "gives": "LIN",
-           "note": "LINE (a course, as in a line of action) without its last letter, set inside"
-          }
-         ]
+         "words": "wild gardens",
+         "gives": "SANDERG",
+         "note": "GARDENS rearranged"
+        },
+        {
+         "words": "of course mostly",
+         "gives": "LIN",
+         "note": "LINE (a course, as in a line of action) without its last letter, set inside"
         }
        ]
       }
@@ -1358,44 +1351,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SPECTRA",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "very nearly",
+       "note": "almost all of the word: the last letter goes"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Bond baddies",
+       "gives": "SPECTR",
+       "note": "SPECTRE, the villainous organisation in the James Bond films, losing its last letter"
+      },
+      {
+       "op": "nth",
+       "unchecked": true,
+       "gives": "A",
+       "n": 3,
        "indicators": [
         {
-         "text": "very nearly",
-         "note": "almost all of the word: the last letter goes"
+         "text": "just before the end",
+         "note": "the letter immediately before the last one"
         }
        ],
        "parts": [
         {
-         "words": "Bond baddies very nearly",
-         "gives": "SPECTR",
-         "note": "SPECTRE, the villainous organisation in the James Bond films, losing its last letter"
-        },
-        {
-         "op": "nth",
          "unchecked": true,
+         "words": "dead just before the end",
          "gives": "A",
-         "n": 3,
-         "indicators": [
-          {
-           "text": "just before the end",
-           "note": "the letter immediately before the last one"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "dead just before the end",
-           "gives": "A",
-           "select": 3,
-           "note": "the letter just before the final D of deAd"
-          }
-         ]
+         "select": 3,
+         "note": "the letter just before the final D of deAd"
         }
        ]
       }
@@ -1723,29 +1709,22 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THEPOLICE",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "shortly",
+       "note": "cut short, so the last letter goes"
+      },
+      {
+       "text": "to be scrambled",
+       "note": "mixed up, so the letters are rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "shortly",
-         "note": "cut short, so the last letter goes"
-        },
-        {
-         "text": "to be scrambled",
-         "note": "mixed up, so the letters are rearranged"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Helicopter shortly",
-         "gives": "HELICOPTE",
-         "note": "HELICOPTER without its last letter; anagram fodder"
-        }
-       ]
+       "words": "Helicopter shortly",
+       "gives": "HELICOPTE",
+       "note": "HELICOPTER without its last letter; anagram fodder"
       }
      ]
     },

@@ -1020,29 +1020,22 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RADIOGRAM",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "ultimately wanting",
+       "note": "A word that is ultimately wanting is missing its final letter, and here every word in the list loses its last one."
+      },
+      {
+       "text": "parties",
+       "note": "To part is to split up, so 'parties' says the letters break apart and re-form rather than naming a night out."
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "ultimately wanting",
-         "note": "A word that is ultimately wanting is missing its final letter, and here every word in the list loses its last one."
-        },
-        {
-         "text": "parties",
-         "note": "To part is to split up, so 'parties' says the letters break apart and re-form rather than naming a night out."
-        }
-       ],
-       "parts": [
-        {
-         "words": "in on Mardi Gras",
-         "gives": "IOMARDGRA",
-         "note": "IN, ON, MARDI and GRAS each lose their final letter, leaving nine letters to shuffle"
-        }
-       ]
+       "words": "in on Mardi Gras",
+       "gives": "IOMARDGRA",
+       "note": "IN, ON, MARDI and GRAS each lose their final letter, leaving nine letters to shuffle"
       }
      ]
     },
@@ -1257,59 +1250,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RHYMERS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Short",
+       "note": "A word made short loses its last letter, so the song arrives one letter down."
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
+       "unchecked": true,
+       "gives": "RS",
        "indicators": [
         {
-         "text": "Short",
-         "note": "A word made short loses its last letter, so the song arrives one letter down."
+         "text": "covered by",
+         "note": "Being covered by something means it goes over you on both sides, so those end letters close around everything assembled so far."
         }
        ],
        "parts": [
         {
-         "op": "outer",
          "unchecked": true,
+         "words": "extremely raucous",
          "gives": "RS",
-         "indicators": [
-          {
-           "text": "covered by",
-           "note": "Being covered by something means it goes over you on both sides, so those end letters close around everything assembled so far."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "extremely raucous",
-           "gives": "RS",
-           "select": "outer",
-           "note": "the outer letters of raucous, which close around the rest"
-          }
-         ]
+         "select": "outer",
+         "note": "the outer letters of raucous, which close around the rest"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "extremely",
+         "note": "The extremes of a word are its two ends, so 'extremely' takes the first and last letters and nothing between."
+        }
+       ],
+       "parts": [
+        {
+         "words": "Short song",
+         "gives": "HYM",
+         "note": "a hymn is a song, cut short by one letter"
         },
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "extremely",
-           "note": "The extremes of a word are its two ends, so 'extremely' takes the first and last letters and nothing between."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Short song",
-           "gives": "HYM",
-           "note": "a hymn is a song, cut short by one letter"
-          },
-          {
-           "words": "Queen",
-           "gives": "ER",
-           "note": "ER, Elizabeth Regina, is the crossword's standard queen"
-          }
-         ]
+         "words": "Queen",
+         "gives": "ER",
+         "note": "ER, Elizabeth Regina, is the crossword's standard queen"
         }
        ]
       }

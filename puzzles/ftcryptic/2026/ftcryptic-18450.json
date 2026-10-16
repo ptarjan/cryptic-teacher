@@ -168,53 +168,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TITFORTAT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "the Italian stronghold goes inside the state"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
+       "unchecked": true,
+       "gives": "TAT",
        "indicators": [
         {
-         "text": "in",
-         "note": "the Italian stronghold goes inside the state"
+         "text": "shelled",
+         "note": "a shelled nut loses its outer casing, so STATE loses its first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "outer",
          "unchecked": true,
+         "words": "shelled state",
          "gives": "TAT",
-         "indicators": [
-          {
-           "text": "shelled",
-           "note": "a shelled nut loses its outer casing, so STATE loses its first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "shelled state",
-           "gives": "TAT",
-           "select": "outer",
-           "note": "STATE without its outer letters"
-          }
-         ]
+         "select": "outer",
+         "note": "STATE without its outer letters"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Italian",
+         "gives": "IT",
+         "note": "It is short for Italian vermouth"
         },
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Italian",
-           "gives": "IT",
-           "note": "It is short for Italian vermouth"
-          },
-          {
-           "words": "stronghold",
-           "gives": "FORT",
-           "note": "a fort is a stronghold"
-          }
-         ]
+         "words": "stronghold",
+         "gives": "FORT",
+         "note": "a fort is a stronghold"
         }
        ]
       }
@@ -1026,36 +1019,23 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HEAVE",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "the harbour word is one letter short of complete"
+       "text": "brings in",
+       "note": "to bring something in is to take it inside, so the shortened harbour word holds the letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "brings in",
-         "note": "to bring something in is to take it inside, so the shortened harbour word holds the letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Harbour almost",
-         "gives": "HAVE",
-         "note": "HAVEN without its last letter"
-        },
-        {
-         "words": "European",
-         "gives": "E",
-         "note": "E is the abbreviation for European"
-        }
-       ]
+       "words": "Harbour almost",
+       "gives": "HAVE",
+       "note": "HAVEN without its last letter"
+      },
+      {
+       "words": "European",
+       "gives": "E",
+       "note": "E is the abbreviation for European"
       }
      ]
     },
@@ -1764,38 +1744,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DIPLOMATICCORPS",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "New",
+       "note": "new letters are made from old, so the fodder is rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "charade",
        "indicators": [
         {
-         "text": "New",
-         "note": "new letters are made from old, so the fodder is rearranged"
+         "text": "unopened",
+         "note": "iPod without its opening letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "unopened",
-           "note": "iPod without its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "unopened iPod",
-           "gives": "POD",
-           "note": "iPod without its first letter"
-          },
-          {
-           "words": "plastic micro",
-           "note": "anagram fodder"
-          }
-         ]
+         "words": "iPod",
+         "gives": "POD",
+         "note": "iPod without its first letter"
+        },
+        {
+         "words": "plastic micro",
+         "note": "anagram fodder"
         }
        ]
       }

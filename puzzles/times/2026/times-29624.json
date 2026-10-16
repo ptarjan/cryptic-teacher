@@ -1344,34 +1344,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "QUAKES",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "note": "a kilo in the search means those letters sit inside it"
+      },
+      {
+       "text": "brief",
+       "note": "a brief thing is cut short, so the last letter goes"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "a kilo in the search means those letters sit inside it"
-        },
-        {
-         "text": "brief",
-         "note": "a brief thing is cut short, so the last letter goes"
-        }
-       ],
-       "parts": [
-        {
-         "words": "search",
-         "gives": "QUES",
-         "note": "QUEST minus its last letter"
-        },
-        {
-         "words": "a kilo",
-         "gives": "AK",
-         "note": "A plus K for kilo"
-        }
-       ]
+       "words": "search",
+       "gives": "QUES",
+       "note": "QUEST minus its last letter"
+      },
+      {
+       "words": "a kilo",
+       "gives": "AK",
+       "note": "A plus K for kilo"
       }
      ]
     },
@@ -1571,38 +1564,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DUNGEONER",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "nearly",
+       "note": "not quite all, so the last letter goes"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "charade",
        "indicators": [
         {
-         "text": "nearly",
-         "note": "not quite all, so the last letter goes"
+         "text": "out",
+         "note": "put out of order, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "out",
-           "note": "put out of order, so the letters are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "undone",
-           "note": "as written"
-          },
-          {
-           "words": "ergo",
-           "gives": "ERG",
-           "note": "ERGO without its last letter"
-          }
-         ]
+         "words": "undone",
+         "note": "as written"
+        },
+        {
+         "words": "ergo",
+         "gives": "ERG",
+         "note": "ERGO without its last letter"
         }
        ]
       }

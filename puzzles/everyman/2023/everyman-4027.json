@@ -212,30 +212,17 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MOUSSAKA",
-     "indicators": [
-      {
-       "text": "Mostly",
-       "note": "most of the word, but not all of it, so the final letter is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Mostly chocolatey dessert",
-         "gives": "MOUSS",
-         "note": "MOUSSE, a chocolatey dessert, without its last letter"
-        },
-        {
-         "words": "In other words",
-         "gives": "AKA",
-         "note": "aka = also known as"
-        }
-       ]
+       "words": "Mostly chocolatey dessert",
+       "gives": "MOUSS",
+       "note": "MOUSSE, a chocolatey dessert, without its last letter"
+      },
+      {
+       "words": "In other words",
+       "gives": "AKA",
+       "note": "aka = also known as"
       }
      ]
     },
@@ -798,50 +785,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LUNCHEON",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Initially lacking",
+       "note": "drop the first letter of the next word"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "unchecked": true,
+       "gives": "L",
        "indicators": [
         {
-         "text": "Initially lacking",
-         "note": "drop the first letter of the next word"
+         "text": "initially",
+         "note": "at the start, so only the opening letter of 'lacking' is used"
         }
        ],
        "parts": [
         {
-         "op": "first",
          "unchecked": true,
+         "words": "(initially lacking)",
          "gives": "L",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "at the start, so only the opening letter of 'lacking' is used"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "(initially lacking)",
-           "gives": "L",
-           "select": "first",
-           "note": "first letter of lacking"
-          }
-         ]
-        },
-        {
-         "words": "Initially lacking punch",
-         "gives": "UNCH",
-         "note": "PUNCH without its first letter"
-        },
-        {
-         "words": "long time",
-         "gives": "EON",
-         "note": "an eon is an age"
+         "select": "first",
+         "note": "first letter of lacking"
         }
        ]
+      },
+      {
+       "words": "punch",
+       "gives": "UNCH",
+       "note": "PUNCH without its first letter"
+      },
+      {
+       "words": "long time",
+       "gives": "EON",
+       "note": "an eon is an age"
       }
      ]
     },
@@ -885,43 +865,36 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SUNDRIED",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Not finishing",
+       "note": "the word stops short of its end, so its final letter is lost"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "various",
+       "gives": "SUNDR",
+       "note": "SUNDRY, various, without its last letter"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "IED",
        "indicators": [
         {
-         "text": "Not finishing",
-         "note": "the word stops short of its end, so its final letter is lost"
+         "text": "starters of",
+         "note": "take the first letter of each word"
         }
        ],
        "parts": [
         {
-         "words": "Not finishing various",
-         "gives": "SUNDR",
-         "note": "SUNDRY, various, without its last letter"
-        },
-        {
-         "op": "first",
          "unchecked": true,
+         "words": "Italian endives, dressed",
          "gives": "IED",
-         "indicators": [
-          {
-           "text": "starters of",
-           "note": "take the first letter of each word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Italian endives, dressed",
-           "gives": "IED",
-           "select": "first",
-           "note": "I-talian, E-ndives, D-ressed"
-          }
-         ]
+         "select": "first",
+         "note": "I-talian, E-ndives, D-ressed"
         }
        ]
       }

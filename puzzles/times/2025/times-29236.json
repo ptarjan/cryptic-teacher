@@ -599,51 +599,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BURGLAR",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "nearly",
+       "note": "nearly all of a word is all but its last letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "nearly",
-         "note": "nearly all of a word is all but its last letter"
+         "text": "sent back",
+         "note": "what is sent back returns the way it came"
         }
        ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "sent back",
-           "note": "what is sent back returns the way it came"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "nearly all",
-             "gives": "AL",
-             "note": "ALL without its last letter"
-            },
-            {
-             "words": "food",
-             "gives": "GRUB",
-             "note": "grub is food; ALGRUB reversed gives BURGLA"
-            }
-           ]
+           "words": "nearly all",
+           "gives": "AL",
+           "note": "ALL without its last letter"
+          },
+          {
+           "words": "food",
+           "gives": "GRUB",
+           "note": "grub is food; ALGRUB reversed gives BURGLA"
           }
          ]
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "R = right"
         }
        ]
+      },
+      {
+       "words": "right",
+       "gives": "R",
+       "note": "R = right"
       }
      ]
     },

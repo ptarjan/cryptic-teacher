@@ -606,50 +606,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HIGHLIGHT",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "at core",
+       "note": "The core of a word is its middle, so a five-letter word gives up its third letter and nothing else."
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "intoxicated",
+       "gives": "HIGH",
+       "note": "Somebody high on a drug is intoxicated."
+      },
+      {
+       "op": "middle",
+       "unchecked": true,
+       "gives": "L",
        "indicators": [
         {
-         "text": "at core",
-         "note": "The core of a word is its middle, so a five-letter word gives up its third letter and nothing else."
+         "text": "not starting",
+         "note": "A word not starting has lost the letter it would have begun with, and picks up one along."
         }
        ],
        "parts": [
         {
-         "words": "intoxicated",
-         "gives": "HIGH",
-         "note": "Somebody high on a drug is intoxicated."
-        },
-        {
-         "op": "middle",
          "unchecked": true,
+         "words": "bully",
          "gives": "L",
-         "indicators": [
-          {
-           "text": "not starting",
-           "note": "A word not starting has lost the letter it would have begun with, and picks up one along."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "bully",
-           "gives": "L",
-           "select": "middle",
-           "note": "The middle letter of this five-letter word."
-          }
-         ]
-        },
-        {
-         "words": "conflict",
-         "gives": "IGHT",
-         "note": "Conflict is a FIGHT, deprived here of its opening F."
+         "select": "middle",
+         "note": "The middle letter of this five-letter word."
         }
        ]
+      },
+      {
+       "words": "conflict",
+       "gives": "IGHT",
+       "note": "Conflict is a FIGHT, deprived here of its opening F."
       }
      ]
     },

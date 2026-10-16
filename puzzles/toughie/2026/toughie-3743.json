@@ -1504,30 +1504,17 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NASCENT",
-     "indicators": [
-      {
-       "text": "down by half",
-       "note": "only half of NASDAQ remains"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "US stock exchange down by half",
-         "gives": "NAS",
-         "note": "the first half of NASDAQ"
-        },
-        {
-         "words": "little money there",
-         "gives": "CENT",
-         "note": "a cent is a small coin in the US, 'there'"
-        }
-       ]
+       "words": "US stock exchange down by half",
+       "gives": "NAS",
+       "note": "the first half of NASDAQ"
+      },
+      {
+       "words": "little money there",
+       "gives": "CENT",
+       "note": "a cent is a small coin in the US, 'there'"
       }
      ]
     },
@@ -1616,29 +1603,22 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WARPS",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "abruptly",
+       "note": "cut short, so the last letter goes"
+      },
+      {
+       "text": "turning",
+       "note": "turning round faces the word the other way, so it reads backwards"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "abruptly",
-         "note": "cut short, so the last letter goes"
-        },
-        {
-         "text": "turning",
-         "note": "turning round faces the word the other way, so it reads backwards"
-        }
-       ],
-       "parts": [
-        {
-         "words": "lounge abruptly",
-         "gives": "SPRAW",
-         "note": "SPRAWL (lounge) without its last letter"
-        }
-       ]
+       "words": "lounge",
+       "gives": "SPRAW",
+       "note": "SPRAWL (lounge) without its last letter"
       }
      ]
     },
@@ -1897,50 +1877,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXTREME",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "uncovered",
+       "note": "a word uncovered loses its outer letters"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "unchecked": true,
+       "gives": "EXT",
        "indicators": [
         {
-         "text": "uncovered",
-         "note": "a word uncovered loses its outer letters"
+         "text": "short",
+         "note": "MEN falls short of its last letter"
         }
        ],
        "parts": [
         {
-         "op": "middle",
          "unchecked": true,
+         "words": "messages uncovered",
          "gives": "EXT",
-         "indicators": [
-          {
-           "text": "short",
-           "note": "MEN falls short of its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "messages uncovered",
-           "gives": "EXT",
-           "select": "middle",
-           "note": "tEXTs, text messages, without the outer letters"
-          }
-         ]
-        },
-        {
-         "words": "about",
-         "gives": "RE",
-         "note": "re = about, concerning"
-        },
-        {
-         "words": "short guys",
-         "gives": "ME",
-         "note": "MEN without its last letter"
+         "select": "middle",
+         "note": "tEXTs, text messages, without the outer letters"
         }
        ]
+      },
+      {
+       "words": "about",
+       "gives": "RE",
+       "note": "re = about, concerning"
+      },
+      {
+       "words": "short guys",
+       "gives": "ME",
+       "note": "MEN without its last letter"
       }
      ]
     },

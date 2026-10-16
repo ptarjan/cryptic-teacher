@@ -1759,46 +1759,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STEM",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "third character in",
+       "note": "the third letter of the word"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "nth",
+       "unchecked": true,
+       "gives": "S",
+       "n": 3,
        "indicators": [
         {
-         "text": "third character in",
-         "note": "the third letter of the word"
+         "text": "heading off",
+         "note": "the first letter is taken off"
         }
        ],
        "parts": [
         {
-         "op": "nth",
          "unchecked": true,
+         "words": "third character in Just",
          "gives": "S",
-         "n": 3,
-         "indicators": [
-          {
-           "text": "heading off",
-           "note": "the first letter is taken off"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "third character in Just",
-           "gives": "S",
-           "select": 3,
-           "note": "third letter of Just"
-          }
-         ]
-        },
-        {
-         "words": "One Thing's heading off",
-         "gives": "TEM",
-         "note": "one thing = ITEM, losing its first letter"
+         "select": 3,
+         "note": "third letter of Just"
         }
        ]
+      },
+      {
+       "words": "One Thing's heading off",
+       "gives": "TEM",
+       "note": "one thing = ITEM, losing its first letter"
       }
      ]
     },

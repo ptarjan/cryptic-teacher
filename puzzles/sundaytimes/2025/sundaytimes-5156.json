@@ -319,36 +319,23 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MESSINA",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "most of the word, dropping its last letter"
+       "text": "drinks",
+       "note": "takes the next piece inside, as a drinker takes in a drink"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "drinks",
-         "note": "takes the next piece inside, as a drinker takes in a drink"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Jesus mostly",
-         "gives": "MESSIA",
-         "note": "MESSIAH without its last letter"
-        },
-        {
-         "words": "no",
-         "gives": "N",
-         "note": "N = no, as in Y/N"
-        }
-       ]
+       "words": "Jesus mostly",
+       "gives": "MESSIA",
+       "note": "MESSIAH without its last letter"
+      },
+      {
+       "words": "no",
+       "gives": "N",
+       "note": "N = no, as in Y/N"
       }
      ]
     },
@@ -386,43 +373,36 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ROSTI",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "left by",
+       "note": "the A departs from the word before it"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "cook left by a",
+       "gives": "ROST",
+       "note": "ROAST with its A gone"
+      },
+      {
+       "op": "first",
+       "unchecked": true,
+       "gives": "I",
        "indicators": [
         {
-         "text": "left by",
-         "note": "the A departs from the word before it"
+         "text": "a slice of",
+         "note": "only the first letter of the following word is taken"
         }
        ],
        "parts": [
         {
-         "words": "cook left by a",
-         "gives": "ROST",
-         "note": "ROAST with its A gone"
-        },
-        {
-         "op": "first",
          "unchecked": true,
+         "words": "slice of iceberg",
          "gives": "I",
-         "indicators": [
-          {
-           "text": "a slice of",
-           "note": "only the first letter of the following word is taken"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "slice of iceberg",
-           "gives": "I",
-           "select": "first",
-           "note": "the first letter of iceberg"
-          }
-         ]
+         "select": "first",
+         "note": "the first letter of iceberg"
         }
        ]
       }

@@ -928,49 +928,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INTERN",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "conclusion",
+       "note": "a word's conclusion is its last letter"
+      },
+      {
+       "text": "cases",
+       "note": "the outer word holds the other like a case"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "last",
+       "unchecked": true,
+       "gives": "INTEN",
        "indicators": [
         {
-         "text": "conclusion",
-         "note": "a word's conclusion is its last letter"
-        },
-        {
-         "text": "cases",
-         "note": "the outer word holds the other like a case"
+         "text": "pretty much",
+         "note": "nearly all the word, so drop the last letter"
         }
        ],
        "parts": [
         {
-         "op": "last",
          "unchecked": true,
+         "words": "determined",
          "gives": "INTEN",
-         "indicators": [
-          {
-           "text": "pretty much",
-           "note": "nearly all the word, so drop the last letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "determined",
-           "gives": "INTEN",
-           "select": "last",
-           "note": "INTENT, determined, minus its last letter"
-          }
-         ]
-        },
-        {
-         "words": "barrister's conclusion",
-         "gives": "R",
-         "note": "last letter of barrister"
+         "select": "last",
+         "note": "INTENT, determined, minus its last letter"
         }
        ]
+      },
+      {
+       "words": "barrister's",
+       "gives": "R",
+       "note": "last letter of barrister"
       }
      ]
     },
@@ -1234,36 +1227,23 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VERBOSE",
+     "op": "container",
      "indicators": [
       {
-       "text": "half of",
-       "note": "take half the letters of the word"
+       "text": "boring",
+       "note": "the letters bore into the other word, going inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "boring",
-         "note": "the letters bore into the other word, going inside it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "poetry",
-         "gives": "VERSE",
-         "note": "verse is poetry"
-        },
-        {
-         "words": "book, half of which",
-         "gives": "BO",
-         "note": "the first half of book"
-        }
-       ]
+       "words": "poetry",
+       "gives": "VERSE",
+       "note": "verse is poetry"
+      },
+      {
+       "words": "book, half of which",
+       "gives": "BO",
+       "note": "the first half of book"
       }
      ]
     },
@@ -1609,34 +1589,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STOODIN",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "note": "the second part comes after the first"
+      },
+      {
+       "text": "losing head",
+       "note": "the word drops its first letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "after",
-         "note": "the second part comes after the first"
-        },
-        {
-         "text": "losing head",
-         "note": "the word drops its first letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "put up with",
-         "gives": "STOOD",
-         "note": "to stand something is to put up with it"
-        },
-        {
-         "words": "row",
-         "gives": "IN",
-         "note": "DIN, a row or racket, minus its first letter"
-        }
-       ]
+       "words": "put up with",
+       "gives": "STOOD",
+       "note": "to stand something is to put up with it"
+      },
+      {
+       "words": "row",
+       "gives": "IN",
+       "note": "DIN, a row or racket, minus its first letter"
       }
      ]
     },

@@ -373,63 +373,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "container",
      "unchecked": true,
      "gives": "ENHANCE",
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "ENHANCE",
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "limit of",
+         "note": "the end letter of the word"
+        },
+        {
+         "text": "in"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
+         "words": "European",
+         "gives": "E",
+         "note": "standard abbreviation"
+        },
+        {
+         "op": "last",
+         "unchecked": true,
+         "gives": "N",
          "indicators": [
           {
-           "text": "limit of",
-           "note": "the end letter of the word"
-          },
-          {
-           "text": "in"
+           "text": "mainly",
+           "note": "most of the word, so drop its last letter"
           }
          ],
          "parts": [
           {
-           "words": "European",
-           "gives": "E",
-           "note": "standard abbreviation"
-          },
-          {
-           "op": "last",
            "unchecked": true,
+           "words": "limit of humanitarian",
            "gives": "N",
-           "indicators": [
-            {
-             "text": "mainly",
-             "note": "most of the word, so drop its last letter"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "limit of humanitarian",
-             "gives": "N",
-             "select": "last",
-             "note": "last letter of humanitarian"
-            }
-           ]
-          },
-          {
-           "words": "assistance, mainly",
-           "gives": "HAN",
-           "note": "HAND (assistance, as in 'give a hand') without its last letter"
-          },
-          {
-           "words": "church",
-           "gives": "CE",
-           "note": "CE = Church of England"
+           "select": "last",
+           "note": "last letter of humanitarian"
           }
          ]
+        },
+        {
+         "words": "assistance, mainly",
+         "gives": "HAN",
+         "note": "HAND (assistance, as in 'give a hand') without its last letter"
+        },
+        {
+         "words": "church",
+         "gives": "CE",
+         "note": "CE = Church of England"
         }
        ]
       }
@@ -1434,38 +1427,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNPROLIFIC",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "mostly",
+       "note": "most of the word but not all, so its last letter goes"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "charade",
        "indicators": [
         {
-         "text": "mostly",
-         "note": "most of the word but not all, so its last letter goes"
+         "text": "ground",
+         "note": "the letters are ground up and remixed"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "ground",
-           "note": "the letters are ground up and remixed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "crop in",
-           "note": "anagram fodder, as printed"
-          },
-          {
-           "words": "mostly fluid",
-           "gives": "FLUI",
-           "note": "FLUID without its last letter"
-          }
-         ]
+         "words": "crop in",
+         "note": "anagram fodder, as printed"
+        },
+        {
+         "words": "mostly fluid",
+         "gives": "FLUI",
+         "note": "FLUID without its last letter"
         }
        ]
       }
