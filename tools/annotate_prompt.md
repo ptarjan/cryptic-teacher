@@ -17,7 +17,8 @@ group ("See 21") is `null`.
 ```
 
 If the puzzle file lists `annotateOnly`, key only those entries: every other entry's
-annotation is fixed, shown in `existingAnnotations` in the same shape as yours, and
+annotation is fixed (those in the same group as one you write are shown in
+`existingAnnotations`, in the same shape as yours; the rest are omitted), and
 the check refuses a change to it.
 
 Write annotations only; do not write a script to produce them. Each entry's
