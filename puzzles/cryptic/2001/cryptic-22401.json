@@ -201,39 +201,56 @@
    "annotation": {
     "definitions": [
      {
-      "text": "to escape",
-      "at": 23
+      "text": "escape",
+      "at": 26
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "GETLOOSE",
      "indicators": [
       {
-       "text": "Spooner's",
-       "note": "the Reverend Spooner swapped the opening sounds of words, so the initial sounds of the two words here change places"
+       "text": "Spooner",
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the two words here trade their first sounds"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "allowed bird",
-       "gives": "GETLOOSE",
-       "soundsLike": "LET GOOSE",
-       "note": "allowed is let, and the bird is a goose; swap their opening sounds"
+       "words": "allowed",
+       "at": 10,
+       "gives": "LET",
+       "note": "allowed means let, as in permitted"
+      },
+      {
+       "op": "homophone",
+       "spelt": "GOOSE",
+       "indicators": [
+        {
+         "text": "'s",
+         "at": 7,
+         "note": "read as 'says', so the words are taken as spoken aloud, the way Spooner would say them"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bird",
+         "at": 18,
+         "gives": "GOOS",
+         "note": "a goose is a bird; said aloud it is 'goos', rhyming with the second word of the answer"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner opened the cage and let his pet bird fly away.",
-     "definitionFit": "Breaking free of restraint and running off is what escaping means."
+     "surface": "Spooner's permission for a pet bird to fly the coop.",
+     "walkthrough": "Swapping the first sounds of 'let goose' gives the answer as two words.",
+     "definitionFit": "To get loose is to break free from restraint, an idiom for escaping."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "allowed"
+     "joke": "absurd"
     }
    }
   },
@@ -1258,33 +1275,49 @@
      }
     ],
     "wordplay": {
-     "op": "middle",
-     "unchecked": true,
-     "gives": "ERIC",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "in the centre of",
-       "note": "the central letters are taken and the outside ones discarded"
+       "text": "in the centre",
+       "at": 9,
+       "note": "the answer is the middle of the country's name, so letters come off at the front"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "the US",
-       "gives": "ERIC",
-       "select": "middle",
-       "note": "the US is America; its interior letters, minus the AM and the A at either end"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "of",
+         "at": 23,
+         "note": "of, after the ellipsis, carries the trimming on to the far end of the word too"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the US",
+         "at": 30,
+         "gives": "AMERICA",
+         "note": "the US is America"
+        },
+        {
+         "gives": "AM"
+        }
+       ]
+      },
+      {
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A trail of dots promises to tell you where to find a man at the heart of the nation.",
-     "definitionFit": "A boy's name stands for a man, so the pronoun him is a fair definition for a name."
+     "surface": "A puzzling instruction to look for a man in the heart of the United States.",
+     "walkthrough": "The ellipsis makes the clue run on: the answer is the name sitting in the middle of America.",
+     "definitionFit": "The answer is a man's first name, so a pronoun for a male person stands in for it."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "him"
+     "aptDefinition": false
     }
    }
   },
@@ -1300,7 +1333,45 @@
     "text": "Bosses are posh folk, they say",
     "enumeration": "5"
    },
-   "solution": "KNOBS"
+   "solution": "KNOBS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bosses",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "homophone",
+     "spelt": "KNOBS",
+     "indicators": [
+      {
+       "text": "they say",
+       "at": 22,
+       "note": "a report of what people say signals that the answer is heard, not read"
+      }
+     ],
+     "parts": [
+      {
+       "words": "posh folk",
+       "at": 11,
+       "gives": "NOBS",
+       "note": "nobs is British slang for wealthy, upper-class people"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that the people in charge at work are all toffs, as the gossip goes.",
+     "walkthrough": "'Bosses' looks like managers, but it means raised studs, like the bosses on a shield or ceiling.",
+     "definitionFit": "A boss is a round raised stud or ornament, and knobs are rounded protuberances of the same kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bosses"
+    }
+   }
   },
   {
    "number": 24,
