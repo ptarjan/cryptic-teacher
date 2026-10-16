@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -257,44 +258,52 @@
      {
       "text": "Harsh and unscrupulous",
       "at": 0,
-      "note": "The answer is a noun — the Nazi secret police, and by extension any brutal enforcement outfit — defined here by its notorious qualities rather than by another noun."
+      "note": "the answer is used attributively, as in gestapo tactics, so it stands for an adjective here"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GESTAPO",
+     "op": "container",
      "indicators": [
       {
-       "text": "racy"
+       "text": "seizing",
+       "at": 33,
+       "note": "the word for activity grabs hold of the shuffled letters, so they sit inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "activity",
+       "at": 23,
+       "gives": "GO",
+       "note": "go means energy or activity, as in 'full of go'"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "seizing"
+         "text": "racy",
+         "at": 41,
+         "note": "racy means lively and spirited, so the letters of tapes are set jumping into a new order"
         }
        ],
        "parts": [
         {
-         "words": "activity",
-         "gives": "GO",
-         "note": "on the go = active; G…O seizes the rest"
-        },
-        {
-         "words": "racy tapes",
-         "gives": "ESTAP",
-         "note": "the letters of TAPES, made 'racy' — shuffled"
+         "words": "tapes",
+         "at": 46
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "GO as in 'on the go'. The definition is really the Gestapo's reputation — and the surface, an outfit seizing tapes, is uncomfortably close to the literal truth.",
-     "definitionFit": "Hitler's secret police were notorious for ruthless, lawless methods, so the name is defined by the brutality and lack of scruple it stands for."
+     "surface": "Someone condemns a ruthless operation that confiscates a stash of risqué videotapes.",
+     "walkthrough": "'Racy tapes' reads as one phrase, but racy is the anagram signal working on tapes alone.",
+     "definitionFit": "The Nazi secret police gave its name to any brutal, ruthless methods, so the word describes tactics that are cruel and unprincipled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "racy"
     }
    }
   },
@@ -329,48 +338,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ONTHEUP",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Awfully",
+       "at": 0,
+       "note": "awfully suggests something done badly, so the letters that remain are scrambled into a new order"
+      },
+      {
+       "text": "after leaving",
+       "at": 13,
+       "note": "once the letters of sick have departed, what remains of the longer phrase is what gets rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "Awfully"
-        },
-        {
-         "text": "new"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "sick",
-         "note": "the letters S, I, C, K — scattered ('awfully') through SOUP KITCHEN — depart"
-        },
-        {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "after leaving"
-          }
-         ],
-         "parts": [
-          {
-           "words": "soup kitchen",
-           "gives": "OUPTHEN",
-           "note": "what is left of SOUP KITCHEN once SICK has gone"
-          }
-         ]
-        }
-       ]
+       "words": "soup kitchen",
+       "at": 31
+      },
+      {
+       "words": "sick",
+       "at": 8
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A deletion inside an anagram: 'awfully' licenses taking SICK's letters from wherever they sit in SOUP KITCHEN, and 'new' stirs what remains.",
-     "definitionFit": "An informal idiom for something improving or recovering, as in a business or a patient whose fortunes are rising."
+     "surface": "A charity kitchen serving soup, once the sick have gone, is on the mend.",
+     "walkthrough": "Take the letters of sick out of soup kitchen and rearrange the seven left over; new only dresses the surface.",
+     "definitionFit": "To be on the up is an idiom for improving or rising in fortune, so it matches getting better."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kitchen"
     }
    }
   },
@@ -1151,7 +1151,8 @@
     "definitions": [
      {
       "text": "Spurs",
-      "at": 0
+      "at": 0,
+      "note": "a verb here: to heel a horse is to urge it on with the heels, and to heel a gamecock is to fit it with spurs"
      }
     ],
     "wordplay": {
@@ -1159,30 +1160,57 @@
      "parts": [
       {
        "op": "homophone",
-       "spelt": "HEELS",
+       "spelt": "HEEL",
        "indicators": [
         {
-         "text": "reportedly"
+         "text": "reportedly",
+         "at": 21,
+         "note": "reportedly means we hear the word rather than see it, so it is a sound-alike"
         }
        ],
        "parts": [
         {
          "words": "are improving",
-         "gives": "HEALS",
-         "note": "to heal is to mend, to get better"
+         "at": 6,
+         "gives": "HEAL",
+         "note": "heal means get better, as wounds are said to do"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "(still in need of work)",
-       "note": "a parenthetical dig — even improving, Tottenham remain a work in progress — keeping you on the football reading of Spurs"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "in need of",
+         "at": 39,
+         "note": "still needing, that is lacking, the word for work, so it is taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "still",
+         "at": 33
+        },
+        {
+         "words": "work",
+         "at": 50,
+         "gives": "TILL",
+         "note": "to till is to work the land"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A heel is the spur a fighting cock wears — the sense behind 'well-heeled', originally meaning armed for the pit. The football club is pure decoy.",
-     "definitionFit": "A rider's spurs are strapped to the back of the boot, and a gamecock's spur sits on the back of its leg, so the words overlap."
+     "surface": "A jibe that Tottenham Hotspur, the London football club, are getting better but still have work to do.",
+     "walkthrough": "Spurs is the nickname of the London club Tottenham Hotspur, which pulls the reader towards football; here it is a verb. The parenthesis is wordplay too, giving the final S.",
+     "definitionFit": "To heel is to drive a horse forward with the heels, just as a rider urges it on with spurs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spurs"
     }
    }
   },
@@ -1421,49 +1449,58 @@
      "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "Planet",
-       "note": "italicised because it is a title: the Daily Planet, Superman's paper"
-      },
-      {
        "op": "container",
        "indicators": [
         {
-         "text": "takes"
+         "text": "takes",
+         "at": 18,
+         "note": "the reporter takes in the singing word, so it ends up inside his name"
         }
        ],
        "parts": [
         {
-         "words": "reporter",
+         "words": "Planet's reporter",
+         "at": 0,
          "gives": "KENT",
-         "note": "Clark Kent, the Planet's reporter — split round the chorus"
+         "note": "Clark Kent, Superman's alter ego, is a reporter on the Daily Planet"
         },
         {
          "words": "chorus",
+         "at": 24,
          "gives": "SING",
-         "note": "to chorus = to sing together; it sits inside KENT"
+         "note": "to chorus is to sing together"
         }
        ]
       },
       {
        "words": "on",
-       "note": "the first 'on' spells itself"
+       "at": 31,
+       "gives": "ON",
+       "note": "taken as written"
       },
       {
        "words": "leave",
+       "at": 34,
        "gives": "GO",
-       "note": "to leave = to go"
+       "note": "to leave is to go"
       },
       {
        "words": "on",
+       "at": 41,
        "gives": "RE",
-       "note": "the second 'on' = re, about"
+       "note": "re means on or about, as in a letter heading"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Kensington Gore is the road at the Royal Albert Hall, where the Proms play — and the name later became stage slang for fake blood. The italics flag Planet as a newspaper: Clark Kent's Daily Planet.",
-     "definitionFit": "This street runs past the Royal Albert Hall, home of the BBC's summer concert season, so it is literally the road concertgoers take."
+     "surface": "A newspaper journalist joins a choir while on holiday, heading to the summer concerts.",
+     "walkthrough": "KENSINGTON GORE is the London street on which the Royal Albert Hall stands, home of the BBC Proms concert season.",
+     "definitionFit": "The road runs past the Royal Albert Hall, the venue for the Proms, so it is a route to those concerts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "leave"
     }
    }
   }
