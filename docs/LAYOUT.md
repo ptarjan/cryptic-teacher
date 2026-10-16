@@ -134,6 +134,10 @@ tools/test_fetch_independent.py                drives that parser over the days 
                                                proves each one lands on the right number AND
                                                the right series — the two sequences both ran
                                                under 10,000, so the number never gets a vote
+tools/test_privateeye_scans_vlm.py             does tools/privateeye_scans.py put a Cyclops
+                                               clue the readers leave blank to the desktop VLM
+                                               (ocr_clues.vlm_pick), and leave it blank, the
+                                               page deferred, with the VLM down?
 tools/test_enumeration_separators.py           holds the word breaks Metro and the Private Eye
                                                get from each clue’s printed enumeration, single
                                                lights and linked groups

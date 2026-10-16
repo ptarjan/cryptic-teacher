@@ -320,8 +320,11 @@ def read(issue, get):
     if laid is None:
         return number, None, f"the readings do not parse: {verdict.get('refused')}"
     blank = verdict.get("blank") or {}
+    deferred = ""
     if blank:
-        return number, None, f"{len(blank)} clues the readings do not agree on: " + \
+        laid, blank, deferred = vlm_filled(img, boxes, words, cols, laid, blank)
+    if blank:
+        return number, None, f"{len(blank)} clues the readings do not agree on{deferred}: " + \
             "; ".join(f"{k}: {v}" for k, v in sorted(blank.items())[:4])
     laid = linked_across(directed_links(named_links(laid, cols.named)))
     empty =sorted(lid for lid, (t, _, _) in laid.items() if not (t or "").strip())
@@ -428,6 +431,32 @@ def directed_links(laid):
         out[head] = (htext, henum, [head, f"{n}-{named}"])
         out[lid] = ("See " + m.group(1), None, None)
     return out
+
+
+def vlm_filled(img, boxes, words, cols, laid, blank, vlm=None):
+    """(laid, blank, note): each blank clue read by the desktop VLM through
+    ocr_clues.vlm_pick, as the other scan filers do (shown the clue columns
+    and every reader's text for the clue). With the VLM down the clues stay
+    blank and `note` says the page is deferred: it is read again when the
+    VLM answers, never filed on a worse reading."""
+    import archive_org_listener as listener
+    import file_archive_org_puzzles as fa
+    import ocr_clues
+    if vlm is None:
+        import vlm_reader as vlm
+    try:
+        if not vlm.wanted():
+            return laid, blank, (" (deferred: the VLM is down)" if vlm.URL else "")
+        texts = {k: listener.tidy(fa.tidy(listener.text_of(cols(w)))) for k, w in words.items()}
+        crop = vlm.crop(img, (min(b[0] for b in boxes), min(b[1] for b in boxes),
+                              max(b[2] for b in boxes), max(b[3] for b in boxes)))
+        laid, left = ocr_clues.vlm_pick(texts, laid, blank, listener.parse,
+                                        lambda lid, cands: vlm.pick_in(crop, lid, cands))
+    except vlm.Down:
+        return laid, blank, " (deferred: the VLM is down)"
+    except RuntimeError:
+        return laid, blank, " (deferred: the VLM went away)"
+    return laid, left, ""
 
 
 def voted(words, cols):
