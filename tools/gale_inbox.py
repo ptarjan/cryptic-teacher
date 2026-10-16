@@ -162,7 +162,7 @@ def _times_held(path=None):
         with open(path, "rb") as f:
             snap = pickle.load(f)
         for k, v in snap.items():
-            fa._HELD.setdefault(Path(k), v)
+            fa._HELD.setdefault(k, v)
     except (OSError, EOFError, pickle.UnpicklingError, AttributeError, ValueError, TypeError):
         pass
     fa._HELD_MOVED.clear()

@@ -271,7 +271,32 @@ def key(module, roots, texts=None, opaque=TRANSPORT):
         for k, v in sorted(reach(name, roots, texts, opaque=opaque).items()):
             h.update(f"{k}\n{v}\n".encode())
         return h.hexdigest()[:16]
-    return answer() if texts else _kept(["key", name, sorted(roots), sorted(opaque)], answer)
+    if texts:
+        return answer()
+    q = (str(TOOLS), name, tuple(sorted(roots)), tuple(sorted(opaque)))
+    hit = _MEMO.get(q)
+    # Reading every tools/*.py file (_tree) and STORE is tens of ms a call, and a long-lived process
+    # (the dispatcher) asks again and again: keep the answer while no tools/ file's (name, size, mtime) moved.
+    sig = _signature()
+    if hit is not None and hit[0] == sig:
+        return hit[1]
+    out = _kept(["key", name, sorted(roots), sorted(opaque)], answer)
+    _MEMO[q] = (sig, out)
+    return out
+
+
+#: key()'s answers this process: {(tools dir, module, roots, opaque): (signature, key)}.
+_MEMO = {}
+
+
+def _signature():
+    """Every tools/*.py file's name, size and mtime: what moves when a file is edited."""
+    out = []
+    for e in os.scandir(TOOLS):
+        if e.name.endswith(".py"):
+            st = e.stat()
+            out.append((e.name, st.st_size, st.st_mtime_ns))
+    return tuple(sorted(out))
 
 
 if __name__ == "__main__":

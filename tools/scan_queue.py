@@ -265,10 +265,16 @@ def compact(ledger, key):
             fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
             return None
-        before = sum(1 for line in ledger.read_text(encoding="utf-8").splitlines() if line.strip())
+        text = ledger.read_text(encoding="utf-8")
+        before = sum(1 for line in text.splitlines() if line.strip())
         rows = ledger_rows(ledger, key)
+        out = "".join(json.dumps(r) + "\n" for r in rows.values())
+        if out == text:
+            # Already one row a source: a rewrite would give the file a new inode and mtime, and every
+            # reader's incremental fold (dir_cache.appended) would parse it whole again.
+            return before, len(rows)
         tmp = ledger.with_suffix(".tmp")
-        tmp.write_text("".join(json.dumps(r) + "\n" for r in rows.values()), encoding="utf-8")
+        tmp.write_text(out, encoding="utf-8")
         tmp.replace(ledger)
         stamp(ledger)
         return before, len(rows)
