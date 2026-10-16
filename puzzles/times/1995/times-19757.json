@@ -628,33 +628,40 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 21,
+       "note": "the competing word is placed after the reversed half of race"
+      }
+     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "is over",
-         "note": "something turned over ends up the other way round, so those letters are read backwards"
+         "at": 37,
+         "note": "something knocked over ends up the other way round, so the kept half of race is turned back to front"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "RA",
+         "op": "deletion",
          "indicators": [
           {
            "text": "half",
-           "note": "half asks for just the first two letters of the four-letter word race"
+           "at": 27,
+           "note": "only half of the word race is kept, its first two letters, with the back half dropped"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "race",
-           "gives": "RA",
-           "select": "first",
-           "note": "the first half of race, which then turns round"
+           "at": 32
+          },
+          {
+           "gives": "CE"
           }
          ]
         }
@@ -662,18 +669,19 @@
       },
       {
        "words": "competing",
+       "at": 11,
        "gives": "RIVAL",
-       "note": "rival as an adjective means competing"
+       "note": "a competing bid or team is a rival one"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone joins a contest once half of a race has already been run.",
-     "walkthrough": "After here means RIVAL follows the reversed half of race.",
-     "definitionFit": "Coming as a noun is the act of reaching a place, which is what an arrival is."
+     "surface": "A runner arriving home and still fighting for a place once half the race is done.",
+     "walkthrough": "'Coming' is a noun here, as in comings and goings, so it matches the noun answer.",
+     "definitionFit": "An arrival is the act of coming to a place, a direct noun synonym."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "over"
     }
@@ -1579,7 +1587,35 @@
     "text": "Overcooked",
     "enumeration": "4"
    },
-   "solution": "DONE"
+   "solution": "DONE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Overcooked",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "cryptic",
+     "parts": [
+      {
+       "words": "Overcooked",
+       "at": 0,
+       "note": "read as two words, over and cooked: something finished is over, and food that is cooked through is the same short word"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The single word splits into over and cooked, and each half means the answer; it is not about burnt food at all.",
+     "definitionFit": "The word means both finished, as in a job ended, and cooked enough, as in a steak ready to eat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Overcooked"
+    }
+   }
   },
   {
    "number": 28,
