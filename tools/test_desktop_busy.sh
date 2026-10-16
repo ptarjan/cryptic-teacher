@@ -28,12 +28,15 @@ def check(what, want, got):
         fails += 1
         print(f"FAIL {what}: expected {want!r}, got {got!r}")
 
-def reading(games=(), gpu3d=0.0, serving=()):
-    return {"games": list(games), "gpu3d": gpu3d, "serving": list(serving)}
+def reading(games=(), gpu3d=0.0, serving=(), video=()):
+    return {"games": list(games), "video": list(video), "gpu3d": gpu3d, "serving": list(serving)}
 
 check("an idle desktop is not busy", None, db.verdict(reading(gpu3d=3.0)))
 check("a desktop that does not answer is not busy", None, db.verdict(None))
 check("a game running makes it busy", True, bool(db.verdict(reading(games=["Wow"]))))
+check("a game's reason says game", "game: playing Wow", db.verdict(reading(games=["Wow"])))
+check("VLC with a video open makes it busy, the reason says vlc", "vlc: playing a.mkv", db.verdict(reading(video=["a.mkv"])))
+check("a reading without video (old probe) is not busy", None, db.verdict({"games": [], "gpu3d": 0.0, "serving": []}))
 check("3D at the threshold is not busy", None, db.verdict(reading(gpu3d=db.GPU_3D)))
 check("3D over the threshold is busy", True, bool(db.verdict(reading(gpu3d=db.GPU_3D + 1))))
 
@@ -47,6 +50,7 @@ db.subprocess.run = real_run
 script = base64.b64decode(sent[0][-1].rsplit(" ", 1)[1]).decode("utf-16-le")
 check("the probe script is told the VLM's process names", True,
       "$Vlm = 'llama-server', 'llama-swap'" in script and "-Name $Vlm" in script)
+check("the probe script looks for VLC windows", True, "Get-Process -Name vlc" in script and "MainWindowTitle" in script)
 
 T = Path(os.environ["TMP"])
 db.STATE = T
