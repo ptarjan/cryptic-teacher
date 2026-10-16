@@ -2792,5 +2792,8 @@ tools/hintless_overdue.py                      a newly filed puzzle that is stil
 tools/test_hintless_overdue.py                 hintless_overdue.overdue() on fixtures: only a
                                                recent, solved, hintless, unblocked puzzle past
                                                the threshold
+tools/test_corpus_queue_yield.py               corpus_queue.yield_collapse() on fixture logs:
+                                               the last 100 scans with under 5 puzzles wake the
+                                               room, a healthy or short window does not
 ```
 <!-- LAYOUT-END -->
