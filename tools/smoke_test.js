@@ -3739,6 +3739,27 @@ registry["reset-puzzle"].onclick();
     win.pageYOffset = 0; win.scrolls.length = 0;
   }
 
+  // --- a touch device opens the picker without raising the keyboard ---
+  // Focusing the search box on open put the iOS keyboard over the list before
+  // anyone chose to search. A coarse pointer leaves it unfocused; a tap on the
+  // box still focuses it, and a fine pointer (above) focuses it at once.
+  {
+    const hadMM = win.matchMedia;
+    win.matchMedia = (q) => ({ matches: q === "(pointer: coarse)" });
+    registry["picker-search"].blur && registry["picker-search"].blur();
+    registry["btn-picker"].onclick();
+    assert(document.activeElement !== registry["picker-search"],
+      "on a touch device opening the picker does not focus the search box");
+    registry["picker-search"].focus();
+    assert(document.activeElement === registry["picker-search"],
+      "tapping the search box focuses it");
+    registry["btn-picker-close"].onclick();
+    win.matchMedia = hadMM;
+    registry["kbd"].focus();
+    drain();
+    win.pageYOffset = 0; win.scrolls.length = 0;
+  }
+
   // --- but a keyboard that is GONE is not a keyboard that is coming ---
   // "Owed" is not read off the input being focused with no keys showing: that is
   // also exactly what an iPad looks like the moment you dismiss the keyboard with
