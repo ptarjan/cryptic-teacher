@@ -563,7 +563,31 @@
     "text": "16/18? Just a number",
     "enumeration": "3"
    },
-   "solution": "AGE"
+   "solution": "AGE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "16/18?",
+      "at": 0,
+      "meaning": "first meaning: sixteen or eighteen is how old someone is, the question mark marking these as examples"
+     },
+     {
+      "text": "Just a number",
+      "at": 7,
+      "meaning": "second meaning: from the saying that this is just a number"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "16/18 looks like a cross-reference to the linked answer at 16 and 18 across, but here the figures are plain numbers, examples of how old a person might be.",
+     "definitionFit": "Sixteen and eighteen are milestones of a person's years, and the saying shrugs off years lived as mere figures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "16/18?"
+    }
+   }
   },
   {
    "number": 8,
@@ -590,46 +614,46 @@
      "indicators": [
       {
        "text": "bearing",
-       "note": "to bear is to carry, so one piece is carried inside another"
+       "at": 18,
+       "note": "the keel carries the other letters within it, as something bears a load"
       }
      ],
      "parts": [
       {
        "words": "wet bottom",
+       "at": 7,
        "gives": "KEEL",
-       "note": "a keel is the bottom of a ship, the part that sits in water"
+       "note": "a keel is the bottom of a boat, the part that sits in the water"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "STR",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half of",
-         "note": "half of a word means keeping only one half of its letters"
+         "at": 26,
+         "note": "only the first three of the six letters of strain are kept, the rest dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "strain",
-         "gives": "STR",
-         "select": "first",
-         "note": "the first half of strain"
+         "at": 34
+        },
+        {
+         "gives": "AIN"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bird with a damp underside, sagging under some pressure.",
-     "walkthrough": "'Wet bottom' sounds like a soggy bird; it is the underside of a boat, always in the water.",
-     "definitionFit": "The kestrel is a small falcon that hovers over open ground hunting voles and mice."
+     "surface": "A bird with a damp underside, carrying part of some strain or burden.",
+     "walkthrough": "The 's after Bird is 'is', joining the definition to the wordplay.",
+     "definitionFit": "This small falcon is a bird of prey known for hovering over roadside verges."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "wet"
     }
    }
@@ -729,55 +753,64 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "SQUIRRELS",
-     "indicators": [
-      {
-       "text": "brought in for",
-       "note": "being brought in for something means replacing it, so one letter swaps for another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
          "text": "Start to",
-         "note": "the start of a word is its first letter"
+         "at": 0,
+         "note": "the opening letter of the next word is all that is taken"
         }
        ],
        "parts": [
         {
          "words": "shoot",
-         "note": "first letter of shoot"
+         "at": 9,
+         "note": "the first letter of shoot"
         }
        ]
       },
       {
-       "words": "crossbow ammunition",
-       "gives": "QUARRELS",
-       "note": "quarrels are the square-headed bolts fired from a crossbow"
-      },
-      {
-       "words": "I",
-       "note": "taken as written"
-      },
-      {
-       "words": "a",
-       "note": "taken as written; this is the letter replaced"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "brought in for",
+         "at": 37,
+         "note": "one letter is put in to take the place of the other named letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "crossbow ammunition",
+         "at": 15,
+         "gives": "QUARRELS",
+         "note": "quarrels are the square-headed bolts fired from a crossbow"
+        },
+        {
+         "words": "a",
+         "at": 52,
+         "gives": "A"
+        },
+        {
+         "words": "I",
+         "at": 35,
+         "gives": "I"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Getting ready to shoot bolts at a local plague of rodents.",
-     "walkthrough": "A quarrel is the old word for a crossbow bolt, not an argument. Its A is swapped for I.",
-     "definitionFit": "Squirrels are bushy-tailed rodents, and the plural names a whole group of them."
+     "surface": "Someone shoots crossbow bolts to cull a local population of rodents.",
+     "walkthrough": "A quarrel is an old word for a crossbow bolt, not an argument.",
+     "definitionFit": "Squirrels are bushy-tailed rodents, and the plural names a whole group of them living in an area."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "population"
+     "misdirectedWord": "ammunition"
     }
    }
   },
