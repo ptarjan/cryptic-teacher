@@ -487,7 +487,9 @@ def apply(path, annotations, by=None):
             entry.pop("annotation", None)
         else:
             new = landed(ann, entry, puzzle["entries"], entry_id(entry), errors)
-            found = shape_queue.findings(entry, new) if new is not None and entry_id(entry) in relisted else []
+            found = []
+            if new is not None and entry_id(entry) in relisted:
+                found = shape_queue.findings(entry, new) + shape_queue.regressions(entry, new)
             if found:
                 same = (new.get("wordplay") == (entry.get("annotation") or {}).get("wordplay"))
                 errors.append(

@@ -127,6 +127,42 @@ import json_merge as M
 o = [{"id": f"p-{i}#1a", "reason": "r"} for i in range(4)]
 got = json.loads(M.merge_rows(o, [o[0], o[2], o[3]], [o[0], o[1], {**o[2], "tried": True}]))
 check("neighbouring prunes merge per id", got == [o[0], {**o[2], "tried": True}])
+# A rewrite must not give up what the old tree had (Q.regressions): the weak
+# fixes audited on the first burn, trees taken from their before/after pairs.
+def leaf(w, g=None, **kw): return {"words": w, "gives": g, **kw} if g else {"words": w, **kw}
+def ann(wp, defs=("x",), **kw): return {"definitions": [{"text": d} for d in defs], "wordplay": wp, **kw}
+def ent(clue, old): return {"clue": {"text": clue}, "annotation": old}
+cases = [
+  ("22257 8d: an unchecked leaf deleted", "Quite good translation of 100",
+   ann({"op": "charade", "parts": [leaf("translation", unchecked=True), leaf("of", "DE"), leaf("100", "CENT")]}, ("Quite good",)),
+   ann({"op": "charade", "parts": [leaf("of", "DE"), leaf("100", "CENT")]}, ("Quite good",)), "translation"),
+  ("22425 10a: 'the' dropped", "Moral tale has the bloody lot on ecstasy",
+   ann({"op": "charade", "parts": [leaf("the", unchecked=True), leaf("lot", "ALL"), leaf("ecstasy", "E"), leaf("bloody", "GORY")]}, ("Moral tale",)),
+   ann({"op": "charade", "indicators": [{"text": "on"}], "parts": [leaf("lot", "ALL"), leaf("ecstasy", "E"), leaf("bloody", "GORY")]}, ("Moral tale",)), "the"),
+  ("22139 20a: wordplay nulled", "Fast runner doesn't sound honest",
+   ann({"op": "homophone", "spelt": "CHEETAH", "indicators": [{"text": "sound"}], "parts": [leaf("doesn't sound honest", "CHEATER")]}, ("Fast runner",)),
+   {"definitions": [{"text": "Fast runner"}, {"text": "doesn't sound honest"}]}, "no_tree"),
+  ("16642 15a: leaf cut to one word", "Two outspoken characters gelling together in a German town",
+   ann({"op": "homophone", "spelt": "ESSEN", "indicators": [{"text": "outspoken"}], "parts": [leaf("Two outspoken characters gelling together", "SN")]}, ("a German town",)),
+   ann({"op": "homophone", "spelt": "ESSEN", "indicators": [{"text": "outspoken"}], "parts": [leaf("characters", "SN")]}, ("a German town",)), "gelling"),
+  ("22225 11a: spoonerism relabelled", "Hawk Spooner's cruel registrar or priest",
+   ann({"op": "spoonerism", "indicators": [{"text": "Spooner's"}], "parts": [leaf("cruel registrar or priest", "HARSHMARRIER")]}, ("Hawk",)),
+   ann({"op": "homophone", "spelt": "MARSHHARRIER", "indicators": [{"text": "Spooner's"}], "parts": [leaf("cruel registrar or priest", "HARSHMARRIER")]}, ("Hawk",)), "lost_spoonerism"),
+  ("16018 26a: an indicator dropped with the structure", "No plain girl worked without a kitchen tool",
+   ann({"op": "anagram", "indicators": [{"text": "worked"}], "parts": [{"op": "deletion", "indicators": [{"text": "without"}], "parts": [leaf("No"), leaf("plain"), leaf("girl"), leaf("a")]}]}, ("kitchen tool",)),
+   ann({"op": "composite", "indicators": [{"text": "worked"}], "parts": [leaf("No plain girl"), leaf("a")]}, ("kitchen tool",)), "without"),
+]
+for name, clue, old, new, word in cases:
+    got = Q.regressions(ent(clue, old), new)
+    check(f"refused: {name}", bool(got) and word in got[0])
+good = ann({"op": "charade", "parts": [leaf("lot", "ALL"), leaf("the", "T")]}, ("Moral tale",))
+check("kept words, relabelled, pass", not Q.regressions(ent("Moral tale the lot", good), json.loads(json.dumps(good))))
+check("a word moved into the definition passes",
+      not Q.regressions(ent("Quite good translation of 100", cases[0][2]),
+                        ann({"op": "charade", "parts": [leaf("of", "DE"), leaf("100", "CENT")]}, ("Quite good translation",))))
+check("a Spooner clue with a spoonerism passes",
+      not Q.regressions(ent(cases[4][1], cases[4][2]), json.loads(json.dumps(cases[4][2]))))
+
 print("FAILED" if fails else "shape queue: all pass")
 raise SystemExit(1 if fails else 0)
 PY
