@@ -70,6 +70,7 @@ is a separate queue decision.
 import argparse
 import collections
 import copy
+import hashlib
 import json
 import multiprocessing
 import os
@@ -691,7 +692,23 @@ def do_puzzle(pid):
     return out
 
 
-def run(apply, n_examples, seed, limit=None, jobs=4):
+def load_ledger(ledger, key):
+    """Finished puzzles from an earlier (killed) --apply run: {pid: result}. The ledger is
+    only trusted for the same suspects file; a puzzle is logged after its file was written."""
+    done = {}
+    if ledger and Path(ledger).exists():
+        for line in Path(ledger).read_text().splitlines():
+            try:
+                d = json.loads(line)
+            except ValueError:
+                continue  # torn last line from a kill
+            if d.get("key") == key:
+                r = d["r"]
+                done[d["pid"]] = tuple(collections.Counter(x) for x in r[:4]) + (r[4], r[5])
+    return done
+
+
+def run(apply, n_examples, seed, limit=None, jobs=4, ledger=None):
     global _JOB
     suspects = json.loads(SUSPECTS.read_text())["suspects"]
     if limit:
@@ -706,12 +723,30 @@ def run(apply, n_examples, seed, limit=None, jobs=4):
     stat, det_hit, det_cleared, rep_used = (collections.Counter() for _ in range(4))
     examples, left = [], []
     pids = sorted(by_pid)
+    key = f"{hashlib.sha1(SUSPECTS.read_bytes()).hexdigest()}:{apply}:{limit}:{seed}"
+    done = load_ledger(ledger, key)
+    todo = [p for p in pids if p not in done]
+    if done:
+        print(f"  resuming: {len(done)} puzzles already done in {ledger}", file=sys.stderr, flush=True)
     if jobs > 1:
         pool = multiprocessing.get_context("fork").Pool(jobs)
-        results = pool.imap(do_puzzle, pids, 8)
+        fresh = pool.imap(do_puzzle, todo, 8)
     else:
-        results = map(do_puzzle, pids)
-    for pi, r in enumerate(results):
+        fresh = map(do_puzzle, todo)
+
+    def results():
+        for p in pids:
+            if p in done:
+                yield done[p]
+            else:
+                r = next(fresh)
+                if ledger:
+                    with open(ledger, "a") as f:
+                        f.write(json.dumps({"key": key, "pid": p, "r": [dict(x) for x in r[:4]] + list(r[4:])},
+                                           ensure_ascii=False) + "\n")
+                        f.flush()
+                yield r
+    for pi, r in enumerate(results()):
         if pi % 500 == 0:
             print(f"  {pi}/{len(pids)} puzzles", file=sys.stderr, flush=True)
         for a, b in zip((stat, det_hit, det_cleared, rep_used), r[:4]):
@@ -742,8 +777,9 @@ def main():
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--limit", type=int, help="a random sample of this many suspects (testing; still writes the json)")
     ap.add_argument("--jobs", type=int, default=4, help="worker processes (default 4)")
+    ap.add_argument("--ledger", help="jsonl of finished puzzles: a re-run with the same suspects file resumes after them")
     a = ap.parse_args()
-    run(a.apply, a.examples, a.seed, a.limit, a.jobs)
+    run(a.apply, a.examples, a.seed, a.limit, a.jobs, a.ledger)
 
 
 if __name__ == "__main__":
