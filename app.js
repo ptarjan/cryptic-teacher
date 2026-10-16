@@ -4465,6 +4465,7 @@
         case "homophone": what = `${P[0]} sounds like ${g(n.spelt || "")}`; break;
         case "substitution": what = `in ${P[0]}, swap ${P[1]} for ${P[2]}`; break;
         case "cycling": what = `move letters round from one end of ${P[0]} to the other`; break;
+        case "palindrome": what = P.length ? `check that ${P[0]} reads the same both ways` : "check that the answer reads the same both ways"; break;
         default: what = WP_PICK[n.op] ? `take ${WP_PICK[n.op]} ${P[0]}` : `apply ${esc(n.op)} to ${joined(n.parts, " + ")}`;
       }
       const inds = n.indicators || [];
