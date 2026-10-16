@@ -32,6 +32,7 @@ default User-Agent, with nothing in the error naming the header.
 
 import argparse
 import json
+import os
 import sys
 import time
 import urllib.error
@@ -151,7 +152,7 @@ def cached_comment_ids():
 
 def store(directory, key, payload):
     directory.mkdir(parents=True, exist_ok=True)
-    tmp = directory / f".{key}.tmp"
+    tmp = directory / f".{key}.{os.getpid()}.tmp"
     tmp.write_text(json.dumps(payload), encoding="utf-8")
     # Rename last, so a killed run never leaves a half-written file that the
     # next run would treat as already fetched.

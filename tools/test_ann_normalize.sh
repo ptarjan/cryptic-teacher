@@ -87,6 +87,9 @@ check("no explanation at all is not a finding",
 import shutil, tempfile
 import groups
 tmp = Path(tempfile.mkdtemp())
+import shape_queue
+shape_queue.PATH = tmp / "shape_reannotate.json"  # apply marks rows tried: never the real queue
+shape_queue.PATH.write_text("[]")
 try:
     src = F.resolve_puzzle("cryptic-23340")
     path = tmp / src.name
