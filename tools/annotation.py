@@ -609,6 +609,9 @@ def view(ann, entry, puzzle=None):
     out["blocks"] = (_blocks(tree, got) or (dd_blocks if len(defs) > 1 else [])) if tree else dd_blocks
     if tree and (asm := _assembly(tree, got)):
         out["assembly"] = asm
+    if tree:
+        # The located tree itself: the walkthrough rung steps through it (app.js wordplaySteps).
+        out["wordplay"] = tree
     for key in ("explanation", "features", "hiddenLetter"):
         if key in ann:
             out[key] = ann[key]
