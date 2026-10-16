@@ -361,7 +361,7 @@ def locate(node, clue, taken=()):
     todo = []
     for span, key in _spans(node):
         text, nth = span[key], 1
-        m = re.fullmatch(r"(.+?)#(\d+)", text)
+        m = re.fullmatch(r"(.+?)#(\d+)", text) if "#" in text else None
         if m and text not in clue:
             text, nth = m.group(1), int(m.group(2))
             span[key] = text
@@ -907,9 +907,14 @@ def _check_reverse(tree, want):
 
 
 def _walk(node):
-    yield node
-    for p in node.get("parts") or []:
-        yield from _walk(p)
+    out = []
+
+    def go(n):  # a list, not a generator: nested yields cost per level
+        out.append(n)
+        for p in n.get("parts") or ():
+            go(p)
+    go(node)
+    return out
 
 
 def _check_ops(node, got):
