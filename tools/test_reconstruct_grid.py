@@ -637,6 +637,17 @@ same("junk after the last answer adds no keys",
      _PW.answer_rows("1 Copper 22 Nation 23 Blair. MONDAY, MARCH 3, 44 BC INSIDE MELVYNUS", "down"),
      [("1", "down", "COPPER"), ("22", "down", "NATION"), ("23", "down", "BLAIR")])
 
+# Printed solutions of Nos 61 and 27: speckle read from the picture beside an
+# answer ("Minors JA, : yy, ee"), a number run into its answer ("12Ethelred"),
+# and a linked answer whose column broke ("12/14 Feel-good ... factor").
+same("speckle after an answer is not part of it",
+     _PW.answer_rows("20SAS 21 Minors JA, : yy, ee 23 Sing Sing 25 The Lords", "across"),
+     [("20", "across", "SAS"), ("21", "across", "MINORS"), ("23", "across", "SINGSING"), ("25", "across", "THELORDS")])
+same("a linked answer takes the tail its column broke off",
+     _PW.answer_rows("11 Nye 12/14 Feel-good 24 Santa 25 Iran 28See. factor 14 (See 12) 16 Bob Geldof", "across"),
+     [("11", "across", "NYE"), ("12/14", "across", "FEELGOODFACTOR"), ("24", "across", "SANTA"),
+      ("25", "across", "IRAN"), ("28", "across", "SEE"), ("16", "across", "BOBGELDOF")])
+
 if fails:
     print(f"reconstruct_grid: {fails} FAILED")
 else:

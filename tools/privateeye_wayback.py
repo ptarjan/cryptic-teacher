@@ -234,15 +234,37 @@ def answer_rows(part, direction):
     part = re.split(r"\.\s+(?=[A-Z]{4,}\b)", part)[0]
     # A speck before a number ("2 Belgrano -3 Oppo", No 63) hid 2dn's end.
     part = re.sub(r"\s[-\u2013\u2014~]+(?=\d)", " ", part)
+    # "12Ethelred", "28See.": the scan ran the number into its answer (No 27, 61).
+    part = re.sub(r"(?:(?<=\s)|^)(\d{1,2})(?=[A-Za-z]{2,})", r"\1 ", part)
     seen = set()
     for key, words in ANSWER.findall(part):
-        if re.match(r"\s*\(?see\b", words, re.I) or key in seen:
+        words = _unjunk(words)
+        # "28 See. factor": the column broke inside the linked "12/14 Feel-good
+        # factor"; the lowercase tail belongs to the last linked answer (No 27).
+        wrap = re.match(r"([A-Z][a-z]+\.)\s+([a-z][a-z' \-]*)$", words)
+        linked = [i for i, r in enumerate(out) if "/" in r[0]]
+        if wrap and linked:
+            k, d, lt = out[linked[-1]]
+            out[linked[-1]] = (k, d, lt + re.sub(r"[^A-Z]", "", wrap.group(2).upper()))
+            words = wrap.group(1)
+        if re.match(r"\s*\(?see\b(?!\.)", words, re.I) or key in seen:
             continue
         letters = re.sub(r"[^A-Z]", "", unicodedata.normalize("NFKD", words).upper())
         if letters and len(letters) <= 40 and 0 < int(key.split("/")[0]) <= 40:
             seen.add(key)
             out.append((key, direction, letters))
     return out
+
+
+def _unjunk(words):
+    """An answer's words without the speckle the scan read from the picture
+    beside them ("Minors JA, : yy, ee", No 61): from the first token with a
+    stray comma, colon or bar, if only short tokens follow it."""
+    toks = words.split()
+    for i, t in enumerate(toks[1:], 1):
+        if re.search(r"[,:;|]", t) and not re.search(r"[A-Za-z]{4}", " ".join(toks[i:])):
+            return " ".join(toks[:i])
+    return words
 
 
 def scan_number(t, issue):
