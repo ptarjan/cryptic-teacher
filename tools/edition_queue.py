@@ -826,6 +826,29 @@ IDLE_WALK = 5
 #: The dispatch loop's tick while the reads left wait for the VLM and nothing
 #: runs: it checks again, but does not walk the queue every second for nothing.
 VLM_IDLE = 10
+#: A pass that started nothing with every slot full waits this long (cut short by a child's exit or a TERM/INT) before the
+#: next: the queue walk each pass costs ~20% of a core, and nothing it reads moves faster than this
+#: except a unit ending, which wakes it (adopted units, a plan's end, a gate easing: a few seconds late).
+QUIET_NAP = 5
+_wake = []  # [read end] of the self-pipe SIGCHLD/TERM/INT write to, made once
+
+
+def nap(seconds):
+    """Sleep up to `seconds`, waking at once on SIGCHLD, TERM or INT (self-pipe)."""
+    import select
+    if not _wake:
+        r, w = os.pipe()
+        os.set_blocking(r, False)
+        os.set_blocking(w, False)
+        signal.signal(signal.SIGCHLD, lambda *_: None)  # a handler, so the signal is delivered to the wakeup fd
+        signal.set_wakeup_fd(w, warn_on_full_buffer=False)
+        _wake.append(r)
+    if select.select([_wake[0]], [], [], seconds)[0]:
+        try:
+            while os.read(_wake[0], 4096):
+                pass
+        except BlockingIOError:
+            pass
 
 
 def vlm_up():
@@ -1576,7 +1599,12 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # Only reads waiting for the VLM left to start, and nothing running:
         # look again every VLM_IDLE seconds (vlm_up is asked once a minute).
         drop_stale_briefs()
-        time.sleep(VLM_IDLE if vlm_deferred and not begun_now and not running and not adopted else 1)
+        if vlm_deferred and not begun_now and not running and not adopted:
+            time.sleep(VLM_IDLE)
+        elif not begun_now and not any(v > 0 for v in free.values()):
+            nap(QUIET_NAP)  # every slot full: only an exit (or a stop) can change what this pass would start
+        else:
+            time.sleep(1)
     if stop:
         log(f"stop asked: TERM to {len(running) + len(adopted)} running unit(s), up to {STOP_GRACE}s")
         for pid in list(running) + list(adopted):
