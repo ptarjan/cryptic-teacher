@@ -266,3 +266,14 @@ def repaired(parsed, readings):
         parsed, got = repair(parsed, text)
         notes += got
     return parsed, notes
+
+
+def fill_missing_sizes(across, down, given):
+    """A plain light whose count the OCR lost (No 164's 17ac) takes the length
+    of the answer the next issue printed for it. `given`: {(number, direction):
+    LETTERS}. A linked light's length is the group's to split, so it keeps None."""
+    for d, lights in (("across", across), ("down", down)):
+        for lg in lights:
+            word = given.get((str(lg[0]), d))
+            if lg[1] is None and word and not lg[2].startswith("linked"):
+                lg[1] = len(word)
