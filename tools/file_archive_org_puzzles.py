@@ -169,7 +169,7 @@ import xml.etree.ElementTree as ET
 from difflib import SequenceMatcher
 from pathlib import Path
 import clue_repair
-from clue_text import heading_of, numbered_heading  # noqa: F401 (re-exported: fa.heading_of)
+from clue_text import NUMBERED_HEADING, heading_of, numbered_heading  # noqa: F401 (re-exported: fa.heading_of)
 import enumeration
 import file_trove_puzzles as ftp
 import ocr_clues
