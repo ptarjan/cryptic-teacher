@@ -100,6 +100,25 @@ filed, and the expression cannot write one. The tree, in brief:
   filed (a join with an indicator of its own, or one under an unchecked step).
   view() reads the fodder's letters off the parts in clue order (the tiles the
   ring deals), and the blocks follow the parts.
+- **Shape rules.** A tree that parses and evaluates can still say something the
+  clue does not. `validate_annotations.py` counts these per clue, each under its
+  own `tools/annotation_backlog.json` field, so a puzzle keeps the ones it has
+  and a new annotation adds none: `wordplay.charadeInCharade` (an indicator-less
+  charade directly in a charade: join the pieces in one), `wordplay.noIndicator`
+  (an anagram, container, deletion, reversal, homophone, hidden word or letter
+  selection with no indicator), `wordplay.cdefRepeat` (a cryptic definition is
+  one `cd([clue words])`, not several leaves), `wordplay.arity` (a stored op with
+  a part count its op cannot take, or a charade of fewer than two),
+  `wordplay.spanOverlap` (two leaves or indicators sharing clue words),
+  `wordplay.inDefinition` (wordplay words inside the definition of a clue that is
+  not `andLit`), `wordplay.leafFold` (a leaf with no note whose `gives` is a
+  stretch of its own words: write the selection, deletion or hidden word as an
+  op), `wordplay.repeatedSelection` (the same first/last/middle pick on each
+  word of a phrase: one op over one multi-word leaf), `wordplay.singleLeaf`
+  (wordplay that is one leaf), `wordplay.bareInCharade` (a charade piece with no
+  clue words) and `wordplay.anagramOfContainer` (`ana(ins(..))`: the anagram
+  goes inside, `ins(outer, ana(x))`). `tools/tidy_wordplay_shapes.py` joined the
+  charades in charades whose `view()` is unchanged and recorded the rest.
 - **A double definition** has two `definitions` and no `wordplay` (or a
   partless palindrome when the answer reads both ways). A definition's
   `meaning` is the note on its block, on the blocks rung. Its `note` belongs to

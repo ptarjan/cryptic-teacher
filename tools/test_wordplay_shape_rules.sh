@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+# Wordplay shapes that read wrongly are counted by validate_annotations under their
+# own ratchet fields, and tidy_wordplay_shapes.py joins a charade inside a charade
+# without changing what view() shows.
+set -euo pipefail
+cd "$(dirname "$0")"
+python3 - <<'PY'
+import copy
+import annotation, wordplay
+import validate_annotations as v
+import tidy_wordplay_shapes as T
+
+fails = 0
+def check(name, want, got):
+    global fails
+    ok = want == got
+    fails += not ok
+    print(("ok  " if ok else "FAIL"), name, "" if ok else f"want {want!r}, got {got!r}")
+
+def tree(expr, clue):
+    return wordplay.parse(expr, clue)
+
+CLUE = "Fish and chips"
+cc = {"op": "charade", "parts": [{"words": "Fish", "at": 0, "gives": "COD"},
+      {"op": "charade", "parts": [{"words": "and", "at": 5, "gives": "A"}, {"words": "chips", "at": 9, "gives": "ND"}]}]}
+check("a charade inside a charade is counted", 1, v.charade_in_charade(cc))
+check("a charade with an indicator inside one is not", 0, v.charade_in_charade(
+    {"op": "charade", "parts": [{"gives": "A"}, {"op": "charade", "indicators": [{"text": "x"}], "parts": [{"gives": "B"}, {"gives": "C"}]}]}))
+new = copy.deepcopy(cc)
+check("the migration joins it", 1, T.flatten_tree(new))
+check("into the outer charade, in order", ["Fish", "and", "chips"], [p["words"] for p in new["parts"]])
+check("a second run changes nothing", 0, T.flatten_tree(new))
+
+check("an anagram with no indicator is counted", 1, v.unindicated_ops(tree("ana([ab])", "ab")))
+check("one with its indicator is not", 0, v.unindicated_ops(tree("ana<odd>([ab])", "odd ab")))
+check("a charade and a cryptic definition need none", 0,
+      v.unindicated_ops({"op": "cryptic", "parts": [{"words": "x"}]}) + v.unindicated_ops(cc))
+check("a cryptic definition's second leaf is counted", 1, v.cdef_repeats(
+    {"op": "cryptic", "parts": [{"words": "a b"}, {"words": "a"}]}))
+check("a palindrome with two parts has the wrong arity", 1, v.bad_arity(
+    {"op": "palindrome", "parts": [{"words": "a"}, {"words": "b"}]}))
+check("a homophone's spelling is not a part", 0, v.bad_arity(tree("sound<say>([bare], BARE)", "say bare")))
+check("a one-part charade has the wrong arity", 1, v.bad_arity({"op": "charade", "parts": [{"words": "a"}]}))
+two = {"op": "charade", "parts": [{"words": "ab", "at": 0}, {"words": "b c", "at": 1}]}
+check("two leaves sharing clue words are counted", 1, v.span_overlaps(two))
+check("and ones under a cryptic definition are not", 0, v.span_overlaps({"op": "cryptic", "parts": two["parts"]}))
+ann = {"definitions": [{"text": "ab", "at": 0}], "wordplay": {"words": "ab", "at": 0, "gives": "X"}}
+check("wordplay inside the definition is counted", 1, v.in_definition(ann))
+check("unless the clue is &lit", 0, v.in_definition({**ann, "andLit": True}))
+check("a leaf giving a stretch of its words is counted", 1, v.leaf_folds({"words": "bridge", "gives": "RID"}))
+check("a leaf with a note is not", 0, v.leaf_folds({"words": "bridge", "gives": "RID", "note": "x"}))
+sel = tree("(first([a]) + first([b]))", "a b")
+check("a selection repeated word by word is counted", 1, v.repeated_selections(sel))
+check("one leaf is no wordplay", 1, v.single_leaf({"words": "a", "gives": "A"}))
+check("bare letters in a charade are counted", 1, v.bare_in_charade(
+    {"op": "charade", "parts": [{"gives": "A"}, {"words": "b", "gives": "B"}]}))
+check("an anagram of a container is counted", 1, v.anagram_of_container(
+    {"op": "anagram", "parts": [{"op": "container", "parts": [{"words": "a"}, {"words": "b"}]}]}))
+
+for field in ("charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
+              "leafFold", "repeatedSelection", "singleLeaf", "bareInCharade", "anagramOfContainer"):
+    check(f"wordplay.{field} is a ratchet field", True, f"wordplay.{field}" in v.BACKLOG_MARKERS)
+warn = v.shape_warnings("1A", {"wordplay": cc, "definitions": []})
+check("the ratchet refuses one more than a puzzle is allowed", 1,
+      len(v.backlog_errors("x-1", warn, {"wordplay.charadeInCharade": {}})))
+check("and allows what it has", 0, len(v.backlog_errors("x-1", warn, {"wordplay.charadeInCharade": {"x-1": 1}})))
+raise SystemExit(fails)
+PY

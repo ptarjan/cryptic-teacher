@@ -696,6 +696,16 @@ tools/test_selector_indicator.sh               a letter selector ("capital of", 
                                                only the words it selects from
 tools/test_anagram_fodder.sh                   an anagram's fodder is drawn from the clue's
                                                wordplay and its blocks' letters
+tools/test_wordplay_shape_rules.sh             each wordplay shape rule is counted by
+                                               validate_annotations against its own wordplay.*
+                                               allowance (a charade inside a charade, an op
+                                               with no indicator, a cryptic definition's extra
+                                               leaves, wrong arity, clue words claimed twice, a
+                                               leaf folding its own words, a selection repeated
+                                               word by word, one-leaf wordplay, bare letters in
+                                               a charade, an anagram around a container), and
+                                               tidy_wordplay_shapes.py joins a charade inside a
+                                               charade once
 tools/test_flatten_anagram_fodder.sh           an anagram's pieces are its own parts: ana(x +
                                                y) stores them there, a join with its own
                                                indicator inside ana() is refused, the validator
@@ -2553,6 +2563,11 @@ tools/fixtures/format-puzzles/                 three Guardian cryptics and a boo
                                                test_shim_format.sh and smoke_test.js
 tools/test_see_pointer.sh                      is a "See N" continuation the pointer and
                                                nothing else, in every reader?
+tools/tidy_wordplay_shapes.py                  joins each indicator-less charade inside a
+                                               charade corpus-wide where annotation.view() is
+                                               unchanged, and records every other wordplay
+                                               shape fault as that rule's validate_annotations
+                                               allowance
 tools/flatten_anagram_fodder.py                rewrites each indicator-less charade filed under
                                                a checked anagram as the anagram's own parts, in
                                                clue order, corpus-wide in one migration commit,
