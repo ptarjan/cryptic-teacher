@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -577,34 +578,41 @@
      "op": "charade",
      "parts": [
       {
+       "words": "Black",
+       "at": 0,
+       "gives": "B"
+      },
+      {
        "op": "anagram",
        "indicators": [
         {
-         "text": "fluid"
+         "text": "fluid",
+         "at": 21,
+         "note": "fluid means shifting and unsettled, so the letters of beat blue flow into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Black",
-         "gives": "B",
-         "note": "b = black, as on pencils"
+         "words": "beat",
+         "at": 11
         },
         {
-         "words": "beat blue",
-         "note": "anagram fodder, eight letters"
+         "words": "blue",
+         "at": 16
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "then",
-       "note": "link word joining B to the fodder"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Black then beat blue' reads as a decorating instruction, which is why none of it looks like fodder. B for black comes off the side of a pencil.",
-     "definitionFit": "A sweet Taiwanese beverage served with chewy tapioca pearls, so the answer is one specific example of something to sip."
+     "surface": "Someone darkens and whisks a blue liquid to make a beverage.",
+     "walkthrough": "'Fluid' sits in the surface as a noun beside 'blue', but it is the anagram signal. B is the pencil-grading abbreviation for black.",
+     "definitionFit": "Bubble tea is a Taiwanese beverage of sweet tea with chewy tapioca pearls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fluid"
     }
    }
   },
@@ -671,24 +679,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "CLEF",
      "indicators": [
       {
-       "text": "briefly"
+       "text": "briefly",
+       "at": 22,
+       "note": "briefly asks for the word cut short, losing its last letter"
       }
      ],
      "parts": [
       {
        "words": "split",
-       "gives": "CLEF",
-       "note": "split = CLEFT; 'briefly' drops its last letter"
+       "at": 15,
+       "gives": "CLEFT",
+       "note": "cleft means split, divided in two"
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'briefly' nearly always means drop the last letter — and 'split' is the word being cut, not an instruction to do the cutting.",
-     "definitionFit": "The sign at the start of a stave, such as treble or bass, fixes the pitch of the notes, so it is one kind of musical notation."
+     "surface": "A terse description of a musical sign that has been broken apart.",
+     "definitionFit": "A clef is the sign at the start of a stave fixing the pitch of the notes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "split"
     }
    }
   },
@@ -1238,51 +1255,34 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "HOTEL",
+     "indicators": [
+      {
+       "text": "picked up",
+       "at": 38,
+       "note": "picked up means heard, so the clue wants what the two words sound like when spoken"
+      }
+     ],
      "parts": [
       {
-       "op": "homophone",
-       "unchecked": true,
-       "gives": "HOTEL",
-       "indicators": [
-        {
-         "text": "picked up?"
-        }
-       ],
-       "parts": [
-        {
-         "words": "weed",
-         "gives": "HOE",
-         "note": "to weed the garden is to hoe"
-        },
-        {
-         "words": "grass",
-         "gives": "TELL",
-         "note": "to grass on someone is to tell on them"
-        },
-        {
-         "op": "homophone",
-         "spelt": "HOTEL",
-         "parts": [
-          {
-           "words": "picked up",
-           "gives": "HOETELL",
-           "note": "'picked up' asks you to hear the two together rather than read them"
-          }
-         ]
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "in which",
-       "note": "link words for the drug-deal surface"
+       "words": "weed and grass",
+       "at": 23,
+       "gives": "HOETELL",
+       "note": "to weed is to hoe, clearing a bed with that garden tool, and to grass is British slang for informing on someone, to tell; said together the pair is heard"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Weed and grass each have a straight sense and a drug sense, and the clue is built so the drug reading arrives first. 'picked up?' asks you to listen instead.",
-     "definitionFit": "A place offering paid rooms and meals to travellers is a standard example of lodging."
+     "surface": "A query about lodging where gardening and lawn are somehow collected.",
+     "walkthrough": "Spoken together, the two words run into one: the pairing is heard, not spelt. To grass on someone is British slang for informing.",
+     "definitionFit": "A hotel is a building offering paid lodging and meals to travellers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grass"
     }
    }
   },
@@ -1307,33 +1307,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "from below",
+       "at": 21,
+       "note": "in a down entry, reading from below means the word runs bottom to top, backwards"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "from below"
-        }
-       ],
-       "parts": [
-        {
-         "words": "hiccup",
-         "gives": "SLIP",
-         "note": "a slip = a small mistake, a hiccup"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "bringing",
-       "note": "link word"
+       "words": "hiccup",
+       "at": 14,
+       "gives": "SLIP",
+       "note": "a hiccup is a minor setback or slip"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'from below' means read upwards, which only makes sense in a down clue — one of those small rules that turns a clue from impossible into obvious.",
-     "definitionFit": "It is a shortening of the name for pale Bohemian lager first brewed in Plzen, so it is one type of the drink."
+     "surface": "A drinker's lager brings on hiccups.",
+     "walkthrough": "'Hiccup' sits with beer as the drinker's reflex, but here it means a small mistake.",
+     "definitionFit": "Pils is a short name for pilsner, a pale lager originally brewed in Plzeň."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hiccup"
     }
    }
   },
