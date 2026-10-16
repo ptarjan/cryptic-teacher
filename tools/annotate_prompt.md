@@ -208,6 +208,11 @@ Four first runs in ten fail, most often on these rules. Get them right first tim
 - A cryptic definition's `cd()` has exactly one leaf (the clue words), no letters, and
   no note that spells the answer.
 - `features.misdirectedWord` is one word, copied exactly as printed in the clue.
+- A homophone or Spoonerism names the word said aloud on ONE leaf, or the first check
+  fails ("no block says what is said aloud", the commonest first failure). `sound<ind>([clue
+  words]HEARD, SPELT)`: never `sound` over a charade (`[a]X + [b]Y`); merge it into one leaf
+  `[a b]XY`, or put the charade outside the `sound`. A Spoonerism is `spoon<ind>(sound([word]HEARD,
+  SPELT), b)`; `spoon(a, b)` and `spoon(a, b, SPELT)` alone name no sound and fail.
 
 - To change many clues, Write `{"8-down": {"field": value}}` to a file and add
   `--patch <file>` to the check; a heredoc or fix script is refused. Each field is
