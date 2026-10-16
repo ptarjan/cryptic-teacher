@@ -3388,6 +3388,14 @@ REPEATED_SELECTION = "same letter selection repeated word by word"
 SINGLE_LEAF = "wordplay that is one leaf"
 BARE_IN_CHARADE = "answer letters with no clue words in a charade"
 ANAGRAM_OF_CONTAINER = "anagram wrapped around a container"
+#: The tools/shape_suspects.py detectors that were hand-measured precise (a sample of
+#: 20 each was wrong in every case), now rules. They count what the checked rules above
+#: skip: an `unchecked` step (filed before trees were checked) can hold any part count,
+#: and a leaf may swallow its own indicator word. Each has its ratchet field.
+ARITY_INS = "container with other than two parts"
+ARITY_OTHER = "deletion, substitution, homophone or one-armed op with the wrong part count"
+DEL_SINGLE = "deletion with one part, so what it removes is not stated"
+IND_IN_LEAF = "indicator word also inside a leaf"
 #: Ops that are signalled by an indicator word. A charade, a cryptic definition
 #: and a palindrome of the whole answer are not.
 NEEDS_INDICATOR = frozenset(wordplay.ARITY) - {"cryptic", "palindrome"}
@@ -3404,7 +3412,8 @@ SHAPE_GRACE_UNTIL = 0
 SHAPE_GRACE_FIELDS = ("wordplay.anagramCharade", "wordplay.charadeInCharade", "wordplay.noIndicator",
                       "wordplay.cdefRepeat", "wordplay.arity", "wordplay.spanOverlap",
                       "wordplay.inDefinition", "wordplay.leafFold", "wordplay.repeatedSelection",
-                      "wordplay.singleLeaf", "wordplay.bareInCharade", "wordplay.anagramOfContainer")
+                      "wordplay.singleLeaf", "wordplay.bareInCharade", "wordplay.anagramOfContainer",
+                      "wordplay.arityIns", "wordplay.arityOther", "wordplay.delSingle", "wordplay.indInLeaf")
 
 
 def _walk(tree):
@@ -3537,6 +3546,48 @@ def anagram_of_container(tree):
                and any(isinstance(p, dict) and p.get("op") == "container" for p in node.get("parts") or []))
 
 
+def _unchecked_ops(tree):
+    return [n for n in _walk(tree) if n.get("op") and n.get("unchecked")]
+
+
+def arity_ins(tree):
+    """Unchecked containers that do not hold exactly two parts (the held and the holder)."""
+    return sum(len(n.get("parts") or []) != 2 for n in _unchecked_ops(tree) if n["op"] == "container")
+
+
+def arity_other(tree):
+    """Unchecked ops with more parts than their evaluator takes: a deletion of 3+, a
+    substitution not of 3, a homophone of 3+, a reversal, hidden word, cycling or
+    letter selection not of 1."""
+    n = 0
+    for node in _unchecked_ops(tree):
+        op, k = node["op"], len(node.get("parts") or [])
+        n += ((op == "deletion" and k >= 3) or (op == "substitution" and k != 3)
+              or (op == "homophone" and k >= 3)
+              or (op in ("reversal", "hidden", "cycling") + wordplay.SELECT and k != 1))
+    return n
+
+
+def del_single(tree):
+    """Unchecked deletions with one part: the letters taken out are not stated."""
+    return sum(len(n.get("parts") or []) == 1 for n in _unchecked_ops(tree) if n["op"] == "deletion")
+
+
+def ind_in_leaf(tree):
+    """Indicators (3+ letters) that also sit, as a whole word, inside a longer leaf of
+    clue words: the leaf took the indicator's word as well as its own."""
+    nodes = list(_walk(tree))
+    words = [[wordplay.letters(x) for x in n["words"].split()] for n in nodes
+             if "op" not in n and n.get("words") and len(n["words"].split()) > 1]
+    n = 0
+    for node in nodes:
+        for i in node.get("indicators") or []:
+            t = wordplay.letters(i.get("text"))
+            if len(t) >= 3 and any(t in ws and ws != [t] for ws in words):
+                n += 1
+    return n
+
+
 def shape_warnings(tag, ann):
     """The findings for one annotation's tree shape, each a ratchet marker."""
     tree = ann.get("wordplay")
@@ -3567,6 +3618,14 @@ def shape_warnings(tag, ann):
         out.append(f"{tag}: {k} {BARE_IN_CHARADE}: put the clue word that supplies them in a leaf")
     if k := anagram_of_container(tree):
         out.append(f"{tag}: {k} {ANAGRAM_OF_CONTAINER}: ins(outer, ana(...)) puts the anagram inside")
+    if k := arity_ins(tree):
+        out.append(f"{tag}: {k} {ARITY_INS}: ins(outer, inner) holds one in the other")
+    if k := arity_other(tree):
+        out.append(f"{tag}: {k} {ARITY_OTHER}: write the step as an expression the evaluator takes")
+    if k := del_single(tree):
+        out.append(f"{tag}: {k} {DEL_SINGLE}: del(whole, removed)")
+    if k := ind_in_leaf(tree):
+        out.append(f"{tag}: {k} {IND_IN_LEAF}: the leaf holds only the words that give its letters")
     return out
 
 
@@ -3963,6 +4022,10 @@ BACKLOG_MARKERS = {
     "wordplay.singleLeaf": (SINGLE_LEAF,),
     "wordplay.bareInCharade": (BARE_IN_CHARADE,),
     "wordplay.anagramOfContainer": (ANAGRAM_OF_CONTAINER,),
+    "wordplay.arityIns": (ARITY_INS,),
+    "wordplay.arityOther": (ARITY_OTHER,),
+    "wordplay.delSingle": (DEL_SINGLE,),
+    "wordplay.indInLeaf": (IND_IN_LEAF,),
 }
 
 

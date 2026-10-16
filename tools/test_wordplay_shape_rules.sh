@@ -57,7 +57,17 @@ check("bare letters in a charade are counted", 1, v.bare_in_charade(
 check("an anagram of a container is counted", 1, v.anagram_of_container(
     {"op": "anagram", "parts": [{"op": "container", "parts": [{"words": "a"}, {"words": "b"}]}]}))
 
-for field in ("charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
+check("a container with one part is counted", 1, v.arity_ins({"op": "container", "unchecked": True, "parts": [{"words": "a"}]}))
+check("a checked one is the arity rule's, not this", 0, v.arity_ins({"op": "container", "parts": [{"words": "a"}]}))
+check("a substitution with two parts is counted", 1, v.arity_other({"op": "substitution", "unchecked": True, "parts": [{"words": "a"}, {"words": "b"}]}))
+check("a deletion with three parts is counted", 1, v.arity_other({"op": "deletion", "unchecked": True, "parts": [{}, {}, {}]}))
+check("a deletion with one part is counted", 1, v.del_single({"op": "deletion", "unchecked": True, "parts": [{"words": "a"}]}))
+check("and is not an arityOther", 0, v.arity_other({"op": "deletion", "unchecked": True, "parts": [{"words": "a"}]}))
+leaf = {"words": "nearly obtains", "gives": "HA"}
+check("an indicator inside a leaf is counted", 1, v.ind_in_leaf({"op": "deletion", "indicators": [{"text": "nearly"}], "parts": [leaf, {"words": "x"}]}))
+check("a whole-leaf indicator is not", 0, v.ind_in_leaf({"op": "deletion", "indicators": [{"text": "nearly"}], "parts": [{"words": "nearly"}]}))
+
+for field in ("arityIns", "arityOther", "delSingle", "indInLeaf", "charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
               "leafFold", "repeatedSelection", "singleLeaf", "bareInCharade", "anagramOfContainer"):
     check(f"wordplay.{field} is a ratchet field", True, f"wordplay.{field}" in v.BACKLOG_MARKERS)
 warn = v.shape_warnings("1A", {"wordplay": cc, "definitions": []})
