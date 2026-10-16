@@ -89,7 +89,11 @@ def plan(node, clue, ann, top):
         return None
     spans = locate(clue, parts)
     defs = ann.get("definitions") or []
-    if (top and None not in spans and len(parts) >= 2 and len(defs) <= 1
+    # one clue whose text a gap splits (Printer's Devilry, a quotation with a
+    # word missing): the halves are not two definitions, so never a double
+    gap_split = re.search(r"gap falls|the gap is|Printer.s Devilry:",
+                          json.dumps([parts, ann.get("explanation")]), re.I)
+    if (top and not gap_split and None not in spans and len(parts) >= 2 and len(defs) <= 1
             and not ann.get("definedByPreamble") and not node.get("indicators")
             and set(node) <= {"op", "parts"}):
         new = []
