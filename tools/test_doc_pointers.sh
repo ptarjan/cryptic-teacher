@@ -73,7 +73,15 @@ def ignored(tok, doc):
     return False
 
 
+# Ratchet fields (wordplay.anagramCharade) are keys of the backlog file, not
+# attributes of the module that happens to share their first word.
+import json
+ratchet = set(json.loads(Path("tools/annotation_backlog.json").read_text()))
+
+
 def problem(tok, doc):
+    if tok in ratchet:
+        return None
     if re.search(r"[\s<>*{}$|=~\[\]\"',;]", tok) or "://" in tok:
         return None
     if tok.startswith(("-", "/", "#", ".", "origin/", "gui/")):
