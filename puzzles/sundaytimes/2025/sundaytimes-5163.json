@@ -86,40 +86,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "most of BUT, so its last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "mongrel",
-         "note": "a mongrel is a mix of breeds, so the letters are mixed"
+         "text": "mostly",
+         "at": 17,
+         "note": "mostly means most of the word but, so its last letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "but, mostly",
-         "gives": "BU",
-         "note": "BUT without its last letter"
+         "words": "but",
+         "at": 12
         },
         {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mongrel",
+         "at": 32,
+         "note": "a mongrel is of mixed breed, so the letters of shabby are mixed up"
+        }
+       ],
+       "parts": [
+        {
          "words": "shabby",
-         "note": "anagram fodder"
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone admits a scruffy mutt is still adorable.",
-     "walkthrough": "'Mongrel' reads as the dog being described, but it is the instruction to mix the letters.",
-     "definitionFit": "A definition by type: the big-eyed African primate is a byword for a cute animal."
+     "surface": "Someone protests that an animal is cute, though it is mostly a scruffy mutt.",
+     "walkthrough": "'but, mostly' gives BU; 'mongrel' mixes SHABBY into SHBABY.",
+     "definitionFit": "A bushbaby is a small big-eyed African primate, widely thought of as an endearing creature."
     },
     "features": {
      "answerInScene": true,
@@ -652,41 +661,54 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "SOPRANO",
-     "indicators": [
-      {
-       "text": "for",
-       "note": "one thing for another is a swap, so R goes in place of I"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "So",
+       "at": 0,
+       "gives": "SO",
+       "note": "taken as written"
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 19,
+         "note": "for here means in place of: right stands in for one inside the word"
+        }
+       ],
        "parts": [
         {
-         "words": "So",
-         "note": "the word itself"
+         "words": "softly's",
+         "at": 4,
+         "gives": "PIANO",
+         "note": "piano is the musical direction for playing softly; the 's reads as 'has', so it has the swap"
         },
         {
-         "words": "softly's right for one",
-         "gives": "PRANO",
-         "note": "PIANO (softly in music) with R (right) replacing I (one)"
+         "words": "one",
+         "at": 23,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "right",
+         "at": 13,
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A remark that one quiet singer is correct.",
-     "walkthrough": "The musical term for softly is Italian; the swap of letters in it is what makes the middle of the answer.",
-     "definitionFit": "A definition by class: the highest female voice, and the one who sings it."
+     "surface": "A clumsy chain of reasoning about singing softly and doing right by someone.",
+     "walkthrough": "Piano is Italian for softly as a musical marking; swap its I (one) for R (right) to get PRANO.",
+     "definitionFit": "A soprano is a singer with the highest voice range, so she is one kind of vocalist."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "right"
+     "misdirectedWord": "softly"
     }
    }
   },
@@ -827,36 +849,36 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "BOYMEETSGIRL",
      "indicators": [
       {
        "text": "moved",
-       "note": "letters that are moved change their places"
+       "at": 7,
+       "note": "moved means shifted about, so these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Bishop",
-         "gives": "B",
-         "note": "B = bishop, as in chess notation"
-        },
-        {
-         "words": "to Lyme Regis",
-         "gives": "OYMEETSGIRL",
-         "note": "anagram of TO LYME REGIS"
-        }
-       ]
+       "words": "Bishop",
+       "at": 0,
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
+      },
+      {
+       "words": "to",
+       "at": 13,
+       "note": "taken as written"
+      },
+      {
+       "words": "Lyme Regis",
+       "at": 16,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A clergyman relocates to a seaside town in search of love.",
-     "walkthrough": "Lyme Regis is a Dorset seaside town, setting of The French Lieutenant's Woman, which suits the romance surface. 'To' belongs to the fodder.",
-     "definitionFit": "The stock phrase names the standard plot of a love story, so it stands for a romance."
+     "surface": "A clergyman relocates to a Dorset seaside town to find love.",
+     "walkthrough": "Lyme Regis is a seaside town in Dorset; 'moved' rearranges B, the word 'to' and LYMEREGIS all together.",
+     "definitionFit": "Boy-meets-girl is the stock phrase for a conventional love story, a romance plot."
     },
     "features": {
      "answerInScene": true,
