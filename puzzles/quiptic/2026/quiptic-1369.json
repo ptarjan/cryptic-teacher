@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -392,7 +393,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Try to be calm",
+      "text": "Try to be calm about it",
       "at": 9
      }
     ],
@@ -401,25 +402,27 @@
      "parts": [
       {
        "words": "Pay",
+       "at": 0,
        "gives": "SETTLE",
-       "note": "you settle a bill when you pay off what you owe"
+       "note": "to settle a bill is to pay it"
       },
       {
        "words": "low",
+       "at": 4,
        "gives": "DOWN",
-       "note": "down is the direction of low, and someone feeling low is feeling down"
-      },
-      {
-       "unchecked": true,
-       "words": "about it",
-       "note": "surface only, no letters: it makes the sentence sound like advice to someone stewing over a grievance"
+       "note": "feeling down is feeling low"
       }
      ]
     },
     "explanation": {
-     "surface": "One person urging another to stay calm about a poor wage.",
-     "walkthrough": "The question mark after 'Pay low?' admits those two words define nothing between them: each is a synonym in its own right, laid end to end.",
-     "definitionFit": "Try to be calm → SETTLE DOWN: what you say to someone worked up — to settle down is to stop agitating and go quiet."
+     "surface": "Advice to someone fretting about poor wages: keep calm about it.",
+     "walkthrough": "'Pay low?' reads as a grumble about wages, but it is two separate words to translate and join.",
+     "definitionFit": "To settle down is to grow quiet and stop fussing, which is trying to be calm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pay"
     }
    }
   },
@@ -823,37 +826,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EDAM",
-     "indicators": [
-      {
-       "text": "50% of",
-       "note": "Half the letters of each word are wanted, and it is the back half that survives in both of them."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "50% of",
+         "at": 17,
+         "note": "half of the word is kept, here its second half, the first half going"
+        }
+       ],
        "parts": [
         {
          "words": "used",
-         "gives": "ED",
-         "note": "the back half of its four letters"
+         "at": 24,
+         "note": "its second half is kept"
         },
         {
+         "gives": "US",
+         "note": "the first half of used, dropped"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "made from",
+         "at": 7,
+         "note": "the cheese is made from the other word too, likewise cut to its second half"
+        }
+       ],
+       "parts": [
+        {
          "words": "spam",
-         "gives": "AM",
-         "note": "the back half of its four letters"
+         "at": 29,
+         "note": "its second half is kept"
+        },
+        {
+         "gives": "SP",
+         "note": "the first half of spam, dropped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cheese apparently produced out of leftover tinned meat.",
-     "walkthrough": "Spam is the tinned pork of wartime rationing, and 'used spam' is deliberately revolting — the definition is the one clean word in the sentence.",
-     "definitionFit": "Cheese → EDAM: definition by example — the round Dutch cheese in its red wax coat is one cheese among many."
+     "surface": "A joke about cheese manufactured out of leftover tinned meat.",
+     "walkthrough": "Both words lose their first halves: the back half of used and the back half of spam join up.",
+     "definitionFit": "Edam is a mild Dutch cheese, usually sold in a ball coated in red wax."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "spam"
     }
    }
   },
