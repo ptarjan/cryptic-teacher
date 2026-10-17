@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -57,44 +58,47 @@
      "indicators": [
       {
        "text": "sadly",
-       "note": "Sadness unsettles a person, and letters described as unsettled are letters that will not stay in the order the clue prints them."
+       "at": 13,
+       "note": "sadly here means in a sorry, messed-up state, so the letters come out in a muddled order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "start to",
-         "note": "The start of a word is its opening letter."
+         "at": 20,
+         "note": "the start of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "U",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "start to unclasp",
-           "gives": "U",
-           "select": "first",
-           "note": "one letter, the one 'unclasp' begins with"
-          }
-         ]
-        },
-        {
-         "words": "purse, alas!",
-         "note": "nine letters handed over whole, punctuation ignored, to be jumbled with that U"
+         "words": "unclasp",
+         "at": 29,
+         "note": "its first letter is U"
         }
        ]
+      },
+      {
+       "words": "purse",
+       "at": 37
+      },
+      {
+       "words": "alas",
+       "at": 44
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two adverbs in a row at the front is the tell: one of them is the definition and the other is an instruction. 'Alas' looks like the setter sighing, and it is really fodder.",
-     "definitionFit": "Predictably → AS PER USUAL: the phrase means exactly in the way it always goes, and something that always goes that way is something you could have predicted."
+     "surface": "Someone sighs as they go to open their purse, sadly finding it as empty as ever.",
+     "walkthrough": "The 'start to' unclasp is U; with PURSE and ALAS it is rearranged, 'sadly'.",
+     "definitionFit": "As per usual means in the customary way, just as one would expect or predict."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sadly"
     }
    }
   },
@@ -200,26 +204,31 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "RATIONALISE",
      "indicators": [
       {
        "text": "How to make",
-       "note": "Asking how one word is made out of another is asking what you must do to its letters, which is an instruction to rebuild them."
+       "at": 0,
+       "note": "the clue asks how to make this word, and the answer, meaning reorganise, is the instruction: the letters are reorganised"
       }
      ],
      "parts": [
       {
        "words": "realisation",
-       "gives": "RATIONALISE",
-       "note": "eleven letters handed over entire and given back in a new order; nothing added, nothing dropped"
+       "at": 12
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "walkthrough": "Four words doing two jobs at once. Read as an instruction the clue shuffles a word; read as a description it says what the answer means, which is to reorganise something into a tidier arrangement.",
-     "definitionFit": "The whole clue reads straight: to rationalise is to reorganise something into a better arrangement, and reorganising is precisely what the clue asks you to do."
+     "surface": "A puzzled question about how one arrives at a realisation.",
+     "walkthrough": "The answer is both the method and the result: to rationalise is to reorganise, and reorganising its letters makes REALISATION.",
+     "definitionFit": "To rationalise is to reorganise something more logically, which is exactly how the word realisation is produced from it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "realisation"
     }
    }
   },
@@ -251,30 +260,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SPINDRY",
      "indicators": [
       {
        "text": "to swap hands",
-       "note": "Left and right are the two hands."
+       "at": 34,
+       "note": "the hands are left and right, so the left letter is swapped for the right"
       }
      ],
      "parts": [
       {
        "words": "long",
+       "at": 29,
        "gives": "SPINDLY",
-       "note": "a spindly stem is long and thin, so the adjective covers 'long'"
+       "note": "spindly means long and thin"
       },
       {
-       "words": "to swap hands",
-       "gives": "R",
-       "note": "the left hand's L gives way to the right hand's R"
+       "gives": "L"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The washing machine in the surface is genuine: this is the button you press. What the clue hides is that seven of its letters arrive whole, with a single one exchanged.",
-     "definitionFit": "Activate a kind of cycle → SPIN-DRY: setting a washing machine's spin going is exactly what the verb names, so the definition describes the action rather than naming it."
+     "surface": "Instructions for switching on a washing machine's cycle, with a longing to swap hands.",
+     "walkthrough": "The hands are left and right, L and R: 'to swap hands' replaces the L of SPINDLY with R.",
+     "definitionFit": "To spin-dry is to start the washing machine's spinning cycle, which wrings water from the clothes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "long"
     }
    }
   },
@@ -725,33 +741,41 @@
      "parts": [
       {
        "words": "flatfish",
+       "at": 20,
        "gives": "FLOUNDER",
-       "note": "the flounder lies flat on the seabed with both eyes on one side"
+       "note": "a flounder is a flatfish"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "ED",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "one-third"
+         "text": "one-third",
+         "at": 36,
+         "note": "one-third of the six-letter word is wanted, its final two letters, so the first four are dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "one-third cooked",
-         "gives": "ED",
-         "select": "last",
-         "note": "two of the six letters of 'cooked', counted from the end"
+         "words": "cooked",
+         "at": 46,
+         "note": "taken as written, then cut down to its last third"
+        },
+        {
+         "gives": "COOK"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Cooked' is the trap: everywhere else in a cryptic it would be telling you to shuffle letters, and here it is a word to be measured out in thirds.",
-     "definitionFit": "Stumbled → FLOUNDERED: to flounder is to thrash about and lose your footing, so in the past tense both words describe the same clumsy loss of balance."
+     "surface": "Someone stumbles when served a flatfish that is only partly cooked.",
+     "walkthrough": "'One-third' of cooked is its final third, ED: COOK is set aside.",
+     "definitionFit": "To flounder is to struggle clumsily or stagger, so floundered means stumbled about."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
     }
    }
   },
@@ -924,36 +948,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MAESTRO",
-     "indicators": [
-      {
-       "text": "smeared",
-       "note": "Something smeared has been dragged out of shape, and letters dragged out of shape no longer sit where they were put."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "cellist",
+       "at": 14,
+       "gives": "MA",
+       "note": "Yo-Yo Ma is the celebrated cellist"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "smeared",
+         "at": 23,
+         "note": "smeared means smudged out of shape, so the letters are smudged into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "cellist",
-         "gives": "MA",
-         "note": "Yo-Yo Ma is the cellist crosswords mean, and his surname is two letters"
-        },
-        {
          "words": "roset",
-         "gives": "ESTRO",
-         "note": "five letters coming back in a different order"
+         "at": 31
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Roset is the rosin a player rubs on a bow, so it sits beside the cellist looking like part of the picture rather than like fodder waiting to be shuffled.",
-     "definitionFit": "Top musician → MAESTRO: Italian for master, borrowed into English for a conductor or a soloist of the very first rank."
+     "surface": "A cellist has smeared rosin, roset being an old word for it, on his bow.",
+     "walkthrough": "'Smeared' rearranges ROSET into ESTRO, after MA. Roset is an old Scots word for rosin, which cellists rub on their bows.",
+     "definitionFit": "A maestro is a distinguished musician, especially a great conductor or performer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cellist"
     }
    }
   },
@@ -987,35 +1016,71 @@
      "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "words": "a",
+       "at": 10,
+       "gives": "A"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "a little",
-         "note": "A little of a word is a small piece of it, and the smallest piece there is happens to be the letter it opens with."
-        },
-        {
-         "text": "scoots over",
-         "note": "To scoot over is to shift along and sit somewhere else in the row, which is what that one letter does inside the phrase."
+         "text": "over",
+         "at": 47,
+         "note": "it comes back in further over, after the next two letters"
         }
        ],
        "parts": [
         {
-         "words": "a menace",
-         "gives": "ATHREAT",
-         "note": "a menace is a threat, and the clue's own 'a' comes along in front of it"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "scoots",
+           "at": 40,
+           "note": "the rascal's letter scoots off from its place in the menace word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "menace",
+           "at": 12,
+           "gives": "THREAT",
+           "note": "a threat is a menace"
+          },
+          {
+           "gives": "R"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "little",
+           "at": 26,
+           "note": "a little of a word is just its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rascal",
+           "at": 33,
+           "note": "its first letter is R"
+          }
+         ]
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "rascal",
-       "note": "the R that 'rascal' begins with is the letter told to move; the word brings no letters of its own"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Unusually generous fodder: the setter not only shuffles a phrase but names the single letter that shifts, so the rebuild is one small slide rather than a free-for-all.",
-     "definitionFit": "Basically → AT HEART: both adverbs mean when you strip everything else away, describing what a person or thing fundamentally is."
+     "surface": "A little rascal scooting about is basically a menace.",
+     "walkthrough": "A THREAT is 'a menace'; its R, the 'little' rascal, 'scoots' out and goes back in 'over' EA, turning THREAT into THEART.",
+     "definitionFit": "At heart means fundamentally or in essence, which is what basically means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scoots"
     }
    }
   },
@@ -1210,42 +1275,68 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "meeting",
+       "at": 25,
+       "note": "meeting means joining up with, so the bishop's letters join the setter's initial"
+      }
+     ],
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
          "text": "introduction",
-         "note": "An introduction is what comes at the front, so only the opening letter of the name is wanted."
-        },
-        {
-         "text": "first of",
-         "note": "Naming the first of a word asks for the letter it begins with, not the word itself."
+         "at": 11,
+         "note": "a word's introduction is its opening letter"
         }
        ],
        "parts": [
         {
-         "words": "Everyman's introduction",
-         "gives": "EVERYMANS",
-         "note": "the Observer's setter signs himself Everyman, and only his opening letter is taken"
+         "words": "Everyman's",
+         "at": 0,
+         "note": "its first letter is E"
         }
        ]
       },
       {
        "words": "bishop",
+       "at": 33,
        "gives": "RR",
-       "note": "RR is Right Reverend, the style by which a bishop is addressed"
+       "note": "RR, Right Reverend, is the title abbreviation for a bishop"
       },
       {
-       "words": "first of several",
-       "gives": "S",
-       "note": "the word 'several' gives up the letter it starts with"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "first of",
+         "at": 41,
+         "note": "only the first of the word is wanted, so everything after its opening letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "several",
+         "at": 50,
+         "note": "its first letter is S"
+        },
+        {
+         "gives": "EVERAL"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Setters often write themselves into their own clues, and Everyman does it here for a single letter. RR for bishop is worth keeping: it is Right Reverend, not the chess piece.",
-     "definitionFit": "blunders → ERRS: 'blunders' is the verb here, not the plural noun, and to err is to make a mistake, so both are third person singular."
+     "surface": "The setter introduces himself to a bishop and promptly blunders, the first of several mistakes.",
+     "walkthrough": "Everyman's 'introduction' is E, 'meeting' RR (Right Reverend, the formal style of a bishop), and the 'first of' several is S.",
+     "definitionFit": "To err is to make a mistake, so errs is a verb meaning blunders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bishop"
     }
    }
   },
@@ -1271,25 +1362,33 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "STURDINESS",
      "indicators": [
       {
        "text": "off",
-       "note": "Rinsing something off washes it loose from where it sat, and letters washed loose settle back in a new arrangement."
+       "at": 12,
+       "note": "off means gone bad, so the letters are spoilt into a new order"
       }
      ],
      "parts": [
       {
-       "words": "Stud rinses",
-       "gives": "STURDINESS",
-       "note": "ten letters between the two words, all of them used"
+       "words": "Stud",
+       "at": 0
+      },
+      {
+       "words": "rinses",
+       "at": 5
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a stable hand at the tap, and 'stud' plus 'rinses' happens to hold exactly the ten letters wanted, which is what makes the picture worth building.",
-     "definitionFit": "lusty quality → STURDINESS: 'lusty' in its older sense means vigorous and robust rather than lecherous, and the -ness noun is that robustness itself."
+     "surface": "A stud horse is rinsed off, showing its vigour.",
+     "walkthrough": "'Off' rearranges STUD RINSES.",
+     "definitionFit": "Sturdiness is robust strength and vigour, and lusty means strong and full of vigour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
     }
    }
   },
@@ -1315,28 +1414,30 @@
     ],
     "wordplay": {
      "op": "first",
-     "unchecked": true,
-     "gives": "DADA",
      "indicators": [
       {
        "text": "primarily",
-       "note": "What comes primarily is what comes first, so each word in front of it gives up the letter it opens with, in order."
+       "at": 42,
+       "note": "primarily means firstly, so take the first letter of each word"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Duchamp's / Arp's derisive avant-gardism",
-       "gives": "DADA",
-       "select": "first",
-       "note": "four words in a row, each handing over its opening letter"
+       "words": "Duchamp's / Arp's derisive avant",
+       "at": 0,
+       "note": "the first letters of Duchamp's, Arp's, derisive and avant-gardism are D, A, D and A"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "walkthrough": "The clue defines itself: Marcel Duchamp and Jean Arp were the movement's founders, and mocking the art establishment was the point of it, so the initials describe what they spell.",
-     "definitionFit": "The whole clue reads straight as a description of the movement Duchamp and Arp led, whose derisive attacks on the art world were its founding gesture."
+     "surface": "An art-history description of the mocking avant-garde style of Duchamp and Arp.",
+     "walkthrough": "Marcel Duchamp and Jean Arp were leading figures of the movement, so the whole clue both spells and describes it.",
+     "definitionFit": "Dada was the early twentieth-century anti-art movement that mocked artistic convention, with Duchamp and Arp among its leaders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
     }
    }
   },
