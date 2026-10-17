@@ -107,48 +107,55 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "OATMEAL",
-     "indicators": [
-      {
-       "text": "to eat",
-       "note": "whatever eats something takes it inside, so one piece goes within the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "OATMEAL",
+       "op": "middle",
        "indicators": [
         {
          "text": "Having clipped wings",
-         "note": "the wings of a word are its two sides, and clipping them trims off its outer letters"
+         "at": 0,
+         "note": "with its wings clipped the word loses its outermost letters at both sides"
         }
        ],
        "parts": [
         {
          "words": "coax",
-         "note": "taken as written, then trimmed at both sides"
-        },
+         "at": 22,
+         "note": "the word itself, taken as written before its outer letters go"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to eat",
+         "at": 32,
+         "note": "the bird takes the letter inside it, as if swallowing it"
+        }
+       ],
+       "parts": [
         {
          "words": "bird",
+         "at": 27,
          "gives": "TEAL",
-         "note": "a teal is a small duck"
+         "note": "the teal is a small duck"
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "end of",
-           "note": "the end of a word is its final letter, which is all that is kept"
+           "at": 39,
+           "note": "the last letter of the word that follows"
           }
          ],
          "parts": [
           {
            "words": "worm",
-           "note": "the last letter of worm"
+           "at": 46,
+           "note": "the word itself, whose final letter is the one taken"
           }
          ]
         }
@@ -157,14 +164,14 @@
      ]
     },
     "explanation": {
-     "surface": "Someone tempts a bird with a worm, the early bird's traditional breakfast.",
-     "walkthrough": "COAX loses both ends to leave OA; TEAL takes in M to make TMEAL; together OATMEAL.",
-     "definitionFit": "Oatmeal porridge is a common morning meal, so the dish stands as an example of a first meal of the day."
+     "surface": "Someone tries to tempt a pinioned bird to swallow a worm as its morning meal.",
+     "walkthrough": "'Having clipped wings' sounds like it describes the bird, but it applies to the word coax; 'to eat' has the bird take in the M at the 'end of' worm, making TMEAL.",
+     "definitionFit": "Oatmeal is ground oats cooked as porridge, a common morning dish especially in North America."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "wings"
+     "misdirectedWord": "bird"
     }
    }
   },
@@ -491,56 +498,48 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "STRAW",
      "indicators": [
       {
        "text": "shall accommodate",
-       "note": "to accommodate is to give room to, so one piece is housed within another"
+       "at": 41,
+       "note": "the two outer letters take the remaining piece in between them"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "South Western",
+       "at": 27,
+       "gives": "SW",
+       "note": "S and W, the compass abbreviations for south and western"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cancelled",
+         "at": 16,
+         "note": "struck out, so the letters for home are removed from the word"
+        }
+       ],
        "parts": [
         {
-         "words": "South",
-         "gives": "S",
-         "note": "S is the abbreviation for south"
+         "words": "train",
+         "at": 5
         },
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "cancelled",
-           "note": "what is cancelled no longer happens, so those letters are taken away"
-          }
-         ],
-         "parts": [
-          {
-           "words": "train",
-           "note": "taken as written"
-          },
-          {
-           "words": "home",
-           "gives": "IN",
-           "note": "at home is in, and these letters are removed"
-          }
-         ]
-        },
-        {
-         "words": "Western",
-         "gives": "W",
-         "note": "W is the abbreviation for western"
+         "words": "home",
+         "at": 11,
+         "gives": "IN",
+         "note": "in means at home"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A London Underground commuter finds the train home cancelled, with South Western Railway laying on a replacement.",
-     "walkthrough": "'Tube' suggests the London Underground, and 'South Western' a British rail company, but the first word is the definition: a drinking tube.",
-     "definitionFit": "A drinking straw is a thin hollow pipe for sipping, so it is a narrow cylinder of that kind."
+     "surface": "A commuter grumbles that a London Underground train has been cancelled and South Western Railway must take the passengers.",
+     "walkthrough": "'Home cancelled' takes IN out of TRAIN to leave TRA, which SW 'shall accommodate'. 'Tube' looks like the London Underground but means a drinking straw; South Western Railway is a British train operator.",
+     "definitionFit": "A straw is a thin hollow tube for sucking up a drink."
     },
     "features": {
      "answerInScene": false,
@@ -1291,52 +1290,66 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "CREVICE",
-     "indicators": [
-      {
-       "text": "turning",
-       "note": "turning one thing into another swaps it, so one letter replaces another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
          "text": "initial",
-         "note": "the initial of a word is its first letter"
+         "at": 13,
+         "note": "the first letter of the word next to it"
         }
        ],
        "parts": [
         {
          "words": "code's",
-         "note": "the first letter of code"
+         "at": 6,
+         "note": "the word itself, whose first letter is taken"
         }
        ]
       },
       {
-       "words": "change",
-       "gives": "REVISE",
-       "note": "to revise is to change"
-      },
-      {
-       "words": "spades",
-       "gives": "S",
-       "note": "S is the card-game abbreviation for spades"
-      },
-      {
-       "words": "clubs",
-       "gives": "C",
-       "note": "C is the card-game abbreviation for clubs"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 29,
+         "note": "converting one suit letter into another"
+        },
+        {
+         "text": "into",
+         "at": 44,
+         "note": "names what the spades letter becomes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "change",
+         "at": 21,
+         "gives": "REVISE",
+         "note": "to revise is to change or amend"
+        },
+        {
+         "words": "spades",
+         "at": 37,
+         "gives": "S",
+         "note": "S, the card-suit abbreviation for spades"
+        },
+        {
+         "words": "clubs",
+         "at": 49,
+         "gives": "C",
+         "note": "C, the card-suit abbreviation for clubs"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spy cracks a code and makes changes, turning card suits around.",
-     "walkthrough": "'Crack code' reads as one action, but 'Crack' is the definition. REVISE swaps its S for C, after C.",
-     "definitionFit": "A crevice is a narrow opening or fissure in rock or a wall, a small split or gap."
+     "surface": "A card-game cipher in which a code's first move swaps one suit for another.",
+     "walkthrough": "The code's 'initial' gives C; 'turning spades into clubs' swaps the S of REVISE for C, giving REVICE.",
+     "definitionFit": "A crevice is a narrow crack or fissure, as in a rock face."
     },
     "features": {
      "answerInScene": false,
