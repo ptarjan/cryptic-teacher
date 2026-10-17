@@ -263,40 +263,38 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "DE",
        "indicators": [
         {
          "text": "Leaders of",
-         "note": "the leader of a word is its first letter"
+         "at": 0,
+         "note": "the leaders of a group of words are the letters at their heads, so take each word's first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Leaders of Democrats edgily",
-         "gives": "DE",
-         "select": "first",
-         "note": "first letters of Democrats and edgily"
+         "words": "Democrats edgily",
+         "at": 11,
+         "note": "D and E open these two words"
         }
        ]
       },
       {
        "words": "notice",
+       "at": 28,
        "gives": "SPOT",
-       "note": "to spot is to notice"
+       "note": "to notice something is to spot it"
       }
      ]
     },
     "explanation": {
-     "surface": "Party leaders nervously noticing that a tyrant has taken power.",
-     "walkthrough": "'Edgily' seems to describe how the leaders notice, but it is there only for its first letter.",
-     "definitionFit": "A despot is a ruler with absolute, usually cruel, power."
+     "surface": "Nervous Democrats are said to recognise the signs of an autocrat in charge.",
+     "walkthrough": "'Leaders of' takes the opening letters of 'Democrats' and 'edgily', giving DE.",
+     "definitionFit": "A despot is an absolute ruler who wields power cruelly, a tyrant."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "edgily"
+     "misdirectedWord": "Leaders"
     }
    }
   },
@@ -427,50 +425,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DROWNS",
-     "indicators": [
-      {
-       "text": "melted",
-       "note": "melted snow has lost its shape, so its letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "DROWNS",
        "indicators": [
         {
          "text": "A lot of",
-         "note": "most but not all of the word, so DRY loses its last letter"
+         "at": 0,
+         "note": "a lot of something is most but not all of it, so the word loses its final letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "A lot of dry",
-           "gives": "DR",
-           "note": "DRY without its last letter"
-          },
-          {
-           "words": "snow",
-           "gives": "OWNS",
-           "note": "SNOW rearranged"
-          }
-         ]
+         "words": "dry",
+         "at": 9,
+         "note": "taken as written, before its last letter goes"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "melted",
+         "at": 18,
+         "note": "melted snow has lost its shape, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "snow",
+         "at": 13,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A weather report: plenty of powdery snow thawing into marshland.",
-     "walkthrough": "'Swamps' looks like a noun (marshes) where the melted snow ends up, but it is a verb: to swamp is to flood.",
-     "definitionFit": "To drown something is to swamp it with water."
+     "surface": "Most of a dry snowfall has thawed out inside the marshland.",
+     "walkthrough": "'A lot of dry' gives DR, and 'melted' turns SNOW into OWNS; 'in' is a link word, and 'swamps' is a verb, not marshland.",
+     "definitionFit": "To swamp something is to flood or overwhelm it with water, which is what this verb also means."
     },
     "features": {
      "answerInScene": true,
@@ -500,43 +499,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNDERLINING",
+     "op": "charade",
      "indicators": [
       {
-       "text": "playing",
-       "note": "Ding Liren is a chess player, and letters at play are moved around"
+       "text": "on",
+       "at": 28,
+       "note": "in a down answer the piece written on top of another sits above it, so it comes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "French article",
+       "at": 13,
+       "gives": "UN",
+       "note": "un is the French masculine indefinite article, a"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "playing",
+         "at": 42,
+         "note": "pieces at play are moved around, so these letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "French article",
-         "gives": "UN",
-         "note": "un = 'a' in French"
+         "words": "Ding",
+         "at": 31,
+         "note": "taken as written"
         },
         {
-         "words": "Ding Liren",
-         "gives": "DERLINING",
-         "note": "DING LIREN rearranged"
+         "words": "Liren",
+         "at": 36,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A French article on the chess world champion Ding Liren at the board.",
-     "walkthrough": "Ding Liren, the Chinese grandmaster who became world chess champion in 2023, is here for his letters. 'Article' means a newspaper piece in the surface and a grammatical word in the wordplay.",
-     "definitionFit": "Figurative sense: drawing a line under words, or stressing a point, both make something stand out."
+     "surface": "A French write-up singles out Ding Liren at the chessboard.",
+     "walkthrough": "Ding Liren is the Chinese chess grandmaster who was world champion from 2023 to 2024; 'playing' rearranges his name into DERLINING.",
+     "definitionFit": "Underlining text is a way of emphasising it, just as highlighting does."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "article"
+     "misdirectedWord": "playing"
     }
    }
   },
@@ -1098,42 +1108,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NEOCON",
-     "indicators": [
-      {
-       "text": "awful",
-       "note": "something awful is in a bad state, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awful",
+         "at": 4,
+         "note": "something awful is a mess, so these letters are jumbled"
+        }
+       ],
        "parts": [
         {
          "words": "One",
-         "gives": "NEO",
-         "note": "ONE rearranged"
-        },
-        {
-         "words": "trick",
-         "gives": "CON",
-         "note": "a con is a trick"
+         "at": 0,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "trick",
+       "at": 10,
+       "gives": "CON",
+       "note": "a con is a swindle or trick"
       }
      ]
     },
     "explanation": {
-     "surface": "A dirty trick used against a right-wing politician.",
-     "walkthrough": "'One' is taken as the word itself, not as I.",
-     "definitionFit": "A neocon (neoconservative) is someone on the political right."
+     "surface": "A single dreadful scam is pinned on a conservative politician.",
+     "walkthrough": "'awful' rearranges ONE into NEO; 'for' is a link word.",
+     "definitionFit": "A neocon, short for neoconservative, is a hawkish figure on the American political right."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "One"
+     "misdirectedWord": "awful"
     }
    }
   },
@@ -1267,41 +1277,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Head of",
-       "note": "the head of a word is its first letter"
+       "text": "hosted by",
+       "at": 23,
+       "note": "a guest hosted by someone is inside their home, so this letter goes within the other piece"
       }
      ],
      "parts": [
       {
        "words": "e.g. Boris Johnson",
+       "at": 33,
        "gives": "ETONIAN",
-       "note": "Boris Johnson went to Eton, so he is an Etonian"
+       "note": "Boris Johnson went to Eton College, so he is an Etonian, one example of an old boy"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "S",
        "indicators": [
         {
-         "text": "hosted by"
+         "text": "Head of",
+         "at": 9,
+         "note": "the head of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Head of State",
-         "gives": "S",
-         "select": "first",
-         "note": "first letter of State"
+         "words": "State",
+         "at": 17,
+         "note": "S opens the word"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A European head of state being entertained by Boris Johnson.",
-     "walkthrough": "Eton is an elite English boarding school that educated Boris Johnson, a British Prime Minister. 'Head of State' reads as a leader but gives only S.",
-     "definitionFit": "An Estonian comes from Estonia, a European country."
+     "surface": "A foreign leader is entertained by a former British prime minister.",
+     "walkthrough": "Eton is an elite English boarding school; its pupils are Etonians. 'Head of State' is not a leader here but just S, placed inside ETONIAN.",
+     "definitionFit": "A Baltic national from Tallinn or Tartu is a native of a country in Europe."
     },
     "features": {
      "answerInScene": true,
@@ -1430,38 +1440,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "touring"
-      }
-     ],
      "parts": [
       {
        "words": "home",
+       "at": 10,
        "gives": "IN",
-       "note": "in = at home"
+       "note": "to be in is to be at home"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "capital",
-         "note": "the capital of a word is its first letter"
+         "text": "touring",
+         "at": 26,
+         "note": "a party touring a country goes all round it, so this piece wraps the other"
         }
        ],
        "parts": [
         {
          "words": "group",
+         "at": 20,
          "gives": "SET",
-         "note": "a set is a group"
+         "note": "a set is a group of things or people"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "capital",
+           "at": 42,
+           "note": "a capital letter is the head of a word, so take the first letter"
+          }
+         ],
          "parts": [
           {
-           "words": "China's capital",
-           "gives": "CHINACAPITAL",
-           "note": "first letter of China"
+           "words": "China's",
+           "at": 34,
+           "note": "C opens the word"
           }
          ]
         }
@@ -1470,14 +1485,13 @@
      ]
     },
     "explanation": {
-     "surface": "Someone travelling home with a tour group that has visited Beijing.",
-     "walkthrough": "'Fly' looks like a verb, as in flying home from China, but it is the noun, and 'Maybe' flags a fly as one example of the answer. 'China's capital' is not Beijing but C.",
-     "definitionFit": "Definition by example: a fly is one instance of the answer, and 'Maybe' signals that it is only an example."
+     "surface": "Perhaps someone will fly home after a party travels around Beijing.",
+     "walkthrough": "'Maybe fly' is the definition by example: fly is a verb in the surface but the noun here.",
+     "definitionFit": "A fly is one example of a six-legged creature, hence 'maybe'."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "fly"
     }
    }
