@@ -46,52 +46,63 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "KERSEYMERE",
-     "indicators": [
-      {
-       "text": "to replace front of",
-       "note": "one letter is swapped in for the opening letter of the following word, leaving the rest intact"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "first",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "beginning",
-         "note": "the beginning of a word is its opening letter, so only that one letter is kept"
+         "text": "to replace front of",
+         "at": 20,
+         "note": "the opening letter of the following word is swapped out for the letter just named"
         }
        ],
        "parts": [
         {
-         "words": "Knitter's",
-         "note": "opening letter of the knitter"
+         "words": "pullover",
+         "at": 40,
+         "gives": "JERSEY",
+         "note": "a jersey is a knitted pullover"
+        },
+        {
+         "gives": "J"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning",
+           "at": 10,
+           "note": "the beginning of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Knitter's",
+           "at": 0,
+           "note": "the word whose opening letter is taken"
+          }
+         ]
         }
        ]
       },
       {
-       "words": "pullover",
-       "gives": "JERSEY",
-       "note": "a jersey is a knitted pullover; its J is swapped for K"
-      },
-      {
        "words": "simple",
+       "at": 54,
        "gives": "MERE",
-       "note": "mere as in a mere child: simple, nothing more"
+       "note": "mere means simple, nothing more than"
       }
      ]
     },
     "explanation": {
-     "surface": "A knitting instruction: start by replacing the front panel of a sweater with plain wool cloth.",
-     "walkthrough": "The swap lands on a real word first: kersey is itself a coarse ribbed cloth, and the longer fabric grew from its name.",
-     "definitionFit": "Kerseymere is a fine twilled cloth, a plain material once used for trousers and waistcoats."
+     "surface": "A knitter starts swapping out the front panel of a pullover for some plain wool cloth.",
+     "walkthrough": "'beginning' gives K from Knitter's; 'to replace front of' puts it where J opens JERSEY, making KERSEY, itself a coarse cloth, before MERE. 'simple' looks like it describes the fabric but is a separate piece.",
+     "definitionFit": "Kerseymere is a fine twilled cloth made of wool, a type of fabric for suits."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pullover"
+     "misdirectedWord": "simple"
     }
    }
   },
