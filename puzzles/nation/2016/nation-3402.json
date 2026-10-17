@@ -1842,46 +1842,65 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Wanderer",
-      "at": 0
+      "text": "Wanderer's",
+      "at": 0,
+      "note": "read as 'Wanderer is': the definition is the wanderer himself, and 's is a link"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ODYSSEUS",
-     "indicators": [
-      {
-       "text": "headless",
-       "note": "having no head means the first letter is cut off"
-      },
-      {
-       "text": "getting back in front",
-       "note": "the back letter moves round to the front of that name"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "corpse",
-       "gives": "BODY",
-       "note": "a corpse is a dead body"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "headless",
+         "at": 11,
+         "note": "the word for a corpse loses its head, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "corpse",
+         "at": 20,
+         "gives": "BODY",
+         "note": "a body is a corpse"
+        },
+        {
+         "gives": "B"
+        }
+       ]
       },
       {
-       "words": "literary doctor",
-       "gives": "SEUSS",
-       "note": "Dr Seuss, the children's author"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "getting back in front",
+         "at": 47,
+         "note": "the doctor's name has its back letter moved round to the front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "literary doctor",
+         "at": 31,
+         "gives": "SEUSS",
+         "note": "Dr Seuss is the pen name of the children's author Theodor Geisel"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drifter's decapitated body is found beside a famous children's author.",
-     "walkthrough": "Literary doctor suggests Watson or Jekyll, but here it is Dr Seuss, whose final S moves to the start.",
-     "definitionFit": "Odysseus spent ten years roaming the seas on his journey home after Troy, the great wanderer of myth."
+     "surface": "A grisly scene: a decapitated body beside a famous children's author who has returned to the lead.",
+     "walkthrough": "'headless' cuts BODY to ODY; 'getting back in front' moves the final S of SEUSS to the start, giving SSEUS.",
+     "definitionFit": "Odysseus, hero of Homer's Odyssey, spent ten years roaming the seas on his way home from Troy."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "corpse"
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "doctor"
     }
    }
   }
