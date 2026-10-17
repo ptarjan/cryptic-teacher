@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -331,30 +332,40 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "STEPSON",
      "indicators": [
       {
        "text": "having change of heart",
-       "note": "The heart of a seven-letter word is the letter sitting dead centre, and a change of heart swaps that one letter while the six around it stand still."
+       "at": 23,
+       "note": "the heart, the central letter of the hat's name, is changed for another letter"
       }
      ],
      "parts": [
       {
        "words": "cowboy hat",
+       "at": 12,
        "gives": "STETSON",
-       "note": "the tall, broad-brimmed felt hat of the American West, named after the hatter John B Stetson"
+       "note": "a Stetson is the wide-brimmed hat worn by cowboys"
       },
       {
-       "words": "having change of heart",
+       "gives": "T",
+       "note": "the middle letter of the hat's name"
+      },
+      {
        "gives": "P",
-       "note": "the fourth of those seven letters steps aside and P takes the empty seat"
+       "note": "the replacement letter"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "In the surface a change of heart is a softening of feeling towards a relative. Here it is strictly arithmetic: one letter, dead centre, replaced by another.",
-     "definitionFit": "Relative → STEPSON: the son a husband or wife brings into a marriage, family by remarriage rather than by blood."
+     "surface": "A family member turns up in a cowboy hat, having changed their mind about something.",
+     "walkthrough": "'Change of heart' is read literally: the heart of STETSON is its middle T, which becomes P.",
+     "definitionFit": "A stepson is a family connection by marriage, the son of one's spouse, so he counts as a relative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heart"
     }
    }
   },
@@ -491,53 +502,60 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "exhausted",
-       "note": "Something exhausted has been emptied right out, so the word beside it keeps the letters at its two ends and loses everything between them."
-      }
-     ],
      "parts": [
       {
        "words": "Small",
+       "at": 0,
        "gives": "S",
-       "note": "S is the size printed on a clothing label"
+       "note": "S is the standard abbreviation for small, as on clothing labels"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "clenching",
-         "note": "A clenched fist closes tight around whatever is in it, so these letters shut on the piece named next and hold it inside."
+         "at": 23,
+         "note": "the outer letters grip the next piece between them"
         }
        ],
        "parts": [
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "WM",
+         "indicators": [
+          {
+           "text": "exhausted",
+           "at": 12,
+           "note": "an exhausted worm has had its insides used up, leaving only its outer letters"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "worm, exhausted",
-           "gives": "WM",
-           "select": "outer",
-           "note": "the first and last letters of the creature, with its insides emptied out"
+           "words": "worm",
+           "at": 6,
+           "note": "the word whose outer letters are kept"
           }
          ]
         },
         {
          "words": "first",
+         "at": 35,
          "gives": "I",
-         "note": "first is number one, and the Roman numeral for one is I — it goes between the two letters above"
+         "note": "I is the Roman numeral one, and one is first"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'first to crawl' paints a baby on the carpet, and the crawl in question is the swimming stroke. The dash is doing no work at all except keeping that picture alive.",
-     "definitionFit": "crawl → SWIM: the crawl is the front stroke every pool teaches first, so it defines by example, one style standing in for the whole activity."
+     "surface": "A small, worn-out worm grips something as it begins to crawl.",
+     "walkthrough": "'First' gives I by way of one, the Roman numeral. The question mark warns that crawl is not creeping but a swimming stroke.",
+     "definitionFit": "The crawl is the front swimming stroke, so to crawl in water is to move through it with that stroke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crawl"
     }
    }
   },
