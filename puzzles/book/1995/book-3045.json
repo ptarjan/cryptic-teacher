@@ -29,7 +29,8 @@
   "officialKey": "never"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -708,42 +709,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "KEEPINGTO",
-     "indicators": [
-      {
-       "text": "troubled",
-       "note": "Troubled water will not lie still, and letters described that way are to be stirred into some other order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "stronghold",
+       "at": 18,
+       "gives": "KEEP",
+       "note": "a keep is the fortified central tower of a castle"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "troubled",
+         "at": 37,
+         "note": "troubled means disturbed, so the letters of GI and not are stirred into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "stronghold",
-         "gives": "KEEP",
-         "note": "the keep is the strongest tower of a castle, the last place to fall"
+         "words": "GI",
+         "at": 30
         },
         {
-         "words": "GI not",
-         "gives": "INGTO",
-         "note": "the soldier and the little word after him, five letters in a new order"
+         "words": "not",
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An American soldier untroubled by being shut up in a fortress.",
-     "walkthrough": "'Not' looks as though it cancels the instruction beside it and is in fact part of what gets stirred. GI is the American private, named for the 'government issue' stamped on his kit.",
-     "definitionFit": "To keep to a path is not to stray from it, and the phrase does the same job for rules, promises and timetables."
+     "surface": "An American soldier stays calmly inside the castle fortress.",
+     "walkthrough": "GI is a US soldier, and 'not troubled' looks like it describes him; in fact 'troubled' rearranges GI + NOT to INGTO after KEEP.",
+     "definitionFit": "Keeping to a path or rule means staying on it without deviating."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "not"
+     "misdirectedWord": "troubled"
     }
    }
   },
@@ -768,42 +772,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CHEDDAR",
-     "indicators": [
-      {
-       "text": "an awful",
-       "note": "An awful anything is in a bad way, and letters in a bad way do not keep the order they came in."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "small child",
+       "at": 21,
+       "gives": "CH",
+       "note": "CH is the standard abbreviation for child, a short form"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "an awful",
+         "at": 33,
+         "note": "an awful version of the word is a messed-up one, so the letters of dread are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "small child",
-         "gives": "CH",
-         "note": "ch is the standard short form of child, as printed on fare tables"
-        },
-        {
          "words": "dread",
-         "gives": "EDDAR",
-         "note": "the five letters of dread in a new arrangement"
+         "at": 42
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dairy product that leaves a small child horribly frightened.",
-     "walkthrough": "Cheese before bed is supposed to bring bad dreams, which is why the surface holds together so smoothly. 'Small' is not describing the child at all — it asks for the short form of the word.",
-     "definitionFit": "Cheddar is the cheese named after the Somerset village, and cheese is made from milk, so the definition names the family the wordplay pins down."
+     "surface": "A milky treat gives a toddler a terrible fright.",
+     "walkthrough": "'An awful' rearranges DREAD to EDDAR, placed after CH.",
+     "definitionFit": "Cheddar is a hard cheese, originally from Somerset, and cheese is made from milk."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "small"
+     "misdirectedWord": "awful"
     }
    }
   },
@@ -954,37 +957,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TIEON",
-     "indicators": [
-      {
-       "text": "standing upside down",
-       "note": "Something upside down is read from its far end, and in a down entry that means the bottom letter comes first."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "standing upside down",
+         "at": 20,
+         "note": "in a down clue, standing upside down means the word is written from the bottom up"
+        }
+       ],
        "parts": [
         {
          "words": "the thing",
-         "gives": "TI",
-         "note": "the thing is IT, turned end for end"
-        },
-        {
-         "words": "an age",
-         "gives": "EON",
-         "note": "an eon is an immense stretch of time"
+         "at": 10,
+         "gives": "IT",
+         "note": "it is the pronoun for the thing"
         }
        ]
+      },
+      {
+       "words": "an age",
+       "at": 47,
+       "gives": "EON",
+       "note": "an eon (aeon) is an immensely long age"
       }
      ]
     },
     "explanation": {
-     "surface": "Fastening the object the wrong way up is taking for ever.",
-     "walkthrough": "'Takes an age' is the exasperated idiom of the surface and three plain letters underneath. In a down clue 'upside down' is meant literally: the word is read from the foot of the column upwards.",
-     "definitionFit": "To tie something on is to attach it, the way a label is tied on to a parcel by its string."
+     "surface": "Fixing an inverted object takes forever.",
+     "walkthrough": "'Standing upside down' turns IT into TI, and 'takes' simply joins EON after it.",
+     "definitionFit": "To tie on is to fasten one thing to another with string or cord."
     },
     "features": {
      "answerInScene": true,
@@ -1512,50 +1516,51 @@
     "definitions": [
      {
       "text": "makes one throw up",
-      "at": 25
+      "at": 25,
+      "note": "the definition describes what the answer does; an emetic is something that makes one vomit"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EMETIC",
+     "op": "container",
      "indicators": [
       {
-       "text": "Rotten",
-       "note": "Something rotten has fallen apart, and letters that have fallen apart are put back in a different arrangement."
+       "text": "in",
+       "at": 12,
+       "note": "in says the rearranged time sits inside the City postcode"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "City area",
+       "at": 15,
+       "gives": "EC",
+       "note": "EC is the postcode district covering the City of London"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "'in' names the place a thing goes into, so the letters before it are set inside the word that follows."
+         "text": "Rotten",
+         "at": 0,
+         "note": "rotten suggests decayed and broken up, so the letters of time are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "City area",
-         "gives": "EC",
-         "note": "EC is the postal district covering the City of London, the square mile of banks and insurers"
-        },
-        {
-         "words": "Rotten time",
-         "gives": "METI",
-         "note": "the four letters of time in another order"
+         "words": "time",
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bad spell in the financial district leaves you feeling sick.",
-     "walkthrough": "The City with a capital C is London's banking quarter, and every postcode in it begins EC. 'Makes one throw up' is the definition, though it reads like one more complaint about the job.",
-     "definitionFit": "An emetic is a medicine given to bring on vomiting, so it is exactly a thing that makes one throw up."
+     "surface": "A miserable spell in the City of London leaves someone feeling sick.",
+     "walkthrough": "The City is London's financial district, postcode EC. 'Rotten' rearranges TIME to METI, which goes 'in' EC.",
+     "definitionFit": "An emetic is a substance taken to induce vomiting, so it causes a person to be sick."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Rotten"
     }
