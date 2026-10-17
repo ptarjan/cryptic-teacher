@@ -264,45 +264,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REISSUE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 14,
+       "note": "about means surrounding, so the rearranged series goes round the university letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Edited",
-         "note": "text that has been edited has been rearranged"
-        },
-        {
-         "text": "about",
-         "note": "the rearranged series goes around the university"
+         "at": 0,
+         "note": "edited text has been reworked, so the letters of series are rearranged"
         }
        ],
        "parts": [
         {
          "words": "series",
-         "gives": "REISSE",
-         "note": "anagram of SERIES"
-        },
-        {
-         "words": "university",
-         "gives": "U",
-         "note": "U = university"
+         "at": 7
         }
        ]
+      },
+      {
+       "words": "university",
+       "at": 20,
+       "gives": "U"
       }
      ]
     },
     "explanation": {
-     "surface": "A university's book series revised and published a second time.",
-     "walkthrough": "The whole of 'series' is rearranged, and the U is tucked in near the end of the new order.",
-     "definitionFit": "A plain synonym: a publisher who brings an out-of-print title back is issuing it a second time."
+     "surface": "A revised series about a university has been broadcast a second time.",
+     "walkthrough": "'Edited' rearranges SERIES to REISSE, and 'about' wraps that round U for university.",
+     "definitionFit": "To reissue a book or record is to publish or release it a second time."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Edited"
     }
    }
   },
@@ -426,52 +428,47 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ORELSE",
      "indicators": [
       {
        "text": "hopeless",
-       "note": "a hopeless effort is a mess, so the letters are scrambled"
+       "at": 10,
+       "note": "hopeless suggests something in a mess, so these letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "loser",
+       "at": 19,
+       "note": "taken as written, as anagram fodder"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first in",
+         "at": 26,
+         "note": "first in picks out the opening letter of the next word"
+        }
+       ],
        "parts": [
         {
-         "words": "loser",
-         "gives": "ORELS",
-         "note": "anagram of LOSER"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "first in",
-           "note": "takes only the first letter of 'effect'"
-          }
-         ],
-         "parts": [
-          {
-           "words": "first in effect",
-           "gives": "EFFECT",
-           "note": "first letter of effect"
-          }
-         ]
+         "words": "effect",
+         "at": 35,
+         "note": "its first letter is E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hopeless loser, who is in effect first after all.",
-     "walkthrough": "'Hopeless loser' reads as one insult; 'hopeless' is working on 'loser'.",
-     "definitionFit": "Or else means otherwise, as in 'hurry, or else you'll miss it'."
+     "surface": "A warning that otherwise a hopeless loser will come first in effect.",
+     "walkthrough": "LOSER plus E, the first letter of 'effect', rearranged by 'hopeless', give the two words of the answer.",
+     "definitionFit": "Or else is an idiom used before a threat, meaning if not, with the same force as otherwise."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "hopeless"
+     "misdirectedWord": "loser"
     }
    }
   },
@@ -948,20 +945,42 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Switched on",
-      "at": 0,
-      "meaning": "alert and well informed"
-     },
-     {
-      "text": "we think?",
-      "at": 13,
-      "meaning": "the question mark hints that this is only our flattering opinion of ourselves"
+      "text": "Switched on, we think?",
+      "at": 0
      }
     ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Switched",
+       "at": 0,
+       "note": "switched means swapped around, so the letters of on, we and think are rearranged"
+      }
+     ],
+     "parts": [
+      {
+       "words": "on",
+       "at": 9,
+       "note": "taken as written, as anagram fodder"
+      },
+      {
+       "words": "we",
+       "at": 13,
+       "note": "taken as written, as anagram fodder"
+      },
+      {
+       "words": "think",
+       "at": 16,
+       "note": "taken as written, as anagram fodder"
+      }
+     ]
+    },
+    "andLit": true,
     "explanation": {
-     "surface": "We like to think we are clued up.",
-     "walkthrough": "'Switched on' reads as a light or machine; it is the slang for alert and informed.",
-     "definitionFit": "An idiom: switched on means alert and well informed, which is what having inside knowledge makes you."
+     "surface": "A smug claim that we are switched on and well informed.",
+     "walkthrough": "'Switched on' reads as one phrase for being alert, but 'Switched' is the anagram signal over ON, WE and THINK, nine letters in all.",
+     "definitionFit": "To be in the know is to be well informed or aware, which is what switched on means in slang."
     },
     "features": {
      "answerInScene": true,
