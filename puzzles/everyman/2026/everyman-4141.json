@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1052,39 +1053,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BEERHALLS",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "The Reverend Spooner was famous for trading the opening sounds of two words, so naming him is the instruction to swap them over."
+       "at": 0,
+       "note": "Spooner's tells us to swap the opening sounds of two words, as the Reverend Spooner did"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "HEER",
        "parts": [
         {
-         "unchecked": true,
          "words": "to try",
-         "gives": "BEER",
-         "soundsLike": "HEAR",
-         "note": "to try a case in court is to hear it; this word gives up its H and takes a B in exchange"
-        },
-        {
-         "unchecked": true,
-         "words": "dancing",
-         "gives": "HALLS",
-         "soundsLike": "BALLS",
-         "note": "a ball is a formal dance, and it collects the H that the other word let go of"
+         "at": 10,
+         "gives": "HEAR",
+         "note": "to hear a case is to try it in court"
         }
        ]
+      },
+      {
+       "words": "dancing",
+       "at": 17,
+       "gives": "BALLS",
+       "note": "balls are formal dancing parties"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Dancing' sits exactly where an anagram indicator would and shuffles nothing at all. Say the plain phrase first — hear, balls — and the swap does the rest.",
-     "definitionFit": "alehouses → BEER HALLS: the great drinking rooms of Germany and central Europe, an alehouse being any place whose business is selling the stuff."
+     "surface": "Someone sets out to have a go at dancing, perhaps after a few drinks.",
+     "walkthrough": "To try a case in court is to hear it, and balls are dances: HEAR BALLS, with the opening sounds swapped, says BEER HALLS. The swap works on sound, since HEAR rhymes with BEER.",
+     "definitionFit": "Beer halls are large drinking establishments, so they are alehouses on a grand scale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "try"
     }
    }
   },
