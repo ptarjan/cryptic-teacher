@@ -153,59 +153,60 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "curbing"
+       "text": "curbing",
+       "at": 18,
+       "note": "curbing means restraining, so the other letters hold the first letter in check between them"
       }
      ],
      "parts": [
       {
-       "words": "about",
-       "gives": "CA",
-       "note": "circa"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "about",
+         "at": 8,
+         "gives": "CA",
+         "note": "CA is the abbreviation of circa, Latin for about"
+        },
+        {
+         "words": "tax",
+         "at": 14,
+         "gives": "VAT",
+         "note": "VAT is value added tax, the UK sales tax"
+        }
+       ]
       },
       {
-       "op": "container",
+       "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "initially means at the start, so take the first letter of entrepreneurship"
+         "at": 43,
+         "note": "initially means only the first letter of entrepreneurship is used"
         }
        ],
        "parts": [
         {
-         "words": "tax",
-         "gives": "VAT",
-         "note": "value added tax"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "about"
-          }
-         ],
-         "parts": [
-          {
-           "words": "entrepreneurship initially",
-           "note": "first letter"
-          }
-         ]
+         "words": "entrepreneurship",
+         "at": 26,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cautionary word that taxes stifle small business.",
-     "walkthrough": "\"About\" looks like a link to the topic of the warning, but it is the abbreviation CA; VAT is the British sales tax.",
-     "definitionFit": "A plain synonym borrowed from Latin 'let him beware': a caveat is a formal warning or proviso."
+     "surface": "A note of caution that a levy will hold back business enterprise.",
+     "walkthrough": "'initially' gives E from entrepreneurship, and 'curbing' puts CA and VAT around it. VAT is value added tax, the UK's sales tax.",
+     "definitionFit": "A caveat is a cautionary proviso, a warning that qualifies what has been said."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "curbing"
     }
    }
   },
