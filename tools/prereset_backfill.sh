@@ -561,9 +561,13 @@ pool_bag() {
   fi
   [ -s "$RUNS/$id.bag" ] || return 0
   # The members are no longer queued; this puzzle's own place at queue[at] stays.
-  for m in "${queue[@]:$((at + 1))}"; do
-    grep -qxF -- "$m" "$RUNS/$id.bag" || kept+=("$m")
-  done
+  # One grep over the whole tail, never one per queued id: the queue holds ~50k
+  # ids and a fork each took 30 minutes per bag on a loaded box (10-17 06:49 to
+  # 07:20), during which the pool reaped and committed nothing.
+  rest=("${queue[@]:$((at + 1))}")
+  if [ ${#rest[@]} -gt 0 ]; then
+    mapfile -t kept < <(printf '%s\n' "${rest[@]}" | grep -vxFf "$RUNS/$id.bag")
+  fi
   queue=("${queue[@]:0:$((at + 1))}" ${kept[@]+"${kept[@]}"})
   echo "  [$id] bagged with: $(grep -vxF -- "$id" "$RUNS/$id.bag" | tr '\n' ' ')"
 }
