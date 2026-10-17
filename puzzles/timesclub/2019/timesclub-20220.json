@@ -573,44 +573,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CZAREVITCH",
+     "op": "composite",
      "indicators": [
       {
        "text": "slyly",
-       "note": "slyly suggests cunning rearrangement, so the letters are reworked"
+       "at": 13,
+       "note": "slyly suggests cunning rearrangement, so the letters are moved about"
+      },
+      {
+       "text": "dismissing",
+       "at": 19,
+       "note": "dismissing means sending away, so one letter is taken out of the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CZAREVITCH",
-       "indicators": [
-        {
-         "text": "dismissing",
-         "note": "dismissing sends something away, so that letter is removed first"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Catch vizier",
-         "note": "taken as written"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one, which is removed"
-        }
-       ]
+       "words": "Catch vizier",
+       "at": 0
+      },
+      {
+       "words": "one",
+       "at": 30,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A palace intrigue: trap the scheming chief minister by sidelining the crown prince.",
-     "walkthrough": "Remove one I from CATCH VIZIER and rearrange the remaining ten letters.",
-     "definitionFit": "The czarevitch was the eldest son of a Russian tsar and so the heir to the throne."
+     "surface": "A sly vizier plots to catch the heir to the throne.",
+     "walkthrough": "'dismissing one' takes an I out of CATCH VIZIER to leave CATCHVIZER, and 'slyly' rearranges those ten letters.",
+     "definitionFit": "A czarevitch was the son of a Russian tsar, especially the eldest son and heir to the throne."
     },
     "features": {
      "answerInScene": true,
@@ -716,40 +708,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "WATAP",
      "indicators": [
       {
        "text": "to be replaced with",
-       "note": "replaced with tells us some letters come out and another takes their place"
+       "at": 28,
+       "note": "replaced with says these letters are taken out and another put in their place"
       }
      ],
      "parts": [
       {
        "words": "Listening device",
+       "at": 0,
        "gives": "WIRETAP",
-       "note": "a wiretap is a device for listening in on a line"
+       "note": "a wiretap is a device for listening in on a phone line"
       },
       {
        "words": "one about",
+       "at": 18,
        "gives": "IRE",
-       "note": "I for one and RE for about, the letters taken out"
+       "note": "I is the Roman numeral for one, and RE means about"
       },
       {
        "words": "a",
-       "note": "taken as written, the letter put in"
+       "at": 48,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A bug planted inside some fibre-optic cable.",
-     "walkthrough": "IRE in WIRETAP becomes A.",
-     "definitionFit": "Watap is a thread made from the roots of conifers, used by Native Americans for sewing canoes and baskets."
+     "surface": "A bugging device has a component swapped out for a strand of fibre.",
+     "walkthrough": "'to be replaced with' swaps IRE (I for one, RE for about) in WIRETAP for A.",
+     "definitionFit": "Watap is the thread made from the split roots of spruce or other conifers, used by Native Americans for sewing birch bark."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "Listening"
     }
    }
   },
@@ -1607,41 +1601,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AIGUILLES",
-     "indicators": [
-      {
-       "text": "lacking heart",
-       "note": "lacking a heart means the central letter is removed"
-      },
-      {
-       "text": "never ending",
-       "note": "never ending means it has no end, so the last letter goes too"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "first rate",
+       "at": 7,
        "gives": "AI",
-       "note": "A1 means first-rate, with the figure 1 read as the letter I"
+       "note": "A1 means first-rate, written here as AI"
       },
       {
-       "words": "without blame",
-       "gives": "GUILTLESS",
-       "note": "guiltless means blameless"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "never ending",
+         "at": 57,
+         "note": "never ending means it loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "lacking heart",
+           "at": 38,
+           "note": "lacking heart means the central letter of the word is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "without blame",
+           "at": 23,
+           "gives": "GUILTLESS",
+           "note": "guiltless means free of blame"
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A list of virtues describing tedious people as excellent, blameless, heartless and endless.",
-     "walkthrough": "GUILTLESS loses its middle T and its final S.",
-     "definitionFit": "Aiguilles are rock drills; to bore is to drill a hole, so the boring tools are aiguilles."
+     "surface": "A list of a tedious person's merits: excellent, blameless, heartless and endless.",
+     "walkthrough": "'lacking heart' removes T, the middle letter of GUILTLESS, giving GUILLESS; 'never ending' then drops its final S. 'Bores' looks like dull people, but it is a verb-sense noun for drilling tools.",
+     "definitionFit": "Aiguilles are needle-shaped drills used for boring holes in rock, so they are tools that make bores."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Bores"
     }
    }
