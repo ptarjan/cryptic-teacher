@@ -443,62 +443,64 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "NONCOMPLIANCE",
-     "indicators": [
-      {
-       "text": "with exchange of letters",
-       "note": "an exchange is a swap, so two letters inside the word trade places"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "Regularly",
+         "at": 0,
+         "note": "regularly means taking every other letter, here the second, fourth and sixth of unsound"
+        }
+       ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "NON",
-         "indicators": [
-          {
-           "text": "Regularly",
-           "note": "something done regularly happens at even intervals, so letters are taken at every second position"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "unsound",
-           "gives": "NON",
-           "select": "alternate",
-           "note": "the 2nd, 4th and 6th letters of uNsOuNd"
-          }
-         ]
-        },
-        {
-         "words": "complain",
-         "gives": "COMPLIAN",
-         "note": "the A and I of COMPLAIN change places"
-        },
-        {
-         "words": "engineer",
-         "gives": "CE",
-         "note": "CE = civil engineer"
+         "words": "unsound",
+         "at": 10,
+         "note": "the even-placed letters of unsound"
         }
        ]
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "with exchange of letters",
+         "at": 28,
+         "note": "two neighbouring letters of complain swap places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "complain",
+         "at": 19
+        },
+        {
+         "gives": "AI"
+        },
+        {
+         "gives": "IA"
+        }
+       ]
+      },
+      {
+       "words": "engineer",
+       "at": 54,
+       "gives": "CE",
+       "note": "CE stands for civil engineer"
       }
      ]
     },
     "explanation": {
-     "surface": "A grumble about a moody engineer who will not shift.",
-     "walkthrough": "The 'exchange of letters' is small: only A and I trade places.",
-     "definitionFit": "A plain synonym: declining to go along with a demand is refusing to budge."
+     "surface": "A grumble about faulty, swapped-round letters ends in stubbornness.",
+     "walkthrough": "COMPLAIN with its A and I exchanged becomes COMPLIAN, which sits between NON and CE.",
+     "definitionFit": "Noncompliance is failure or refusal to obey a rule or request, a stubborn unwillingness to give way."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "exchange"
+     "misdirectedWord": "engineer"
     }
    }
   },
@@ -679,47 +681,50 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Mammal",
-      "at": 0
+      "text": "Mammal's",
+      "at": 0,
+      "note": "read as 'Mammal is', with the 's as the link to the wordplay"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COATI",
-     "indicators": [
-      {
-       "text": "trimmed",
-       "note": "trimming cuts the end off, so the last letter of 'is' goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "outside layer",
+       "at": 9,
+       "gives": "COAT",
+       "note": "a coat is an outer layer, as of paint or fur"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "trimmed",
+         "at": 26,
+         "note": "trimmed means cut short, losing its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "outside layer",
-         "gives": "COAT",
-         "note": "an outer layer, as of paint or fur"
+         "words": "is",
+         "at": 23
         },
         {
-         "words": "is",
-         "gives": "I",
-         "note": "IS with its last letter trimmed"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An animal's outer fur has been clipped.",
-     "walkthrough": "The surface reads 'the mammal's coat is trimmed', but the apostrophe-s only joins the definition to the wordplay, and 'is' is itself the word being cut.",
-     "definitionFit": "A definition by example: the coati is one mammal, a raccoon relative from the Americas."
+     "surface": "A note on an animal's pelt, which has been clipped.",
+     "walkthrough": "IS loses its S by 'trimmed' and follows COAT.",
+     "definitionFit": "The coati is a long-snouted, ring-tailed American mammal related to the raccoon."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "is"
+     "misdirectedWord": "trimmed"
     }
    }
   },
@@ -970,45 +975,43 @@
      "indicators": [
       {
        "text": "missing",
-       "note": "a contestant missing something lacks it, so letters are taken away"
+       "at": 17,
+       "note": "missing tells us the letters are absent from the word for a competitor"
       }
      ],
      "parts": [
       {
        "words": "contestant",
-       "note": "the word itself"
+       "at": 6
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "TE",
        "indicators": [
         {
          "text": "outside of",
-         "note": "the outside of a word is its two ends, first and last letters"
+         "at": 25,
+         "note": "the outside of a word is its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "outside of Tralee",
-         "gives": "TE",
-         "select": "outer",
-         "note": "the first and last letters of TraleE, removed from the middle of CONTESTANT"
+         "words": "Tralee",
+         "at": 36,
+         "note": "Tralee is a town in County Kerry, Ireland, whose outer letters are wanted"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A faithful competitor fails to show up outside Tralee.",
-     "walkthrough": "Tralee is an Irish town that hosts the Rose of Tralee festival, a contest, which gives the surface its logic.",
-     "definitionFit": "A plain synonym: a constant friend is faithful and unchanging, the old sense of steadfast."
+     "surface": "A faithful competitor fails to turn up at an Irish town event.",
+     "walkthrough": "The outside of Tralee is TE, and CONTESTANT without those letters gives the answer.",
+     "definitionFit": "Constant in the old sense means faithful and steadfast in loyalty to a person or cause."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Tralee"
+     "misdirectedWord": "Loyal"
     }
    }
   },
