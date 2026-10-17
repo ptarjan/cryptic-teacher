@@ -91,47 +91,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LIBERATOR",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "loose",
+       "at": 9,
+       "note": "loose letters are not held in place, so the words robe and tailor are mixed up"
+      },
+      {
+       "text": "having removed",
+       "at": 28,
+       "note": "having removed tells us one letter is first taken out of the mixed pool"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "LIBERATOR",
-       "indicators": [
-        {
-         "text": "loose",
-         "note": "Loose things are not fastened down where they were put, so these letters do not stay in the order they are given."
-        },
-        {
-         "text": "having removed",
-         "note": "What has been removed is gone before anything else happens, so the letter named next takes no part in what follows."
-        }
-       ],
-       "parts": [
-        {
-         "words": "robe, tailor",
-         "note": "ten letters to work from, one more than the grid has room for"
-        },
-        {
-         "words": "a hoop",
-         "gives": "O",
-         "note": "a hoop is a plain ring, which on paper is the letter O — and it is the one taken out"
-        }
-       ]
+       "words": "robe, tailor",
+       "at": 15
+      },
+      {
+       "words": "a hoop",
+       "at": 43,
+       "gives": "O",
+       "note": "a hoop is a ring, shaped like the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "A tailor working in a loose robe, with a hoop taken out of it.",
-     "walkthrough": "'Freer' reads as the comparative of free and is doing a noun's job, which is the hardest kind of definition to spot. The hoop is a letter, not a crinoline.",
-     "definitionFit": "A liberator is one who sets people free, so the agent noun 'freer' names the same person by the job rather than by rank."
+     "surface": "Someone frees themselves from a baggy gown after the dressmaker takes out its hooped frame.",
+     "walkthrough": "'loose robe' looks like a description of clothing, but 'loose' is the signal to rearrange ROBE TAILOR once the O ('a hoop') has gone.",
+     "definitionFit": "A liberator is one who sets others free, so freer here is the noun for a person who frees."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Freer"
+     "misdirectedWord": "loose"
     }
    }
   },
@@ -510,47 +504,51 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "METAMORPHOSES",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "housed by",
+       "at": 37,
+       "note": "housed by means the reversed piece is lodged inside the patriarch's name"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "religious patriarch",
+       "at": 47,
+       "gives": "MOSES",
+       "note": "Moses, who led the Israelites out of Egypt, is a patriarch of Judaism"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "raised",
-         "note": "What is raised in a down entry is read from the foot of the column upwards, so those words go in backwards."
+         "at": 26,
+         "note": "in a down answer, raised means the pieces are read upwards, so from last to first"
         }
        ],
        "parts": [
         {
-         "words": "religious patriarch",
-         "gives": "MOSES",
-         "note": "Moses led the Israelites out of Egypt, and here he opens to take the rest in"
-        },
-        {
          "op": "charade",
-         "indicators": [
-          {
-           "text": "housed by",
-           "note": "To house something is to give it a roof and walls, so the name that follows opens up and takes the rest inside."
-          }
-         ],
          "parts": [
           {
-           "words": "pal",
-           "gives": "ETAM",
-           "note": "a pal is a mate, set down from the bottom up"
+           "words": "hard",
+           "at": 13,
+           "gives": "H",
+           "note": "H is the abbreviation for hard, as on pencils"
           },
           {
            "words": "for",
-           "gives": "ORP",
-           "note": "to be for something is to be pro it, also written upwards"
+           "at": 18,
+           "gives": "PRO",
+           "note": "pro is Latin for for, as in arguing pro and con"
           },
           {
-           "words": "hard",
-           "gives": "H",
-           "note": "H is hard, the grade stamped on a pencil"
+           "words": "pal",
+           "at": 22,
+           "gives": "MATE",
+           "note": "a mate is a friend or pal"
           }
          ]
         }
@@ -559,14 +557,14 @@
      ]
     },
     "explanation": {
-     "surface": "Hard changes to a friend's body, brought up and sheltered by a religious patriarch.",
-     "walkthrough": "Three pieces go inside Moses, two of them turned round, which is a great deal of instruction for one sentence to hide. 'For' meaning pro is worth learning; setters reach for it constantly.",
-     "definitionFit": "A metamorphosis is a change of form so complete the creature is unrecognisable — the caterpillar's, or Gregor Samsa's — so the plural names body changes."
+     "surface": "A story of a friend being lifted up and sheltered by a biblical leader as bodies are transformed.",
+     "walkthrough": "'hard for pal' reads as a toughness complaint, but each word is its own piece; in a down clue 'raised' reverses them to ETAMORPH, which 'housed by' places within MOSES.",
+     "definitionFit": "Metamorphoses are transformations of form, as when a caterpillar becomes a butterfly; Ovid's poem of that name is about bodies changing shape."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "for"
+     "aptDefinition": true,
+     "misdirectedWord": "hard"
     }
    }
   },
@@ -1414,37 +1412,33 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OIL",
+     "op": "middle",
      "indicators": [
       {
        "text": "shedding skin",
-       "note": "A snake sheds what is on the outside of it, so the word beside this loses the letter at each end."
+       "at": 14,
+       "note": "a snake shedding its skin loses its outer layer, so the word's first and last letters go"
       }
      ],
      "parts": [
       {
        "words": "snakes",
+       "at": 7,
        "gives": "COILS",
-       "note": "a river that snakes coils to and fro across the valley"
-      },
-      {
-       "words": "shedding skin",
-       "gives": "CS",
-       "note": "the outermost letter at each end, the skin of that word, comes away"
+       "note": "a road or river that snakes coils and winds about"
       }
      ]
     },
     "explanation": {
-     "surface": "Smooth snakes sloughing off their old skins.",
-     "walkthrough": "The smooth snake is a real British reptile, rare and protected, so the surface reads as natural history rather than instruction. 'Smooth' is the verb: to oil a hinge is to smooth its action.",
-     "definitionFit": "To oil a mechanism is to smooth it, and to oil somebody's path is to smooth that too."
+     "surface": "Serpents slough their old skins and come out looking sleek.",
+     "walkthrough": "'snakes' reads as the reptiles, but it is the verb meaning winds or coils; take off its outer letters.",
+     "definitionFit": "To oil a mechanism is to lubricate it so it runs smoothly, and oiling the wheels means easing things."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Smooth"
+     "joke": "pun",
+     "misdirectedWord": "snakes"
     }
    }
   },
