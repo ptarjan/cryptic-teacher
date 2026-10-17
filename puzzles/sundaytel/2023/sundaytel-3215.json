@@ -1246,47 +1246,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RADIUS",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "said briefly, a word is cut short, losing its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 9,
+         "note": "briefly says the set word is cut short by its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "set",
-         "gives": "RADI",
-         "note": "a radio set, cut short"
+         "at": 5,
+         "gives": "RADIO",
+         "note": "a radio set, or just a set, is a wireless receiver"
         },
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "in the middle",
-           "note": "the centre of a word is its middle letters, which are the ones kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "bust",
-           "note": "the central two letters"
-          }
-         ]
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "in the middle",
+         "at": 23,
+         "note": "in the middle says only the central letters of bust are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bust",
+         "at": 18,
+         "note": "its two middle letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A broken bone is quickly set after a bust-up.",
-     "walkthrough": "'Set' looks like a verb for fixing a fracture, but it is a noun: a radio set, then trimmed.",
-     "definitionFit": "The radius is one of the two long forearm bones, running from elbow to the thumb side of the wrist."
+     "surface": "A doctor notes that a broken bone was set quickly, with a break in the middle.",
+     "walkthrough": "'set' looks like the doctor's verb but is the noun, a radio set; 'briefly' cuts it to RADI. 'in the middle' takes US from the middle of 'bust'.",
+     "definitionFit": "The radius is one of the two long bones of the human forearm, running alongside the ulna."
     },
     "features": {
      "answerInScene": true,
