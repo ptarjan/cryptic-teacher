@@ -529,64 +529,90 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PASTRYCHEF",
+     "op": "charade",
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "PASTRYCHEF",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 45,
+         "note": "in places the rearranged letters within what is left of the mind word"
+        }
+       ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "PASTRYCHEF",
          "indicators": [
           {
-           "text": "Foremost of",
-           "note": "the first letter of foodies"
-          },
-          {
-           "text": "topless",
-           "note": "tarts loses its top letter T"
+           "text": "for",
+           "at": 53,
+           "note": "for means in place of, so the son letter leaves to make way for the tarts"
           }
          ],
          "parts": [
           {
            "words": "mind",
+           "at": 48,
            "gives": "PSYCHE",
-           "note": "the psyche is the mind"
+           "note": "the psyche is the mind or soul"
           },
           {
-           "op": "first",
+           "words": "son",
+           "at": 57,
+           "gives": "S",
+           "note": "S is the genealogical abbreviation for son"
+          }
+         ]
+        },
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "baked",
+           "at": 25,
+           "note": "baked means cooked and so transformed, signalling a rearrangement of the letters"
+          }
+         ],
+         "parts": [
+          {
+           "op": "deletion",
            "indicators": [
             {
-             "text": "baked",
-             "note": "the letters of ARTS are cooked into a new order"
-            },
-            {
-             "text": "for"
+             "text": "topless",
+             "at": 31,
+             "note": "topless means without the top, the first letter of the word"
             }
            ],
            "parts": [
             {
-             "words": "son",
-             "note": "the S of PSYCHE, which is replaced"
+             "words": "tarts",
+             "at": 39,
+             "note": "its letters, minus the top one, are the fodder"
+            },
+            {
+             "gives": "T"
             }
            ]
-          },
-          {
-           "words": "baked topless tarts",
-           "gives": "ASTR",
-           "note": "tARTS without its T, rearranged, goes in for the S"
-          },
-          {
-           "words": "Foremost of foodies",
-           "gives": "F",
-           "note": "the first letter of Foodies, which comes last"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Foremost of",
+         "at": 0,
+         "note": "foremost means the front, so the first letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "foodies",
+         "at": 12,
+         "note": "gives its first letter"
         }
        ]
       }
@@ -594,15 +620,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A foodie mother bakes tarts with her son in mind.",
-     "walkthrough": "The whole clue describes the answer: a pastry chef first among foodies, with baked tarts on the mind. 'Topless tarts' is a cheeky surface for tARTS losing its T.",
-     "definitionFit": "A pastry chef is a leading foodie whose mind runs on baked tarts."
+     "surface": "A cook with a foodie following thinks about baking open tarts for a boy.",
+     "walkthrough": "'topless' takes the T off TARTS, and 'baked' turns ARTS into ASTR. That goes 'in' PSYCHE 'for' (in place of) its S, giving PASTRYCHE, then the F of foodies ends it. Read whole, the clue also describes the answer.",
+     "definitionFit": "A pastry chef is a cook who specialises in baked goods such as tarts, so the whole clue paints one at work."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "son"
+     "misdirectedWord": "mind"
     }
    }
   },
@@ -1512,36 +1537,44 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "NEIGH",
      "indicators": [
       {
        "text": "included",
-       "note": "only the part included in the middle of the number words is kept"
+       "at": 7,
+       "note": "included means contained within, so the answer is what sits inside the run, its end letter shed too"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Series",
+         "at": 0,
+         "note": "the series is the run of numbers between six and nine, and only part of that run is wanted, so its opening is dropped"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Series",
-         "note": "tells you to write the numbers out as a run of words"
+         "words": "between six and nine",
+         "at": 16,
+         "gives": "SEVENEIGHT",
+         "note": "the numbers between six and nine are seven and eight, written together as SEVENEIGHT"
         },
         {
-         "words": "between six and nine",
-         "gives": "NEIGH",
-         "note": "the numbers between six and nine are SEVEN EIGHT; the stretch seveN EIGHt is kept"
+         "gives": "SEVE"
         }
        ]
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A price tag somewhere between six and nine pounds, a nicker being a pound.",
-     "walkthrough": "The text to search is not printed: write out the numbers between six and nine, SEVEN EIGHT. Nicker is British slang for a pound, but here it is a horse's soft whinny.",
-     "definitionFit": "Nicker is a horse's soft whinnying sound, a gentler cousin of the neigh, so the two are near-synonyms."
+     "surface": "A set of things falls somewhere between six and nine, and one is a nicker.",
+     "walkthrough": "The series of numbers between six and nine is seven, eight; the answer is included in 'seveN EIGHt', so SEVE and T fall away. 'nicker' is not the slang for a pound here but a noun for a thing that nickers.",
+     "definitionFit": "To nicker is to whinny softly, as a horse does, so a neigh is a horse's call or nicker."
     },
     "features": {
      "answerInScene": false,
