@@ -381,6 +381,22 @@ check("every jumbo's ring counts make its perimeter", True,
       all(sum(int(n) for n in c["ring"]["enumeration"].split(",")) == (56 if k == "205" else 104)
           for k, c in json.loads(cj.DATA.read_text()).items() if c.get("ring", {}).get("enumeration")))
 
+# A clue number misread (No 26's 8 across read "3"): the scan's grid shows no
+# light 3, one unclaimed light 8, and only the 8-letter clue fits it.
+_g = ["#.#.#", ".....", "#.#.#", ".....", "#.#.#"]
+_g = [[c == "." for c in r] for r in _g]
+_g = [["." if c else "#" for c in r] for r in _g]
+_rows = {"across": [{"number": "3", "enumeration": "5"}, {"number": "4", "enumeration": "5"}],
+         "down": []}
+_lights = [(n, d) for n, d, _ in rg.lights_from_grid(_g) if d == "across"]
+_rows["across"][0]["number"] = "9"
+_fixed = pw.renumbered_by_grid(_rows, _g)
+check("a number with no light renumbers to the one unclaimed light",
+      [str(n) for n, _ in _lights], [r["number"] for r in _fixed["across"]])
+_fixed = pw.renumbered_by_grid({"across": [{"number": "9", "enumeration": "4"},
+                                           {"number": "4", "enumeration": "5"}], "down": []}, _g)
+check("a clue whose length fits no unclaimed light is left", "9", _fixed["across"][0]["number"] if _fixed["across"][0]["number"] == "9" else "moved")
+
 if fails:
     print(f"{fails} failed")
     sys.exit(1)

@@ -48,7 +48,7 @@ POSITIONS_PER_VOLUME = 1000
 # A reader change that should file more of a book's leaves moves this to the
 # time it lands, in UTC: the commit's own `git log -1 --format=%cI` converted.
 # Reads are stamped the same way, so the two compare as strings.
-REREAD_BEFORE = "2026-10-17T03:55:00+00:00"
+REREAD_BEFORE = "2026-10-17T04:12:00+00:00"
 # Where a borrowed book's page OCR is kept: the only way back is another loan.
 TEXT_DIR = downloads.IA_BOOKS
 # A book leaf whose clues are a held puzzle's is that puzzle reprinted, not a
