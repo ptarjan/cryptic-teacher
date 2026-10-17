@@ -71,6 +71,33 @@ wide = list(lines)
 wide.insert(5, ps.page_lines(("<OBJECT>" + line((700, 200 + 45 * 2 + 5, 800, "Paisley"), (820, 200 + 45 * 2 + 5, 1100, "(8)"))
                               + "</OBJECT>").encode())[0])
 assert ps.columns(wide)[0][2] >= 1100, ps.columns(wide)
+# No 14: an article's numbered list ("1. ...", "2. ...") between the across
+# list under the grid and the clue column to its right is no column, and cut
+# the across list's box short of its wide clues (no reading parsed).
+def page(*ls):
+    return ps.page_lines(("<OBJECT>" + "".join(ls) + "</OBJECT>").encode())
+art = [line((872, 100 + 45 * k, 1500, f"{k + 1}. Will not be sand blasted ({k})")) for k in range(4)]
+acr = [line((100, 600, 300, "ACROSS"))] + [
+    line((100, 650 + 45 * k, 150, str(8 + k)), (160, 650 + 45 * k, 1000, "Words of a wide clue here"),
+         (1010, 650 + 45 * k, 1100, f"({5 + k})")) for k in range(5)]
+dn = [line((1300, 650 + 45 * k, 1350, str(2 + k)), (1360, 650 + 45 * k, 1900, "Words of a clue"),
+           (1910, 650 + 45 * k, 1990, f"({5 + k})")) for k in range(5)]
+got = ps.columns(page(*(art + acr + dn)))
+assert len(got) == 2 and got[0][2] >= 1100, got
+# No 138: a gap wider than a clue's between the ACROSS and DOWN lists of one column.
+one = [line((100, 100, 300, "ACROSS"))] + [
+    line((100, 150 + 45 * k, 150, str(1 + k)), (160, 150 + 45 * k, 700, "Some clue words"), (710, 150 + 45 * k, 790, "(5)"))
+    for k in range(4)] + [line((100, 600, 300, "DOWN"))] + [
+    line((100, 650 + 45 * k, 150, str(1 + k)), (160, 650 + 45 * k, 700, "Some clue words"), (710, 650 + 45 * k, 790, "(5)"))
+    for k in range(4)]
+got = ps.columns(page(*one))
+assert len(got) == 1 and got[0][1] < 120 and got[0][3] > 800, got
+# Nos 208, 275: the DOWN heading lost, the second column starting again below the across numbers.
+bx = [(0, 0, 500, 1000), (500, 0, 1000, 1000)]
+heads = lambda *ts: [(10 + 500 * (k // 3), 10 + 50 * (k % 3), 400 + 500 * (k // 3), 40 + 50 * (k % 3), t) for k, t in enumerate(ts)]
+dc = ps.column_cols(bx)(heads("ACROSS", "1 First clue words (5)", "9 Ninth clue words (6)",
+                              "2 Second down clue (5)", "3 Third down clue (4)", "4 Fourth down clue (6)"))
+assert [l[4][:1] for l in dc[0]] == ["1", "9"] and [l[4][:1] for l in dc[1]] == ["2", "3", "4"], dc
 print("NUMBER", ps.number_of(lines, 858), ps.number_of(lines[1:], 858), ps.number_of(lines[1:], 900))
 W = lambda *ts: [(0, 0, 1, 1, t) for t in ts]
 ruled = [W("EYE", "CROSSWORD", "|", "|", "|_", "280"), W("Crossword", "279", "winner:", "PETER")]
