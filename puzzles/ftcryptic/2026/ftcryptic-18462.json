@@ -147,7 +147,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Family member",
+      "text": "Family member's",
       "at": 0
      }
     ],
@@ -156,40 +156,37 @@
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "NE",
        "indicators": [
         {
          "text": "at last",
-         "note": "take the last letter of each word"
+         "at": 29,
+         "note": "only the final letter of each of the two words is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "'bon voyage' at last",
-         "gives": "NE",
-         "select": "last",
-         "note": "last letters of boN and voyagE"
+         "words": "bon voyage",
+         "at": 17,
+         "note": "the last letters of bon and voyage"
         }
        ]
       },
       {
        "words": "a sigh of relief",
+       "at": 43,
        "gives": "PHEW",
-       "note": "phew is what you say when relieved"
+       "note": "phew is what one says when relieved"
       }
      ]
     },
     "explanation": {
-     "surface": "A relative's departure is waved off with a farewell and a relieved sigh.",
-     "walkthrough": "The surface suggests a guest you were glad to see go; 'at last' looks like 'finally gone' but picks the last letters of both words.",
-     "definitionFit": "Definition by category: a brother's or sister's son is one particular relative."
+     "surface": "A relative finally waves someone off with 'bon voyage' and a sigh of relief.",
+     "walkthrough": "'at last' applies to each word of 'bon voyage', giving N and E. The definition is 'Family member's', the 's standing for 'is' before the wordplay.",
+     "definitionFit": "A nephew is the son of one's brother or sister, a relative in the wider family."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "last"
     }
    }
@@ -917,49 +914,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WRESTLER",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "dismissed",
+       "at": 24,
+       "note": "the named letters are sent away from the pool before it is rearranged"
+      },
+      {
+       "text": "out of order",
+       "at": 37,
+       "note": "out of order means jumbled, so the remaining letters of sea trawler are rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "dismissed",
-         "note": "sent away, like a player dismissed from the field, so the A's leave the fodder"
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "WRESTLER",
-         "indicators": [
-          {
-           "text": "out of order",
-           "note": "the letters left are jumbled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "sea trawler",
-           "note": "anagram fodder"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "dismissed as",
-         "note": "remove the As, the two letter A's"
-        }
-       ]
+       "words": "sea trawler",
+       "at": 12
+      },
+      {
+       "words": "as",
+       "at": 34,
+       "gives": "AA",
+       "note": "read as A's, the plural of the letter A: two As"
       }
      ]
     },
     "explanation": {
-     "surface": "A fishing boat owned by a competitor is condemned as broken.",
-     "walkthrough": "'as' reads as a plain conjunction, but here it is A's, the two letter As to drop from SEA TRAWLER.",
-     "definitionFit": "Definition by example: a grappler in the ring is one kind of contender."
+     "surface": "A competitor's trawler is written off as unseaworthy.",
+     "walkthrough": "'as' is not the word but A's, two letter As: dismiss both As from SEA TRAWLER and rearrange the rest.",
+     "definitionFit": "A wrestler is a competitor who grapples with an opponent, so someone contending in a bout."
     },
     "features": {
      "answerInScene": false,
@@ -1045,41 +1029,51 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Ground",
-       "note": "ground as in ground down, so READY is crushed into new order"
+       "text": "to welcome",
+       "at": 13,
+       "note": "the jumbled letters take the rest inside them"
       }
      ],
      "parts": [
       {
-       "words": "ready",
-       "gives": "REDAY",
-       "note": "anagram of READY"
-      },
-      {
        "op": "anagram",
        "indicators": [
         {
-         "text": "to welcome"
+         "text": "Ground",
+         "at": 0,
+         "note": "ground means crushed or pulverised, so the letters of ready are broken up and reformed"
         }
        ],
        "parts": [
         {
+         "words": "ready",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
          "words": "landlord",
+         "at": 24,
          "gives": "LETTER",
-         "note": "a landlord lets property, so is one who lets"
+         "note": "a letter is someone who lets property, a landlord"
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "finally",
-           "note": "'finally' means at the end, so only the end letter of the next word counts"
+           "at": 34,
+           "note": "only the closing letter of invited is used"
           }
          ],
          "parts": [
           {
            "words": "invited",
-           "note": "last letter of inviteD"
+           "at": 42,
+           "note": "its last letter is taken"
           }
          ]
         }
@@ -1088,15 +1082,14 @@
      ]
     },
     "explanation": {
-     "surface": "A prepared field awaits the landlord, the last to be invited to a celebration.",
-     "walkthrough": "'Ground' looks like a noun, a sports ground, but it is the past participle of grind. The landlord trick is worth learning: one who lets is a letter.",
-     "definitionFit": "Idiom: saints' days were printed in red in church calendars, so a memorable day is marked out as special."
+     "surface": "A field is prepared to receive the landlord, who was finally invited for a big day.",
+     "walkthrough": "'Ground' looks like a field but is the anagram signal. A letter, in the sense of one who lets, is a landlord; LETTER and D go inside RE...AY.",
+     "definitionFit": "A red-letter day is a memorable or important day, from the saints' days marked in red on old calendars."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "landlord"
+     "misdirectedWord": "Ground"
     }
    }
   },
@@ -1399,29 +1392,30 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "STUD",
      "indicators": [
       {
        "text": "50 per cent of",
-       "note": "fifty per cent is a half, so only half the word's letters are kept"
+       "at": 5,
+       "note": "only half of the eight letters of students is kept, the first four"
       }
      ],
      "parts": [
       {
-       "words": "50 per cent of students",
-       "gives": "STUD",
-       "note": "the first half of STUDENTS"
+       "words": "students",
+       "at": 20
+      },
+      {
+       "gives": "ENTS"
       }
      ]
     },
     "explanation": {
-     "surface": "A statistic: half of all students are men.",
-     "walkthrough": "STUDENTS has eight letters, and the first four make the answer.",
-     "definitionFit": "A stud is a male animal kept for breeding, or a virile man."
+     "surface": "Half the student body is male.",
+     "walkthrough": "The second half of STUDENTS is dropped, leaving its first four letters.",
+     "definitionFit": "A stud is a male horse or other animal kept for breeding, and slang for a virile man."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Male"
     }
