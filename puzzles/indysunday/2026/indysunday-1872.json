@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -142,36 +143,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MASSIF",
-     "indicators": [
-      {
-       "text": "rising",
-       "note": "In a down entry the letters run from top to bottom, so a piece said to be rising is written back up the column and reads the other way round."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 18,
+         "note": "rising in a down answer means going upwards, so these pieces are read from the bottom up"
+        }
+       ],
        "parts": [
         {
-         "words": "One small missile",
-         "gives": "MASSI",
-         "note": "one is the Roman I, small is S and a SAM is a surface-to-air missile; those five letters climb back up the column"
-        },
-        {
-         "words": "fighter",
-         "gives": "F",
-         "note": "F is the letter the air forces put in front of a fighter aircraft, as in F-16"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "One",
+           "at": 0,
+           "gives": "I",
+           "note": "one is the Roman numeral I"
+          },
+          {
+           "words": "small",
+           "at": 4,
+           "gives": "S"
+          },
+          {
+           "words": "missile",
+           "at": 10,
+           "gives": "SAM",
+           "note": "a SAM is a surface-to-air missile"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "fighter",
+       "at": 28,
+       "gives": "F",
+       "note": "F designates a fighter aircraft, as in the F-16"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface flies an air display, where aircraft travel in formation. The definition is geology, and the whole missile-and-fighter picture is there to keep you looking at the sky.",
-     "definitionFit": "formation -> MASSIF: a massif is a compact block of mountain peaks standing together, and geologists call such a mass of rock a formation."
+     "surface": "A single little missile climbs alongside a fighter jet flying in formation.",
+     "walkthrough": "'rising' sends I, S and SAM up the grid, giving MASSI, and F follows. 'formation' looks like aircraft flying together, but it is a geological formation.",
+     "definitionFit": "A massif is a compact group of mountains, a large geological structure of the earth's crust."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "formation"
     }
    }
   },
