@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -133,25 +134,33 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "PAELLA",
      "indicators": [
       {
-       "text": "splotched",
-       "note": "A splotched surface has had something flung at it and landed in blotches, so the letters arrive in no particular order."
+       "text": "splotched with",
+       "at": 6,
+       "note": "splotched with means blotched and mixed in with, so the letters of lapel and a are scattered into a new order"
       }
      ],
      "parts": [
       {
-       "words": "Lapel splotched with a",
-       "gives": "PAELLA",
-       "note": "five letters from the garment and one stray article, six in all, re-sorted into a Valencian rice dish"
+       "words": "Lapel",
+       "at": 0
+      },
+      {
+       "words": "a",
+       "at": 21
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a stained jacket, which is exactly what a plate of this balanced on your knee would produce.",
-     "definitionFit": "saffrony mixture: the dish is rice, seafood and vegetables cooked together in one pan and turned yellow by saffron, so it really is a tinted mixture."
+     "surface": "A diner's mishap: a jacket lapel stained with a yellow, saffron-coloured dish.",
+     "walkthrough": "'splotched' scatters the letters of LAPEL and A. 'saffrony mixture' looks like a description of the stain, but it defines the Spanish rice dish.",
+     "definitionFit": "Paella is a Spanish dish of rice cooked with seafood or meat and flavoured and coloured with saffron."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Lapel"
     }
    }
   },
@@ -790,41 +799,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "ICECREAM",
+     "spelt": "ICECREAM",
      "indicators": [
       {
        "text": "audibly",
-       "note": "What holds only audibly is judged by ear, so the letters follow the sound of the phrase and not its spelling."
+       "at": 39,
+       "note": "audibly says the phrase is spoken aloud and heard as another"
       }
      ],
      "parts": [
       {
-       "words": "the writer",
-       "gives": "I",
-       "note": "a setter referring to himself in a clue is 'the writer', which on paper is one letter"
-      },
-      {
-       "words": "emits shrill laugh",
-       "gives": "SCREAM",
-       "note": "to let out a shrill cry of laughter is to scream"
-      },
-      {
-       "op": "homophone",
-       "spelt": "ICECREAM",
-       "parts": [
-        {
-         "words": "audibly",
-         "gives": "ISCREAM",
-         "note": "said at speed the two words run together and a listener writes down something else entirely"
-        }
-       ]
+       "words": "the writer emits shrill laugh",
+       "at": 9,
+       "gives": "ISCREAM",
+       "note": "the writer is the setter, I, and emitting a shrill laugh is to scream, so the phrase is I SCREAM"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The children's chant 'I scream, you scream, we all scream for ice cream' is built on exactly this: identical sounds, quite different spellings.",
-     "definitionFit": "Dessert: the frozen sweet served at the end of a meal, so the general word covers the answer as one kind of pudding."
+     "surface": "A dessert prompts the setter to let out a shrill laugh.",
+     "walkthrough": "The playground rhyme 'I scream, you scream, we all scream for ice cream' plays on the same sound.",
+     "definitionFit": "Ice cream is a frozen sweet made from cream or milk, served as a pudding after a meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "writer"
     }
    }
   },
@@ -902,39 +903,52 @@
    "annotation": {
     "definitions": [
      {
-      "text": "snap!",
-      "at": 45
+      "text": "perhaps — snap",
+      "at": 35,
+      "note": "a snap is a crisp biscuit, as in a ginger snap; perhaps marks it as an example"
      }
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "BISCUIT",
      "indicators": [
       {
-       "text": "Unfinished",
-       "note": "A word left unfinished stops short of its last letter, so the final C never reaches the mix."
-      },
-      {
        "text": "confused",
-       "note": "Something confused has been jumbled into disorder, and letters in disorder are letters no longer in the sequence given."
-      },
-      {
-       "text": "perhaps",
-       "note": "The word flags an example rather than a synonym: one named kind is standing in for the whole family it belongs to."
+       "at": 25,
+       "note": "confused means muddled, so the remaining letters are jumbled"
       }
      ],
      "parts": [
       {
-       "words": "Unfinished, Cubistic",
-       "gives": "BISCUIT",
-       "note": "the art word gives up its closing letter, and the seven that remain are redealt"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Unfinished",
+         "at": 1,
+         "note": "unfinished drops the final letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cubistic",
+         "at": 13,
+         "note": "the art-style adjective supplies the letters"
+        },
+        {
+         "gives": "C"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The quotation marks and the dashes make the first two words look like a gallery label for a half-painted canvas. They are only letters.",
-     "definitionFit": "snap!: a ginger snap or a brandy snap is a thin crisp biscuit, so the exclamation defines the answer by one of its kinds."
+     "surface": "An art critic's verdict on an unfinished Cubist painting: confused, perhaps, and snapped out.",
+     "walkthrough": "'Unfinished' drops the last C of CUBISTIC; 'confused' jumbles CUBISTI. 'snap!' reads as an exclamation, but a snap, like a ginger snap, is a crisp biscuit.",
+     "definitionFit": "A ginger snap is a thin brittle cookie, so a snap is one kind of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "snap"
     }
    }
   },
@@ -1200,34 +1214,38 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "LICO",
        "indicators": [
         {
          "text": "bits of",
-         "note": "A bit of a word is the smallest piece that still points at it — the letter it opens with — and each word in the run gives one up."
+         "at": 6,
+         "note": "bits of takes a small piece, the first letter, from each of the following words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "bits of lardons in coulis on",
-         "gives": "LICO",
-         "select": "first",
-         "note": "the opening letters of the four words after the instruction, taken in the order they come"
+         "words": "lardons in coulis on",
+         "at": 14,
+         "note": "the four words supply their initial letters"
         }
        ]
       },
       {
        "words": "arborio, perhaps",
+       "at": 35,
        "gives": "RICE",
-       "note": "arborio is the short-grain Italian variety used for risotto, so the named type stands for the grain itself"
+       "note": "arborio is a variety of rice, used for risotto; perhaps marks it as an example"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a menu of French and Italian oddments, and 'on' looks like joinery holding it together. It is the fourth word to give up a letter.",
-     "definitionFit": "Sweet: in Britain a sweet is a piece of confectionery, and this is the black aniseed-flavoured one sold in laces and pipes."
+     "surface": "An odd recipe: lardons and coulis spooned onto arborio rice, a sweet-and-savoury mix.",
+     "walkthrough": "The cooking words are just letter sources: each word after 'bits of' gives its first letter.",
+     "definitionFit": "Licorice is a black confection flavoured with the root of the liquorice plant, a chewy sweet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bits"
     }
    }
   },
