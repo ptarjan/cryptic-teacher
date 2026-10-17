@@ -952,40 +952,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OSTRICH",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "not",
+       "at": 5,
+       "note": "not says the named letters are absent from what is left"
+      },
+      {
+       "text": "dancing",
+       "at": 26,
+       "note": "dancing moves the remaining letters about into a new order"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "OSTRICH",
-       "indicators": [
-        {
-         "text": "not",
-         "note": "Not is a plain refusal: the letters it names are the ones that will not be there."
-        },
-        {
-         "text": "dancing",
-         "note": "Dancers change places constantly, so letters set dancing end up standing somewhere new."
-        }
-       ],
-       "parts": [
-        {
-         "words": "courtship",
-         "note": "the nine letters to start from"
-        },
-        {
-         "words": "up",
-         "note": "'not up' takes away the U and the P, leaving CORTSHI"
-        }
-       ]
+       "words": "courtship",
+       "at": 16
+      },
+      {
+       "words": "up",
+       "at": 9
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Ostriches really do dance at each other in the mating season, so the surface is a plain fact about birds and gives no sign that two of its letters are about to leave.",
-     "definitionFit": "Bird → OSTRICH: the ostrich is a bird by classification even though it cannot fly, which is the small joke in defining it so flatly."
+     "surface": "A bird that is not in the mood for a mating display.",
+     "walkthrough": "'not up' removes U and P from COURTSHIP to leave CORTSHI, which 'dancing' rearranges. Courtship dancing is a real bird display, which hides the split.",
+     "definitionFit": "The ostrich is a large flightless African bird, the biggest living species."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dancing"
     }
    }
   },
@@ -1378,31 +1377,38 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Oxford",
+      "text": "Oxford?",
       "at": 17
      }
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "SHOE",
      "indicators": [
       {
        "text": "cycling",
-       "note": "Cycling sends the letters round a loop: one drops off the end and rejoins at the start, the rest keeping their order."
+       "at": 6,
+       "note": "cycling sends a letter round from one end of the word to the other"
       }
      ],
      "parts": [
       {
        "words": "Weeds",
+       "at": 0,
        "gives": "HOES",
-       "note": "to weed a border is to hoe it, so the verb weeds gives HOES"
+       "note": "to hoe is to weed, so hoes means weeds"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "This is a rotation, not a reversal: one letter travels from the back to the front and the others hold their places. 'Weeds' as a verb rather than a noun is the other half of the trick.",
-     "definitionFit": "Oxford → SHOE: an Oxford is a low lace-up with the lacing closed at the front, one style among many, which is what the question mark concedes."
+     "surface": "Students in Oxford riding bikes to do some gardening.",
+     "walkthrough": "'cycling' moves the last S of HOES to the front. Oxford is not the city but a style of laced leather shoe; the question mark flags an example.",
+     "definitionFit": "An Oxford is a classic lace-up leather shoe, so this is a definition by example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Oxford"
     }
    }
   },
