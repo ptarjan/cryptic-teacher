@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -951,31 +952,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "Mostly asks for most of a word and not the whole of it, which means dropping its final letter."
-      },
-      {
        "text": "in disguise",
-       "note": "Anything in disguise is not showing its true shape, so the letters turn up rearranged."
+       "at": 22,
+       "note": "something in disguise has its appearance changed, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "unseen, mostly",
-       "gives": "UNSEE",
-       "note": "UNSEEN handed over without its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 15,
+         "note": "mostly means all but the last letter of the word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "unseen",
+         "at": 7
+        },
+        {
+         "gives": "N"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tail who keeps out of sight and goes about it in costume.",
-     "walkthrough": "'Unseen' has to be trimmed before it is shuffled, and 'mostly' is the only word saying so. Following unseen and in disguise is exactly what a tail does, which is why the surface holds together.",
-     "definitionFit": "To ensue is to follow on or come next, as in a scuffle ensued, so follow is the plain verb sense."
+     "surface": "Someone tails a target without being spotted, mostly by wearing a disguise.",
+     "walkthrough": "'mostly' cuts UNSEEN to UNSEE, and 'in disguise' rearranges those five letters. 'Follow' reads as shadowing someone, but it means come after as a result.",
+     "definitionFit": "To ensue is to happen afterwards or as a consequence, which is one sense of follow."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "disguise"
+     "misdirectedWord": "Follow"
     }
    }
   },
