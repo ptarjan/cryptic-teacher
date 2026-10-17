@@ -401,57 +401,64 @@
     "definitions": [
      {
       "text": "sneakers",
-      "at": 30
+      "at": 30,
+      "note": "plural noun, matching the plural answer"
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "HIGHTOPS",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "the jumbled word goes inside the outer words"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "busted",
-         "note": "something busted is broken apart, so its letters are rearranged"
+         "text": "in",
+         "at": 12,
+         "note": "the broken-up Goth goes inside the stylish word"
         }
        ],
        "parts": [
         {
          "words": "stylish",
+         "at": 15,
          "gives": "HIP",
-         "note": "hip means fashionable"
+         "note": "hip means fashionable, stylish"
         },
         {
-         "words": "Goth",
-         "gives": "GHTO",
-         "note": "the four letters rearranged"
-        },
-        {
-         "words": "small",
-         "gives": "S",
-         "note": "S is the size abbreviation for small"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "busted",
+           "at": 5,
+           "note": "something busted is broken apart, so the letters of Goth are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Goth",
+           "at": 0
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "small",
+       "at": 24,
+       "gives": "S",
+       "note": "S is the clothing-size abbreviation for small"
       }
      ]
     },
     "explanation": {
-     "surface": "A goth arrested while wearing trendy little trainers.",
-     "walkthrough": "HIP and S are joined, and the jumbled letters go between the I and P of HIP.",
-     "definitionFit": "High-tops are sneakers that extend up over the ankle, a kind of athletic shoe."
+     "surface": "A goth character bursts into a trendy little shoe shop.",
+     "walkthrough": "'busted' turns GOTH into GHTO, which sits 'in' HIP, and S closes the word. High-tops are sneakers that rise over the ankle.",
+     "definitionFit": "High-tops are a style of athletic shoe cut above the ankle, so they are a kind of sneaker, the American word for trainers."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "busted"
+     "misdirectedWord": "Goth"
     }
    }
   },
@@ -998,57 +1005,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "THURSDAYS",
-     "indicators": [
-      {
-       "text": "Unfortunately",
-       "note": "an unfortunate turn of events messes things up, so the name's letters are scrambled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Unfortunately",
+         "at": 0,
+         "note": "an unfortunate outcome has gone awry, so Ruth's letters come out in a different order"
+        }
+       ],
        "parts": [
         {
          "words": "Ruth",
-         "gives": "THUR",
-         "note": "the name's letters rearranged"
+         "at": 15,
+         "note": "taken as written, as anagram material"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 29,
+         "note": "the speaking word wraps around the Roman numeral"
+        }
+       ],
+       "parts": [
+        {
+         "words": "declaims",
+         "at": 20,
+         "gives": "SAYS",
+         "note": "to declaim is to speak out, so it gives says"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "around",
-           "note": "the word for declaims goes around the numeral"
-          }
-         ],
-         "parts": [
-          {
-           "words": "declaims",
-           "gives": "SAYS",
-           "note": "says aloud"
-          },
-          {
-           "words": "500",
-           "gives": "D",
-           "note": "D is 500 in Roman numerals"
-          }
-         ]
+         "words": "500",
+         "at": 36,
+         "gives": "D",
+         "note": "D is the Roman numeral for 500"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ruth sadly makes a speech some five hundred times a week.",
-     "definitionFit": "Thursdays are particular days that come around in each week."
+     "surface": "Poor Ruth makes speeches over and over, five hundred times a week.",
+     "walkthrough": "'Unfortunately' makes THUR from RUTH; 'around' puts SAYS outside D to make SDAYS. The definition is fair because Thursday comes once in every week.",
+     "definitionFit": "Each Thursday is one particular day recurring weekly, so the plural names occasions that fall once in a week."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "500"
+     "aptDefinition": true,
+     "misdirectedWord": "Unfortunately"
     }
    }
   },
