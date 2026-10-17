@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -47,19 +48,28 @@
      "parts": [
       {
        "words": "military",
+       "at": 12,
        "gives": "WAR",
-       "note": "the military business is war, and the word swaps straight in"
+       "note": "war is military action"
       },
       {
        "words": "decorations possibly",
+       "at": 21,
        "gives": "BLING",
-       "note": "bling is showy ornament worn to be noticed, and medals are one kind of decoration"
+       "note": "bling is showy, conspicuous jewellery or ornament; medals worn on the chest could possibly be called that"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Medals as war bling is the joke the whole surface is built on, and the definition is the single word left at the end.",
-     "definitionFit": "singing -> WARBLING: warbling is singing with a trill or quaver in it, the way a bird or a wobbly tenor does."
+     "surface": "Showy medals for gallantry might get a soldier singing their own praises.",
+     "walkthrough": "'Conspicuous' plays on the Conspicuous Gallantry medals and describes the flashiness of bling: military decorations could be called war bling, as 'possibly' admits.",
+     "definitionFit": "Warbling is trilling melodically, a birdlike way of producing song."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Conspicuous"
     }
    }
   },
@@ -193,36 +203,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VOID",
-     "indicators": [
-      {
-       "text": "put at the front",
-       "note": "it says where the letter lands: at the head of the assembly, ahead of everything the poet has left"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "verse",
+       "at": 8,
+       "gives": "V"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "put at the front",
+         "at": 14,
+         "note": "the verse letter is taken from second place in the poet's name and stood at its head instead"
+        }
+       ],
        "parts": [
         {
-         "words": "verse",
-         "gives": "V",
-         "note": "V is the standard short form for verse"
+         "words": "Roman poet",
+         "at": 34,
+         "gives": "OVID",
+         "note": "Ovid, the Roman poet of the Metamorphoses"
         },
         {
-         "words": "Roman poet",
-         "gives": "OID",
-         "note": "Ovid is the Roman poet, and this is what remains once his V has gone to the front"
+         "gives": "V"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The poet lends his own V to the head of his name. 'Opening' reads as an adjective describing the verse and is the noun definition.",
-     "definitionFit": "Opening -> VOID: a void is an empty space, the gap left where something ought to be, which is what an opening is."
+     "surface": "A poem begins with a verse placed first by a classical Roman writer.",
+     "walkthrough": "Take OVID and, as 'put at the front' says, shift its V to the head: V + OID.",
+     "definitionFit": "A void is a gap or empty space, an opening in something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Opening"
     }
    }
   },
@@ -472,47 +491,71 @@
        "indicators": [
         {
          "text": "adopted by",
-         "note": "a child adopted by a family is taken into it, so the defensive position moves inside the word that adopts it"
+         "at": 19,
+         "note": "the fort is taken in, sitting inside the excellent letters"
         }
        ],
        "parts": [
         {
          "words": "excellent",
+         "at": 30,
          "gives": "AI",
-         "note": "A1 means first-rate, and the 1 is written as the letter beside it on the page"
+         "note": "A1 means first-class, excellent, written here AI"
         },
         {
          "words": "Defensive position",
+         "at": 0,
          "gives": "FORT",
-         "note": "a fort is a defensive position"
+         "note": "a fort is a fortified defensive position"
         }
        ]
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "ORI",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "core of",
-         "note": "the core of a thing is its centre, so only the letters at the middle of that word are taken"
+         "text": "core",
+         "at": 40,
+         "note": "a core is what is left when the outside is cut away, so the closing letters of motorists go"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "core of motorists",
-         "gives": "ORI",
-         "select": "middle",
-         "note": "the three letters at the dead centre of that nine-letter word"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "of",
+           "at": 45,
+           "note": "read with core, the core of a word loses its outside, here the opening letters of motorists"
+          }
+         ],
+         "parts": [
+          {
+           "words": "motorists",
+           "at": 48,
+           "note": "taken as written, then pared down to its middle"
+          },
+          {
+           "gives": "MOT"
+          }
+         ]
+        },
+        {
+         "gives": "STS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is all traffic and defensive driving, and the answer is a Latin tag from formal argument. 'Excellent' as A1 is a standing crossword trick.",
-     "definitionFit": "with stronger reason -> A FORTIORI: the Latin tag used in argument to say a conclusion follows even more surely than the one just granted."
+     "surface": "Drivers seem to have taken up a defensive stance with fine reasoning.",
+     "walkthrough": "A1 is a classic way of saying excellent, written as A and I, and 'adopted by' sets the fort between them for AFORTI. The 'core of' motorists strips MOT from the front and STS from the back.",
+     "definitionFit": "A fortiori is a Latin phrase used in argument meaning all the more so, for an even stronger reason."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "adopted"
     }
    }
   },
@@ -791,40 +834,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PITTSBURGH",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 29,
+       "note": "the reversed street name goes in the middle of the word for central part"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "central part",
+       "at": 32,
+       "gives": "PITH",
+       "note": "pith is the essential, central part of something"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "set up",
-         "note": "in a down clue, letters set up are read from the bottom of the grid upwards, so they arrive the other way round"
-        },
-        {
-         "text": "in",
-         "note": "what goes in something sits between its letters instead of before or after it"
+         "at": 22,
+         "note": "in a down clue, set up means the letters are read upwards, i.e. reversed"
         }
        ],
        "parts": [
         {
-         "words": "central part",
-         "gives": "PITH",
-         "note": "the pith is the central part of a stem or a piece of fruit"
-        },
-        {
-         "words": "Grub Street",
-         "gives": "TSBURG",
-         "note": "Grub Street was the London street of hack writers, ST is street as always, and the six letters go in bottom to top"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Grub",
+           "at": 10,
+           "gives": "GRUB"
+          },
+          {
+           "words": "Street",
+           "at": 15,
+           "gives": "ST"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The trap is reading 'central part' as an instruction to take a word's middle letters. It is a synonym, and it is the piece everything else goes inside.",
-     "definitionFit": "City -> PITTSBURGH: the Pennsylvania steel city, one particular place standing in for the general word."
+     "surface": "A city has its Grub Street, home of hack writers, right in the middle.",
+     "walkthrough": "GRUB + ST 'set up' (read upwards) gives TSBURG, which goes 'in' PITH after PIT. Grub Street was London's byword for hack writing.",
+     "definitionFit": "Pittsburgh is a city in Pennsylvania, USA, famous for steel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grub"
     }
    }
   },
@@ -911,36 +973,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WHITEHOT",
+     "op": "container",
      "indicators": [
       {
-       "text": "Melted",
-       "note": "metal that has melted has run out of the shape it was cast in, and letters treated so hold none of their order"
+       "text": "in",
+       "at": 16,
+       "note": "the reshaped letters go inside the word for a little bit"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "a little bit",
+       "at": 19,
+       "gives": "WHIT",
+       "note": "a whit is a tiny amount, as in not a whit"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Melted",
+         "at": 0,
+         "note": "melted things lose their shape, so the letters of the and the ring letter are reshaped"
+        }
+       ],
        "parts": [
         {
-         "words": "a little bit",
-         "gives": "WHIT",
-         "note": "a whit is the smallest amount there is, as in 'not a whit'"
+         "words": "the",
+         "at": 7
         },
         {
-         "words": "the Ring",
-         "gives": "EHOT",
-         "note": "the word 'the' plus the round O a ring draws, four letters run together and melted"
+         "words": "Ring",
+         "at": 11,
+         "gives": "O",
+         "note": "O looks like a ring"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A ring written as O is one of the conventions worth owning early. The enumeration (5-3) is the tell that this is a hyphenated pair, not one long word.",
-     "definitionFit": "having a high temperature -> WHITE-HOT: metal heated past red glows white, so the phrase names the top of the visible heat scale."
+     "surface": "The Ring, Wagner's or Tolkien's, melted down a little in great heat.",
+     "walkthrough": "THE plus O 'Melted' gives TEHO, which sits 'in' WHIT after WHI.",
+     "definitionFit": "White-hot describes metal heated so much it glows white, i.e. extremely hot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ring"
     }
    }
   },
@@ -1205,42 +1285,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NABOTH",
+     "op": "container",
      "indicators": [
       {
        "text": "about",
-       "note": "what goes about a thing wraps round the outside of it, so the comment splits and takes the rest inside"
+       "at": 44,
+       "note": "the negative comment goes around the half-bottle"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "half",
-         "note": "half of a six-letter word is three letters, and it is the front three that stay"
-        }
-       ],
-       "parts": [
-        {
-         "words": "negative comment for some",
-         "gives": "NAH",
-         "note": "nah is the casual spelling of no that some speakers favour"
-        },
-        {
-         "words": "half-bottle",
-         "gives": "BOT",
-         "note": "the first three letters of the six that spell the bottle"
-        }
-       ]
+       "words": "negative comment for some",
+       "at": 17,
+       "gives": "NAH",
+       "note": "nah is how some people say no"
+      },
+      {
+       "words": "half-bottle",
+       "at": 50,
+       "gives": "BOT",
+       "note": "the first half of the word bottle"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A half-bottle is a real thing on a wine list, which is what makes the instruction invisible in a clue about a vineyard.",
-     "definitionFit": "Vineyard owner -> NABOTH: the man in 1 Kings whose vineyard King Ahab coveted and had him killed for, a name doing duty as a description."
+     "surface": "Someone says no to a half-bottle of a vineyard's wine.",
+     "walkthrough": "NAH goes 'about' BOT. The 's in the clue is 'is', a link.",
+     "definitionFit": "Naboth is the biblical man whose vineyard King Ahab coveted in 1 Kings 21."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },
@@ -1535,45 +1610,51 @@
      "op": "container",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "'ultimately' points at the end of a word, the letter that comes last of all"
+       "text": "contains",
+       "at": 21,
+       "note": "the clue says the letter contains the bricks"
       },
       {
        "text": "On the contrary",
-       "note": "it reverses the sentence just read, so the two pieces swap roles and the bricks do the holding"
+       "at": 38,
+       "note": "reverses the containment: the bricks hold the letter, not the other way round"
       }
      ],
      "parts": [
       {
        "words": "bricks",
+       "at": 30,
        "gives": "LEGO",
-       "note": "the plastic bricks children build with"
+       "note": "Lego is the toy building-brick brand"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "T",
        "indicators": [
         {
-         "text": "contains",
-         "note": "'contains' would put the word in front of it round the outside of what follows"
+         "text": "ultimately",
+         "at": 10,
+         "note": "the final letter of the word that"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "that ultimately",
-         "gives": "T",
-         "select": "last",
-         "note": "the last letter of the word 'that'"
+         "words": "that",
+         "at": 5,
+         "note": "the last letter of that"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A brand name doing duty as ordinary bricks, and a setter admitting in three words that he has just described the containment the wrong way round.",
-     "definitionFit": "Sack -> LET GO: to let an employee go is the polite phrase for dismissing them, which is exactly what sacking is."
+     "surface": "A bag that turns out to hold building bricks, or the reverse.",
+     "walkthrough": "T is 'that ultimately'. Read literally, T 'contains' LEGO; 'On the contrary' flips it so LEGO contains T.",
+     "definitionFit": "To let go an employee is to dismiss them, which is what to sack means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sack"
     }
    }
   },
@@ -1598,52 +1679,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GUTENBERG",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "instinctive",
+       "at": 10,
+       "gives": "GUT",
+       "note": "a gut reaction is an instinctive one"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
          "text": "probing",
-         "note": "something probing pushes into what it examines, so this letter ends up inside the letters it is named next to"
+         "at": 33,
+         "note": "the book letter pushes into the rearranged letters"
         }
        ],
        "parts": [
         {
-         "words": "instinctive",
-         "gives": "GUT",
-         "note": "an instinctive reaction is a gut one"
-        },
-        {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
            "text": "manoeuvring",
-           "note": "troops manoeuvring shift about into new positions, and letters told to do it keep none of their order"
+           "at": 47,
+           "note": "the letters of Green are moved around into a new order"
           }
          ],
          "parts": [
           {
            "words": "Green",
-           "gives": "ENERG",
-           "note": "the same five letters in a new order, opening up to take another"
-          },
-          {
-           "words": "book",
-           "gives": "B",
-           "note": "B is the standard short form for book"
+           "at": 41
           }
          ]
+        },
+        {
+         "words": "book",
+         "at": 28,
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Pressman' reads as a reporter and the answer is the man who built the press itself, which is why the definition sits there unremarked.",
-     "definitionFit": "Pressman -> GUTENBERG: Johannes Gutenberg built Europe's first printing press, so the word is journalist on the surface and printer in fact."
+     "surface": "A journalist acting on instinct uses a book to investigate the Green Party's manoeuvres.",
+     "walkthrough": "GREEN 'manoeuvring' gives ENERG, and B goes 'probing' in after EN to make ENBERG.",
+     "definitionFit": "Johannes Gutenberg invented the movable-type printing press, so he is the original man of the press."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pressman"
     }
    }
   }
