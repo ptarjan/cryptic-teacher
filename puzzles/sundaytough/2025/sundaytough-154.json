@@ -128,58 +128,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNCLE",
+     "op": "container",
      "indicators": [
       {
-       "text": "without capital",
-       "note": "a capital is an initial letter, so going without one drops the start of the word"
+       "text": "held in",
+       "at": 19,
+       "note": "the letters from collateral are held inside the shortened month"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "held in",
-         "note": "what is held in something sits inside it, enclosed by the outer word"
+         "text": "without capital",
+         "at": 33,
+         "note": "the capital, the initial letter, of the month is dropped"
         }
        ],
        "parts": [
         {
          "words": "month",
-         "gives": "UNE",
-         "note": "June, minus its first letter"
+         "at": 27,
+         "gives": "JUNE",
+         "note": "June is a month"
         },
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "clearly",
-           "note": "only what shows plainly at the edges of the word is kept, its visible outside"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Collateral",
-           "note": "the first and last letters of the word"
-          }
-         ]
+         "gives": "J"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "clearly",
+         "at": 11,
+         "note": "only what shows clearly at the edges of the word, its outside letters, is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Collateral",
+         "at": 0,
+         "note": "the first and last letters of collateral"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Security for a loan is kept safe for a set month by the money lender.",
-     "walkthrough": "UNCLE is old British slang for a pawnbroker, who holds goods as security for a loan; fittingly an uncle is also a collateral relative.",
-     "definitionFit": "Uncle is a slang term for a pawnbroker, a person who advances money against pledged goods."
+     "surface": "Security for a loan is plainly kept for a month, without money, for the lender.",
+     "walkthrough": "'Collateral' reads as part of the definition but supplies only its two edge letters, which 'clearly' shows. Uncle is old British slang for a pawnbroker, a lender against pledged goods.",
+     "definitionFit": "Uncle is a slang name for a pawnbroker, who lends money against pledged goods."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "capital"
+     "joke": "pun",
+     "misdirectedWord": "Collateral"
     }
    }
   },
@@ -878,43 +885,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ADVISORY",
+     "op": "container",
      "indicators": [
       {
-       "text": "without helmet",
-       "note": "taking off a helmet bares the head, so the top letter is removed"
+       "text": "to carry",
+       "at": 33,
+       "note": "the shortened woman word carries the shield word inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to carry",
-         "note": "carrying means holding something within, so one piece goes inside another"
+         "text": "without helmet",
+         "at": 18,
+         "note": "the helmet is what sits on the head, so the head, the first letter, of the woman word goes"
         }
        ],
        "parts": [
         {
          "words": "woman",
-         "gives": "ADY",
-         "note": "lady, losing her first letter"
+         "at": 12,
+         "gives": "LADY",
+         "note": "a lady is a woman"
         },
         {
-         "words": "shield",
-         "gives": "VISOR",
-         "note": "a visor shields the face or eyes"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "shield",
+       "at": 42,
+       "gives": "VISOR",
+       "note": "a visor is a shield for the face or eyes"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman who has removed her helmet is told to carry a shield for protection.",
-     "walkthrough": "Helmet and shield suggest a knight in armour; the helmet only signals beheading, and the shield is a visor.",
-     "definitionFit": "An advisory role or body gives counsel, so the adjective means the same as offering advice."
+     "surface": "A woman takes off her helmet to carry a shield, as if in armour.",
+     "walkthrough": "The helmet stands for the head, so 'without helmet' means beheaded, losing the first letter; the shield is the face-guard on a helmet.",
+     "definitionFit": "Advisory describes a role that gives advice, such as an advisory panel, which is what counselling does."
     },
     "features": {
      "answerInScene": false,
