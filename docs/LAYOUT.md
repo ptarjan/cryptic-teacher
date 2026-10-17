@@ -1006,9 +1006,9 @@ tools/test_app_tab_pages.js                    holds the home-screen app's Puzzl
                                                between tabs, while a browser tab keeps the old
                                                panels
 tools/test_phone_scroll.js                     drives a real headless Chromium as an iPhone
-                                               home-screen app: the Puzzles list scrolls itself,
-                                               never the page behind it after a puzzle visit, and
-                                               touching rows paints no highlight
+                                               home-screen app: the Puzzles list scrolls
+                                               itself, never the page behind it after a puzzle
+                                               visit, and touching rows paints no highlight
 tools/mobile_browser.js                        the iPhone-emulating headless Chromium (touch
                                                swipes, standalone display mode) the scroll test
                                                drives over the DevTools protocol
@@ -1500,6 +1500,10 @@ tools/data/ctc_unstick.json                    per stuck or long-waited clue CtC
                                                letters, other sense) and the ladder rungs that
                                                show it; a summary by clue type against quick
                                                solves, with every rung order scored
+tools/data/ctc_hint_check.json                 per annotated clue CtC solved on video: each
+                                               hint rung we show beside what the solver said
+                                               explaining the same clue, and whether the two
+                                               agree; a summary on top
 tools/data/yt_solvers/                         the same moments, solve times, parse check and
                                                unstick tables for each other solve channel, as
                                                <slug>_<kind>.json, plus skill_check.json (our
@@ -1570,6 +1574,9 @@ docs/FEATURES.md                               how the hint ladder behaves, and 
                                                other features
 docs/PUZZLE_FORMAT.md                          the puzzle file format, the annotation rules the
                                                validator enforces, and the provenance blocks
+docs/findings_triage.md                        the annotation backlog by finding class (a
+                                               fixable by code, b needs a model, c validator
+                                               false positive), and the plan for clearing it
 docs/CLUE_SHAPES.md                            every whole-clue wordplay shape in the corpus,
                                                counted and judged: which shapes make sense as a
                                                cryptic mechanism and which are redundant,
@@ -2908,5 +2915,7 @@ tools/data/lexicons/spellings.json             answer letters mapped to their sp
                                                tools/build_spellings.py
 tools/test_reconstruct_budget.py               reconstruct_grid's node budget covers every
                                                path, and its pruning is sound
+tools/test_ctc_hintcheck.py                    does hintcheck's per-clue comparison classify
+                                               what it should, and stay silent otherwise?
 ```
 <!-- LAYOUT-END -->
