@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -221,42 +222,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "COGNITIVE",
-     "indicators": [
-      {
-       "text": "spreading",
-       "note": "What spreads goes out in every direction at once, so the letters before it need not stay in the order they were given."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Clubs",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the card-suit abbreviation for clubs"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spreading",
+         "at": 17,
+         "note": "spreading means the words are spread about into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Clubs",
-         "gives": "C",
-         "note": "c = clubs, the card suit on a scoresheet"
+         "words": "give",
+         "at": 6,
+         "note": "taken as written"
         },
         {
-         "words": "give in to",
-         "gives": "OGNITIVE",
-         "note": "eight letters re-set to follow the card suit"
+         "words": "in",
+         "at": 11
+        },
+        {
+         "words": "to",
+         "at": 14,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Clubs surrendering to the spread of learning.",
-     "walkthrough": "'Clubs' is the card suit's single letter, not a group of people or a set of weapons. The definition is an adjective, which the 'of' standing in front of it quietly tells you.",
-     "definitionFit": "Cognitive means having to do with knowing — perception, memory, learning — so it is the adjective for anything concerning how knowledge is picked up."
+     "surface": "A golfing or social club relents as knowledge spreads among its members.",
+     "walkthrough": "'give in' reads as surrender, but 'give', 'in' and 'to' are all raw material for 'spreading', which turns them into OGNITIVE after C.",
+     "definitionFit": "Cognitive describes mental processes such as learning and understanding, the ways a mind acquires knowledge."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Clubs"
+     "misdirectedWord": "give"
     }
    }
   },
@@ -789,56 +799,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HYACINTHS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "feeds",
+       "at": 18,
+       "note": "feeds means goes into, so the jumbled name is placed between the outer letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "liberally",
-         "note": "Letters handled liberally are handled freely, with no obligation to stay in the order they came in."
-        },
-        {
          "text": "borders of",
-         "note": "A border is an edge, so the word after it gives up its first and last letters and nothing in between."
+         "at": 24,
+         "note": "the borders of a word are its first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "feeds",
-           "note": "What feeds into something goes inside it, so the jumbled letters are set between the two that are left standing."
-          }
-         ],
-         "parts": [
-          {
-           "words": "herbaceous",
-           "note": "the two borders of HERBACEOUS, one at each end of the answer"
-          }
-         ]
-        },
+         "words": "herbaceous",
+         "at": 35,
+         "note": "first and last letters of herbaceous"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "liberally",
+         "at": 8,
+         "note": "liberally means freely, without sticking to the original order of the letters"
+        }
+       ],
+       "parts": [
         {
          "words": "Cynthia",
-         "gives": "YACINTH",
-         "note": "seven letters re-set to fill the gap between those two"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cynthia generously feeding the edges of a herbaceous border.",
-     "walkthrough": "'Borders' reads as a garden bed and works as the two ends of a word, which is the whole of the misdirection. The proper name is in the clue for its seven letters and nothing else.",
-     "definitionFit": "Hyacinths are the spring bulbs grown in beds and bowls for their scented spikes, so they are plants in the plainest sense of the word."
+     "surface": "A gardener called Cynthia generously fertilises the edges of her flowerbeds.",
+     "walkthrough": "'liberally' turns CYNTHIA into YACINTH, which 'feeds' into H...S, the 'borders of herbaceous'.",
+     "definitionFit": "Hyacinths are bulb flowers grown in gardens for their scented spring blooms, a kind of plant."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "borders"
+     "misdirectedWord": "feeds"
     }
    }
   },
