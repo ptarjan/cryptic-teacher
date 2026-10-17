@@ -52,57 +52,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THEOAKS",
-     "indicators": [
-      {
-       "text": "uncovered",
-       "note": "uncovered means stripped of its covering, so the outside letters of the word are taken away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "uncovered",
+         "at": 8,
+         "note": "uncovered means the outer letters, the covering at each end, are removed"
+        }
+       ],
        "parts": [
         {
          "words": "other",
-         "gives": "THE",
-         "note": "the word with its first and last letters removed"
-        },
+         "at": 18,
+         "note": "the inner letters of other are taken"
+        }
+       ]
+      },
+      {
+       "words": "old",
+       "at": 24,
+       "gives": "O"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "words": "old",
-         "gives": "O",
-         "note": "O is the standard abbreviation for old"
-        },
+         "text": "regularly neglected",
+         "at": 35,
+         "note": "regularly neglected means every other letter is ignored, leaving the alternate ones"
+        }
+       ],
+       "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "AKS",
-         "indicators": [
-          {
-           "text": "regularly neglected",
-           "note": "neglecting letters at regular intervals leaves every other letter of the word standing"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "haikus",
-           "gives": "AKS",
-           "select": "alternate",
-           "note": "the even letters kept, the odd ones dropped"
-          }
-         ]
+         "words": "haikus",
+         "at": 28,
+         "note": "the second, fourth and sixth letters of haikus are kept"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A critic dismissing old-fashioned Japanese poetry as a so-called classic.",
-     "walkthrough": "The Oaks is one of the five English Classics, the flat horse races for three-year-olds; it is run at Epsom for fillies.",
-     "definitionFit": "In British racing a Classic is one of five major races, and the Oaks is one of them."
+     "surface": "Japanese poems from long ago are neglected and stripped of their appeal.",
+     "walkthrough": "The Oaks is one of England's five Classic horse races, run at Epsom for fillies. 'regularly neglected' drops H, I and U from HAIKUS.",
+     "definitionFit": "The Oaks is one of the five British Classics, the flat races for three-year-olds."
     },
     "features": {
      "answerInScene": false,
@@ -733,38 +729,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TUNISIAN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Briefly",
-       "note": "briefly means cut short, so the word loses its final letter"
+       "text": "vagrant",
+       "at": 18,
+       "note": "vagrant means wandering, so the letters stray into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "vagrant",
-         "note": "a vagrant wanders about, so these letters drift out of their order"
+         "text": "Briefly",
+         "at": 0,
+         "note": "briefly means the word is cut short by its last letter"
         }
        ],
        "parts": [
         {
          "words": "insinuate",
-         "gives": "INSINUAT",
-         "note": "the word without its last letter"
+         "at": 8,
+         "note": "all of insinuate but its final letter is used"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone hinting that a homeless person comes from North Africa.",
-     "walkthrough": "'Vagrant' reads as a noun, the person being talked about; it is an adjective-style anagram signal.",
-     "definitionFit": "Tunisia lies on the Mediterranean coast of North Africa, so a Tunisian person or thing comes from there."
+     "surface": "Someone hints in passing that a tramp comes from North Africa.",
+     "walkthrough": "'Briefly' trims INSINUATE to INSINUAT, and 'vagrant' scrambles those letters.",
+     "definitionFit": "Tunisian describes a person or thing from Tunisia, a country in North Africa."
     },
     "features": {
      "answerInScene": true,
