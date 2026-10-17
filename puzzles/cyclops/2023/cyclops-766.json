@@ -50,54 +50,55 @@
      "op": "container",
      "indicators": [
       {
-       "text": "finally",
-       "note": "takes the final letter of 'Democrat'"
+       "text": "cuts",
+       "at": 22,
+       "note": "cuts means these letters slice into the middle of the state's abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "cuts"
-        }
-       ],
-       "parts": [
-        {
-         "words": "state",
-         "gives": "PA",
-         "note": "PA is the postal abbreviation for Pennsylvania"
-        },
-        {
-         "words": "When",
-         "gives": "AS",
-         "note": "'as' in the sense 'when'"
-        }
-       ]
+       "words": "state",
+       "at": 27,
+       "gives": "PA",
+       "note": "PA is the postal abbreviation for Pennsylvania"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "T",
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "Democrat finally",
-         "gives": "T",
-         "select": "last",
-         "note": "last letter of DemocraT"
+         "words": "When",
+         "at": 0,
+         "gives": "AS",
+         "note": "as can mean when, as in 'as I left'"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 14,
+           "note": "finally points to the last letter of Democrat"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Democrat",
+           "at": 5,
+           "note": "its last letter"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An American politician slashes a state's food budget.",
-     "walkthrough": "The surface reads 'cuts' as spending cuts; here it means cutting into PA.",
-     "definitionFit": "A definition by category: pasta is one kind of food, so the broad word stands for the specific one."
+     "surface": "A political jibe: when the Democrat finally slashes the state's food budget.",
+     "walkthrough": "AS plus T (Democrat 'finally') 'cuts' into PA, the US state abbreviation for Pennsylvania.",
+     "definitionFit": "Pasta, such as spaghetti or penne, is a staple Italian food."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "cuts"
     }
@@ -283,45 +284,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OCTOPUS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "against",
+       "at": 45,
+       "note": "against here means next to, so society's letter is placed beside the jumble"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "reckless",
-         "note": "COP-OUT is rearranged recklessly"
-        },
-        {
-         "text": "against"
+         "at": 28,
+         "note": "reckless suggests the letters of cop-out are thrown about carelessly into a new order"
         }
        ],
        "parts": [
         {
          "words": "cop-out",
-         "gives": "OCTOPU",
-         "note": "COPOUT rearranged"
-        },
-        {
-         "words": "society",
-         "gives": "S",
-         "note": "standard abbreviation"
+         "at": 37,
+         "note": "taken for its letters"
         }
        ]
+      },
+      {
+       "words": "society",
+       "at": 53,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A sprawling organisation dodges its responsibilities to society.",
-     "walkthrough": "An octopus is a figurative name for an organisation with tentacles everywhere.",
-     "definitionFit": "An organisation reaching into many areas is called an octopus, after its many arms."
+     "surface": "A sprawling organisation's careless evasion is set against society.",
+     "walkthrough": "'against' here means beside, so the society letter simply sits after the jumbled 'reckless' letters; 'Far-reaching' is part of the definition, not a separate instruction.",
+     "definitionFit": "An octopus is used figuratively for an organisation with many far-reaching branches, like the creature's tentacles."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "cop-out"
+     "misdirectedWord": "reckless"
     }
    }
   },
@@ -389,44 +393,36 @@
    "annotation": {
     "definitions": [
      {
-      "text": "means of keeping things hot",
-      "at": 25
+      "text": "useful means of keeping things hot?",
+      "at": 18
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 0,
+       "note": "In tells us the answer is lying inside the run of words that follows"
+      }
+     ],
      "parts": [
       {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "In",
-         "note": "the answer sits inside the words that follow"
-        }
-       ],
-       "parts": [
-        {
-         "words": "fact, her most",
-         "gives": "THERMOS",
-         "note": "facT HER MOSt"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "useful",
-       "note": "surface padding"
+       "words": "fact, her most",
+       "at": 3,
+       "note": "the answer runs across the end of fact, all of her and the start of most"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about the handiest way to keep something warm.",
-     "walkthrough": "The answer runs across three words, ignoring the comma.",
-     "definitionFit": "A Thermos flask keeps drinks hot."
+     "surface": "Someone claims a thing is in fact her most useful item.",
+     "walkthrough": "The letters sit inside 'facT HER MOSt'; the question mark flags that a flask is only one example of keeping things hot.",
+     "definitionFit": "A Thermos is a vacuum flask, a handy container that keeps drinks hot for hours."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fact"
     }
    }
   },
@@ -517,46 +513,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about"
+       "text": "about",
+       "at": 43,
+       "note": "about means the sigh goes around the letters from the Labourite"
       }
      ],
      "parts": [
       {
        "words": "an expression of disappointment",
+       "at": 11,
        "gives": "SIGH",
        "note": "a sigh expresses disappointment"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "LE",
        "indicators": [
         {
          "text": "gutless",
-         "note": "Labourite loses its insides, leaving L and E"
+         "at": 49,
+         "note": "gutless means the inside of Labourite is removed, leaving its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "gutless Labourite",
-         "gives": "LE",
-         "select": "outer",
-         "note": "LabouritE with its middle removed"
+         "words": "Labourite",
+         "at": 57,
+         "note": "its outer letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sighs at a spineless Labour Party member.",
-     "walkthrough": "'It conveys' looks like the start of the wordplay but is the definition: a sleigh carries people.",
-     "definitionFit": "A definition by function: 'it conveys' describes what the thing does, carrying people and goods over snow."
+     "surface": "A political sketch: a sigh of disappointment over a spineless Labour member.",
+     "walkthrough": "'gutless' Labourite leaves LE, and SIGH goes 'about' it.",
+     "definitionFit": "A sleigh is a sledge vehicle that carries people or goods over snow, so it conveys them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "conveys"
+     "misdirectedWord": "gutless"
     }
    }
   },
@@ -595,43 +591,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PERISCOPE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "intervening in",
+       "at": 10,
+       "note": "intervening in means the jumbled letters go between the letters of the pontiff"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "pontiff's",
+       "at": 25,
+       "gives": "POPE",
+       "note": "the pontiff is the Pope"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "off",
-         "note": "CRIES goes off, rearranged"
-        },
-        {
-         "text": "intervening in"
+         "at": 6,
+         "note": "off suggests the letters of cries have gone wrong and need rearranging"
         }
        ],
        "parts": [
         {
-         "words": "pontiff",
-         "gives": "POPE",
-         "note": "the pontiff is the Pope"
-        },
-        {
          "words": "Cries",
-         "gives": "ERISC",
-         "note": "CRIES rearranged"
+         "at": 0,
+         "note": "taken for its letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Shouts of protest interrupt the Pope as he looks out over the faithful.",
-     "walkthrough": "'Cries off' looks like 'backs out'; 'off' is the anagram signal.",
-     "definitionFit": "A periscope lets you see over the heads of a crowd."
+     "surface": "The Pope's cries ring out over the crowd.",
+     "walkthrough": "The pontiff's name is split after its first letter to take the jumbled cries 'intervening in' it; the definition is playful, since a periscope literally lets you look over a crowd.",
+     "definitionFit": "A periscope lets you see over obstacles, such as a crowd, using mirrors in a tube."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "off"
     }
@@ -662,41 +662,38 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "EN",
        "indicators": [
         {
          "text": "starts",
-         "note": "take the starting letters of 'Eye' and 'never'"
+         "at": 19,
+         "note": "starts tells us to take the opening letter of each of the two words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Eye — never starts",
-         "gives": "EN",
-         "select": "first",
-         "note": "first letters of Eye and Never"
+         "words": "Eye — never",
+         "at": 7,
+         "note": "first letters of Eye and never"
         }
        ]
       },
       {
        "words": "to instigate a lawsuit",
+       "at": 26,
        "gives": "SUE",
-       "note": "to sue is to bring a lawsuit"
+       "note": "to sue is to begin legal action"
       }
      ]
     },
     "explanation": {
-     "surface": "Private Eye vows never to be the one who starts legal action.",
-     "walkthrough": "Private Eye, the magazine this puzzle appears in, is famously sued for libel, which makes the surface a joke on itself.",
-     "definitionFit": "A plain synonym in the sense of coming next as a result, as trouble follows a bad decision."
+     "surface": "Private Eye boasts it never starts a lawsuit, being the one usually sued.",
+     "walkthrough": "The 'starts' of Eye and never give EN, followed by SUE.",
+     "definitionFit": "To ensue is to happen afterwards as a result, so it means to follow on."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Follow"
+     "misdirectedWord": "Eye"
     }
    }
   },
@@ -955,41 +952,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INEBRIATE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "Stick",
+       "at": 0,
+       "note": "Stick means the single letter is attached to the rest of the entry"
+      },
+      {
+       "text": "on",
+       "at": 10,
+       "note": "on, in a down clue, means placed on top of what follows"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "one",
+       "at": 6,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "on",
-         "note": "in a down answer, I is placed on top of what follows"
-        },
-        {
          "text": "useless",
-         "note": "IRATE BEN is made useless, rearranged"
+         "at": 24,
+         "note": "useless suggests the letters of irate Ben are broken and must be rearranged"
         }
        ],
        "parts": [
         {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral one"
-        },
-        {
          "words": "irate Ben",
-         "gives": "NEBRIATE",
-         "note": "IRATEBEN rearranged"
+         "at": 13,
+         "note": "taken for its letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An order to punch an angry, hopeless drunk called Ben.",
-     "walkthrough": "'Stick one on' is slang for punching someone; here it just places I above the rest. A piss-artist is British slang for a habitual drunk.",
-     "definitionFit": "A regional slang match: piss-artist is British slang for a habitual drunk, which is what the formal noun means."
+     "surface": "Someone thumps irate Ben, a hopeless drunk.",
+     "walkthrough": "'Stick one' reads as hitting someone, but it means fixing the numeral I 'on' top of the down entry; 'useless' marks Ben's angry words for rearranging.",
+     "definitionFit": "A piss-artist is British slang for a heavy drinker, and an inebriate is a habitual drunkard."
     },
     "features": {
      "answerInScene": true,
@@ -1709,35 +1714,33 @@
      "parts": [
       {
        "words": "after that time",
+       "at": 7,
        "gives": "SINCE",
        "note": "since means from that time on"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "RE",
        "indicators": [
         {
          "text": "leaders",
-         "note": "the leading letters of 'redneck' and 'extremist'"
+         "at": 46,
+         "note": "leaders are the front letters of redneck and extremist"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "redneck extremist leaders",
-         "gives": "RE",
-         "select": "first",
-         "note": "first letters of Redneck and Extremist"
+         "words": "redneck extremist",
+         "at": 28,
+         "note": "first letters of each word"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone called Frank, who has since joined the leaders of far-right rednecks.",
-     "walkthrough": "Frank looks like a man's name; it means honest. A redneck is a US term for a reactionary rural white person.",
-     "definitionFit": "Frank and sincere both mean honest and open."
+     "surface": "A man named Frank, ever since he joined some redneck extremist leaders.",
+     "walkthrough": "SINCE, 'with' the 'leaders' of redneck and extremist, R and E.",
+     "definitionFit": "Sincere and frank both describe speech that is honest and genuine, without pretence."
     },
     "features": {
      "answerInScene": false,
