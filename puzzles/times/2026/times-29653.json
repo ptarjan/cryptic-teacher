@@ -741,56 +741,92 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TOWEL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 10,
+       "note": "'in' places the pronoun inside the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "TOWEL",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fancy",
+         "at": 13,
+         "note": "fancy as a verb means to dress up or elaborate, so the remaining letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "fancy",
-           "note": "fancy as a verb: the letters are reimagined in a new order"
-          },
-          {
-           "text": "but not",
-           "note": "removes what follows from the word"
-          },
-          {
-           "text": "in"
+           "text": "not",
+           "at": 30,
+           "note": "'not' completes the removal: the other half of the church's coat is also kept out of cloth"
           }
          ],
          "parts": [
           {
-           "words": "fancy cloth, but not coat of church",
-           "gives": "TOL",
-           "note": "CLOTH minus C and H (the outside of 'church') leaves LOT, rearranged to TOL"
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "but",
+             "at": 26,
+             "note": "'but' in the sense 'except' starts the removal of the coat of church from the word cloth"
+            }
+           ],
+           "parts": [
+            {
+             "words": "cloth",
+             "at": 19
+            },
+            {
+             "op": "first",
+             "indicators": [
+              {
+               "text": "coat of",
+               "at": 34,
+               "note": "the coat of a word is its outside, the first and last letters of church"
+              }
+             ],
+             "parts": [
+              {
+               "words": "church",
+               "at": 42,
+               "note": "its outer letters are C and H"
+              }
+             ]
+            }
+           ]
           },
           {
-           "words": "You and I",
-           "gives": "WE",
-           "note": "you and I together are we"
+           "gives": "H"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "You and I",
+       "at": 0,
+       "gives": "WE",
+       "note": "you and I together are 'we'"
       }
      ]
     },
     "explanation": {
-     "surface": "A couple wrapped in fancy fabric, but not in church vestments.",
-     "walkthrough": "'Cloth' appears twice: the first is fodder, the second the definition. 'Coat of church' is its outer letters, C and H.",
-     "definitionFit": "A definition by category: the thing you dry yourself with after a bath is a piece of cloth."
+     "surface": "A fabric shopper wants something fancy for the two of them, but not the kind of cloth used for church vestments.",
+     "walkthrough": "'But not coat of church' removes C and H, the outside of 'church': C goes to leave LOTH, then H to leave LOT, which 'fancy' rearranges to TOL. 'In' places WE inside. The first 'cloth' is fodder, the second the definition.",
+     "definitionFit": "A towel is a piece of absorbent fabric for drying, so it is a kind of cloth."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "coat"
+     "misdirectedWord": "fancy"
     }
    }
   },
