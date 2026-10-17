@@ -200,40 +200,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HOPSCOTCH",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "'mostly' means most but not all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 7,
+         "note": "mostly means not quite all, so the last letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "Aspire",
-         "gives": "HOP",
-         "note": "to aspire is to hope; HOPE without its last letter"
+         "at": 0,
+         "gives": "HOPE",
+         "note": "to aspire is to hope"
         },
         {
-         "words": "to put the kibosh",
-         "gives": "SCOTCH",
-         "note": "to scotch a plan is to put a stop to it"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "to put the kibosh on",
+       "at": 14,
+       "gives": "SCOTCH",
+       "note": "to scotch a plan is to put the kibosh on it, to put a stop to it"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone wants to put an end to a children's game.",
-     "walkthrough": "HOPE loses its E, then SCOTCH, meaning to quash, follows. 'Put the kibosh on' is an idiom for stopping something; 'on' simply links to the definition.",
-     "definitionFit": "Hopscotch is a playground pastime where children hop through numbered squares chalked on the ground."
+     "surface": "Someone's ambitions are mostly crushed before a children's game can begin.",
+     "walkthrough": "'mostly' drops the last letter of HOPE; to scotch a rumour or plan is to stamp it out.",
+     "definitionFit": "Hopscotch is a playground pastime where children hop through squares chalked on the ground."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Aspire"
     }
@@ -415,26 +419,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "TRIDENT",
      "indicators": [
       {
        "text": "when losing its tip",
-       "note": "a tip is an end point, and losing it means the opening letter goes"
+       "at": 21,
+       "note": "the tip of the word is its first letter, which is lost"
       }
      ],
      "parts": [
       {
        "words": "very loud",
-       "gives": "TRIDENT",
-       "note": "strident means harsh and very loud; drop its S"
+       "at": 11,
+       "gives": "STRIDENT",
+       "note": "a strident noise is loud and harsh"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A missile screams loudly until its nose cone comes off.",
-     "walkthrough": "STRIDENT, meaning shrill and loud, loses its first letter. 'tip' here is the front of the word, not of a warhead.",
-     "definitionFit": "Trident is the name of the submarine-launched nuclear ballistic missile used by the UK and US navies."
+     "surface": "A missile that screams loudly goes quiet once its warhead tip is knocked off.",
+     "walkthrough": "'losing its tip' takes the first letter off STRIDENT.",
+     "definitionFit": "Trident is the name of the submarine-launched nuclear missile system used by Britain and the US."
     },
     "features": {
      "answerInScene": true,
@@ -533,26 +540,25 @@
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "INSTA",
      "indicators": [
       {
        "text": "partially",
-       "note": "'partially' means only in part, so a section of the following word is used"
+       "at": 17,
+       "note": "only part of the next word is used, so the answer sits within its letters"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "reinstalled",
-       "note": "the run of letters sits inside this word"
+       "at": 27,
+       "note": "the letters sit inside the word: letters 3-7 of 'reinstalled'"
       }
      ]
     },
     "explanation": {
-     "surface": "A phone user has only managed to reinstall part of a social media app.",
-     "walkthrough": "The answer sits inside 'reINSTAlled'.",
-     "definitionFit": "Insta is the common informal short name for Instagram, the photo-sharing platform."
+     "surface": "A user has only partly put a social media app back on their phone.",
+     "walkthrough": "'partially' points to a run of letters inside 'reinstalled'.",
+     "definitionFit": "Insta is the everyday short name for Instagram, the photo-sharing platform."
     },
     "features": {
      "answerInScene": true,
@@ -997,43 +1003,37 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 10,
+       "note": "the throwing-up word comes after the letters from stiff"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "first couple of stiff",
+       "at": 16,
        "gives": "ST",
-       "indicators": [
-        {
-         "text": "first couple of",
-         "note": "a couple is two, so the opening two letters are kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "stiff",
-         "gives": "ST",
-         "select": "first",
-         "note": "the opening two letters"
-        }
-       ]
+       "note": "the first two letters of the word stiff"
       },
       {
        "words": "Throws up",
+       "at": 0,
        "gives": "RETCHES",
-       "note": "to retch is to heave or vomit"
+       "note": "someone who throws up retches"
       }
      ]
     },
     "explanation": {
-     "surface": "An athlete is sick after starting some stiff warm-up routines.",
-     "walkthrough": "The vomiting comes first in the clue, but 'after' places it second in the answer, behind the two letters taken from 'stiff'.",
-     "definitionFit": "Stretches are limbering movements done before sport to loosen muscles, a typical part of a warm-up."
+     "surface": "An athlete vomits after a couple of stiff drinks, ruining the warm-up.",
+     "walkthrough": "'Throws up' looks like the start of the definition, but it is the wordplay; the definition is at the end.",
+     "definitionFit": "Stretches are limbering movements done to loosen muscles before exercise."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "stiff"
+     "misdirectedWord": "Throws"
     }
    }
   },
@@ -1266,40 +1266,38 @@
      }
     ],
     "wordplay": {
-     "op": "hidden",
-     "unchecked": true,
-     "gives": "NODES",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "some",
-       "note": "'some' takes only a portion of the letters that follow"
+       "text": "Set up",
+       "at": 0,
+       "note": "in a down clue, set up means written upwards, read in reverse"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "NODES",
+       "op": "hidden",
        "indicators": [
         {
-         "text": "Set up",
-         "note": "in a down clue, setting something up raises it, so it reads from the bottom upwards"
+         "text": "some",
+         "at": 7,
+         "note": "only some of the letters of the words are used, sitting across them"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "centralised online",
-         "note": "the letters run across the end of one word and the start of the next"
+         "at": 12,
+         "note": "the letters run across the two words: centrali-SED ON-line"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sets up central online connection points for a network.",
-     "walkthrough": "Inside 'centraliSED ONline' is SEDON, which read upwards gives the answer.",
-     "definitionFit": "In a network, nodes are the junctions where links meet and data is passed on."
+     "surface": "Someone builds a few centralised online hubs where connections meet.",
+     "walkthrough": "'some' takes the letters SEDON spanning 'centralised online', and 'Set up' turns them round.",
+     "definitionFit": "Nodes are the junctions in a network, where links between devices or lines meet."
     },
     "features": {
      "answerInScene": true,
