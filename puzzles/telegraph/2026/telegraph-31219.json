@@ -137,48 +137,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RECOLLECT",
+     "op": "composite",
      "indicators": [
       {
        "text": "convoluted",
-       "note": "something convoluted is twisted and tangled, so the letters are jumbled"
+       "at": 9,
+       "note": "something convoluted is twisted and tangled, so the remaining letters are rearranged"
+      },
+      {
+       "text": "Not",
+       "at": 33,
+       "note": "Not I tells you to take the letter I out of the fodder before rearranging"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "RECOLLECT",
-       "indicators": [
-        {
-         "text": "Not I",
-         "note": "'not' tells you to leave out the letter that follows it from the material"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Celtic lore",
-         "note": "taken as written, ten letters"
-        },
-        {
-         "words": "I",
-         "note": "the letter to be dropped from the ten"
-        }
-       ]
+       "words": "Celtic lore",
+       "at": 20
+      },
+      {
+       "words": "I",
+       "at": 37
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is asked whether they recall tangled Celtic myths, and answers that they do not.",
-     "walkthrough": "Remove the I from the two words first, leaving nine letters to rearrange.",
-     "definitionFit": "To recollect is to call something back to mind, a straightforward verb synonym."
+     "surface": "Someone tries to recall tangled Irish legends but insists it was not them.",
+     "walkthrough": "'Not I' removes the I from CELTIC LORE, leaving CELTCLORE, and 'convoluted' rearranges those nine letters.",
+     "definitionFit": "To recollect is to call something back to mind, a near-synonym of remember."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "convoluted"
+     "misdirectedWord": "Celtic"
     }
    }
   },
@@ -1090,48 +1081,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXTREME",
+     "op": "container",
      "indicators": [
       {
-       "text": "removing bottom half",
-       "note": "removing the bottom half means dropping the second part of the word"
+       "text": "in",
+       "at": 43,
+       "note": "the remaining letters go inside the river's name"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "river",
+       "at": 46,
+       "gives": "EXE",
+       "note": "the Exe is a river in Devon, a crossword favourite"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "something in another thing is enclosed by it"
+         "text": "removing bottom half",
+         "at": 22,
+         "note": "the second half of the word trembles, its bottom, is taken away"
         }
        ],
        "parts": [
         {
-         "words": "river",
-         "gives": "EXE",
-         "note": "the Exe is a river in Devon, south-west England"
+         "words": "trembles",
+         "at": 13
         },
         {
-         "words": "trembles",
-         "gives": "TREM",
-         "note": "the first four of its eight letters"
+         "gives": "BLES"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone shudders hardest of all as they lose their lower half in a river.",
-     "walkthrough": "In an across clue the 'bottom' half is the end of the word.",
-     "definitionFit": "Extreme means at the furthest, most intense degree, so it matches the superlative of violent."
+     "surface": "The most violent shaking loses its lower part in a river.",
+     "walkthrough": "TREMBLES 'removing bottom half' leaves TREM, which goes 'in' EXE, the Devon river, after EX.",
+     "definitionFit": "Extreme describes the furthest or most intense degree, so the most violent storm is an extreme one."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "bottom"
     }
    }
@@ -1268,43 +1261,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TEACHER",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter is cut"
+       "text": "without",
+       "at": 46,
+       "note": "without in its old sense of outside: the shortened term goes around the pain"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "without",
-         "note": "without in its old sense means outside, so one part wraps around another"
+         "text": "almost",
+         "at": 39,
+         "note": "the word term is taken without its final letter"
         }
        ],
        "parts": [
         {
          "words": "term",
-         "gives": "TER",
-         "note": "the word less its final letter"
+         "at": 33,
+         "gives": "TERM"
         },
         {
-         "words": "anguish",
-         "gives": "ACHE",
-         "note": "an ache is anguish or pain"
+         "gives": "M"
         }
        ]
+      },
+      {
+       "words": "anguish",
+       "at": 54,
+       "gives": "ACHE",
+       "note": "ache is pain or anguish"
       }
      ]
     },
     "explanation": {
-     "surface": "A schoolteacher gets through nearly the whole term free of distress.",
-     "walkthrough": "'Without' looks like 'free of', but here it means outside; 'in school' belongs to the definition.",
-     "definitionFit": "A teacher is a person who gives lessons to pupils, so the descriptive phrase defines the job."
+     "surface": "A teacher, nearly at the end of term, is free from worry.",
+     "walkthrough": "'school' belongs to the definition, not to term. TERM 'almost' is TER; 'without' here means outside, so TER wraps around ACHE after TE.",
+     "definitionFit": "A teacher is a person who gives lessons to pupils, delivering them in a classroom."
     },
     "features": {
      "answerInScene": true,
