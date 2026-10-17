@@ -506,48 +506,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DIACT",
+     "op": "container",
      "indicators": [
       {
-       "text": "Shorter",
-       "note": "making a word shorter means trimming letters off its end"
+       "text": "in",
+       "at": 23,
+       "note": "the adjective's letter sits inside the dictionary abbreviation, as the clue's 'in' says"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "to be in something is to be held within it, so one piece goes inside"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Oxford, say",
-         "gives": "DICT",
-         "note": "the Oxford is an example of a dictionary, here clipped to its usual abbreviation"
-        },
-        {
-         "words": "adjective",
-         "gives": "A",
-         "note": "a. is the dictionary abbreviation for adjective"
-        }
-       ]
+       "words": "Shorter Oxford, say",
+       "at": 26,
+       "gives": "DICT",
+       "note": "the Shorter Oxford is a dictionary, abbreviated DICT"
+      },
+      {
+       "words": "adjective",
+       "at": 13,
+       "gives": "A",
+       "note": "A is the grammar abbreviation for adjective"
       }
      ]
     },
     "explanation": {
-     "surface": "A dictionary entry quoting a technical word and its part of speech.",
-     "walkthrough": "'Shorter Oxford' looks like the title of the famous dictionary, but 'Shorter' is the cutting instruction and 'say' marks Oxford as one example.",
-     "definitionFit": "Diact describes a sponge spicule having two rays, the zoological term for a two-pointed structure."
+     "surface": "A lexicographer's note that the word 'two-rayed' is listed as an adjective in the Shorter Oxford.",
+     "walkthrough": "'Shorter Oxford, say' is a definition by example: the Shorter Oxford English Dictionary is one dictionary, giving DICT.",
+     "definitionFit": "A diact is a sponge spicule with two rays, so the word describes something having a pair of rays."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Shorter"
     }
    }
@@ -814,47 +803,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LIEINWAIT",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "with leader ousted",
-       "note": "the leader is the first in line, and ousting it drops the opening letter"
+       "text": "reassembles",
+       "at": 41,
+       "note": "to reassemble is to put together again in a new arrangement, so these letters are reordered"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "new",
+       "at": 8
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "reassembles",
-         "note": "putting things together again differently rearranges the letters into another order"
+         "text": "with leader ousted",
+         "at": 21,
+         "note": "the leader of militia is its first letter, and ousting it drops that letter"
         }
        ],
        "parts": [
         {
-         "words": "new",
-         "note": "taken as written"
+         "words": "militia",
+         "at": 12,
+         "note": "taken as written, minus its first letter"
         },
         {
-         "words": "militia",
-         "gives": "ILITIA",
-         "note": "the word without its first letter"
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rebel force regroups after its commander is deposed, and hides in ambush.",
-     "walkthrough": "'new' looks like it describes the militia, but it is part of the material being rearranged.",
-     "definitionFit": "To lie in wait is to stay concealed ready to ambush, which is just what lurking means."
+     "surface": "A news line: a new militia, having got rid of its commander, regroups.",
+     "walkthrough": "Dropping the M of militia leaves ILITIA; with NEW those nine letters rearrange into the answer.",
+     "definitionFit": "To lurk is to stay hidden ready to pounce, which is exactly what the phrase means."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "new"
+     "misdirectedWord": "reassembles"
     }
    }
   },
@@ -1502,46 +1494,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PAROL",
-     "indicators": [
-      {
-       "text": "Short",
-       "note": "something short has been cut down, so the word is clipped to its abbreviated form"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Short",
+         "at": 0,
+         "note": "short means the word is cut off before its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "paragraph",
-         "gives": "PAR",
-         "note": "the word cut down to its first three letters"
+         "at": 6,
+         "gives": "PARA",
+         "note": "PARA is the usual abbreviation for paragraph"
         },
         {
-         "words": "old",
-         "gives": "O",
-         "note": "O is the abbreviation for old"
-        },
-        {
-         "words": "lecturer",
-         "gives": "L",
-         "note": "L is the abbreviation for lecturer"
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "old",
+       "at": 19,
+       "gives": "O"
+      },
+      {
+       "words": "lecturer",
+       "at": 23,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A brief passage from a former teacher is read out.",
-     "walkthrough": "'by' simply strings the pieces together; the legal term is less familiar than its paroled cousin.",
-     "definitionFit": "In law parol means given by word of mouth rather than in writing, an oral term."
+     "surface": "A brief paragraph by an elderly academic gets read out.",
+     "walkthrough": "PARA shortened gives PAR, then O and L follow it.",
+     "definitionFit": "Parol is a legal term for something given by word of mouth rather than in writing, so it means oral."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "lecturer"
     }
    }
   },
@@ -1801,36 +1797,39 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SASSY",
      "indicators": [
       {
        "text": "taking the place of everything in",
-       "note": "taking the place of everything inside means swapping out all the interior letters while keeping the ends"
+       "at": 10,
+       "note": "the new word replaces all of servery's inner letters, leaving only its first and last"
       }
      ],
      "parts": [
       {
        "words": "servery",
-       "gives": "SCULLERY",
-       "note": "a scullery is a back kitchen where food is served and washed up"
+       "at": 44,
+       "note": "taken as written: its outer letters S and Y stay"
+      },
+      {
+       "gives": "ERVER"
       },
       {
        "words": "mug",
+       "at": 6,
        "gives": "ASS",
-       "note": "a mug is a fool, as is an ass"
+       "note": "a mug is a fool, an ass"
       }
      ]
     },
     "explanation": {
-     "surface": "A clean cup replaces every item in the canteen.",
-     "walkthrough": "'Fresh' looks like it describes the mug but is the definition, in its sense of cheeky; only the first and last letters of the room survive.",
-     "definitionFit": "Fresh in the sense of impudent or forward is a synonym of sassy, meaning cheeky and bold."
+     "surface": "A clean mug put in place of the whole stock in a canteen's serving area.",
+     "walkthrough": "'Everything in servery' means all of its inside letters, ERVER; ASS goes in their place between S and Y.",
+     "definitionFit": "Fresh in the sense of cheeky or impudent, which is what sassy means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Fresh"
+     "misdirectedWord": "mug"
     }
    }
   },
@@ -2100,41 +2099,65 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "UNDULY",
      "indicators": [
       {
        "text": "to go",
-       "note": "letters that are to go are removed from the words"
+       "at": 34,
+       "note": "right is to go, so its letter is removed from the pair of words"
       }
      ],
      "parts": [
       {
-       "words": "Box",
-       "gives": "FUND",
-       "note": "a box can be a collecting box, a fund of money"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "and",
+         "at": 24,
+         "note": "'and' couples fine with right, so fine too is among the letters that go"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Box",
+           "at": 0,
+           "gives": "FUND",
+           "note": "a box of money, such as a collection box, is a fund"
+          },
+          {
+           "words": "orderly",
+           "at": 9,
+           "gives": "RULY",
+           "note": "ruly is an old word for orderly, the opposite of unruly"
+          }
+         ]
+        },
+        {
+         "words": "fine",
+         "at": 19,
+         "gives": "F",
+         "note": "F is the pencil-grade abbreviation for fine"
+        }
+       ]
       },
       {
-       "words": "orderly",
-       "gives": "RULY",
-       "note": "ruly is the rare positive of unruly, meaning orderly"
-      },
-      {
-       "words": "fine and right",
-       "gives": "FR",
-       "note": "F is the abbreviation for fine and R for right; these are the letters removed"
+       "words": "right",
+       "at": 28,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Boxing alongside a medical orderly, with a referee's ruling about what is excessive.",
-     "walkthrough": "'orderly' looks like a hospital attendant, but it is the adjective whose rare form ruly is the opposite of unruly.",
-     "definitionFit": "Unduly means excessively or to an unwarranted degree, going beyond what is proper."
+     "surface": "A hospital orderly sparring with a box, with a fine imposed and his rights removed.",
+     "walkthrough": "RULY, the rare positive of unruly, means orderly. Remove F from FUND and R from RULY to leave UND and ULY.",
+     "definitionFit": "Unduly means excessively, to a degree beyond what is proper or warranted."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "orderly"
+     "misdirectedWord": "Box"
     }
    }
   },
