@@ -89,43 +89,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNHITCH",
+     "op": "container",
      "indicators": [
       {
-       "text": "though not starter",
-       "note": "leaving out the starter means the opening letter is dropped"
+       "text": "dining on",
+       "at": 31,
+       "note": "dining on means eating, so the shortened meal takes the success word inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "dining on",
-         "note": "someone dining takes food in, so one piece goes inside another"
+         "text": "though not starter",
+         "at": 11,
+         "note": "not starter means without its first letter, so the meal word loses its opening letter"
         }
        ],
        "parts": [
         {
          "words": "meal",
-         "gives": "UNCH",
-         "note": "lunch is a meal, here without its first letter"
+         "at": 5,
+         "gives": "LUNCH",
+         "note": "lunch is a meal"
         },
         {
-         "words": "success",
-         "gives": "HIT",
-         "note": "a hit is a success"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "success",
+       "at": 41,
+       "gives": "HIT",
+       "note": "a hit is a success"
       }
      ]
     },
     "explanation": {
-     "surface": "A complimentary lunch, minus the first course, eaten to celebrate a triumph.",
-     "walkthrough": "'Free meal' looks like one idea, but 'Free' is the definition and the meal is lunch; 'starter' plays on the first course.",
-     "definitionFit": "To unhitch a horse or trailer is to unfasten and release it, so the verb means liberate."
+     "surface": "A free lunch, minus the first course, is had while celebrating a triumph.",
+     "walkthrough": "'though not starter' cuts LUNCH to UNCH, and 'dining on' puts HIT inside it. 'starter' looks like a first course, which fits the meal, but it means the first letter.",
+     "definitionFit": "To unhitch something is to unfasten it and so set it loose."
     },
     "features": {
      "answerInScene": false,
@@ -330,43 +335,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OVERSEE",
+     "op": "container",
      "indicators": [
       {
-       "text": "heartless",
-       "note": "without a heart means the central letter of the word is removed"
+       "text": "in",
+       "at": 19,
+       "note": "in means placed inside, so the poetry word goes within what is left of ode"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "one thing sitting inside another means it is placed within the outer letters"
+         "text": "heartless",
+         "at": 22,
+         "note": "heartless means with its centre removed, so ode loses its middle letter"
         }
        ],
        "parts": [
         {
          "words": "ode",
-         "gives": "OE",
-         "note": "the word with its middle letter D taken out"
+         "at": 32
         },
         {
-         "words": "some poetry",
-         "gives": "VERSE",
-         "note": "verse is a portion of poetry"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "some poetry",
+       "at": 7,
+       "gives": "VERSE",
+       "note": "verse is poetry"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone handles a little poetry within a lacklustre, soulless ode.",
-     "walkthrough": "The two remaining letters of the poem wrap around the poetry; 'heartless' sounds like criticism but just drops a middle letter.",
-     "definitionFit": "To oversee a project is to supervise or run it, a straightforward synonym for managing people or work."
+     "surface": "A poet must handle a stanza within a lifeless ode.",
+     "walkthrough": "'heartless' takes the D from ODE, leaving OE, and 'in' puts VERSE inside.",
+     "definitionFit": "To oversee a task is to supervise it, keeping watch over how it is done."
     },
     "features": {
      "answerInScene": false,
