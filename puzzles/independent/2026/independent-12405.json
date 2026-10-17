@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -50,44 +51,45 @@
        "indicators": [
         {
          "text": "leaving",
-         "note": "what leaves a word walks out of it, so the scrap named next is subtracted from the letters assembled so far"
+         "at": 20,
+         "note": "the note leaves, so its letters are taken from the word for lover"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Lover",
-           "gives": "MISTRESS",
-           "note": "the word for a man's lover on the side, and it is about to lose its first two letters"
-          },
-          {
-           "words": "in",
-           "note": "the little word is taken at face value, two letters straight from the clue"
-          },
-          {
-           "words": "government",
-           "gives": "G",
-           "note": "G is the abbreviation for government, the G of G-men"
-          }
-         ]
+         "words": "Lover",
+         "at": 0,
+         "gives": "MISTRESS",
+         "note": "a mistress is a lover"
         },
         {
-         "gives": "MI"
+         "words": "note",
+         "at": 28,
+         "gives": "MI",
+         "note": "mi is a note of the sol-fa scale"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "note",
-       "note": "MI is a note of the sol-fa scale, and those are the two letters that go"
+       "words": "in",
+       "at": 6
+      },
+      {
+       "words": "government",
+       "at": 9,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface promises a Westminster affair, and the dash is where it stops: everything before it is letters. Sol-fa gives a setter do, re, mi, fa, so, la and te as ready-made two-letter scraps.",
-     "definitionFit": "feeling the pressure -> STRESSING: the informal verb for being under strain, as in 'don't stress' — mental load rather than physical force."
+     "surface": "A minister's lover quits a note, a government scandal sending someone under strain.",
+     "walkthrough": "'Leaving note' reads like writing a goodbye letter, but it removes MI, the sol-fa note, from MISTRESS.",
+     "definitionFit": "Stressing is informal for being anxious or under strain, so feeling the pressure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
     }
    }
   },
@@ -180,49 +182,55 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "sent up",
-       "note": "in a down entry, anything sent up climbs back towards the first square, so the piece is read bottom to top"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "third of",
-         "note": "the third of a word is the letter you land on counting three in from its start"
+         "text": "sent up",
+         "at": 14,
+         "note": "in a down clue, sent up means sent upwards, so the word is read backwards"
         }
        ],
        "parts": [
         {
          "words": "wig",
+         "at": 10,
          "gives": "RUG",
-         "note": "a rug is slang for a hairpiece, and these three letters climb the entry"
+         "note": "rug is slang for a wig or toupee"
         }
        ]
       },
       {
        "op": "nth",
-       "unchecked": true,
-       "gives": "U",
        "n": 3,
+       "indicators": [
+        {
+         "text": "third of",
+         "at": 25,
+         "note": "the third letter of the word students is taken"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "third of students",
-         "gives": "U",
-         "select": 3,
-         "note": "counting three letters into students lands on this one"
+         "words": "students",
+         "at": 34,
+         "note": "the third letter of students"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Wig, teacher and students all belong to the same schoolroom picture, and only one of the three words is the definition — the other two are hair and a single letter.",
-     "definitionFit": "Teacher -> GURU: the Sanskrit word for a spiritual teacher, borrowed into English for any revered expert whose followers hang on the advice."
+     "surface": "A teacher's hairpiece is mocked by a third of the class.",
+     "walkthrough": "'Sent up' looks like mockery but reverses RUG in this down entry; 'third of students' is its third letter, not a fraction of the class.",
+     "definitionFit": "A guru is a spiritual teacher in Hinduism, and more widely any revered guide or mentor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "sent"
     }
    }
   },
@@ -295,36 +303,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TINAMOU",
-     "indicators": [
-      {
-       "text": "tailless",
-       "note": "a creature with no tail is missing what comes at its very back, so the word gives up its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Can",
+       "at": 0,
+       "gives": "TIN",
+       "note": "a tin is a can"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "tailless",
+         "at": 9,
+         "note": "losing its tail means the last letter of the word for love is cut off"
+        }
+       ],
        "parts": [
         {
-         "words": "Can",
-         "gives": "TIN",
-         "note": "a tin is a can, the food container"
+         "words": "love",
+         "at": 4,
+         "gives": "AMOUR",
+         "note": "amour is love, a love affair"
         },
         {
-         "words": "love",
-         "gives": "AMOU",
-         "note": "amour is French for love, and its closing R is the tail that goes"
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Three short words and no obvious instruction: 'tailless' is the only signal, and it is pointing at a French word rather than an English one. The bird itself is a South American ground-dweller, a cousin of the rheas.",
-     "definitionFit": "bird -> TINAMOU: definition by example, one partridge-like species of South America clued only by its family — the standard courtesy with an obscure creature."
+     "surface": "A puzzling note: can a bird with no tail love?",
+     "walkthrough": "'Tailless' looks as if it describes the bird, but it docks the end of AMOUR.",
+     "definitionFit": "The tinamou is a ground-dwelling bird of Central and South America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tailless"
     }
    }
   },
@@ -549,40 +567,46 @@
      "indicators": [
       {
        "text": "hiding",
-       "note": "what an agent hides is kept within, so the letter goes inside the word rather than beside it"
+       "at": 15,
+       "note": "the agent's word hides the letter inside itself"
       }
      ],
      "parts": [
       {
        "words": "agent",
+       "at": 7,
        "gives": "REP",
-       "note": "a rep is an agent, the sales or theatrical kind, and it opens after two letters"
+       "note": "a rep, short for representative, is a sales agent"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "A",
        "indicators": [
         {
-         "text": "10%",
-         "note": "accountant is a ten-letter word, so a tenth of it is a single letter — the one it starts with"
+         "text": "10% from",
+         "at": 22,
+         "note": "accountant has ten letters, so ten per cent of it is one letter, its first"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "10% from accountant",
-         "gives": "A",
-         "select": "first",
-         "note": "a tenth of a ten-letter word is one letter, and it is taken from the start"
+         "words": "accountant",
+         "at": 31,
+         "note": "the first letter of accountant"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is an agent taking commission, and ten per cent is exactly what an agent takes — the joke is that the percentage is arithmetic done on the word, not on the money.",
-     "definitionFit": "Gather -> REAP: the harvest verb, cutting and collecting a crop, extended to gathering whatever your efforts earn — you reap what you sow."
+     "surface": "An agent conceals a tenth of an accountant's fee.",
+     "walkthrough": "'10%' sounds like a commission, but accountant has ten letters, so a tenth of it is just its first letter.",
+     "definitionFit": "To reap a crop is to gather it in at harvest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "10%"
     }
    }
   },
@@ -702,41 +726,62 @@
      "op": "container",
      "indicators": [
       {
-       "text": "shortly",
-       "note": "a word put shortly is cut short, and the cut takes its last letter"
-      },
-      {
        "text": "in",
-       "note": "a piece placed in something sits between its letters rather than alongside them"
+       "at": 29,
+       "note": "the reversed piece is put inside the word for club"
       }
      ],
      "parts": [
       {
        "words": "club",
+       "at": 32,
        "gives": "BAT",
-       "note": "a bat is a club you swing, and it splits after two letters"
+       "note": "a bat is a club used in sport"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "gets back",
-         "note": "in an across entry a piece that gets back is read from the right, so its letters arrive in the opposite order"
+         "at": 19,
+         "note": "gets back means turns backwards, so the shortened word is reversed"
         }
        ],
        "parts": [
         {
-         "words": "chick shortly",
-         "gives": "LAS",
-         "note": "a chick is informally a lass, here docked of its final letter and then turned round"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "shortly",
+           "at": 11,
+           "note": "shortly means cut short, so the last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "chick",
+           "at": 5,
+           "gives": "LASS",
+           "note": "chick is slang for a young woman, a lass"
+          },
+          {
+           "gives": "S"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Rock chick' reads as one phrase and is two jobs: the definition stops after the first word, and the chick is fodder. The music-club surface is entirely a decoy.",
-     "definitionFit": "Rock -> BASALT: definition by example — the dark volcanic rock of the Giant's Causeway is one kind of rock, clued by the general word."
+     "surface": "A rock fan, a young woman, returns to a nightclub.",
+     "walkthrough": "'Club' looks like a nightclub, but it is a bat, which takes the reversed, shortened LASS inside it.",
+     "definitionFit": "Basalt is a dark volcanic rock, often found as columns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
     }
    }
   },
@@ -764,46 +809,50 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "what comes ultimately comes at the very end, so the word gives up only its final letter"
+       "text": "under",
+       "at": 41,
+       "note": "in a down clue, under means placed below, so these letters follow"
       }
      ],
      "parts": [
       {
        "words": "grown-up",
+       "at": 47,
        "gives": "BIG",
-       "note": "a grown-up is a big person, the way a small child puts it"
+       "note": "big means grown-up, as in big brother"
       },
       {
        "words": "old",
-       "gives": "O",
-       "note": "O is the standard abbreviation for old"
+       "at": 18,
+       "gives": "O"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "T",
        "indicators": [
         {
-         "text": "under",
-         "note": "in a down entry what is under something is written below it, so these pieces sit after the word named last"
+         "text": "ultimately",
+         "at": 30,
+         "note": "ultimately means finally, so the last letter of priest is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "priest, ultimately",
-         "gives": "T",
-         "select": "last",
-         "note": "the closing letter of the word priest, taken on its own"
+         "words": "priest",
+         "at": 22,
+         "note": "the last letter of priest"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition is 'One narrow-minded' — a person, not the quality — and the rest of the sentence is three separate scraps dressed up as a remark about the clergy.",
-     "definitionFit": "One narrow-minded -> BIGOT: someone who holds an opinion so tightly that no argument reaches them, named here by the trait instead of the label."
+     "surface": "A prejudiced old cleric, overshadowed by an adult.",
+     "walkthrough": "In a down answer, 'under' puts the old priest's letters below BIG.",
+     "definitionFit": "A bigot is a person intolerant of other views or groups, someone narrow-minded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -1226,40 +1275,41 @@
        "indicators": [
         {
          "text": "drops",
-         "note": "someone who drops something lets it fall away, so the letter named is no longer in the word"
+         "at": 12,
+         "note": "the leader drops the numeral, so that letter is removed from her name"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Tory leader",
-           "gives": "KEMI",
-           "note": "Kemi Badenoch leads the Conservative Party, whose members are the Tories, and her first name supplies four letters"
-          },
-          {
-           "words": "point",
-           "gives": "PT",
-           "note": "pt is the abbreviation for point, as on a compass or a scoreboard"
-          }
-         ]
+         "words": "Tory leader",
+         "at": 0,
+         "gives": "KEMI",
+         "note": "Kemi Badenoch became leader of the UK Conservative (Tory) party in 2024"
         },
         {
-         "gives": "I"
+         "words": "one",
+         "at": 18,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "one",
-       "note": "one is the Roman numeral I, and that is the letter dropped"
+       "words": "point",
+       "at": 22,
+       "gives": "PT"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Tory leader' looks like an instruction to take the first letter of Tory; it is the politician herself. The answer survives in ordinary English mainly as the opposite of unkempt.",
-     "definitionFit": "neat -> KEMPT: tidy and well groomed, the positive form that unkempt was built from and that now sounds odd standing alone."
+     "surface": "The Conservative leader loses a point in the polls, tidy news for opponents.",
+     "walkthrough": "'Drops one point' reads as a slip in the polls; 'drops one' removes I from KEMI, the first name of the Tory leader Kemi Badenoch.",
+     "definitionFit": "Kempt is the rarely seen opposite of unkempt: neatly groomed and tidy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drops"
     }
    }
   },
@@ -1285,39 +1335,44 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "comes round",
-       "note": "a piece that comes round another goes about it, opening up to let the other sit inside"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "originally",
-         "note": "a word taken originally gives up only the letter it starts with"
+         "text": "comes round",
+         "at": 12,
+         "note": "the meal comes round, surrounding the code for Turkey"
         }
        ],
        "parts": [
         {
          "words": "meal",
+         "at": 7,
          "gives": "TEA",
-         "note": "tea is a meal in Britain, the one eaten in the early evening, and it opens after two letters"
+         "note": "tea is an evening meal in parts of Britain"
         },
         {
          "words": "Turkey",
+         "at": 0,
          "gives": "TR",
-         "note": "TR is Turkey's international vehicle registration code, the oval sticker on the back of a car"
+         "note": "TR is the international vehicle code for Turkey"
         }
        ]
       },
       {
        "op": "first",
+       "indicators": [
+        {
+         "text": "originally",
+         "at": 37,
+         "note": "originally means at the start, so the first letter of dinners is taken"
+        }
+       ],
        "parts": [
         {
-         "words": "dinners originally",
+         "words": "dinners",
+         "at": 29,
          "note": "the first letter of dinners"
         }
        ]
@@ -1325,8 +1380,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "Turkey, meal and dinners in one sentence make a Christmas picture, and not one of them is food: a country code, a container and an initial.",
-     "definitionFit": "four -> TETRAD: a group of four things taken together, from the Greek tetra-, so the bare number stands for the set it counts."
+     "surface": "A turkey dinner for a party of four, made with homemade starters.",
+     "walkthrough": "'Turkey' looks like the roast, but it is the country, given by its international vehicle code; tea is the British word for an evening meal.",
+     "definitionFit": "A tetrad is a group or set of four things, so the word stands for four."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turkey"
     }
    }
   },
@@ -1416,30 +1477,26 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Wearing",
-       "note": "what you wear goes on you, so the letter named is put inside the thing being worn"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "around",
-         "note": "a piece told to go around turns about, and comes out read in the other direction"
+         "text": "Wearing",
+         "at": 0,
+         "note": "I have the headphones on, so the letter sits inside the slang word"
         }
        ],
        "parts": [
         {
          "words": "headphones",
+         "at": 8,
          "gives": "CANS",
-         "note": "cans is studio slang for headphones, and the word opens before its last letter"
+         "note": "cans is slang for headphones"
         },
         {
          "words": "I",
-         "note": "the pronoun is taken at face value, one letter lifted from the clue"
+         "at": 20
         }
        ]
       },
@@ -1447,28 +1504,51 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "late-starting",
-         "note": "a word that starts late has not begun by its first letter, so that letter never appears"
+         "text": "around",
+         "at": 28,
+         "note": "around means turned round, so the word for stick is read backwards"
         }
        ],
        "parts": [
         {
          "words": "stick",
+         "at": 22,
          "gives": "JAM",
-         "note": "to jam is to stick fast, and these three letters are then read backwards"
+         "note": "to jam is to stick fast"
         }
        ]
       },
       {
-       "words": "for late-starting",
-       "gives": "OR",
-       "note": "the word for, without the F it starts with"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "late-starting",
+         "at": 39,
+         "note": "starting late means the first letter of for is missing"
+        }
+       ],
+       "parts": [
+        {
+         "words": "for",
+         "at": 35
+        },
+        {
+         "gives": "F"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Sky feature' is all the clue says about the Great Dog, the constellation that carries Sirius. 'Late-starting' is the device worth keeping: a word that begins one letter in.",
-     "definitionFit": "Sky feature -> CANIS MAJOR: a constellation is a feature of the night sky, and this is the Great Dog that follows Orion across it."
+     "surface": "Someone in headphones sticks around for a late-starting television programme.",
+     "walkthrough": "'Sky' suggests the satellite broadcaster, but the feature is a constellation in the real sky; 'cans' is British slang for headphones.",
+     "definitionFit": "Canis Major, the Great Dog, is a constellation containing Sirius, a prominent feature of the night sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sky"
     }
    }
   },
