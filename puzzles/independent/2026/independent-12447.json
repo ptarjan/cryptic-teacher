@@ -198,52 +198,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SEIZURES",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "seen in",
+       "at": 16,
+       "note": "seen in means appearing inside, so the two letters are placed within the jumbled word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "seen in",
-         "note": "what is seen in something lies inside it, so these two letters sit within the word that follows"
+         "text": "upsetting",
+         "at": 24,
+         "note": "upsetting means knocking over and disordering, so the letters of the programme word are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "upsetting",
-           "note": "to upset a thing is to tip it over, and a word tipped over is read from its far end"
-          }
-         ],
-         "parts": [
-          {
-           "words": "programme",
-           "gives": "SEIRES",
-           "note": "a television programme is a series, and here it arrives tipped over"
-          },
-          {
-           "words": "Unknown",
-           "gives": "Z",
-           "note": "algebra calls an unknown quantity x, y or z"
-          }
-         ]
+         "words": "programme's",
+         "at": 34,
+         "gives": "SERIES",
+         "note": "a series is a run of television programmes; the 's ties it to the indicator"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Unknown",
+         "at": 0,
+         "gives": "Z",
+         "note": "Z is one of the letters x, y, z used for unknown quantities in algebra"
         },
         {
          "words": "uniform",
+         "at": 8,
          "gives": "U",
-         "note": "U is uniform in the NATO alphabet that radio operators spell with"
+         "note": "Uniform is U in the NATO phonetic alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Three conventions stack up in six words: the algebraic unknown, the radio alphabet, and a programme meaning a run of episodes.",
-     "definitionFit": "medical episodes -> SEIZURES: a seizure is a sudden burst of abnormal electrical activity in the brain, which is an episode in the clinical sense."
+     "surface": "An alarming television show features an unidentified man in uniform suffering fits.",
+     "walkthrough": "'upsetting' scrambles SERIES into SEIRES, and 'seen in' places Z and U in its middle, after SEI.",
+     "definitionFit": "Seizures are sudden fits or convulsions, as in epilepsy, so they are medical episodes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upsetting"
     }
    }
   },
@@ -1582,36 +1591,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MUSO",
-     "indicators": [
-      {
-       "text": "knocked back",
-       "note": "knocked back means sent the other way, and an across entry read the other way runs from right to left"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "knocked back",
+         "at": 31,
+         "note": "knocked back means pushed backwards, so the word for whole is read in reverse"
+        }
+       ],
        "parts": [
         {
          "words": "whole",
-         "gives": "MUS",
-         "note": "the whole of something is its sum, and that word arrives here having been knocked over"
-        },
-        {
-         "words": "band",
-         "gives": "O",
-         "note": "a band is a ring, and a ring is written as the letter shaped like one"
+         "at": 44,
+         "gives": "SUM",
+         "note": "a sum is a whole, the total amount"
         }
        ]
+      },
+      {
+       "words": "band",
+       "at": 50,
+       "gives": "O",
+       "note": "O has the shape of a ring or band"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'whole band' looks like one phrase about a group turning up complete; it is two separate words to translate, and only the first is turned.",
-     "definitionFit": "Player obsessed with technique -> MUSO: British slang for a musician keener on gear and chops than on songs, usually said with a sigh."
+     "surface": "A technique-obsessed musician drank down an entire band's worth of drinks.",
+     "walkthrough": "'knocked back' suggests drinking but here turns SUM round to MUS, and O, a ring shape, follows. A muso is British slang for a musician.",
+     "definitionFit": "Muso is informal, often mildly mocking, for a musician more interested in virtuosity and gear than feeling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "knocked"
     }
    }
   },
