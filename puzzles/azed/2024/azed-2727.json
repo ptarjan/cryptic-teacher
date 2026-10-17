@@ -150,18 +150,18 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Run away to Scotland?",
-      "at": 0
+      "text": "Run away to Scotland",
+      "at": 0,
+      "note": "loup is a Scots word meaning to leap or to run away"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOUP",
+     "op": "container",
      "indicators": [
       {
-       "text": "Most",
-       "note": "most of a word means all of it bar the last letter"
+       "text": "filled with",
+       "at": 44,
+       "note": "filled with means the reversed letters take the love letter inside them"
       }
      ],
      "parts": [
@@ -170,43 +170,50 @@
        "indicators": [
         {
          "text": "northwards",
-         "note": "in a down entry going northwards means reading from the bottom up"
+         "at": 32,
+         "note": "in a down clue northwards means the letters are read from bottom to top, so reversed"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "filled with",
-           "note": "something filled with another thing has it placed inside"
+           "text": "Most",
+           "at": 22,
+           "note": "most means all but the last letter of the pulling word is kept"
           }
          ],
          "parts": [
           {
            "words": "tear",
-           "gives": "PUL",
-           "note": "pull, as in tear along, loses its final letter"
+           "at": 27,
+           "gives": "PULL",
+           "note": "to tear or pull a muscle are the same injury, so tear gives pull"
           },
           {
-           "words": "love",
-           "gives": "O",
-           "note": "love is zero in tennis, shaped like O"
+           "gives": "L"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "love",
+       "at": 56,
+       "gives": "O",
+       "note": "love is zero in tennis, shaped like O"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone flees north to Scotland, weeping and full of love.",
-     "walkthrough": "The question mark and 'to Scotland' flag a Scots word: loup is Scots for leap, and also to run away.",
-     "definitionFit": "In Scots dialect loup means to leap or spring, and by extension to flee or bolt, so it is a Scottish word for run away."
+     "surface": "Fleeing north to Scotland, mostly racing upwards and full of love.",
+     "walkthrough": "'Most' trims PULL to PUL, 'northwards' turns that into LUP, and it is 'filled with' O after the L.",
+     "definitionFit": "In Scots, to loup is to leap, and by extension to bolt or run off, so it is a Scottish word for running away."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "tear"
     }
    }
@@ -742,48 +749,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARCHAISTIC",
+     "op": "container",
      "indicators": [
       {
-       "text": "backless",
-       "note": "without its back means the final letter is lost"
+       "text": "chucked in",
+       "at": 26,
+       "note": "chucked in means the shortened couch word is thrown inside the lorry word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "lorry",
+       "at": 37,
+       "gives": "ARTIC",
+       "note": "an artic is an articulated lorry"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "chucked in",
-         "note": "something chucked in a vehicle ends up inside it"
+         "text": "backless",
+         "at": 11,
+         "note": "backless means the couch word loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "lorry",
-         "gives": "ARTIC",
-         "note": "an artic is an articulated lorry"
+         "words": "couch",
+         "at": 20,
+         "gives": "CHAISE",
+         "note": "a chaise, as in chaise longue, is a kind of couch"
         },
         {
-         "words": "couch",
-         "gives": "CHAIS",
-         "note": "a chaise (longue) is a couch, here losing its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old-fashioned sofa without a backrest is thrown into a truck.",
-     "walkthrough": "'backless' looks like a description of furniture, but it removes the final letter; a lorry is a British truck.",
-     "definitionFit": "Archaistic means imitating the archaic, deliberately old-fashioned in style, which is close to antiquated."
+     "surface": "An old-fashioned sofa without a back, thrown into the back of a lorry.",
+     "walkthrough": "'Backless' sounds like furniture design but drops the E from CHAISE; CHAIS is then 'chucked in' ARTIC after AR. An artic is the British name for an articulated lorry.",
+     "definitionFit": "Archaistic means deliberately imitating the archaic, so old-fashioned or antiquated in style."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "backless"
     }
    }
@@ -979,41 +990,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OILMEN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "most of",
-       "note": "most of a word is all but its final letter"
+       "text": "abandoned",
+       "at": 16,
+       "note": "abandoned suggests letters let loose from their order, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "abandoned",
-         "note": "abandoned can mean wild and unrestrained, letters let loose from their order"
+         "text": "most of",
+         "at": 26,
+         "note": "most of means all but the last letter of old is used"
         }
        ],
        "parts": [
         {
          "words": "old",
-         "gives": "OL",
-         "note": "old without its last letter"
+         "at": 34,
+         "gives": "OLD"
         },
         {
-         "words": "mine",
-         "note": "taken as written"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "mine",
+       "at": 38
       }
      ]
     },
     "explanation": {
-     "surface": "Drillers walked away from nearly all of a disused pit.",
-     "definitionFit": "Oilmen work in the petroleum industry, drilling and pumping oil, a fuel, from the ground."
+     "surface": "Drillers who walked away from most of an old mine.",
+     "walkthrough": "'Most of' keeps OL from old; with MINE, those six letters are 'abandoned' into a new order.",
+     "definitionFit": "Oilmen work in the oil industry drilling for petroleum, so they extract a fuel."
     },
     "features": {
      "answerInScene": true,
@@ -1039,49 +1054,56 @@
     "definitions": [
      {
       "text": "Sadden old",
-      "at": 0
+      "at": 0,
+      "note": "contrist is an obsolete verb meaning to sadden; old marks it as out of use"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CONTRIST",
+     "op": "charade",
      "indicators": [
       {
-       "text": "wretched",
-       "note": "something wretched is in a sorry, disordered state"
+       "text": "including",
+       "at": 26,
+       "note": "including adds the next piece on at the end, taking it into the word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "prisoner",
+       "at": 11,
+       "gives": "CON",
+       "note": "a con is a convict, a prisoner"
+      },
+      {
+       "words": "time",
+       "at": 21,
+       "gives": "T"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wretched",
+         "at": 36,
+         "note": "wretched suggests the letters of stir are in a sorry, disordered state"
+        }
+       ],
        "parts": [
         {
-         "words": "prisoner",
-         "gives": "CON",
-         "note": "con is short for convict"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "T is the abbreviation for time"
-        },
-        {
          "words": "stir",
-         "gives": "RIST",
-         "note": "taken as written"
+         "at": 45
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A former convict depresses us, serving time in a miserable jail (stir being slang for prison).",
-     "walkthrough": "'stir' is British slang for prison, which makes it look like a definition rather than letters to rearrange; 'old' marks the answer as obsolete.",
-     "definitionFit": "Contrist is an obsolete verb meaning to make sorrowful, from Latin contristare, so it is an old word for sadden."
+     "surface": "A former inmate grieving over time spent in a miserable prison.",
+     "walkthrough": "'Stir' is slang for prison, which suits the surface; here its letters are made 'wretched' into RIST, which follows CON and T.",
+     "definitionFit": "Contrist, from Latin contristare, is an archaic word for making sad, as Chambers records."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "stir"
     }
@@ -1569,28 +1591,26 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "OGLES",
      "indicators": [
       {
        "text": "removing top and bottom",
-       "note": "taking off the top and bottom of a down word drops its first and last letters, keeping the middle"
+       "at": 32,
+       "note": "in a down clue top and bottom are the first and last letters, which are taken away"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "with nothing on",
-       "gives": "OGLES",
-       "select": "middle",
-       "note": "togless, without togs (clothes), stripped of its outer letters"
+       "at": 15,
+       "gives": "TOGLESS",
+       "note": "togless means without togs, the clothes, so with nothing on"
       }
      ]
     },
     "explanation": {
-     "surface": "A lustful striptease: someone naked, having taken off both top and bottoms.",
-     "walkthrough": "Togs are clothes, so togless means wearing nothing; the question mark nods to the clothes-shedding picture, while the instruction actually trims letters.",
-     "definitionFit": "Ogles are lustful, leering looks, the stares of a lecher, so lecherous acts in noun form."
+     "surface": "Leering looks at someone undressed, stripped of top and bottom garments.",
+     "walkthrough": "'Top and bottom' look like clothes, which fits the undressing picture; they are the first and last letters of TOGLESS. Togs is British slang for clothes.",
+     "definitionFit": "Ogles are lustful stares, so they are lecherous acts of looking."
     },
     "features": {
      "answerInScene": true,
@@ -1665,8 +1685,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "snarl",
-      "at": 51
+      "text": "making one snarl",
+      "at": 40
      }
     ],
     "wordplay": {
@@ -1674,44 +1694,32 @@
      "indicators": [
       {
        "text": "penetrating",
-       "note": "something penetrating another goes into the middle of it"
+       "at": 27,
+       "note": "penetrating means the letter goes into the middle of the gun word"
       }
      ],
      "parts": [
       {
        "words": "Revolver",
+       "at": 0,
        "gives": "GUN",
-       "note": "a revolver is a handgun"
+       "note": "a revolver is a gun"
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "either end of it",
+       "at": 10,
        "gives": "R",
-       "indicators": [
-        {
-         "text": "either end of",
-         "note": "either end of a word gives its first or last letter, here the same"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "it",
-         "gives": "R",
-         "select": "first",
-         "note": "'it' stands for the word revolver, which begins and ends with the same letter"
-        }
-       ]
+       "note": "it is the word revolver, which both begins and ends with R"
       }
      ]
     },
     "explanation": {
-     "surface": "A spinning bullet goes in, and the victim grimaces.",
-     "walkthrough": "Revolver both begins and ends with R, so either end gives the same letter; 'it' refers back to the word itself.",
-     "definitionFit": "To gurn is to pull a grotesque face or snarl; a gurn is that grimace, famous from Cumbrian gurning contests."
+     "surface": "A pistol pushed in, bringing a snarl to someone's face.",
+     "walkthrough": "'It' looks back at the clue's first word: revolver has R at either end, so either end gives the same letter, which goes 'penetrating' GUN after the GU.",
+     "definitionFit": "To gurn is to pull a grotesque face, such as a snarl; the verb fits a phrase about making a face."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Revolver"
     }
