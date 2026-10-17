@@ -1326,70 +1326,78 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "STOPBY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "bottles",
-       "note": "used as a verb: the pair of letters bottles up, or holds, what follows"
+       "text": "before",
+       "at": 32,
+       "note": "before places one piece ahead of the next in the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "before",
-         "note": "the bottled result comes before the last piece in the line"
+         "text": "bottles",
+         "at": 19,
+         "note": "to bottle something is to hold it inside, so the pair goes around the next piece"
         }
        ],
        "parts": [
         {
-         "words": "small",
-         "gives": "S",
-         "note": "S = small, as on clothing labels"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "small",
+           "at": 7,
+           "gives": "S",
+           "note": "S is the clothing-size abbreviation for small"
+          },
+          {
+           "words": "black",
+           "at": 13,
+           "gives": "B",
+           "note": "B is the abbreviation for black, as on pencils"
+          }
+         ]
         },
         {
          "words": "best",
+         "at": 27,
          "gives": "TOP",
-         "note": "top = best, as in top marks"
-        },
+         "note": "top means best, as in top marks"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "words": "black",
-         "gives": "B",
-         "note": "B = black, as on pencils"
-        },
+         "text": "end of",
+         "at": 39,
+         "note": "the end of a word is its last letter, here of July"
+        }
+       ],
+       "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "end of",
-           "note": "only the final letter of the month is wanted"
-          }
-         ],
-         "parts": [
-          {
-           "words": "end of July",
-           "gives": "JULY",
-           "note": "the last letter of JulY"
-          }
-         ]
+         "words": "July",
+         "at": 46,
+         "note": "last letter of July"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fizzy drink in little dark bottles with a best-before date at the end of July.",
-     "walkthrough": "'Best before' is a food label phrase that has to be split: 'best' is a word for top quality, 'before' says where it goes. 'Pop' looks like soda but is the definition.",
-     "definitionFit": "To pop in and to stop by both mean to pay a brief casual visit somewhere."
+     "surface": "A tiny dark container keeps the finest stuff until late summer.",
+     "walkthrough": "'Pop in' is a phrasal verb here, meaning to call on someone briefly; it is not about bottles popping. 'Bottles' puts S and B around TOP, and that comes 'before' the 'end of' July.",
+     "definitionFit": "To stop by is to visit somewhere briefly, which is what popping in means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Pop"
+     "misdirectedWord": "bottles"
     }
    }
   },
