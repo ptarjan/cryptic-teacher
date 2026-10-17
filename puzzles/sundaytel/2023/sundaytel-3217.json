@@ -631,22 +631,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LETTUCE",
-     "indicators": [
-      {
-       "text": "shortly",
-       "note": "made short means cut off at the end, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "heading for",
+         "at": 32,
+         "note": "the heading for a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Latvia",
+         "at": 44,
+         "note": "first letter of Latvia"
+        }
+       ]
+      },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "Northbound",
-         "note": "in a down entry, travelling north means reading upwards, so the letters run backwards"
+         "at": 0,
+         "note": "in a down clue, going north means reading upwards, so the letters are reversed"
         }
        ],
        "parts": [
@@ -655,26 +665,27 @@
          "parts": [
           {
            "words": "English",
-           "gives": "E",
-           "note": "E is the abbreviation for English"
+           "at": 11,
+           "gives": "E"
           },
           {
-           "words": "ship",
-           "gives": "CUTTE",
-           "note": "a cutter is a small sailing ship, here missing its last letter"
-          },
-          {
-           "op": "first",
+           "op": "deletion",
            "indicators": [
             {
-             "text": "heading for",
-             "note": "the heading of a word is its front, so only its opening letter is kept"
+             "text": "shortly",
+             "at": 24,
+             "note": "shortly means cut short, losing the last letter"
             }
            ],
            "parts": [
             {
-             "words": "Latvia",
-             "note": "the first letter of the country"
+             "words": "ship",
+             "at": 19,
+             "gives": "CUTTER",
+             "note": "a cutter is a small single-masted ship"
+            },
+            {
+             "gives": "R"
             }
            ]
           }
@@ -685,14 +696,13 @@
      ]
     },
     "explanation": {
-     "surface": "An English vessel sailing north, soon bound for Latvia, departs.",
-     "walkthrough": "'Leaves' looks like the verb 'departs' to finish the voyage, but it is the plural noun for foliage, and a salad plant is all leaves.",
-     "definitionFit": "Lettuce is the leafy salad vegetable eaten for its foliage, so it is literally a head of edible greens."
+     "surface": "An English ship sails north towards Latvia and then departs.",
+     "walkthrough": "'shortly' trims CUTTER to CUTTE; E and CUTTE read 'Northbound', up the grid, give ETTUCE, placed after L. 'leaves' looks like a verb but is the noun.",
+     "definitionFit": "Lettuce is a salad plant eaten for its leaves, so a lettuce is essentially a head of leaves."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "leaves"
     }
    }
