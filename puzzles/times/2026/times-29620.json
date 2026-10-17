@@ -759,46 +759,44 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'in' places one thing inside another"
+       "at": 11,
+       "note": "the countryman sits inside the surviving letters"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "TET",
        "indicators": [
         {
-         "text": "every so often",
-         "note": "something that happens every so often happens at intervals, so letters are taken at intervals: every second one"
+         "text": "every so often killed",
+         "at": 21,
+         "note": "letters of street are killed off at regular intervals, leaving the second, fourth and sixth"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "street every so often",
-         "gives": "TET",
-         "select": "alternate",
-         "note": "every other letter of sTrEeT"
+         "words": "street",
+         "at": 14,
+         "note": "the even letters of street"
         }
        ]
       },
       {
        "words": "Countryman",
+       "at": 0,
        "gives": "HICK",
-       "note": "a hick is a country bumpkin"
+       "note": "a hick is an unsophisticated country dweller"
       }
      ]
     },
     "explanation": {
-     "surface": "A countryman is killed in the street by the French Resistance.",
-     "walkthrough": "The maquis were French Resistance fighters, named after the dense Corsican scrub they hid in; here it is the scrub. \"Killed\" has no clear job in the wordplay.",
-     "definitionFit": "Plain synonym: maquis is the dense Mediterranean scrub of Corsica, a tangle of bushes."
+     "surface": "A rustic was murdered on a road now and then, in the French scrubland.",
+     "walkthrough": "'every so often killed' removes alternate letters of STREET to leave TET, and 'in' places HICK inside. Maquis is the dense Mediterranean scrub that gave its name to the French Resistance, so the definition is fair.",
+     "definitionFit": "Maquis is dense evergreen scrub of Corsica and the Mediterranean coast, a kind of tangled undergrowth."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "maquis"
     }
    }
@@ -964,59 +962,61 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Travelling underground primarily, one arriving in High Barnet?",
-      "at": 0
+      "text": "one arriving in High Barnet?",
+      "at": 34
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TUBETRAIN",
+     "op": "charade",
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "TUBETRAIN",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 23,
+         "note": "primarily means at first, so only the opening letters of the two words are taken"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
+         "words": "Travelling underground",
+         "at": 0,
+         "note": "the first letters of travelling and underground"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "arriving in",
+         "at": 38,
+         "note": "the letter for one arrives inside the jumbled letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
          "indicators": [
           {
-           "text": "arriving in",
-           "note": "someone arriving in a place ends up inside it, so I goes inside"
-          },
-          {
            "text": "High",
-           "note": "high means drunk, so the letters of Barnet stagger into a new order"
+           "at": 50,
+           "note": "high in the sense of intoxicated, so the letters of Barnet are reeling about"
           }
          ],
          "parts": [
           {
-           "op": "first",
-           "unchecked": true,
-           "gives": "TU",
-           "indicators": [
-            {
-             "text": "primarily",
-             "note": "'primarily' means in the first place, so the first letters are taken"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "Travelling underground primarily",
-             "gives": "TU",
-             "select": "first",
-             "note": "first letters of Travelling Underground"
-            }
-           ]
-          },
-          {
-           "words": "one arriving in High Barnet",
-           "gives": "BETRAIN",
-           "note": "I (one) goes into BARNET, which is rearranged"
+           "words": "Barnet",
+           "at": 55
           }
          ]
+        },
+        {
+         "words": "one",
+         "at": 34,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
         }
        ]
       }
@@ -1024,13 +1024,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A Northern line passenger heading for High Barnet, the station at the end of the line.",
-     "walkthrough": "High Barnet is a real London Underground terminus, so the whole clue also describes the answer; \"High\" reads as part of the name but means drunk.",
-     "definitionFit": "An &lit: such a train does travel mostly below ground and pulls in at High Barnet, the top of the Northern line."
+     "surface": "Riding below ground, a passenger reaches High Barnet, at the end of the line.",
+     "walkthrough": "'High' is part of the place name in the surface but is the anagram signal: BARNET reeling becomes BETRAN, with I arriving in it. High Barnet is the northern terminus of the London Underground's Northern line.",
+     "definitionFit": "A tube train is a London Underground train, and one does arrive at High Barnet station."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "High"
     }
    }
@@ -1101,29 +1102,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
-       "text": "missing",
-       "note": "what is missing is absent, so the letters of AN are taken out"
+       "text": "odd",
+       "at": 24,
+       "note": "odd in the sense of strange, so the letters of the footballer's name are rearranged"
       },
       {
-       "text": "odd",
-       "note": "something odd is out of the ordinary, so the remaining letters leave their usual order"
+       "text": "missing",
+       "at": 13,
+       "note": "the letters of an are taken out of the pool before it is rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Alan Shearer missing an",
-       "gives": "LSHEARERA",
-       "note": "ALAN SHEARER without A and N"
+       "words": "Alan Shearer",
+       "at": 0,
+       "note": "the name taken as written; he was an England striker"
+      },
+      {
+       "words": "an",
+       "at": 21,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "The former England striker skips an unusual training session.",
-     "walkthrough": "Alan Shearer is a former England football captain, now a TV pundit. \"Odd\" looks like it describes the session.",
-     "definitionFit": "Plain synonym: the run-through where performers practise before the show."
+     "surface": "Alan Shearer, the footballer, is absent from a strange training session.",
+     "walkthrough": "'odd' looks like describing the session, but it shuffles the letters of ALAN SHEARER once 'missing' removes A and N. Alan Shearer is a former England centre-forward, now a TV pundit.",
+     "definitionFit": "A rehearsal is a trial run of a performance, practice held before the real thing."
     },
     "features": {
      "answerInScene": true,
@@ -1609,59 +1617,59 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "essentially",
-       "note": "the essence of a thing is its core, so the middle letter is taken"
+       "text": "fixed by",
+       "at": 29,
+       "note": "the central letter is fixed in place inside the other pieces"
       }
      ],
      "parts": [
       {
-       "words": "international",
-       "gives": "I",
-       "note": "I = international"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "international",
+         "at": 38,
+         "gives": "I"
+        },
+        {
+         "words": "talks",
+         "at": 52,
+         "gives": "NATTERS",
+         "note": "natters means chats or talks idly"
+        }
+       ]
       },
       {
-       "op": "container",
+       "op": "middle",
        "indicators": [
         {
-         "text": "fixed by"
+         "text": "essentially",
+         "at": 17,
+         "note": "essentially means at its essence, its very core, so only the central letter is taken"
         }
        ],
        "parts": [
         {
-         "words": "talks",
-         "gives": "NATTERS",
-         "note": "natters = chatty talks"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "T",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "relations essentially",
-           "gives": "T",
-           "select": "middle",
-           "note": "the middle letter of relaTions"
-          }
-         ]
+         "words": "relations",
+         "at": 7,
+         "note": "the middle letter of relations"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Relations have broken down and international talks try to repair them.",
-     "walkthrough": "The surface is diplomacy, but the talks are just chat: to natter is British for to chat idly.",
-     "definitionFit": "Idiom: clothes torn to rags are the literal case, and the phrase extends to plans or relations that are ruined."
+     "surface": "Diplomatic ties are fundamentally repaired through global negotiations.",
+     "walkthrough": "'fixed' suggests repair, which is the opposite of the definition 'Ruined'; in fact it means held in place, putting the central T of RELATIONS after the IN of I plus NATTERS.",
+     "definitionFit": "In tatters is an idiom for something torn to shreds, so destroyed or ruined."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "talks"
+     "misdirectedWord": "fixed"
     }
    }
   },
