@@ -1758,58 +1758,61 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "RAWALPINDI",
      "indicators": [
       {
        "text": "around",
-       "note": "around means encircling, so these letters wrap the mountain"
+       "at": 22,
+       "note": "around means the stark-plus-country letters wrap round the mountain word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "largely",
-         "note": "largely means for the most part, so the country's last letter goes"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Stark",
-           "gives": "RAW",
-           "note": "stark and raw both mean bare, harsh"
-          },
-          {
-           "words": "mountain",
-           "gives": "ALP",
-           "note": "an alp is a high mountain"
-          },
-          {
-           "words": "country",
-           "gives": "INDIA",
-           "note": "the country of India"
-          }
-         ]
+         "words": "Stark",
+         "at": 0,
+         "gives": "RAW",
+         "note": "stark in the sense of raw, bare and harsh"
         },
         {
-         "gives": "A"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "largely",
+           "at": 14,
+           "note": "largely means most of the word is used, its last letter dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "country",
+           "at": 6,
+           "gives": "INDIA",
+           "note": "India is the country in question"
+          },
+          {
+           "gives": "A"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "mountain",
+       "at": 29,
+       "gives": "ALP",
+       "note": "an alp is a high mountain"
       }
      ]
     },
     "explanation": {
-     "surface": "A bleak land mostly surrounding a peak and a city in Asia.",
-     "walkthrough": "Stark and the shortened country together sit around the mountain. Rawalpindi is a city in northern Pakistan.",
-     "definitionFit": "Rawalpindi is a large Pakistani city near Islamabad, so it is a particular city in Asia."
+     "surface": "A travel note: a harsh land, mostly surrounding a peak, and a city in Asia.",
+     "walkthrough": "'Stark country' reads as one phrase about a bleak land, but the adjective and the country are separate pieces; the mountain splits them rather than sitting at either end.",
+     "definitionFit": "Rawalpindi is a large Pakistani city in the Punjab, next to Islamabad."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Stark"
     }
