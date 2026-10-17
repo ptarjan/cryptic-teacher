@@ -150,46 +150,47 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "on the bottom",
-       "note": "the bottom of a word is its last letter"
+       "text": "after",
+       "at": 15,
+       "note": "after places the sore colour behind the other letters"
       }
      ],
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "T",
        "indicators": [
         {
-         "text": "after"
+         "text": "on the bottom",
+         "at": 25,
+         "note": "in a down clue the bottom of a word is its last letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "hit on the bottom",
-         "gives": "T",
-         "select": "last",
-         "note": "last letter of hit"
+         "words": "hit",
+         "at": 21,
+         "note": "the word whose last letter is taken"
         }
        ]
       },
       {
        "words": "one",
+       "at": 40,
        "gives": "I",
-       "note": "Roman numeral one"
+       "note": "I is the Roman numeral for one"
       },
       {
        "words": "Evidently sore",
+       "at": 0,
        "gives": "RED",
-       "note": "a sore spot shows red"
+       "note": "a sore spot looks red, so red is what sore evidently is"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone smacked on the backside is visibly sore afterwards.",
-     "walkthrough": "The surface suggests a spanking, but whacked here is the British slang for exhausted, and hit and bottom are there only to supply one letter.",
-     "definitionFit": "Whacked is British slang for worn out, i.e. tired."
+     "surface": "Someone smacked on the backside is visibly sore, a beaten figure.",
+     "walkthrough": "'on the bottom' takes the last letter of 'hit', T; I (one) follows, and 'after' puts RED (evidently sore) at the end. 'Whacked' is British slang for exhausted.",
+     "definitionFit": "Whacked is informal British slang for exhausted, worn out, so it means tired."
     },
     "features": {
      "answerInScene": false,
@@ -282,49 +283,33 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "HIDE",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "surface unseen",
+       "at": 14,
+       "note": "the top or surface letter of the word, in a down entry its first, cannot be seen, so it is removed"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "surface unseen",
-         "note": "the top (surface) letter of a down answer is not shown"
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "carpet",
-           "gives": "CHIDE",
-           "note": "to carpet someone is to reprimand them"
-          },
-          {
-           "gives": "C"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "surface unseen",
-         "select": "first",
-         "note": "remove the top letter C"
-        }
-       ]
+       "words": "carpet",
+       "at": 6,
+       "gives": "CHIDE",
+       "note": "to carpet someone is to reprimand them, to chide"
+      },
+      {
+       "gives": "C"
       }
      ]
     },
     "explanation": {
-     "surface": "Laying a carpet so the floor beneath can no longer be seen.",
-     "walkthrough": "Carpet looks like a noun for flooring, but it is the verb to carpet, meaning to tell someone off.",
-     "definitionFit": "A plain synonym: to put something out of sight under a blanket or lid is both to cover and to hide it."
+     "surface": "Covering a carpet so that its surface cannot be seen.",
+     "walkthrough": "'carpet' is a verb here: to scold. 'surface unseen' removes its top letter, C.",
+     "definitionFit": "A hide is a covered shelter for watching birds, or an animal's skin; to hide is to cover or conceal."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "carpet"
     }
@@ -629,41 +614,40 @@
      "indicators": [
       {
        "text": "about",
-       "note": "'about' in its sense of around"
+       "at": 7,
+       "note": "about means the report goes around the leaf's first letter"
       }
      ],
      "parts": [
       {
        "words": "Report",
+       "at": 0,
        "gives": "BOOM",
-       "note": "a report is a loud bang"
+       "note": "a boom is a loud report, a bang"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "L",
        "indicators": [
         {
          "text": "opening of",
-         "note": "the opening of a word is its first letter"
+         "at": 13,
+         "note": "opening means the first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "opening of leaf",
-         "gives": "L",
-         "select": "first",
-         "note": "first letter of leaf"
+         "words": "leaf",
+         "at": 24,
+         "note": "the word whose opening is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A news report about a leaf unfurling in a flower.",
-     "walkthrough": "Report is a gunshot-style bang, not a news story.",
-     "definitionFit": "A plain synonym: gardeners speak of a single bloom on a rose bush just as they would of a flower."
+     "surface": "A description of a leaf unfurling in a flower.",
+     "walkthrough": "BOOM (a report, as of a gun) goes 'about' L, the 'opening of' leaf.",
+     "definitionFit": "A bloom is a flower, especially one on a cultivated plant."
     },
     "features": {
      "answerInScene": true,
@@ -954,45 +938,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SPAGHETTI",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stuffed with",
+       "at": 15,
+       "note": "stuffed with means the jumbled letters have a further letter packed inside them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Bad",
-         "note": "a bad version is a mangled one"
-        },
-        {
-         "text": "stuffed with"
+         "at": 0,
+         "note": "bad signals that the letters of taste and pig are spoiled, jumbled into a new order"
         }
        ],
        "parts": [
         {
-         "words": "taste, pig",
-         "gives": "SPAGETTI",
-         "note": "anagram of TASTE + PIG"
+         "words": "taste",
+         "at": 4
         },
         {
-         "words": "hot",
-         "gives": "H",
-         "note": "as on a tap"
+         "words": "pig",
+         "at": 11
         }
        ]
+      },
+      {
+       "words": "hot",
+       "at": 28,
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on a tap"
       }
      ]
     },
     "explanation": {
-     "surface": "A nasty-tasting pig stuffed with spicy Italian food.",
-     "walkthrough": "Stuffed with suggests a roast pig with a filling; here the jumbled letters of taste and pig are the thing stuffed, and H goes in.",
-     "definitionFit": "A definition by category: the long thin pasta strands are among the best-known dishes of Italy."
+     "surface": "A gourmet's verdict: poor taste, a pig stuffed and served with something spicy.",
+     "walkthrough": "'Bad taste' reads as a verdict, but 'Bad' is the signal to rearrange; the H for hot goes into the jumble just after its G, giving SPAGETTI 'stuffed with' H.",
+     "definitionFit": "Spaghetti is long thin pasta, a staple of Italian cooking."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pig"
+     "misdirectedWord": "Bad"
     }
    }
   },
@@ -1017,37 +1008,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PANCREAS",
-     "indicators": [
-      {
-       "text": "to play",
-       "note": "the letters play about into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Piper",
+       "at": 0,
+       "gives": "PAN",
+       "note": "Pan, the Greek god, plays the pan pipes"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to play",
+         "at": 12,
+         "note": "to play means the letters of cares are set in motion and rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Piper",
-         "gives": "PAN",
-         "note": "Pan, the Greek god who plays pipes"
-        },
-        {
          "words": "cares",
-         "gives": "CREAS",
-         "note": "anagram of CARES"
+         "at": 6
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A musician on pipes wants to play the church organ.",
-     "walkthrough": "Organ looks like the instrument, keeping the music going, but it is a body part.",
-     "definitionFit": "A definition by category: the gland behind the stomach that makes insulin and digestive juices is one of the body's organs."
+     "surface": "A piper is keen to play the organ.",
+     "walkthrough": "PAN is the piping god; 'to play' rearranges CARES to CREAS. 'Organ' looks musical here, but it is a body part.",
+     "definitionFit": "The pancreas is a gland organ behind the stomach that produces insulin and digestive enzymes."
     },
     "features": {
      "answerInScene": false,
@@ -1078,51 +1068,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "novel",
-       "note": "novel as in new, making the letters new"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 16,
+         "note": "first means take the first letter"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "first",
-           "note": "the first letter of Haggard"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Haggard's first",
-           "gives": "HAGGARDS",
-           "note": "first letter of Haggard"
-          }
-         ]
-        },
+         "words": "Haggard's",
+         "at": 6,
+         "note": "the word whose first letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "novel",
+         "at": 22,
+         "note": "novel means new, so the letters of a sermon are freshly arranged"
+        }
+       ],
+       "parts": [
         {
          "words": "a sermon",
-         "note": "anagram of A SERMON"
+         "at": 28
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "H. Rider Haggard's debut book was a sermon.",
-     "walkthrough": "H. Rider Haggard wrote King Solomon's Mines, and the surface splits his name so Rider is the definition. Novel looks like a book but means new.",
-     "definitionFit": "A plain synonym: someone on horseback is a rider, the surface's first name for Haggard doing double duty."
+     "surface": "Novelist Rider Haggard's debut book is a sermon.",
+     "walkthrough": "'Rider' looks like part of the name H. Rider Haggard, but it is the definition. H is Haggard's 'first', then 'novel' rearranges A SERMON to ORSEMAN.",
+     "definitionFit": "A horseman is a rider of horses."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "novel"
+     "misdirectedWord": "Rider"
     }
    }
   },
@@ -1366,46 +1358,30 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "RANGE",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Roof blown off",
+       "at": 0,
+       "note": "in a down entry the roof is the top letter, so the first letter goes"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "Roof blown off",
-         "note": "the top letter of a down answer is removed"
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "farmhouse",
-           "gives": "GRANGE",
-           "note": "a grange is a farmhouse with outbuildings"
-          },
-          {
-           "gives": "G"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "Roof blown off",
-         "select": "first",
-         "note": "remove G"
-        }
-       ]
+       "words": "farmhouse",
+       "at": 15,
+       "gives": "GRANGE",
+       "note": "a grange is a country house with farm buildings, a farmhouse"
+      },
+      {
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A storm tears the roof from a farmhouse and a sweep follows.",
-     "walkthrough": "Sweep looks like chimney cleaning after the roof goes, but it is a noun for extent.",
-     "definitionFit": "A range is the full sweep or extent of something."
+     "surface": "A gale tears the roof off a farmhouse, sweeping across the land.",
+     "walkthrough": "'Roof blown off' removes the top letter, G, from GRANGE (farmhouse).",
+     "definitionFit": "A range is a sweep or extent, as in a wide sweep of view or a range of hills."
     },
     "features": {
      "answerInScene": false,
@@ -1632,45 +1608,59 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a pain from looking?",
-      "at": 36
+      "text": "pain from looking?",
+      "at": 38
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EYESTRAIN",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "nursing",
+       "at": 28,
+       "note": "nursing means holding, so the jumbled letters cradle the a inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "when blurry",
-         "note": "blurred letters lose their order"
+         "text": "and",
+         "at": 4,
+         "note": "and gathers try with see in, so all three words go into the same blurred pool of letters"
         },
         {
-         "text": "nursing",
-         "note": "the jumbled letters hold A as a nurse holds a baby"
+         "text": "when blurry",
+         "at": 15,
+         "note": "blurry vision confuses the letters, so try, see and in are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Try and see in",
-         "gives": "EYESTRIN",
-         "note": "anagram of TRY + SEE IN"
+         "words": "Try",
+         "at": 0
         },
         {
-         "words": "a",
-         "note": "used as is"
+         "words": "see",
+         "at": 8
+        },
+        {
+         "words": "in",
+         "at": 12
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 36
       }
      ]
     },
     "explanation": {
-     "surface": "Squinting to see when your vision is blurry gives you a pain from looking.",
-     "walkthrough": "The whole clue describes eyestrain, and its a is shared: a letter in the wordplay and the article of the definition.",
-     "definitionFit": "Eyestrain is the ache that comes from overworking the eyes."
+     "surface": "Advice to someone with blurred vision: try to see in, though looking hurts.",
+     "walkthrough": "'and' gathers TRY with SEE IN, and 'when blurry' rearranges them to EYESTRIN, which is 'nursing' A.",
+     "definitionFit": "Eyestrain is fatigue or ache of the eyes caused by prolonged looking or reading."
     },
     "features": {
      "answerInScene": true,
