@@ -917,66 +917,73 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EXPECTATIONWEEK",
-     "indicators": [
-      {
-       "text": "bottled",
-       "note": "bottled is slang for drunk, and drunk letters stagger into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "EXPECTATIONWEEK",
        "indicators": [
         {
-         "text": "swapping",
-         "note": "to swap is to exchange places, so two letters trade positions"
+         "text": "swapping case of cheap",
+         "at": 24,
+         "note": "the case of cheap is its outside pair of letters, C and P, and swapping means those two letters trade places in the word"
         }
        ],
        "parts": [
         {
          "words": "bar",
+         "at": 20,
          "gives": "EXCEPT",
-         "note": "bar as a preposition means except"
+         "note": "bar as a preposition means except, as in 'all bar one'"
         },
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "case of",
-           "note": "a case is the outside covering, so only the outer letters are meant"
-          }
-         ],
-         "parts": [
-          {
-           "words": "cheap",
-           "note": "the outside letters of the word; these two trade places"
-          }
-         ]
+         "gives": "CEP"
         },
         {
-         "words": "wine with tea, OK",
-         "gives": "WINETEAOK",
-         "note": "taken as written"
+         "gives": "PEC"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bottled",
+         "at": 47,
+         "note": "bottled is slang for drunk, so the letters of the words that follow are scrambled"
+        },
+        {
+         "text": "with",
+         "at": 60,
+         "note": "with brings the tea and OK into the same bottle as the wine, so all their letters are scrambled together"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wine",
+         "at": 55
+        },
+        {
+         "words": "tea",
+         "at": 65
+        },
+        {
+         "words": "OK",
+         "at": 70
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "At the pub, someone trades a case of cheap wine for tea instead, and that's fine.",
-     "walkthrough": "In EXCEPT the C and P swap places to make EXPECT. 'Bottled' looks like it describes the wine, but it is the anagram signal, slang for drunk.",
-     "definitionFit": "Expectation Week is the church name for the days between Ascension and Whitsun, when the disciples awaited the Holy Spirit."
+     "surface": "Reads like a pub order: a cheap wine switched for tea, and that's fine.",
+     "walkthrough": "In EXCEPT, 'swapping case of cheap' makes the C and P (the outside letters of cheap) change places, giving EXPECT; 'bottled' then scrambles WINE with TEA and OK into ATIONWEEK. Expectation Week runs from Ascension Day to Whit Sunday, when Christians await the Holy Spirit.",
+     "definitionFit": "Expectation Week is the Christian period between Ascension and Pentecost, the days of waiting for the Holy Ghost to descend."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "bottled"
+     "misdirectedWord": "spirit"
     }
    }
   },
