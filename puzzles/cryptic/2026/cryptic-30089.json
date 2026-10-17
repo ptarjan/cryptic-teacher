@@ -342,25 +342,31 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "STROLL",
      "indicators": [
       {
        "text": "last to get up",
-       "note": "The letter at the foot of the column climbs to the top while every other letter keeps its place."
+       "at": 19,
+       "note": "in a down clue, getting up means rising to the top, so the final letter of the word moves to the front"
       }
      ],
      "parts": [
       {
        "words": "Bad-tempered types",
+       "at": 0,
        "gives": "TROLLS",
-       "note": "trolls are the bad-tempered types, under bridges and under the line"
+       "note": "trolls are surly creatures of folklore, and online the word means people who pick fights"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "This is a rotation, not a reversal: only one letter travels and the rest hold their order. Turned round properly it would read SLLORT.",
-     "definitionFit": "walk → STROLL: a stroll is a walk taken slowly and for pleasure, the unhurried end of the same idea."
+     "surface": "Grumpy people who are the last out of bed go for a walk.",
+     "walkthrough": "'last to get up' moves the final S of TROLLS to the top of the down entry, where it is read first.",
+     "definitionFit": "A stroll is a leisurely walk, an unhurried amble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
     }
    }
   },
@@ -902,36 +908,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NOBLEST",
-     "indicators": [
-      {
-       "text": "to make a comeback",
-       "note": "Anything making a comeback arrives the other way round, so those letters are read from the far end."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to make a comeback",
+         "at": 33,
+         "note": "to make a comeback is to come back, so the French word for good is read from end to start"
+        }
+       ],
        "parts": [
         {
          "words": "good of Poirot",
-         "gives": "NOB",
-         "note": "Poirot is Belgian, so his word for good is BON, arriving backwards"
-        },
-        {
-         "words": "in case",
-         "gives": "LEST",
-         "note": "lest means in case, as in 'lest we forget'"
+         "at": 18,
+         "gives": "BON",
+         "note": "Poirot is Agatha Christie's Belgian detective, a French speaker, and the French for good is bon"
         }
        ]
+      },
+      {
+       "words": "in case",
+       "at": 52,
+       "gives": "LEST",
+       "note": "lest means in case, for fear that"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'In case' looks like joinery holding the sentence together and is really four of the seven letters, which is where the clue hides.",
-     "definitionFit": "Most generous → NOBLEST: noble describes generosity of spirit rather than of pocket, so the noblest gesture is the most big-hearted one."
+     "surface": "Praise for a generous, kindly side of Poirot that returns in a detective case.",
+     "walkthrough": "Poirot speaks French, so 'good of Poirot' is BON; 'to make a comeback' turns it into NOB, and LEST means 'in case'. 'and' joins the definition to the wordplay.",
+     "definitionFit": "Noble can mean magnanimous and high-minded, so the noblest person is the most generous in spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "case"
     }
    }
   },
