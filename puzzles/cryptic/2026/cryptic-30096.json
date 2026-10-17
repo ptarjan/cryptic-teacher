@@ -565,35 +565,53 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ENDORSE",
      "indicators": [
       {
        "text": "for",
-       "note": "Putting one thing in for another is a swap, so what precedes it moves into the place the letter named after it was holding."
+       "at": 20,
+       "note": "'tip for the first' means the tip is put in place of the first letter, a substitution"
       }
      ],
      "parts": [
       {
-       "words": "tip",
-       "gives": "END",
-       "note": "the tip of a thing is its far END"
-      },
-      {
        "words": "horse",
-       "gives": "ORSE",
-       "note": "HORSE with the letter it starts on given away"
+       "at": 5,
+       "note": "taken as written"
       },
       {
-       "words": "the first from Haydock",
-       "gives": "H",
-       "note": "the letter that steps aside is the one Haydock opens on"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "the first from",
+         "at": 24,
+         "note": "says only the opening letter of Haydock is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Haydock",
+         "at": 39,
+         "note": "first letter H"
+        }
+       ]
+      },
+      {
+       "words": "tip",
+       "at": 16,
+       "gives": "END",
+       "note": "a tip is an end, so END"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Haydock is a racecourse, so the horse and the tip belong to the same afternoon — and 'tip' turns out to mean an extremity, not a hot prospect.",
-     "definitionFit": "Back -> ENDORSE: to endorse a candidate is to put your name behind them publicly, which is what backing someone amounts to."
+     "surface": "A racing tip: put money on a horse running at Haydock Park.",
+     "walkthrough": "Swap the H of HORSE (H, which 'the first from' picks out of Haydock) for END ('tip'), giving END + ORSE. Haydock Park is an English racecourse, which is why the surface reads as betting.",
+     "definitionFit": "To back a proposal or candidate is to support it publicly, which is what endorsing means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Back"
     }
    }
   },
@@ -1263,46 +1281,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SUPERWOMAN",
-     "indicators": [
-      {
-       "text": "back",
-       "note": "Back sends an across answer's letters the other way along the row, right to left, so the piece it follows arrives turned round."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 19,
+         "note": "'back' after American asks for its abbreviation written backwards"
+        }
+       ],
        "parts": [
         {
          "words": "American",
-         "gives": "SU",
-         "note": "the American is US, and it arrives facing the other way"
-        },
-        {
-         "words": "every",
-         "gives": "PER",
-         "note": "per day means every day"
-        },
-        {
-         "words": "week",
-         "gives": "W",
-         "note": "W is the calendar's short form of week"
-        },
-        {
-         "words": "country",
-         "gives": "OMAN",
-         "note": "the sultanate at the eastern end of the Arabian peninsula"
+         "at": 10,
+         "gives": "US",
+         "note": "US, the abbreviation for American"
         }
        ]
+      },
+      {
+       "words": "every",
+       "at": 24,
+       "gives": "PER",
+       "note": "per means each or every, as in 'once per day'"
+      },
+      {
+       "words": "week",
+       "at": 30,
+       "gives": "W"
+      },
+      {
+       "words": "country",
+       "at": 38,
+       "gives": "OMAN",
+       "note": "Oman is a country on the Arabian Peninsula"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The capital S of 'She' is fair warning that a named person is wanted, and everything after it is build — four pieces, only one of them a whole word.",
-     "definitionFit": "She flies -> SUPERWOMAN: the comic-book heroine of the Superman family, whose powers include flight, with 'she' marking out the female one."
+     "surface": "Someone flies home to the US every week from abroad, a commuter's timetable.",
+     "walkthrough": "The surface suggests a flight back to America, but 'back' only reverses the abbreviation; 'She flies' is a cryptic way of describing the heroine.",
+     "definitionFit": "The comic-book heroine has the power of flight, so a cryptic description of her is someone female who flies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "flies"
     }
    }
   },
