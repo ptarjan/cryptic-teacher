@@ -402,45 +402,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "shifted",
-       "note": "letters that are shifted are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "Back of",
+         "at": 0,
+         "note": "the back of a word is its final letter"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "Back of",
-           "note": "the back of a word is its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Back of damp",
-           "gives": "DAMP",
-           "note": "last letter of damp"
-          }
-         ]
-        },
+         "words": "damp",
+         "at": 8,
+         "note": "the last letter of damp"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shifted",
+         "at": 21,
+         "note": "shifted means the letters are moved about into a different order"
+        }
+       ],
+       "parts": [
         {
          "words": "rathole",
-         "note": "RATHOLE rearranged"
+         "at": 13
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone moved a lot of stuff out of the back of a damp rat-infested hole.",
-     "walkthrough": "'Shifted a large amount' reads as a verb and its object; 'shifted' works on rathole instead.",
-     "definitionFit": "Plain synonym, often in 'a plethora of options', meaning an abundance or glut."
+     "surface": "A rat has moved home from a soggy hole to somewhere roomier.",
+     "walkthrough": "'Back of' takes only the final letter of damp; 'shifted' then works on RATHOLE alone, and the definition is the closing 'a large amount'.",
+     "definitionFit": "A plethora is an excess or overabundance, far more of something than is needed."
     },
     "features": {
      "answerInScene": false,
@@ -709,45 +711,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ICESHEET",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 33,
+       "note": "in means the jumbled letters are placed inside the short word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "it",
+       "at": 36
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "runny",
-         "note": "runny cheese has lost its shape, so its letters are rearranged"
-        },
-        {
-         "text": "in",
-         "note": "the rearranged cheese goes inside IT"
+         "at": 20,
+         "note": "runny describes something melting and flowing out of shape, so its letters lose their order"
         }
        ],
        "parts": [
         {
-         "words": "it",
-         "note": "IT itself, split around the cheese"
-        },
-        {
          "words": "cheese",
-         "gives": "CESHEE",
-         "note": "CHEESE rearranged"
+         "at": 26
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A big cold room holding a stock of melting cheese.",
-     "walkthrough": "'Huge cold area' could be a fridge or warehouse; it is geography.",
-     "definitionFit": "An ice sheet is a vast mass of glacial ice covering a large area."
+     "surface": "A vast frozen region somehow has melted cheese inside it.",
+     "walkthrough": "'it' at the end looks like a pronoun for the cold area, but it is the container: 'runny' jumbles CHEESE and 'in' puts the result between I and T.",
+     "definitionFit": "An ice sheet is a vast permanent layer of glacial ice, like those covering Greenland and Antarctica."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "runny"
+     "joke": "absurd",
+     "misdirectedWord": "it"
     }
    }
   },
@@ -1236,26 +1240,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "CREW",
      "indicators": [
       {
        "text": "leader abandoning",
-       "note": "the first letter leaves the word"
+       "at": 5,
+       "note": "leader abandoning means the word's first letter is dropped"
       }
      ],
      "parts": [
       {
        "words": "prison officer",
-       "gives": "CREW",
-       "note": "SCREW, British slang for a prison guard, without its first letter S"
+       "at": 23,
+       "gives": "SCREW",
+       "note": "screw is British slang for a prison warder"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A gang boss walks out on a corrupt prison guard.",
-     "walkthrough": "'Gang leader' looks like one phrase; 'Gang' is the definition and 'leader' goes with the deletion. A screw is British slang for a prison officer.",
-     "definitionFit": "A crew is a gang or group of people working together."
+     "surface": "The ringleader of a gang turns his back on a prison guard.",
+     "walkthrough": "'Gang leader' reads as one phrase, but 'Gang' is the definition and 'leader abandoning' acts on the slang for a warder.",
+     "definitionFit": "A crew is a group of people working or hanging around together, a team or band."
     },
     "features": {
      "answerInScene": true,
