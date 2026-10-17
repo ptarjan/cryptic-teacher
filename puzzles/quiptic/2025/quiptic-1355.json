@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -261,61 +262,62 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EROTIC",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "captured by",
+       "at": 21,
+       "note": "captured by says the middle letters are held inside the reversed word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "heart",
-         "note": "The heart of a word is its middle, and a four-letter word has two letters sitting there."
-        },
-        {
          "text": "upright",
-         "note": "In a down entry, standing upright means reading from the bottom of the grid towards the top, so that piece arrives the other way round."
+         "at": 33,
+         "note": "upright means standing up, which in a down clue reads the word from bottom to top"
         }
        ],
        "parts": [
         {
-         "words": "upright quote",
-         "gives": "ETIC",
-         "note": "To quote a source is to cite it, and those four letters then climb the grid."
-        },
+         "words": "quote",
+         "at": 41,
+         "gives": "CITE",
+         "note": "to quote a source is to cite it"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "RO",
-         "indicators": [
-          {
-           "text": "captured by",
-           "note": "Something captured is held inside its captor, so these letters end up enclosed by the other piece."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "prof's heart",
-           "gives": "RO",
-           "select": "middle",
-           "note": "The middle two of the four letters."
-          }
-         ]
+         "text": "heart",
+         "at": 15,
+         "note": "the heart of a word is its middle, here the two central letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "prof's",
+         "at": 8,
+         "gives": "PROF",
+         "note": "prof is short for professor; the 's is possessive and gives no letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A professor's heart won over by a line of poetry.",
-     "walkthrough": "'Heart' asks for the middle of the word 'prof' itself, not for anybody's feelings. The citation is stood on its end before it wraps round, so the two steps happen in that order.",
-     "definitionFit": "Erotic describes what is charged with sexual love, the warmer end of the range that amorous covers."
+     "surface": "A lecturer's romantic feelings are revealed by a quotation pinned on an upright board.",
+     "walkthrough": "CITE read 'upright' in this down light is ETIC, and RO, the 'heart' of prof, is 'captured by' it.",
+     "definitionFit": "Erotic means relating to sexual desire or love, so it is a synonym of amorous."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "heart"
+     "misdirectedWord": "upright"
     }
    }
   },
@@ -865,37 +867,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EVENING",
-     "indicators": [
-      {
-       "text": "after halfway mark",
-       "note": "Everything after a word's halfway mark is its back half, so the front half is dropped."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "still",
+       "at": 19,
+       "gives": "EVEN",
+       "note": "even and still both strengthen a comparison, as in still better or even better"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after halfway mark",
+         "at": 32,
+         "note": "after the halfway mark means only the letters past the middle of boring are kept"
+        }
+       ],
        "parts": [
         {
-         "words": "still",
-         "gives": "EVEN",
-         "note": "Still better and even better say the same thing."
+         "words": "boring",
+         "at": 25
         },
         {
-         "words": "boring",
-         "gives": "ING",
-         "note": "The back half of the six-letter word."
+         "gives": "BOR"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dull day that has not picked up since the halfway point.",
-     "walkthrough": "'Boring' describes nothing here: it is a six-letter word to be cut in half. 'Still' is wanted in its 'even better' sense, the one that means yet more rather than motionless.",
-     "definitionFit": "The evening is the last stretch of the day, running from late afternoon until night."
+     "surface": "Someone complains that the afternoon is still dull once the halfway point has passed.",
+     "walkthrough": "'after halfway mark' keeps the second half of boring, ING, which follows EVEN.",
+     "definitionFit": "Evening is the period at the close of the day, between afternoon and night."
     },
     "features": {
      "answerInScene": true,
@@ -1003,38 +1007,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "ultimately",
-       "note": "What comes ultimately comes at the very end, so it is that word's last letter."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "coming in",
-         "note": "A thing coming in arrives inside, so this letter is placed within the piece it joins rather than beside it."
+         "text": "coming in to",
+         "at": 19,
+         "note": "coming in to says that letter enters the word for sink"
         }
        ],
        "parts": [
         {
          "words": "sink",
+         "at": 32,
          "gives": "DIP",
-         "note": "To sink below the surface is to dip."
+         "note": "to dip is to sink or drop down"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "S",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 8,
+           "note": "ultimately means at the very end, so only the last letter of Critics is used"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Critics ultimately",
-           "gives": "S",
-           "select": "last",
-           "note": "The last letter of Critics."
+           "words": "Critics",
+           "at": 0,
+           "note": "the last letter of Critics is S"
           }
          ]
         }
@@ -1042,15 +1045,16 @@
       },
       {
        "words": "amateur",
+       "at": 37,
        "gives": "LAY",
-       "note": "A lay member of a profession is an amateur, as in lay preacher."
+       "note": "lay means non-professional, as in a lay person"
       }
      ]
     },
     "explanation": {
-     "surface": "Reviewers turning up at the last minute to sink an amateur production.",
-     "walkthrough": "'Sink' is what critics do to a show and is also a three-letter word to be broken open. 'Lay' for amateur comes from the church, where a layman holds no office.",
-     "definitionFit": "A display is a show: goods, skills or feelings put out where they can be seen."
+     "surface": "Reviewers arrive at last, ready to pan an amateur production.",
+     "walkthrough": "'ultimately' takes S from Critics, which is 'coming in to' DIP to make DISP, followed by LAY.",
+     "definitionFit": "A display is an exhibition put on for people to see, so it is a show."
     },
     "features": {
      "answerInScene": true,
@@ -1347,41 +1351,40 @@
      "indicators": [
       {
        "text": "after",
-       "note": "'After' sends the rings in behind, so the single letter named next is the one that comes first."
+       "at": 6,
+       "note": "after says the word for rings comes behind that first letter"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "W",
        "indicators": [
         {
          "text": "start of",
-         "note": "The start of a word is its opening letter."
+         "at": 12,
+         "note": "start of means only the first letter of weekend"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "start of weekend",
-         "gives": "W",
-         "select": "first",
-         "note": "The first letter of weekend."
+         "words": "weekend",
+         "at": 21,
+         "note": "the first letter of weekend is W"
         }
        ]
       },
       {
        "words": "Rings",
+       "at": 0,
        "gives": "HOOPS",
-       "note": "Rings you toss over a peg are hoops."
+       "note": "hoops are rings or circular bands"
       }
      ]
     },
     "explanation": {
-     "surface": "Phone calls once the weekend has started, and an apology.",
-     "walkthrough": "The dash does the work of a colon: everything before it builds, everything after it defines. 'Rings' are the fairground kind, though the surface is offering telephones.",
-     "definitionFit": "Whoops is the noise you make on dropping something, the spoken equivalent of owning up with 'my mistake'."
+     "surface": "Someone phones as the weekend begins, then apologises for an error.",
+     "walkthrough": "'start of' weekend gives W, and 'after' puts HOOPS behind it. The definition is an exclamation of apology, said on making a slip.",
+     "definitionFit": "Whoops is the exclamation people make on noticing they have made a small blunder."
     },
     "features": {
      "answerInScene": true,
@@ -1523,50 +1526,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "first",
-       "note": "The first of a word is its opening letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "dodgy",
-         "note": "Something dodgy cannot be trusted to be what it seems, and nor can the order these letters come in."
+         "text": "first",
+         "at": 14,
+         "note": "first means only the opening letter of Electrician is taken"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "Electrician's first",
-           "gives": "ELECTRICIANFIRST",
-           "note": "The opening letter of Electrician."
-          }
-         ]
-        },
+         "words": "Electrician's",
+         "at": 0,
+         "note": "the first letter of Electrician is E"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dodgy",
+         "at": 20,
+         "note": "dodgy means unreliable or not quite right, so the letters of tender are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "tender",
-         "note": "anagram fodder, six letters"
+         "at": 26
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An electrician's shady bid for the job arriving.",
-     "walkthrough": "A tender is a written bid for a contract, which keeps the surface inside the trade. The definition is the two words at the end, a past tense the answer has to match.",
-     "definitionFit": "To have entered a room is to have come in, and both are in the past tense."
+     "surface": "An electrician's first quote for a job turns out to be shady, so someone stepped in.",
+     "walkthrough": "'first' takes E from Electrician's, and 'dodgy' rearranges TENDER into NTERED to follow it.",
+     "definitionFit": "Entered is the past tense of enter, meaning went or came into a place."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "dodgy"
+     "misdirectedWord": "tender"
     }
    }
   },
@@ -1724,47 +1729,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PRAGMATIC",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "trimmed",
-       "note": "To trim something is to cut a little off its end, so the word loses its last letter."
+       "text": "drunken",
+       "at": 15,
+       "note": "drunken suggests reeling about, so the combined letters are mixed up"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "tramp",
+       "at": 23
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "drunken",
-         "note": "A drunk cannot walk in a straight line, and these letters will not keep to their proper order either."
+         "text": "trimmed",
+         "at": 34,
+         "note": "trimmed means cut at the end, so the last letter of cigar is taken off"
         }
        ],
        "parts": [
         {
-         "words": "tramp",
-         "note": "anagram fodder, five letters"
+         "words": "cigar",
+         "at": 42
         },
         {
-         "words": "cigar",
-         "gives": "CIGA",
-         "note": "The word with its end trimmed off."
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drunk vagrant holding a cigar with the end cut off.",
-     "walkthrough": "'Trimmed' works on the cigar in the story and on its letters in the wordplay, taking one off the end. Nine letters out of two ordinary words is a long way to shuffle.",
-     "definitionFit": "A pragmatic person deals with things as they actually are, which is what matter-of-fact describes."
+     "surface": "A practical sort describes a drunk vagrant smoking a cigar that has been clipped.",
+     "walkthrough": "'trimmed' cuts cigar to CIGA, and 'drunken' rearranges TRAMP with CIGA.",
+     "definitionFit": "A pragmatic person deals with things realistically and practically, which is what matter-of-fact means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "trimmed"
+     "misdirectedWord": "drunken"
     }
    }
   }
