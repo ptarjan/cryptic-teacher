@@ -699,52 +699,62 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PRESIDIO",
-     "indicators": [
-      {
-       "text": "fail",
-       "note": "a failed arrangement has broken down, so its letters are reassembled differently"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "chief",
+         "at": 15,
+         "note": "the chief letter is the head one, the first letter of the name"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "chief",
-           "note": "the chief part of a word is its head, its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Pulaski's",
-           "note": "the leading letter of Pulaski"
-          }
-         ]
+         "words": "Pulaski's",
+         "at": 5,
+         "note": "its first letter is used"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fail",
+         "at": 32,
+         "note": "when things fail they break down, so these letters fall into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dies",
+         "at": 21,
+         "note": "taken as written, as anagram material"
         },
         {
-         "words": "dies, or I",
-         "gives": "RESIDIO",
-         "note": "these letters are rearranged"
+         "words": "or",
+         "at": 27,
+         "note": "taken as written, as anagram material"
+        },
+        {
+         "words": "I",
+         "at": 30
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A soldier at a Civil War fort in Georgia fears death or failure.",
-     "walkthrough": "Fort Pulaski is a real fort near Savannah, which makes 'Fort' look like part of the name rather than the definition.",
-     "definitionFit": "A presidio is a fortified military post, the Spanish word used for forts in the American Southwest."
+     "surface": "A dramatic ultimatum from the commander of Fort Pulaski, a Civil War stronghold in Georgia: he dies or I fail.",
+     "walkthrough": "'Fort Pulaski' reads as a single name, but 'Fort' is the definition and Pulaski only gives P, its letter picked by 'chief'. Fort Pulaski is a real Civil War stronghold near Savannah, which makes the split easy to miss; 'fail' makes RESIDIO.",
+     "definitionFit": "A presidio is a fortified military post, the Spanish word used for garrisons in the American Southwest and San Francisco."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Fort"
+     "misdirectedWord": "chief"
     }
    }
   },
