@@ -178,63 +178,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BRITTEN",
-     "indicators": [
-      {
-       "text": "half a",
-       "note": "half a means only half the word survives, so the rest is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to enter",
+         "at": 25,
+         "note": "to enter means the letter goes inside the word for piece"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "words": "piece",
+         "at": 34,
+         "gives": "BIT",
+         "note": "a bit is a piece"
+        },
+        {
+         "op": "first",
          "indicators": [
           {
-           "text": "to enter",
-           "note": "to enter is to go inside, so the letter is placed within the piece"
+           "text": "initially",
+           "at": 9,
+           "note": "initially points to the first letter of the next word"
           }
          ],
          "parts": [
           {
-           "words": "piece",
-           "gives": "BIT",
-           "note": "a bit is a piece"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "initially",
-             "note": "initially points to the opening, so only the first letter of the next word is used"
-            }
-           ],
-           "parts": [
-            {
-             "words": "ready",
-             "note": "the opening letter of this word"
-            }
-           ]
+           "words": "ready",
+           "at": 19,
+           "note": "first letter of ready"
           }
          ]
-        },
-        {
-         "words": "score",
-         "gives": "TEN",
-         "note": "a score is twenty, and half of twenty is ten"
         }
        ]
+      },
+      {
+       "words": "half a score",
+       "at": 45,
+       "gives": "TEN",
+       "note": "a score is twenty, so half of it is ten"
       }
      ]
     },
     "explanation": {
-     "surface": "A composer is ready to step into a piece with half the musical score.",
-     "walkthrough": "'Score' looks musical beside 'composer', but it is the number twenty, halved to ten.",
-     "definitionFit": "Benjamin Britten was the English composer of Peter Grimes and the War Requiem."
+     "surface": "A composer is about to start a piece, having half the score written.",
+     "walkthrough": "'Score' reads as written music, but here it is the number twenty. Benjamin Britten was a 20th-century English composer.",
+     "definitionFit": "Benjamin Britten, who wrote Peter Grimes, is a famous example of a composer."
     },
     "features": {
      "answerInScene": true,
