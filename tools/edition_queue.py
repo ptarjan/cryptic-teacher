@@ -478,7 +478,9 @@ def _plan(papers, cache, reread, out):
     except (OSError, ValueError) as e:
         log(f"the annotation re-read requests did not load ({type(e).__name__}: {e}); planned without them")
     scans, reads = [], []
+    began, took = time.monotonic(), {}
     for k, key in enumerate(papers):
+        took[key] = time.monotonic()
         if key == "listener":
             reads += [(u["rank"], k, n, {**u, "kind": "read", "paper": "listener"})
                       for n, u in enumerate(gale_listener.plan())]
@@ -499,7 +501,23 @@ def _plan(papers, cache, reread, out):
         sc, rd = fa.plan(paper, cache, reread=reread, asked=asked.get(key, ()))
         scans += [(u["rank"], k, n, u) for n, u in enumerate(sc)]
         reads += [(u["rank"], k, n, u) for n, u in enumerate(rd)]
+    ended = time.monotonic()
+    if out is not None and ended - began >= SLOW_PLAN:
+        out.append(slow_plan_note(took, ended, began))
     return by_urgency(scans), by_urgency(reads)
+
+
+#: A plan of the papers that takes this many seconds says, in its notes, what each paper cost.
+SLOW_PLAN = 30
+
+
+def slow_plan_note(starts, ended, began):
+    """The note a slow plan logs: the whole in seconds and the three papers
+    that took the most (a paper's span is from its start to the next's)."""
+    stamps = list(starts.items())
+    spans = sorted(((nxt - at, key) for (key, at), (_, nxt) in zip(stamps, [*stamps[1:], (None, ended)])), reverse=True)
+    return (f"slow plan: papers took {ended - began:.0f}s; "
+            + ", ".join(f"{key} {s:.0f}s" for s, key in spans[:3]))
 
 
 def fresh(papers, cache=fa.CACHE, now=None):
@@ -1101,8 +1119,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         for src in live:
             if src not in fetch_made or time.monotonic() - fetch_made[src][0] >= (
                     FETCH_REPLAN if fetch_replan is None else fetch_replan):
+                t0 = time.monotonic()
                 units = plan_fetches([src])
                 fetch_made[src] = (time.monotonic(), units)
+                if notes is not None and fetch_made[src][0] - t0 >= SLOW_PLAN:
+                    notes.append(f"slow plan: {src} fetches took {fetch_made[src][0] - t0:.0f}s")
         return sc, rd, [u for src in live for u in fetch_made[src][1]]
 
     def may_start():

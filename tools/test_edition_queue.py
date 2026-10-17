@@ -272,6 +272,16 @@ with q.lock(cache / "filed-gale.jsonl"):
     scans, reads = eq.plan(["gale", "times"], cache, before, out=notes)
     check("a paper whose ledger a batch run holds is left out, and said", (False, True),
           (any(u["paper"] == "gale" for u in reads), "gale: a run holds" in notes[0]))
+notes = []
+eq.plan(["gale", "times"], cache, before, out=notes)
+check("a quick plan adds no timing note", [], [n for n in notes if n.startswith("slow plan")])
+was, eq.SLOW_PLAN = eq.SLOW_PLAN, 0
+notes = []
+eq.plan(["gale", "times"], cache, before, out=notes)
+eq.SLOW_PLAN = was
+check("a slow plan names the papers it spent its seconds on",
+      (1, True), (len([n for n in notes if n.startswith("slow plan: papers took")]),
+                  all(p in notes[-1] for p in ("gale", "times"))))
 
 # ---- the units: each appends its own row, never another's
 calls = []
