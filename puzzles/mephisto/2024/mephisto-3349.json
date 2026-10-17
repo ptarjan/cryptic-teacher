@@ -108,48 +108,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ACKEE",
+     "op": "container",
      "indicators": [
       {
-       "text": "largely",
-       "note": "largely means most but not all, so the bird's name loses its final letter"
+       "text": "tucked into",
+       "at": 15,
+       "note": "the shortened parrot is tucked into the word for excellent"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "excellent",
+       "at": 27,
+       "gives": "ACE",
+       "note": "ace is slang for excellent"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "tucked into",
-         "note": "something tucked into something else sits inside it, so one piece goes within the other"
+         "text": "largely",
+         "at": 7,
+         "note": "largely means most of the word, so its final letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "excellent",
-         "gives": "ACE",
-         "note": "ace means first-rate"
+         "words": "Parrot",
+         "at": 0,
+         "gives": "KEA",
+         "note": "the kea is a large New Zealand parrot"
         },
         {
-         "words": "Parrot",
-         "gives": "KE",
-         "note": "the KEA is a New Zealand parrot, here without its last letter"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A greedy parrot is busy burrowing into a lovely piece of fruit.",
-     "walkthrough": "The kea is a New Zealand parrot; 'largely' trims it before it goes inside.",
-     "definitionFit": "The ackee is a tropical tree whose fruit is eaten in Jamaican cooking, notably with saltfish."
+     "surface": "A parrot gorging itself on a very good piece of fruit.",
+     "walkthrough": "'largely' trims KEA to KE, which is 'tucked into' ACE between its C and E. The kea is a mountain parrot of New Zealand.",
+     "definitionFit": "The ackee is a tropical tree fruit, eaten in Jamaica with saltfish."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "excellent"
+     "misdirectedWord": "tucked"
     }
    }
   },
@@ -1818,26 +1823,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ERSE",
+     "op": "middle",
      "indicators": [
       {
        "text": "wrapper's lost",
-       "note": "a wrapper is the outer layer, so losing it strips the first and last letters"
+       "at": 16,
+       "note": "the wrapper, the outer letters around the word, is lost from both ends"
       }
      ],
      "parts": [
       {
-       "words": "sweater",
+       "words": "sweater's",
+       "at": 6,
        "gives": "JERSEY",
-       "note": "a jersey is a knitted sweater"
+       "note": "a jersey is a sweater; the 's reads as has"
       }
      ]
     },
     "explanation": {
-     "surface": "An Irishman's jumper has lost its packaging.",
-     "definitionFit": "Erse is an old name for the Gaelic language, especially Irish Gaelic."
+     "surface": "An Irish person complains that the packaging for their jumper has gone missing.",
+     "walkthrough": "'wrapper's lost' strips the outer J and Y from JERSEY. Erse is an old name for the Gaelic language.",
+     "definitionFit": "Erse is a dated name for Irish Gaelic, and formerly also for Scottish Gaelic."
     },
     "features": {
      "answerInScene": true,
@@ -2033,44 +2039,51 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 16,
+       "note": "after puts the plant behind the opening letters"
+      }
+     ],
      "parts": [
       {
-       "op": "nth",
-       "unchecked": true,
-       "gives": "SP",
-       "n": 2,
+       "op": "deletion",
        "indicators": [
         {
          "text": "early signs of",
-         "note": "early signs are the opening letters, so only the start of the word is kept"
+         "at": 22,
+         "note": "only the early letters of the word spring are used, its opening two"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "spring",
-         "gives": "SP",
-         "select": 2,
-         "note": "the first two letters of spring"
+         "at": 37,
+         "gives": "SPRING",
+         "note": "taken as written"
+        },
+        {
+         "gives": "RING"
         }
        ]
       },
       {
        "words": "plant",
+       "at": 10,
        "gives": "RUE",
-       "note": "rue is a bitter herb"
+       "note": "rue is a bitter aromatic herb"
       }
      ]
     },
     "explanation": {
-     "surface": "Gardening advice: deadhead your plants once spring arrives.",
-     "walkthrough": "'Dead-head' looks like a gardening job, but it is a foundry term.",
-     "definitionFit": "In metal casting, a sprue or dead-head is the waste metal left in the channel through which it was poured."
+     "surface": "A gardening tip: remove faded flowers once the first hints of spring appear.",
+     "walkthrough": "'early signs of' keeps SP from 'spring', with RUE, the herb, coming 'after'. 'Dead-head' looks like a gardening verb, but it is a foundry term.",
+     "definitionFit": "In metal casting a sprue or dead-head is the waste metal left in the channel that fed the mould."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Dead-head"
     }
    }
