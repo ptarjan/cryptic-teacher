@@ -315,45 +315,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LITERATIM",
-     "indicators": [
-      {
-       "text": "unfinished",
-       "note": "something unfinished lacks its end, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "ignited",
+       "at": 27,
+       "gives": "LIT",
+       "note": "lit means set alight, ignited"
+      },
+      {
+       "words": "an epoch",
+       "at": 35,
+       "gives": "ERA",
+       "note": "an era is an epoch"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 51,
+         "note": "unfinished means the last letter is missing"
+        }
+       ],
        "parts": [
         {
-         "words": "ignited",
-         "gives": "LIT",
-         "note": "lit means set alight"
+         "words": "epoch",
+         "at": 62,
+         "gives": "TIME",
+         "note": "time can mean an epoch or age, as in in Tudor times"
         },
         {
-         "words": "epoch",
-         "gives": "ERA",
-         "note": "an era is an epoch"
-        },
-        {
-         "words": "epoch",
-         "gives": "TIM",
-         "note": "an epoch is a time; the last letter goes"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An age was set on fire, along with another age left half done.",
-     "definitionFit": "Literatim is Latin for letter by letter, so a copy made literatim keeps every character."
+     "surface": "A puzzling sentence about lighting up an age and leaving another age incomplete, presented as a way of copying text.",
+     "walkthrough": "'unfinished' trims TIME to TIM. Literatim is the Latin-derived word for letter-for-letter copying, the companion of verbatim.",
+     "definitionFit": "Literatim means letter for letter, reproducing a text with exactly the same letters as the original."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "characters"
     }
    }
@@ -436,49 +442,37 @@
        "indicators": [
         {
          "text": "innards",
-         "note": "innards are what lies inside, so the outside letters are dropped"
+         "at": 47,
+         "note": "innards are what is inside, so the outer letters of frog are stripped away"
         }
        ],
        "parts": [
         {
          "words": "frog's",
+         "at": 40,
          "gives": "FROG",
-         "note": "inner letters of frog"
+         "note": "the word frog, whose middle letters are kept"
         }
        ]
       },
       {
-       "op": "middle",
-       "unchecked": true,
+       "words": "Kissinger's gut",
+       "at": 59,
        "gives": "SIN",
-       "indicators": [
-        {
-         "text": "gut",
-         "note": "the gut is the middle of a body, so the central letters are taken"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Kissinger's",
-         "gives": "SIN",
-         "select": "middle",
-         "note": "the three central letters of Kissinger"
-        }
-       ]
+       "note": "the gut of the name Kissinger is its core: the three letters at its centre, with KIS and GER cut from the ends"
       }
      ]
     },
     "explanation": {
-     "surface": "Fiddlers' bow resin is supposedly made from a frog's insides and a statesman's stomach.",
-     "walkthrough": "Henry Kissinger was US Secretary of State; the frog is also the part of a violin bow the player holds.",
-     "definitionFit": "Rosin is the resin violinists rub on their bows for grip on the strings."
+     "surface": "A grisly recipe that makes violin resin from a frog's insides and Henry Kissinger's stomach.",
+     "walkthrough": "'innards' keeps RO from FROG; the gut of KISSINGER is its central SIN. The frog is also the heel of a violin bow and gut is string material, so the surface stays among fiddlers.",
+     "definitionFit": "Rosin is the hardened pine resin that violinists rub on bow hair to make it grip the strings."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "absurd",
-     "misdirectedWord": "gut"
+     "misdirectedWord": "frog's"
     }
    }
   },
@@ -979,62 +973,67 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "APRILFOOL",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "words": "a",
+       "at": 52,
+       "gives": "A"
+      },
+      {
+       "words": "quiet",
+       "at": 54,
+       "gives": "P",
+       "note": "P is piano, the musical direction for quiet"
+      },
       {
        "op": "container",
        "indicators": [
         {
          "text": "eaten by",
-         "note": "what is eaten ends up inside the eater, so these letters go within the stream"
+         "at": 43,
+         "note": "a piece eaten by another goes inside it"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "a",
-           "note": "taken as written"
-          },
-          {
-           "words": "quiet",
-           "gives": "P",
-           "note": "p, piano, is the musical mark for quiet"
-          },
-          {
-           "words": "stream",
-           "gives": "RILL",
-           "note": "a rill is a small stream"
-          }
-         ]
+         "words": "stream",
+         "at": 60,
+         "gives": "RILL",
+         "note": "a rill is a small stream"
         },
         {
-         "words": "food",
-         "gives": "FOO",
-         "note": "food without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 36,
+           "note": "mostly means all but the last letter is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "food",
+           "at": 30
+          },
+          {
+           "gives": "D"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The victim of a prank involving food, eaten by a quiet brook.",
-     "walkthrough": "Quiet is the musical direction piano, abbreviated p; a rill is a small brook.",
-     "definitionFit": "An April fool is someone tricked by a hoax on the first of April."
+     "surface": "A prank involving food being swallowed beside a peaceful brook.",
+     "walkthrough": "'food, mostly eaten by a quiet stream' reads as a picnic scene, but each word is a piece. P for quiet comes from music notation, where p (piano) marks a soft passage.",
+     "definitionFit": "An April fool is the victim of a prank played on the first of April, the traditional day for tricks."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "eaten"
+     "misdirectedWord": "Butt"
     }
    }
   },
