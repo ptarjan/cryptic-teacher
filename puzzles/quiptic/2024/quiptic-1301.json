@@ -539,39 +539,37 @@
      "parts": [
       {
        "words": "endure",
+       "at": 11,
        "gives": "LAST",
-       "note": "to last is to endure"
+       "note": "to last is to endure or go on"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "LY",
        "indicators": [
         {
          "text": "conclusions of",
-         "note": "the conclusion of a word is its last letter"
+         "at": 18,
+         "note": "conclusions are the ends, so the final letter of each of the two words is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "conclusions of Royal Family",
-         "gives": "LY",
-         "select": "last",
-         "note": "last letters of RoyaL and FamilY"
+         "words": "Royal Family",
+         "at": 33,
+         "note": "the last letters of Royal and Family give L and Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Advice that, in the end, one must put up with the ways of the royals.",
-     "walkthrough": "'Ultimately endure' reads as one phrase, but the definition is the single first word and 'endure' starts the wordplay.",
-     "definitionFit": "Ultimately and lastly both mean in the end."
+     "surface": "A remark that in the end the Royal Family will survive whatever comes.",
+     "definitionFit": "Both words are adverbs meaning finally or at the end of a sequence."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "conclusions"
     }
    }
   },
@@ -869,40 +867,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EXTINCT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "entertaining",
+       "at": 26,
+       "note": "to entertain is to hold or host, so one piece goes inside the other"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "rewritten",
-         "note": "rewritten letters are put down in a new order"
-        },
-        {
-         "text": "entertaining"
+         "text": "that's rewritten",
+         "at": 8,
+         "note": "rewriting the words in and text reorders their letters"
         }
        ],
        "parts": [
         {
-         "words": "In text",
-         "gives": "EXTINT",
-         "note": "IN TEXT rewritten"
+         "words": "In",
+         "at": 0
         },
         {
-         "words": "chapter",
-         "gives": "C",
-         "note": "C = chapter"
+         "words": "text",
+         "at": 3
         }
        ]
+      },
+      {
+       "words": "chapter",
+       "at": 39,
+       "gives": "C"
       }
      ]
     },
     "explanation": {
-     "surface": "A chapter that entertained readers has been cut from the revised edition.",
-     "walkthrough": "'In' is not a link word: it is part of the anagram fodder.",
-     "definitionFit": "A plain synonym: a species that has died out has vanished from the earth."
+     "surface": "A revised document in which one chapter has been cut.",
+     "walkthrough": "'In' looks like a link word but it is part of the fodder: IN plus TEXT rearranged gives EXTINT, and 'entertaining' puts C inside it.",
+     "definitionFit": "A species that has died out entirely has vanished from the earth, the usual sense of the adjective."
     },
     "features": {
      "answerInScene": false,
@@ -987,40 +991,43 @@
      "parts": [
       {
        "words": "in that place",
+       "at": 12,
        "gives": "THERE",
-       "note": "there = in that place"
+       "note": "there means in that place"
+      },
+      {
+       "words": "South",
+       "at": 29,
+       "gives": "S",
+       "note": "S is the compass abbreviation for South"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "capital",
-         "note": "a word's capital is its first letter"
+         "at": 44,
+         "note": "a capital is a head or initial letter, so only the first letter of Africa is used"
         }
        ],
        "parts": [
         {
-         "words": "South",
-         "note": "S = south"
+         "words": "Africa's",
+         "at": 35,
+         "note": "its first letter is A"
         }
        ]
-      },
-      {
-       "words": "Africa's capital",
-       "gives": "A",
-       "note": "first letter of Africa"
       }
      ]
     },
     "explanation": {
-     "surface": "A spring month, perhaps, spent by the South African capital.",
-     "walkthrough": "'May' is a person, not a month: Theresa May was British prime minister from 2016 to 2019. 'Perhaps' warns she is only one Theresa.",
-     "definitionFit": "Theresa May is an example of someone named Theresa."
+     "surface": "Someone positioned near the capital city of South Africa.",
+     "walkthrough": "'South Africa' reads as SA, which happens to give the same letters; the parse is S for South plus the capital, i.e. first letter, of Africa.",
+     "definitionFit": "Theresa May was a British Prime Minister, so May is an example of someone with that first name."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "May"
     }
    }
