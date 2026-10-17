@@ -911,62 +911,97 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "QUIRINALIA",
-     "indicators": [
-      {
-       "text": "to visit",
-       "note": "a visitor goes inside, so the shortened word sits within the group's initials"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "QUIRINALIA",
        "indicators": [
         {
-         "text": "to be released from",
-         "note": "being released from something means getting free of it, so those letters come out of the longer word"
-        },
-        {
-         "text": "briefly",
-         "note": "briefly means cut short, so the word before it loses its final letter"
+         "text": "from",
+         "at": 22,
+         "note": "from completes the release, taking the last letter of Eng from the other end of the word"
         }
        ],
        "parts": [
         {
-         "words": "Asking",
-         "gives": "ENQUIRING",
-         "note": "asking, enquiring"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "to be released",
+           "at": 7,
+           "note": "to be released, read with from, says the letters of Eng are let go: first the front pair"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Asking",
+           "at": 0,
+           "gives": "ENQUIRING",
+           "note": "enquiring means asking"
+          },
+          {
+           "words": "Eng",
+           "at": 27,
+           "gives": "EN",
+           "note": "the letters of Eng: EN at the front of the word, G at its end"
+          }
+         ]
         },
         {
-         "words": "Eng",
-         "note": "the letters removed, scattered through the word"
-        },
+         "gives": "G",
+         "note": "the last letter of Eng, removed from the far end"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
         {
-         "words": "Lit",
-         "note": "taken as written, then docked"
-        },
+         "text": "to visit",
+         "at": 43,
+         "note": "to visit puts the shortened word inside the motoring group"
+        }
+       ],
+       "parts": [
         {
          "words": "motoring group",
+         "at": 52,
          "gives": "AA",
-         "note": "the AA, Britain's Automobile Association"
+         "note": "the AA is the Automobile Association, a British motoring organisation"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "briefly",
+           "at": 35,
+           "note": "briefly means cut short, losing the last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Lit",
+           "at": 31,
+           "note": "taken as written, before shortening"
+          },
+          {
+           "gives": "T"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A student begging to drop English Literature drops in on a motoring club's festival.",
-     "walkthrough": "The E, N and G come out of enquiring though they are not side by side. The AA is Britain's Automobile Association, a breakdown service.",
-     "definitionFit": "The Quirinalia was an ancient Roman feast held each February in honour of the god Quirinus."
+     "surface": "Someone wants to drop their English Literature course to go to a car club's festival.",
+     "walkthrough": "'Eng Lit' looks like one unit, but splits. 'to be released from' takes E, N and G out of ENQUIRING (EN from the front, then G from the back of ENQUIRIN), leaving QUIRIN; 'briefly' cuts LIT to LI, which 'to visit' puts inside AA, giving ALIA.",
+     "definitionFit": "The Quirinalia was an ancient Roman festival held in February in honour of the god Quirinus."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Eng"
+     "misdirectedWord": "Lit"
     }
    }
   },
@@ -1556,12 +1591,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "RIOJA",
      "indicators": [
       {
        "text": "able to hold",
-       "note": "able to hold means having room to contain, so the number goes inside"
+       "at": 15,
+       "note": "able to hold means can contain, so one piece goes inside the other"
       }
      ],
      "parts": [
@@ -1570,32 +1604,30 @@
        "indicators": [
         {
          "text": "After cycling",
-         "note": "cycling moves letters round from front to back, so the word is rotated"
+         "at": 0,
+         "note": "cycling moves the end letter of the word round to the front"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "glasses of beer, maybe",
-           "gives": "JAR",
-           "note": "a jar is British slang for a glass of beer"
-          },
-          {
-           "words": "ten",
-           "gives": "IO",
-           "note": "ten written as the digits one and nought"
-          }
-         ]
+         "words": "glasses of beer, maybe",
+         "at": 32,
+         "gives": "JAR",
+         "note": "a jar is British slang for a glass of beer"
         }
        ]
+      },
+      {
+       "words": "ten",
+       "at": 28,
+       "gives": "IO",
+       "note": "IO looks like the figures 1 and 0, so it stands for ten"
       }
      ]
     },
     "explanation": {
-     "surface": "After a bike ride, someone can manage ten pints of beer, or perhaps wine.",
-     "walkthrough": "Going for a jar is British slang for a drink of beer. The J moves round so the word becomes RJA, which then holds the ten.",
+     "surface": "After a bike ride, someone who can drink ten pints might fancy wine instead.",
+     "walkthrough": "'After cycling' moves the R of JAR (British slang for a glass of beer) to the front, giving RJA, which is 'able to hold' IO, ten written as the figures 1 and 0.",
      "definitionFit": "Rioja is a red or white wine from the Rioja region of northern Spain."
     },
     "features": {
