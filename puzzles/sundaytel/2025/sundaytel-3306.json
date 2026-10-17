@@ -42,48 +42,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CAGOULE",
+     "op": "container",
      "indicators": [
       {
-       "text": "without roof",
-       "note": "in a down entry the roof is the top letter, and going without it means losing the first letter"
+       "text": "inside",
+       "at": 28,
+       "note": "the shortened word for horrible goes inside the word for prison"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "prison",
+       "at": 11,
+       "gives": "CAGE",
+       "note": "a cage is a place of confinement, a prison"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "inside",
-         "note": "inside places one piece within the walls of another"
+         "text": "without roof",
+         "at": 35,
+         "note": "in a down answer the roof is the top letter, so the first letter is removed"
         }
        ],
        "parts": [
         {
-         "words": "prison",
-         "gives": "CAGE",
-         "note": "a cage is a place of confinement"
+         "words": "horrible",
+         "at": 19,
+         "gives": "FOUL",
+         "note": "foul means horrible, disgusting"
         },
         {
-         "words": "horrible",
-         "gives": "OUL",
-         "note": "FOUL means horrible; drop its first letter"
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint about a prison with no roof, so everything inside gets soaked and horrible.",
-     "walkthrough": "'Waterproof' looks like an adjective describing the prison, but it is a noun naming a garment. A cagoule is a light hooded waterproof jacket.",
-     "definitionFit": "A cagoule is a lightweight hooded rain jacket, so it is a kind of waterproof garment."
+     "surface": "A prison with no roof is horrible inside, so you need a waterproof.",
+     "walkthrough": "'without roof' takes the top letter off FOUL, leaving OUL, which goes 'inside' CAGE after its first three letters.",
+     "definitionFit": "A cagoule is a lightweight hooded waterproof jacket, used here as a noun meaning a rain garment."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Waterproof"
+     "misdirectedWord": "roof"
     }
    }
   },
@@ -108,41 +113,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IDEA",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "something said briefly is cut short, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "I",
+       "at": 8,
+       "gives": "I"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 21,
+         "note": "briefly means in short form, so the word for treasured loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "I",
-         "note": "taken as written"
+         "words": "treasured",
+         "at": 10,
+         "gives": "DEAR",
+         "note": "something treasured is dear to you"
         },
         {
-         "words": "treasured",
-         "gives": "DEA",
-         "note": "DEAR means treasured; cut short"
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone recalls a passing notion they cherished for a short while.",
-     "walkthrough": "'Briefly' seems to say how long the thought was treasured, but it trims the word for treasured.",
-     "definitionFit": "An idea is a notion or concept formed in the mind, a standard synonym for a thought."
+     "surface": "A wistful memory of something once treasured, but only for a short time.",
+     "walkthrough": "'briefly' cuts DEAR (treasured) to DEA, which follows I.",
+     "definitionFit": "An idea is a thought, a notion formed in the mind."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "briefly"
+     "misdirectedWord": "treasured"
     }
    }
   },
@@ -221,48 +230,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ALPHABET",
+     "op": "charade",
      "indicators": [
       {
-       "text": "in a fog",
-       "note": "being in a fog means confused, so the letters are muddled up"
+       "text": "beneath",
+       "at": 35,
+       "note": "in a down answer, a piece beneath another comes after it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "mountain",
+       "at": 43,
+       "gives": "ALP",
+       "note": "an alp is a high mountain"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "beneath",
-         "note": "in a down entry, beneath means written after the other piece"
+         "text": "in a fog",
+         "at": 26,
+         "note": "someone in a fog is muddled, so the letters of bathe are confused into a new order"
         }
        ],
        "parts": [
         {
-         "words": "mountain",
-         "gives": "ALP",
-         "note": "an alp is a high mountain"
-        },
-        {
          "words": "bathe",
-         "gives": "HABET",
-         "note": "these five letters rearranged"
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cast of characters bathing in a misty mountain lake, like a scene in a play.",
-     "walkthrough": "'Characters' suggests people in a story; here they are letters.",
-     "definitionFit": "The alphabet is the full set of letters used in writing a language, a range of written symbols."
+     "surface": "Swimmers bathing in a fog below a mountain peak.",
+     "walkthrough": "'in a fog' muddles BATHE into HABET, which sits 'beneath' ALP (mountain) in this down entry.",
+     "definitionFit": "An alphabet is the full set of letters used in writing a language, a range of characters."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "characters"
     }
    }
@@ -426,46 +434,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FLORIDA",
+     "op": "container",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "without an end means the final letter is cut off"
+       "text": "across",
+       "at": 16,
+       "note": "the shortened word for drift reaches across, around, the word for free"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "across",
-         "note": "lying across something spans it, so one piece stretches around the other"
+         "text": "endlessly",
+         "at": 6,
+         "note": "endlessly means without an end, so the last letter goes"
         }
        ],
        "parts": [
         {
          "words": "Drift",
-         "gives": "FLOA",
-         "note": "FLOAT means drift; its last letter goes"
+         "at": 0,
+         "gives": "FLOAT",
+         "note": "to float is to drift along"
         },
         {
-         "words": "free",
-         "gives": "RID",
-         "note": "to rid is to free"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "free",
+       "at": 23,
+       "gives": "RID",
+       "note": "to rid is to free, as in rid of a burden"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone drifts on without end through a land of liberty.",
-     "walkthrough": "'Free state' looks like one phrase; 'free' is a verb in the wordplay and 'state' alone is the definition.",
-     "definitionFit": "Florida is one of the fifty United States, in the American southeast."
+     "surface": "Drifting endlessly across a free state, as a traveller might.",
+     "walkthrough": "'endlessly' trims FLOAT (drift) to FLOA, and 'across' spreads it round RID (free) after FLO.",
+     "definitionFit": "Florida is a US state, the peninsula in the south-east of the country."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "free"
     }
@@ -675,42 +688,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SOURGRAPES",
-     "indicators": [
-      {
-       "text": "developing",
-       "note": "something developing changes its form, so the letters take a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Small",
+       "at": 0,
+       "gives": "S",
+       "note": "S is the standard abbreviation for small, as on clothing labels"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "developing",
+         "at": 17,
+         "note": "something developing is changing form, so the letters of groups and are take a new shape"
+        }
+       ],
        "parts": [
         {
-         "words": "Small",
-         "gives": "S",
-         "note": "S is the abbreviation for small"
+         "words": "groups",
+         "at": 6
         },
         {
-         "words": "groups are",
-         "gives": "OURGRAPES",
-         "note": "these nine letters rearranged"
+         "words": "are",
+         "at": 13
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Little cliques are forming a bitter mood, as in an office.",
-     "walkthrough": "S is the clothing-size abbreviation for small; 'are' belongs to the letters being rearranged, not to the grammar.",
-     "definitionFit": "The idiom, from Aesop's fox, means disparaging something only because you cannot have it, which is bitter envy."
+     "surface": "Small groups developing a resentful attitude, like a clique of malcontents.",
+     "walkthrough": "'developing' turns GROUPS ARE into OURGRAPES, after S (small). The phrase comes from Aesop's fox, who calls the grapes he cannot reach sour.",
+     "definitionFit": "The idiom means pretending to despise what you cannot have, a spiteful, envious stance."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "are"
+     "misdirectedWord": "groups"
     }
    }
   },
