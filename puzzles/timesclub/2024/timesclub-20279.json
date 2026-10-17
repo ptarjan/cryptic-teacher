@@ -657,44 +657,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NAHUATL",
+     "op": "composite",
      "indicators": [
       {
        "text": "roaming",
-       "note": "roaming means wandering about, so the letters drift into a new order"
+       "at": 17,
+       "note": "roaming means wandering about, so the remaining letters wander into a new order"
+      },
+      {
+       "text": "but never",
+       "at": 35,
+       "note": "'but never' means except at no point, so every I goes from Lithuania"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NAHUATL",
-       "indicators": [
-        {
-         "text": "but never",
-         "note": "never means not ever, so every occurrence of the letter is left out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Lithuania",
-         "note": "taken as written"
-        },
-        {
-         "words": "India",
-         "gives": "I",
-         "note": "I is India in the NATO phonetic alphabet"
-        }
-       ]
+       "words": "Lithuania",
+       "at": 25
+      },
+      {
+       "words": "India",
+       "at": 45,
+       "gives": "II",
+       "note": "I is India in the NATO phonetic alphabet; 'never' removes it each time it appears, both of Lithuania's"
       }
      ]
     },
     "explanation": {
-     "surface": "A traveller from Central America wanders through Lithuania but never visits India.",
-     "walkthrough": "Both I's go from Lithuania, and the seven letters left are rearranged.",
-     "definitionFit": "Nahuatl is the language of the Aztecs and their modern descendants in Mexico, so it is a Central American language and people."
+     "surface": "A Central American travels around Lithuania but skips India.",
+     "walkthrough": "'never India' strips both I's out of LITHUANIA, leaving LTHUANA, and 'roaming' rearranges those seven letters.",
+     "definitionFit": "Nahuatl is the Aztec language, still spoken in central Mexico, or a member of the people speaking it."
     },
     "features": {
      "answerInScene": false,
