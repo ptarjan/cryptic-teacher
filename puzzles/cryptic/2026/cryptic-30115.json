@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -97,29 +98,33 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "S",
+       "indicators": [
+        {
+         "text": "First in",
+         "at": 0,
+         "note": "first in means the opening letter of school"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "First in school",
-         "gives": "S",
-         "select": "first",
-         "note": "the letter standing first in the word school"
+         "words": "school",
+         "at": 9,
+         "note": "its first letter is wanted"
         }
        ]
       },
       {
        "words": "by a long way",
+       "at": 16,
        "gives": "MILES",
-       "note": "beating something by a long way is beating it by miles"
+       "note": "'by miles' means by a long way, so miles stands for it"
       }
      ]
     },
     "explanation": {
-     "surface": "A pupil who has come top of the school by a distance and is beaming about it.",
-     "walkthrough": "'First in school' is a position on the surface and a single letter in the parse. The puzzle's jazz names keep surfacing inside ordinary words, and a trumpeter's first name is sitting in this one.",
-     "definitionFit": "To smile is to show pleasure on the face, so the third-person verb drops straight into the place 'is visibly pleased' holds."
+     "surface": "A pupil comes top of the school by a wide margin and is plainly delighted.",
+     "walkthrough": "'First in' looks like topping the class, but it only takes the S at the start of school.",
+     "definitionFit": "Someone who smiles shows pleasure on their face, so they are visibly pleased."
     },
     "features": {
      "answerInScene": true,
@@ -353,48 +358,55 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "HOLIDAYS",
-     "indicators": [
-      {
-       "text": "introduced to",
-       "note": "Something introduced to a thing is put inside it, so this letter goes into the middle of the word beside it rather than in front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "disrupted",
-         "note": "A disrupted thing has been thrown out of its proper order, so those letters are not to be taken as they stand."
+         "text": "introduced to",
+         "at": 4,
+         "note": "introduced to means brought into, so the one goes inside the word for maintain"
         }
        ],
        "parts": [
         {
          "words": "maintain",
+         "at": 18,
          "gives": "HOLD",
          "note": "to hold a position is to maintain it"
         },
         {
          "words": "One",
+         "at": 0,
          "gives": "I",
-         "note": "the Roman numeral for one"
-        },
+         "note": "I is the Roman numeral one"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "disrupted",
+         "at": 33,
+         "note": "disrupted means thrown into disorder, so the letters of say are jumbled"
+        }
+       ],
+       "parts": [
         {
          "words": "say",
-         "gives": "AYS",
-         "note": "three letters shuffled"
+         "at": 28,
+         "note": "the letters to be rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "One person brought in to keep order while the celebrations fall apart.",
-     "walkthrough": "'Say' is not the usual 'for example' — it is three letters of fodder, and the comma after it does nothing to help. Billie Holiday is the theme's singer, hiding in a word that began life meaning holy days.",
-     "definitionFit": "Holidays are the days kept as feasts and celebrations — Christmas, Easter, a bank holiday — which is what festivals are."
+     "surface": "Someone brought in to keep things running finds the celebrations thrown into chaos.",
+     "walkthrough": "'introduced to' puts I into HOLD, and 'disrupted' turns SAY into AYS. 'Say' looks like the usual 'for example' filler, but here it is anagram fodder.",
+     "definitionFit": "Holidays were originally holy days, religious feasts, so the word covers festivals."
     },
     "features": {
      "answerInScene": false,
