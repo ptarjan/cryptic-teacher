@@ -49,62 +49,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WIDOWSPEAK",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "finally",
-         "note": "finally points to the end of the word before it, so take the last letter of 'fractures'"
+         "text": "that's not",
+         "at": 42,
+         "note": "that's not means the following letter is absent from the window"
         }
        ],
        "parts": [
         {
-         "words": "window that's not new",
-         "gives": "WIDOW",
-         "note": "WINDOW without N (new)"
+         "words": "window",
+         "at": 35,
+         "gives": "WINDOW",
+         "note": "taken as written before a letter is removed"
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "S",
-         "indicators": [
-          {
-           "text": "not new",
-           "note": "new is abbreviated N, so 'not new' strips that letter out of 'window'"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "fractures finally",
-           "gives": "S",
-           "select": "last",
-           "note": "last letter of fractureS"
-          }
-         ]
-        },
-        {
-         "words": "tip",
-         "gives": "PEAK",
-         "note": "a tip is a peak, the pointed top of something"
+         "words": "new",
+         "at": 53,
+         "gives": "N"
         }
        ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 19,
+         "note": "finally points to the last letter of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fractures",
+         "at": 9,
+         "gives": "S",
+         "note": "last letter of fractures"
+        }
+       ]
+      },
+      {
+       "words": "tip",
+       "at": 59,
+       "gives": "PEAK",
+       "note": "a peak is a pointed tip, as of a mountain"
       }
      ]
     },
     "spelling": "WIDOW'S PEAK",
     "explanation": {
-     "surface": "Someone spots hairline cracks in an old window and passes on a handy tip.",
-     "walkthrough": "'Hairline fractures' reads as one phrase about cracked glass, but 'Hairline' stands alone as the definition. The dash and exclamation make 'tip' look like advice; it is a pointed top.",
-     "definitionFit": "Definition by example: a V-shaped point of hair at the middle of the forehead is one particular hairline."
+     "surface": "Cracks in a glass pane spotted at last, with a warning to throw the old window out.",
+     "walkthrough": "'Hairline fractures' reads as fine cracks, but Hairline alone is the definition. Dropping N from WINDOW ('that's not new') gives WIDOW, and 'finally' takes the S of fractures.",
+     "definitionFit": "A widow's peak is a V-shaped point of hair on the forehead, a particular kind of hairline."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Hairline"
     }
@@ -582,21 +586,23 @@
      "indicators": [
       {
        "text": "about",
-       "note": "to turn about is to turn round, so the word is read backwards"
+       "at": 18,
+       "note": "about here means turned about, so the word is read backwards"
       }
      ],
      "parts": [
       {
-       "words": "to boast about",
+       "words": "to boast",
+       "at": 9,
        "gives": "BRAG",
-       "note": "to boast is to brag, and those four letters are set down from the back"
+       "note": "to brag is to boast"
       }
      ]
     },
     "explanation": {
-     "surface": "An outfit worth showing off about.",
-     "walkthrough": "'About' looks like 'concerning' after 'boast'; it turns the boast round.",
-     "definitionFit": "A plain synonym, usually for distinctive dress: clerical garb."
+     "surface": "Showing off about one's clothes.",
+     "walkthrough": "'about' looks like 'on the subject of', but it turns BRAG round.",
+     "definitionFit": "Garb is a word for dress or attire, especially a distinctive outfit."
     },
     "features": {
      "answerInScene": true,
@@ -773,49 +779,50 @@
      "indicators": [
       {
        "text": "remastered",
-       "note": "a remastered track is reworked, so the letters are rearranged"
+       "at": 50,
+       "note": "a remastered recording is reworked, so these letters are put in a new order"
       }
      ],
      "parts": [
       {
        "words": "I Shot",
-       "note": "anagram fodder"
+       "at": 16,
+       "note": "taken as written for rearranging"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "S",
        "indicators": [
         {
          "text": "intro",
-         "note": "the intro of a piece is its opening, so take the first letter"
+         "at": 37,
+         "note": "an intro is the opening, so only the first letter of the word is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "the Sheriff's intro",
+         "words": "the Sheriff's",
+         "at": 23,
          "gives": "S",
-         "select": "first",
-         "note": "first letter of Sheriff"
+         "note": "the opening letter of the name of the song's Sheriff, S"
         }
        ]
       },
       {
        "words": "live",
-       "note": "anagram fodder"
+       "at": 44,
+       "note": "taken as written for rearranging"
       }
      ]
     },
     "explanation": {
-     "surface": "A live, remastered recording of the opening to Marley's I Shot the Sheriff.",
-     "walkthrough": "The song title 'I Shot the Sheriff' must be broken apart: 'I Shot' is taken whole, but only the S of 'Sheriff'.",
-     "definitionFit": "Definition by example: a 1978 single by Bob Marley and the Wailers."
+     "surface": "Pretends that Marley's track I Shot the Sheriff has been reissued in a live version.",
+     "walkthrough": "'I Shot the Sheriff' looks like the song wanted, but it is fodder: I SHOT, the S that is 'the Sheriff's intro' and LIVE are 'remastered' into a different Marley song.",
+     "definitionFit": "Is This Love is a 1978 single by Bob Marley and the Wailers, from the album Kaya."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Sheriff"
+     "misdirectedWord": "remastered"
     }
    }
   },
@@ -1389,35 +1396,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "repulsed",
-       "note": "repulsed means driven back, so the word is turned round"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "repulsed",
+         "at": 8,
+         "note": "repulsed means driven back, so the word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "small",
-         "gives": "S",
-         "note": "S = small, placed by it"
-        },
-        {
-         "words": "Brother repulsed",
+         "words": "Brother",
+         "at": 0,
          "gives": "BRO",
-         "note": "bro = brother, pushed back so it reads from the end"
+         "note": "bro is an informal short form of brother"
         }
        ]
+      },
+      {
+       "words": "small",
+       "at": 20,
+       "gives": "S",
+       "note": "S is the standard abbreviation for small, as in clothing sizes"
       }
      ]
     },
     "explanation": {
-     "surface": "A brother is disgusted by some little balls.",
-     "walkthrough": "'Repulsed' looks like disgust; it means driven back, which reverses BRO.",
-     "definitionFit": "A plain synonym: spheres, like the jewelled ball a monarch holds."
+     "surface": "A sibling disgusted by tiny spheres.",
+     "walkthrough": "'repulsed' looks like disgust, but in the sense of pushed back it reverses BRO to ORB.",
+     "definitionFit": "Orbs are spheres, and globes are spherical objects, so the words are synonyms."
     },
     "features": {
      "answerInScene": false,
