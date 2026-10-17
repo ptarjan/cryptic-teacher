@@ -526,41 +526,28 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "leads to promotion and less",
+       "at": 7,
        "gives": "PL",
-       "indicators": [
-        {
-         "text": "leads",
-         "note": "the leads of words are their first letters"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "promotion and less",
-         "gives": "PL",
-         "select": "first",
-         "note": "first letters of Promotion and Less"
-        }
-       ]
+       "note": "the leads, or first letters, of the two words promotion and less, with and only joining them"
       },
       {
        "words": "reviews",
+       "at": 35,
        "gives": "AUDITS",
-       "note": "audits are formal reviews"
+       "note": "audits are reviews of accounts"
       }
      ]
     },
     "explanation": {
-     "surface": "An employee whose praise brings a promotion and fewer performance reviews.",
-     "walkthrough": "'leads to' reads as causes; 'leads' takes the first letters and only 'promotion' and 'less' supply them.",
-     "definitionFit": "A plain synonym in the plural: applause and acclaim, many voices of praise."
+     "surface": "A worker's appraisals bring both praise for promotion and something less.",
+     "walkthrough": "'leads to' covers both 'promotion' and 'less', giving P and L, before AUDITS.",
+     "definitionFit": "Plaudits are expressions of praise or applause."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "leads"
+     "misdirectedWord": "reviews"
     }
    }
   },
@@ -685,45 +672,49 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Mathematician",
-      "at": 0
+      "text": "Mathematician's",
+      "at": 0,
+      "note": "the 's is read as 'is', so the definition is the mathematician himself"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EULER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "conserving",
+       "at": 27,
+       "note": "conserving, keeping within, so the energy letter is held inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "about",
-         "note": "turned about, so the letters of RULE are rearranged"
-        },
-        {
-         "text": "conserving"
+         "at": 21,
+         "note": "turned about, so the letters of rule are rearranged"
         }
        ],
        "parts": [
         {
          "words": "rule",
-         "gives": "EULR",
-         "note": "the letters of RULE rearranged"
-        },
-        {
-         "words": "energy",
-         "gives": "E",
-         "note": "E is the physics symbol for energy"
+         "at": 16
         }
        ]
+      },
+      {
+       "words": "energy",
+       "at": 38,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
       }
      ]
     },
     "explanation": {
-     "surface": "A physicist's law about the conservation of energy.",
-     "walkthrough": "The conservation of energy is real physics, which makes 'rule about' read as a law; 'about' mixes RULE and 'conserving' holds the E. Leonhard Euler was an 18th-century Swiss mathematician.",
-     "definitionFit": "Named by example: Leonhard Euler, the 18th-century Swiss who founded graph theory."
+     "surface": "A mathematician's law concerning the conservation of energy.",
+     "walkthrough": "'about' rearranges RULE into ULER, and 'conserving' keeps E inside, at the front. 'Conserving energy' sounds like physics but is a container instruction.",
+     "definitionFit": "Leonhard Euler was the eighteenth-century Swiss mathematician behind many famous formulas."
     },
     "features": {
      "answerInScene": true,
@@ -855,37 +846,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENRAPTURE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "worried",
-       "note": "worried, as a dog worries a bone, so PARENT is shaken into a new order"
+       "text": "on",
+       "at": 15,
+       "note": "in a down clue the first piece sits on top of the next"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "worried",
+         "at": 7,
+         "note": "worried in the sense of shaken about, as a dog worries a bone, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "Parent",
-         "gives": "ENRAPT",
-         "note": "the letters of PARENT rearranged"
-        },
-        {
-         "words": "river",
-         "gives": "URE",
-         "note": "the Ure is a river in Yorkshire"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "river",
+       "at": 18,
+       "gives": "URE",
+       "note": "the Ure is a river in Yorkshire"
       }
      ]
     },
     "explanation": {
-     "surface": "An anxious parent fretting about a child travelling by boat.",
-     "walkthrough": "'transport' looks like travel on the river, but it is the verb meaning to delight.",
-     "definitionFit": "A figurative sense: to transport someone is to carry them away with delight, which is what enrapturing does."
+     "surface": "A parent frets about a river crossing.",
+     "walkthrough": "The Ure is a river in Yorkshire. 'transport' is a verb here, to delight, not a noun for vehicles.",
+     "definitionFit": "To transport someone is to carry them away with joy, to enrapture them."
     },
     "features": {
      "answerInScene": false,
@@ -1359,28 +1356,46 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LEEWAY",
+     "spelt": "LEEWAY",
      "indicators": [
       {
-       "text": "heard from Spooner's",
-       "note": "Spooner swapped the opening sounds of words, so swap the first sounds of WEE LAY"
+       "text": "from Spooner's",
+       "at": 17,
+       "note": "Spooner swapped the opening sounds of words, so the two words trade their first letters"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Short song",
-       "gives": "LEEWAY",
-       "soundsLike": "WEE LAY",
-       "note": "wee is small, a lay is a song; swap W and L"
+       "op": "homophone",
+       "spelt": "WE",
+       "indicators": [
+        {
+         "text": "heard",
+         "at": 11,
+         "note": "heard tells you the swap works on the spoken sounds, so wee is taken as the sound we"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Short",
+         "at": 0,
+         "gives": "WEE",
+         "note": "wee is a Scottish word for small or short, said aloud as we"
+        }
+       ]
+      },
+      {
+       "words": "song",
+       "at": 6,
+       "gives": "LAY",
+       "note": "a lay is a song or ballad"
       }
      ]
     },
     "explanation": {
-     "surface": "A brief tune drifting out of the Reverend Spooner's study.",
-     "walkthrough": "Wee is Scottish and British for small; lay is an old word for a song or ballad.",
-     "definitionFit": "A plain synonym: room to manoeuvre, a margin of freedom; the word began as a ship's sideways drift downwind."
+     "surface": "A brief tune heard from someone's room.",
+     "walkthrough": "Say WEE LAY (short song) aloud, as 'heard' asks, and swap the opening sounds, as 'from Spooner's' asks: it becomes LEE WAY. Spooner was an Oxford don famed for such slips.",
+     "definitionFit": "Leeway means room for manoeuvre, freedom to act within limits."
     },
     "features": {
      "answerInScene": false,
