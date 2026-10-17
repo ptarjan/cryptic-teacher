@@ -503,46 +503,30 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "GROW",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "ultimately failing",
+       "at": 36,
+       "note": "the ultimate letter is the last one, and failing means it drops away"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "ultimately failing",
-         "note": "what fails ultimately gives out at the very end, so the last letter goes"
-        }
-       ],
-       "parts": [
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "Sign of aggression in boxer perhaps",
-           "gives": "GROWL",
-           "note": "a boxer is a breed of dog, and a dog growls"
-          },
-          {
-           "gives": "L"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "ultimately failing",
-         "select": "last",
-         "note": "remove the last letter, L"
-        }
-       ]
+       "words": "Sign of aggression in boxer perhaps",
+       "at": 0,
+       "gives": "GROWL",
+       "note": "a boxer is a breed of dog, and a dog shows aggression with a growl"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A boxer's aggression fades at the end of a fight, and they never mature.",
-     "walkthrough": "The boxer is a dog, not a fighter; 'perhaps' flags it as just one example of a dog.",
-     "definitionFit": "Plain synonym: to develop is to grow, as a child or a plant does."
+     "surface": "A boxer's snarl of aggression ends up failing to develop.",
+     "walkthrough": "'Boxer' is the dog breed, not a fighter; 'perhaps' marks it as one example of a dog.",
+     "definitionFit": "To grow is to develop or increase in size or maturity."
     },
     "features": {
      "answerInScene": false,
@@ -635,43 +619,55 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost the whole word is nearly all of it, so the last letter is cut"
+       "text": "making a comeback",
+       "at": 30,
+       "note": "making a comeback means coming back, so the letters run in the reverse direction"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "making a comeback",
-         "note": "coming back means going the way you came, so the letters are read backwards"
-        }
-       ],
        "parts": [
         {
          "words": "that hurt",
+         "at": 6,
          "gives": "OW",
-         "note": "ow! is what you say when something hurts"
+         "note": "ow is what someone cries when something hurts"
         },
         {
-         "words": "singer almost",
-         "gives": "TENO",
-         "note": "TENOR without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 23,
+           "note": "almost means the word stops one letter short of its end"
+          }
+         ],
+         "parts": [
+          {
+           "words": "singer",
+           "at": 16,
+           "gives": "TENOR",
+           "note": "a tenor is a singer"
+          },
+          {
+           "gives": "R"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A singer who once took painful blows is nearly ready to return to the stage.",
-     "walkthrough": "'Blows that hurt' reads as one phrase, but the definition stops at 'Blows'; 'that hurt' is the cry OW.",
-     "definitionFit": "Definition by description: a one-two is a pair of quick punches, a left then a right."
+     "surface": "A singer whose career was dealt hurtful blows is almost making a comeback.",
+     "walkthrough": "'Almost' cuts TENOR to TENO; 'making a comeback' turns OW plus TENO back to front.",
+     "definitionFit": "A one-two is a boxing combination of two quick punches, so a pair of blows."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "hurt"
+     "misdirectedWord": "singer"
     }
    }
   },
@@ -888,37 +884,42 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dismisses",
+       "at": 25,
+       "note": "to dismiss is to send away, so the letters R and B are taken out"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "INVETERATE",
-       "indicators": [
-        {
-         "text": "dismisses",
-         "note": "to dismiss someone is to send them away, so R and B are sent out of the word"
-        }
-       ],
        "parts": [
         {
          "words": "louse possibly",
+         "at": 10,
          "gives": "INVERTEBRATE",
-         "note": "a louse is one kind of invertebrate"
+         "note": "a louse is one kind of invertebrate, an animal without a backbone"
+        },
+        {
+         "words": "R",
+         "at": 35,
+         "gives": "R"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "R&B",
-       "note": "remove R and B"
+       "words": "B",
+       "at": 37,
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "surface": "A confirmed scoundrel might sneer at rhythm and blues music.",
-     "walkthrough": "'Louse' reads as an insult for a person; it is the insect, an example of an invertebrate.",
-     "definitionFit": "Synonym in the sense of habit: a confirmed smoker or bachelor is an inveterate one."
+     "surface": "A confirmed louse of a DJ drops the rhythm and blues from the playlist.",
+     "walkthrough": "R&B (rhythm and blues) supplies the two letters to remove, read as R and B separately rather than as the music genre.",
+     "definitionFit": "Inveterate means confirmed or habitual, as in an inveterate liar."
     },
     "features": {
      "answerInScene": false,
@@ -955,44 +956,39 @@
        "indicators": [
         {
          "text": "leaving",
-         "note": "whoever is leaving goes away, so the B for British departs from the word"
+         "at": 13,
+         "note": "leaving means the British letter departs from the word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "abandon",
-           "gives": "ABORT",
-           "note": "abort = abandon (a mission)"
-          },
-          {
-           "words": "a",
-           "note": "the word itself"
-          }
-         ]
+         "words": "abandon",
+         "at": 22,
+         "gives": "ABORT",
+         "note": "to abort a mission is to abandon it"
         },
         {
+         "words": "British",
+         "at": 5,
          "gives": "B"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "British",
-       "note": "B = British, removed"
+       "words": "a",
+       "at": 30,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "With the British crew gone, orders come to abandon a ship.",
-     "walkthrough": "The surface makes 'vessel' a ship to be abandoned; it is a blood vessel.",
-     "definitionFit": "Definition by example: the aorta is the body's main artery, one kind of blood vessel."
+     "surface": "With the British gone, the order is to abandon ship.",
+     "walkthrough": "'Vessel' suggests a ship to abandon, but it is the blood vessel.",
+     "definitionFit": "The aorta is the main artery leaving the heart, the body's largest blood vessel."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "vessel"
     }
@@ -1362,41 +1358,40 @@
      "indicators": [
       {
        "text": "ignoring",
-       "note": "what you ignore you leave out, so the leading letter is left out of the word"
+       "at": 14,
+       "note": "ignoring means leaving out, so the leader's letter is dropped from the word"
       }
      ],
      "parts": [
       {
        "words": "Working party",
+       "at": 0,
        "gives": "SQUAD",
-       "note": "a squad is a group working together"
+       "note": "a squad is a small group of people working together"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "S",
        "indicators": [
         {
          "text": "leader of",
-         "note": "the leader goes at the front, so this is the first letter of 'Supreme'"
+         "at": 23,
+         "note": "the leader of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "leader of Supreme",
-         "gives": "S",
-         "select": "first",
-         "note": "S, removed"
+         "words": "Supreme",
+         "at": 33,
+         "note": "its first letter S is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A committee disregards the head of the Supreme Court.",
-     "walkthrough": "'Supreme Court' looks like one name; it splits, and 'Court' is the definition.",
-     "definitionFit": "Noun synonym: a quad, short for quadrangle, is a courtyard enclosed by buildings, as at a college."
+     "surface": "A working party of judges sits without the head of the Supreme Court.",
+     "walkthrough": "'Supreme Court' reads as one phrase; it splits, with 'Court' as the definition.",
+     "definitionFit": "A quad, short for quadrangle, is an enclosed courtyard, as in a college."
     },
     "features": {
      "answerInScene": false,
