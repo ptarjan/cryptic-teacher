@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1023,70 +1024,90 @@
    "annotation": {
     "definitions": [
      {
-      "text": "North and South, perhaps?",
-      "at": 45,
-      "note": "It is not a synonym: North and South are the words the answer follows in the names of the two continents, and 'perhaps' flags that one example stands for the pair."
+      "text": "North and South, perhaps",
+      "at": 45
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "AMERICA",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 18,
+       "note": "in a down clue, over means the first part sits above the next"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "over",
-         "note": "In a down entry whatever is over something else is written above it, so this half of the wordplay is written first."
-        },
-        {
-         "text": "'mouth'",
-         "note": "The quotation marks warn you off the anatomy: a mouth is an opening, and a word's opening is its first letter."
+         "text": "in",
+         "at": 7,
+         "note": "in tells us the setter is placed inside the letters that follow"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "Plain 'in' puts the piece before it inside the words that follow it."
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
            "words": "a",
-           "note": "the article, taken as a letter"
+           "at": 10,
+           "gives": "A",
+           "note": "taken as written"
+          },
+          {
+           "words": "state",
+           "at": 12,
+           "gives": "RI",
+           "note": "RI is the postal abbreviation for Rhode Island, a US state"
           }
          ]
         },
         {
          "words": "Setter",
+         "at": 0,
          "gives": "ME",
-         "note": "the setter calls himself me — a standing crossword convention"
-        },
-        {
-         "words": "state",
-         "gives": "RI",
-         "note": "RI is the abbreviation for Rhode Island"
-        },
-        {
-         "words": "Cockney",
-         "gives": "C",
-         "note": "the opening letter of Cockney"
-        },
-        {
-         "words": "a",
-         "note": "the second article, also taken as a letter"
+         "note": "the setter refers to himself as me"
         }
        ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "'mouth' in",
+         "at": 23,
+         "note": "the mouth of a word is its opening, so its first letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cockney",
+         "at": 34,
+         "note": "first letter of Cockney"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 43,
+       "gives": "A",
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The Cockney bait is deliberate: rhyming slang really does make a mouth a north and south, so the eye goes there. The setter means the other sort of mouth, an opening.",
-     "definitionFit": "The two continents are North America and South America, so the answer is what any North and South of that pair can be — a definition by example."
+     "surface": "The setter, flustered over a Cockney's 'north and south' (his rhyming slang for mouth), poses a riddle.",
+     "walkthrough": "'North and South' tempts as Cockney slang for mouth, but here it means the two continents. 'mouth in Cockney' is its first letter, C, and the second 'a' ends the answer.",
+     "definitionFit": "The Americas comprise two continents, North and South, so one word for both of them is America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mouth"
     }
    }
   },
@@ -1207,35 +1228,34 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "LARDER",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "at": 39,
+       "note": "reportedly means the answer is heard rather than seen, so its sound counts"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "if after 23",
-       "note": "23 across is the card game; this answer is to be said straight after it"
-      },
-      {
-       "op": "homophone",
-       "spelt": "LARDER",
-       "indicators": [
-        {
-         "text": "reportedly",
-         "note": "A report is spoken aloud, so it is the sound of the words that counts and not the way they are written."
-        }
-       ],
-       "parts": [
-        {
-         "words": "a cocktail",
-         "gives": "PINACOLADA",
-         "note": "run pinochle and this answer together and you hear the rum and pineapple cocktail"
-        }
-       ]
+       "words": "a cocktail if after 23",
+       "at": 15,
+       "gives": "LADA",
+       "note": "the cocktail is the pina colada: said after 23's answer, PINOCHLE, this answer completes its sound, with the tail of colada said aloud"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The cross-reference is a sound joke: two answers spoken in order become a drink neither of them mentions. The definition is the sober half of the clue.",
-     "definitionFit": "A larder is the cool room or cupboard where food was kept before refrigeration, so the definition names it by the property that mattered."
+     "surface": "A puzzling invitation to chill a drink, cross-referenced to another answer.",
+     "walkthrough": "Put this answer after 23-across, the card game PINOCHLE, and say the pair aloud: 'pinochle larder' sounds like pina colada, the rum, pineapple and coconut cocktail.",
+     "definitionFit": "A larder is a cool room or cupboard for storing food, kept away from the warmth of the kitchen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cool"
     }
    }
   },
@@ -1392,35 +1412,34 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "FREEZER",
+     "indicators": [
+      {
+       "text": "reportedly",
+       "at": 39,
+       "note": "reportedly means the answer is heard rather than seen, so its sound counts"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "if before 16 11",
-       "note": "16 and 11 across together give 'jolly good fellow', which this answer runs into"
-      },
-      {
-       "op": "homophone",
-       "spelt": "FREEZER",
-       "indicators": [
-        {
-         "text": "reportedly",
-         "note": "The clue wants what the words sound like when they are said, and lets the spelling go its own way."
-        }
-       ],
-       "parts": [
-        {
-         "words": "a song",
-         "gives": "FORHESA",
-         "note": "with the aitch dropped, 'for 'e's a' is how the celebration song begins"
-        }
-       ]
+       "words": "a song if before 16 11",
+       "at": 15,
+       "gives": "FORHESA",
+       "note": "the song is 'For he's a jolly good fellow': put before 16 and 11, JOLLY GOODFELLOW, this answer is said like its opening words"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "This clue and 24 across work the same way: an answer that means one thing on the page and something else entirely when you say it next to its neighbour.",
-     "definitionFit": "A freezer is the coldest place in the kitchen, so 'cool place' is a deliberate understatement of what the appliance actually does."
+     "surface": "A puzzling invitation to sing, cross-referenced to two other answers.",
+     "walkthrough": "Put this answer before 16-across and 11-across, JOLLY and GOODFELLOW, and say it aloud: it sounds like 'For he's a jolly good fellow', the song sung to celebrate someone.",
+     "definitionFit": "A freezer is an appliance that keeps food at sub-zero temperatures, about as cold a storage spot as a kitchen has."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cool"
     }
    }
   },
