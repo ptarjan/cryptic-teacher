@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -179,23 +180,17 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "lacks head"
+       "text": "lacks head",
+       "at": 8,
+       "note": "lacking its head means the word loses its first letter"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "Student",
+       "at": 0,
        "gives": "LEARNER",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Student",
-         "gives": "LEARNER",
-         "select": "first",
-         "note": "a learner — the L-plate sense — about to lose its top letter"
-        }
-       ]
+       "note": "a student is a learner"
       },
       {
        "gives": "L"
@@ -203,8 +198,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "In a down entry the 'head' is the top letter, so LEARNER loses its L. 'A nice little earner' is the idiom the definition leans on.",
-     "definitionFit": "An earner — as in 'a nice little earner' — is British slang for an activity that brings money in, matching the clue's noun phrase."
+     "surface": "A student without a leader looks for something that brings in money.",
+     "walkthrough": "A learner is a student; with its head, L, gone it leaves the answer. L is also the learner-driver plate, but here the whole word is used.",
+     "definitionFit": "An earner, especially a nice little earner, is a job or scheme that brings in money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
     }
    }
   },
@@ -406,33 +407,44 @@
    "annotation": {
     "definitions": [
      {
-      "text": "one's best feature",
-      "at": 27
+      "text": "It may be one's best feature",
+      "at": 17
      }
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "and",
+       "at": 8,
+       "note": "and here simply joins the two words, the first followed by the second"
+      }
+     ],
      "parts": [
       {
        "words": "Healthy",
+       "at": 0,
        "gives": "STRONG",
-       "note": "healthy = strong, in rude health"
+       "note": "a healthy person is strong"
       },
       {
        "words": "fit",
+       "at": 12,
        "gives": "SUIT",
-       "note": "a verb: clothes that suit you fit you"
-      },
-      {
-       "unchecked": true,
-       "words": "and",
-       "note": "surface glue joining the two pieces"
+       "note": "to fit or be suitable is to suit"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Fit' is the trap — paired with 'healthy' it looks like the same idea twice, but it is the tailoring verb SUIT. The question mark flags the playful definition.",
-     "definitionFit": "From cards, where your strong suit holds your best cards: figuratively it is the thing you do best — your best feature."
+     "surface": "Someone praised for being healthy and fit is told this is their finest quality.",
+     "walkthrough": "'fit' looks like a second word for healthy, but here it is the verb: clothes that fit suit you.",
+     "definitionFit": "A strong suit, from card games, is the area where a person excels, their greatest asset."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fit"
     }
    }
   },
@@ -1087,34 +1099,42 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LI",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "only half of"
+         "text": "only half of",
+         "at": 18,
+         "note": "keeping only half of a word means its first two letters stay and the rest goes, done to both live and ones"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "live",
-         "gives": "LI",
-         "select": "first",
-         "note": "the front half of LIve"
+         "at": 31,
+         "note": "the first half of live is LI"
+        },
+        {
+         "gives": "VE"
         }
        ]
       },
       {
        "words": "ones",
+       "at": 36,
        "gives": "ON",
-       "note": "the front half of ONes"
+       "note": "the first half of ones is ON"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Only half of' applies to each word in turn, keeping the front of both — and the predator doing the consuming in the surface is the answer itself.",
-     "definitionFit": "A lion is a big-cat predator — a definition by example, since 'predator' covers many hunters and the surface even shows it feeding."
+     "surface": "A hunter devours just half of the living creatures it finds.",
+     "walkthrough": "'only half of' applies to both 'live' and 'ones': each keeps its first two letters, LI and ON, and 'consumes' just links the definition.",
+     "definitionFit": "The lion is the big cat that hunts other animals, a classic predator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "consumes"
     }
    }
   },
