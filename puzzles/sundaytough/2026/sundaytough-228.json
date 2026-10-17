@@ -570,51 +570,64 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "to put aside",
-       "note": "the A is put aside, set apart from the rest, so it is removed"
-      }
-     ],
      "parts": [
       {
-       "words": "I want to put aside a defective",
-       "gives": "TWIN",
-       "note": "I WANT minus A leaves IWNT, then rearranged"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "defective",
+         "at": 22,
+         "note": "something defective is faulty or out of order, so the remaining letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "to put aside",
+           "at": 7,
+           "note": "putting something aside removes it, so the a is taken out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "I want",
+           "at": 0,
+           "note": "taken as written, before losing a letter"
+          },
+          {
+           "words": "a",
+           "at": 20
+          }
+         ]
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "defective",
-         "note": "something defective is not in working order, so the letters lose their order"
+         "text": "spinning",
+         "at": 39,
+         "note": "spinning turns something round, so but is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "spinning",
-           "note": "a thing spinning turns round"
-          }
-         ],
-         "parts": [
-          {
-           "words": "still spinning",
-           "gives": "TUB",
-           "note": "but = still, nevertheless, reversed"
-          }
-         ]
+         "words": "still",
+         "at": 33,
+         "gives": "BUT",
+         "note": "still in the sense 'nevertheless' is but"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A customer wants rid of a broken washer that won't stop spinning, and the ellipsis leads on to 15 down.",
-     "walkthrough": "'Still' is the adverb meaning 'yet', i.e. BUT, not 'motionless'.",
-     "definitionFit": "Definition by class: a twin-tub is an old-style washing machine with separate wash and spin drums."
+     "surface": "A frustrated customer wants to scrap a broken washing machine that keeps spinning.",
+     "walkthrough": "Removing A from I WANT leaves IWNT, which 'defective' rearranges; BUT, from 'still', turned round by 'spinning' gives the second part. The ellipsis leads into the next clue.",
+     "definitionFit": "A twin-tub is an older kind of domestic washing machine with separate washing and spin-drying drums."
     },
     "features": {
      "answerInScene": true,
@@ -648,45 +661,39 @@
      "indicators": [
       {
        "text": "ground",
-       "note": "ground up like meat, so the letters are broken down and reformed"
+       "at": 5,
+       "note": "ground means crushed or milled, so the letters are mixed up"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "alternate",
        "indicators": [
         {
          "text": "oddly",
-         "note": "read as 'in the odd positions', so take letters 1, 3 and 5"
+         "at": 18,
+         "note": "oddly picks out the first, third and fifth letters"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "PTY",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "patty oddly",
-           "gives": "PTY",
-           "select": "alternate",
-           "note": "letters 1, 3, 5 of patty"
-          }
-         ]
-        },
-        {
-         "words": "spiced",
-         "note": "anagram fodder"
+         "words": "patty",
+         "at": 12,
+         "note": "only its odd-numbered letters are used"
         }
        ]
+      },
+      {
+       "words": "spiced",
+       "at": 24,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Eating a minced patty with odd spices leaves someone with indigestion.",
-     "walkthrough": "'Ground' looks like minced meat for the patty, but it is the anagram signal.",
-     "definitionFit": "A plain gloss: dyspeptic means suffering from dyspepsia, the medical word for indigestion."
+     "surface": "A spicy minced burger leaves the eater suffering from heartburn.",
+     "walkthrough": "'oddly' takes P, T and Y from patty; with SPICED they are 'ground' together into a new order.",
+     "definitionFit": "Dyspeptic describes someone suffering from dyspepsia, the medical name for indigestion."
     },
     "features": {
      "answerInScene": true,
@@ -764,61 +771,67 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "IDAHO",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "goes past",
+       "at": 38,
+       "note": "the ball travels beyond the other pieces, so it is placed after them"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "overthrown",
-         "note": "something overthrown is turned upside down, so HAD is turned round"
-        },
-        {
          "text": "head",
-         "note": "the head of a word is its top, i.e. first, letter"
+         "at": 60,
+         "note": "the head of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "goes past"
-          }
-         ],
-         "parts": [
-          {
-           "words": "infielder's head",
-           "gives": "INFIELDERHEAD",
-           "note": "first letter of infielder"
-          }
-         ]
-        },
-        {
-         "words": "fooled",
-         "gives": "DAH",
-         "note": "had = fooled, reversed"
-        },
-        {
-         "words": "ball",
-         "gives": "O",
-         "note": "ball-shaped letter"
+         "words": "infielder's",
+         "at": 48,
+         "note": "only its first letter is used"
         }
        ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "overthrown",
+         "at": 22,
+         "note": "overthrown means turned over, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fooled",
+         "at": 10,
+         "gives": "HAD",
+         "note": "had, as in 'you've been had', means fooled"
+        }
+       ]
+      },
+      {
+       "words": "ball",
+       "at": 33,
+       "gives": "O",
+       "note": "a ball is round, like the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "A baseball fielder is fooled when a wild throw sails past him.",
-     "walkthrough": "'Overthrown' is a fielding error in the surface but the reversal signal in the wordplay. The 50 are the US states.",
-     "definitionFit": "Definition by membership: the United States has 50 states and Idaho is one of them."
+     "surface": "Baseball: a wild throw sails past a fielder's head, and someone was fooled.",
+     "walkthrough": "'head' gives I, 'overthrown' turns HAD into DAH, and the ball, O, 'goes past' them to finish. 'One of 50' is one of the fifty US states.",
+     "definitionFit": "Idaho is one of the fifty states of the United States, in the Pacific Northwest."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "overthrown"
+     "misdirectedWord": "ball"
     }
    }
   },
@@ -950,57 +963,69 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ADVERB",
-     "indicators": [
-      {
-       "text": "losing face",
-       "note": "the face is the front, so the first letter is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "leaving",
-         "note": "the mass leaves the word, so M walks out of MAD"
-        },
-        {
-         "text": "mass",
-         "note": "M, the letter removed from MAD"
+         "at": 13,
+         "note": "the mass letter leaves, so it is taken out"
         }
        ],
        "parts": [
         {
          "words": "angry",
-         "gives": "AD",
-         "note": "MAD without M (mass)"
+         "at": 27,
+         "gives": "MAD",
+         "note": "mad means angry"
         },
         {
-         "words": "over",
-         "gives": "VER",
-         "note": "OVER without its first letter"
-        },
-        {
-         "words": "bishop",
-         "gives": "B",
-         "note": "chess notation"
+         "words": "mass",
+         "at": 21,
+         "gives": "M",
+         "note": "M is the physics symbol for mass"
         }
        ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing face",
+         "at": 38,
+         "note": "the face of a word is its front, so the first letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "over",
+         "at": 33,
+         "note": "taken as written, before losing its first letter"
+        },
+        {
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "words": "bishop",
+       "at": 55,
+       "gives": "B",
+       "note": "B is the chess notation for bishop"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone once stormed out of Mass furious with the bishop.",
-     "walkthrough": "'Mass' and 'bishop' dress a church scene but are just M and B.",
-     "definitionFit": "Definition by example: 'once' is itself an adverb, so 'perhaps once' points to the word class."
+     "surface": "A churchgoer, furious at a bishop, walks out of mass and loses face.",
+     "walkthrough": "MAD 'leaving' M gives AD, OVER 'losing face' gives VER, then B. 'Perhaps' signals that once is just an example.",
+     "definitionFit": "Once, as in 'I went there once', is a word modifying a verb, so it is an example of this part of speech."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "once"
+     "misdirectedWord": "mass"
     }
    }
   },
