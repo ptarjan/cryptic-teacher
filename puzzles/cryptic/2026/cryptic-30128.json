@@ -1627,48 +1627,76 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EQUUS",
-     "indicators": [
-      {
-       "text": "doubly sapped of energy",
-       "note": "energy has a one-letter abbreviation, and doubly sapped means it is removed twice over"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "last",
        "indicators": [
         {
          "text": "back of",
-         "note": "the back of a word is its final letter"
+         "at": 13,
+         "note": "back of means the last letter of the word cafe"
         }
        ],
        "parts": [
         {
          "words": "cafe",
-         "note": "the last letter of cafe"
+         "at": 21,
+         "note": "the word whose last letter is taken"
         }
        ]
       },
       {
-       "words": "waiters",
-       "gives": "QUEUES",
-       "note": "people waiting form queues"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "sapped of",
+         "at": 45,
+         "note": "sapped of means drained of, so the energy letter is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "doubly",
+           "at": 38,
+           "note": "doubly says the removal happens twice, so two energy letters go"
+          }
+         ],
+         "parts": [
+          {
+           "words": "waiters",
+           "at": 30,
+           "gives": "QUEUES",
+           "note": "people waiting in line form queues, so waiters are queues"
+          },
+          {
+           "gives": "E"
+          }
+         ]
+        },
+        {
+         "words": "energy",
+         "at": 55,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Waiters in a cafe are worn out after fooling about.",
-     "walkthrough": "'Waiters' means people waiting, not table staff. Equus is Peter Shaffer's play about a boy who blinds horses.",
-     "definitionFit": "Read as horse play, this is a stage play centred on horses, and the title is Latin for horse."
+     "surface": "Rough fun at the rear of a café, where the staff are run off their feet and twice drained of energy.",
+     "walkthrough": "'Horseplay' looks like rough fun but is a pun: Equus is Peter Shaffer's play about a boy and horses. 'doubly sapped of energy' takes both Es out of QUEUES (QUEUS after one).",
+     "definitionFit": "Equus is a stage play centred on horses, and its title is the Latin word for horse, so a play about horses."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "waiters"
+     "misdirectedWord": "Horseplay"
     }
    }
   },
