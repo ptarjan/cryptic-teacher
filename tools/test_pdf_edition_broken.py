@@ -37,8 +37,12 @@ check("whole PDF: every page read", (3, []), (got["leaves"], got["unreadable"]))
 # Zero the last page's image from inside its stream through its endstream, as
 # archive.org's copy is zeroed through the last page's (Pillow writes that
 # page's dict after its image, so the zeros stop short of it here).
-image = whole.index(b"7 0 obj")
-cut, end = whole.index(b"stream", image) + 20, whole.index(b"8 0 obj")
+# Object numbers differ between Pillow versions, so find the last image object
+# and the object after it rather than naming "7 0 obj" and "8 0 obj".
+import re
+image = whole.rindex(b"/Subtype /Image")
+cut = whole.index(b"stream", image) + 20
+end = re.compile(rb"\d+ 0 obj").search(whole, cut).start()
 broken = whole[:cut] + b"\0" * (end - cut) + whole[end:]
 got, _ = fa.pdf_pages(broken)
 check("zero-filled tail: pages counted", 3, got["leaves"])
