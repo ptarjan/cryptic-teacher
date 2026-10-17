@@ -48,45 +48,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STAGEWHISPER",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "lost",
+       "at": 30,
+       "note": "lost means gone missing, so the letter for energy drops out of the fodder"
+      },
+      {
+       "text": "tossed",
+       "at": 36,
+       "note": "tossed as a salad is tossed, thrown about, so the remaining letters are jumbled into a new order"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "STAGEWHISPER",
-       "indicators": [
-        {
-         "text": "lost"
-        },
-        {
-         "text": "tossed",
-         "note": "the remaining letters are tossed about into a new order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Pages he writes",
-         "note": "anagram fodder, 13 letters"
-        },
-        {
-         "words": "energy",
-         "gives": "E",
-         "note": "E = energy; one E is lost, leaving 12 letters"
-        }
-       ]
+       "words": "Pages he writes",
+       "at": 0,
+       "note": "the letters of these three words, taken as written, are the fodder"
+      },
+      {
+       "words": "energy",
+       "at": 23,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
       }
      ]
     },
     "explanation": {
-     "surface": "A playwright dashing off pages with no energy left, throwing them aside.",
-     "walkthrough": "'Aside' reads as the tail of 'tossed aside', but it is the definition: an aside on stage is a line meant for the audience only.",
-     "definitionFit": "A stage whisper is an aside, a line spoken audibly to the audience but supposedly unheard by the other characters."
+     "surface": "Someone casually throws aside pages a writer has produced, as though drained of energy.",
+     "walkthrough": "'where energy lost' removes one E from PAGESHEWRITES, leaving PAGESHEWRITS, and 'tossed' rearranges those twelve letters. 'aside' is the theatrical noun, not 'to one side'.",
+     "definitionFit": "In a play, an aside is a remark an actor delivers so the audience hears but the other characters supposedly do not, much like a stage whisper."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "aside"
     }
    }
@@ -549,42 +545,42 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MEANDER",
-     "indicators": [
-      {
-       "text": "knocked over",
-       "note": "the word is knocked over, so it reads the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "vicious",
+       "at": 23,
+       "gives": "MEAN",
+       "note": "vicious, as in a mean dog, gives MEAN"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "knocked over",
+         "at": 7,
+         "note": "knocked over means turned upside down, which in an across answer reads the colour word backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "vicious",
-         "gives": "MEAN",
-         "note": "mean = vicious"
-        },
-        {
-         "words": "Cherry knocked over",
-         "gives": "DER",
-         "note": "cherry = RED, the colour, turned round"
+         "words": "Cherry",
+         "at": 0,
+         "gives": "RED",
+         "note": "cherry is a shade of RED"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cherry tree blown down by a savage gale.",
-     "walkthrough": "'Wind' is not a gale but the verb to wind, as a river does; 'Cherry' is only its colour, red.",
-     "definitionFit": "To meander is to wind back and forth, like a slow river."
+     "surface": "A cherry is blown down by a fierce gale.",
+     "walkthrough": "'knocked over' turns RED round to DER, which follows MEAN. 'wind' is the verb that rhymes with 'kind', not the gale the surface suggests.",
+     "definitionFit": "To meander is to follow a twisting, turning course, as a river does across a flat valley."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "wind"
     }
    }
