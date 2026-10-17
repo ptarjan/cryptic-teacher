@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -233,42 +234,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NONDESCRIPT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "edition",
-       "note": "A fresh edition is the same material set out again in a new arrangement, so the letters that follow will not keep their order."
+       "text": "appended to",
+       "at": 15,
+       "note": "appended to means added on after, so the text piece follows the reworked name"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "appended to",
-         "note": "To append is to tack on at the end, so the piece named before it is written after everything else."
+         "text": "edition of",
+         "at": 27,
+         "note": "an edition of a poet is his work re-presented, so the name's letters are set out afresh"
         }
        ],
        "parts": [
         {
-         "words": "edition of Donne",
-         "gives": "NONDE",
-         "note": "the five letters of the poet's name, re-set in a different order"
-        },
-        {
-         "words": "text",
-         "gives": "SCRIPT",
-         "note": "a script is the written text of a play or a speech"
+         "words": "Donne",
+         "at": 38
         }
        ]
+      },
+      {
+       "words": "text",
+       "at": 10,
+       "gives": "SCRIPT",
+       "note": "a script is a written text"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "John Donne is here only as five letters to rearrange, and 'edition of' passes as bibliography rather than as an instruction. Nothing in the clue is about poetry.",
-     "definitionFit": "Anonymous -> NONDESCRIPT: not the unnamed-author sense but the other one, a face or a building so lacking in features that nothing marks it out."
+     "surface": "An unattributed text has been tacked onto a new edition of John Donne's poems.",
+     "walkthrough": "'edition of' reworks DONNE into NONDE, and SCRIPT is appended after it. 'Anonymous' here means featureless and unremarkable rather than unnamed.",
+     "definitionFit": "Something nondescript lacks distinctive features, so it is anonymous in the sense of faceless and forgettable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Anonymous"
     }
    }
   },
@@ -402,37 +409,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SANDBAG",
+     "spelt": "SANDBAG",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "The Reverend Spooner famously tripped over his own speech, so the opening sounds of the two words named change places."
+       "at": 0,
+       "note": "Dr Spooner was famous for swapping the opening sounds of words, so two words trade their starts"
       }
      ],
      "parts": [
       {
        "words": "crew",
+       "at": 10,
        "gives": "BAND",
-       "note": "a band is a crew, a group working together"
+       "note": "a band is a crew or gang"
       },
       {
-       "words": "decline",
-       "gives": "SAG",
-       "note": "sales or spirits that decline sag"
-      },
-      {
-       "unchecked": true,
-       "words": "Spooner's",
-       "gives": "SANDBAG",
-       "soundsLike": "BAND SAG",
-       "note": "trade the opening sounds of those two words, B for S, and read the result"
+       "op": "homophone",
+       "spelt": "BAG",
+       "parts": [
+        {
+         "words": "decline",
+         "at": 15,
+         "gives": "SAG",
+         "note": "to sag is to decline or droop"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Spooner clues run backwards: you look for two words whose front sounds, once traded, describe the thing being defined. Here the definition is a flood defence.",
-     "definitionFit": "help with water coming in -> SANDBAG: the thing stacked in a doorway when a river rises, so the definition names its single job."
+     "surface": "Dr Spooner reports a team in decline needing help as water floods in.",
+     "walkthrough": "Spooner's cue says swap the opening sounds: BAND SAG, with B and S exchanged, is heard as SAND BAG.",
+     "definitionFit": "Sandbags are piled up as a barrier to hold back floodwater, a help against water coming in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "crew"
     }
    }
   },
@@ -552,52 +566,49 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "GUERNSEY",
+     "indicators": [
+      {
+       "text": "going west",
+       "at": 49,
+       "note": "in an across answer, going west means read from right to left"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "close to",
-         "note": "The close of a word is where it stops, so only the final letter of the name beside it is taken."
-        }
-       ],
        "parts": [
         {
+         "words": "certainly",
+         "at": 7,
+         "gives": "YES",
+         "note": "yes means certainly"
+        },
+        {
+         "words": "near",
+         "at": 17,
+         "gives": "NR"
+        },
+        {
+         "words": "EU",
+         "at": 22,
+         "note": "the European Union's own abbreviation, taken as written"
+        },
+        {
          "op": "last",
-         "unchecked": true,
-         "gives": "G",
          "indicators": [
           {
-           "text": "going west",
-           "note": "West is leftwards on a map, and an across entry read leftwards runs from its last letter to its first."
+           "text": "close to",
+           "at": 29,
+           "note": "the close of a word is its end, so the last letter of Cherbourg"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "close to Cherbourg",
-           "gives": "G",
-           "select": "last",
-           "note": "the last letter of the French port"
+           "words": "Cherbourg",
+           "at": 38,
+           "note": "the French port whose final letter is taken"
           }
          ]
-        },
-        {
-         "words": "EU",
-         "gives": "UE",
-         "note": "the union's own two letters, written the other way"
-        },
-        {
-         "words": "near",
-         "gives": "RN",
-         "note": "nr is the short form of near used in addresses, turned round"
-        },
-        {
-         "words": "certainly",
-         "gives": "SEY",
-         "note": "the plainest three-letter word of agreement, reversed"
         }
        ]
       }
@@ -605,8 +616,14 @@
     },
     "andLit": true,
     "explanation": {
-     "walkthrough": "An all-in-one: read straight, the question describes the island, and those very same words spell it out backwards. Cherbourg is the French port opposite.",
-     "definitionFit": "Read straight, the whole clue asks what lies outside the EU and just west of Cherbourg, and the Channel Island is its own description."
+     "surface": "A geography riddle: which place lies near the EU and just off Cherbourg, to the west?",
+     "walkthrough": "As a description the clue points to the island near Cherbourg; as instructions, YES, NR, EU and G (the letter at the 'close to' Cherbourg) are strung together, and 'going west' reads them backwards.",
+     "definitionFit": "Guernsey is a Channel Island and Crown Dependency, outside the EU, lying west of the Cotentin peninsula and Cherbourg."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "certainly"
     }
    }
   },
@@ -1243,39 +1260,52 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "Withdrawn",
-       "note": "Something withdrawn is drawn back the way it came, so the two letters beside it are written in the other order."
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Withdrawn",
+         "at": 0,
+         "note": "withdrawn means pulled back, so the short advert is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "advert",
+         "at": 10,
+         "gives": "AD"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "affected",
-         "note": "An affected manner is one altered from its natural state, so the word after it is rearranged rather than left as printed."
+         "at": 17,
+         "note": "affected means disturbed or acted upon, so the letters of market are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Withdrawn advert",
-         "gives": "DA",
-         "note": "an advert is an ad, and those two letters come back the other way"
-        },
-        {
          "words": "market",
-         "note": "anagram fodder, six letters"
+         "at": 26
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Withdrawn advert' looks like a phrase to shuffle whole. Only the ad's two letters move, and they simply turn round before the market is jumbled.",
-     "definitionFit": "cheaper poultry -> DARK MEAT: the butcher's term for the legs and thighs, richer in colour than the breast and sold at a lower price."
+     "surface": "A supermarket pulls an advertisement, and the market for budget chicken is hit.",
+     "walkthrough": "'Withdrawn' turns AD into DA, and 'affected' rearranges MARKET into RKMEAT.",
+     "definitionFit": "Dark meat is the leg and thigh of a chicken or turkey, usually sold more cheaply than breast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "affected"
     }
    }
   },
@@ -1420,7 +1450,8 @@
     "definitions": [
      {
       "text": "of race",
-      "at": 40
+      "at": 40,
+      "note": "an adjectival phrase, matching an adjective answer"
      }
     ],
     "wordplay": {
@@ -1428,7 +1459,8 @@
      "indicators": [
       {
        "text": "Cycling",
-       "note": "Letters that cycle travel round from one end of the assembly to the other without changing their order."
+       "at": 0,
+       "note": "cycling means going round, so a letter rolls from the back of the assembly to the front"
       }
      ],
      "parts": [
@@ -1436,37 +1468,31 @@
        "op": "charade",
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
+         "words": "finishes in sprint, French",
+         "at": 8,
          "gives": "TH",
-         "indicators": [
-          {
-           "text": "finishes in",
-           "note": "A word's finish is its last letter, so the ends of the two words named next are what is taken."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "finishes in sprint, French",
-           "gives": "TH",
-           "select": "last",
-           "note": "the final letters of those two words, in the order given"
-          }
-         ]
+         "note": "the finishes, or last letters, of the words sprint and French"
         },
         {
          "words": "kind",
+         "at": 35,
          "gives": "NICE",
-         "note": "a kind person is a nice one"
+         "note": "nice means kind"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a bike race, which lets 'Cycling' sit in plain sight as the instruction: one letter rolls off the back of the assembly to the front.",
-     "definitionFit": "of race -> ETHNIC: ethnic describes belonging to a people defined by shared descent and culture, so the phrase is the adjective's plain sense."
+     "surface": "A cycling report: the stage finishes in a sprint, with the French kind of racing.",
+     "walkthrough": "'finishes in' takes the final letters of sprint and French, TH; add NICE for THNICE, and 'Cycling' moves the last E round to the front.",
+     "definitionFit": "Ethnic describes a group sharing descent and culture, so it is the adjective for a people or race."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "race"
     }
    }
   },
