@@ -299,43 +299,42 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "NEUTRAL",
      "indicators": [
       {
        "text": "changed",
-       "note": "something changed is altered, so these letters take a new order"
+       "at": 10,
+       "note": "the remaining letters are changed into a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "NEUTRAL",
        "indicators": [
         {
          "text": "withdrawn",
-         "note": "a thing withdrawn is taken away, so that letter is removed"
+         "at": 26,
+         "note": "the wife is withdrawn, pulled out of the letters of the first two words"
         }
        ],
        "parts": [
         {
          "words": "Want rule",
-         "note": "taken as written"
+         "at": 0,
+         "gives": "WANTRULE"
         },
         {
          "words": "Wife",
-         "gives": "W",
-         "note": "W is the abbreviation for wife"
+         "at": 19,
+         "gives": "W"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spouse who wants the rules changed has backed off and no longer minds either way.",
-     "walkthrough": "Take the W out of WANT RULE, then rearrange the seven letters left.",
-     "definitionFit": "Someone impartial, taking no side and favouring neither option, is said to be unbiased in this way."
+     "surface": "Someone wanting a rule altered, now that the wife has pulled out, has no side to take.",
+     "walkthrough": "'withdrawn' takes W (wife) out of WANT RULE, leaving ANTRULE, and 'changed' rearranges those seven letters.",
+     "definitionFit": "Being neutral means taking no side, so it describes someone with no preference."
     },
     "features": {
      "answerInScene": false,
@@ -474,45 +473,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENTERING",
-     "indicators": [
-      {
-       "text": "topless",
-       "note": "without its top, a word in a down clue loses its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 18,
+         "note": "a topless word has lost its top, in a down clue its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "tent",
-         "gives": "ENT",
-         "note": "the word with its first letter removed"
+         "at": 13,
+         "gives": "TENT",
+         "note": "taken as written before losing its first letter"
         },
         {
-         "words": "ecstasy",
-         "gives": "E",
-         "note": "E is the street abbreviation for the drug ecstasy"
-        },
-        {
-         "words": "sign of marriage",
-         "gives": "RING",
-         "note": "a wedding ring shows someone is married"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "ecstasy",
+       "at": 32,
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
+      },
+      {
+       "words": "sign of marriage",
+       "at": 42,
+       "gives": "RING",
+       "note": "a wedding ring is worn as a sign of marriage"
       }
      ]
     },
     "explanation": {
-     "surface": "A racy festival scene: slipping topless into a tent in ecstasy, then wondering whether a wedding is next.",
-     "walkthrough": "In a down clue the top of a word is its first letter. E for ecstasy is the street drug, a common crossword abbreviation.",
-     "definitionFit": "To go into a place is to come in through its door, so the present participle matches exactly."
+     "surface": "Someone stepping into a tent half-dressed, high on drugs, while a wedding ring hints at a story.",
+     "walkthrough": "'topless' works on the word tent: in a down clue the top is the first letter. The question mark flags that a ring is only one possible sign of marriage.",
+     "definitionFit": "Entering a place is the act of going into it, a direct synonym."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "topless"
@@ -729,42 +733,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TREASURES",
-     "indicators": [
-      {
-       "text": "Mostly",
-       "note": "mostly means not quite all, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly means most but not all of the word, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "handle",
-         "gives": "TREA",
-         "note": "to treat is to handle, minus its last letter"
+         "at": 7,
+         "gives": "TREAT",
+         "note": "to treat something is to handle or deal with it"
         },
         {
-         "words": "certain",
-         "gives": "SURE",
-         "note": "sure means certain"
-        },
-        {
-         "words": "small",
-         "gives": "S",
-         "note": "S is the abbreviation for small, as on clothing labels"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "certain",
+       "at": 14,
+       "gives": "SURE",
+       "note": "sure means certain"
+      },
+      {
+       "words": "small",
+       "at": 22,
+       "gives": "S",
+       "note": "S is the clothing-size abbreviation for small"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to handle certain small, delicate objects with care.",
-     "walkthrough": "'Handle' gives TREAT, as in treat something gently, and 'mostly' trims its final T.",
-     "definitionFit": "Valuable items such as jewels or heirlooms are prized possessions, the plural noun synonym."
+     "surface": "Handle with care: these little items are certain to be valuable.",
+     "walkthrough": "'handle' looks like a noun, as on a cup, but it is the verb treat; 'Mostly' then trims its final letter.",
+     "definitionFit": "Treasures are things of great value, the most prized possessions someone keeps."
     },
     "features": {
      "answerInScene": true,
@@ -968,37 +977,44 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "DEMANDS",
-     "indicators": [
-      {
-       "text": "change of heart",
-       "note": "the heart of a word is its middle letter, and changing it swaps in a different one"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "from French",
+       "at": 9,
+       "gives": "DE",
+       "note": "de is the French word for from"
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "after change of heart",
+         "at": 27,
+         "note": "the heart of the word, its middle letter, is changed for another letter"
+        }
+       ],
        "parts": [
         {
-         "words": "from French",
-         "gives": "DE",
-         "note": "de is French for from"
+         "words": "maids",
+         "at": 21,
+         "gives": "MAIDS",
+         "note": "taken as written before its middle letter is swapped"
         },
         {
-         "words": "maids",
-         "gives": "MANDS",
-         "note": "the middle I is replaced by N"
+         "gives": "I"
+        },
+        {
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Requests coming from French housemaids who have suddenly changed their minds.",
-     "walkthrough": "The swapped-in N is not clued by any word; the solver gets it from the definition and crossings.",
-     "definitionFit": "Firm or insistent calls for something are claims made of someone, a plural noun synonym."
+     "surface": "Instructions handed down by French maids who have had a rethink.",
+     "walkthrough": "'change of heart' sounds like a rethink but means the middle letter of maids is replaced, here by N.",
+     "definitionFit": "Demands are firm requests, things asked for insistently, so the plural nouns match."
     },
     "features": {
      "answerInScene": true,
@@ -1408,48 +1424,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HEATED",
+     "op": "container",
      "indicators": [
       {
-       "text": "Not half",
-       "note": "not half means only half survives, so the second half is cut away"
+       "text": "constraining",
+       "at": 11,
+       "note": "the boss holds the other piece within its own letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "boss",
+       "at": 6,
+       "gives": "HEAD",
+       "note": "the head is the boss, the person in charge"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "constraining",
-         "note": "to constrain is to hold in, so one piece is enclosed by another"
+         "text": "Not half",
+         "at": 30,
+         "note": "only half of the word is kept, its last two letters going"
         }
        ],
        "parts": [
         {
-         "words": "boss",
-         "gives": "HEAD",
-         "note": "the head is the boss"
+         "words": "team",
+         "at": 24,
+         "gives": "TEAM",
+         "note": "taken as written before it is halved"
         },
         {
-         "words": "team",
-         "gives": "TE",
-         "note": "the first half only"
+         "gives": "AM"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hot-tempered manager reining in the team, and how; 'not half' is British slang for 'very much'.",
-     "walkthrough": "'Not half!' is a British exclamation meaning 'absolutely', which disguises its job of halving the word for team.",
-     "definitionFit": "A fiery argument is an angry, passionate one, so the adjective for impassioned debate matches."
+     "surface": "A furious manager reins in the squad, and the exclamation is an emphatic yes.",
+     "walkthrough": "In British speech 'not half!' means 'very much so', but here it tells you to keep only half of team.",
+     "definitionFit": "A heated argument is fiery and passionate, so the adjectives are synonyms."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "half"
+     "joke": "pun",
+     "misdirectedWord": "Not"
     }
    }
   },
@@ -1672,43 +1694,42 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "DIRTIEST",
      "indicators": [
       {
        "text": "nuts",
-       "note": "nuts means crazy, so the letters go wild into a new order"
+       "at": 21,
+       "note": "nuts means crazy, so the remaining letters go mad and are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "DIRTIEST",
        "indicators": [
         {
          "text": "dropping",
-         "note": "dropping something means letting it go, so that letter is removed"
+         "at": 44,
+         "note": "the temperature is dropped, taken out once from the letters of the two words before it"
         }
        ],
        "parts": [
         {
          "words": "tits tried",
-         "note": "taken as written"
+         "at": 10,
+         "gives": "TITSTRIED"
         },
         {
          "words": "temperature",
-         "gives": "T",
-         "note": "T is the abbreviation for temperature"
+         "at": 32,
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Garden birds pecking at nuts as the weather turns cold.",
-     "walkthrough": "Blue tits are garden birds, but 'blue' here means rude or smutty; take one T out of TITS TRIED before rearranging.",
-     "definitionFit": "Blue jokes are smutty or obscene, so the most blue ones are the filthiest, the superlative adjective."
+     "surface": "Blue tits tested nuts from a feeder as the weather turned colder.",
+     "walkthrough": "'dropping' removes one T from TITS TRIED, leaving ITSTRIED, and 'nuts' rearranges it. Blue here means smutty, not the bird's colour.",
+     "definitionFit": "Blue jokes are indecent ones, so the dirtiest material is the most risqué."
     },
     "features": {
      "answerInScene": false,
