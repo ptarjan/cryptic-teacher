@@ -581,46 +581,63 @@
      "indicators": [
       {
        "text": "capturing",
-       "note": "the marine creature takes the extracted letters captive inside itself"
+       "at": 16,
+       "note": "capturing means holding inside, so the seal's letters go round the other piece"
       }
      ],
      "parts": [
       {
        "words": "Marine creature",
+       "at": 0,
        "gives": "SEAL",
-       "note": "a seal is a marine mammal"
+       "note": "a seal is a sea mammal"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "GUL",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "heart of",
-         "note": "only the central letters of the following word are used"
+         "text": "heart",
+         "at": 26,
+         "note": "the heart is the core, so the outer letters at each end are cut away, here two from each side"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "regular",
-         "gives": "GUL",
-         "select": "middle",
-         "note": "the middle three of its seven letters"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "of",
+           "at": 32,
+           "note": "of, after heart, ties the trimming to the word regular, taking off its front pair of letters first"
+          }
+         ],
+         "parts": [
+          {
+           "words": "regular",
+           "at": 35,
+           "note": "with two letters gone from each end, regular leaves its central three"
+          },
+          {
+           "gives": "RE"
+          }
+         ]
+        },
+        {
+         "gives": "AR"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sea creature traps the centre of a frequent traveller.",
-     "walkthrough": "'Regular flier' reads as a frequent passenger, but 'regular' is only a source of letters.",
-     "definitionFit": "A seagull is a bird, and anything that flies can be called a flier."
+     "surface": "A seal at sea catches a bird that is a regular visitor.",
+     "walkthrough": "'regular' looks like a describing word for the flier, but 'heart of' leaves GUL, its central three letters, which the seal is 'capturing' before its last letter.",
+     "definitionFit": "A seagull is a bird, and a flier is anything that flies."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "flier"
+     "misdirectedWord": "regular"
     }
    }
   },
@@ -845,41 +862,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EASTERNER",
      "indicators": [
       {
        "text": "in",
-       "note": "the rearranged letters go inside the venture"
+       "at": 25,
+       "note": "in means the rearranged letters go inside the other word"
       }
      ],
      "parts": [
+      {
+       "words": "profitable venture",
+       "at": 28,
+       "gives": "EARNER",
+       "note": "an earner is something that makes money, as in a nice little earner"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "out",
-         "note": "out signals the short word is rearranged, put out of order"
+         "at": 21,
+         "note": "out here means not in order, so the letters of set are rearranged"
         }
        ],
        "parts": [
         {
          "words": "set",
-         "gives": "STE",
-         "note": "the short word, letters rearranged"
-        },
-        {
-         "words": "profitable venture",
-         "gives": "EARNER",
-         "note": "a money-maker is an earner"
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone from the Far East sets up a money-making business.",
-     "definitionFit": "An Oriental is a person from the East, one example of an easterner, hence the 'maybe'."
+     "surface": "An Asian trader sets off on a money-making business.",
+     "walkthrough": "'set out' reads as starting a journey, but 'out' scrambles SET to STE. 'Oriental, maybe' signals that an oriental is only one kind of the answer.",
+     "definitionFit": "An easterner is a person from the east, and an oriental is an old word for someone from East Asia."
     },
     "features": {
      "answerInScene": true,
@@ -1045,35 +1063,36 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "TH",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Half of",
-         "note": "only the first two of the four letters are kept"
+         "at": 0,
+         "note": "half of the four-letter word this is its first two letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "this",
-         "gives": "TH",
-         "select": "first",
-         "note": "its first half"
+         "at": 8
+        },
+        {
+         "gives": "IS"
         }
        ]
       },
       {
        "words": "sketch",
+       "at": 13,
        "gives": "ROUGH",
-       "note": "a rough is a preliminary sketch"
+       "note": "a rough is a preliminary sketch or draft"
       }
      ]
     },
     "explanation": {
-     "surface": "An artist has finished half of a drawing.",
-     "definitionFit": "To be through is to be finished, so it matches done in the sense of completed."
+     "surface": "An artist reports that half of the drawing is already finished.",
+     "walkthrough": "'sketch is done' reads as a progress report, but 'done' alone is the definition.",
+     "definitionFit": "Through means finished, as in I am through with this, so it means done."
     },
     "features": {
      "answerInScene": false,
@@ -1400,48 +1419,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNNOTED",
+     "op": "container",
      "indicators": [
       {
-       "text": "dancing",
-       "note": "a dancing body moves about, as these letters do"
+       "text": "outside",
+       "at": 13,
+       "note": "outside means the rearranged letters sit round the word not"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "outside",
-         "note": "the rearranged letters go around the next word"
+         "text": "dancing",
+         "at": 5,
+         "note": "dancing means moving about, so the letters of nude move into a new order"
         }
        ],
        "parts": [
         {
          "words": "Nude",
-         "gives": "UNED",
-         "note": "the letters rearranged"
-        },
-        {
-         "words": "not",
-         "note": "taken as written"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "not",
+       "at": 22
       }
      ]
     },
     "explanation": {
-     "surface": "Someone dances naked out of doors and nobody spots them.",
-     "walkthrough": "The definition is a phrase standing for the adjective: something done unnoted is done without being observed.",
-     "definitionFit": "Unnoted means unremarked or unnoticed, describing something that happened without being seen."
+     "surface": "Someone dances naked outdoors, hoping nobody sees.",
+     "walkthrough": "'outside' reads as outdoors in the surface, but it tells you the scrambled letters wrap round the next word.",
+     "definitionFit": "Unnoted means not noticed or remarked on, so it describes something happening unseen."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "dancing"
+     "misdirectedWord": "outside"
     }
    }
   },
