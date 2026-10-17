@@ -316,37 +316,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "YUSTONE",
-     "indicators": [
-      {
-       "text": "energy falling",
-       "note": "in a down clue the symbol for energy drops from the top to the bottom of the station's name"
-      }
-     ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "YUSTONE",
+       "op": "last",
        "indicators": [
         {
          "text": "at last",
-         "note": "at last points to the final letter of the word that comes just before it"
+         "at": 17,
+         "note": "at last asks for the final letter of the word completely"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "parts": [
-          {
-           "words": "completely",
-           "note": "the last letter of completely"
-          }
-         ]
-        },
+         "words": "completely",
+         "at": 5,
+         "note": "its final letter"
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "with energy falling",
+         "at": 46,
+         "note": "in a down clue the E for energy drops from the top of the station's name to its foot"
+        }
+       ],
+       "parts": [
         {
          "words": "station",
+         "at": 38,
          "gives": "EUSTON",
          "note": "Euston is a main-line railway terminus in London"
         }
@@ -355,14 +355,13 @@
      ]
     },
     "explanation": {
-     "surface": "Someone is utterly worn out, finally turning up at the station with their energy flagging.",
-     "walkthrough": "Y joins EUSTON, whose E drops from the top to the bottom: Y + USTONE. 'Jade' looks like the verb to tire, but it is the gemstone.",
-     "definitionFit": "Yu-stone is a Chinese name for jade, the green ornamental stone prized for carving."
+     "surface": "A tired traveller is utterly jaded, finally turning up at a railway station as their energy fails.",
+     "walkthrough": "Jade is the noun, the stone, not the verb meaning to tire. 'at last' takes Y from completely; 'with energy falling' drops the E of EUSTON, a London rail terminus, to the foot, giving USTONE.",
+     "definitionFit": "Yu-stone is the Chinese name for the precious green mineral jade, so the two name the same gemstone."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Jade"
     }
    }
@@ -457,38 +456,33 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OSSA",
+     "op": "middle",
      "indicators": [
       {
-       "text": "blowing cover of",
-       "note": "when cover is blown it is stripped away, so the outer wrapping is removed"
+       "text": "blowing cover of doctor",
+       "at": 16,
+       "note": "blowing the cover strips the agency's outside letters, which together spell the doctor's MD abbreviation"
       }
      ],
      "parts": [
       {
        "words": "agents",
+       "at": 9,
        "gives": "MOSSAD",
-       "note": "Mossad is the Israeli intelligence agency"
-      },
-      {
-       "words": "doctor",
-       "gives": "MD",
-       "note": "MD is a doctor of medicine"
+       "note": "Mossad is Israel's intelligence agency"
       }
      ]
     },
     "explanation": {
-     "surface": "Spies on a mountain expose a doctor's disguise.",
-     "walkthrough": "MOSSAD loses its outer letters M and D, which together spell a doctor, leaving OSSA.",
-     "definitionFit": "Ossa is a mountain in Thessaly, famous from the Greek myth of piling Pelion upon it."
+     "surface": "Secret agents expose a doctor who was working undercover.",
+     "walkthrough": "The outer letters of MOSSAD, the Israeli secret service, are M and D, which is MD, a doctor: hence the question mark. 'blowing cover of' strips them away.",
+     "definitionFit": "Ossa is a peak in Thessaly, Greece, famous from the myth of the giants piling it on Pelion."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "cover"
+     "misdirectedWord": "blowing"
     }
    }
   },
@@ -1002,37 +996,43 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "COTHURNUS",
-     "indicators": [
-      {
-       "text": "cycling",
-       "note": "cycling moves letters round in a loop, so the end letter comes to the front"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "company",
-       "gives": "CO",
-       "note": "Co is the abbreviation for company"
+       "at": 19,
+       "gives": "CO"
       },
       {
-       "words": "Injured",
-       "gives": "HURT",
-       "note": "a synonym for injured"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 8,
+         "note": "cycling sends the last letter of the word round to the front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Injured",
+         "at": 0,
+         "gives": "HURT",
+         "note": "injured means hurt"
+        }
+       ]
       },
       {
        "words": "students",
+       "at": 32,
        "gives": "NUS",
-       "note": "the NUS is the National Union of Students"
+       "note": "NUS is the National Union of Students, the UK students' body"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone hurt in a bike accident while riding with fellow students had to walk.",
-     "walkthrough": "HURT cycled puts its T first: THUR. 'Went on foot' sounds like walking, but the cothurnus is worn on the foot.",
-     "definitionFit": "The cothurnus was the high laced boot of Greek tragic actors, an item of footwear."
+     "surface": "Someone hurt while out on a bike with company and students had to walk instead.",
+     "walkthrough": "Cycling HURT moves its T to the front, giving THUR. The definition is cryptic: a cothurnus was worn on the foot.",
+     "definitionFit": "A cothurnus was the high laced boot worn by actors in Greek tragedy, so it is a thing that went on a foot."
     },
     "features": {
      "answerInScene": false,
@@ -1063,79 +1063,83 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EXCERPTUM",
+     "op": "container",
      "indicators": [
       {
-       "text": "flipping",
-       "note": "flipping something over turns it back to front"
+       "text": "stops",
+       "at": 45,
+       "note": "these letters stop up the flipped word, plugging its gap like a stopper"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "EXCERPTUM",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "stops",
-         "note": "the stop of a word is its end, so this letter takes over the final place"
+         "text": "flipping",
+         "at": 55,
+         "note": "flipping turns the word for mum back to front"
         }
        ],
        "parts": [
         {
+         "words": "mum",
+         "at": 51,
+         "gives": "MUTE",
+         "note": "mum means mute, silent"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
          "words": "cross",
-         "gives": "EX",
-         "note": "a cross is the letter X, spelt ex"
+         "at": 9,
+         "gives": "X",
+         "note": "a cross is the letter X"
         },
         {
          "words": "around",
+         "at": 16,
          "gives": "C",
-         "note": "c, for circa, means around"
+         "note": "C, for circa, means around"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "ER",
          "indicators": [
           {
            "text": "finally",
-           "note": "finally points to the closing letter of each of the words before it"
+           "at": 31,
+           "note": "finally takes the last letter of each of the two words"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "the ear",
-           "gives": "ER",
-           "select": "last",
-           "note": "the last letters of the two words"
+           "at": 23,
+           "note": "last letters of the and ear"
           }
          ]
         },
         {
          "words": "papa",
+         "at": 40,
          "gives": "P",
-         "note": "Papa is P in the radio alphabet"
-        },
-        {
-         "words": "mum",
-         "gives": "MUTE",
-         "note": "keeping mum is staying silent"
+         "note": "P is papa in the NATO phonetic alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A parent threatens a clip round the ear if the child gets cross, and dad steps in to stop mum flying off the handle.",
-     "walkthrough": "P replaces the end of MUTE to make MUTP, which flipped is PTUM. 'Clip' looks like the slap but is a snippet of text.",
-     "definitionFit": "An excerptum is an extract taken from a longer text, just as a clip is a short extract from a film."
+     "surface": "A cross parent threatens a clip around the ear, and dad steps in to stop mum losing her temper.",
+     "walkthrough": "'finally' takes ER from the ends of the ear. 'flipping' turns MUTE into ETUM, and XCERP 'stops' it after its E. 'Clip around the ear' reads as a smack, but clip alone is the definition.",
+     "definitionFit": "Excerptum is Latin for an extract, and a clip is a short excerpt taken from a film or recording."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Clip"
     }
@@ -1232,43 +1236,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "including extra",
+       "at": 29,
+       "note": "the number is the answer with one more letter added, so the extra letter is taken back out"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Six lots of this",
-       "note": "the arithmetic frame: six times the number spelt by the answer plus one letter"
+       "at": 0,
+       "gives": "THREEONINE",
+       "note": "six lots of this make the year found at the end of the clue, 1854, so this is a sixth of it, 309, read aloud as three-o-nine"
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "including extra",
-         "note": "the answer plus one more letter makes the number, so that extra letter comes back out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "1854",
-         "gives": "THREEONINE",
-         "note": "1854 is six lots of 309, read aloud as three-o-nine"
-        },
-        {
-         "words": "tablet",
-         "gives": "E",
-         "note": "E is slang for an ecstasy tablet"
-        }
-       ]
+       "words": "tablet",
+       "at": 45,
+       "gives": "E",
+       "note": "E is slang for an ecstasy tablet"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzle about a nutrient with an added supplement, apparently discovered in the year 1854.",
-     "walkthrough": "The answer with an extra E reads three-o-nine, and six times 309 is 1854, so remove one E. '1854' looks like a date but is arithmetic.",
-     "definitionFit": "Threonine is an essential amino acid the body cannot make, so it is vital in the diet."
+     "surface": "A scientific note: a vital acid in multiple doses, with an extra pill, was discovered in 1854.",
+     "walkthrough": "Six lots of this are found in 1854, so this is 309, spoken as three-o-nine. 'including extra' says that spelling holds one letter more than the acid: the tablet, E.",
+     "definitionFit": "Threonine is one of the essential amino acids the body cannot make, so it must come from food: vital in that sense."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "1854"
@@ -1471,56 +1468,54 @@
     "definitions": [
      {
       "text": "from a ballot box?",
-      "at": 30,
-      "note": "adjective: relating to an urn"
+      "at": 30
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "URNAL",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "returning",
-       "note": "returning means coming back, so this piece runs the opposite way"
+       "text": "leaves",
+       "at": 23,
+       "note": "leaves means goes out of, so these letters depart from the word for daily"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "URNAL",
+       "words": "Daily",
+       "at": 0,
+       "gives": "DIURNAL",
+       "note": "diurnal means daily"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "leaves",
-         "note": "when something leaves it departs, so those letters are taken away"
+         "text": "returning",
+         "at": 13,
+         "note": "returning has the abbreviation for papers come back the other way"
         }
        ],
        "parts": [
         {
-         "words": "Daily",
-         "gives": "DIURNAL",
-         "note": "diurnal means daily"
-        },
-        {
          "words": "papers",
+         "at": 6,
          "gives": "ID",
-         "note": "ID is identity papers"
+         "note": "ID, identity papers"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The daily newspapers report on returned votes taken out of a ballot box.",
-     "walkthrough": "'Daily papers' looks like newspapers but splits in two: the Latin-based adjective for daily, then identity papers.",
-     "definitionFit": "Urnal means relating to an urn, and a ballot box was traditionally an urn, hence the question mark."
+     "surface": "Someone reads a daily newspaper as pages blow out of a ballot box.",
+     "walkthrough": "'returning' turns ID into DI, which 'leaves' DIURNAL. The question mark warns the definition is playful: an urn can serve as a box for votes.",
+     "definitionFit": "Urnal is the adjective for an urn, and ballots were once cast into urns, so a ballot box can be one."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Daily"
+     "misdirectedWord": "papers"
     }
    }
   },
@@ -1654,35 +1649,30 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "to accompany",
-       "note": "to accompany is to go along with, so the pieces sit side by side"
-      }
-     ],
      "parts": [
       {
-       "words": "which is often said",
+       "words": "which is often said to accompany pretentious",
+       "at": 5,
        "gives": "MOI",
-       "note": "moi, French for me, is a word often said affectedly"
+       "note": "moi, French for me, is the word often said in a pretentious manner"
       },
       {
        "words": "artist",
+       "at": 50,
        "gives": "RA",
-       "note": "RA is a Royal Academician"
+       "note": "RA is a Royal Academician, an artist"
       }
      ]
     },
     "explanation": {
-     "surface": "Destiny, it's often claimed, goes along with being a showy artist.",
-     "walkthrough": "'Pretentious' belongs with the first piece: moi is the affected word a pretentious person says.",
-     "definitionFit": "Moira is the Greek personification of destiny, one's allotted portion in life."
+     "surface": "A remark about a showy painter whose fate is always talked about.",
+     "walkthrough": "The clue explains its own piece: MOI is the word often said, in mock French, by pretentious people.",
+     "definitionFit": "Moira is the Greek personification of destiny, one's allotted portion, hence fate."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "pretentious"
+     "misdirectedWord": "accompany"
     }
    }
   },
@@ -1871,46 +1861,44 @@
      "indicators": [
       {
        "text": "involving",
-       "note": "involving means wrapping something up inside, so one piece encloses the other"
+       "at": 22,
+       "note": "involving has the tool's name take in the letter, holding it inside"
       }
      ],
      "parts": [
       {
        "words": "cut deal perhaps",
+       "at": 5,
        "gives": "SAW",
-       "note": "deal is pine timber, which one might saw"
+       "note": "a saw cut deal, deal being pine timber, so saw is the past of see dressed as a cutting tool"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "K",
        "indicators": [
         {
-         "text": "primary",
-         "note": "primary means first, so just the opening letter is kept"
+         "text": "primary requirement for",
+         "at": 32,
+         "note": "primary means first, so only the opening letter of the next word is needed"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "requirement for kindergarten",
-         "gives": "K",
-         "select": "first",
-         "note": "the first letter of kindergarten"
+         "words": "kindergarten",
+         "at": 56,
+         "note": "its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A headteacher cuts a deal over what a nursery school basically needs.",
-     "walkthrough": "K sits inside SAW. 'Deal' looks like a bargain but is a plank of softwood.",
-     "definitionFit": "A skaw is a headland or promontory, as in the Skaw at the tip of Denmark."
+     "surface": "A head teacher slashes a deal concerning what a nursery class needs most.",
+     "walkthrough": "Deal is softwood timber, which a saw cuts. 'primary requirement for' takes K from kindergarten, and 'involving' has SAW hold it.",
+     "definitionFit": "Skaw is a dialect word for a headland or promontory, as in the Skaw at the northern tip of Denmark."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "deal"
     }
    }
