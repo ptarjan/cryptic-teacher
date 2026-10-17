@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -887,37 +888,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DIVERSE",
-     "indicators": [
-      {
-       "text": "skinned",
-       "note": "Skinning strips off the outside, so the word that follows loses the letter at each of its ends."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "seabirds",
+       "at": 7,
+       "gives": "DIVERS",
+       "note": "divers are diving seabirds (loons in North America)"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "skinned",
+         "at": 16,
+         "note": "skinned means the outer layer is stripped off, so only the inside of eel is kept"
+        }
+       ],
        "parts": [
         {
-         "words": "seabirds",
-         "gives": "DIVERS",
-         "note": "divers are the fish-hunting seabirds Americans call loons"
-        },
-        {
          "words": "eel",
-         "gives": "E",
-         "note": "with its outer e and l taken off, only the middle letter is left"
+         "at": 24,
+         "note": "the word eel, whose middle letter is left once its outside letters go"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Assorted seabirds making short work of an eel.",
-     "walkthrough": "'Skinned' belongs to the eel in the picture and to the spelling in the wordplay. Divers are proper birds — great northern, red-throated — and not people in wetsuits.",
-     "definitionFit": "Diverse means made up of several different kinds, which is what sundry says of a collection of things."
+     "surface": "An assortment of seabirds feeding on an eel stripped of its skin.",
+     "walkthrough": "'skinned' removes the first and last letters of EEL, leaving its middle letter E to follow DIVERS.",
+     "definitionFit": "Sundry and diverse are both adjectives for things of various different kinds."
     },
     "features": {
      "answerInScene": false,
@@ -1065,51 +1066,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PIGSOUT",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "madly",
+       "at": 9,
+       "note": "madly suggests wild disorder, so the letters of 'Spouting' are rearranged"
+      },
+      {
+       "text": "forgets",
+       "at": 16,
+       "note": "forgets means a letter is left out of the jumbled pool"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "madly",
-         "note": "Done madly, a thing is done without order, so the letters will not stay as they were set down."
-        }
-       ],
-       "parts": [
-        {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "forgets",
-           "note": "What is forgotten is no longer there, so the letter named next drops out before the rest are rearranged."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Spouting",
-           "gives": "SPOUTIG",
-           "note": "the eight letters of the word once the n has gone"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "name",
-         "note": "n is the abbreviation for name, and it is the letter the instruction takes out"
-        }
-       ]
+       "words": "Spouting",
+       "at": 0
+      },
+      {
+       "words": "name",
+       "at": 24,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody ranting away, losing a name mid-sentence and then tucking in.",
-     "walkthrough": "'Scoffs' is the British word for eating fast, not for mocking, which is the reading the ranting surface pushes. Spouting is what the clue pretends to be about and where every letter comes from.",
-     "definitionFit": "To pig out is to eat greedily and without restraint, which is what scoffing freely amounts to."
+     "surface": "Someone talking wildly, losing track of a name, and eating greedily.",
+     "walkthrough": "Take the letters of SPOUTING, drop the N for 'name' as 'forgets' says, and rearrange the remaining letters. The doubled 'and' is just a link joining wordplay to the definition.",
+     "definitionFit": "To pig out is an informal idiom for eating greedily and without restraint."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Spouting"
     }
@@ -1304,30 +1292,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "CHAR",
      "indicators": [
       {
        "text": "most of",
-       "note": "Most of a word is not all of a word, so the letter at the end is left behind."
+       "at": 5,
+       "note": "most of means the word is used without its final letter"
       }
      ],
      "parts": [
       {
        "words": "leafy green vegetable",
-       "gives": "CHAR",
-       "note": "the vegetable wanted is the five-letter one with thick white stalks, and the instruction in front removes its closing letter"
+       "at": 13,
+       "gives": "CHARD",
+       "note": "chard is a leafy green vegetable related to beet"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A cook told to scorch most of a bunch of greens.",
-     "walkthrough": "Swiss chard is the leaf vegetable with thick white stalks, a fixture of British allotments. 'Most of' is the whole of the instruction and it costs the word only its last letter.",
-     "definitionFit": "To char something is to scorch it black, which is burning it without burning it away."
+     "surface": "Scorching nearly all of a pan of greens.",
+     "walkthrough": "'most of' drops the last letter from CHARD.",
+     "definitionFit": "To char is to scorch or blacken something by burning it."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Burn"
     }
    }
   },
