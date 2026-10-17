@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -286,42 +287,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PETSHOP",
-     "indicators": [
-      {
-       "text": "back",
-       "note": "Going back is going the other way, so the letters just named are written in the reverse of the order they come in."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 5,
+         "note": "back tells us to read the walking word in the opposite direction"
+        }
+       ],
        "parts": [
         {
-         "words": "Walk back",
-         "gives": "PETS",
-         "note": "a step is a single pace of a walk, and turned round it reads PETS"
-        },
-        {
-         "words": "jump",
-         "gives": "HOP",
-         "note": "a hop is a short jump"
+         "words": "Walk",
+         "at": 0,
+         "gives": "STEP",
+         "note": "to walk is to step"
         }
        ]
+      },
+      {
+       "words": "jump",
+       "at": 15,
+       "gives": "HOP",
+       "note": "a hop is a small jump"
       }
      ]
     },
     "explanation": {
-     "surface": "Retracing your steps and then hopping into a shop.",
-     "walkthrough": "'Retail unit' is estate-agent language, deliberately colourless, and it keeps the animals out of sight until the last moment. Only 'back' is an instruction; 'then' and 'into' just join.",
-     "definitionFit": "A pet shop is a retail unit — one shop trading from a single unit in a parade or a centre."
+     "surface": "Someone walks back and then hops into a shop.",
+     "walkthrough": "'Walk back' gives STEP turned round, and 'then' simply strings the jump on after it.",
+     "definitionFit": "A pet shop is a retail outlet selling animals and their supplies, so it is one kind of shop unit."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "back"
+     "misdirectedWord": "Walk"
     }
    }
   },
@@ -726,32 +728,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EEL",
+     "op": "middle",
      "indicators": [
       {
        "text": "Endlessly",
-       "note": "Something without ends loses them at both sides, so the first and last letters of the word named next are dropped."
+       "at": 0,
+       "note": "endlessly means the word loses both its first and its last letter"
       }
      ],
      "parts": [
       {
        "words": "touches",
+       "at": 10,
        "gives": "FEELS",
-       "note": "one who touches a thing feels it, and the word gives up its F and its S"
+       "note": "touches, as a verb, means feels"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody who will not stop prodding a fish.",
-     "walkthrough": "'Endlessly' here strips both ends, not just the tail, which is the one liberty the clue takes. The three-letter fish of crosswords is nearly always this one, worth writing in before any crossing arrives.",
-     "definitionFit": "An eel is a fish — the long snake-bodied kind that lives in rivers and the sea."
+     "surface": "Someone endlessly touches a fish.",
+     "walkthrough": "'Endlessly' here takes off both ends, not just the last letter.",
+     "definitionFit": "The eel is a long, snake-like species of fish."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Endlessly"
+     "misdirectedWord": "touches"
     }
    }
   },
@@ -1552,47 +1554,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "Letters taken regularly are taken at a fixed interval, every second one along."
+       "text": "wearing",
+       "at": 26,
+       "note": "wearing puts the rogue's letters inside the skins, as if clothed in them"
       }
      ],
      "parts": [
       {
        "words": "animal skins",
+       "at": 34,
        "gives": "HIDES",
-       "note": "a hide is an animal's skin, the thing a tanner works on"
+       "note": "hides are the skins of animals"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "OU",
        "indicators": [
         {
-         "text": "wearing",
-         "note": "Clothes go on outside the person wearing them, so the letters doing the wearing sit inside the ones named next."
+         "text": "regularly",
+         "at": 16,
+         "note": "regularly means taking letters at regular intervals, here the second and fourth of rogue"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "rogue regularly",
-         "gives": "OU",
-         "select": "alternate",
-         "note": "every second letter of rOgUe"
+         "words": "rogue",
+         "at": 10,
+         "note": "taken as written, every other letter used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crook going about dressed in furs.",
-     "walkthrough": "'Revolting' is the definition and has nothing to do with rebellion here. When a clue says regularly, check the odd letters as well as the even ones before settling.",
-     "definitionFit": "Something hideous is ugly enough to turn the stomach, which is to be revolting to look at."
+     "surface": "A revolting rogue is dressed in animal skins.",
+     "walkthrough": "'Revolting' looks like a verb about rebels, but it is the adjective; 'regularly' takes the even letters of rogue for the skins to wear.",
+     "definitionFit": "Revolting here is an adjective meaning repulsive or disgusting to look at."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "regularly"
+     "misdirectedWord": "Revolting"
     }
    }
   },
