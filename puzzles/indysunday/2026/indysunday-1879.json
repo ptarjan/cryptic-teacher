@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -355,54 +356,63 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "melting",
-       "note": "Ice that melts loses its shape altogether, so the letters beside the word cannot keep the order they arrived in."
+       "text": "around",
+       "at": 18,
+       "note": "the rearranged letters go around the other piece, enclosing it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "What melts around a thing closes over it, so the single letter named next finishes up buried among the rest."
+         "text": "melting",
+         "at": 10,
+         "note": "melting ice loses its shape, so the letters of April and ice are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "April ice",
-         "note": "eight letters of raw material: the month and the frozen water are there to be dissolved, not read"
+         "words": "April",
+         "at": 0
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "M",
-         "indicators": [
-          {
-           "text": "start of",
-           "note": "The start of a word is the letter it begins with, and that one letter is all this asks for."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "start of month",
-           "gives": "M",
-           "select": "first",
-           "note": "the first letter of the word that follows, joining the pool"
-          }
-         ]
+         "words": "ice",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start of",
+         "at": 25,
+         "note": "start of picks only the opening letter of month"
+        }
+       ],
+       "parts": [
+        {
+         "words": "month",
+         "at": 34,
+         "note": "first letter of month"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Around' tempts you to build a container, with something wrapped round an M. The melting has already dissolved everything, so the M is simply one letter of the nine.",
-     "definitionFit": "going by experience -> EMPIRICAL: empirical knowledge is what observation and trial produce, as opposed to what theory predicts."
+     "surface": "A weather note: April's ice thawing as a new month begins, judged by what one has seen.",
+     "walkthrough": "'melting' turns the letters of April and ice into EPIRICAL; 'around' wraps that about the M that is the 'start of month'.",
+     "definitionFit": "Empirical knowledge is based on observation and practical trial rather than theory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "melting"
     }
    }
   },
@@ -494,36 +504,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DINGO",
-     "indicators": [
-      {
-       "text": "coming last",
-       "note": "Whatever comes last ends up at the back, so the bird's letter leaves the place it sits in and is written on the end instead."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "coming last",
+         "at": 25,
+         "note": "coming last says the duck's letter leaves its place in the word and is put at the end instead"
+        }
+       ],
        "parts": [
         {
          "words": "performing",
-         "gives": "DING",
-         "note": "to be performing is to be doing, and these four letters are what is left when the bird's is taken out"
+         "at": 4,
+         "gives": "DOING",
+         "note": "someone performing a task is doing it"
         },
         {
-         "words": "duck",
-         "gives": "O",
-         "note": "a batsman out for no runs has scored a duck, and no runs is written as a nought"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "words": "duck",
+       "at": 20,
+       "gives": "O",
+       "note": "a duck in cricket is a score of nothing, shaped like the letter O"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Performing with duck' reads as a circus act. The duck is cricket's nought, and the question mark is there because the letter will not stay where its own word puts it.",
-     "definitionFit": "Dog -> DINGO: the wild dog of the Australian outback, so the definition names the family the animal belongs to."
+     "surface": "A dog doing tricks alongside a duck that finishes behind it.",
+     "walkthrough": "The O in DOING is the duck: 'coming last' lifts it out, leaving DING, and puts it at the end. In cricket a duck is a score of zero.",
+     "definitionFit": "The dingo is the wild dog of Australia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
     }
    }
   },
@@ -985,39 +1005,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "GOODSHOW",
+     "spelt": "GOODSHOW",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "The Reverend Spooner was famous for trading the opening sounds of two words, so naming him is the whole instruction."
+       "at": 39,
+       "note": "Spooner was famous for swapping the opening sounds of words, so the sounds of the phrase are exchanged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "SHOOD",
        "parts": [
         {
-         "unchecked": true,
          "words": "are expected",
-         "gives": "GOOD",
-         "soundsLike": "SHOULD",
-         "note": "if you are expected somewhere then you should be there; this word gives its opening SH away and takes a G"
-        },
-        {
-         "unchecked": true,
-         "words": "at event",
-         "gives": "SHOW",
-         "soundsLike": "GO",
-         "note": "to be at an event is to go to it, and this word collects the SH that its neighbour dropped"
+         "at": 16,
+         "gives": "SHOULD",
+         "note": "people who are expected to do something should do it"
         }
        ]
+      },
+      {
+       "words": "at event",
+       "at": 29,
+       "gives": "GO",
+       "note": "to go to an event is to attend it, be at it"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Say the plain version first - somebody expected at an event should go - then trade the openings. What comes out is British praise, as dated as the reverend himself.",
-     "definitionFit": "Congratulations -> GOOD SHOW: an old-fashioned British exclamation of approval, said to someone who has done well, doing the job of 'well done'."
+     "surface": "Well done is due at the occasion, as the tongue-tied Reverend Spooner might put it.",
+     "walkthrough": "'are expected' gives SHOULD, said SHOOD, and 'at event' gives GO; 'according to Spooner' swaps their opening sounds, SH and G, to give GOOD SHOW. William Spooner was an Oxford don known for such slips.",
+     "definitionFit": "Good show is a dated British exclamation of approval, a way of offering praise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "event"
     }
    }
   },
