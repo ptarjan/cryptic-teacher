@@ -120,57 +120,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALSO",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
        "indicators": [
         {
          "text": "Endlessly",
-         "note": "without ends, so 'false' loses both its first and last letters"
+         "at": 0,
+         "note": "endlessly means with no ends, so the word loses its first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "ALS",
-         "indicators": [
-          {
-           "text": "at heart",
-           "note": "a thing's heart is its centre, so only the middle letter of 'wrong' is used"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Endlessly false",
-           "gives": "ALS",
-           "select": "middle",
-           "note": "fALSe without its first and last letters"
-          }
-         ]
-        },
+         "words": "false",
+         "at": 10,
+         "note": "with its ends gone it leaves ALS"
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "n": 3,
+       "indicators": [
         {
-         "words": "at heart wrong",
-         "gives": "O",
-         "note": "the middle letter of wrOng"
+         "text": "at heart",
+         "at": 20,
+         "note": "the heart of a word is its central letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wrong",
+         "at": 29,
+         "note": "its central letter is O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A complaint that something is false and wrong as well.",
-     "walkthrough": "'Too' sits at the end looking like an intensifier for 'wrong', but it is the definition, and 'and' is only a joining word.",
-     "definitionFit": "A plain synonym: 'me too' and 'me also' both add one more to a list."
+     "surface": "Something false without end, and wrong at heart as well.",
+     "walkthrough": "'Endlessly' strips F and E from false, leaving ALS; 'at heart' takes the O at the centre of wrong.",
+     "definitionFit": "Also and too are synonyms, both meaning in addition or as well."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "too"
+     "misdirectedWord": "Endlessly"
     }
    }
   },
@@ -719,32 +716,31 @@
      "indicators": [
       {
        "text": "boxing",
-       "note": "to box something is to put it in a box, so one word encloses the other"
+       "at": 24,
+       "note": "boxing means enclosing, as in a box, so the count word surrounds the other letters"
       }
      ],
      "parts": [
       {
        "words": "consider",
+       "at": 15,
        "gives": "COUNT",
-       "note": "to count someone lucky is to consider them so; split COU…NT"
+       "note": "to count someone a friend is to consider them one"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "LD",
        "indicators": [
         {
          "text": "essentially",
-         "note": "the essence of a thing is its core, so only the central letters of 'wildly' are taken"
+         "at": 31,
+         "note": "the essence of a word is its core, its middle letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "essentially wildly",
-         "gives": "LD",
-         "select": "middle",
-         "note": "the middle two letters of wiLDly"
+         "words": "wildly",
+         "at": 43,
+         "note": "its middle two letters are L and D"
         }
        ]
       }
@@ -752,9 +748,9 @@
     },
     "spelling": "COULDN'T",
     "explanation": {
-     "surface": "Someone could not bring themselves to think about boxing wildly.",
-     "walkthrough": "'Boxing' reads as the sport, and 'wildly' as an anagram signal, but neither is.",
-     "definitionFit": "The contraction couldn't, could not, is the past of can't: exactly wasn't able to."
+     "surface": "Someone could not bring themselves to think about boxing, essentially a wild pursuit.",
+     "walkthrough": "The core of wildly, 'essentially', is LD, which COUNT is 'boxing'.",
+     "definitionFit": "Couldn't is the contraction of could not, the past form of being unable to do something."
     },
     "features": {
      "answerInScene": false,
@@ -835,64 +831,67 @@
      "indicators": [
       {
        "text": "pursued by",
-       "note": "to be pursued is to have something coming after you, so the later pieces follow the earlier"
+       "at": 23,
+       "note": "the one letter is followed, chased, by what comes next"
       }
      ],
      "parts": [
       {
        "words": "a",
-       "note": "A as printed"
+       "at": 6,
+       "gives": "A"
       },
       {
        "words": "small",
+       "at": 8,
        "gives": "S",
-       "note": "S = small, as in clothing sizes"
+       "note": "S is the clothing-size abbreviation for small"
       },
       {
        "words": "son",
+       "at": 14,
        "gives": "S",
-       "note": "S = son"
+       "note": "S is the genealogical abbreviation for son"
       },
       {
        "words": "one",
+       "at": 19,
        "gives": "I",
-       "note": "I = one, the Roman numeral"
+       "note": "I is the Roman numeral for one"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "ST",
        "indicators": [
         {
          "text": "extremes of",
-         "note": "the extremes of a thing are its two ends, so the first and last letters of 'slyest' are taken"
+         "at": 34,
+         "note": "the extremes of a word are its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "extremes of slyest",
-         "gives": "ST",
-         "select": "outer",
-         "note": "the outside letters of SlyesT"
+         "words": "slyest",
+         "at": 46,
+         "note": "its first and last letters are S and T"
         }
        ]
       },
       {
        "words": "scavengers",
+       "at": 53,
        "gives": "ANTS",
-       "note": "ants are scavengers"
+       "note": "ants are scavenging insects"
       }
      ]
     },
     "explanation": {
-     "surface": "A little boy being chased by sly scavengers, and someone helping him.",
-     "walkthrough": "'Helps' reads as a verb but is a plural noun: helps are helpers, a usage found in phrases like home helps.",
-     "definitionFit": "A noun sense: a help, like a home help, is a person who assists, so helps are assistants."
+     "surface": "Someone helps a small son, who is chased by the slyest scavengers.",
+     "walkthrough": "'Helps' is a plural noun here, people who help, not a verb. I is 'pursued by' ST, the 'extremes of' slyest, and ANTS.",
+     "definitionFit": "Assistants are people who give help, so they are helps in the old noun sense of helpers."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Helps"
     }
    }
@@ -1055,44 +1054,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IGNORED",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "at": 31,
+       "note": "by means beside, so the delta letter stands next to the rearranged region"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "problematic",
-         "note": "a problematic region is in trouble, so its letters are disordered"
-        },
-        {
-         "text": "by",
-         "note": "one thing by another sits beside it"
+         "at": 12,
+         "note": "problematic means troublesome and unsettled, so the letters are unsettled into a new order"
         }
        ],
        "parts": [
         {
          "words": "region",
-         "gives": "IGNORE",
-         "note": "REGION rearranged"
-        },
-        {
-         "words": "delta",
-         "gives": "D",
-         "note": "Delta is D in the NATO alphabet"
+         "at": 24
         }
        ]
+      },
+      {
+       "words": "delta",
+       "at": 34,
+       "gives": "D",
+       "note": "Delta is D in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A troubled river delta region neglected by the authorities.",
-     "walkthrough": "'Delta' reads as a river mouth, fitting the region, but it is only a radio-alphabet letter.",
-     "definitionFit": "A plain synonym: advice ignored has been disregarded, paid no attention."
+     "surface": "A troubled region by a river delta was neglected by the authorities.",
+     "walkthrough": "'Delta' looks like part of the river scene, but it is just the letter D in the NATO alphabet, placed 'by' the rearranged region.",
+     "definitionFit": "To ignore something is to take no notice of it, so ignored means paid no heed."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "delta"
     }
@@ -1176,47 +1177,46 @@
      "indicators": [
       {
        "text": "devouring",
-       "note": "what is devoured ends up inside, so the lions' word swallows the letters"
+       "at": 15,
+       "note": "the group of lions devours, takes inside it, the other letters"
       }
      ],
      "parts": [
       {
        "words": "Group of lions",
+       "at": 0,
        "gives": "PRIDE",
-       "note": "a pride is a group of lions; split PR…IDE"
+       "note": "a pride is a group of lions"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "OV",
        "indicators": [
         {
          "text": "first bits of",
-         "note": "the first bit of each word is its opening letter"
+         "at": 25,
+         "note": "the first bits of words are their initial letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "first bits of our vegetable",
-         "gives": "OV",
-         "select": "first",
-         "note": "Our Vegetable"
+         "words": "our vegetable",
+         "at": 39,
+         "note": "the first letters of these words are O and V"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Lions gobbling up the vegetables meant for us.",
-     "walkthrough": "Lions do not eat vegetables, which is the joke; 'supply' reads as a noun, a store of food, but is the verb definition.",
-     "definitionFit": "A plain synonym: to supply food is to provide it."
+     "surface": "A pride of lions eating the first bits of our vegetable supply.",
+     "walkthrough": "The 'first bits of' our vegetable are OV, which PRIDE is 'devouring'.",
+     "definitionFit": "To provide something is to supply it, to make it available for someone's use."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "supply"
+     "misdirectedWord": "devouring"
     }
    }
   },
@@ -1389,41 +1389,40 @@
      "indicators": [
       {
        "text": "round",
-       "note": "round means surrounding, so the word for 'told to go' goes round the letters"
+       "at": 11,
+       "note": "the sent-off word goes round the other letters, enclosing them"
       }
      ],
      "parts": [
       {
        "words": "Told to go",
+       "at": 0,
        "gives": "SENT",
-       "note": "someone told to go has been sent; split SE…NT"
+       "note": "someone told to go has been sent away"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "RVA",
        "indicators": [
         {
          "text": "originally",
-         "note": "at the origin of each word, so its opening letter is taken"
+         "at": 17,
+         "note": "originally means at the start, so take the first letter of each word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "originally really very annoying",
-         "gives": "RVA",
-         "select": "first",
-         "note": "Really Very Annoying"
+         "words": "really very annoying",
+         "at": 28,
+         "note": "their first letters are R, V and A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An irritating attendant being ordered to leave.",
-     "walkthrough": "'Told to go round' reads as one command, but 'round' is the container signal.",
-     "definitionFit": "A plain synonym: a servant attends on a household, and an attendant is one who serves."
+     "surface": "A really annoying attendant was told to go round again.",
+     "walkthrough": "The first letters of 'originally really very annoying' give RVA, which SENT goes 'round'.",
+     "definitionFit": "A servant is someone who attends on another person, an attendant in a household."
     },
     "features": {
      "answerInScene": true,
@@ -1648,68 +1647,62 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "clumsily",
-       "note": "done clumsily means done in a muddle, so the letters are jumbled"
+       "at": 18,
+       "note": "something done clumsily is botched, so the remaining letters are jumbled"
+      },
+      {
+       "text": "overlooked",
+       "at": 46,
+       "note": "overlooked means left out, so the hem's first letter is taken from the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "op": "charade",
+       "parts": [
+        {
+         "words": "sewn",
+         "at": 5
+        },
+        {
+         "words": "perhaps",
+         "at": 10
+        }
+       ]
+      },
+      {
+       "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "at the start, so only the first letter of 'hem' counts"
+         "at": 36,
+         "note": "initially means at the start, so take the first letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "overlooked",
-           "note": "something overlooked is left out, so that letter is removed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "sewn",
-           "note": "anagram fodder"
-          },
-          {
-           "words": "perhaps",
-           "gives": "PERAPS",
-           "note": "PERHAPS minus the H"
-          },
-          {
-           "op": "first",
-           "parts": [
-            {
-             "words": "hem initially",
-             "note": "the first letter of Hem, the letter removed"
-            }
-           ]
-          }
-         ]
-        },
-        {
-         "gives": "H"
+         "words": "hem",
+         "at": 32,
+         "note": "its first letter is H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Rags that have been sewn clumsily, the hem left unfinished.",
-     "walkthrough": "'Rags' looks like part of the needlework, but it is the definition; and 'perhaps' is fodder, not a hint.",
-     "definitionFit": "A slang sense: a rag is a disparaging word for a low-grade newspaper, as in 'the local rag'."
+     "surface": "Rags sewn clumsily, perhaps with the hem overlooked: a picture of shoddy needlework.",
+     "walkthrough": "'Rags' looks like scraps of cloth, matching the sewing surface, but means tabloid newspapers. Take H, the hem 'initially', from SEWN PERHAPS as 'overlooked', and rearrange 'clumsily'.",
+     "definitionFit": "A rag is a dismissive name for a low-quality newspaper, especially a tabloid."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "perhaps"
+     "joke": "pun",
+     "misdirectedWord": "Rags"
     }
    }
   }
