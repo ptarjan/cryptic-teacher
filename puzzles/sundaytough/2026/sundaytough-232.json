@@ -50,43 +50,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "STORECARD",
      "indicators": [
       {
        "text": "as per Spooner",
-       "note": "Reverend Spooner famously swapped the opening sounds of neighbouring words, so the starts of the two words trade places"
+       "at": 55,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the starting sounds of the two words are exchanged"
       }
      ],
      "parts": [
       {
        "words": "centre",
+       "at": 30,
        "gives": "CORE",
-       "note": "the core is the centre of something"
+       "note": "the core of something is its centre"
       },
       {
-       "words": "rated like hotel",
-       "gives": "STARRED",
-       "note": "hotels are graded by stars"
-      },
-      {
-       "unchecked": true,
-       "words": "centre rated like hotel",
-       "gives": "STORECARD",
-       "soundsLike": "CORE STARRED",
-       "note": "swap the opening sounds of the two words"
+       "op": "homophone",
+       "spelt": "STARD",
+       "parts": [
+        {
+         "words": "rated like hotel",
+         "at": 37,
+         "gives": "STARRED",
+         "note": "hotels are graded by stars, so a well-rated one is starred"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A reviewer awarding stars to a shopping mall as though it were a hotel.",
-     "walkthrough": "'Shopping centre' reads as one phrase, but 'shopping' belongs to the definition and 'centre' alone starts the wordplay: CORE STARRED becomes STORE CARD.",
-     "definitionFit": "A retailer's own payment card lets customers buy goods now and pay later, so it is a thing that extends credit."
+     "surface": "A shopping-mall review comparing the place to a starred hotel.",
+     "walkthrough": "The swap is done by sound: CORE STARRED becomes STORE CARRED, which is said like the answer's second word. 'shopping centre' reads as one phrase, but 'centre' belongs to the wordplay.",
+     "definitionFit": "A store card is a credit card issued by a particular shop for buying goods there."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "shopping"
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "centre"
     }
    }
   },
