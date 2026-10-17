@@ -394,37 +394,36 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "OWEN",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "To turn about is to face the other way, so the word it governs is written back to front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Nothing",
+       "at": 0,
+       "gives": "O",
+       "note": "O, the round zero, stands for nothing"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 12,
+         "note": "about in the sense of turned about, so the word new is read from right to left"
+        }
+       ],
        "parts": [
         {
-         "words": "Nothing",
-         "gives": "O",
-         "note": "nothing is written as o, the round zero of a scoreline"
-        },
-        {
          "words": "new",
-         "gives": "WEN",
-         "note": "NEW turned back to front"
+         "at": 8
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A report that there is no fresh news concerning a man from Wales.",
-     "walkthrough": "'Nothing new' reads as one idea and is two instructions, with 'about' looking like the preposition that would finish the phrase. Owen is the English form of the Welsh Owain, borne by Owain Glyndŵr, the last native Prince of Wales.",
-     "definitionFit": "Owen is a Welsh name, first and last, so a man answering to it answers to 'Welshman'."
+     "surface": "There is nothing novel to report concerning a man from Wales.",
+     "walkthrough": "'About' reads as 'concerning' in the surface, but it is what turns new backwards into WEN; the zero-shaped letter for nothing comes first.",
+     "definitionFit": "Owen is a classic Welsh given name and surname, as borne by the poet Wilfred Owen, so it can stand for a Welshman."
     },
     "features": {
      "answerInScene": true,
@@ -1104,45 +1103,52 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "YELLING",
      "indicators": [
       {
-       "text": "initially taking",
-       "note": "To take a thing initially is to take it at the front, so the letter in question is the one the word starts with."
-      },
-      {
        "text": "becoming",
-       "note": "One thing becoming another is no longer there itself — the second stands in the place the first held."
+       "at": 37,
+       "note": "that letter becomes the one for year, replacing it"
       }
      ],
      "parts": [
       {
        "words": "Flogging",
+       "at": 0,
        "gives": "SELLING",
-       "note": "to flog something, in British slang, is to sell it"
+       "note": "flogging is British slang for selling"
       },
       {
-       "words": "seconds",
-       "gives": "S",
-       "note": "s = seconds, and that is the letter standing at the front"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially taking",
+         "at": 11,
+         "note": "only the opening letter of seconds is the one taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "seconds",
+         "at": 28,
+         "note": "first letter of seconds"
+        }
+       ]
       },
       {
        "words": "year",
-       "gives": "Y",
-       "note": "y = year, the letter that moves into the gap"
+       "at": 46,
+       "gives": "Y"
       }
      ]
     },
     "explanation": {
-     "surface": "A whipping that starts as a matter of seconds, turns into a year of it, and is screamed through.",
-     "walkthrough": "'Flogging' is the selling sense, not the whipping the surface insists on, and the sentence is built so both readings stay upright. Seconds and years are the language of a sentence handed down, which is where the picture comes from.",
-     "definitionFit": "To yell is to cry out at full volume, which is what pain pulls out of somebody who cannot help it."
+     "surface": "A brutal whipping scene: seconds pass, then a year, and the victim cries out.",
+     "walkthrough": "'Flogging' looks like a beating but is slang for selling. In SELLING, the S from 'initially taking seconds' is 'becoming' Y for year.",
+     "definitionFit": "Yelling is shouting loudly, as someone does when they are hurt, so crying out in pain."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Flogging"
     }
    }
