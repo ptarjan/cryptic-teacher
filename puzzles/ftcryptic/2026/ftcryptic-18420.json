@@ -545,41 +545,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENDORSE",
-     "indicators": [
-      {
-       "text": "'ack",
-       "note": "the apostrophe marks a dropped aitch in Cockney speech, so the H sound goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "the last",
-         "gives": "END",
-         "note": "the last part is the end"
-        },
-        {
-         "words": "in the race",
-         "gives": "ORSE",
-         "note": "a runner in the race is a horse, said Cockney-fashion"
-        }
-       ]
+       "words": "the last",
+       "at": 5,
+       "gives": "END",
+       "note": "the last part of something is its end"
+      },
+      {
+       "words": "ack in the race",
+       "at": 15,
+       "gives": "ORSE",
+       "note": "'ack is hack with its H dropped, Cockney style; a hack in the race is a horse, so 'ack is 'orse"
       }
      ]
     },
     "explanation": {
-     "surface": "A punter backs the final nag in the race.",
-     "walkthrough": "'ack is hack with its H dropped, telling you to say the runner the same way: 'orse.",
-     "definitionFit": "To endorse a candidate or plan is to support it publicly, which is to back it."
+     "surface": "A punter backing the horse trailing at the back of the field.",
+     "walkthrough": "The apostrophe in 'ack shows a dropped H, so the hack (horse) loses its H too.",
+     "definitionFit": "To back a proposal or candidate is to give it support, which is to endorse it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Back"
     }
    }
@@ -975,42 +965,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HELPER",
-     "indicators": [
-      {
-       "text": "Principal leaves",
-       "note": "the principal letter is the first, and it leaves, so the opening letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Principal leaves",
+         "at": 0,
+         "note": "the principal letter of the word the, its first, leaves it"
+        }
+       ],
        "parts": [
         {
          "words": "the",
-         "gives": "HE",
-         "note": "the word loses its front letter"
+         "at": 17
         },
         {
-         "words": "lecturer",
-         "gives": "L",
-         "note": "L is the standard abbreviation for lecturer"
-        },
-        {
-         "words": "an",
-         "gives": "PER",
-         "note": "as in ten pounds an hour, meaning per hour"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "lecturer",
+       "at": 21,
+       "gives": "L"
+      },
+      {
+       "words": "an",
+       "at": 35,
+       "gives": "PER",
+       "note": "per means an, as in five pounds an hour"
       }
      ]
     },
     "explanation": {
-     "surface": "The head teacher departs, leaving the lecturer with a teaching assistant.",
-     "walkthrough": "'Principal' looks like a head teacher; here it means the first letter.",
-     "definitionFit": "An assistant is someone who aids another, a direct synonym."
+     "surface": "A college head departs, leaving the lecturer with an assistant to carry on.",
+     "walkthrough": "'Principal' looks like a college head, but it means the first letter: 'Principal leaves the' drops T from THE, giving HE.",
+     "definitionFit": "A helper is someone who aids another person, the same role as an assistant."
     },
     "features": {
      "answerInScene": true,
@@ -1618,52 +1610,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OSTRACISED",
+     "op": "composite",
      "indicators": [
       {
+       "text": "leaving",
+       "at": 18,
+       "note": "leaving says a piece goes out of the letters before they are rearranged"
+      },
+      {
        "text": "Barking",
-       "note": "barking means mad, and mad letters are jumbled"
+       "at": 43,
+       "note": "barking means mad, so the letters of taxi crossed go wild into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "OSTRACISED",
-       "indicators": [
-        {
-         "text": "leaving",
-         "note": "what is leaving goes away, so those letters are removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "taxi",
-         "note": "taken as written"
-        },
-        {
-         "words": "by",
-         "gives": "X",
-         "note": "x means by, as in two by four"
-        },
-        {
-         "words": "crossed",
-         "note": "taken as written"
-        }
-       ]
+       "words": "taxi, crossed",
+       "at": 29,
+       "note": "taken as written, the letters to be rearranged"
+      },
+      {
+       "words": "by",
+       "at": 26,
+       "gives": "X",
+       "note": "x is the multiplication sign, read as by (three by four)"
       }
      ]
     },
     "explanation": {
-     "surface": "Shunned, someone takes a cab across Barking, a district of east London.",
-     "walkthrough": "'Barking' looks like the London place name; it is British slang for mad. 'Sent to Coventry' is a British idiom for being deliberately ignored.",
-     "definitionFit": "To be ostracised is to be excluded and cold-shouldered by a group, as the idiom describes."
+     "surface": "Someone shunned after leaving in a taxi that crossed through Barking, a district of east London.",
+     "walkthrough": "'leaving' takes X ('by', as in 3 x 4) out of TAXI CROSSED; 'Barking' rearranges the remaining letters.",
+     "definitionFit": "To send someone to Coventry is a British idiom meaning to refuse to speak to them, to shun them."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "Barking"
     }
    }
