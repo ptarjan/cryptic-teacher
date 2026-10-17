@@ -170,35 +170,34 @@
      "parts": [
       {
        "words": "Norm",
+       "at": 0,
        "gives": "PAR",
-       "note": "par = the norm, as in 'up to par'"
+       "note": "par is the norm, the standard or average level"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "TY",
        "indicators": [
         {
          "text": "vacated",
-         "note": "a vacated word has had its contents emptied, leaving only its outside letters"
+         "at": 5,
+         "note": "a vacated building has been emptied, so the word for Conservative loses its insides and keeps only its outer letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "vacated Conservative",
-         "gives": "TY",
-         "select": "outer",
-         "note": "TORY with its middle removed"
+         "words": "Conservative",
+         "at": 13,
+         "gives": "TORY",
+         "note": "Tory is the everyday name for a British Conservative"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone called Norm has walked out of a Conservative political faction.",
-     "walkthrough": "'Norm' reads as a man's name who has quit the Tories; it is the golfing word for the standard score.",
-     "definitionFit": "A plain synonym in the political sense, as in the Labour Party or a party conference."
+     "surface": "A Tory called Norm has walked out of his party, leaving a political group behind.",
+     "walkthrough": "'vacated' empties TORY to TY, its outside letters, which follow PAR (the norm, as in 'up to par').",
+     "definitionFit": "A party is an organised body of people seeking power on shared political aims."
     },
     "features": {
      "answerInScene": true,
@@ -389,41 +388,42 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to secure"
+       "text": "to secure",
+       "at": 14,
+       "note": "to secure something is to hold it fast, so the welded word holds the final letter inside it"
       }
      ],
      "parts": [
       {
        "words": "Join together",
+       "at": 0,
        "gives": "WELD",
-       "note": "to weld is to join metal together"
+       "note": "to weld metal is to join pieces together by heat"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "I",
        "indicators": [
         {
          "text": "end",
-         "note": "only the final letter of Rishi is used"
+         "at": 32,
+         "note": "the end of a word is its last letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Rishi's end",
-         "gives": "I",
-         "select": "last",
-         "note": "last letter of Rishi"
+         "words": "Rishi's",
+         "at": 24,
+         "gives": "RISHI",
+         "note": "the possessive says whose end it is: the end of the name Rishi, as in Rishi Sunak"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political alliance forms to finish off Rishi Sunak, and then thrives.",
-     "walkthrough": "Rishi is Rishi Sunak, the former Conservative prime minister; the clue only needs his final letter.",
-     "definitionFit": "Flourish as a verb means to brandish, and brandishing a weapon is handling it with display."
+     "surface": "A political jibe: Tories joining together to secure Rishi Sunak's downfall, then celebrating.",
+     "walkthrough": "'Rishi's end' is the end of Rishi, so I, not the final S of the printed word; 'to secure' puts that I inside WELD after the W.",
+     "definitionFit": "To wield a sword is to brandish it, and to flourish a weapon is the same showy waving."
     },
     "features": {
      "answerInScene": false,
@@ -1029,46 +1029,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ABSORB",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 14,
+       "note": "'in' puts the jumbled letters between the a and the book's abbreviation"
+      }
+     ],
      "parts": [
       {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 17,
+         "gives": "A"
+        },
+        {
+         "words": "book",
+         "at": 19,
+         "gives": "B"
+        }
+       ]
+      },
+      {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "ABSORB",
+       "indicators": [
+        {
+         "text": "trashed",
+         "at": 6,
+         "note": "something trashed is wrecked, so the remaining letters are thrown into a new order"
+        }
+       ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "ABSORB",
          "indicators": [
           {
-           "text": "trashed",
-           "note": "trashing BORS wrecks its letter order"
-          },
-          {
-           "text": "in",
-           "note": "the jumble sits inside A and B"
-          },
-          {
            "text": "goes",
-           "note": "the setter's I leaves BORIS"
+           "at": 34,
+           "note": "when the setter goes, the letter standing for him leaves the name"
           }
          ],
          "parts": [
           {
-           "words": "a book",
-           "gives": "AB",
-           "note": "a + B, the abbreviation for book"
-          },
-          {
            "words": "Boris",
-           "note": "Boris Johnson's first name"
+           "at": 0
           },
           {
-           "words": "Cyclops goes",
+           "words": "Cyclops",
+           "at": 26,
            "gives": "I",
-           "note": "the setter Cyclops refers to himself as I; that I is removed from BORIS"
+           "note": "Cyclops, the setter, would refer to himself as I"
           }
          ]
         }
@@ -1077,14 +1089,13 @@
      ]
     },
     "explanation": {
-     "surface": "Boris Johnson is savaged in a book, and the setter tells him to take it.",
-     "walkthrough": "A setter naming himself means I. 'Suck it up!' as an order to endure criticism is the surface; as a literal instruction it means absorb.",
-     "definitionFit": "A plain synonym, both literal (a sponge soaking up water) and figurative (taking criticism without complaint)."
+     "surface": "Boris Johnson is savaged in a book, and the satirist tells him to take it on the chin.",
+     "walkthrough": "Cyclops is the setter, so I; 'goes' removes it from BORIS, leaving BORS, and 'trashed' rearranges that to BSOR, which 'in' places between A and B (book).",
+     "definitionFit": "To absorb a blow or criticism is to take it without complaint, just as 'suck it up' urges."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Cyclops"
     }
    }
@@ -1113,47 +1124,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "finally",
-       "note": "take the final letters of Conservative and candidate"
+       "text": "to embrace",
+       "at": 37,
+       "note": "to embrace is to hug, so the two final letters hold the old coin between them"
       }
      ],
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "EE",
        "indicators": [
         {
-         "text": "to embrace",
-         "note": "the two Es hold the coin between them"
+         "text": "finally",
+         "at": 29,
+         "note": "finally points to the last letter of each of the two words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Conservative candidate finally",
-         "gives": "EE",
-         "select": "last",
-         "note": "last letters of Conservative and candidate"
+         "words": "Conservative candidate",
+         "at": 6,
+         "note": "the last letters of these two words are both E"
         }
        ]
       },
       {
        "words": "old money",
+       "at": 48,
        "gives": "DUCAT",
-       "note": "the ducat, an old European gold coin"
+       "note": "a ducat is an old gold coin used across Europe"
       }
      ]
     },
     "explanation": {
-     "surface": "A Tory hopeful is urged to court old-money donors to learn the ropes.",
-     "walkthrough": "'Old money' suggests the landed gentry; here it is a historical coin.",
-     "definitionFit": "A plain synonym: both mean to instruct someone, whether in school or in life."
+     "surface": "A Tory candidate finally accepting historic donations, then lecturing everyone.",
+     "walkthrough": "'finally' takes E and E, the last letters of CONSERVATIVE and CANDIDATE, and 'to embrace' wraps them round DUCAT.",
+     "definitionFit": "To educate someone is to instruct or train them, a near synonym of teach."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "money"
+     "misdirectedWord": "Conservative"
     }
    }
   },
@@ -1554,55 +1564,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BILLIARDS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 25,
+       "note": "in an across answer, one piece on another is joined to it, the first word leading"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "legislation",
+       "at": 13,
+       "gives": "BILL",
+       "note": "a bill is a piece of draft legislation"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "spikes"
-        },
-        {
-         "text": "on"
+         "text": "spikes",
+         "at": 6,
+         "note": "to spike a drink is to slip something into it, so the letter for right goes inside"
         }
        ],
        "parts": [
         {
-         "words": "legislation",
-         "gives": "BILL",
-         "note": "a bill is proposed legislation"
-        },
-        {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
            "text": "treatment",
-           "note": "AIDS is given a treatment that reorders it"
+           "at": 33,
+           "note": "a treatment of a subject works it over, so the letters of AIDS are reworked"
           }
          ],
          "parts": [
           {
            "words": "AIDS",
-           "gives": "IADS",
-           "note": "anagram fodder, 4 letters"
-          },
-          {
-           "words": "Right",
-           "gives": "R",
-           "note": "R = right"
+           "at": 28
           }
          ]
+        },
+        {
+         "words": "Right",
+         "at": 0,
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The political right sabotages a bill on AIDS treatment.",
-     "walkthrough": "'Spikes' reads as 'kills off a bill'; it means 'pierces', putting R inside the jumbled AIDS.",
-     "definitionFit": "Billiards is a cue game played on a cloth-covered table."
+     "surface": "A right-wing government blocks a law on AIDS treatment.",
+     "walkthrough": "'treatment' rearranges AIDS to IADS, and 'spikes' slips R (right) in to make IARDS after BILL (legislation). 'Right spikes legislation' reads as a political story, but each word is a separate piece.",
+     "definitionFit": "This is the cue sport played on a cloth-covered table with three balls, an example of a game."
     },
     "features": {
      "answerInScene": false,
