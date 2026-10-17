@@ -47,52 +47,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STEAKHOUSE",
-     "indicators": [
-      {
-       "text": "off",
-       "note": "'off' as in gone off or set off: TAKES rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 17,
+         "note": "off suggests something gone wrong or out of order, so the letters of takes are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "takes",
-         "gives": "STEAK",
-         "note": "TAKES rearranged, signalled by 'off'"
-        },
+         "at": 11
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "HOUSE",
-         "indicators": [
-          {
-           "text": "at first",
-           "note": "take the opening letter of each of the five words before it"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "having offered \"Unlimited Sushi\" evenings",
-           "gives": "HOUSE",
-           "select": "first",
-           "note": "first letters of Having Offered Unlimited Sushi Evenings"
-          }
-         ]
+         "text": "at first",
+         "at": 64,
+         "note": "at first means taking the opening letter of each of the words before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "having offered \"Unlimited Sushi\" evenings",
+         "at": 22,
+         "note": "the first letters of these five words"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A restaurant's all-you-can-eat sushi nights are such a hit that business takes off.",
-     "walkthrough": "'Takes off' reads as a single phrase meaning 'booms'; split it and 'off' is the anagram signal working on 'takes'.",
-     "definitionFit": "A plain synonym: a restaurant whose menu is built around grilled beef."
+     "surface": "A restaurant does a roaring trade after running all-you-can-eat sushi nights.",
+     "walkthrough": "'takes off' looks like a verb phrase meaning business booms, but 'off' rearranges TAKES to STEAK; 'at first' takes the initials of having, offered, Unlimited, Sushi, evenings.",
+     "definitionFit": "A steakhouse is a type of eatery specialising in grilled beef, so it is an example of a restaurant."
     },
     "features": {
      "answerInScene": true,
@@ -1550,42 +1545,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REALESTATE",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "ALL loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "in relation to",
+       "at": 25,
+       "gives": "RE",
+       "note": "re means concerning or in relation to, as in a letter heading"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 40,
+         "note": "almost means the word is cut short by its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "in relation to",
-         "gives": "RE",
-         "note": "re = in relation to, as in memo headers"
-        },
-        {
          "words": "every",
-         "gives": "AL",
-         "note": "ALL = every, minus its last letter"
+         "at": 47,
+         "gives": "ALL",
+         "note": "all can mean every, as in 'all people'"
         },
         {
-         "words": "type of car",
-         "gives": "ESTATE",
-         "note": "an estate is a British name for a station wagon"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "type of car",
+       "at": 53,
+       "gives": "ESTATE",
+       "note": "an estate is a car with an extended rear load area, what Americans call a station wagon"
       }
      ]
     },
     "explanation": {
-     "surface": "Salespeople pushing nearly every kind of car.",
-     "walkthrough": "'Agents' suggests car dealers; they are estate agents, who sell property.",
-     "definitionFit": "A descriptive definition: property agents, called realtors in the US, market land and buildings."
+     "surface": "A note on what sales agents push for almost every kind of vehicle.",
+     "walkthrough": "'almost' trims ALL (every) to AL. An estate car is the British name for a station wagon.",
+     "definitionFit": "Estate agents, the British term for realtors, sell property, so land and buildings are their stock in trade."
     },
     "features": {
      "answerInScene": false,
