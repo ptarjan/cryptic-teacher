@@ -1030,7 +1030,7 @@ def small_self_test():
     _, pinned, stages = head_of_queue(["cryptic-1", "cryptic-2", "tls-5", "tls-6", "book-7"], ["r"], prows,
                                       {"cryptic-2"}, small=["tls", "book"])
     want = ["r", "book-7", "cryptic-1", "tls-6", "tls-5", "cryptic-2"]
-    if pinned != want or stages[4] != 2:
+    if pinned != want or stages[4] != 0 or stages[6] != 2:  # both are tails: counted there
         print(f"FAIL head_of_queue with partly hinted pins {pinned} at {stages} (want {want})",
               file=sys.stderr)
         bad += 1
@@ -1040,10 +1040,10 @@ def small_self_test():
     miss = {"cryptic-1": 9, "cryptic-2": 1, "tls-5": 5, "tls-6": 4, "book-7": 3}
     trows = [dict(r, unannotated=miss[r["id"]], awaitsPreamble=r["id"] == "cryptic-2")
              for r in rows]
-    _, pinned, _ = head_of_queue(["cryptic-1", "cryptic-2", "tls-5", "tls-6", "book-7"], ["r"],
-                                 trows)
+    _, pinned, stages = head_of_queue(["cryptic-1", "cryptic-2", "tls-5", "tls-6", "book-7"], ["r"],
+                                      trows)
     want = ["r", "book-7", "tls-6", "tls-5", "cryptic-2", "cryptic-1"]
-    if pinned != want:
+    if pinned != want or stages[6] != 3:
         print(f"FAIL head_of_queue tails first pins {pinned} (want {want})", file=sys.stderr)
         bad += 1
     return bad
@@ -1784,20 +1784,21 @@ def partly_first(queue, pinned, rows):
 
 
 def tails_first(queue, pinned, rows):
-    """pinned, then the queue's bag-eligible tails (clue_bag.row_is_tail) in
-    queue order. A bag forms only when its leader is a tail, so tails at the
+    """pinned, then the queue's bag-eligible tails (clue_bag.row_is_tail, the
+    flagged-clue redo count included) in queue order, ahead of the partly
+    hinted and the nearly-done/small-series stages. A bag forms only when its leader is a tail, so tails at the
     head are bagged and run together instead of each paying a session's fixed
     cost; resumes, lockout cut-offs and hand requests stay ahead in `pinned`."""
     import clue_bag
     by_id = {r["id"]: r for r in rows}
     taken = set(pinned)
     return pinned + [pid for pid in queue
-                     if pid not in taken and clue_bag.row_is_tail(by_id.get(pid), redo=False)]
+                     if pid not in taken and clue_bag.row_is_tail(by_id.get(pid))]
 
 
 def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=()):
     """(the queue newest first, the ids that go ahead of it in order): pinned
-    (cut off by a lockout), then the hand requests (asked, requested()), then the bag-eligible tails (tails_first), then the partly hinted (partly_first), then the nearly-done and small series' puzzles
+    (cut off by a lockout), then the hand requests (asked, requested()), then the bag-eligible tails incl. redo ones (tails_first), then the partly hinted (partly_first), then the nearly-done and small series' puzzles
     (small_first), then
     /showcase/'s wanted, then each series' No 1,
     then each series' oldest few, then the notable-tagged; each set in queue
@@ -1817,9 +1818,12 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=())
     pinned = requested_first(queue, list(pinned), list(asked))
     asked_n = len(pinned) - len(set(pinned) - set(asked)) if asked else 0
     cut = len(pinned)
-    pinned = tails_first(cryptic, pinned, rows)
+    # The flagged-clue redo tails are the re-annotation tier (hinted, on the
+    # relist), which `cryptic` leaves out: tails are taken from every cryptic.
+    pinned = tails_first([pid for pid in queue if pid not in straight], pinned, rows)
+    tails = len(pinned) - cut
     pinned = partly_first(cryptic, pinned, rows)
-    partly = len(pinned) - cut
+    partly = len(pinned) - cut - tails
     pinned = small_first(cryptic, pinned, rows, small)
     stages = [len(pinned)]
     pinned = promote(cryptic, pinned, wanted)
@@ -1831,6 +1835,7 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=())
     stages.append(len(pinned))
     stages.append(partly)
     stages.append(asked_n)
+    stages.append(tails)
     return queue, pinned, stages
 
 
@@ -1906,9 +1911,11 @@ def cover_first(pinned):
                                      wanted, tagged_puzzles(), small, requested(rows))
     print(f"requested: {n[5]} queued puzzles on tools/data/burn_requests.json go first"
           + (f" ({', '.join(pinned[cut:cut + n[5]])})" if n[5] else ""), file=sys.stderr)
+    print(f"tails: {n[6]} queued puzzles with a few clues due go first (bagged)",
+          file=sys.stderr)
     print(f"partly hinted: {n[4]} queued puzzles with some clues hinted go first",
           file=sys.stderr)
-    print(f"nearly-done and small series: {n[0] - cut - n[4]} queued puzzles of {', '.join(small) or 'none'} go first",
+    print(f"nearly-done and small series: {n[0] - cut - n[6] - n[4]} queued puzzles of {', '.join(small) or 'none'} go first",
           file=sys.stderr)
     print(f"showcase: {n[1] - n[0]} queued puzzles /showcase/ wants go first",
           file=sys.stderr)
