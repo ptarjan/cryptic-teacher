@@ -470,45 +470,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REPEAL",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 22,
+       "note": "after places the remaining pieces behind the rearranged peer"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "initially",
-         "note": "take only the first letter of law"
-        },
-        {
          "text": "upset",
-         "note": "peer is knocked over and rearranged"
+         "at": 35,
+         "note": "upset means knocked over and disordered, so the letters of peer are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "peer's upset",
-         "gives": "REPE",
-         "note": "PEER rearranged"
-        },
+         "words": "peer's",
+         "at": 28,
+         "gives": "PEER",
+         "note": "peer's reads as peer is; the letters of peer are the ones rearranged"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 6
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "after"
-          }
-         ],
-         "parts": [
-          {
-           "words": "a",
-           "note": "taken as it stands"
-          }
-         ]
-        },
+         "text": "initially",
+         "at": 12,
+         "note": "initially means take only the opening letter of law"
+        }
+       ],
+       "parts": [
         {
-         "words": "law initially",
-         "gives": "L",
+         "words": "law",
+         "at": 8,
          "note": "first letter of law"
         }
        ]
@@ -516,9 +521,9 @@
      ]
     },
     "explanation": {
-     "surface": "A lord, upset, wants a law struck off.",
-     "walkthrough": "A peer is a member of the House of Lords, which can vote to annul laws.",
-     "definitionFit": "A plain synonym: formally revoking a law or ruling so it no longer applies."
+     "surface": "A law is struck down once a member of the House of Lords has been angered.",
+     "walkthrough": "'peer's upset' reads as 'peer is upset': 'upset' turns PEER into REPE, and 'after' puts A and L (the first letter of law, from 'initially') behind it.",
+     "definitionFit": "To repeal a law is to revoke or cancel it officially."
     },
     "features": {
      "answerInScene": true,
@@ -602,26 +607,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "QUIT",
      "indicators": [
       {
        "text": "finishing early",
-       "note": "the word stops one letter short, losing its last letter"
+       "at": 18,
+       "note": "finishing early means the word stops one letter short, losing its last letter"
       }
      ],
      "parts": [
       {
        "words": "completely",
-       "gives": "QUIT",
-       "note": "QUITE, meaning completely, without its final E"
+       "at": 6,
+       "gives": "QUITE",
+       "note": "quite can mean completely, as in quite right"
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone walks out for good and clocks off early.",
-     "walkthrough": "\"Completely\" looks like part of the definition, but it is the wordplay: QUITE cut short.",
-     "definitionFit": "A plain synonym: walking out of a job or place for good."
+     "surface": "Someone walks out for good, wrapping things up ahead of time.",
+     "walkthrough": "'finishing early' drops the final E of QUITE.",
+     "definitionFit": "To quit a place or a job is to depart from it."
     },
     "features": {
      "answerInScene": true,
@@ -895,26 +903,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "SHED",
      "indicators": [
       {
        "text": "just half",
-       "note": "keep only half the word, here its back half"
+       "at": 15,
+       "note": "just half means only one half of the word is kept, here its back half"
       }
      ],
      "parts": [
       {
        "words": "completed",
-       "gives": "SHED",
-       "note": "completed is FINISHED; keep only its back four letters"
+       "at": 25,
+       "gives": "FINISHED",
+       "note": "completed means finished"
+      },
+      {
+       "gives": "FINI"
       }
      ]
     },
     "explanation": {
      "surface": "A small building project is only halfway done.",
-     "walkthrough": "The half kept is the back one: FINI goes, the rest stays.",
-     "definitionFit": "A definition by example: a small wooden outbuilding for tools or storage."
+     "walkthrough": "'just half' keeps the second half of FINISHED, dropping FINI.",
+     "definitionFit": "A shed is a simple hut used for storage, a modest outbuilding."
     },
     "features": {
      "answerInScene": true,
@@ -1041,48 +1052,52 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "between",
+       "at": 16,
+       "note": "between means the answer sits at the junction of the two fruit names, so the tail of melon goes too"
+      }
+     ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "LI",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "somewhere between",
-         "note": "take the letters either side of the gap between the fruits: the end of one and the start of the other"
+         "text": "somewhere",
+         "at": 6,
+         "note": "somewhere signals that only part of the run of letters is wanted, so the start of ugli is shed"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "ugli",
-         "gives": "LI",
-         "select": "last",
-         "note": "the last two letters of ugli"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "ugli",
+           "at": 24
+          },
+          {
+           "words": "melon",
+           "at": 33
+          }
+         ]
+        },
+        {
+         "gives": "UG"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "ME",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "melon",
-         "gives": "ME",
-         "select": "first",
-         "note": "the start of melon: its first letter and the one after"
-        }
-       ]
+       "gives": "LON"
       }
      ]
     },
     "explanation": {
-     "surface": "A fruit whose size or taste falls between an ugli fruit and a melon.",
-     "walkthrough": "It works like a word spanning two words but skips \"and\": the answer sits where ugli meets melon. An ugli is a Jamaican citrus fruit.",
-     "definitionFit": "A definition by example: a small green citrus fruit."
+     "surface": "A shopper places a fruit somewhere in between two others on the stall.",
+     "walkthrough": "'somewhere between' points to the stretch where ugli meets melon; 'and' is just a link and is skipped.",
+     "definitionFit": "The lime is a small green citrus fruit, like the ugli a member of the citrus family."
     },
     "features": {
      "answerInScene": true,
@@ -1113,32 +1128,38 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EASY",
      "indicators": [
       {
        "text": "left",
-       "note": "has left, meaning departed from the word"
+       "at": 25,
+       "note": "left means has gone away, so those letters are removed"
       }
      ],
      "parts": [
       {
-       "words": "Queen's left nauseous",
-       "gives": "EASY",
-       "note": "QUEASY is nauseous; QU for Queen departs"
+       "words": "nauseous",
+       "at": 30,
+       "gives": "QUEASY",
+       "note": "nauseous means queasy"
+      },
+      {
+       "words": "Queen's",
+       "at": 17,
+       "gives": "QU",
+       "note": "QU is a standard abbreviation for queen; the 's reads as has"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks for cake, but the Queen has gone off feeling sick.",
-     "walkthrough": "QU is a standard abbreviation for Queen. \"Queen's left\" means Queen has left; \"a piece of cake\" is slang for a simple task.",
-     "definitionFit": "An idiom: a piece of cake is a task needing no effort at all."
+     "surface": "Is this a slice of cake? The queen has gone off feeling sick.",
+     "walkthrough": "'Queen's left' reads as 'queen has left': 'left' removes QU from QUEASY.",
+     "definitionFit": "A piece of cake is an idiom for something simple to do, and the question mark marks it as not literal."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "left"
+     "misdirectedWord": "cake"
     }
    }
   },
