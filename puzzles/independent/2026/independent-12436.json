@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1069,46 +1070,52 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "oddly",
-       "note": "the odd-numbered letters are the ones wanted — first, third and so on — rather than the whole word"
+       "text": "heralds",
+       "at": 17,
+       "note": "to herald is to come just before, so the earlier pieces precede the word for finish"
       }
      ],
      "parts": [
       {
        "words": "Wrong",
+       "at": 0,
        "gives": "UP",
-       "note": "when something is up, something is wrong — 'what's up?'"
+       "note": "up means wrong, as in 'what's up?'"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "TR",
        "indicators": [
         {
-         "text": "heralds",
-         "note": "a herald goes ahead to announce what is coming, so these letters are placed in front of what follows them"
+         "text": "oddly",
+         "at": 11,
+         "note": "oddly means take the odd-numbered letters, the first and third, of turn"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "turn oddly",
-         "gives": "TR",
-         "select": "alternate",
-         "note": "the first and third letters of TuRn"
+         "words": "turn",
+         "at": 6,
+         "note": "the first and third letters of turn"
         }
        ]
       },
       {
        "words": "finish",
+       "at": 25,
        "gives": "END",
-       "note": "the end of anything is its finish"
+       "note": "end means finish"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Wrong' for UP is the best trick here — it is the 'something's up' sense, not the direction, which a down entry makes very tempting.",
-     "definitionFit": "Markets are said to be in an uptrend while the graph keeps climbing, so the word is an analyst's name for things getting better."
+     "surface": "A bad turn in the markets foreshadows the end of a recovery.",
+     "walkthrough": "'Wrong turn' looks like an anagram, but 'wrong' is UP, as in 'something is up', and 'oddly' takes TR from turn.",
+     "definitionFit": "An uptrend is a sustained upward movement in prices or economic activity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wrong"
     }
    }
   },
@@ -1483,51 +1490,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "HARASS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to confront",
+       "at": 15,
+       "note": "to confront is to stand face to face, so the reversed name stands up against the next letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "returns",
-         "note": "to return is to come back along the way you went, so the name is written out in the opposite direction"
+         "at": 7,
+         "note": "returns means the name is turned back, read right to left"
         }
        ],
        "parts": [
         {
          "words": "Fergie",
-         "gives": "HARAS",
-         "note": "Fergie is Sarah Ferguson, and SARAH comes back the other way"
-        },
+         "at": 0,
+         "gives": "SARAH",
+         "note": "Fergie is the nickname of Sarah Ferguson, the Duchess of York"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "S",
-         "indicators": [
-          {
-           "text": "start of",
-           "note": "the start of a word is the letter it opens with, and that single letter is all that is taken"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "start of soccer",
-           "gives": "S",
-           "select": "first",
-           "note": "the opening letter of Soccer"
-          }
-         ]
+         "text": "start of",
+         "at": 27,
+         "note": "the start of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "soccer",
+         "at": 36,
+         "note": "the first letter of soccer"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Fergie' is two people on the sports pages, the Duchess and the football manager, and the soccer in the surface points firmly at the wrong one.",
-     "definitionFit": "To harass somebody is to trouble them again and again, taking 'trouble' as the verb meaning to pester rather than to worry."
+     "surface": "Alex Ferguson comes back to face a footballing problem.",
+     "walkthrough": "Fergie suggests the Manchester United manager Sir Alex Ferguson, but here it is Sarah Ferguson, known as Fergie: SARAH backwards is HARAS.",
+     "definitionFit": "To harass someone is to pester and trouble them persistently."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fergie"
     }
    }
   },
