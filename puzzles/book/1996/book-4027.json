@@ -29,7 +29,8 @@
   "officialKey": "never"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -411,37 +412,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CLOSESHAVE",
-     "indicators": [
-      {
-       "text": "almost intact",
-       "note": "What is almost intact is whole but for a piece missing, so the word beside it arrives one letter short."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Winds up",
+       "at": 0,
+       "gives": "CLOSES",
+       "note": "to wind up a meeting is to close it, so winds up gives closes"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost intact",
+         "at": 17,
+         "note": "almost intact means kept whole save for a little, so the port word loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Winds up",
-         "gives": "CLOSES",
-         "note": "a company that winds up its affairs closes"
+         "words": "port",
+         "at": 12,
+         "gives": "HAVEN",
+         "note": "a haven is a harbour or port"
         },
         {
-         "words": "port",
-         "gives": "HAVE",
-         "note": "a port is a haven, docked here of its final letter"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A battered ship reaches harbour with barely a scratch on her.",
-     "walkthrough": "The two pieces do not line up with the two words: the join falls a letter past the space, which is what hides it. 'Winds up' is the finishing sort, nothing to do with weather.",
-     "definitionFit": "A close shave is a brush with disaster that misses you by a hair, which is a narrow escape."
+     "surface": "A storm-battered ship reaches harbour barely undamaged after a near miss.",
+     "walkthrough": "'almost intact' keeps all of HAVEN but its last letter, and that follows CLOSES for 'Winds up'.",
+     "definitionFit": "A close shave is an idiom for a near miss, where disaster is avoided by the smallest margin."
     },
     "features": {
      "answerInScene": true,
@@ -758,54 +763,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "initially",
-       "note": "Initially asks for no more of a word than the letter it begins with."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "badly",
-         "note": "What is done badly comes out wrong, and letters that come out wrong are letters in the wrong order."
+         "text": "initially",
+         "at": 13,
+         "note": "initially points to the opening letter of the word that follows it"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "S",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "initially surprised",
-           "gives": "S",
-           "select": "first",
-           "note": "the opening letter of surprised"
-          }
-         ]
-        },
+         "words": "surprised",
+         "at": 23,
+         "note": "first letter of surprised"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "badly",
+         "at": 39,
+         "note": "badly means in a damaged or disordered way, so the letters of the next word are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "rattled",
-         "note": "anagram fodder, seven letters"
+         "at": 45,
+         "note": "the fodder, taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone caught out shows surprise first and is thoroughly shaken after.",
-     "walkthrough": "'Taken aback' is the definition, though it reads like an instruction to turn something round — that is the trap. 'Then' is doing nothing but keeping the surface's story in sequence.",
-     "definitionFit": "To be startled is to be caught unawares by something sudden, which is what taken aback describes."
+     "surface": "Someone is shocked, first surprised and then thoroughly shaken.",
+     "walkthrough": "'initially' takes S from 'surprised'; 'badly' rearranges RATTLED into TARTLED to follow it.",
+     "definitionFit": "To be startled is to be shocked or suddenly alarmed, so it matches being caught off guard."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "aback"
+     "aptDefinition": false
     }
    }
   },
