@@ -753,9 +753,7 @@ def ocr_page(number, image, post=None):
         quoted = post_clue(post, c["lights"][0][0], c["enumeration"])
         letters = lambda t: "".join(ch for ch in t if ch.isalnum())
         # The reading's own marks must all be the post's (the post may drop one).
-        marks = lambda t: collections.Counter(
-            re.sub("[‘’]", "'", re.sub("[‐-—]", "-", t))) - collections.Counter(
-            ch for ch in t if ch.isalnum() or ch.isspace())
+        marks = clue_text.mark_counts
         full = f"{quoted} ({c['enumeration']})"
         if quoted and not bad and letters(full) == letters(pick["clue"]) and not marks(pick["clue"]) - marks(full):
             pick = dict(pick, clue=full)

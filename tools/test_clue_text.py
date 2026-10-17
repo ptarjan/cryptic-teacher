@@ -256,4 +256,5 @@ assert ct.mend_numbered_run("12Ethelred 18Hess_20 Clever 6/20d Ken 22.Panorama")
 import quotes
 assert quotes.unligature("stu\ufb00 \u2019") == "stuff \u2019"
 assert ct.number_figures("15,683 *") == "15683" and ct.FIGURE_SLIPS["3"] == "8"
+assert ct.mark_counts("Ann\u2019s \u2014 clue, a") == ct.mark_counts("Ann's - clue, a") == {"'": 1, "-": 1, ",": 1}
 print("clue_text ok")
