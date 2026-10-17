@@ -394,52 +394,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "deceptively",
-       "note": "something presented deceptively is disguised, its letters rearranged to look like something else"
-      },
-      {
        "text": "takes in",
-       "note": "takes in tells you the pair of letters is added to the scrambled word before the shuffle"
+       "at": 32,
+       "note": "the shuffled letters take in, or enclose, the next piece"
       }
      ],
      "parts": [
       {
-       "words": "misleads",
-       "note": "taken as written"
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "VI",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "a couple of",
-         "note": "a couple means two, so just the opening pair of letters of the next word is kept"
+         "text": "deceptively",
+         "at": 10,
+         "note": "acting deceptively, the letters of misleads are disguised in a new order"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "virtuosos",
-         "gives": "VI",
-         "select": "first",
-         "note": "the first two letters of virtuosos"
+         "words": "misleads",
+         "at": 22
         }
        ]
+      },
+      {
+       "words": "a couple of virtuosos",
+       "at": 42,
+       "gives": "VI",
+       "note": "the first two letters of virtuosos"
       }
      ]
     },
     "explanation": {
-     "surface": "A jazz trumpeter fools a pair of virtuoso players.",
-     "definitionFit": "Miles Davis was a jazz trumpeter and bandleader, famed for Kind of Blue."
+     "surface": "A trumpet player tricks people while swallowing a pair of star performers.",
+     "walkthrough": "'deceptively' rearranges MISLEADS into MILESDAS, and 'takes in' puts VI, the first couple of letters of virtuosos, inside it after the A.",
+     "definitionFit": "Miles Davis was the celebrated American jazz musician whose instrument was the trumpet."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "deceptively"
+     "misdirectedWord": "misleads"
     }
    }
   },
@@ -586,45 +582,34 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the first word encloses the selected letters"
+       "at": 19,
+       "note": "the sneering word goes about, surrounding, the next piece"
       }
      ],
      "parts": [
       {
        "words": "Behaves scornfully",
+       "at": 0,
        "gives": "SNEERS",
-       "note": "to sneer is to behave with open scorn"
+       "note": "to sneer is to behave scornfully; sneers is the matching verb form"
       },
       {
-       "op": "last",
-       "unchecked": true,
+       "words": "last pair of Slovak",
+       "at": 25,
        "gives": "AK",
-       "indicators": [
-        {
-         "text": "last pair of",
-         "note": "last pair means only the final two letters of the next word are kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Slovak",
-         "gives": "AK",
-         "select": "last",
-         "note": "the final two letters of Slovak"
-        }
-       ]
+       "note": "the final two letters of Slovak"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sniffs at a Slovak's footwear.",
-     "definitionFit": "Sneakers is the American word for soft rubber-soled sports shoes, called trainers in Britain."
+     "surface": "Someone is mocking a Slovak's footwear.",
+     "walkthrough": "'about' places SNEERS around AK, the last two letters of Slovak.",
+     "definitionFit": "Sneakers is the American word for soft rubber-soled sports footwear, what Britons call trainers."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pair"
+     "misdirectedWord": "Slovak"
     }
    }
   },
