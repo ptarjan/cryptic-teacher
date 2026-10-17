@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1401,51 +1402,64 @@
    "annotation": {
     "definitions": [
      {
-      "text": "that?",
-      "at": 46
+      "text": "At year's end, an unstimulating brew — mostly that?",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DECAFLATTE",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "Most of a word is all of it bar the end, so the final letter is dropped before the piece is used."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "At year's end",
+       "at": 0,
+       "gives": "DEC",
+       "note": "December is the month at the end of the year, abbreviated Dec"
+      },
+      {
+       "words": "an",
+       "at": 15,
+       "gives": "A",
+       "note": "an gives A, the indefinite article in its shorter form"
+      },
+      {
+       "words": "unstimulating",
+       "at": 18,
+       "gives": "FLAT",
+       "note": "flat means dull, lacking any stimulation"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 39,
+         "note": "mostly means not quite all, so the brew word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "At year's end",
-         "gives": "DEC",
-         "note": "December is the month the year finishes in, and Dec is its abbreviation"
-        },
-        {
-         "words": "an",
-         "gives": "A",
-         "note": "the indefinite article, which in wordplay is simply the letter"
-        },
-        {
-         "words": "unstimulating",
-         "gives": "FLAT",
-         "note": "a flat drink has lost its fizz and its lift"
-        },
-        {
          "words": "brew",
-         "gives": "TE",
-         "note": "the brew is tea, with the last of its three letters left off"
+         "at": 32,
+         "gives": "TEA",
+         "note": "tea is a brew"
+        },
+        {
+         "gives": "A"
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "walkthrough": "The whole clue before the dash is wordplay and a description at once: 'that?' points back at 'an unstimulating brew' and asks what it is. 'A flat' is a musical key too, and that is the joke the surface leans on.",
-     "definitionFit": "that? → DECAF LATTE: 'that' points back at the unstimulating brew just described, a milky coffee with the caffeine taken out."
+     "surface": "A New Year's resolution to cut caffeine, wondering if the dullest brew is now mostly what one drinks.",
+     "walkthrough": "'mostly' cuts TEA to TE. Read as a whole, the clue also describes the answer: a coffee with no caffeine is an unstimulating brew.",
+     "definitionFit": "A decaf latte is milky coffee with the caffeine removed, so it gives no stimulating kick."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "end"
     }
    }
   }
