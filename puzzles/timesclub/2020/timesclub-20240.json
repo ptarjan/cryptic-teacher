@@ -246,12 +246,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "IMMEW",
      "indicators": [
       {
        "text": "to fill",
-       "note": "one piece fills the gap between the others, going inside them"
+       "at": 36,
+       "note": "to fill means the title goes into the gap between the two single letters"
       }
      ],
      "parts": [
@@ -260,37 +259,41 @@
        "parts": [
         {
          "words": "One",
+         "at": 0,
          "gives": "I",
-         "note": "I is the Roman numeral one"
-        },
-        {
-         "words": "Frenchwoman",
-         "gives": "MME",
-         "note": "Mme, Madame, is the French title for a married woman"
+         "note": "I is the Roman numeral for one"
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "initially",
-           "note": "initially points to only the opening letter of the word before it"
+           "at": 10,
+           "note": "initially means only the opening letter of the next word is used"
           }
          ],
          "parts": [
           {
            "words": "waits",
-           "note": "the first letter of waits"
+           "at": 4,
+           "note": "the word whose first letter is taken"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "Frenchwoman",
+       "at": 24,
+       "gives": "MME",
+       "note": "MME is the abbreviation of Madame, the French title for a married woman"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stands waiting for a Frenchwoman to fill the kettle for tea.",
-     "walkthrough": "To kettle is to hem protesters in, police-style, which is why 'kettle' is a verb here, and the 'possibly' admits it is one example of confining.",
-     "definitionFit": "Immew is an old verb meaning to shut up or confine, as a hawk in its mew, much like kettling a crowd."
+     "surface": "Someone waits for a Frenchwoman to come and fill the kettle.",
+     "walkthrough": "'to fill' puts MME between I and W, the first letter of waits picked out by 'initially'. Police kettling is penning protesters in, which is what the answer means.",
+     "definitionFit": "To immew is an old verb for shutting up or confining, as in a cage; kettling a crowd is one way of doing so."
     },
     "features": {
      "answerInScene": false,
@@ -1184,39 +1187,62 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SCOGGING",
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SCOGGING",
+       "op": "container",
        "indicators": [
         {
-         "text": "departing",
-         "note": "the second nothing departs, removed from the word for leaving"
+         "text": "in",
+         "at": 20,
+         "note": "in places the nought for none within the letters of the cricket ground"
         }
        ],
        "parts": [
         {
          "words": "Ashes venue",
+         "at": 23,
          "gives": "SCG",
-         "note": "the Sydney Cricket Ground hosts Ashes Tests between England and Australia"
+         "note": "SCG is the Sydney Cricket Ground, where Ashes Test matches between England and Australia are played"
         },
         {
-         "words": "none leaving",
-         "gives": "OGOING",
-         "note": "none is O, nought; leaving is going"
+         "words": "none",
+         "at": 36,
+         "gives": "O",
+         "note": "O, the figure nought, stands for none"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "departing",
+         "at": 55,
+         "note": "departing means the nought goes out of the word for leaving"
+        }
+       ],
+       "parts": [
+        {
+         "words": "leaving",
+         "at": 41,
+         "gives": "GOING",
+         "note": "leaving means going, departing"
+        },
+        {
+         "words": "none",
+         "at": 50,
+         "gives": "O",
+         "note": "O again stands for none, nought"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Sheltering from Perth's weather at an Ashes ground, with nobody leaving.",
-     "walkthrough": "'Perth' looks Australian among the Ashes talk, but it is the Scottish town, flagging a Scots word. O goes in SCG; GOING without O follows.",
-     "definitionFit": "Scog is a Scots verb meaning to shelter or shade, so scogging is taking shelter."
+     "surface": "A cricket fan in Perth takes shelter at an Ashes ground, with nobody coming or going.",
+     "walkthrough": "'in Perth' marks a Scots word, Perth being the Scottish city, not the Australian one the cricket suggests. 'none' does duty twice: once going in, once 'departing' from the word for leaving.",
+     "definitionFit": "In Scots to scog is to shelter or shade, so the participle means sheltering."
     },
     "features": {
      "answerInScene": false,
