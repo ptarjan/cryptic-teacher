@@ -42,48 +42,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EAGLE",
+     "op": "container",
      "indicators": [
       {
-       "text": "tailless",
-       "note": "a creature without a tail has lost its end, so the word loses its final letter"
+       "text": "circled by",
+       "at": 5,
+       "note": "circled by means surrounded, so the shortened word goes round the letter for lake"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "circled by",
-         "note": "to be circled by something is to be ringed round by it, so one piece goes inside another"
+         "text": "tailless",
+         "at": 23,
+         "note": "tailless means the last letter is cut off"
         }
        ],
        "parts": [
         {
          "words": "hungry",
-         "gives": "EAGE",
-         "note": "hungry is EAGER, docked of its last letter"
+         "at": 16,
+         "gives": "EAGER",
+         "note": "eager can mean keen or hungry for something"
         },
         {
-         "words": "Lake",
-         "gives": "L",
-         "note": "L is the map abbreviation for a lake"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "Lake",
+       "at": 0,
+       "gives": "L",
+       "note": "L is the standard map abbreviation for lake"
       }
      ]
     },
     "explanation": {
-     "surface": "A hungry bird that has lost its tail flies in circles over a lake.",
-     "walkthrough": "'Hungry tailless bird' reads as one description, but the bird stands alone as the definition while 'hungry tailless' makes EAGE, which the L sits inside.",
-     "definitionFit": "The eagle is a large bird of prey, a plain example of the category."
+     "surface": "A lake is ringed by a ravenous bird that has lost its tail.",
+     "walkthrough": "'tailless bird' reads as one phrase, but 'tailless' works on the word for hungry, trimming EAGER to EAGE, while bird alone is the definition.",
+     "definitionFit": "The eagle is a large bird of prey, so it is one example of a bird."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "hungry"
+     "misdirectedWord": "tailless"
     }
    }
   },
@@ -505,47 +510,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INTERCEDE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "most of",
-       "note": "most of a thing is all but a little of it, so the final letter goes"
+       "text": "changes",
+       "at": 30,
+       "note": "changes means the letters are altered into a new arrangement"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "changes",
-         "note": "a change alters the arrangement, so these letters come out in a new order"
+         "text": "most of",
+         "at": 10,
+         "note": "most of means all but the last letter of recent"
         }
        ],
        "parts": [
         {
          "words": "recent",
-         "gives": "RECEN",
-         "note": "the word without its last letter"
+         "at": 18
         },
         {
-         "words": "diet",
-         "note": "taken as written"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "diet",
+       "at": 25
       }
      ]
     },
     "explanation": {
-     "surface": "Someone must bargain over most of the latest changes to their diet.",
-     "walkthrough": "'Changes' looks like a noun about the diet, but it is a verb signalling the rearrangement of RECEN and DIET.",
-     "definitionFit": "To intercede is to step in between parties on someone's behalf, bargaining or mediating to settle a dispute."
+     "surface": "Someone is told to negotiate over the bulk of their latest diet changes.",
+     "walkthrough": "'most of' trims recent to RECEN, which joins diet as one pool of letters for 'changes' to rearrange.",
+     "definitionFit": "To intercede is to step in on another's behalf, mediating or negotiating between parties."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "changes"
+     "misdirectedWord": "diet"
     }
    }
   },
