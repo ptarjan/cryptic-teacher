@@ -184,36 +184,62 @@
      "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "D&D",
-       "note": "surface padding that doubles as a hint: the initials of the policy's two halves"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 14,
+         "note": "in tells us the engaged-in-mission phrase goes inside the pair of Ds"
+        }
+       ],
+       "parts": [
+        {
+         "words": "D&D",
+         "at": 17,
+         "gives": "DD",
+         "note": "the letters D and D, read literally"
+        },
+        {
+         "words": "Engaged in mission",
+         "at": 23,
+         "gives": "ONTASK",
+         "note": "on task means busy with the job in hand"
+        }
+       ]
       },
       {
-       "words": "Engaged in",
-       "gives": "DON",
-       "note": "to don something is to put it on, to engage in it"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "harm",
+         "at": 43,
+         "note": "harm here means damage the next word, knocking its letters out of order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "not",
+         "at": 48
+        }
+       ]
       },
       {
-       "words": "mission",
-       "gives": "TASK",
-       "note": "a task is an assigned mission"
-      },
-      {
-       "words": "harm not a legendary archer",
-       "gives": "DONTTELL",
-       "note": "an order not to hurt William Tell, the legendary Swiss archer"
+       "words": "a legendary archer",
+       "at": 52,
+       "gives": "TELL",
+       "note": "William Tell, the Swiss archer of legend who shot an apple off his son's head"
       }
      ]
     },
+    "spelling": "DON'T ASK DON'T TELL",
     "explanation": {
-     "surface": "A Dungeons & Dragons rule: on a quest, leave the legendary bowman unharmed.",
-     "walkthrough": "D&D looks like Dungeons & Dragons but is the policy's initials. The 1994-2011 US military policy barred openly gay people from serving.",
-     "definitionFit": "The policy was repealed in 2011, so it is a rule that is now obsolete."
+     "surface": "A tabletop gamer quotes a Dungeons & Dragons rule about questing and sparing a famous bowman.",
+     "walkthrough": "D&D is Dungeons & Dragons in the surface but just two Ds in the wordplay; ONTASK goes 'in' them, giving DONTASKD. 'harm' turns NOT into ONT, then TELL ends it.",
+     "definitionFit": "Don't ask, don't tell was the US military policy on gay service members, repealed in 2011."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "D&D"
     }
    }
@@ -239,57 +265,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "APOLOGY",
+     "op": "container",
      "indicators": [
       {
-       "text": "disheartened",
-       "note": "losing heart means the middle of the word is removed"
+       "text": "packing",
+       "at": 47,
+       "note": "packing means holding inside, so the shirt word goes within the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "packing",
-         "note": "packing something means holding it inside, so the item of clothing goes within"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "a",
-           "note": "taken as written"
-          },
-          {
-           "words": "dude",
-           "gives": "GY",
-           "note": "a guy with its heart, the middle letter, taken out"
-          }
-         ]
+         "words": "a",
+         "at": 26
         },
         {
-         "words": "shirt",
-         "gives": "POLO",
-         "note": "a polo is a short-sleeved shirt"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "disheartened",
+           "at": 28,
+           "note": "disheartened means losing the heart, so the middle letter of the dude word is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dude",
+           "at": 41,
+           "gives": "GUY",
+           "note": "a guy is a man, a dude"
+          },
+          {
+           "gives": "U"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "shirt",
+       "at": 55,
+       "gives": "POLO",
+       "note": "a polo is a short-sleeved collared shirt"
       }
      ]
     },
     "explanation": {
-     "surface": "A dejected guy says sorry while stuffing a shirt into his bag.",
-     "walkthrough": "Dude means guy, and it is AGY, the A plus the heartless guy, that packs the shirt.",
-     "definitionFit": "An apology is a statement saying sorry, the standard expression of regret."
+     "surface": "A dejected man apologises while stuffing a shirt into his bag.",
+     "walkthrough": "'disheartened' takes U from GUY, leaving GY; A plus GY is 'packing' POLO between its A and GY.",
+     "definitionFit": "An apology is a statement saying sorry for something one has done wrong."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "disheartened"
+     "misdirectedWord": "packing"
     }
    }
   },
@@ -314,60 +345,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PENTATHLON",
-     "indicators": [
-      {
-       "text": "most of",
-       "note": "most of a word means all but its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
+       "words": "Writer",
+       "at": 0,
+       "gives": "PEN",
+       "note": "a pen is a writing instrument"
+      },
+      {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "PENTATHLON",
        "indicators": [
         {
          "text": "reshaped",
-         "note": "something reshaped is given a new form, so the letters take a new order"
+         "at": 12,
+         "note": "reshaped means the letters of that are given a new form"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Writer",
-           "gives": "PEN",
-           "note": "a pen is a writing instrument"
-          },
-          {
-           "words": "that",
-           "gives": "TATH",
-           "note": "the word that with its letters rearranged"
-          },
-          {
-           "words": "extended",
-           "gives": "LON",
-           "note": "long, minus its last letter"
-          }
-         ]
+         "words": "that",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 21,
+         "note": "most of means the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "extended",
+         "at": 29,
+         "gives": "LONG",
+         "note": "long means extended"
+        },
+        {
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An author who reworked a long sporting competition, perhaps a novelist rewriting a marathon.",
-     "walkthrough": "'Writer' looks like a person; it is the instrument.",
-     "definitionFit": "The pentathlon is an athletic contest of five events, so it is a sports event."
+     "surface": "An author whose style changed over most of a lengthy career.",
+     "walkthrough": "'reshaped' turns THAT into TATH, and 'most of' cuts LONG to LON. The definition is just 'sports event'; 'extended' is wordplay.",
+     "definitionFit": "A pentathlon is an athletic contest of five different events, such as the modern Olympic pentathlon."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Writer"
+     "misdirectedWord": "extended"
     }
    }
   },
@@ -430,32 +463,34 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "requirement",
+       "at": 23,
+       "note": "requirement is read as the demand placed on Rex alt: the right must be removed from those words"
+      }
+     ],
      "parts": [
       {
-       "op": "hidden",
-       "parts": [
-        {
-         "words": "Rex (alt",
-         "gives": "EXALT",
-         "note": "the letters running from inside Rex into alt"
-        }
-       ]
+       "words": "Rex (alt",
+       "at": 8,
+       "note": "the words Rex alt taken as written; the setter means the answer to run on through them once one letter has gone, not a coincidence"
       },
       {
-       "unchecked": true,
-       "words": "right requirement",
-       "note": "surface padding completing the political picture"
+       "words": "right",
+       "at": 17,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A political jibe: promoting someone called Rex is what the alt-right demands.",
-     "walkthrough": "The parenthesis looks like the heart of the clue, but the answer simply sits across the first two words after the definition.",
-     "definitionFit": "To exalt someone is to raise them in rank or praise, a synonym of elevate."
+     "surface": "Raise up a man called Rex, as political extremists demand.",
+     "walkthrough": "Run the words 'Rex alt' together and meet the 'requirement' that R (right) goes. 'Alt-right' reads as the far-right movement, but splits into ALT and R.",
+     "definitionFit": "To exalt someone is to raise them to a high rank or to praise them highly."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "alt-right"
@@ -483,55 +518,46 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ENVIOUS",
-     "indicators": [
-      {
-       "text": "round",
-       "note": "going round something encloses it, so the jumbled letters surround the pronoun"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "ENVIOUS",
        "indicators": [
         {
          "text": "tangled",
-         "note": "tangled things are twisted out of order, so the letters are rearranged"
+         "at": 11,
+         "note": "tangled means the letters of vine are twisted into a new order"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "vine",
-           "gives": "ENVIO",
-           "note": "the four letters of vine rearranged, with room left for what goes inside"
-          },
-          {
-           "words": "you and me",
-           "gives": "US",
-           "note": "the pronoun covering you and me"
-          }
-         ]
+         "words": "vine",
+         "at": 6
         }
        ]
+      },
+      {
+       "words": "round",
+       "at": 19,
+       "gives": "O",
+       "note": "O is round in shape"
+      },
+      {
+       "words": "you and me",
+       "at": 25,
+       "gives": "US",
+       "note": "us means you and me together"
       }
      ]
     },
     "explanation": {
-     "surface": "A garden scene: a green creeper twisted around the two of us.",
-     "walkthrough": "The jumbled vine wraps round the pronoun, which sits before its last letter. Green looks like the vine's colour but means jealous.",
-     "definitionFit": "Green, as in 'green with envy', is an idiom for jealous or covetous."
+     "surface": "A green vine has wound itself around two people.",
+     "walkthrough": "'tangled' makes VINE into ENVI; then O (round) and US follow. Green suits the vine in the surface, but here it means jealous.",
+     "definitionFit": "Green is a familiar term for jealousy, as in 'green with envy' or 'the green-eyed monster'."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "Green"
     }
    }
@@ -563,42 +589,75 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANTHONYTROLLOPE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "leaving last piece of pineapple until the end",
-       "note": "leaving one letter till the end takes it out of its place and moves it to the finish"
+       "text": "until the end",
+       "at": 77,
+       "note": "until the end means the dropped letter is kept back and placed at the very end"
       }
      ],
      "parts": [
       {
        "words": "soldier",
+       "at": 23,
        "gives": "ANT",
-       "note": "a soldier ant"
+       "note": "an ant, as in a soldier ant"
       },
       {
-       "words": "sweeten",
-       "gives": "HONEY",
-       "note": "to honey something is to sweeten it"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 45,
+         "note": "leaving means the sweetener's final vowel is left out at that point, to be restored later"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sweeten",
+         "at": 31,
+         "gives": "HONEY",
+         "note": "to honey is to sweeten"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "tart",
+       "at": 39,
        "gives": "TROLLOP",
-       "note": "tart and trollop are both disparaging words for a promiscuous woman"
+       "note": "a trollop is a promiscuous woman, a tart"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last piece of",
+         "at": 53,
+         "note": "last piece of picks the final letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pineapple",
+         "at": 67,
+         "note": "its last letter, E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe: an army cook sweetens a tart, keeping the last pineapple piece for the end.",
-     "walkthrough": "The E that ends pineapple is the one moved from the sweetener to the very end. The ellipsis runs on into the next clue.",
-     "definitionFit": "Anthony Trollope wrote the Barsetshire and Palliser novels in the reign of Queen Victoria."
+     "surface": "A writer and a soldier sweeten a pastry tart, holding the pineapple back until last.",
+     "walkthrough": "'leaving' takes E out of HONEY to give HONY; the last piece of pineapple, E, is kept 'until the end'. The ellipsis joins this clue to the next.",
+     "definitionFit": "Anthony Trollope wrote the Barsetshire novels in the reign of Queen Victoria."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "tart"
     }
    }
@@ -1066,47 +1125,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HAIRSTYLE",
-     "indicators": [
-      {
-       "text": "trimming back of",
-       "note": "trimming cuts something off, and here what is cut is the back, the final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Laugh",
+       "at": 0,
+       "gives": "HA",
+       "note": "ha is the sound of a laugh"
+      },
+      {
+       "words": "tax collectors",
+       "at": 9,
+       "gives": "IRS",
+       "note": "the IRS is the US Internal Revenue Service, the tax agency"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "trimming back of",
+         "at": 24,
+         "note": "trimming back of means the last letter of the word is cut off"
+        }
+       ],
        "parts": [
         {
-         "words": "Laugh",
-         "gives": "HA",
-         "note": "the sound of a laugh"
-        },
-        {
-         "words": "tax collectors",
-         "gives": "IRS",
-         "note": "the Internal Revenue Service, the US tax authority"
-        },
-        {
          "words": "president's",
-         "gives": "TYLE",
-         "note": "John Tyler, tenth US president, without his last letter"
+         "at": 41,
+         "gives": "TYLER",
+         "note": "John Tyler was the tenth US president"
+        },
+        {
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "People laugh at the tax men who are cutting a president's hair at the back.",
-     "walkthrough": "The president is John Tyler, whose name loses its final R; 'at' simply links the laugh to the tax collectors.",
-     "definitionFit": "A coiffure is the way someone's hair is arranged, which is a hairstyle."
+     "surface": "Someone laughs at tax officials who give the president's haircut a trim.",
+     "walkthrough": "'trimming back of' cuts the R from TYLER, John Tyler being an American president. IRS is the US tax agency.",
+     "definitionFit": "A coiffure is a person's hairstyle, especially an elaborate one, a word borrowed from French."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "trimming"
     }
    }
@@ -1242,42 +1305,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GALLANT",
-     "indicators": [
-      {
-       "text": "after losing face",
-       "note": "the face of a word is its front, so losing it means the first letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "arrogance",
+       "at": 18,
+       "gives": "GALL",
+       "note": "gall means cheek or arrogance"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after losing face",
+         "at": 39,
+         "note": "after losing face means the word loses its first letter, its face"
+        }
+       ],
        "parts": [
         {
-         "words": "arrogance",
-         "gives": "GALL",
-         "note": "gall is brazen impudence"
+         "words": "desire",
+         "at": 32,
+         "gives": "WANT",
+         "note": "to want is to desire"
         },
         {
-         "words": "desire",
-         "gives": "ANT",
-         "note": "want, minus its first letter"
+         "gives": "W"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A portrait of a dandy whose vanity and longing have left him humiliated.",
-     "walkthrough": "'Losing face' suggests humiliation; it only removes the first letter of the word for desire.",
-     "definitionFit": "A gallant, as a noun, is a dashing, stylishly dressed man about town."
+     "surface": "A dandy's swagger and longing after being humiliated.",
+     "walkthrough": "'losing face' sounds like humiliation, but here it removes the first letter, W, from WANT.",
+     "definitionFit": "A gallant is a stylishly dressed man of fashion, often one attentive to women."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "face"
     }
    }
