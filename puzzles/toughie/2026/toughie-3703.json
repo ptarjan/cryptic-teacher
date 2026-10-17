@@ -836,69 +836,76 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SUPERGLUE",
-     "indicators": [
-      {
-       "text": "returned",
-       "note": "something returned goes back the way it came, so its letters run backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "SUPERGLUE",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "making",
-         "note": "making one thing into another means a letter is exchanged for a new one"
+         "text": "returned",
+         "at": 26,
+         "note": "returned means sent back, so the letters are read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "America",
+         "words": "from America",
+         "at": 13,
          "gives": "US",
-         "note": "US is short for the United States"
-        },
+         "note": "US is the abbreviation for the United States"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 35,
+       "gives": "PER",
+       "note": "per means a, as in so much per head or a head"
+      },
+      {
+       "op": "substitution",
+       "indicators": [
         {
-         "words": "a",
-         "gives": "PER",
-         "note": "a, as in 'once a day', means per"
-        },
+         "text": "making",
+         "at": 42,
+         "note": "making means turning into, so one letter of clue becomes another"
+        }
+       ],
+       "parts": [
         {
          "words": "clue",
-         "note": "taken as written"
+         "at": 37
         },
         {
          "op": "first",
          "indicators": [
           {
            "text": "opener",
-           "note": "the opener of a word is what starts it, its first letter"
+           "at": 61,
+           "note": "the opener of a word is its first letter"
           }
          ],
          "parts": [
           {
            "words": "crossword's",
-           "note": "first letter, the one swapped out"
+           "at": 49,
+           "note": "the first letter of crossword is C"
           }
          ]
         },
         {
          "words": "good",
-         "gives": "G",
-         "note": "G is the abbreviation for good"
+         "at": 68,
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tough American crossword setter reworking a clue so the puzzle opens well.",
-     "walkthrough": "'Tough setter' looks like a Toughie compiler; it is an adhesive that sets hard.",
-     "definitionFit": "Superglue is a strong instant adhesive that hardens rapidly, so it is literally something that sets and is tough."
+     "surface": "A demanding American crossword setter sends a clue back to make the puzzle's first entry good.",
+     "walkthrough": "'Tough setter' reads as a hard compiler, but a setter is anything that sets, here a strong adhesive. 'making crossword's opener good' turns the C of clue into G.",
+     "definitionFit": "Superglue is a very strong quick-setting adhesive, so it is a tough thing that sets."
     },
     "features": {
      "answerInScene": false,
@@ -1290,56 +1297,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MARGARITA",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wrecked",
+         "at": 16,
+         "note": "wrecked means ruined, so the letters are broken up and rearranged"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "wrecked",
-           "note": "something wrecked is broken up, so the letters are rearranged"
+           "text": "almost",
+           "at": 9,
+           "note": "almost means the last letter is dropped"
           }
          ],
          "parts": [
           {
            "words": "Marriage",
-           "gives": "MARRIAG",
-           "note": "without its last letter"
+           "at": 0
           },
           {
-           "words": "Time",
-           "gives": "T",
-           "note": "T is the abbreviation for time"
+           "gives": "E"
           }
          ]
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "Time",
+       "at": 25,
+       "gives": "T"
+      },
+      {
+       "words": "a",
+       "at": 37,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A marriage on the rocks drives someone to the bottle.",
-     "walkthrough": "'Wrecked' in the surface could also suggest being drunk, but it is the rearrangement signal for the shortened word.",
-     "definitionFit": "A margarita is a cocktail of tequila, lime and orange liqueur, so it is one particular alcoholic drink."
+     "surface": "A marriage nearly on the rocks, so it's time to reach for a drink.",
+     "walkthrough": "'almost' drops the last letter of Marriage; 'wrecked' then mixes MARRIAG.",
+     "definitionFit": "A margarita is a cocktail of tequila, lime and orange liqueur, served in a salt-rimmed glass."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "wrecked"
     }
    }
@@ -1502,42 +1513,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PURLOIN",
-     "indicators": [
-      {
-       "text": "trimmed",
-       "note": "trimming cuts a little off the end, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "trimmed",
+         "at": 5,
+         "note": "trimmed means cut short, so the last letter goes"
+        }
+       ],
        "parts": [
         {
          "words": "modest",
-         "gives": "PUR",
-         "note": "modest in the sense of chaste is pure, here without its last letter"
+         "at": 13,
+         "gives": "PURE",
+         "note": "pure means chaste, modest in conduct"
         },
         {
-         "words": "cut of meat",
-         "gives": "LOIN",
-         "note": "loin is a cut of meat from the back of an animal"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "cut of meat",
+       "at": 20,
+       "gives": "LOIN",
+       "note": "loin is a cut of meat from an animal's back"
       }
      ]
     },
     "explanation": {
-     "surface": "A butcher's remark about a small trimmed joint of meat.",
-     "walkthrough": "'Nick' looks like a small cut, matching the butchery, but it is British slang for steal.",
-     "definitionFit": "To nick is informal British for stealing, and to purloin is a formal or jocular word for stealing too."
+     "surface": "A butcher's description of a lean modest joint, neatly trimmed.",
+     "walkthrough": "'Nick' looks like a name or a notch, but it is British slang for steal.",
+     "definitionFit": "To purloin is to steal, and to nick is the informal British word for stealing."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Nick"
     }
    }
