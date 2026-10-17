@@ -1375,34 +1375,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AURIC",
-     "indicators": [
-      {
-       "text": "concealing case",
-       "note": "concealing its case means the outer letters are hidden away, leaving only the inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "A",
-       "note": "taken as written"
+       "at": 0
       },
       {
-       "words": "home for gnomes",
-       "gives": "ZURICH",
-       "note": "the gnomes of Zurich is a nickname for Swiss bankers"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "concealing case",
+         "at": 18,
+         "note": "hiding the case means the outer letters of the word are put out of sight, leaving its middle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "home for gnomes",
+         "at": 2,
+         "gives": "ZURICH",
+         "note": "the 'gnomes of Zurich' is a nickname for Swiss bankers, so Zurich is their home"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A garden gnome's house hides a box of gold.",
-     "walkthrough": "Gnomes suggests garden ornaments, but the gnomes of Zurich are Swiss financiers; ZURICH without its outer letters is URIC.",
-     "definitionFit": "Auric is the chemistry adjective for gold, from Latin aurum, especially gold in its trivalent state."
+     "surface": "A garden ornament's house hides a gold-coloured container.",
+     "walkthrough": "The 'gnomes of Zurich' is a nickname for Swiss bankers. ZURICH loses its case, the outer Z and H, leaving URIC after A.",
+     "definitionFit": "Auric is the adjective from Latin aurum, describing things pertaining to or containing gold."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "gnomes"
@@ -1476,57 +1481,52 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "ANISODACTYLOUS",
-     "indicators": [
-      {
-       "text": "push last forward",
-       "note": "pushing the last letter forward moves the final letter to the front"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bats",
+         "at": 37,
+         "note": "bats is slang for crazy, so the letters of the preceding words are scrambled"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "bats",
-           "note": "bats means crazy, so the letters go wild"
-          }
-         ],
-         "parts": [
-          {
-           "words": "can't I do as",
-           "note": "taken as written, ignoring the apostrophe"
-          }
-         ]
-        },
+         "words": "can't I do as",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
         {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "mean",
-           "gives": "LOUSY",
-           "note": "lousy means mean or stingy"
-          }
-         ]
+         "text": "to push last forward",
+         "at": 52,
+         "note": "the final letter of the word is moved to the front, as the clue asks"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mean",
+         "at": 47,
+         "gives": "LOUSY",
+         "note": "lousy can mean mean or stingy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone envies birds' feet, unable to hang upside down like bats.",
-     "walkthrough": "Bats looks like the animals but is the anagram signal; LOUSY with its Y moved to the front becomes YLOUS.",
-     "definitionFit": "Anisodactylous feet have three toes forward and one back, unequal digits, the arrangement found in perching birds."
+     "surface": "A puzzled bird-watcher wonders why bats cannot copy birds' feet.",
+     "walkthrough": "'bats' scrambles CANTIDOAS into ANISODACT; LOUSY with its last letter Y pushed to the front becomes YLOUS.",
+     "definitionFit": "Anisodactylous is the zoological term for having toes unequal in length, as in many perching birds."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "bats"
     }
    }
@@ -1553,41 +1553,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DIGHT",
      "indicators": [
       {
        "text": "now",
-       "note": "now marks what stands in that position from here on, replacing what was there"
+       "at": 43,
+       "note": "now signals that the letter is at present something else, a swap of one letter for another"
       }
      ],
      "parts": [
       {
        "words": "two maybe",
+       "at": 33,
        "gives": "DIGIT",
-       "note": "two is an example of a digit"
+       "note": "two is an example of a digit, hence 'maybe'"
       },
       {
-       "words": "the lower one",
+       "words": "the lower one of",
+       "at": 16,
        "gives": "I",
-       "note": "in a down entry the lower of the two I letters is the second"
+       "note": "one is I in Roman numerals; in a down clue the lower one is the second I of the word"
       },
       {
        "words": "hotel",
+       "at": 47,
        "gives": "H",
-       "note": "H is hotel in the NATO phonetic alphabet"
+       "note": "Hotel is H in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A forgotten pack of cards, the bottom one perhaps a two, now in a hotel.",
-     "walkthrough": "Deck seems to be cards, but it is the verb to adorn; one is the letter I.",
-     "definitionFit": "Dight is an archaic verb meaning to dress or adorn, which is the decorating sense of deck."
+     "surface": "A sailor recalls a lost lower deck on a two-deck ship now turned into a hotel.",
+     "walkthrough": "DIGIT has two I's; in this down entry the lower one is the second. 'now' says that I is replaced: it becomes H (hotel), giving DIGHT.",
+     "definitionFit": "Dight is an archaic verb meaning to adorn or dress, so it is a deck in the decorate sense, now forgotten."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "deck"
     }
    }
