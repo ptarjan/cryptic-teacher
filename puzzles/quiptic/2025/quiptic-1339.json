@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -479,44 +480,42 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SONGWRITER",
      "indicators": [
       {
        "text": "what Spooner said",
-       "note": "The Reverend Spooner was the Oxford don remembered for trading the opening sounds of neighbouring words, so anything he said arrives with those noises swapped."
+       "at": 31,
+       "note": "Spooner is the cleric famed for swapping the opening sounds of two words, so the pieces trade their first sounds"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "misquoting",
+       "at": 20,
+       "gives": "WRONG",
+       "note": "someone misquoting gets the words wrong"
+      },
+      {
+       "op": "homophone",
+       "spelt": "SITER",
        "parts": [
         {
-         "unchecked": true,
-         "words": "misquoting",
-         "gives": "SONG",
-         "soundsLike": "WRONG",
-         "note": "to misquote is to get the words wrong; 'wrong' opens on an R sound, and taking the S coming the other way that noise is spelt this way"
-        },
-        {
-         "unchecked": true,
          "words": "one",
-         "gives": "WRITER",
-         "soundsLike": "CITER",
-         "note": "the one here is a citer, somebody quoting a source; handed the R the other word gave up, the noise is spelt this way"
+         "at": 16,
+         "gives": "CITER",
+         "note": "one who is quoting is a citer, and citer is said like siter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone garbling a quotation the way the Reverend Spooner used to garble his sentences.",
-     "walkthrough": "Say 'wrong citer' aloud and let the R and the S at the fronts change places. The W never moves at all, because it is silent in both spellings.",
-     "definitionFit": "A songwriter produces the lyric — the words a singer sings — so the definition names the job by its output rather than by a synonym."
+     "surface": "A lyricist accused of mangling a quotation, and asked what Spooner actually said.",
+     "walkthrough": "One misquoting is a WRONG CITER; 'what Spooner said' swaps the opening sounds, giving SONG WRITER.",
+     "definitionFit": "A songwriter writes the words of songs, so a lyricist is a producer of lyrics."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Lyric"
     }
@@ -839,51 +838,52 @@
     "definitions": [
      {
       "text": "that makes it true",
-      "at": 38,
-      "note": "The answer is a Latin adverbial phrase and the definition is the English clause it stands in for — the fact by itself settles the matter."
+      "at": 38
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IPSOFACTO",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 20,
+       "note": "about means around, so the jumbled letters go around the information"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "got muddled",
-         "note": "Something muddled has been stirred together, and letters stirred together do not stay in the order they arrived in."
-        },
-        {
-         "text": "about",
-         "note": "To go about something is to go round it, so the jumbled letters open up and close over the chunk named next."
+         "at": 8,
+         "note": "muddled means confused, so the letters are mixed up"
         }
        ],
        "parts": [
         {
          "words": "Oops, I",
-         "gives": "IPSOO",
-         "note": "the five letters of the exclamation and the pronoun, stirred into this order"
-        },
-        {
-         "words": "information",
-         "gives": "FACT",
-         "note": "a fact is a piece of hard information"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "information",
+       "at": 26,
+       "gives": "FACT",
+       "note": "a fact is a piece of information"
       }
      ]
     },
     "explanation": {
-     "surface": "A flustered speaker apologising for tangling up the details.",
-     "walkthrough": "'About' looks like part of the muddling and is a separate instruction that prises the jumble apart. The comma after 'Oops' reads as punctuation and sits inside the fodder.",
-     "definitionFit": "Ipso facto means by that very fact: the fact on its own is enough to settle the matter, with no further argument needed."
+     "surface": "Someone apologising for getting confused over the facts.",
+     "walkthrough": "'information' looks like part of the surface's confusion, but it is the piece the muddled letters go 'about'; the definition describes the Latin phrase's sense rather than giving a synonym.",
+     "definitionFit": "Ipso facto is Latin for 'by that very fact', meaning a fact in itself proves the point."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "about"
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "information"
     }
    }
   },
