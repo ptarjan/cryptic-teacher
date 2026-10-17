@@ -46,46 +46,46 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "opening of",
-       "note": "the opening of a word is its first letter"
+       "text": "on",
+       "at": 7,
+       "note": "in an across clue, one piece on another follows it, so the window word comes after"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "F",
        "indicators": [
         {
-         "text": "on",
-         "note": "in an across clue, A on B puts A after B"
+         "text": "opening of",
+         "at": 10,
+         "note": "the opening of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "opening of fire",
-         "gives": "F",
-         "select": "first",
-         "note": "first letter of FIRE"
+         "words": "fire",
+         "at": 21,
+         "note": "its first letter"
         }
        ]
       },
       {
        "words": "Window",
+       "at": 0,
        "gives": "LIGHT",
-       "note": "a light is a window or pane"
+       "note": "a light is a pane or opening in a window"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone checks where the window sits on a building's fire escape.",
-     "walkthrough": "'Fire escape' looks like one phrase, but it splits: 'fire' feeds the wordplay and 'escape' alone is the definition.",
-     "definitionFit": "Plain synonym: to take flight is to run away, so a flight is the act of escaping."
+     "surface": "A window opens onto the fire escape stairway.",
+     "walkthrough": "'escape' looks tied to 'fire' as in fire escape, but it stands alone as the definition. A light is a window pane, and 'on' sets it after F.",
+     "definitionFit": "Flight is the act of fleeing, running away from danger, so it means escape."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "escape"
     }
    }
@@ -502,57 +502,49 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ENIGMAS",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "with a twist",
+       "at": 28,
+       "note": "a twist turns things round, so the combined letters are read backwards"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
          "text": "drinking",
-         "note": "the outer word takes the inner one in"
+         "at": 12,
+         "note": "drinking takes something in, so the spirit goes inside the word for like"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "with a twist",
-           "note": "twisted round, the whole is read backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "like",
-           "gives": "SAM",
-           "note": "same = like, opened up around the spirit"
-          },
-          {
-           "words": "spirit",
-           "gives": "GIN",
-           "note": "gin is a spirit, sitting inside SAME"
-          },
-          {
-           "words": "like",
-           "gives": "E",
-           "note": "the end of SAME, closing round GIN"
-          }
-         ]
+         "words": "like",
+         "at": 7,
+         "gives": "SAME",
+         "note": "like and same both mean identical or similar"
+        },
+        {
+         "words": "spirit",
+         "at": 21,
+         "gives": "GIN",
+         "note": "gin is a spirit"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Show-offs who like their spirit served with a twist.",
-     "walkthrough": "'Posers' suggests show-offs at a bar, which suits the gin and the twist; it means puzzles. SAM(GIN)E read backwards gives the answer.",
-     "definitionFit": "A poser is a puzzling question, an enigma."
+     "surface": "Fashionable people share drinks of spirits with a twist of lemon.",
+     "walkthrough": "'drinking' puts GIN inside SAME to make SAMGINE, and 'with a twist' reads it backwards. 'twist' suggests a cocktail garnish.",
+     "definitionFit": "A poser is a baffling question or puzzle, as an enigma is."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Posers"
     }
@@ -739,43 +731,46 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LAMA",
      "indicators": [
       {
        "text": "must leave",
-       "note": "the letter I goes out of the word"
+       "at": 2,
+       "note": "must leave means the I is taken out of the city name"
       },
       {
        "text": "to make room for",
-       "note": "its place is taken by the letter A"
+       "at": 18,
+       "note": "the space it leaves is filled by the letter that follows"
       }
      ],
      "parts": [
       {
        "words": "city",
+       "at": 13,
        "gives": "LIMA",
-       "note": "Lima is the capital of Peru"
+       "note": "Lima is the capital city of Peru"
       },
       {
        "words": "I",
-       "note": "the letter removed"
+       "at": 0,
+       "gives": "I"
       },
       {
        "words": "a",
-       "note": "the letter put in its place"
+       "at": 35,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A monk announces he must leave the city to make room.",
-     "walkthrough": "The 'I' reads as a speaker; it is the letter I in LIMA, swapped for the 'a' that looks like an article.",
-     "definitionFit": "Definition by example: the title given to Tibetan Buddhist teachers and holy men, as in the Dalai one."
+     "surface": "Someone has to quit a city so that a monk can move in.",
+     "walkthrough": "The I in LIMA 'must leave', and the A goes in its place.",
+     "definitionFit": "A lama is a Buddhist monk or spiritual teacher in Tibet."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "I"
+     "misdirectedWord": "city"
     }
    }
   },
@@ -967,8 +962,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Absurd",
-       "note": "nonsensical, so the letters are jumbled"
+       "text": "describing",
+       "at": 21,
+       "note": "to describe a circle is to draw around, so the jumbled letters go around the rest"
       }
      ],
      "parts": [
@@ -976,44 +972,54 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "mostly",
-         "note": "most of something is not all of it, so the word keeps every letter but its last"
+         "text": "Absurd",
+         "at": 0,
+         "note": "absurd means nonsensical, so the remaining letters are scrambled"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "describing",
-           "note": "drawing round, so the jumbled letters go around the rest"
+           "text": "mostly",
+           "at": 14,
+           "note": "mostly means all but the last letter, so the final letter of eulogy is dropped"
           }
          ],
          "parts": [
           {
-           "words": "eulogy mostly",
-           "gives": "EULOG",
-           "note": "EULOGY without its last letter, to be jumbled"
+           "words": "eulogy",
+           "at": 7
           },
           {
-           "words": "a",
-           "note": "as written"
+           "gives": "Y"
           }
          ]
         }
        ]
       },
       {
-       "words": "river",
-       "gives": "CAM",
-       "note": "the Cam, the river through Cambridge"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 32
+        },
+        {
+         "words": "river",
+         "at": 34,
+         "gives": "CAM",
+         "note": "the Cam is the river that flows through Cambridge"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A ridiculous funeral speech about a swim in a river.",
-     "walkthrough": "'River dip' looks like a bathe; 'river' belongs to the wordplay and 'dip' alone is the definition, the food.",
-     "definitionFit": "Definition by example: the mashed avocado sauce served with tortilla chips is one kind of dip."
+     "surface": "A ridiculous tribute that mostly concerns a river dip.",
+     "walkthrough": "'mostly' trims EULOGY to EULOG, 'Absurd' rearranges it, and it goes round A and CAM. 'dip' suggests a swim in the river, but it is a sauce.",
+     "definitionFit": "Guacamole is a Mexican avocado sauce served for dunking tortilla chips."
     },
     "features": {
      "answerInScene": false,
@@ -1048,46 +1054,46 @@
      "indicators": [
       {
        "text": "on",
-       "note": "in an across clue, A on B puts A after B"
+       "at": 33,
+       "note": "in an across clue, one piece on another follows it"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "S",
        "indicators": [
         {
-         "text": "starts",
-         "note": "the start of a word is its first letter"
+         "text": "What starts",
+         "at": 0,
+         "note": "what a word starts with is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "What starts scratching",
-         "gives": "S",
-         "select": "first",
-         "note": "first letter of SCRATCHING"
+         "words": "scratching",
+         "at": 12,
+         "note": "its first letter"
         }
        ]
       },
       {
-       "words": "priest",
+       "words": "priest's",
+       "at": 36,
        "gives": "P",
-       "note": "P = priest"
+       "note": "P is an abbreviation for priest; the 's is read as 'is'"
       },
       {
        "words": "this spot",
+       "at": 23,
        "gives": "HERE",
-       "note": "here = this spot"
+       "note": "here means at this place or spot"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks what started an itch at this spot on a priest's ball.",
-     "walkthrough": "The surface is cheeky; 'ball' is simply a round object.",
-     "definitionFit": "Plain synonym: a perfectly round solid shape, which is what any ball is."
+     "surface": "An itch at this point on a priest's ball seems to need scratching.",
+     "walkthrough": "S is what scratching starts with; P for priest and HERE (this spot) come after it, HERE being 'on' P.",
+     "definitionFit": "A sphere is a perfectly round solid, the shape of a ball."
     },
     "features": {
      "answerInScene": false,
