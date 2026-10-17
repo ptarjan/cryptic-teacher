@@ -244,43 +244,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ATVARIANCE",
-     "indicators": [
-      {
-       "text": "almost entirely",
-       "note": "almost all of something means everything bar its very last bit"
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "words": "a",
+       "at": 17,
+       "gives": "A"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "inaccurate",
-         "note": "something inaccurate is not right, so the letters are wrongly ordered and need rearranging"
+         "at": 47,
+         "note": "what is inaccurate is wrong, so these letters are put in a different order"
         }
        ],
        "parts": [
         {
-         "words": "a certain VAR",
-         "gives": "ACERTAINVA",
-         "note": "the phrase taken letter for letter, dropping its final R"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost entirely",
+           "at": 31,
+           "note": "almost the entire phrase is kept, so only its very last letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "certain",
+             "at": 19,
+             "note": "taken as written"
+            },
+            {
+             "words": "VAR",
+             "at": 27,
+             "note": "taken as written"
+            }
+           ]
+          },
+          {
+           "gives": "R"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A football fan argues that the video referee got a decision almost completely wrong.",
-     "walkthrough": "VAR is the video assistant referee in football; here it just lends letters. Dropping the last letter of the phrase leaves exactly the ten letters to rearrange.",
-     "definitionFit": "To be at variance with someone means holding conflicting views, an idiom for being in dispute or conflict."
+     "surface": "A football grumble: the video assistant referee got a decision nearly completely wrong.",
+     "walkthrough": "VAR is football's Video Assistant Referee, which the surface leans on; 'inaccurate' then rearranges what 'almost entirely' leaves into TVARIANCE, after A.",
+     "definitionFit": "To be at variance with someone is an idiom for disagreeing or being in conflict with them."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "VAR"
+     "misdirectedWord": "inaccurate"
     }
    }
   },
