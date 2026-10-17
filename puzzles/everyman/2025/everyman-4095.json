@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -242,53 +243,34 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "ESCAPEE",
+     "op": "homophone",
+     "spelt": "ESCAPEE",
      "indicators": [
       {
-       "text": "starters of",
-       "note": "The starter of a word is the letter it begins on, so each word named here hands over only its front."
+       "text": "you say",
+       "at": 55,
+       "note": "you say tells us the letter names are spoken and the word they sound like is the answer"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "starters of steak and kidney pies",
+       "at": 20,
        "gives": "SKP",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "steak and kidney pies",
-         "gives": "SKP",
-         "select": "first",
-         "note": "the letters those three words begin on, in order; 'and' is only holding the famous pie together"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "ESCAPEE",
-       "indicators": [
-        {
-         "text": "you say",
-         "note": "'You say' points at speech, so what those letters give has to be pronounced rather than read."
-        }
-       ],
-       "parts": [
-        {
-         "words": "you say",
-         "gives": "ESSKAYPEE",
-         "note": "read the three initials aloud, one after another, and the noise they make is an ordinary word"
-        }
-       ]
+       "note": "the opening letters of steak, kidney and pies are S, K, P, said aloud as the letter names ess-kay-pee"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody bolting from a supper of steak and kidney pies before the starters are cleared.",
-     "walkthrough": "'Starters' is the joke twice over — a course at dinner and the front letter of a word — and the three initials mean nothing until you stop reading them and say them out loud.",
-     "definitionFit": "An escapee is one who has absconded — the prisoner over the wall — so the noun stands in for 'one' exactly."
+     "surface": "Someone running off from a plate of steak and kidney pie starters.",
+     "walkthrough": "Spell out the initials S, K, P and say them aloud: ess-kay-pee. 'and' is only a link here, so its A is not used. Steak and kidney pie is a classic British pub dish.",
+     "definitionFit": "An escapee is a person who has broken free, so it is someone who has absconded or fled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starters"
     }
    }
   },
@@ -558,43 +540,51 @@
    "annotation": {
     "definitions": [
      {
-      "text": "here",
-      "at": 35,
-      "note": "'Here' is a pointing word rather than a synonym, so an adverb defines a proper name: it stands in for the place the rest of the clue has been describing."
+      "text": "Bullion and cash man's collected — here?",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GOLDMANSACHS",
-     "indicators": [
-      {
-       "text": "collected",
-       "note": "Things collected are gathered up loose and set down in a new arrangement, so the letters named will not keep their order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Bullion",
+       "at": 0,
+       "gives": "GOLD",
+       "note": "bullion is gold in bars"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "collected",
+         "at": 23,
+         "note": "collected here means gathered up and put together afresh, so the letters of the words are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Bullion",
-         "gives": "GOLD",
-         "note": "bullion is gold in bar form"
+         "words": "cash",
+         "at": 12
         },
         {
-         "words": "cash man's",
-         "gives": "MANSACHS",
-         "note": "anagram fodder, eight letters; the apostrophe counts for nothing"
+         "words": "man's",
+         "at": 17
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "Somebody has quietly gathered up the gold bars and the cash, and the question is where.",
-     "walkthrough": "'Man's' looks like a possessive belonging to the story, which is what keeps it out of the fodder until you count: four letters of gold leaves eight to find, and the dash makes 'here?' look like an afterthought rather than the definition.",
-     "definitionFit": "Goldman Sachs is the New York investment bank, so 'here' points at the institution where bullion and cash end up gathered in."
+     "surface": "A banker's stash of gold bars and cash being gathered at some financial institution.",
+     "walkthrough": "'collected' reads as gathered up, as bullion is in a vault, but here it rearranges the letters of cash and man's. The whole clue also describes the bank, a place full of gold and money.",
+     "definitionFit": "Goldman Sachs is a major American investment bank, the sort of place where gold and money are amassed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "collected"
     }
    }
   },
@@ -730,41 +720,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SENEGALESE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "engaging",
+       "at": 21,
+       "note": "engaging here means holding or enclosing, so the first word takes the second inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "to pick up",
+       "at": 10,
+       "gives": "SENSE",
+       "note": "to sense something is to pick it up, as with a signal or a mood"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "engaging",
-         "note": "To engage something is to take hold of it and draw it in, so the outer word closes around whatever follows."
-        },
-        {
-         "text": "flapping",
-         "note": "A flapping thing beats about without holding its shape, and the bird's letters will not hold theirs either."
+         "text": "that's flapping",
+         "at": 36,
+         "note": "a bird that's flapping is moving wildly, so its letters are tossed into a new order"
         }
        ],
        "parts": [
         {
-         "words": "to pick up",
-         "gives": "SENSE",
-         "note": "to sense a thing is to pick it up — a signal, a mood, a change in the room"
-        },
-        {
          "words": "eagle",
-         "gives": "EGALE",
-         "note": "the bird's five letters, rearranged"
+         "at": 30
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A north African setting out to collect a captivating eagle that will not keep still.",
-     "walkthrough": "'Engaging' is doing an instruction's work while pretending to be a compliment about the bird, and that double duty is what keeps the container out of sight.",
-     "definitionFit": "Senegal sits on Africa's north-west shoulder, so a Senegalese is one instance of a north African — a definition by example."
+     "surface": "A North African who is trying to catch an eagle beating its wings.",
+     "walkthrough": "'that's flapping' rearranges eagle, and 'engaging' puts the result inside the word for pick up. 'engaging' looks like an adjective meaning charming, but it signals containment.",
+     "definitionFit": "A Senegalese person comes from Senegal, a country on the north-west African coast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "engaging"
     }
    }
   },
@@ -992,41 +989,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "GLAZIER",
+     "indicators": [
+      {
+       "text": "Furious",
+       "at": 0,
+       "note": "furious means wild with rage, so the remaining letters are thrown about"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "GLAZIER",
        "indicators": [
         {
-         "text": "Furious",
-         "note": "A furious person lashes out at whatever is in reach, and letters treated that way end up well out of their proper order."
-        },
-        {
          "text": "sacking",
-         "note": "Sacking somebody gets rid of them, so the letter named next is dismissed from the fodder before the rest are shuffled."
+         "at": 17,
+         "note": "sacking someone means getting rid of them, so the letter for Dutch is removed from the name"
         }
        ],
        "parts": [
         {
          "words": "Grizelda",
-         "note": "anagram fodder, eight letters — one more than the grid wants"
+         "at": 8
         },
         {
          "words": "Dutch",
-         "gives": "D",
-         "note": "d is the standard abbreviation for Dutch, and this is the letter being dismissed"
+         "at": 25,
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An enraged Grizelda dismissing a Dutch workman on the spot.",
-     "walkthrough": "'Dutch tradesperson' reads as one job description, and that is where the definition hides: only the last word defines, while 'Dutch' is a single letter on its way out.",
-     "definitionFit": "A glazier fits glass into windows and doors for a living, so 'tradesperson' is the general class the answer is one member of."
+     "surface": "An angry employer named Grizelda firing her Dutch worker.",
+     "walkthrough": "'sacking Dutch' removes D from GRIZELDA to give GRIZELA, which 'Furious' rearranges. 'Dutch' reads as an adjective describing the tradesperson, but it is only the letter D.",
+     "definitionFit": "A glazier fits glass in windows and doors, a skilled trade, so the word names a tradesperson."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dutch"
     }
    }
   },
@@ -1108,40 +1110,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "APACKOFLIES",
+     "spelt": "APACKOFLIES",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "Spooner was the Oxford don remembered for swapping the opening sounds of two words, so his name asks you to make that exchange."
+       "at": 22,
+       "note": "Spooner was famous for swapping the opening sounds of words, so the first sounds of lack and pies trade places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "ALACKOF",
        "parts": [
         {
-         "unchecked": true,
          "words": "all gone",
-         "gives": "APACKOF",
-         "soundsLike": "A LACK OF",
-         "note": "when there is none of a thing left there is a lack of it, and that opening L trades places with the P of the other word"
-        },
-        {
-         "unchecked": true,
-         "words": "Baked goods",
-         "gives": "LIES",
-         "soundsLike": "PIES",
-         "note": "the baked goods are pies, and their opening P goes off to the front of the other word in exchange"
+         "at": 12,
+         "gives": "ALACKOV",
+         "note": "when something is all gone there is a lack of it; said aloud, a lack of runs together as a-lack-ov"
         }
        ]
+      },
+      {
+       "words": "Baked goods",
+       "at": 0,
+       "gives": "PIES",
+       "note": "pies are baked goods"
       }
      ]
     },
     "explanation": {
-     "surface": "The pies have all been eaten and somebody is telling fibs about where they went.",
-     "walkthrough": "Say 'a lack of pies' aloud and swap the noises at the front of the last two words. Porkies is Cockney rhyming slang, pork pies for lies, which is why the pastry is here at all.",
-     "definitionFit": "Porkies is Cockney rhyming slang — pork pies for lies — so the slang plural and the phrase name the same untruths."
+     "surface": "A bakery has sold out of everything, followed by an outraged cry of disbelief.",
+     "walkthrough": "Say 'a lack of pies' and swap the L and P sounds. 'Porkies' is British rhyming slang: porky pies rhymes with lies.",
+     "definitionFit": "Porkies are falsehoods in British slang, so a whole bunch of untruths is a set of porkies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Baked"
     }
    }
   },
@@ -1161,41 +1168,52 @@
    "annotation": {
     "definitions": [
      {
-      "text": "leg!",
+      "text": "leg",
       "at": 43
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LIMB",
-     "indicators": [
-      {
-       "text": "For the most part",
-       "note": "'For the most part' means nearly all of it, so the word it governs turns up with its last letter missing."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "For the most part",
+         "at": 0,
+         "note": "for the most part means most but not all, so the last letter of the word is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "walk dragging",
-         "gives": "LIM",
-         "note": "to walk dragging one foot behind you is to limp, and the p drops off the end"
+         "words": "walk dragging leg",
+         "at": 19,
+         "gives": "LIMP",
+         "note": "to limp is to walk unevenly, dragging an injured leg"
         },
         {
-         "words": "b___",
-         "note": "the letter is printed in the clue, with the rest of its word blanked out"
+         "gives": "P"
         }
        ]
+      },
+      {
+       "words": "b___",
+       "at": 38,
+       "gives": "B",
+       "note": "the letter b shown with the rest of the word blanked out, giving just B"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody hobbling along, and the reason for it: a bad leg.",
-     "walkthrough": "The blank in 'b___' is the setter enjoying a word he would rather not print, and the letter he does print is the one wanted. The final 'leg' is the definition, not part of the picture.",
-     "definitionFit": "A leg is one of the body's limbs, so the definition names one instance and the answer the class it belongs to."
+     "surface": "Hobbling along with a bad leg, someone swears at the leg in question.",
+     "walkthrough": "'For the most part' cuts LIMP to LIM; the 'b___' gives just its B. The blanked word looks like a censored curse at the bad leg.",
+     "definitionFit": "A limb is an arm or a leg, so a leg is one example of a limb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "b___"
     }
    }
   },
@@ -1262,37 +1280,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IDEA",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "Endlessly means without its end, so the word after it hands over everything but its final letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Everyman",
+       "at": 0,
+       "gives": "I",
+       "note": "Everyman is the setter, and a setter refers to themself as I"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 9,
+         "note": "endlessly means without an end, so the final letter is cut off"
+        }
+       ],
        "parts": [
         {
-         "words": "Everyman",
-         "gives": "I",
-         "note": "the setter signs this puzzle Everyman, so his name stands here for the first person"
+         "words": "late",
+         "at": 19,
+         "gives": "DEAD",
+         "note": "the late means dead, as in the late king"
         },
         {
-         "words": "late",
-         "gives": "DEA",
-         "note": "the late Mr So-and-so is dead, and the final letter falls away"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Everyman turning up late once again — well, fancy that.",
-     "walkthrough": "'Everyman' is the setter's own name doing duty for I, a habit of this puzzle worth learning, and 'late' is the obituary sense rather than anything to do with the clock.",
-     "definitionFit": "A fancy is a notion that takes you — 'I have a fancy to go' — which is the answer's sense of a thought arriving unbidden."
+     "surface": "An exclamation about the setter being forever late.",
+     "walkthrough": "'late' as in 'the late Mr Smith' means DEAD, which 'endlessly' trims to DEA. 'fancy' reads as an exclamation of surprise but is a noun.",
+     "definitionFit": "A fancy is a notion or whim that comes into the mind, so it is an idea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "late"
     }
    }
   },
