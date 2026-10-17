@@ -524,45 +524,44 @@
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "ARO",
        "indicators": [
         {
          "text": "denied skirting",
-         "note": "the word is refused its skirting, the letters round its edges, so only the inside is kept"
+         "at": 10,
+         "note": "denied its skirting, its outer edge, so the peer loses its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "peer denied skirting",
-         "gives": "ARO",
-         "select": "middle",
-         "note": "a peer is a BARON; without its outer letters B and N it leaves ARO"
+         "words": "peer",
+         "at": 5,
+         "gives": "BARON",
+         "note": "a baron is a peer, a member of the nobility"
         }
        ]
       },
       {
        "words": "American",
+       "at": 26,
        "gives": "US",
-       "note": "US = American"
+       "note": "US is short for American, as in the US"
       },
       {
        "words": "journalist",
+       "at": 35,
        "gives": "ED",
-       "note": "ED = editor, the crossword's standard journalist"
+       "note": "ED is short for editor, the crossword's stock journalist"
       }
      ]
     },
     "explanation": {
-     "surface": "A politically aware lord is stopped from dodging a reporter from the States.",
-     "walkthrough": "'Skirting' reads as avoiding the journalist, but it is a noun: the skirting of BARON, its edges, is what the peer is denied. 'Woke' is the past tense of wake, not the political word.",
-     "definitionFit": "A plain synonym in the past tense: a sleeper who woke was stirred from sleep, the old sense of the verb before its sexual one."
+     "surface": "A noble who refused to wear a skirt woke an American reporter.",
+     "walkthrough": "'denied skirting' strips BARON to ARO, then US and ED follow.",
+     "definitionFit": "Aroused and woke both describe being stirred from sleep, as in 'woke the household'."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "skirting"
     }
    }
@@ -594,42 +593,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STRIPLIGHTING",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Unsteady",
+       "at": 0,
+       "note": "unsteady means wobbly and unstable, so the letters of these words will not hold their order"
+      },
+      {
+       "text": "in absence of",
+       "at": 26,
+       "note": "in absence of means without, so the letter for special is left out of the jumbled pool"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "STRIPLIGHTING",
-       "indicators": [
-        {
-         "text": "Unsteady",
-         "note": "the letters wobble out of their order"
-        },
-        {
-         "text": "in absence of",
-         "note": "the named letter is missing from the fodder"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "girl tips things",
-         "note": "anagram fodder, 14 letters before one comes out"
+         "words": "girl",
+         "at": 9
         },
         {
-         "words": "special",
-         "gives": "S",
-         "note": "S = special; one S is removed, leaving 13 letters"
+         "words": "tips",
+         "at": 14
+        },
+        {
+         "words": "things",
+         "at": 19
         }
        ]
+      },
+      {
+       "words": "special",
+       "at": 40,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A wobbly girl knocks things over in a room without proper lighting.",
-     "walkthrough": "Fourteen letters of fodder for thirteen in the answer is the sign that something has to go: one of the S's, standing for special.",
-     "definitionFit": "Strip lighting, long fluorescent tubes, is a form of illumination."
+     "surface": "A wobbly girl knocks over objects when the special lighting is missing.",
+     "walkthrough": "GIRL TIPS THINGS has fourteen letters; 'in absence of' removes one S, and 'Unsteady' rearranges the rest.",
+     "definitionFit": "Strip lighting is long fluorescent tubes used for illuminating rooms such as offices and kitchens."
     },
     "features": {
      "answerInScene": true,
@@ -659,37 +664,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SUNDIAL",
-     "indicators": [
-      {
-       "text": "evidently",
-       "note": "easy-going is laid-back, and evidently the LAID is to be written back"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Star",
+       "at": 0,
+       "gives": "SUN",
+       "note": "the sun is a star"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "evidently",
+         "at": 6,
+         "note": "easy-going is laid-back, so evidently the word laid is set back to front"
+        }
+       ],
        "parts": [
         {
-         "words": "Star",
-         "gives": "SUN",
-         "note": "the sun is a star"
-        },
-        {
          "words": "easy-going",
-         "gives": "DIAL",
-         "note": "easy-going = laid-back: LAID, back"
+         "at": 16,
+         "gives": "LAID",
+         "note": "laid is the first half of laid-back, meaning easy-going"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A relaxed celebrity is friendly enough to pass the time of day with you.",
-     "walkthrough": "'Give one the time of day' means be friendly to someone; the definition takes it literally, since a sundial tells the time only by day.",
-     "definitionFit": "A sundial shows the time from the sun's shadow, so it gives the time only in daylight."
+     "surface": "A relaxed celebrity who might offer you a greeting.",
+     "walkthrough": "Easy-going is LAID-BACK, read as an instruction: 'evidently' signals that LAID is written back to front as DIAL, after SUN. 'Give someone the time of day' usually means to acknowledge them.",
+     "definitionFit": "A sundial tells the hour from the shadow cast by sunlight, literally giving the time of day."
     },
     "features": {
      "answerInScene": false,
@@ -726,42 +732,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SQUAREONE",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "grotesque",
+       "at": 32,
+       "note": "grotesque means distorted out of natural shape, so the letters of Romanesque are rearranged"
+      },
+      {
+       "text": "lacking",
+       "at": 42,
+       "note": "lacking means without, so the letter for marks is taken out of the pool"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SQUAREONE",
-       "indicators": [
-        {
-         "text": "grotesque",
-         "note": "distorted out of shape, so the letters are rearranged"
-        },
-        {
-         "text": "lacking",
-         "note": "the named letter is absent from the fodder"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Romanesque",
-         "note": "anagram fodder before the deletion"
-        },
-        {
-         "words": "marks",
-         "gives": "M",
-         "note": "M = marks, the old German currency; ROMANESQUE without M leaves ROANESQUE"
-        }
-       ]
+       "words": "Romanesque",
+       "at": 21
+      },
+      {
+       "words": "marks",
+       "at": 50,
+       "gives": "M",
+       "note": "M is the abbreviation for marks, the old German currency"
       }
      ]
     },
     "explanation": {
-     "surface": "An art historian's note on where a grotesque carving first stood, before it wore smooth.",
-     "walkthrough": "Romanesque and grotesque are both architecture words, and the surface keeps you in a cathedral; back to square one means back to the start.",
-     "definitionFit": "Square one is the starting point, the original position, as on a board game."
+     "surface": "An ugly Romanesque building with no carved marks starts things off.",
+     "walkthrough": "'lacking' removes M from ROMANESQUE to leave ROANESQUE, and 'grotesque' rearranges those letters.",
+     "definitionFit": "Back to square one means back at the start, so square one is the original position."
     },
     "features": {
      "answerInScene": false,
@@ -845,68 +845,63 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a stunner?",
-      "at": 43
+      "text": "stunner?",
+      "at": 45
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SLEEPINGPILL",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Dizzy",
+       "at": 0,
+       "note": "dizzy means giddy and in a whirl, so these letters spin into a new order"
+      },
+      {
+       "text": "to release",
+       "at": 32,
+       "note": "to release means to let go, so the letter a is freed from the pool"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "Dizzy",
-         "note": "spinning, so the letters are jumbled"
-        }
-       ],
        "parts": [
         {
-         "op": "anagram",
+         "words": "Gillespie",
+         "at": 6
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
            "text": "curtailed",
-           "note": "its tail is cut off, losing the last letter"
+           "at": 16,
+           "note": "curtailed means with its tail cut off, so the last letter of plans is dropped"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "indicators": [
-            {
-             "text": "to release",
-             "note": "the named letter is let go from the word"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Gillespie",
-             "note": "anagram fodder, 9 letters"
-            },
-            {
-             "words": "plans",
-             "gives": "PLN",
-             "note": "PLANS curtailed is PLAN; releasing the A leaves PLN"
-            }
-           ]
+           "words": "plans",
+           "at": 26
+          },
+          {
+           "gives": "S"
           }
          ]
-        },
-        {
-         "unchecked": true,
-         "words": "a",
-         "note": "the A released from PLAN"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 43
       }
      ]
     },
     "explanation": {
-     "surface": "Jazz trumpeter Dizzy Gillespie cuts short his plans to put out a sensational record.",
-     "walkthrough": "Dizzy Gillespie is so fixed a name that 'Dizzy' passes for part of it; it is the anagram signal, and a stunner here is something that knocks you out.",
-     "definitionFit": "A playful sense, flagged by the question mark: a stunner is usually a beauty, but here it is anything that knocks you out cold."
+     "surface": "Jazz trumpeter Dizzy Gillespie cut short his plans to put out a hit record.",
+     "walkthrough": "'curtailed' cuts PLANS to PLAN; GILLESPIE plus PLAN, with 'to release' freeing the A, leaves letters that 'Dizzy' rearranges. Dizzy Gillespie was a jazz trumpeter.",
+     "definitionFit": "A sleeping pill knocks you out, so it is playfully a stunner, hence the question mark."
     },
     "features": {
      "answerInScene": false,
@@ -985,53 +980,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "…",
-      "at": 42
+      "text": "Or…",
+      "at": 40
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ELLIPSIS",
-     "indicators": [
-      {
-       "text": "elevating",
-       "note": "raising it up, so in a down entry the word reads bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Ecstasy",
+       "at": 0,
+       "gives": "E",
+       "note": "E is slang for the drug ecstasy"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "elevating",
+         "at": 15,
+         "note": "elevating means lifting up, and in a down clue that reads the word from the bottom, i.e. backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Ecstasy",
-         "gives": "E",
-         "note": "E = ecstasy, the drug"
-        },
-        {
          "words": "tablet",
-         "gives": "LLIP",
-         "note": "a tablet is a PILL, turned upward to LLIP"
-        },
-        {
-         "words": "family member",
-         "gives": "SIS",
-         "note": "sis = sister"
+         "at": 8,
+         "gives": "PILL",
+         "note": "a pill is a tablet"
         }
        ]
+      },
+      {
+       "words": "family member",
+       "at": 25,
+       "gives": "SIS",
+       "note": "sis is short for sister, a family member"
       }
      ]
     },
     "explanation": {
-     "surface": "A pill of ecstasy is getting a sister high, or something worse, left unsaid.",
-     "walkthrough": "The clue trails off into its own definition: the three dots after 'Or' are an ellipsis, and the question mark admits it.",
-     "definitionFit": "An ellipsis is the mark ... showing that words have been left out."
+     "surface": "Someone asks whether an ecstasy tablet perks up a relative, or something else, trailing off.",
+     "walkthrough": "'elevating' reverses PILL to LLIP between E and SIS. The definition is the trailing dots themselves, the clue ending on the very mark it defines.",
+     "definitionFit": "An ellipsis is the three dots marking an omission or an unfinished thought, as after 'Or'."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "elevating"
+     "joke": "absurd",
+     "misdirectedWord": "tablet"
     }
    }
   },
@@ -1056,60 +1053,63 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EMINENCE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "awarded",
+       "at": 28,
+       "note": "awarded here means given, joining the next piece on"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "rising",
-         "note": "going up, so in a down entry the word reads upward"
+         "at": 12,
+         "note": "rising means going up, and in a down clue that reads the word from the bottom, i.e. backwards"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "EM",
-         "indicators": [
-          {
-           "text": "'s awarded",
-           "note": "the setter has been awarded the next piece, which is added on"
-          },
-          {
-           "text": "after run",
-           "note": "only the part of the word that comes after R, for run, is taken"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "setter",
-           "gives": "EM",
-           "select": "last",
-           "note": "the setter is ME, rising to EM"
-          }
-         ]
-        },
+         "words": "setter's",
+         "at": 19,
+         "gives": "ME",
+         "note": "the setter refers to himself as me"
+        }
+       ]
+      },
+      {
+       "words": "in",
+       "at": 36
+      },
+      {
+       "op": "deletion",
+       "indicators": [
         {
-         "words": "in",
-         "note": "the word itself"
-        },
+         "text": "after run",
+         "at": 48,
+         "note": "after run means only the part of the name that follows the R, run in cricket notation, is kept"
+        }
+       ],
+       "parts": [
         {
          "words": "Florence",
-         "gives": "ENCE",
-         "note": "the letters of FLORENCE after the R, R being run"
+         "at": 39,
+         "note": "the name Florence, from which the letters after its R are taken"
+        },
+        {
+         "gives": "FLOR"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An up-and-coming setter wins a prize in Florence after a stint of running.",
-     "walkthrough": "In a down clue 'rising' reverses the setter's ME. The cricket abbreviation R = run tells you where in Florence to start reading.",
-     "definitionFit": "Eminence is distinction or high standing, as in a scientist of great eminence."
+     "surface": "A setter on the up wins a prize in an Italian city after a sprint.",
+     "walkthrough": "'rising' turns ME round to EM; 'awarded' adds IN, and 'after run' keeps the end of Florence beyond its R (R is the cricket abbreviation for run), giving ENCE.",
+     "definitionFit": "Eminence is fame or high standing, the same as distinction in a field."
     },
     "features": {
      "answerInScene": false,
@@ -1323,46 +1323,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EPOCH",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 5,
+       "note": "about means around, so the word for what wraps round the reversed officer"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "What",
+       "at": 0,
+       "gives": "EH",
+       "note": "eh? is an exclamation meaning what?"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "about",
-         "note": "going around, so one piece encloses the other"
-        },
-        {
          "text": "returning",
-         "note": "coming back, so the word is read backwards"
+         "at": 11,
+         "note": "returning means going back, so the word for officer is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "What",
-         "gives": "EH",
-         "note": "eh? = what?"
-        },
-        {
-         "words": "returning officer",
-         "gives": "POC",
-         "note": "an officer is a COP, returning to POC, which goes inside the EH"
+         "words": "officer",
+         "at": 21,
+         "gives": "COP",
+         "note": "cop is slang for a police officer"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks how old the official running an election is.",
-     "walkthrough": "A returning officer is the official who runs a British election and declares the result, and that two-word phrase must be split up.",
-     "definitionFit": "An epoch is an age, a distinct period of history."
+     "surface": "A question about how old the returning officer at an election is.",
+     "walkthrough": "A returning officer runs an election count in Britain, but 'returning' turns COP round to POC, and 'about' puts EH around it.",
+     "definitionFit": "An epoch is a long distinct period of history, an era or age."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "returning"
     }
    }
@@ -1384,76 +1387,77 @@
     "definitions": [
      {
       "text": "customs",
-      "at": 62,
-      "note": "customs is plural, tradition singular in form but collective in sense"
+      "at": 62
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TRADITION",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "by",
+       "at": 19,
+       "note": "by means beside, so the inspector's letters sit next to the reversed facility word"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "withdrawn",
-         "note": "drawn back, so the word is read backwards"
+         "at": 9,
+         "note": "withdrawn means drawn back, so the word for facility is reversed"
         }
        ],
        "parts": [
         {
          "words": "Facility",
-         "gives": "TRA",
-         "note": "facility = skill, ART, withdrawn to TRA"
-        },
-        {
-         "words": "inspector",
-         "gives": "DI",
-         "note": "DI = detective inspector"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "TI",
-         "indicators": [
-          {
-           "text": "by",
-           "note": "the next piece is placed by it, beside it"
-          },
-          {
-           "text": "initially",
-           "note": "only the first letters of the next words are taken"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "to improve",
-           "gives": "TI",
-           "select": "first",
-           "note": "first letters of to and improve"
-          }
-         ]
-        },
-        {
-         "words": "working",
-         "gives": "ON",
-         "note": "on = working, as a machine is"
+         "at": 0,
+         "gives": "ART",
+         "note": "art means skill or facility, as in 'the art of persuasion'"
         }
        ]
+      },
+      {
+       "words": "inspector",
+       "at": 22,
+       "gives": "DI",
+       "note": "DI is short for Detective Inspector"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 33,
+         "note": "initially means at the start, so the first letter of each of the words to and improve is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to improve",
+         "at": 43,
+         "note": "the words to and improve, whose first letters are used"
+        }
+       ]
+      },
+      {
+       "words": "working",
+       "at": 54,
+       "gives": "ON",
+       "note": "on means working, as in 'the machine is on'"
       }
      ]
     },
     "explanation": {
-     "surface": "An inspector shuts down a facility, meant as a first step towards better working practices.",
-     "walkthrough": "'Facility' reads as a building, but it is ease or skill, ART. The bracket looks like an aside and holds half the wordplay.",
-     "definitionFit": "Tradition means inherited customs; the singular stands in for the plural sense here."
+     "surface": "An inspector withdraws an amenity, aiming to improve how the customs office works.",
+     "walkthrough": "'withdrawn' gives TRA, 'initially' gives TI, then DI and ON fill out the rest. The singular answer stands for the plural definition, a body of customs.",
+     "definitionFit": "Tradition is the handing down of customs and beliefs, so it covers established customs collectively."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Facility"
+     "misdirectedWord": "customs"
     }
    }
   },
@@ -1479,30 +1483,21 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Exhausted",
-       "note": "emptied out, leaving only the outer letters"
-      }
-     ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "AN",
        "indicators": [
         {
-         "text": "losing",
-         "note": "the named letters are taken away"
+         "text": "Exhausted",
+         "at": 0,
+         "note": "exhausted means emptied out, so Aston loses its inner letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Exhausted Aston",
-         "gives": "AN",
-         "select": "outer",
-         "note": "ASTON emptied of its inside leaves AN"
+         "words": "Aston",
+         "at": 10,
+         "note": "the word Aston, whose first and last letters are kept"
         }
        ]
       },
@@ -1510,26 +1505,30 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "heart in",
-         "note": "the heart of the next word, its middle letters"
+         "text": "losing",
+         "at": 22,
+         "note": "losing means without, so the letters from the heart of play are taken out of Villa"
         }
        ],
        "parts": [
         {
          "words": "Villa",
-         "note": "the word itself, before the loss"
+         "at": 16
         },
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "LA",
+         "indicators": [
+          {
+           "text": "heart in",
+           "at": 29,
+           "note": "heart in means the central letters, so the middle of play is taken"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "heart in play",
-           "gives": "LA",
-           "select": "middle",
-           "note": "the middle of P-LA-Y; VILLA losing LA leaves VIL"
+           "words": "play",
+           "at": 38,
+           "note": "the word play, whose central letters are taken"
           }
          ]
         }
@@ -1538,9 +1537,9 @@
      ]
     },
     "explanation": {
-     "surface": "A tired Aston Villa side lose their nerve against West Ham, known as The Hammers, and take a pounding.",
-     "walkthrough": "Aston Villa and West Ham (nicknamed The Hammers) are English football clubs, so the surface is a match report; the definition takes the hammers literally, beating metal on an anvil.",
-     "definitionFit": "An anvil is the iron block on which a smith's hammers pound metal."
+     "surface": "A spent Aston Villa side fade in a match, battered by West Ham.",
+     "walkthrough": "'Exhausted' empties Aston to AN; 'heart in' takes LA from play and 'losing' removes it from Villa to leave VIL. West Ham United, a London football club, are nicknamed The Hammers.",
+     "definitionFit": "An anvil is the iron block a smith hammers metal on, so it receives the pounding."
     },
     "features": {
      "answerInScene": false,
