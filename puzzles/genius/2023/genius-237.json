@@ -939,48 +939,47 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "EVERGREENS",
      "indicators": [
       {
        "text": "* *",
-       "note": "these poem words are 'for destruction', and destroyed letters are rebuilt in a new order"
+       "at": 32,
+       "note": "the two asterisks stand for the poem's words 'for destruction', and destruction of a word breaks its letters up for rearranging"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "EVERGREENS",
        "indicators": [
         {
          "text": "Departing",
-         "note": "someone departing leaves, so the abbreviation is taken out"
+         "at": 0,
+         "note": "something departing leaves, so the letter for American is taken out of the words that follow"
         }
        ],
        "parts": [
         {
-         "words": "American",
-         "gives": "A",
-         "note": "A is a standard abbreviation for American"
+         "words": "never agrees",
+         "at": 19,
+         "note": "taken as written"
         },
         {
-         "words": "never agrees",
-         "note": "taken as written"
+         "words": "American",
+         "at": 10,
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An American who is leaving never agrees to fell the trees.",
-     "walkthrough": "The missing words are 'for destruction'. Remove the A from NEVER AGREES and rearrange.",
+     "surface": "An American who is leaving refuses to agree to anything, in a clue that ends abruptly on trees.",
+     "walkthrough": "The asterisks are two words from Frost's 'Fire and Ice', 'for destruction', which signal the anagram. 'Departing' removes A (American) from NEVER AGREES, leaving NEVERGREES, and 'for destruction' rearranges those letters into EVERGREENS.",
      "definitionFit": "Evergreens are trees and shrubs that keep their leaves all year, such as pines and hollies."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "agrees"
+     "misdirectedWord": "Departing"
     }
    }
   },
@@ -1275,47 +1274,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INSECTA",
+     "op": "composite",
      "indicators": [
       {
+       "text": "lost",
+       "at": 18,
+       "note": "letters that are lost go missing, so the letters of the poem's word drop out of the pool"
+      },
+      {
        "text": "broken",
-       "note": "something broken is smashed up, so the remaining letters are rearranged"
+       "at": 37,
+       "note": "ties that are broken are undone, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "INSECTA",
-       "indicators": [
-        {
-         "text": "lost",
-         "note": "something lost is gone, so the poem word's letters are taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "in cave, ties",
-         "note": "taken as written"
-        },
-        {
-         "words": "*",
-         "gives": "IVE",
-         "note": "the poem word here is 'I've', whose letters are removed"
-        }
-       ]
+       "words": "in cave, ties",
+       "at": 23,
+       "note": "taken as written"
+      },
+      {
+       "words": "*",
+       "at": 16,
+       "gives": "IVE",
+       "note": "the asterisk stands for the poem's word 'I've', whose letters are the ones to take away"
       }
      ]
     },
     "explanation": {
-     "surface": "Tiny animals, I've lost them in a cave and my ties are broken.",
-     "walkthrough": "The missing word is 'I've'. Take I, V and E out of IN CAVE TIES and rearrange the remaining seven letters.",
-     "definitionFit": "Insecta is the scientific Latin class name for insects, which are small six-legged creatures."
+     "surface": "Some little animal has gone missing in a cave after its ropes snapped.",
+     "walkthrough": "The asterisk is the word 'I've' from Frost's 'Fire and Ice'. Take the letters of IN CAVE TIES, remove I, V and E as 'lost' says, and rearrange ('broken') what is left, NCATIES, into INSECTA.",
+     "definitionFit": "Insecta is the zoological class containing insects, which are small six-legged animals."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "ties"
     }
