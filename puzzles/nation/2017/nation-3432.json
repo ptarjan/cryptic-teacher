@@ -153,57 +153,63 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BIFURCATE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "mashed",
-       "note": "mashed food is crushed out of its original shape, so these letters are rearranged"
+       "text": "beneath",
+       "at": 17,
+       "note": "in a down clue beneath means the anagram is written below the first letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "beneath",
-         "note": "in a down clue, beneath means this part comes after the other one"
+         "text": "helping of",
+         "at": 25,
+         "note": "a helping is a small portion, so only the first letter of the word is served"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "helping of",
-           "note": "a helping is a portion, here just the opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "banana",
-           "note": "first letter of banana"
-          }
-         ]
+         "words": "banana",
+         "at": 36,
+         "note": "first letter of banana"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mashed",
+         "at": 10,
+         "note": "mashed fruit is pulped out of shape, so these letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Fruit",
+         "at": 0
         },
         {
-         "words": "Fruit ace",
-         "gives": "IFURCATE",
-         "note": "the letters of fruit and ace, rearranged"
+         "words": "ace",
+         "at": 6
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dessert recipe: crushed fruit under a scoop of banana split.",
-     "walkthrough": "'Banana split' wants to be the dessert; split is the definition.",
-     "definitionFit": "To bifurcate is to divide into two branches or forks, so to split."
+     "surface": "A recipe: mashed fruit beneath a helping of banana split.",
+     "walkthrough": "'Banana split' reads as the dessert, but 'split' alone is the definition. 'Helping of' banana is just its first letter, and the mashed fruit and ace go 'beneath' it.",
+     "definitionFit": "To bifurcate is to fork into two branches, which is a way to split."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "split"
     }
    }
@@ -230,62 +236,64 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ALLERGENIC",
      "indicators": [
       {
        "text": "accepting",
-       "note": "accepting means taking something in"
+       "at": 35,
+       "note": "accepting means taking in, so the moved word holds the trimmed spirit inside it"
       }
      ],
      "parts": [
       {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "ALLERGENIC",
        "indicators": [
         {
          "text": "heading to the basement",
-         "note": "the head moving down to the bottom means the first letter goes to the end"
+         "at": 10,
+         "note": "the head of the word, its first letter, goes down to the bottom, the last place"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "ALLERGENIC",
-         "indicators": [
-          {
-           "text": "(mostly)",
-           "note": "mostly means not quite all, so the last letter is dropped"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Visitor",
-           "gives": "CALLER",
-           "note": "a caller is a visitor"
-          },
-          {
-           "words": "spirit",
-           "gives": "GENIE",
-           "note": "a genie is a spirit of Arabian folklore"
-          }
-         ]
+         "words": "Visitor's",
+         "at": 0,
+         "gives": "CALLER",
+         "note": "a caller is a visitor; the 's reads as 'is'"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 53,
+         "note": "mostly means all but the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spirit",
+         "at": 45,
+         "gives": "GENIE",
+         "note": "a genie is a spirit of Arabian folklore"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A guest heads down to the cellar, takes most of a drink and has a violent reaction.",
-     "walkthrough": "'Heading to the basement' sounds like going downstairs; in a word it sends the first letter to the bottom, the end.",
-     "definitionFit": "Something allergenic triggers an allergy, the immune system's overreaction to a substance."
+     "surface": "A guest heads downstairs to the basement and has a strong reaction to some spirits.",
+     "walkthrough": "'Heading to the basement' means the head (first letter) of the visitor goes to the bottom of the word. 'Mostly' cuts the last letter off the spirit.",
+     "definitionFit": "Something allergenic triggers an allergy, an immune response that can be severe."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "basement"
+     "misdirectedWord": "heading"
     }
    }
   },
@@ -310,43 +318,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THRIFT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "most of",
-       "note": "most of means everything bar the last letter"
+       "text": "underlying",
+       "at": 4,
+       "note": "in a down clue underlying means this piece is written beneath the other"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "underlying",
-         "note": "in a down clue, lying under means placed after the other part"
+         "text": "most of",
+         "at": 15,
+         "note": "most of means all the word bar its last letter"
         }
        ],
        "parts": [
         {
          "words": "the",
-         "gives": "TH",
-         "note": "the word the without its last letter"
+         "at": 23
         },
         {
-         "words": "Gap",
-         "gives": "RIFT",
-         "note": "a rift is a gap or split"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "Gap",
+       "at": 0,
+       "gives": "RIFT",
+       "note": "a rift is a gap or crack"
       }
      ]
     },
     "explanation": {
-     "surface": "A shortfall lies beneath much of the nation's economy.",
-     "walkthrough": "'The economy' reads as one phrase, but the is wordplay and economy alone is the definition.",
-     "definitionFit": "Thrift is careful, sparing use of money, which is economy in the sense of frugality."
+     "surface": "A shortfall that lies beneath most of the national economy.",
+     "walkthrough": "'Most of the' gives TH, and 'underlying' puts RIFT below it. 'Economy' looks like part of the surface's 'the economy', but it is the definition, in the sense of frugality.",
+     "definitionFit": "Economy can mean careful saving of money and resources, which is thrift."
     },
     "features": {
      "answerInScene": false,
@@ -727,37 +738,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AIRTRAFFIC",
-     "indicators": [
-      {
-       "text": "undisciplined",
-       "note": "undisciplined letters will not keep their ranks, so they are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Song",
+       "at": 0,
+       "gives": "AIR",
+       "note": "an air is a tune or song"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "undisciplined",
+         "at": 15,
+         "note": "undisciplined letters are unruly and out of order, so they are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Song",
-         "gives": "AIR",
-         "note": "an air is a tune or song"
+         "words": "craft",
+         "at": 5
         },
         {
-         "words": "craft, if",
-         "gives": "TRAFFIC",
-         "note": "the letters of these two words rearranged"
+         "words": "if",
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Writing songs without discipline is a skill only experts should be allowed to manage.",
-     "walkthrough": "'Song craft' reads as one phrase about songwriting, but song alone is the first piece.",
-     "definitionFit": "Planes in the sky are managed by trained air traffic controllers, the professionals the cryptic description points to."
+     "surface": "A song about an unruly craft that only professionals can manage.",
+     "walkthrough": "'Song craft' reads as songwriting skill, but the song is AIR and 'undisciplined' rearranges CRAFT IF into TRAFFIC.",
+     "definitionFit": "The movement of aircraft is managed by air traffic controllers, trained professionals in control towers."
     },
     "features": {
      "answerInScene": false,
@@ -1230,46 +1244,25 @@
      "indicators": [
       {
        "text": "held by",
-       "note": "being held means sitting inside something else"
+       "at": 21,
+       "note": "held by means the reversed piece sits inside the initials"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 43,
+         "note": "initially takes the first letter of each word"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "J",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially points to the opening letters of the named words"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "John Hancock",
-           "gives": "J",
-           "select": "first",
-           "note": "first letter of John"
-          }
-         ]
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "H",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "John Hancock",
-           "gives": "H",
-           "select": "first",
-           "note": "first letter of Hancock"
-          }
-         ]
+         "words": "John Hancock",
+         "at": 29,
+         "note": "first letters of John and Hancock"
         }
        ]
       },
@@ -1278,23 +1271,25 @@
        "indicators": [
         {
          "text": "returned",
-         "note": "something returned goes back the way it came, so the word is read from right to left"
+         "at": 6,
+         "note": "returned means sent back, so the word is read backwards"
         }
        ],
        "parts": [
         {
          "words": "money",
+         "at": 15,
          "gives": "PESO",
-         "note": "the peso is the currency of Mexico and other countries"
+         "note": "the peso is the currency of Mexico and several other countries"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A founding father pays back cash that John Hancock had kept.",
-     "walkthrough": "Joseph Hewes and John Hancock both signed the US Declaration of Independence; the definition is the surname, the answer his first name.",
-     "definitionFit": "Joseph Hewes was a North Carolina signer of the Declaration, so his given name stands for him."
+     "surface": "A founding father gives back money that John Hancock had been holding.",
+     "walkthrough": "Joseph Hewes and John Hancock both signed the US Declaration of Independence, so the surface is apt. 'Hewes' is a surname, and the definition gives his first name.",
+     "definitionFit": "Joseph Hewes was a North Carolina signer of the Declaration of Independence, so his given name stands for him."
     },
     "features": {
      "answerInScene": true,
@@ -1324,35 +1319,33 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HAYSEED",
+     "op": "homophone",
+     "spelt": "HAYSEED",
      "indicators": [
       {
        "text": "To the Rev. Spooner",
-       "note": "Spooner was famed for swapping the opening sounds of words, so the starts here trade places"
+       "at": 0,
+       "note": "William Spooner was famous for swapping the opening sounds of words, so the first letters of the two words change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "for example, mind",
-       "gives": "HAYSEED",
-       "soundsLike": "SAY HEED",
-       "note": "say means for example and heed means mind; Spooner swaps their opening sounds"
+       "at": 21,
+       "gives": "SAYHEED",
+       "note": "say means for example and to mind is to heed, so the words give SAY HEED, which the Reverend's slip turns round"
       }
      ]
     },
     "explanation": {
-     "surface": "The famous Oxford cleric is warned to watch out for a country bumpkin.",
-     "walkthrough": "Swapping the opening S and H of SAY HEED gives HAY SEED.",
-     "definitionFit": "Hayseed is American slang for an unsophisticated country person, a bumpkin."
+     "surface": "A request to the famous Oxford don to name a country bumpkin, for example, and mind him.",
+     "walkthrough": "'To the Rev. Spooner' means swap the opening sounds of SAY and HEED, which gives HAY SEED. A hayseed is American slang for a country bumpkin.",
+     "definitionFit": "A hayseed is an unsophisticated rural person, which is what yokel means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "mind"
+     "joke": "absurd"
     }
    }
   },
@@ -1766,61 +1759,65 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "DISCOMBOBULATED",
-     "indicators": [
-      {
-       "text": "splattered about",
-       "note": "splattered about means spread round, so these letters are spaced out around the other pieces"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "70s Dance Music",
+       "at": 1,
+       "gives": "DISCO",
+       "note": "disco was the dance music of the 1970s"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "splattered about",
+         "at": 58,
+         "note": "splattered about means spread around other letters, so the pieces of mud surround the rest"
+        }
+       ],
        "parts": [
         {
-         "words": "70s Dance Music",
-         "gives": "DISCO",
-         "note": "disco was the dance music of the 1970s"
-        },
-        {
-         "words": "bits of mud",
-         "gives": "M",
-         "note": "the first of the three letters of mud, which are spread out"
-        },
-        {
-         "words": "float",
-         "gives": "BOB",
-         "note": "to bob is to float up and down on water"
-        },
-        {
-         "words": "bits of mud",
-         "gives": "U",
-         "note": "the middle letter of mud"
+         "op": "container",
+         "indicators": [
+          {
+           "text": "bits of",
+           "at": 46,
+           "note": "bits of says the word is broken into pieces with other letters between"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mud",
+           "at": 54
+          },
+          {
+           "words": "float",
+           "at": 18,
+           "gives": "BOB",
+           "note": "a bob is a float on a fishing line"
+          }
+         ]
         },
         {
          "words": "behind schedule",
+         "at": 25,
          "gives": "LATE",
          "note": "late means behind schedule"
-        },
-        {
-         "words": "bits of mud",
-         "gives": "D",
-         "note": "the last letter of mud"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A disco parade float runs late and is spattered with mud amid the chaos.",
-     "walkthrough": "'Bits of mud' means its letters are used separately, spread through the answer rather than kept together.",
-     "definitionFit": "Discombobulated is a jocular American word for confused or flustered, being thrown into disorder."
+     "surface": "A disco-themed parade float runs late and gets spattered with mud.",
+     "walkthrough": "The mud is not used whole: its three letters are 'splattered about', with the float and 'behind schedule' going into the gaps between them.",
+     "definitionFit": "Discombobulated is a playful American word for flustered and confused, so it describes someone in confusion."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "float"
     }
    }
