@@ -356,44 +356,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ACHY",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "backwards",
-       "note": "going backwards means running the other way, so these letters are taken in opposite order"
+       "text": "away",
+       "at": 23,
+       "note": "something that has gone away is no longer there, so these letters are taken out of the larger word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ACHY",
+       "words": "chaos",
+       "at": 12,
+       "gives": "ANARCHY",
+       "note": "anarchy is a state of lawless chaos"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "away",
-         "note": "something sent away is gone, so its letters are taken out of the longer word"
+         "text": "backwards",
+         "at": 30,
+         "note": "the exclamation tells the solver that the word ran must be read in reverse before it is removed"
         }
        ],
        "parts": [
         {
-         "words": "chaos",
-         "gives": "ANARCHY",
-         "note": "anarchy is political chaos and lawlessness"
-        },
-        {
          "words": "ran",
-         "note": "taken as written; it is removed in reverse"
+         "at": 19,
+         "gives": "RAN",
+         "note": "taken as written, then turned round"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone craving disorder bolts the wrong way.",
-     "walkthrough": "'chaos' tempts a solver to scramble letters, but it is a synonym, and 'backwards' applies to what is removed, not to the answer. This clue has no moved letter.",
-     "definitionFit": "Chambers allows achy for aching, and to ache for something is to long for it, so the adjective means longing."
+     "surface": "Someone yearning for disorder bolted the wrong way.",
+     "walkthrough": "'backwards' turns RAN into NAR, and 'away' takes NAR out of ANARCHY (from 'chaos'), leaving ACHY.",
+     "definitionFit": "Chambers gives ache the sense to yearn for something, so achy can stand for full of yearning."
     },
     "features": {
      "answerInScene": false,
@@ -1235,57 +1236,60 @@
     "definitions": [
      {
       "text": "French town",
-      "at": 0
+      "at": 0,
+      "note": "Bayeux is a town in Normandy, home of the famous tapestry"
      }
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "BAYEUX",
      "indicators": [
       {
        "text": "imam",
-       "note": "printed with its I moved to the front; restored it is maim, and maimed letters are mangled out of order"
+       "at": 14,
+       "note": "printed imam is maim with its I moved to the front; restored, maim means mangle, so the letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "BAYEUX",
        "indicators": [
         {
          "text": "for",
-         "note": "one thing given for another replaces it in the letters"
+         "at": 41,
+         "note": "one thing put for another stands in its place, so A replaces the pair of S letters"
         }
        ],
        "parts": [
         {
          "words": "buys sex",
-         "note": "taken as written"
-        },
-        {
-         "words": "amateur",
-         "gives": "A",
-         "note": "A is the abbreviation for amateur"
+         "at": 19,
+         "gives": "BUYSSEX",
+         "note": "taken as written: the S ending buys and the S starting sex sit side by side"
         },
         {
          "words": "two dollars",
+         "at": 45,
          "gives": "SS",
-         "note": "the dollar sign looks like an S, so two dollars give two"
+         "note": "the dollar sign looks like an S, so two dollars are SS"
+        },
+        {
+         "words": "amateur",
+         "at": 33,
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scandalous tale of a cleric paying for sex in a French town.",
-     "walkthrough": "'imam' is maim, the anagram signal, with its I moved to the front. The A replaces the two S's before the letters are mixed. BAYEUX holds AYE, sent right: BUXAYE.",
-     "definitionFit": "Bayeux is a town in Normandy, home of the famous tapestry of the Norman Conquest."
+     "surface": "A cleric in a French town pays for a sex worker, at a price of two dollars.",
+     "walkthrough": "This is a motion clue: imam is really maim with its I shifted to the start, and that I is one letter of the thematic phrase. 'for' swaps the SS in BUYS SEX for A, giving BUYAEX, which 'maim' rearranges.",
+     "definitionFit": "Bayeux is a cathedral town in Normandy in northern France, known for its embroidered tapestry."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "imam"
     }
    }
