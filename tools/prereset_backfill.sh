@@ -38,9 +38,10 @@
 # window to turn over, and below both the run failed for reasons of its own,
 # so that puzzle is dropped and the queue carries on. See after_wave.
 #
-# Install: household-plugins/cryptic-prereset/plugin.toml, at :05 every hour,
+# Install: household-plugins/cryptic-prereset/plugin.toml, every five minutes,
 # and that is the only schedule this job has; a fire that finds a run going is
-# a no-op (the lock below). On a Mac it would have to be launchctl instead,
+# a no-op (the tree lease in nightly_worktree.sh), and a fire that finds none
+# is the restart of a burn that died, so a death costs five minutes. On a Mac it would have to be launchctl instead,
 # never as well — see daily_update.sh's header.
 
 set -uo pipefail
