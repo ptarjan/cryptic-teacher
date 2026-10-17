@@ -415,44 +415,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FOODPOISONING",
+     "op": "composite",
      "indicators": [
       {
        "text": "Bad",
-       "note": "something gone bad is spoilt, so its letters are rearranged"
+       "at": 0,
+       "note": "bad tells us the letters of the phrase that follows are in a poor, jumbled state"
+      },
+      {
+       "text": "no",
+       "at": 22,
+       "note": "no here means without, so the named letter is taken out of the pool before rearranging"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "FOODPOISONING",
-       "indicators": [
-        {
-         "text": "no",
-         "note": "saying no to something leaves it out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "opinion of goods",
-         "note": "taken as written"
-        },
-        {
-         "words": "ordinary",
-         "gives": "O",
-         "note": "O is an abbreviation for ordinary, as in O level"
-        }
-       ]
+       "words": "opinion of goods",
+       "at": 4
+      },
+      {
+       "words": "ordinary",
+       "at": 25,
+       "gives": "O",
+       "note": "O is a standard abbreviation for ordinary, as in O level"
       }
      ]
     },
     "explanation": {
-     "surface": "A shopper's low view of the merchandise, an everyday complaint for customers.",
-     "walkthrough": "Remove one O from the fourteen letters and shuffle the remaining thirteen. 'Consumer' is the sly bit: here it means someone who eats.",
-     "definitionFit": "Food poisoning is an illness caught from eating contaminated meals, a trouble for whoever eats them."
+     "surface": "A shopper's poor review of products is no everyday complaint.",
+     "walkthrough": "'Bad' rearranges the letters of OPINION OF GOODS; 'no ordinary' removes one O from that pool first, and the remaining thirteen letters spell FOOD POISONING.",
+     "definitionFit": "Food poisoning is an illness that strikes someone who has eaten contaminated food, a consumer in the eating sense."
     },
     "features": {
      "answerInScene": true,
