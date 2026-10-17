@@ -129,51 +129,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ACCESS",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "turning about means facing the other way, so the two letters are read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ACCESS",
        "indicators": [
         {
          "text": "to withdraw",
-         "note": "letters that withdraw leave the word, so they are taken out of it"
+         "at": 35,
+         "note": "to withdraw means to pull out, so those letters are taken out of the word"
         }
        ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as written"
-        },
-        {
          "words": "favourable outcome",
+         "at": 2,
          "gives": "SUCCESS",
          "note": "a success is a favourable outcome"
         },
         {
-         "words": "US",
-         "note": "taken as written, then turned round"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 29,
+           "note": "about means turned round, so the two letters of US are read the other way"
+          }
+         ],
+         "parts": [
+          {
+           "words": "US",
+           "at": 26
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A query about whether a good result involving America leads to someone being let in.",
-     "walkthrough": "'About' reverses the two letters so that they match the start of the outcome word, and only then can they withdraw from it.",
+     "surface": "A good result with the United States pulling out leaves the question of what is being admitted.",
+     "walkthrough": "US turned 'about' is SU, which withdraws from SUCCESS to leave CCESS, after A.",
      "definitionFit": "Access is the right or means of entry, which is what admission grants."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "US"
     }
