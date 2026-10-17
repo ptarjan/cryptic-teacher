@@ -1068,36 +1068,49 @@
      "op": "charade",
      "parts": [
       {
-       "words": "cut",
-       "gives": "AX",
-       "note": "AX is the American spelling of axe, to cut"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "in Texas",
+         "at": 24,
+         "note": "in Texas, that is in American spelling, the word loses its final E"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cut",
+         "at": 7,
+         "gives": "AXE",
+         "note": "to axe something is to cut it"
+        },
+        {
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "badly",
+       "at": 11,
        "gives": "ILL",
-       "note": "ill means badly, as in ill-treated"
+       "note": "ill can mean badly, as in ill-treated"
       },
       {
        "words": "one",
+       "at": 20,
        "gives": "A",
-       "note": "a means one"
-      },
-      {
-       "unchecked": true,
-       "words": "in Texas",
-       "note": "gives no letters; it asks for the cut word in its American spelling"
+       "note": "a means one, as in a dozen"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone in Texas has a badly gashed armpit.",
-     "walkthrough": "'In Texas' attaches to 'cut', asking for the American spelling. 'By' is part of the scene but works to join the pieces.",
-     "definitionFit": "Axilla is the anatomical Latin term for the armpit, the hollow under the junction of arm and shoulder."
+     "surface": "A Texan's armpit gets a nasty nick from someone.",
+     "walkthrough": "'in Texas' asks for the American spelling AX rather than AXE; ILL and A follow it, 'by' simply joining them.",
+     "definitionFit": "Axilla is the anatomical term for the armpit, the hollow beneath the junction of the arm and shoulder."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Texas"
+     "misdirectedWord": "cut"
     }
    }
   },
