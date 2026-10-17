@@ -1215,54 +1215,71 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "UINTAITE",
      "indicators": [
       {
-       "text": "covering",
-       "note": "covering means wrapping round, so the shortened outfit word surrounds the rest"
+       "text": "for covering",
+       "at": 32,
+       "note": "for covering means the trimmed suited goes round the other letters like a lid"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "UINTAITE",
+       "op": "middle",
        "indicators": [
         {
          "text": "unlimited",
-         "note": "without limits means losing the boundaries, so the first and last letters go"
-        },
-        {
-         "text": "nearly half of",
-         "note": "half of the word, then nearly that, leaves only its opening three letters"
+         "at": 15,
+         "note": "unlimited means without limits, so the word suited loses its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "suited",
-         "note": "taken as written before trimming"
-        },
+         "at": 25,
+         "note": "the word whose inner letters are kept"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
-         "words": "internal",
-         "note": "taken as written before trimming"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "nearly",
+           "at": 45,
+           "note": "nearly means one letter short, so the half of internal drops its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "half of internal",
+           "at": 52,
+           "gives": "INTE",
+           "note": "the first half of the word internal"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         },
         {
          "words": "area",
-         "gives": "A",
-         "note": "A is the abbreviation for area"
+         "at": 69,
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tarmac that is endlessly suitable for surfacing most of an indoor space.",
-     "walkthrough": "'Nearly half' is a two-stage cut: halve the eight-letter word, then drop one more letter. 'Unlimited' strips both ends.",
-     "definitionFit": "Uintaite, or gilsonite, is a natural black asphalt mined in the Uinta Basin of Utah."
+     "surface": "A claim that some smart attire is ideal for laying over the inner part of a room.",
+     "walkthrough": "'unlimited' strips SUITED to UITE; 'nearly' cuts INTE, the first half of internal, to INT, and A for area follows; 'for covering' wraps UITE round INTA. Uintaite is a variety of natural asphalt from Utah.",
+     "definitionFit": "Uintaite, also called gilsonite, is a black natural bitumen, a mineral kind of asphalt."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "suited"
     }
@@ -1481,21 +1498,18 @@
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "GR",
        "indicators": [
         {
          "text": "centrists in",
-         "note": "the centrists are those in the middle, so only the central letters of the word are used"
+         "at": 5,
+         "note": "the centrists of a word are its middle letters, here the two central letters of Congress"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Congress",
-         "gives": "GR",
-         "select": "middle",
-         "note": "the two central letters of Congress"
+         "at": 18,
+         "note": "the word whose middle letters are taken"
         }
        ]
       },
@@ -1504,29 +1518,30 @@
        "indicators": [
         {
          "text": "advancing nothing",
-         "note": "nothing is the round letter, and advancing it means moving it from the back of the word to the front"
+         "at": 35,
+         "note": "nothing is the letter O, and advancing it moves it from the end of the word to the front"
         }
        ],
        "parts": [
         {
          "words": "to ban",
+         "at": 27,
          "gives": "VETO",
-         "note": "to veto is to forbid"
+         "note": "to veto something is to ban it"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Moderates in Congress block a ban, getting nowhere.",
-     "walkthrough": "'Nothing' names the O, the last letter of VETO, which moves to the front to make OVET.",
-     "definitionFit": "A grovet is a wrestling grip in which one arm goes over an opponent's shoulder and round the neck."
+     "surface": "Moderates in the US legislature use a stalling tactic to block a measure while making no progress.",
+     "walkthrough": "'centrists in' Congress gives GR; 'advancing nothing' moves the O of VETO to the front, giving OVET. A grovet is a hold in wrestling.",
+     "definitionFit": "A grovet is a wrestling grip, a particular hold applied to an opponent."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Hold"
+     "misdirectedWord": "centrists"
     }
    }
   },
@@ -1901,31 +1916,61 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "STOTTYCAKE",
      "indicators": [
       {
-       "text": "Exchanging tips on craft",
-       "note": "the tips of the word craft are its two end letters, and exchanging means they swap places with each other"
+       "text": "Exchanging",
+       "at": 0,
+       "note": "exchanging means the two letters swap places between the two words"
       }
      ],
      "parts": [
       {
-       "words": "starship's engineer",
-       "gives": "SCOTTY",
-       "note": "Scotty is the Starship Enterprise's engineer in Star Trek"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "substitution",
+         "indicators": [
+          {
+           "text": "tips on craft",
+           "at": 11,
+           "note": "the tips of the word craft are its first and last letters, which are the pair swapped here"
+          }
+         ],
+         "parts": [
+          {
+           "words": "starship's engineer",
+           "at": 26,
+           "gives": "SCOTTY",
+           "note": "Scotty is the engineer of the starship Enterprise in Star Trek"
+          },
+          {
+           "gives": "C"
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        },
+        {
+         "words": "to accept",
+         "at": 46,
+         "gives": "TAKE",
+         "note": "to take something is to accept it"
+        }
+       ]
       },
       {
-       "words": "to accept",
-       "gives": "TAKE",
-       "note": "to take is to accept"
+       "gives": "T"
+      },
+      {
+       "gives": "C"
       }
      ]
     },
     "explanation": {
-     "surface": "On a spacecraft, the ship's engineer swaps ends with someone while agreeing to a snack.",
-     "walkthrough": "SCOTTY TAKE swaps its C and T, the ends of craft, to read STOTTY CAKE.",
-     "definitionFit": "Stottie cake is a flat, round loaf from north-east England, split and filled as a sandwich."
+     "surface": "Swapping the ends of a spaceship while its engineer agrees to go along with it.",
+     "walkthrough": "The tips of 'craft' are C and T; 'Exchanging' them turns the C of SCOTTY into T and the T of TAKE into C. A stotty cake is a flat round loaf from north-east England.",
+     "definitionFit": "A stottie cake is a Geordie flat bread roll, a bakery item eaten as a filled snack."
     },
     "features": {
      "answerInScene": false,
