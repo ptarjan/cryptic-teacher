@@ -1841,16 +1841,17 @@ html.standalone.kbd-up .tabbar { display: none; }
   text-decoration: none; -webkit-tap-highlight-color: transparent;
 }
 .tabbar a { touch-action: manipulation; -webkit-touch-callout: none; user-select: none; -webkit-user-select: none; }
-/* Down-state on pointerdown (appnav.js), :active as the fallback. */
-.tabbar a.pressed, .tabbar a:active { color: var(--accent); background: var(--line); }
+/* Like a UITabBar: no pressed pill, no outline; only the selected tab's icon
+   and label tint. */
+.tabbar a:active, .tabbar a:focus { background: none; outline: none; }
 .tabbar a[aria-current="page"] { color: var(--accent); }
 /* Between documents the bar is the same bar: it is lifted out of the page
-   transition, so a tab switch cross-fades the content and the bar never
+   transition, so a tab switch swaps the content with no fade and the bar never
    blinks. Standalone only; a browser tab keeps its own navigation. */
 @media (display-mode: standalone) {
   @view-transition { navigation: auto; }
   html.standalone .tabbar { view-transition-name: tabbar; }
-  ::view-transition-group(root) { animation-duration: 120ms; }
+  ::view-transition-group(root) { animation-duration: 0s; }
   ::view-transition-group(tabbar) { animation: none; }
 }
 .tabbar svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }

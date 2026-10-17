@@ -163,20 +163,24 @@
       a.setAttribute("data-tab", tab.key);
       a.href = tab.href();
       a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + ICON[tab.key] + "</svg><span>" + tab.label + "</span>";
-      // Feedback on the finger going down, not on the click that follows the
-      // lift: iOS only starts :active when a touch listener exists, so the bar
-      // also carries a passive no-op one. "pressed" is cleared on lift or drag.
-      a.addEventListener("pointerdown", function () { a.classList.add("pressed"); });
-      ["pointerup", "pointercancel", "pointerleave"].forEach(function (ev) {
-        a.addEventListener(ev, function () { a.classList.remove("pressed"); });
+      // Like a UITabBar the switch happens on the finger going down, not on the
+      // click after the lift. Only the tabs that are panels of this page do:
+      // a tab that is another document still navigates on click. The click that
+      // follows is swallowed, and the lit tab moves before the panel's work.
+      var fired = false;
+      a.addEventListener("pointerdown", function (e) {
+        if (!isApp || (e.button || 0) !== 0 || !(tab.panel || tab.key === "puzzle")) return;
+        fired = true;
+        mark(bar, tab.key);
+        onTab(tab, e);
       });
       a.addEventListener("click", function (e) {
+        if (fired) { fired = false; e.preventDefault(); return; }
         a.href = tab.href();   // ct:last moves while the page is open
         onTab(tab, e);
       });
       bar.appendChild(a);
     });
-    try { bar.addEventListener("touchstart", function () {}, { passive: true }); } catch (e) { /* no options */ }
     doc.body.appendChild(bar);
     warm();
     mark(bar, isApp ? appSection() : section());
