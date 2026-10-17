@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -158,40 +159,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "COALITION",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "embraced by",
+       "at": 6,
+       "note": "embraced by means held inside, so the boxer's name goes within the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "embraced by",
-         "note": "an embrace closes round whatever it holds, so the boxer ends up with letters on both sides of him"
-        },
-        {
          "text": "unconventional",
-         "note": "an unconventional arrangement keeps none of the usual order, so those letters are free to be re-set"
+         "at": 26,
+         "note": "unconventional means not in the usual form, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Coot in",
-         "gives": "COTION",
-         "note": "the same six letters re-set, opening up in the middle"
+         "words": "Coot",
+         "at": 18,
+         "note": "the setter's own pseudonym, taken as written"
         },
         {
-         "words": "Boxer",
-         "gives": "ALI",
-         "note": "Ali is the crossword's boxer, Muhammad Ali"
+         "words": "in",
+         "at": 23,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "Boxer",
+       "at": 0,
+       "gives": "ALI",
+       "note": "Muhammad Ali is the most famous boxer of all"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Setters slip their own name into the grid: Coot signed this puzzle at the top and then handed his six letters over as fodder.",
-     "definitionFit": "union -> COALITION: the sense of separate parties joining forces for a common end, not a trade union or a marriage."
+     "surface": "The setter describes an unusual partnership in which a boxer is hugged by the setter.",
+     "walkthrough": "Coot is the setter, but here the pseudonym is used for its letters, not as I or ME. 'unconventional' rearranges COOT and IN to COTION, and 'embraced by' puts ALI inside it.",
+     "definitionFit": "A coalition is an alliance of parties or groups joining forces, so it is a kind of union."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Boxer"
     }
    }
   },
@@ -1216,41 +1231,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RICOTTA",
-     "indicators": [
-      {
-       "text": "snubbed",
-       "note": "a snub nose is a short one, so a snubbed word is cut short by the letter it ends on"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "snubbed",
+         "at": 7,
+         "note": "a snub nose is a short one, so a snubbed word is cut short by its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "Cereal",
-         "gives": "RIC",
-         "note": "RICE is the cereal, cut short"
+         "at": 0,
+         "gives": "RICE",
+         "note": "rice is a cereal grain"
         },
         {
-         "words": "too much",
-         "gives": "OTT",
-         "note": "OTT is over the top, British shorthand for excessive"
-        },
-        {
-         "words": "American",
-         "gives": "A",
-         "note": "a is the standard abbreviation for American"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "too much",
+       "at": 17,
+       "gives": "OTT",
+       "note": "OTT is over the top, British shorthand for excessive"
+      },
+      {
+       "words": "American",
+       "at": 26,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Cereal snubbed' sounds like a complaint about breakfast and 'too much American' like one about television; the definition is the last two words and nothing before them.",
-     "definitionFit": "dairy product -> RICOTTA: the soft Italian whey cheese, so the definition names the family the answer belongs to rather than a synonym for it."
+     "surface": "Someone complains that an American cereal brand is overdone and snubs it.",
+     "walkthrough": "'snubbed' cuts RICE to RIC. OTT, 'over the top', is everyday British slang for excessive.",
+     "definitionFit": "Ricotta is a soft Italian whey cheese, so the definition names the food family the answer belongs to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "snubbed"
     }
    }
   },
