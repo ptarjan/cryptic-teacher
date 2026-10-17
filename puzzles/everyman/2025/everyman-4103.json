@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -94,37 +95,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BREMEN",
-     "indicators": [
-      {
-       "text": "each time bumped off 50%",
-       "note": "To bump something off is to do away with it, and 'each' aims that at both words in turn: half of a six-letter word is three letters gone."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "bumped off 50%",
+         "at": 17,
+         "note": "bumping off half a word means killing its first half, so only the back half of sombre survives"
+        }
+       ],
        "parts": [
         {
          "words": "sombre",
-         "gives": "BRE",
-         "note": "the front half, S, O and M, is the fifty per cent done away with, leaving the back three"
+         "at": 33,
+         "note": "losing its first half SOM leaves BRE"
         },
         {
+         "gives": "SOM"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "each time",
+         "at": 7,
+         "note": "each time says the same halving is done again, here to hitmen, keeping only its back half"
+        }
+       ],
+       "parts": [
+        {
          "words": "hitmen",
-         "gives": "MEN",
-         "note": "H, I and T go the same way, and the three that survive follow on"
+         "at": 40,
+         "note": "losing its first half HIT leaves MEN"
+        },
+        {
+         "gives": "HIT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Grim contract killers at work in a German city, each of them halfway through the list.",
-     "walkthrough": "The instruction is buried in a sentence about assassins, where 'bumped off 50%' reads as a body count rather than as an order to cut two words in half.",
-     "definitionFit": "Bremen is a Hanseatic port on the Weser and a city-state in its own right, so 'German city' is a plain label rather than a sly one."
+     "surface": "A gangland thriller: grim contract killers who have rubbed out half their targets in a German city.",
+     "walkthrough": "'Bumped off' suits the hitmen, but it means cut away: 'Having each time bumped off 50%' halves both sombre and hitmen, keeping BRE and MEN.",
+     "definitionFit": "Bremen is a port city in northern Germany, capital of the smallest German state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bumped"
     }
    }
   },
@@ -900,37 +924,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SENTENCE",
-     "indicators": [
-      {
-       "text": "decapitated",
-       "note": "Decapitation takes the head off, and the head of a written word is the letter it begins with."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "dispatched",
+       "at": 11,
+       "gives": "SENT",
+       "note": "to dispatch a letter is to send it, so dispatched means sent"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "decapitated",
+         "at": 48,
+         "note": "decapitated means beheaded, so the first letter is removed"
+        }
+       ],
        "parts": [
         {
-         "words": "dispatched",
-         "gives": "SENT",
-         "note": "a parcel that has been dispatched has been sent"
+         "words": "receiver of stolen goods",
+         "at": 23,
+         "gives": "FENCE",
+         "note": "a fence is slang for someone who buys and sells stolen goods"
         },
         {
-         "words": "receiver of stolen goods",
-         "gives": "ENCE",
-         "note": "a fence is the dealer who takes stolen property off a thief, and the F at its head is cut away here"
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A punishment being handed down, and a handler of stolen goods losing his head.",
-     "walkthrough": "Both halves belong to crime, which is what hides the join: 'dispatched' reads as the punishment being carried out, and the fence reads as a person rather than as four letters.",
-     "definitionFit": "A sentence is the punishment a court hands down after conviction, so the definition wants the legal sense of the word and not the grammatical one."
+     "surface": "A crime story: the dealer in stolen property was executed by beheading as his punishment.",
+     "walkthrough": "The surface pictures an execution, but 'decapitated' is about letters, not a head; fence is the old slang for a handler of stolen goods.",
+     "definitionFit": "A sentence is the penalty a court imposes on a convicted person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dispatched"
     }
    }
   },
@@ -1141,37 +1175,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SKIER",
-     "indicators": [
-      {
-       "text": "Abrupt",
-       "note": "Something cut abruptly stops before it has finished, so the word beside it loses the letter it ends on."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Abrupt",
+         "at": 9,
+         "note": "abrupt suggests something cut short, so the last letter of the word for heavens is lopped off"
+        }
+       ],
        "parts": [
         {
-         "words": "Heavens!",
-         "gives": "SKIE",
-         "note": "the heavens are the skies, docked here of the letter they end on"
+         "words": "Heavens",
+         "at": 0,
+         "gives": "SKIES",
+         "note": "the skies are the heavens above"
         },
         {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the standard short form for right, as on a map or a stage direction"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "right",
+       "at": 16,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "An exclamation of alarm at a sudden swerve to the right.",
-     "walkthrough": "'Heavens!' opens as an exclamation and is really a plural noun, and the question mark admits that slalom racing is only one of the things the answer might be doing.",
-     "definitionFit": "A skier is anyone travelling on skis, and the slalom — weaving between gates — is one branch of the sport, which is what the question mark flags."
+     "surface": "An exclamation at a sudden sharp right turn, the sort a slalom racer makes.",
+     "walkthrough": "'Heavens!' with its exclamation mark reads as a cry of surprise, but it is the plain noun for the sky above; 'Abrupt' then cuts that word short.",
+     "definitionFit": "A slalom is a zigzag downhill race between gates, run by a person on skis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Heavens"
     }
    }
   },
