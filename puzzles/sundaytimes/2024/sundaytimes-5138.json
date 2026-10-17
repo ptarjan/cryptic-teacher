@@ -47,46 +47,49 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "missing out on",
+       "at": 5,
+       "note": "the star word misses out a letter, so it is removed"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "Star",
+       "at": 0,
+       "gives": "CELEBRITY",
+       "note": "a star is a celebrity"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "missing out on",
-         "note": "the star goes without a letter"
-        },
-        {
          "text": "lead in",
-         "note": "the lead of a word is its first letter"
+         "at": 20,
+         "note": "the lead in a word is its first letter"
         }
        ],
        "parts": [
         {
-         "words": "Star",
-         "gives": "CELEBRITY",
-         "note": "a star is a celebrity"
-        },
-        {
-         "gives": "B"
+         "words": "Batman",
+         "at": 28,
+         "note": "first letter gives B"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "missing out on lead in Batman",
-       "note": "drop B, the first letter of Batman"
       }
      ]
     },
     "explanation": {
-     "surface": "A film fan musing on a star who missed out on the lead in Batman or in Speed.",
-     "walkthrough": "Batman and Speed look like a pair of film titles; Batman only supplies its B, and Speed is the definition.",
-     "definitionFit": "Celerity is a formal word for swiftness or speed."
+     "surface": "A star misses out on the lead role in Batman, or perhaps in the film Speed.",
+     "walkthrough": "'missing out on' removes B, the 'lead in Batman', from CELEBRITY. Speed and Batman both look like films, but only one is the definition.",
+     "definitionFit": "Celerity is a formal word for swiftness of movement, a synonym of speed."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Speed"
     }
    }
@@ -323,40 +326,41 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "WARSAW",
-     "indicators": [
-      {
-       "text": "Going west",
-       "note": "in an across clue, west is right to left, so the word turns round"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Going west",
+         "at": 0,
+         "note": "in an across answer, going west means written right to left, backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Going west, tender",
-         "gives": "WAR",
-         "note": "raw = tender (as a sore spot), turned round"
-        },
-        {
-         "words": "encountered",
-         "gives": "SAW",
-         "note": "saw = met with, encountered"
+         "words": "tender",
+         "at": 12,
+         "gives": "RAW",
+         "note": "a tender, sore spot is raw"
         }
        ]
+      },
+      {
+       "words": "encountered",
+       "at": 19,
+       "gives": "SAW",
+       "note": "to have encountered someone is to have seen them, saw"
       }
      ]
     },
     "explanation": {
-     "surface": "A traveller heading west who met someone tender in a foreign capital.",
-     "walkthrough": "The reversal covers only 'tender'; 'encountered' goes in as it stands.",
-     "definitionFit": "A definition by example: this is the capital of Poland, foreign from the paper's British viewpoint."
+     "surface": "A traveller heading west meets a sore patch on the way to a foreign capital.",
+     "walkthrough": "In an across clue 'Going west' means read right to left; 'tender' is the adjective for sore skin, not a bid or a boat.",
+     "definitionFit": "Warsaw is the capital city of Poland, foreign from the British setter's viewpoint."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "tender"
     }
@@ -383,37 +387,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ADVICE",
-     "indicators": [
-      {
-       "text": "turning back",
-       "note": "the lawyer's letters run the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning back",
+         "at": 7,
+         "note": "turning back means the lawyer's letters are read in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "Lawyer turning back",
-         "gives": "AD",
-         "note": "DA = district attorney, a US lawyer, turned round"
-        },
-        {
-         "words": "police unit",
-         "gives": "VICE",
-         "note": "the vice squad is a police unit"
+         "words": "Lawyer",
+         "at": 0,
+         "gives": "DA",
+         "note": "DA is a district attorney, an American prosecuting lawyer"
         }
        ]
+      },
+      {
+       "words": "police unit's",
+       "at": 23,
+       "gives": "VICE",
+       "note": "the vice squad is a police unit dealing with crimes such as gambling"
       }
      ]
     },
     "explanation": {
-     "surface": "A lawyer changing tack on the advice given by a police unit.",
-     "walkthrough": "'On' just places AD before VICE, and the 's stands for 'is', joining wordplay to definition.",
-     "definitionFit": "A plain synonym, with counsel read as a noun (guidance offered) rather than the barrister the lawyer in the surface suggests."
+     "surface": "A lawyer reverses his position on the police vice squad's legal advice.",
+     "walkthrough": "'turning back' makes DA into AD; 'on' simply joins it to VICE.",
+     "definitionFit": "Counsel used as a noun means guidance or recommendations, the same thing as advice."
     },
     "features": {
      "answerInScene": true,
@@ -941,57 +946,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TASTIEST",
-     "indicators": [
-      {
-       "text": "Revolutionary",
-       "note": "turning round, as a revolution does"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Revolutionary",
+         "at": 0,
+         "note": "something revolutionary turns over, so the word is written backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Revolutionary took",
-         "gives": "TAS",
-         "note": "sat, as in sat an exam, turned round"
+         "words": "took",
+         "at": 14,
+         "gives": "SAT",
+         "note": "to have sat an exam is to have taken it"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 24,
+         "note": "the exam word goes about, around, the one letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "exam",
+         "at": 19,
+         "gives": "TEST",
+         "note": "a test is an exam"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "the exam goes around the one"
-          }
-         ],
-         "parts": [
-          {
-           "words": "exam",
-           "gives": "TEST",
-           "note": "a test"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "I = one"
-          }
-         ]
+         "words": "one",
+         "at": 30,
+         "gives": "I",
+         "note": "I is the Roman numeral one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A revolutionary who sat an exam about the most dashing figure of all.",
-     "walkthrough": "'Revolutionary' looks like a noun, a rebel, but it tells you to turn 'took' (SAT) round.",
-     "definitionFit": "Tasty is informal for attractive, so the tastiest is the most dashing."
+     "surface": "A rebel sat an exam about the most dashing person.",
+     "walkthrough": "'Revolutionary' looks like a noun for a rebel, but it is the reversal signal; 'took' is the past tense of sitting an exam.",
+     "definitionFit": "Tasty is informal British slang for attractive or dashing, so the tastiest person is the most attractive."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Revolutionary"
     }
    }
@@ -1065,42 +1073,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CLAPTRAP",
-     "indicators": [
-      {
-       "text": "served up",
-       "note": "in a down clue, 'up' turns the word so it reads bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Cold",
+       "at": 0,
+       "gives": "C",
+       "note": "C is the tap abbreviation for cold"
+      },
+      {
+       "words": "drink",
+       "at": 5,
+       "gives": "LAP",
+       "note": "to lap is to drink like a cat"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "served up",
+         "at": 21,
+         "note": "in a down answer, served up means written upwards, so the slice word is read in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "Cold",
-         "gives": "C",
-         "note": "C = cold, as on a tap"
-        },
-        {
-         "words": "drink",
-         "gives": "LAP",
-         "note": "to lap is to drink, as a cat does"
-        },
-        {
-         "words": "slice served up",
-         "gives": "TRAP",
-         "note": "a part or share, turned upwards"
+         "words": "slice",
+         "at": 15,
+         "gives": "PART",
+         "note": "a part is a slice or portion"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cold drinks and slices of food served to shoemakers.",
-     "walkthrough": "Cobblers is British slang for nonsense (from rhyming slang, cobblers' awls = balls), not shoemakers.",
-     "definitionFit": "Claptrap and cobblers both mean nonsense."
+     "surface": "A chilled drink and a slice of pie are served to the shoemakers.",
+     "walkthrough": "'served up' turns PART into TRAP. Cobblers is British slang for nonsense, not shoe-menders here.",
+     "definitionFit": "Claptrap and cobblers are both informal words for rubbish or nonsense talk."
     },
     "features": {
      "answerInScene": false,
@@ -1374,48 +1384,51 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PHOTO",
+     "op": "container",
      "indicators": [
       {
-       "text": "flipping",
-       "note": "the work word is flipped over"
+       "text": "to go into",
+       "at": 14,
+       "note": "the excited word goes into the middle of the reversed work"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "go into",
-         "note": "the excited word goes inside"
+         "text": "flipping",
+         "at": 25,
+         "note": "flipping means turning over, so the work's letters are reversed"
         }
        ],
        "parts": [
         {
-         "words": "flipping work",
-         "gives": "PO",
-         "note": "OP = opus, a work, flipped"
-        },
-        {
-         "words": "excited",
-         "gives": "HOT",
-         "note": "hot = excited, worked up"
+         "words": "work",
+         "at": 34,
+         "gives": "OP",
+         "note": "op is short for opus, a work"
         }
        ]
+      },
+      {
+       "words": "excited",
+       "at": 6,
+       "gives": "HOT",
+       "note": "hot can mean excited or aroused"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone still keen to get stuck into their blasted job.",
-     "walkthrough": "'Still' is not an adverb but a noun, a single frame from a film; 'flipping' also doubles as a mild British curse.",
-     "definitionFit": "A still is a photo, especially one taken from a film."
+     "surface": "An excited person keeps going into a dreaded job they can't stand.",
+     "walkthrough": "'flipping' looks like a mild British curse on 'work', but it is the reversal signal; work is the musical opus.",
+     "definitionFit": "A still is a single photograph, especially one taken from a film."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "Still"
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flipping"
     }
    }
   },
@@ -1440,40 +1453,41 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "OMAHA",
-     "indicators": [
-      {
-       "text": "turning",
-       "note": "the flash word turns round"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 9,
+         "note": "turning means the flash word is turned round and read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "Flash",
-         "gives": "OM",
-         "note": "a mo = a moment, a flash, turned round"
-        },
-        {
-         "words": "I understand",
-         "gives": "AHA",
-         "note": "aha! = I see, I understand"
+         "at": 0,
+         "gives": "MO",
+         "note": "a mo is a moment, a flash, as in wait a mo"
         }
        ]
+      },
+      {
+       "words": "I understand",
+       "at": 18,
+       "gives": "AHA",
+       "note": "aha is an exclamation meaning I see, I understand"
       }
      ]
     },
     "explanation": {
-     "surface": "A tourist catching on, in a flash, while in a foreign city.",
-     "walkthrough": "'On' means the flash comes before, and 'I understand' is a whole exclamation, AHA.",
-     "definitionFit": "Omaha is a city in Nebraska, abroad from the paper's British viewpoint."
+     "surface": "Someone sees a flash while turning and suddenly understands they are in a foreign city.",
+     "walkthrough": "'turning' makes MO into OM; 'on' joins it to AHA.",
+     "definitionFit": "Omaha is the largest city in Nebraska, abroad from a British solver's viewpoint."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Flash"
     }
@@ -1500,41 +1514,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "INDIA",
-     "indicators": [
-      {
-       "text": "going around",
-       "note": "something going around comes back the way it came, so the help word is read right to left"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Home",
+       "at": 0,
+       "gives": "IN",
+       "note": "to be in is to be at home"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "going around",
+         "at": 10,
+         "note": "going around means turning about, so the help word is reversed"
+        }
+       ],
        "parts": [
         {
-         "words": "Home",
-         "gives": "IN",
-         "note": "at home = in"
-        },
-        {
-         "words": "help going around",
-         "gives": "DIA",
-         "note": "aid = help, turned round"
+         "words": "help",
+         "at": 5,
+         "gives": "AID",
+         "note": "aid is help"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A home help doing the rounds in a flustered state.",
-     "walkthrough": "'In a state' reads as flustered; 'in' is only a link and 'a state' is the definition.",
-     "definitionFit": "A definition by example: a state in the sense of a nation, not the flustered condition the surface suggests."
+     "surface": "A home help is going round the house in a flustered state.",
+     "walkthrough": "'in a state' looks like a phrase for being agitated; here 'a state' is the definition, a nation, and 'in' only links it.",
+     "definitionFit": "India is a sovereign nation, and a state in the sense of an independent country."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "state"
     }
    }
