@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -821,26 +822,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "RIGHTON",
      "indicators": [
       {
        "text": "Topless",
-       "note": "Something topless has lost whatever sat on top of it, so the word goes without its opening letter."
+       "at": 0,
+       "note": "with its top cut off, the town's name loses its first letter, since in an across answer the top is the start"
       }
      ],
      "parts": [
       {
        "words": "seaside town",
-       "gives": "RIGHTON",
-       "note": "Brighton is the big resort on the Sussex coast, and the B on the front of it is what a topless word loses"
+       "at": 8,
+       "gives": "BRIGHTON",
+       "note": "Brighton is a seaside resort on England's south coast"
+      },
+      {
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about a resort that has gone without its top.",
-     "walkthrough": "The joke in the surface is the beach, and the instruction is that a word can be topless too. 'Amen' and the answer are both ways of saying you agree with what has just been said.",
-     "definitionFit": "Saying amen to something is endorsing it out loud, which is the approving shout the answer makes."
+     "surface": "A cheeky tabloid line about bare sunbathers on the beach, met with a pious 'Amen'.",
+     "walkthrough": "'Topless' pretends to describe beachgoers; it means beheading BRIGHTON, a resort on England's south coast. 'Amen' is the exclamation of agreement.",
+     "definitionFit": "Both 'Amen!' and 'Right on!' are exclamations of hearty agreement with what has just been said."
     },
     "features": {
      "answerInScene": false,
@@ -1174,46 +1178,24 @@
     "definitions": [
      {
       "text": "Not included",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: excluded, not kept informed"
+     },
+     {
+      "text": "how crossword setter found anagram for 'pothole'",
+      "at": 14,
+      "meaning": "second meaning, read literally: the letters of the word pothole were got by rearranging the letters of 'the loop'"
      }
     ],
-    "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OUTOFTHELOOP",
-     "indicators": [
-      {
-       "text": "anagram for",
-       "note": "The clue says the word outright: the letters named next are to be rearranged into something else."
-      }
-     ],
-     "parts": [
-      {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "how crossword setter found",
-         "gives": "OUTOF",
-         "note": "the question asks where he got it from, and you make one word out of the letters of another"
-        },
-        {
-         "words": "'pothole'",
-         "gives": "THELOOP",
-         "note": "the seven letters of the quoted word in a new order"
-        }
-       ]
-      }
-     ]
-    },
     "explanation": {
-     "surface": "A setter being asked where he found an anagram of a word for a hole in the road.",
-     "walkthrough": "The colon reads as a heading introducing the question, and it is separating a definition from its wordplay. The setter is describing his own trade, which is how the question hides its answer.",
-     "definitionFit": "Somebody out of the loop has been left off the circulation list, so the news goes round without ever reaching them."
+     "walkthrough": "The second half is a playful literal reading: rearrange THE LOOP and you get POTHOLE, so the setter found it from within that phrase.",
+     "definitionFit": "Being out of the loop is an idiom for being left uninformed, excluded from a group's knowledge."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun"
+     "joke": "pun",
+     "misdirectedWord": "pothole"
     }
    }
   },
