@@ -972,49 +972,72 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "to",
+       "at": 35,
+       "note": "to joins the skill to what it is applied to, setting the check straight after it"
+      }
+     ],
      "parts": [
       {
        "words": "have skill",
+       "at": 24,
        "gives": "CAN",
-       "note": "to be able to do something"
+       "note": "to have the skill to do something is to be able to, so can"
       },
       {
-       "words": "to check",
+       "words": "check",
+       "at": 38,
        "gives": "TAB",
-       "note": "to keep tabs on is to check"
+       "note": "to keep tabs on something is to check it, so tab"
       },
       {
-       "op": "nth",
-       "unchecked": true,
-       "gives": "ANK",
-       "n": 2,
+       "op": "deletion",
        "indicators": [
         {
          "text": "trio after",
-         "note": "a trio is three, so the three letters that come after the opening one are kept"
+         "at": 44,
+         "note": "trio after keeps only three letters following the removed head, so everything beyond them is dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Nanki-Poo's",
-         "gives": "ANK",
-         "select": 2,
-         "note": "the second, third and fourth letters, after the initial N"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "head",
+           "at": 67,
+           "note": "head is the name's first letter, which is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Nanki-Poo's",
+           "at": 55,
+           "note": "the name whose letters are trimmed at both ends"
+          },
+          {
+           "gives": "N"
+          }
+         ]
+        },
+        {
+         "gives": "IPOOS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Nanki-Poo, singing his song from The Mikado, boasts of the skill that keeps a trio in line.",
-     "walkthrough": "A wand'ring minstrel I is Nanki-Poo's opening song in Gilbert and Sullivan's The Mikado, so the singer defines himself.",
-     "definitionFit": "A cantabank is a strolling singer, a ballad-monger who performed on street platforms."
+     "surface": "Nanki-Poo's opening song from The Mikado, followed by a list of his talents.",
+     "walkthrough": "In Gilbert and Sullivan's The Mikado, Nanki-Poo introduces himself singing 'A wand'ring minstrel I'. 'head' drops the N of Nanki-Poo's, and 'trio after' keeps the next three letters, ANK, dropping the rest.",
+     "definitionFit": "A cantabank is an old word for a strolling ballad singer, a street minstrel of low standing."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "trio"
+     "misdirectedWord": "check"
     }
    }
   },
