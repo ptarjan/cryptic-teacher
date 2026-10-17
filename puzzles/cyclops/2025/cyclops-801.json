@@ -571,52 +571,56 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "only the first letter of 'member'"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Conservative",
-         "note": "C = Conservative"
-        }
-       ]
+       "words": "Conservative",
+       "at": 0,
+       "gives": "C"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "falling into",
-         "note": "something that falls into a hole ends up inside it"
+         "at": 30,
+         "note": "the member's first letter falls into the word for disregard, landing inside it"
         }
        ],
        "parts": [
         {
          "words": "disregard",
+         "at": 43,
          "gives": "OMISSION",
-         "note": "an omission = a thing disregarded or left out; it takes in the next piece"
+         "note": "an omission is a failure to attend to something, a disregard"
         },
         {
-         "words": "member initially",
-         "gives": "M",
-         "note": "first letter of member, placed after the O: O(M)MISSION"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 20,
+           "note": "initially means at the start, so only the first letter of member is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "member",
+           "at": 13,
+           "note": "taken as written; only its first letter is used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Conservative MP who first slips into ignoring the rules ends up taking a cut.",
-     "walkthrough": "The surface is a sleaze story; commission is the percentage paid to an agent or broker.",
-     "definitionFit": "A commission is a fee calculated as a percentage of a sale."
+     "surface": "A Tory MP who ignores the rules picks up a cut of the profits.",
+     "walkthrough": "'initially' takes M from member, which is 'falling into' OMISSION (disregard), after C (Conservative).",
+     "definitionFit": "A commission is a fee paid to an agent as a share of the value of a sale, a percentage."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "member"
+     "misdirectedWord": "disregard"
     }
    }
   },
@@ -1116,42 +1120,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "initially",
-       "note": "first letters of 'young Jack'"
-      }
-     ],
      "parts": [
       {
        "words": "performing",
+       "at": 7,
        "gives": "ON",
-       "note": "a performer is on stage"
+       "note": "a performer on stage is on"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "swamped by"
+         "text": "swamped by",
+         "at": 42,
+         "note": "the initials are swamped, engulfed, by the word for desire, so they sit inside it"
         }
        ],
        "parts": [
         {
          "words": "desire",
+         "at": 53,
          "gives": "LUST",
-         "note": "lust = desire; it holds the next piece"
+         "note": "lust is strong desire"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "YJ",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 31,
+           "note": "initially takes the first letter of each of young and Jack"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "young Jack, initially",
-           "gives": "YJ",
-           "select": "first",
-           "note": "first letters of Young Jack: L(YJ)UST"
+           "words": "young Jack",
+           "at": 19,
+           "note": "taken as written; the first letter of each word is used"
           }
          ]
         }
@@ -1160,12 +1165,12 @@
      ]
     },
     "explanation": {
-     "surface": "A young man named Jack, overcome with desire, is hardly able to perform.",
-     "walkthrough": "'Barely performing' reads as one phrase; the definition is only 'Barely', and 'performing' gives ON.",
-     "definitionFit": "Only just means barely, by the narrowest margin."
+     "surface": "A young lad called Jack, barely managing on stage, is overcome with longing.",
+     "walkthrough": "The brackets make 'swamped by desire' look like an aside about Jack; it is the container instruction for the initials.",
+     "definitionFit": "Only just means by the narrowest margin, which is the sense of barely."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "performing"
     }
@@ -1288,56 +1293,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REEVES",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "prepared",
-         "note": "EVER is prepared, made into a new form"
+         "at": 5,
+         "note": "prepared as food is prepared, worked into a new form, so the letters of ever are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Ever",
-         "gives": "REEV",
-         "note": "EVER rearranged"
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "last two instalments of",
+         "at": 21,
+         "note": "the last two instalments of the word are its final two letters, so its first goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Yes",
+         "at": 45,
+         "gives": "YES"
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "ES",
-         "indicators": [
-          {
-           "text": "last two instalments of",
-           "note": "the last two letters of 'Yes'"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Yes",
-           "gives": "ES",
-           "select": "last",
-           "note": "last two letters of yES"
-          }
-         ]
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A question about whether someone was always ready ahead of the final episodes of 'Yes Minister', the BBC political sitcom.",
-     "walkthrough": "'Yes Minister' is split: 'Yes' feeds the wordplay, 'Minister?' is the definition. Rachel Reeves is the UK Chancellor, a government minister; the '?' marks the definition by example.",
-     "definitionFit": "Rachel Reeves is Chancellor of the Exchequer, a senior UK government minister."
+     "surface": "A fan of the sitcom Yes Minister is always ready for its final episodes.",
+     "walkthrough": "'prepared' turns EVER into REEV, then 'last two instalments of' Yes gives ES. Yes Minister was a BBC sitcom about a government minister; the definition is a real one, Rachel Reeves, the UK Chancellor.",
+     "definitionFit": "Rachel Reeves became Chancellor of the Exchequer in 2024, a senior government minister, hence the question mark for a definition by example."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Minister"
     }
    }
