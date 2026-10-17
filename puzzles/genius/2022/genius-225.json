@@ -362,22 +362,38 @@
      "op": "deletion",
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "NASVE",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "outsiders kicked out",
-         "note": "with the outer letters of the phrase kicked out, only a short run from its middle is left"
+         "text": "kicked out",
+         "at": 44,
+         "note": "the outsiders are kicked out, so the letters at the back of the phrase are thrown away too"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "chosen as vestry",
-         "gives": "NASVE",
-         "select": "middle",
-         "note": "a run from the middle of the phrase; its S is the clue's superfluous letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "outsiders",
+           "at": 34,
+           "note": "with kicked out, the letters on the outside of the phrase, at its front, are thrown away"
+          }
+         ],
+         "parts": [
+          {
+           "words": "chosen as vestry",
+           "at": 15,
+           "gives": "CHOSENASVESTRY",
+           "note": "the run left in the middle of these words, read straight through, gives the answer plus one spare letter"
+          },
+          {
+           "gives": "CHOSE"
+          }
+         ]
+        },
+        {
+         "gives": "STRY"
         }
        ]
       },
@@ -387,9 +403,9 @@
      ]
     },
     "explanation": {
-     "surface": "Part of a church has been chosen to serve as the vestry.",
-     "walkthrough": "The hidden run is NASVE; the surplus S is the fourth letter of the instruction.",
-     "definitionFit": "The nave is the main central body of a church, where the congregation sits."
+     "surface": "A vestry is picked to serve as part of the church, with outsiders thrown out.",
+     "walkthrough": "'Outsiders' drops CHOSE, leaving NASVESTRY, and 'kicked out' drops STRY, leaving NASVE; its S is this clue's superfluous letter for the preamble's message, so it goes.",
+     "definitionFit": "The nave is the central body of a church building where the congregation sits."
     },
     "features": {
      "answerInScene": true,
@@ -615,50 +631,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ENIGMAS",
      "indicators": [
       {
        "text": "full of",
-       "note": "something full of a thing holds it inside, so the writing tools surround the jumble"
+       "at": 8,
+       "note": "the writers' word holds the other letters inside it, as a container is full of its contents"
       }
      ],
      "parts": [
       {
+       "words": "Writers",
+       "at": 0,
+       "gives": "ENS",
+       "note": "writers are pens; the P of pens is this clue's superfluous letter, which the preamble removes"
+      },
+      {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "ENIGMAS",
        "indicators": [
         {
          "text": "extraordinary",
-         "note": "extraordinary means out of the usual order, so the letters are reshuffled"
+         "at": 16,
+         "note": "something extraordinary is out of the ordinary, so the letters of magic are rearranged"
         }
        ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "ENIGMAS",
          "indicators": [
           {
            "text": "putting out",
-           "note": "putting something out ejects it, so the Roman hundred is taken away"
+           "at": 36,
+           "note": "one letter is removed from the word magic, as if put out of it"
           }
          ],
          "parts": [
           {
-           "words": "Writers",
-           "gives": "PENS",
-           "note": "pens are writing implements; the P is this clue's superfluous letter"
-          },
-          {
            "words": "magic",
-           "note": "taken as written, then rearranged"
+           "at": 30
           },
           {
            "words": "100",
+           "at": 48,
            "gives": "C",
-           "note": "C is the Roman numeral for 100, removed"
+           "note": "C is the Roman numeral for 100"
           }
          ]
         }
@@ -667,9 +682,9 @@
      ]
     },
     "explanation": {
-     "surface": "Authors steeped in extraordinary magic produce a hundred puzzles.",
-     "walkthrough": "The wordplay gives PENIGMAS; the surplus P is the second letter of SPLIT.",
-     "definitionFit": "An enigma is a mystery or riddle, so enigmas are puzzles."
+     "surface": "Writers steeped in remarkable magic, without a hundred of something, produce puzzles.",
+     "walkthrough": "Writers are PENS, but the preamble's superfluous letter here is the P, leaving ENS. 'Putting out' C (100) from MAGIC leaves MAGI, 'extraordinary' rearranges it, and ENS is 'full of' the result.",
+     "definitionFit": "Enigmas are mysteries or riddles, things that puzzle people, so a plural synonym."
     },
     "features": {
      "answerInScene": true,
@@ -752,55 +767,67 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "EWER",
-     "indicators": [
-      {
-       "text": "invaded by",
-       "note": "an invaded place has someone inside it, so the animal goes between the two letters"
-      }
-     ],
+     "op": "deletion",
      "parts": [
       {
-       "op": "deletion",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "invaded by",
+         "at": 21,
+         "note": "the sheep's letters force their way inside the pair of letters, as an invader enters territory"
+        }
+       ],
        "parts": [
         {
          "op": "charade",
+         "indicators": [
+          {
+           "text": "on",
+           "at": 12,
+           "note": "in a down clue one piece sits on top of the next, so the first comes before the second"
+          }
+         ],
          "parts": [
           {
            "words": "left",
-           "gives": "L",
-           "note": "L is the abbreviation for left; it is this clue's superfluous letter"
-          },
-          {
-           "words": "sheep",
-           "gives": "EWE",
-           "note": "a ewe is a female sheep"
+           "at": 7,
+           "gives": "L"
           },
           {
            "words": "river",
-           "gives": "R",
-           "note": "R is the abbreviation for river"
+           "at": 15,
+           "gives": "R"
           }
          ]
         },
         {
-         "gives": "L"
+         "words": "sheep",
+         "at": 32,
+         "gives": "EWE",
+         "note": "a ewe is a female sheep"
         }
        ]
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A boat moored on a river is overrun by a flock of sheep.",
-     "walkthrough": "The wordplay gives LEWER; the surplus L is the third letter of SPLIT. 'Vessel' suggests a boat, but this one holds water for washing.",
-     "definitionFit": "A ewer is a large jug or pitcher, so it is a vessel in the sense of a container for liquid."
+     "surface": "A boat left on a river finds itself overrun by sheep.",
+     "walkthrough": "L on R, invaded by EWE, gives LEWER; the preamble's spare letter here is the L, which goes.",
+     "definitionFit": "A ewer is a large jug or pitcher, a container for water, so a vessel in the sense of receptacle."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Vessel"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "L"
     }
    }
   },
@@ -1196,54 +1223,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PASSACAGLIA",
+     "op": "composite",
      "indicators": [
       {
        "text": "organised",
-       "note": "organised means arranged into order, so the remaining letters are put into a new sequence"
+       "at": 31,
+       "note": "the letters are put into a new order, as something organised is rearranged"
+      },
+      {
+       "text": "putting",
+       "at": 42,
+       "note": "with off, this says the named letters are put off, removed from the pool before rearranging"
+      },
+      {
+       "text": "off",
+       "at": 66,
+       "note": "with putting, the named letters are taken off the pool of letters, removed before rearranging"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PASSACAGLIA",
-       "indicators": [
-        {
-         "text": "putting",
-         "note": "putting off two letters means sending them away, so they are taken out of the mix"
-        }
-       ],
+       "words": "a special gala's",
+       "at": 14,
+       "note": "these words supply the letters to be rearranged"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "a special gala's",
-         "note": "taken as written, thirteen letters"
-        },
-        {
          "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English, removed"
+         "at": 50,
+         "gives": "E"
         },
         {
          "words": "learner",
+         "at": 58,
          "gives": "L",
-         "note": "L is for learner, as on a learner driver's plates, removed"
+         "note": "L is for learner, as on a learner driver's L-plate"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Organisers of a gala put on Spanish music, sending away a learner from England.",
-     "walkthrough": "One E and one L come out of the thirteen letters, leaving eleven to rearrange.",
-     "definitionFit": "The passacaglia began as a Spanish street dance tune of the 17th century before becoming a Baroque variation form."
+     "surface": "A special gala's programme is arranged, with an English learner sent off stage.",
+     "walkthrough": "'Putting English learner off' removes E and L from the letters of A SPECIAL GALAS, and 'organised' rearranges the rest into the answer.",
+     "definitionFit": "A passacaglia is a slow stately dance form, originally Spanish, built over a repeating bass line."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "organised"
+     "misdirectedWord": "learner"
     }
    }
   },
