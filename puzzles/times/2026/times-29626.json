@@ -46,32 +46,36 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DUSTING",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cutting through",
+       "at": 21,
+       "note": "the reversed piece cuts into the dirt word, sitting inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "dirt",
+       "at": 37,
+       "gives": "DUNG",
+       "note": "dung is muck, a kind of dirt"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "On the counter",
-         "note": "running counter means going backwards, so IT'S is read right to left"
-        },
-        {
-         "text": "cutting through",
-         "note": "the reversed letters slice into the middle of the dirt"
+         "at": 0,
+         "note": "counter suggests running the opposite way, so these letters are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "dirt",
-         "gives": "DUNG",
-         "note": "dung = dirt, muck"
-        },
-        {
          "words": "it's",
-         "gives": "STI",
-         "note": "IT'S written backwards"
+         "at": 16,
+         "gives": "ITS",
+         "note": "the letters of it's, without the apostrophe"
         }
        ]
       }
@@ -79,9 +83,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A cleaning tip about wiping the kitchen worktop.",
-     "walkthrough": "The whole clue is both wordplay and definition: 'counter' is a kitchen worktop in the surface and a backwards instruction in the wordplay, and dusting a counter really does cut through dirt.",
-     "definitionFit": "Dusting is the cleaning done on a counter to clear away dirt."
+     "surface": "A cleaner wiping a kitchen counter, getting through the grime.",
+     "walkthrough": "'On the counter' turns IT'S into STI, which 'cutting through' puts inside DUNG. The whole clue also describes the answer: dusting a counter cuts through dirt.",
+     "definitionFit": "Dusting is the light household cleaning that removes grime from surfaces such as a worktop."
     },
     "features": {
      "answerInScene": true,
@@ -444,50 +448,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENNUI",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "somehow",
+       "at": 27,
+       "note": "somehow says the letters are put together in some unstated way, a rearrangement"
+      },
+      {
+       "text": "to overlook",
+       "at": 35,
+       "note": "to overlook something is to leave it out, so these letters are taken away from the pool"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ENNUI",
-       "indicators": [
-        {
-         "text": "somehow",
-         "note": "the letters of continues are to be arranged in some other way"
-        },
-        {
-         "text": "to overlook",
-         "note": "leave out the cost letters"
-        },
-        {
-         "text": "terrible",
-         "note": "the letters of cost can appear in any order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "continues",
-         "note": "anagram fodder, 9 letters"
-        },
-        {
-         "words": "cost",
-         "note": "these four letters are removed, in any order"
-        }
-       ]
+       "words": "continues",
+       "at": 17
+      },
+      {
+       "words": "terrible cost",
+       "at": 47,
+       "gives": "COST",
+       "note": "the letters of cost; terrible says they may be taken out in any order"
       }
      ]
     },
     "explanation": {
-     "surface": "Boredom drags on, and nobody minds an awful price.",
-     "walkthrough": "Take C, O, S and T out of CONTINUES and the five letters left, N I N U E, rearrange to ENNUI.",
-     "definitionFit": "Ennui is listless boredom, a lack of interest in anything."
+     "surface": "Someone whose boredom keeps them from noticing an awful expense.",
+     "walkthrough": "'to overlook terrible cost' removes C, O, S, T, in any order, from CONTINUES; the leftover N, I, N, U, E are then rearranged. The clue's opening adverb signals that shuffle.",
+     "definitionFit": "Ennui is listless weariness and boredom, a want of interest in anything."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "continues"
+     "misdirectedWord": "overlook"
     }
    }
   },
@@ -563,47 +558,51 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "originally",
-       "note": "take the first letters of 'of yore'"
+       "text": "erected",
+       "at": 37,
+       "note": "erected means set upright, so in a down clue the letters are read from the bottom up"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "erected",
-         "note": "in a down answer, set upright means read from bottom to top"
-        }
-       ],
        "parts": [
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "English",
-           "note": "E = English"
-          }
-         ]
+         "words": "English",
+         "at": 0,
+         "gives": "E"
         },
         {
          "words": "newspaper",
+         "at": 8,
          "gives": "TIMES",
-         "note": "The Times, the paper this puzzle comes from"
+         "note": "The Times is the newspaper"
         },
         {
-         "words": "of yore originally",
-         "gives": "OY",
-         "note": "first letters of Of Yore"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 26,
+           "note": "originally points to the opening letters of the words of yore"
+          }
+         ],
+         "parts": [
+          {
+           "words": "of yore",
+           "at": 18,
+           "note": "first letters O and Y"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old English newspaper that once set up an American national park.",
-     "walkthrough": "E + TIMES + OY is built first, then the whole string is turned upside down, which a down answer shows as reading bottom to top.",
-     "definitionFit": "Definition by example: the Californian valley of granite cliffs and waterfalls is one of the best-known US national parks."
+     "surface": "An old English newspaper put up a monument to an American national park.",
+     "walkthrough": "Build E + TIMES + OY ('originally' takes the first letters of 'of yore'), then 'erected' turns it upside down in this down clue.",
+     "definitionFit": "Yosemite in California's Sierra Nevada is one of the best-known United States national parks."
     },
     "features": {
      "answerInScene": false,
@@ -686,50 +685,51 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SIS",
      "indicators": [
       {
        "text": "employing",
-       "note": "the word Strangers takes on the new letter"
+       "at": 19,
+       "note": "employing one thing in place of another signals a swap of letters"
       },
       {
        "text": "for body",
-       "note": "the new letter stands in for the body, the middle of the word between its first and last letters"
+       "at": 49,
+       "note": "for body says the new letter replaces the body, the middle of the word"
       }
      ],
      "parts": [
       {
        "words": "Strangers",
-       "gives": "SS",
-       "note": "STRANGERS with its body TRANGER removed, leaving S…S"
+       "at": 9,
+       "note": "taken as written"
+      },
+      {
+       "gives": "TRANGER",
+       "note": "the body of Strangers, everything but its first and last letters"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "I",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "ultimately means in the end, so only the final letter of the name is used"
+         "at": 38,
+         "note": "ultimately points to the final letter of Baranski"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Baranski ultimately",
-         "gives": "I",
-         "select": "last",
-         "note": "last letter of BaranskI"
+         "words": "Baranski",
+         "at": 29,
+         "note": "last letter I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cast note about a film called Relative Strangers starring Christine Baranski.",
-     "walkthrough": "The body of STRANGERS is everything between its first and last letters; the I from Baranski replaces it. Christine Baranski is an American actress.",
-     "definitionFit": "Definition by category: the informal short form of sister names one kind of relative."
+     "surface": "The actress Christine Baranski cast in some show about relatives who are strangers.",
+     "walkthrough": "Keep only the outside S and S of STRANGERS, and put I (the last letter of Baranski, via 'ultimately') where its body was.",
+     "definitionFit": "Sis is the informal shortening of sister, a family relative."
     },
     "features": {
      "answerInScene": false,
@@ -809,15 +809,10 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "repeatedly",
-       "note": "repeatedly means more than once, so the contraction for 'one is' appears twice"
-      }
-     ],
      "parts": [
       {
        "words": "Plump",
+       "at": 0,
        "gives": "OPT",
        "note": "to plump for something is to opt for it"
       },
@@ -825,28 +820,42 @@
        "op": "container",
        "indicators": [
         {
-         "text": "clinging to"
+         "text": "clinging to",
+         "at": 24,
+         "note": "the doubled piece clings around the society letter, holding it inside"
         }
        ],
        "parts": [
         {
-         "words": "one is repeatedly",
-         "gives": "IMIM",
-         "note": "one is = I'M, written twice"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "one is",
+           "at": 6,
+           "gives": "IM",
+           "note": "I'm stands for I am, which is one is when one speaks of oneself"
+          },
+          {
+           "words": "repeatedly",
+           "at": 13,
+           "gives": "IM",
+           "note": "repeatedly says the previous piece is given again, a second I'm"
+          }
+         ]
         },
         {
          "words": "society",
-         "gives": "S",
-         "note": "S = society"
+         "at": 36,
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plump person who keeps clinging to society in a hopeful way.",
-     "walkthrough": "'Plump' looks like an adjective about weight but is the verb, as in 'plump for'. Only the second copy of the contraction does the clinging.",
-     "definitionFit": "Plain synonym: a hopeful, look-on-the-bright-side outlook is positivity."
+     "surface": "A plump person keeps clinging on in high society and stays upbeat.",
+     "walkthrough": "IMIM ('one is' twice, through 'repeatedly') clings round S, giving IMISM, which goes after OPT.",
+     "definitionFit": "Optimism is a hopeful, confident outlook, the habit of expecting good outcomes."
     },
     "features": {
      "answerInScene": false,
@@ -876,52 +885,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DECAPITATE",
+     "op": "container",
      "indicators": [
       {
-       "text": "about",
-       "note": "the speed word turns around"
+       "text": "retaining",
+       "at": 32,
+       "note": "the date word retains the other letters, holding them inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "retaining",
-         "note": "the boyfriend word keeps the other letters inside"
-        }
-       ],
+       "words": "boyfriend, maybe",
+       "at": 15,
+       "gives": "DATE",
+       "note": "a boyfriend is one example of a date, a romantic partner"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "about",
+           "at": 48,
+           "note": "about signals the word for speed is turned around"
+          }
+         ],
          "parts": [
           {
-           "words": "boyfriend, maybe",
-           "gives": "DATE",
-           "note": "a date may be a boyfriend"
-          },
-          {
-           "words": "speed about",
-           "gives": "ECAP",
-           "note": "PACE = speed, turned around"
+           "words": "speed",
+           "at": 42,
+           "gives": "PACE",
+           "note": "pace means speed"
           }
          ]
         },
         {
          "words": "it",
-         "note": "used as written"
+         "at": 54,
+         "gives": "IT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Undressing a boyfriend quickly.",
-     "walkthrough": "'Render topless' suggests stripping, but the top removed is a head.",
-     "definitionFit": "To decapitate is to cut off the head, leaving the body topless."
+     "surface": "A boyfriend stripping off his top in a hurry.",
+     "walkthrough": "'about' turns PACE into ECAP; with IT it goes inside DATE, which 'retaining' asks for. 'Topless' is not bare-chested but headless.",
+     "definitionFit": "To cut off a person's head is literally to leave them without a top."
     },
     "features": {
      "answerInScene": false,
@@ -1063,43 +1075,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TOORIGHT",
+     "op": "container",
      "indicators": [
       {
-       "text": "away from the south",
-       "note": "in a down answer, moving away from the bottom means reading upwards"
+       "text": "to carry",
+       "at": 15,
+       "note": "the mean word carries the creature inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "mean",
+       "at": 10,
+       "gives": "TIGHT",
+       "note": "tight means stingy, mean with money"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "to carry",
-         "note": "the mean word holds the creature inside"
+         "text": "away from the south",
+         "at": 44,
+         "note": "moving away from the south is heading north, upwards, so in a down clue the letters are reversed"
         }
        ],
        "parts": [
         {
-         "words": "mean",
-         "gives": "TIGHT",
-         "note": "tight = mean with money"
-        },
-        {
-         "words": "Australian creature away from the south",
-         "gives": "OOR",
-         "note": "ROO, short for kangaroo, going upwards"
+         "words": "Australian creature",
+         "at": 24,
+         "gives": "ROO",
+         "note": "a roo is a kangaroo, the Australian animal"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stingy set on carrying a kangaroo north.",
-     "walkthrough": "'Too right' is emphatic agreement, mostly Australian and British; the Australian creature fits that flavour.",
-     "definitionFit": "Idiom: the emphatic Australian and British exclamation of agreement works as 'certainly!' in reply to a remark."
+     "surface": "A stingy person refusing to let a kangaroo be taken out of the south.",
+     "walkthrough": "'away from the south' turns ROO into OOR in this down clue, and 'to carry' puts it inside TIGHT. The answer is Australian slang, fitting the kangaroo.",
+     "definitionFit": "Too right is an Australian and British exclamation of emphatic agreement, like absolutely."
     },
     "features": {
      "answerInScene": true,
@@ -1182,48 +1196,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TROUSER",
+     "op": "container",
      "indicators": [
       {
-       "text": "around",
-       "note": "the measure word is turned round"
+       "text": "outside of",
+       "at": 15,
+       "note": "the reversed measure goes outside the uniform letter, enclosing it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "outside of",
-         "note": "the turned word goes outside the uniform letter"
+         "text": "around",
+         "at": 8,
+         "note": "around says the measure word is turned round, read backwards"
         }
        ],
        "parts": [
         {
-         "words": "Measure around",
-         "gives": "TROSER",
-         "note": "RESORT = a measure, as in 'last resort', turned round"
-        },
-        {
-         "words": "uniform",
-         "gives": "U",
-         "note": "U = uniform in the phonetic alphabet"
+         "words": "Measure",
+         "at": 0,
+         "gives": "RESORT",
+         "note": "a resort is a measure one turns to, as in a last resort"
         }
        ]
+      },
+      {
+       "words": "uniform's",
+       "at": 26,
+       "gives": "U",
+       "note": "Uniform is U in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "Taking a tape measure round the outside of a uniform pocket.",
-     "walkthrough": "'Pocket' is the verb: to trouser money is to pocket it. The tailoring surface makes 'measure' look like a tape measure.",
-     "definitionFit": "To trouser something is to pocket it, often dishonestly."
+     "surface": "Taking the measurements around the outside of a uniform's pocket.",
+     "walkthrough": "'around' reverses RESORT to TROSER, which goes 'outside of' U. The definition is the verb: to trouser money is to pocket it.",
+     "definitionFit": "In British slang to trouser a sum is to take it for yourself, especially dishonestly."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Measure"
+     "misdirectedWord": "pocket"
     }
    }
   },
@@ -1248,46 +1264,51 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "composite",
      "indicators": [
       {
        "text": "unfortunately",
-       "note": "the letters of the phrase have come out badly arranged"
+       "at": 5,
+       "note": "unfortunately suggests things going wrong, so the letters come out jumbled"
+      },
+      {
+       "text": "cutting",
+       "at": 28,
+       "note": "cutting a letter means removing it from the pool before rearranging"
       }
      ],
      "parts": [
       {
-       "words": "Earl",
-       "gives": "E",
-       "note": "E = Earl"
-      },
-      {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "cutting",
-         "note": "cutting a letter means snipping it off, so the L for line is removed from the phrase"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "let slip cutting line",
-         "gives": "ETSLIP",
-         "note": "LETSLIP minus one L (line)"
+         "words": "Earl",
+         "at": 0,
+         "gives": "E"
+        },
+        {
+         "words": "let slip",
+         "at": 19,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "line",
+       "at": 36,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "An earl who has unluckily blurted something out in a letter.",
-     "walkthrough": "'Let slip' reads as a phrase meaning blurted, but it is just letters to rearrange once an L is gone.",
-     "definitionFit": "Plain synonym, usually for a formal or biblical letter, like the New Testament letters of Paul."
+     "surface": "An earl regrettably blurted something out, cutting a line from his letter.",
+     "walkthrough": "Take E plus LET SLIP, remove one L ('cutting line'), and rearrange the rest, as 'unfortunately' signals.",
+     "definitionFit": "An epistle is a formal or literary letter, like those of the New Testament."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "line"
+     "misdirectedWord": "letter"
     }
    }
   },
@@ -1312,37 +1333,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HYBRID",
+     "op": "middle",
      "indicators": [
       {
        "text": "stripped",
-       "note": "each word loses an outer letter"
+       "at": 31,
+       "note": "stripped means the outer layer is taken off, so the first and last letters go"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "your old",
-         "gives": "HY",
-         "note": "THY = your in old English, without its T"
-        },
-        {
-         "words": "new wife",
-         "gives": "BRID",
-         "note": "BRIDE = new wife, without its E"
-        }
-       ]
+       "words": "your old and new wife",
+       "at": 9,
+       "gives": "THYBRIDE",
+       "note": "thy is the old form of your, and a bride is a newly married wife; together, as the clue says, they make one string"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone annoyed that an ex and a new wife have been undressed together.",
-     "walkthrough": "'Cross' looks like angry, but it is the noun: a cross between two breeds.",
-     "definitionFit": "A hybrid is a cross between two species or varieties."
+     "surface": "Annoyed because your old flame and a new wife were undressing together.",
+     "walkthrough": "Join THY and BRIDE, then 'stripped' removes the T at the front and the E at the end of the whole string. 'Cross' is the noun, not anger.",
+     "definitionFit": "A hybrid is the offspring of a cross between two different breeds or species."
     },
     "features": {
      "answerInScene": false,
