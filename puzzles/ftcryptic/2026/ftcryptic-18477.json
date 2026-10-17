@@ -112,54 +112,53 @@
      "indicators": [
       {
        "text": "coursing through",
-       "note": "a river courses through land, so the river's letters run through the others"
+       "at": 23,
+       "note": "coursing through means running through the middle, so the river sits inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "central",
-         "note": "takes the middle letters of Qatar"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "ATA",
+         "indicators": [
+          {
+           "text": "central",
+           "at": 40,
+           "note": "central takes the middle of Qatar, all but its first and last letters"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "central Qatar",
-           "gives": "ATA",
-           "select": "middle",
-           "note": "the middle three letters of qATAr"
+           "words": "Qatar",
+           "at": 48,
+           "note": "Qatar loses its outer letters, leaving the middle three"
           }
          ]
         },
         {
          "words": "area",
-         "gives": "A",
-         "note": "A = area, the standard abbreviation"
+         "at": 7,
+         "gives": "A"
         }
        ]
       },
       {
        "words": "river",
+       "at": 17,
        "gives": "CAM",
-       "note": "the Cam, the river through Cambridge"
+       "note": "the Cam is the river that flows through Cambridge"
       }
      ]
     },
     "explanation": {
-     "surface": "A travel note about a dry region of the Gulf with a river flowing across it.",
-     "walkthrough": "Qatar is a desert country, which pulls you toward the Gulf; the answer is in South America, and Qatar is only there for its middle.",
-     "definitionFit": "A definition by example: the Atacama in northern Chile is one of the driest deserts on Earth."
+     "surface": "A geography note: a desert region with a river flowing through the heart of Qatar.",
+     "walkthrough": "'central' Qatar gives ATA; add A for area, and the river CAM 'coursing through' goes between them. Qatar itself is desert with no rivers, which is the misdirection.",
+     "definitionFit": "The Atacama in northern Chile is one of the driest deserts on Earth."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Qatar"
     }
@@ -247,71 +246,61 @@
     "definitions": [
      {
       "text": "16 9",
-      "at": 0
+      "at": 0,
+      "note": "the entries at 16 and 9 read espionage agency, which defines the full answer"
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SECRETINTELLIGENCESERVICE",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "ground",
+       "at": 58,
+       "note": "ground means crushed and broken up, so all these letters are mixed together"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "church",
+       "at": 5,
+       "gives": "CE",
+       "note": "CE is the Church of England"
+      },
+      {
+       "words": "Leicester",
+       "at": 15
+      },
+      {
+       "words": "in",
+       "at": 27
+      },
+      {
+       "words": "Leicester",
+       "at": 30
+      },
+      {
+       "op": "alternate",
        "indicators": [
         {
-         "text": "in",
-         "note": "church is put inside Leicester"
+         "text": "regularly",
+         "at": 42,
+         "note": "regularly takes every other letter of given"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "regularly",
-           "note": "takes every other letter of given, at regular intervals"
-          }
-         ],
-         "parts": [
-          {
-           "words": "church in Leicester",
-           "gives": "LEICECESTER",
-           "note": "CE (Church of England) placed inside LEICESTER"
-          },
-          {
-           "words": "in Leicester",
-           "note": "taken as printed"
-          },
-          {
-           "op": "regular",
-           "unchecked": true,
-           "gives": "GVN",
-           "indicators": [
-            {
-             "text": "ground",
-             "note": "ground letters are broken up and remade, like grain in a mill"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "given",
-             "gives": "GVN",
-             "select": "regular",
-             "note": "the odd letters of GiVeN"
-            }
-           ]
-          }
-         ]
+         "words": "given",
+         "at": 52,
+         "note": "given supplies its odd letters, first, third and fifth"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A church in Leicester has had its land handed over, with the town named twice for emphasis.",
-     "walkthrough": "16 and 9 are ESPIONAGE and AGENCY, so the definition is 'espionage agency'. The repeated 'in Leicester' is not a stammer: the first is the container, the second is fodder. Leicester is an English city.",
-     "definitionFit": "The Secret Intelligence Service, better known as MI6, is Britain's foreign espionage agency."
+     "surface": "A puzzle-like line about a church in Leicester, repeated, and something regularly being worn down.",
+     "walkthrough": "'16 9' points to the entries ESPIONAGE and AGENCY. CE, LEICESTER, IN, LEICESTER and GVN ('regularly' given) make exactly the 25 letters, which 'ground' rearranges into the three-word answer.",
+     "definitionFit": "The Secret Intelligence Service, better known as MI6, is Britain's foreign spying organisation."
     },
     "features": {
      "answerInScene": false,
@@ -813,42 +802,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "here and there",
-       "note": "picks letters dotted through Weasley, every other one"
+       "text": "enters",
+       "at": 28,
+       "note": "enters means goes inside, so the picked letters sit within the other word"
       }
      ],
      "parts": [
       {
        "words": "accordingly",
+       "at": 35,
        "gives": "THUS",
-       "note": "thus = accordingly, therefore"
+       "note": "thus means accordingly, therefore"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "ESE",
        "indicators": [
         {
-         "text": "enters",
-         "note": "the letters go into the other word the way a person enters a room"
+         "text": "here and there",
+         "at": 13,
+         "note": "here and there picks out alternate letters of Weasley"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Weasley here and there",
-         "gives": "ESE",
-         "select": "alternate",
-         "note": "the even letters of wEaSlEy"
+         "words": "Weasley",
+         "at": 5,
+         "note": "Weasley gives its even letters, second, fourth and sixth"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Harry Potter fan announces that heroic Ron Weasley makes an entrance.",
-     "walkthrough": "Weasley suggests Ron or Harry Potter; it is only there for its letters.",
-     "definitionFit": "A definition by example: Theseus is the Greek hero who killed the Minotaur."
+     "surface": "A Harry Potter character named Weasley pops in and out heroically.",
+     "walkthrough": "'here and there' picks ESE from Weasley, which 'enters' THUS. The Weasleys are a family in the Harry Potter books.",
+     "definitionFit": "Theseus is the Greek hero who killed the Minotaur in the Cretan labyrinth."
     },
     "features": {
      "answerInScene": false,
@@ -1072,57 +1060,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FILIGREE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 34,
+       "note": "in places the rearranged letters inside the outer pair"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "force",
+         "at": 37,
+         "gives": "F",
+         "note": "F is the physics symbol for force"
+        },
+        {
+         "words": "earl",
+         "at": 48,
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "bad",
-         "note": "bad letters are spoiled into a new order"
+         "at": 23,
+         "note": "bad means faulty, so the letters of girlie are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "force",
-         "gives": "F",
-         "note": "F = force, in physics"
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "in"
-          }
-         ],
-         "parts": [
-          {
-           "words": "girlie",
-           "gives": "ILIGRE",
-           "note": "GIRLIE anagrammed"
-          },
-          {
-           "words": "earl",
-           "gives": "E",
-           "note": "E = earl"
-          }
-         ]
+         "words": "girlie",
+         "at": 27
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scandal sheet: something twisted came of a bad girl forcing herself on an earl.",
-     "walkthrough": "'Something twisted' sounds moral; it is literal, since filigree is made of twisted wire.",
-     "definitionFit": "Filigree is delicate ornamental work of twisted gold or silver wire."
+     "surface": "Something warped comes from a badly behaved girl, backed by force and an aristocrat.",
+     "walkthrough": "ILIGRE, the 'bad' girlie, goes 'in' between F and E. 'Something twisted' sounds sinister but is literal: fine twisted wire.",
+     "definitionFit": "Filigree is delicate ornamental work made of twisted threads of gold or silver wire."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "twisted"
     }
    }
