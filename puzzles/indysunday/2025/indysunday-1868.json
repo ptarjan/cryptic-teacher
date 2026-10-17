@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -434,36 +435,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FUNDAMENT",
-     "indicators": [
-      {
-       "text": "awful",
-       "note": "Something in an awful state is in disarray, and letters in disarray have lost the order they were printed in."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Kitty",
+       "at": 0,
+       "gives": "FUND",
+       "note": "a kitty is a pool of money, a fund"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awful",
+         "at": 13,
+         "note": "awful means dreadful, a mess, so the letters of met and an are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Kitty",
-         "gives": "FUND",
-         "note": "the kitty is the pot of money a group all chips into"
+         "words": "met",
+         "at": 6,
+         "note": "taken as written"
         },
         {
-         "words": "met an",
-         "gives": "AMENT",
-         "note": "five letters across two little words, to be reassembled"
+         "words": "an",
+         "at": 10,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "FUNDAMENT is the formal, faintly medical word for the buttocks, and it shares a root with foundation: what you sit on is what you rest on.",
-     "definitionFit": "arse -> FUNDAMENT: the polite anatomical word for the same part, the seat of the body, where the clue's word is the blunt one."
+     "surface": "Someone recounts that a woman called Kitty bumped into a dreadful idiot.",
+     "walkthrough": "'Kitty' looks like a name, but it is a pool of money; 'awful' rearranges MET AN into AMENT.",
+     "definitionFit": "Fundament is a formal or jocular word for the buttocks or anus, the bottom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kitty"
     }
    }
   },
@@ -529,36 +541,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MUTINY",
-     "indicators": [
-      {
-       "text": "curtailed",
-       "note": "To curtail is to dock a tail, so the word before this loses the letter at its end and keeps everything else."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "curtailed",
+         "at": 7,
+         "note": "curtailed means cut short, so the word for mother loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "Mother",
-         "gives": "MU",
-         "note": "mum is the British word for mother, and its tail comes off"
+         "at": 0,
+         "gives": "MUM",
+         "note": "mum is an informal word for mother"
         },
         {
-         "words": "baby",
-         "gives": "TINY",
-         "note": "a baby portion or a baby car is a tiny one"
+         "gives": "M"
         }
        ]
+      },
+      {
+       "words": "baby's",
+       "at": 17,
+       "gives": "TINY",
+       "note": "the 's reads as 'is': baby, as an adjective for something small, means tiny"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface has a parent cutting short some backchat, so the two halves of the wordplay read as one continuous sentence about a family row.",
-     "definitionFit": "insubordination -> MUTINY: refusal to obey those set over you, the word reached for when a crew or a regiment turns on its officers."
+     "surface": "A mother cut short her infant's defiance.",
+     "walkthrough": "Baby as an adjective means very small, as in baby carrots.",
+     "definitionFit": "Mutiny is open rebellion against authority, especially by sailors or soldiers, a form of insubordination."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "baby's"
     }
    }
   },
