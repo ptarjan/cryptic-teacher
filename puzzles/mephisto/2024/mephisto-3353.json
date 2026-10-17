@@ -473,45 +473,51 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "stealing",
+       "at": 15,
+       "note": "stealing takes something away, so letters are removed"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "MAUMAU",
        "indicators": [
         {
-         "text": "stealing",
-         "note": "stealing something from a person takes it away from them"
+         "text": "from",
+         "at": 33,
+         "note": "from names the word the letters are taken out of"
         }
        ],
        "parts": [
         {
-         "words": "diamonds",
-         "gives": "D",
-         "note": "D is the card-suit abbreviation"
+         "words": "girl more than once",
+         "at": 38,
+         "gives": "MAUDMAUD",
+         "note": "Maud is a girl's name, here written twice"
         },
         {
-         "words": "girl",
-         "gives": "MAUD",
-         "note": "a girl's name"
+         "words": "diamonds",
+         "at": 24,
+         "gives": "D",
+         "note": "D is the card-suit abbreviation for diamonds; being plural, one D is taken from each copy of the name"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "more than once",
-       "note": "an instruction to write the shortened name a second time, adding no new letters"
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Rebels repeatedly rob a girl of her diamond jewellery.",
-     "walkthrough": "'more than once' tells you to write the shortened name twice.",
-     "definitionFit": "The Mau Mau were Kenyan insurgents who fought British colonial rule in the 1950s."
+     "surface": "Insurgents in Africa rob a young woman of her jewels again and again.",
+     "walkthrough": "'more than once' doubles the name MAUD; 'stealing' and 'from' then take a D (diamonds) out of each copy.",
+     "definitionFit": "The Mau Mau were Kikuyu insurgents who fought British colonial rule in Kenya in the 1950s."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "diamonds"
     }
@@ -861,29 +867,30 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OBELI",
+     "op": "middle",
      "indicators": [
       {
        "text": "lacking hems",
-       "note": "hems are the outer edges of cloth, so losing them strips both ends off"
+       "at": 9,
+       "note": "hems are a cloth's edges, so the word loses its outer letters"
       }
      ],
      "parts": [
       {
        "words": "Tapestry",
+       "at": 0,
        "gives": "GOBELIN",
-       "note": "Gobelin is a famous French tapestry"
+       "note": "a Gobelin is a tapestry from the famous Paris works"
       }
      ]
     },
     "explanation": {
-     "surface": "An old wall hanging with frayed edges shows signs of tampering.",
-     "definitionFit": "Obeli are dagger or dash marks scribes put beside passages thought spurious, flagging interpolated text."
+     "surface": "A wall hanging with its edges cut off shows signs of having been tampered with.",
+     "walkthrough": "'lacking hems' strips the first and last letters from GOBELIN, the Paris tapestry.",
+     "definitionFit": "Obeli are the dagger-like marks scholars put beside passages in a text they judge spurious, later insertions."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "hems"
     }
