@@ -645,47 +645,47 @@
      "op": "container",
      "indicators": [
       {
-       "text": "at last",
-       "note": "take the last letter of each word"
+       "text": "breaking",
+       "at": 36,
+       "note": "breaking means splitting the word for law open so the picked letters sit inside it"
       }
      ],
      "parts": [
       {
        "words": "law",
+       "at": 45,
        "gives": "STATUTE",
-       "note": "a statute is a law"
+       "note": "a statute is a written law passed by a legislature"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "ET",
        "indicators": [
         {
-         "text": "breaking"
+         "text": "at last",
+         "at": 27,
+         "note": "at last picks the final letter of each of the two words before it"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Wilde caught at last",
-         "gives": "ET",
-         "select": "last",
-         "note": "the last letters of Wilde and caught"
+         "words": "Wilde caught",
+         "at": 14,
+         "note": "last letters of Wilde and caught"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Oscar Wilde, finally arrested for breaking the law.",
-     "walkthrough": "Oscar Wilde really was jailed, which makes the surface convincing; the name splits, Oscar joining 'Perhaps' as the definition.",
-     "definitionFit": "A definition by example: an Oscar, the Academy Award, is one kind of statuette, which 'Perhaps' signals."
+     "surface": "Oscar Wilde was finally caught breaking the law and jailed.",
+     "walkthrough": "'Oscar Wilde' reads as one man, but Oscar alone is the definition, the film award, with 'Perhaps' flagging it as an example; Wilde only lends his last letter.",
+     "definitionFit": "The Oscar is the statuette given at the Academy Awards, so it is an example of a small statue."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Oscar"
+     "misdirectedWord": "Wilde"
     }
    }
   },
@@ -758,44 +758,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SCOOTER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put in",
+       "at": 21,
+       "note": "put in says the letters for firm go inside the rearranged store"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "put in"
-        },
-        {
          "text": "for renovation",
-         "note": "STORE is renovated, its letters rearranged"
+         "at": 34,
+         "note": "something up for renovation is going to be remade, so the word store is rearranged"
         }
        ],
        "parts": [
         {
          "words": "store",
-         "gives": "SOTER",
-         "note": "STORE rearranged"
-        },
-        {
-         "words": "firm",
-         "gives": "CO",
-         "note": "CO is the abbreviation for company"
+         "at": 28,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "firm",
+       "at": 16,
+       "gives": "CO",
+       "note": "CO is the abbreviation for company, a firm"
       }
      ]
     },
     "explanation": {
-     "surface": "A company brings a mobility scooter into a shop being refitted.",
-     "walkthrough": "The firm sits after the first letter of the rearranged shop.",
-     "definitionFit": "A mobility scooter is a small motorised vehicle for people who have trouble walking."
+     "surface": "A company fits out a shop being refurbished to sell mobility aids.",
+     "walkthrough": "'Firm' is the noun, a company, not the adjective; 'store for renovation' is the shop that gets its letters rearranged around the firm.",
+     "definitionFit": "A mobility scooter is a small motorised vehicle for people with limited walking, often called just a scooter."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "firm"
     }
    }
   },
@@ -1251,43 +1256,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ORACLE",
-     "indicators": [
-      {
-       "text": "unusually",
-       "note": "the letters are arranged in an unusual way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Old",
+       "at": 0,
+       "gives": "O"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unusually",
+         "at": 5,
+         "note": "unusually means not in the usual order, so the word clear is rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Old",
-         "gives": "O",
-         "note": "O is the standard abbreviation for old"
-        },
-        {
          "words": "clear",
-         "gives": "RACLE",
-         "note": "CLEAR rearranged"
+         "at": 15,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An ancient prediction that was, for once, unambiguous.",
-     "walkthrough": "The surface is a joke about oracles, famous for riddling answers.",
-     "definitionFit": "The word can mean the prophetic pronouncement itself, not only the one who makes it."
+     "surface": "An ancient prediction that was strangely plain to understand.",
+     "walkthrough": "'Clear' looks like it describes the prophecy, but it is the word 'unusually' tells you to rearrange.",
+     "definitionFit": "An oracle can be the prophetic answer given by a god through a priestess, so a prophecy."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "unusually"
+     "misdirectedWord": "clear"
     }
    }
   },
