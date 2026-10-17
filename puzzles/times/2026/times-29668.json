@@ -235,12 +235,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "INTENSE",
      "indicators": [
       {
        "text": "is boring",
-       "note": "boring here means drilling into, so a letter goes inside the others"
+       "at": 49,
+       "note": "boring means drilling into, so the letter goes inside the other pieces"
       }
      ],
      "parts": [
@@ -249,40 +248,44 @@
        "parts": [
         {
          "words": "writer",
+         "at": 17,
          "gives": "I",
-         "note": "the setter writing the clue refers to themself as I"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "opening of",
-           "note": "the opening of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "novel",
-           "note": "the first letter of novel"
-          }
-         ]
+         "note": "the writer of the clue refers to themselves as I"
         },
         {
          "words": "worried",
+         "at": 24,
          "gives": "TENSE",
-         "note": "tense means anxious, worried"
+         "note": "tense means anxious or worried"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening of",
+         "at": 32,
+         "note": "the opening of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "novel",
+         "at": 43,
+         "note": "taken for its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An anxious author fears the start of their novel is dull.",
-     "walkthrough": "'Boring' looks like a verdict on the novel's opening; it means drilling, so N bores into I TENSE.",
-     "definitionFit": "Intense feelings are strong and deep, so an intense person is deeply emotional."
+     "surface": "A writer frets that the start of their novel is dull.",
+     "walkthrough": "'boring' looks like a verdict on the novel, but it is the instruction to drill N into I TENSE.",
+     "definitionFit": "Intense feelings are strong and passionate, the sense of deeply emotional."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "boring"
@@ -310,42 +313,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GROSGRAIN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "shortened",
-       "note": "a shortened word has lost its tail letter"
+       "text": "Spoilt",
+       "at": 0,
+       "note": "spoilt means ruined, so the letters are jumbled into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Spoilt",
-         "note": "something spoilt has been ruined and thrown out of its proper order"
+         "text": "shortened",
+         "at": 12,
+         "note": "shortened means the word girl is cut down by its final letter"
         }
        ],
        "parts": [
         {
          "words": "girl",
-         "gives": "GIR",
-         "note": "girl without its last letter"
+         "at": 7,
+         "note": "the word girl, here losing its last letter"
         },
         {
-         "words": "sarong",
-         "note": "taken as written"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "sarong",
+       "at": 22,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A spoilt girl takes up the hem of her sarong, made of silk.",
-     "walkthrough": "'Spoilt girl' reads as a brat; 'Spoilt' is the anagram signal for GIR plus SARONG.",
-     "definitionFit": "Grosgrain is a heavy ribbed fabric, traditionally of silk, used for ribbons and trimmings."
+     "surface": "A pampered girl has a cut-down sarong made from silk.",
+     "walkthrough": "'Spoilt girl' reads as a pampered child, but spoilt is the anagram signal on GIR plus SARONG.",
+     "definitionFit": "Grosgrain is a heavy ribbed fabric, often of silk, used for ribbons."
     },
     "features": {
      "answerInScene": true,
