@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -852,38 +853,61 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "when crossing",
+       "at": 28,
+       "note": "when crossing means the reversed country cuts through the middle of the rearranged rail name"
+      }
+     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "reviewed",
-         "note": "To review something is to look at it again and rework it, and the reworking here leaves the letters in a different order."
+         "at": 12,
+         "note": "reviewed suggests looked at afresh in a new order, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Amtrak",
-         "note": "the American passenger rail company, six letters taken as they stand"
-        },
-        {
-         "words": "northern America",
-         "gives": "USA",
-         "note": "the northern portion of the Americas is the States, and its three letters join the mix"
+         "at": 21,
+         "note": "the letters to be rearranged; Amtrak is the US passenger rail operator"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "when crossing",
-       "note": "surface only: what the trains do to the country, and it adds no letters"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "northern",
+         "at": 42,
+         "note": "northern in a down answer means heading north, upwards, so the letters are reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "America",
+         "at": 51,
+         "gives": "USA"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Adult guide' is a shop-shelf euphemism rather than a description of a manual, and the railway and the country are in the clue only for the letters they carry.",
-     "definitionFit": "Adult guide → KAMA SUTRA: the ancient Sanskrit text is a manual of love and sex, so 'adult' is the bookshop euphemism and 'guide' its instruction-book form."
+     "surface": "A travel guide for grown-ups reviews the Amtrak rail service across the north of the United States.",
+     "walkthrough": "'reviewed' rearranges AMTRAK to KAMTRA, 'northern' turns USA upwards into ASU, and 'when crossing' sets that in the middle. 'Adult' here means sexually explicit, not grown-up.",
+     "definitionFit": "The Kama Sutra is an ancient Sanskrit manual on love and sex, so it is a guide to adult matters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Adult"
     }
    }
   },
