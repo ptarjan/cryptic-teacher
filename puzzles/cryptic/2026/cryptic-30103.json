@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -284,37 +285,35 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "roof shearing off",
+       "at": 17,
+       "note": "in a down answer the roof is the top letter, and shearing off removes it"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "shearing off",
-         "note": "To shear is to cut clean away in one stroke, so the part named simply goes and nothing replaces it."
-        }
-       ],
-       "parts": [
-        {
-         "words": "breaking",
-         "gives": "DAWNING",
-         "note": "when day breaks it is dawning — the word taken whole, before anything is lost"
-        },
-        {
-         "gives": "D"
-        }
-       ]
+       "words": "breaking",
+       "at": 7,
+       "gives": "DAWNING",
+       "note": "breaking, as day breaks, means dawning"
       },
       {
-       "unchecked": true,
-       "words": "roof",
-       "note": "in a down entry the roof is the letter at the top, here the D"
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Canopy breaking' reads as a tent coming down in the wind, which hides both jobs: 'breaking' is a word to be taken apart, not a description of the canopy.",
-     "definitionFit": "An awning is the canvas canopy wound out over a shop front or a caravan door to keep sun and rain off."
+     "surface": "A shop's canopy breaking apart in a storm, its roof torn away.",
+     "walkthrough": "'breaking' is not an anagram signal here but a synonym, as in daybreak; 'roof shearing off' drops the top letter D of DAWNING.",
+     "definitionFit": "An awning is a sheet of canvas stretched on a frame over a window or shopfront, a kind of canopy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaking"
     }
    }
   },
@@ -1137,57 +1136,68 @@
      "op": "container",
      "indicators": [
       {
-       "text": "wrappers from",
-       "note": "A wrapper goes round the outside, so only the first and last letters of each name are taken."
+       "text": "filling",
+       "at": 41,
+       "note": "filling means the following letters go inside the emptied net"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
          "text": "empty",
-         "note": "An empty container keeps its walls and loses everything between them, which is what happens to the middle letters."
+         "at": 49,
+         "note": "empty means remove the inside of net, leaving its first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "NT",
-         "indicators": [
-          {
-           "text": "filling",
-           "note": "Filling something means going inside it, so these letters sit within the ones just emptied."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "empty net",
-           "gives": "NT",
-           "select": "outer",
-           "note": "NET with its middle taken out"
-          }
-         ]
-        },
-        {
-         "words": "Ouagadougou",
-         "gives": "OU",
-         "note": "the outer letters of the capital of Burkina Faso"
+         "words": "net",
+         "at": 55,
+         "note": "only its outer letters are kept"
         }
        ]
       },
       {
-       "words": "Giza",
-       "gives": "GA",
-       "note": "the outer letters of the Egyptian city"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "wrappers from",
+           "at": 6,
+           "note": "wrappers are the outside letters, the first and last of each place name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Ouagadougou",
+           "at": 20,
+           "note": "its outer letters are taken"
+          }
+         ]
+        },
+        {
+         "words": "Giza",
+         "at": 36,
+         "gives": "GA",
+         "note": "the same 'wrappers from' also governs Giza, after the link word and, so its outer letters G and A are taken too"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two African cities and an empty net make a sentence about nothing at all, which is the point: every proper noun here is only a source of letters.",
-     "definitionFit": "Nougat is the chewy honey-and-nut confection found in the middle of a chocolate bar, and in Britain any such confection is a sweet."
+     "surface": "Sweet wrappers from two African cities stuffed into an empty goal net.",
+     "walkthrough": "Ouagadougou is the capital of Burkina Faso and Giza an Egyptian city; 'wrappers from' takes their outside letters, OU and GA, which fill NT, the net left 'empty'.",
+     "definitionFit": "Nougat is a chewy confection of sugar or honey, nuts and egg white, a sweet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrappers"
     }
    }
   },
@@ -1216,51 +1226,58 @@
      "indicators": [
       {
        "text": "in",
-       "note": "The plainest container instruction there is: whatever lives in the country sits inside its letters."
+       "at": 39,
+       "note": "in places the preceding letters inside the European country"
       }
      ],
      "parts": [
       {
        "words": "European country",
+       "at": 42,
        "gives": "UK",
-       "note": "the United Kingdom, taken as its two-letter form"
+       "note": "UK is the abbreviation for the United Kingdom"
       },
       {
        "op": "charade",
        "parts": [
         {
          "op": "nth",
-         "unchecked": true,
-         "gives": "Z",
          "n": 5,
          "indicators": [
           {
            "text": "fifth of",
-           "note": "Counting five letters into the word just named picks out a single letter and discards the rest."
+           "at": 19,
+           "note": "fifth of means the fifth letter of the word it governs"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "fifth of which",
-           "gives": "Z",
-           "select": 5,
-           "note": "'which' points back at citizens, and its fifth letter is the Z"
+           "words": "which",
+           "at": 28,
+           "gives": "CITIZENS",
+           "note": "which refers back to the clue's citizens, whose fifth letter is taken"
           }
          ]
         },
         {
          "words": "live",
+         "at": 34,
          "gives": "BE",
-         "note": "to live is to be — let live, let be"
+         "note": "to live is to be, to exist"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Fifth of which' sends you back to a word the definition has already used, which is why the clue feels as though it has nothing left to give you.",
-     "definitionFit": "Uzbekistan sits in Central Asia, so Uzbek is the adjective belonging to one nation of Asian citizens — a definition by example."
+     "surface": "A statistic about Asian citizens, a fifth of whom live in a European country.",
+     "walkthrough": "'which' points back to 'citizens'; 'fifth of' it is Z, and with BE it goes 'in' UK.",
+     "definitionFit": "Uzbek is the adjective for Uzbekistan, a Central Asian republic, and its people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fifth"
     }
    }
   },
@@ -1295,46 +1312,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INTIMATELYBECKHAM",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "to spray around",
+       "at": 3,
+       "note": "to spray around, as scent is sprayed, means scatter the letters into a new order"
+      },
+      {
+       "text": "not",
+       "at": 39,
+       "note": "not means the posh letter is excluded from the mix"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "to spray around",
-         "note": "Spraying a scent sends the droplets everywhere at once, so the letters land in a new order."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "not posh",
-           "note": "Posh is U in the old labelling of upper-class English, so 'not posh' means the U is missing."
-          }
-         ],
-         "parts": [
-          {
-           "words": "tackle, he-man? I'm",
-           "note": "thirteen letters of fodder, straight off the clue"
-          },
-          {
-           "words": "buy it",
-           "gives": "BYIT",
-           "note": "BUY without its U, and then IT"
-          }
-         ]
+         "words": "tackle",
+         "at": 19
+        },
+        {
+         "words": "he-man",
+         "at": 27
+        },
+        {
+         "words": "I'm",
+         "at": 35
+        },
+        {
+         "words": "buy",
+         "at": 49
+        },
+        {
+         "words": "it",
+         "at": 53
         }
        ]
+      },
+      {
+       "words": "posh",
+       "at": 43,
+       "gives": "U",
+       "note": "U is the old shorthand for upper-class, i.e. posh"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Posh Spice is in the surface twice over: she is the letter U being taken out, and she is married to the man whose scent this is.",
-     "definitionFit": "14 is FRAGRANCE, and Intimately Beckham is the scent sold under the footballer's name — one product standing in for the general word."
+     "surface": "A cheeky advert urging a he-man to splash on scent, with Posh herself saying to buy it.",
+     "walkthrough": "The answer at 14 is FRAGRANCE; Posh Spice is Victoria Beckham, who launched this scent with David. 'not posh' removes U from the fodder letters, and 'to spray around' rearranges what is left.",
+     "definitionFit": "Intimately Beckham was a perfume range launched by David and Victoria Beckham, so it is an example of a fragrance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "posh"
     }
    }
   },
