@@ -29,8 +29,12 @@ check("fodder, indicator, definition", ("forwards", "narrow path", "A little", N
       parse("A little climber manages narrow path", "BERM"))
 check("indicator after the fodder", ("forwards", "Scout", "to some extent", None, "leader eccentric"),
       parse("Scout leader eccentric to some extent", "RECCE"))
-check("reversed under a reversal indicator", ("reversed", "Message from", None, "returned", "Australia, Melbourne"),
+check("reversed under a reversal indicator", ("reversed", "Message", None, "returned", "Australia, Melbourne"),
       parse("Message from Australia, Melbourne, returned", "EMAIL"))
+check("a link word ends the definition, not part of it", "Distinctive character",
+      (H.find("Distinctive character makes some get hostile", "ETHOS") or {}).get("definition"))
+check("a hidden indicator in the definition is no parse", None,
+      parse("Hole some clientele yet to reject", "EYELET"))
 check("no indicator, no parse", None, parse("Chief peculiar church", "ARCH"))
 check("a run of whole words is no hidden word", None, parse("Is pinching it", "ITSA"))
 check("under four letters is chance", None, parse("Chief of some peculiar church", "ARC"))
@@ -63,6 +67,11 @@ with tempfile.TemporaryDirectory() as tmp:
     P.main(["--out", str(out), str(shutil_target), str(Path(tmp) / "in" / "junk.json")])
     written = sorted(f.name for f in out.glob("*.json"))
     check("main --out writes one file per prefilled puzzle", ["azed-2508.json"], written)
+    # --write holds back a puzzle the prefill alone would turn into a failing one
+    # (no surface/features, 27 clues blank): nothing is written, the file is untouched.
+    before = shutil_target.read_text()
+    P.main(["--write", str(shutil_target)])
+    check("--write holds back a puzzle that would fail validation", before, shutil_target.read_text())
     check("has_unannotated skips junk", False, P.has_unannotated(Path(tmp) / "in" / "junk.json"))
     check("the file holds annotations", True, bool(json.loads((out / "azed-2508.json").read_text())))
 if fails:
