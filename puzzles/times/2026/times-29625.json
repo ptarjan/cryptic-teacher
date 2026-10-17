@@ -976,38 +976,43 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 12,
+       "note": "on here means next to, so the edges of primitive are joined straight to the bird"
+      }
+     ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "PE",
        "indicators": [
         {
          "text": "wings",
-         "note": "a word's wings are its two ends"
+         "at": 6,
+         "note": "the wings of something are its two sides, so only the outside letters of primitive are kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "wings on primitive",
-         "gives": "PE",
-         "select": "outer",
-         "note": "the first and last letters of PrimitivE"
+         "words": "primitive",
+         "at": 15,
+         "note": "its first and last letters"
         }
        ]
       },
       {
        "words": "bird",
+       "at": 25,
        "gives": "TIT",
        "note": "a tit is a small songbird"
       }
      ]
     },
     "explanation": {
-     "surface": "Small wings found on an ancient bird, like those of an early flier.",
-     "walkthrough": "'Small wings' reads as one thing, but 'Small' is the definition and the wings belong to 'primitive'.",
-     "definitionFit": "Petit is French for small, used in English in terms like petit four."
+     "surface": "A tiny bird with the stunted wings of an early species.",
+     "walkthrough": "'Wings' takes the edges of primitive, PE, and the bird follows.",
+     "definitionFit": "Petit is French for little, used in English in terms like petit four and petit jury to mean minor or small."
     },
     "features": {
      "answerInScene": false,
@@ -1477,52 +1482,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KUDZU",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 32,
+       "note": "about means turned round, so the joined pieces are read backwards"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "Regularly",
-         "note": "at regular intervals, so the letters are taken at a steady every-other step"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "alternate",
          "indicators": [
           {
-           "text": "mostly",
-           "note": "most of the word, all but its last letter"
+           "text": "Regularly",
+           "at": 0,
+           "note": "regularly means at even intervals, so every other letter of quiz is taken"
           }
          ],
          "parts": [
           {
-           "op": "alternate",
-           "unchecked": true,
-           "gives": "UZ",
-           "indicators": [
-            {
-             "text": "about",
-             "note": "turns the joined pieces round"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "Regularly quiz",
-             "gives": "UZ",
-             "select": "alternate",
-             "note": "qUiZ, the even letters"
-            }
-           ]
+           "words": "quiz",
+           "at": 10,
+           "note": "its second and fourth letters"
+          }
+         ]
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 25,
+           "note": "mostly means not quite all, so the last letter of the nobleman is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "nobleman",
+           "at": 15,
+           "gives": "DUKE",
+           "note": "a duke is a nobleman of the highest rank"
           },
           {
-           "words": "nobleman, mostly",
-           "gives": "DUK",
-           "note": "DUKE without its last letter"
+           "gives": "E"
           }
          ]
         }
@@ -1531,13 +1537,14 @@
      ]
     },
     "explanation": {
-     "surface": "A quiz host keeps asking a lord about invasive species.",
-     "walkthrough": "'About' comes last, so it turns both pieces round together, not just the duke. Kudzu is a Japanese vine rather than an animal, so 'species' covers plants too.",
-     "definitionFit": "Kudzu is a climbing vine that has spread aggressively across the southern United States."
+     "surface": "Questioning a peer every so often about a plant or animal that spreads unchecked.",
+     "walkthrough": "'Regularly' gives UZ from quiz and 'mostly' trims DUKE to DUK; 'about' then reverses UZDUK as a whole.",
+     "definitionFit": "Kudzu is a fast-growing Asian vine that smothers native plants in the American South, a notorious invasive species."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quiz"
     }
    }
   },
@@ -1610,12 +1617,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "FORMALISE",
      "indicators": [
       {
        "text": "reserves",
-       "note": "to reserve is to keep back"
+       "at": 45,
+       "note": "reserves means holds back or keeps, so the outer letters hold the African country's name inside"
       }
      ],
      "parts": [
@@ -1624,27 +1630,30 @@
        "parts": [
         {
          "words": "concerning",
+         "at": 27,
          "gives": "FOR",
-         "note": "as for = concerning"
-        },
-        {
-         "words": "African country's",
-         "gives": "MALIS",
-         "note": "Mali's, with the S from the possessive"
+         "note": "for can mean concerning or with regard to, as in 'as for the rest'"
         },
         {
          "words": "energy",
+         "at": 38,
          "gives": "E",
-         "note": "E = energy, as in E = mc²"
+         "note": "E is the physics symbol for energy"
         }
        ]
+      },
+      {
+       "words": "African country's",
+       "at": 9,
+       "gives": "MALIS",
+       "note": "Mali is a country in West Africa, and the 's gives MALIS"
       }
      ]
     },
     "explanation": {
-     "surface": "Validate an African country's claims about its energy reserves.",
-     "walkthrough": "FOR(MALIS)E. 'Energy reserves' looks like a single phrase, oil or gas; it is E, followed by the instruction.",
-     "definitionFit": "Near synonym: making an arrangement official gives it validity, the British -ise spelling."
+     "surface": "A note about Mali's stockpile of power supplies.",
+     "walkthrough": "'Reserves' looks like a noun for stockpiles but is a verb: FOR plus E keep MALIS inside them.",
+     "definitionFit": "To formalise something is to make it official, giving it legal or proper validity, which is to validate it."
     },
     "features": {
      "answerInScene": false,
