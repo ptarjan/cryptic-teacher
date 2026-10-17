@@ -106,7 +106,7 @@ import vlm_reader as vlm
 from fetch_puzzle import puzzle_path, source_clue, write_puzzle_file
 from file_penguin_puzzle import separators
 from groups import entry_id
-from clue_text import SEE_RE
+from clue_text import SEE_RE, see_number
 
 TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
@@ -500,9 +500,9 @@ def clues(text):
         see = SEE_RE.match(rest)
         if see:
             # "See 12" (and maybe "Across."), then the next clue's number.
-            tail = re.match(r"see\s+\d+(?:\s*(?:across|down|ac|dn)\b)?\.?", rest, re.IGNORECASE)
+            tail = re.match(r"s[ec]e\s+(?:[lI]\d|\d[lI]|\d+)(?:\s*(?:across|down|ac|dn)\b)?\.?", rest, re.IGNORECASE)
             out.append({"tokens": tokens, "text": tail.group(0).rstrip("."),
-                        "enums": set(), "see": int(see.group(1))})
+                        "enums": set(), "see": see_number(see.group(1))})
             pos = body_from + tail.end()
             continue
         # "See Preamble" prints no count and names no number (Cyclops 199's

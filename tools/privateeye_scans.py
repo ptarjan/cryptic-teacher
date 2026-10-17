@@ -420,7 +420,7 @@ def linked_across(laid):
             # "25 (see 5dn)": the reference names the head's direction, which
             # is the head's own side here (No 266's 5/25 down, 25 across).
             ref = SEE_SIDE.fullmatch(text)
-            if ref and ref.group(1) == head and ref.group(2) and \
+            if ref and str(clue_text.see_number(ref.group(1))) == head and ref.group(2) and \
                     ("across" if ref.group(2).lower().startswith("a") else "down") == lid.split("-")[1]:
                 text = see
             # "(see 16)" read "see (6)": the reference lost its first digit and
@@ -497,7 +497,7 @@ def directed_links(laid):
             continue
         if m.group(2):
             named = "across" if m.group(2).lower().startswith("a") else "down"
-        elif m.group(1) == n:  # "1 See 1": a light never refers to itself
+        elif str(clue_text.see_number(m.group(1))) == n:  # "1 See 1": a light never refers to itself
             named = "down" if side == "across" else "across"
         else:
             continue
