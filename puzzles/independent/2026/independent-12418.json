@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -154,39 +155,49 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BRAINDEAD",
      "indicators": [
       {
        "text": "Spoonerism",
-       "note": "the Reverend Spooner traded the opening sounds of two words, so naming the trick is an instruction to swap them over"
+       "at": 28,
+       "note": "the clue says outright that the opening sounds of the two words are to be swapped"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "DAIN",
        "parts": [
         {
-         "unchecked": true,
          "words": "Scandinavian",
-         "gives": "BRAIN",
-         "soundsLike": "DANE",
-         "note": "a Dane is a Scandinavian, and Spooner takes his D away and hands him a BR instead"
-        },
+         "at": 7,
+         "gives": "DANE",
+         "note": "a Dane is a Scandinavian, a person from Denmark"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "BREAD",
+       "parts": [
         {
-         "unchecked": true,
          "words": "spawned",
-         "gives": "DEAD",
-         "soundsLike": "BRED",
-         "note": "spawned means bred, and it collects the D the Dane gave up"
+         "at": 20,
+         "gives": "BRED",
+         "note": "bred means spawned, produced offspring"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Say the setter's two words in his order first and swap afterwards; the hyphen in the enumeration is the promise that what comes out is one compound word.",
-     "definitionFit": "Stupid -> BRAIN-DEAD: the medical term for irreversible loss of brain function, borrowed by everyday speech as an insult for someone showing no sign of thought."
+     "surface": "A Scandinavian gave rise to the Spoonerism, as if the Revd Spooner had been Danish.",
+     "walkthrough": "DANE is said like DAIN and BRED like BREAD; the 'Spoonerism' swaps their opening sounds, D and BR, giving the hyphenated answer.",
+     "definitionFit": "Brain-dead is an informal insult for someone extremely dim or foolish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spawned"
     }
    }
   },
@@ -206,31 +217,41 @@
    "annotation": {
     "definitions": [
      {
-      "text": "gossip",
+      "text": "gossip?",
       "at": 22
      }
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "TALKER",
      "indicators": [
       {
        "text": "dismissed",
-       "note": "a servant who is dismissed is sent away and does not come back, and the letter beside it goes the same way"
+       "at": 9,
+       "note": "dismissed means sent away, so the letter S is dropped from the hunter word"
       }
      ],
      "parts": [
       {
-       "words": "Hunter S dismissed",
-       "gives": "TALKER",
-       "note": "the hunter is a STALKER, one who follows game unseen, and sacking the S it starts with leaves the six letters after it"
+       "words": "Hunter",
+       "at": 0,
+       "gives": "STALKER",
+       "note": "a stalker is a hunter who creeps up on prey, especially deer"
+      },
+      {
+       "words": "S",
+       "at": 7
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Hunter S. Thompson is the whole misdirection: the middle initial belongs to the wordplay rather than to the journalist, and it is the letter being sacked.",
-     "definitionFit": "gossip -> TALKER: a gossip is named for the single thing they do, and the plain agent noun for someone who does a lot of it says the same."
+     "surface": "It looks like the writer Hunter S. Thompson being written off as a mere tittle-tattler.",
+     "walkthrough": "Hunter S. Thompson was the American gonzo journalist; here Hunter means STALKER and the S is the letter to remove.",
+     "definitionFit": "A talker is a chatterer, and a gossip is one kind of talker, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hunter"
     }
    }
   },
@@ -255,41 +276,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GREMLINS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "something endless never reaches its end, so the final letter of the word beside it is never written down"
+       "text": "playing",
+       "at": 14,
+       "note": "playing as in playing around with, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "REM",
+       "at": 22,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "playing",
-         "note": "a band plays a song, but letters played with are letters handled loosely enough to end up somewhere else"
+         "text": "endlessly",
+         "at": 33,
+         "note": "endlessly means the word single loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "REM",
-         "note": "the band's three letters join the pile exactly as printed"
+         "words": "single",
+         "at": 26,
+         "note": "without its final E it gives SINGL"
         },
         {
-         "words": "single",
-         "gives": "SINGL",
-         "note": "a single stopped before its last letter supplies five more"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Gremlins are the imaginary imps RAF crews blamed for machinery failing in the 1940s, and the name has outlived the aircraft it was invented for.",
-     "definitionFit": "Troublemakers -> GREMLINS: a gremlin is the mischief-maker held responsible when a machine misbehaves, so the word names a whole class of small deliberate trouble."
+     "surface": "Mischief-makers are blasting out a single by the rock band REM over and over.",
+     "walkthrough": "'endlessly' looks like it means on repeat, but it trims single to SINGL, which 'playing' mixes with REM.",
+     "definitionFit": "Gremlins are imaginary imps blamed for mechanical faults, so they cause trouble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "endlessly"
     }
    }
   },
@@ -328,40 +359,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GAMESETANDMATCH",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "defending",
+       "at": 25,
+       "note": "the rearranged letters surround and so defend the Democrat letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Enraged",
-         "note": "rage is the loss of all self-control, and letters that have lost control of themselves will not stay in the order given"
-        },
-        {
-         "text": "defending",
-         "note": "a defender stands all round the thing being protected, so the rearranged letters close over the piece named next"
+         "at": 0,
+         "note": "enraged suggests wild disorder, so these letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "MAGA chants meet",
-         "gives": "GAMESETANMATCH",
-         "note": "fourteen letters dealt out again, and they part after nine to take something in"
+         "words": "MAGA",
+         "at": 8,
+         "note": "taken as written"
         },
         {
-         "words": "Democrat",
-         "gives": "D",
-         "note": "on a US ballot a Democrat's name carries a (D) after it"
+         "words": "chants",
+         "at": 13,
+         "note": "taken as written"
+        },
+        {
+         "words": "meet",
+         "at": 20,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "Democrat's",
+       "at": 35,
+       "gives": "D",
+       "note": "D is the abbreviation for a Democrat in US politics"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A rally between MAGA chanters and a Democrat is the picture; the answer is called from the umpire's chair instead, which is where a clue about a contest least wants you to look.",
-     "definitionFit": "victory statement -> GAME SET AND MATCH: the umpire's words as a tennis match ends, used far beyond the court to announce a contest is settled."
+     "surface": "Angry Trump supporters chanting at a rally face off against a Democrat.",
+     "walkthrough": "MAGA is Trump's Make America Great Again slogan; its letters with CHANTS and MEET are rearranged around D.",
+     "definitionFit": "The tennis umpire's call game, set and match announces a win, and it is used generally to mean decisive victory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "defending"
     }
    }
   },
@@ -479,45 +529,59 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Idiot",
+      "text": "Idiot!",
       "at": 31
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NUMBSKULL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 18,
+       "note": "the rearranged letters go around the Lima letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Drunken",
-         "note": "a drunk cannot walk a straight line, and letters in that state keep to no line either"
-        },
-        {
-         "text": "around",
-         "note": "to go around a thing is to pass on every side of it, so the rearranged letters close over the one named next"
+         "at": 0,
+         "note": "drunken means reeling, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "bum slunk",
-         "gives": "NUMBSKUL",
-         "note": "eight letters dealt out again, and they part before the last of them"
+         "words": "bum",
+         "at": 8,
+         "note": "taken as written"
         },
         {
-         "words": "Lima",
-         "gives": "L",
-         "note": "Lima is how a radio operator says the letter L"
+         "words": "slunk",
+         "at": 12,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "Lima",
+       "at": 25,
+       "gives": "L",
+       "note": "Lima is L in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The question mark after the city is doing real work: it warns that Peru is not wanted at all, only the letter the word stands for on the airwaves.",
-     "definitionFit": "Idiot -> NUMBSKULL: literally a skull gone numb, so the word calls someone stupid by picturing a head that cannot feel anything."
+     "surface": "A drunk layabout skulks around the streets of Lima, Peru, and someone shouts an insult.",
+     "walkthrough": "Lima looks like the Peruvian capital, which the question mark plays on, but it stands for L in the radio alphabet.",
+     "definitionFit": "A numbskull is a stupid person, a dolt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lima"
     }
    }
   },
@@ -923,41 +987,48 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "discovered",
-       "note": "read it as dis-covered: the covering comes off, and a word's covering is the letter at each end"
+       "text": "on",
+       "at": 26,
+       "note": "in an across clue, one piece written on another follows it"
       }
      ],
      "parts": [
       {
        "words": "Southeast Asian island",
+       "at": 29,
        "gives": "TIMOR",
-       "note": "the island at the far end of the Indonesian chain, shared with East Timor"
+       "note": "Timor is an island in Southeast Asia, shared by Indonesia and East Timor"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "OUS",
        "indicators": [
         {
-         "text": "on",
-         "note": "in an across entry one thing sits on another by following it, so this piece goes at the back"
+         "text": "discovered",
+         "at": 15,
+         "note": "dis-covered: the rodent loses its covering, its outer letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "rodent",
-         "gives": "OUS",
-         "select": "middle",
-         "note": "the rodent is a MOUSE, and stripping a letter off each end leaves the middle three"
+         "at": 8,
+         "gives": "MOUSE",
+         "note": "a mouse is a rodent"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Burns addressed a mouse as a 'wee, sleekit, cow'rin, tim'rous beastie', so the rodent and the definition have been sharing a line of verse since 1785.",
-     "definitionFit": "Fearful -> TIMOROUS: timorous is built on timor, Latin for fear, and describes the one shrinking from a fright rather than the fright itself."
+     "surface": "A frightened rodent turns up on an island in the Indonesian archipelago.",
+     "walkthrough": "'discovered' looks like found, but read as dis-covered it strips MOUSE to OUS.",
+     "definitionFit": "Timorous means timid and easily frightened, which is fearful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "discovered"
     }
    }
   },
@@ -1166,36 +1237,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASPIRE",
-     "indicators": [
-      {
-       "text": "lacking",
-       "note": "to lack a thing is to be without it, so whatever is named next is missing from the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 32,
+         "note": "lacking says the drug name is without the letters of the next word"
+        }
+       ],
        "parts": [
         {
          "words": "over-the-counter drug",
-         "gives": "ASPIR",
-         "note": "ASPIRIN is the painkiller sold without a prescription, and it turns up here without its IN"
+         "at": 5,
+         "gives": "ASPIRIN",
+         "note": "aspirin is a painkiller sold over the counter, without a prescription"
         },
         {
-         "words": "energy",
-         "gives": "E",
-         "note": "E is the physicist's symbol for energy, as in E=mc2"
+         "words": "in",
+         "at": 40,
+         "gives": "IN",
+         "note": "taken as written, the letters to remove"
         }
        ]
+      },
+      {
+       "words": "energy",
+       "at": 43,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Lacking in energy' reads as one weary phrase and has to be heard as two separate instructions, which is the whole of the disguise here.",
-     "definitionFit": "Seek -> ASPIRE: to aspire to something is to seek it as an ambition, the sense of seeking that is about wanting rather than searching."
+     "surface": "Someone looks for a painkiller from the pharmacy when feeling low on energy.",
+     "walkthrough": "'lacking in energy' reads as tired, but 'in' is the letters taken from ASPIRIN, and energy adds E.",
+     "definitionFit": "To aspire is to aim at or strive for something, which is seeking it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
     }
    }
   },
@@ -1327,52 +1411,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MISQUOTE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stifling",
+       "at": 18,
+       "note": "stifling means smothering, so the rearranged Times letters close around the others"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "desperately",
-         "note": "a desperate person will try anything in any order, and letters handled that way come out in one"
+         "at": 6,
+         "note": "desperately suggests a frantic mess, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Times",
-         "gives": "MISTE",
-         "note": "the paper's five letters dealt out again, then opened after three"
+         "at": 0,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "question",
+         "at": 27,
+         "gives": "QU"
         },
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "stifling",
-           "note": "to stifle someone is to smother them by closing over their face, so these letters close over the ones named next"
-          }
-         ],
-         "parts": [
-          {
-           "words": "question",
-           "gives": "QU",
-           "note": "qu. is the short form of question on a dictionary page or an exam paper"
-          },
-          {
-           "words": "over",
-           "gives": "O",
-           "note": "O is an over on a cricket scorecard"
-          }
-         ]
+         "words": "over",
+         "at": 36,
+         "gives": "O",
+         "note": "O is the cricket scoring abbreviation for an over"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The italics mark the newspaper rather than the plural of time, so the surface is a paper getting a quotation wrong — and lending five of the eight letters to do it.",
-     "definitionFit": "inaccurate citation -> MISQUOTE: to misquote is to report someone's words wrongly, with MIS- doing its usual job of turning an action into a botched one."
+     "surface": "The Times newspaper anxiously suppresses an awkward query.",
+     "walkthrough": "The anagram of TIMES splits as MIS and TE around QUO.",
+     "definitionFit": "To misquote is to cite words wrongly; here the noun means a quotation given incorrectly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
     }
    }
   },
@@ -1448,40 +1539,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INHERENT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 17,
+       "note": "the rearranged letters go about, around, the state abbreviation"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "broadcast",
-         "note": "to broadcast seed is to scatter it by hand, so what is broadcast lands in no particular order"
-        },
-        {
-         "text": "about",
-         "note": "one thing set about another is wrapped round it, so these letters open to let the next piece in"
+         "at": 7,
+         "note": "broadcast as in scattered about, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Entire",
-         "gives": "IERENT",
-         "note": "the six letters dealt out again, and they part after the first"
-        },
-        {
-         "words": "New Hampshire",
-         "gives": "NH",
-         "note": "NH is the state's two-letter postal code"
+         "at": 0,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "New Hampshire",
+       "at": 23,
+       "gives": "NH",
+       "note": "NH is the postal abbreviation for New Hampshire"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Native' is the definition hiding in plain sight, because a native of New Hampshire is the obvious reading and the state is only there for two letters.",
-     "definitionFit": "native -> INHERENT: an inherent quality is one born in the thing itself, which is the older sense of native, belonging by birth rather than by nationality."
+     "surface": "A whole radio programme is broadcast about the US state of New Hampshire.",
+     "walkthrough": "The anagram of ENTIRE splits as IN and ERENT around NH.",
+     "definitionFit": "An inherent quality is inborn or intrinsic, which is what native means of a talent or trait."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
     }
    }
   },
