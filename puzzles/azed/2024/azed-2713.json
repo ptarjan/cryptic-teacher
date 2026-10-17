@@ -1816,30 +1816,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HORA",
+     "op": "middle",
      "indicators": [
       {
        "text": "out of bounds",
-       "note": "the bounds are the word's edges, and these are removed"
+       "at": 33,
+       "note": "bounds are the edges of a word, so removing them leaves only its inner letters"
       }
      ],
      "parts": [
       {
        "words": "music performed by singers",
+       "at": 6,
        "gives": "CHORAL",
-       "note": "choral music is sung by a choir"
+       "note": "choral music is music sung by a choir"
       }
      ]
     },
     "explanation": {
-     "surface": "Singers stray off limits while a dance tune is performed.",
-     "definitionFit": "The hora is a lively circle dance from Romania and Israel."
+     "surface": "Asking whether a choir's dance number has strayed off limits.",
+     "walkthrough": "Music for singers is CHORAL; with its outer letters C and L removed, the core remains.",
+     "definitionFit": "The hora is a lively Romanian and Israeli circle dance, often performed at weddings."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "bounds"
     }
    }
