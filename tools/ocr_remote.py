@@ -887,8 +887,14 @@ def ship(host):
         info = tarfile.TarInfo(MANIFEST)
         info.size = len(listing)
         tar.addfile(info, io.BytesIO(listing))
-    res = subprocess.run([*SSH, host, ship_command(hash_of(files), f"{os.getpid()}-{random.randrange(1 << 32):x}")],
-                         input=buf.getvalue(), capture_output=True, timeout=600, check=False)
+    for attempt in range(SHIP_TRIES):
+        res = subprocess.run([*SSH, host, ship_command(hash_of(files), f"{os.getpid()}-{random.randrange(1 << 32):x}")],
+                             input=buf.getvalue(), capture_output=True, timeout=600, check=False)
+        # ren fails transiently on Windows (antivirus or the indexer holding a
+        # fresh file, another session's rename mid-way): ship again after a pause.
+        if not (res.returncode and SHIP_RENAME_FAILED.encode() in res.stderr) or attempt == SHIP_TRIES - 1:
+            break
+        time.sleep(SHIP_RETRY_WAIT)
     if res.returncode:
         raise Unavailable(f"shipping the code failed ({res.returncode}): {res.stderr.decode(errors='replace')[-300:]}")
     try:
@@ -972,6 +978,13 @@ def prune_any(names, keep, days=PRUNE_DAYS):
     raise Unavailable("no host answers (" + "; ".join(reasons or ["OCR_REMOTE names no host"]) + ")")
 
 
+#: What ship_command prints when ren failed and the final dir is not complete.
+SHIP_RENAME_FAILED = "rename failed:"
+#: ship() sends the code this many times (a pause between) while that happens.
+SHIP_TRIES = 4
+SHIP_RETRY_WAIT = 3.0
+
+
 def ship_command(code, nonce):
     """The cmd line that extracts a tar on stdin into HOME's v-`code`: into
     part-`code`-`nonce` first, renamed once whole (ren refuses a name that
@@ -981,7 +994,7 @@ def ship_command(code, nonce):
     drop = f'cd /d "{HOME}" & rmdir /s /q "{part}"'
     return (f'mkdir "{part}" && cd /d "{part}" && (tar -xf - || ({drop} & exit 1)) && cd /d "{HOME}" && '
             f'(ren "{part}" "v-{code}" 2>nul || ({drop} & if exist "{final}\\{MANIFEST.replace("/", chr(92))}" '
-            f'(exit 0) else (echo {final} has no {MANIFEST}: remove it 1>&2 & exit 1)))')
+            f'(exit 0) else (echo {SHIP_RENAME_FAILED} {final} is absent or has no {MANIFEST} 1>&2 & exit 1)))')
 
 
 #: This host's versions(), read once a process.
