@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -799,51 +800,54 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "INCORRECT",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
        "indicators": [
         {
          "text": "exposed",
-         "note": "To expose a thing is to strip off what covers it, so the word beside this loses the letter at each end and shows its middle."
+         "at": 12,
+         "note": "a word exposed has had its covering stripped away, so its first and last letters go"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "INC",
-         "indicators": [
-          {
-           "text": "cycling",
-           "note": "Cycling letters roll them round from one end to the other without disturbing their order, the way a wheel carries its valve round."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "since",
-           "gives": "INC",
-           "select": "middle",
-           "note": "the three letters in the middle of the word, once the S and the E at its ends have come off"
-          }
-         ]
-        },
+         "words": "since",
+         "at": 6,
+         "note": "the word whose inner letters are kept"
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 23,
+         "note": "the letters of the clergyman go round, some moving from the front to the back"
+        }
+       ],
+       "parts": [
         {
          "words": "clergyman",
-         "gives": "ORRECT",
-         "note": "a rector is the priest in charge of a parish, and his six letters roll round until the last two lead"
+         "at": 31,
+         "gives": "RECTOR",
+         "note": "a rector is a parish clergyman"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Neither of the two instructions here is an anagram: nothing here is jumbled at all, the letters simply start from a different place.",
-     "definitionFit": "Wrong -> INCORRECT: the flat synonym for something that does not match the facts, the neutral word a marker writes beside a bad answer."
+     "surface": "Something has been wrong ever since a cleric on a bicycle was caught out.",
+     "walkthrough": "'Exposed' strips the outer letters of 'since', leaving INC. 'Cycling' rotates RECTOR so that its first two letters, RE, move to the end, giving ORRECT.",
+     "definitionFit": "Incorrect is the plain synonym of wrong: mistaken, not true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
     }
    }
   },
