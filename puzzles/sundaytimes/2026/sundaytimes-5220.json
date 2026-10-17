@@ -1279,46 +1279,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FALSE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "across",
+       "at": 20,
+       "note": "across means stretched over, so the rearranged letters span the single letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "to swim",
-         "note": "swimming letters move about, so they are rearranged"
-        },
-        {
-         "text": "across",
-         "note": "across = spanning, so these letters straddle the lake"
+         "at": 12,
+         "note": "to swim is to move about, and letters that swim come out in a different order"
         }
        ],
        "parts": [
         {
          "words": "safe",
-         "gives": "FASE",
-         "note": "SAFE rearranged"
-        },
-        {
-         "words": "lake",
-         "gives": "L",
-         "note": "L = lake"
+         "at": 7
         }
        ]
+      },
+      {
+       "words": "lake",
+       "at": 27,
+       "gives": "L",
+       "note": "L is the map abbreviation for lake"
       }
      ]
     },
     "explanation": {
-     "surface": "A warning that a lake is risky for swimming.",
-     "walkthrough": "'Not so safe' looks like one phrase; 'Not so' is the definition and 'safe' begins the wordplay.",
-     "definitionFit": "A plain synonym: a statement that is not so is untrue."
+     "surface": "Someone wonders whether it is safe to swim across a lake.",
+     "walkthrough": "'Not so' is the whole definition, in the sense of untrue. SAFE is rearranged by 'to swim' into FASE, which is laid 'across' L.",
+     "definitionFit": "Saying something is not so means it is untrue, which is what false means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "safe"
+     "misdirectedWord": "swim"
     }
    }
   },
