@@ -838,51 +838,39 @@
      "op": "charade",
      "parts": [
       {
-       "words": "East",
-       "gives": "ORIENT",
-       "note": "the Orient is the East"
-      },
-      {
-       "words": "East",
-       "gives": "E",
-       "note": "E is the abbreviation for east, second time"
-      },
-      {
-       "words": "East",
-       "gives": "E",
-       "note": "E again, for the third time"
+       "words": "East three times",
+       "at": 17,
+       "gives": "ORIENTEE",
+       "note": "East is given three ways: ORIENT, then E twice as the compass abbreviation"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "last",
-         "note": "the final letter of the following word is the only one used"
+         "at": 37,
+         "note": "last points to the final letter of the word that follows"
         }
        ],
        "parts": [
         {
          "words": "frontier",
-         "note": "the final letter of the word"
+         "at": 42,
+         "note": "the word whose final letter is wanted"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "three times",
-       "note": "gives no letters of its own; it says the preceding word is used three times over"
       }
      ]
     },
     "explanation": {
-     "surface": "Head east again and again, hurrying to the final border.",
-     "walkthrough": "'Three times' means East is used thrice: once as the Orient and twice as the compass abbreviation.",
-     "definitionFit": "Orienteering is a sport of racing across country using map and compass, so the verb means find your way at speed."
+     "surface": "Instructions for a race: head east repeatedly until you reach the border.",
+     "walkthrough": "The Orient is the East, and E is its compass abbreviation, so 'East three times' gives ORIENT, E, E. 'last' then adds the final letter of 'frontier'.",
+     "definitionFit": "To orienteer is to race across country using map and compass, finding one's way at speed."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "times"
+     "aptDefinition": true,
+     "misdirectedWord": "three"
     }
    }
   },
@@ -1061,30 +1049,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TANNISH",
      "indicators": [
       {
        "text": "with new top",
-       "note": "a new top means the leading letter is replaced by a different one"
+       "at": 10,
+       "note": "a new top means the first letter is swapped for a different one"
       }
      ],
      "parts": [
       {
        "words": "Like male",
+       "at": 0,
        "gives": "MANNISH",
-       "note": "mannish means like a man, masculine"
+       "note": "mannish means like a man, typical of a male"
+      },
+      {
+       "gives": "M"
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A man with a fresh shirt on who has caught a little sun.",
-     "walkthrough": "Swap the M of the masculine word for T. 'Top' reads as a garment, but it means the first letter.",
-     "definitionFit": "The suffix -ish means somewhat, so tannish describes skin that is somewhat bronzed, as after mild sun exposure."
+     "surface": "A man with a fresh shirt who has caught a little sun.",
+     "walkthrough": "'with new top' replaces the first letter of MANNISH; the definition settles which letter goes in, giving T.",
+     "definitionFit": "Tannish means somewhat tanned, the light brown that skin takes on after mild sun exposure."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "top"
     }
    }
