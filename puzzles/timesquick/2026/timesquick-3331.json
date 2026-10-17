@@ -1301,51 +1301,53 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "BREEZE",
      "indicators": [
       {
-       "text": "initially",
-       "note": "initially means at the start, so the first letter of blue"
+       "text": "turning",
+       "at": 11,
+       "note": "turning means changing into, so one letter becomes another"
       }
      ],
      "parts": [
       {
        "words": "chill",
+       "at": 5,
        "gives": "FREEZE",
-       "note": "to chill = to make very cold"
+       "note": "to chill is to freeze"
+      },
+      {
+       "words": "female",
+       "at": 19,
+       "gives": "F"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "turning",
-         "note": "one letter turning into another means a swap"
+         "text": "initially",
+         "at": 31,
+         "note": "initially means the first letter of the next word"
         }
        ],
        "parts": [
         {
-         "words": "female",
-         "note": "f = female, the letter that changes"
+         "words": "blue",
+         "at": 26,
+         "note": "the first letter of blue is B"
         }
        ]
-      },
-      {
-       "words": "blue initially",
-       "gives": "B",
-       "note": "first letter of blue, replacing F"
       }
      ]
     },
     "explanation": {
-     "surface": "A cold wind turning a woman blue.",
-     "walkthrough": "'Wind chill' reads as one weather term, but 'Wind' is the definition and 'chill' starts the wordplay.",
-     "definitionFit": "A definition by category: a breeze is a gentle wind."
+     "surface": "A cold wind that chills a woman until she turns blue.",
+     "walkthrough": "'turning female blue' swaps the F of FREEZE for B, the first letter of 'blue'.",
+     "definitionFit": "A breeze is a light wind, so the noun is a synonym."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "chill"
+     "misdirectedWord": "blue"
     }
    }
   }
