@@ -63,10 +63,13 @@ The rules, generic rather than per book:
 """
 import re
 
+import clue_text
 import ocr_clues
 
 # "See 15", "See 1 down": a redirect, naming its light's direction or not.
-SEE_RE = re.compile(r"^see\s+(\d+)(?:\s+(?:across|down))?\s*\.?$", re.IGNORECASE)
+SEE_RE = re.compile(
+    rf"^{clue_text.SEE_WORD}\s+({clue_text.SEE_NUMBER})(?:\s+(?:across|down))?\s*\.?$",
+    re.IGNORECASE)
 LEADING_NUM_RE = re.compile(r"^(\d{1,2})\b")
 # THE PRINTED CLUE NUMBER IS NOT PART OF THE CLUE. The book prints "23" and
 # then the clue; the scan sometimes puts a rule fragment, a leader dot or a
@@ -206,7 +209,8 @@ def _parse_direction(entries, notes, direction, damage):
         m = SEE_RE.match(clue)
         if m and not (isinstance(field, str) and "," in field and enum):
             own = _num_of(field)
-            lights.append([own, None, "redirect", {"clue": clue, "enumeration": enum}])
+            lights.append([own, None, "redirect", {"clue": clue, "enumeration": enum,
+                                           "see": clue_text.see_number(m.group(1))}])
             if own is not None:
                 last = own if last is None else max(last, own)
             continue
