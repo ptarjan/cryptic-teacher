@@ -316,27 +316,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ECOD",
+     "op": "middle",
      "indicators": [
       {
-       "text": "devoid of extremes",
-       "note": "lacking its extremes means the first and last letters are gone"
+       "text": "that's devoid of extremes",
+       "at": 6,
+       "note": "devoid of extremes means without its first and last letters"
       }
      ],
      "parts": [
       {
        "words": "Crack",
+       "at": 0,
        "gives": "DECODE",
-       "note": "to crack a cipher is to decode it"
+       "note": "to crack a code is to decode it"
       }
      ]
     },
     "explanation": {
-     "surface": "A gentle joke or remark without excess once passed for a soft curse.",
-     "walkthrough": "Ecod is an archaic exclamation, a softened 'by God', so 'it was' marks it as old.",
-     "definitionFit": "Ecod was an old interjection used as a minced, mild form of swearing by God."
+     "surface": "A wry question whether a joke with no excesses can still count as a mild curse.",
+     "walkthrough": "'Crack' reads as a noun but is the verb, as in cracking a code; 'that's devoid of extremes' then drops its first and last letters.",
+     "definitionFit": "Ecod is an archaic exclamation, a softened form of 'by God', so a mild oath of old."
     },
     "features": {
      "answerInScene": false,
@@ -734,35 +734,49 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HARDBOP",
+     "op": "substitution",
      "indicators": [
       {
        "text": "switching parts",
-       "note": "switching parts means the opening sounds of the two words change places"
+       "at": 28,
+       "note": "switching parts swaps the opening letters of the two words, the poet's and the dance's"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "poet dance",
-       "gives": "HARDBOP",
-       "soundsLike": "BARD HOP",
-       "note": "a bard is a poet and a hop is an informal dance; their opening sounds then trade places"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "poet",
+         "at": 17,
+         "gives": "BARD",
+         "note": "a bard is a poet"
+        },
+        {
+         "words": "dance",
+         "at": 22,
+         "gives": "HOP",
+         "note": "a hop is an informal dance"
+        }
+       ]
+      },
+      {
+       "gives": "BARDH"
+      },
+      {
+       "gives": "HARDB"
       }
      ]
     },
-    "spelling": "HARD BOP",
     "explanation": {
-     "surface": "A style of jazz inspires a poet to get up and dance.",
-     "walkthrough": "BARD HOP with its initial letters swapped becomes HARD BOP.",
-     "definitionFit": "Hard bop is a 1950s development of bebop jazz, influenced by blues and gospel."
+     "surface": "Some kind of jazz is produced by a poet's dance that swaps its sections round.",
+     "walkthrough": "'Switching parts' trades the opening B of the poet and the H of the dance: BARD HOP becomes HARD BOP.",
+     "definitionFit": "Hard bop is a style of modern jazz from the 1950s, an earthier offshoot of bebop."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "poet"
+     "misdirectedWord": "parts"
     }
    }
   },
@@ -1379,32 +1393,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALEE",
+     "op": "middle",
      "indicators": [
       {
        "text": "outer bits cut from",
-       "note": "cutting the outer bits trims off the first and last letters"
+       "at": 22,
+       "note": "outer bits cut from means the first and last letters are removed"
       }
      ],
      "parts": [
       {
        "words": "whale bone",
+       "at": 42,
        "gives": "BALEEN",
-       "note": "baleen is the horny plate in a whale's mouth, often called whalebone"
+       "note": "baleen is whalebone, the horny plates in some whales' mouths"
       }
      ]
     },
     "explanation": {
-     "surface": "A ship's left side is marked, as someone trims a whale's bone.",
-     "walkthrough": "'Whale bone' is one idea, baleen, rather than two words to clip.",
-     "definitionFit": "Alee means on or toward the sheltered side of a ship, away from the wind, a nautical direction."
+     "surface": "Instructions for trimming the ends off a whalebone carving, pointing to the left of the ship.",
+     "walkthrough": "'Outer bits cut from' strips the B and N off BALEEN.",
+     "definitionFit": "Alee means on or towards the lee, the sheltered side of a ship, so the word points out which side is meant."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "bone"
+     "misdirectedWord": "port"
     }
    }
   },
@@ -2018,43 +2032,49 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "twice",
+       "at": 5,
+       "note": "twice means the English letter is put in a second time, at another place"
+      }
+     ],
      "parts": [
       {
        "op": "container",
-       "unchecked": true,
-       "gives": "SEALEMON",
        "indicators": [
         {
          "text": "interspersed with",
-         "note": "interspersed means dotted through, so the extra letters go inside at points"
+         "at": 11,
+         "note": "interspersed means scattered among, so the two letters go in at separate places"
         }
        ],
        "parts": [
         {
          "words": "Fish",
+         "at": 0,
          "gives": "SALMON",
-         "note": "the salmon is a fish"
+         "note": "a salmon is a fish"
         },
         {
          "words": "English",
-         "gives": "EE",
-         "note": "E for English, taken two times"
+         "at": 29,
+         "gives": "E"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "twice",
-       "note": "gives no letters itself: it says the English letter is used two times"
+       "words": "English",
+       "at": 29,
+       "gives": "E"
       }
      ]
     },
-    "spelling": "SEA LEMON",
     "explanation": {
-     "surface": "Fish caught twice near English shores turn out to be sea slugs.",
-     "walkthrough": "Twice tells you to use E two times, each one dropped into a different gap of the fish.",
-     "definitionFit": "A sea lemon is a yellowish nudibranch, a kind of shell-less sea slug."
+     "surface": "A fish, served with a double dose of English, alongside a sea creature.",
+     "walkthrough": "'Interspersed with' puts E into SALMON, giving SALEMON, and 'twice' puts in a second E after the S.",
+     "definitionFit": "A sea lemon is a yellow sea slug, a nudibranch named for its colour and shape."
     },
     "features": {
      "answerInScene": true,
