@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -316,25 +317,35 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ACED",
      "indicators": [
       {
        "text": "most",
-       "note": "It means all but one of a group, the group being the lettered scale people are graded on — though it stays vague about which one is left behind."
+       "at": 23,
+       "note": "most of a set means all but one of its members, so one letter is dropped"
       }
      ],
      "parts": [
       {
        "words": "social classes",
-       "gives": "ACED",
-       "note": "Britain's social grades are lettered A, B, C, D and E, and four of those five letters are what get strung together"
+       "at": 28,
+       "gives": "ACEDB",
+       "note": "the UK social grades are labelled A, B, C, D and E; as a set they may be taken in any order"
+      },
+      {
+       "gives": "B",
+       "note": "the one grade left out"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Social grade is one of the crossword's quieter conventions — A to E, straight off a market researcher's form — and here it supplies every letter of the answer.",
-     "definitionFit": "To ace something is to carry it off flawlessly, a tennis serve or an exam, so in the past tense it covers any performance done without a fault."
+     "surface": "Something done flawlessly by people across nearly every rung of society.",
+     "walkthrough": "The UK's social grades run A, B, C, D, E (C is usually split into C1 and C2); take all but B and you have the letters A, C, E, D. The ace is one of the card honours in this playing-card themed puzzle.",
+     "definitionFit": "To ace a test or task is slang for doing it flawlessly, so aced is a past-tense synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "classes"
     }
    }
   },
@@ -409,40 +420,54 @@
      "indicators": [
       {
        "text": "secured by",
-       "note": "To be secured by something is to be held fast inside it, so the pieces named first finish up enclosed."
+       "at": 8,
+       "note": "something secured by another is held fast inside it, so these letters go within"
       }
      ],
      "parts": [
-      {
-       "words": "side",
-       "gives": "DISE",
-       "note": "the four letters of SIDE shaken up, then opened out to make room"
-      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "in disarray",
-         "note": "Disarray is the state of things knocked out of their proper places, which is what happens to these four letters."
+         "at": 24,
+         "note": "things in disarray are jumbled up, so the letters of side are rearranged"
         }
        ],
        "parts": [
         {
+         "words": "side",
+         "at": 19
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
          "words": "A",
-         "note": "the first word of the clue, used as itself"
+         "at": 0,
+         "gives": "A"
         },
         {
          "words": "coach",
+         "at": 2,
          "gives": "BUS",
-         "note": "a coach is a bus — the vehicle, not the trainer the surface offers"
+         "note": "a coach is a bus"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Correct' is a verb here, the sort you do to a person rather than to a proof, and 'coach' is the pivot the whole sporting surface turns on.",
-     "definitionFit": "To disabuse someone is to put them right about something they wrongly believe, so 'Correct' is the verb sense — to set straight, not to be accurate."
+     "surface": "A team bus kept by a messy squad seems to want putting right.",
+     "walkthrough": "'In disarray' turns SIDE into DISE, and A plus BUS goes inside it. 'Correct' is a verb here: to disabuse someone is to correct their mistaken belief.",
+     "definitionFit": "To disabuse a person is to free them from an error, which is to correct their thinking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coach"
     }
    }
   },
@@ -728,30 +753,40 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "COLLUSION",
      "indicators": [
       {
        "text": "having change of heart",
-       "note": "A word's heart is the letter at its dead centre, and changing it means swapping that single letter for another."
+       "at": 24,
+       "note": "the heart of a word is its middle letter, so the central letter is swapped for another"
       }
      ],
      "parts": [
       {
        "words": "conflict",
+       "at": 14,
        "gives": "COLLISION",
-       "note": "a conflict between two things is a collision"
+       "note": "a collision is a clash or conflict"
       },
       {
-       "words": "having change of heart",
+       "gives": "I",
+       "note": "the central letter of the nine-letter word"
+      },
+      {
        "gives": "U",
-       "note": "the fifth of those nine letters steps aside and U takes the vacant place"
+       "note": "the replacement letter"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a peace-talks headline, where a change of heart would be a change of mind; here it is strictly the letter sitting in the middle.",
-     "definitionFit": "Collusion is secret cooperation towards a dishonest end, and complicity is that same involvement seen from the side of blame."
+     "surface": "Someone involved in a fight turns and becomes a willing accomplice.",
+     "walkthrough": "COLLISION has nine letters, so its heart is the fifth, I; replace it with U.",
+     "definitionFit": "Collusion is secret cooperation in wrongdoing, which is the same as complicity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heart"
     }
    }
   },
@@ -1006,34 +1041,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "once in each half",
+       "at": 31,
+       "note": "the wanted letters sit inside the clue words, appearing one time in the first pair of words and again in the second pair"
+      }
+     ],
      "parts": [
       {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "once in each half",
-         "note": "It promises the letters lie buried in a run, and that the run turns up twice — one instance on either side of the sentence."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Soccer goalkeeper",
-         "gives": "ERGO",
-         "note": "four consecutive letters bridge the end of one word and the start of the next"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "goofed",
-       "note": "the same four letters run again across the join before this word, which is what makes the bracketed promise true"
+       "words": "Soccer goalkeeper goofed",
+       "at": 0,
+       "gives": "ERGO",
+       "note": "the letters sit across the end of soccer and the start of goalkeeper, and again across the end of goalkeeper and the start of goofed"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The bracketed aside reads as a match report — a goal let in during each half — and it is really telling you the letters are there twice over.",
-     "definitionFit": "Ergo is the Latin for 'therefore', kept alive in English for drawing a conclusion, which is exactly the job 'thus' does."
+     "surface": "A football keeper blundered, and did so in both halves of the match.",
+     "walkthrough": "The letters show up across soccER GOalkeeper and again across goalkeepER GOofed, so the 'each half' surface about a football match is really about the clue itself.",
+     "definitionFit": "Ergo is the Latin-derived connective meaning therefore, a direct synonym of thus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "half"
     }
    }
   },
