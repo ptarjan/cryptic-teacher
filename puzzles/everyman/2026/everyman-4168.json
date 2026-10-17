@@ -20,7 +20,8 @@
   "previousOrigin": "model"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -93,30 +94,50 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "FIFTHWHEEL",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "Mostly is all but the last bit, so the words before it are written out one letter short at the end."
-      },
-      {
        "text": "daft",
-       "note": "Somebody daft is not thinking straight, and letters in that condition do not stay in the order they were handed over in."
+       "at": 20,
+       "note": "daft means crazy, so the letters are scrambled into a new order"
       }
      ],
      "parts": [
       {
-       "words": "The whiffler mostly",
-       "gives": "FIFTHWHEEL",
-       "note": "eleven letters there, and dropping the final R leaves exactly the ten the grid wants"
+       "words": "The",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 13,
+         "note": "mostly means most but not all of the word, so whiffler loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "whiffler",
+         "at": 4,
+         "note": "taken as written before it is cut short"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A parade official written off as half-witted and surplus to requirements.",
-     "walkthrough": "A whiffler is the man who clears a path in front of a procession, a job with the air of being unnecessary, so the surface reads as an insult rather than as an instruction.",
-     "definitionFit": "A cart runs on four wheels, so a fifth is along for the ride — the phrase means the person nobody in the group actually needs."
+     "surface": "A dismissive verdict on some trifling dabbler: silly and no use to anyone.",
+     "walkthrough": "'mostly' trims whiffler to WHIFFLE; with THE that gives THEWHIFFLE, which 'daft' rearranges.",
+     "definitionFit": "A fifth wheel is an idiom for a superfluous person, someone tagging along with no role."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "daft"
     }
    }
   },
@@ -227,43 +248,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ANOMALY",
+     "op": "container",
      "indicators": [
       {
-       "text": "Converted",
-       "note": "A converted building is one made over into something else, and letters made over the same way come back in a different order."
+       "text": "suppresses",
+       "at": 17,
+       "note": "to suppress is to hold something down within, so one piece is placed inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "suppresses",
-         "note": "To suppress a cry is to hold it down out of sight, so the exclamation goes inside the letters rather than beside them."
+         "text": "Converted",
+         "at": 0,
+         "note": "converted means changed into another form, so the letters of layman are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Converted layman",
-         "gives": "ANMALY",
-         "note": "the six letters of the noun rearranged, with a gap left after the second"
-        },
-        {
-         "words": "expression of wonder",
-         "gives": "O",
-         "note": "the wondering exclamation written down is a single letter: O, look at that"
+         "words": "layman",
+         "at": 10,
+         "note": "taken as written before it is rearranged"
         }
        ]
+      },
+      {
+       "words": "expression of wonder",
+       "at": 28,
+       "gives": "O",
+       "note": "O is the exclamation of wonder, as in 'O, wonderful!'"
       }
      ]
     },
     "explanation": {
-     "surface": "A new convert holding back a gasp of amazement.",
-     "walkthrough": "'Showing inconsistency' looks like a participle rounding off the sentence, and it is the definition: one word of it, with 'showing' doing nothing but joining.",
-     "definitionFit": "An anomaly is the one case that will not fit the pattern, which is inconsistency showing up in a single instance."
+     "surface": "A lay convert who stifles any gasp of amazement, betraying an inconsistency of faith.",
+     "walkthrough": "'Converted' rearranges layman into ANMALY, and 'suppresses' puts the O inside it.",
+     "definitionFit": "An anomaly is something that deviates from the expected pattern, an inconsistency or irregularity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Converted"
     }
    }
   },
@@ -336,43 +363,37 @@
    "annotation": {
     "definitions": [
      {
-      "text": "not saying",
-      "at": 5,
-      "note": "The definition describes the stance where the answer is the retort that takes it, and the clue prints 'I've not saying', which reads as a slip for 'I'm not saying'."
+      "text": "I've not saying",
+      "at": 0,
+      "note": "read as the colloquial 'I'm not saying', a refusal to tell"
      }
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "NEVERYOUMIND",
      "indicators": [
       {
        "text": "after workout",
-       "note": "A workout leaves whatever goes through it thoroughly shaken up, and 'after' puts that treatment on the words in front of it."
+       "at": 33,
+       "note": "after a workout the words are put through their paces and come out rearranged, signalling an anagram"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "I've",
-         "note": "the pronoun the printed clue puts in front of the definition, where the phrase wants 'I'm'; it hands over no letters"
-        },
-        {
-         "words": "I've done my run",
-         "gives": "NEVERYOUMIND",
-         "note": "twelve letters in that boast, exactly the twelve the three words of the entry need"
-        }
-       ]
+       "words": "I've done my run",
+       "at": 16,
+       "note": "the twelve letters of these words are the fodder"
       }
      ]
     },
     "explanation": {
-     "surface": "A gym-goer insisting, a little defensively, that the run is already done.",
-     "walkthrough": "'Workout' is the sort of everyday noun a setter can bury an instruction in, and nothing in the sentence points at it. The clue says 'I've' twice, and only the second one is raw material.",
-     "definitionFit": "'Never you mind' is the phrase you use to shut a question down, which is what somebody who is not saying is doing."
+     "surface": "A jogger, asked how far they ran, coyly refusing to say once the session is over.",
+     "walkthrough": "'after workout' tells you to rearrange the twelve letters of I'VE DONE MY RUN. The definition reads as a curt refusal to share information.",
+     "definitionFit": "The phrase is a brusque retort meaning that's none of your business, a refusal to tell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "workout"
     }
    }
   },
@@ -797,29 +818,35 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "HALFWAY",
      "indicators": [
       {
        "text": "having change of heart",
-       "note": "Somebody who has a change of heart swaps what sits at their centre for something else, and the heart of a seven-letter word is the letter in the middle of it."
+       "at": 30,
+       "note": "the heart of a word is its central letter, and here that middle letter is changed for another"
       }
      ],
      "parts": [
       {
        "words": "entrance area",
+       "at": 15,
        "gives": "HALLWAY",
-       "note": "a hallway is the strip of floor you step onto from the front door, the area the entrance opens into"
+       "note": "a hallway is the entrance area of a house"
+      },
+      {
+       "gives": "L"
+      },
+      {
+       "gives": "F"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody stops in the middle of the hall, thinks better of it and turns back.",
-     "walkthrough": "Nothing here says which letter arrives: the heart of the entrance area is an L, and the crossings tell you an F replaces it. On the surface 'change of heart' is somebody relenting, not a middle letter being swapped.",
-     "definitionFit": "Halfway is where you stand when half the distance is behind you and half in front, which is the midpoint of anything you can travel along."
+     "surface": "Someone stopping in the middle of a front hall, having had second thoughts.",
+     "walkthrough": "The heart of seven-letter HALLWAY is its fourth letter, an L; changing it to F gives the answer. The phrase 'change of heart' looks like a change of mind, but it is literal here.",
+     "definitionFit": "Halfway means at the point equidistant between two ends, exactly a midpoint."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "heart"
@@ -1115,50 +1142,32 @@
    "annotation": {
     "definitions": [
      {
-      "text": "As a rule",
+      "text": "As a rule, what's found",
       "at": 0,
-      "note": "The definition is adverbial where the answer is a noun: what happens as a rule is the thing the answer names, the standard case."
+      "note": "a noun phrase: what is found as a rule is what is normal or standard"
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reverse",
+     "reading": "N OR M",
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "N",
-       "indicators": [
-        {
-         "text": "what's found in an extremity",
-         "note": "An extremity is an end, so this asks for a letter off one end of the word that follows, and 'an' declines to say which end."
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "of neoliberalism",
-         "gives": "N",
-         "select": "outer",
-         "note": "the letter standing at the front end of that long word"
-        }
-       ]
-      },
-      {
-       "words": "an extremity",
-       "gives": "OR",
-       "note": "only one extremity is asked for, either of them, and the little word that offers a choice between two things is spelt out in full"
-      },
-      {
-       "words": "neoliberalism",
-       "gives": "M",
-       "note": "the letter standing at the other end of the same word"
+       "words": "in an extremity of neoliberalism",
+       "at": 24,
+       "note": "the word neoliberalism begins with N and ends with M, so its extremity is either one of those two letters, which spells out the answer"
       }
      ]
     },
     "explanation": {
-     "surface": "The far edge of free-market politics, and what turns up out there.",
-     "walkthrough": "Read 'an extremity' politically and the clue is about where an ideology ends up. The joke is that the wordplay refuses to choose which end it means and writes that refusal into the middle of the answer.",
-     "definitionFit": "The norm is what usually happens: the standard, the thing that holds as a rule rather than by exception."
+     "surface": "An observation that, as a rule, something turns up at the far end of free-market politics.",
+     "walkthrough": "Split the answer as N OR M: an extremity of neoliberalism is its first letter or its last, that is, N or M.",
+     "definitionFit": "The norm is the usual or typical state of affairs, what one ordinarily expects to encounter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "extremity"
     }
    }
   },
