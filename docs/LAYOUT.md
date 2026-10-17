@@ -2952,5 +2952,7 @@ tools/unchecked_repairs.py                     mechanical repairs for an uncheck
 tools/test_unchecked_repairs.py                is each mechanical repair of an unchecked tree
                                                kept only when the evaluator then finds the
                                                answer, on clues from the corpus?
+tools/test_worker_commit.sh                    does worker_commit commit only its own paths,
+                                               and say why when it cannot?
 ```
 <!-- LAYOUT-END -->

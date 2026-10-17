@@ -253,6 +253,9 @@ print("hints say who wrote them, and cannot say it wrongly")
 # cryptic-30078 is annotated; `bare` is it with every hint taken out, since
 # the burn annotates any real unhinted puzzle out from under the test.
 hinted = load("cryptic-30078")
+# The burn adds its own model to a puzzle's credit each time it re-annotates, so
+# pin the credit the assertions below are written against.
+hinted["annotatedBy"] = ["claude-fable-5"]
 bare = copy.deepcopy(hinted)
 bare.pop("annotatedBy", None)
 for e in bare["entries"]:
