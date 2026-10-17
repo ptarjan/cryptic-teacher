@@ -23,7 +23,8 @@
   "check": "30 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -275,59 +276,62 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "COMPASS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 28,
+       "note": "into means the reversed letters go inside the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "COMPASS",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "put back",
-           "note": "Something put back is returned the way it came, and in an across entry that means its letters are read from the right."
-          },
-          {
-           "text": "into",
-           "note": "Into says the letters just named go bodily inside what follows rather than standing beside it."
-          }
-         ],
-         "parts": [
-          {
-           "words": "firm",
-           "gives": "CO",
-           "note": "co is the short form of company, the firm on a letterhead"
-          },
-          {
-           "words": "Starmer",
-           "gives": "MP",
-           "note": "Keir Starmer holds the office abbreviated to two letters, and here they are turned round"
-          },
-          {
-           "words": "Trumpian behind",
-           "gives": "ASS",
-           "note": "ass is the American spelling of the British arse, which is what makes it Trumpian"
-          }
-         ]
+         "words": "firm",
+         "at": 33,
+         "gives": "CO",
+         "note": "CO is short for company, a firm"
+        },
+        {
+         "words": "Trumpian behind",
+         "at": 38,
+         "gives": "ASS",
+         "note": "ass is the American word for backside, as Trump would say"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "put back",
+         "at": 19,
+         "note": "put back means set the other way round, so the two letters for the prime minister are reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Starmer",
+         "at": 11,
+         "gives": "PM",
+         "note": "Keir Starmer is the PM, the UK Prime Minister"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Starmer shoved back into a solidly Trumpian rear end.",
-     "walkthrough": "Starmer's job title rather than his name is what supplies the letters, and it arrives the other way round. 'Firm' is the company on a letterhead, not an adjective about the backside.",
-     "definitionFit": "A compass is the navigator's instrument for finding north, and the hinged pair of legs a geometry set uses for drawing circles."
+     "surface": "A Private Eye jibe at Starmer pushed back into Trump's rear end.",
+     "walkthrough": "'Trumpian' marks the American spelling: ass rather than the British arse.",
+     "definitionFit": "A compass is an instrument for finding direction, or a drawing instrument for circles."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "firm"
+     "misdirectedWord": "behind"
     }
    }
   },
