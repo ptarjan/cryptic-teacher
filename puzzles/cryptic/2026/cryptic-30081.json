@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -313,40 +314,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SUSANNE",
-     "indicators": [
-      {
-       "text": "leaving the borders"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "South",
+       "at": 10,
+       "gives": "S",
+       "note": "S is the compass abbreviation for south"
+      },
+      {
+       "words": "America",
+       "at": 16,
+       "gives": "US",
+       "note": "US, the United States of America"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "leaving the borders",
+         "at": 32,
+         "note": "the border letters at each end of the word banned are left off, keeping only its inside"
+        }
+       ],
        "parts": [
         {
-         "words": "South",
-         "gives": "S",
-         "note": "the compass abbreviation"
-        },
-        {
-         "words": "America",
-         "gives": "US",
-         "note": "the States, abbreviated"
-        },
-        {
          "words": "banned",
-         "gives": "ANNE",
-         "note": "bANNEd without its outer B and D"
+         "at": 24,
+         "note": "taken as written before its ends are dropped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'From South America' looks like one place and is really two abbreviations laid end to end. 'Borders' means the first and last letters — a deletion worth banking.",
-     "definitionFit": "Susanne is a girl's name, the German and Scandinavian spelling of Susan, so the definition works by example rather than by meaning."
+     "surface": "A young woman from South America has been barred from somewhere.",
+     "walkthrough": "'leaving the borders' strips the first and last letters, B and D, from BANNED, leaving ANNE to follow S and US.",
+     "definitionFit": "Susanne is a female given name, so it is an example of a girl's name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "America"
     }
    }
   },
@@ -588,40 +597,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SEGREGATE",
-     "indicators": [
-      {
-       "text": "scratching back"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "small",
+       "at": 8,
+       "gives": "S",
+       "note": "S is the clothing-size abbreviation for small"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "scratching back",
+         "at": 20,
+         "note": "scratching means crossing out, and back means the final letter of the bird's name goes"
+        }
+       ],
        "parts": [
         {
-         "words": "small",
-         "gives": "S",
-         "note": "the clothes-label abbreviation"
-        },
-        {
          "words": "wader",
-         "gives": "EGRE",
-         "note": "the wader is an EGRET, scratched at the back"
+         "at": 14,
+         "gives": "EGRET",
+         "note": "an egret is a long-legged wading bird"
         },
         {
-         "words": "barrier",
-         "gives": "GATE",
-         "note": "a gate bars the way"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "barrier",
+       "at": 39,
+       "gives": "GATE",
+       "note": "a gate is a barrier across an opening"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The wader has to be the egret — a heron leaves the wrong letters — and 'scratching back' docks its tail. 'At' is holding the two halves together, nothing more.",
-     "definitionFit": "To segregate is to keep groups apart from one another, which is isolating them by policy rather than by accident of geography."
+     "surface": "Keep a small wading bird apart as it scrapes its back against a fence.",
+     "walkthrough": "'scratching back' removes the last letter of EGRET, leaving EGRE; 'at' simply joins it to GATE.",
+     "definitionFit": "To segregate is to set apart or separate from others, which is what isolating does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scratching"
     }
    }
   },
@@ -858,33 +879,38 @@
      "parts": [
       {
        "words": "of lowest quality",
+       "at": 7,
        "gives": "WORST",
-       "note": "the superlative of bad"
+       "note": "worst means of the lowest quality"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "ED",
        "indicators": [
         {
-         "text": "last"
+         "text": "last to",
+         "at": 25,
+         "note": "last to be read as the final letters belonging to the words that follow, one from each"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "to be used",
-         "gives": "ED",
-         "select": "last",
-         "note": "the closing letter of each word that has one: bE, useD"
+         "words": "be used",
+         "at": 33,
+         "note": "the words whose final letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Last' is an instruction, not part of the surface's sense of finishing a job — it picks off final letters. Worsted wool is named after Worstead in Norfolk.",
-     "definitionFit": "Worsted is a smooth, tightly spun woollen yarn and the cloth woven from it, so 'fabric' names it by its general class."
+     "surface": "Some cloth of the poorest standard is the last one anybody will pick.",
+     "walkthrough": "'last to' takes the end letters of 'be' and 'used', giving ED, to follow WORST.",
+     "definitionFit": "Worsted is a smooth woollen cloth made from long-staple yarn, a type of fabric used for suits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "last"
     }
    }
   },
