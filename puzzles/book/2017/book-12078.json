@@ -140,26 +140,32 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NAG",
      "indicators": [
       {
        "text": "having changed direction",
-       "note": "one compass point is swapped for another, so a direction letter in the word is exchanged"
+       "at": 18,
+       "note": "S and N are the compass directions south and north, so one direction letter is swapped for the other"
       }
      ],
      "parts": [
       {
        "words": "decline",
+       "at": 9,
        "gives": "SAG",
-       "note": "to sag is to droop or decline; its S (south) becomes N (north)"
+       "note": "to sag is to decline or droop"
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Harry is going downhill and has taken a new direction in life.",
-     "walkthrough": "'Harry' looks like a man's name, but it is a verb meaning to pester.",
-     "definitionFit": "To harry someone is to harass or pester them persistently, which is what nagging does."
+     "surface": "Someone called Harry going downhill and then turning his life around.",
+     "walkthrough": "'Harry' looks like a man's name, but it is the verb to pester. SAG has its S (south) replaced by N (north) for 'having changed direction'.",
+     "definitionFit": "To nag is to harass someone with persistent complaints, which is to harry them."
     },
     "features": {
      "answerInScene": false,
@@ -1631,44 +1637,57 @@
     "definitions": [
      {
       "text": "in symbolic form",
-      "at": 43
+      "at": 43,
+      "note": "an adjectival phrase: a tale in symbolic form is an allegoric tale"
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ALLEGORIC",
-     "indicators": [
-      {
-       "text": "final twist",
-       "note": "a twist at the end turns the closing letters around, so the last pair is read the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Lively work",
-       "gives": "ALLEGRO",
-       "note": "allegro marks a brisk, lively musical movement"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "with final twist",
+         "at": 12,
+         "note": "the final pair of letters is twisted round, so the last two letters change places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Lively work",
+         "at": 0,
+         "gives": "ALLEGRO",
+         "note": "an allegro is a piece of music played briskly and lively"
+        },
+        {
+         "gives": "RO"
+        },
+        {
+         "gives": "OR"
+        }
+       ]
       },
       {
        "words": "one",
+       "at": 31,
        "gives": "I",
-       "note": "the Roman numeral for one"
+       "note": "I is the Roman numeral for one"
       },
       {
        "words": "chapter",
-       "gives": "C",
-       "note": "C is the standard abbreviation for chapter"
+       "at": 35,
+       "gives": "C"
       }
      ]
     },
     "explanation": {
-     "surface": "A lively novel with a twist at the end, where a single chapter is told in symbols.",
-     "walkthrough": "'Lively work with final twist' sounds like a thriller, but it is a musical term whose last two letters swap.",
-     "definitionFit": "Allegoric describes a story or picture whose characters stand for abstract ideas, which is symbolic expression."
+     "surface": "A spirited composition that ends with a surprise, and a chapter written as a parable.",
+     "walkthrough": "An allegro is a brisk musical movement; 'with final twist' turns its last two letters round to give ALLEGOR, followed by I and C.",
+     "definitionFit": "Allegoric describes a story whose characters and events stand for hidden moral or political meanings."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "twist"
     }
