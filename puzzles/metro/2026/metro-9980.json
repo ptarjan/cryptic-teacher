@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -389,46 +390,45 @@
      "indicators": [
       {
        "text": "about",
-       "note": "'about' means round the outside of, so the word it follows closes over whatever is named next."
+       "at": 18,
+       "note": "about means surrounding, so the pleasant word goes round the picked letter"
       }
      ],
      "parts": [
       {
        "words": "pleasant",
+       "at": 9,
        "gives": "NICE",
-       "note": "pleasant company is nice company"
+       "note": "nice means pleasant, agreeable"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "E",
        "indicators": [
         {
          "text": "finally",
-         "note": "'finally' points at the last moment of the word before it, so the letter that ends that word is the only one taken."
+         "at": 31,
+         "note": "finally means at the end, so only the last letter of the word is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "uncle, finally",
-         "gives": "E",
-         "select": "last",
-         "note": "the letter at the end of 'uncle'"
+         "words": "uncle",
+         "at": 24,
+         "note": "the word whose last letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody being agreeable on the subject of an uncle, at long last.",
-     "walkthrough": "The comma stops 'uncle, finally' reading as a piece of family news and turns it into an instruction. The insertion falls between the second and third letters of the outer word, where nothing looks like a join.",
-     "definitionFit": "A niece is your brother's or sister's daughter, so she is one particular relative and the definition is the general word for the tie."
+     "surface": "A family member says nice things about her mother's brother.",
+     "walkthrough": "The last letter of uncle ('finally') sits inside NICE, which goes 'about' it. The clue's uncle is a red herring for the relation, though apt.",
+     "definitionFit": "A niece is the daughter of one's brother or sister, so she is a family relation."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "finally"
+     "misdirectedWord": "uncle"
     }
    }
   },
