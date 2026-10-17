@@ -309,43 +309,34 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNLID",
+     "op": "composite",
      "indicators": [
       {
+       "text": "No",
+       "at": 0,
+       "note": "No here means without, so the letters of the next word are left out of the pool"
+      },
+      {
        "text": "complex",
-       "note": "something complex is intricate and tangled, so the remaining letters are mixed up"
+       "at": 16,
+       "note": "complex means intricate and tangled, so the remaining letters are twisted into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "UNLID",
-       "indicators": [
-        {
-         "text": "No",
-         "note": "'no big' asks for the three letters of the word big to be taken out of what follows"
-        }
-       ],
-       "parts": [
-        {
-         "words": "big",
-         "note": "taken as written, the letters to be removed"
-        },
-        {
-         "words": "building",
-         "note": "taken as written, the word they come out of"
-        }
-       ]
+       "words": "building",
+       "at": 7
+      },
+      {
+       "words": "big",
+       "at": 3
       }
      ]
     },
     "explanation": {
-     "surface": "A development with no large building in it is open to the sky.",
-     "walkthrough": "Removing B, I and G from BUILDING leaves ULDIN, which rearranges to UNLID.",
-     "definitionFit": "To unlid something is to take its lid off, uncovering it and so opening it up."
+     "surface": "A planning note: no large construction on the site, with the complex left open.",
+     "walkthrough": "'No big' removes B, I and G from BUILDING, leaving the letters UNLDI, and 'complex' rearranges them.",
+     "definitionFit": "To unlid a pot or box is to take its lid off, so to open it."
     },
     "features": {
      "answerInScene": false,
@@ -1446,50 +1437,55 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "STURT",
      "indicators": [
       {
        "text": "for",
-       "note": "for means one letter takes the place of another"
+       "at": 26,
+       "note": "for means in place of, so the tense letter stands where the other letter was"
       }
      ],
      "parts": [
       {
        "words": "jet",
+       "at": 15,
        "gives": "SPURT",
-       "note": "a spurt is a jet of liquid"
-      },
-      {
-       "words": "tense",
-       "gives": "T",
-       "note": "T is the grammar abbreviation for tense"
+       "note": "a spurt is a sudden jet of liquid"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "P",
+       "indicators": [
+        {
+         "text": "upfront",
+         "at": 36,
+         "note": "upfront means at the very front, so only the opening letter of the next word is used"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "pilot upfront",
-         "gives": "P",
-         "select": "first",
-         "note": "the front letter of pilot"
+         "words": "pilot",
+         "at": 30,
+         "note": "the first letter of pilot is P"
         }
        ]
+      },
+      {
+       "words": "tense",
+       "at": 20,
+       "gives": "T",
+       "note": "T is the grammar abbreviation for tense"
       }
      ]
     },
     "explanation": {
-     "surface": "Turbulence on a jet makes the pilot at the front tense.",
-     "walkthrough": "Disturbance in jet reads as air turbulence, but disturbance is the definition and in a link.",
-     "definitionFit": "Sturt is an old and dialect word for trouble, commotion or a fuss, a stir."
+     "surface": "Turbulence on a jet, and the nervous pilot sitting up front.",
+     "walkthrough": "'pilot upfront' gives P, and 'for' says T replaces that P in SPURT. Sturt is a Scots and northern word for trouble or a commotion.",
+     "definitionFit": "A sturt, in Chambers, is a dialect noun for contention, trouble or a commotion."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "jet"
+     "joke": "pun",
+     "misdirectedWord": "tense"
     }
    }
   },
@@ -1765,44 +1761,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IAMBIST",
+     "op": "composite",
      "indicators": [
       {
        "text": "treated",
-       "note": "treated, as by a doctor, means worked on and so rearranged"
+       "at": 16,
+       "note": "something treated has been worked on and changed, so these letters are processed into a new order"
+      },
+      {
+       "text": "Not",
+       "at": 35,
+       "note": "not here asks for the named letter to be left out of the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "IAMBIST",
-       "indicators": [
-        {
-         "text": "Not",
-         "note": "not unknown means the letter for an unknown quantity is removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "my tibias",
-         "note": "taken as written, to be rearranged"
-        },
-        {
-         "words": "unknown",
-         "gives": "Y",
-         "note": "Y is an algebraic unknown"
-        }
-       ]
+       "words": "my tibias",
+       "at": 24
+      },
+      {
+       "words": "unknown",
+       "at": 39,
+       "gives": "Y",
+       "note": "y is one of the algebraic letters used for an unknown quantity"
       }
      ]
     },
     "explanation": {
-     "surface": "A chiropodist asked to look at the patient's shin bones.",
-     "walkthrough": "'Foot specialist' points to a chiropodist, but the foot here is a metrical one.",
-     "definitionFit": "An iambist is a poet who writes in iambs, the metrical foot of one short and one long syllable."
+     "surface": "A patient asking a chiropodist to look at their shins, one leg of whose problem remains a mystery.",
+     "walkthrough": "The foot here is a metrical foot, not a body part. 'Not unknown' removes Y from MY TIBIAS, leaving MTIBIAS, and 'treated' rearranges those letters.",
+     "definitionFit": "An iambist writes verse in iambs, the metrical foot of one short then one long syllable."
     },
     "features": {
      "answerInScene": false,
