@@ -50,8 +50,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "first",
-       "note": "takes the first letter of 'puzzle'"
+       "text": "by",
+       "at": 16,
+       "note": "by means next to, so the letter stands beside the verb that follows"
       }
      ],
      "parts": [
@@ -59,34 +60,35 @@
        "op": "first",
        "indicators": [
         {
-         "text": "by",
-         "note": "places the two pieces side by side"
+         "text": "first",
+         "at": 28,
+         "note": "first points to the opening letter of the word puzzle's"
         }
        ],
        "parts": [
         {
-         "words": "puzzle's first",
-         "gives": "PUZZLEFIRST",
-         "note": "the first letter of 'puzzle'"
+         "words": "puzzle's",
+         "at": 19,
+         "note": "the word whose first letter is taken"
         }
        ]
       },
       {
        "words": "Become confused",
+       "at": 0,
        "gives": "ADDLE",
-       "note": "to addle is to become muddled"
+       "note": "to addle is to muddle, or to become muddled"
       }
      ]
     },
     "explanation": {
-     "surface": "A solver gets in a muddle over the top line of the grid.",
-     "walkthrough": "'Row' looks like a line of squares in the grid, and 'puzzle' like the crossword itself; row is the verb, what you do with an oar.",
-     "definitionFit": "A plain synonym: both verbs mean propelling a small boat with oars or a blade, and the surface hides it as a line of grid squares."
+     "surface": "Someone gets muddled by the first row of a crossword.",
+     "walkthrough": "P, the 'first' of puzzle's, stands 'by' ADDLE. 'row' is the boating verb, not a line of squares.",
+     "definitionFit": "To propel a canoe with a short oar is to paddle, a gentle way of rowing."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "row"
     }
    }
@@ -169,62 +171,69 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DOLMADES",
+     "op": "charade",
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "DOLMADES",
+       "op": "reversal",
        "indicators": [
         {
          "text": "rolled",
-         "note": "turns those letters round"
-        },
-        {
-         "text": "in"
+         "at": 12,
+         "note": "rolled means turned over, so those two letters are read backwards"
         }
        ],
        "parts": [
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "OD",
          "indicators": [
           {
            "text": "evenly",
-           "note": "keeps the even-numbered letters of 'Food'"
-          },
-          {
-           "text": "hollow",
-           "note": "empties 'leaves' to its outer letters"
+           "at": 5,
+           "note": "evenly means the even-numbered letters, the second and fourth, of the word food"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Food evenly",
-           "gives": "OD",
-           "select": "alternate",
-           "note": "the 2nd and 4th letters of FOOD"
+           "words": "Food",
+           "at": 0,
+           "note": "the word whose even letters are taken"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 27,
+         "note": "in places the word for cooked inside those outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "hollow",
+           "at": 30,
+           "note": "hollow means emptied, so only the outside letters of leaves remain"
+          }
+         ],
+         "parts": [
+          {
+           "words": "leaves",
+           "at": 37,
+           "note": "the word whose outer letters are kept"
           }
          ]
         },
         {
-         "words": "rolled",
-         "gives": "DO",
-         "note": "OD turned round"
-        },
-        {
-         "words": "hollow leaves",
-         "gives": "LS",
-         "note": "LEAVES with its middle removed"
-        },
-        {
          "words": "cooked",
+         "at": 20,
          "gives": "MADE",
-         "note": "cooked = made, as a meal is made; it sits inside L…S"
+         "note": "made means prepared or cooked, as a meal is made"
         }
        ]
       }
@@ -232,9 +241,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A recipe: something rolled up and cooked inside leaves.",
-     "walkthrough": "The whole clue is both the wordplay and a description of the dish, since dolmades are fillings rolled and cooked in vine leaves.",
-     "definitionFit": "Dolmades are a Greek dish of stuffed vine leaves, rolled and cooked."
+     "surface": "A description of a dish: food rolled up neatly and cooked inside leaves.",
+     "walkthrough": "'evenly' takes OD from Food, 'rolled' makes DO; 'hollow' leaves is LS, with MADE put 'in' it. The whole clue also describes the dish.",
+     "definitionFit": "These Greek and Turkish parcels are vine leaves stuffed with rice and rolled before cooking."
     },
     "features": {
      "answerInScene": true,
@@ -312,48 +321,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BOARDING",
+     "op": "charade",
      "indicators": [
       {
-       "text": "ordered",
-       "note": "'ordered' means put in a set order, so GIN's letters are arranged afresh"
+       "text": "by",
+       "at": 23,
+       "note": "by means put next to, so the rearranged gin sits beside the directors"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "directors",
+       "at": 26,
+       "gives": "BOARD",
+       "note": "a company's directors together form its board"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "by",
-         "note": "sets the pieces next to each other"
+         "text": "ordered",
+         "at": 15,
+         "note": "ordered means put in a fresh order, so the letters of gin are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "directors",
-         "gives": "BOARD",
-         "note": "a company's directors form its board"
-        },
-        {
-         "words": "gin ordered",
-         "gives": "ING",
-         "note": "GIN rearranged"
+         "words": "gin",
+         "at": 11
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The company directors order in some gin.",
-     "walkthrough": "'Getting in' sounds like buying supplies, as in getting in the gin; it means climbing aboard.",
-     "definitionFit": "A plain synonym, both nouns for the act of climbing aboard a train, ship or plane."
+     "surface": "The company's directors have ordered in some gin.",
+     "walkthrough": "'ordered' rearranges GIN as ING, which sits 'by' BOARD, after it.",
+     "definitionFit": "Passengers boarding a plane or train are getting on, entering the vehicle."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Getting"
+     "misdirectedWord": "ordered"
     }
    }
   },
@@ -892,40 +901,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RHODESIAN",
-     "indicators": [
-      {
-       "text": "novel"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "island",
+       "at": 15,
+       "gives": "RHODES",
+       "note": "Rhodes is a Greek island in the Aegean"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "novel",
+         "at": 27,
+         "note": "novel means new or unusual, so the letters of in a are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "island",
-         "gives": "RHODES",
-         "note": "the Greek island of Rhodes"
-        },
-        {
-         "words": "in a novel",
-         "gives": "IAN",
-         "note": "IN A rearranged"
+         "words": "in a",
+         "at": 22
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An African character who once lived on an island in a book.",
-     "walkthrough": "'Novel' reads as a book but is the adjective new, so IN A gets rearranged. Rhodesia is the former name of Zimbabwe.",
-     "definitionFit": "A Rhodesian was a citizen of Rhodesia, a country that no longer exists under that name."
+     "surface": "A former African country appears as an island in a novel.",
+     "walkthrough": "'novel' turns IN A into IAN after RHODES. The noun 'novel' in the surface is in fact the adjective meaning new.",
+     "definitionFit": "Rhodesia was the old name of what is now Zimbabwe, so a person from there was a former African national."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "novel"
     }
    }
@@ -1047,15 +1056,10 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "gutless",
-       "note": "removes the insides of 'spies'"
-      }
-     ],
      "parts": [
       {
        "words": "Trap",
+       "at": 0,
        "gives": "CORNER",
        "note": "to corner someone is to trap them"
       },
@@ -1064,37 +1068,42 @@
        "indicators": [
         {
          "text": "outside",
-         "note": "puts S…S around the next piece"
+         "at": 19,
+         "note": "outside says those outer letters go round the word for air"
         }
        ],
        "parts": [
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "SS",
+         "indicators": [
+          {
+           "text": "gutless",
+           "at": 5,
+           "note": "gutless means with the insides removed, leaving only the outer letters of spies"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "gutless spies",
-           "gives": "SS",
-           "select": "outer",
-           "note": "SPIES with its middle removed"
+           "words": "spies",
+           "at": 13,
+           "note": "the word whose outer letters are kept"
           }
          ]
         },
         {
          "words": "air",
+         "at": 27,
          "gives": "TONE",
-         "note": "an air or manner is a tone"
+         "note": "an air is a tune, and tone is a musical quality, a sense the clue leans on"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cowardly spies are caught outside military air bases.",
-     "walkthrough": "'Air bases' looks like one phrase for an airfield; 'air' goes into the wordplay and 'bases' is the definition.",
-     "definitionFit": "Cornerstones are foundations, the bases something is built on."
+     "surface": "Cowardly spies are cornered outside an airbase.",
+     "walkthrough": "'gutless' empties SPIES to SS, which sits 'outside' TONE, all after CORNER. Air and tone both describe a feeling or mood.",
+     "definitionFit": "The stone laid at a building's corner forms its foundation, so figuratively it is a basis."
     },
     "features": {
      "answerInScene": false,
@@ -1182,38 +1191,31 @@
      "indicators": [
       {
        "text": "Start off",
-       "note": "the start is taken off, so the word loses its first letter"
+       "at": 0,
+       "note": "start off means the opening letter is taken away"
       },
       {
        "text": "perhaps",
-       "note": "being at sea is one example of sailing"
+       "at": 18,
+       "note": "perhaps marks sailing as only one example of being at sea, before its first letter goes"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "at sea, perhaps",
-         "gives": "SAILING",
-         "note": "sailing is one way of being at sea"
-        },
-        {
-         "words": "Start off",
-         "gives": "AILING",
-         "note": "SAILING loses its first letter"
-        }
-       ]
+       "words": "at sea",
+       "at": 10,
+       "gives": "SAILING",
+       "note": "a boat that is sailing is at sea"
       },
       {
-       "gives": "SAILING"
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "Setting off on a voyage and maybe feeling seasick.",
-     "walkthrough": "'Start off' reads as setting out on the voyage; it is the instruction to remove the start.",
-     "definitionFit": "A plain synonym: both adjectives describe someone in poor health."
+     "surface": "A sailor sets off to sea and then feels sick.",
+     "walkthrough": "'perhaps' flags that sailing is only one way of being at sea; 'Start off' removes its S.",
+     "definitionFit": "Someone who is poorly or sick is in poor health, which is what unwell means."
     },
     "features": {
      "answerInScene": true,
