@@ -698,7 +698,8 @@ eq.plan = lambda papers, cache=None, reread=None, out=None: (
     [], [{{"kind": "read", "paper": "times", "rel": r, "rank": 1, "reason": "never read", "needs": []}}
          for r in ("long", "r1", "r2")])
 resume = sys.argv[sys.argv.index("--resume") + 1] if "--resume" in sys.argv else None
-sys.exit(eq.dispatch(["times"], {str(cache)!r}, workers=1, replan=0.3, resume=resume))
+sys.exit(eq.dispatch(["times"], {str(cache)!r}, workers=1, replan=0.3, resume=resume,
+                 plan_reuse=float(os.environ.get("TEST_PLAN_REUSE", 0))))
 """)
 eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
 fake(rewrite_on="long", rewrite=str(driver), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
@@ -713,6 +714,22 @@ check("its running unit is kept, not started again, reaped by the new image, the
       (sum(e[:3] == ["start", "read", "long"] for e in ev), "end read long: done" in p.stderr,
        ev.index(["end", "read", "long"]) < ev.index(["start", "read", "r1", "v1"]),
        [e[2] for e in ev if e[0] == "start"]))
+# A re-exec reuses a young kept plan as its own: it says so, and the plan's
+# time to make survives in the file for the replan back-off.
+check("mirror: with plan_reuse 0 the re-exec's image does not keep the plan", False, "kept, not made again" in p.stderr)
+log.unlink()
+eq.UNIT_SCRIPT.write_text(eq.UNIT_SCRIPT.read_text().replace('VERSION = "v2"', 'VERSION = "v1"'))
+driver.write_text(driver.read_text().replace('VERSION = "p2"', 'VERSION = "p1"'))
+fake(rewrite_on="long", rewrite=str(driver), change=['VERSION = "p1"', 'VERSION = "p2"'], sleep={"long": 3})
+reused = subprocess.run([sys.executable, str(driver)], capture_output=True, text=True, timeout=60,
+                        env={**os.environ, "TEST_PLAN_REUSE": "600"})
+check("a re-exec starts from a plan under plan_reuse old and keeps it as its own, units still all started once",
+      (0, True, ["long", "r1", "r2"]),
+      (reused.returncode, "kept, not made again now" in reused.stderr,
+       [e[3] for e in (l.split() for l in log.read_text().splitlines()) if e[1] == "start"]))
+kp = T / "took.plan"
+eq.keep_plan(kp, ["k"], ([], [], []), time.time(), 123.0)
+check("a kept plan carries how long it took", (([], [], []), 123.0), (eq.last_plan(kp, ["k"])[0], eq.last_plan(kp, ["k"])[2]))
 # Mirror: a plan that takes minutes (a cold cache on the media mount) holds
 # no re-exec back; the old code would run until the plan ended.
 log.unlink()

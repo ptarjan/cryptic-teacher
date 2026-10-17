@@ -1007,7 +1007,7 @@ def desktop_room(reading, opened, closed=()):
 def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=None, workers=WORKERS,
              scan_workers=SCAN_WORKERS, beside=None, read_seconds=READ_SECONDS,
              scan_seconds=SCAN_SECONDS, replan=REPLAN, fetch=(), trove_workers=TROVE_WORKERS, handoff=None,
-             resume=None, fetch_replan=None, upkeep=None):
+             resume=None, fetch_replan=None, upkeep=None, plan_reuse=None):
     """Run the queue until nothing due is left to start (or `seconds` have
     passed, or a TERM), then wait for the units running. `fetch` names the
     FETCHERS whose units run too, in pools of their own. With `handoff` (a
@@ -1058,12 +1058,21 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     plan_file = Path(f"{handoff or resume or f'/tmp/edition-queue-{os.getpid()}.json'}.plan")
     plan_key = [list(papers), str(cache), reread and reread.isoformat(), sorted(fetch)]
     plan_at = None  # when the plan in force was made (wall clock), once one is kept
+    plan_reuse = PLAN_REUSE if plan_reuse is None else plan_reuse
+    planned_took = [0.0]  # seconds the last whole plan took (replan_after)
     if handoff or resume:
-        kept, plan_at = last_plan(plan_file, plan_key)
+        kept, plan_at, kept_took = last_plan(plan_file, plan_key)
         if kept:
             scans, reads, fetches = kept
             planned = time.monotonic()
             log(f"started from the last plan: {len(scans)} scans, {len(reads)} reads, {len(fetches)} fetches")
+            if time.time() - plan_at < plan_reuse:
+                # Young enough to stand as made: the next whole plan comes when it
+                # would have without the re-exec (fresh() already looks for new
+                # editions every FRESH_POLL), and the image may re-exec again at once.
+                plan_done = planned
+                planned_took[0] = kept_took
+                log(f"the plan is {time.time() - plan_at:.0f}s old: kept, not made again now")
     queue = []  # the units of the last pass, started or not
     idle_seen = [None, True]  # when idle cores were last read (monotonic), and whether one was idle
     scan_workers = min(scan_workers, SCAN_WORKERS)
@@ -1085,7 +1094,6 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             idle_seen[:] = [time.monotonic(), mem_gate.idle_room(0, idle_gate_reader)]
         return max(wait, replan if idle_seen[1] else replan * IDLE_BACKOFF)
 
-    planned_took = [0.0]  # seconds the last whole plan took (replan_after)
     upkept = [upkeep] if upkeep else []  # run, and emptied, before the first plan made here
     left = 0
     pools = {"scan": scan_workers, "read": workers, "trove": trove_workers, "listener": LISTENER_WORKERS,
@@ -1274,7 +1282,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # fills the slots with new work, not units already done.
         if plan_at is not None:
             keep_plan(plan_file, plan_key, [[u for u in us if key_of(u) not in tried]
-                                            for us in (scans, reads, fetches)], plan_at)
+                                            for us in (scans, reads, fetches)], plan_at, planned_took[0])
 
     def reexec():
         """Hand the running units to this run's new image and become it."""
@@ -1358,7 +1366,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if plan_done is not None:
                 planned_took[0] = plan_done - planned
                 plan_at = time.time()
-                keep_plan(plan_file, plan_key, box["plan"], plan_at)
+                keep_plan(plan_file, plan_key, box["plan"], plan_at, planned_took[0])
             for n in box["notes"]:
                 log(n)
             log(f"planned: {len(scans)} scans, {len(reads)} reads"
@@ -1734,26 +1742,32 @@ def child(pid):
 #: How old a kept plan (keep_plan) a run may start from.
 PLAN_KEPT = 7200
 
+#: Under this many seconds old, a kept plan a run starts from also stands as
+#: that run's own whole plan: a re-exec on a code change (261 in full_pass.log,
+#: each replanning 55-175 s, up to ~1600 s under load) no longer replans.
+PLAN_REUSE = 600
 
-def keep_plan(path, key, made, at):
-    """Save plan `made` (scans, reads, fetches), made at `at` (time.time()),
-    for a run with `key`'s arguments."""
+
+def keep_plan(path, key, made, at, took=0.0):
+    """Save plan `made` (scans, reads, fetches), made at `at` (time.time())
+    in `took` seconds, for a run with `key`'s arguments."""
     tmp = Path(f"{path}.tmp")
-    tmp.write_text(json.dumps({"key": key, "at": at, "plan": made}))
+    tmp.write_text(json.dumps({"key": key, "at": at, "took": took, "plan": made}))
     tmp.replace(path)
 
 
 def last_plan(path, key):
     """(the plan keep_plan saved at `path` for these arguments, when it was
-    made), if under PLAN_KEPT seconds old, else (None, None): its units may
-    be done by now, and each says so as it starts (\"current\")."""
+    made, how long it took), if under PLAN_KEPT seconds old, else
+    (None, None, 0.0): its units may be done by now, and each says so as it
+    starts (\"current\")."""
     try:
         kept = json.loads(Path(path).read_text())
     except (FileNotFoundError, ValueError):
-        return None, None
+        return None, None, 0.0
     if kept.get("key") != json.loads(json.dumps(key)) or time.time() - kept.get("at", 0) > PLAN_KEPT:
-        return None, None
-    return tuple(kept["plan"]), kept["at"]
+        return None, None, 0.0
+    return tuple(kept["plan"]), kept["at"], kept.get("took", 0.0)
 
 
 def hand_over(path, units):
