@@ -658,49 +658,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DEADEND",
+     "op": "composite",
      "indicators": [
       {
        "text": "change",
-       "note": "to change something is to alter it, so these letters are rearranged"
+       "at": 13,
+       "note": "change tells us to alter the arrangement of the letters of demanded"
+      },
+      {
+       "text": "no longer needed",
+       "at": 35,
+       "note": "something no longer needed is discarded, so the letter named by Mike is dropped from the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "DEADEND",
-       "indicators": [
-        {
-         "text": "no longer needed",
-         "note": "what is no longer needed is discarded, so that letter drops out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "demanded",
-         "note": "taken as written"
-        },
-        {
-         "words": "Mike",
-         "gives": "M",
-         "note": "Mike is M in the NATO alphabet"
-        }
-       ]
+       "words": "demanded",
+       "at": 20
+      },
+      {
+       "words": "Mike",
+       "at": 30,
+       "gives": "M",
+       "note": "Mike is the NATO phonetic alphabet word for the letter M"
       }
      ]
     },
     "explanation": {
-     "surface": "Trapped with no exit, someone demands change now that Mike is surplus to requirements.",
-     "walkthrough": "Remove M from DEMANDED and rearrange what is left.",
-     "definitionFit": "A cul-de-sac or blind alley offers no exit, and figuratively a hopeless situation leading nowhere."
+     "surface": "A trapped person demands change, and the man called Mike is let go.",
+     "walkthrough": "'no longer needed' drops M (Mike) from DEMANDED, leaving DEANDED, which 'change' rearranges into DEAD END.",
+     "definitionFit": "A dead end is a street or passage closed at one end, so there is no exit beyond it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "change"
+     "misdirectedWord": "Mike"
     }
    }
   },
