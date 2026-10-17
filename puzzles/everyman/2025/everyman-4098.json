@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -790,67 +791,68 @@
      "indicators": [
       {
        "text": "After",
-       "note": "What comes after a thing is written behind it, so the beer leads off and everything else follows it."
+       "at": 0,
+       "note": "after tells us the rest of the answer follows the beer"
       }
      ],
      "parts": [
       {
        "words": "Mexican beer",
+       "at": 6,
        "gives": "CORONA",
-       "note": "Corona is the pale lager brewed in Mexico and drunk with a wedge of lime"
+       "note": "Corona is a well-known Mexican lager"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "empty",
-         "note": "An empty word has had its insides taken out and keeps only the letters at its two ends."
+         "text": "put into",
+         "at": 24,
+         "note": "put into means one piece is placed inside another"
         }
        ],
        "parts": [
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "TO",
          "indicators": [
           {
-           "text": "put into",
-           "note": "Something put into a thing ends up within it, so the single letter goes between the two that are left."
+           "text": "empty",
+           "at": 33,
+           "note": "empty means the inside letters of taco are removed, leaving only its ends"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "empty taco",
-           "gives": "TO",
-           "select": "outer",
-           "note": "the word's first and last letters, with the two in the middle gone"
+           "words": "taco",
+           "at": 39,
+           "note": "taken as written"
           }
          ]
         },
         {
          "words": "one",
+         "at": 20,
          "gives": "I",
-         "note": "the Roman numeral for one"
+         "note": "the Roman numeral for one is I"
         }
        ]
       },
       {
        "words": "new",
-       "gives": "N",
-       "note": "n is the standard short form for new"
+       "at": 44,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A new chicken recipe that starts with a Mexican beer and a barely filled taco.",
-     "walkthrough": "Coronation chicken is British catering's standby cold dish — mayonnaise, curry powder, apricot — so the definition names a real recipe rather than describing one. 'New' looks like part of that phrase and is a single letter of wordplay.",
-     "definitionFit": "Coronation chicken was invented for Elizabeth II's coronation lunch in 1953, and British menus still name the dish by that one word."
+     "surface": "A recipe of sorts: beer, then a hollowed-out taco, ending with a novel chicken dish.",
+     "walkthrough": "'After' puts the beer first. 'empty taco' leaves TO, and 'put into' places I (one) inside it to make TIO; N for new completes the answer.",
+     "definitionFit": "Coronation chicken is a classic British dish of cold chicken in a curried mayonnaise sauce, created for the 1953 coronation."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "new"
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taco"
     }
    }
   },
@@ -920,41 +922,52 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "ENGARDE",
-     "indicators": [
-      {
-       "text": "cycle round",
-       "note": "To cycle round is to come back to where you started, so the letters keep their order while the one on the end travels round to the front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "beginning",
+         "at": 11,
+         "note": "beginning means the first letter of the word it follows"
+        }
+       ],
        "parts": [
         {
-         "words": "Everyman's beginning",
-         "gives": "E",
-         "note": "the first letter of the setter's own name"
-        },
+         "words": "Everyman's",
+         "at": 0,
+         "note": "first letter of Everyman's"
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycle round",
+         "at": 24,
+         "note": "cycle round means letters are moved from one end of the word to the other"
+        }
+       ],
+       "parts": [
         {
          "words": "garden",
-         "gives": "NGARDE",
-         "note": "the same six letters in the same order, with the last of them brought round in front"
+         "at": 36,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Everyman setting off on his bike for a lap of the garden.",
-     "walkthrough": "Everyman signs his puzzles by name, so 'Everyman's beginning' is the setter pointing at his own first letter, a habit of his. The bike in the picture is there to stop you reading 'cycle' as an instruction.",
-     "definitionFit": "En garde is the fencing call to come on guard before the blades go in, which is a warning to watch out."
+     "surface": "The setter starts to ride a bike around the garden, with a shout of warning.",
+     "walkthrough": "'cycle' looks like riding a bike, but it is the instruction to move a letter from the back of the word to the front.",
+     "definitionFit": "En garde is the fencer's call to get ready to fight, so it serves as a warning to be on guard."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "cycle"
     }
