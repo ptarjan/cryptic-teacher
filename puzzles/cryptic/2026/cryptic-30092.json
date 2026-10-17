@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1401,56 +1402,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WHITELIE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "flexible",
-         "note": "Something flexible bends into whatever shape is asked of it, and so do the four letters beside it."
+         "at": 5,
+         "note": "flexible means bendable into a new shape, so the letters of the first word are rearranged"
         }
        ],
        "parts": [
         {
          "words": "With",
-         "gives": "WHIT",
-         "note": "the clue's own opening word, its four letters put in a new order"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "E",
-         "indicators": [
-          {
-           "text": "back",
-           "note": "The back of a word is its final letter, the one bringing up the rear."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "in exercise",
-           "gives": "E",
-           "select": "last",
-           "note": "the rear letter of the word 'exercise'"
-          }
-         ]
-        },
-        {
-         "words": "stretch out",
-         "gives": "LIE",
-         "note": "to stretch out on a sofa is to lie on it"
+         "at": 0
         }
        ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "back in",
+         "at": 14,
+         "note": "the back of a word is its final letter, here taken from exercise"
+        }
+       ],
+       "parts": [
+        {
+         "words": "exercise",
+         "at": 22,
+         "note": "the final letter of the word exercise is taken"
+        }
+       ]
+      },
+      {
+       "words": "stretch out",
+       "at": 32,
+       "gives": "LIE",
+       "note": "to lie is to stretch out, as on a bed"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Stretch' appears twice and means something different each time: once the wordplay for the last chunk, once the definition. That is a setter's liberty, deliberately taken.",
-     "definitionFit": "slight stretch? → WHITE LIE: stretching the truth is the idiom for lying, and the answer is the small harmless kind told to spare someone's feelings."
+     "surface": "A fitness instruction: keep your back supple during a workout, then lie flat and stretch.",
+     "walkthrough": "'flexible' rearranges With into WHIT; 'back in exercise' is its last letter, E; then LIE. The definition jokes that a fib only slightly stretches the truth.",
+     "definitionFit": "A white lie is a harmless untruth, a small exaggeration of the facts, so it stretches the truth a little."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flexible"
     }
    }
   },
