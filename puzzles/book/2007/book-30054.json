@@ -761,39 +761,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "covered by",
+       "at": 6,
+       "note": "covered by means the answer is concealed within the words that follow"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "the usual customs",
-       "note": "surface padding that sets the scene at the border"
-      },
-      {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "covered by",
-         "note": "what is covered by a phrase lies within it, so the letters sit inside a later word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "declaration",
-         "gives": "CLARA",
-         "note": "letters three to seven of this word"
-        }
-       ]
+       "words": "the usual customs declaration",
+       "at": 17,
+       "gives": "CLARA",
+       "note": "the girl's name sits inside the word declaration"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman hides behind the routine paperwork at customs.",
-     "definitionFit": "Clara is a woman's given name, so a female person who can be referred to as she."
+     "surface": "A traveller makes the routine declaration at customs.",
+     "walkthrough": "The name runs inside 'declaration'; 'the usual customs' only dresses the surface.",
+     "definitionFit": "She stands for a woman, and Clara is a female first name."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "covered"
+     "misdirectedWord": "She"
     }
    }
   },
@@ -1293,43 +1286,45 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "COUNCIL",
      "indicators": [
       {
        "text": "in pursuit of",
-       "note": "being in pursuit means coming behind, so the relative follows the firm"
+       "at": 45,
+       "note": "in pursuit of means following, so the changed relative comes after the firm"
       }
      ],
      "parts": [
       {
+       "words": "firm",
+       "at": 59,
+       "gives": "CO",
+       "note": "CO is the standard abbreviation for company, a firm"
+      },
+      {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "COUNCIL",
        "indicators": [
         {
          "text": "replacing",
-         "note": "replacing one thing by another swaps them, so one article is exchanged for the other within the relative"
+         "at": 9,
+         "note": "replacing means one piece is swapped out for another in the relative's word"
         }
        ],
        "parts": [
         {
-         "words": "firm",
-         "gives": "CO",
-         "note": "Co. is the abbreviation for company"
-        },
-        {
          "words": "Relative",
+         "at": 0,
          "gives": "UNCLE",
-         "note": "an uncle is a family relative"
+         "note": "an uncle is a relative"
         },
         {
          "words": "the French",
+         "at": 19,
          "gives": "LE",
          "note": "le is French for the"
         },
         {
          "words": "the Italian",
+         "at": 33,
          "gives": "IL",
          "note": "il is Italian for the"
         }
@@ -1338,14 +1333,14 @@
      ]
     },
     "explanation": {
-     "surface": "A family member muscles in on a company board, ousting the French in favour of an Italian.",
-     "walkthrough": "The French article at the end of the relative is swapped for the Italian one, and the result goes after the firm.",
-     "definitionFit": "A council is an elected or appointed assembly that administers a town or organisation, so a body that governs."
+     "surface": "A relative chases a firm, swapping French for Italian along the way.",
+     "walkthrough": "UNCLE's final LE, the French article, gives way to IL, the Italian one, making UNCIL.",
+     "definitionFit": "A council is an elected or appointed assembly that runs a town or organisation."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "French"
+     "misdirectedWord": "Relative"
     }
    }
   },
