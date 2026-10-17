@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -371,54 +372,54 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "composite",
      "indicators": [
       {
        "text": "displayed",
-       "note": "To display goods is to lay them out afresh on the counter, so the letters left over are set out in a new arrangement."
+       "at": 9,
+       "note": "displayed suggests letters spread out in a new arrangement, so they are rearranged"
+      },
+      {
+       "text": "not",
+       "at": 21,
+       "note": "not signals that the letters just picked are taken out of the pool"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Red nose",
+       "at": 0,
+       "note": "taken as written: the letters pooled for rearranging"
+      },
+      {
+       "op": "alternate",
        "indicators": [
         {
-         "text": "not",
-         "note": "'Not' is the instruction to leave something out: the letters named next are missing from the material rather than added to it."
+         "text": "oddly",
+         "at": 33,
+         "note": "oddly means take the odd-numbered letters, the first, third and fifth of the word"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "oddly",
-           "note": "'Oddly' counts positions rather than describing manner — the first, third and fifth letters of the name beside it."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Red nose",
-           "note": "seven letters of raw material, Rudolph's famous feature"
-          },
-          {
-           "gives": "EDN"
-          }
-         ]
+         "words": "Dancer",
+         "at": 25,
+         "note": "taken as written: the reindeer's name, from which letters are picked"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "Dancer",
-       "note": "the letters in its odd positions are D, N and E, and those three come out of the material before anything is rearranged"
       }
      ]
     },
     "explanation": {
-     "surface": "Rudolph's red nose is on show, and Dancer is nowhere to be seen among the team.",
-     "walkthrough": "The reindeer team is the misdirection, and Cupid is one of them too — but the definition wants the god the Romans borrowed from the Greeks, not the sleigh.",
-     "definitionFit": "Eros is the Greek god of love and desire; Cupid is the Roman god who does the identical job, which is what makes one the other's counterpart."
+     "surface": "A Christmas scene: Rudolph's red nose on show, with Dancer, another of Santa's reindeer, absent.",
+     "walkthrough": "The odd letters of Dancer ('oddly') are D, N, E; take them out of REDNOSE ('not') to leave ROSE, and rearrange ('displayed') to get the answer.",
+     "definitionFit": "Eros is the Greek god of love, the equivalent of the Roman Cupid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dancer"
     }
    }
   },
@@ -660,40 +661,51 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TRAVELGUIDE",
      "indicators": [
       {
-       "text": "Spooner's talk of",
-       "note": "Spooner was the Oxford don remembered for trading the opening sounds of two words, so talk of his is those two things said with their front noises exchanged."
+       "text": "Spooner's",
+       "at": 0,
+       "note": "Spooner's tells us to swap the opening sounds of the two words, after the Rev. Spooner's slips"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "judge's mallet",
+       "at": 18,
+       "gives": "GAVEL",
+       "note": "a gavel is the small hammer a judge bangs for order"
+      },
+      {
+       "op": "homophone",
+       "spelt": "TRUIDE",
+       "indicators": [
+        {
+         "text": "talk of",
+         "at": 10,
+         "note": "talk of says the swap is done by the sound of the words, not their spelling"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "judge's mallet",
-         "gives": "TRAVEL",
-         "soundsLike": "GAVEL",
-         "note": "the mallet a judge bangs for order is a gavel, and it takes the opening noise of the other word in exchange"
-        },
-        {
-         "unchecked": true,
          "words": "what he did",
-         "gives": "GUIDE",
-         "soundsLike": "TRIED",
-         "note": "what a judge did to the case is tried, and handed the hard g of the mallet word the vowel you hear lengthens with it"
+         "at": 37,
+         "gives": "TRIED",
+         "note": "a judge tried the case: tried is what he did"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A book recounting a judge's hammer and the verdict he handed down.",
-     "walkthrough": "The trap is reading 'in book' as more courtroom furniture; it stands apart from the judge altogether and is the definition.",
-     "definitionFit": "A travel guide is the book you carry round a foreign city to be steered about it, so 'book' names it by class — one kind among many."
+     "surface": "Someone describing a judge's gavel and the cases he heard, as found in some book.",
+     "walkthrough": "'Spooner's talk of' GAVEL TRIED swaps the opening sounds G and TR; TRIED rhymes with GUIDE (respelt TRUIDE to show it), so the result is TRAVEL GUIDE.",
+     "definitionFit": "A travel guide is a type of book describing places for tourists, so book is its general category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "book"
     }
    }
   },
