@@ -71,6 +71,21 @@ check("a selection repeated word by word is counted", 1, v.repeated_selections(s
 check("one leaf is no wordplay", 1, v.single_leaf({"words": "a", "gives": "A"}))
 check("bare letters in a charade are counted", 1, v.bare_in_charade(
     {"op": "charade", "parts": [{"gives": "A"}, {"words": "b", "gives": "B"}]}))
+bare = {"op": "charade", "parts": [{"gives": "A"}, {"words": "b", "gives": "B"}]}
+check("a hiddenLetter clue's bare letters are not counted", 0,
+      v.bare_in_charade(bare, {"hiddenLetter": {"kind": "omitted", "letter": "A"}}))
+check("a clue with no hiddenLetter is still counted", 1, v.bare_in_charade(bare, {"wordplay": bare}))
+dev = {"op": "charade", "parts": [{"gives": "A", "device": True}, {"words": "b", "gives": "B"}]}
+check("a leaf marked as a preamble device is not counted", 0, v.bare_in_charade(dev, {"wordplay": dev}))
+check("an unmarked bare leaf beside a marked one is counted", 1, v.bare_in_charade(
+    {"op": "charade", "parts": [{"gives": "A", "device": True}, {"gives": "C"}, {"words": "b", "gives": "B"}]}))
+import puzzle_schema
+def _schema_problems(node):
+    out = []
+    puzzle_schema._check(node, puzzle_schema._resolve("#/$defs/wordplayNode"), "$", out)
+    return out
+check("the schema accepts the device marker on a bare leaf", [], _schema_problems(dev))
+check("and refuses it on a leaf with a stray key", True, bool(_schema_problems({"gives": "A", "bogus": True})))
 check("an anagram of a container is counted", 1, v.anagram_of_container(
     {"op": "anagram", "parts": [{"op": "container", "parts": [{"words": "a"}, {"words": "b"}]}]}))
 

@@ -48,6 +48,7 @@ anything.
 - [docs/NIGHTLY.md](docs/NIGHTLY.md): the scheduled jobs, cold solving, scheduling and the `claude` credential.
 - [docs/AI_SOLVING.md](docs/AI_SOLVING.md): how the AI solves and hints the puzzles: the models, how the procedure evolved, the system's shape, its shortcomings and future work.
 - [docs/ARCHIVE_COVERAGE.md](docs/ARCHIVE_COVERAGE.md): filling the archive years from newspaper scans, and the coverage ledger.
+- [docs/findings_triage.md](docs/findings_triage.md): the annotation backlog by finding class, and which classes need no model.
 - [docs/LAYOUT.md](docs/LAYOUT.md): every tracked file and what it is for (generated), and where downloads live.
 - [APP.md](APP.md): how the app presents annotations, and how the site is built and deployed.
 - [STYLE.md](STYLE.md): how to write an annotation. The nightly annotator reads it whole.

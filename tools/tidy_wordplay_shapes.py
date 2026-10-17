@@ -51,7 +51,7 @@ FIELDS = {
     "wordplay.leafFold": lambda ann: V.leaf_folds(ann.get("wordplay")),
     "wordplay.repeatedSelection": lambda ann: V.repeated_selections(ann.get("wordplay")),
     "wordplay.singleLeaf": lambda ann: V.single_leaf(ann.get("wordplay")),
-    "wordplay.bareInCharade": lambda ann: V.bare_in_charade(ann.get("wordplay")),
+    "wordplay.bareInCharade": lambda ann: V.bare_in_charade(ann.get("wordplay"), ann),
     "wordplay.anagramOfContainer": lambda ann: V.anagram_of_container(ann.get("wordplay")),
     "wordplay.arityIns": lambda ann: V.arity_ins(ann.get("wordplay")),
     "wordplay.arityOther": lambda ann: V.arity_other(ann.get("wordplay")),

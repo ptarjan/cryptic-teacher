@@ -116,7 +116,8 @@ filed, and the expression cannot write one. The tree, in brief:
   op), `wordplay.repeatedSelection` (the same first/last/middle pick on each
   word of a phrase: one op over one multi-word leaf), `wordplay.singleLeaf`
   (wordplay that is one leaf), `wordplay.bareInCharade` (a charade piece with no
-  clue words) and `wordplay.anagramOfContainer` (`ana(ins(..))`: the anagram
+  clue words, unless the clue has a `hiddenLetter` or the leaf carries
+  `"device": true`) and `wordplay.anagramOfContainer` (`ana(ins(..))`: the anagram
   goes inside, `ins(outer, ana(x))`). Four more count what the checked rules skip,
   in an `unchecked` step (the `tools/shape_suspects.py` detectors measured precise):
   `wordplay.arityIns` (a container not of two parts), `wordplay.arityOther` (a
@@ -294,6 +295,14 @@ tree.
   or an erratum. The Guardian fetcher takes it from the page's `instructions`,
   the Independent's from `<metadata><description>`. A puzzle filed from a
   blog carries the write-up's account of the instructions, set by hand.
+- `"device": true` (on a wordplay leaf with no clue words) says its letters come
+  from a puzzle-level device that `preamble` or `themeClue` declares, not from a
+  clue word: a Genius edge letter, the shared letters of an Azed collision, a
+  missing Pope the theme clue names. Such a bare leaf in a charade is exempt
+  from `wordplay.bareInCharade`. A clue with a `hiddenLetter` needs no marker:
+  its bare letter is exempt as a whole. The marker is a claim about the
+  preamble, so set it only after reading the preamble; the expression cannot
+  write it, so it is added to the stored tree.
 - `"definedByPreamble": true` replaces `definitions` on an answer the preamble
   defines and the clue does not. It is valid only when the puzzle has a
   `preamble`, and never beside `definitions`.

@@ -3596,11 +3596,21 @@ def single_leaf(tree):
     return int(isinstance(tree, dict) and "op" not in tree and not tree.get("unchecked"))
 
 
-def bare_in_charade(tree):
-    """Pieces of a checked charade that are bare letters with no clue words."""
+def bare_in_charade(tree, ann=None):
+    """Pieces of a checked charade that are bare letters with no clue words.
+
+    Two kinds of bare letters are no fault. A clue with a `hiddenLetter` (the
+    puzzle's extra/omitted/misprint device) has its letter in the answer or
+    wordplay from no clue word. A leaf marked `"device": true` is letters the
+    preamble or theme supplies (a Genius edge letter, an Azed collision's
+    shared letters); the marker is the annotator's claim, so it stays in the
+    stored tree where a reader can see it."""
+    if isinstance(ann, dict) and ann.get("hiddenLetter"):
+        return 0
     return sum(1 for node in _walk(tree) if node.get("op") == "charade" and not node.get("unchecked")
                for p in node.get("parts") or []
-               if isinstance(p, dict) and "op" not in p and "words" not in p and not p.get("unchecked"))
+               if isinstance(p, dict) and "op" not in p and "words" not in p and not p.get("unchecked")
+               and not p.get("device"))
 
 
 def anagram_of_container(tree):
@@ -3694,7 +3704,7 @@ def shape_warnings(tag, ann):
     if single_leaf(tree):
         out.append(f"{tag}: {SINGLE_LEAF}: a synonym for the answer is no wordplay; parse it, "
                    f"or it is a cryptic or double definition")
-    if k := bare_in_charade(tree):
+    if k := bare_in_charade(tree, ann):
         out.append(f"{tag}: {k} {BARE_IN_CHARADE}: put the clue word that supplies them in a leaf")
     if k := anagram_of_container(tree):
         out.append(f"{tag}: {k} {ANAGRAM_OF_CONTAINER}: ins(outer, ana(...)) puts the anagram inside")
