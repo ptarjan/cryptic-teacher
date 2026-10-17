@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -88,40 +89,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ALGEBRA",
-     "indicators": [
-      {
-       "text": "broken",
-       "note": "Something broken has come apart and been put back together wrongly, which is what happens to the three letters it sits next to."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "at": 30
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "at": 32,
+         "note": "broken means smashed apart, so the letters of leg are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "a",
-         "note": "the clue's own 'a', taken as a single letter"
-        },
-        {
-         "words": "broken leg",
-         "gives": "LGE",
-         "note": "the three letters of LEG, reset in another order"
-        },
-        {
-         "words": "support",
-         "gives": "BRA",
-         "note": "the undergarment is the crossword's standard support"
+         "words": "leg",
+         "at": 39
         }
        ]
+      },
+      {
+       "words": "support",
+       "at": 43,
+       "gives": "BRA",
+       "note": "a bra is a supporting undergarment"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "X is the schoolroom's unknown, so the opening reads as a question about kisses or films. A support that turns out to be underwear is a joke this puzzle never tires of.",
-     "definitionFit": "In which X often appears → ALGEBRA: the branch of mathematics that writes unknown quantities as letters, and x is the traditional first choice."
+     "surface": "An X-ray often appears alongside a broken leg and a support for it.",
+     "walkthrough": "X looks like an X-ray of the fracture, but it is the unknown in equations. 'broken' turns LEG into LGE, between A and BRA.",
+     "definitionFit": "In algebra, letters such as x stand for unknown quantities in equations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "X"
     }
    }
   },
@@ -147,38 +154,41 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "dancing round",
-       "note": "A dancer whirling round the floor finishes facing every way but the one they set off in, and so do these letters."
-      }
-     ],
      "parts": [
       {
        "words": "Happy",
+       "at": 0,
        "gives": "GLAD",
-       "note": "glad = happy, and these four letters lead off unshuffled"
+       "note": "happy means glad"
       },
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "top",
-         "note": "The top of a word printed down the page is where it starts, so only Ireland's opening letter is wanted."
+         "text": "dancing round",
+         "at": 11,
+         "note": "dancing round means whirling about, so the letters are spun into a new order"
         }
        ],
        "parts": [
         {
          "words": "soul",
-         "note": "anagram fodder, four letters"
+         "at": 6
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "top",
+           "at": 35,
+           "note": "top means the first letter of the word"
+          }
+         ],
          "parts": [
           {
-           "words": "Ireland's top",
-           "gives": "IRELANDTOP",
-           "note": "the letter Ireland begins with"
+           "words": "Ireland's",
+           "at": 25,
+           "note": "first letter of Ireland"
           }
          ]
         }
@@ -187,8 +197,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "'Flower' is the word solvers learn to distrust — in a cryptic it is often a river, something that flows — and this time it is honestly a bloom.",
-     "definitionFit": "flower → GLADIOLUS: the tall spike of funnel-shaped blooms grown from a corm, named from the Latin for a little sword after its leaves."
+     "surface": "A cheerful spirit dances around Ireland's finest bloom.",
+     "walkthrough": "'top' gives I from Ireland, and 'dancing round' mixes it with SOUL to make IOLUS after GLAD.",
+     "definitionFit": "The gladiolus is a garden plant with tall spikes of bright blooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soul"
     }
    }
   },
@@ -1200,51 +1216,45 @@
    "annotation": {
     "definitions": [
      {
-      "text": "study of underground movement",
+      "text": "study of underground movement?",
       "at": 34
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PLATETECTONICS",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 20,
+       "note": "without means the letter a is taken away from the letters of the first phrase"
+      },
+      {
+       "text": "new",
+       "at": 30,
+       "note": "new means freshly made, so the remaining letters are put in a new order"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "without a",
-         "note": "To be without something is to lack it, so the letter named goes missing before anything else is done."
-        }
-       ],
-       "parts": [
-        {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "new",
-           "note": "What is made new is made over out of the same material, and these letters are rebuilt into different words."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Police state",
-           "note": "anagram fodder, eleven letters"
-          },
-          {
-           "words": "can't, without a",
-           "gives": "CNT",
-           "note": "CAN'T gives up its A, leaving three letters for the mix"
-          }
-         ]
-        }
-       ]
+       "words": "Police state can't",
+       "at": 0
+      },
+      {
+       "words": "a",
+       "at": 28
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a political complaint and the question mark admits the definition is playful — the movement is geological, and the answer runs on into 23 across.",
-     "definitionFit": "study of underground movement → PLATE TECTONICS: the geology of how the earth's crustal plates drift, collide and grind past one another far below the surface."
+     "surface": "A totalitarian regime finds it cannot cope without a new look at its resistance movement.",
+     "walkthrough": "Take A out of the letters of 'Police state can't' and 'new' rearranges the rest. 'underground movement' suggests a resistance group, but it is the earth's crust shifting.",
+     "definitionFit": "Plate tectonics is the geology of how the plates of the earth's crust move, literally movement below ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "underground"
     }
    }
   },
@@ -1597,42 +1607,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "HERONRY",
+     "op": "container",
      "indicators": [
       {
-       "text": "regressing",
-       "note": "To regress is to go back the way you came, and in an across answer that means reading those letters right to left."
+       "text": "protecting",
+       "at": 9,
+       "note": "protecting means surrounding, so the king's letters go round the next piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Old king",
+       "at": 0,
+       "gives": "HENRY",
+       "note": "Henry is the name of eight English kings of the past"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "protecting",
-         "note": "To protect something is to stand all round it, so the king's letters close over what comes next."
+         "text": "regressing",
+         "at": 24,
+         "note": "regressing means going backwards, so the letters of or are read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "Old king",
-         "gives": "HENRY",
-         "note": "eight English kings bore the name, which makes it the crossword's default old king"
-        },
-        {
-         "words": "(or regressing)",
-         "gives": "RO",
-         "note": "the little word 'or', read backwards"
+         "words": "or",
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The brackets make '(or regressing)' look like an editorial aside, which is exactly where two of the letters are hiding.",
-     "definitionFit": "fledgling colony → HERONRY: the wood or reed bed where herons nest together season after season, so the colony is full of young birds."
+     "surface": "An ancient monarch shelters, or lets slide, a newly founded settlement.",
+     "walkthrough": "'regressing' turns OR into RO, and 'protecting' puts HENRY round it.",
+     "definitionFit": "A heronry is a breeding colony of herons, where young birds are raised."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "colony"
     }
    }
   }
