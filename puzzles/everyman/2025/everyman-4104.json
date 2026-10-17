@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1119,37 +1120,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ATHEART",
-     "indicators": [
-      {
-       "text": "topless",
-       "note": "Topless means with the top taken off, and the top of a word in a down entry is the letter it begins with."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 5,
+         "note": "topless says the word loses its top, which in a down answer is its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "Swim",
-         "gives": "ATHE",
-         "note": "to bathe is to swim, and the B at the top of the word has gone"
+         "at": 0,
+         "gives": "BATHE",
+         "note": "to bathe is to swim, as in the sea"
         },
         {
-         "words": "'creative work'",
-         "gives": "ART",
-         "note": "art is creative work, put in quotation marks as though somebody doubted it"
+         "gives": "B"
         }
        ]
+      },
+      {
+       "words": "creative work",
+       "at": 15,
+       "gives": "ART",
+       "note": "art is creative work"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody swimming with nothing on top and calling the result art.",
-     "walkthrough": "The quotation marks are the setter raising an eyebrow at the claim, and the dash is all that separates wordplay from definition. To be something at heart is to be it underneath everything else.",
-     "definitionFit": "What a person is at heart is what they are in their deepest nature, which is the claim 'truly' makes."
+     "surface": "A cheeky instruction to go swimming without a top, followed by an aside about art, ending with an emphatic 'truly'.",
+     "walkthrough": "'topless' takes the first letter B off BATHE, leaving ATHE.",
+     "definitionFit": "Someone who is a romantic at heart is one fundamentally or in reality, so the idiom means genuinely."
     },
     "features": {
      "answerInScene": false,
@@ -1185,63 +1190,65 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MARSHHARRIER",
+     "op": "charade",
      "parts": [
+      {
+       "words": "from the red planet",
+       "at": 16,
+       "gives": "MARS",
+       "note": "Mars, the source here, is known as the red planet"
+      },
+      {
+       "words": "very hard",
+       "at": 37,
+       "gives": "HH",
+       "note": "HH is the pencil grade for very hard lead"
+      },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "disappointingly",
-         "note": "A disappointing result is one that has not come out as it should, and letters that have not come out as they should are in a new order."
+         "text": "to capture",
+         "at": 73,
+         "note": "to capture means the anagrammed letters hold another piece inside"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "to capture",
-           "note": "To capture is to take prisoner and hold inside, so the letters just made close round the one named next."
+           "text": "disappointingly",
+           "at": 51,
+           "note": "disappointingly suggests things going awry, so the letters of rarer are rearranged"
           }
          ],
          "parts": [
           {
-           "words": "from the red planet",
-           "gives": "MARS",
-           "note": "Mars looks red from earth because its dust is full of iron oxide"
-          },
-          {
-           "words": "very hard",
-           "gives": "HH",
-           "note": "H is the pencil maker's mark for a hard lead, and the grade above it doubles the letter"
-          },
-          {
            "words": "rarer",
-           "gives": "ARRER",
-           "note": "the five letters of rarer settled in a new order"
+           "at": 67
           }
          ]
         },
         {
          "words": "one",
+         "at": 84,
          "gives": "I",
-         "note": "one is I in Roman numerals, dropped inside"
+         "note": "I is the Roman numeral for one"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A flying thing from Mars, hard to catch and getting rarer every year.",
-     "walkthrough": "Pencil grades are where crosswords get H for hard, and a box marked HH is the harder lead again. The marsh harrier is Britain's largest harrier, a wetland hawk that quarters reedbeds on raised wings.",
-     "definitionFit": "A marsh harrier is a bird of prey hunting low over the reeds, so 'flying creature' names it by the broadest class it fits."
+     "surface": "A sci-fi picture of a creature flying in from Mars that turns out, sadly, to be less rare than hoped.",
+     "walkthrough": "'disappointingly' turns RARER into ARRER, and 'to capture' puts I inside it to give ARRIER.",
+     "definitionFit": "The marsh harrier is a bird of prey that hunts over reedbeds, so it is a flying creature."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "one"
+     "misdirectedWord": "planet"
     }
    }
   },
