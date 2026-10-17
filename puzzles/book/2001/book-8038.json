@@ -440,49 +440,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CHUNNEL",
+     "op": "composite",
      "indicators": [
       {
        "text": "Cooked",
-       "note": "cooked food is altered, so the remaining letters are mixed up"
+       "at": 0,
+       "note": "food that is cooked has been worked over, so the letters of luncheon are mixed up"
+      },
+      {
+       "text": "loses",
+       "at": 16,
+       "note": "loses says a letter named next must be dropped from the pool before rearranging"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CHUNNEL",
-       "indicators": [
-        {
-         "text": "loses",
-         "note": "loses tells us to take something away from the meal word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "luncheon",
-         "note": "taken as written"
-        },
-        {
-         "words": "nothing",
-         "gives": "O",
-         "note": "nothing is zero, O"
-        }
-       ]
+       "words": "luncheon",
+       "at": 7
+      },
+      {
+       "words": "nothing",
+       "at": 22,
+       "gives": "O",
+       "note": "nothing is zero, which looks like the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "A meal cooked for a journey to France is eaten in full.",
-     "walkthrough": "Remove the O from LUNCHEON, then rearrange.",
-     "definitionFit": "The Chunnel is the nickname for the Channel Tunnel linking England with France under the sea."
+     "surface": "A cooked lunch that turns out to have nothing in it on the journey to France.",
+     "walkthrough": "'loses' drops O (nothing) from LUNCHEON, leaving LUNCHEN, which 'Cooked' rearranges into CHUNNEL. The Chunnel is the nickname for the Channel Tunnel linking England and France.",
+     "definitionFit": "The Chunnel, the informal name for the Channel Tunnel, is a rail route under the sea from England to France."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "nothing"
+     "misdirectedWord": "Cooked"
     }
    }
   },
