@@ -654,43 +654,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "POCKET",
+     "op": "container",
      "indicators": [
       {
-       "text": "Not half",
-       "note": "saying not half removes half of the word, so only its other half remains"
+       "text": "to embrace",
+       "at": 30,
+       "note": "to embrace means the poet's letters hold the others inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Yeats perhaps",
+       "at": 16,
+       "gives": "POET",
+       "note": "W. B. Yeats was a poet, so he is an example of one"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to embrace",
-         "note": "to embrace is to hold in your arms, so one piece wraps round another"
+         "text": "Not half",
+         "at": 47,
+         "note": "Not half means only one half of luck is kept, the first half dropped"
         }
        ],
        "parts": [
         {
-         "words": "Yeats perhaps",
-         "gives": "POET",
-         "note": "W. B. Yeats was an Irish poet; 'perhaps' marks him as one example"
+         "words": "luck",
+         "at": 41
         },
         {
-         "words": "luck",
-         "gives": "CK",
-         "note": "the second half of the word, its first half dropped"
+         "gives": "LU"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Was it fitting for Yeats to trust to luck? Not half, comes the hearty answer.",
-     "walkthrough": "'Not half' sounds like the British exclamation meaning 'very much so', but it strips LU from luck. 'Appropriate' is a verb here, not an adjective.",
-     "definitionFit": "To pocket something is to take it for yourself, often dishonestly, which is to appropriate it."
+     "surface": "Is it fitting for a poet like Yeats to welcome good fortune? Not half!",
+     "walkthrough": "'Not half' luck leaves CK, which POET is made 'to embrace'. 'Not half!' is also British slang for 'very much so'.",
+     "definitionFit": "To pocket something is to take it for yourself, the verb sense of appropriate."
     },
     "features": {
      "answerInScene": false,
@@ -847,27 +850,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AVER",
+     "op": "middle",
      "indicators": [
       {
        "text": "edging away from",
-       "note": "the edges of a word are its outer letters, so taking those away leaves the inside"
+       "at": 22,
+       "note": "edging away from means the word loses its edges, its first and last letters"
       }
      ],
      "parts": [
       {
        "words": "partygoers",
+       "at": 39,
        "gives": "RAVERS",
-       "note": "ravers go to wild parties"
+       "note": "ravers are people who go to wild parties or raves"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone states their case while sidling away from a crowd of revellers.",
-     "walkthrough": "RAVERS loses its first and last letters.",
-     "definitionFit": "To aver is to declare or assert positively that something is true."
+     "surface": "Someone claims a thing is true while sidling away from a crowd of revellers.",
+     "walkthrough": "RAVERS with its edges trimmed off gives the answer.",
+     "definitionFit": "To aver is to state or assert something firmly as true."
     },
     "features": {
      "answerInScene": false,
@@ -1737,36 +1740,36 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LACK",
      "indicators": [
       {
-       "text": "left for husband",
-       "note": "one letter is put for another, so the letter for left takes the place of the letter for husband"
+       "text": "for",
+       "at": 15,
+       "note": "left for husband means the letter for left takes the place of the one for husband"
       }
      ],
      "parts": [
       {
        "words": "chop",
+       "at": 5,
        "gives": "HACK",
        "note": "to hack is to chop roughly"
       },
       {
-       "words": "left",
-       "gives": "L",
-       "note": "L is the abbreviation for left"
+       "words": "husband",
+       "at": 19,
+       "gives": "H"
       },
       {
-       "words": "husband",
-       "gives": "H",
-       "note": "H is the abbreviation for husband"
+       "words": "left",
+       "at": 10,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A wife wants a lamb chop left out for her husband.",
-     "walkthrough": "HACK swaps its H for L.",
-     "definitionFit": "Want as a noun means a shortage or absence, which is a lack of something."
+     "surface": "A woman wants to cut her losses: get the chop and leave her husband.",
+     "walkthrough": "In HACK, the H (husband) is swapped 'for' L (left).",
+     "definitionFit": "Lack and want both mean a shortage or absence of something needed."
     },
     "features": {
      "answerInScene": false,
@@ -2043,47 +2046,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FORGED",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "without an end, a word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "in order to",
+       "at": 8,
+       "gives": "FOR",
+       "note": "for can mean in order to, as in 'running for the bus'"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 28,
+         "note": "endless means the word for acquire loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "in order to",
-         "gives": "FOR",
-         "note": "for can mean with the aim of"
-        },
-        {
          "words": "acquire",
-         "gives": "GE",
-         "note": "get, minus its last letter"
+         "at": 20,
+         "gives": "GET",
+         "note": "to acquire something is to get it"
         },
         {
-         "words": "diamonds",
-         "gives": "D",
-         "note": "D is the abbreviation for diamonds in card games"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "diamonds",
+       "at": 36,
+       "gives": "D",
+       "note": "D is the abbreviation for diamonds, the card suit"
       }
      ]
     },
     "explanation": {
-     "surface": "A scheme dreamt up to get hold of an unlimited supply of diamonds.",
-     "walkthrough": "GET loses its T.",
-     "definitionFit": "To forge a plan or agreement is to create it through effort, so forged means devised or worked out."
+     "surface": "A plan hatched to get hold of an unending supply of diamonds.",
+     "walkthrough": "'Endless' GET is GE, sitting between FOR and D.",
+     "definitionFit": "To forge a plan or alliance is to create or devise it through effort."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "endless"
+     "misdirectedWord": "diamonds"
     }
    }
   }
