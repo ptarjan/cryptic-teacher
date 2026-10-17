@@ -222,44 +222,34 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SUCCINCT",
+     "op": "homophone",
+     "spelt": "SUCCINCT",
      "indicators": [
       {
-       "text": "Swallowing",
-       "note": "one word swallowing another takes it inside itself"
+       "text": "all told",
+       "at": 42,
+       "note": "told means spoken aloud, so the combined sounds are heard rather than spelt"
       }
      ],
      "parts": [
       {
-       "op": "homophone",
-       "spelt": "SUCCINCT",
-       "indicators": [
-        {
-         "text": "all told",
-         "note": "told means spoken, so the result is judged by its sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "drink quickly, was disgusting",
-         "gives": "SUCKSINKT",
-         "note": "to sink a pint is to drink it quickly; slang 'sucked' means was awful, and its ending is sounded T"
-        }
-       ]
+       "words": "Swallowing drink quickly, was disgusting",
+       "at": 0,
+       "gives": "SUCKSINKT",
+       "note": "'sucked' (was disgusting, slang) is said SUCKT; swallowing SINK (drink quickly, as in sink a pint) inside it gives SUCK-SINK-T"
       }
      ]
     },
     "explanation": {
-     "surface": "A tale of gulping a drink, finding it vile, and then telling the whole story briefly.",
-     "walkthrough": "SUCKED, said 'suck-t', swallows SINK to give 'suck-sink-t', which is how the answer is pronounced.",
-     "definitionFit": "Succinct describes speech or writing that is brief and to the point, expressed in few words."
+     "surface": "Someone gulped a drink that tasted foul, and summed it up tersely.",
+     "walkthrough": "'sucked' is pronounced with a final T sound; put 'sink' inside it, between the K and T sounds, and 'all told' says the whole aloud, exactly like the answer.",
+     "definitionFit": "Succinct means briefly and clearly expressed, using few words."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Swallowing"
+     "joke": "pun",
+     "misdirectedWord": "told"
     }
    }
   },
@@ -512,46 +502,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LABYRINTHS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost all of a word means its final letter is cut"
+       "text": "out",
+       "at": 32,
+       "note": "out means not in proper order, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "bristly",
+       "at": 11,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "out",
-         "note": "out suggests the letters are put out of order"
+         "text": "almost",
+         "at": 20,
+         "note": "almost means not quite complete, so the last letter of hang is dropped"
         }
        ],
        "parts": [
         {
-         "words": "bristly",
-         "note": "taken as written"
+         "words": "hang",
+         "at": 27,
+         "note": "only HAN is used once its last letter goes"
         },
         {
-         "words": "hang",
-         "gives": "HAN",
-         "note": "hang without its last letter"
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An unflattering remark about hairy ears, followed by a suggestion to go and relax.",
-     "definitionFit": "The labyrinths are the intricate inner cavities of the ear, the cochlea and semicircular canals, so they are ear parts."
+     "surface": "Hairy bits of the ear nearly stick out.",
+     "walkthrough": "'almost' cuts hang to HAN; 'out' then rearranges BRISTLY and HAN together.",
+     "definitionFit": "The labyrinths are the inner ear's maze of canals, the bony and membranous parts of the ear."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "hang"
+     "misdirectedWord": "out"
     }
    }
   },
@@ -638,72 +633,75 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHEECHAKO",
-     "indicators": [
-      {
-       "text": "briefly",
-       "note": "said briefly, a word loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "entering",
+         "at": 12,
+         "note": "entering means going inside, so the shortened guy word sits within the nerve word"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "entering",
-           "note": "something entering another word goes inside it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "nerve",
-           "gives": "CHEEK",
-           "note": "nerve and cheek both mean impudence"
-          },
-          {
-           "words": "Guy",
-           "gives": "CHA",
-           "note": "a guy is a chap; cut short it loses its P"
-          }
-         ]
+         "words": "nerve",
+         "at": 21,
+         "gives": "CHEEK",
+         "note": "cheek means nerve, audacity"
         },
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "O",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "centre",
-           "note": "the centre of a word is its middle letter alone"
+           "text": "briefly",
+           "at": 4,
+           "note": "briefly means cut short, so the last letter of chap is lost"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "Anchorage",
-           "gives": "O",
-           "select": "middle",
-           "note": "the fifth of nine letters is the middle one"
+           "words": "Guy",
+           "at": 0,
+           "gives": "CHAP",
+           "note": "a chap is a guy, a man"
+          },
+          {
+           "gives": "P"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "centre in",
+         "at": 27,
+         "note": "centre in picks the single middle letter of Anchorage"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Anchorage",
+         "at": 37,
+         "gives": "O",
+         "note": "a city in Alaska; its fifth of nine letters is O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man slips into the central nervous system of an Alaskan city, a newcomer there.",
-     "walkthrough": "CHEE(CHA)K then O. 'Nerve centre' looks like one phrase but nerve and centre do separate jobs.",
-     "definitionFit": "Cheechako is Alaskan and Yukon slang for a newcomer or tenderfoot, someone recently arrived in the territory."
+     "surface": "A man briefly enters a nerve centre in an Alaskan city.",
+     "walkthrough": "'nerve centre' looks like one phrase but splits: nerve is the first piece, and 'centre in' goes with Anchorage. 'Guy briefly' loses its last letter before 'entering'. Cheechako is Alaskan slang, so Anchorage also sets the scene.",
+     "definitionFit": "Cheechako is the Alaskan and Yukon slang term for a newcomer or tenderfoot."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "nerve"
     }
    }
@@ -730,34 +728,36 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CHIMB",
      "indicators": [
       {
-       "text": "at the stern",
-       "note": "the stern is the back of a ship, so the change happens at the end of the word"
+       "text": "with extra loop at the stern",
+       "at": 4,
+       "note": "adding a second loop at the bottom (stern) of the letter P turns it into the letter B"
       }
      ],
      "parts": [
       {
        "words": "Ape",
+       "at": 0,
        "gives": "CHIMP",
        "note": "a chimp is an ape"
       },
       {
-       "words": "extra loop",
+       "gives": "P"
+      },
+      {
        "gives": "B",
-       "note": "draw P with a second loop below the first and it becomes B"
+       "note": "the letter P with a loop added below its bowl"
       }
      ]
     },
     "explanation": {
-     "surface": "A ship's ape is tied with an extra rope loop at the stern.",
-     "walkthrough": "The final P of the ape gets a second bowl and turns into B; nautical words in the surface hide this visual trick.",
-     "definitionFit": "A chimb is a gutter-like groove or waterway along a ship's deck edge through which water runs off."
+     "surface": "A monkey with an additional rope loop at a ship's back end, and a deck drain.",
+     "walkthrough": "'with extra loop at the stern' is visual: draw a second bowl at the foot of P and it becomes B. Stern keeps up the nautical surface while meaning the bottom of the letter.",
+     "definitionFit": "Chimb, also spelt chime, is a channel cut in a waterway on a ship's deck to carry off water."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "loop"
@@ -855,55 +855,50 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "WAMBENGER",
      "indicators": [
       {
-       "text": "surrounding",
-       "note": "words surrounding another enclose it"
-      },
-      {
        "text": "must separate",
-       "note": "to separate a word is to split it apart by putting something in its middle"
+       "at": 31,
+       "note": "separate means split apart, so the fellows word with bishop goes into the middle of the lay word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Lay",
+       "at": 0,
+       "gives": "WAGER",
+       "note": "to lay a bet is to wager"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "surrounding",
+         "at": 12,
+         "note": "surrounding means placed round, so the fellows word is put about the bishop letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Lay",
-         "gives": "WA",
-         "note": "first part of WAGER, a lay or bet"
-        },
-        {
          "words": "fellows",
-         "gives": "M",
-         "note": "MEN, split by the bishop"
+         "at": 4,
+         "gives": "MEN",
+         "note": "men are fellows"
         },
         {
          "words": "bishop",
+         "at": 24,
          "gives": "B",
-         "note": "B is the chess abbreviation for bishop"
-        },
-        {
-         "words": "fellows",
-         "gives": "EN",
-         "note": "rest of MEN"
-        },
-        {
-         "words": "Lay",
-         "gives": "GER",
-         "note": "rest of WAGER"
+         "note": "B is the chess notation abbreviation for bishop"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Laymen gathered round a bishop are told to keep apart from the clergy in 15.",
-     "walkthrough": "Lay is the noun meaning a bet, not the adjective for non-clergy, and the bet is split by fellows around a bishop.",
-     "definitionFit": "The wambenger is another name for the phascogale, the small Australian marsupial that is the answer at 15."
+     "surface": "Non-clergy men gather around a bishop and must part company with another clue.",
+     "walkthrough": "MEN 'surrounding' B gives MBEN, which 'must separate' WAGER into WA and GER. Lay looks like 'not clergy', which suits the bishop, but it is the verb to bet.",
+     "definitionFit": "The wambenger is an Australian name for a phascogale, a small carnivorous marsupial."
     },
     "features": {
      "answerInScene": false,
@@ -934,39 +929,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SPEARWORTS",
      "indicators": [
       {
-       "text": "tucking in nearly half at the bottom",
-       "note": "the lower four of ten letters, nearly half, are moved and tucked inside the rest"
+       "text": "tucking in",
+       "at": 35,
+       "note": "tucking in means taking something inside, so the clothing part goes back within the exercise part"
+      },
+      {
+       "text": "nearly half at the bottom",
+       "at": 46,
+       "note": "the bottom four of the phrase's ten letters, nearly half of it, are the part that gets lifted and tucked in"
       }
      ],
      "parts": [
       {
+       "words": "for exercise",
+       "at": 21,
+       "gives": "SPORTS",
+       "note": "sports are activities done for exercise; with the next word they make sportswear, clothing for exercise"
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "SPEARWORTS",
        "indicators": [
         {
-         "text": "cycling",
-         "note": "letters cycling go round, the first moving to the end"
+         "text": "before cycling",
+         "at": 72,
+         "note": "cycling means turning round in a loop, so the first of those lifted letters moves to their end before they go back in"
         }
        ],
        "parts": [
         {
-         "words": "clothing for exercise",
-         "gives": "SPORTSWEAR",
-         "note": "clothes worn for exercise are sportswear"
+         "words": "clothing",
+         "at": 12,
+         "gives": "WEAR",
+         "note": "wear means clothing, as in 'evening wear'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Baggy knickers worn as gym kit, with the bottom half tucked in before a bike ride.",
-     "walkthrough": "In a down entry the bottom is the end of the word; that last chunk is cycled before being tucked in.",
-     "definitionFit": "Spearworts are buttercup plants with spear-shaped leaves, and bloomers can mean flowering plants."
+     "surface": "Women's knickers as gym kit, tucked in with almost half showing at the bottom.",
+     "walkthrough": "Clothing for exercise is sportswear; its bottom near-half is the clothing word, which 'before cycling' loops its first letter to the end and 'tucking in' places after the first two letters. 'Bloomers' looks like underwear but means flowering plants.",
+     "definitionFit": "Spearworts are buttercups with spear-shaped leaves; any flowering plant can be called a bloomer."
     },
     "features": {
      "answerInScene": false,
@@ -1179,66 +1184,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ADENAUER",
-     "indicators": [
-      {
-       "text": "dismissing second",
-       "note": "dismissing the second letter means it is sent away and removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "into",
-         "note": "something put into another word goes inside it"
+         "at": 8,
+         "note": "into means going inside, so the retreat word is placed within the rehab group's letters"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "rehabilitation group",
-             "gives": "A",
-             "note": "second A of AA"
-            },
-            {
-             "words": "employer",
-             "gives": "UER",
-             "note": "a user employs something; drop its second letter S"
-            }
-           ]
-          },
-          {
-           "words": "Retreat",
-           "gives": "DEN",
-           "note": "a den is a private retreat"
-          }
-         ]
+         "words": "rehabilitation group",
+         "at": 13,
+         "gives": "AA",
+         "note": "AA is Alcoholics Anonymous, a recovery group"
         },
         {
-         "words": "rehabilitation group",
-         "gives": "A",
-         "note": "AA, Alcoholics Anonymous, split round the retreat"
+         "words": "Retreat",
+         "at": 0,
+         "gives": "DEN",
+         "note": "a den is a private retreat"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dismissing",
+         "at": 48,
+         "note": "dismissing means sending away, so the letter for second is removed from the employer word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "employer",
+         "at": 39,
+         "gives": "USER",
+         "note": "a user is one who employs something"
+        },
+        {
+         "words": "second",
+         "at": 59,
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A disgraced former chancellor goes into rehab with his boss, who has fired a deputy.",
-     "walkthrough": "A(DEN)A then USER minus S. Chancellor here is the German head of government, not Britain's finance minister.",
-     "definitionFit": "Konrad Adenauer was the first Chancellor of West Germany, serving from 1949 to 1963."
+     "surface": "A recovering addict withdraws into treatment while the boss sacks a deputy.",
+     "walkthrough": "DEN goes 'into' AA for ADENA; USER 'dismissing' S leaves UER. Chancellor here is the German head of government, not a finance minister.",
+     "definitionFit": "Konrad Adenauer was the first Chancellor of West Germany, from 1949 to 1963."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "employer"
     }
@@ -1320,59 +1323,59 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "UPSEYDUTCH",
      "indicators": [
       {
        "text": "plugging",
-       "note": "plugging something fills a gap inside it"
+       "at": 29,
+       "note": "plugging means filling a hole, so the shortened reversed mate goes inside the angry and companion letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "UPSEYDUTCH",
+       "op": "charade",
+       "parts": [
+        {
+         "words": "angry",
+         "at": 38,
+         "gives": "UPSET",
+         "note": "upset means angry"
+        },
+        {
+         "words": "companion",
+         "at": 44,
+         "gives": "CH",
+         "note": "CH is Companion of Honour, a British order"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "losing head",
-         "note": "a word losing its head has its first letter removed"
+         "text": "over",
+         "at": 24,
+         "note": "over means turned over, so the letters are read backwards"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "losing head",
+           "at": 12,
+           "note": "losing head means the first letter is dropped"
+          }
+         ],
          "parts": [
           {
-           "words": "angry",
-           "gives": "UPSE",
-           "note": "start of UPSET, angry"
+           "words": "Punch mate",
+           "at": 0,
+           "gives": "JUDY",
+           "note": "Judy is Punch's wife in the Punch and Judy puppet show"
           },
           {
-           "op": "reversal",
-           "indicators": [
-            {
-             "text": "over",
-             "note": "turned over, the letters are read the other way"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Punch mate",
-             "gives": "UDY",
-             "note": "Judy, Punch's wife in the puppet show, without her J"
-            }
-           ]
-          },
-          {
-           "words": "angry",
-           "gives": "T",
-           "note": "end of UPSET"
-          },
-          {
-           "words": "companion",
-           "gives": "CH",
-           "note": "CH is Companion of Honour"
+           "gives": "J"
           }
          ]
         }
@@ -1381,9 +1384,9 @@
      ]
     },
     "explanation": {
-     "surface": "A seaside puppet show: Punch, upset with his wife, beats her heavily, as he once did.",
-     "walkthrough": "In the British Punch and Judy puppet show, Judy is Punch's wife; 'Punch' looks like a verb here.",
-     "definitionFit": "Upsey Dutch was an old phrase meaning in the Dutch manner, that is drinking deeply or heavily."
+     "surface": "A puppet hits his partner after an angry friend gets in the way.",
+     "walkthrough": "Punch is the puppet, not a blow: in Punch and Judy his wife is Judy. 'losing head' and 'over' work on her name before it goes 'plugging' the other two pieces, between the E and T.",
+     "definitionFit": "Upsey Dutch is an archaic phrase meaning in the Dutch manner, that is heavily or deeply, as in drinking."
     },
     "features": {
      "answerInScene": false,
@@ -1622,38 +1625,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NIEF",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means all but the last letter"
+       "text": "going back",
+       "at": 36,
+       "note": "going back means travelling in reverse, so the letters are read from end to start"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "going back",
-         "note": "going back means the letters run from right to left"
+         "text": "mostly",
+         "at": 10,
+         "note": "mostly means not all, so the last letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "ruled lines",
-         "gives": "FEIN",
-         "note": "feint lines are the faint ruled lines on writing paper; drop the T"
+         "at": 24,
+         "gives": "FEINT",
+         "note": "feint is the term for faint ruled lines on writing paper"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An elderly nobleman has drawn lines on a page that are fading away.",
-     "walkthrough": "'Aged duke' suggests an old peer, but dukes is slang for fists, and aged marks an archaic word.",
-     "definitionFit": "Nief is an obsolete word for the fist, and duke is slang for a fist, so it is an old fist."
+     "surface": "An elderly nobleman has mostly ruled lines that are retreating.",
+     "walkthrough": "Duke is slang for a fist (put up your dukes), and aged marks the word as archaic. FEINT 'mostly' gives FEIN, read 'going back'.",
+     "definitionFit": "Nief, or neif, is an archaic and dialect word for the fist, which is slang called a duke."
     },
     "features": {
      "answerInScene": false,
