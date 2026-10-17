@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -169,51 +170,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MEGALOMANIA",
-     "indicators": [
-      {
-       "text": "broadcast",
-       "note": "To broadcast seed is to scatter it wide across a field, so the letters land in no order anyone chose."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broadcast",
+         "at": 9,
+         "note": "broadcast seed is scattered widely, so these letters are scattered into a new order"
+        }
+       ],
        "parts": [
         {
          "words": "Everyman",
+         "at": 0,
          "gives": "ME",
-         "note": "the setter signs this puzzle Everyman, and a setter pointing at themselves is the commonest convention in the business"
+         "note": "the setter refers to himself, so Everyman gives me"
         },
         {
          "words": "main goal",
-         "gives": "GALOMANI",
-         "note": "eight letters across the two words, resettled into a new order"
-        },
+         "at": 19,
+         "note": "taken as written, as anagram material"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "modicum of",
-           "note": "A modicum is the smallest amount there is, and the smallest amount of a written word is the single letter at its front."
-          }
-         ],
-         "parts": [
-          {
-           "words": "admiration",
-           "note": "the starting letter of the word is all that is taken"
-          }
-         ]
+         "text": "modicum of",
+         "at": 30,
+         "note": "a modicum is a tiny amount, here just the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "admiration",
+         "at": 41,
+         "note": "only its first letter is wanted"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Everyman naming himself in the clue is standard practice in this series: the byline is the wordplay. The colon is holding the surface together and nothing more.",
-     "definitionFit": "a delusion: the answer names one particular delusion, that of one's own greatness and power, so the clue defines it by the general class."
+     "surface": "The setter announces his chief aim: a little admiration.",
+     "walkthrough": "A setter naming himself means ME. 'broadcast' scrambles ME with MAIN GOAL to give MEGALOMANI, and the A from 'modicum of admiration' completes it.",
+     "definitionFit": "Megalomania is an obsessive belief in one's own power or greatness, a delusion of grandeur."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "broadcast"
     }
    }
   },
@@ -516,43 +526,37 @@
    "annotation": {
     "definitions": [
      {
-      "text": "bear",
+      "text": "bear up?",
       "at": 38
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "regularly out of service",
+       "at": 12,
+       "note": "every other letter is put out of service at regular intervals, leaving the alternate ones"
+      }
+     ],
      "parts": [
       {
-       "op": "alternate",
-       "indicators": [
-        {
-         "text": "regularly",
-         "note": "Letters taken regularly come at a fixed interval, here every second one, counting from the second letter."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Guard's van",
-         "note": "every second letter of the two words, read straight through"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "out of service",
-       "note": "surface only: a guard's van is the railway carriage at the tail of a British train, and one out of service completes the picture"
-      },
-      {
-       "unchecked": true,
-       "words": "up",
-       "note": "surface only: 'bear up' reads as an encouragement to keep going, but the definition stops at the animal"
+       "words": "Guard's van",
+       "at": 0,
+       "note": "only the second, fourth, sixth and eighth letters of these words are used"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The bear is the one in the sky. Ursa Major and Ursa Minor are the Latin names of the two constellations, so the definition asks for a Latin animal, not an English one.",
-     "definitionFit": "bear: the Latin word for the animal, familiar in English from the two constellations, so the clue defines by translation rather than by synonym."
+     "surface": "A railway guard's van is often out of action.",
+     "walkthrough": "Take the even letters of GUARDSVAN. The question mark marks the definition: Ursa, the bear, is found 'up' in the sky as a constellation.",
+     "definitionFit": "Ursa is Latin for bear and names the constellations Ursa Major and Minor, so it is a bear up in the heavens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bear"
     }
    }
   },
@@ -636,27 +640,29 @@
    "annotation": {
     "definitions": [
      {
-      "text": "these",
-      "at": 27
+      "text": "'Bird watching' is one for these?",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SPOONERISMS",
+     "op": "cryptic",
      "parts": [
       {
-       "unchecked": true,
-       "words": "'Bird watching'",
-       "gives": "BIRDWATCHING",
-       "soundsLike": "WORD BOTCHING",
-       "note": "exchange the opening sounds of the two words and a hobby turns into a description of what that exchange does to language"
+       "words": "'Bird watching' is one for these?",
+       "at": 0,
+       "note": "swap the opening sounds of bird watching and you get word batching, a batch of words, which is the sort of swap named after the Reverend Spooner"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The quotation marks are the signal that a phrase is being handled as a phrase. Say it with its front sounds traded and you get 'word botching', which is the whole joke.",
-     "definitionFit": "'these' points at the category the clue is demonstrating: swapping the front sounds of two words is the verbal slip named after the Oxford don who kept making it."
+     "walkthrough": "The clue reads like a hobby enquiry, but bird watching with its first sounds exchanged becomes word batching, the classic transposition attributed to William Spooner of Oxford.",
+     "definitionFit": "A spoonerism is a slip that swaps the initial sounds of two words, so 'word batching' for bird watching would be one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bird"
     }
    }
   },
