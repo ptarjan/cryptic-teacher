@@ -32,6 +32,7 @@ import re
 import sys
 import time
 import urllib.request
+import clue_text
 import downloads
 import file_blog_puzzles
 import ft_pdf_puzzles as fpp
@@ -142,14 +143,11 @@ def solution_top(a, x0, y0, x1, y1):
     return y1
 
 
-#: The reader's slips on this typeface, mended: a minus sign for the en
-#: dash ("(–, Jane Austen)"), an underscore for a printed blank (24 down's
-#: "“__ brillig"), the space lost between a clue's number and its opening
-#: quote, and the one before a bracket.
+#: This typeface's own slips: a minus sign for the en dash ("(–, Jane
+#: Austen)") and an underscore for a printed blank (24 down's "“__ brillig").
+#: The generic ones (space lost after a number or before a bracket) live in clue_text.
 TIDY = [(re.compile("\u2212"), "\u2013"),
-        (re.compile(r"_+\s*"), ocr_clues.BLANK + " "),
-        (re.compile(r"(?m)^(\d{1,2})(?=[\"“‘'])"), r"\1 "),
-        (re.compile(r"(?<=[A-Za-z\"”’?!.])\((?=[\d–—-])"), " (")]
+        (re.compile(r"_+\s*"), ocr_clues.BLANK + " ")]
 
 
 def printed_lines(words):
@@ -179,7 +177,7 @@ def text_of(img, box):
     text = ocr_clues.lines_of(words)
     for rx, to in TIDY:
         text = rx.sub(to, text)
-    return text
+    return clue_text.tidy_ocr_clues(text, scope="column")
 
 
 def read_image(img, web_date):
