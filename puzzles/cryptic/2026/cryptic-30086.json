@@ -889,25 +889,35 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "FALSESTART",
      "indicators": [
       {
        "text": "possibly",
-       "note": "'Possibly' says the words are not to be taken as they stand, which frees their letters to be set down in some other order."
+       "at": 42,
+       "note": "possibly signals that the letters could be arranged another way, so the fodder words are jumbled"
       }
      ],
      "parts": [
       {
-       "words": "after lasts",
-       "gives": "FALSESTART",
-       "note": "the ten letters of these two words, rearranged"
+       "words": "after",
+       "at": 29,
+       "note": "taken as written"
+      },
+      {
+       "words": "lasts",
+       "at": 35,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The dash is where the clue splits, and the (5,5) is the tell: the two words on the right have exactly ten letters between them.",
-     "definitionFit": "A useless beginning -> FALSE START: a start ruled invalid and run again, so the beginning counted for nothing — the athletics sense."
+     "surface": "A puzzling remark about what comes after something endures, as if musing on time.",
+     "walkthrough": "'what's' points ahead to the fodder: the words 'after lasts', rearranged, give the ten letters of the answer.",
+     "definitionFit": "A false start is an opening that comes to nothing, as when a race must be restarted, so it is a beginning that achieves nothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "after"
     }
    }
   },
@@ -999,31 +1009,34 @@
    "annotation": {
     "definitions": [
      {
-      "text": "mysteries",
+      "text": "mysteries?",
       "at": 20
      }
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ESOTERICA",
      "indicators": [
       {
        "text": "unusual",
-       "note": "What is unusual is not in its usual arrangement, so these letters will not stay in the order the clue hands them over in."
+       "at": 12,
+       "note": "unusual means out of the ordinary, so the letters are not in their ordinary order"
       }
      ],
      "parts": [
       {
        "words": "A coterie's",
-       "gives": "ESOTERICA",
-       "note": "the nine letters of these words in a new order"
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A coterie is a small circle that keeps itself to itself, so the surface and the answer describe the same clique — only the letters move.",
-     "definitionFit": "mysteries -> ESOTERICA: things kept for the initiated, arcana rather than puzzles, which is the older sense the plural noun carries."
+     "surface": "A select clique has strange secrets known only to its members.",
+     "walkthrough": "The letters of 'A coterie's', apostrophe dropped, are rearranged; the question mark admits that mysteries is a loose definition.",
+     "definitionFit": "Esoterica are things understood only by a small inner circle, arcane matters that remain obscure to outsiders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -1391,52 +1404,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ABRASIVELY",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "twisted",
-         "note": "Something twisted has been turned right round, so those two letters are read the other way about."
+         "text": "Leader of",
+         "at": 0,
+         "note": "the leader of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Leader of",
-           "note": "The leader of a word is the letter at its head, so the country beside it contributes one letter only."
-          }
-         ],
-         "parts": [
-          {
-           "words": "America",
-           "note": "the letter this word begins with"
-          }
-         ]
+         "words": "America",
+         "at": 10,
+         "note": "the word America, which supplies its first letter"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "inside",
+         "at": 54,
+         "note": "inside means placed within, so the twisted pair of letters goes into the courageous word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "having courageous style",
+         "at": 18,
+         "gives": "BRAVELY",
+         "note": "doing something with courage is acting bravely"
         },
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "inside",
-           "note": "Inside says the piece belongs within the word rather than before or after it."
+           "text": "twisted",
+           "at": 46,
+           "note": "twisted means turned round, so the two letters of Is swap order"
           }
          ],
          "parts": [
           {
-           "words": "courageous style",
-           "gives": "BRAVELY",
-           "note": "to act in a courageous style is to act bravely"
-          },
-          {
            "words": "Is",
-           "gives": "SI",
-           "note": "the clue's own word, turned back to front"
+           "at": 43,
+           "gives": "IS"
           }
          ]
         }
@@ -1445,8 +1461,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "'Courageous style' means 'in a courageous manner', which is how a setter clues an adverb without ever using the word manner.",
-     "definitionFit": "showing bluntness -> ABRASIVELY: an abrasive scours a surface, and someone who speaks abrasively rubs people the wrong way — bluntness that grates."
+     "surface": "An American president with a bold manner is described as having a contorted inner self.",
+     "walkthrough": "'Leader of America' suggests a president, but it is just the first letter. 'having courageous style' is an adverb in disguise, and the twisted pair sits just after its third letter.",
+     "definitionFit": "Speaking abrasively means being harsh and grating in manner, which is a kind of blunt, tactless directness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leader"
     }
    }
   },
