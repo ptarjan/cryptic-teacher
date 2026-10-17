@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -134,41 +135,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "At regular intervals means every second letter of the word beside it, not the whole of it."
+       "text": "in",
+       "at": 22,
+       "note": "the picked letters go inside the competition word"
       }
      ],
      "parts": [
       {
        "words": "competition",
+       "at": 25,
        "gives": "BEE",
-       "note": "a bee is a competition — a spelling bee, a quilting bee"
+       "note": "a bee is a contest or gathering, as in a spelling bee"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "ETL",
        "indicators": [
         {
-         "text": "in",
-         "note": "'in' is literal placement: the letters it introduces land inside the following word rather than in front of it."
+         "text": "regularly",
+         "at": 12,
+         "note": "taking letters at regular intervals, here the second, fourth and sixth"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "rentals regularly",
-         "gives": "ETL",
-         "select": "alternate",
-         "note": "every other letter of rEnTaLs: the second, fourth and sixth"
+         "words": "rentals",
+         "at": 4,
+         "note": "only its even letters are wanted"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Car rentals' reads as one phrase at the hire desk, which is where the misdirection lives: the definition stops dead after the first word.",
-     "definitionFit": "The VW Beetle was named for its domed, insect-shaped shell, so 'Car' reaches the answer through one very famous model."
+     "surface": "A hire firm's cars compete for business.",
+     "walkthrough": "'Car' is the Volkswagen Beetle. 'regularly' picks ETL from rentals, which goes 'in' BEE, as in a spelling bee.",
+     "definitionFit": "The Beetle is the classic small Volkswagen model, so it is a make of car."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "competition"
     }
    }
   },
@@ -236,47 +242,54 @@
     "definitions": [
      {
       "text": "Fruit",
-      "at": 0,
-      "note": "'Fruit' is a mass noun with no -s of its own, so it defines a plural answer without ever agreeing with it in number."
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NECTARINES",
+     "op": "container",
      "indicators": [
       {
-       "text": "going bananas",
-       "note": "Anything going bananas has lost all order, and letters that lose their order come back in a new one."
+       "text": "stopping",
+       "at": 13,
+       "note": "to stop something is to plug it, so the letter goes in as a stopper"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "stopping",
-         "note": "To stop a gap is to plug it, so this letter is wedged into the middle rather than added at either end."
+         "text": "going bananas",
+         "at": 33,
+         "note": "going crazy, so the letters of tennis ace are thrown into disorder"
         }
        ],
        "parts": [
         {
-         "words": "tennis ace going bananas",
-         "gives": "NECTAINES",
-         "note": "the nine letters of those two words, handed back in another order"
-        },
-        {
-         "words": "recipe",
-         "gives": "R",
-         "note": "R is the short form of recipe, the word that once headed a prescription"
+         "words": "tennis ace",
+         "at": 22,
+         "note": "taken as written, as anagram material"
         }
        ]
+      },
+      {
+       "words": "recipe",
+       "at": 6,
+       "gives": "R",
+       "note": "R is the abbreviation for recipe, from the Latin on prescriptions"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Half the vocabulary here belongs in a fruit salad, and that is the joke: 'bananas' is the one fruit word that turns out to be an instruction.",
-     "definitionFit": "A nectarine is a smooth-skinned variety of peach, so the definition is simply the plain category the answer sits in."
+     "surface": "A tennis star loses it over a recipe for fruit.",
+     "walkthrough": "'bananas' tempts as the fruit, but 'going bananas' is the anagram signal: TENNIS ACE becomes NECTAINES, and R goes in it.",
+     "definitionFit": "A nectarine is a smooth-skinned variety of peach, so it is a fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bananas"
     }
    }
   },
@@ -349,41 +362,48 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Wrestler",
-      "at": 0
+      "text": "Wrestler's",
+      "at": 0,
+      "note": "'Wrestler's' is read as 'Wrestler is', so it defines the name"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "JOHNCENA",
-     "indicators": [
-      {
-       "text": "bad",
-       "note": "'bad' here means spoiled, gone off, and letters that have gone off no longer sit in the order they were given."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "trick",
+       "at": 11,
+       "gives": "JOHN",
+       "note": "in slang a trick is a prostitute's client, and so is a john"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bad",
+         "at": 22,
+         "note": "something gone bad is spoiled, so the letters of acne are spoiled into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "trick",
-         "gives": "JOHN",
-         "note": "in the slang of sex work a client is a trick, and the same client is a john"
-        },
-        {
-         "words": "bad acne",
-         "gives": "CENA",
-         "note": "the four letters of ACNE, returned in a different order"
+         "words": "acne",
+         "at": 26,
+         "note": "taken as written, as anagram material"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a teenager's skin complaint, and nothing in it points at a person until 'trick' is heard as a noun from another world entirely.",
-     "definitionFit": "John Cena is a WWE wrestler turned film actor, so the definition names the answer by the trade he made his name in."
+     "surface": "A wrestler's ploy is to show off his bad skin.",
+     "walkthrough": "John Cena is an American professional wrestler and actor. A john, like a trick, is slang for a prostitute's customer; 'bad' turns ACNE into CENA.",
+     "definitionFit": "John Cena is a famous WWE professional wrestler, so the name answers 'Wrestler is'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trick"
     }
    }
   },
@@ -949,61 +969,65 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "initially",
-       "note": "Initially means at the start, so only the opening letter of each of those two names is wanted."
+       "text": "supports",
+       "at": 26,
+       "note": "in a down answer a supporting piece goes underneath what it holds up"
       }
      ],
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "E",
        "indicators": [
         {
-         "text": "supports",
-         "note": "A thing that supports sits underneath what it holds up, and in a down entry underneath means further towards the bottom."
+         "text": "latest",
+         "at": 45,
+         "note": "the latest letter is the last one"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Beyonce's latest",
-         "gives": "E",
-         "select": "last",
-         "note": "the final letter of the singer's name"
+         "words": "Beyonce's",
+         "at": 35,
+         "gives": "BEYONCE",
+         "note": "the singer's name, its possessive 's not counted; only her final letter is used"
         }
        ]
       },
       {
        "words": "nonsense",
+       "at": 52,
        "gives": "ROT",
-       "note": "rot is nonsense — 'what utter rot'"
+       "note": "rot means nonsense, rubbish"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "IC",
        "indicators": [
         {
-         "text": "latest",
-         "note": "The latest of anything is whatever comes last, so this is the final letter of the name in front of it."
+         "text": "initially",
+         "at": 16,
+         "note": "initially means at the start, so first letters are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Ivy Carter initially",
-         "gives": "IC",
-         "select": "first",
-         "note": "the opening letters of the two names, in the order given"
+         "words": "Ivy Carter",
+         "at": 5,
+         "note": "only the first letters of the two names are wanted"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Blue Ivy Carter is Beyoncé's daughter, so the whole clue reads as one celebrity paragraph — and 'Blue', which looks like the front of the child's name, is the definition.",
-     "definitionFit": "'Blue' has meant indecent since the Victorian music hall, the sense that survives in blue jokes and blue films, and that is the register wanted here."
+     "surface": "Beyonce's daughter Blue Ivy Carter backs her mother's latest release.",
+     "walkthrough": "Blue Ivy Carter is Beyonce's daughter, so the name looks like one unit, but 'Blue' is the definition. IC from 'Ivy Carter initially' 'supports' E plus ROT.",
+     "definitionFit": "Blue in the sense of a blue film or joke means sexually explicit, which is what erotic describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blue"
     }
    }
   },
@@ -1078,36 +1102,35 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "gutted",
-       "note": "A gutted building keeps only its shell, so the name here loses everything between its first and last letters."
+       "text": "over",
+       "at": 26,
+       "note": "turned over, so the combined letters are read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "over",
-         "note": "'over' is turned over: the letters assembled in front of it are then read the opposite way."
-        }
-       ],
        "parts": [
         {
          "words": "Console",
+         "at": 0,
          "gives": "SEGA",
-         "note": "Sega built the Mega Drive, so a console can be clued by its maker"
+         "note": "Sega is a games console maker, and the name stands for its consoles"
         },
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "MI",
+         "indicators": [
+          {
+           "text": "gutted",
+           "at": 8,
+           "note": "a gutted word has its insides removed, leaving only the first and last letters"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "gutted Modigliani",
-           "gives": "MI",
-           "select": "outer",
-           "note": "M and I are the first and last letters of the painter's name"
+           "words": "Modigliani",
+           "at": 15,
+           "note": "only its outer letters are wanted"
           }
          ]
         }
@@ -1116,8 +1139,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "'Console' wants to be a verb about comforting a hard-up painter, which is what makes the surface work. It is the games machine under the television.",
-     "definitionFit": "An image is a picture in the widest sense — a photograph, a painting, a reflection — so the two words swap in and out of each other freely."
+     "surface": "A games console beats a gutted Modigliani painting for appeal.",
+     "walkthrough": "'Console' looks like a verb of comfort, but it is a gaming machine: SEGA. 'gutted' leaves MI from Modigliani, and 'over' turns SEGAMI round.",
+     "definitionFit": "Images are pictures or representations, so the plural noun matches pictures directly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Console"
     }
    }
   },
