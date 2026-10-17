@@ -142,49 +142,54 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "REARWINDOW",
      "indicators": [
       {
        "text": "in",
-       "note": "the English naturalist ends up placed inside the thoroughfare"
+       "at": 33,
+       "note": "in places the preceding letters inside the thoroughfare"
       }
      ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "REARWINDOW",
-       "indicators": [
-        {
-         "text": "on cycle",
-         "note": "a cycle goes round, so the naturalist's first letter travels round to his end"
-        }
-       ],
+       "words": "thoroughfare",
+       "at": 36,
+       "gives": "ROW",
+       "note": "a row is a street, as in Rotten Row"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
          "words": "English",
-         "gives": "E",
-         "note": "standard abbreviation for English"
+         "at": 5,
+         "gives": "E"
         },
         {
-         "words": "naturalist",
-         "gives": "DARWIN",
-         "note": "Charles Darwin, the English naturalist; his D moves to the back"
-        },
-        {
-         "words": "thoroughfare",
-         "gives": "ROW",
-         "note": "a row is a street of houses, as in Savile Row"
+         "op": "cycling",
+         "indicators": [
+          {
+           "text": "on cycle",
+           "at": 24,
+           "note": "putting the name on a cycle moves its first letter round to the back"
+          }
+         ],
+         "parts": [
+          {
+           "words": "naturalist",
+           "at": 13,
+           "gives": "DARWIN",
+           "note": "Charles Darwin, the English naturalist"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nature documentary about an English naturalist cycling along a busy street.",
-     "walkthrough": "'On cycle' looks like a bike ride, but it moves the naturalist's first letter to his end; Savile Row shows a row can be a street.",
-     "definitionFit": "Rear Window is the 1954 Alfred Hitchcock thriller starring James Stewart as a photographer watching neighbours."
+     "surface": "A cinema listing: a nature documentary about an English naturalist cycling down a street.",
+     "walkthrough": "'on cycle' moves the D of DARWIN to the end, giving ARWIND; E plus that goes 'in' ROW.",
+     "definitionFit": "Rear Window is the 1954 Hitchcock thriller starring James Stewart."
     },
     "features": {
      "answerInScene": false,
@@ -214,48 +219,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SKYLAB",
+     "op": "container",
      "indicators": [
       {
-       "text": "with internal scratching",
-       "note": "scratching the inside of a word strikes out its middle, leaving only its ends"
+       "text": "fixed by",
+       "at": 62,
+       "note": "fixed by a hunk means held inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "hunk",
+       "at": 71,
+       "gives": "SLAB",
+       "note": "a slab is a thick hunk, of cake or stone"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "fixed by",
-         "note": "the shortened key is held fast by the hunk, set inside it"
+         "text": "with internal scratching of",
+         "at": 29,
+         "note": "scratching the internal letter of the word key leaves only its outer pair"
         }
        ],
        "parts": [
         {
-         "words": "hunk",
-         "gives": "SLAB",
-         "note": "a slab is a thick hunk, of cake or stone"
+         "words": "key",
+         "at": 57,
+         "gives": "KEY",
+         "note": "taken as written"
         },
         {
-         "words": "key",
-         "gives": "KY",
-         "note": "the word KEY with its middle letter scratched out"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old car that went round the world, with a scratched key, repaired by a handsome man.",
-     "walkthrough": "'Round-the-world' sounds like a long road trip, but the vehicle circled the Earth in orbit; 'hunk' tempts towards a muscular man rather than a slab.",
-     "definitionFit": "Skylab was the American space station of the 1970s, which orbited the Earth until it fell in 1979."
+     "surface": "A puzzling description of a vintage vehicle with a scratched key, repaired by a handsome man.",
+     "walkthrough": "'with internal scratching of' removes the middle E of KEY, leaving KY, which is 'fixed by' (set inside) SLAB.",
+     "definitionFit": "Skylab was the 1970s US space station, which orbited the Earth and is now long defunct."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "hunk"
     }
    }
@@ -535,42 +544,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HENCE",
-     "indicators": [
-      {
-       "text": "omitted to start",
-       "note": "each word leaves out what it would start with, its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "omitted to start",
+         "at": 9,
+         "note": "each of the two words has its starting letter omitted"
+        }
+       ],
        "parts": [
         {
          "words": "She",
-         "gives": "HE",
-         "note": "She without its first letter"
+         "at": 0,
+         "gives": "SHE",
+         "note": "taken as written"
         },
         {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
          "words": "once",
-         "gives": "NCE",
-         "note": "once without its first letter"
+         "at": 4,
+         "gives": "ONCE",
+         "note": "taken as written"
+        },
+        {
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woman once forgot to set off from here.",
-     "walkthrough": "'to start' belongs to the deletion, not the definition: both She and once lose their openings.",
-     "definitionFit": "Hence is the old-fashioned adverb for 'away from this place', as in 'get thee hence'."
+     "surface": "Someone left out of the beginning of a project, sent off from this point.",
+     "walkthrough": "'omitted to start' drops the S of 'She' and the O of 'once', leaving HE and NCE.",
+     "definitionFit": "Hence is an old-fashioned adverb meaning away from this place."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "start"
+     "misdirectedWord": "She"
     }
    }
   },
@@ -990,62 +1011,24 @@
     "definitions": [
      {
       "text": "Proposal agreed",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a phrase of assent to a suggestion"
      },
      {
       "text": "together, 1 26 or 6 24 Down?",
-      "at": 16
+      "at": 16,
+      "meaning": "second meaning: SHED and YULE said together sound like schedule, and DYER and GRAM like diagram, each of which is a plan"
      }
     ],
-    "wordplay": {
-     "op": "homophone",
-     "unchecked": true,
-     "gives": "SOUNDSLIKEAPLAN",
-     "indicators": [
-      {
-       "text": "together",
-       "note": "run the two referenced answers together aloud and each pair makes a single word"
-      }
-     ],
-     "parts": [
-      {
-       "words": "Proposal agreed",
-       "gives": "SOUNDSLIKEAPLAN",
-       "note": "the casual phrase for accepting someone's suggestion"
-      },
-      {
-       "op": "homophone",
-       "spelt": "SHEDYULE",
-       "parts": [
-        {
-         "words": "1 26",
-         "gives": "SCHEDULE",
-         "note": "1 Down and 26 Down said as one word"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "DYERGRAM",
-       "parts": [
-        {
-         "words": "6 24 Down",
-         "gives": "DIAGRAM",
-         "note": "6 Down and 24 Down said as one word"
-        }
-       ]
-      }
-     ]
-    },
     "explanation": {
-     "surface": "Agreeing to a proposal, while pointing at pairs of other answers in the grid.",
-     "walkthrough": "The theme: pairs of answers read aloud become plans, a schedule and a diagram. The phrase is also how you say yes to a suggestion.",
-     "definitionFit": "The idiom is informal assent to a suggestion; literally, each pair of grid words is pronounced like a type of plan."
+     "walkthrough": "1 Down is SHED and 26 Down YULE; spoken together they give 'schedule'. 6 Down DYER and 24 Down GRAM give 'diagram'. Both are plans, so the phrase describes them literally.",
+     "definitionFit": "The stock reply of approval to a suggestion is that it seems like a good scheme."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun"
+     "joke": "pun",
+     "misdirectedWord": "together"
     }
    }
   },
@@ -1200,32 +1183,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ROSEWATER",
+     "op": "charade",
      "indicators": [
       {
-       "text": "we switched",
-       "note": "the two letters of 'we' inside the jumper are switched, so that pair swaps order"
+       "text": "after",
+       "at": 27,
+       "note": "after puts the jumper part behind the run out letters"
       }
      ],
      "parts": [
       {
        "words": "run out",
+       "at": 33,
        "gives": "RO",
-       "note": "cricket scorecard abbreviation for run out"
+       "note": "RO is the cricket scorecard abbreviation for run out"
       },
       {
-       "words": "jumper",
-       "gives": "SWEATER",
-       "note": "a jumper is British for a pullover"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "switched",
+         "at": 18,
+         "note": "the two letters of we are switched round inside the jumper"
+        }
+       ],
+       "parts": [
+        {
+         "words": "jumper",
+         "at": 8,
+         "gives": "SWEATER",
+         "note": "a sweater is a jumper"
+        },
+        {
+         "words": "we",
+         "at": 15,
+         "gives": "WE",
+         "note": "taken as written"
+        },
+        {
+         "gives": "EW"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone wearing an elegant jumper that we swapped after it ran out.",
-     "walkthrough": "In cricket scoring 'run out' is abbreviated RO. A jumper is British for a sweater; within SWEATER the WE turns round to EW, all after RO.",
-     "definitionFit": "Rosewater as an adjective means genteel, refined or overly delicate, an old literary sense of elegant."
+     "surface": "A smart pullover that was swapped after somebody ran out of something.",
+     "walkthrough": "'we switched' turns the WE inside SWEATER into EW, giving SEWATER; RO (run out in cricket) comes first. A jumper is a pullover.",
+     "definitionFit": "Rosewater as an adjective means affectedly refined or genteel, a dated sense of elegant."
     },
     "features": {
      "answerInScene": false,
