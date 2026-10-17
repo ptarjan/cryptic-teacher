@@ -718,41 +718,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "little bit of",
-       "note": "only the first small piece of the word, its first letter"
+       "text": "in it",
+       "at": 32,
+       "note": "the salt goes inside 'it', meaning the spud just named"
       }
      ],
      "parts": [
       {
        "words": "spud",
+       "at": 7,
        "gives": "TATER",
-       "note": "tater = potato, slang"
+       "note": "a tater is an informal word for a potato, as is spud"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "S",
        "indicators": [
         {
-         "text": "in it"
+         "text": "little bit of",
+         "at": 13,
+         "note": "a little bit of the word salt is just its opening letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "little bit of salt",
-         "gives": "S",
-         "select": "first",
-         "note": "first letter of salt"
+         "words": "salt",
+         "at": 27,
+         "note": "only its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Try a potato with a pinch of salt on it.",
-     "walkthrough": "'Sample' looks like a verb, as in taste the spud; it is the noun, a trial portion.",
-     "definitionFit": "A plain synonym: a small portion offered to try before committing to more."
+     "surface": "Someone tries a bit of potato with a pinch of salt on it.",
+     "walkthrough": "'little bit of' gives S, the first letter of salt, and 'in it' places that S inside TATER, the 'it' pointing back to the spud.",
+     "definitionFit": "A taster is a small portion offered to try, a synonym for a sample."
     },
     "features": {
      "answerInScene": true,
@@ -1335,47 +1335,51 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "originally",
-         "note": "take what 'found' is at its origin, its first letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "I",
-         "note": "as written"
-        }
-       ]
+       "words": "I",
+       "at": 6,
+       "gives": "I"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "residing in",
-         "note": "a resident lives in a place"
+         "at": 25,
+         "note": "residing in means that letter lives inside the city's name"
         }
        ],
        "parts": [
         {
          "words": "French city",
+         "at": 37,
          "gives": "NANCY",
-         "note": "Nancy, city in Lorraine"
+         "note": "Nancy is a city in north-eastern France"
         },
         {
-         "words": "found originally",
-         "gives": "F",
-         "note": "first letter of found; it sits after the first N"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 14,
+           "note": "originally points to the start of the word found, its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "found",
+           "at": 8,
+           "note": "only its first letter is used"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "In my youth I was first discovered living in a French city.",
-     "walkthrough": "'Found originally' reads as a biography, being discovered early on, but it only yields F.",
-     "definitionFit": "Youth as a stage of life: infancy is the earliest part of it."
+     "surface": "Someone recalls discovering they spent their early years in a French city.",
+     "walkthrough": "'originally' gives F, the first letter of found; 'residing in' puts that F inside NANCY, after its N, and I goes in front.",
+     "definitionFit": "Infancy is early childhood, so one sense of youth as a period of life."
     },
     "features": {
      "answerInScene": true,
