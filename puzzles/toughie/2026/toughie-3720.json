@@ -116,54 +116,51 @@
    "annotation": {
     "definitions": [
      {
-      "text": "6 Down",
-      "at": 31,
-      "note": "only the last two words of 6 Down, 'the same', define the answer; the first word is the one removed"
+      "text": "Order of ale and mild, but not 6 Down",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IDEM",
+     "op": "composite",
      "indicators": [
       {
-       "text": "Order",
-       "note": "putting things in order means rearranging them, so these letters get rearranged"
+       "text": "Order of",
+       "at": 0,
+       "note": "an order of the letters, i.e. a fresh arrangement of the drinks' letters"
+      },
+      {
+       "text": "but not",
+       "at": 23,
+       "note": "but not tells you that what the next words give is struck out of the pool of letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "IDEM",
-       "indicators": [
-        {
-         "text": "but not",
-         "note": "'but not' excludes something, so letters are taken away from the fodder"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "ale",
-         "note": "taken as written"
+         "at": 9
         },
         {
          "words": "mild",
-         "note": "taken as written"
-        },
-        {
-         "words": "6 Down",
-         "gives": "ALL",
-         "note": "the first word of the answer to 6 Down, ALL THE SAME, is removed"
+         "at": 17
         }
        ]
+      },
+      {
+       "words": "6 Down",
+       "at": 31,
+       "gives": "ALL",
+       "note": "6 Down is ALL THE SAME: its first word is struck from the letters, and what is left, 'the same', is what the Latin answer means"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A drinker orders ale and mild but insists they must not taste all the same.",
-     "walkthrough": "The cross-reference does two jobs: ALL is taken out of ALE and MILD, and the rest of 6 Down, 'the same', is the definition. What remains, E, M, I, D, is rearranged.",
-     "definitionFit": "Idem is the Latin pronoun used in references and footnotes to mean the same author or source as before."
+     "surface": "A pub order for two beers, with a request not to make them identical.",
+     "walkthrough": "'but not 6 Down' does double work: ALL (from ALL THE SAME) is struck from the shuffled letters of ALE and MILD, leaving EMID for 'Order of' to rearrange, and what remains of 6 Down, 'the same', defines the answer.",
+     "definitionFit": "Idem is Latin for 'the same', used in citations to repeat a previously named author or source."
     },
     "features": {
      "answerInScene": false,
@@ -856,32 +853,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MAILEDFIST",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner was famous for swapping the opening sounds of words"
+       "at": 0,
+       "note": "Reverend Spooner swapped the opening sounds of words, so his version of the phrase trades its initial consonants"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "repeatedly omitted",
-       "gives": "MAILEDFIST",
-       "soundsLike": "FAILED MISSED",
-       "note": "two words each meaning omitted, with their first sounds swapped"
+       "words": "repeatedly",
+       "at": 10,
+       "gives": "FAILED",
+       "note": "the word omitted is taken again in another sense: failed, as in failed to do something"
+      },
+      {
+       "op": "homophone",
+       "spelt": "MIST",
+       "parts": [
+        {
+         "words": "omitted",
+         "at": 21,
+         "gives": "MISSED",
+         "note": "missed means omitted, and said aloud it sounds like mist"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner keeps forgetting to mention a show of strength.",
-     "walkthrough": "'Repeatedly omitted' means two separate words for omitted in a row: failed and missed. Swapping their first sounds gives the answer.",
-     "definitionFit": "A mailed fist, a hand in an armoured gauntlet, is an idiom for aggressive use of power or military might."
+     "surface": "A cryptic note that something of Spooner's has been left out again and again.",
+     "walkthrough": "'repeatedly' asks for two words for 'omitted': FAILED and MISSED, heard as MIST. 'Spooner's' swaps their first sounds to give MAILED FIST.",
+     "definitionFit": "A mailed fist, an armoured gauntlet, is an idiom for the use or threat of brute force."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "repeatedly"
     }
    }
