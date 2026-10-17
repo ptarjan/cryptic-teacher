@@ -740,35 +740,36 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RAPTURES",
      "indicators": [
       {
-       "text": "coming out for"
+       "text": "coming out for",
+       "at": 21,
+       "note": "coming out for means one letter leaves and another takes its place, a swap of party letters"
       }
      ],
      "parts": [
       {
        "words": "Catches",
+       "at": 0,
        "gives": "CAPTURES",
-       "note": "to capture is to catch"
+       "note": "catches, as a verb, means captures"
       },
       {
        "words": "Conservative",
-       "gives": "C",
-       "note": "C = Conservative, the British party"
+       "at": 8,
+       "gives": "C"
       },
       {
        "words": "Republican",
-       "gives": "R",
-       "note": "R = Republican, the US party"
+       "at": 36,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A Conservative defects to the Republicans, and someone is thrilled at the catch.",
-     "walkthrough": "The political surface borrows 'coming out' from party switching; here it just swaps the C of CAPTURES for R.",
-     "definitionFit": "A plain synonym in the plural: states of intense delight."
+     "surface": "A political story: a Conservative defects, a Republican wins, and someone is overjoyed.",
+     "walkthrough": "In CAPTURES, 'coming out for' makes the Conservative C leave so the Republican R can take its place.",
+     "definitionFit": "Raptures are states of intense joy or delight, the same as ecstasies; the plurals match."
     },
     "features": {
      "answerInScene": false,
@@ -1598,46 +1599,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LEADEN",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "drunk",
-         "note": "ale is knocked into disorder"
-        },
-        {
-         "text": "in a bad way",
-         "note": "the letters of end are in a mess"
+         "at": 11,
+         "note": "drunk means the letters of ale stagger into a new order"
         }
        ],
        "parts": [
         {
          "words": "ale",
-         "gives": "LEA",
-         "note": "anagram fodder, rearranged"
-        },
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "in a bad way",
+         "at": 22,
+         "note": "in a bad way means the letters of end are disordered and rearranged too"
+        }
+       ],
+       "parts": [
         {
          "words": "end",
-         "gives": "DEN",
-         "note": "anagram fodder, rearranged"
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cloudy ale is drunk and the drinker ends up in a bad way.",
-     "walkthrough": "Two separate small anagrams sit side by side; 'cloudy' goes with the beer in the surface, but it describes the sky.",
-     "definitionFit": "A weather sense: a heavy grey sky, the colour of lead."
+     "surface": "Cloudy beer was drunk, and things ended badly.",
+     "walkthrough": "'Drunk' turns ALE into LEA and 'in a bad way' turns END into DEN; join them.",
+     "definitionFit": "A leaden sky is dull grey and heavy with overcast, the colour of lead, so it is cloudy."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "Cloudy"
+     "aptDefinition": true,
+     "misdirectedWord": "drunk"
     }
    }
   }
