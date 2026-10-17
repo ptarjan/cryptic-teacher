@@ -65,9 +65,43 @@ def _sysctl(key):
     return int(subprocess.run(["sysctl", "-n", key], capture_output=True, text=True, check=True, timeout=5).stdout)
 
 
+#: Memory pressure (PSI "full" avg10, percent of time every task stalled on
+#: memory) past which no unit starts, and the most unit children (every kind
+#: but fetches) at once. Env, read at each call: CT_PSI_MAX, CT_UNIT_CEILING;
+#: CT_MEMINFO and CT_PSI_PATH move the files read (tests, other hosts).
+PSI_MAX = 10.0
+UNIT_CEILING = 6
+
+
+def psi_max():
+    return float(os.environ.get("CT_PSI_MAX") or PSI_MAX)
+
+
+def unit_ceiling():
+    return int(os.environ.get("CT_UNIT_CEILING") or UNIT_CEILING)
+
+
+def pressure():
+    """The memory PSI's full avg10, or None when it cannot be read (macOS)."""
+    try:
+        with open(os.environ.get("CT_PSI_PATH") or "/proc/pressure/memory") as f:
+            for line in f:
+                if line.startswith("full "):
+                    return float(dict(p.split("=") for p in line.split()[1:])["avg10"])
+    except (OSError, ValueError, KeyError):
+        pass
+    return None
+
+
+def calm(reader=None):
+    """True unless the memory pressure is over psi_max(); no figure, no gate."""
+    now = (reader or pressure)()
+    return now is None or now <= psi_max()
+
+
 def available():
     try:
-        with open("/proc/meminfo") as f:
+        with open(os.environ.get("CT_MEMINFO") or "/proc/meminfo") as f:
             for line in f:
                 if line.startswith("MemAvailable:"):
                     return int(line.split()[1]) * 1024
@@ -82,8 +116,11 @@ def available():
 def room(charged=0, reader=None, floor=FLOOR, unit=UNIT):
     """True if one more unit fits: what is available, less `charged` bytes
     for the units begun in this pass, stays above the floor with this
-    one's `unit`."""
+    one's `unit`, and (when `reader` is not injected) the memory pressure
+    is under psi_max()."""
     avail = (reader or available)()
+    if reader is None and not calm():
+        return False
     return avail is None or avail - charged >= floor + unit
 
 

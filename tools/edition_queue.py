@@ -1072,6 +1072,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     outages = dict.fromkeys(fetch, 0)
     memory_bound = cpu_bound = desktop_bound = desk_mem_bound = False  # logged once per slice
     idle_bound = False  # logged once each time the idle cores run out
+    ceiling_bound = False  # logged once each time the unit-children ceiling is met
     opened = []  # when this run started each unit that opens a desktop session (desktop_room), the last hour's
     closed = []  # (start, end) wall times of those units that ended, the last hour's (desktop_sessions)
     burn_bound = False  # logged once each time the burn starts starving
@@ -1360,6 +1361,16 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         free = dict(pools)
         for _, (u, _) in units_running():
             free[slot_of(u)] = free.get(slot_of(u), 0) - 1
+        # The unit-children ceiling (mem_gate.unit_ceiling) over every pool but the
+        # fetches: the pools' widths stay, the slots left are zeroed once it is met.
+        ceiling_left = mem_gate.unit_ceiling() - sum(1 for _, (u, _) in units_running() if u["kind"] != "fetch")
+        if ceiling_left <= 0:
+            free.update({sl: 0 for sl in free if not sl.startswith("fetch ")})
+            if not ceiling_bound and any(pools[sl] for sl in pools if not sl.startswith("fetch ")):
+                ceiling_bound = True
+                log(f"unit ceiling: {mem_gate.unit_ceiling()} unit children running; no read or scan starts until one exits")
+        else:
+            ceiling_bound = False
         begun_now = charged = 0
         costs = None  # unit_costs, measured at this pass's first start
         held_back = cpu_held = idle_held = False
@@ -1554,6 +1565,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             if began is not PENDING and not load_gated(u):
                 opened.append(time.time())
             free[uslot] -= 1
+            if not uslot.startswith("fetch "):
+                ceiling_left -= 1
+                if ceiling_left <= 0:
+                    free.update({sl: 0 for sl in free if not sl.startswith("fetch ")})
             if free[uslot] <= 0:
                 reach = max((last_of.get(sl, -1) for sl, v in free.items() if v > 0), default=-1)
             if began is PENDING:
@@ -1570,6 +1585,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         if held_back and not memory_bound:
             memory_bound = True
             log(f"memory-bound: {((mem_gate_reader or mem_gate.available)() or 0) >> 20} MB available, floor {mem_gate.FLOOR >> 20} MB, "
+                f"memory pressure {mem_gate.pressure()} (max {mem_gate.psi_max()}), "
                 f"{charged >> 20} MB charged to {begun_now} begun this pass; a unit costs "
                 + ", ".join(f"{k} {v >> 20} MB" for k, v in sorted((costs or {}).items()))
                 + f" (else {mem_gate.UNIT >> 20} MB); no unit starts until a later pass finds room "
