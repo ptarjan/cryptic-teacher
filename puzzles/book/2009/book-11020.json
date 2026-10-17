@@ -596,38 +596,39 @@
      "parts": [
       {
        "words": "gone",
+       "at": 10,
        "gives": "PAST",
-       "note": "what is gone is past"
+       "note": "gone means past, as in 'the danger is gone/past'"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "EUR",
+       "op": "deletion",
        "indicators": [
         {
          "text": "halfway through",
-         "note": "going only halfway through a word keeps its first half and stops there"
+         "at": 15,
+         "note": "going only halfway through the word Europe keeps its first three of six letters and drops the rest"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Europe",
-         "gives": "EUR",
-         "select": "first",
-         "note": "the first three of its six letters"
+         "at": 31,
+         "note": "the first half of the six-letter word Europe"
+        },
+        {
+         "gives": "OPE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pharmacist has set off on a trip across Europe and is half done.",
-     "walkthrough": "'Chemist's' suggests a shop; here the 's is just 'is' joining definition to wordplay.",
-     "definitionFit": "Louis Pasteur was the French scientist, trained as a chemist, behind pasteurisation."
+     "surface": "Someone remarks that a scientist has travelled halfway across the Continent.",
+     "walkthrough": "The 's stands for 'is': the chemist is the answer. Halfway through EUROPE stops after EUR, which follows PAST.",
+     "definitionFit": "Louis Pasteur was the French chemist and microbiologist behind pasteurisation and early vaccines."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "gone"
     }
