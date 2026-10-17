@@ -42,47 +42,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCHOOLMATE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "unclosed",
-       "note": "something unclosed has no end shut on it, so the word loses its final letter"
+       "text": "sent flying",
+       "at": 41,
+       "note": "sent flying means scattered in all directions, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "sent flying",
-         "note": "things sent flying land scattered in a new order, so the letters are rearranged"
+         "text": "unclosed",
+         "at": 24,
+         "note": "unclosed means the word is left without its closing letter"
         }
        ],
        "parts": [
         {
          "words": "mood",
-         "gives": "MOO",
-         "note": "the word without its last letter"
+         "at": 18
         },
         {
-         "words": "satchel",
-         "note": "taken as written"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "satchel",
+       "at": 33
       }
      ]
     },
     "explanation": {
-     "surface": "A sulky pupil flings a classmate's school bag across the room.",
-     "walkthrough": "'Learner' looks like the usual L, but it belongs to the definition; MOO plus SATCHEL rearranges to SCHOOLMATE.",
-     "definitionFit": "A schoolmate is another pupil at the same school, a companion in study."
+     "surface": "A sulky pupil flings an open schoolbag across the room.",
+     "walkthrough": "'unclosed' takes the D off MOOD to leave MOO, which joins SATCHEL as the letters to rearrange.",
+     "definitionFit": "A schoolmate is someone who attends the same school, a fellow pupil."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "learner"
+     "misdirectedWord": "unclosed"
     }
    }
   },
@@ -302,26 +304,32 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MOVE",
      "indicators": [
       {
        "text": "doubling its initial value",
-       "note": "read the opening letter as a Roman numeral and swap it for the numeral worth twice as much"
+       "at": 15,
+       "note": "the first letter is a Roman numeral, and doubling its value turns 500 into 1000, so that letter is replaced"
       }
      ],
      "parts": [
       {
        "words": "bird",
+       "at": 9,
        "gives": "DOVE",
        "note": "a dove is a bird"
+      },
+      {
+       "gives": "D"
+      },
+      {
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "Moving a bird somewhere else turns out to double its worth.",
-     "walkthrough": "D is the Roman numeral 500 and M is 1,000, so doubling the value of the D turns it into M.",
-     "definitionFit": "To move something is to shift it to another place, so the verbs are synonyms."
+     "surface": "Instructions to move a bird somewhere else and double its worth.",
+     "walkthrough": "D is the Roman numeral for 500; doubled it is 1000, which is M.",
+     "definitionFit": "To move is to change location, which is what relocating means."
     },
     "features": {
      "answerInScene": false,
@@ -518,45 +526,60 @@
      {
       "text": "used for breakfast?",
       "at": 39,
-      "note": "describes the answer rather than naming it; the question mark flags the example"
+      "note": "a descriptive phrase for a dish eaten in the morning; the question mark flags that an omelette is only one example"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OMELETTE",
-     "indicators": [
-      {
-       "text": "Cockney's",
-       "note": "Cockneys famously drop their aitches, so the H goes"
-      },
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter is cut"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Cockney's",
+         "at": 0,
+         "note": "Cockneys famously drop the H at the start of words"
+        }
+       ],
        "parts": [
         {
          "words": "place",
-         "gives": "OME",
-         "note": "home, with the H dropped"
+         "at": 10,
+         "gives": "HOME",
+         "note": "home is the place where one lives"
         },
         {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 32,
+         "note": "mostly means all but the final letter is kept"
+        }
+       ],
+       "parts": [
+        {
          "words": "character",
-         "gives": "LETTE",
-         "note": "a letter is a character, here without its final letter"
+         "at": 21,
+         "gives": "LETTER",
+         "note": "a letter is a written character"
+        },
+        {
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Londoner's characterful home is where they mostly eat breakfast.",
-     "walkthrough": "A Cockney is a working-class East Londoner whose accent drops the H, so home becomes 'ome.",
-     "definitionFit": "An omelette is a beaten-egg dish often eaten as a morning meal, so it is one thing eaten at breakfast."
+     "surface": "A Cockney's home with a character in it, something cooked in the morning.",
+     "walkthrough": "A Cockney is a working-class Londoner whose accent drops initial H ('Cockney's'), so home becomes 'OME; 'mostly' trims LETTER to LETTE.",
+     "definitionFit": "An omelette of beaten eggs is a classic morning meal, an example of breakfast fare."
     },
     "features": {
      "answerInScene": true,
@@ -1106,43 +1129,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NIGHTDRESSES",
-     "indicators": [
-      {
-       "text": "Headless",
-       "note": "without a head means the opening letter is taken away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Headless",
+         "at": 0,
+         "note": "headless means the first letter is cut off"
+        }
+       ],
        "parts": [
         {
          "words": "horseman",
-         "gives": "NIGHT",
-         "note": "a knight, with its first letter removed"
+         "at": 9,
+         "gives": "KNIGHT",
+         "note": "a knight is a mounted warrior, a horseman"
         },
         {
-         "words": "arranges",
-         "gives": "DRESSES",
-         "note": "to dress is to arrange, as in a shop window"
+         "gives": "K"
         }
        ]
+      },
+      {
+       "words": "arranges",
+       "at": 18,
+       "gives": "DRESSES",
+       "note": "to dress something, such as a shop window, is to arrange it"
       }
      ]
     },
     "explanation": {
-     "surface": "A ghostly rider with no head makes the bed.",
-     "walkthrough": "'Arranges' looks like an anagram signal, but it is a synonym used straight; the Headless Horseman is a ghost from American folklore.",
-     "definitionFit": "Nightdresses are loose gowns women wear for sleeping, so they are clothing worn in bed."
+     "surface": "The Headless Horseman of legend making up a bed.",
+     "walkthrough": "The surface evokes the Headless Horseman of Sleepy Hollow; 'arranges' here means dresses, as one dresses a window.",
+     "definitionFit": "Nightdresses are loose garments worn in bed, so they are clothing for sleeping."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "arranges"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Headless"
     }
    }
   },
