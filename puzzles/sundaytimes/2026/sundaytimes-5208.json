@@ -339,31 +339,35 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "END",
      "indicators": [
       {
        "text": "those ahead of",
-       "note": "the letters that stand just ahead of each of F, O and E in the alphabet"
+       "at": 7,
+       "note": "each letter of foe gives way to the letter that stands just ahead of it in the alphabet"
       }
      ],
      "parts": [
       {
        "words": "foe",
-       "gives": "END",
-       "note": "E comes before F, N before O, D before E"
+       "at": 22
+      },
+      {
+       "gives": "FOE"
+      },
+      {
+       "gives": "END"
       }
      ]
     },
     "explanation": {
-     "surface": "Asking what troops in the front line intend against the enemy.",
-     "walkthrough": "'Those ahead' look like soldiers advancing; they are the alphabet's letters just before F, O and E.",
-     "definitionFit": "An end is an aim or purpose, as in 'to that end'."
+     "surface": "A question about the purpose of the troops advancing in front of the enemy.",
+     "walkthrough": "'those ahead of foe' means the letters ahead of F, O and E in the alphabet: E, N and D, giving the answer.",
+     "definitionFit": "An end is a goal or purpose, as in 'the end justifies the means', so it means an aim."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "ahead"
+     "misdirectedWord": "foe"
     }
    }
   },
@@ -513,32 +517,28 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "abbreviated",
-       "note": "shortens 'way' to its standard abbreviation"
-      }
-     ],
      "parts": [
       {
        "words": "in",
-       "note": "taken as printed"
+       "at": 12,
+       "gives": "IN"
       },
       {
        "words": "an abbreviated way",
+       "at": 15,
        "gives": "ST",
-       "note": "St is the abbreviation for street, a way"
+       "note": "St is the abbreviated form of street, which is a way"
       }
      ]
     },
     "explanation": {
-     "surface": "Referring to the current month in shorthand.",
-     "walkthrough": "The surface describes the answer itself: inst. is old business-letter shorthand for instant, meaning this month.",
-     "definitionFit": "Inst. (instant) in formal letters means of the current month."
+     "surface": "A note dated this month, written in shorthand.",
+     "walkthrough": "Inst. is itself the abbreviation of instant, the old business-letter term for the current month, so the clue's description fits the answer as a whole too.",
+     "definitionFit": "In old commercial letters 'the 5th inst.' meant the fifth day of the current month."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "way"
     }
    }
@@ -1052,47 +1052,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ULYSSES",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 25,
+       "note": "the rearranged letters go inside the word for exploits"
+      }
+     ],
      "parts": [
+      {
+       "words": "exploits",
+       "at": 28,
+       "gives": "USES",
+       "note": "to exploit something is to use it, so exploits means uses"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "deviously",
-         "note": "the letters take a crooked route"
+         "at": 11,
+         "note": "something done deviously takes a winding route, so the letters of sly are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "the jumbled letters sit in the exploits, placed inside that word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "sly",
-           "gives": "LYS",
-           "note": "anagram of SLY"
-          },
-          {
-           "words": "exploits",
-           "gives": "USES",
-           "note": "to exploit is to use"
-          }
-         ]
+         "words": "sly",
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cunning Greek warrior getting up to his schemes.",
-     "walkthrough": "The surface is apt: Ulysses, the Latin name for Odysseus, was the craftiest of the Greek heroes. 'Exploits' looks like deeds; it is the verb USES.",
-     "definitionFit": "Ulysses is the Roman name for Odysseus, hero of the Odyssey."
+     "surface": "A cunning Greek hero, slyly scheming through his adventures.",
+     "walkthrough": "'exploits' reads as the noun for heroic deeds, but it is the verb: USES. 'deviously' rearranges SLY to LYS, which goes 'in' it.",
+     "definitionFit": "Ulysses is the Latin name for Odysseus, the cunning hero of Homer's Odyssey."
     },
     "features": {
      "answerInScene": true,
