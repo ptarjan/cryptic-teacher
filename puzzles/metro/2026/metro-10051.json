@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -194,45 +195,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TOENAIL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 37,
+       "note": "in means placed inside, so the rearranged letters go within the word for the end"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "the end",
+       "at": 40,
+       "gives": "TAIL",
+       "note": "the tail is the end part of something"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "processed",
-         "note": "Something processed has been put through a machine and comes out altered, which is what happens to the order of these letters."
-        },
-        {
-         "text": "in",
-         "note": "In says one piece is written inside another rather than set down beside it."
+         "at": 27,
+         "note": "processed means worked on and changed, so the letters of one are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "the end",
-         "gives": "TAIL",
-         "note": "the tail of anything is its end, and this word opens up after its first letter"
-        },
-        {
          "words": "one",
-         "gives": "OEN",
-         "note": "three letters put into another order before they go inside"
+         "at": 23,
+         "note": "taken as written, the letters to rearrange"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rounding-off question, with one last item put through the works at the end of the day.",
-     "walkthrough": "'Digit' is a finger or a toe as readily as a number, and the surface pushes the number. The definition then describes rather than names: what caps the end of a toe is a hard plate, not a synonym.",
-     "definitionFit": "The digit is a toe and the nail is the hard plate capping its end, so the definition describes the thing rather than offering a synonym."
+     "surface": "A cryptic riddle about what finishes a finger, with something processed at the end.",
+     "walkthrough": "'processed' turns ONE into OEN, which goes 'in' TAIL after its T. The digit here is a toe, not a number.",
+     "definitionFit": "A toenail is the hard covering at the tip of a toe, and toes are digits of the foot."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "digit"
     }
    }
