@@ -151,6 +151,7 @@ import argparse
 import ast
 import bisect
 import contextlib
+import copy
 import datetime
 import functools
 import gzip
@@ -4678,7 +4679,64 @@ def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
         return _plan_paper(paper, cache, ledger, reread, asked, dirs)
 
 
+#: {(cache, paper key, ledger): (stamp, when (monotonic), (scan units, read units))}
+#: of _plan_paper's last plan: reused (copied) while its stamp stands.
+_PLANNED = {}
+#: Seconds a kept plan is trusted at most, whatever its stamp (a backstop for
+#: an input the stamp does not see, such as a puzzle file rewritten in place).
+PLAN_REUSE = 3600
+
+
+def _stat_stamp(path):
+    try:
+        st = os.stat(path)
+    except OSError:
+        return None
+    return (st.st_mtime_ns, st.st_size)
+
+
+def _plan_stamp(paper, cache, ledger, reread, asked, dirs):
+    """Everything _plan_paper's answer is made of, cheap to read, or None when
+    it cannot be told cheaply (a cache off the media disk, a test's): the
+    ledger and the sister ledgers (sister_solutions), the edition manifests
+    (edition_dirs, input_hash, staged_at: append-only, so their stat says), the
+    held listing's version and year folders (held_files), the scan and
+    solution code's keys, the VLM version, and the request (`reread`,
+    `asked`, `dirs`)."""
+    if not media_manifest.on_media(cache):
+        return None
+    sisters = tuple(_stat_stamp(ledger_of(cache, p)) for p in FILERS.values()
+                    if p is not paper and p.series == paper.series)
+    held = _held_listing(paper.series)[0]
+    folders = tuple(sorted((_HELD_LISTED.get(paper.series) or (0, {}))[1].items()))
+    manifests = tuple(_stat_stamp(media_manifest.path(n)) for n in (media_manifest.ARCHIVE_EDITIONS,
+                                                                    media_manifest.GALE_EDITIONS))
+    return (_stat_stamp(ledger), sisters, manifests, held, folders, current_keys(paper), solution_key(),
+            vlm.version() if vlm.reachable() else None, reread, frozenset(asked),
+            None if dirs is None else tuple(dirs))
+
+
 def _plan_paper(paper, cache, ledger, reread, asked, dirs):
+    """_plan_paper_fresh's answer, kept per paper: while no input of it moved
+    (_plan_stamp) a replan is the last one's units copied, not every edition
+    of the paper worked through again (seconds a paper on a loaded host, every
+    cycle, for a queue that mostly has nothing new)."""
+    ledger = ledger_of(cache, paper, ledger)
+    asked = tuple(asked)
+    stamp = _plan_stamp(paper, cache, ledger, reread, asked, dirs)
+    k = (str(cache), paper.key, str(ledger))
+    hit = _PLANNED.get(k)
+    if stamp is not None and hit is not None and hit[0] == stamp and time.monotonic() - hit[1] < PLAN_REUSE:
+        _PLANNED_DIRS[(str(cache), paper.key)] = hit[3]
+        return copy.deepcopy(hit[2])
+    # The ledger is stamped before it is read, so a row appended during the plan makes the next one fresh.
+    made = _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs)
+    if stamp is not None:
+        _PLANNED[k] = (stamp, time.monotonic(), copy.deepcopy(made), _PLANNED_DIRS.get((str(cache), paper.key)))
+    return made
+
+
+def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs):
     ledger = ledger_of(cache, paper, ledger)
     known = _planned_known(ledger)
     every = _PLANNED_DIRS[(str(cache), paper.key)] = edition_dirs(cache, paper)
