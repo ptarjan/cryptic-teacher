@@ -609,41 +609,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BLOTTO",
-     "indicators": [
-      {
-       "text": "lacking in",
-       "note": "lacking in means going without, so one letter of the excessive word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "automaton",
-       "gives": "BOT",
-       "note": "a bot is a robot"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 42,
+         "note": "in places the added theme letter inside the short word for automaton"
+        }
+       ],
+       "parts": [
+        {
+         "words": "automaton",
+         "at": 11,
+         "gives": "BOT",
+         "note": "a bot is a robot or automated program, short for robot"
+        },
+        {
+         "gives": "L",
+         "note": "the extra letter the preamble supplies, taken from one of the six theme words"
+        }
+       ]
       },
       {
-       "gives": "L",
-       "note": "the letter the preamble says must be added to this wordplay"
-      },
-      {
-       "words": "excessively",
-       "gives": "TOO",
-       "note": "too means excessively"
-      },
-      {
-       "words": "love",
-       "gives": "O",
-       "note": "love is zero in tennis, which looks like O"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 34,
+         "note": "lacking says the following thing is missing, so the zero for love is dropped from the word for excessively"
+        }
+       ],
+       "parts": [
+        {
+         "words": "excessively",
+         "at": 22,
+         "gives": "TOO",
+         "note": "too means excessively, as in too much"
+        },
+        {
+         "words": "love",
+         "at": 45,
+         "gives": "O",
+         "note": "love is zero in tennis scoring, written as the letter O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A smoothly lubricated robot that is sadly short of affection.",
-     "walkthrough": "The preamble's added letter here is L, which goes in after the first letter of the automaton word.",
-     "definitionFit": "Well-oiled is slang for drunk, and blotto is informal British slang for very drunk."
+     "surface": "A machine kept lubricated is running a bit too freely, and missing affection.",
+     "walkthrough": "One of the clues where a theme-word letter is added: L goes 'in' BOT to make BLOT, and TOO 'lacking' one O (love) gives TO.",
+     "definitionFit": "Well-oiled is British slang for drunk, and blotto is another informal word for very drunk."
     },
     "features": {
      "answerInScene": false,
@@ -1182,64 +1201,59 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BINDHI",
-     "indicators": [
-      {
-       "text": "covering",
-       "note": "covering means wrapping round, so the search engine goes outside"
-      }
-     ],
+     "op": "deletion",
      "parts": [
       {
-       "op": "deletion",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "covering",
+         "at": 35,
+         "note": "covering means the search engine's letters wrap around the letters from the city's name"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "search engine",
-           "gives": "BING",
-           "note": "Microsoft's search engine"
-          },
-          {
-           "op": "outer",
-           "unchecked": true,
-           "gives": "DHI",
-           "indicators": [
-            {
-             "text": "several outlying parts",
-             "note": "outlying parts are the outer edges, so a few letters from each end of the city name are kept"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "Delhi",
-             "gives": "DHI",
-             "select": "outer",
-             "note": "the first letter and last two letters of Delhi"
-            }
-           ]
-          }
-         ]
+         "words": "search engine",
+         "at": 21,
+         "gives": "BING",
+         "note": "Bing is Microsoft's web search engine"
         },
         {
-         "gives": "G"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "several outlying parts of",
+           "at": 44,
+           "note": "only the several letters at the edges of the city's name are kept, so its inner letters are dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Delhi",
+           "at": 70
+          },
+          {
+           "gives": "EL"
+          }
+         ]
         }
        ]
+      },
+      {
+       "gives": "G",
+       "note": "the letter the preamble has removed from the wordplay, taken from one of the six theme words"
       }
      ]
     },
     "explanation": {
-     "surface": "A tourist beauty spot located by online search, covering areas on the edge of Delhi.",
-     "walkthrough": "The preamble's removed letter here is G, the search engine's last letter. BINDHI is a less common spelling of bindi.",
-     "definitionFit": "A bindhi (more often bindi) is the decorative dot worn on the forehead by South Asian women."
+     "surface": "A tourist searching online for an attractive place on the outskirts of the Indian capital.",
+     "walkthrough": "'Several outlying parts of' Delhi keeps DHI, dropping the inner EL; BING 'covering' DHI gives BINDHIG. This is one of the clues where a theme-word letter, here G, must be removed.",
+     "definitionFit": "A bindhi (bindi) is the decorative dot worn on the forehead in South Asia, a cosmetic mark like a beauty spot."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "spot"
     }
    }
@@ -1265,36 +1279,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EGGNOG",
+     "op": "substitution",
      "indicators": [
       {
        "text": "With a final twist",
-       "note": "a twist at the end turns round the closing letters of the word for encourage"
+       "at": 0,
+       "note": "the twist is applied at the end, turning round the last two letters of the phrase for encourage"
       }
      ],
      "parts": [
       {
        "words": "encourage",
+       "at": 20,
        "gives": "EGGON",
-       "note": "to egg on is to encourage"
+       "note": "to egg on is to encourage or urge someone"
       },
       {
-       "gives": "G",
-       "note": "the letter the preamble says must be added to this wordplay"
+       "gives": "ON"
+      },
+      {
+       "gives": "NOG"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone persuaded, with a last-minute change of heart, to have a drink.",
-     "walkthrough": "EGG ON with its final two letters turned round gives EGGNO; per the preamble a G from TRIANGLE is added.",
-     "definitionFit": "Eggnog is a drink of eggs, milk, sugar and often spirits, popular at Christmas."
+     "surface": "Urging someone, with a last flourish, to have something to drink.",
+     "walkthrough": "EGG ON, 'with a final twist', has its last two letters ON turned to NO; this is one of the clues where a theme-word letter is added, and the G joins the twisted ending to make NOG.",
+     "definitionFit": "Eggnog is a sweet beverage of eggs, milk and sugar, often with spirits, served at Christmas."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "twist"
+     "misdirectedWord": "drink"
     }
    }
   },
