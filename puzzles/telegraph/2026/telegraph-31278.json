@@ -906,46 +906,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ENHANCED",
      "indicators": [
       {
        "text": "taking",
-       "note": "to take something in is to hold it, so one piece goes inside the other"
+       "at": 5,
+       "note": "taking means taking in, so the stop word holds the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ENHANCED",
+       "words": "Stop",
+       "at": 0,
+       "gives": "END",
+       "note": "to end something is to stop it"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "barely",
-         "note": "bare means stripped of covering, so the word loses its first and last letters"
+         "at": 21,
+         "note": "barely means stripped bare, so the word chances loses its outer letters"
         }
        ],
        "parts": [
         {
-         "words": "Stop",
-         "gives": "END",
-         "note": "to stop is to end"
-        },
-        {
          "words": "chances",
-         "note": "taken as written before trimming"
+         "at": 12,
+         "note": "the word chances with its first and last letters stripped away"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Quit gambling and you'll find your fortunes only just get better.",
-     "walkthrough": "'Barely' looks like 'only just' qualifying 'improved', but it belongs to 'chances', stripping its outer letters.",
-     "definitionFit": "To enhance is to raise in quality or value, so something enhanced has been made better."
+     "surface": "Someone gives up gambling, only just becoming a better person.",
+     "walkthrough": "'barely' strips CHANCES to HANCE, and END is 'taking' it in. 'Stop taking chances' reads as advice, but 'Stop' is the outer word.",
+     "definitionFit": "To enhance something is to improve its quality, so enhanced is a synonym of improved."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "barely"
     }
@@ -1084,44 +1084,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ADJOINED",
-     "indicators": [
-      {
-       "text": "drained",
-       "note": "a drained vessel has had its contents emptied out, so only the outer letters remain"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 4,
+       "gives": "A"
       },
       {
        "words": "radio presenter",
+       "at": 6,
        "gives": "DJ",
-       "note": "a DJ, disc jockey, presents music on radio"
+       "note": "a DJ, or disc jockey, presents music on the radio"
       },
       {
        "words": "over",
+       "at": 22,
        "gives": "O",
-       "note": "O is the cricket abbreviation for an over"
+       "note": "O is the cricket scoring abbreviation for an over"
       },
       {
        "words": "in",
-       "note": "taken as written"
+       "at": 27,
+       "gives": "IN"
       },
       {
-       "words": "England",
-       "note": "taken as written before emptying"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "drained",
+         "at": 39,
+         "note": "drained means emptied, so England loses everything but its outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "England",
+         "at": 30,
+         "note": "the word England emptied of its inside, leaving only its first and last letters"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone encountered a broadcaster again in England and felt exhausted.",
-     "walkthrough": "'Met' reads as an encounter with a person, but it is the sense of two things touching at a border; 'over' is the cricket term, a set of six balls.",
-     "definitionFit": "Two properties that adjoin share a boundary, so where they adjoined they met each other."
+     "surface": "A broadcaster encountered an exhausted fellow somewhere in England.",
+     "walkthrough": "'drained' empties England to ED. 'Met' is past tense, matching the answer: two things that adjoined met at a boundary.",
+     "definitionFit": "Things that adjoined touched or bordered each other, so they met where they joined."
     },
     "features": {
      "answerInScene": false,
