@@ -15,7 +15,7 @@ due add up to BAG_TARGET (the last one added may pass it; there is no hard
 cap). Whole puzzles only, so a linked group ("see 5") is never split: a puzzle's
 due clues are what annotate_check.to_write lists, groups whole.
 
-A puzzle is bagged only when it is partly hinted with at most MAX_DUE clues due,
+A puzzle is bagged only when it is partly hinted (or hinted with a few clues on the shape redo list) with at most MAX_DUE clues due,
 keyed (every answer present, every clue readable), and carries no preamble or
 theme clue: a preamble describes a device that runs across the clues (misprints,
 extra letters, unclued entries), which a session must see whole. A plain barred
@@ -45,12 +45,31 @@ def due_clues(puzzle):
     return len(due)
 
 
-def row_is_tail(row):
-    """Whether an index row is a tail by the index alone: a few clues missing,
-    answers present, no preamble awaited. The planner puts these at the head of
-    the Annotate queue so they are bagged first; the file check in due_clues
-    still decides at launch."""
-    if not 1 <= (row or {}).get("unannotated", 0) <= MAX_DUE:
+# Re-annotation reasons code fixes without the model (tools/fill_spellings.py,
+# tools/prefill_hidden.py): they never make a clue due.
+CODE_FIXED = ("spelling.unsaid", "hidden")
+
+
+def redo_due(pid):
+    """How many clues of pid are on the shape re-annotation list
+    (tools/shape_queue.py: the per-clue redo, what annotate_check.to_write adds
+    for a hinted puzzle), not counting reasons code fixes. Cheap: one cached dict."""
+    import shape_queue
+    return sum(1 for why in shape_queue.pending().get(pid, {}).values()
+               if not str(why).startswith(CODE_FIXED))
+
+
+def row_is_tail(row, redo=True):
+    """Whether an index row is a tail by the index alone: 1..MAX_DUE clues due
+    (missing an annotation, plus those on the shape redo list), answers present,
+    no preamble awaited. The planner puts these at the head of the Annotate
+    queue so they are bagged first; the file check in due_clues still decides
+    at launch. redo=False counts only the missing ones: the planner's head-of-
+    queue stage uses that, so redo tails ride in bags without outranking the
+    un-hinted puzzles; they bag from wherever the shape tier interleaves them."""
+    if not row:
+        return False
+    if not 1 <= row.get("unannotated", 0) + (redo_due(row.get("id")) if redo else 0) <= MAX_DUE:
         return False
     return not (row.get("clues") or row.get("awaitsPreamble")) and bool(row.get("hasSolutions"))
 
