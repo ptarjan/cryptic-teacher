@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -252,42 +253,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TOTED",
+     "op": "charade",
      "indicators": [
       {
-       "text": "beginning to drift off",
-       "note": "What drifts off goes away, and here it is the beginning that does the drifting, so the first letter of the word before it never arrives."
+       "text": "on to",
+       "at": 14,
+       "note": "on to means the first piece is placed onto, ahead of, what follows"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "child",
+       "at": 8,
+       "gives": "TOT",
+       "note": "a tot is a small child"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "beginning to drift off",
+         "at": 26,
+         "note": "the beginning of the word bed drifts away, so its first letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "child",
-         "gives": "TOT",
-         "note": "a tot is a small child"
+         "words": "bed",
+         "at": 20
         },
         {
-         "words": "bed",
-         "gives": "ED",
-         "note": "BED with its opening B gone"
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Lifting a small child onto the bed just as they start to fall asleep.",
-     "walkthrough": "'Beginning to drift off' is the sleepy half of the picture and a beheading instruction underneath, and that double duty is the whole of the difficulty. Tote is chiefly American — the tote bag is the one you carry.",
-     "definitionFit": "To tote something is to lug or carry it about, and the past tense sits exactly where 'Carried' does."
+     "surface": "A parent carries a sleepy child to bed as the little one starts nodding off.",
+     "walkthrough": "'on to' puts the child ahead of what follows; 'drift off' reads as falling asleep, but here the beginning of bed is what goes.",
+     "definitionFit": "To tote something is to carry or lug it about, so toted is a past-tense synonym."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "beginning"
+     "misdirectedWord": "drift"
     }
    }
   },
@@ -312,56 +322,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FONDLE",
+     "op": "charade",
      "parts": [
       {
+       "words": "female",
+       "at": 7,
+       "gives": "F"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "FONDLE",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 25,
+         "note": "endlessly means the word for individual loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "endlessly",
-           "note": "Endlessly means without an end, so the word it follows gives up its final letter."
-          },
-          {
-           "text": "astray",
-           "note": "Letters led astray have wandered off the path they were set in, so they arrive in a different order."
-          }
-         ],
-         "parts": [
-          {
-           "words": "female",
-           "gives": "F",
-           "note": "f is the standard abbreviation for female, as on a form"
-          },
-          {
-           "words": "individual",
-           "gives": "ON",
-           "note": "an individual is ONE, here with its last letter gone"
-          },
-          {
-           "words": "led",
-           "gives": "DLE",
-           "note": "the three letters of LED rearranged"
-          }
-         ]
+         "words": "individual",
+         "at": 14,
+         "gives": "ONE",
+         "note": "one is a single individual"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "astray",
+         "at": 39,
+         "note": "led astray is led off course, so its letters wander into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "led",
+         "at": 35
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A woman on her own being taken in, over and over, by somebody with designs on her.",
-     "walkthrough": "'Led astray' does two jobs at once: it is the seduction the surface describes and the shuffle the parse needs. Only three letters are in that shuffle, which is why the instruction is so easy to miss.",
-     "definitionFit": "To fondle is to stroke or handle affectionately, which is what a caress amounts to."
+     "surface": "A warning about a woman or person who was led astray into caressing.",
+     "walkthrough": "F, then ONE with 'endlessly' cutting its last letter to ON, then LED rearranged by 'astray' to DLE.",
+     "definitionFit": "To fondle is to stroke or caress someone affectionately, so the two verbs are synonyms."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "individual"
     }
@@ -595,12 +608,16 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "WEASEL",
      "indicators": [
       {
-       "text": "Gaining inner",
-       "note": "What is gained on the inside lands between the letters either side of it, so this piece goes in the middle rather than at either end."
+       "text": "Gaining",
+       "at": 0,
+       "note": "gaining means the outer letters acquire a piece to hold within them"
+      },
+      {
+       "text": "inner",
+       "at": 8,
+       "note": "inner says the gained piece sits on the inside"
       }
      ],
      "parts": [
@@ -609,31 +626,32 @@
        "parts": [
         {
          "words": "wife",
-         "gives": "W",
-         "note": "w is the standard abbreviation for wife"
-        },
-        {
-         "words": "peace",
-         "gives": "EASE",
-         "note": "ease is the untroubled state that peace of mind amounts to"
+         "at": 21,
+         "gives": "W"
         },
         {
          "words": "left",
-         "gives": "L",
-         "note": "l is the standard abbreviation for left"
+         "at": 26,
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "peace",
+       "at": 14,
+       "gives": "EASE",
+       "note": "ease is peace of mind, freedom from worry"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody who has found calm at last now that the wife has gone.",
-     "walkthrough": "'Wife left' is one phrase on the surface and two unrelated abbreviations underneath, which is the hinge the clue turns on. A weasel is a person as much as an animal: slippery, evasive, not to be trusted.",
-     "definitionFit": "To call a man a weasel is to call him sly and untrustworthy, which is what a scoundrel is."
+     "surface": "A man finds inner calm after his wife walks out on the rotter.",
+     "walkthrough": "'Gaining inner' puts EASE inside W and L, the abbreviations for wife and left.",
+     "definitionFit": "A weasel is a sly, untrustworthy person, a figurative use of the animal's crafty reputation."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
+     "answerInScene": true,
+     "aptDefinition": true,
      "misdirectedWord": "left"
     }
    }
@@ -654,47 +672,47 @@
    "annotation": {
     "definitions": [
      {
-      "text": "called",
-      "at": 30
+      "text": "called 'old-fashioned'",
+      "at": 30,
+      "note": "the definition is an archaic word for named or called"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "YCLEPT",
-     "indicators": [
-      {
-       "text": "Leader avoiding",
-       "note": "The leader is the letter at the head of the word, and a leader that avoids the answer never gets into it."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Leader avoiding",
+         "at": 0,
+         "note": "the leader, the first letter of cycle, is avoided and left out"
+        }
+       ],
        "parts": [
         {
          "words": "bike",
-         "gives": "YCLE",
-         "note": "a bike is a CYCLE, less the C leading it"
+         "at": 16,
+         "gives": "CYCLE",
+         "note": "to cycle is to bike, ride a bicycle"
         },
         {
-         "words": "training",
-         "gives": "PT",
-         "note": "PT is physical training, the British school timetable's name for gym and games"
-        },
-        {
-         "unchecked": true,
-         "words": "'old-fashioned'",
-         "note": "a warning about the answer rather than a piece of wordplay: the word wanted is an archaic one, and this phrase contributes no letters"
+         "gives": "C"
         }
        ]
+      },
+      {
+       "words": "training",
+       "at": 21,
+       "gives": "PT",
+       "note": "PT is physical training"
       }
      ]
     },
     "explanation": {
-     "surface": "A boss who has been ducking out of cycling sessions and gets written off as behind the times.",
-     "walkthrough": "The quotation marks are Pasquale owning up: no living speaker uses this word, which survives only in deliberate mock-medieval writing. 'Leader' is a letter, not a person, and that is the step the surface hides best.",
-     "definitionFit": "Yclept is the archaic past participle of clepe, to call, so it means named or called — 'a knight yclept Gawain'."
+     "surface": "Someone who skips bike training gets called old-fashioned.",
+     "walkthrough": "The quotation marks round old-fashioned flag that the answer is itself an archaic word for called, not that someone is being labelled.",
+     "definitionFit": "Yclept is an obsolete past participle meaning named, now used only humorously or as an archaism."
     },
     "features": {
      "answerInScene": false,
@@ -724,55 +742,71 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "sorted out",
-       "note": "To sort something out is to put it into a different arrangement, which is what happens to these letters."
+       "text": "swallowed",
+       "at": 56,
+       "note": "swallowed means the letter is taken inside the rearranged letters, like a pill"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "swallowed",
-         "note": "A swallowed pill disappears inside, so the letter it gives up joins the letters being rearranged instead of standing outside them."
+         "text": "sorted out",
+         "at": 29,
+         "note": "sorted out means put in a fresh arrangement, so these letters are reordered"
         }
        ],
        "parts": [
         {
-         "words": "GP, I need care",
-         "note": "anagram fodder, eleven letters"
+         "words": "GP",
+         "at": 13
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "S",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "pills finally",
-           "gives": "S",
-           "select": "last",
-           "note": "the last letter of pills"
-          }
-         ]
+         "words": "I",
+         "at": 17
+        },
+        {
+         "words": "need",
+         "at": 19
+        },
+        {
+         "words": "care",
+         "at": 24
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 48,
+         "note": "finally picks the last letter of pills"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pills",
+         "at": 42,
+         "note": "the last letter of the word pills is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A patient rehearsing the complaint for the doctor and taking the last of the tablets.",
-     "walkthrough": "'GP' sits in plain sight as fodder rather than as the abbreviation every solver expects it to be. 'Going before' is the euphemism the undertaker and the doctor share, which is what makes the surface's waiting room quietly grim.",
-     "definitionFit": "To predecease someone is to die before them, and 'going before' is the gentle idiom for dying, so both halves of the sense match."
+     "surface": "A patient tells the doctor they need care, after which the pills are taken.",
+     "walkthrough": "The surface reads GP as the doctor, but it is just two letters of fodder; 'finally' picks the last letter of pills, which the anagram 'swallowed'.",
+     "definitionFit": "To predecease someone is to die before them, so predeceasing is going before in a solemn sense."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Going"
+     "misdirectedWord": "GP"
     }
    }
   },
