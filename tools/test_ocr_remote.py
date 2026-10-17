@@ -439,6 +439,35 @@ def block4():
         shipped_a = tar.extractfile("tools/a.py").read()
     check("ship() makes the v- directory the session opens, with that code in it", (True, b"v1\n"),
           (rf"\v-{h1}" in sent[0][0], shipped_a))
+    # A failed ren with v-<code> not (yet) complete is retried, then says what happened.
+    cmd = sent[0][0]
+    check("ship_command: a failed ren with no manifest names the rename, not 'remove it'", (True, False),
+          (f"{ocr_remote.SHIP_RENAME_FAILED} " in cmd, "remove it" in cmd))
+    check("ship_command: always drops the part directory", True, 'rmdir /s /q' in cmd)
+    waits, tries = [], []
+    kept_sleep, ocr_remote.time.sleep = ocr_remote.time.sleep, waits.append
+    def flaky(fail_times):
+        def run_flaky(args, **kw):
+            if args[0] != "ssh":
+                return kept_run(args, **kw)
+            tries.append(1)
+            if len(tries) <= fail_times:
+                return subprocess.CompletedProcess(args, 1, b"", f"{ocr_remote.SHIP_RENAME_FAILED} X is absent".encode())
+            return subprocess.CompletedProcess(args, 0, b"", b"")
+        return run_flaky
+    ocr_remote.subprocess.run = flaky(2)
+    ocr_remote.ship("micro@100.68.145.15")
+    check("ship(): a transient rename failure is shipped again until it lands", (3, 2), (len(tries), len(waits)))
+    del tries[:], waits[:]
+    ocr_remote.subprocess.run = flaky(99)
+    try:
+        ocr_remote.ship("micro@100.68.145.15")
+        said = None
+    except ocr_remote.Unavailable as e:
+        said = str(e)
+    check("ship(): a rename failing every try gives up, saying so", (ocr_remote.SHIP_TRIES, True),
+          (len(tries), said is not None and ocr_remote.SHIP_RENAME_FAILED in said))
+    ocr_remote.time.sleep = kept_sleep
     ocr_remote.subprocess.run = kept_run
     ocr_remote._VERSIONS["local"] = {"code": h2}
     check("mirror: an unmoved checkout ships its own files", h2, ocr_remote.hash_of(ocr_remote.code_files()))
