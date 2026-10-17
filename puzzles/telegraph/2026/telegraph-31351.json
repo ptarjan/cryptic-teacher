@@ -104,46 +104,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SCAMPI",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holding",
+       "at": 14,
+       "note": "holding means gripping something inside, so the reversed word wraps round the party"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "turning up",
-         "note": "in a down clue, turning up reads the letters bottom to top"
-        },
-        {
-         "text": "holding",
-         "note": "the reversed IS holds the party inside it"
+         "at": 3,
+         "note": "turning up, in a down clue, means flipped to read from the bottom, so the word is runs backwards"
         }
        ],
        "parts": [
         {
          "words": "Is",
-         "gives": "SI",
-         "note": "IS read upwards"
-        },
-        {
-         "words": "party",
-         "gives": "CAMP",
-         "note": "a camp is a party or faction"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "party",
+       "at": 22,
+       "gives": "CAMP",
+       "note": "a camp is a faction or party, as in 'the opposing camp'"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone arrives at a party with food.",
-     "walkthrough": "Party here is a faction, as in the rival camps of a political dispute, not a celebration.",
-     "definitionFit": "A definition by category: scampi, fried breaded langoustine tails, is a dish."
+     "surface": "A guest arrives at a party carrying food.",
+     "walkthrough": "'turning up' looks like arriving, but in this down clue it flips the first word to read upward, giving SI; 'holding' then wraps that round the party word.",
+     "definitionFit": "Scampi are langoustine tails, usually breaded and fried, a familiar British pub dish."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "party"
+     "misdirectedWord": "turning"
     }
    }
   },
@@ -698,45 +700,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "HEAP",
+     "op": "charade",
      "indicators": [
       {
-       "text": "turns up",
-       "note": "in a down clue, read upwards"
+       "text": "on",
+       "at": 14,
+       "note": "on, in a down clue, means placed above, so the reversed piece sits over the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turns up",
+         "at": 5,
+         "note": "turns up, in a down clue, means flipped to read from the bottom, so the word for what runs backwards"
+        }
+       ],
        "parts": [
         {
          "words": "What",
-         "gives": "HE",
-         "note": "EH? = what? read upwards"
-        },
-        {
-         "words": "a",
-         "note": "used as printed"
-        },
-        {
-         "words": "parking",
-         "gives": "P",
-         "note": "P = parking on road signs"
+         "at": 0,
+         "gives": "EH",
+         "note": "eh? is a way of saying what? when you have not heard"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 17,
+       "gives": "A"
+      },
+      {
+       "words": "parking",
+       "at": 19,
+       "gives": "P",
+       "note": "P is the road-sign abbreviation for parking"
       }
      ]
     },
     "explanation": {
-     "surface": "Something turns up in a car park.",
-     "walkthrough": "'Parking lot' reads as one American phrase; lot is split off as the definition.",
-     "definitionFit": "An informal quantity sense: a heap of work, like a lot of work, is a large amount."
+     "surface": "A question about what appears on a car park.",
+     "walkthrough": "'turns up' flips EH to HE, and 'on' sets it above A and P in this down light. The 'parking lot' reading is a trap: 'lot' alone is the definition, meaning a large amount.",
+     "definitionFit": "A heap of something is a large amount, as in 'a heap of trouble', just as a lot is."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "lot"
     }
    }
@@ -1577,42 +1589,50 @@
    "annotation": {
     "definitions": [
      {
-      "text": "gins",
+      "text": "gins?",
       "at": 21
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TRAPS",
+     "op": "charade",
      "indicators": [
       {
-       "text": "upset",
-       "note": "in a down clue, set upside down"
+       "text": "with",
+       "at": 10,
+       "note": "with means together with, so the small letter is added after the reversed piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 4,
+         "note": "upset, in a down clue, means overturned, so the word for bit reads from the bottom up"
+        }
+       ],
        "parts": [
         {
          "words": "Bit",
-         "gives": "TRAP",
-         "note": "a part is a bit, read upwards"
-        },
-        {
-         "words": "small",
-         "gives": "S",
-         "note": "S = small"
+         "at": 0,
+         "gives": "PART",
+         "note": "a part is a bit or portion"
         }
        ]
+      },
+      {
+       "words": "small",
+       "at": 15,
+       "gives": "S",
+       "note": "S is the clothing-size abbreviation for small"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is a bit put out by small measures of gin.",
-     "walkthrough": "A gin is also an old word for a snare, which is how the question mark hints away from drinks.",
-     "definitionFit": "An old sense: a gin, from engine, is a snare for catching game."
+     "surface": "Someone is a little upset at being given small measures of gin.",
+     "walkthrough": "'upset' turns PART over to give TRAP, and 'with' adds S. A gin here is not the drink but a snare for game, so 'gins?' with its question mark defines by example.",
+     "definitionFit": "A gin, short for engine, is an old word for a snare or trap set for animals."
     },
     "features": {
      "answerInScene": false,
