@@ -327,62 +327,64 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TRANSFERFEE",
      "indicators": [
       {
        "text": "held",
-       "note": "being held by something means sitting inside it, wrapped by the other letters"
+       "at": 25,
+       "note": "held, with by, means kept inside the letters that follow"
+      },
+      {
+       "text": "by",
+       "at": 33,
+       "note": "by names who does the holding: the rearranged fastener"
       }
      ],
      "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wonky",
+         "at": 36,
+         "note": "wonky means askew, so the letters are set in a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fastener",
+         "at": 42
+        }
+       ]
+      },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "up",
-         "note": "in a down clue, lifting a word up makes it read from bottom to top"
+         "at": 30,
+         "note": "in a down entry up means the letters read upwards, in reverse"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "wonky",
-           "note": "something wonky is askew, so these letters are knocked out of order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "wonky fastener",
-           "gives": "TRANS",
-           "note": "the first part of the rearranged fastener"
-          },
-          {
-           "words": "Whistler",
-           "gives": "REF",
-           "note": "a referee blows the whistle in a match"
-          },
-          {
-           "words": "fastener",
-           "gives": "FEE",
-           "note": "the rest of the rearranged fastener"
-          }
-         ]
+         "words": "Whistler",
+         "at": 16,
+         "gives": "REF",
+         "note": "a referee, REF for short, blows the whistle"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who whistles is delayed by a badly fitted fastener while moving house.",
-     "walkthrough": "The referee's abbreviation goes inside the rearranged fastener, after its first five letters. Whistler, capitalised, suggests the painter but is just a referee.",
-     "definitionFit": "A transfer fee is the sum one football club pays another to sign a player who moves between them."
+     "surface": "Money for moving a painting by Whistler, delayed by a faulty catch.",
+     "walkthrough": "'Whistler' suggests the painter but is a referee; 'up' turns REF to FER, which is 'held by' TRANSFEE, the 'wonky' fastener.",
+     "definitionFit": "A transfer fee is the sum one football club pays another to move a player to it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Whistler"
     }
    }
@@ -846,73 +848,72 @@
     "definitions": [
      {
       "text": "what would nitrous oxide have given her?",
-      "at": 50
+      "at": 50,
+      "note": "nitrous oxide is laughing gas, which would give her a fit of laughter"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THEGIGGLES",
+     "op": "container",
      "indicators": [
       {
-       "text": "disheartened",
-       "note": "losing the heart means the central letters are removed"
+       "text": "bandaged by",
+       "at": 24,
+       "note": "bandaged by means wrapped round by the letters that follow"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "loose",
+         "at": 36,
+         "note": "loose means not held in place, so the letters are freed into a new order"
+        }
+       ],
        "parts": [
         {
          "words": "sheet",
-         "gives": "THE",
-         "note": "the first part of the rearranged sheet"
+         "at": 42
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Show",
+         "at": 0,
+         "gives": "GIG",
+         "note": "a gig is a show, a performance"
         },
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "bandaged by",
-           "note": "a bandage wraps around, so the outer letters enclose the inner ones"
+           "text": "disheartened",
+           "at": 10,
+           "note": "disheartened means the word loses its middle letters"
           }
          ],
          "parts": [
           {
            "words": "girl",
-           "gives": "GL",
-           "note": "girl with its middle letters removed"
+           "at": 5
           },
           {
-           "op": "anagram",
-           "indicators": [
-            {
-             "text": "loose",
-             "note": "something loose is not held in place, so these letters move around"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Show",
-             "gives": "GIG",
-             "note": "a gig is a live show"
-            }
-           ]
+           "gives": "IR"
           }
          ]
-        },
-        {
-         "words": "loose sheet",
-         "gives": "ES",
-         "note": "the rest of the rearranged sheet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A showgirl in a dentist's chair, wrapped in a loose sheet, is given laughing gas.",
-     "walkthrough": "Nitrous oxide is laughing gas, used as a dental anaesthetic.",
-     "definitionFit": "Laughing gas causes uncontrollable laughter, a fit of tittering known informally by this phrase."
+     "surface": "A showgirl, downcast and wrapped in a loose sheet, sits in the dentist's chair breathing gas.",
+     "walkthrough": "'Disheartened' takes IR out of girl to leave GL; 'loose' turns sheet into THEES, and 'bandaged by' wraps that round GIGGL. Nitrous oxide is laughing gas, used by dentists.",
+     "definitionFit": "The giggles is a fit of uncontrollable laughter, the effect laughing gas is famous for."
     },
     "features": {
      "answerInScene": true,
