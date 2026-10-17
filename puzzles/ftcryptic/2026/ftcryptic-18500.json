@@ -393,31 +393,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALLIN",
+     "op": "middle",
      "indicators": [
       {
        "text": "endless",
-       "note": "without ends means both the first and last letters are lopped off the word"
+       "at": 15,
+       "note": "endless means the word loses its letters at both ends, keeping only the interior"
       }
      ],
      "parts": [
       {
        "words": "ringing",
+       "at": 23,
        "gives": "CALLING",
-       "note": "ringing someone is calling them on the phone"
+       "note": "ringing someone on the phone is calling them"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone worn out by a phone or bell that will not stop.",
-     "definitionFit": "All in is an informal idiom meaning completely tired out."
+     "surface": "Someone is worn out by a telephone that never stops ringing.",
+     "walkthrough": "'endless' here strips both ends of CALLING, not just the last letter.",
+     "definitionFit": "All in is an informal British phrase for completely tired out, a synonym for exhausted."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "ringing"
+     "misdirectedWord": "endless"
     }
    }
   },
@@ -578,40 +579,40 @@
      "parts": [
       {
        "words": "but for",
+       "at": 8,
        "gives": "BAR",
-       "note": "bar means except, as in 'all bar one'"
+       "note": "bar, as a preposition, means except or but for, as in 'bar none'"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "GE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half of",
-         "note": "taking half of a word keeps only its first two of four letters"
+         "at": 16,
+         "note": "half of means only two of the four letters of gear are kept, the first half"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "gear",
-         "gives": "GE",
-         "select": "first",
-         "note": "the front half of the word"
+         "at": 24,
+         "note": "the four-letter word whose front half is used"
+        },
+        {
+         "gives": "AR"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something would weigh less were it not for half the equipment.",
-     "walkthrough": "'Lighter' looks like a comparative adjective, but it is the noun for a flat-bottomed boat.",
-     "definitionFit": "A lighter is a flat-bottomed boat used to ferry cargo to and from ships, a kind of barge."
+     "surface": "A question of whether something would be lighter if not for half its gear.",
+     "walkthrough": "'Lighter' is not a comparative of light here: a lighter is a flat-bottomed boat used to ferry goods to and from ships.",
+     "definitionFit": "A lighter is a flat-bottomed cargo vessel, essentially a type of barge used in harbours."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Lighter"
     }
    }
