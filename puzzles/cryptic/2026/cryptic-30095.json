@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -640,26 +641,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AIDE",
+     "op": "middle",
      "indicators": [
       {
        "text": "flayed",
-       "note": "to flay is to strip the skin off a body, and a word's skin is the letter at each end"
+       "at": 22,
+       "note": "flaying strips off the skin, so the outer letters of the word are removed, leaving its inside"
       }
      ],
      "parts": [
       {
        "words": "Viking perhaps",
+       "at": 7,
        "gives": "RAIDER",
-       "note": "a Viking is one example of a raider, and 'perhaps' is what marks it as an example"
+       "note": "a Viking was a seaborne raider, so a Viking is an example of a raider"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Perhaps' is doing real work: without it the clue would be claiming that Viking and raider mean the same thing, and a definition by example always has to own up.",
-     "definitionFit": "An assistant who acts for a chief and stands in when required holds the job that 'deputy' names."
+     "surface": "A Viking second-in-command has suffered a brutal punishment.",
+     "walkthrough": "'Viking perhaps' is a definition by example of RAIDER; 'flayed' takes off its skin, the first and last letters.",
+     "definitionFit": "An aide is an assistant who acts on a superior's behalf, much as a deputy does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flayed"
     }
    }
   },
@@ -860,36 +867,30 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Describing a vessel",
+      "text": "Describing a vessel — whimsically or not?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "JUGULAR",
-     "indicators": [
-      {
-       "text": "or not",
-       "note": "'or not' cancels the whimsy just offered, so the front of that adjective is the part that has to be replaced"
-      }
-     ],
+     "op": "cryptic",
      "parts": [
       {
-       "words": "whimsically",
-       "gives": "JOCULAR",
-       "note": "jocular is the adjective for joking or whimsical, and its tail survives intact"
-      },
-      {
-       "words": "a vessel",
-       "gives": "JUG",
-       "note": "a jug is a vessel, and it takes over the first three letters"
+       "words": "Describing a vessel — whimsically or not?",
+       "at": 0,
+       "note": "the word names a major blood vessel in the neck in earnest, and in jest reads as the adjective for a jug, another kind of vessel"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two words one substitution apart: go for one and you are in a fight, be the other and you are only joking. The vessel in the definition is a vein, not something you pour from.",
-     "definitionFit": "The great vein of the neck is a blood vessel, and the answer is the adjective belonging to it, as in the vein itself or a lunge at it."
+     "surface": "A puzzle about whether a word for a container is being used in fun.",
+     "walkthrough": "Seriously, the adjective describes the neck vein; whimsically it splits as JUG + -ULAR, 'of a jug', like 'circular' from circle.",
+     "definitionFit": "The jugular vein is a blood vessel, and a jug is a drinking vessel, so the adjective fits both senses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vessel"
     }
    }
   },
