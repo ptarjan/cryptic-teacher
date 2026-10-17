@@ -1034,30 +1034,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "rocky",
-       "note": "rocky means unsteady, so the letters are shaken up"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "A rocky gap, one",
-       "gives": "AGAPONE",
-       "note": "anagram fodder: A, GAP and ONE"
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rocky",
+         "at": 2,
+         "note": "rocky means shaky or unsteady, so the letters of gap and one are shaken into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gap",
+         "at": 8
+        },
+        {
+         "words": "one",
+         "at": 13
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A climber at a rocky gap, close to the summit.",
-     "walkthrough": "The apogee is the farthest point of an orbit from Earth; the mountain picture disguises the astronomy.",
-     "definitionFit": "The adjective from apogee, an orbit's high point, so it describes being at or near that peak."
+     "surface": "A climber spots a rocky gap, one that lies close to the summit.",
+     "walkthrough": "'rocky' fits the mountain scene as a description of the gap, but it is the signal to shuffle the two short words that follow it, while the opening A stays put.",
+     "definitionFit": "Apogean relates to the apogee, the highest or furthest point of an orbit, so it describes something near its peak."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "peak"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "rocky"
     }
    }
   },
@@ -1085,47 +1098,59 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Bunny's first",
-       "gives": "B",
-       "note": "the first letter of Bunny"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first",
+         "at": 13,
+         "note": "first takes the opening letter of Bunny's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Bunny's",
+         "at": 5,
+         "note": "the first letter of Bunny's is B"
+        }
+       ]
       },
       {
        "words": "performance",
+       "at": 19,
        "gives": "ACT",
-       "note": "an act is a performance"
+       "note": "an act is a performance on stage"
       },
       {
        "op": "homophone",
        "spelt": "ERIA",
        "indicators": [
         {
-         "text": "first",
-         "note": "take the first letter of Bunny"
-        },
-        {
          "text": "talking",
-         "note": "the word is spoken, so only its sound counts"
+         "at": 44,
+         "note": "talking means the word for more weird is spoken, and the sound is respelt"
         }
        ],
        "parts": [
         {
-         "words": "more weird talking",
+         "words": "more weird",
+         "at": 33,
          "gives": "EERIER",
-         "note": "eerier = more weird; only its sound is used, spelt differently"
+         "note": "eerier means more weird or uncanny"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cartoon rabbit's debut, with increasingly strange speech.",
-     "walkthrough": "Bugs Bunny is one name in the surface; split it and Bugs is the definition.",
-     "definitionFit": "Informal: bugs are germs, the microbes that make you ill."
+     "surface": "Bugs Bunny's debut performance is said to be stranger still.",
+     "walkthrough": "'Bugs Bunny' reads as the cartoon rabbit, but Bugs is the definition, germs, and 'first' takes only Bunny's initial. 'talking' turns EERIER into the sound-alike ending ERIA.",
+     "definitionFit": "Bugs is informal for germs or microbes, and bacteria are the commonest such microbes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Bugs"
+     "joke": "pun",
+     "misdirectedWord": "Bunny's"
     }
    }
   },
