@@ -23,7 +23,8 @@
   "check": "31 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1336,53 +1337,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "garrulous politician's source",
-      "at": 37,
-      "note": "The answer is named by the idiom it belongs to rather than by a synonym: a politician talking rubbish is said to be talking out of it, so a possessive phrase stands where a noun would."
+      "text": "garrulous politician's source?",
+      "at": 37
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARSE",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "Almost means not quite all the way, so the word it touches stops one letter short of its end."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "Republican",
+       "at": 2,
+       "gives": "R"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 13,
+         "note": "almost the whole word, so its last letter is cut off"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "the article, taken as it stands"
-        },
-        {
-         "words": "Republican",
-         "gives": "R",
-         "note": "R is the letter printed beside a Republican's name on an American ballot"
-        },
-        {
          "words": "determined",
-         "gives": "SE",
-         "note": "somebody determined on a course is set on it, and the word gives up its last letter"
+         "at": 20,
+         "gives": "SET",
+         "note": "set means determined, as in set on doing something"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An American Republican who has nearly made his mind up and will not stop talking.",
-     "walkthrough": "Talking out of one's arse is the British idiom for talking rubbish, which is what the definition points at and why the question mark is there. Three separate pieces inside four letters is as tight as a charade gets.",
-     "definitionFit": "A politician who talks endless rubbish is said to be talking out of his arse, and the idiom makes that the place his words come from."
+     "surface": "A political jibe asking where a determined, long-winded Republican gets his words from.",
+     "walkthrough": "'almost' trims SET to SE. The definition is Private Eye-style rudeness: a windbag is said to talk out of his backside.",
+     "definitionFit": "A loudmouth is accused of talking out of the backside, so that body part is the jokey origin of his drivel."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "determined"
+     "joke": "absurd",
+     "misdirectedWord": "source"
     }
    }
   },
@@ -1465,40 +1468,40 @@
      "parts": [
       {
        "words": "one",
+       "at": 17,
        "gives": "A",
-       "note": "one of a thing is a, the indefinite article"
+       "note": "a is the indefinite article, meaning one"
+      },
+      {
+       "words": "touch",
+       "at": 21,
+       "gives": "PAT",
+       "note": "a pat is a light touch"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "PAT",
        "indicators": [
         {
          "text": "heartless",
-         "note": "Something heartless has had its middle taken out, so only the outermost letters of what follows survive."
+         "at": 29,
+         "note": "heartless means everything but the outside is taken away, leaving only the first and last letters of the phrase Home Secretary"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "touch",
-         "gives": "PAT",
-         "select": "outer",
-         "note": "a pat on the back is a light touch of the hand"
+         "words": "Home Secretary",
+         "at": 39,
+         "gives": "HY",
+         "note": "the phrase is taken as written; with its heart gone only its first letter H and last letter Y remain"
         }
        ]
-      },
-      {
-       "words": "Home Secretary",
-       "gives": "HY",
-       "note": "the first letter of the first word and the last of the second, with everything between them gone"
       }
      ]
     },
     "explanation": {
-     "surface": "A cold-hearted minister accused of governing with one touch and caring about none of it.",
-     "walkthrough": "'One-touch' is in quotation marks because it is two separate pieces of wordplay rather than the football phrase. The Home Secretary is the cabinet minister responsible for policing and immigration in Britain, and it is the office title that is wanted, not whoever holds it.",
-     "definitionFit": "Apathy is the state of not caring enough to act, which is what indifference names — both nouns for the same absence of feeling."
+     "surface": "A sneer at a Home Secretary with a soft one-touch manner and no compassion.",
+     "walkthrough": "'heartless' strips the whole middle out of 'Home Secretary', leaving its outer letters H and Y.",
+     "definitionFit": "Apathy is a lack of interest or concern, the same as indifference."
     },
     "features": {
      "answerInScene": true,
