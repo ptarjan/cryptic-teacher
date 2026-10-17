@@ -550,35 +550,35 @@
      "parts": [
       {
        "words": "tree",
+       "at": 4,
        "gives": "ELDER",
-       "note": "the elder is a tree"
+       "note": "the elder is a small tree with white flowers and dark berries"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "LY",
+       "op": "deletion",
        "indicators": [
         {
          "text": "reduced by 50 per cent",
-         "note": "cutting something by half leaves only one of its two halves, here the back end"
+         "at": 14,
+         "note": "half the word is cut away, its first two of four letters dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "duly",
-         "gives": "LY",
-         "select": "last",
-         "note": "the second half of the word"
+         "at": 9
+        },
+        {
+         "gives": "DU"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An aged tree has been duly cut down by half.",
-     "walkthrough": "Only the back half of DULY survives, giving LY.",
-     "definitionFit": "Elderly is a polite adjective for people who are advanced in years."
+     "surface": "An ancient tree has been properly cut back by half.",
+     "walkthrough": "'Duly' reads as 'properly' in the surface, but it is just the word to be halved: removing DU leaves its second half.",
+     "definitionFit": "Elderly describes people who are getting on in years, a polite synonym for aged."
     },
     "features": {
      "answerInScene": false,
@@ -1059,42 +1059,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SNAREDRUM",
+     "op": "charade",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the final letter is lost"
+       "text": "with",
+       "at": 33,
+       "note": "the shortened snag is put together with the horse, side by side"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 25,
+         "note": "the word is not quite complete, so its last letter goes"
+        }
+       ],
        "parts": [
         {
          "words": "snag",
-         "gives": "SNA",
-         "note": "the word minus its last letter"
+         "at": 19,
+         "gives": "SNAG",
+         "note": "taken as written, before it is shortened"
         },
         {
-         "words": "racehorse",
-         "gives": "REDRUM",
-         "note": "Red Rum was a famous racehorse that won the Grand National three times"
+         "gives": "G"
         }
        ]
+      },
+      {
+       "words": "racehorse",
+       "at": 38,
+       "gives": "REDRUM",
+       "note": "Red Rum was the famous racehorse who won the Grand National three times"
       }
      ]
     },
     "explanation": {
-     "surface": "Riding a racehorse, you might nearly hit a snag.",
-     "walkthrough": "Red Rum is the legendary British steeplechaser; 'hit' in the definition means strike with a stick.",
-     "definitionFit": "A drummer strikes this small drum with sticks, so it is a thing one might hit."
+     "surface": "A cryptic picture: hitting a snare on the way, almost colliding with a racehorse.",
+     "walkthrough": "The obvious synonym for snag is SNARE, which nearly fits but does not give the answer; snag itself loses its G. Red Rum won Britain's Grand National steeplechase in 1973, 1974 and 1977.",
+     "definitionFit": "A snare drum is the small drum in a kit or band, struck with sticks, so it is something you hit."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "hit"
+     "misdirectedWord": "snag"
     }
    }
   },
@@ -1251,68 +1262,82 @@
    "annotation": {
     "definitions": [
      {
-      "text": "iceberg?",
+      "text": "iceberg",
       "at": 42
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LETTUCE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "nearly",
-       "note": "nearly means falling just short, so the final letter goes"
+       "text": "by",
+       "at": 27,
+       "note": "the final letter comes beside the overturned boat, after it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Large",
+       "at": 0,
+       "gives": "L",
+       "note": "L is the abbreviation for large, as on clothing"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "capsized",
+         "at": 18,
+         "note": "a capsized boat is upside down, so in this down clue the letters are turned to read the other way"
+        }
+       ],
        "parts": [
         {
-         "words": "Large",
-         "gives": "L",
-         "note": "L is the abbreviation for large"
-        },
-        {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "capsized",
-           "note": "a capsized vessel is upside down, so in a down clue the letters run the other way"
+           "text": "nearly",
+           "at": 11,
+           "note": "the boat is not quite whole, so its last letter goes"
           }
          ],
          "parts": [
           {
            "words": "boat",
-           "gives": "CUTTE",
-           "note": "a cutter is a small ship, minus its last letter"
+           "at": 6,
+           "gives": "CUTTER",
+           "note": "a cutter is a small single-masted boat"
+          },
+          {
+           "gives": "R"
           }
          ]
-        },
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "rear",
-           "note": "the rear of a word is its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "the",
-           "note": "final letter of the word"
-          }
-         ]
+         "text": "rear of",
+         "at": 30,
+         "note": "only the last letter of the word the is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 38,
+         "note": "the word whose last letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A big ship almost overturned by the back end of an iceberg, Titanic-style.",
-     "walkthrough": "The iceberg that sinks ships is really a salad; the question mark flags that it is an example.",
-     "definitionFit": "Iceberg is a crisp, pale variety of lettuce, so the definition is by example."
+     "surface": "A big ship almost overturned by the hidden part of an iceberg, like the Titanic.",
+     "walkthrough": "The iceberg is not ice at all: the question mark warns it is a variety of salad leaf. CUTTE, the boat without its R, is turned over to give ETTUC.",
+     "definitionFit": "Iceberg is a crisp, pale variety of lettuce, so the definition is an example of the answer."
     },
     "features": {
      "answerInScene": false,
