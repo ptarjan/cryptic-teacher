@@ -877,43 +877,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HARDY",
+     "op": "container",
      "indicators": [
       {
-       "text": "heartless",
-       "note": "without a heart means the middle letter is removed"
+       "text": "interrupting",
+       "at": 11,
+       "note": "interrupting means breaking into, so the duke's letter goes inside the shortened name"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "interrupting",
-         "note": "to interrupt is to break in, so one piece goes inside another"
+         "text": "heartless",
+         "at": 24,
+         "note": "heartless means the central letter of the name is taken out"
         }
        ],
        "parts": [
         {
          "words": "prince",
-         "gives": "HARY",
-         "note": "Prince Harry, with the central letter of his name removed"
+         "at": 34,
+         "gives": "HARRY",
+         "note": "Harry is a British prince, the younger son of King Charles"
         },
         {
-         "words": "duke",
-         "gives": "D",
-         "note": "D = duke"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "duke",
+       "at": 6,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A courageous duke cuts in on a cold-hearted prince.",
-     "walkthrough": "HARRY loses its central R, and D goes into the gap. Since Harry is himself a duke, the surface has two royals interrupting each other.",
-     "definitionFit": "Hardy describes someone bold and robust, able to endure danger without flinching."
+     "surface": "A courageous duke cuts in on a callous prince.",
+     "walkthrough": "'heartless' looks like an insult to the prince, but it removes the middle R of HARRY, leaving HARY for D to break into.",
+     "definitionFit": "Hardy can mean bold or daring, as in a hardy explorer, close to brave."
     },
     "features": {
      "answerInScene": false,
@@ -1114,48 +1118,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FILMCREW",
+     "op": "charade",
      "indicators": [
       {
-       "text": "most of",
-       "note": "most but not all means the final letter is dropped"
+       "text": "covering",
+       "at": 31,
+       "note": "covering means lying on top of, so in a down answer the haze comes above the town"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "fine haze",
+       "at": 21,
+       "gives": "FILM",
+       "note": "a film is a thin layer or haze, as in a film of mist"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "covering",
-         "note": "in a down clue a piece covering another sits on top of it, so comes first"
+         "text": "most of",
+         "at": 40,
+         "note": "most of drops the final letter of the town"
         }
        ],
        "parts": [
         {
-         "words": "fine haze",
-         "gives": "FILM",
-         "note": "a film is a thin haze or mist, as over the eyes"
+         "words": "Cheshire town",
+         "at": 48,
+         "gives": "CREWE",
+         "note": "Crewe is a railway town in Cheshire, a county in north-west England"
         },
         {
-         "words": "Cheshire town",
-         "gives": "CREW",
-         "note": "Crewe, a railway town in Cheshire, minus its last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A production team on location find a light mist hanging over a town in north-west England.",
-     "walkthrough": "Crewe is a railway junction town in the English county of Cheshire; drop its final E. 'Fine' looks like F, but 'fine haze' together gives the first piece.",
-     "definitionFit": "The film crew is the team of technicians who shoot a picture, so they collectively make movies."
+     "surface": "Filmmakers find a light mist hanging over a Cheshire town.",
+     "walkthrough": "'Movie' primes the solver to think of film, but here FILM comes from 'fine haze'. Crewe is a Cheshire railway town, and 'most of' trims its last letter.",
+     "definitionFit": "A film crew is the team that shoots a movie, so collectively they make it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "fine"
+     "misdirectedWord": "haze"
     }
    }
   },
@@ -1883,47 +1892,42 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "CASSIUS",
      "indicators": [
       {
        "text": "used",
-       "note": "something used is worked over and no longer in its original state, so the letters are rearranged"
+       "at": 10,
+       "note": "used here means worn and knocked about, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "CASSIUS",
        "indicators": [
         {
          "text": "ignoring",
-         "note": "ignoring something leaves it out, so letters are removed"
+         "at": 25,
+         "note": "ignoring means leaving out, so the initial letters are taken from sauciness"
         }
        ],
        "parts": [
         {
          "words": "sauciness",
-         "note": "the word to be trimmed"
+         "at": 15
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "NE",
          "indicators": [
           {
-           "text": "especially at the start",
-           "note": "the start of each word is its opening letter"
+           "text": "at the start",
+           "at": 51,
+           "note": "at the start points to the first letters of norms and especially"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "norms especially",
-           "gives": "NE",
-           "select": "first",
-           "note": "first letters of 'norms' and 'especially'"
+           "at": 34,
+           "note": "the first letters of norms and especially are N and E"
           }
          ]
         }
@@ -1932,12 +1936,12 @@
      ]
     },
     "explanation": {
-     "surface": "A boxer once relied on cheek, ignoring the usual rules.",
-     "walkthrough": "SAUCINESS loses an N and an E, and the remaining seven letters are rearranged. Muhammad Ali was born Cassius Clay, famous for his lip.",
-     "definitionFit": "Cassius was the forename of the boxer born Cassius Clay, who later took the name Muhammad Ali."
+     "surface": "A clay figure from the past was used saucily, flouting the norms from the very start.",
+     "walkthrough": "'Clay' looks like modelling material but is the boxer Cassius Clay, later Muhammad Ali; 'ignoring' takes N and E out of sauciness, and 'used' rearranges the rest.",
+     "definitionFit": "Cassius was the first name of boxer Cassius Clay before he became Muhammad Ali, so it was once Clay's forename."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "Clay"
     }
