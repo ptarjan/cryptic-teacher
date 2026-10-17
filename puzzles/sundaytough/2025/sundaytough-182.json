@@ -594,49 +594,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CANNELLONI",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "detailed",
-       "note": "de-tailed means with its tail cut off, so a last letter goes"
+       "text": "changes",
+       "at": 18,
+       "note": "changes means alters the order, so these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "changes",
-         "note": "changes rework the letters into a new order"
+         "text": "detailed",
+         "at": 6,
+         "note": "detailed means with its tail cut off, so the word loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "Alice",
-         "gives": "ALIC",
-         "note": "the name without its final letter"
+         "at": 0,
+         "note": "the name Alice, without its final letter"
         },
         {
-         "words": "20",
-         "gives": "LENNON",
-         "note": "the answer to 20 down"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "20",
+       "at": 15,
+       "gives": "LENNON",
+       "note": "the answer to 20 down, the singer John Lennon"
       }
      ]
     },
     "explanation": {
-     "surface": "A woman named Alice gives a precise account of the changes to London Underground prices.",
-     "walkthrough": "'Detailed' reads as thorough and 'tube fare' as a ticket price; really the tail of Alice goes, and the fare is food shaped like tubes.",
-     "definitionFit": "Cannelloni is pasta rolled into large tubes and stuffed, so it is a dish, or fare, in tube form."
+     "surface": "Alice and a numbered character swapping places, or changing trains on the Tube.",
+     "walkthrough": "'detailed' cuts ALICE to ALIC, and '20' brings in the answer to 20 down; 'changes' rearranges both together. Tube fare is food shaped like tubes, not a ticket price.",
+     "definitionFit": "Cannelloni are large tubes of pasta, stuffed and baked, so they are a tube-shaped dish."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "detailed"
+     "misdirectedWord": "tube"
     }
    }
   },
@@ -734,47 +738,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ICECREAMCONE",
-     "indicators": [
-      {
-       "text": "topped",
-       "note": "with its top cut off, the opening letter of a down entry goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Decorate with sugar",
+       "at": 0,
+       "gives": "ICE",
+       "note": "to ice a cake is to decorate it with a sugar coating"
+      },
+      {
+       "words": "paste",
+       "at": 20,
+       "gives": "CREAM",
+       "note": "to paste someone is to beat them soundly, as is to cream them"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topped",
+         "at": 38,
+         "note": "topped means with its top cut off, so the word loses its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Decorate",
-         "gives": "ICE",
-         "note": "to ice a cake is to decorate it with icing"
-        },
-        {
-         "words": "sugar paste",
-         "gives": "CREAM",
-         "note": "a cream can be a sweet paste of sugar and fat, as in buttercream"
-        },
-        {
          "words": "cake",
-         "gives": "CONE",
-         "note": "a scone without its first letter"
+         "at": 33,
+         "gives": "SCONE",
+         "note": "a scone is a small plain cake"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Baking instructions: ice the cake with sugar paste before adding a topping, and admire it.",
-     "walkthrough": "The cake is a SCONE, a small British baked bun, which loses its top letter.",
-     "definitionFit": "A loose, playful definition: a cornet filled with a frozen dessert is a treat that looks delicious."
+     "surface": "Baking instructions: ice it, add a paste, then finish the cake.",
+     "walkthrough": "'paste' is not a baking paste but slang for thrashing, as is cream. 'topped' takes the first letter off SCONE, a small British teatime cake.",
+     "definitionFit": "A cone filled with ice cream is a tempting treat, the sort of thing that looks delicious."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "topped"
+     "misdirectedWord": "paste"
     }
    }
   },
@@ -799,32 +808,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXHORT",
-     "indicators": [
-      {
-       "text": "not smalls",
-       "note": "not means leave out, and smalls are the letters for small"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "former partner",
+       "at": 5,
        "gives": "EX",
        "note": "an ex is a former partner"
       },
       {
-       "words": "trunks",
-       "gives": "SHORTS",
-       "note": "swimming trunks are shorts"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "not smalls",
+         "at": 39,
+         "note": "S is the abbreviation for small, and not smalls removes the Ss, which here are the word's first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trunks",
+         "at": 31,
+         "gives": "SHORTS",
+         "note": "swimming trunks are shorts"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Encouraging an ex to wear swimming trunks rather than underwear.",
-     "walkthrough": "Smalls is British slang for underwear, which the surface uses; here it means the S's, S being small, removed from SHORTS.",
-     "definitionFit": "To exhort is to strongly encourage or press someone to act, which is to urge them."
+     "surface": "An ex insisting on swimming trunks rather than underwear.",
+     "walkthrough": "Smalls is British slang for underwear, but here it means more than one S, for small: 'not smalls' takes both Ss off SHORTS, leaving HORT.",
+     "definitionFit": "To exhort someone is to urge or strongly encourage them to act."
     },
     "features": {
      "answerInScene": false,
@@ -966,58 +981,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BIRDWATCHING",
-     "indicators": [
-      {
-       "text": "heading off",
-       "note": "with its heading gone, the opening letter drops away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "circling",
+         "at": 25,
+         "note": "circling means going round, so these letters surround the other one"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "circling",
-           "note": "circling something means going round it on every side"
-          }
-         ],
-         "parts": [
-          {
-           "words": "try",
-           "gives": "BID",
-           "note": "a bid is an attempt"
-          },
-          {
-           "words": "river",
-           "gives": "R",
-           "note": "R is the map abbreviation for river"
-          }
-         ]
+         "words": "try",
+         "at": 20,
+         "gives": "BID",
+         "note": "to bid is to try, as in a bid for power"
         },
         {
-         "op": "container",
+         "words": "river",
+         "at": 34,
+         "gives": "R"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to conceal",
+         "at": 46,
+         "note": "to conceal means to hide inside, so these letters go round the other piece"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bank",
+         "at": 40,
+         "gives": "WING",
+         "note": "to bank and to wing can both mean to tilt in flight, as an aircraft turning"
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "to conceal",
-           "note": "concealing a thing means holding it out of sight inside"
+           "text": "heading off",
+           "at": 64,
+           "note": "heading off means the first letter is removed"
           }
          ],
          "parts": [
           {
-           "words": "bank",
-           "gives": "WING",
-           "note": "an aircraft banks by tilting on a wing; loosely, to bank is to wing"
+           "words": "hatch",
+           "at": 57,
+           "note": "the word hatch, without its first letter"
           },
           {
-           "words": "hatch",
-           "gives": "ATCH",
-           "note": "the word without its first letter"
+           "gives": "H"
           }
          ]
         }
@@ -1026,13 +1047,14 @@
      ]
     },
     "explanation": {
-     "surface": "Anglers watch insects trying to land by a riverbank to hide a hatch of mayflies.",
-     "walkthrough": "'Flies' and 'hatch' conjure fly-fishing, where a hatch is a mass emergence of insects; the definition is the opening phrase.",
-     "definitionFit": "Birdwatching is the hobby of observing birds, the creatures best known for flying."
+     "surface": "A fly fisher trying a river bank to hide what is hatching.",
+     "walkthrough": "'try circling river' gives BID around R; 'bank to conceal hatch, heading off' puts ATCH, which is HATCH minus its first letter, inside WING.",
+     "definitionFit": "Birdwatching is observing birds in the wild, and birds are creatures that fly."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "flies"
     }
    }
@@ -1161,46 +1183,34 @@
      "indicators": [
       {
        "text": "topping",
-       "note": "in a down entry, what tops another is placed above it"
+       "at": 42,
+       "note": "topping means sitting above, so in this down answer this piece goes first"
       }
      ],
      "parts": [
       {
        "words": "herb",
+       "at": 37,
        "gives": "BASIL",
        "note": "basil is a herb"
       },
       {
-       "op": "middle",
-       "unchecked": true,
+       "words": "Central Chicago",
+       "at": 17,
        "gives": "ICA",
-       "indicators": [
-        {
-         "text": "Central",
-         "note": "central means the middle portion of a word"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Chicago",
-         "gives": "ICA",
-         "select": "middle",
-         "note": "the middle three letters of the city"
-        }
-       ]
+       "note": "the middle letters of Chicago"
       }
      ]
     },
     "explanation": {
-     "surface": "A pizza across central Chicago with a herb on top.",
-     "walkthrough": "'Across' seems part of the cross-reference '1 across', but it does double duty here, joining the definition to the wordplay as a link.",
-     "definitionFit": "A basilica is a grand church with special status, a building where elaborate High Church worship may happen; 'perhaps' marks an example."
+     "surface": "A Chicago dish with herbs sprinkled on top.",
+     "walkthrough": "In a down answer, 'topping' puts BASIL above ICA, the central letters of CHICAGO.",
+     "definitionFit": "A basilica is a grand church, of the kind used for elaborate, ritual-rich Christian worship."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "across"
+     "misdirectedWord": "topping"
     }
    }
   },
@@ -1296,34 +1306,35 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DIVING",
      "indicators": [
       {
-       "text": "needs to be 10 times as much",
-       "note": "multiplying a Roman numeral's value tenfold swaps it for a different numeral letter"
+       "text": "initially needs to be 10 times as much",
+       "at": 18,
+       "note": "the first letter, read as a Roman numeral, must be swapped for the numeral worth ten times it"
       }
      ],
      "parts": [
       {
        "words": "income",
+       "at": 11,
        "gives": "LIVING",
-       "note": "a living is the money you earn"
+       "note": "your living is the income you earn"
       },
       {
-       "words": "initially",
-       "gives": "D",
-       "note": "the initial L is fifty in Roman numerals; ten times that is five hundred, D"
+       "gives": "L"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "With income crashing, it first has to rise tenfold.",
-     "walkthrough": "Here '10' is a number, not a cross-reference to 10 across. 'Initially' points at the first letter of LIVING rather than of income.",
-     "definitionFit": "Diving means dropping steeply and fast, as falling prices or a plunging aircraft do."
+     "surface": "A grim note that falling income must somehow be multiplied by ten.",
+     "walkthrough": "'initially needs to be 10 times as much' reads the first letter of LIVING as a Roman numeral: L is 50, and ten times that is 500, D.",
+     "definitionFit": "A diving bird or aircraft is plunging steeply downwards, which is plummeting."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "income"
     }
@@ -1546,43 +1557,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GNAT",
-     "indicators": [
-      {
-       "text": "with no tail",
-       "note": "losing a tail means the last letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no tail",
+         "at": 11,
+         "note": "with no tail means the last letter is cut off"
+        }
+       ],
        "parts": [
         {
          "words": "Wildebeest",
-         "gives": "GN",
-         "note": "a gnu, a wildebeest, cut short"
+         "at": 0,
+         "gives": "GNU",
+         "note": "a gnu is a wildebeest"
         },
         {
-         "words": "aged",
-         "gives": "AT",
-         "note": "aged five means at five, at the age of"
+         "gives": "U"
         }
        ]
+      },
+      {
+       "words": "aged",
+       "at": 25,
+       "gives": "AT",
+       "note": "Chambers gives at as 'having reached the age of', as in at 60"
       }
      ]
     },
     "explanation": {
-     "surface": "A tailless old wildebeest nibbles its food a little at a time.",
-     "walkthrough": "The surface makes 'one taking little bites' the old animal eating, but it is the definition for a small insect.",
-     "definitionFit": "Gnats are tiny flies, and some species bite people, leaving small itchy marks."
+     "surface": "An old, tailless wildebeest nibbling at its food.",
+     "walkthrough": "Aged 60 and at 60 mean the same, so aged gives AT; 'with no tail' cuts GNU to GN.",
+     "definitionFit": "A gnat is a small biting fly, so it is a creature that gives tiny bites."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "bites"
+     "misdirectedWord": "aged"
     }
    }
   },
