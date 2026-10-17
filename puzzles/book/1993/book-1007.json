@@ -143,42 +143,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CRESCENDO",
+     "op": "container",
      "indicators": [
       {
-       "text": "endless",
-       "note": "without an end, so the view word loses its final letter"
+       "text": "about",
+       "at": 16,
+       "note": "about means the word for belief goes around the shortened vista"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "belief",
+       "at": 9,
+       "gives": "CREDO",
+       "note": "a credo is a statement of belief"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "going around, so the creed word wraps the shortened view word"
+         "text": "endless",
+         "at": 22,
+         "note": "endless means the word for vista loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "belief",
-         "gives": "CREDO",
-         "note": "a creed or statement of belief"
+         "words": "vista",
+         "at": 30,
+         "gives": "SCENE",
+         "note": "a vista is a view or scene"
         },
         {
-         "words": "vista",
-         "gives": "SCEN",
-         "note": "a scene is a view, here cut short"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Faith grows around a view that seems to go on forever.",
-     "definitionFit": "In music a crescendo is a gradual increase in loudness, a swelling of the sound."
+     "surface": "A growing faith inspired by a view that seems to go on forever.",
+     "walkthrough": "'Endless' SCENE gives SCEN, and CREDO goes 'about' it.",
+     "definitionFit": "A crescendo is a gradual increase in loudness, a musical swell."
     },
     "features": {
      "answerInScene": false,
@@ -1265,40 +1271,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MINIMA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "poor",
-       "note": "a poor shot is badly made, so these letters are set wrong"
+       "text": "After",
+       "at": 0,
+       "note": "After means the rearranged letters follow the first piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "thirty seconds",
+       "at": 6,
+       "gives": "MIN",
+       "note": "thirty seconds is half a minute, and half the word minute is its first three letters"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "poor",
+         "at": 22,
+         "note": "poor means the letters of aim are badly arranged"
+        }
+       ],
        "parts": [
         {
-         "words": "thirty seconds",
-         "gives": "MIN",
-         "note": "thirty seconds is half a minute, and half of minute as a word is its first three letters"
-        },
-        {
          "words": "aim",
-         "gives": "IMA",
-         "note": "taken as written, to be rearranged"
+         "at": 27
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "After half a minute of bad shooting, the scores are at their lowest.",
-     "walkthrough": "Half a minute is taken literally: half the word minute.",
-     "definitionFit": "Minima is the Latin plural of minimum, the smallest values or troughs on a graph."
+     "surface": "An archer's aim goes wrong half a minute in, and the scores hit rock bottom.",
+     "walkthrough": "Thirty seconds is half a minute, so take half of MINUTE, MIN; 'poor' aim gives IMA, which comes 'After' it.",
+     "definitionFit": "Minima is the plural of minimum, the lowest values a quantity reaches."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "seconds"
