@@ -13,7 +13,7 @@ written only when tools/validate_annotations.py then finds no error or warning i
 already have (the unchecked-step warnings themselves aside); if the clues together would add
 one, they are tried one at a time and only the clean ones are kept. The allowance for
 wordplay.unchecked in tools/annotation_backlog.json drops to the clues still flagged.
---shard K/N and --limit N run a slice; re-running skips what is already cleared. CT_JOBS sets the worker count (default 2). With --write each puzzle is committed on its own
+--shard K/N and --limit N run a slice; --ids FILE only the puzzles named in a JSON list; re-running skips what is already cleared. CT_JOBS sets the worker count (default 2). With --write each puzzle is committed on its own
 (tools/commit_puzzles.sh, subject by tools/commit_subject.py) and the allowance follows in one.
 """
 import argparse
@@ -233,9 +233,13 @@ def main():
     ap.add_argument("--shard", default="1/1", help="K/N: only every Nth flagged puzzle, from the Kth; the allowance shrinks "
                     "per shard, so a killed or split --write run resumes by running the shards again")
     ap.add_argument("--limit", type=int, help="only the first N flagged puzzles (a dry-run slice)")
+    ap.add_argument("--ids", help="JSON list of puzzle ids or clue ids (puzzle#label): only those puzzles are loaded")
     a = ap.parse_args()
     k, n = (int(x) for x in a.shard.split("/"))
     paths = flagged_files()[k - 1::n][:a.limit]
+    if a.ids:
+        want = {i.split("#")[0] for i in json.loads(Path(a.ids).read_text())}
+        paths = [p for p in paths if p.stem in want]
     results = run(paths, a.write)
     total = collections.Counter()
     for r in results:  # update in place: sum() re-copies the whole Counter per puzzle
