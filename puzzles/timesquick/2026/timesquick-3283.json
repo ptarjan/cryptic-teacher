@@ -276,52 +276,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COMBINE",
-     "indicators": [
-      {
-       "text": "mainly",
-       "note": "mainly means for the most part, so most but not all of the word is kept"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mainly",
+         "at": 10,
+         "note": "mainly means most of the word, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "scouring",
-         "gives": "COMBIN",
-         "note": "scouring an area is combing it; drop the final G"
+         "at": 17,
+         "gives": "COMBING",
+         "note": "scouring a place is searching it thoroughly, combing it"
         },
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "E",
-         "indicators": [
-          {
-           "text": "middle of",
-           "note": "the middle of a word is its central letter, so only that one is taken"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "field",
-           "gives": "E",
-           "select": "middle",
-           "note": "the central letter of a five-letter word"
-          }
-         ]
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 26,
+         "note": "the middle of a five-letter word is its third letter, so one letter is taken from field"
+        }
+       ],
+       "parts": [
+        {
+         "words": "field",
+         "at": 36,
+         "note": "its central letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A farm machine working its way through the middle of a field.",
-     "walkthrough": "Combing an area means searching it thoroughly, so scouring gives COMBING, cut short to COMBIN, then the E from fiEld completes COMBINE.",
-     "definitionFit": "A combine is the machine that reaps and threshes grain in one pass, short for combine harvester."
+     "surface": "A farm machine at work combing through the centre of a field at harvest time.",
+     "walkthrough": "Scouring and combing both mean searching thoroughly; 'mainly' cuts the G, and the middle letter of 'field' is E.",
+     "definitionFit": "A combine is the farm machine that reaps and threshes grain in one pass, short for combine harvester."
     },
     "features": {
      "answerInScene": true,
@@ -521,37 +521,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NIGHTMARE",
-     "indicators": [
-      {
-       "text": "headless",
-       "note": "without a head means the opening letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "headless",
+         "at": 10,
+         "note": "a headless word loses its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "man",
-         "gives": "NIGHT",
-         "note": "a chess man is a piece such as a knight; lose its first letter"
+         "at": 19,
+         "gives": "KNIGHT",
+         "note": "a man in chess is a piece, such as a knight"
         },
         {
-         "words": "horse",
-         "gives": "MARE",
-         "note": "a mare is a female horse"
+         "gives": "K"
         }
        ]
+      },
+      {
+       "words": "horse",
+       "at": 26,
+       "gives": "MARE",
+       "note": "a mare is a female horse"
       }
      ]
     },
     "explanation": {
-     "surface": "A gothic horror tale of a headless horseman, like Sleepy Hollow.",
-     "walkthrough": "Man here is a chess man: the knight, with its silent K removed, followed by MARE.",
-     "definitionFit": "A nightmare is a frightening dream, and more loosely any horrifying experience or ordeal."
+     "surface": "A gothic tale of a headless rider astride a horse, the stuff of horror.",
+     "walkthrough": "'Man' means a chess piece here; the knight loses its head, the silent K, and the female horse follows.",
+     "definitionFit": "A nightmare is a terrifying dream or experience, a source of dread."
     },
     "features": {
      "answerInScene": true,
@@ -581,42 +585,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IDIOM",
-     "indicators": [
-      {
-       "text": "Briefly",
-       "note": "cut brief, a word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Briefly",
+         "at": 0,
+         "note": "briefly means cut short, so the final letter goes"
+        }
+       ],
        "parts": [
         {
          "words": "fool",
-         "gives": "IDIO",
-         "note": "a fool is an idiot, with the last letter cut"
+         "at": 8,
+         "gives": "IDIOT",
+         "note": "an idiot is a fool"
         },
         {
-         "words": "millions",
-         "gives": "M",
-         "note": "M is the abbreviation for millions"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "millions",
+       "at": 13,
+       "gives": "M",
+       "note": "M is the abbreviation for million(s)"
       }
      ]
     },
     "explanation": {
-     "surface": "Deceiving millions of people for a short while, so to speak.",
-     "walkthrough": "In a manner of speaking reads as a stock hedge phrase, but the last three words are the definition.",
-     "definitionFit": "An idiom is a characteristic way of expressing things in a language or a fixed expression."
+     "surface": "Someone fooling millions with a quick turn of phrase.",
+     "definitionFit": "An idiom is a fixed expression or turn of phrase peculiar to a language, a way of saying things."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "speaking"
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fool"
     }
    }
   },
