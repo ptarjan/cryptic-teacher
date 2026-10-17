@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -107,62 +108,67 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SPHINX",
+     "indicators": [
+      {
+       "text": "including",
+       "at": 15,
+       "note": "the outer letters include, or hold inside them, the rest"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "including",
-         "note": "to include a thing is to have it within you, so what follows is written into the middle of the frame already built"
-        }
-       ],
        "parts": [
         {
          "words": "Species",
+         "at": 0,
          "gives": "SP",
-         "note": "sp. is the biologist's abbreviation, printed after a genus when the species is not named"
+         "note": "sp. is the standard abbreviation for species in biology"
         },
+        {
+         "words": "cross",
+         "at": 9,
+         "gives": "X",
+         "note": "X is the shape of a cross, as on a ballot paper"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "op": "first",
          "indicators": [
           {
            "text": "head of",
-           "note": "the head of a word is the letter standing at its front, and only that one is wanted"
+           "at": 25,
+           "note": "the head of a word is its first letter"
           }
          ],
          "parts": [
           {
            "words": "human",
-           "note": "the head of the word is its first letter, and that is all the clue takes"
+           "at": 33,
+           "note": "supplies its first letter"
           }
          ]
         },
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "IN",
          "indicators": [
           {
            "text": "every other bit of",
-           "note": "count along the word and take alternate letters, leaving the ones in between behind"
+           "at": 43,
+           "note": "every other letter is taken, skipping alternate ones"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "lion",
-           "gives": "IN",
-           "select": "alternate",
-           "note": "counting every other letter from the second leaves two of the four"
+           "at": 62,
+           "note": "supplies its second and fourth letters"
           }
          ]
-        },
-        {
-         "words": "cross",
-         "gives": "X",
-         "note": "X is a cross — the mark in a ballot box or at the foot of a letter"
         }
        ]
       }
@@ -170,8 +176,14 @@
     },
     "andLit": true,
     "explanation": {
-     "walkthrough": "An all-in-one. Read as instructions the words hand over four pieces; read straight they describe the creature guarding the Giza pyramids, human above and lion below.",
-     "definitionFit": "The whole clue defines: the riddling beast of Giza is a cross of species, a human head carried on a lion's body."
+     "surface": "A description of a hybrid creature built from a human head and a lion's body.",
+     "walkthrough": "'Every other bit of' lion takes its even letters, not the odd ones. Read whole, the clue also describes the creature itself, so it is an &lit.",
+     "definitionFit": "The Egyptian sphinx is a mythical hybrid with a human head on the body of a lion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cross"
     }
    }
   },
@@ -1226,39 +1238,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CHATTERBOX",
+     "spelt": "CHATTERBOX",
      "indicators": [
       {
        "text": "for Spooner",
-       "note": "the Reverend Spooner is the man who swapped the opening sounds of two neighbouring words, and that is what happens to the phrase handed him"
+       "at": 30,
+       "note": "for Spooner says the opening sounds of the two words are swapped, as the Reverend Spooner famously did"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Prepare to deep-fry",
+       "at": 0,
+       "gives": "BATTER",
+       "note": "food is coated in batter before deep-frying"
+      },
+      {
+       "op": "homophone",
+       "spelt": "CHOX",
        "parts": [
         {
-         "unchecked": true,
-         "words": "Prepare to deep-fry",
-         "gives": "CHATTER",
-         "soundsLike": "BATTER",
-         "note": "to deep-fry anything in a chip shop you first coat it in batter, and the B at the front is then traded away"
-        },
-        {
-         "unchecked": true,
          "words": "Mars bars",
-         "gives": "BOX",
-         "soundsLike": "CHOCS",
-         "note": "Mars bars are chocs, and the CH that opens that word moves across to take the B's place"
+         "at": 20,
+         "gives": "CHOCS",
+         "note": "Mars bars are chocolate bars, in British slang chocs, which sounds the same as chox"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The deep-fried Mars bar is a Scottish chip-shop legend, which is the only reason battering chocs is a sentence anyone would write.",
-     "definitionFit": "The -box ending is the joke: it names a person as a container holding an inexhaustible supply of chatter, so the talk never stops arriving."
+     "surface": "A cook readies chocolate bars for the deep-fryer, a famously Scottish treat.",
+     "walkthrough": "A deep-fried Mars bar is a Scottish chip-shop snack. BATTER CHOCS with the B and CH sounds swapped by 'for Spooner' gives CHATTER BOCS, said like BOX.",
+     "definitionFit": "A chatterbox is a person who talks incessantly, someone whose words never stop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Mars"
     }
    }
   },
@@ -1373,25 +1391,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "SOFA",
      "indicators": [
       {
        "text": "unfinished",
-       "note": "a word left unfinished stops short of its ending, so the final letter never gets written down"
+       "at": 29,
+       "note": "an unfinished word stops short, losing its last letter"
       }
      ],
      "parts": [
       {
        "words": "until now",
-       "gives": "SOFA",
-       "note": "the two-word phrase meaning up to this point, with its last letter left off"
+       "at": 40,
+       "gives": "SOFAR",
+       "note": "so far means up to this point, until now"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Until now' is SO FAR, and the clue wants it a letter short. IKEA is the Swedish flat-pack chain, so 'perhaps' marks a definition by example.",
-     "definitionFit": "IKEA sells flat-pack furniture, and a sofa is the biggest thing most shoppers leave with — 'perhaps' flags an example rather than a synonym."
+     "surface": "Flat-pack furniture from the Swedish store still isn't assembled.",
+     "walkthrough": "IKEA is the Swedish flat-pack furniture chain, and 'unfinished' fits its self-assembly items, but here it drops the R from SO FAR.",
+     "definitionFit": "A sofa is a big upholstered seat, the kind of bulky furniture a store like IKEA sells."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "unfinished"
     }
    }
   },
