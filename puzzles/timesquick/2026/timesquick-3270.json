@@ -188,38 +188,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NUPTIAL",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not quite",
-       "note": "something not quite complete is missing its final part, so the last letter goes"
+       "text": "in new way",
+       "at": 42,
+       "note": "arranged in a new way, so the letters left are shuffled into another order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in new way",
-         "note": "arranging things in a new way means putting them in a different order"
+         "text": "not quite",
+         "at": 22,
+         "note": "not quite the whole word: its final letter is cut off"
         }
        ],
        "parts": [
         {
          "words": "platinum",
-         "gives": "PLATINU",
-         "note": "the metal's name without its final M"
+         "at": 32
+        },
+        {
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Something about a wedding, maybe a ring that is nearly platinum, done in a fresh style.",
-     "walkthrough": "Platinum fits the wedding picture as ring metal, which hides that it is only letters to trim and rearrange.",
-     "definitionFit": "The adjective describes anything relating to marriage or the marriage ceremony, as in nuptial vows."
+     "surface": "A bride's ring is almost platinum, but styled differently for the wedding.",
+     "walkthrough": "'Not quite' drops the last letter of PLATINUM, leaving PLATINU, which 'in new way' rearranges.",
+     "definitionFit": "Nuptial is an adjective meaning relating to marriage or the marriage ceremony."
     },
     "features": {
      "answerInScene": true,
@@ -960,37 +962,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SNEER",
-     "indicators": [
-      {
-       "text": "disheartened",
-       "note": "losing heart means losing the centre, so the middle letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "son",
+       "at": 21,
+       "gives": "S"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "disheartened",
+         "at": 40,
+         "note": "a word disheartened loses its heart, the middle letter"
+        }
+       ],
        "parts": [
         {
-         "words": "son",
-         "gives": "S",
-         "note": "S is the genealogical abbreviation for son"
+         "words": "Never",
+         "at": 26
         },
         {
-         "words": "Never",
-         "gives": "NEER",
-         "note": "the word with its central V taken out"
+         "gives": "V"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A son makes a contemptuous comment; never let it get you down!",
-     "walkthrough": "'Disheartened' reads as discouraged, but here it means losing the heart, the central letter.",
-     "definitionFit": "A sneer is a mocking, contemptuous comment or expression of disdain."
+     "surface": "A parent's sharp retort to a child who must never lose heart.",
+     "walkthrough": "'Disheartened' removes V, the centre of NEVER, leaving NEER after S.",
+     "definitionFit": "A sneer is a contemptuous facial expression or comment, a mocking jibe."
     },
     "features": {
      "answerInScene": true,
@@ -1130,42 +1133,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OVEREAT",
-     "indicators": [
-      {
-       "text": "having missed start",
-       "note": "missing the start means the opening letter is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Finished",
+       "at": 0,
+       "gives": "OVER",
+       "note": "over means finished or ended"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "having missed start",
+         "at": 32,
+         "note": "the word for the race loses its opening letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Finished",
-         "gives": "OVER",
-         "note": "something over is done"
+         "words": "preliminary race",
+         "at": 14,
+         "gives": "HEAT",
+         "note": "a heat is a qualifying round of a race"
         },
         {
-         "words": "preliminary race",
-         "gives": "EAT",
-         "note": "a heat is a qualifying race, and it loses its H"
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An athlete who flopped in the qualifying round consoles themselves with a binge.",
-     "walkthrough": "A heat is an early qualifying round in athletics or swimming.",
-     "definitionFit": "To pig out is the slang idiom for gorging, eating far too much at once."
+     "surface": "A runner who was late for the heat consoles themself by gorging.",
+     "walkthrough": "'Having missed start' takes the H off HEAT, leaving EAT after OVER.",
+     "definitionFit": "To pig out is informal for eating far too much, gorging on food."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "preliminary"
+     "aptDefinition": true,
+     "misdirectedWord": "pig"
     }
    }
   },
