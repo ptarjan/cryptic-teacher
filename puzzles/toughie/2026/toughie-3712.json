@@ -276,31 +276,36 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PARIS",
      "indicators": [
       {
        "text": "without one top bar",
-       "note": "a capital letter that loses the crossbar across its top is left as a single upright stroke, so one letter changes into another"
+       "at": 10,
+       "note": "a capital T without the bar across its top is left as a single upright stroke, which looks like the letter I"
       }
      ],
      "parts": [
       {
        "words": "goes",
+       "at": 5,
        "gives": "PARTS",
-       "note": "to part is to go away or depart"
+       "note": "goes in the sense of leaves or departs, as parts does"
+      },
+      {
+       "gives": "T"
+      },
+      {
+       "gives": "I"
       }
      ]
     },
     "explanation": {
-     "surface": "A city dweller leaves without visiting the best bar in town.",
-     "walkthrough": "PARTS has a T; strip the horizontal stroke from the top of a capital T and what is left looks like I, giving PARIS.",
-     "definitionFit": "The French capital is the best-known example of a major city."
+     "surface": "A town leaves without a single smart drinking spot.",
+     "walkthrough": "Take PARTS for goes; strip the crossbar from the top of its T and what stands is an I, so PARTS becomes the capital of France.",
+     "definitionFit": "Paris is the capital of France, an example of a city."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "bar"
     }
    }
@@ -708,28 +713,39 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SEAPORT",
+     "spelt": "SEAPORT",
      "indicators": [
       {
        "text": "for Spooner",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so the starts are exchanged"
+       "at": 22,
+       "note": "for Spooner signals a Spoonerism, swapping the opening sounds of two words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "mangetout or sugar snap?",
-       "gives": "SEAPORT",
-       "soundsLike": "PEA SORT",
-       "note": "both are kinds of pea, a sort of pea"
+       "op": "homophone",
+       "spelt": "PEE",
+       "parts": [
+        {
+         "words": "mangetout or sugar snap",
+         "at": 35,
+         "gives": "PEA",
+         "note": "mangetout and sugar snap are each a kind of pea"
+        }
+       ]
+      },
+      {
+       "words": "?",
+       "at": 58,
+       "gives": "SORT",
+       "note": "the question mark asks what sort of thing those are: each is a sort of pea, giving the second word"
       }
      ]
     },
     "explanation": {
-     "surface": "A lunch menu asks whether a sandwich once came with mangetout or sugar snap peas.",
-     "walkthrough": "Sandwich is a town in Kent, one of the medieval Cinque Ports, whose harbour has since silted up; it looks like lunch.",
-     "definitionFit": "Sandwich was historically a harbour town on the English coast, an example of a coastal trading town."
+     "surface": "A sandwich fancifully filled with garden pods.",
+     "walkthrough": "'for Spooner' trades the opening sounds of PEA SORT, giving SEA PORT. Sandwich in Kent was one of the Cinque Ports, though its harbour has since silted up, hence 'once'.",
+     "definitionFit": "Sandwich was formerly a harbour town, one of the Cinque Ports on England's south-east coast."
     },
     "features": {
      "answerInScene": false,
@@ -1491,48 +1507,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TOUROPERATOR",
-     "indicators": [
-      {
-       "text": "first off",
-       "note": "when the first is off, the opening letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "to",
+       "at": 15,
+       "gives": "TO",
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "first off",
+         "at": 25,
+         "note": "first off means the first letter of Europe is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "to",
-         "note": "taken as written"
-        },
-        {
          "words": "Europe",
-         "gives": "UROPE",
-         "note": "the place name without its opening letter"
+         "at": 18,
+         "note": "the word that loses its first letter"
         },
         {
-         "words": "run",
-         "gives": "R",
-         "note": "R is the cricket abbreviation for run"
-        },
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "run",
+       "at": 41,
+       "gives": "R",
+       "note": "R is the cricket scoring abbreviation for a run"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "for return",
-           "note": "a return journey comes back the way it went, so the order is turned around"
-          }
-         ],
-         "parts": [
-          {
-           "words": "schedule",
-           "gives": "ROTA",
-           "note": "a rota is a schedule of duties"
-          }
-         ]
+         "text": "for return",
+         "at": 54,
+         "note": "for return means the schedule word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "schedule",
+         "at": 45,
+         "gives": "ROTA",
+         "note": "a rota is a schedule of duties"
         }
        ]
       }
@@ -1540,9 +1563,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A question about who arranges your holiday to Europe and the timetable home.",
-     "walkthrough": "The whole clue defines, and the same words build the answer; 'trip' only completes the picture of a package holiday.",
-     "definitionFit": "A travel company organises package holidays abroad, transporting customers out and arranging their journey back."
+     "surface": "Asking who will take you abroad and then arrange the timetable for your journey home.",
+     "walkthrough": "'first off' trims Europe to UROPE; R follows, and 'for return' turns ROTA into ATOR. The whole clue also describes what a travel company does.",
+     "definitionFit": "A tour operator is a travel firm that packages and runs holidays, getting customers there and back."
     },
     "features": {
      "answerInScene": true,
