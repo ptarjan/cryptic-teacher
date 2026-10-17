@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -834,52 +835,54 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "KONTIKI",
+     "indicators": [
+      {
+       "text": "stirring",
+       "at": 13,
+       "note": "stirring mixes things up, so the letters of the fodder are rearranged"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "KONTIKI",
        "indicators": [
         {
-         "text": "stirring",
-         "note": "Stirring a mixture moves everything in it around, which is what happens to these letters."
-        },
-        {
          "text": "not",
-         "note": "Not, put in front of a letter's name, is the instruction to leave that letter out of the mixture."
+         "at": 46,
+         "note": "'not hard' tells us to leave out the letter standing for hard from kith"
         }
        ],
        "parts": [
         {
          "words": "kith and kin",
+         "at": 22,
          "gives": "KITHKIN",
-         "note": "kith and kin is the old phrase for friends and family, and its seven letters are the bulk of the fodder"
-        },
-        {
-         "words": "love",
-         "gives": "O",
-         "note": "love is a score of nothing in tennis, written as a zero"
+         "note": "the two words kith and kin are taken as fodder, with 'and' just joining them"
         },
         {
          "words": "hard",
+         "at": 50,
          "gives": "H",
-         "note": "h = hard, the grade stamped on a pencil"
+         "note": "H is the pencil abbreviation for hard"
         }
        ]
+      },
+      {
+       "words": "love",
+       "at": 40,
+       "gives": "O",
+       "note": "love is zero in tennis scoring, resembling the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "The knack of mixing family and friends together with affection and not much effort.",
-     "walkthrough": "One letter is pulled out of the mixture before everything left in it is shuffled, so two instructions run at once. 'The craft of stirring' reads as a cook's skill, and craft here is a vessel.",
-     "definitionFit": "Kon-Tiki was Thor Heyerdahl's balsa-wood raft, sailed from Peru to Polynesia in 1947, so 'the craft' names one particular vessel."
+     "surface": "A recipe-like instruction: mix your friends and relations with affection, but go easy.",
+     "walkthrough": "'not hard' removes H from KITH and KIN, leaving KITKIN; with O added, 'stirring' rearranges KITKINO. Kon-Tiki was Thor Heyerdahl's balsa-wood raft that crossed the Pacific in 1947.",
+     "definitionFit": "Kon-Tiki was a famous raft, a vessel, so 'the craft' names it as a specific boat."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "craft"
     }
    }
@@ -1148,42 +1151,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "sibilant vocalist's",
+       "at": 10,
+       "note": "a singer with a hissing lisp-like delivery would voice the buzzing double Z as a hissing double S, so those letters are swapped"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "OSSIFIED",
-       "indicators": [
-        {
-         "text": "sibilant",
-         "note": "A sibilant is a hissing sound, so the buzzing letters in the name are written down as the hissing ones instead."
-        }
-       ],
-       "parts": [
-        {
-         "words": "the Prince of Darkness",
-         "gives": "OZZY",
-         "note": "the nickname Ozzy Osbourne has carried since the Black Sabbath years"
-        },
-        {
-         "words": "turned into",
-         "gives": "FIED",
-         "note": "-fied is the ending that means made into, as in petrified or liquefied"
-        }
-       ]
+       "words": "turned into the Prince of Darkness",
+       "at": 31,
+       "gives": "OZZIFIED",
+       "note": "Ozzy Osbourne is nicknamed the Prince of Darkness, so being turned into him is jokily being Ozzified"
       },
       {
-       "unchecked": true,
-       "words": "vocalist",
-       "note": "it says the man sings, which narrows the nickname to its one famous holder"
+       "gives": "ZZ"
+      },
+      {
+       "gives": "SS"
       }
      ]
     },
     "explanation": {
-     "surface": "A hissing singer described as having turned into heavy metal's dark lord.",
-     "walkthrough": "Ozzified is the word being built — somebody turned into Ozzy — and the y softens to i before the ending, as English spelling always does. Brummie setting a clue about Birmingham's most famous export is not an accident.",
-     "definitionFit": "To ossify is to turn to bone, and the past participle describes anything that has set rigid, whether a joint or an attitude."
+     "surface": "A mock-quotation about a hissing singer describing a transformation into the devil.",
+     "walkthrough": "The 'sibilant vocalist's' version swaps ZZ for SS. Ozzy Osbourne, the Black Sabbath singer, is known as the Prince of Darkness; a made-up verb 'Ozzified' means turned into him, and switching ZZ for SS gives a real word.",
+     "definitionFit": "Ossified means turned to bone, and figuratively rigid or set in its ways, a synonym of hardened."
     },
     "features": {
      "answerInScene": false,
