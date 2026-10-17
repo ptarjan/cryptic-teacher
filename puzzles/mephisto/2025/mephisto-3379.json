@@ -1132,61 +1132,65 @@
     "definitions": [
      {
       "text": "red carpet?",
-      "at": 45
+      "at": 45,
+      "note": "a noun phrase standing for the noun answer; the question mark flags that it is an example of a lavish reception"
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "WELCOME",
-     "indicators": [
-      {
-       "text": "Spinning",
-       "note": "spinning turns something round, so this word is read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Spinning",
+         "at": 0,
+         "note": "spinning means turning round, so the word for thread is read from its end"
+        }
+       ],
        "parts": [
         {
          "words": "thread",
-         "gives": "WELC",
-         "note": "a clew is a ball of thread; it is reversed"
+         "at": 9,
+         "gives": "CLEW",
+         "note": "a clew is a ball of thread or yarn, as in Theseus's guide through the labyrinth"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to be cut",
+         "at": 31,
+         "note": "to be cut means the letter for section is chopped off the word some"
+        }
+       ],
+       "parts": [
+        {
+         "words": "some",
+         "at": 18,
+         "note": "taken as written, before its first letter goes"
         },
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "to be cut",
-           "note": "cut means removed, so a letter is taken out of the neighbouring word"
-          }
-         ],
-         "parts": [
-          {
-           "words": "some",
-           "note": "taken as written"
-          },
-          {
-           "words": "section",
-           "gives": "S",
-           "note": "S is the abbreviation for section"
-          }
-         ]
+         "words": "section",
+         "at": 23,
+         "gives": "S",
+         "note": "S is a standard abbreviation for section, as in legal references"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone spinning thread trims a section of a long red carpet.",
-     "walkthrough": "The question mark flags that red carpet stands for the treatment it signals rather than a floor covering.",
-     "definitionFit": "Rolling out the red carpet is the idiom for giving an important guest a lavish reception, a grand greeting."
+     "surface": "A spinner remarks that part of a yarn must be trimmed to make a red carpet.",
+     "walkthrough": "'Spinning' turns CLEW into WELC; SOME with its S 'to be cut' leaves OME.",
+     "definitionFit": "Rolling out the red carpet is the classic example of giving an honoured guest a warm reception."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "carpet"
+     "misdirectedWord": "Spinning"
     }
    }
   },
@@ -2003,49 +2007,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NEMATODE",
+     "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "back means backwards, so this word is reversed"
+       "text": "into",
+       "at": 19,
+       "note": "into means the reversed word goes inside the word for the network point"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "point on network",
+       "at": 24,
+       "gives": "NODE",
+       "note": "a node is a junction point in a network"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "into",
-         "note": "into places one piece inside another"
+         "text": "back",
+         "at": 14,
+         "note": "back means the word for broken is read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "point on network",
-         "gives": "NODE",
-         "note": "a node is a junction point in a network"
-        },
-        {
          "words": "broken",
-         "gives": "EMAT",
-         "note": "a horse that is broken is tame; TAME is reversed"
+         "at": 7,
+         "gives": "TAME",
+         "note": "a broken horse is tame, trained to the saddle"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A worm has broken back into a point on a computer network.",
-     "walkthrough": "Broken means tamed, as with a horse; reversed TAME goes inside NODE after its N.",
-     "definitionFit": "Nematodes are roundworms, a large group of unsegmented worms, many of them parasites."
+     "surface": "A worm is said to have snapped its back on a point of some grid.",
+     "walkthrough": "'broken' looks like the anagram signal, but it means TAME; 'back' reverses it to EMAT, which goes 'into' NODE.",
+     "definitionFit": "Nematodes are roundworms, a large phylum of slender unsegmented worms."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Worm"
+     "misdirectedWord": "broken"
     }
    }
   },
