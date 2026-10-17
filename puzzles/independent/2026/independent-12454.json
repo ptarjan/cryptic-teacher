@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -175,42 +176,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "replacing",
+       "at": 25,
+       "note": "replacing means one letter takes the place of another in the word"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "EXERCISING",
-       "indicators": [
-        {
-         "text": "replacing",
-         "note": "'replacing' means one letter stands in for another rather than simply being added to what is there."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Driving out evil",
-         "gives": "EXORCISING",
-         "note": "driving an evil spirit out of someone is exorcising them"
-        },
-        {
-         "words": "energy",
-         "gives": "E",
-         "note": "E is the physicist's symbol for energy, and it is the letter moving in"
-        }
-       ]
+       "words": "Driving out evil",
+       "at": 0,
+       "gives": "EXORCISING",
+       "note": "exorcising means expelling evil spirits"
       },
       {
-       "unchecked": true,
        "words": "nothing",
-       "note": "the round letter that stands for nothing is the one giving up its place"
+       "at": 35,
+       "gives": "O",
+       "note": "O is the round figure zero, nothing"
+      },
+      {
+       "words": "energy",
+       "at": 17,
+       "gives": "E",
+       "note": "E is the physics abbreviation for energy"
       }
      ]
     },
     "explanation": {
-     "surface": "An exorcism in which energy is swapped in for nothing at all, and the ritual goes badly.",
-     "walkthrough": "The definition is the very last word, and it is the formal sense of 'exercise' meaning to worry someone — the question exercising the committee.",
-     "definitionFit": "What is exercising you is what is troubling you — the sense of 'exercise' meaning to occupy and worry the mind."
+     "surface": "A priest driving out an evil spirit finds the energy involved troubling.",
+     "walkthrough": "'Driving out evil' looks like the definition, but it is the word to change: E 'replacing' the O (nothing) turns it into the answer.",
+     "definitionFit": "Something exercising you is worrying you, as in 'the question exercising MPs', so it means troubling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Driving"
     }
    }
   },
@@ -268,38 +271,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "deletion",
+     "indicators": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "disappear",
-         "note": "a disappearance is the vanishing act, so the letter named just before it is gone from the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "magician",
-         "gives": "PROSPERO",
-         "note": "Prospero is the magician who raises the storm in The Tempest"
-        },
-        {
-         "gives": "O"
-        }
-       ]
+       "text": "making",
+       "at": 24,
+       "note": "making goes with disappear: the magician is made to lose a letter"
       },
       {
-       "unchecked": true,
-       "words": "making ring",
-       "note": "a ring is the letter O, and this is the letter conjured away"
+       "text": "disappear",
+       "at": 36,
+       "note": "disappear means a letter vanishes from the name"
+      }
+     ],
+     "parts": [
+      {
+       "words": "magician",
+       "at": 14,
+       "gives": "PROSPERO",
+       "note": "Prospero is the magician in Shakespeare's The Tempest"
+      },
+      {
+       "words": "ring",
+       "at": 31,
+       "gives": "O",
+       "note": "O is ring-shaped, so it stands for a ring"
       }
      ]
     },
     "explanation": {
-     "surface": "A conjuror's showy gesture on stage, with a ring vanishing between his fingers.",
-     "walkthrough": "'Flourish' wants to be the magician's sweep of the hand. It is the verb meaning to thrive, and it is the definition.",
-     "definitionFit": "To prosper is to flourish: both verbs mean to thrive, though 'flourish' also carries the showy stage sense the surface wants."
+     "surface": "A conjuror performs his trick of making a ring vanish, with a flourish.",
+     "walkthrough": "'Flourish' looks like a magician's gesture but is a verb meaning thrive.",
+     "definitionFit": "To prosper is to do well and thrive, which is what flourishing means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flourish"
     }
    }
   },
@@ -519,41 +528,45 @@
      "indicators": [
       {
        "text": "into",
-       "note": "'into' puts one thing within another, so the throw lands inside the word that follows."
+       "at": 17,
+       "note": "into means one part goes inside another"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "GE",
        "indicators": [
         {
          "text": "empty",
-         "note": "an emptied word keeps only its outer walls, everything between them having been cleared out."
+         "at": 22,
+         "note": "an empty word has lost its inside, leaving only its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "empty grave",
-         "gives": "GE",
-         "select": "outer",
-         "note": "GRAVE hollowed out keeps only the letters at its two ends"
+         "words": "grave",
+         "at": 28,
+         "note": "first and last letters taken"
         }
        ]
       },
       {
        "words": "Throw",
+       "at": 11,
        "gives": "LOB",
-       "note": "a lob is a throw, the high gentle kind"
+       "note": "to lob is to throw something in a high arc"
       }
      ]
     },
     "explanation": {
-     "surface": "A mourner lobbing something into a grave that has already been cleared out.",
-     "walkthrough": "A burial and a planet share one short sentence, and 'The earth?' sits at the front where a solver expects the story to begin rather than the definition.",
-     "definitionFit": "The globe is a standing name for the earth as a whole, as in 'travel the globe'; the question mark flags it as one name among several."
+     "surface": "At a burial, someone tosses earth into the open grave.",
+     "walkthrough": "'empty grave' is G and E; LOB goes 'into' them. The question mark marks the earth as one example of the answer.",
+     "definitionFit": "The globe is a common name for the planet Earth, a round world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "earth"
     }
    }
   },
@@ -899,41 +912,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PRETTIES",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "concealing",
+       "at": 12,
+       "note": "concealing means holding something hidden inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Ugly",
-         "note": "something ugly is misshapen, and letters made misshapen no longer sit in their proper order."
-        },
-        {
-         "text": "concealing",
-         "note": "to conceal something is to hide it inside, so one piece ends up buried within the other."
+         "at": 0,
+         "note": "ugly suggests something misshapen, so the letters are put out of shape"
         }
        ],
        "parts": [
         {
          "words": "stripe",
-         "gives": "PRTIES",
-         "note": "these six letters resettled, then split to make the outside"
-        },
-        {
-         "words": "alien's",
-         "gives": "ET",
-         "note": "ET is the crossword's standard alien, after the film"
+         "at": 5,
+         "note": "taken as written, as the letters to rearrange"
         }
        ]
+      },
+      {
+       "words": "alien's",
+       "at": 23,
+       "gives": "ET",
+       "note": "ET is the alien from the Spielberg film; the apostrophe s reads as is"
       }
      ]
     },
     "explanation": {
-     "surface": "The stripes on something ugly turn out to have an extraterrestrial hiding among them.",
-     "walkthrough": "'Ugly' opens the clue as a description and works as the shuffle instruction, and what it shuffles ends up meaning very nearly the opposite.",
-     "definitionFit": "A 'pretty' used as a noun is a small ornamental thing, so the plural names the trinkets on a shelf — a slightly old-fashioned use."
+     "surface": "An ugly striped item hides some alien trinkets.",
+     "walkthrough": "'Ugly' sits beside 'pretties' to mislead: it is the anagram signal for STRIPE, which becomes PRTIES 'concealing' ET.",
+     "definitionFit": "Pretties are small decorative trinkets or ornaments, the same as trinkets and baubles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ugly"
     }
    }
   },
@@ -1059,31 +1081,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SERENE",
      "indicators": [
       {
-       "text": "changes",
-       "note": "a change here is a swap and not an addition: one letter steps out so another can step in."
+       "text": "changes sides",
+       "at": 22,
+       "note": "changes sides means the letter for one side, left, is swapped for the other side, right"
       }
      ],
      "parts": [
       {
        "words": "moon goddess",
+       "at": 9,
        "gives": "SELENE",
-       "note": "Selene is the Greek goddess who drives the moon across the sky"
+       "note": "Selene is the Greek goddess of the moon"
       },
       {
-       "words": "sides",
-       "gives": "R",
-       "note": "the sides are left and right, L and R, and the name's L is traded for the other"
+       "gives": "L"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A moon goddess so unruffled that she switches allegiance without anyone minding.",
-     "walkthrough": "Left and right are L and R in almost every cryptic, which is what makes 'changes sides' an instruction about one letter rather than about loyalty.",
-     "definitionFit": "Serene means calm and untroubled, the settled sense of tranquil rather than the merely quiet one."
+     "surface": "The goddess of the moon switches allegiance in some celestial dispute.",
+     "walkthrough": "'changes sides' swaps L (left) for R (right) in SELENE.",
+     "definitionFit": "Serene means calm and peaceful, which is what tranquil means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
     }
    }
   },
@@ -1159,59 +1187,64 @@
     "definitions": [
      {
       "text": "immoral actions",
-      "at": 48,
-      "note": "The definition is plural while the answer is a singular abstract noun; the setter is using the plural for sordid conduct taken as a whole."
+      "at": 48
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SORDIDNESS",
-     "indicators": [
-      {
-       "text": "nastily",
-       "note": "done nastily, letters come out badly ordered rather than in the order they were handed over."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "SORD",
+       "indicators": [
+        {
+         "text": "Delivery of",
+         "at": 0,
+         "note": "delivery refers to how words are spoken, so this part is a word as it is pronounced"
+        }
+       ],
        "parts": [
         {
-         "op": "homophone",
-         "spelt": "SORD",
-         "indicators": [
-          {
-           "text": "Delivery",
-           "note": "a speaker's delivery is how words leave the mouth, so this piece is spelled from its sound."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Delivery of blade",
-           "gives": "SWORD",
-           "note": "the blade is a sword, and English has never sounded the w in that word"
-          }
-         ]
-        },
-        {
-         "words": "snide",
-         "gives": "IDNES",
-         "note": "the five letters of the clue's own word, resettled"
-        },
-        {
-         "words": "son",
-         "gives": "S",
-         "note": "s is the usual abbreviation for son"
+         "words": "blade",
+         "at": 12,
+         "gives": "SWORD",
+         "note": "a sword is a blade; spoken, it has no W"
         }
        ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "nastily",
+         "at": 22,
+         "note": "nastily suggests the letters are messed about and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "snide",
+         "at": 30,
+         "note": "taken as written, as the letters to rearrange"
+        }
+       ]
+      },
+      {
+       "words": "son",
+       "at": 36,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A blade handed over, plus a spiteful man's boy, between them producing something thoroughly seedy.",
-     "walkthrough": "Sword is one of the few English words with a silent w, and that silence is what lets 'Delivery' turn a blade into four letters worth building on.",
-     "definitionFit": "Sordidness is squalid, self-seeking behaviour — the moral grubbiness that immoral actions add up to."
+     "surface": "A knife attack and a nasty, sneering son lead to wicked behaviour.",
+     "walkthrough": "'Delivery of' signals the spoken form: SWORD is said 'sord'. SNIDE is rearranged by 'nastily' to IDNES, and S is added at the end.",
+     "definitionFit": "Sordidness is vileness or depravity, the quality shown in base and immoral conduct."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Delivery"
     }
    }
   },
@@ -1240,35 +1273,37 @@
      "parts": [
       {
        "words": "doctor",
-       "gives": "DR",
-       "note": "Dr is the everyday written title for a doctor"
+       "at": 6,
+       "gives": "DR"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "EAM",
        "indicators": [
         {
          "text": "initially",
-         "note": "'initially' keeps only the letter each of the named words begins with."
+         "at": 40,
+         "note": "initially means taking the first letter of each word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "exfoliates and moisturises initially",
-         "gives": "EAM",
-         "select": "first",
-         "note": "the opening letters of the three words, kept in the order given"
+         "words": "exfoliates and moisturises",
+         "at": 13,
+         "note": "first letters of each word taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A skincare routine — exfoliate, then moisturise — prescribed by an elegant doctor.",
-     "walkthrough": "'Fancy' reads as an adjective describing the doctor, which is what the beauty-counter surface wants; it is the definition, and a noun.",
-     "definitionFit": "A fancy is something the mind makes up, and a dream is exactly that in its daydreaming sense rather than its sleeping one."
+     "surface": "A cosmetic doctor's treatment routine starts by exfoliating and moisturising the skin.",
+     "walkthrough": "'Fancy' is a verb here: to fancy something is to wish for it.",
+     "definitionFit": "To dream of something is to fancy or imagine it, so the verb works as a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
     }
    }
   },
@@ -1340,24 +1375,20 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "brief",
-       "note": "something brief is cut short, so the word arrives without its final letter."
-      }
-     ],
      "parts": [
       {
        "words": "current",
+       "at": 5,
        "gives": "I",
-       "note": "I is the physicist's symbol for electric current"
+       "note": "I is the physics symbol for electric current"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "making a comeback",
-         "note": "a comeback is a return the way you came, so those letters are read from the far end back."
+         "at": 54,
+         "note": "making a comeback means coming back, so these letters are read backwards"
         }
        ],
        "parts": [
@@ -1366,13 +1397,30 @@
          "parts": [
           {
            "words": "Lloyd Webber musical",
+           "at": 13,
            "gives": "EVITA",
-           "note": "Evita is Lloyd Webber's musical about Eva Peron"
+           "note": "Evita is the Andrew Lloyd Webber musical about Eva Perón"
           },
           {
-           "words": "brief interval",
-           "gives": "TIM",
-           "note": "an interval is a stretch of time, docked of its last letter"
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "brief",
+             "at": 39,
+             "note": "brief means shortened, so the last letter is cut"
+            }
+           ],
+           "parts": [
+            {
+             "words": "interval",
+             "at": 45,
+             "gives": "TIME",
+             "note": "time is an interval or period"
+            },
+            {
+             "gives": "E"
+            }
+           ]
           }
          ]
         }
@@ -1381,9 +1429,14 @@
      ]
     },
     "explanation": {
-     "surface": "An electrified revival of a Lloyd Webber show, its interval cut short, is written off as counterfeit.",
-     "walkthrough": "'Making a comeback' does two jobs at once: it is what a revived musical does, and it is the instruction to read the back half of the wordplay the other way.",
-     "definitionFit": "Something imitative is copied from a model rather than original, which is the sense in which a fake is fake."
+     "surface": "A current Lloyd Webber show stages a revival, short interval included.",
+     "walkthrough": "'brief' cuts TIME to TIM; EVITA and TIM 'making a comeback' read MITATIVE, after I.",
+     "definitionFit": "Imitative means copying or mimicking something, which makes it fake rather than original."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
     }
    }
   },
@@ -1464,40 +1517,49 @@
      "parts": [
       {
        "words": "Trespass",
+       "at": 0,
        "gives": "SIN",
-       "note": "to trespass, in the biblical sense of the Lord's Prayer, is to sin"
+       "note": "to trespass in the biblical sense is to sin"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "ED",
        "indicators": [
         {
          "text": "originally",
-         "note": "a word's origin is where it starts, so each of the two words named gives up only its opening letter."
+         "at": 9,
+         "note": "originally means taking the first letter, the word's origin"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "originally every day",
-         "gives": "ED",
-         "select": "first",
-         "note": "the opening letters of the two words that follow the instruction"
+         "words": "every",
+         "at": 20,
+         "note": "first letter taken"
         }
        ]
       },
       {
+       "words": "day",
+       "at": 26,
+       "gives": "D"
+      },
+      {
        "words": "in other words",
+       "at": 31,
        "gives": "IE",
-       "note": "i.e. is what you write for 'that is', the phrase that puts something in other words"
+       "note": "i.e. (id est) means in other words"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody owns up to trespassing every single day, and then rephrases the confession.",
-     "walkthrough": "The answer is a Latin tag from court reports, where a case adjourned with no date fixed may never be heard again. The comma is punctuation for the surface, not a break in the wordplay.",
-     "definitionFit": "Sine die is lawyers' Latin for 'without a day': a hearing adjourned sine die is put off with no date set, that is, indefinitely."
+     "surface": "Someone sins every day, which, put another way, is without end.",
+     "walkthrough": "'Trespass' here is the Lord's Prayer sense, a sin. Sine die is Latin for 'without a day', used of a meeting adjourned with no date fixed.",
+     "definitionFit": "Sine die means with no date set for resuming, so a matter left that way is put off indefinitely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trespass"
     }
    }
   },
