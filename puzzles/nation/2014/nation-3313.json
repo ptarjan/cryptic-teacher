@@ -833,33 +833,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "COCKROACH",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "William Spooner was famous for swapping the opening sounds of words, which is what is done here"
+       "at": 4,
+       "note": "Spooner's signals a Spoonerism: the opening sounds of the two words of the phrase are swapped"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "geology tutor",
-       "gives": "COCKROACH",
-       "soundsLike": "ROCK COACH",
-       "note": "a geology tutor coaches on rocks; swap the opening sounds of the two words"
+       "words": "geology",
+       "at": 14,
+       "gives": "ROCK",
+       "note": "rock is what geology studies, so a geology tutor is a rock coach"
+      },
+      {
+       "op": "homophone",
+       "spelt": "COACH",
+       "parts": [
+        {
+         "words": "tutor",
+         "at": 22,
+         "gives": "KOACH",
+         "note": "a coach is a tutor or trainer"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A geology teacher's pet insect.",
-     "definitionFit": "A cockroach is an insect, and in American usage bug is a general word for any insect."
+     "surface": "A puzzling question about an insect belonging to Reverend Spooner, or his tutor of earth sciences.",
+     "walkthrough": "Spooner's tells you to swap opening sounds: a geology tutor is a ROCK COACH, said with a hard K start on COACH, and swapping the R and K sounds gives COCK ROACH.",
+     "definitionFit": "A cockroach is an insect, and bug is the everyday American word for any insect."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "Bug"
+     "misdirectedWord": "geology"
     }
    }
   },
