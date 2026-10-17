@@ -31,6 +31,7 @@ every change it makes is anchored by text both readings share:
      right before the clue's first words, when it is one of those ways.
 """
 import re
+import clue_text
 
 #: Letters a text anchor must share; fewer match by chance.
 ANCHOR = 12
@@ -81,7 +82,6 @@ def numbers(parsed):
             if len(c["tokens"][0]) == 1}
 
 
-ENUM_SEG = re.compile(r"[\s.?!;:'\"]*[(\[{]?\s*(\d{1,2}(?:(?:\s*[,.\-]\s*|\s+)\d{1,2})*)\s*[)\]}]?[\s.,;:]*")
 
 
 def tail_enum(seg, nxt):
@@ -91,7 +91,7 @@ def tail_enum(seg, nxt):
     m = re.search(r"(\d{1,2})\s*[.,]?\s*$", seg)
     if m and int(m.group(1)) in nxt and re.search(r"\d", seg[:m.start()]):
         seg = seg[:m.start()]
-    m = ENUM_SEG.fullmatch(seg)
+    m = clue_text.ENUM_SEG.fullmatch(seg)
     if not m:
         return None
     enum = re.sub(r"\s*-\s*", "-", m.group(1))
@@ -251,11 +251,6 @@ def taken(parsed):
     return {n for v in parsed.values() for c in v for t in c["tokens"] for n in t if len(t) == 1}
 
 
-#: A clue number opening a clue inside another clue's text, with the count of
-#: the clue before it in front when that count stands inside the text.
-RUN_ON = re.compile(r"(?:\((\d[\d,\-\u2013]*)\)\s*)?(?<![\d(])(\d{1,2}|[1l]\])[.:]?\s+(?!(?i:across|down|ac|dn)\b)(?=[A-Z\u2018\u201c'\"])")
-#: A clue that is only a cross-reference, its count never there.
-BARE_SEE = re.compile(r"\(?\s*s[ec]e\s*([lI]|\d{1,2})\s*(?:ac|dn|across|down)?\.?\s*\)?$", re.I)
 
 
 def split_run_on(parsed):
@@ -283,11 +278,11 @@ def split_run_on(parsed):
                 if own is None or not c["text"] or c["see"] is not None:
                     continue
                 after = next((heads(x) for x in out[i + 1:] if heads(x) is not None), None)
-                for m in RUN_ON.finditer(c["text"]):
+                for m in clue_text.RUN_ON_NUMBER.finditer(c["text"]):
                     n = 11 if m.group(2)[-1] == "]" else int(m.group(2))
                     first = c["text"][:m.start()].strip()
-                    see = BARE_SEE.match(first)
-                    if not (n in missing or (after is None and n not in have and n <= 36) or (after is not None and n in have and len(re.findall(RUN_ON, c["text"])) == 1)) or n <= own or not first or (m.start() < 3 and not see):
+                    see = clue_text.BARE_SEE.match(first)
+                    if not (n in missing or (after is None and n not in have and n <= 36) or (after is not None and n in have and len(re.findall(clue_text.RUN_ON_NUMBER, c["text"])) == 1)) or n <= own or not first or (m.start() < 3 and not see):
                         continue
                     if after is not None and n >= after:
                         continue  # a clue between two others numbers between them

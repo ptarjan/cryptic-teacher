@@ -857,3 +857,14 @@ def _column_pass(text, running_head, extra_headings, line_hook):
         cur.append(line)
     lists.append(cur)
     return "\n".join(line for lst in lists for line in mend_link_tails(lst))
+
+
+#: A bare enumeration (the text between a clue's words and the next
+#: clue): digits split by comma, stop, hyphen or space, brackets optional.
+ENUM_SEG = re.compile(r"[\s.?!;:'\"]*[(\[{]?\s*(\d{1,2}(?:(?:\s*[,.\-]\s*|\s+)\d{1,2})*)\s*[)\]}]?[\s.,;:]*")
+
+#: A clue number opening a clue inside another clue's text, with the count of
+#: the clue before it in front when that count stands inside the text.
+RUN_ON_NUMBER = re.compile(r"(?:\((\d[\d,\-\u2013]*)\)\s*)?(?<![\d(])(\d{1,2}|[1l]\])[.:]?\s+(?!(?i:across|down|ac|dn)\b)(?=[A-Z\u2018\u201c'\"])")
+#: A clue that is only a cross-reference, its count never there.
+BARE_SEE = re.compile(r"\(?\s*s[ec]e\s*([lI]|\d{1,2})\s*(?:ac|dn|across|down)?\.?\s*\)?$", re.I)
