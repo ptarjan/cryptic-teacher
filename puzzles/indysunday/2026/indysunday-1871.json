@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -650,28 +651,70 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "OASES",
-     "indicators": [
-      {
-       "text": "in prime spots along",
-       "note": "A spot is a position here, and the prime ones are 2, 3, 5, 7 and 11 — count that far into the words that follow and keep what you land on."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "road, she sees",
-       "gives": "OASES",
-       "select": "prime",
-       "note": "run through these letters ignoring the comma and the spaces, and keep the second, third, fifth, seventh and eleventh"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "in prime",
+         "at": 15,
+         "note": "letters at prime-numbered places in the whole phrase are kept; in the first word those are places two and three"
+        }
+       ],
+       "parts": [
+        {
+         "words": "road",
+         "at": 36,
+         "note": "the second and third letters of road sit at prime places 2 and 3"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "spots",
+         "at": 24,
+         "note": "the prime spots five and seven, counting on through the phrase, land on the first and last letters of the second word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "she",
+         "at": 42,
+         "note": "the first and last letters of she sit at prime places 5 and 7"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "along",
+         "at": 30,
+         "note": "counting further along the phrase, prime place eleven lands on the last letter of the final word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sees",
+         "at": 46,
+         "note": "the final letter of sees sits at prime place 11"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Nothing else in the grid counts like this, so the giveaway is 'prime' sitting where a solver expects a word about hiding or shuffling.",
-     "definitionFit": "Watering holes -> OASES: an oasis is a desert spring where travellers water, so the plural names exactly those green stopping points."
+     "surface": "A woman driving notices waterholes at choice points beside the highway.",
+     "walkthrough": "Number the letters of ROAD SHE SEES from 1 to 11; 'in prime spots along' keeps positions 2, 3, 5, 7 and 11, which fall as OA in road, SE at the ends of she, and the final S of sees.",
+     "definitionFit": "Oases are fertile spots in a desert with water, so they are natural watering holes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prime"
     }
    }
   },
@@ -703,39 +746,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PHONECALL",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "The Reverend Spooner traded the opening sounds of neighbouring words, so his name is the instruction to swap the fronts of the two words described."
+       "at": 5,
+       "note": "the opening sounds of the two words are swapped, in the manner of Reverend Spooner"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "from pine tree",
+       "at": 29,
+       "gives": "CONE",
+       "note": "a cone is what comes from a pine tree"
+      },
+      {
+       "op": "homophone",
+       "spelt": "PHALL",
        "parts": [
         {
-         "unchecked": true,
-         "words": "from pine tree",
-         "gives": "PHONE",
-         "soundsLike": "CONE",
-         "note": "what drops from a pine is a cone; it gives its opening K sound away and takes an F in exchange, which English spells PH at the front of a word"
-        },
-        {
-         "unchecked": true,
          "words": "dropping down",
-         "gives": "CALL",
-         "soundsLike": "FALL",
-         "note": "a drop downwards is a fall, and it collects the K sound the cone let go of"
+         "at": 15,
+         "gives": "FALL",
+         "note": "to fall is to drop down"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The question mark admits the stretch, since a falling cone is not a set phrase. 'Ring' is the noun a solver reads as jewellery first.",
-     "definitionFit": "Ring -> PHONE CALL: to give someone a ring is British for telephoning them, so a ring is the call itself."
+     "surface": "A cone tumbling off a pine is oddly described as a ring.",
+     "walkthrough": "A pine CONE's FALL, with the opening sounds swapped 'Spooner's' way, becomes FONE CALL, said like PHONE CALL; the F sound of FALL is spelt PH in the answer.",
+     "definitionFit": "To give someone a ring is British slang for telephoning them, so a ring is a phone call."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ring"
     }
    }
   },
@@ -1164,36 +1212,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOWORRIES",
-     "indicators": [
-      {
-       "text": "not starting",
-       "note": "A word that is not starting has lost its first letter, so what remains begins one character in."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Today",
+       "at": 0,
+       "gives": "NOW",
+       "note": "now means today, at present"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not starting",
+         "at": 13,
+         "note": "the trucks word loses its starting letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Today",
-         "gives": "NOW",
-         "note": "now is today, the moment you are standing in"
+         "words": "trucks",
+         "at": 6,
+         "gives": "LORRIES",
+         "note": "lorries are British trucks"
         },
         {
-         "words": "trucks",
-         "gives": "ORRIES",
-         "note": "a truck is a lorry in Britain, and the L is left behind"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The question mark flags the odd reading: 'trucks' is the American word and lorries the British one, and making that swap is the step the clue leaves you.",
-     "definitionFit": "That's OK -> NO WORRIES: the Australian reply to an apology or a thank-you, meaning there is nothing to be sorry about."
+     "surface": "Someone shrugs off the news that the trucks won't start today.",
+     "walkthrough": "A lorry is the British word for a truck; 'not starting' drops the L of LORRIES.",
+     "definitionFit": "No worries is an informal reassurance, like saying it's fine or never mind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starting"
     }
    }
   },
