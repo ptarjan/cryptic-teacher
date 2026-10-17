@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -477,32 +478,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LAUGHINGSTOCK",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "The Oxford don's name marks his trademark accident: the opening sounds of two words trade places and both come out as other words."
+       "at": 0,
+       "note": "Spooner's tells us to swap the opening sounds of two words, after the Rev. Spooner's famous slips"
       }
      ],
      "parts": [
       {
-       "words": "providing canal-side labour",
-       "gives": "STAFFINGLOCK",
-       "note": "the labour on offer is staffing a lock, the gated chamber that lifts boats from one canal level to the next"
+       "op": "homophone",
+       "spelt": "STAUGHING",
+       "parts": [
+        {
+         "words": "providing",
+         "at": 10,
+         "gives": "STAFFING",
+         "note": "providing labour for something is staffing it, so providing (with the labour that follows) gives staffing"
+        }
+       ]
       },
       {
-       "unchecked": true,
-       "words": "Spooner's",
-       "gives": "LAUGHINGSTOCK",
-       "soundsLike": "STAFFING LOCK",
-       "note": "trade the sounds at the front of those two words, ST for L, and say what comes out"
+       "words": "canal-side labour",
+       "at": 20,
+       "gives": "LOCK",
+       "note": "the labour is for a lock, the gated chamber on a canal: staffing a lock"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The joke only works out loud, so say the canal job first and then trade its opening sounds. What comes back is a person nobody takes seriously.",
-     "definitionFit": "ridiculous figure → LAUGHING STOCK: somebody everyone laughs at is held up as an object of ridicule, which is what the phrase names."
+     "surface": "Someone supplying workers for a towpath job turns out to be a figure of fun.",
+     "walkthrough": "'Providing canal-side labour' is STAFFING (A) LOCK. 'Spooner's' swaps the opening sounds ST and L, giving LAFFING STOCK, said as the answer; the respelling STAUGHING only shows that AUGH is sounded like AFF.",
+     "definitionFit": "A laughing stock is a person everyone mocks, so a ridiculous figure is a direct paraphrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "canal-side"
     }
    }
   },
@@ -1223,36 +1236,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ABORT",
+     "op": "charade",
      "indicators": [
       {
        "text": "up front",
-       "note": "In a down entry the front is the top square, so the letter named beside these words is lifted out of the name and re-laid at the start."
+       "at": 43,
+       "note": "up front says the A is placed at the start of what remains"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "answer",
+       "at": 36,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "giving",
+         "at": 29,
+         "note": "giving means giving up, surrendering, so the A is taken out of the name"
+        }
+       ],
        "parts": [
         {
-         "words": "answer",
-         "gives": "A",
-         "note": "A is the standard short form of answer, as in a Q and A"
+         "words": "Kazakh journalist",
+         "at": 10,
+         "gives": "BORAT",
+         "note": "Borat is Sacha Baron Cohen's spoof Kazakh TV reporter"
         },
         {
-         "words": "Kazakh journalist",
-         "gives": "BORT",
-         "note": "the fictional Kazakh reporter of the Sacha Baron Cohen film, left without the A that has moved"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Borat is the Kazakh television reporter Sacha Baron Cohen played, and the clue takes his name apart by moving one letter rather than by shuffling the lot.",
-     "definitionFit": "Interrupt → ABORT: to abort something is to stop it part-way through, which is what interrupting a launch or a program amounts to."
+     "surface": "A heckler cuts into an interview with a fictional reporter from Kazakhstan.",
+     "walkthrough": "Borat 'giving' (giving up) his A leaves BORT; that A goes 'up front'.",
+     "definitionFit": "To abort a process is to stop it partway, which is to interrupt it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "answer"
     }
    }
   },
