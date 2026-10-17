@@ -177,54 +177,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ELBOW",
+     "op": "composite",
      "indicators": [
       {
        "text": "out",
-       "note": "out suggests disorder or being knocked about, so the remaining letters are rearranged"
+       "at": 40,
+       "note": "out signals that the letters of bowled are put out of their order"
+      },
+      {
+       "text": "passing",
+       "at": 11,
+       "note": "passing here means passing over or leaving aside, so one letter is not used"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ELBOW",
+       "words": "bowled",
+       "at": 33,
+       "note": "the fodder, taken as written"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "passing",
-         "note": "passing something by means leaving it behind, so that letter is removed"
+         "text": "back of",
+         "at": 19,
+         "note": "the back of a word is its final letter"
         }
        ],
        "parts": [
         {
-         "words": "bowled",
-         "note": "taken as written"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "back of",
-           "note": "the back of a word is its final letter, so only the end of pad is wanted"
-          }
-         ],
-         "parts": [
-          {
-           "words": "pad",
-           "note": "the final letter of pad"
-          }
-         ]
+         "words": "pad",
+         "at": 27,
+         "note": "the word whose last letter is dropped from the mix"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cricket ball turns sharply past the batsman's leg pad and he is bowled.",
-     "walkthrough": "Remove D from BOWLED and rearrange BOWLE. Pads are leg guards worn by a batsman in cricket.",
-     "definitionFit": "An elbow is an abrupt bend in a road, river or pipe, so it names a sharp turn."
+     "surface": "A cricket scene: the ball turns sharply past the batsman's pad and he is bowled.",
+     "walkthrough": "'back of pad' is D; the letters of bowled, 'passing' over that D, are shuffled ('out') to give the answer. The cricket picture hides a bend in a road or river.",
+     "definitionFit": "An elbow is an angular bend, as in a pipe or a river, so a sharp turn."
     },
     "features": {
      "answerInScene": false,
@@ -767,51 +761,57 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "WHEW",
-     "indicators": [
-      {
-       "text": "taking",
-       "note": "taking one thing for another means swapping it in, so a letter is exchanged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "when",
-       "note": "taken as written"
-      },
-      {
-       "op": "last",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "last",
-         "note": "the last of a word is its final letter, so only that one is wanted"
+         "text": "taking",
+         "at": 19,
+         "note": "taking here means taking away, so that letter is removed from when"
         }
        ],
        "parts": [
         {
-         "words": "Pakistan's",
-         "gives": "PAKISTAN",
-         "note": "the final letter of Pakistan"
+         "words": "when",
+         "at": 14
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "'s last",
+           "at": 34,
+           "note": "Pakistan's last is the final letter of that word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Pakistan",
+           "at": 26,
+           "note": "the word whose last letter is removed"
+          }
+         ]
         }
        ]
       },
       {
        "words": "wicket",
+       "at": 42,
        "gives": "W",
        "note": "W is the cricket scorecard abbreviation for wicket"
       }
      ]
     },
     "explanation": {
-     "surface": "Fans sigh with relief as the bowler takes the final Pakistan wicket.",
-     "walkthrough": "In WHEN the N, Pakistan's last letter, is replaced by W for wicket.",
-     "definitionFit": "Whew is an exclamation of relief, used like phew after a narrow escape."
+     "surface": "A cricket fan's sigh as the final Pakistani wicket falls at last.",
+     "walkthrough": "'taking' means taking away: the last letter of Pakistan comes out of when, and W (wicket) follows. The definition is an exclamation, as said with relief.",
+     "definitionFit": "Whew is an interjection voicing relief, said when a narrow escape or strain is over."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "taking"
     }
    }
