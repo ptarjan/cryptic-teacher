@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -360,30 +361,44 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NATTERING",
      "indicators": [
       {
-       "text": "as bachelor",
-       "note": "A bachelor is B in the shorthand of degrees, and 'as' means the new letter steps into that one's place."
+       "text": "as",
+       "at": 17,
+       "note": "knight, as bachelor means the knight's letter stands in the role of the bachelor's letter, replacing it"
       }
      ],
      "parts": [
       {
        "words": "Smashing",
+       "at": 0,
        "gives": "BATTERING",
-       "note": "a battering ram smashes doors in, so this hands you a nine-letter word to tamper with"
+       "note": "battering something is smashing it"
+      },
+      {
+       "words": "bachelor",
+       "at": 20,
+       "gives": "B",
+       "note": "B is the abbreviation for bachelor, as in a degree"
       },
       {
        "words": "knight",
+       "at": 9,
        "gives": "N",
-       "note": "N is the knight in chess notation, K being taken by the king"
+       "note": "N is the chess notation for a knight"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface makes 'Smashing' an adjective of praise for the knight. It is the verb a ram does to a door, and one letter of it changes hands.",
-     "definitionFit": "having a chat → NATTERING: to natter is to talk on comfortably about nothing much, the informal British word for idle conversation."
+     "surface": "A dashing knight, still a bachelor, chats away.",
+     "walkthrough": "'Smashing' looks like praise for the knight but is the verb BATTERING; N (knight) takes the place of B (bachelor).",
+     "definitionFit": "Nattering means talking idly and at length, a light way of saying chatting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Smashing"
     }
    }
   },
@@ -657,49 +672,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FANATICISE",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "Almost reaching the end of a word means stopping one letter short of it."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Cool",
+       "at": 0,
+       "gives": "FAN",
+       "note": "to fan something is to cool it with moving air"
+      },
+      {
+       "words": "a",
+       "at": 6,
+       "gives": "A"
+      },
+      {
+       "words": "jerk",
+       "at": 8,
+       "gives": "TIC",
+       "note": "a tic is an involuntary jerk or twitch"
+      },
+      {
+       "words": "I",
+       "at": 13,
+       "gives": "I"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 15,
+         "note": "almost means the word is cut short, losing its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Cool",
-         "gives": "FAN",
-         "note": "the thing you switch on to cool a room"
-        },
-        {
-         "words": "a",
-         "note": "the letter is lifted straight out of the clue"
-        },
-        {
-         "words": "jerk",
-         "gives": "TIC",
-         "note": "an involuntary jerk of the face is a tic"
-        },
-        {
-         "words": "I",
-         "note": "the letter is lifted straight out of the clue"
-        },
-        {
          "words": "recognise",
-         "gives": "SE",
-         "note": "to recognise somebody is to SEE them, and the word stops a letter short"
+         "at": 22,
+         "gives": "SEE",
+         "note": "to see something can mean to recognise it"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The comma after the first word is doing a lot of work: it stops you reading 'cool a jerk' as one phrase, and five separate little pieces are clued one after another.",
-     "definitionFit": "become obsessive → FANATICISE: to turn fanatical about something, the verb built from 'fanatic' — obsession being what a fanatic has."
+     "surface": "Someone cool spots a twitchy jerk and is drawn into obsession.",
+     "walkthrough": "'Cool' is a verb here: to FAN. SEE without its final E gives SE at the end.",
+     "definitionFit": "To fanaticise is to become, or make someone, a fanatic, so it describes turning obsessive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cool"
     }
    }
   },
@@ -1146,45 +1174,44 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "initially",
-       "note": "At the outset — it asks for nothing but the letter the following word begins with."
+       "text": "getting excited",
+       "at": 38,
+       "note": "getting excited means stirred up, so the letters are thrown into a new arrangement"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Quiet men in line can",
+       "at": 0
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "getting excited",
-         "note": "Excitement is agitation, and agitated letters jostle out of the order they were given in."
+         "text": "initially",
+         "at": 22,
+         "note": "initially points to the first letter of start"
         }
        ],
        "parts": [
         {
-         "words": "Quiet men in line can",
-         "note": "seventeen letters of fodder, taken just as they stand"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "S",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "initially start",
-           "gives": "S",
-           "select": "first",
-           "note": "the first letter of the word that follows"
-          }
-         ]
+         "words": "start",
+         "at": 32,
+         "note": "its first letter is S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Eighteen letters is the giveaway: nothing that long is built piece by piece, and the clue hands you seventeen of them in plain sight before asking for one more.",
-     "definitionFit": "significant anniversary → SEMIQUINCENTENNIAL: it names one anniversary in particular, the 250th — half of the five hundred years a quincentennial marks."
+     "surface": "A quiet queue of men grows excited as an important anniversary begins.",
+     "walkthrough": "The fodder is the whole run 'Quiet men in line can' plus S from 'initially start'; 'getting excited' shuffles all 18 letters.",
+     "definitionFit": "A semiquincentennial marks 250 years, a landmark birthday for a nation or institution."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Quiet"
     }
    }
   },
