@@ -600,63 +600,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FILECOPY",
+     "op": "container",
      "indicators": [
       {
-       "text": "corrupt",
-       "note": "corrupted text has its letters garbled out of order"
+       "text": "ensnaring",
+       "at": 44,
+       "note": "ensnaring means trapping, so the two opening letters hold the rearranged word between them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "first",
        "indicators": [
         {
-         "text": "ensnaring",
-         "note": "a snare traps its prey inside it, so one piece encloses another"
+         "text": "initially",
+         "at": 33,
+         "note": "initially points to the opening letters of fooling and Yard"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "FY",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially means at the start, so only the opening letters count"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "fooling Yard",
-           "gives": "FY",
-           "select": "first",
-           "note": "first letters of these two words"
-          }
-         ]
-        },
+         "words": "fooling Yard",
+         "at": 20,
+         "note": "the first letters of fooling and Yard are F and Y"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "corrupt",
+         "at": 54,
+         "note": "corrupt means spoiled or altered, so the letters of police are jumbled"
+        }
+       ],
+       "parts": [
         {
          "words": "police",
-         "gives": "ILECOP",
-         "note": "the six letters of police rearranged"
+         "at": 62
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A forged document tricks Scotland Yard and traps some bent officers.",
-     "walkthrough": "The Yard is Scotland Yard, London's police headquarters, which suits the crime surface; its F and Y hold a jumbled POLICE.",
-     "definitionFit": "A file copy is the duplicate kept on record for reference, so it is a facsimile kept to consult later."
+     "surface": "A copied document fools Scotland Yard at first and catches out bent officers.",
+     "walkthrough": "'Yard' suggests Scotland Yard, the London police headquarters, but 'initially' takes only F and Y; 'corrupt' turns police into ILECOP, and 'ensnaring' sets that between F and Y.",
+     "definitionFit": "A file copy is a duplicate kept on record for reference, a facsimile of the document sent out."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Reference"
+     "misdirectedWord": "Yard"
     }
    }
   },
@@ -1011,61 +1007,63 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TRUNCHEON",
+     "op": "charade",
      "indicators": [
       {
-       "text": "unfortunately",
-       "note": "things that go unfortunately go wrong, so the letters fall out of order"
+       "text": "behind",
+       "at": 56,
+       "note": "behind places the meal and the rearranged one after the letter for time"
       }
      ],
      "parts": [
       {
+       "words": "time",
+       "at": 63,
+       "gives": "T"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "TRUNCHEON",
        "indicators": [
         {
          "text": "starting late",
-         "note": "a late start means the opening is missed, so the first letter goes"
+         "at": 23,
+         "note": "starting late means the first letter is missing, as if the word began late"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "behind",
-           "note": "coming behind means following on after, fixing the order of the parts"
-          }
-         ],
-         "parts": [
-          {
-           "words": "time",
-           "gives": "T",
-           "note": "T is the usual abbreviation for time"
-          },
-          {
-           "words": "mid-morning meal",
-           "gives": "RUNCH",
-           "note": "brunch, a late breakfast, without its opening B"
-          },
-          {
-           "words": "one",
-           "gives": "EON",
-           "note": "the three letters of one rearranged"
-          }
-         ]
+         "words": "mid-morning meal",
+         "at": 6,
+         "gives": "BRUNCH",
+         "note": "brunch is a late-morning meal combining breakfast and lunch"
+        },
+        {
+         "gives": "B"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unfortunately",
+         "at": 37,
+         "note": "unfortunately suggests things gone wrong, so the letters of one are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 52
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Employees' elevenses begins late, sadly, and someone is running behind schedule.",
-     "walkthrough": "'Staff' reads as employees but is a stick. Everything after time, T, sits behind it: the shortened BRUNCH, then ONE shuffled.",
-     "definitionFit": "A truncheon is a short club carried by police, a kind of stout stick or staff."
+     "surface": "Office staff's elevenses begins late, and one person is running behind time.",
+     "walkthrough": "'Staff' looks like employees but is a stick. 'starting late' drops the B of brunch, and 'unfortunately' rearranges one as EON; both come 'behind' T.",
+     "definitionFit": "A truncheon is a short club carried by police, a kind of staff or baton."
     },
     "features": {
      "answerInScene": false,
@@ -1301,55 +1299,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IZZARD",
-     "indicators": [
-      {
-       "text": "taking topping off",
-       "note": "removing the top means the first letter goes in a down clue"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "taking topping off",
+         "at": 9,
+         "note": "taking the topping off removes the first letter, the top of a down answer"
+        }
+       ],
        "parts": [
         {
          "words": "quattro formaggi, perhaps",
-         "gives": "IZZA",
-         "note": "quattro formaggi, four cheeses, is a type of pizza; without its P"
+         "at": 28,
+         "gives": "PIZZA",
+         "note": "quattro formaggi, four cheeses, is a kind of pizza, hence the 'perhaps'"
         },
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "RD",
-         "indicators": [
-          {
-           "text": "oddly",
-           "note": "oddly means taking the odd-numbered positions, first, third and so on"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "rude",
-           "gives": "RD",
-           "select": "alternate",
-           "note": "first and third letters of rude"
-          }
-         ]
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "oddly",
+         "at": 56,
+         "note": "oddly picks the odd-numbered letters of rude, first and third"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rude",
+         "at": 62,
+         "note": "the first and third letters of rude are R and D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A comic scrapes the cheese off a pizza, which is strangely impolite.",
-     "walkthrough": "'Topping' means cheese on a pizza, but here it is the top letter. Eddie Izzard is a British stand-up comedian.",
-     "definitionFit": "Eddie Izzard is a well-known British stand-up performer, so an example of a comedian."
+     "surface": "Someone peels the topping off a four-cheese pizza, which is oddly rude.",
+     "walkthrough": "The pizza pun on 'topping' makes cheese the expected thing to remove, but 'taking topping off' drops the first letter P, leaving IZZA; 'oddly' gives RD from rude.",
+     "definitionFit": "Eddie Izzard is a British stand-up comic known for surreal, rambling routines."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "topping"
