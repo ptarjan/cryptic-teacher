@@ -341,55 +341,61 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "RATATOUILLE",
      "indicators": [
       {
        "text": "including",
-       "note": "including means taking something inside, so the shortened word wraps the next pieces"
+       "at": 39,
+       "note": "including means holding inside, so the trimmed word wraps around the armadillo"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "RATATOUILLE",
+       "op": "middle",
        "indicators": [
         {
          "text": "unlimited",
-         "note": "without limits means without its boundary letters at either end"
+         "at": 28,
+         "note": "unlimited means without limits, so the word loses its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "with frills",
+         "at": 16,
          "gives": "FRILLED",
-         "note": "having frills means being frilled"
-        },
+         "note": "something with frills on it is frilled"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "words": "an",
+         "at": 49,
          "gives": "A",
-         "note": "the indefinite article"
+         "note": "an is the indefinite article, A"
         },
         {
          "words": "armadillo",
+         "at": 52,
          "gives": "TATOU",
-         "note": "tatou is a name for an armadillo, from the Tupi word"
+         "note": "tatou is a word for an armadillo, from the French via Tupi, listed in Chambers"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gimmicky vegetable dish arrives with frills and, absurdly, an armadillo in it.",
-     "walkthrough": "'With frills' is read as one adjective, and 'unlimited' strips both its ends. Tatou is an old South American name for the armadillo.",
-     "definitionFit": "Ratatouille is a Provençal stew of courgettes, aubergines, tomatoes and peppers, a meat-free dish."
+     "surface": "A frilly vegetarian dish served with, alarmingly, an armadillo inside.",
+     "walkthrough": "'With frills' is one word, FRILLED, and 'unlimited' trims it before 'including' the armadillo. The exclamation mark flags the absurdity of an armadillo in a vegetarian dish.",
+     "definitionFit": "Ratatouille is a Provençal stew of courgettes, aubergines, peppers and tomatoes, containing no meat."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "armadillo"
+     "misdirectedWord": "frills"
     }
    }
   },
@@ -1937,31 +1943,26 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LULUS",
-     "indicators": [
-      {
-       "text": "Half",
-       "note": "half keeps only the first two of four letters"
-      },
-      {
-       "text": "More than half",
-       "note": "more than half keeps three of four letters, dropping just one"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "sin",
-       "gives": "LUST",
-       "note": "lust is one of the seven deadly sins"
+       "words": "Half sin",
+       "at": 0,
+       "gives": "LU",
+       "note": "the sin is lust, one of the seven deadly sins, and half of its four letters is the first two"
+      },
+      {
+       "words": "More than half",
+       "at": 10,
+       "gives": "LUS",
+       "note": "more than half of that same sin, three of its four letters, with sin understood again"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone half-sinful, then rather more, dismisses doubts with gusto.",
-     "walkthrough": "The same sin is used twice: its first half, then its first three letters.",
-     "definitionFit": "A lulu is an informal word for an outstanding person or thing, as is a humdinger."
+     "surface": "A musing on whether half a sin, or rather more, counts as a real corker.",
+     "walkthrough": "The sin is lust, one of the seven deadly sins, and it serves twice: the word sin is understood again after 'More than half'.",
+     "definitionFit": "A lulu is slang for an outstanding or remarkable example of something, just as a humdinger is."
     },
     "features": {
      "answerInScene": false,
@@ -2049,51 +2050,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "COUNTERED",
+     "op": "charade",
      "indicators": [
       {
-       "text": "frisky",
-       "note": "frisky means playful and lively, so these letters jump about"
+       "text": "goes after",
+       "at": 7,
+       "note": "goes after places Edward's short form behind the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "COUNTERED",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "lacking",
-         "note": "lacking means without, so those letters are removed"
+         "text": "frisky",
+         "at": 18,
+         "note": "frisky means lively and playful, so the remaining letters jump into a new order"
         }
        ],
        "parts": [
         {
-         "words": "courtesan",
-         "note": "the letters to be rearranged, once some are removed"
-        },
-        {
-         "words": "sex appeal",
-         "gives": "SA",
-         "note": "SA is the abbreviation for sex appeal"
-        },
-        {
-         "words": "Edward",
-         "gives": "ED",
-         "note": "Ed is short for Edward"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "lacking",
+           "at": 35,
+           "note": "lacking means doing without, so the sex appeal letters come out of courtesan"
+          }
+         ],
+         "parts": [
+          {
+           "words": "courtesan",
+           "at": 25,
+           "note": "the word courtesan before two of its letters are removed"
+          },
+          {
+           "words": "sex appeal",
+           "at": 43,
+           "gives": "SA"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "Edward",
+       "at": 0,
+       "gives": "ED",
+       "note": "Ed is the short form of Edward"
       }
      ]
     },
     "explanation": {
-     "surface": "Edward pursues a lively courtesan who has lost her allure, and is thwarted.",
-     "definitionFit": "To counter a plan is to oppose it, so countered means frustrated or thwarted."
+     "surface": "Edward pursues a playful courtesan, but without any allure he ends up thwarted.",
+     "walkthrough": "'Lacking' takes the sex appeal out of courtesan, leaving COURTEN for 'frisky' to rearrange; 'frustrated' is the definition, not a description of Edward.",
+     "definitionFit": "To counter a move is to oppose it and so frustrate or thwart it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "frisky"
     }
