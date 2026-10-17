@@ -300,25 +300,31 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "IAMBS",
      "indicators": [
       {
        "text": "A flat piece cut from",
-       "note": "trimming the horizontal stroke off a letter changes its shape into a different letter"
+       "at": 0,
+       "note": "cutting the flat base stroke off a capital letter changes its shape, so one letter of the young sheep becomes another"
       }
      ],
      "parts": [
       {
        "words": "young sheep's",
+       "at": 22,
        "gives": "LAMBS",
        "note": "lambs are young sheep"
+      },
+      {
+       "gives": "L"
+      },
+      {
+       "gives": "I"
       }
      ]
     },
     "explanation": {
      "surface": "A butcher slices a flat cut of lamb from its trotters.",
-     "walkthrough": "Draw a capital L and cut off its flat base stroke: what remains is an I, so LAMBS becomes IAMBS.",
+     "walkthrough": "A visual trick: draw a capital L and cut away its flat foot, and what is left is an I, so LAMBS becomes IAMBS.",
      "definitionFit": "In prosody a foot is a metrical unit, and the iamb, an unstressed then stressed syllable, is the commonest kind."
     },
     "features": {
@@ -518,50 +524,73 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "GRANOPHYRIC",
-     "indicators": [
-      {
-       "text": "to replace both",
-       "note": "to replace something is to take its place, and 'both' means one swap-in letter does the job twice"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "fertiliser",
-       "gives": "GUANO",
-       "note": "guano is bird or bat droppings used as fertiliser"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "to replace",
+         "at": 37,
+         "note": "to replace something is to take its place, so the right letter swaps in for uranium's in the fertiliser"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fertiliser",
+         "at": 64,
+         "gives": "GUANO",
+         "note": "guano is bird or bat droppings used as fertiliser"
+        },
+        {
+         "words": "uranium",
+         "at": 53,
+         "gives": "U",
+         "note": "U is the chemical symbol for uranium"
+        },
+        {
+         "words": "right",
+         "at": 31,
+         "gives": "R"
+        }
+       ]
       },
       {
-       "words": "right",
-       "gives": "R",
-       "note": "R is the abbreviation for right"
-      },
-      {
-       "words": "uranium",
-       "gives": "U",
-       "note": "U is the chemical symbol for uranium"
-      },
-      {
-       "words": "medicine",
-       "gives": "PHYSIC",
-       "note": "physic is an old word for medicine"
-      },
-      {
-       "words": "sulphur",
-       "gives": "S",
-       "note": "S is the chemical symbol for sulphur"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "both",
+         "at": 48,
+         "note": "'both' means the same right letter makes a second swap, this time for sulphur's in the medicine"
+        }
+       ],
+       "parts": [
+        {
+         "words": "medicine",
+         "at": 90,
+         "gives": "PHYSIC",
+         "note": "physic is an old word for medicine"
+        },
+        {
+         "words": "sulphur",
+         "at": 79,
+         "gives": "S",
+         "note": "S is the chemical symbol for sulphur"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "A geological instruction about chemicals in fertiliser and medicine reads like a lab recipe.",
-     "walkthrough": "One R swaps for the U in GUANO and the same R swaps for the S in PHYSIC, giving GRANO and PHYRIC. 'Both' tells you one R does both jobs.",
+     "walkthrough": "One R swaps for the U in GUANO, giving GRANO, and 'both' sends the same R in for the S in PHYSIC, giving PHYRIC.",
      "definitionFit": "Granophyre is a fine-grained igneous rock with intergrown quartz and feldspar; the adjectival form describes its texture."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "fertiliser"
     }
@@ -1876,35 +1905,51 @@
      "op": "charade",
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "ZE",
+       "op": "nth",
+       "n": 3,
        "indicators": [
         {
-         "text": "Centred slices from",
-         "note": "slices from the centre are cut out of the middle of each word, leaving the core letter"
+         "text": "Centred",
+         "at": 0,
+         "note": "'Centred' asks for what sits at the centre of the word razor, its single middle letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "razor get",
-         "gives": "ZE",
-         "select": "middle",
-         "note": "the centre letters of each of the two words"
+         "words": "razor",
+         "at": 20,
+         "note": "its centre letter is Z"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "slices from",
+         "at": 8,
+         "note": "slices from the centre carry on to the word get, taking its single middle letter too"
+        }
+       ],
+       "parts": [
+        {
+         "words": "get",
+         "at": 26,
+         "note": "its centre letter is E"
         }
        ]
       },
       {
        "words": "pen",
+       "at": 30,
        "gives": "STY",
        "note": "a sty is a pen for pigs"
       }
      ]
     },
     "explanation": {
-     "surface": "A writer claims a razor-sliced nib makes a fountain pen nicely sharp.",
-     "walkthrough": "Razor and get each have one centre letter, Z and E. 'Pen' looks like a writing tool but is an enclosure.",
+     "surface": "A writer claims a razor will give their pen a nice sharp nib.",
+     "walkthrough": "'Centred slices from' takes the centre letter of each word: Z, the third and middle letter of five in razor, and E from get. 'Pen' looks like a writing tool but is an animal enclosure.",
      "definitionFit": "Zesty means piquant and pleasantly tangy, a flavour that is both agreeable and sharp."
     },
     "features": {
