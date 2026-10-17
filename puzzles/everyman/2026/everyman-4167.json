@@ -20,7 +20,8 @@
   "previousOrigin": "model"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -573,51 +574,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MISER",
-     "indicators": [
-      {
-       "text": "Flipping",
-       "note": "To flip a thing is to turn it over, so the two letters it governs are written the other way about; it doubles as the mild swear word the surface wants."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Flipping",
+         "at": 0,
+         "note": "flipping means turning over, so the letters of I'm run backwards"
+        }
+       ],
        "parts": [
         {
          "words": "Everyman's",
-         "gives": "MI",
-         "note": "the setter is Everyman, so 'Everyman's' is his own I'm — two letters, turned over"
-        },
+         "at": 9,
+         "gives": "IM",
+         "note": "the setter, Everyman, is saying I am, shortened to I'm"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "SER",
-         "indicators": [
-          {
-           "text": "ultimately",
-           "note": "Ultimately means at the very end, so it takes the closing letter of each of the words that follow it."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "parsimonious: code for",
-           "gives": "SER",
-           "select": "last",
-           "note": "the closing letter of each of those three words in turn"
-          }
-         ]
+         "text": "ultimately",
+         "at": 20,
+         "note": "ultimately means at the end, so each word gives its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "parsimonious: code for",
+         "at": 31,
+         "note": "the three words whose final letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Code for' reads as joinery announcing a synonym, and that is the trap — it is three of the five letters. The quotation marks are the tell: the quoted word is the definition.",
-     "definitionFit": "A skinflint is somebody so tight they would skin a flint to save a penny, the plainest word English has for a hoarder of money."
+     "surface": "The setter declares, with feeling, that being tight-fisted is a byword for meanness.",
+     "walkthrough": "'ultimately' applies to all three words, parsimonious, code and for, giving S, E and R.",
+     "definitionFit": "A miser hoards money and hates spending it, exactly what a skinflint does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "code"
     }
    }
   },
@@ -723,43 +727,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TOPKNOT",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 5,
+       "note": "wearing means having on, so the top goes around the letter for king"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "wearing",
-         "note": "A garment goes round the person in it, so the king's letter sits inside the words either side rather than next to them."
-        },
-        {
-         "text": "perhaps",
-         "note": "Perhaps flags an example: the clue names one particular garment where the wordplay wants the general word for its class."
-        }
-       ],
        "parts": [
         {
          "words": "t-shirt, perhaps",
+         "at": 13,
          "gives": "TOP",
-         "note": "a t-shirt is one kind of top, the general word for anything worn above the waist"
-        },
-        {
-         "words": "King",
-         "gives": "K",
-         "note": "K is king on a chessboard and on a playing card"
+         "note": "a T-shirt is an example of a top"
         },
         {
          "words": "not",
-         "note": "taken exactly as printed, three letters straight off the page"
+         "at": 31,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "King",
+       "at": 0,
+       "gives": "K",
+       "note": "K is the chess abbreviation for king"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The king is wearing more than the t-shirt: his letter goes inside the pair of words, not inside either one. Hyphens and quote marks dress the rest up as fashion talk, so the plainest word on the page reads as grammar rather than letters.",
-     "definitionFit": "The answer is hair gathered and tied on the crown of the head, which is precisely the arrangement a man-bun is."
+     "surface": "A king in casual clothes does not go for a trendy bun hairstyle.",
+     "walkthrough": "'perhaps' marks the T-shirt as one example of a top.",
+     "definitionFit": "A topknot is hair gathered in a knot on the crown, which is how a man bun is worn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "wearing"
     }
    }
   },
@@ -962,41 +970,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCROLL",
-     "indicators": [
-      {
-       "text": "50% reduced",
-       "note": "Cut by half: each of the two four-letter words before the definition gives up two letters, one word keeping its front, the other its back."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "self-catering",
+       "at": 23,
+       "gives": "SC",
+       "note": "S/C is the abbreviation used in holiday listings for self-catering"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "50% reduced",
+         "at": 52,
+         "note": "50% reduced means each word is cut to half its length, the end of room and the start of bill going"
+        }
+       ],
        "parts": [
         {
-         "words": "self-catering",
-         "gives": "SC",
-         "note": "s/c is how a British holiday listing abbreviates self-catering, where you cook for yourself"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "room",
+           "at": 37,
+           "gives": "ROOM",
+           "note": "the word room, losing half its letters"
+          },
+          {
+           "words": "bill",
+           "at": 47,
+           "gives": "BILL",
+           "note": "the word bill, losing half its letters"
+          }
+         ]
         },
         {
-         "words": "room",
-         "gives": "RO",
-         "note": "the front half of its four letters"
-        },
-        {
-         "words": "bill",
-         "gives": "LL",
-         "note": "the back half of its four letters"
+         "gives": "OMBI"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a small ad for a cheap holiday let, priced down and everything, while the definition is about a thumb. Half-price is the only genuine instruction in it.",
-     "definitionFit": "To scroll is to slide what is on the screen past the glass, the one gesture everything on a phone is reached by."
+     "surface": "A holidaymaker in a self-catering flat checks how much the half-price bill comes to on their phone.",
+     "walkthrough": "Halving keeps RO from room and LL from bill.",
+     "definitionFit": "To scroll is to move through the content on a phone screen with a finger, a common way of using one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "reduced"
     }
    }
   },
@@ -1324,12 +1348,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CACTUS",
      "indicators": [
       {
        "text": "In",
-       "note": "The opening word announces an insertion: what the clue names next is placed within the letters standing for the two countries."
+       "at": 0,
+       "note": "in means the acting goes inside the letters for the two countries"
       }
      ],
      "parts": [
@@ -1338,26 +1361,36 @@
        "parts": [
         {
          "words": "Cuba",
+         "at": 3,
          "gives": "C",
-         "note": "C is Cuba's letter on international vehicle plates"
-        },
-        {
-         "words": "pretend",
-         "gives": "ACT",
-         "note": "to act is to pretend, on a stage or off it"
+         "note": "C is the international vehicle registration code for Cuba"
         },
         {
          "words": "America",
+         "at": 12,
          "gives": "US",
-         "note": "the two-letter short form of the United States"
+         "note": "US is short for the United States of America"
         }
        ]
+      },
+      {
+       "words": "pretend to be",
+       "at": 21,
+       "gives": "ACT",
+       "note": "to act is to pretend to be someone"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A country either side and a bit of theatre in the middle make a plausible sentence about travelling under a false name, which is all the surface is for.",
-     "definitionFit": "The plant stores water in its thick stem and goes months without rain, so 'drink' is standing in for water and the joke is teetotal."
+     "surface": "Someone playing a part in Cuba and the US manages without a drink for a while.",
+     "walkthrough": "'drink' suggests a person on the wagon; the definition is a desert plant that stores water.",
+     "definitionFit": "A cactus is a desert plant that stores water in its stems and survives long droughts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drink"
     }
    }
   }
