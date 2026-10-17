@@ -571,6 +571,20 @@ pdf = {"grid": ["...", "#.#", "..."], "preamble": None, "article": True,
 check("a See stub whose leader was marked unclued is unclued (46, 200)",
       G.unclued_lights(pdf)[0], [(2, "down"), (3, "across")])
 
+# Genius 70: the print edition left out 1 across, and the post quotes it. The
+# clue comes back only where its count is the light's length and one line says so.
+pdf = {"grid": ["...", "#.#", "..."], "preamble": None, "marked": set(),
+       "clues": [{"lights": [(2, "down")], "clue": "B (3)", "enumeration": "3"},
+                 {"lights": [(3, "across")], "clue": "C (3)", "enumeration": "3"}]}
+post = {"content": {"rendered": "<p>Across 1 Wine merchant gets chain in reward (3) (S) patchy</p>"
+                                "<p>3 Other clue (3)</p><p>Down 2 Another (4)</p>"}}
+check("a clue the print left out comes back from the post's line for it (70)",
+      (G.restore_from_post(pdf, post), pdf["clues"][0]["clue"]),
+      ([(1, "across")], "Wine merchant gets chain in reward (3)"))
+pdf["clues"] = pdf["clues"][1:]
+check("a post line whose count is not the light's length restores nothing",
+      G.restore_from_post(dict(pdf, clues=[c for c in pdf["clues"]]), {"content": {"rendered": "<p>1 Wine merchant gets chain (5)</p>"}}), [])
+
 if fails:
     print(f"{fails} failed")
     sys.exit(1)

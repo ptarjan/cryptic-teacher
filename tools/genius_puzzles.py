@@ -1950,6 +1950,51 @@ def hold_clues(number, pdf, date, url, write):
     return HELD_CLUES, "not written (--dry-run)"
 
 
+#: Most lights a post may restore to a clue list that left them out.
+MOST_RESTORED = 2
+
+
+def restore_from_post(pdf, post):
+    """Put back the clue a printing left out and the fifteensquared post
+    quotes (No 70: "the good old Guardian forgetting to put 1 across in the
+    print version ... the online version had the clue"). Only a light the
+    clue list lacks, with no mark or preamble saying it is unclued, and only
+    where the post's text opens a line "N words (count)" whose count is the
+    light's length and which no other line of the post satisfies."""
+    if not post or pdf.get("grid") is None or not pdf.get("clues"):
+        return []
+    lights = rg.light_cells(pdf["grid"])
+    listed = {l for c in pdf["clues"] for l in c["lights"]}
+    if not listed <= set(lights):
+        return []
+    gone = [l for l in lights if l not in listed and l not in pdf.get("marked", ())]
+    if not gone or len(gone) > MOST_RESTORED or UNCLUED_SAID.search(pdf.get("preamble") or ""):
+        return []
+    text = html.unescape(re.sub(r"<[^>]+>", "\n", post["content"]["rendered"]))
+    text = DASHES.sub("-", text)
+    restored = []
+    for light in gone:
+        n, d = light
+        found = set()
+        for m in re.finditer(rf"(?<![\d,/])\b{n}\s+([A-Z‘“\"'][^\n()]{{8,200}}?\((\d{{1,2}}(?:[,\-]\d{{1,2}})*)\))", text):
+            if clue_text.count_total(m.group(2)) == len(lights[light]):
+                found.add((m.group(1).strip(), m.group(2)))
+        if len(found) != 1:
+            return restored
+        clue, count = next(iter(found))
+        pdf["clues"].append({"lights": [light], "clue": clue, "enumeration": count})
+        restored.append(light)
+    pdf["clues"].sort(key=lambda c: (c["lights"][0][1] != "across", c["lights"][0][0]))
+    return restored
+
+
+def read_puzzle(n, post):
+    """read_pdf or read_article of puzzle n, with restore_from_post's clues."""
+    pdf = read_pdf(pdf_path(n)) if have_file("pdf", n) else read_article(n)
+    restore_from_post(pdf, post)
+    return pdf
+
+
 def file(write=True, numbers=None, log=print):
     """File every fetched PDF not yet in puzzles/, newest first.
     Returns (filed, {class: [numbers]}, counts)."""
@@ -1974,7 +2019,7 @@ def file(write=True, numbers=None, log=print):
             continue
         post = blog_post(posts.get(n))
         try:
-            pdf = read_pdf(pdf_path(n)) if have_file("pdf", n) else read_article(n)
+            pdf = read_puzzle(n, post)
             if pdf["clues"] and pdf["number"] in (None, n):
                 counts["parsed"] += 1
             if pdf["grid"] and not fpp.grid_matches(pdf["grid"], pdf["clues"]):
@@ -1988,17 +2033,17 @@ def file(write=True, numbers=None, log=print):
                 puzzle, why = (alt, None) if alt else (None, (why[0], f"{why[1]}; altered: {also}"))
             if why and why[0] in UNSOLVED_FALLBACK:
                 # Read afresh: the tries above share leaders and stand in counts.
-                fresh = read_pdf(pdf_path(n)) if have_file("pdf", n) else read_article(n)
+                fresh = read_puzzle(n, post)
                 fresh["setter"] = fresh["setter"] or post_setter(post)
                 bare, also = unsolved(n, fresh, date, idx[str(n)]["url"])
                 puzzle, why = (bare, None) if bare else (None, (why[0], f"{why[1]}; unsolved: {also[0]}"))
             if why and why[0] in SPECIAL_UNSOLVED:
-                fresh = read_pdf(pdf_path(n)) if have_file("pdf", n) else read_article(n)
+                fresh = read_puzzle(n, post)
                 fresh["setter"] = fresh["setter"] or post_setter(post)
                 bare, also = unsolved_special(n, fresh, date, idx[str(n)]["url"])
                 puzzle, why = (bare, None) if bare else (None, (why[0], f"{why[1]}; unsolved: {also}"))
             if why and why[0] in GRID_MISFIT and pdf["clues"]:
-                fresh = read_pdf(pdf_path(n)) if have_file("pdf", n) else read_article(n)
+                fresh = read_puzzle(n, post)
                 fresh["setter"] = fresh["setter"] or post_setter(post)
                 held, also = hold_clues(n, fresh, date, idx[str(n)]["url"], write)
                 why = (held, also) if held else (why[0], f"{why[1]}; not held: {also}")
