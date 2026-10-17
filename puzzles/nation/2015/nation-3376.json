@@ -1531,56 +1531,59 @@
      "indicators": [
       {
        "text": "getting into",
-       "note": "getting into something means going inside it, so these pieces enter the cunning word"
+       "at": 25,
+       "note": "getting into means these letters go inside the other piece"
       }
      ],
      "parts": [
       {
        "words": "cunning",
+       "at": 38,
        "gives": "ART",
-       "note": "art can mean craft or cunning"
+       "note": "art can mean cunning or trickery, as in artful"
       },
       {
        "op": "charade",
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "GU",
+         "op": "deletion",
          "indicators": [
           {
            "text": "Pair of",
-           "note": "a pair is two, so only the first two letters of the next word are kept"
+           "at": 0,
+           "note": "pair of means just two letters, the first two, of the word are kept and the rest dropped"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "gullible",
-           "gives": "GU",
-           "select": "first",
-           "note": "the first two letters of gullible"
+           "at": 8,
+           "note": "the word whose opening letters are kept"
+          },
+          {
+           "gives": "LLIBLE"
           }
          ]
         },
         {
          "words": "fellows",
+         "at": 17,
          "gives": "MEN",
-         "note": "fellows are men"
+         "note": "men are fellows, chaps"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two easily fooled chaps are drawn into a crafty quarrel.",
-     "walkthrough": "'Pair of' looks like it means two people, but it takes two letters; art in the old sense of craftiness is the cunning.",
-     "definitionFit": "An argument is a quarrel or disagreement, a straightforward synonym of dispute."
+     "surface": "Two naive men are drawn into a crafty quarrel.",
+     "walkthrough": "'Pair of' keeps the first two letters of gullible, GU; with MEN, 'getting into' puts them inside ART.",
+     "definitionFit": "An argument is a heated disagreement, which is what a dispute is."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Pair"
+     "misdirectedWord": "cunning"
     }
    }
   },
