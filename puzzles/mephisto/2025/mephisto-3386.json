@@ -1375,24 +1375,32 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "under",
+       "at": 23,
+       "note": "under places the reversed engineers below the half-roof in the down answer"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "RO",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half of",
-         "note": "half of means only the first part of the word is kept"
+         "at": 29,
+         "note": "half of means the four-letter word roof loses its second half, keeping only the first two letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "roof",
-         "gives": "RO",
-         "select": "first",
-         "note": "the first half of the word roof"
+         "at": 37,
+         "gives": "ROOF",
+         "note": "taken as written before it is halved"
+        },
+        {
+         "gives": "OF"
         }
        ]
       },
@@ -1401,25 +1409,28 @@
        "indicators": [
         {
          "text": "put up",
-         "note": "in a down entry, put up means written upward, so backwards"
+         "at": 16,
+         "note": "in a down clue, put up means the word for engineers is written bottom to top"
         }
        ],
        "parts": [
         {
          "words": "engineers",
+         "at": 6,
          "gives": "REME",
-         "note": "the Royal Electrical and Mechanical Engineers, a British Army corps"
+         "note": "REME is the Royal Electrical and Mechanical Engineers, a British Army corps"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Engineers install glass beneath a half-finished roof.",
-     "definitionFit": "A roemer, or rummer, is a large German wine goblet with a knobbed stem."
+     "surface": "Army engineers install glazing beneath part of a roof.",
+     "walkthrough": "'Glass' suggests a pane under a roof, but it is a drinking glass. 'Half of' roof leaves RO; REME, the Royal Electrical and Mechanical Engineers, is reversed by 'put up' to give EMER.",
+     "definitionFit": "A roemer is a large German wine goblet with a bulbous bowl and a prunted stem, a kind of drinking vessel."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Glass"
     }
