@@ -651,6 +651,38 @@ def pin_word_lengths(groups, across, down):
     return left
 
 
+def renumbered_by_grid(rows, grid):
+    """`rows` with each clue number the scan's grid shows no light for put
+    right (No 26's "3 (8)" for 8 across, the 8 misread), when the grid's
+    unnumbered-by-the-list lights of that direction pair with those clues
+    one way only by length. The caller keeps the result only if the grid
+    then prints the list exactly, so a wrong pairing files nothing."""
+    import reconstruct_grid as rg
+    lights = rg.lights_from_grid(grid)
+    out = {d: [dict(r) for r in rows.get(d) or []] for d in ("across", "down")}
+    for d in out:
+        have = {n: size for n, dd, size in lights if dd == d}
+        head = lambda r: re.split(r"\D+", str(r.get("number") or ""))[0]
+        bad = [r for r in out[d] if head(r).isdigit() and int(head(r)) not in have]
+        free = sorted(set(have) - {int(head(r)) for r in out[d] if head(r).isdigit()})
+        if not bad or len(bad) != len(free):
+            continue
+
+        def size(r):
+            nums = re.findall(r"\d+", r.get("enumeration") or "")
+            return sum(map(int, nums)) if nums and "," not in str(r.get("number")) else None
+        import itertools
+        fits = [perm for perm in itertools.permutations(free)
+                if all(size(r) in (None, have[n]) for r, n in zip(bad, perm))]
+        if len(fits) != 1:
+            continue
+        for r, n in zip(bad, fits[0]):
+            tail = str(r["number"])[len(head(r)):]
+            r["number"] = f"{n}{tail}"
+        out[d].sort(key=lambda r: int(head(r)) if head(r).isdigit() else 0)
+    return out
+
+
 def from_rows(num, rows, answers=None, image=None, fixes=None, jumbo=None):
     """A puzzle with no answers from light_spec rows, its grid rebuilt from
     the clue numbers and enumerations (as tools/fetch_nation.py does).
@@ -679,6 +711,16 @@ def from_rows(num, rows, answers=None, image=None, fixes=None, jumbo=None):
         for r in rows["across"] + rows["down"]:
             if r.get("clue") == "See Preamble" and not r.get("enumeration"):
                 r["enumeration"] = jumbo["unclued"]["enumeration"]
+    if image:
+        fixed_rows = renumbered_by_grid(rows, image)
+        if fixed_rows != rows:
+            f_across, f_down, _n, f_damage = light_spec.build_spec(fixed_rows)
+            f_spec = [(lg[0], d, None if lg[2].startswith("linked") else lg[1])
+                      for d, lights in (("across", f_across), ("down", f_down)) for lg in lights]
+            if not f_damage and not grid_misfits(image, f_spec):
+                print(f"  cyclops-{num}: clue numbers the scan's grid shows no light for "
+                      f"renumbered by its lengths")
+                rows = fixed_rows
     across, down, _notes, damage = light_spec.build_spec(rows)
     if damage:
         return None, "clue list damaged: " + "; ".join(damage)
