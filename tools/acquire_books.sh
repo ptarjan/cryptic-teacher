@@ -40,6 +40,10 @@
 # ~/.config/household/plugins/cryptic-books; after an edit run
 # `tools/plugins.py --write` in the household repo. Never a second cron.
 set -uo pipefail
+# The whole job yields to the bridge.
+# A setsid'd job is its own autogroup, which the CPU is shared between by the
+# group's nice: renice alone only ranks it inside the group, so lower both.
+/app/tools/deprioritize.sh -q 19 $$ 2>/dev/null || renice -n 19 $$ >/dev/null
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
 # A tick runs in the tree acquire_books and reads only the ledgers; a unit
