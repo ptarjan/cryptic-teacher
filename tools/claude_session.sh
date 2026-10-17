@@ -76,6 +76,9 @@ $_task"
 # into the memory directory. The 5-minute cache, because nine turn gaps in ten
 # are under 90s and a 1-hour cache write is billed at the higher rate.
 export CLAUDE_CODE_DISABLE_AUTO_MEMORY=1 CLAUDE_CODE_PROMPT_CACHE_TTL=5m
+# No gitStatus block in the context: building it runs `git status`, which costs
+# minutes of CPU per run in this repo and nothing here reads it.
+export CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS=1
 # A -p run exits when the model ends its turn, so a command it backgrounds (or
 # that the 2-minute Bash timeout backgrounds for it) never reports back and the
 # work after it never happens. Every command runs in the foreground, with room

@@ -27,3 +27,9 @@ unset CLAUDECODE CLAUDE_PID CLAUDE_EFFORT CLAUDE_MODEL CLAUDE_AGENT_SDK_VERSION 
   CLAUDE_CODE_MESSAGING_SOCKET CLAUDE_CODE_MESSAGING_TOKEN CLAUDE_CODE_SHELL_PREFIX \
   CLAUDE_CODE_SESSION_ATTENDED CLAUDE_CODE_EXECPATH CLAUDE_CODE_TMPDIR \
   CLAUDE_CODE_STREAM_CLOSE_TIMEOUT CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION
+
+# Claude Code builds a gitStatus block for its context by running `git status`
+# in the cwd: 1.5-3 minutes of CPU in this repo, the biggest single
+# load-average cost of every burn, and no job here reads it. Verified: with
+# this set, no git child appears during a run.
+export CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS=1
