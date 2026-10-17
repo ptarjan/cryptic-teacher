@@ -648,6 +648,16 @@ same("a linked answer takes the tail its column broke off",
      [("11", "across", "NYE"), ("12/14", "across", "FEELGOODFACTOR"), ("24", "across", "SANTA"),
       ("25", "across", "IRAN"), ("28", "across", "SEE"), ("16", "across", "BOBGELDOF")])
 
+# Printed solution of No 20: "6/20d" with a direction letter, "18Hess_20" with
+# an underscore for the space, "22.Panorama", "8S and M".
+same("a scan's one-letter start, stop, underscore and link letter still read",
+     _PW.answer_rows("6/20d Kenneth Clarke 17 Bust 18Hess_20 Clever dick 22.Panorama 23 On heat", "across"),
+     [("6/20", "across", "KENNETHCLARKE"), ("17", "across", "BUST"), ("18", "across", "HESS"),
+      ("20", "across", "CLEVERDICK"), ("22", "across", "PANORAMA"), ("23", "across", "ONHEAT")])
+same("a number run into a one-letter answer start",
+     _PW.answer_rows("7 Home Secretary 8S and M 14 The Hague", "down"),
+     [("7", "down", "HOMESECRETARY"), ("8", "down", "SANDM"), ("14", "down", "THEHAGUE")])
+
 if fails:
     print(f"reconstruct_grid: {fails} FAILED")
 else:

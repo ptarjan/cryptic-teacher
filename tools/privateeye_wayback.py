@@ -216,6 +216,13 @@ def answer_rows(part, direction):
     part = re.sub(r"\s[-\u2013\u2014~]+(?=\d)", " ", part)
     # "12Ethelred", "28See.": the scan ran the number into its answer (No 27, 61).
     part = re.sub(r"(?:(?<=\s)|^)(\d{1,2})(?=[A-Za-z]{2,})", r"\1 ", part)
+    # "8S and M", "22.Panorama", "18Hess_20 Clever dick", "6/20d Kenneth Clarke"
+    # (No 20): a one-letter start, a full stop or an underscore the scan put
+    # for the space, and the direction letter a link's tail may carry.
+    part = re.sub(r"(?:(?<=\s)|^)(\d{1,2})(?=[A-Za-z]\s)", r"\1 ", part)
+    part = re.sub(r"(?:(?<=\s)|^)(\d{1,2})\.(?=[A-Z])", r"\1 ", part)
+    part = re.sub(r"(?<=[A-Za-z])[_|](?=\d)", " ", part)
+    part = re.sub(r"(?:(?<=\s)|^)(\d{1,2}(?:/\d{1,2})*/\d{1,2})[ad]\b", r"\1", part)
     seen = set()
     for key, words in ANSWER.findall(part):
         words = _unjunk(words)
