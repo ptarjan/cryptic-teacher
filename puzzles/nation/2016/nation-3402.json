@@ -570,26 +570,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HANG",
+     "op": "middle",
      "indicators": [
       {
        "text": "boundless",
-       "note": "without bounds means having no edges, so the first and last letters are lost"
+       "at": 8,
+       "note": "boundless means without bounds, so the word loses its first and last letters"
       }
      ],
      "parts": [
       {
        "words": "variation",
+       "at": 18,
        "gives": "CHANGE",
-       "note": "a variation is a change"
+       "note": "a change is a variation"
       }
      ]
     },
     "explanation": {
-     "surface": "A call to put on hold an open-ended change of plan.",
-     "definitionFit": "To hang something is to suspend it from above, a direct verb synonym."
+     "surface": "A call to halt endless tinkering with something.",
+     "walkthrough": "'boundless' strips both ends off CHANGE.",
+     "definitionFit": "To hang something is to suspend it from above, as with a picture or a lamp."
     },
     "features": {
      "answerInScene": false,
@@ -1655,43 +1656,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HIPSTER",
+     "op": "charade",
      "indicators": [
       {
-       "text": "dissolute",
-       "note": "a dissolute life lacks order and restraint, so the letters lose their order"
+       "text": "After",
+       "at": 0,
+       "note": "after places what follows behind the abbreviation for hours"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "hours",
+       "at": 6,
+       "gives": "H"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dissolute",
+         "at": 13,
+         "note": "dissolute means loose-living and dissolved, so these letters break up and re-form"
+        }
+       ],
        "parts": [
         {
-         "words": "hours",
-         "gives": "H",
-         "note": "h is the abbreviation for hours"
-        },
-        {
          "words": "priest",
-         "gives": "IPSTER",
-         "note": "the six letters rearranged"
+         "at": 23
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A priest who goes wild after dark turns into a trendy type.",
-     "walkthrough": "'After hours' reads as late at night, but after only places the H first.",
-     "definitionFit": "A hipster follows the latest fashions and trends, the idiom for being up to date."
+     "surface": "A clergyman who lets himself go after dark and turns trendy.",
+     "walkthrough": "'dissolute' rearranges PRIEST into IPSTER, which 'After' puts behind H (hours).",
+     "definitionFit": "A hipster follows the latest fashions; being with it means being up to date and trendy."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "After"
+     "misdirectedWord": "dissolute"
     }
    }
   },
