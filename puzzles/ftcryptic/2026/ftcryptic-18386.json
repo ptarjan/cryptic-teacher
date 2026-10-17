@@ -1389,47 +1389,31 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SOS",
+     "op": "alternate",
      "indicators": [
       {
-       "text": "rejected",
-       "note": "something rejected is sent back, so the letters are read in the other direction"
+       "text": "regularly rejected",
+       "at": 7,
+       "note": "regularly rejected means every second letter of Spouse is thrown out, leaving the others"
       }
      ],
      "parts": [
       {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "SOS",
-       "indicators": [
-        {
-         "text": "regularly",
-         "note": "at regular intervals means every other letter, so alternate ones are kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Spouse",
-         "gives": "SOS",
-         "select": "alternate",
-         "note": "the first, third and fifth letters"
-        }
-       ]
+       "words": "Spouse",
+       "at": 0,
+       "note": "its first, third and fifth letters"
       }
      ]
     },
     "explanation": {
-     "surface": "A husband or wife who keeps being turned down calls out for assistance.",
-     "walkthrough": "The letters read the same both ways, so turning them back changes nothing.",
-     "definitionFit": "The Morse distress signal is the international call for rescue, so it is a plea for assistance."
+     "surface": "A spouse keeps turning down a partner's pleas for help.",
+     "walkthrough": "With P, U and E 'regularly rejected', Spouse leaves S, O, S.",
+     "definitionFit": "SOS is the international distress signal, an urgent call for rescue or assistance."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "regularly"
+     "misdirectedWord": "rejected"
     }
    }
   },
