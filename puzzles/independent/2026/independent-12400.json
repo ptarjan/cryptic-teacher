@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -46,36 +47,48 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "most of a word is all of it bar the last letter, which is the bit left behind here"
+       "text": "after conversion",
+       "at": 30,
+       "note": "a conversion changes a thing's form, so the pooled letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "after conversion",
-         "note": "converting something turns it into a different thing, and letters that have been converted no longer stand in the order they were given"
+         "text": "mostly",
+         "at": 14,
+         "note": "most of the word, so its last letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "son",
-         "gives": "SO",
-         "note": "the word with its final letter left off"
+         "at": 10,
+         "gives": "SON",
+         "note": "taken as written before it is shortened"
         },
         {
-         "words": "purified",
-         "note": "eight more letters of fodder, taken straight from the clue"
+         "gives": "N"
         }
        ]
+      },
+      {
+       "words": "purified",
+       "at": 21
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a tale of religious redemption, and both halves of it are fodder: a word docked of one letter, then a whole word, ten letters between them.",
-     "definitionFit": "Faithless -> PERFIDIOUS: someone perfidious breaks the trust they were given, which is faithlessness at its most treacherous."
+     "surface": "A son who has converted to a new faith, purified by it, is seen by his old faith as a traitor.",
+     "walkthrough": "'mostly' cuts SON to SO; add PURIFIED and rearrange all ten letters.",
+     "definitionFit": "Perfidious means treacherous or deceitful, breaking faith with others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "conversion"
     }
    }
   },
@@ -97,17 +110,23 @@
      {
       "text": "Butt",
       "at": 0,
-      "meaning": "in old measures a butt is a cask of ale or wine holding around a hundred gallons, nothing to do with cigarettes"
+      "meaning": "first meaning: a butt and a ... are both large casks for wine"
      },
      {
-      "text": "which smoker will use repeatedly",
+      "text": "which smoker will use repeatedly?",
       "at": 5,
-      "meaning": "the second sense is the one at the bar, refilled night after night rather than thrown away"
+      "meaning": "second meaning: the tobacco ..., refilled and smoked again and again, unlike a cigarette"
      }
     ],
     "explanation": {
-     "walkthrough": "'Butt' invites the cigarette end, and that is the wrong smoking word entirely: it is the cask sense, which is why the answer is a thing you do not stub out.",
-     "definitionFit": "Butt -> PIPE: both name a large cask of wine or ale; the second definition is the tobacco one, used again and again where a cigarette is used once."
+     "walkthrough": "'Butt' tempts towards a cigarette end, but it is also a big wine barrel, and so is the answer.",
+     "definitionFit": "A pipe is both an old measure of cask for wine or port and the reusable bowl-and-stem device for smoking tobacco."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Butt"
     }
    }
   },
@@ -136,24 +155,30 @@
      "indicators": [
       {
        "text": "being processed",
-       "note": "something still being processed has not settled into its final shape, so its letters are free to land anywhere"
+       "at": 18,
+       "note": "data being processed is worked over and reordered, so these letters are shuffled"
       }
      ],
      "parts": [
       {
        "words": "queries",
-       "note": "seven letters of fodder"
+       "at": 10
       },
       {
-       "words": "with IT",
-       "gives": "IT",
-       "note": "the capitals are the computing department, and both letters join the shuffle"
+       "words": "IT",
+       "at": 39
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A helpdesk surface: queries going through IT. The capital letters look like emphasis and are really just two more letters for the pile.",
-     "definitionFit": "Essential -> REQUISITE: a requisite condition is one required before anything else can follow, the same adjective sense as essential."
+     "surface": "A help-desk note: handling queries with the IT department is vital.",
+     "walkthrough": "Pool QUERIES and IT and rearrange them.",
+     "definitionFit": "Requisite as an adjective means necessary or required, the same as essential."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "processed"
     }
    }
   },
@@ -187,36 +212,46 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "finally",
-       "note": "what a word comes to finally is its closing letter, and that single letter is all that is taken"
+       "text": "after",
+       "at": 21,
+       "note": "after puts the single letter behind the Roman dates in the answer"
       }
      ],
      "parts": [
       {
        "words": "Roman dates",
+       "at": 27,
        "gives": "IDES",
-       "note": "the Ides were fixed days in the Roman month, the middle of March being the famous one"
+       "note": "the Ides were fixed dates in the Roman calendar, the 15th or 13th of the month"
       },
       {
        "op": "last",
        "indicators": [
         {
-         "text": "after",
-         "note": "what follows after something is written behind it, so this letter joins on at the end"
+         "text": "finally",
+         "at": 8,
+         "note": "finally takes only the last letter of the word lost"
         }
        ],
        "parts": [
         {
          "words": "lost",
-         "note": "the closing letter of the word"
+         "at": 16,
+         "note": "the last letter of the word lost"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The clue pretends to be about something mislaid on a calendar. Latin lives on in English as the abbreviation i.e., which is what the two words shorten to.",
-     "definitionFit": "That is -> ID EST: the Latin phrase abbreviated to i.e., used to introduce a restatement of what has just been said."
+     "surface": "A historian concluding that a record was lost after certain Roman dates.",
+     "walkthrough": "'finally' gives T, the end of 'lost', which goes 'after' IDES.",
+     "definitionFit": "Id est is the Latin phrase, abbreviated i.e., meaning that is to say."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finally"
     }
    }
   },
@@ -242,7 +277,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Pub swinger",
+      "text": "Pub swinger?",
       "at": 0
      }
     ],
@@ -250,14 +285,21 @@
      "op": "cryptic",
      "parts": [
       {
-       "words": "Pub swinger",
-       "note": "the surface sense is a person with an adventurous love life, propping up the bar; read flatly instead: the painted board hanging from a bracket over the pavement, which really does swing in the wind"
+       "words": "Pub swinger?",
+       "at": 0,
+       "note": "not a person who swings at the pub but the board hanging from a bracket outside it, swinging in the wind"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two words and no wordplay to take apart, so the work is choosing which sense of 'swinger' the setter means. The question mark is the nudge.",
-     "definitionFit": "Pub swinger -> INN SIGN: the painted board naming a pub hangs from a bracket and swings, so the whole clue is one deadpan description of it."
+     "walkthrough": "A 'swinger' suggests a lively person, but the thing that swings at a pub is the painted board hung outside.",
+     "definitionFit": "A traditional British pub announces its name with a painted board that hangs and swings above the door."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "swinger"
     }
    }
   },
@@ -283,33 +325,35 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "At Le Moulin Rouge",
-       "note": "the Moulin Rouge is a Paris cabaret, so the little words that follow are to be taken in French"
-      }
-     ],
      "parts": [
       {
-       "words": "a",
+       "words": "At Le Moulin Rouge, a",
+       "at": 0,
        "gives": "UN",
-       "note": "the French indefinite article"
+       "note": "at the Paris cabaret one speaks French, and the French for a is un"
       },
       {
        "words": "monsieur",
-       "gives": "M",
-       "note": "M. is how the title is abbreviated in French, as Mr is in English"
+       "at": 22,
+       "gives": "M"
       },
       {
        "words": "requests",
+       "at": 31,
        "gives": "ASKS",
-       "note": "to request something is to ask for it"
+       "note": "asks means requests"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A masked ball at a cabaret is the picture, and it is doing double duty: the setting is the instruction to think in French for the first two pieces.",
-     "definitionFit": "reveals -> UNMASKS: to unmask someone is to pull the disguise off them, revealing what the mask was there to hide."
+     "surface": "A scene at the famous Paris cabaret where a gentleman asks for something, and something is exposed.",
+     "walkthrough": "The Moulin Rouge is a Paris cabaret, which puts the 'a' into French.",
+     "definitionFit": "To unmask someone is to reveal their true identity or nature, stripping away a disguise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "requests"
     }
    }
   },
@@ -338,25 +382,33 @@
      "indicators": [
       {
        "text": "chambers",
-       "note": "to chamber something is to shut it in a room, so the letter beside it ends up enclosed rather than tacked on"
+       "at": 27,
+       "note": "to chamber is to house in a room, so the jug holds the single letter inside it"
       }
      ],
      "parts": [
       {
        "words": "cooler",
+       "at": 20,
        "gives": "JUG",
-       "note": "cooler and jug are both prison slang, so one can stand in for the other"
+       "note": "cooler and jug are both slang for prison"
       },
       {
        "words": "new",
-       "gives": "N",
-       "note": "the usual single-letter abbreviation"
+       "at": 15,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Cooler chambers' reads like refrigeration and is two separate jobs: a slang word for jail, and an instruction to put something inside it.",
-     "definitionFit": "Psychiatrist -> JUNG: Carl Jung was a Swiss psychiatrist, so the definition names a profession and the answer is one man who practised it."
+     "surface": "A boast that a psychiatrist's consulting rooms are fresh and air-conditioned.",
+     "walkthrough": "'cooler' and 'jug' are both slang for prison; 'chambers' houses N inside JUG. The 's is a link: the psychiatrist is the answer.",
+     "definitionFit": "Carl Jung was the Swiss psychiatrist who founded analytical psychology."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cooler"
     }
    }
   },
@@ -384,30 +436,47 @@
      "op": "container",
      "indicators": [
       {
-       "text": "barely",
-       "note": "a bare thing has had its covering taken off, and here the covering is the letter at each end"
-      },
-      {
        "text": "suppresses",
-       "note": "to suppress a thing is to hold it down out of sight, which puts it inside what is doing the holding"
+       "at": 48,
+       "note": "to suppress is to hold down and contain, so the trimmed ruler holds the resistance letter"
       }
      ],
      "parts": [
       {
-       "words": "Middle Eastern ruler",
-       "gives": "ULTA",
-       "note": "the ruler is a SULTAN, stripped of the letter at each end"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "barely",
+         "at": 41,
+         "note": "barely, as in stripped bare, takes off the outer letters of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Middle Eastern ruler",
+         "at": 20,
+         "gives": "SULTAN",
+         "note": "a sultan is a Muslim sovereign, as in Oman"
+        }
+       ]
       },
       {
        "words": "resistance",
+       "at": 8,
        "gives": "R",
-       "note": "R is the physicist's symbol for resistance"
+       "note": "R is the physics symbol for electrical resistance"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Extreme resistance' reads as one phrase in the surface and splits in the parse: the first word defines, the second is a single letter to be buried.",
-     "definitionFit": "Extreme -> ULTRA: as an adjective ultra means beyond the normal limit, the sense you hear in ultra-cautious or ultra-modern."
+     "surface": "A Gulf sultan only just managing to crush an extremist resistance movement.",
+     "walkthrough": "'barely' strips SULTAN to ULTA, and 'suppresses' puts R inside it.",
+     "definitionFit": "Ultra as an adjective means extreme, especially in political or religious views."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "barely"
     }
    }
   },
@@ -429,17 +498,23 @@
      {
       "text": "Fruit",
       "at": 0,
-      "meaning": "the sharp green fruit of a thorny garden bush, the one that goes into fools and crumbles"
+      "meaning": "first meaning: the hairy green berry used in fools and jams"
      },
      {
-      "text": "company discomfiting lovers",
+      "text": "company discomfiting lovers?",
       "at": 6,
-      "meaning": "in British usage, to play this is to be the third person tagging along with a courting couple"
+      "meaning": "second meaning: an unwanted third person tagging along with a couple"
      }
     ],
     "explanation": {
-     "walkthrough": "'Fruit company' looks like one phrase and a possible tech joke. Split it after the first word and both halves define the answer.",
-     "definitionFit": "Fruit -> GOOSEBERRY: the green garden berry; the second definition is the idiom, where playing gooseberry means being the unwanted third with a couple."
+     "walkthrough": "To 'play gooseberry' is a British idiom for being the awkward third party with a courting couple.",
+     "definitionFit": "The word names both a tart berry and the superfluous companion who spoils a romantic pair's privacy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "company"
     }
    }
   },
@@ -459,7 +534,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "star",
+      "text": "star?",
       "at": 39
      }
     ],
@@ -467,44 +542,55 @@
      "op": "charade",
      "parts": [
       {
+       "words": "Hydrogen",
+       "at": 0,
+       "gives": "H",
+       "note": "H is the chemical symbol for hydrogen"
+      },
+      {
        "op": "first",
        "indicators": [
         {
          "text": "originally",
-         "note": "a word originally is a word at its origin, meaning only the letter it starts with"
+         "at": 17,
+         "note": "originally takes the opening letter of the word emitted"
         }
        ],
        "parts": [
         {
-         "words": "Hydrogen",
-         "note": "the chemical symbol"
+         "words": "emitted",
+         "at": 9,
+         "note": "the first letter of the word emitted"
         }
        ]
       },
       {
-       "words": "emitted",
-       "gives": "E",
-       "note": "the opening letter of the word"
-      },
-      {
        "words": "by",
+       "at": 28,
        "gives": "X",
-       "note": "three by four is three x four, so 'by' is the multiplication sign"
+       "note": "X is the multiplication sign, read as by in 3 x 4"
       },
       {
        "words": "a",
-       "note": "taken as it stands"
+       "at": 31
       },
       {
        "words": "pulse",
+       "at": 33,
        "gives": "GRAM",
-       "note": "gram is the chickpea, one of the pulses, and a staple word in Indian cooking"
+       "note": "gram is a pulse, the chickpea"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface builds an astronomy picture out of five separate pieces, one of them a letter hiding as an ordinary preposition. A pulsar is the thing you are meant to see.",
-     "definitionFit": "star -> HEXAGRAM: the six-pointed star made of two overlapping triangles, the shape of the Star of David."
+     "surface": "An astronomy note on a pulsating star giving off hydrogen.",
+     "walkthrough": "'pulse' is not a heartbeat but an edible seed: gram is the chickpea. 'by' is X as in a dimension, three by four.",
+     "definitionFit": "A hexagram is a six-pointed star formed by two overlapping triangles, such as the Star of David."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pulse"
     }
    }
   },
@@ -533,35 +619,46 @@
      "indicators": [
       {
        "text": "to lose",
-       "note": "what is lost is gone from the word altogether, not moved somewhere else in it"
+       "at": 16,
+       "note": "losing a letter means it is removed from the name"
       }
      ],
      "parts": [
       {
        "words": "Nelson on track",
+       "at": 0,
        "gives": "PIQUET",
-       "note": "Nelson Piquet won three Formula One titles, so the Nelson on a track is the Brazilian, not the admiral"
+       "note": "Nelson Piquet was a Brazilian Formula One world champion racing driver"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "a word taken initially gives up only the letter it begins with"
+         "at": 35,
+         "note": "initially takes the first letter of Trafalgar"
         }
        ],
        "parts": [
         {
          "words": "Trafalgar",
-         "note": "its opening letter is the one that has to go"
+         "at": 24,
+         "note": "the first letter of the word Trafalgar"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Nelson and Trafalgar pull hard towards the sea battle, and that is the trap: the naval hero has nothing to do with it beyond lending his first name to a racing driver.",
-     "definitionFit": "upset -> PIQUE: pique is the flare of wounded pride you feel at being slighted, as in a fit of pique."
+     "surface": "Admiral Nelson, sure to lose Trafalgar, is left upset: a gleeful rewrite of history.",
+     "walkthrough": "The obvious Nelson is the admiral of Trafalgar; 'on track' points to the racing driver Nelson Piquet. 'to lose' drops T, the first letter of Trafalgar.",
+     "definitionFit": "Pique is irritation or resentment from wounded pride, the feeling of being upset or put out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nelson"
     }
    }
   },
@@ -596,13 +693,14 @@
      "parts": [
       {
        "words": "name",
-       "gives": "N",
-       "note": "the standard abbreviation, as on a form"
+       "at": 7,
+       "gives": "N"
       },
       {
        "words": "Brown",
+       "at": 13,
        "gives": "UMBER",
-       "note": "umber is an earth pigment, the brown of raw and burnt umber on a paint chart"
+       "note": "umber is a brown earth pigment"
       },
       {
        "op": "homophone",
@@ -610,22 +708,30 @@
        "indicators": [
         {
          "text": "pronounced",
-         "note": "a word that is pronounced reaches you as a sound, so the ear rather than the page decides how the last piece is spelt"
+         "at": 33,
+         "note": "pronounced tells us the word is spoken aloud, and spelt by its sound-alike"
         }
        ],
        "parts": [
         {
          "words": "ridiculously",
+         "at": 20,
          "gives": "TOO",
-         "note": "ridiculously expensive is too expensive, so the adverb means the same as the word you say here"
+         "note": "too means excessively, as in too big, ridiculously so"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface hands you a former Prime Minister and a middle name, and neither is wanted: 'Brown' is a colour and the last piece is a sound, not a spelling.",
-     "definitionFit": "Second -> NUMBER TWO: whoever is number two in a ranking is the second one, and the phrase also names an organisation's deputy."
+     "surface": "Someone whose middle name is Brown, which is said in a silly way.",
+     "walkthrough": "'Brown' looks like a surname; it is the pigment umber. 'ridiculously' gives TOO, which said aloud is TWO.",
+     "definitionFit": "A number two is a deputy or second-in-command, the person ranked second."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brown"
     }
    }
   },
@@ -645,51 +751,44 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Plaits braided either side of one girl's head",
+      "text": "Plaits braided either side of one girl's head?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "anagram",
      "indicators": [
       {
        "text": "braided",
-       "note": "braiding interlaces strands so that none of them stays where it started, which is what the letters do here"
+       "at": 7,
+       "note": "braiding weaves strands together, so these letters are interwoven in a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "either side of",
-         "note": "the shuffled letters split into two groups and sit on both sides, leaving a gap in the middle for what follows"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Plaits",
-         "note": "six letters of fodder, counted before they are rearranged"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral"
-        }
-       ]
+       "words": "Plaits",
+       "at": 0
+      },
+      {
+       "words": "one",
+       "at": 30,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "head",
-         "note": "the head of a word is the letter at its front, and only that letter is taken"
+         "at": 41,
+         "note": "head of a word is its first letter"
         }
        ],
        "parts": [
         {
          "words": "girl's",
-         "note": "the letter at the front of the word"
+         "at": 34,
+         "note": "the first letter, the head, of the word girl's"
         }
        ]
       }
@@ -697,8 +796,13 @@
     },
     "andLit": true,
     "explanation": {
-     "walkthrough": "Every word works twice: read once it is a plain description of a hairstyle, read again it is fodder, a numeral and an initial with instructions on where each goes.",
-     "definitionFit": "The whole clue reads straight: plaits braided on either side of a girl's head are exactly what the answer names, which is why nothing is left over."
+     "surface": "A picture of a girl with two braids, one either side of her head.",
+     "walkthrough": "Weave PLAITS together with I and G (the girl's head) to get the hairstyle, which the whole clue describes.",
+     "definitionFit": "Pigtails are two plaits or bunches of hair hanging one on each side of the head."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
     }
    }
   },
@@ -723,41 +827,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AMAZE",
-     "indicators": [
-      {
-       "text": "swept clear of",
-       "note": "sweeping a place clear of something removes it entirely, so that letter is gone from the word it sat in"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "area",
+       "at": 6,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "swept clear of",
+         "at": 13,
+         "note": "sweeping clear removes something, so the letter I is taken out of the grain"
+        }
+       ],
        "parts": [
         {
-         "words": "area",
-         "gives": "A",
-         "note": "the usual abbreviation, as in the formula for a rectangle"
-        },
-        {
          "words": "corn",
-         "gives": "MAZE",
-         "note": "corn here is MAIZE, the crop, once one letter has been taken out of it"
+         "at": 28,
+         "gives": "MAIZE",
+         "note": "maize is corn"
         },
         {
-         "unchecked": true,
          "words": "I",
-         "note": "this is the letter that gets swept out, standing in the clue as an innocent pronoun"
+         "at": 11
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A farmyard surface of threshing floors and swept grain. 'Floor' is at the front doing the defining, in its knocked-flat sense rather than anything underfoot.",
-     "definitionFit": "Floor -> AMAZE: to floor someone is to knock them flat, and figuratively that blow leaves them astonished."
+     "surface": "Someone sweeping corn off a floor area.",
+     "walkthrough": "'Floor' looks like a noun in this farm scene; it is the verb, to stun.",
+     "definitionFit": "To floor someone is to astonish or stagger them, which is what amaze means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Floor"
     }
    }
   },
@@ -786,23 +895,30 @@
      "indicators": [
       {
        "text": "snarled",
-       "note": "traffic snarled up is tangled into a knot, and tangled letters keep none of their original order"
+       "at": 8,
+       "note": "traffic that is snarled is tangled up, so these letters are jumbled"
       }
      ],
      "parts": [
       {
        "words": "LA road",
-       "note": "six letters of fodder, the city abbreviated as it always is"
+       "at": 0
       },
       {
        "words": "vans",
-       "note": "four more letters joining the tangle"
+       "at": 21
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A Los Angeles traffic jam on the surface, and the setter has picked the one American city whose initials are also fodder. 'Snarled' does the work of both pictures.",
-     "definitionFit": "from Central America -> SALVADORAN: a Salvadoran comes from El Salvador, so the answer is one Central American nationality among several."
+     "surface": "A Los Angeles road jammed with vans heading up from Central America.",
+     "walkthrough": "Pool LA ROAD and VANS and untangle them.",
+     "definitionFit": "Salvadoran means from El Salvador, a country in Central America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "snarled"
     }
    }
   },
@@ -831,51 +947,63 @@
      "indicators": [
       {
        "text": "about",
-       "note": "an article written about a subject goes round it, and here the two letters do that literally, closing round everything else"
+       "at": 8,
+       "note": "about means around, so the article is put round the rest"
       }
      ],
      "parts": [
+      {
+       "words": "Article",
+       "at": 0,
+       "gives": "AN",
+       "note": "an is the indefinite article"
+      },
       {
        "op": "container",
        "indicators": [
         {
          "text": "touring",
-         "note": "to tour a place is to travel round its edges, so the piece doing the touring wraps itself round what comes next"
+         "at": 26,
+         "note": "the wine and circle go round the grand letter as a tourist travels round a place"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "charade",
          "parts": [
           {
-           "words": "Article",
-           "gives": "AN",
-           "note": "the indefinite article written out in full"
+           "words": "wine",
+           "at": 14,
+           "gives": "VIN",
+           "note": "vin is French for wine"
           },
           {
-           "words": "wine",
-           "gives": "VIN",
-           "note": "French for wine, which the southern setting invites"
+           "words": "circle",
+           "at": 19,
+           "gives": "O",
+           "note": "O is circle-shaped"
           }
          ]
         },
         {
-         "words": "circle",
-         "gives": "O",
-         "note": "the letter you draw as a ring"
+         "words": "grand",
+         "at": 34,
+         "gives": "G",
+         "note": "G is slang for a grand, a thousand pounds"
         }
        ]
-      },
-      {
-       "words": "grand",
-       "gives": "G",
-       "note": "a grand is a thousand, and G is how the slang is written"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two insertions, one inside the other: the wine word opens up for a single letter, and the article closes round the lot. The surface is a wine-tasting trip.",
-     "definitionFit": "Provençal location -> AVIGNON: the walled papal city on the Rhone, in Provence, so the definition names the region and the answer one place in it."
+     "surface": "A travel piece on a wine tour taking in a grand location in Provence.",
+     "walkthrough": "'touring' puts G inside VIN + O to give VIGNO, and 'about' wraps AN around that.",
+     "definitionFit": "Avignon is a historic city in Provence, southern France, once seat of the popes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "circle"
     }
    }
   },
@@ -904,19 +1032,26 @@
      "indicators": [
       {
        "text": "Blast",
-       "note": "a blast blows a thing to pieces, and the pieces do not come down in the order they went up"
+       "at": 0,
+       "note": "a blast blows things apart, so these letters are scattered and reassembled"
       }
      ],
      "parts": [
       {
        "words": "on site is",
-       "note": "eight letters of fodder, three little words of the clue running together"
+       "at": 6
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Blast on site' is a building-works headline, and the first word is the instruction rather than part of it. The definition is the superlative at the end.",
-     "definitionFit": "most deafening -> NOISIEST: the loudest of a group is the one whose noise comes nearest to deafening you."
+     "surface": "A building-site explosion is the loudest thing around.",
+     "walkthrough": "'Blast' reads as the noise itself; here it blows ON SITE IS into a new order.",
+     "definitionFit": "Noisiest is the superlative of noisy, so the loudest and most ear-splitting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Blast"
     }
    }
   },
@@ -945,25 +1080,34 @@
      "indicators": [
       {
        "text": "cutting",
-       "note": "cutting something out of a word takes it away, leaving the letters on either side to close up"
+       "at": 14,
+       "note": "cutting something removes it, so the motorway letter comes out"
       }
      ],
      "parts": [
       {
        "words": "Screw up",
+       "at": 0,
        "gives": "SCRUMPLE",
-       "note": "to scrumple a piece of paper is to screw it up into a crushed ball"
+       "note": "scrumple is a British dialect word for crumple or screw up paper"
       },
       {
        "words": "motorway",
+       "at": 22,
        "gives": "M",
-       "note": "British motorways are numbered with an M, as in the M1 and the M25, and that letter is the one cut"
+       "note": "M is the abbreviation for motorway, as in M1"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface has roadworks in it, which is exactly what the parse needs you to forget. The long word for crumpling is the one to find first.",
-     "definitionFit": "reservation -> SCRUPLE: a scruple is the moral hesitation that holds you back, the same sense as having reservations about doing something."
+     "surface": "A motorist fluffing a booking while cut up on the motorway.",
+     "walkthrough": "SCRUMPLE, an old British word for crumple, loses the M given by 'cutting motorway'. 'Reservation' is a doubt, not a booking.",
+     "definitionFit": "A scruple is a moral doubt or hesitation, a reservation about whether something is right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reservation"
     }
    }
   },
@@ -992,30 +1136,40 @@
      "indicators": [
       {
        "text": "bearing",
-       "note": "whatever bears a load sits underneath it, and underneath in a down entry means at the bottom of the column"
+       "at": 11,
+       "note": "in a down answer the scientists sit underneath and bear the other pieces on top"
       }
      ],
      "parts": [
       {
        "words": "crucible",
+       "at": 19,
        "gives": "POT",
-       "note": "a crucible is the pot a chemist melts things in"
+       "note": "a crucible is a pot for heating metals"
       },
       {
        "words": "spill",
+       "at": 28,
        "gives": "POUR",
-       "note": "to spill liquid is to pour it out, deliberately or not"
+       "note": "to pour is to spill out"
       },
       {
        "words": "Scientists",
+       "at": 0,
        "gives": "RI",
-       "note": "the RI is the Royal Institution in London, the body Faraday worked at and where the Christmas Lectures are given"
+       "note": "RI is the Royal Institution, a British scientific body"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A laboratory accident on the surface, and the pieces run the other way up: the scientists are supporting the other two from below, as a down clue allows.",
-     "definitionFit": "mixture -> POTPOURRI: a potpourri is a jumble of unrelated things, from the bowl of dried petals to a musical medley."
+     "surface": "Lab scientists carrying a crucible spill its contents.",
+     "walkthrough": "RI, the Royal Institution of Great Britain, goes at the bottom, 'bearing' POT and POUR above it.",
+     "definitionFit": "Potpourri is a mixture of dried petals and spices, and by extension any miscellaneous medley."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scientists"
     }
    }
   },
@@ -1036,8 +1190,7 @@
     "definitions": [
      {
       "text": "survey",
-      "at": 29,
-      "note": "Both words are nouns for an inspection: the answer's -ing ending is a noun ending here, not the participle it looks like."
+      "at": 29
      }
     ],
     "wordplay": {
@@ -1045,30 +1198,39 @@
      "indicators": [
       {
        "text": "neighbours",
-       "note": "neighbours live side by side, so the pieces are simply set next to each other with nothing done to them"
+       "at": 6,
+       "note": "neighbours means sits right next to, so the rival verb is placed beside the rest"
       }
      ],
      "parts": [
       {
        "words": "Rival",
+       "at": 0,
        "gives": "VIE",
-       "note": "to rival someone is to vie with them"
+       "note": "to vie is to compete as rivals do"
       },
       {
        "words": "secure",
+       "at": 17,
        "gives": "WIN",
-       "note": "to secure a seat or a contract is to win it"
+       "note": "to win is to secure, as in win a contract"
       },
       {
        "words": "good",
-       "gives": "G",
-       "note": "the usual one-letter abbreviation, as on a school report"
+       "at": 24,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a feud over a fence, and 'neighbours' is not part of that picture at all: it is the setter telling you the pieces just sit together.",
-     "definitionFit": "survey -> VIEWING: a viewing is the inspection you make of a house or an exhibit, a survey done with the eyes."
+     "surface": "Rival neighbours locking in a good result in a dispute.",
+     "walkthrough": "'Rival neighbours' reads as feuding neighbours; 'neighbours' just places VIE beside WIN and G.",
+     "definitionFit": "A viewing is an inspection, looking over a property or exhibition, as a survey is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "neighbours"
     }
    }
   },
@@ -1088,9 +1250,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a round or two",
-      "at": 31,
-      "note": "The definition names the rounds while the answer names the activity of playing them; the question mark marks that small stretch."
+      "text": "a round or two?",
+      "at": 31
      }
     ],
     "wordplay": {
@@ -1098,35 +1259,45 @@
      "parts": [
       {
        "words": "Drive",
+       "at": 0,
        "gives": "GO",
-       "note": "drive is the get-up-and-go that keeps someone pushing on"
+       "note": "go means drive or energy, as in full of go"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "around",
-         "note": "what goes around something wraps outside it, so the heather word opens in the middle to take a letter in"
+         "at": 14,
+         "note": "around puts the heather word round the single letter"
         }
        ],
        "parts": [
         {
          "words": "Heather",
+         "at": 6,
          "gives": "LING",
-         "note": "ling is the heather that covers British moorland, and the capital letter makes it look like a woman"
+         "note": "ling is a common heather"
         },
         {
          "words": "following",
+         "at": 21,
          "gives": "F",
-         "note": "f. is the reference-book abbreviation for following, as in see page 12f."
+         "note": "F is the abbreviation for following, as in pp. 5f"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Drive' and 'round' both belong to the sport, which is the joke: one of them is defining and the other is a piece of the build. Heather is a plant, not a passenger.",
-     "definitionFit": "a round or two -> GOLFING: a round is eighteen holes, so someone out playing one or two of them is golfing."
+     "surface": "A golfer drives off around the heather, following one round with another.",
+     "walkthrough": "'Drive' and 'round' suggest golf already, but the drive is GO, energy. 'around' puts F inside LING, a kind of heather.",
+     "definitionFit": "Golfing is playing a round of golf, perhaps more, so a round or two describes the activity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Drive"
     }
    }
   },
@@ -1158,26 +1329,36 @@
        "indicators": [
         {
          "text": "cleared",
-         "note": "clearing a word out empties the middle of it, leaving only the letters standing at each end"
+         "at": 7,
+         "note": "cleared of its contents, the word keeps only its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "Divine",
-         "note": "the two letters at the outside of the word, with everything between them gone"
+         "at": 0,
+         "note": "the first and last letters of the word Divine, its middle cleared out"
         }
        ]
       },
       {
        "words": "device that measures",
+       "at": 18,
        "gives": "METER",
-       "note": "a meter is what measures a supply of gas, electricity or parking time"
+       "note": "a meter is a measuring device, as in a gas meter"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Divine' and 'divinity' sit at opposite ends looking like the same idea. One is the definition; the other is just a word to be hollowed out.",
-     "definitionFit": "divinity -> DEMETER: Demeter is the Greek goddess of the harvest, so the definition names the category and the answer is one deity in it."
+     "surface": "A clergyman gauged by a machine that measures holiness.",
+     "walkthrough": "'cleared' empties DIVINE to DE, and METER follows.",
+     "definitionFit": "Demeter is the Greek goddess of the harvest and agriculture, a divinity in the Olympian pantheon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Divine"
     }
    }
   },
@@ -1206,19 +1387,27 @@
      "indicators": [
       {
        "text": "torn",
-       "note": "a thing torn apart comes to pieces, and the pieces cannot be relied on to lie in their old order"
+       "at": 15,
+       "note": "something torn is ripped apart, so the letters fall into a new order"
       }
      ],
      "parts": [
       {
        "words": "asunder",
-       "note": "seven letters of fodder, the whole of the last word"
+       "at": 20
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Torn asunder' is a set phrase, so the two words look welded together; the setter has split them into instruction and fodder.",
-     "definitionFit": "Chap in tights -> DANSEUR: the French word for a male ballet dancer is standard in English ballet writing, and tights are what he wears on stage."
+     "surface": "A man in tights who has ripped them apart.",
+     "walkthrough": "Rearrange the letters of ASUNDER.",
+     "definitionFit": "A danseur is a male ballet dancer, the kind of man who performs wearing tights."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "torn"
     }
    }
   },
@@ -1248,20 +1437,29 @@
      "indicators": [
       {
        "text": "delivered",
-       "note": "a line delivered is a line spoken aloud, so what matters is the sound and not the spelling"
+       "at": 31,
+       "note": "a delivered word is spoken aloud, as a speech is delivered"
       }
      ],
      "parts": [
       {
        "words": "trader having charcuterie",
+       "at": 5,
        "gives": "DELI",
-       "note": "the shop that sells cold meats and cheeses is a deli, and said aloud it needs one more letter written down"
+       "note": "a deli is a shop selling cured meats such as charcuterie"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Charcuterie makes you think of France, and the sound lands in India instead. The extra letter is silent, which is the whole of the trick.",
-     "definitionFit": "City -> DELHI: the Indian capital, so the definition names the category and the answer is one particular city."
+     "surface": "A city merchant getting cured meats delivered.",
+     "walkthrough": "'delivered' looks like the meat arriving; here it means spoken, and DELI said aloud gives the Indian city.",
+     "definitionFit": "Delhi is the major city in northern India that contains New Delhi, the national capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "delivered"
     }
    }
   },
@@ -1290,25 +1488,34 @@
      "indicators": [
       {
        "text": "putting on",
-       "note": "you put a coat on by getting inside it, so the letter ends up in the middle rather than in front"
+       "at": 6,
+       "note": "the clubs letter is put on, into, the word for attraction"
       }
      ],
      "parts": [
       {
        "words": "attraction",
+       "at": 17,
        "gives": "LURE",
-       "note": "an attraction is a lure, the thing that draws you in"
+       "note": "a lure is an attraction or enticement"
       },
       {
        "words": "Clubs",
+       "at": 0,
        "gives": "C",
-       "note": "C is the suit on a bridge scorecard, and the capital is there to hint at a nightclub"
+       "note": "C is the card-suit abbreviation for clubs"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition is an idiom rather than a synonym: the setter points at a stock phrase and lets you supply the word that always comes after the adjective.",
-     "definitionFit": "that's said to be filthy -> LUCRE: lucre is money, and 'filthy lucre' is very nearly the only phrase the word still turns up in."
+     "surface": "A nightclub promoting a seedy attraction, rumoured to be dirty.",
+     "walkthrough": "C goes into LURE. The definition plays on the stock phrase 'filthy lucre'.",
+     "definitionFit": "Lucre is money, which is proverbially called filthy lucre, especially when gained dishonestly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Clubs"
     }
    }
   },
@@ -1334,35 +1541,43 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LUNCHEON",
      "indicators": [
       {
        "text": "put aside for",
-       "note": "putting one thing aside for another clears a space and says who takes it, which is a swap rather than a plain deletion"
+       "at": 7,
+       "note": "one piece is set aside and another put in its place"
       }
      ],
      "parts": [
       {
        "words": "staff",
+       "at": 27,
        "gives": "TRUNCHEON",
-       "note": "a truncheon is the short stick a British police officer carries"
+       "note": "a truncheon is a police officer's staff or baton"
       },
       {
        "words": "Turkey",
+       "at": 0,
        "gives": "TR",
-       "note": "TR is Turkey's international vehicle code, the pair being moved out of the way"
+       "note": "TR is the international code for Turkey"
       },
       {
        "words": "50",
+       "at": 21,
        "gives": "L",
-       "note": "the Roman numeral for fifty, taking the vacated place"
+       "note": "L is the Roman numeral for 50"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A canteen surface, with the bird and the staff belonging to the same picture. Both are pulled apart: one becomes two letters of a country code, the other a police weapon.",
-     "definitionFit": "meal -> LUNCHEON: the formal name for lunch, the midday meal, the word that appears on menus and invitations rather than at home."
+     "surface": "A Christmas staff lunch where the turkey is swapped for something cheaper, for fifty people.",
+     "walkthrough": "'Turkey' is the country code TR, swapped out of TRUNCHEON for L.",
+     "definitionFit": "A luncheon is a formal midday meal, a lunch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Turkey"
     }
    }
   },
@@ -1388,25 +1603,31 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "HOCKS",
      "indicators": [
       {
        "text": "beginning to fall",
-       "note": "the beginning of a word is its first letter, and in a down entry falling means dropping to the bottom while the rest close up"
+       "at": 6,
+       "note": "the beginning letter falls, in a down answer dropping from the top to the bottom"
       }
      ],
      "parts": [
       {
        "words": "surprise",
+       "at": 27,
        "gives": "SHOCK",
-       "note": "a surprise is a shock, and all five letters stay in the clue's order once the front one has moved"
+       "note": "a shock is a surprise"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Chess pieces are the surface and no help at all. 'Pawns' is a verb here, and the wordplay is one letter taking a walk down the column.",
-     "definitionFit": "Pawns -> HOCKS: to hock a watch is to pawn it, the colloquial verb behind being in hock to someone."
+     "surface": "A chess game where a surprise begins with pawns falling.",
+     "walkthrough": "In a down entry, the S at the top of SHOCK 'falls' to the bottom.",
+     "definitionFit": "To hock something is to pawn it, so hocks means pawns as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pawns"
     }
    }
   },
@@ -1434,8 +1655,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "in",
-       "note": "the letters are already sitting inside the words that follow, so nothing has to be built from synonyms"
+       "text": "brought about",
+       "at": 38,
+       "note": "brought about means turned round, so the letters run backwards"
       }
      ],
      "parts": [
@@ -1443,23 +1665,32 @@
        "op": "hidden",
        "indicators": [
         {
-         "text": "brought about",
-         "note": "bringing a thing about turns it round to face the other way, so the run of letters is read backwards"
+         "text": "in",
+         "at": 15,
+         "note": "in says the letters lie within the words that follow"
         }
        ],
        "parts": [
         {
          "words": "tension, originally",
+         "at": 18,
          "gives": "NORI",
-         "note": "four consecutive letters straddle the comma, starting near the end of the first word and running into the second"
+         "note": "the end of tension and start of originally hold the letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition is the joke: read 'decrease' as de-crease, an undoing of creases, and 'Maybe' is there to license the split. The surface is about relaxing.",
-     "definitionFit": "Maybe decrease -> IRON: split the word as de-crease and it is what an iron does to a shirt, taking the creases out of it."
+     "surface": "Something that may ease strain, first brought about by some means.",
+     "walkthrough": "'in' finds NORI across 'tension, originally', and 'brought about' turns it round. 'decrease' reads as reduce; it is de-crease, to take creases out.",
+     "definitionFit": "To iron is to press creases out of fabric, literally to de-crease it; 'Maybe' marks the definition as a playful sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "decrease"
     }
    }
   },
@@ -1479,7 +1710,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "inclined to retire",
+      "text": "inclined to retire?",
       "at": 15
      }
     ],
@@ -1488,19 +1719,28 @@
      "parts": [
       {
        "words": "Niche",
+       "at": 0,
        "gives": "RECESS",
-       "note": "a niche in a wall is a recess"
+       "note": "a recess is a niche in a wall"
       },
       {
        "words": "setter's",
+       "at": 6,
        "gives": "IVE",
-       "note": "the setter speaks as I, so the contraction is I've with the apostrophe dropped"
+       "note": "the setter says I have, contracted to I've"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Setter' means the person who wrote the clue, one of the oldest conventions going, and it almost always turns into the single letter I.",
-     "definitionFit": "inclined to retire -> RECESSIVE: a recessive gene or trait hangs back and lets the dominant one show, so it is the withdrawing one."
+     "surface": "The puzzle setter confessing a fondness for a quiet nook, with retirement in mind.",
+     "walkthrough": "'setter's' is I've, the setter speaking as I. 'retire' means draw back, recede, not stop work.",
+     "definitionFit": "Recessive means tending to recede or withdraw; in genetics a recessive trait is masked by a dominant one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "retire"
     }
    }
   },
@@ -1520,7 +1760,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "nurse",
+      "text": "nurse?",
       "at": 37
      }
     ],
@@ -1529,25 +1769,35 @@
      "indicators": [
       {
        "text": "Having dropped",
-       "note": "what you have dropped you no longer have, so that letter is simply gone from the word"
+       "at": 0,
+       "note": "dropping a letter removes it from the word"
       }
      ],
      "parts": [
       {
        "words": "calling",
+       "at": 29,
        "gives": "CAREER",
-       "note": "a calling is the career you feel drawn to follow"
+       "note": "a career is a calling or vocation"
       },
       {
        "words": "some ecstasy",
+       "at": 15,
        "gives": "E",
-       "note": "E is the drug's usual letter, and 'some' takes just one of the two sitting side by side"
+       "note": "E is slang for a tablet of the drug ecstasy"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A hospital surface with a drug in it, and the drug is only ever one letter. The question mark admits that the definition is an example rather than a match.",
-     "definitionFit": "nurse -> CARER: a carer is anyone who looks after someone unable to manage alone, and a nurse is one paid instance of that."
+     "surface": "Someone high on ecstasy shouting for medical help.",
+     "walkthrough": "'dropped some ecstasy' reads as taking the drug; here it means one E falls out of CAREER.",
+     "definitionFit": "A carer looks after someone sick or disabled, as a nurse does; the question mark flags an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dropped"
     }
    }
   },
@@ -1576,19 +1826,27 @@
      "indicators": [
       {
        "text": "oddly forgotten",
-       "note": "the letters in the odd-numbered positions are the ones forgotten, so only the even ones are read"
+       "at": 17,
+       "note": "the odd-placed letters are forgotten, leaving the even ones"
       }
      ],
      "parts": [
       {
        "words": "once dead",
-       "note": "take every second letter across the two words, counting from the second letter of the first"
+       "at": 6,
+       "note": "the second, fourth, sixth and eighth letters of once dead, the even ones left once the odd ones go"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "An epitaph on the surface. The comma after 'Miss' is doing a lot of work: it makes the word look like a form of address rather than the definition.",
-     "definitionFit": "Miss -> NEED: to miss someone is to feel the want of them, which is the sense of needing them rather than failing to hit them."
+     "surface": "A woman, once dead, now strangely forgotten.",
+     "walkthrough": "'Miss' looks like a title; it is the verb, as in to miss someone.",
+     "definitionFit": "To miss something is to feel its absence and want it, which is to need it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Miss"
     }
    }
   },
@@ -1613,44 +1871,59 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "Punk",
-       "note": "punk is rotten, crumbling wood, the kind used as tinder, and something rotten has lost the shape it started with"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
          "text": "embracing",
-         "note": "to embrace is to take something into your arms, so the odd letter is gathered in among the rest"
+         "at": 20,
+         "note": "the shuffled letters hug the singular letter inside them"
         }
        ],
        "parts": [
         {
-         "words": "gigs are",
-         "note": "seven letters of fodder in the clue's own words"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Punk",
+           "at": 0,
+           "note": "punk is ragged and anarchic, so the letters are thrown about"
+          }
+         ],
+         "parts": [
+          {
+           "words": "gigs are",
+           "at": 5
+          }
+         ]
         },
         {
-         "words": "about",
-         "gives": "ON",
-         "note": "a book about birds is a book on birds, so the two words swap"
+         "words": "singular",
+         "at": 30,
+         "gives": "S",
+         "note": "S is the grammatical abbreviation for singular"
         }
        ]
       },
       {
-       "words": "singular",
-       "gives": "S",
-       "note": "the grammarian's abbreviation, as in sing. and pl."
+       "words": "about",
+       "at": 14,
+       "gives": "ON",
+       "note": "on means about, as in a book on birds"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Punk gigs' reads as one phrase and is really instruction plus fodder, which is why the first word feels like scene-setting. The last word is the definition.",
-     "definitionFit": "hostility -> AGGRESSION: both name a readiness to attack, aggression being the acting out of the feeling that hostility names."
+     "surface": "Punk concerts are known for aggro, one aggressive individual in particular.",
+     "walkthrough": "'Punk' shuffles GIGS ARE to AGGRESI, 'embracing' takes S inside, and ON follows.",
+     "definitionFit": "Aggression is hostile or violent behaviour or attitude towards others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Punk"
     }
    }
   }
