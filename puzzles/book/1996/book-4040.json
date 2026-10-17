@@ -29,7 +29,8 @@
   "officialKey": "never"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1428,48 +1429,54 @@
      "indicators": [
       {
        "text": "protecting",
-       "note": "Something protecting a thing stands around it, shielding it, so the word named first closes over what comes next."
+       "at": 11,
+       "note": "the knight's letters wrap round and shield what follows, so they go on the outside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "Titled man",
-         "gives": "KT",
-         "note": "Kt is the short form of Knight written after a name, and the two letters part to take the rest"
-        },
-        {
-         "words": "head",
-         "gives": "NESS",
-         "note": "a ness is a headland — Sheerness, Dungeness — the head of land that juts into the sea"
-        }
-       ]
+       "words": "Titled man",
+       "at": 0,
+       "gives": "KT",
+       "note": "KT is the abbreviation for a knight, a man with a title"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "E",
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "beginning to enter",
-         "gives": "E",
-         "select": "first",
-         "note": "the letter standing at the beginning of the word enter"
+         "words": "head",
+         "at": 22,
+         "gives": "NESS",
+         "note": "a ness is a headland, a head of land jutting into the sea"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "at": 27,
+           "note": "only the beginning, the first letter, of the next word is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "enter",
+           "at": 40,
+           "note": "first letter gives E"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A knight shielding a head as it starts to go into a foreign assembly.",
-     "walkthrough": "'Head' is the geographer's one, a ness, and the knight arrives as two letters rather than as a word. The Knesset is Israel's single chamber, a hundred and twenty members sitting in Jerusalem.",
-     "definitionFit": "The Knesset is the parliament of Israel, so the definition points at it by nationality rather than by name."
+     "surface": "A knight shields someone's head as they start to go into a parliament abroad.",
+     "walkthrough": "'head' is not a person's head but a headland, as in place names like Dungeness; 'beginning to' takes only the first letter of 'enter'. A knight is the titled man.",
+     "definitionFit": "The Knesset is the legislature of Israel, so it is a parliament in a foreign country."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "head"
     }
