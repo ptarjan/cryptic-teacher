@@ -155,47 +155,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THRONE",
+     "op": "container",
      "indicators": [
       {
-       "text": "All but one",
-       "note": "everything except a single item means one letter is dropped from the word"
+       "text": "covers",
+       "at": 21,
+       "note": "covers says the shortened word goes around the next word, as a lid over it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "covers",
-         "note": "a cover goes over and around something, so one piece wraps the other"
+         "text": "All but one of",
+         "at": 0,
+         "note": "of the word three, every letter is kept except one of its repeated letters"
         }
        ],
        "parts": [
         {
          "words": "three",
-         "gives": "THRE",
-         "note": "the number word with one of its two E's removed"
+         "at": 15
         },
         {
-         "words": "on",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "on",
+       "at": 28
       }
      ]
     },
     "explanation": {
-     "surface": "Two of three loose covers have been fitted on a chair.",
-     "walkthrough": "'All but one of three' sounds like counting covers, but it means the number word itself with one letter dropped.",
-     "definitionFit": "A throne is the ceremonial chair of a monarch, so it is a particular grand kind of seat."
+     "surface": "Nearly all of a trio of throws are draped over a chair.",
+     "walkthrough": "'All but one of three' drops one E, leaving THRE, which 'covers' ON.",
+     "definitionFit": "A throne is the ceremonial chair of a monarch, a grand example of a seat."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "three"
+     "misdirectedWord": "covers"
     }
    }
   },
@@ -1355,37 +1357,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SOLO",
-     "indicators": [
-      {
-       "text": "cut by half",
-       "note": "cutting something by half removes half of it, so half the letters go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "very",
+       "at": 12,
+       "gives": "SO",
+       "note": "so, as in so good, means very"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut by half",
+         "at": 22,
+         "note": "cut by half says the word long loses half its letters, here the back two"
+        }
+       ],
        "parts": [
         {
-         "words": "very",
-         "gives": "SO",
-         "note": "so means very, as in 'so tired'"
+         "words": "long",
+         "at": 17
         },
         {
-         "words": "long",
-         "gives": "LO",
-         "note": "the word with its second half removed"
+         "gives": "NG"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A song that drags on for ages is edited down to half its length.",
-     "walkthrough": "'Very long' reads as one phrase, but 'very' and 'long' are separate pieces, and only the second is halved.",
-     "definitionFit": "A solo is a piece or passage sung or played by a single performer."
+     "surface": "Someone grumbles that an overlong song needs halving.",
+     "walkthrough": "'Cut by half' keeps LO from LONG, after SO.",
+     "definitionFit": "A solo is a piece performed by a single singer or player, so a song sung alone fits."
     },
     "features": {
      "answerInScene": true,
