@@ -704,34 +704,40 @@
      "indicators": [
       {
        "text": "around",
-       "note": "the word for raced goes around, enclosing what follows it"
+       "at": 6,
+       "note": "the word for raced goes around the rest, holding it inside"
       }
      ],
      "parts": [
       {
        "words": "Raced",
+       "at": 0,
        "gives": "SPED",
-       "note": "sped means went fast"
+       "note": "sped is the past tense of speed, so it means raced"
       },
       {
        "op": "charade",
        "parts": [
         {
-         "words": "shout",
+         "words": "to shout",
+         "at": 13,
          "gives": "CALL",
-         "note": "to call is to shout"
+         "note": "to call is to shout out"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "O",
+         "indicators": [
+          {
+           "text": "A piece of",
+           "at": 24,
+           "note": "a piece of the word here is just its first letter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "A piece of onion",
-           "gives": "O",
-           "select": "first",
-           "note": "the first letter of onion"
+           "words": "onion",
+           "at": 35,
+           "note": "taken as written; only its first letter is used"
           }
          ]
         }
@@ -740,14 +746,13 @@
      ]
     },
     "explanation": {
-     "surface": "Someone races about yelling that an onion slice resembles a potato.",
-     "walkthrough": "The quotation reads as one exclamation, but only 'like a potato sometimes' is the definition; the rest builds the letters.",
-     "definitionFit": "Scalloped potatoes are sliced and baked in a creamy sauce, one common way potatoes are served."
+     "surface": "A cook rushes about calling out that a bit of onion belongs in a potato dish.",
+     "walkthrough": "'around' puts SPED (raced) around CALL (to shout) and O, 'A piece of' onion.",
+     "definitionFit": "Scalloped potatoes are sliced and baked in cream or sauce, so scalloped describes a way potatoes are sometimes prepared."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "absurd",
      "misdirectedWord": "piece"
     }
    }
@@ -985,37 +990,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ARRIVALS",
+     "op": "charade",
      "indicators": [
       {
-       "text": "largely",
-       "note": "largely means mostly, so the word before loses its last letter"
+       "text": "dominating",
+       "at": 41,
+       "note": "in a down clue, a word dominating another sits above it, so it comes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "largely",
+         "at": 33,
+         "note": "largely means mostly, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "are",
-         "gives": "AR",
-         "note": "are with its final letter dropped"
+         "at": 29,
+         "gives": "ARE",
+         "note": "taken as written before its last letter goes"
         },
         {
-         "words": "competitors",
-         "gives": "RIVALS",
-         "note": "rivals are competitors"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "competitors",
+       "at": 52,
+       "gives": "RIVALS",
+       "note": "rivals are competitors"
       }
      ]
     },
     "explanation": {
-     "surface": "Planes coming in to land mostly outnumber rival carriers.",
-     "walkthrough": "In a down clue 'dominating' means sitting above, so the shortened word goes on top.",
-     "definitionFit": "Arrivals are people or flights coming in, so passengers landing at an airport are its arrivals."
+     "surface": "Passengers coming in at the airport are mostly beating the competition.",
+     "walkthrough": "'largely' cuts ARE to AR, which is 'dominating', above in this down answer, RIVALS (competitors).",
+     "definitionFit": "Arrivals are the people who have just come in, especially passengers whose planes have landed."
     },
     "features": {
      "answerInScene": true,
@@ -1108,37 +1124,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VARMINT",
-     "indicators": [
-      {
-       "text": "nearly",
-       "note": "nearly means not quite, so the word for change stops a letter short"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly",
+         "at": 7,
+         "note": "nearly means almost all of the word, so its last letter goes"
+        }
+       ],
        "parts": [
         {
          "words": "Change",
-         "gives": "VAR",
-         "note": "vary, to change, missing its last letter"
+         "at": 0,
+         "gives": "VARY",
+         "note": "to vary is to change"
         },
         {
-         "words": "brand-new",
-         "gives": "MINT",
-         "note": "in mint condition means brand-new"
+         "gives": "Y"
         }
        ]
+      },
+      {
+       "words": "brand-new",
+       "at": 14,
+       "gives": "MINT",
+       "note": "mint means in brand-new condition, as in mint condition"
       }
      ]
     },
     "explanation": {
-     "surface": "Swapping an almost-new animal for another.",
-     "walkthrough": "Varmint is an American folk word for a pest animal; critter is its folksy synonym.",
-     "definitionFit": "Both are informal American words for a creature, especially a troublesome wild animal."
+     "surface": "Someone wants to exchange an almost new pet for another creature.",
+     "walkthrough": "'Change' looks like coins, as does 'mint', but here it is the verb VARY, cut short by 'nearly'.",
+     "definitionFit": "Varmint and critter are both American folk forms for an animal, especially a troublesome one."
     },
     "features": {
      "answerInScene": false,
