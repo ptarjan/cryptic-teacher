@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -88,53 +89,52 @@
     "definitions": [
      {
       "text": "making amends",
-      "at": 39
+      "at": 39,
+      "note": "a noun phrase in sense: the act of making up for a wrong, matching the noun answer"
      }
     ],
     "wordplay": {
      "op": "anagram",
      "indicators": [
       {
-       "text": "initially",
-       "note": "Initially asks for openings, and the two small words in front of it hand over the letters they begin with."
+       "text": "disturbed",
+       "at": 27,
+       "note": "disturbed means thrown into disorder, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Presence",
+       "at": 0
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "disturbed",
-         "note": "Something disturbed has been shaken out of the arrangement it was left in, so these letters will not stay where they were put."
+         "text": "initially",
+         "at": 17,
+         "note": "initially picks the opening letter of each of the two words before it"
         }
        ],
        "parts": [
         {
-         "words": "Presence",
-         "note": "eight letters of the ordinary noun, handed over to be laid out again"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "OM",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "of mind initially",
-           "gives": "OM",
-           "select": "first",
-           "note": "the opening letter of each of those two words, joining the eight above"
-          }
-         ]
+         "words": "of mind",
+         "at": 9,
+         "note": "the words of and mind, each giving its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone's composure cracking, and then the apology that follows.",
-     "walkthrough": "'Presence of mind' is a fixed phrase, which is why 'of mind initially' never looks like an instruction; the setter breaks the idiom up and takes an opening letter from each of the two small words.",
-     "definitionFit": "making amends → RECOMPENSE: to recompense someone is to pay them back for a loss, which is making amends in cash or in kind."
+     "surface": "Someone's composure is shaken while they try to put things right.",
+     "walkthrough": "'initially' gives O and M, which join PRESENCE before 'disturbed' rearranges all ten letters. 'Presence of mind' looks like a fixed phrase, but it splits.",
+     "definitionFit": "Recompense is compensation given for loss or harm, a way of putting a wrong right."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Presence"
     }
    }
   },
@@ -289,40 +289,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PEASOUP",
+     "spelt": "PEASOUP",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner was the Oxford don famous for swapping the sounds at the front of two words, so those two noises trade places."
+       "at": 0,
+       "note": "the Reverend Spooner was known for swapping the opening sounds of two words, so the two words trade their starts"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "SEA",
        "parts": [
         {
-         "unchecked": true,
          "words": "to espy",
-         "gives": "PEA",
-         "soundsLike": "SEE",
-         "note": "to espy something is to see it, and this half takes over the P the other word starts with"
-        },
-        {
-         "unchecked": true,
-         "words": "deck",
-         "gives": "SOUP",
-         "soundsLike": "POOP",
-         "note": "the raised deck at the stern of a ship is the poop, and it picks up the S the first word gave away"
+         "at": 10,
+         "gives": "SEE",
+         "note": "to espy something is to see it"
         }
        ]
+      },
+      {
+       "words": "deck",
+       "at": 18,
+       "gives": "POOP",
+       "note": "the poop is the raised deck at a ship's stern"
       }
      ]
     },
     "explanation": {
-     "surface": "Trying to make out a ship's deck through thick weather.",
-     "walkthrough": "London's coal fogs were thick and yellow enough to be named after the soup, so a pea-souper is weather rather than lunch. Say the two words aloud and the vowels drift a little on the way.",
-     "definitionFit": "fog → PEA SOUP: British slang for fog thick and yellow enough to look like the soup, as in a proper pea-souper."
+     "surface": "An instruction to spot a ship's deck through the fog.",
+     "walkthrough": "Say SEE POOP with the opening sounds swapped and it comes out as 'pea soup'.",
+     "definitionFit": "A pea-souper is a thick yellowish fog, and pea soup is the same idiom for dense murk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "deck"
     }
    }
   },
@@ -534,51 +539,62 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Ultimately",
-       "note": "Ultimately means at the very end, so only the letter the word beside it finishes on is wanted."
+       "text": "into",
+       "at": 20,
+       "note": "into means going inside, so the single letter is placed within the rest"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "into",
-         "note": "Into is a direction of travel: the piece it governs goes right inside another rather than sitting next to it."
-        }
-       ],
        "parts": [
         {
          "op": "last",
+         "indicators": [
+          {
+           "text": "Ultimately",
+           "at": 0,
+           "note": "ultimately means at the very end, so only the final letter of the next word is wanted"
+          }
+         ],
          "parts": [
           {
-           "words": "Ultimately furious",
-           "note": "the last letter of the word standing in front of it"
+           "words": "furious",
+           "at": 11,
+           "note": "the word furious, whose last letter is taken"
           }
          ]
         },
         {
          "words": "craw",
-         "note": "a bird's crop, the pouch that unwelcome news is said to stick in, taken as it stands"
+         "at": 25,
+         "note": "taken as written; a craw is a bird's crop"
         },
         {
          "words": "sticks",
+         "at": 30,
          "gives": "NEST",
-         "note": "a bundle of sticks up a tree is a nest, which is the loosest step the setter asks for here"
+         "note": "a nest is built from a bundle of sticks"
         }
        ]
       },
       {
        "words": "one",
+       "at": 37,
        "gives": "I",
-       "note": "the Roman numeral, split off and dropped into the middle of the piece above"
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "Rage rising in someone's throat at a miserable specimen.",
-     "walkthrough": "'Ultimately' reads as 'in the end' rather than as an instruction, which is the trap. A craw is a bird's crop, and 'sticks' standing in for a nest is a long stretch even by Everyman's standards.",
-     "definitionFit": "extremely inferior → SCRAWNIEST: scrawny means meagre, underfed and poor of its kind, and 'extremely' does the work of the superlative ending."
+     "surface": "Fury sticks in someone's throat at something truly second-rate.",
+     "walkthrough": "A craw is a bird's crop, where things are said to stick. Using 'sticks' for a nest is loose, but it is what the letters need.",
+     "definitionFit": "Scrawny means thin and meagre, poor of its kind; the superlative covers 'extremely'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sticks"
     }
    }
   },
@@ -1021,37 +1037,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHIANTI",
-     "indicators": [
-      {
-       "text": "Not half",
-       "note": "Not half is the instruction to drop half of what follows, and here it is the back half that goes."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not half",
+         "at": 0,
+         "note": "not half means only one of its two halves is kept"
+        }
+       ],
        "parts": [
         {
          "words": "pretentious",
-         "gives": "CHI",
-         "note": "chichi is the word for fussily stylish or affected, and only its front half is wanted"
+         "at": 9,
+         "gives": "CHICHI",
+         "note": "chichi means showy or affectedly fashionable"
         },
         {
-         "words": "opposed to",
-         "gives": "ANTI",
-         "note": "anti is the everyday word for being set against something"
+         "gives": "CHI"
         }
        ]
+      },
+      {
+       "words": "opposed to",
+       "at": 22,
+       "gives": "ANTI",
+       "note": "anti means against, opposed to"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone thoroughly affected who cannot stand Italian wine.",
-     "walkthrough": "'Not half' is British for 'extremely', which is exactly how the surface reads; as an instruction it means keep half the word and throw the rest away.",
-     "definitionFit": "Italian wine → CHIANTI: the dry red of the Chianti hills in Tuscany, named for its region the way champagne is."
+     "surface": "A wine snob is scorned as rather pretentious.",
+     "walkthrough": "Chichi means affectedly smart; 'Not half' leaves one CHI. 'Not half' also looks like the British slang for 'very much', which is the trap.",
+     "definitionFit": "Chianti is a red wine from Tuscany in Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "half"
     }
    }
   },
