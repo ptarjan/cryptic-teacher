@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -103,46 +104,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LASSAFEVER",
-     "indicators": [
-      {
-       "text": "Not quite",
-       "note": "a word given not quite in full stops short of its end, so the last letter never gets written down"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "left",
+       "at": 12,
+       "gives": "L"
+      },
+      {
+       "words": "because",
+       "at": 18,
+       "gives": "AS",
+       "note": "as can mean because, as in 'as it was late'"
+      },
+      {
+       "words": "harmless",
+       "at": 26,
+       "gives": "SAFE",
+       "note": "harmless means safe"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not quite",
+         "at": 36,
+         "note": "not quite means the word is cut short, losing its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "left",
-         "gives": "L",
-         "note": "L is the standard abbreviation for left, as in a stage direction"
-        },
-        {
-         "words": "because",
-         "gives": "AS",
-         "note": "as it was raining and because it was raining say the same thing"
-        },
-        {
-         "words": "harmless",
-         "gives": "SAFE",
-         "note": "something harmless is safe to handle, eat or say"
-        },
-        {
          "words": "so",
-         "gives": "VER",
-         "note": "so tired means very tired, and the word arrives one letter short"
+         "at": 46,
+         "gives": "VERY",
+         "note": "so as an intensifier means very, as in 'so tired'"
+        },
+        {
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Harmless? Not quite so' reads as somebody correcting themselves about a danger. It is really two of the four pieces, plus the instruction that trims the last of them.",
-     "definitionFit": "Lassa fever is the viral illness spread by rats in West Africa, and bug is the everyday word for an infection you catch."
+     "surface": "Someone asks whether a bug that has gone is harmless, and is told it is not quite so.",
+     "walkthrough": "'Not quite' trims VERY to VER at the end of the charade. The bug here is a disease, not an insect.",
+     "definitionFit": "Lassa fever is a viral haemorrhagic illness of West Africa, and bug is informal for an infection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bug"
     }
    }
   },
@@ -645,41 +657,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AFOREMENTIONED",
-     "indicators": [
-      {
-       "text": "with alterations",
-       "note": "letters that come with alterations do not come as they were given, so this pair of words is remade into another order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Area",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "supervisors",
+       "at": 5,
+       "gives": "FOREMEN",
+       "note": "foremen are workers who supervise others"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "with alterations",
+         "at": 25,
+         "note": "alterations signal that the letters are changed round into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Area",
-         "gives": "A",
-         "note": "A is the standard abbreviation for area, in a formula or on a plan"
+         "words": "note",
+         "at": 17,
+         "note": "taken as written"
         },
         {
-         "words": "supervisors",
-         "gives": "FOREMEN",
-         "note": "the foremen on a site are the workers who supervise the rest of it"
-        },
-        {
-         "words": "note ID",
-         "gives": "TIONED",
-         "note": "six letters remade from the two short words"
+         "words": "ID",
+         "at": 22,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Fourteen letters and only six of them shuffle, so the count is the way in: the first eight are handed over straight. Two small words carry the whole of the fodder.",
-     "definitionFit": "Something aforementioned has already been named earlier on the page, which in a document means written above the point you have reached."
+     "surface": "Supervisors in an area write a note and an ID, then make alterations to what was written above.",
+     "walkthrough": "'Supervisors' are not bosses in general here but foremen, and 'with alterations' works on NOTE ID alone.",
+     "definitionFit": "Aforementioned describes something mentioned earlier in a text, which on a page sits above."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supervisors"
     }
    }
   },
@@ -830,37 +853,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "ROUNDHEAD",
      "indicators": [
       {
        "text": "from Spooner",
-       "note": "the Reverend Spooner was famous for exchanging the opening sounds of two words, so you say the pair with their first sounds swapped over"
+       "at": 21,
+       "note": "the Reverend Spooner swapped the starts of words, so the initial sounds of the two words are exchanged"
       }
      ],
      "parts": [
       {
        "words": "Harry",
+       "at": 0,
        "gives": "HOUND",
-       "note": "to harry somebody is to hound them, chasing and pestering without let-up"
+       "note": "to harry is to hound, to pursue and harass"
       },
       {
-       "words": "looked at text",
-       "gives": "READ",
-       "note": "looking at text is reading it"
-      },
-      {
-       "unchecked": true,
-       "words": "Harry looked at text from Spooner",
-       "gives": "ROUNDHEAD",
-       "soundsLike": "HOUND READ",
-       "note": "swap the sounds the two words start with and the pair comes out as the grid entry"
+       "op": "homophone",
+       "spelt": "READ",
+       "parts": [
+        {
+         "words": "looked at text",
+         "at": 6,
+         "gives": "RED",
+         "note": "looked at text, in the past tense, is read, said like red"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two ordinary verbs, and the man supplying the instruction was an Oxford don whose slips of the tongue became a noun. Note the capital H: it is misdirection, not a name.",
-     "definitionFit": "The Roundheads were the parliamentary soldiers who fought Charles I in the Civil War, named for the cropped hair of the apprentices who backed them."
+     "surface": "Harry looked at a text by Spooner about an enemy of King Charles.",
+     "walkthrough": "Charles is Charles I, whose enemies in the English Civil War were the Parliamentarians; the Spooner swap here works on spelling as well as sound.",
+     "definitionFit": "Roundheads, named for their cropped hair, were the Parliamentarian opponents of the Royalists in the Civil War."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Harry"
     }
    }
   },
@@ -1114,40 +1144,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NESTING",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 32,
+       "note": "after places the anagram behind the November letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "November",
+       "at": 38,
+       "gives": "N",
+       "note": "N is November in the NATO phonetic alphabet"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "spread",
-         "note": "letters spread out are letters no longer stacked in the order they were given, so they resettle in another one"
-        },
-        {
-         "text": "after",
-         "note": "the shuffled letters are written after the letter November stands for, not in front of it"
+         "at": 25,
+         "note": "spread suggests the letters scattered out and reordered"
         }
        ],
        "parts": [
         {
-         "words": "November",
-         "gives": "N",
-         "note": "November is the international radio alphabet's word for N"
+         "words": "e.g.",
+         "at": 15,
+         "note": "taken as written, its letters E and G"
         },
         {
-         "words": "e.g. nits",
-         "gives": "ESTING",
-         "note": "six letters for the mix, the two of the abbreviation among them"
+         "words": "nits",
+         "at": 20,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'E.g.' looks like it is introducing an example and is not: its two letters are fodder like any others, which is the hardest thing to spot here.",
-     "definitionFit": "Nesting is the old country pastime of hunting out birds' nests and taking the eggs from them, which is why it is now illegal."
+     "surface": "Someone combing out nits, eggs and all, spreads them about after November.",
+     "walkthrough": "'Spread' works on E.G. and NITS together. Nits are lice eggs, which is why the surface feels like a delousing scene.",
+     "definitionFit": "Nesting, or bird-nesting, is the old pastime of hunting for birds' nests to take the eggs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "eggs"
     }
    }
   },
