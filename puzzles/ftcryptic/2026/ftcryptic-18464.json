@@ -592,50 +592,40 @@
      "indicators": [
       {
        "text": "filled with",
-       "note": "something filled with stuff has it inside, so the letters named go between the two outer pieces"
+       "at": 12,
+       "note": "the spelt-out letters are filled, so the other pieces go inside them"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "M",
-         "gives": "EM",
-         "note": "the letter M spelled out as its name"
-        },
-        {
-         "words": "S",
-         "gives": "ESS",
-         "note": "the letter S spelled out as its name"
-        }
-       ]
+       "words": "M&S",
+       "at": 8,
+       "gives": "EMESS",
+       "note": "the two letters spelt out as their names, em and ess"
       },
       {
        "op": "charade",
        "parts": [
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "P",
          "indicators": [
           {
            "text": "essentially",
-           "note": "essentially means at its core, so only the central letter of the word is kept"
+           "at": 24,
+           "note": "the essence of a word is its central letter"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "dippy",
-           "gives": "P",
-           "select": "middle",
-           "note": "the middle letter of dippy"
+           "at": 36,
+           "note": "supplies its middle letter"
           }
          ]
         },
         {
          "words": "case",
+         "at": 42,
          "gives": "TIN",
          "note": "a tin is a case or container"
         }
@@ -644,9 +634,9 @@
      ]
     },
     "explanation": {
-     "surface": "A shop window at Marks & Spencer stands empty, filled only with a silly display case.",
-     "walkthrough": "M&S is not the store: the two letters are written out as their names, EM and ESS, which then hold the rest.",
-     "definitionFit": "Emptiness is the state of being vacant, so it is a synonym for vacancy."
+     "surface": "A dotty shopper finds an empty box at Marks & Spencer, the British high-street chain.",
+     "walkthrough": "'M&S' is read as the letter names EM and ESS, not the shop; the middle letter of dippy and TIN go between them.",
+     "definitionFit": "A vacancy is a state of being empty, which is exactly what emptiness means."
     },
     "features": {
      "answerInScene": true,
@@ -1255,47 +1245,49 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "LARK",
      "indicators": [
       {
        "text": "Mad",
-       "note": "mad means deranged, so the remaining letters are jumbled"
+       "at": 0,
+       "note": "mad means crazy, so the letters are scrambled"
       }
      ],
      "parts": [
       {
+       "words": "King",
+       "at": 4,
+       "gives": "K",
+       "note": "K is the chess and card abbreviation for king"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "LARK",
        "indicators": [
         {
          "text": "loses",
-         "note": "loses means gives up, so a letter is taken out of the name"
+         "at": 14,
+         "note": "the named letter is lost from the old king's name"
         }
        ],
        "parts": [
         {
-         "words": "King",
-         "gives": "K",
-         "note": "K is the chess abbreviation for king"
-        },
-        {
          "words": "Lear",
-         "note": "taken as written"
+         "at": 9,
+         "note": "the king of Shakespeare's tragedy, losing a letter"
         },
         {
          "op": "last",
          "indicators": [
           {
            "text": "at last",
-           "note": "at last points at the final letter of the word before it"
+           "at": 27,
+           "note": "the last letter of the following word"
           }
          ],
          "parts": [
           {
            "words": "throne",
-           "note": "the final letter of throne"
+           "at": 20,
+           "note": "supplies its last letter"
           }
          ]
         }
@@ -1304,14 +1296,13 @@
      ]
     },
     "explanation": {
-     "surface": "Shakespeare's deranged King Lear finally loses his crown in the play.",
-     "walkthrough": "The surface's 'play' is Shakespeare's tragedy, but as the definition it means fun.",
-     "definitionFit": "A lark is a bit of fun or a prank, and to lark about is to play."
+     "surface": "In the play, the deranged King Lear finally gives up his crown.",
+     "walkthrough": "Lear without the E that ends throne leaves LAR; 'Mad' jumbles it with K. 'play' is the definition: a lark is a bit of fun.",
+     "definitionFit": "A lark is a piece of fun or mischief, so to lark about is to play."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "play"
     }
    }
