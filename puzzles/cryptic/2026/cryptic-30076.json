@@ -344,46 +344,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DAFFS",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "backing",
-         "note": "To back is to go the other way, so the word named before it is read from its far end."
+         "at": 6,
+         "note": "backing as in going backwards, so the word is read in reverse"
         }
        ],
        "parts": [
         {
          "words": "Fancy",
-         "gives": "DAF",
-         "note": "a fancy is a FAD, turned end for end"
-        },
+         "at": 0,
+         "gives": "FAD",
+         "note": "a fad is a passing fancy or craze"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "edges",
-           "note": "The edges of a word are the two letters at either extreme, with everything between them ignored."
-          }
-         ],
-         "parts": [
-          {
-           "words": "fibrous",
-           "note": "the outermost letters of FIBROUS, in the order they stand"
-          }
-         ]
+         "text": "edges",
+         "at": 27,
+         "note": "the edges of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fibrous",
+         "at": 19,
+         "note": "its outer letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition is quietly doing two jobs: daffodils really are sold as cut flowers, and the word itself has been cut down to its first syllable.",
-     "definitionFit": "DAFFS is the clipped, familiar name for daffodils, the flowers sold in bunches every spring."
+     "surface": "A florist puts a fancy backing with fibrous trim behind a bunch of cut blooms.",
+     "walkthrough": "'Backing' looks like a florist's support for the bouquet, but it turns FAD round to DAF; the 'edges' of fibrous add F and S. 'Cut' does double duty: the flowers' name is a shortened word.",
+     "definitionFit": "Daffs is a clipped, informal form of daffodils, so it is a cut-down name for those spring flowers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "backing"
     }
    }
   },
@@ -1571,42 +1580,44 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "PAINFUL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 36,
+       "note": "the other letters go in, inside the friend"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "touring",
-         "note": "A tour is a circuit that ends where it began, and that is what these letters do — the last one comes round to the front."
-        }
-       ],
+       "words": "China",
+       "at": 39,
+       "gives": "PAL",
+       "note": "in Cockney rhyming slang, china plate means mate, a pal"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "China",
-         "gives": "PAL",
-         "note": "china plate is Cockney rhyming slang for mate, so a china is a pal; it splits after PA"
+         "words": "one",
+         "at": 13,
+         "gives": "I",
+         "note": "the Roman numeral I is one"
         },
         {
-         "op": "charade",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "in",
-           "note": "'In' is the plain instruction to sit inside, so what it introduces is swallowed by what follows."
+           "text": "touring",
+           "at": 28,
+           "note": "touring as in moving around, so the letters of the word go round into a new order"
           }
          ],
          "parts": [
           {
-           "words": "one",
-           "gives": "I",
-           "note": "I is the Roman numeral for one"
-          },
-          {
            "words": "fun",
-           "gives": "NFU",
-           "note": "FUN sent round a circuit: the N leaves the end and rejoins at the front"
+           "at": 24,
+           "note": "taken as written"
           }
          ]
         }
@@ -1615,8 +1626,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "The surface sounds like a bad holiday, and the trick is that China here is a person rather than a country.",
-     "definitionFit": "Something painful is unpleasant to undergo, and 'disagreeable' is the polite, understated word for the same experience."
+     "surface": "Someone finds it unpleasant that a person is enjoying themselves on a tour of China.",
+     "walkthrough": "'China' looks like the country, but it is rhyming slang for a pal. FUN 'touring' becomes NFU, and with I it sits 'in' PAL.",
+     "definitionFit": "Painful can mean distressing or unpleasant to endure, as in a painful evening, so it fits disagreeable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
     }
    }
   }
