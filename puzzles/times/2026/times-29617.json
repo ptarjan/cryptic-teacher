@@ -250,46 +250,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EYESTRAIN",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "apparent in",
+       "at": 24,
+       "note": "the yes is apparent, visible, in the middle of the rearranged retina"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "apparent in",
-         "note": "the first word shows up inside the second"
-        },
-        {
          "text": "damaged",
-         "note": "the retina's letters are knocked out of order"
+         "at": 36,
+         "note": "damaged means broken, so the letters of retina are rearranged"
         }
        ],
        "parts": [
         {
          "words": "retina",
-         "gives": "ETRAIN",
-         "note": "RETINA rearranged"
-        },
-        {
-         "words": "certainly",
-         "gives": "YES",
-         "note": "yes = certainly, placed after the E"
+         "at": 44
         }
        ]
+      },
+      {
+       "words": "certainly",
+       "at": 14,
+       "gives": "YES",
+       "note": "yes is an emphatic certainly, as a reply"
       }
      ]
     },
     "explanation": {
-     "surface": "An eye doctor reporting a clear problem visible in a damaged retina.",
-     "walkthrough": "The eye-clinic surface keeps 'retina' looking like part of the diagnosis rather than a jumble of letters.",
-     "definitionFit": "Plain description: tired, aching eyes from overuse are a complaint of sight, which is what 'optical' covers."
+     "surface": "An eye problem clearly showing up in an injured retina.",
+     "walkthrough": "'damaged' rearranges RETINA into ETRAIN, and 'apparent in' places YES within it, after the first E.",
+     "definitionFit": "Eyestrain is tiredness or discomfort of the eyes, an optical complaint."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "retina"
+     "misdirectedWord": "apparent"
     }
    }
   },
@@ -318,40 +320,38 @@
      "parts": [
       {
        "words": "That woman",
+       "at": 0,
        "gives": "SHE",
-       "note": "she = that woman"
+       "note": "she is the pronoun for that woman"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "BA",
        "indicators": [
         {
          "text": "starts to",
-         "note": "take only the opening letter of each following word"
+         "at": 11,
+         "note": "the starts of the words are their first letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "starts to boss all",
-         "gives": "BA",
-         "select": "first",
-         "note": "first letters of boss and all"
+         "words": "boss all",
+         "at": 21,
+         "note": "the first letters of boss and all are B and A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A domineering woman bossing everyone about in the queen's household.",
-     "walkthrough": "The Queen of Sheba visited Solomon in the Bible, so her kingdom is the queen's place.",
-     "definitionFit": "Sheba is the ancient land ruled by the Queen of Sheba."
+     "surface": "A woman who begins to order everyone around in a royal household.",
+     "walkthrough": "The Queen of Sheba visits King Solomon in the Bible; Sheba was her kingdom.",
+     "definitionFit": "Sheba was the ancient kingdom ruled by the biblical Queen of Sheba."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "place"
+     "misdirectedWord": "boss"
     }
    }
   },
@@ -1717,39 +1717,31 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "to be periodically blocked",
+       "at": 20,
+       "note": "every other letter of ready is blocked out at regular intervals, leaving the first, third and fifth"
+      }
+     ],
      "parts": [
       {
-       "op": "alternate",
-       "indicators": [
-        {
-         "text": "periodically",
-         "note": "at regular intervals, so every other letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "ready",
-         "note": "keep the first, third and fifth letters"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "periodically blocked",
-       "note": "the E and D are blocked out"
+       "words": "ready",
+       "at": 14,
+       "note": "the first, third and fifth letters of ready are R, A and Y"
       }
      ]
     },
     "explanation": {
-     "surface": "A light beam set up and then intermittently obstructed.",
-     "walkthrough": "'Blocked' is part of the instruction: the letters in between are shut out.",
-     "definitionFit": "Plain synonym, as in a ray of sunshine through a window."
+     "surface": "A beam of light, poised to be cut off now and then.",
+     "walkthrough": "Keep R, A and Y from READY, dropping the letters between them.",
+     "definitionFit": "A ray is a narrow line or shaft of light."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "periodically"
+     "misdirectedWord": "blocked"
     }
    }
   },
@@ -1777,46 +1769,51 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "the next word loses its last letter"
+       "text": "ill-disposed",
+       "at": 30,
+       "note": "ill-disposed read as badly arranged signals that the letters are put in a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "I am",
+       "at": 0
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "ill-disposed",
-         "note": "the letters are badly arranged"
+         "text": "mostly",
+         "at": 5,
+         "note": "mostly means most of the word, so the last letter of the is dropped"
         }
        ],
        "parts": [
         {
-         "words": "I am",
-         "note": "used as written"
+         "words": "the",
+         "at": 12
         },
         {
-         "words": "mostly the",
-         "gives": "TH",
-         "note": "THE without its E"
-        },
-        {
-         "words": "person",
-         "note": "used as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "person",
+       "at": 16
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A grumpy confession: I'm pretty much the one who dislikes everybody.",
-     "walkthrough": "The whole clue is both the instruction and the definition: someone ill-disposed to people is a misanthrope.",
-     "definitionFit": "A misanthrope dislikes other people, so is ill-disposed."
+     "surface": "A grump admits to being, more or less, the unfriendly sort.",
+     "walkthrough": "I AM, TH (the, mostly) and PERSON are rearranged together. The whole clue also describes the answer, a person ill-disposed to everyone.",
+     "definitionFit": "A misanthrope is someone who dislikes humankind, hence ill-disposed towards people."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "ill-disposed"
     }
    }
   }
