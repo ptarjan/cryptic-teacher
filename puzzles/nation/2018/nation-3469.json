@@ -1196,46 +1196,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PULLTAB",
+     "op": "container",
      "indicators": [
       {
-       "text": "order",
-       "note": "putting things in order rearranges them, so the letters are sorted anew"
+       "text": "In",
+       "at": 0,
+       "note": "In tells us the following letters are placed inside the word for bar"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "bar",
+       "at": 3,
+       "gives": "PUB",
+       "note": "a pub is a bar, a place selling drinks"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "In",
-         "note": "one piece goes inside the other"
+         "text": "order",
+         "at": 8,
+         "note": "used as a verb, order means arrange, so the letters of tall are put into a new sequence"
         }
        ],
        "parts": [
         {
-         "words": "bar",
-         "gives": "PUB",
-         "note": "a pub is a bar"
-        },
-        {
          "words": "tall",
-         "gives": "LLTA",
-         "note": "the letters of tall, rearranged"
+         "at": 14,
+         "note": "taken as written, the letters to rearrange"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "At a tavern, you ask for a tall can of beer.",
-     "definitionFit": "A pull tab is the ring lever on top of a drinks can that you lift to open it."
+     "surface": "At a bar, someone asks for a tall drink, and the clue ends on the can it comes in.",
+     "walkthrough": "'order' looks like asking for a drink, but it rearranges TALL into ULLTA, which goes 'In' PUB.",
+     "definitionFit": "A pull tab is the ring or lever on a drinks can that you lift to open it, a component of the can."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "order"
     }
    }
