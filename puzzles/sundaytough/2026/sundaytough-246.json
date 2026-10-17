@@ -115,53 +115,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SEARCHME",
+     "op": "composite",
      "indicators": [
       {
        "text": "new",
-       "note": "new means made afresh, so the remaining letters are rearranged"
+       "at": 22,
+       "note": "new means the letters are made afresh in a different order"
+      },
+      {
+       "text": "not in",
+       "at": 15,
+       "note": "not in means this letter is absent from the pool before it is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SEARCHME",
-       "indicators": [
-        {
-         "text": "not in",
-         "note": "not in says the letter for second-class is absent from the dictionary name"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Second-class",
-         "gives": "B",
-         "note": "B is the grade below A, second class"
-        },
-        {
          "words": "Chambers",
+         "at": 26,
          "note": "taken as written"
         },
         {
          "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
+         "at": 35,
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "Second-class",
+       "at": 1,
+       "gives": "B",
+       "note": "B is the grade below A, so second-class"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone shrugs at why 'second-class' is missing from the latest Chambers dictionary.",
-     "walkthrough": "CHAMBERS minus B, plus E, rearranged. Chambers is the British dictionary crossword setters favour.",
-     "definitionFit": "'Search me' is an idiom said with a shrug, meaning the speaker has no idea of the answer."
+     "surface": "A puzzler can't see why 'second-class' is missing from the latest Chambers English dictionary.",
+     "walkthrough": "Chambers is the dictionary crossword setters swear by, which makes the surface plausible. 'not in' takes the B out of CHAMBERS plus E, and 'new' rearranges what is left.",
+     "definitionFit": "Search me is an informal idiom meaning I have no idea, said when asked something you can't answer."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Chambers"
     }
    }
