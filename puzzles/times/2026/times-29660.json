@@ -997,43 +997,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AGAIN",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "cut twice",
-       "note": "cutting twice trims two letters from the end of the word"
+       "text": "rolling",
+       "at": 18,
+       "note": "rolling means turning over, so the letters are read in the opposite direction"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "rolling",
-         "note": "a rolling thing turns over, so the word is read backwards"
+         "text": "cut twice",
+         "at": 7,
+         "note": "cut twice means the word is docked by two letters at its tail"
         }
        ],
        "parts": [
         {
          "words": "Falls",
-         "gives": "NIAGA",
-         "note": "NIAGARA, the famous waterfalls, losing its last two letters RA"
+         "at": 0,
+         "gives": "NIAGARA",
+         "note": "Niagara Falls, the waterfalls on the US-Canada border"
+        },
+        {
+         "gives": "RA"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A barrel ride down a waterfall, hurt twice and tumbling head over heels.",
-     "walkthrough": "The definition is the last word: 'over' as in 'do it over', meaning once more. 'Falls' with a capital is Niagara.",
-     "definitionFit": "Over in the sense of repeating something, as in start over, means a second time, once more."
+     "surface": "Someone takes two tumbles, rolling over each time.",
+     "walkthrough": "'Falls' looks like tumbles, but it is Niagara; 'cut twice' takes two letters off the end to leave NIAGA, and 'rolling' turns that round. 'over' is the definition, as in 'do it over'.",
+     "definitionFit": "To do something over is to do it once more, so over and again are synonyms in that sense."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "over"
+     "aptDefinition": false,
+     "misdirectedWord": "Falls"
     }
    }
   },
@@ -1504,51 +1508,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "QUALM",
-     "indicators": [
-      {
-       "text": "Without introduction",
-       "note": "with no introduction, a word loses its opening letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Without introduction",
+         "at": 0,
+         "note": "without its introduction means the word loses its opening letter"
+        }
+       ],
        "parts": [
         {
          "words": "fellow",
-         "gives": "QUAL",
-         "note": "EQUAL, a peer, losing its E"
+         "at": 22,
+         "gives": "EQUAL",
+         "note": "a fellow is a peer or equal"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "first to",
-           "note": "the first of a word is its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "make",
-           "note": "the first letter of Make"
-          }
-         ]
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "first to",
+         "at": 29,
+         "note": "first to make means the opening letter of the word make, its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "make",
+         "at": 38,
+         "note": "only its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to be the first to book a table, no introductions needed.",
-     "walkthrough": "'Fellow' is an equal, a peer. 'Reservation' reads as a booking, but it is a doubt.",
-     "definitionFit": "A qualm is a pang of doubt or misgiving, and a reservation is likewise an unspoken doubt."
+     "surface": "A man arrives unannounced and is the first to book a table.",
+     "walkthrough": "'Without introduction' removes the first letter of EQUAL to leave QUAL, then 'first to make' gives M. 'reservation' is a doubt, not a booking.",
+     "definitionFit": "A qualm is a misgiving, and a reservation in this sense is a doubt held back."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "reservation"
     }
    }
@@ -1574,41 +1584,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANVIL",
-     "indicators": [
-      {
-       "text": "knocking the stuffing out of",
-       "note": "the stuffing is the middle of a word, and knocking it out leaves only the outside letters"
-      },
-      {
-       "text": "two being sent off",
-       "note": "being sent off is leaving the field, so two letters depart from the end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "knocking the stuffing out of",
+         "at": 15,
+         "note": "removing the stuffing leaves only the outer shell of the word Aston"
+        }
+       ],
        "parts": [
         {
          "words": "Aston",
-         "gives": "AN",
-         "note": "ASTON without its middle STO, a deletion"
-        },
+         "at": 44,
+         "note": "only the first and last letters are used"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "two being sent off",
+         "at": 57,
+         "note": "two letters of Villa are sent off the field, its last pair"
+        }
+       ],
+       "parts": [
         {
          "words": "Villa",
-         "gives": "VIL",
-         "note": "a deletion: VILLA with its final two letters LA removed"
+         "at": 50,
+         "gives": "VILLA",
+         "note": "taken as written"
+        },
+        {
+         "gives": "LA"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A football report: a crunching challenge, a thrashing of Aston Villa, and two players red-carded.",
-     "walkthrough": "'Tackle' reads as a football challenge but means equipment; a smith's gear includes the anvil. Aston Villa is a Birmingham football club.",
-     "definitionFit": "A blacksmith hammers hot metal on an anvil, the heavy iron block central to the forge's equipment."
+     "surface": "A football report on Aston Villa being thrashed with two players dismissed.",
+     "walkthrough": "Aston Villa is an English football club. 'knocking the stuffing out of' leaves AN from Aston; 'two being sent off' drops two letters from VILLA to give VIL. 'tackle' is equipment, not a football challenge.",
+     "definitionFit": "An anvil is the iron block a blacksmith hammers metal on, so part of a smith's equipment."
     },
     "features": {
      "answerInScene": false,
@@ -1834,59 +1855,68 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OVERLAP",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Departs from",
-       "note": "D stands for departs on a timetable, and it leaves the word"
+       "text": "before",
+       "at": 18,
+       "note": "before places the departed port ahead of the returning friend in the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "before",
-         "note": "before means placed ahead, so the pieces follow on in that order"
+         "text": "from",
+         "at": 8,
+         "note": "from here means taken away from, so the letter leaves the port's name"
         }
        ],
        "parts": [
         {
          "words": "port",
-         "gives": "OVER",
-         "note": "DOVER, the Channel port in Kent, without its D"
+         "at": 13,
+         "gives": "DOVER",
+         "note": "Dover is an English Channel port"
         },
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "return of",
-           "note": "a return goes back the way it came, so the word runs backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "friend",
-           "gives": "PAL",
-           "note": "a pal is a friend"
-          }
-         ]
+         "words": "Departs",
+         "at": 0,
+         "gives": "D",
+         "note": "D is the timetable abbreviation for departs"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "return of",
+         "at": 25,
+         "note": "the return of the word means it is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "friend",
+         "at": 35,
+         "gives": "PAL",
+         "note": "a pal is a friend"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A friend returns just as the other sets sail: chance timing?",
-     "walkthrough": "'Coincidence' reads as chance, but it is the sense of occupying the same space or time.",
-     "definitionFit": "Coincidence can mean two things occupying the same space or period, so a partial overlap."
+     "surface": "A traveller leaves port before a friend comes back.",
+     "walkthrough": "'Departs from port' reads as a ship sailing, but it is D taken from DOVER, leaving OVER; 'return of' turns PAL to LAP. 'coincidence' here means occurring at the same place or time.",
+     "definitionFit": "An overlap is a partial coinciding of two things, so coincidence in its literal sense of occupying the same space."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "coincidence"
+     "aptDefinition": false,
+     "misdirectedWord": "Departs"
     }
    }
   },
