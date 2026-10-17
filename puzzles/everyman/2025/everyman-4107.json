@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -453,65 +454,63 @@
    "annotation": {
     "definitions": [
      {
-      "text": "actor",
-      "at": 69
+      "text": "this actor is knighted",
+      "at": 64,
+      "note": "points to the actor Sir Ian, whose surname is the answer"
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "MCKELLEN",
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "MCKELLEN",
+       "words": "Master of Ceremonies",
+       "at": 0,
+       "gives": "MC"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "enthralled",
+         "at": 46,
+         "note": "to be enthralled is to be held captive, so the jumbled letters hold the left letter inside them"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
+         "op": "anagram",
          "indicators": [
           {
            "text": "trembling",
-           "note": "something trembling will not hold its shape, so the letters described refuse to stay in the order given."
+           "at": 30,
+           "note": "trembling means shaking about, so the letters of kneel are jumbled"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "indicators": [
-            {
-             "text": "enthralled",
-             "note": "to be enthralled is to be held captive, so the letter it applies to is shut inside the other piece."
-            }
-           ],
-           "parts": [
-            {
-             "words": "Master of Ceremonies",
-             "gives": "MC",
-             "note": "MC is the compere who introduces the acts at an event"
-            },
-            {
-             "words": "'Kneel, trembling, left enthralled'",
-             "gives": "KELLEN",
-             "note": "KNEEL shaken into KELEN, with L for left held captive among those letters"
-            }
-           ]
-          },
-          {
-           "unchecked": true,
-           "words": "is knighted",
-           "note": "surface only — it narrows the field to a knight of the realm without contributing any letters"
+           "words": "Kneel",
+           "at": 23
           }
          ]
+        },
+        {
+         "words": "left",
+         "at": 41,
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A master of ceremonies barking a theatrical order at somebody kneeling in front of him.",
-     "walkthrough": "The colon and the quotation marks dress the middle of the clue up as a line spoken aloud, when those words are handing out instructions. Sir Ian McKellen was knighted in 1991.",
-     "definitionFit": "MCKELLEN is the surname of Sir Ian McKellen, so 'actor' defines the answer by naming the profession he is knighted for."
+     "surface": "At an investiture, the compere tells a nervous actor to kneel to be dubbed a knight.",
+     "walkthrough": "'trembling' turns KNEEL into KELEN, which has 'enthralled' L to make KELLEN after MC. The definition points to Sir Ian McKellen, knighted in 1991.",
+     "definitionFit": "Sir Ian McKellen is the English stage and film actor, famed as Gandalf and Magneto."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "trembling"
     }
    }
   },
@@ -676,51 +675,53 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CATALONIA",
      "indicators": [
       {
        "text": "to oust",
-       "note": "to oust somebody is to drive them out and take over the place they held, which is what one letter does to another here."
+       "at": 8,
+       "note": "ousting puts one letter out and the Liberal letter in its place"
       }
      ],
      "parts": [
       {
        "words": "stunned state",
+       "at": 38,
        "gives": "CATATONIA",
-       "note": "catatonia is a stupor in which a person goes rigid and unresponsive"
+       "note": "catatonia is a stupor in which a person is unresponsive"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "T",
        "indicators": [
         {
          "text": "finally",
-         "note": "'finally' points at the very end of the word beside it, so only its closing letter is taken."
+         "at": 27,
+         "note": "finally points to the last letter of technocrat"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "technocrat finally",
-         "gives": "T",
-         "select": "last",
-         "note": "the closing letter of technocrat, and the letter that gets driven out"
+         "words": "technocrat",
+         "at": 16,
+         "note": "its last letter is the one ousted"
         }
        ]
       },
       {
        "words": "Liberal",
-       "gives": "L",
-       "note": "L is the standard abbreviation for Liberal in British politics"
+       "at": 0,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A Liberal politician forcing a technocrat out of office in Spain, everybody shocked.",
-     "walkthrough": "'State' pulls two ways: the surface wants a country on the map, while the word to build on is a medical condition in which a patient neither moves nor speaks.",
-     "definitionFit": "CATALONIA is an autonomous community in north-eastern Spain, and so is one part of the Iberian peninsula."
+     "surface": "A political tale: a Liberal displaces a technocrat in a dazed region of Spain.",
+     "walkthrough": "CATATONIA has two Ts; L must replace the second one, the one 'finally' picked out from technocrat, to give the Spanish region.",
+     "definitionFit": "Catalonia is an autonomous region of north-east Spain on the Iberian peninsula."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stunned"
     }
    }
   },
@@ -791,46 +792,52 @@
      {
       "text": "beliefs",
       "at": 40,
-      "note": "'Beliefs' is plural where the answer is singular: a credo is one statement of faith, and what it holds is the beliefs."
+      "note": "a credo is a single statement covering a whole set of beliefs"
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CREDO",
-     "indicators": [
-      {
-       "text": "withdrawing",
-       "note": "to withdraw is to draw back the way you came, so the word beside it is written out from its far end."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "About",
+       "at": 0,
+       "gives": "C",
+       "note": "C is short for circa, Latin for about"
+      },
+      {
+       "words": "right",
+       "at": 6,
+       "gives": "R"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "withdrawing",
+         "at": 28,
+         "note": "withdrawing means drawing back, so the song's letters are read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "About",
-         "gives": "C",
-         "note": "c. for circa is the standing short form of about in front of a date"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the standard abbreviation for right"
-        },
-        {
-         "words": "song of praise withdrawing",
-         "gives": "EDO",
-         "note": "a song of praise is an ode, drawn back the other way"
+         "words": "song of praise",
+         "at": 13,
+         "gives": "ODE",
+         "note": "an ode is a lyric poem praising its subject"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Roughly correct: a hymn being taken back, and the convictions behind it going with it.",
-     "walkthrough": "The colon makes 'About right' look like a verdict on everything after it, when those two words have already been spent as two separate letters.",
-     "definitionFit": "A CREDO is a statement of what somebody holds true — the Latin for 'I believe' — used of a personal or religious set of beliefs."
+     "surface": "Someone changing their view stops singing a hymn about rights.",
+     "walkthrough": "C is circa, about, and 'withdrawing' turns ODE into EDO after R.",
+     "definitionFit": "A credo is a creed, a set of principles or convictions that guide someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "withdrawing"
     }
    }
   },
@@ -1039,26 +1046,33 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ASLIKELYASNOT",
      "indicators": [
       {
        "text": "Following Restoration",
-       "note": "a restoration puts a thing back together in a fresh arrangement, and 'following' one is the point at which these letters have been rebuilt."
+       "at": 0,
+       "note": "once restored the letters are put back together in a new order, so loyalist and sneak are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "loyalist — sneak",
-       "gives": "ASLIKELYASNOT",
-       "note": "thirteen letters of fodder — L, O, Y, A, L, I, S, T, S, N, E, A and K — rearranged"
+       "words": "loyalist",
+       "at": 23
+      },
+      {
+       "words": "sneak",
+       "at": 34
       }
      ]
     },
     "explanation": {
-     "surface": "After Charles II came back, a king's man was probably an informer as well.",
-     "walkthrough": "'Restoration' with its capital letter looks like the historical event the surface is built on, the return of Charles II to the throne in 1660, and it is the order to rebuild.",
-     "definitionFit": "AS LIKELY AS NOT puts the odds at evens or a little better, which is the loose sense 'probably' carries in ordinary speech."
+     "surface": "After 1660, a royalist informer is suspected of treachery.",
+     "walkthrough": "The Restoration was the return of Charles II to the English throne in 1660, so 'loyalist' and 'sneak' suit a story of royalist spies.",
+     "definitionFit": "The phrase means with an even chance, roughly the same as likely or probably."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Restoration"
     }
    }
   },
@@ -1247,37 +1261,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FRAPPE",
-     "indicators": [
-      {
-       "text": "Not quite",
-       "note": "'not quite' stops you just before the end of a word, so its last letter is left off."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Fine",
+       "at": 12,
+       "gives": "F",
+       "note": "F is the pencil-grade abbreviation for fine"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not quite",
+         "at": 36,
+         "note": "not quite the whole word, so its final letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Fine",
-         "gives": "F",
-         "note": "F is the pencil grade marked on a fine lead"
+         "words": "Ice T', perhaps",
+         "at": 19,
+         "gives": "RAPPER",
+         "note": "Ice-T is a famous American hip-hop artist, an example of a rapper"
         },
         {
-         "words": "'Ice T', perhaps",
-         "gives": "RAPPE",
-         "note": "Ice-T is a rapper, and the word is cut short of its last letter"
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody offered a cold drink and settling on iced tea, more or less.",
-     "walkthrough": "'Ice T' is the American rapper rather than the iced tea the surface hands you, and 'perhaps' is the warning that he is one example of a broader word.",
-     "definitionFit": "A FRAPPE is a drink whipped up with crushed ice — the Greek iced coffee, or a milkshake — so 'cold drink' is the plain sense."
+     "surface": "Ordering a chilled drink: an iced tea would do, more or less.",
+     "walkthrough": "'Ice T' looks like iced tea, but it is the rapper; 'Not quite' cuts RAPPER to RAPPE.",
+     "definitionFit": "A frappe is an iced drink, such as coffee or liqueur poured over crushed ice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ice"
     }
    }
   },
@@ -1308,43 +1332,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HEAVYSET",
+     "op": "container",
      "indicators": [
       {
-       "text": "suffering",
-       "note": "somebody suffering is not themselves, and letters put through it come out in a different arrangement."
+       "text": "in",
+       "at": 22,
+       "note": "the disordered name goes inside the temperature word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "high temperature",
+       "at": 25,
+       "gives": "HEAT",
+       "note": "heat is a high temperature"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "'in' is doing positional work rather than joining the sentence up: the shaken name goes inside the other word instead of beside it."
+         "text": "suffering",
+         "at": 12,
+         "note": "something suffering is in a bad way, so the letters of the name are disordered"
         }
        ],
        "parts": [
         {
-         "words": "high temperature",
-         "gives": "HEAT",
-         "note": "a high temperature is heat"
-        },
-        {
-         "words": "Yves suffering",
-         "gives": "VYSE",
-         "note": "four letters of fodder — Y, V, E and S — rearranged"
+         "words": "Yves",
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Yves in distress in the sweltering weather, and solidly built with it.",
-     "walkthrough": "'In' looks like the sentence's own preposition and is really an instruction, while Yves — the French name behind Saint Laurent — is fodder rather than someone to sympathise with.",
-     "definitionFit": "HEAVY-SET describes a thickset, solidly built body, which is what 'stocky' says of a person."
+     "surface": "A man called Yves is in distress during a heatwave.",
+     "walkthrough": "'suffering' turns YVES into VYSE, placed 'in' HEAT after HEA.",
+     "definitionFit": "Heavyset describes someone with a broad, solid, thickset build."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suffering"
     }
    }
   },
@@ -1372,63 +1401,69 @@
      "op": "container",
      "indicators": [
       {
-       "text": "backsliding",
-       "note": "to backslide is to slip back the way you came, so the letters are written out in reverse along the row."
+       "text": "defending",
+       "at": 35,
+       "note": "the paired letters surround and protect the next piece"
       }
      ],
      "parts": [
       {
-       "words": "Everyman's backsliding",
-       "gives": "EM",
-       "note": "the setter refers to himself as ME, here slipping back the other way"
-      },
-      {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "defending",
-         "note": "a defender stands round whatever it is protecting, so the outer pieces close over what sits between them."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "op": "reversal",
          "indicators": [
           {
-           "text": "regularly",
-           "note": "taking a word regularly means moving through it at a fixed step, picking every other letter."
+           "text": "backsliding",
+           "at": 16,
+           "note": "sliding backwards means reading the letters in reverse"
           }
          ],
          "parts": [
           {
-           "words": "twice",
-           "gives": "EM",
-           "note": "the same reversed pair written a second time, on the far side of what it shields"
+           "words": "Everyman's",
+           "at": 5,
+           "gives": "ME",
+           "note": "the setter Everyman is me, so the setter's own word for himself is ME"
           }
          ]
         },
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "BL",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "bull regularly",
-           "gives": "BL",
-           "select": "alternate",
-           "note": "every other letter of BULL, counting from the first"
-          }
-         ]
+         "words": "twice",
+         "at": 28,
+         "gives": "EM",
+         "note": "the reversed setter's letters appear a second time"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 50,
+         "note": "regularly means at even intervals, so take every other letter of bull"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bull",
+         "at": 45,
+         "note": "its first and third letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Everyman relapsing again and again while standing up for a bull now and then.",
-     "walkthrough": "Everyman writes himself into his own puzzles as 'me', a habit worth pocketing: wherever the pseudonym turns up in one of these clues, it is those two letters.",
-     "definitionFit": "An EMBLEM is a figure that stands for something else — a badge, a flag, a heraldic device — which is one settled sense of 'sign'."
+     "surface": "A sign that Everyman has twice lapsed while sticking up for some nonsense.",
+     "walkthrough": "In crosswords a setter calls himself ME. 'backsliding' gives EM, used 'twice', and the pair is 'defending' BL, picked 'regularly' from bull.",
+     "definitionFit": "An emblem is a symbol or badge that stands for something, so a sign."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bull"
     }
    }
   }
