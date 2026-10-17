@@ -1179,36 +1179,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LADDER",
-     "indicators": [
-      {
-       "text": "reversed",
-       "note": "Reversed means set the other way about, so the three letters just named are read back to front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "reversed",
+         "at": 10,
+         "note": "turned the other way round, so the word is read from its last letter to its first"
+        }
+       ],
        "parts": [
         {
          "words": "Split pea",
-         "gives": "LAD",
-         "note": "dal is the Indian dish of split pulses, turned about"
-        },
-        {
-         "words": "the German",
-         "gives": "DER",
-         "note": "one of the German words for 'the', the masculine nominative"
+         "at": 0,
+         "gives": "DAL",
+         "note": "dal (or dhal) is the Indian name for split pulses such as split peas"
         }
        ]
+      },
+      {
+       "words": "the German",
+       "at": 19,
+       "gives": "DER",
+       "note": "der is the German masculine definite article, the"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two languages in six letters, and a third reading on the surface: 'German food chain' sounds like a supermarket, which is exactly what you are meant to picture.",
-     "definitionFit": "food chain -> LADDER: both are ranked series where each level sits above the one below, which is why we talk of climbing either."
+     "surface": "A German cook's pea soup recipe is turned upside down by a link in the food chain.",
+     "walkthrough": "'Split pea' is one leaf, the Indian dal, which 'reversed' turns into LAD. 'food chain' is used figuratively for a ranking from bottom to top.",
+     "definitionFit": "A food chain is loosely a pecking order, and a ladder is likewise a hierarchy of ranks to climb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Split"
     }
    }
   },
