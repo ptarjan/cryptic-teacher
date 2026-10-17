@@ -557,38 +557,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OCTOFID",
+     "op": "composite",
      "indicators": [
       {
        "text": "Terrible",
-       "note": "something terrible is in a bad state, so the letters are put into disorder"
+       "at": 0,
+       "note": "something terrible is in a bad state, so the remaining letters are put into disorder"
+      },
+      {
+       "text": "losing",
+       "at": 21,
+       "note": "losing tells us some letters of discomfort drop out before the rest are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "OCTOFID",
-       "indicators": [
-        {
-         "text": "losing every third",
-         "note": "losing every third letter means each letter in positions three, six and nine is dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "discomfort",
-         "note": "taken as written before letters are lost"
-        }
-       ]
+       "words": "discomfort",
+       "at": 9,
+       "note": "taken as written before letters are lost"
+      },
+      {
+       "words": "every third",
+       "at": 28,
+       "gives": "SMR",
+       "note": "every third letter of discomfort, those in positions three, six and nine"
       }
      ]
     },
     "explanation": {
-     "surface": "Awful pain that comes and goes, felt in many parts.",
-     "walkthrough": "Dropping S, M and R leaves DICOFOT, which is then rearranged.",
+     "surface": "Awful pain that comes and goes, felt in many parts of the body.",
+     "walkthrough": "'losing every third' drops S, M and R from discomfort, leaving DICOFOT, which 'Terrible' then rearranges.",
      "definitionFit": "Octofid is a botanical term for a leaf or calyx cleft into eight segments, so it is split many ways."
     },
     "features": {
@@ -1141,38 +1139,25 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "COGNATE",
      "indicators": [
       {
-       "text": "U-turn",
-       "note": "a U-turn sends a driver back the way they came, so the phrase is read right to left"
+       "text": "partial U-turn of",
+       "at": 8,
+       "note": "a partial U-turn turns back only part of the way, so just a stretch of the spelt-out phrase is taken and read right to left"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "COGNATE",
-       "indicators": [
-        {
-         "text": "partial",
-         "note": "only part of the spelt-out phrase is wanted, so the letters on either side are discarded"
-        }
-       ],
-       "parts": [
-        {
-         "words": "CTC to those sending signals",
-         "gives": "CHARLIETANGOCHARLIE",
-         "note": "C, T and C as spoken by signallers in the NATO phonetic alphabet"
-        }
-       ]
+       "words": "CTC to those sending signals",
+       "at": 26,
+       "gives": "ETANGOC",
+       "note": "signallers say C, T and C as Charlie Tango Charlie in the NATO alphabet; the part wanted runs from the E ending the first Charlie to the C opening the second"
       }
      ]
     },
     "explanation": {
-     "surface": "A cryptic instruction about turning initials round for radio operators.",
-     "walkthrough": "Spell CTC as signallers say it, Charlie Tango Charlie, then read backwards: the last C of the first Charlie, all of Tango, and the E of the next Charlie.",
+     "surface": "A cryptic instruction about radio operators turning round a set of initials.",
+     "walkthrough": "Spell CTC as signallers say it, Charlie Tango Charlie. 'partial' keeps only the stretch charliE TANGO Charlie, and 'U-turn of' reads it backwards.",
      "definitionFit": "Cognate means related by origin, as words in different languages that come from one shared root are."
     },
     "features": {
@@ -1546,24 +1531,31 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SHMO",
      "indicators": [
       {
        "text": "switching extremes",
-       "note": "the extremes are the end letters, and switching them swaps first with last"
+       "at": 30,
+       "note": "the extremes are the end letters of the word, and switching them swaps its first with its last"
       }
      ],
      "parts": [
       {
        "words": "resistance measures",
+       "at": 10,
        "gives": "OHMS",
-       "note": "the ohm is the unit of electrical resistance"
+       "note": "the ohm is the unit of electrical resistance, so measures of it are ohms"
+      },
+      {
+       "gives": "OHMS"
+      },
+      {
+       "gives": "SHMO"
       }
      ]
     },
     "explanation": {
-     "surface": "A fool fiddling with electrical readings.",
+     "surface": "A fool fiddling with electrical readings on a meter.",
+     "walkthrough": "'switching extremes' swaps the O at the start of OHMS with the S at its end, so the middle HM stays put.",
      "definitionFit": "Shmo, from Yiddish, is American slang for a stupid or contemptible person, the same as a jerk."
     },
     "features": {
@@ -1672,26 +1664,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AIN",
+     "op": "middle",
      "indicators": [
       {
-       "text": "shedding two layers",
-       "note": "shedding two layers strips the outside twice, so two letters go from each end"
+       "text": "two layers",
+       "at": 37,
+       "note": "two layers means the stripping happens a second time, peeling the word down again to its core"
       }
      ],
      "parts": [
       {
-       "words": "trainer",
-       "note": "taken as written before it is peeled"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "shedding",
+         "at": 28,
+         "note": "shedding a layer strips the outside of the word, so a letter goes from each end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "trainer",
+         "at": 20,
+         "note": "taken as written before it is peeled"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Glasgow fitness coach taking off a couple of layers.",
-     "walkthrough": "TR and ER both go, leaving the core.",
-     "definitionFit": "Ain is the Scots word for own, so a Glaswegian speaker uses it to mean belonging personally to oneself."
+     "surface": "A Glasgow fitness coach taking off a couple of layers of clothing.",
+     "walkthrough": "'shedding two layers' peels trainer once to RAINE and again to leave the core. Ain is the Scots word for own, as in 'my ain folk'.",
+     "definitionFit": "Ain is the Scots form of own, so a Glaswegian speaker uses it for what belongs personally to oneself."
     },
     "features": {
      "answerInScene": true,
