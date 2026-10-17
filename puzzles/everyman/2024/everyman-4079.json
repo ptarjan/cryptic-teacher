@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -320,42 +321,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DROOLING",
-     "indicators": [
-      {
-       "text": "taking first slice of",
-       "note": "Whoever takes the first slice carries it away, so the word that follows is left without the letter it began on."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "doctor",
+       "at": 18,
+       "gives": "DR"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "taking",
+         "at": 25,
+         "note": "taking here means taking away, so the cake's letter is removed"
+        }
+       ],
        "parts": [
         {
-         "words": "doctor",
-         "gives": "DR",
-         "note": "dr is the everyday short form of doctor"
+         "words": "fresh out of the oven",
+         "at": 53,
+         "gives": "COOLING",
+         "note": "something just baked is cooling down"
         },
         {
-         "words": "cake, fresh out of the oven",
-         "gives": "OOLING",
-         "note": "a cake fresh out of the oven is COOLING, and the C at its head is the slice that has gone"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "first slice of",
+           "at": 32,
+           "note": "the first slice of a word is its opening letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cake",
+           "at": 47,
+           "note": "first letter of cake"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A ravenous doctor helping himself to the first slice of a cake just out of the oven.",
-     "walkthrough": "The doctor and the cake belong to one sentence, so the comma after 'cake' looks like ordinary punctuation rather than the seam of the wordplay. What a cake does fresh out of the oven is the piece to find first.",
-     "definitionFit": "Drooling is what the mouth does at the sight of food, so it is hunger on display rather than hunger stated, which is what 'evidently' asks for."
+     "surface": "A hungry doctor grabs a slice of cake just out of the oven.",
+     "walkthrough": "'taking' is removal here, not addition: COOLING loses the C that is the 'first slice of' cake, leaving OOLING after DR.",
+     "definitionFit": "Someone salivating at the sight of food is plainly hungry, so drooling shows it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "slice"
+     "misdirectedWord": "taking"
     }
    }
   },
@@ -392,46 +410,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SEMIDRY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "drinking",
+       "at": 12,
+       "note": "drinking means the rearranged letters take in, or swallow, the drop"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Wild",
-         "note": "Something wild is out of all control, and letters out of control will not stay in the order they were handed over in."
-        },
-        {
-         "text": "drinking",
-         "note": "What is drunk is taken inside, so the drop named next is swallowed into the middle of the letters before it."
+         "at": 0,
+         "note": "wild signals that the letters of misery run riot into a new order"
         }
        ],
        "parts": [
         {
          "words": "misery",
-         "gives": "SEMIRY",
-         "note": "the six letters of the noun reset into this order, with a gap left open after the fourth"
-        },
+         "at": 5
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "drop of Drambuie",
-         "gives": "D",
-         "note": "a drop of Drambuie is the first letter of the liqueur"
+         "text": "drop of",
+         "at": 21,
+         "note": "a drop of a word is just its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Drambuie",
+         "at": 29,
+         "note": "first letter of Drambuie, a Scotch whisky liqueur"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone thoroughly wretched knocking back a measure of Drambuie.",
-     "walkthrough": "'Drinking' has to be read as swallowing a thing whole rather than as part of the sad drinker's evening. Semi-dry is the label on a wine or cider that has kept a little of its sugar.",
-     "definitionFit": "A wine labelled semi-dry has had only part of its sugar fermented away, so it keeps some sweetness without ever being a sweet wine."
+     "surface": "A miserable drinker sipping Drambuie finds it only somewhat sweet.",
+     "walkthrough": "MISERY 'Wild' becomes SEMIRY, which is 'drinking' the D, a 'drop of' Drambuie, between SEMI and RY. Drambuie is a whisky liqueur.",
+     "definitionFit": "Semi-dry describes a wine or drink with some residual sugar: sweet only in part."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "drinking"
+     "aptDefinition": false,
+     "misdirectedWord": "Wild"
     }
    }
   },
@@ -1484,42 +1515,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "JELLIES",
-     "indicators": [
-      {
-       "text": "heading off",
-       "note": "A word with its heading off has lost the letter it began with, so the mounds turn up one letter short at the front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Judge",
+       "at": 0,
+       "gives": "J"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heading off",
+         "at": 26,
+         "note": "heading off means the word loses its first letter, its head"
+        }
+       ],
        "parts": [
         {
-         "words": "Judge",
-         "gives": "J",
-         "note": "j is the short form used on a court list for a judge"
+         "words": "mounds of fat",
+         "at": 11,
+         "gives": "BELLIES",
+         "note": "bellies are rounded paunches of fat"
         },
         {
-         "words": "mounds of fat",
-         "gives": "ELLIES",
-         "note": "mounds of fat on a person are bellies, and the B at the head of the word goes"
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A heavy judge setting off in search of the pudding.",
-     "walkthrough": "'Heading off' reads as setting out and does the opposite: it removes a head. Jellies are the wobbling set fruit puddings of a British children's party, which is why the plural is the natural form.",
-     "definitionFit": "Jellies are the set, wobbling, fruit-flavoured puddings served cold at the end of a meal, so a plural definition answers a plural answer."
+     "surface": "A judge with a paunch setting off for pudding.",
+     "walkthrough": "BELLIES 'heading off' drops its B to leave ELLIES after J.",
+     "definitionFit": "Jellies are wobbly set sweets made with gelatine, served as puddings or desserts."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "heading"
     }
    }
