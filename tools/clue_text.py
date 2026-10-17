@@ -332,8 +332,8 @@ def count_left(text, cells, lights):
     return text[:m.start()].rstrip(" ,;:")
 
 
-#: A closed count with specks after it ("(8)'", "(5).·", "(5). _").
-_COUNT_SPECKS = re.compile(r"(\(\s*[\dSIl,.\- ]{1,9}\))(?:[^\w(]|_){1,3}$")
+#: A closed count with specks after it ("(8)'", "(5).·", "(5). _"); a lone full stop is the print's own.
+_COUNT_SPECKS = re.compile(r"(\(\s*[\dSIl,.\- ]{1,9}\))(?!\.$)(?:[^\w(]|_){1,3}$")
 #: A count whose ")" was read as j or J, or whose "(" was lost, after a word.
 _COUNT_CLOSE_MISREAD = re.compile(r"(?<=[a-z])\s?\(?(\d{1,2}(?:[,.\-]\d{1,2})*)[)jJ]$")
 #: A count left open at its end, a speck where the bracket was: "(5r", "(5".
