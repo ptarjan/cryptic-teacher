@@ -459,6 +459,29 @@ discard_puzzle() {
   { python3 tools/own_rows.py revert "$1" && python3 tools/discard_clue_rows.py "$1"; } ||
     alert "$WORKER_JOB could not put back $1's rows of tools/fetch_puzzle.py after discarding it; the sweep at the end of the run may carry rows its file does not show."
 }
+# Wait out a held index.lock, and take over one nobody holds. A git command
+# keeps index.lock for the length of one command, so one still there after two
+# minutes belongs to a git that was killed (10-17 10:04:56: an empty lock, no git
+# alive, and independent-12441, azed-2711, book-11022 and cyclops-809 went
+# uncommitted until it was removed by hand). Nothing else ever clears it, and
+# every stage and commit after it fails the same way. Callers hold ct-index.lock,
+# so no sibling run's git is the one waited on. Without a lock path (a stubbed
+# git) it only sleeps.
+clear_stale_index_lock() {
+  local lock waited=0
+  lock=$(git rev-parse --git-path index.lock 2>/dev/null) || lock=""
+  [ -n "$lock" ] || { sleep 2; return 0; }
+  while [ -e "$lock" ]; do
+    if [ -z "$(find "$lock" -mmin -2 2>/dev/null)" ]; then
+      echo "worker: clearing an index.lock from $(date -r "$lock" '+%H:%M:%S') with no live git behind it" >&2
+      rm -f "$lock"
+      return 0
+    fi
+    [ "$waited" -lt "${CT_LOCK_WAIT_SECS:-130}" ] || return 0
+    sleep 2
+    waited=$((waited + 2))
+  done
+}
 # Stage one puzzle for its commit: its pathspecs (puzzle_specs), and its rows
 # of fetch_puzzle.py with no sibling's (tools/own_rows.py). On failure nothing
 # is left staged, so the next puzzle's commit cannot carry this one.
@@ -473,7 +496,7 @@ stage_puzzle() {
     git add -A -- "${spec[@]}" && python3 tools/own_rows.py stage "$1" && return 0
     # shellcheck disable=SC2046  # one path per line, none with a space
     git reset -q -- "${spec[@]}" $(python3 tools/own_rows.py paths)
-    [ "$try" -lt 5 ] && sleep 2
+    [ "$try" -lt 5 ] && clear_stale_index_lock
   done
   return 1
 }
@@ -488,7 +511,7 @@ worker_commit() {   # subject paths...
   # the next run's commit under that run's name. Only a held lock is retried.
   for try in 1 2 3 4 5; do
     out=$(git commit -q -m "$(printf '%s\n\n%s' "$subject" "$(python3 tools/provenance.py trailer)")" 2>&1) && { ok=1; break; }
-    case "$out" in *index.lock*) [ "$try" -lt 5 ] && sleep 2 ;; *) break ;; esac
+    case "$out" in *index.lock*) [ "$try" -lt 5 ] && clear_stale_index_lock ;; *) break ;; esac
   done
   if [ "$ok" = 0 ]; then
     # push_puzzle_commit.sh would find HEAD already on origin and exit 0, so a

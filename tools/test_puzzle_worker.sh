@@ -307,6 +307,22 @@ check "two lock refusals, then committed" "$(commit_with 2 index.lock)" "committ
 check "a lock that never clears still fails, after five tries" "$(commit_with 99 index.lock)" "refused after 5"
 check "any other refusal is not retried" "$(commit_with 99 HEAD.lock)" "refused after 1"
 
+echo "an index.lock left by a killed git is cleared, one still fresh is waited on"
+# shellcheck disable=SC2329  # called through the sourced worker
+stale_lock() (   # age of the lock in minutes; prints whether it is still there after
+  repo=$(mktemp -d)
+  trap 'rm -rf "$repo"' EXIT
+  CLAUDE_HEADLESS=() WORKER_MODEL=opus WORKER_EFFORT=medium WORKER_WRAP="" WORKER_JOB=test
+  . "$PWD/tools/puzzle_worker.sh"
+  cd "$repo" || exit 1
+  git init -q .
+  touch -d "$1 minutes ago" .git/index.lock
+  CT_LOCK_WAIT_SECS=2 clear_stale_index_lock 2>/dev/null
+  [ -e .git/index.lock ] && echo kept || echo cleared
+)
+check "a ten-minute-old empty lock is removed" "$(stale_lock 10)" "cleared"
+check "a lock a git may still hold is left alone" "$(stale_lock 0)" "kept"
+
 echo "a discard salvages what the run wrote, and tools/salvaged.sh restores it"
 salvage_flow() (
   repo=$(mktemp -d)
