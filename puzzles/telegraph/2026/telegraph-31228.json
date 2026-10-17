@@ -142,48 +142,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNDUE",
+     "op": "container",
      "indicators": [
       {
-       "text": "Endless",
-       "note": "without an end means the final letter is cut off"
+       "text": "to block",
+       "at": 13,
+       "note": "to block means the shortened call is wedged inside the article, stopping it up"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "French article",
+       "at": 22,
+       "gives": "UNE",
+       "note": "une is the French feminine indefinite article, a"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to block",
-         "note": "a blockage sits inside a passage, so one piece goes inside another"
+         "text": "Endless",
+         "at": 0,
+         "note": "Endless means the call word loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "French article",
-         "gives": "UNE",
-         "note": "une is the French feminine word for 'a'"
+         "words": "call",
+         "at": 8,
+         "gives": "DUN",
+         "note": "to dun is to call on someone persistently for payment of a debt"
         },
         {
-         "words": "call",
-         "gives": "DU",
-         "note": "DUN is a call or demand for payment of a debt, losing its last letter"
+         "gives": "N",
+         "note": "the last letter of the call word"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Constant phone calls stopping a French newspaper piece from running are going too far.",
-     "walkthrough": "A dun is an old word for a creditor's demand to pay up, which is why 'call' works here.",
-     "definitionFit": "Undue means more than is warranted or appropriate, which is the same as unreasonably large or excessive."
+     "surface": "A demand for payment that never ends, used to hold up a French article, is going too far.",
+     "walkthrough": "DUN, a demand for payment, is made 'Endless' to give DU, which goes 'to block' UNE, French for 'a'.",
+     "definitionFit": "Undue means more than is warranted or appropriate, as in undue pressure, so excessive."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "article"
+     "misdirectedWord": "call"
     }
    }
   },
@@ -596,37 +602,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DESPERATION",
-     "indicators": [
-      {
-       "text": "initially dismissed",
-       "note": "dismissing what comes first means the opening letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "some French",
+       "at": 16,
+       "gives": "DES",
+       "note": "des is French for some, the plural partitive article"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "initially dismissed",
+         "at": 47,
+         "note": "initially dismissed means the first letter of the procedure word is sent away"
+        }
+       ],
        "parts": [
         {
-         "words": "some French",
-         "gives": "DES",
-         "note": "des is French for 'some'"
+         "words": "surgical procedure",
+         "at": 28,
+         "gives": "OPERATION",
+         "note": "an operation is a surgical procedure"
         },
         {
-         "words": "surgical procedure",
-         "gives": "PERATION",
-         "note": "an OPERATION, losing its first letter"
+         "gives": "O",
+         "note": "the first letter of the procedure word"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A French surgeon rashly sent a patient home before an operation.",
-     "walkthrough": "Des is the French partitive article meaning 'some' (as in des pommes, some apples).",
-     "definitionFit": "Desperation drives people to act rashly, with no regard for danger, so it can stand for headlong recklessness."
+     "surface": "A French surgeon's rash operation has been thrown out at the first hearing.",
+     "walkthrough": "French DES is followed by OPERATION with its first letter 'initially dismissed', leaving PERATION.",
+     "definitionFit": "Desperation can mean a reckless state of having nothing left to lose, so acting with recklessness."
     },
     "features": {
      "answerInScene": false,
@@ -839,40 +850,39 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HAIRBALLS",
+     "spelt": "HAIRBALLS",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner was famous for swapping the opening sounds of words, so the starts trade places"
+       "at": 0,
+       "note": "Spooner's means the first sounds of the two words are swapped, as the Rev Spooner famously did"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "HAIR",
        "parts": [
         {
-         "unchecked": true,
          "words": "empty",
-         "gives": "HAIR",
-         "soundsLike": "BARE",
-         "note": "empty means bare; it takes the H sound from the other word"
-        },
-        {
-         "unchecked": true,
-         "words": "rooms",
-         "gives": "BALLS",
-         "soundsLike": "HALLS",
-         "note": "halls are large rooms; it takes the B sound from the other word"
+         "at": 10,
+         "gives": "BARE",
+         "note": "bare means empty, as in bare walls; with its first sound swapped it is heard as hair"
         }
        ]
+      },
+      {
+       "words": "rooms",
+       "at": 16,
+       "gives": "HALLS",
+       "note": "halls are large rooms"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone notices that empty rooms are causing trouble for a man named Tom.",
-     "walkthrough": "Tom here is a tomcat, a male cat, not a person; the question mark flags that it is an example.",
-     "definitionFit": "Cats swallow fur while grooming and cough up the clumps, a familiar nuisance for any male cat or tom."
+     "surface": "Someone's empty rooms are causing trouble for a man called Tom.",
+     "walkthrough": "Bare halls, 'Spooner's' way, becomes HARE BALLS, which sounds the same as HAIR BALLS. Tom is a tomcat, and the question mark flags the definition by example.",
+     "definitionFit": "Cats swallow fur while grooming and cough up compacted hairballs, a familiar nuisance for a male cat."
     },
     "features": {
      "answerInScene": false,
@@ -1497,46 +1507,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DOODLED",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not entirely, so the last letter is dropped"
+       "text": "claims",
+       "at": 23,
+       "note": "claims means the theologian takes the shortened word into his own letters, holding it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "theologian",
+       "at": 12,
+       "gives": "DD",
+       "note": "DD is Doctor of Divinity, a theologian's degree"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "claims",
-         "note": "to claim something is to take hold of it, so one piece holds another"
+         "text": "mostly",
+         "at": 5,
+         "note": "mostly means the last letter of the lots word is left off"
         }
        ],
        "parts": [
         {
-         "words": "theologian",
-         "gives": "DD",
-         "note": "DD is a Doctor of Divinity"
+         "words": "Lots",
+         "at": 0,
+         "gives": "OODLES",
+         "note": "oodles means lots, a great quantity"
         },
         {
-         "words": "Lots",
-         "gives": "OODLE",
-         "note": "OODLES means lots, losing its final letter"
+         "gives": "S",
+         "note": "the last letter of oodles"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A theologian makes many claims that someone has jotted down absent-mindedly.",
-     "walkthrough": "DD, a Doctor of Divinity, stands for a theologian in crosswords; it splits to hold the shortened word for lots.",
-     "definitionFit": "To doodle is to draw or write aimlessly while your attention is elsewhere, so a doodled thing was idly scrawled."
+     "surface": "A theologian makes a lot of claims, which turn out to be idle scribbles.",
+     "walkthrough": "'claims' looks like a verb of speech, but it means the theologian's two-letter degree takes the shortened 'Lots' word inside it; DD (Doctor of Divinity) is the standard crossword theologian.",
+     "definitionFit": "To doodle is to draw aimlessly, often while thinking of something else, so idly scribbled is a fair past tense."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "claims"
     }
