@@ -2148,45 +2148,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PACKEDLUNCH",
+     "spelt": "PACKEDLUNCH",
      "indicators": [
       {
        "text": "for Spooner",
-       "note": "swap the opening sounds of the two words"
+       "at": 38,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of the two words are exchanged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "PACKED",
        "parts": [
         {
-         "unchecked": true,
          "words": "didn't include",
-         "gives": "PACKED",
-         "soundsLike": "LACKED",
-         "note": "lacked = didn't include; takes the P from the other word"
-        },
-        {
-         "unchecked": true,
-         "words": "alcohol",
-         "gives": "LUNCH",
-         "soundsLike": "PUNCH",
-         "note": "punch, the mixed alcoholic drink; takes the L from the other word"
+         "at": 15,
+         "gives": "LACKED",
+         "note": "to lack something is not to include it, so didn't include means lacked"
         }
        ]
+      },
+      {
+       "words": "alcohol",
+       "at": 30,
+       "gives": "PUNCH",
+       "note": "punch is a mixed drink usually made with spirits or wine"
       }
      ]
     },
     "explanation": {
-     "surface": "A sandwich lunch from home with no booze in it.",
-     "walkthrough": "The Reverend Spooner swapped the starts of words; LACKED PUNCH becomes PACKED LUNCH.",
-     "definitionFit": "A packed lunch is food prepared at home to eat elsewhere."
+     "surface": "A home-cooked meal is served without any booze.",
+     "walkthrough": "'didn't include alcohol' gives LACKED PUNCH; swapping the L and P sounds, as Spooner would, gives the answer.",
+     "definitionFit": "A packed lunch is food prepared at home and taken to school or work in a box or bag."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun"
+     "joke": "pun",
+     "misdirectedWord": "alcohol"
     }
    }
   },
@@ -2296,40 +2296,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EXASPERATED",
-     "indicators": [
-      {
-       "text": "to remove leaders",
-       "note": "take off the first letter of each word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to remove",
+         "at": 24,
+         "note": "to remove means to take away, here the first letter of the word for state; the phrase governs both words"
+        }
+       ],
        "parts": [
         {
          "words": "state",
-         "gives": "EXAS",
-         "note": "TEXAS without its first letter"
+         "at": 11,
+         "gives": "TEXAS",
+         "note": "Texas is a US state"
         },
         {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaders",
+         "at": 34,
+         "note": "the leaders of words are their first letters, and removing them applies to the word for worked as well"
+        }
+       ],
+       "parts": [
+        {
          "words": "worked",
-         "gives": "PERATED",
-         "note": "OPERATED without its first letter"
+         "at": 17,
+         "gives": "OPERATED",
+         "note": "operated means worked, as a machine is worked"
+        },
+        {
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An annoyed nation acted to oust its heads.",
-     "walkthrough": "'Leaders' reads as political leaders, but it means first letters.",
-     "definitionFit": "Plain synonym: exasperated describes being irritated to the point of losing patience."
+     "surface": "A US state is annoyed that its leaders were operated on and removed.",
+     "walkthrough": "'to remove leaders' acts on both words, TEXAS and OPERATED, taking off each one's first letter.",
+     "definitionFit": "Someone exasperated is intensely annoyed, so the word is a stronger synonym of irritated."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "leaders"
     }
@@ -2417,37 +2436,43 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost a fish is a fish not quite complete, so the last letter goes"
+       "text": "cooked",
+       "at": 37,
+       "note": "cooked as in cooked up or doctored, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "finer",
+       "at": 19,
+       "note": "taken as written, as anagram fodder"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "cooked",
-         "note": "the letters are cooked up into a new order"
+         "text": "almost",
+         "at": 30,
+         "note": "almost means not quite all, so the last letter of fish is dropped"
         }
        ],
        "parts": [
         {
-         "words": "finer",
-         "note": "anagram fodder, as written"
+         "words": "fish",
+         "at": 25,
+         "note": "taken as written, before its last letter goes"
         },
         {
-         "words": "fish almost",
-         "gives": "FIS",
-         "note": "fish without its last letter"
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A food snob sneering at fish that is not quite done.",
-     "walkthrough": "'Cooked' fits the fish in the surface, but it is the instruction to rearrange.",
-     "definitionFit": "Sniffy means scornful, so sniffier is more dismissive."
+     "surface": "A food critic scorns the finer fish because it is not quite cooked.",
+     "walkthrough": "'almost' takes the H off fish to leave FIS, and 'cooked' mixes FINER and FIS together.",
+     "definitionFit": "Sniffy means scornful and disdainful, so the comparative sniffier means more dismissive."
     },
     "features": {
      "answerInScene": false,
@@ -2484,61 +2509,59 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "FRONTDOOR",
+     "indicators": [
+      {
+       "text": "touring",
+       "at": 28,
+       "note": "touring means going around, so the first group of letters goes round the picked letters"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "French",
+         "at": 9,
+         "gives": "FR"
+        },
+        {
+         "words": "working",
+         "at": 16,
+         "gives": "ON",
+         "note": "on means working, as a machine that is on"
+        },
+        {
+         "words": "men",
+         "at": 24,
+         "gives": "OR",
+         "note": "OR, other ranks, is the military term for ordinary soldiers, men"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
        "indicators": [
         {
-         "text": "touring",
-         "note": "going round the other letters"
+         "text": "every so often",
+         "at": 43,
+         "note": "every so often means at intervals, so alternate letters of studio are taken"
         }
        ],
        "parts": [
         {
-         "words": "French",
-         "gives": "FR",
-         "note": "Fr = French"
-        },
-        {
-         "words": "working",
-         "gives": "ON",
-         "note": "on = working, as a machine is"
-        },
-        {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "TDO",
-         "indicators": [
-          {
-           "text": "every so often",
-           "note": "every so often means at intervals, so only every other letter of studio is kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "studio every so often",
-           "gives": "TDO",
-           "select": "alternate",
-           "note": "even letters: sTuDiO"
-          }
-         ]
-        },
-        {
-         "words": "men",
-         "gives": "OR",
-         "note": "OR = other ranks, ordinary soldiers; ON and OR go around TDO"
+         "words": "studio",
+         "at": 36,
+         "note": "the alternate letters picked are T, D and O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "French labourers touring a studio at intervals pass through the entrance.",
-     "walkthrough": "'Working men' reads as one phrase, but it is two separate pieces that wrap round the letters from studio.",
-     "definitionFit": "Definition by example: a front door is the main way into a house, one kind of entrance."
+     "surface": "French workmen go round a studio from time to time looking for the way in.",
+     "walkthrough": "OR stands for other ranks, enlisted soldiers as opposed to officers; 'every so often' takes TDO from studio, which FRONOR is 'touring'.",
+     "definitionFit": "The front door is the main entrance to a house, at its front."
     },
     "features": {
      "answerInScene": true,
@@ -2618,47 +2641,50 @@
     "definitions": [
      {
       "text": "back, partly?",
-      "at": 50
+      "at": 50,
+      "note": "the vertebrae are the bones that make up the spine, part of the back"
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "VERTEBRAE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "cycling",
-       "note": "the first letter moves round to the end"
+       "text": "supports",
+       "at": 17,
+       "note": "in a down clue the supporting piece sits below, so it comes after"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "cycling",
        "indicators": [
         {
-         "text": "supports",
-         "note": "in a down entry, the bank sits below the tennis player"
+         "text": "cycling",
+         "at": 42,
+         "note": "cycling means going round, so the first letter moves to the end"
         }
        ],
        "parts": [
         {
-         "words": "tennis champion cycling",
-         "gives": "VERTE",
-         "note": "Chris EVERT with her E moved to the end"
-        },
-        {
-         "words": "Bank of Scotland",
-         "gives": "BRAE",
-         "note": "a brae is a Scottish hillside or bank"
+         "words": "tennis champion",
+         "at": 26,
+         "gives": "EVERT",
+         "note": "Chris Evert was an American tennis champion with eighteen Grand Slam singles titles"
         }
        ]
+      },
+      {
+       "words": "Bank of Scotland",
+       "at": 0,
+       "gives": "BRAE",
+       "note": "brae is a Scottish word for a hillside or steep bank"
       }
      ]
     },
     "explanation": {
-     "surface": "A Scottish bank sponsors a former tennis champion's comeback.",
-     "walkthrough": "'Bank of Scotland' reads as the bank, but it is a Scots word for a slope; 'back, partly' means pieces of the spine.",
-     "definitionFit": "Vertebrae are the bones that together make up the backbone."
+     "surface": "The Bank of Scotland sponsors a tennis champion who has gone back to cycling.",
+     "walkthrough": "'Bank of Scotland' looks like the bank, but it is BRAE, a Scots hillside. 'cycling' moves the E of EVERT to its end, and BRAE 'supports' it from below.",
+     "definitionFit": "Vertebrae are the small bones of the spinal column, so collectively they form part of the back."
     },
     "features": {
      "answerInScene": false,
@@ -3202,28 +3228,26 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "HANG",
      "indicators": [
       {
        "text": "Endlessly",
-       "note": "without either end, so drop the first and last letters"
+       "at": 0,
+       "note": "endlessly means without either end, so the first and last letters are cut"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "alter",
-       "gives": "HANG",
-       "select": "middle",
-       "note": "CHANGE without its first and last letters"
+       "at": 10,
+       "gives": "CHANGE",
+       "note": "to change something is to alter it"
       }
      ]
     },
     "explanation": {
-     "surface": "Changing a curtain again and again.",
-     "walkthrough": "'Endlessly' takes both ends off, not just the last letter; the word to trim is CHANGE, from alter.",
-     "definitionFit": "Curtains hang or drape, the same verb for letting fabric fall in folds."
+     "surface": "A decorator keeps changing the curtains.",
+     "walkthrough": "'Endlessly' looks like it means 'constantly' but trims both ends of the word for alter.",
+     "definitionFit": "To hang fabric is to drape it, letting it fall in folds from a support."
     },
     "features": {
      "answerInScene": true,
@@ -3253,52 +3277,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CUEING",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "to give up",
-         "note": "the learner's L is dropped"
+         "text": "to give up on",
+         "at": 18,
+         "note": "to give up on something is to let it go, so the learner letter departs"
         }
        ],
        "parts": [
         {
-         "words": "learner to give up on part of crossword",
-         "gives": "CUE",
-         "note": "CLUE losing L, the learner driver's plate"
+         "words": "part of crossword",
+         "at": 32,
+         "gives": "CLUE",
+         "note": "a clue is one part of a crossword"
         },
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "essentially",
-           "note": "at its core, so the middle letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "in",
-           "note": "as written"
-          }
-         ]
-        },
+         "words": "learner",
+         "at": 10,
+         "gives": "L",
+         "note": "L is the learner plate on a British car"
+        }
+       ]
+      },
+      {
+       "words": "in",
+       "at": 50
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "words": "anger, essentially",
-         "gives": "G",
-         "note": "middle letter of anGer"
+         "text": "essentially",
+         "at": 60,
+         "note": "essentially means at its essence, its very centre, so the middle letter of anger is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "anger",
+         "at": 53,
+         "note": "its middle letter is G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A beginner, prompted, gives up on a crossword clue in frustration.",
-     "walkthrough": "The surface is a solver's fury; the part of a crossword is a CLUE.",
-     "definitionFit": "Cueing someone is giving them a prompt."
+     "surface": "A beginner prompted to quit part of a crossword is basically angry.",
+     "walkthrough": "'to give up on' drops L from CLUE, and 'essentially' takes G, the centre of anger.",
+     "definitionFit": "Cueing someone gives them a signal to speak or act, which is what prompting means."
     },
     "features": {
      "answerInScene": false,
