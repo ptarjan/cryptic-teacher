@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1019,40 +1020,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EMBODIMENT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "appearing in",
+       "at": 13,
+       "note": "appearing in means showing up inside, so the person goes within the jumbled letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "appearing in",
-         "note": "Whatever appears in something is found inside it, so the person's letters sit within the other piece."
-        },
-        {
          "text": "Out",
-         "note": "Read it as out of order: the letters in front of it no longer stand in the sequence they were printed in."
+         "at": 36,
+         "note": "out means put out of order, so the letters of NME Time are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "NME, Time",
-         "gives": "EMIMENT",
-         "note": "the seven letters of NME and TIME, dealt out again"
+         "words": "NME",
+         "at": 26,
+         "note": "taken as written: the British music weekly"
         },
         {
-         "words": "person",
-         "gives": "BOD",
-         "note": "bod is casual British for a person"
+         "words": "Time",
+         "at": 31,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "person",
+       "at": 6,
+       "gives": "BOD",
+       "note": "a bod is British slang for a person"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two magazine titles in italics look like one list, and the cut falls between them: Time keeps its letters while Out turns into the instruction.",
-     "definitionFit": "The answer is the person in whom a quality takes visible form, and 'a model of patience' says exactly that, so this is the noun sense meaning exemplar."
+     "surface": "A model is interviewed in the music paper NME and the listings magazine Time Out.",
+     "walkthrough": "Time Out is a London listings magazine, but 'Out' is detached to rearrange NME TIME into EMIMENT, which holds BOD.",
+     "definitionFit": "An embodiment is a perfect example or personification of a quality, a model of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Out"
     }
    }
   },
@@ -1355,37 +1370,50 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 9,
+       "note": "without means lacking, so the letter from Portfolio's is removed from the minister"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "Minister",
+       "at": 0,
+       "gives": "PARSON",
+       "note": "a parson is a parish clergyman, a minister of religion"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "without",
-         "note": "It is doing its older job of lacking, not of standing outside, so the letter named simply is not there."
+         "text": "capital",
+         "at": 29,
+         "note": "a capital is an initial letter, so only the first letter of Portfolio's is used"
         }
        ],
        "parts": [
         {
-         "words": "Minister",
-         "gives": "PARSON",
-         "note": "a parson is the minister of a parish"
-        },
-        {
-         "gives": "P"
+         "words": "Portfolio's",
+         "at": 17,
+         "note": "its first letter"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "Portfolio's capital",
-       "note": "the capital letter of Portfolio is P, and P is the letter that goes"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Minister without Portfolio is a real cabinet post, which is what holds the surface together, and the crime really was once a capital offence. Both are bluffs.",
-     "definitionFit": "Deliberately setting fire to property is the crime, so the definition names it by its legal category rather than by a synonym."
+     "surface": "A government minister with no department commits a crime punishable by death.",
+     "walkthrough": "'Minister without portfolio' is a real political title, which hides that the minister is a clergyman losing P. 'Capital offence' is split: capital gives P, and offence alone is the definition.",
+     "definitionFit": "Arson, deliberately setting fire to property, is a criminal offence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "capital"
     }
    }
   },
