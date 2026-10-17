@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -663,45 +664,45 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "essentially",
-       "note": "The essence of a word is what sits at its very centre, so only the letters at the heart of it are kept."
+       "text": "hopeless",
+       "at": 24,
+       "note": "hopeless suggests a hopeless mess, so the combined letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Blood",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "hopeless",
-         "note": "A hopeless muddle is one nothing can be done with, and letters in that state will not stay in the order they were given."
+         "text": "essentially",
+         "at": 12,
+         "note": "essentially means at its essence or core, so the middle letters of the word are used"
         }
        ],
        "parts": [
         {
-         "words": "Blood",
-         "note": "the whole word goes into the mix"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "AI",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Rain, essentially",
-           "gives": "AI",
-           "select": "middle",
-           "note": "the two letters at the heart of the four-letter word beside it"
-          }
-         ]
+         "words": "Rain",
+         "at": 6,
+         "note": "its two central letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The italics dress the first two words as a title, and that is where the misdirection lives: they are there only to be taken apart for letters.",
-     "definitionFit": "A diabolo is the spinning top a child whips up and down a string strung between two sticks, so it is a plaything."
+     "surface": "A title like Blood Rain sounds like a grim film, but it is apparently a useless way to keep children amused.",
+     "walkthrough": "'essentially' takes AI from the heart of RAIN; 'hopeless' mixes BLOOD with AI.",
+     "definitionFit": "Diabolo is a juggling toy, a spool spun and tossed on a string between two sticks, a traditional children's pastime."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hopeless"
     }
    }
   },
@@ -1254,41 +1255,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TOBOGGANIST",
-     "indicators": [
-      {
-       "text": "for want of alternative",
-       "note": "To be short of something is to want it, and what goes missing here is OR, the little word that offers an alternative."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "headed for",
+       "at": 18,
+       "gives": "TO",
+       "note": "headed for means going to, so it gives TO"
+      },
+      {
+       "words": "loo",
+       "at": 29,
+       "gives": "BOG",
+       "note": "bog is British slang for a toilet, as is loo"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "for want of",
+         "at": 33,
+         "note": "for want of means lacking, so the musician loses the alternative word"
+        }
+       ],
        "parts": [
         {
-         "words": "headed for",
-         "gives": "TO",
-         "note": "when you are headed somewhere you are bound for it"
-        },
-        {
-         "words": "loo",
-         "gives": "BOG",
-         "note": "bog is blunt British slang for a lavatory"
-        },
-        {
          "words": "Church musician",
-         "gives": "GANIST",
-         "note": "the player at a church keyboard, once the OR has been lifted off the front"
+         "at": 0,
+         "gives": "ORGANIST",
+         "note": "an organist plays the organ in church"
+        },
+        {
+         "words": "alternative",
+         "at": 45,
+         "gives": "OR",
+         "note": "or is the word that offers an alternative"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is an organist bolting mid-service, and the colon is the join. The definition is the whole tail of the clue, where downhill is meant literally.",
-     "definitionFit": "A tobogganist rides a toboggan down a snow slope, so going downhill fast is the sport itself rather than a run of bad luck."
+     "surface": "An organist rushes off to the toilet because there is no other option.",
+     "walkthrough": "'for want of' takes OR out of ORGANIST to leave GANIST, after TO and BOG. Bog and loo are both British slang for a toilet.",
+     "definitionFit": "A tobogganist rides a sledge down snowy slopes, so for that person things literally go downhill at speed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "loo"
     }
    }
   },
