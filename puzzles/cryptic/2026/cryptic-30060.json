@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -43,40 +44,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BLOATED",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 15,
+       "note": "the shifted letters are put into the base word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "base",
+       "at": 20,
+       "gives": "BED",
+       "note": "a bed is a base, as a flower bed or the bed of a road"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "Shifting",
-         "note": "Something shifting has left the place it was in, and letters that leave their places are letters to rearrange."
-        },
-        {
-         "text": "into",
-         "note": "Into names a direction of travel: the rearranged letters are sent inside the next word rather than parked beside it."
+         "at": 0,
+         "note": "moving about, so the letters of 'a lot' change places"
         }
        ],
        "parts": [
         {
-         "words": "base",
-         "gives": "BED",
-         "note": "a bed is the base a thing rests on — a road bed, a river bed — and it splits open to take the insertion"
-        },
-        {
          "words": "a lot",
-         "gives": "LOAT",
-         "note": "the four letters of A LOT, shifted into a new order"
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface sounds like chemistry — something tipped into a base. Crosswords lean on the other sense: a bed is what a road or a river is laid on.",
-     "definitionFit": "feeling full → BLOATED: bloated is the swollen, uncomfortable state after eating too much, so the definition names the sensation rather than the shape."
+     "surface": "Moving a pile of stuff onto a base until one feels stuffed.",
+     "walkthrough": "'Shifting' turns A LOT into LOATE's first four letters, LOAT, which goes 'into' BED.",
+     "definitionFit": "Bloated describes the swollen, overfull sensation after eating too much."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
     }
    }
   },
@@ -1247,33 +1256,29 @@
    "annotation": {
     "definitions": [
      {
-      "text": "used to determine the order of firing",
-      "at": 15
+      "text": "Initially it's used to determine the order of firing",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "LIFO",
-     "indicators": [
-      {
-       "text": "Initially",
-       "note": "Initially points at beginnings, so what is wanted is the opening letter of each word in the rule the clue is describing."
-      }
-     ],
+     "op": "cryptic",
      "parts": [
       {
-       "unchecked": true,
-       "words": "Initially",
-       "gives": "LIFO",
-       "select": "first",
-       "note": "the rule is 'last in, first out'; take the opening letter of each of its four words in order"
+       "words": "Initially it's used to determine the order of firing",
+       "at": 0,
+       "note": "the answer is a set of initials, and the firing is sacking staff, not shooting"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Firing' reads as gunnery and means redundancy: when jobs are cut, the newest recruits go first. You have to know the four-word rule before the initials mean anything.",
-     "definitionFit": "used to determine the order of firing → LIFO: last in, first out is the redundancy rule that sends the newest recruits away before anyone senior."
+     "walkthrough": "'firing' suggests guns, but it means dismissals: the rule is Last In, First Out, so the newest hires go first. 'Initially' tells you the answer is made of initial letters.",
+     "definitionFit": "This acronym names the redundancy rule where the most recently hired employees are let go before longer-serving ones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "firing"
     }
    }
   },
