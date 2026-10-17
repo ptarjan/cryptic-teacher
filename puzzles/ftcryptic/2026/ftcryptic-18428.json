@@ -326,38 +326,53 @@
      "parts": [
       {
        "words": "New",
-       "gives": "N",
-       "note": "N is the standard abbreviation for new"
+       "at": 0,
+       "gives": "N"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "ESTLE",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "having been exposed repeatedly",
-         "note": "exposing strips off a covering; done twice, two layers of outer letters come away"
+         "text": "repeatedly",
+         "at": 35,
+         "note": "repeatedly says the stripping happens more than once, so a second layer of outside letters goes too"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "wrestlers",
-         "gives": "ESTLE",
-         "select": "middle",
-         "note": "strip the outer pair, then the next outer pair, leaving the core"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "having been exposed",
+           "at": 15,
+           "note": "exposed means stripped of a covering, so the word loses letters from its outside"
+          }
+         ],
+         "parts": [
+          {
+           "words": "wrestlers",
+           "at": 4,
+           "note": "the word whose outer letters are stripped, two at each end"
+          },
+          {
+           "gives": "WR"
+          }
+         ]
+        },
+        {
+         "gives": "RS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Novice wrestlers, having been repeatedly stripped, cluster together for warmth or comfort.",
-     "walkthrough": "WRESTLERS loses W and S, then R and R, leaving ESTLE after N.",
-     "definitionFit": "To nestle is to settle snugly or press close against others, which is what people do when they huddle together."
+     "surface": "Novice wrestlers, left without their kit several times, cling to each other.",
+     "walkthrough": "'having been exposed' strips WR from WRESTLERS to give ESTLERS, and 'repeatedly' strips again, taking RS from the other end to leave ESTLE after the N.",
+     "definitionFit": "To nestle is to settle snugly close to others, as birds do in a nest, so it means to huddle together."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "exposed"
     }
@@ -777,42 +792,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ADLIBBING",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "almost half",
-       "note": "half a word is its front portion, and almost trims one more letter from that"
+       "text": "adapted",
+       "at": 31,
+       "note": "adapted means altered to suit, so the letters gathered are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Bling",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "adapted",
-         "note": "adapted means altered, so the letters are rearranged"
+         "text": "almost half",
+         "at": 7,
+         "note": "half of the ten-letter word would be five letters; almost half keeps only its first four"
         }
        ],
        "parts": [
         {
-         "words": "Bling",
-         "note": "taken as written"
+         "words": "diabolical",
+         "at": 19,
+         "note": "the word cut down to fewer than half of its ten letters"
         },
         {
-         "words": "diabolical",
-         "gives": "DIAB",
-         "note": "its first half is DIABO; losing one more letter leaves four"
+         "gives": "OLICAL"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Flashy jewellery, somewhat hideous, altered to suit a presenter who improvises.",
-     "walkthrough": "Bling is slang for showy jewellery; the bracket supplies four letters, mixed with the five of BLING.",
-     "definitionFit": "Ad-libbing means improvising words not in the script, and off the cuff is the idiom for unrehearsed speech."
+     "surface": "Flashy jewellery, half of it hideous, reworked for an improvised show.",
+     "walkthrough": "'almost half' cuts DIABOLICAL to DIAB, and 'adapted' rearranges that with BLING. 'Bling' is slang for flashy jewellery.",
+     "definitionFit": "To ad-lib is to speak without a script, so ad-libbing is presenting spontaneously, off the cuff."
     },
     "features": {
      "answerInScene": false,
