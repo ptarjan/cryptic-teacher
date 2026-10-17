@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -204,40 +205,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CHIMERA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "being put into",
+       "at": 15,
+       "note": "something put into another is placed inside it, so one piece goes within the other"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "being put into",
-         "note": "Putting one thing into another is placing it bodily inside, so the shorter piece ends up buried in the longer."
-        },
-        {
          "text": "possibly",
-         "note": "'Possibly' says the word before it is only one arrangement of its letters, and some other arrangement is wanted."
+         "at": 36,
+         "note": "possibly signals that the word care may appear in another arrangement"
         }
        ],
        "parts": [
         {
          "words": "care",
-         "gives": "CERA",
-         "note": "the letters of CARE rearranged"
-        },
-        {
-         "words": "that guy",
-         "gives": "HIM",
-         "note": "that guy is him"
+         "at": 30
         }
        ]
+      },
+      {
+       "words": "that guy",
+       "at": 6,
+       "gives": "HIM",
+       "note": "that guy is him, a male pronoun"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Fancy that guy' reads as a swoon and is really the definition bumping straight into the wordplay. Short ordinary words like 'care' are the ones setters most like to jumble.",
-     "definitionFit": "A chimera is an idle fancy or wild imagining, the noun sense of 'fancy' that survives mainly in books and crosswords."
+     "surface": "An exclamation about some man being taken into care, perhaps by social services.",
+     "walkthrough": "'possibly' turns CARE into CERA, and 'being put into' puts HIM inside it after the C. 'Fancy that' reads as an exclamation, but 'Fancy' alone is the definition.",
+     "definitionFit": "A chimera is a wild illusion or fanciful conception, as a fancy is an imagined notion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
     }
    }
   },
@@ -453,42 +462,42 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "initiating",
+       "at": 11,
+       "note": "initiating means starting off, so the idiots stand at the front of what follows"
+      }
+     ],
      "parts": [
       {
        "words": "Two idiots",
+       "at": 0,
        "gives": "ASSASS",
-       "note": "an ass is an idiot, and the clue asks for two of them"
+       "note": "an idiot is an ass, and two of them give two copies of that word"
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "one",
+       "at": 22,
        "gives": "I",
-       "indicators": [
-        {
-         "text": "initiating",
-         "note": "To initiate is to begin, so what is wanted is the opening letter of the word that follows."
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "one",
-         "gives": "I",
-         "select": "first",
-         "note": "the initial letter of 'one'"
-        }
-       ]
+       "note": "one is the Roman numeral I"
       },
       {
        "words": "state",
+       "at": 26,
        "gives": "NATION",
-       "note": "a nation is a state"
+       "note": "a state is a nation"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface reads as a news bulletin and every word of it is doing something else: 'state' is an ordinary country and the idiots are donkeys.",
-     "definitionFit": "The murder of a public figure is an assassination, and gunfire is one common method, so the definition works by example rather than by kind."
+     "surface": "A pair of fools start off a national shooting incident.",
+     "definitionFit": "A shooting of a public figure is one example of a murder for political ends, signalled by 'perhaps'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "initiating"
     }
    }
   },
@@ -947,53 +956,63 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NEOLITH",
+     "op": "container",
      "indicators": [
       {
-       "text": "crumbling",
-       "note": "Something crumbling is falling apart into loose pieces, which is what happens here to the order of the letters."
+       "text": "breaks",
+       "at": 17,
+       "note": "something that breaks another goes into it, splitting it apart"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "breaks",
-         "note": "To break into somewhere is to force your way inside, so this letter lands in among the rest."
+         "text": "crumbling",
+         "at": 32,
+         "note": "crumbling suggests falling apart, so the words hole and in are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "hole in",
-         "gives": "NEOLIH",
-         "note": "the six letters of HOLE IN, rearranged"
+         "words": "hole",
+         "at": 24
         },
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "ultimately",
-           "note": "Ultimately means at the very end, so only the closing letter of the word before is taken."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Frost ultimately",
-           "gives": "FROST",
-           "note": "the last letter of 'Frost'"
-          }
-         ]
+         "words": "in",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ultimately",
+         "at": 6,
+         "note": "ultimately points to the final letter of Frost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Frost",
+         "at": 0,
+         "note": "its last letter is T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Frost is capitalised so it reads as a surname, and it is only weather. The picture the surface paints - ice splitting a ruin - is the picture archaeology would give you too.",
-     "definitionFit": "A neolith is a New Stone Age implement, so 'relic' names it by the class of surviving ancient object it belongs to."
+     "surface": "Frost damage splits a hole in an old, decaying monument.",
+     "walkthrough": "'crumbling' rearranges HOLE IN into NEOLIH, and 'breaks' puts T, the end of 'Frost', inside it before the final H.",
+     "definitionFit": "A neolith is a stone tool or object from the New Stone Age, a surviving prehistoric artefact."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Frost"
     }
    }
   },
@@ -1218,36 +1237,49 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "AUTHORITARIAN",
-     "indicators": [
-      {
-       "text": "changing sides",
-       "note": "Swapping one side for the other means left becomes right, and each of those has its own one-letter abbreviation."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "writer",
+       "at": 12,
+       "gives": "AUTHOR",
+       "note": "a writer is an author"
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "changing sides",
+         "at": 36,
+         "note": "sides are left and right, so the L for left is swapped for an R for right"
+        }
+       ],
        "parts": [
         {
-         "words": "writer",
-         "gives": "AUTHOR",
-         "note": "an author is a writer"
+         "words": "from Rome, maybe",
+         "at": 19,
+         "gives": "ITALIAN",
+         "note": "something from Rome is Italian, with maybe because Rome is just one Italian place"
         },
         {
-         "words": "from Rome, maybe",
-         "gives": "ITARIAN",
-         "note": "someone from Rome might be an ITALIAN, whose L (left) becomes R (right)"
+         "gives": "L"
+        },
+        {
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "L for left and R for right is a swap worth memorising, and 'changing sides' is one of several ways a setter can ask for it. Rome supplies the nationality by example.",
-     "definitionFit": "Authoritarian describes a ruler or a manner that demands obedience, so 'domineering' is a close adjectival synonym with a political edge."
+     "surface": "A bossy novelist who comes from Rome but perhaps switches political allegiance.",
+     "walkthrough": "'changing sides' swaps the L (left) in ITALIAN for R (right), giving ITARIAN.",
+     "definitionFit": "An authoritarian demands strict obedience, so is bossy and controlling, which is what domineering means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
     }
    }
   },
