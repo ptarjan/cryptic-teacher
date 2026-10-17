@@ -111,47 +111,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STAGEHAND",
+     "op": "charade",
      "indicators": [
       {
-       "text": "after"
+       "text": "after",
+       "at": 25,
+       "note": "after means the letter for departs comes behind the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "has changed",
-         "note": "letters that have changed no longer sit in their first order, so AGENT HAS is rearranged"
+         "text": "changed",
+         "at": 41,
+         "note": "changed means altered, so these letters take a new order"
         }
        ],
        "parts": [
         {
          "words": "agent has",
-         "gives": "STAGEHAN",
-         "note": "anagram fodder, 8 letters"
-        },
-        {
-         "words": "departs",
-         "gives": "D",
-         "note": "d. = departs, as on a timetable"
+         "at": 31,
+         "note": "anagram fodder"
         }
        ]
+      },
+      {
+       "words": "departs",
+       "at": 17,
+       "gives": "D",
+       "note": "D is the abbreviation for departs, as on timetables"
       }
      ]
     },
     "explanation": {
-     "surface": "A theatre worker quits once their agent has been replaced.",
-     "walkthrough": "'Departs' looks like the verb of the story, but it only supplies the timetable abbreviation D.",
-     "definitionFit": "A plain job title: stagehands are the backstage crew a theatre employs to shift scenery and props."
+     "surface": "A theatre worker leaves once the agent has had a change of heart.",
+     "walkthrough": "'Has' looks like a link word but is part of the fodder: AGENT HAS 'changed' gives STAGEHAN, and the D for 'departs' comes 'after'.",
+     "definitionFit": "A stagehand moves scenery and props behind the scenes during a play."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "departs"
+     "misdirectedWord": "has"
     }
    }
   },
@@ -384,35 +386,54 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CHAT",
      "indicators": [
       {
-       "text": "becoming"
+       "text": "becoming",
+       "at": 20,
+       "note": "becoming means turning into, so one letter is swapped for another"
       }
      ],
      "parts": [
       {
        "words": "which",
+       "at": 38,
        "gives": "THAT",
-       "note": "'that' and 'which' are interchangeable relative pronouns"
+       "note": "that can stand for which, as in 'the book that I read'"
       },
       {
-       "words": "Initial temperature becoming cold",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Initial",
+         "at": 0,
+         "note": "initial means the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "temperature",
+         "at": 8,
+         "note": "source of the first letter"
+        }
+       ]
+      },
+      {
+       "words": "cold",
+       "at": 29,
        "gives": "C",
-       "note": "first letter T (temperature) swapped for C (cold)"
+       "note": "C is the abbreviation for cold, as on taps"
       }
      ]
     },
     "explanation": {
-     "surface": "A quizzical question about which bird the first chill of the season turns up.",
-     "walkthrough": "The swap works on the word hidden behind 'which', so the clue reads backwards: find THAT first, then change its first T.",
-     "definitionFit": "A definition by class: the chats, such as the stonechat and whinchat, are small songbirds."
+     "surface": "A puzzled question about which bird a first chill in the air brings.",
+     "walkthrough": "THAT for 'which' has its T ('Initial' temperature) 'becoming' C, the cold-tap letter.",
+     "definitionFit": "A chat is any of several small songbirds, such as the stonechat or whinchat."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "which"
+     "misdirectedWord": "Initial"
     }
    }
   },
@@ -532,55 +553,56 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to grab"
+       "text": "to grab",
+       "at": 20,
+       "note": "to grab is to seize and hold, so these letters close around the others"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "tail",
-         "note": "the tail of a word is its end, so lemur gives its last letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "paws",
-         "gives": "FEET",
-         "note": "paws are feet"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "R",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "lemur's tail",
-           "gives": "R",
-           "select": "last",
-           "note": "last letter of lemuR"
-          }
-         ]
-        }
-       ]
+       "words": "paws",
+       "at": 15,
+       "gives": "FEET",
+       "note": "paws are an animal's feet"
       },
       {
-       "words": "right",
-       "gives": "R",
-       "note": "standard abbreviation"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "'s tail",
+           "at": 33,
+           "note": "a word's tail is its last letter, so the lemur gives only its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lemur",
+           "at": 28,
+           "note": "source of the final letter"
+          }
+         ]
+        },
+        {
+         "words": "right",
+         "at": 42,
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An animal grabbing a lemur by the tail with its paws, checking it has it right.",
-     "walkthrough": "Both Rs sit inside the paws: FE-RR-ET.",
-     "definitionFit": "A definition by class: a ferret is a creature, a domesticated animal of the weasel family."
+     "surface": "A small hunting animal uses its claws to seize a lemur by the tail.",
+     "walkthrough": "The 'tail' of lemur is R; with R for right, FEET closes round both, as 'to grab' says, giving FE + RR + ET.",
+     "definitionFit": "A ferret is a domesticated polecat, a small animal used to hunt rabbits."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "paws"
     }
    }
   },
@@ -821,44 +843,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ARROGANT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "plugs",
+       "at": 51,
+       "note": "to plug is to stop up a hole, so these letters go inside the others"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
          "text": "initially ignored",
-         "note": "the initial letter is ignored, so the P of PARROT is left out"
-        },
-        {
-         "text": "flipping",
-         "note": "flipping over turns a word end to end"
-        },
-        {
-         "text": "plugs"
+         "at": 17,
+         "note": "initially ignored means the opening letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "mimic, initially ignored",
-         "gives": "ARROT",
-         "note": "PARROT without its P"
+         "words": "mimic",
+         "at": 10,
+         "gives": "PARROT",
+         "note": "a parrot is a mimic"
         },
         {
-         "words": "Harry flipping",
-         "gives": "GAN",
-         "note": "harry = NAG, pester"
+         "gives": "P"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipping",
+         "at": 42,
+         "note": "flipping means turning over, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Harry",
+         "at": 36,
+         "gives": "NAG",
+         "note": "to harry is to nag or harass"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vain impersonator, snubbed at first, is exasperated by a man called Harry who keeps flip-flopping.",
-     "walkthrough": "'Harry' looks like a name but is the verb to harry, to nag.",
-     "definitionFit": "A plain synonym: conceited and arrogant both describe someone with too high an opinion of themselves."
+     "surface": "A smug impersonator gets left out at first while someone flustered cuts in.",
+     "walkthrough": "PARROT with its first letter 'initially ignored' is ARROT; NAG 'flipping' is GAN, which 'plugs' it before the last letter.",
+     "definitionFit": "Arrogant means having an inflated sense of one's own importance, just like conceited."
     },
     "features": {
      "answerInScene": false,
@@ -1159,43 +1197,37 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "after downing",
+       "at": 27,
+       "note": "after downing means once the letter has been swallowed up and gone"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "after downing",
-         "note": "a drink that has been downed is gone, so W disappears from NOT WARY"
-        }
-       ],
-       "parts": [
-        {
-         "words": "indiscreet",
-         "gives": "NOTWARY",
-         "note": "indiscreet = NOT WARY"
-        },
-        {
-         "gives": "W"
-        }
-       ]
+       "words": "indiscreet",
+       "at": 16,
+       "gives": "NOTWARY",
+       "note": "not wary means careless, indiscreet"
       },
       {
-       "unchecked": true,
        "words": "whiskey",
-       "note": "W in the NATO alphabet, removed"
+       "at": 41,
+       "gives": "W",
+       "note": "Whiskey is the NATO alphabet word for W"
       }
      ]
     },
     "explanation": {
-     "surface": "A lawyer gets loose-lipped after knocking back a whisky.",
-     "walkthrough": "'Downing' suggests drinking, but it means taking the W out.",
-     "definitionFit": "A definition by class: a notary is a legal official authorised to witness and certify documents."
+     "surface": "A lawyer starts saying too much once the whiskey has gone down.",
+     "walkthrough": "'After downing' suggests drinking the whiskey; in fact it removes W from NOT WARY.",
+     "definitionFit": "A notary is a person authorised to witness signatures and certify legal documents."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "downing"
     }
    }
@@ -1449,41 +1481,40 @@
      "indicators": [
       {
        "text": "pens",
-       "note": "to pen is to shut in, as sheep in a pen"
+       "at": 37,
+       "note": "to pen is to shut in an enclosure, so these letters hold the next"
       }
      ],
      "parts": [
       {
        "words": "US president",
+       "at": 24,
        "gives": "BUSH",
-       "note": "either George Bush"
+       "note": "George Bush, either of two US presidents"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "L",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "ultimately means in the end, so drivel gives its last letter"
+         "at": 49,
+         "note": "ultimately means take the final letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "drivel ultimately",
-         "gives": "L",
-         "select": "last",
-         "note": "last letter of driveL"
+         "words": "drivel",
+         "at": 42,
+         "note": "source of the last letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A president should be embarrassed when he writes nonsense.",
-     "walkthrough": "'Pens' looks like writing, but it means enclosing.",
-     "definitionFit": "A verb for the outward sign: reddening in the face is how you show embarrassment."
+     "surface": "A president turns red when he writes nonsense.",
+     "walkthrough": "'Pens' looks like writing but means enclosing: BUSH holds L, the last of drivel, as 'ultimately' says.",
+     "definitionFit": "To blush is to go red in the face, the visible sign of shame or embarrassment."
     },
     "features": {
      "answerInScene": true,
@@ -1571,45 +1602,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "essentially",
-       "note": "the essence of a word is its core, so mood gives its middle letters"
+       "text": "within",
+       "at": 17,
+       "note": "within means inside, so these letters are placed in the others"
       }
      ],
      "parts": [
       {
        "words": "London university",
+       "at": 24,
        "gives": "LSE",
-       "note": "the London School of Economics"
+       "note": "the LSE is the London School of Economics"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "OO",
        "indicators": [
         {
-         "text": "within"
+         "text": "essentially",
+         "at": 5,
+         "note": "essentially means at its core, so take the middle letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Mood essentially",
-         "gives": "OO",
-         "select": "middle",
-         "note": "middle letters of mOOd"
+         "words": "Mood",
+         "at": 0,
+         "note": "source of the middle letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The atmosphere at a London college is basically laid-back.",
-     "walkthrough": "'Mood' suggests the atmosphere of the place, but only its middle two letters are used.",
-     "definitionFit": "A plain synonym: loose limbs or a loose grip are relaxed, not tight."
+     "surface": "The atmosphere at a London college is laid-back at heart.",
+     "walkthrough": "Mood 'essentially' gives its middle OO, which goes 'within' LSE after the L.",
+     "definitionFit": "Loose describes something slack or free from tension, much as relaxed does."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mood"
     }
    }
   },
