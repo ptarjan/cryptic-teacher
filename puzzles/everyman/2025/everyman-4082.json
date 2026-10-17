@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -193,45 +194,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SPARROWHAWK",
      "indicators": [
       {
        "text": "As Spooner tells it",
-       "note": "The Reverend Spooner's trademark slip was to exchange the opening sounds of two words as he said them, so the pair named here trade their fronts."
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the starting sounds of the two words change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "public school's",
+       "at": 21,
+       "gives": "HARROW",
+       "note": "Harrow is a famous English public (private fee-paying) school; said aloud, its 's slides onto the next word"
+      },
+      {
+       "op": "homophone",
+       "spelt": "SPAWK",
        "parts": [
         {
-         "unchecked": true,
-         "words": "public school's",
-         "gives": "SPARROW",
-         "soundsLike": "HARROW’S",
-         "note": "Harrow is one of England's oldest fee-paying boarding schools, on a hill north-west of London; said at speed its 's slides forward onto the next word"
-        },
-        {
-         "unchecked": true,
          "words": "meat",
-         "gives": "HAWK",
-         "soundsLike": "PORK",
-         "note": "the meat is pork, and with that stray s in front of it the sp- sound is what goes back to the school"
+         "at": 37,
+         "gives": "SPORK",
+         "note": "pork is meat, and spoken after Harrow's it is heard as 'spork', the S running on to it"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner announcing what a famous boarding school is serving for lunch.",
-     "walkthrough": "Say 'Harrow's pork' aloud and hear where the s lands: it leans forward onto the meat, giving Spooner an sp- and an h- to exchange. The possessive doing that work is the part solvers miss.",
-     "definitionFit": "A sparrowhawk is the small, fast raptor that hunts finches and tits through gardens and woodland, so 'a bird of prey' places it by trade."
+     "surface": "A story about the food served at a posh school, told in a muddled way.",
+     "walkthrough": "Said aloud, 'Harrow's pork' runs as 'Harrow spork'; swapping the opening H and SP sounds gives 'sparrow hork', and in British speech 'hork' sounds like the bird's second half.",
+     "definitionFit": "The sparrowhawk is a small hawk, a raptor that hunts small birds."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun"
+     "joke": "pun",
+     "misdirectedWord": "meat"
     }
    }
   },
@@ -256,56 +256,57 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ETERNAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "reversing",
-       "note": "Something reversing runs the other way, so the word's letters are read from its far end back."
+       "text": "in",
+       "at": 28,
+       "note": "the back half of salter goes in the other word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ETERNAL",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "Seeing back half of",
-         "note": "When only the back half of a word is on show, the letters it ends on are the ones you get to use."
+         "text": "reversing",
+         "at": 37,
+         "note": "reversing means going backwards, so the word lane is read from its end"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "'In' puts the piece just named inside the word that follows rather than beside it."
-          }
-         ],
-         "parts": [
-          {
-           "words": "lane, reversing",
-           "gives": "ENAL",
-           "note": "the four letters of the narrow road, taken from the back end forwards"
-          },
-          {
-           "words": "salter",
-           "gives": "TER",
-           "note": "the word has six letters, so its back half is three of them"
-          }
-         ]
+         "words": "lane",
+         "at": 31
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Seeing back half of",
+         "at": 0,
+         "note": "seeing only the back half of the word means its first three letters are left out of view"
+        }
+       ],
+       "parts": [
+        {
+         "words": "salter",
+         "at": 20,
+         "note": "the word salter, six letters long"
+        },
+        {
+         "gives": "SAL"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Catching sight of a salt lorry backing down a lane, apparently taking all night about it.",
-     "walkthrough": "A salter is the gritting lorry that spreads salt on winter roads, and the whole picture is there to keep you looking at traffic. Two separate instructions sit either side of one comma.",
-     "definitionFit": "What is eternal has no end in either direction, so 'going on forever' is the plainest way to say it."
+     "surface": "A driver spots a salt-spreading lorry backing down a lane, which seems to take forever.",
+     "walkthrough": "A salter here is just a word to be cut, not the lorry the surface suggests; the definition is the closing phrase after the dash.",
+     "definitionFit": "Something eternal lasts without end, continuing for all time."
     },
     "features": {
      "answerInScene": false,
@@ -336,12 +337,11 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "PARSNIP",
      "indicators": [
       {
        "text": "up",
-       "note": "In a down entry the letters run downwards, so a piece sent up is read back from its foot to its head."
+       "at": 15,
+       "note": "in a down clue, up means the letters are read from the bottom, in reverse"
       }
      ],
      "parts": [
@@ -349,28 +349,30 @@
        "op": "charade",
        "parts": [
         {
-         "words": "to knock",
-         "gives": "PAR",
-         "note": "to knock at a door is to rap on it, and climbing the column that word arrives this way round"
+         "words": "Rod's",
+         "at": 0,
+         "gives": "PINS",
+         "note": "a pin is a slender rod, and the 's adds an S"
         },
         {
-         "words": "Rod's",
-         "gives": "SNIP",
-         "note": "a rod is a pin, the clue's 's adds the letter after it, and the four together are read from the bottom up"
+         "words": "to knock",
+         "at": 6,
+         "gives": "RAP",
+         "note": "to rap is to knock sharply"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Rod on his way to bang on somebody's door.",
-     "walkthrough": "'Rod' looks like a man's name because of the apostrophe, and it is a thing you fasten with. The 's is not decoration either: it is a letter of the answer.",
-     "definitionFit": "A parsnip is the pale sweet root pulled from the ground and roasted like a carrot, so 'root vegetable' names it by kind."
+     "surface": "Someone named Rod is about to rustle up a vegetable dish.",
+     "walkthrough": "'Rod' looks like a man's name, but here it is a pin; 'knock up' looks like cooking, but 'up' reverses PINS + RAP.",
+     "definitionFit": "The parsnip is a pale tapering root grown and eaten as a vegetable."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Rod"
+     "misdirectedWord": "Rod's"
     }
    }
   },
@@ -449,16 +451,15 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "HISMAJESTY",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "cracked",
-         "note": "A cracked thing has broken apart, and letters broken apart do not go back together in the order they came."
+         "text": "surrounded by",
+         "at": 13,
+         "note": "one is surrounded by the cracked hams, sitting inside them"
         }
        ],
        "parts": [
@@ -466,57 +467,62 @@
          "op": "anagram",
          "indicators": [
           {
-           "text": "surrounded by",
-           "note": "What is surrounded by something has that something closing on it from both sides."
+           "text": "cracked",
+           "at": 33,
+           "note": "cracked means broken, so the letters of hams fall into a new order"
           }
          ],
          "parts": [
           {
-           "words": "hams, cracked",
-           "gives": "HSMA",
-           "note": "the four letters of the cured meat, broken up and reset in this order"
-          },
-          {
-           "words": "one",
-           "gives": "I",
-           "note": "the Roman numeral for one is a single letter"
-          },
-          {
-           "words": "joke",
-           "gives": "JEST",
-           "note": "a joke is a jest"
+           "words": "hams",
+           "at": 27,
+           "note": "the word hams, whose letters are cracked open"
           }
          ]
         },
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "ending",
-           "note": "A word's ending is the single letter it finishes on."
-          }
-         ],
-         "parts": [
-          {
-           "words": "dirty ending",
-           "gives": "DIRTY",
-           "note": "the letter the word dirty finishes on"
-          }
-         ]
+         "words": "one",
+         "at": 9,
+         "gives": "I",
+         "note": "one is the Roman numeral I"
+        }
+       ]
+      },
+      {
+       "words": "joke",
+       "at": 41,
+       "gives": "JEST",
+       "note": "a jest is a joke"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "ending",
+         "at": 57,
+         "note": "the ending of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dirty",
+         "at": 51,
+         "gives": "Y",
+         "note": "the word dirty, of which only the end is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A king telling a slightly blue joke with a plate of ham in front of him.",
-     "walkthrough": "'Cracked joke' reads as one phrase and belongs to two different pieces of the parse: the cracking is done to the hams, and the joke stands on its own. Four chunks for ten letters is a lot of assembly for a two-word title.",
-     "definitionFit": "His Majesty is the formal style by which a reigning king is addressed, so the words stand in for the man himself."
+     "surface": "A king among overacting performers who tell a smutty joke.",
+     "walkthrough": "'hams' are bad actors in the surface, but here they are just letters: 'cracked' scrambles them around I to give HISMA.",
+     "definitionFit": "His Majesty is the formal title for a reigning king, so it stands for the monarch."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cracked"
+     "misdirectedWord": "hams"
     }
    }
   },
@@ -867,44 +873,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INSOBRIETY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "sandwiching",
+       "at": 28,
+       "note": "the rearranged letters sandwich the cheese between them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "crackers",
-         "note": "Crackers is British slang for out of one's mind, and letters treated madly will not stay in the order they were given."
-        },
-        {
-         "text": "sandwiching",
-         "note": "To sandwich something is to lay it between two layers, so what is named next goes inside rather than alongside."
+         "at": 19,
+         "note": "crackers means crazy, so the letters of so tiny go wild into a new order"
         }
        ],
        "parts": [
         {
          "words": "so tiny",
-         "gives": "INSOTY",
-         "note": "six letters of fodder, reset into this order so that a gap opens in the middle"
-        },
-        {
-         "words": "French cheese",
-         "gives": "BRIE",
-         "note": "the soft white-rinded cheese named after the region east of Paris"
+         "at": 11
         }
        ]
+      },
+      {
+       "words": "French cheese",
+       "at": 40,
+       "gives": "BRIE",
+       "note": "brie is a soft French cheese"
       }
      ]
     },
     "explanation": {
-     "surface": "Very small biscuits with a slice of French cheese laid between them.",
-     "walkthrough": "'Crackers' is the biscuit in the surface and the shuffling instruction in the parse, which is the whole of the misdirection. The cheese slots into the middle of the shuffled letters rather than onto either end.",
-     "definitionFit": "Insobriety is the state of not being sober — being the worse for drink — which is what tipsiness names more lightly."
+     "surface": "A cheese-and-crackers snack that comes with drunkenness.",
+     "walkthrough": "'crackers' looks like the biscuits the cheese goes on, but it means crazy and signals the rearrangement.",
+     "definitionFit": "Insobriety means lack of sobriety, the state of being drunk or tipsy."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "crackers"
@@ -1543,38 +1551,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "eating",
-       "note": "Whatever is eating something has it inside, swallowed whole."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "spot of",
-         "note": "A spot of a thing is the smallest amount of it, and the smallest amount of a word is the letter it starts on."
+         "text": "eating",
+         "at": 11,
+         "note": "the setter's word eats the letter, holding it inside"
         }
        ],
        "parts": [
         {
          "words": "Everyman's",
+         "at": 0,
          "gives": "MY",
-         "note": "the setter signs himself Everyman, so what belongs to Everyman is his own, written in the first person"
+         "note": "the setter Everyman's things are 'my' things"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "A",
+         "indicators": [
+          {
+           "text": "spot of",
+           "at": 18,
+           "note": "a spot is a tiny amount, so just the first letter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "spot of acrid",
-           "gives": "A",
-           "select": "first",
-           "note": "the opening letter of the word acrid"
+           "words": "acrid",
+           "at": 26,
+           "note": "the word acrid, of which only the first letter is used"
           }
          ]
         }
@@ -1582,15 +1589,16 @@
       },
       {
        "words": "duck",
+       "at": 32,
        "gives": "O",
-       "note": "a duck is a batsman's score of nought in cricket, and nought is written as a round letter"
+       "note": "a duck is a score of nothing in cricket, which looks like O"
       }
      ]
     },
     "explanation": {
-     "surface": "The café where Everyman eats, and the sharp-tasting duck it serves.",
-     "walkthrough": "'Eating spot' reads as a café and is two separate instructions sitting side by side. Everyman writes himself into his own puzzles most weeks, which is a convention worth learning early.",
-     "definitionFit": "Mayo is the everyday short form of mayonnaise, the thick egg-and-oil dressing, so 'sauce' names it by kind."
+     "surface": "The setter tucks into duck with a sharp-tasting sauce.",
+     "walkthrough": "'duck' is the cricket score of zero, not the bird.",
+     "definitionFit": "Mayo is the everyday short form of mayonnaise, the cold egg-and-oil sauce."
     },
     "features": {
      "answerInScene": true,
@@ -1626,47 +1634,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TRACEYEMIN",
-     "indicators": [
-      {
-       "text": "Almost",
-       "note": "Almost the whole word means everything of it bar the letter at the end."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "to draw outline of",
+       "at": 7,
+       "gives": "TRACE",
+       "note": "to trace is to copy the outline of something"
+      },
+      {
+       "words": "the old",
+       "at": 26,
+       "gives": "YE",
+       "note": "ye is an old form of the, as in 'Ye Olde Shoppe'"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 40,
+         "note": "almost means not quite complete, so the last letter goes"
+        }
+       ],
        "parts": [
         {
-         "words": "draw outline",
-         "gives": "TRACE",
-         "note": "to draw the outline of something through thin paper laid over it is to trace it"
-        },
-        {
-         "words": "the old",
-         "gives": "YE",
-         "note": "ye is the antique spelling of 'the', as on a ye olde tea shoppe sign"
-        },
-        {
          "words": "mine",
-         "gives": "MIN",
-         "note": "the word for a pit dug for coal, with the last letter taken off it"
+         "at": 34
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone sketching the shape of a disused pit, or very nearly.",
-     "walkthrough": "'The old' is the antique definite article rather than a comment on the pit's age, and it is the join nobody sees. Tracey Emin is the British artist of My Bed and the neon texts, and a Royal Academician.",
-     "definitionFit": "Tracey Emin is a British artist known for confessional work — the unmade bed, the appliquéd tent, the neon slogans — so 'Artist' names her by trade."
+     "surface": "An artist sketches the outline of an abandoned old mine.",
+     "walkthrough": "'the old' is not a description of the mine but an archaic spelling of 'the'.",
+     "definitionFit": "Tracey Emin is a British artist, one of the Young British Artists, known for My Bed."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "mine"
+     "misdirectedWord": "old"
     }
    }
   }
