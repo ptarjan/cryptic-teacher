@@ -755,46 +755,45 @@
      "indicators": [
       {
        "text": "around",
-       "note": "the benefit goes around the extra letter"
+       "at": 14,
+       "note": "around means surrounding, so the benefit word goes round the central letter"
       }
      ],
      "parts": [
       {
        "words": "benefit",
+       "at": 6,
        "gives": "ASSET",
-       "note": "an asset is a benefit"
+       "note": "an asset is something of benefit or value"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
          "text": "middle of",
-         "note": "take the central letter of March"
+         "at": 21,
+         "note": "the middle of a five-letter word is its third letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "middle of March",
-         "gives": "R",
-         "select": "middle",
-         "note": "the central letter of MARCH"
+         "words": "March",
+         "at": 31,
+         "note": "the word March, whose centre letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone applies for a welfare payment in mid-March.",
-     "walkthrough": "'Claim benefit' reads as one phrase about welfare; split it, and 'Claim' is the definition while 'benefit' is the container.",
-     "definitionFit": "A plain synonym: to claim something is so is to assert it."
+     "surface": "Someone applies for a welfare payment partway through the third month.",
+     "walkthrough": "'middle of' March gives R, and ASSET goes 'around' it. 'Claim' is a verb here, not the benefit claim the surface suggests.",
+     "definitionFit": "To assert something is to state it firmly as true, which is to claim it."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "benefit"
+     "misdirectedWord": "Claim"
     }
    }
   },
@@ -925,63 +924,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STREWN",
+     "op": "container",
      "indicators": [
       {
-       "text": "terrible",
-       "note": "the letters of news are made a terrible mess of"
+       "text": "about",
+       "at": 24,
+       "note": "about means around, so the jumbled news goes round the leading letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "the rearranged letters go about the others"
+         "text": "terrible",
+         "at": 10,
+         "note": "terrible news is news in a bad way, so its letters are thrown into disorder"
         }
        ],
        "parts": [
         {
          "words": "news",
-         "gives": "SEWN",
-         "note": "anagram of NEWS"
-        },
+         "at": 19
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "TR",
-         "indicators": [
-          {
-           "text": "leaders of",
-           "note": "take the first letters of the following words"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "leaders of the revolution",
-           "gives": "TR",
-           "select": "first",
-           "note": "first letters of The Revolution"
-          }
-         ]
+         "text": "leaders of",
+         "at": 30,
+         "note": "the leaders of words are their first letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the revolution",
+         "at": 41,
+         "note": "the first letters of the and revolution"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A radio bulletin announces terrible news of an uprising.",
-     "walkthrough": "'Broadcast' pretends to be radio; its older sense is scattering seed by hand, and here it is a past participle.",
-     "definitionFit": "Seed broadcast across a field is scattered widely, that is strewn."
+     "surface": "Awful reports are spread concerning the men who led an uprising.",
+     "walkthrough": "'terrible' makes SEWN from NEWS, and it goes 'about' TR, the 'leaders of' the revolution. 'Broadcast' is the past participle meaning scattered, like seed.",
+     "definitionFit": "Seed that is broadcast is scattered over the ground, so it has been strewn."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Broadcast"
     }
    }
@@ -1053,44 +1047,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MAMBO",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stopping",
+       "at": 21,
+       "note": "stopping means plugging a gap, so the morning letters fill the middle of the jumbled mob"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "stopping",
-         "note": "the time plugs the gap, stopping up the other word"
-        },
-        {
          "text": "unruly",
-         "note": "the letters of mob will not keep their order"
+         "at": 30,
+         "note": "an unruly mob is out of order, so its letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "mob",
-         "gives": "MBO",
-         "note": "anagram of MOB"
-        },
-        {
-         "words": "in the morning",
-         "gives": "AM",
-         "note": "a.m. = in the morning"
+         "at": 37
         }
        ]
+      },
+      {
+       "words": "in the morning",
+       "at": 6,
+       "gives": "AM",
+       "note": "AM, ante meridiem, means in the morning"
       }
      ]
     },
     "explanation": {
-     "surface": "Dancing early in the day halts a rioting crowd.",
-     "walkthrough": "'Unruly mob' reads as a set phrase; the adjective is the signal to rearrange the noun.",
-     "definitionFit": "A plain hypernym: the mambo is a Cuban ballroom dance."
+     "surface": "A dance held early in the day halts a riotous crowd.",
+     "walkthrough": "'stopping' is not halting here but plugging: the morning letters sit inside the rearranged crowd, the way a stopper fills a bottle's neck.",
+     "definitionFit": "The mambo is a Latin American ballroom dance of Cuban origin."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "stopping"
     }
@@ -1175,47 +1171,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IMMENSE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crammed into",
+       "at": 11,
+       "note": "crammed into means squeezed inside, so the chaps go within the jumbled house"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "crammed into",
-         "note": "the chaps are squeezed inside the other letters"
-        },
-        {
          "text": "tumbledown",
-         "note": "the semi has collapsed, its letters rearranged"
+         "at": 24,
+         "note": "a tumbledown building is falling apart, so the letters of semi are rearranged"
         }
        ],
        "parts": [
         {
          "words": "semi",
-         "gives": "IMSE",
-         "note": "anagram of SEMI"
-        },
-        {
-         "words": "chaps",
-         "gives": "MEN",
-         "note": "chaps = men"
+         "at": 35
         }
        ]
+      },
+      {
+       "words": "chaps",
+       "at": 5,
+       "gives": "MEN",
+       "note": "chaps are men"
       }
      ]
     },
     "explanation": {
-     "surface": "Big men are squeezed into a rundown semi-detached house.",
-     "walkthrough": "A semi is a British semi-detached house, one of a joined pair. 'Huge' reads as describing the chaps, but it is the definition.",
-     "definitionFit": "A plain synonym: something immense is vast, huge."
+     "surface": "A crowd of fellows is squeezed into a dilapidated semi-detached house.",
+     "walkthrough": "'tumbledown' turns SEMI into IMSE, and MEN is 'crammed into' it. A semi is a semi-detached house, one of a pair joined by a shared wall.",
+     "definitionFit": "Immense means enormous or vast, so it is a straight synonym of huge."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "Huge"
+     "misdirectedWord": "tumbledown"
     }
    }
   },
