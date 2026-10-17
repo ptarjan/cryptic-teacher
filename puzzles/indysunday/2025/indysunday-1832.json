@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -203,34 +204,44 @@
    "annotation": {
     "definitions": [
      {
-      "text": "somewhat dotty way to communicate",
-      "at": 25
+      "text": "a somewhat dotty way to communicate",
+      "at": 23
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MORSECODE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner is remembered for trading the opening sounds of two words, so what he utters here has its front sounds swapped"
+       "at": 0,
+       "note": "Spooner's says to swap the opening sounds of the two words, as the Reverend Spooner famously did"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "rude manner",
-       "gives": "MORSECODE",
-       "soundsLike": "COARSE MODE",
-       "note": "coarse is rude and a mode is a manner; trade the opening sounds of coarse mode"
+       "op": "homophone",
+       "spelt": "CORSE",
+       "parts": [
+        {
+         "words": "rude",
+         "at": 10,
+         "gives": "COARSE",
+         "note": "coarse means rude or vulgar"
+        }
+       ]
+      },
+      {
+       "words": "manner",
+       "at": 15,
+       "gives": "MODE",
+       "note": "a mode is a manner or way of doing something"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone's crude, offhand way of dealing with people.",
-     "walkthrough": "Morse is built from dots and dashes, so 'somewhat dotty' is describing the alphabet rather than calling anybody eccentric. Spooner clues turn on sound, so the spellings either side of the swap need not match.",
-     "definitionFit": "Morse code sends letters as dots and dashes down a wire or by lamp, so it is a way of communicating literally made of dots."
+     "surface": "A tongue-tangled cleric's rude manner, described as a rather silly way to get a message across.",
+     "walkthrough": "Rude manner is COARSE (said as CORSE) MODE; 'Spooner's' swaps the first sounds, as the Reverend Spooner would. 'dotty' is a pun: the code is made of dots and dashes.",
+     "definitionFit": "Morse code sends messages as dots and dashes, so it is quite literally a dotty means of communication."
     },
     "features": {
      "answerInScene": false,
@@ -502,36 +513,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TRYING",
      "indicators": [
       {
-       "text": "changing sides",
-       "note": "to change sides is to go over to the opposite one, so the letter in place gives way to its opposite number"
+       "text": "changing sides in cot",
+       "at": 33,
+       "note": "the two sides of the word cot are its outer letters; changing sides swaps the one for the other"
       }
      ],
      "parts": [
       {
        "words": "noise from unhappy baby",
+       "at": 9,
        "gives": "CRYING",
-       "note": "an unhappy baby is crying"
+       "note": "crying is the noise an unhappy baby makes"
       },
       {
-       "words": "in cot",
-       "gives": "T",
-       "note": "the sides of COT are its outer letters C and T, and it is the leading C of the baby's noise that hands over to the T"
+       "gives": "C"
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A baby who will not settle, rolling from one side of the cot to the other.",
-     "walkthrough": "The cot is not hiding a letter inside it; it supplies two, and only the pair on its outside. 'Tiresome' is the definition, though it reads as more of the same complaint about the baby.",
-     "definitionFit": "Something trying wears your patience down by going on and on, which is what tiresome describes."
+     "surface": "A wailing baby in its cot, turning from one side to the other, is exhausting.",
+     "walkthrough": "'changing sides in cot' means swapping the letter on one side of COT (C) for the one on the other (T), done here to the noise of an unhappy baby.",
+     "definitionFit": "Trying means testing one's patience, wearisome, the same as tiresome."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "sides"
+     "misdirectedWord": "cot"
     }
    }
   },
@@ -1386,34 +1398,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ALONG",
      "indicators": [
       {
        "text": "transposed up a third",
-       "note": "transposing a note up a third lifts it two letter-names higher, counting from the note you start on"
+       "at": 10,
+       "note": "in music, a note transposed up a third moves two letter names up the scale"
       }
      ],
      "parts": [
       {
        "words": "solo",
+       "at": 5,
        "gives": "ALONE",
-       "note": "doing something solo is doing it alone"
+       "note": "alone means solo, by oneself"
       },
       {
        "words": "E",
-       "gives": "G",
-       "note": "count a third up from E — E, F, G — and you land on G, which takes the E's place"
+       "at": 0,
+       "gives": "E",
+       "note": "the letter E, read as the musical note"
+      },
+      {
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "A soloist asked to play the part a third higher than written.",
-     "walkthrough": "This is music rather than letters: E is a note, and raising it a third makes it G. The single capital E looks like a stray abbreviation and is the whole of the change.",
-     "definitionFit": "Along a road means over the whole length of it, the same end-to-end sense that throughout carries."
+     "surface": "Musical directions: a note in a solo passage is shifted up a third, all the way through.",
+     "walkthrough": "The surface is musical: 'transposed up a third' moves the note E two letter names up the scale to G (E, F, G), and that change is made in the word for solo.",
+     "definitionFit": "Along can mean all the way through, as in 'all along', which is the sense of throughout."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "solo"
     }
@@ -1513,43 +1529,42 @@
      "parts": [
       {
        "words": "Detective",
+       "at": 0,
        "gives": "DI",
        "note": "DI is a Detective Inspector"
       },
       {
        "words": "scrubs",
+       "at": 10,
        "gives": "SCOURS",
-       "note": "to scour a pan is to scrub it clean"
+       "note": "scours means scrubs clean"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "E",
        "indicators": [
         {
-         "text": "face",
-         "note": "a word's face is its front, so the letter it begins with is the one wanted"
+         "text": "face for",
+         "at": 17,
+         "note": "the face of a word is its front, so its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "for evening",
-         "gives": "E",
-         "select": "first",
-         "note": "the letter at the front of evening"
+         "words": "evening",
+         "at": 26,
+         "note": "its first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A detective washing up before an evening engagement.",
-     "walkthrough": "'Face' does double duty: on the surface it is the detective's own, in the wordplay it is the front of a word. DI is the rank abbreviation any British police drama uses a dozen times an episode.",
-     "definitionFit": "A discourse is a formal spoken treatment of a subject, so 'speech' names the same thing as a noun."
+     "surface": "A police detective washes their face before going out for the evening.",
+     "walkthrough": "'scrubs face' reads as one action but splits: scrubs is one piece, and 'face for' takes the front letter of evening. DI is the British police abbreviation for Detective Inspector.",
+     "definitionFit": "A discourse is a formal spoken or written treatment of a subject, a speech."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "face"
     }
