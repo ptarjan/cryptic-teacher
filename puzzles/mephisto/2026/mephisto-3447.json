@@ -293,57 +293,69 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AVIARIST",
+     "op": "charade",
      "indicators": [
       {
-       "text": "without opening",
-       "note": "lacking its opening means the word loses its first letter"
+       "text": "over",
+       "at": 33,
+       "note": "in a down clue, over means the preceding pieces sit above what follows"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 20,
+         "note": "at first means only the opening letter of Alcatraz is used"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "at first",
-           "note": "what comes at first is the opening letter of the word it follows"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Alcatraz",
-           "note": "the first letter of Alcatraz"
-          }
-         ]
-        },
+         "words": "Alcatraz",
+         "at": 11,
+         "note": "the island prison; just its initial letter is wanted"
+        }
+       ]
+      },
+      {
+       "words": "way",
+       "at": 29,
+       "gives": "VIA",
+       "note": "via, Latin for road, is used for a way or route"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
         {
-         "words": "way",
-         "gives": "VIA",
-         "note": "via is Latin for way, as in the Via Appia"
-        },
+         "text": "without opening",
+         "at": 45,
+         "note": "without opening means the first letter of the word is removed"
+        }
+       ],
+       "parts": [
         {
          "words": "profit",
-         "gives": "RIST",
-         "note": "grist is profit or advantage, as in 'grist to the mill'; it loses its G"
+         "at": 38,
+         "gives": "GRIST",
+         "note": "grist, as in grist to the mill, is something that brings profit or advantage"
+        },
+        {
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Birdman of Alcatraz, the convict famous for keeping birds in his cell, at first made money that way.",
-     "walkthrough": "The famous film title is broken up: 'Birdman' alone is the definition. In a down entry 'over' puts VIA above (G)RIST.",
-     "definitionFit": "An aviarist keeps birds in an aviary, so a birdman in the bird-keeping sense rather than the flying one."
+     "surface": "The famous Birdman of Alcatraz, the prisoner who became a bird expert, is evoked alongside profit and a way out.",
+     "walkthrough": "'Birdman of Alcatraz' reads as one name, but only 'Birdman' is the definition; 'of' is a link and 'Alcatraz at first' gives A. GRIST loses its opening G.",
+     "definitionFit": "An aviarist keeps an aviary of birds, so they are literally a bird-man; Robert Stroud, the Birdman of Alcatraz, was one."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Alcatraz"
     }
    }
@@ -1094,47 +1106,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REORIENT",
+     "op": "container",
      "indicators": [
       {
-       "text": "left ignored",
-       "note": "when the letter for left is ignored it is passed over and dropped"
+       "text": "in",
+       "at": 24,
+       "note": "in means the reduced small room goes inside the revenue word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "revenue",
+       "at": 27,
+       "gives": "RENT",
+       "note": "rent is the revenue a landlord receives from tenants"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "a piece put in another sits within it"
+         "text": "ignored",
+         "at": 16,
+         "note": "ignored means the letter for left is dropped, left out of the word"
         }
        ],
        "parts": [
         {
-         "words": "revenue",
-         "gives": "RENT",
-         "note": "rent is revenue from property"
+         "words": "Small room",
+         "at": 0,
+         "gives": "ORIEL",
+         "note": "an oriel is a small upper room or recess, typically with a projecting bay window"
         },
         {
-         "words": "Small room",
-         "gives": "ORIE",
-         "note": "an oriel is a small room or bay projecting from a wall; it drops its L for left"
+         "words": "left",
+         "at": 11,
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tiny office is overlooked when tax revenues start climbing again.",
-     "walkthrough": "'Rising' is the definition's root: orient as an adjective means rising, like the dawn sun, so RE- makes it rising again.",
-     "definitionFit": "Orient as an adjective is a poetic word for rising, of the sun, so reorient means rising anew."
+     "surface": "A tiny room is left out of the revenue calculations, which are rising once again.",
+     "walkthrough": "'once more rising' looks like wordplay but is the definition: Chambers gives an archaic adjective sense meaning rising again, like the sun in the east. An oriel, 'ignored' its L, sits 'in' the rent.",
+     "definitionFit": "Orient as an old adjective means rising, as the sun does in the east, so the re- form means rising anew."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "rising"
     }
    }
@@ -1640,41 +1659,28 @@
      "op": "charade",
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
+       "words": "What's central to karoshi",
+       "at": 0,
        "gives": "ROS",
-       "indicators": [
-        {
-         "text": "What's central to",
-         "note": "what is central in a word is its middle letters"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "karoshi",
-         "gives": "ROS",
-         "select": "middle",
-         "note": "the middle three letters of karoshi"
-        }
-       ]
+       "note": "the central three letters of the seven-letter word karoshi, a Japanese term for death from overwork"
       },
       {
        "words": "Hero",
+       "at": 27,
        "gives": "CID",
-       "note": "El Cid is the hero of medieval Spain"
+       "note": "El Cid was the great Castilian hero of medieval Spain, celebrated in epic poetry"
       }
      ]
     },
     "explanation": {
-     "surface": "Overworked to death, the hero seldom gets misty-eyed.",
-     "walkthrough": "Karoshi is the Japanese term for death from overwork. 'Rarely' belongs to the definition: the word is rare.",
-     "definitionFit": "Roscid comes from Latin ros, dew, and is a seldom-used adjective for moist with dew."
+     "surface": "A quiz question about the heart of karoshi, death from overwork, and a hero who is seldom dewy-eyed.",
+     "walkthrough": "KAROSHI is a Japanese word for death from overwork; its central three letters, between KA and HI, are ROS. 'rarely' marks the definition as an uncommon word.",
+     "definitionFit": "Roscid is a rare word from Latin ros, meaning dew, so it describes something wet with dew."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "rarely"
+     "misdirectedWord": "Hero"
     }
    }
   },
