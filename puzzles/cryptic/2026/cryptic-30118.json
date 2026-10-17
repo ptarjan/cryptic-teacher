@@ -795,44 +795,52 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "not finished",
-       "note": "the word loses its last letter"
-      }
-     ],
      "parts": [
       {
-       "words": "still",
-       "gives": "STATI",
-       "note": "STATIC, still, without its final C"
-      },
-      {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "ON",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "no limits for",
-         "note": "the first and last letters are dropped"
+         "text": "not finished",
+         "at": 28,
+         "note": "not finished means the word loses its last letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
+         "words": "still",
+         "at": 22,
+         "gives": "STATIC",
+         "note": "still, as in motionless, is static"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "no limits for",
+         "at": 43,
+         "note": "with no limits a word loses its outer letters, its first and last"
+        }
+       ],
+       "parts": [
+        {
          "words": "his creator",
-         "gives": "ON",
-         "select": "middle",
-         "note": "Michael BOND wrote the Paddington books; without its ends, BOND gives ON"
+         "at": 57,
+         "gives": "BOND",
+         "note": "Paddington Bear was created by the author Michael Bond"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Paddington Bear still unfinished, and his author left without bounds.",
-     "walkthrough": "Paddington is the bear named after the London railway station where he was found; the definition is the station, while the bear's author Michael Bond supplies the wordplay.",
-     "definitionFit": "Paddington is a major London railway station, so one example of a station."
+     "surface": "A remark that Paddington Bear's story is unfinished, and that his author knows no bounds.",
+     "walkthrough": "'Paddington' and 'his creator' suggest the bear, but the definition is the London railway terminus. STATI is 'still' (static) 'not finished'; Bond, 'his creator', with 'no limits' is ON.",
+     "definitionFit": "Paddington is one of London's main railway terminals, an example of a railway stop."
     },
     "features": {
      "answerInScene": true,
@@ -1457,85 +1465,92 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MOBILISES",
+     "op": "charade",
      "parts": [
       {
-       "op": "container",
+       "words": "rabble",
+       "at": 7,
+       "gives": "MOB",
+       "note": "a rabble is a mob"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
          "text": "after",
-         "note": "the second lie comes after the first"
-        },
-        {
-         "text": "to gain",
-         "note": "adds the next piece on the end"
+         "at": 23,
+         "note": "after says the first lie follows the naked one in the answer"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "middle",
          "indicators": [
           {
            "text": "naked",
-           "note": "stripped of its outer letters"
-          },
-          {
-           "text": "heart of",
-           "note": "the heart sits in the middle of the body, so take the word's central letter"
+           "at": 29,
+           "note": "a naked word is stripped of its outer letters, its first and last"
           }
          ],
          "parts": [
           {
-           "words": "rabble",
-           "gives": "MOB",
-           "note": "a mob is a rabble"
-          },
-          {
-           "op": "middle",
-           "unchecked": true,
-           "gives": "I",
-           "indicators": [
-            {
-             "text": "concealing",
-             "note": "the letters go round the next piece, hiding it"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "naked lie",
-             "gives": "I",
-             "select": "middle",
-             "note": "LIE without its outer letters"
-            }
-           ]
-          },
-          {
            "words": "lie",
-           "note": "used as printed; it goes round the S"
-          },
-          {
-           "words": "dollars",
-           "gives": "S",
-           "note": "$ looks like S; LIE conceals it as LISE"
+           "at": 35,
+           "gives": "I",
+           "note": "lie stripped bare leaves its middle letter"
           }
          ]
         },
         {
-         "words": "heart of Essex",
+         "op": "container",
+         "indicators": [
+          {
+           "text": "concealing",
+           "at": 40,
+           "note": "concealing means the word lie holds the dollar letter inside it"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lie",
+           "at": 19,
+           "gives": "LIE",
+           "note": "taken as written"
+          },
+          {
+           "words": "dollars",
+           "at": 51,
+           "gives": "S",
+           "note": "S, from the dollar sign $"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "heart of",
+         "at": 67,
+         "note": "the heart of a word is its middle letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Essex",
+         "at": 76,
          "gives": "S",
-         "note": "the middle letter of ESSEX"
+         "note": "the central letter of Essex is S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rabble-rouser telling lie upon lie, pocketing cash to win over Essex.",
-     "walkthrough": "The chain builds I + LIE, then puts S inside the LIE to get LISE, then tacks on S. Essex is a county east of London.",
-     "definitionFit": "To mobilise people is to rouse them into action."
+     "surface": "A mob is stirred up by lie upon lie, money hidden away, in a bid to win over Essex.",
+     "walkthrough": "'naked lie' is lie with its outsides gone, I; the first 'lie' comes 'after' it and is 'concealing' S for dollars, giving LISE; 'heart of Essex' adds the final S.",
+     "definitionFit": "To mobilise people is to stir them up and organise them for action, so it rouses them."
     },
     "features": {
      "answerInScene": true,
@@ -1653,51 +1668,50 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "QURAN",
      "indicators": [
       {
        "text": "appearing where there is",
-       "note": "the new piece takes the place of the named letters"
+       "at": 19,
+       "note": "one thing appearing where another was means it takes that piece's place"
       }
      ],
      "parts": [
       {
        "words": "Man",
+       "at": 64,
        "gives": "QUEEN",
-       "note": "the queen is a chess man"
+       "note": "in chess the pieces are men, and the queen is one; this puzzle uses man for chess pieces throughout"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "EE",
        "indicators": [
         {
          "text": "essentially",
-         "note": "the essence, the middle letters"
+         "at": 49,
+         "note": "the essence of a word is its middle, here the inner two letters of need"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "need essentially",
+         "words": "need",
+         "at": 44,
          "gives": "EE",
-         "select": "middle",
-         "note": "the middle letters of nEEd, which are replaced"
+         "note": "its middle letters are EE"
         }
        ]
       },
       {
        "words": "God",
+       "at": 15,
        "gives": "RA",
-       "note": "Ra, the Egyptian sun god, takes the place of EE"
+       "note": "Ra is the Egyptian sun god"
       }
      ]
     },
     "explanation": {
-     "surface": "Scripture bringing God where he is needed in mankind.",
-     "walkthrough": "Swapping EE in QUEEN for RA gives QU-RA-N. The capital on 'Man' suggests the Isle of Man, but it is a chess piece again.",
-     "definitionFit": "A definition by description: Muslims hold it to be the word of God revealed to Muhammad, Islam's sacred scripture."
+     "surface": "A sacred book in which God turns up wherever there is basic need on the Isle of Man.",
+     "walkthrough": "'Man' looks like the Isle of Man or mankind, but in this puzzle it is a chess piece, the QUEEN. RA, the Egyptian god, takes the place of EE, the core of 'need'.",
+     "definitionFit": "The Quran is the sacred scripture of Islam, the holy book of Muslims."
     },
     "features": {
      "answerInScene": true,
@@ -1766,28 +1780,25 @@
     ],
     "wordplay": {
      "op": "first",
-     "unchecked": true,
-     "gives": "TACIT",
      "indicators": [
       {
-       "text": "Tips",
-       "note": "the tips of the words are their first letters"
+       "text": "Tips to",
+       "at": 0,
+       "note": "the tips of words are their first letters, here belonging to the five words that follow"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "to transform any communication instantly: try",
-       "gives": "TACIT",
-       "select": "first",
-       "note": "To, Any, Communication, Instantly, Try"
+       "words": "transform any communication instantly: try",
+       "at": 8,
+       "note": "the first letters of these five words spell the answer"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice for translating a message instantly: try doing it without speaking.",
-     "walkthrough": "The first letters start with 'to', a word that looks like a link.",
-     "definitionFit": "Tacit means understood without being spoken."
+     "surface": "Advice on changing any message at once: give it a go without speaking.",
+     "walkthrough": "'Tips' reads as a list of advice, but it asks for the leading letters of 'transform any communication instantly: try'.",
+     "definitionFit": "Tacit agreement is understood or implied without being spoken aloud in words."
     },
     "features": {
      "answerInScene": true,
