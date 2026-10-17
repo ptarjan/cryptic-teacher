@@ -103,4 +103,41 @@ check("the outer indicator moves to the bare inner homophone", ["charade", "on t
       [fixed["op"], fixed["parts"][1]["indicators"][0]["text"]])
 check("and the charade must still give the answer", False, clears(hom, "DIALOGUE"))
 
+# A selection over a leaf that holds the selection's result reads the leaf's words.
+check("first over a leaf giving the result (ALIBI)", True, clears(
+    op("first", leaf("Accord left incensed by inane", "ALIBI"), unchecked=True), "ALIBI"))
+check("the leaf reads its words once its gives is dropped", False, "gives" in R.repaired(
+    C.stripped(op("first", leaf("Accord left incensed by inane", "ALIBI"))), "ALIBI")["parts"][0])
+check("a selection that picks other letters is not repaired (ALIBX)", False, clears(
+    op("first", leaf("Accord left incensed by inane", "ALIBX"), unchecked=True), "ALIBX"))
+check("alt in a charade reads its words (TUSSLE)", True, clears(
+    op("container", op("charade", leaf("tense", "T"), op("alternate", leaf("solver", "SLE"), unchecked=True)),
+       leaf("compilers", "US"), unchecked=True), "TUSSLE"))
+
+# A rev whose single leaf already reads in the answer's order.
+check("rev over a post-reversal leaf is reversed back (BAD)", True, clears(
+    op("reversal", leaf("fish", "BAD"), unchecked=True), "BAD"))
+check("and the leaf gives its letters before the reversal", "DAB",
+      R.repaired(C.stripped(op("reversal", leaf("fish", "BAD"))), "BAD")["parts"][0]["gives"])
+# ... or in a tree where the reversal belongs on one leaf under it.
+emir = op("reversal", op("container", op("container", leaf("Queen", "ER"), leaf("one", "I")), leaf("metre", "M")))
+fixed = R.repaired(C.stripped(emir), "EMIR")
+check("a rev goes to the one leaf that fits, not to I, a palindrome (EMIR)", ["container", "container", "reversal", "RE"],
+      [fixed["op"], fixed["parts"][0]["op"], fixed["parts"][0]["parts"][0]["op"],
+       fixed["parts"][0]["parts"][0]["parts"][0]["gives"]])
+check("a rev with two leaves that would both do is left (IMPS)", False, clears(
+    op("reversal", op("container", leaf("lives", "IS"), leaf("politician", "MP")), unchecked=True), "IMPS"))
+
+# ana over a del of scattered letters is a composite anagram.
+check("ana of a del is comp (DEATH)", True, clears(
+    op("anagram", op("deletion", leaf("the said", "THESAID"), leaf("is", "IS")), unchecked=True), "DEATH"))
+comp = R.repaired(C.stripped(op("anagram", op("deletion", leaf("the said", "THESAID"), leaf("is", "IS"),
+                                                indicators=[{"text": "missing"}]), indicators=[{"text": "potty"}])), "DEATH")
+check("the comp keeps both indicators", ["composite", ["potty", "missing"]],
+      [comp["op"], [i["text"] for i in comp["indicators"]]])
+check("a del filed removed-first is read the other way round (IGUANAS)", True, clears(
+    op("anagram", op("deletion", leaf("Ten", "TEN"), leaf("nauseating", "NAUSEATING")), unchecked=True), "IGUANAS"))
+check("a comp whose letters do not fit is not made", False, clears(
+    op("anagram", op("deletion", leaf("the said", "THESAID"), leaf("is", "IS")), unchecked=True), "DEATX"))
+
 raise SystemExit(fails)
