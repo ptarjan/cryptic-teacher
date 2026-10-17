@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -193,30 +194,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "EXPEL",
      "indicators": [
       {
-       "text": "change of heart",
-       "note": "The heart of a word is its middle letter, and changing it swaps that one letter for another — the clue never says which, so the crossing letters have to decide it."
+       "text": "to have change of heart",
+       "at": 7,
+       "note": "the central letter of the word is swapped for a different one, a change at its heart"
       }
      ],
      "parts": [
       {
        "words": "Better",
+       "at": 0,
        "gives": "EXCEL",
-       "note": "to better a rival is to excel — the verb, not the comparative adjective the surface offers"
+       "note": "to better something is to excel, outdo it"
       },
       {
-       "words": "change of heart",
-       "gives": "P",
-       "note": "the central letter of that five-letter verb makes way and P moves in"
+       "gives": "C"
+      },
+      {
+       "gives": "P"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Better' reads as an adjective in the surface — a better driver — while the wordplay wants the verb, to outdo someone.",
-     "definitionFit": "To expel is to drive someone off the premises, the sense used of a pupil thrown out of school for good."
+     "surface": "Someone is urged to improve themselves, change their mind, and then drive away.",
+     "walkthrough": "'to have change of heart' swaps the middle letter C of EXCEL for P; the clue does not name the new letter, so the definition settles it.",
+     "definitionFit": "To expel is to force out or eject, the same as driving someone off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Better"
     }
    }
   },
@@ -485,12 +493,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LAPTOP",
      "indicators": [
       {
        "text": "in",
-       "note": "One thing said to be in another goes inside it, so the middle word is swallowed by the letters around it."
+       "at": 26,
+       "note": "in places the word for suitable within the letters for large and operation"
       }
      ],
      "parts": [
@@ -499,31 +506,35 @@
        "parts": [
         {
          "words": "large",
+         "at": 29,
          "gives": "L",
-         "note": "L is large on a clothing label"
-        },
-        {
-         "words": "suitable",
-         "gives": "APT",
-         "note": "apt means suitable, well fitted to the purpose"
+         "note": "L is the standard abbreviation for large, as on clothing labels"
         },
         {
          "words": "operation",
+         "at": 35,
          "gives": "OP",
-         "note": "OP is the short form of operation, as in a military op"
-        },
-        {
-         "unchecked": true,
-         "words": "for use",
-         "note": "surface only — it makes the machine sound office-ready and hands over no letters"
+         "note": "OP is a common short form of operation, as in a military or surgical op"
         }
        ]
+      },
+      {
+       "words": "suitable for use",
+       "at": 9,
+       "gives": "APT",
+       "note": "apt means fitting or suitable for a purpose"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface promises major surgery. Nothing here is medical: both of the outer words are ordinary crossword abbreviations.",
-     "definitionFit": "A laptop is the portable computer you work with on your knees, so the plain noun covers it as the general class."
+     "surface": "A computer is said to be fit for a big undertaking.",
+     "walkthrough": "'in' puts APT inside L plus OP, splitting the two abbreviations.",
+     "definitionFit": "A laptop is a portable personal machine, one kind of computer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "operation"
     }
    }
   },
@@ -653,8 +664,7 @@
     "definitions": [
      {
       "text": "bells",
-      "at": 40,
-      "note": "'Bells' is plural where the answer is one instrument: a carillon is the whole tuned set of them, so the setter names it by its parts."
+      "at": 40
      }
     ],
     "wordplay": {
@@ -662,40 +672,34 @@
      "indicators": [
       {
        "text": "taking in",
-       "note": "To take something in is to admit it indoors, so the visit opens up and holds the letters that follow."
+       "at": 6,
+       "note": "taking in means the phrase for visiting holds the two letters inside it"
       }
      ],
      "parts": [
       {
        "words": "Visit",
+       "at": 0,
        "gives": "CALLON",
-       "note": "to call on a friend is to visit them"
+       "note": "to call on someone is to visit them"
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "first couple of ringing",
+       "at": 16,
        "gives": "RI",
-       "indicators": [
-        {
-         "text": "first couple of",
-         "note": "A couple is two, so only the opening pair of letters of the next word is wanted."
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "ringing",
-         "gives": "RI",
-         "select": "first",
-         "note": "the opening pair of letters of the word, and nothing more of it"
-        }
-       ]
+       "note": "the opening two letters of the word ringing"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Ringing bells' reads as one phrase, and that is the trap: only 'ringing' is fodder, and 'bells' is the definition.",
-     "definitionFit": "A carillon is a tuned set of tower bells played from a keyboard of levers, so 'bells' names the instrument by what it is made of."
+     "surface": "A visit begins with the sound of bells ringing.",
+     "walkthrough": "'taking in' has CALL ON hold RI, placed after its first two letters.",
+     "definitionFit": "A carillon is a set of tuned bells played from a keyboard, usually in a tower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Visit"
     }
    }
   },
@@ -1048,40 +1052,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "URETHRA",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "getting over",
+       "at": 8,
+       "note": "in a down clue, getting over places the first piece above the second"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "You are",
+       "at": 0,
+       "gives": "UR",
+       "note": "UR is text-speak for you are"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "getting over",
-         "note": "In a down entry, getting over something means sitting on top of it, so this pair of letters starts the column."
-        },
-        {
-         "text": "treatment",
-         "note": "A patient under treatment comes out changed, and so do these letters: the word for heart is remade in a new order."
+         "text": "treatment for",
+         "at": 21,
+         "note": "treatment for means the word heart is worked over into a new order"
         }
        ],
        "parts": [
         {
-         "words": "You are",
-         "gives": "UR",
-         "note": "UR is the text-message spelling of 'you are'"
-        },
-        {
          "words": "heart",
-         "gives": "ETHRA",
-         "note": "the five letters of HEART, shuffled into a new order"
+         "at": 35,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface reads as a course of cardiac care; the anatomy the answer names is somewhere else entirely.",
-     "definitionFit": "The urethra is the tube carrying urine out of the bladder, and 'internal duct' is the plain anatomical description of that piece of plumbing."
+     "surface": "Someone is recovering from heart treatment, with mention of a bodily duct.",
+     "walkthrough": "'treatment for' scrambles HEART into ETHRA, and 'getting over' sets UR above it in the down entry; UR as text-speak is a convention worth knowing.",
+     "definitionFit": "The urethra is the tube carrying urine out of the bladder, a duct inside the body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
     }
    }
   },
@@ -1382,57 +1395,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INDEX",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "one",
+       "at": 7,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "cut",
-         "note": "Cut means shortened: the word for subsequently gives up its final letter."
+         "text": "handling",
+         "at": 28,
+         "note": "handling means the shortened word holds the dagger's tip in its grip"
         }
        ],
        "parts": [
         {
-         "words": "one",
-         "gives": "I",
-         "note": "I is one in Roman numerals"
-        },
-        {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "handling",
-           "note": "What you handle you hold in your hands, so this piece closes round the letter that follows it."
+           "text": "cut",
+           "at": 24,
+           "note": "cut means the word for subsequently loses its final letter"
           }
          ],
          "parts": [
           {
            "words": "subsequently",
-           "gives": "NEX",
-           "note": "NEXT means subsequently, with its last letter cut"
+           "at": 11,
+           "gives": "NEXT",
+           "note": "next means following on, subsequently"
           },
           {
-           "op": "first",
-           "unchecked": true,
-           "gives": "D",
-           "indicators": [
-            {
-             "text": "tip of",
-             "note": "The tip of a word is the letter it starts with, the point of it you meet first."
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "tip of dagger",
-             "gives": "D",
-             "select": "first",
-             "note": "the opening letter of dagger"
-            }
-           ]
+           "gives": "T"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "tip of",
+           "at": 37,
+           "note": "the tip of a word is its first letter, here the start of dagger"
+          }
+         ],
+         "parts": [
+          {
+           "words": "dagger",
+           "at": 44,
+           "note": "the word whose first letter is taken"
           }
          ]
         }
@@ -1441,8 +1456,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "A dagger's point is a letter here, not a blade.",
-     "definitionFit": "The index finger is the one you point and indicate with, so 'Finger' names it by dropping the word we normally add."
+     "surface": "Someone loses a finger, cut while handling the point of a dagger.",
+     "walkthrough": "'cut' removes T from NEXT, leaving NEX; 'handling' puts D, the 'tip of' dagger, inside that to make NDEX, after I.",
+     "definitionFit": "To finger someone is to point them out, and to index is likewise to indicate or point to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Finger"
     }
    }
   },
