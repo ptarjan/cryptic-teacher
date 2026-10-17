@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -164,47 +165,61 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "timeless",
-       "note": "Something timeless has no time in it, so the letter that stands for time drops out of the word beside it."
+       "text": "flipping",
+       "at": 35,
+       "note": "flipping means the whole string built so far is turned over and read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "flipping",
-         "note": "To flip a thing is to turn it over, so everything gathered so far is written out starting from the other end."
-        }
-       ],
        "parts": [
         {
          "words": "Not",
-         "note": "the little word itself, taken as it stands"
+         "at": 0,
+         "gives": "NOT",
+         "note": "taken as written"
         },
         {
          "words": "gramme",
+         "at": 4,
          "gives": "G",
-         "note": "g is the short form of gramme on every kitchen scale"
+         "note": "G is the standard abbreviation for gramme"
         },
         {
-         "words": "not 'timeless'",
-         "gives": "NO",
-         "note": "the same word again, this time with t for time struck out of it"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "timeless",
+           "at": 17,
+           "note": "timeless means without T, the abbreviation for time, so that letter is dropped from not"
+          }
+         ],
+         "parts": [
+          {
+           "words": "not",
+           "at": 12,
+           "gives": "NOT",
+           "note": "the word not, before its T is dropped"
+          },
+          {
+           "gives": "T"
+          }
+         ]
         },
         {
          "words": "litre",
-         "gives": "L",
-         "note": "l is the standard abbreviation for litre"
+         "at": 27,
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone exasperated, rejecting one metric measure after another.",
-     "walkthrough": "The quotation marks round 'timeless' are the setter flagging a word that carries an instruction rather than a meaning. Everything collected arrives backwards, which is why the litre's letter opens the answer.",
-     "definitionFit": "A long ton is the British imperial ton of 2,240 pounds, the weight the metric tonne was brought in to replace."
+     "surface": "An exasperated grumble about metric units, before swearing at an imperial one.",
+     "walkthrough": "Build NOT, G, NO (not with 'timeless' taking away its T) and L to get NOTGNOL; 'flipping', which reads like a mild curse, turns it back to front. A long ton is the British ton of 2,240 pounds.",
+     "definitionFit": "The long ton is the British measure of weight, 2,240 pounds, a unit of the old imperial system."
     },
     "features": {
      "answerInScene": true,
@@ -279,50 +294,42 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Fictional schoolgirl",
+      "text": "Fictional schoolgirl, bullied",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protected by",
+       "at": 36,
+       "note": "protected by means this word is shielded on both sides by the parents, so it sits between them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "protected by",
-         "note": "Whoever is protected has the others standing round them, so the letters spelt out first end up inside the pair named next."
-        }
-       ],
-       "parts": [
-        {
-         "words": "both parents",
-         "gives": "MADA",
-         "note": "ma and da, the two of them, and they part to make room between"
-        },
-        {
-         "words": "until",
-         "gives": "TIL",
-         "note": "til is the short spelling of until, the one that usually wears an apostrophe"
-        }
-       ]
+       "words": "both parents",
+       "at": 49,
+       "gives": "MADA",
+       "note": "MA for mother and DA for father: one word for each parent"
       },
       {
-       "unchecked": true,
-       "words": "bullied",
-       "note": "she is bullied right through the book, so the word paints the picture and gives up no letters"
+       "words": "until",
+       "at": 30,
+       "gives": "TIL",
+       "note": "TIL is a short form of until"
       }
      ]
     },
     "explanation": {
-     "surface": "A schoolgirl tormented at school until her mother and father step in.",
-     "walkthrough": "The kind parents are the joke: in Roald Dahl's novel the Wormwoods are the last people who would protect her. 'Da' for father is Irish and northern English.",
-     "definitionFit": "Matilda Wormwood is the tiny book-devouring schoolgirl of Dahl's novel, up against the headmistress Miss Trunchbull."
+     "surface": "A girl in a story is picked on until her mother and father step in to protect her.",
+     "walkthrough": "MA and DA stand either side of TIL, just as the parents guard the child.",
+     "definitionFit": "Roald Dahl's Matilda is a gifted schoolgirl bullied by her headmistress Miss Trunchbull."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "protected"
+     "aptDefinition": true
     }
    }
   },
@@ -1570,26 +1577,38 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "almost",
-       "note": "Almost a word is not quite the whole of it, so the last letter never arrives."
-      },
-      {
        "text": "insane",
-       "note": "Somebody insane is out of their right mind, and these letters are out of their right order."
+       "at": 21,
+       "note": "insane means the remaining letters are crazily jumbled into a new order"
       }
      ],
      "parts": [
       {
-       "words": "North almost",
-       "gives": "NORT",
-       "note": "north stopped just short of its end: four of the five letters"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 14,
+         "note": "almost means the word is not quite complete, so its final letter is cut off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "North",
+         "at": 8,
+         "note": "the word North, before its last letter goes"
+        },
+        {
+         "gives": "H"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Rents in the north of the country reaching barely believable levels.",
-     "walkthrough": "'Rent' is money on the surface and the past participle of rend in the answer — cloth rent in two. Reading the line as a grumble about housing is what stops you seeing the shuffle.",
-     "definitionFit": "Something torn is rent: the old past participle of rend, still used of cloth and of a country split in two."
+     "surface": "A complaint that rents in the north of the country are close to crazy.",
+     "walkthrough": "'Rent' reads as money paid for housing, but here it is the past participle of rend. 'Almost' leaves NORT, which 'insane' rearranges.",
+     "definitionFit": "Rent is the past participle of rend, to tear, so something rent has been ripped apart."
     },
     "features": {
      "answerInScene": false,
