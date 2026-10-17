@@ -14,8 +14,11 @@ own lock on the edition (scan_queue.source_lock), adding its own ledger row
 two units read one edition at once.
 
 What is due comes from file_archive_org_puzzles.plan(), every paper's, made
-again every REPLAN seconds on a thread (a plan takes one to six minutes on
-the media mount). An edition just laid out (a Gale page Paul saved, an
+again every REPLAN seconds on a thread. A paper whose inputs did not move is
+its last plan again; one whose ledger a unit's row landed in is its last plan
+brought up to date (file_archive_org_puzzles.PaperPlan: only the editions
+that row touches are worked out again), and planned whole only at a
+process's start and every PLAN_FULL seconds. An edition just laid out (a Gale page Paul saved, an
 archive.org fetch: fresh) is found apart from it, every FRESH_POLL seconds
 on the dispatch loop, and its scan and read start ahead of everything
 planned, so it is read within minutes whatever the planner is doing. Then

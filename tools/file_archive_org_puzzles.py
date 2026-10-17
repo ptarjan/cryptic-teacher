@@ -151,7 +151,6 @@ import argparse
 import ast
 import bisect
 import contextlib
-import copy
 import datetime
 import functools
 import gzip
@@ -1615,12 +1614,19 @@ def edition_dirs(cache=CACHE, paper=None):
         hit = _EDITION_DIRS.get(stamp)
         if hit is not None and hit[0] is rows and hit[1] == len(rows):
             return list(hit[2])
-        by_item = {}
+        by_item, ours = {}, {}
         for rel in rows:
             item, _, ed = rel.partition("/")
-            if ed and any(p.item.match(item) for p in papers):
+            if not ed:
+                continue
+            mine = ours.get(item)
+            if mine is None:
+                mine = ours[item] = any(p.item.match(item) for p in papers)
+            if mine:
                 by_item.setdefault(item, []).append(ed)
-        years = [sorted(Path(cache) / item / ed for ed in eds) for item, eds in sorted(by_item.items())]
+        # One item's editions sort as their names do (one parent): strings, not ~25k Paths compared.
+        years = [[base / ed for ed in sorted(eds)] for base, eds in
+                 ((Path(cache) / item, eds) for item, eds in sorted(by_item.items()))]
     else:
         stamp = None
         years = _edition_years_listed(cache, papers)
@@ -2715,6 +2721,8 @@ def load_held(path):
 
 #: {(series, number): its file} as held_files last listed them.
 _HELD_PATH = {}
+#: {(series, number): its file's year folder name} as held_files last listed them.
+_HELD_FOLDER = {}
 
 
 def held_files(series):
@@ -2831,11 +2839,13 @@ def _held_list(series):
                                                (d.get("source") or {}).get("url"), (date or "")[:10]))
                     _HELD_MOVED.append(p)
                     parsed += 1
-                entries.append((int(p.stem.split("-")[1]), seen[1], p))
+                # The number off the entry's name: Path.stem parses the path (~2 s a full listing).
+                entries.append((int(de.name[:-5].split("-")[1]), seen[1], p))
         by_folder[name] = entries
         for number, entry, p in entries:
             out.append((number, entry))
             _HELD_PATH[series, number] = p
+            _HELD_FOLDER[series, number] = name
     out = tuple(out)
     if parsed:
         _save_series_snapshot(series)
@@ -3898,9 +3908,20 @@ def input_hash(d):
     gale_inbox append to as they write an edition, so a replan stats no
     edition; one with no hash there is taken off the disk once and appended
     (_edition_off_disk)."""
-    if not media_manifest.on_media(d):
+    k = os.fspath(d)
+    erel = _INPUT_RELS.get(k)
+    if erel is None:
+        # Path arithmetic alone, the same for a given path: kept (a plan asks ~25k).
+        erel = media_manifest.edition_rel(d) if media_manifest.on_media(d) else False
+        if os.path.isabs(k):  # a relative one hangs on the cwd
+            _INPUT_RELS[k] = erel
+    if erel is False:
         return _input_hash_listed(d)
-    return _held_hash(d, media_manifest.edition_rel(d))
+    return _held_hash(d, erel)
+
+
+#: {edition dir as text: its media_manifest.edition_rel, or False off the media disk} of input_hash.
+_INPUT_RELS = {}
 
 
 def _held_hash(d, erel):
@@ -4386,6 +4407,9 @@ _HEADINGS_STAT = {}
 #: text not yet in _HEADINGS (~0.5s CPU, ~1s an edition on the media
 #: mount); the rest wait for the next plan, their reads ranked as if none links.
 HEADING_SECONDS = 3.0
+#: ... and a plan brought up to date (PaperPlan) this many: those come every
+#: few minutes, not every half hour, so the texts are read as fast in all.
+HEADING_UPDATE_SECONDS = 0.5
 
 
 def text_headings(d, deadline=None):
@@ -4461,39 +4485,100 @@ def load_likely(path):
         _HEADINGS_STAT.setdefault(k, v)
 
 
-def likely(paper, known, reads, rels, scans, solutions, held, order):
+def likely(paper, known, reads, rels, scans, solutions, held, order, st=None, fhs=None):
     """{edition dir: {fix: puzzles}} of the `reads` (dir: reason) whose
     re-read is predicted to file puzzles whole that their last read left
     short, by each fix (LIKELY, short_cause). An edition due as the issue
     printing an answerless puzzle's solution (STALE_SCAN[0]) counts each
     such puzzle whose heading its archive.org text links now (text_headings:
     HEADING_SECONDS a plan, the dirs in `order` first) and whose clues
-    would stand."""
-    out = {}
+    would stand. With `st` (a PaperPlan) and `fhs` (each read's input_hash),
+    each row's and each edition's part is kept there while what it reads
+    stands (_row_likely, _text_linked)."""
+    update = st is not None and bool(st.rows)
+    st = st or PaperPlan(None)
+    out, wanting, causes = {}, set(), {}
+    for rel, row in known.items():
+        causes[rel], want = _row_likely(st, paper.series, rel, row, solutions)
+        wanting.update(want)
     for d in reads:
-        row = known.get(rels[d]) or {}
-        for v in row.get("verdicts", ()):
-            cause = short_cause(paper.series, row, v, solutions)
-            if cause:
-                out.setdefault(d, {}).setdefault(cause, 0)
-                out[d][cause] += 1
-    wanting = {v["number"] for row in known.values() for v in row.get("verdicts", ())
-               if not v.get("solutionFrom") and v.get("number") not in solutions
-               and (held_short(paper.series, row, v) or (False,))[0]}
-    deadline = time.monotonic() + HEADING_SECONDS
+        by = causes.get(rels[d])
+        if by:
+            out[d] = dict(by)
+    deadline = time.monotonic() + (HEADING_UPDATE_SECONDS if update else HEADING_SECONDS)
     for d in [d for d in order if reads[d] == STALE_SCAN[0]] if wanting else ():
         scan = scans[rels[d]]
         day = scan.get("date") or day_of(d)
-        heads = text_headings(d, deadline) if day else None
-        if not heads:
-            continue
-        titled = {p["number"] for p in scan["puzzles"]}
-        found = {"date": day, "puzzles": scan["puzzles"],
-                 "solutions": [{"number": n, "leaf": leaf} for n, leaf in heads if n not in titled]}
-        n = len({s["number"] for s in linked_solutions(paper, found, held)} & wanting)
+        linked = _text_linked(st, paper, d, rels[d], scan, day, held, deadline, (fhs or {}).get(d)) if day else None
+        n = len(linked & wanting) if linked else 0
         if n:
             out.setdefault(d, {})[LIKELY[1]] = n
     return out
+
+
+def _filed_folder(series, number):
+    """(year folder, its mtime as held_files last listed it) of the filed
+    puzzle `number` of `series`, or None: a puzzle rewritten (os.replace)
+    moves its folder's mtime, so _row_likely's key sees it without a stat."""
+    p = _HELD_PATH.get((series, number))
+    if p is None:
+        return None
+    name = _HELD_FOLDER.get((series, number))
+    return p, name, (_HELD_LISTED.get(series) or (0, {}))[1].get(name)
+
+
+def _row_likely(st, series, rel, row, solutions):
+    """({fix: puzzles} likely() counts for ledger `row`, [the numbers of its
+    puzzles read without answers no heading links yet that a link would file
+    whole]), kept in PaperPlan `st` while the row is the same object, the
+    links of its verdicts' numbers stand and their filed puzzles' folders are
+    unmoved."""
+    vs = row.get("verdicts", ())
+    if not vs:
+        return (), ()
+    key = (tuple(v.get("number") in solutions for v in vs), tuple(_filed_folder(series, v.get("number")) for v in vs))
+    hit = st.rows.get(rel)
+    if hit is not None and hit[0] is row and hit[1] == key:
+        return hit[2], hit[3]
+    by, wanting = {}, []
+    for v in vs:
+        cause = short_cause(series, row, v, solutions)
+        if cause:
+            by[cause] = by.get(cause, 0) + 1
+        if (not v.get("solutionFrom") and v.get("number") not in solutions
+                and (held_short(series, row, v) or (False,))[0]):
+            wanting.append(v["number"])
+    st.rows[rel] = (row, key, by, wanting)
+    return by, wanting
+
+
+def _text_linked(st, paper, d, rel, scan, day, held, deadline, fh):
+    """{number} of the puzzles edition dir `d`'s archive.org text links a
+    solution heading to (text_headings, linked_solutions of them), or None
+    when it has none or they are not read yet (`deadline` passed). Kept in
+    PaperPlan `st` while its scan and files stand, linked again only when the
+    filed puzzles in its hosted_window move (as _linked)."""
+    hit = st.texts.get(rel)
+    if fh is not None and hit is not None and (hit[0] is scan or hit[0] == scan) and hit[1] == fh:
+        if hit[4] is held:
+            return hit[5]
+        near = held_between(held, hit[2])
+        if near == hit[3]:
+            st.texts[rel] = (*hit[:4], held, hit[5])
+            return hit[5]
+    heads = text_headings(d, deadline)
+    if not heads:
+        if heads is not None and fh is not None:
+            st.texts[rel] = (scan, fh, None, (), held, None)
+        return None
+    titled = {p["number"] for p in scan["puzzles"]}
+    found = {"date": day, "puzzles": scan["puzzles"],
+             "solutions": [{"number": n, "leaf": leaf} for n, leaf in heads if n not in titled]}
+    window = hosted_window(paper, found)
+    linked = frozenset(s["number"] for s in linked_solutions(paper, found, held))
+    if fh is not None:
+        st.texts[rel] = (scan, fh, window, held_between(held, window), held, linked)
+    return linked
 
 
 def due_reason(row, inputs, sol_seen, vlm_up, reread=None, sol_from=None):
@@ -4687,6 +4772,36 @@ _PLANNED = {}
 PLAN_REUSE = 3600
 
 
+class PaperPlan:
+    """What _plan_paper_fresh worked out of each edition of one paper, kept
+    between its plans so a plan after a ledger row lands works out again only
+    the editions that row (or what it moved) touches: each memo is keyed on
+    the very row object the planner's fold of the ledger holds (a fold
+    re-parses only the lines appended, so every other row keeps its
+    identity) and on the slice of the corpus-wide inputs (solutions linked,
+    answerless numbers, filed puzzles' folders) that edition reads. The paper
+    is planned whole again (a new PaperPlan) at a process's start and every
+    PLAN_FULL seconds after: the backstop for what no key sees (a reprint's
+    size, a puzzle file rewritten in place)."""
+
+    def __init__(self, request):
+        self.request = request  # (reread, dirs): another request is another plan
+        self.made = time.monotonic()
+        self.rels = {}  # edition dir as text: "<item>/<edition>" (rel)
+        self.newest = {}  # rel: its staged_at (NEWEST_FIRST papers)
+        self.inputs = {}  # (filesHash, puzzle numbers): inputs_of
+        self.reasons = {}  # rel: (row, memo key, why or None) of _edition_reason
+        self.rows = {}  # rel: (row, memo key, {fix: puzzles}, [wanting numbers]) of _row_likely
+        self.texts = {}  # rel: (scan, files hash, window, held_between, held, linked numbers) of _text_linked
+
+
+#: {(cache, paper key, ledger): PaperPlan} of _plan_paper.
+_PAPER_PLANS = {}
+#: Seconds a PaperPlan is brought up to date before its paper is planned whole
+#: again (Paul 10-17: "a queue to burn through", not a replan each row).
+PLAN_FULL = 86400
+
+
 def _stat_stamp(path):
     try:
         st = os.stat(path)
@@ -4720,7 +4835,9 @@ def _plan_paper(paper, cache, ledger, reread, asked, dirs):
     """_plan_paper_fresh's answer, kept per paper: while no input of it moved
     (_plan_stamp) a replan is the last one's units copied, not every edition
     of the paper worked through again (seconds a paper on a loaded host, every
-    cycle, for a queue that mostly has nothing new)."""
+    cycle, for a queue that mostly has nothing new). When one moved (a ledger
+    row landed), the paper's PaperPlan brings its last plan up to date: only
+    the editions whose memo keys moved are worked out again."""
     ledger = ledger_of(cache, paper, ledger)
     asked = tuple(asked)
     stamp = _plan_stamp(paper, cache, ledger, reread, asked, dirs)
@@ -4728,21 +4845,85 @@ def _plan_paper(paper, cache, ledger, reread, asked, dirs):
     hit = _PLANNED.get(k)
     if stamp is not None and hit is not None and hit[0] == stamp and time.monotonic() - hit[1] < PLAN_REUSE:
         _PLANNED_DIRS[(str(cache), paper.key)] = hit[3]
-        return copy.deepcopy(hit[2])
+        return _units_copy(hit[2])
     # The ledger is stamped before it is read, so a row appended during the plan makes the next one fresh.
-    made = _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs)
+    made = _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, paper_plan(cache, paper, ledger, reread, dirs))
     if stamp is not None:
-        _PLANNED[k] = (stamp, time.monotonic(), copy.deepcopy(made), _PLANNED_DIRS.get((str(cache), paper.key)))
+        _PLANNED[k] = (stamp, time.monotonic(), _units_copy(made), _PLANNED_DIRS.get((str(cache), paper.key)))
     return made
 
 
-def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs):
+def _units_copy(made):
+    """(scan units, read units) of `made` in lists of their own, the units
+    shared: no caller changes a unit (edition_queue builds new ones, {**u}),
+    and a deepcopy of ~30k units was seconds a plan, a dict copy of each 1.5 s."""
+    return tuple(list(us) for us in made)
+
+
+def paper_plan(cache, paper, ledger, reread, dirs):
+    """The PaperPlan _plan_paper brings up to date for this request, a new
+    one (the paper planned whole) when there is none, it was for another
+    `reread` or `dirs`, or it is PLAN_FULL seconds old."""
+    k = (str(cache), paper.key, str(ledger))
+    request = (reread, None if dirs is None else tuple(dirs))
+    st = _PAPER_PLANS.get(k)
+    if st is None or st.request != request or time.monotonic() - st.made >= PLAN_FULL:
+        st = _PAPER_PLANS[k] = PaperPlan(request)
+    return st
+
+
+def _edition_reason(st, paper, d, rel, row, fh, stale, scan, solutions, sources, answerless, answerless_own,
+                    has_host, seen_by, reread):
+    """Why edition `d` (its ledger `row`, files hash `fh`) is read, or None
+    (_plan_paper_fresh's reason, before an annotation ask): kept in PaperPlan
+    `st` while the row is the same object and the corpus-wide facts its
+    puzzles read (solutions linked, answerless numbers) are as they were."""
+    nums = [p["number"] for p in scan["puzzles"]]
+    if stale:
+        own = tuple(n in answerless_own for n in nums)
+        key = (True, fh, tuple(n in answerless for n in nums), own, any(own) and has_host(d))
+    else:
+        key = (False, fh, tuple(n in solutions for n in nums), seen_by,
+               tuple(sources.get(v["number"]) for v in row.get("verdicts", ()) if v.get("solutionFrom")))
+    hit = st.reasons.get(rel)
+    if hit is not None and hit[0] is row and hit[1] == key:
+        return hit[2]
+    if stale:
+        # Its files moved, or only the scan code: the latter is every
+        # edition at once, a whole-corpus re-read.
+        why = ("never read" if "inputs" not in row else
+               "inputs changed" if row.get("filesHash") != fh else
+               STALE_SCAN[0] if any(n in answerless or n in answerless_own and has_host(d) for n in nums) else
+               fix_reason(row) or STALE_SCAN[1])
+    else:
+        sol_seen = sorted(n for n in nums if n in solutions)
+        ik = (row["filesHash"], tuple(nums))
+        if ik not in st.inputs:
+            st.inputs[ik] = inputs_of(row["filesHash"], scan, paper.series)
+        why = due_reason(row, st.inputs[ik], sol_seen, seen_by, reread, sources)
+    st.reasons[rel] = (row, key, why)
+    return why
+
+
+def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs, st=None):
+    """_plan_paper's answer worked out; with `st` (a PaperPlan) each
+    edition's part is taken from it while its memo key stands, else worked
+    out and kept there. A new PaperPlan, or none, plans the paper whole."""
+    st = st or PaperPlan((reread, None if dirs is None else tuple(dirs)))
     ledger = ledger_of(cache, paper, ledger)
     known = _planned_known(ledger)
     every = _PLANNED_DIRS[(str(cache), paper.key)] = edition_dirs(cache, paper)
     held_files(paper.series)  # cached here, so each unit forked after this reads only what changed
     dirs = every if dirs is None else [d for d in every if d in set(dirs)]
-    rels = {d: f"{d.parent.name}/{d.name}" for d in every}
+    # Keyed by the dir's text: edition_dirs' Paths are new objects when it lists again, and a
+    # Path key's every lookup by an equal one is a Path __eq__ (~1.5 s a plan of the papers).
+    rels = {}
+    for d in every:
+        s = os.fspath(d)
+        rel = st.rels.get(s)
+        if rel is None:
+            rel = st.rels[s] = f"{d.parent.name}/{d.name}"
+        rels[d] = rel
     seen_by = vlm.version() if vlm.reachable() else None
     fhs = {d: input_hash(d) for d in dirs}
     stale = [d for d in dirs if not scan_current(known.get(rels[d]), fhs[d], rels[d])]
@@ -4766,18 +4947,8 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs):
     reads = {}
     for d in dirs:
         rel, row = rels[d], known.get(rels[d]) or {}
-        if d in stale_set:
-            # Its files moved, or only the scan code: the latter is every
-            # edition at once, a whole-corpus re-read.
-            why = ("never read" if "inputs" not in row else
-                   "inputs changed" if row.get("filesHash") != fhs[d] else
-                   STALE_SCAN[0] if any(p["number"] in answerless or p["number"] in answerless_own and has_host(d)
-                                        for p in scans[rel]["puzzles"]) else
-                   fix_reason(row) or STALE_SCAN[1])
-        else:
-            sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
-            why = due_reason(row, inputs_of(row["filesHash"], scans[rel], paper.series), sol_seen, seen_by, reread,
-                             sources)
+        why = _edition_reason(st, paper, d, rel, row, fhs[d], d in stale_set, scans[rel], solutions, sources,
+                              answerless, answerless_own, has_host, seen_by, reread)
         if not why and rel in asked:
             why = "annotation asked"
         if why == "never read" and paper.key in NEWEST_FIRST:
@@ -4796,8 +4967,17 @@ def _plan_paper_fresh(paper, cache, ledger, reread, asked, dirs):
         lo = bisect.bisect_left(days, day)
         hi = bisect.bisect_right(days, day + datetime.timedelta(days=SOLUTION_DAYS))
         return [rel for _, rel in dated[lo:hi]] + undated
-    newest = staged_at if paper.key in NEWEST_FIRST else (lambda d: edition_date(d) or datetime.date.min)
-    fixes = likely(paper, known, reads, rels, scans, solutions, held, sorted(reads, key=newest, reverse=True))
+    if paper.key in NEWEST_FIRST:
+        def newest(d):
+            # staged_at kept: an edition's laid-out time stands (PLAN_FULL re-reads it).
+            at = st.newest.get(rels[d])
+            if at is None:
+                at = st.newest[rels[d]] = staged_at(d)
+            return at
+    else:
+        def newest(d):
+            return edition_date(d) or datetime.date.min
+    fixes = likely(paper, known, reads, rels, scans, solutions, held, sorted(reads, key=newest, reverse=True), st, fhs)
     for d, by in fixes.items():
         # A whole-corpus re-read a fix now completes a puzzle of is one that can change what was filed.
         if reads[d] == STALE_SCAN[1] and LIKELY[0] in by:

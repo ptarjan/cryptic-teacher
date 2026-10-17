@@ -1403,7 +1403,17 @@ def settled_row(d):
 pl = pc / "filed.jsonl"
 scan_queue.append(pl, [settled_row(e1)])
 settle(pc)
-due = lambda: [(u["kind"], u["rel"].split("/")[1], u["reason"]) for u in sum(f.plan(f.TIMES, pc), [])]
+# Every plan below is the paper's PaperPlan brought up to date row by row;
+# each is checked against the paper planned whole afresh (no memo kept).
+plan_diffs = []
+def checked_plan(paper, cache):
+    kept = f.plan(paper, cache)
+    with f.held_once():
+        whole = f._plan_paper_fresh(paper, cache, None, None, (), None)
+    if list(kept) != list(whole):
+        plan_diffs.append((list(kept), list(whole)))
+    return kept
+due = lambda: [(u["kind"], u["rel"].split("/")[1], u["reason"]) for u in sum(checked_plan(f.TIMES, pc), [])]
 check("a settled edition whose row is current is due for nothing, and its listing is kept", ([], True),
       (due(), e1 in f.dir_cache._SEEN))
 old = os.stat(e1).st_mtime_ns
@@ -1430,7 +1440,7 @@ stale = {**settled_row(e1), "scanKey": "old",
 def e1_reason(day, verdict):
     scan_queue.append(pl, [stale, {**settled_row(e2), "scan": {"date": day, "puzzles": [], "solutions": []},
                                    "verdicts": [verdict]}])
-    return [(u["rank"], u["reason"]) for u in f.plan(f.TIMES, pc)[1] if u["rel"].endswith("_1")]
+    return [(u["rank"], u["reason"]) for u in checked_plan(f.TIMES, pc)[1] if u["rel"].endswith("_1")]
 check("a stale host of an answerless puzzle ranks 2; of a Saturday prize six on; else, refused or answered, 3",
       [[(2, "scan stale, answers missing")], [(2, "scan stale, answers missing")], [(3, "scan stale")],
        [(3, "scan stale")], [(3, "scan stale")]],
@@ -1439,7 +1449,7 @@ check("a stale host of an answerless puzzle ranks 2; of a Saturday prize six on;
        e1_reason("1981-02-02", {"number": 15435, "solutionFrom": "1981-02-03 leaf 1"})])
 def stale_fixed(verdict):
     scan_queue.append(pl, [{**stale, "verdicts": [verdict]}, settled_row(e2)])
-    return [(u["rank"], u["reason"]) for u in f.plan(f.TIMES, pc)[1] if u["rel"].endswith("_1")]
+    return [(u["rank"], u["reason"]) for u in checked_plan(f.TIMES, pc)[1] if u["rel"].endswith("_1")]
 check("a stale scan's read a reader fix can change ranks with the fixes, not the whole corpus",
       [[(2, "solution short, read by other code")], [(2, "refused not-a-grid before its fix")],
        [(3, "scan stale")]],
@@ -1488,6 +1498,14 @@ scan_queue.append(pl, [{**settled_row(e2), "scan": {"date": "1981-06-22", "puzzl
                                                       "solutions": [{"number": 15557, "leaf": 1}]}}])
 check("and a Gale run sees the archive.org scans' headings", {15557: pc / "NewsUK1981UKEnglish" / "1981-05-06_2"},
       {n: s["dir"] for n, s in f.sister_solutions(pc, f.GALE).items()})
+due()
+kept_plan = f._PAPER_PLANS[(str(pc), f.TIMES.key, str(f.ledger_of(pc, f.TIMES)))]
+before = dict(kept_plan.reasons)
+scan_queue.append(pl, [{**settled_row(e1), "readAt": "2026-02-01T00:00:00+00:00"}])
+due()
+check("a ledger row landing works its own edition out again, no other", ["1981-02-03_1"],
+      sorted(rel.split("/")[1] for rel, hit in kept_plan.reasons.items() if before.get(rel) is not hit))
+check("each plan brought up to date row by row equals the paper planned whole", [], plan_diffs)
 # A read start links every sister edition's headings (sister_solutions):
 # kept until the sister ledger or the series' filed puzzles move.
 linked, real_linked, real_held_dates = [], f.linked_solutions, f.held_dates
