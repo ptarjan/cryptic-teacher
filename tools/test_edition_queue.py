@@ -444,6 +444,7 @@ ev = [line.split()[1:] for line in log.read_text().splitlines()]
 check("a scan no read waits on holds while a full read pool of reads is ready", True,
       ev.index(["start", "read", "r2", "v1"]) < ev.index(["start", "scan", "s9", "v1"]))
 log.unlink()
+fake(sleep={"r1": 2.5, "r2": 2.5})  # long enough for a loaded host to start the scan's process while r1 runs
 eq.plan = units(["s9"], [("r1", []), ("r2", [])])
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=3, scan_workers=1, replan=0.2)
