@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -193,41 +194,40 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PRIVATEROOM",
-     "indicators": [
-      {
-       "text": "up",
-       "note": "On a down entry, up means the letters climb the column, so the word is read from its last letter to its first."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Soldier",
+       "at": 0,
+       "gives": "PRIVATE",
+       "note": "a private is the lowest-ranking soldier"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 14,
+         "note": "in a down clue, up means the word moor is read from bottom to top"
+        }
+       ],
        "parts": [
         {
-         "words": "Soldier",
-         "gives": "PRIVATE",
-         "note": "the lowest rank in the army, the ordinary soldier of the ranks"
-        },
-        {
          "words": "moor",
-         "gives": "ROOM",
-         "note": "a moor is open upland, heather and peat, and its four letters are taken the other way about"
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A soldier tying a boat up on a quiet stretch of water.",
-     "walkthrough": "'Moor up' reads as making a boat fast to the bank, which hides both the open heath and the instruction to climb. The soldier is the rank, not somebody keeping a secret.",
-     "definitionFit": "A private room is one nobody else is in — the quiet corner of a pub or a hospital where you are left undisturbed."
+     "surface": "A soldier is ordered to tie up a boat in a sheltered spot.",
+     "walkthrough": "'Moor' looks like the verb to tie up a boat, but 'up' flips it to ROOM.",
+     "definitionFit": "A private room is a secluded space away from others, so it offers peace and quiet."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "moor"
     }
    }
@@ -528,46 +528,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FORTISSIMO",
-     "indicators": [
-      {
-       "text": "quaintly",
-       "note": "Quaintly asks for the old-fashioned way of putting it, the contraction met in ballads rather than in speech."
-      },
-      {
-       "text": "mostly",
-       "note": "Mostly means nearly all of it, so the name arrives with its final letter left off."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Because, quaintly",
+       "at": 0,
+       "gives": "FOR",
+       "note": "for is an old-fashioned word for because, as in 'for he is a jolly good fellow'"
+      },
+      {
+       "words": "it is",
+       "at": 19,
+       "gives": "TIS",
+       "note": "'tis is the old contraction of it is"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 25,
+         "note": "mostly means most of the surname, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Because",
-         "gives": "FOR",
-         "note": "for and because do the same job joining two halves of a sentence"
+         "words": "Paul singing",
+         "at": 32,
+         "gives": "SIMON",
+         "note": "the singing Paul is the songwriter Paul Simon"
         },
         {
-         "words": "it is",
-         "gives": "TIS",
-         "note": "'tis is the old contraction of it is"
-        },
-        {
-         "words": "mostly Paul singing",
-         "gives": "SIMO",
-         "note": "the singer is Paul Simon, and all but the last letter of that surname is wanted"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Explaining that the voice you can hear is mostly Paul, belting it out.",
-     "walkthrough": "'Paul singing' asks for the surname rather than the first name — Paul Simon. The answer is the mark a composer writes over a bar, ff, telling the performer to give it everything.",
-     "definitionFit": "Fortissimo is the direction to perform very loudly, the superlative of forte, so it drops straight into 'singing loudly'."
+     "surface": "An old-fashioned explanation of why Paul is belting out a song.",
+     "walkthrough": "'Mostly' trims SIMON, from the singer Paul Simon, to SIMO. Fortissimo is the musical direction for very loud playing.",
+     "definitionFit": "In music, fortissimo is the Italian direction to play very loudly, an adverb as well as a noun."
     },
     "features": {
      "answerInScene": true,
