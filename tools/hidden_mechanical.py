@@ -72,7 +72,7 @@ def _phrase(tokens, keys, base=0):
     for lo in (0, 1):
         for hi in (0, 1):
             core = tokens[lo:len(tokens) - hi]
-            if (core and all(w in LINKS for w in tokens[:lo] + tokens[len(tokens) - hi:])
+            if (core and all(w.lower() in LINKS for w in tokens[:lo] + tokens[len(tokens) - hi:])
                     and " ".join(core) in keys):
                 return base + lo, base + len(tokens) - hi
     return None
@@ -153,6 +153,8 @@ def find(clue, answer):
                 "hidden": phrase(hid), "reversal": phrase(rev),
                 "definition": clue[matches[first].start():matches[first + n_def - 1].end()],
                 "at": matches[first].start()})
-    if len({(p["fodder"], p["definition"]) for p in parses}) != 1:
+    if len({p["fodder"] for p in parses}) != 1:
         return None
-    return parses[0]
+    # A link word beside the indicator ("of" of "of some") is the indicator's
+    # link, not the definition's last word: the shortest definition wins.
+    return min(parses, key=lambda p: len(p["definition"]))
