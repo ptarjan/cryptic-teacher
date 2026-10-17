@@ -111,47 +111,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OFCOURSE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "catastrophic",
-       "note": "a catastrophe throws everything into chaos, so these letters are scrambled"
+       "text": "under",
+       "at": 32,
+       "note": "in a down clue, the jumbled force sits under the head of operations, so it comes after it in the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 38,
+         "note": "the head of a word is its first letter, so only the start of operations is used"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "head of",
-           "note": "the head of a word is its opening letter, so just that one is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "operations",
-           "note": "the opening letter of this word"
-          }
-         ]
-        },
+         "words": "operations",
+         "at": 46,
+         "note": "first letter gives O"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "catastrophic",
+         "at": 19,
+         "note": "a catastrophic force is wrecked and in disarray, so its letters are scrambled"
+        }
+       ],
+       "parts": [
         {
          "words": "US force",
-         "gives": "FCOURSE",
-         "note": "the letters of these two words, rearranged"
+         "at": 10
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A military report: a US force is certainly heading for disaster under the command of operations.",
-     "walkthrough": "In a down clue 'under' means the scrambled letters go below, that is after, the O.",
-     "definitionFit": "The phrase is an emphatic way of saying yes, naturally, without any doubt."
+     "surface": "A military briefing: an American force disastrously placed under the operations chief, surely.",
+     "walkthrough": "'head of operations' gives O; 'catastrophic' rearranges US FORCE to FCOURSE, which goes 'under' the O in this down clue.",
+     "definitionFit": "The phrase is an emphatic way of saying yes, without doubt, just as certainly is."
     },
     "features": {
      "answerInScene": false,
@@ -298,31 +305,30 @@
     "definitions": [
      {
       "text": "Dressmaker perhaps",
-      "at": 0
+      "at": 0,
+      "note": "a dressmaker is one example, hence perhaps"
      }
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "FASHIONDESIGNER",
      "indicators": [
       {
        "text": "for tailoring",
-       "note": "tailoring cuts and reshapes cloth, so these letters are cut and reshaped into a new order"
+       "at": 40,
+       "note": "tailoring cuts and reshapes material, so these letters are refashioned into a new order"
       }
      ],
      "parts": [
       {
        "words": "in fairness he'd go",
-       "gives": "FASHIONDESIGNER",
-       "note": "all fifteen letters of these words, rearranged"
+       "at": 20
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who makes dresses would, to be fair, go in for tailoring.",
-     "walkthrough": "'Perhaps' marks a dressmaker as one example of the answer.",
-     "definitionFit": "A dressmaker is one kind of designer of clothes, hence the 'perhaps' signalling an example."
+     "surface": "A dressmaker praised for fairness, who would take up tailoring work.",
+     "walkthrough": "'for tailoring' tells you to rearrange the letters of IN FAIRNESS HE'D GO; the apostrophe is ignored.",
+     "definitionFit": "A fashion designer creates clothes, of which a dressmaker is a humbler example; the 'perhaps' marks the definition by example."
     },
     "features": {
      "answerInScene": true,
@@ -1070,48 +1076,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MACHETE",
+     "op": "container",
      "indicators": [
       {
-       "text": "new",
-       "note": "something made new is remade, so the letters take a fresh order"
+       "text": "broken by",
+       "at": 11,
+       "note": "the mace is split open by the other letters, which go into its middle"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Old weapon",
+       "at": 0,
+       "gives": "MACE",
+       "note": "a mace is a spiked club used in medieval combat"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "broken by",
-         "note": "a thing broken by something has it driven into its middle, splitting it"
+         "text": "new",
+         "at": 25,
+         "note": "new signals the word the is made afresh, its letters reordered"
         }
        ],
        "parts": [
         {
-         "words": "Old weapon",
-         "gives": "MACE",
-         "note": "a mace is a club used as a weapon in medieval times"
-        },
-        {
          "words": "the",
-         "gives": "HET",
-         "note": "these letters, rearranged"
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An antique weapon is smashed by a modern one.",
-     "walkthrough": "'The new weapon' looks like one phrase, but 'the' is anagram fodder and 'weapon' alone is the definition.",
-     "definitionFit": "A machete is a broad heavy blade used for cutting and also as an arm in combat."
+     "surface": "A medieval weapon shattered by a modern one.",
+     "walkthrough": "'new' rearranges THE into HET, and MACE is 'broken by' it: MAC + HET + E.",
+     "definitionFit": "A machete is a broad heavy blade used as a tool or as a weapon in combat."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "new"
+     "misdirectedWord": "broken"
     }
    }
   },
