@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -438,16 +439,18 @@
    "annotation": {
     "definitions": [
      {
-      "text": "dish",
-      "at": 44
+      "text": "dish?",
+      "at": 44,
+      "note": "a satellite dish is a kind of aerial; the question mark flags the definition by example"
      }
     ],
     "wordplay": {
      "op": "container",
      "indicators": [
       {
-       "text": "upset",
-       "note": "a household upset leaves everything out of its usual place, and so does an upset word"
+       "text": "about",
+       "at": 14,
+       "note": "about means the reversed Nanna goes around the other letters"
       }
      ],
      "parts": [
@@ -455,47 +458,58 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "a coat worn about you goes round the outside, so the jumbled letters wrap the pair that follow"
+         "text": "upset",
+         "at": 8,
+         "note": "upset means the letters of Nanna are knocked over and rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "ultimately",
-           "note": "ultimately means at the very end, so it asks for the final letter of the word beside it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Nanna",
-           "note": "five letters to be rearranged, and they end up split either side of what goes in"
-          },
-          {
-           "op": "last",
-           "parts": [
-            {
-             "words": "ultimately flat",
-             "note": "the last letter of flaT"
-            }
-           ]
-          }
-         ]
+         "words": "Nanna",
+         "at": 2
         }
        ]
       },
       {
-       "words": "English",
-       "gives": "E",
-       "note": "E is the usual abbreviation for English"
+       "op": "charade",
+       "parts": [
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 20,
+           "note": "ultimately points to the last letter of the word flat"
+          }
+         ],
+         "parts": [
+          {
+           "words": "flat",
+           "at": 31,
+           "gives": "T",
+           "note": "its final letter is T"
+          }
+         ]
+        },
+        {
+         "words": "English",
+         "at": 36,
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Reading on from 7 down, a grandmother in a temper about a flat English dinner is a complete picture — and every word of it is machinery.",
-     "definitionFit": "An antenna is the aerial that catches a broadcast, and the domestic one is a satellite dish, so the question mark flags a definition by example."
+     "surface": "Grandma knocks over a plate of something English and bland.",
+     "walkthrough": "'Upset' rearranges NANNA into ANNNA; 'about' wraps those letters around T ('ultimately' flat, its last letter) and E for English.",
+     "definitionFit": "A satellite dish is a type of aerial for receiving broadcast signals, which an antenna is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dish?"
     }
    }
   },
@@ -1047,37 +1061,54 @@
     ],
     "wordplay": {
      "op": "container",
+     "indicators": [
+      {
+       "text": "dons",
+       "at": 29,
+       "note": "dons means puts on, so the slice is clothed by the other word"
+      },
+      {
+       "text": "on the outside",
+       "at": 40,
+       "note": "on the outside says the word for burnt wraps around the slice"
+      }
+     ],
      "parts": [
       {
-       "words": "burnt on the outside",
+       "words": "burnt",
+       "at": 34,
        "gives": "SEARED",
-       "note": "meat browned in a hot pan is seared — caught on the outside only"
+       "note": "seared means scorched or burnt on the surface"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "M",
        "indicators": [
         {
-         "text": "dons",
-         "note": "to don a coat is to put it on over yourself, so the single letter ends up wearing the longer word around it"
+         "text": "slice of",
+         "at": 15,
+         "note": "a slice of means just a small piece cut from the word meat, here its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "slice of meat",
+         "words": "meat",
+         "at": 24,
          "gives": "M",
-         "select": "first",
-         "note": "a slice off the front of MEAT is its first letter"
+         "note": "the first letter is M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Both halves of the wordplay talk cooking, so nothing announces itself as an instruction; 'dons' is the only word doing a job rather than describing a kitchen.",
-     "definitionFit": "Something smeared has had a greasy substance wiped across it, so 'grease-covered' names the state the wiping leaves behind."
+     "surface": "A cook describes a greasy cut of meat wearing a charred crust.",
+     "walkthrough": "The slice is just the opening M of meat; 'dons' and 'on the outside' put SEARED around it, after the S.",
+     "definitionFit": "Something smeared has been smudged or coated with a greasy substance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dons"
     }
    }
   },
@@ -1418,36 +1449,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DEEPER",
-     "indicators": [
-      {
-       "text": "misses header",
-       "note": "the header is the letter at the top of the word, and missing it means starting one letter late"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Dutch",
+       "at": 0,
+       "gives": "D"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "misses header",
+         "at": 13,
+         "note": "misses header means the word loses its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Dutch",
-         "gives": "D",
-         "note": "D is the standard abbreviation for Dutch"
+         "words": "goalie",
+         "at": 6,
+         "gives": "KEEPER",
+         "note": "a goalie is a goalkeeper, or keeper"
         },
         {
-         "words": "goalie",
-         "gives": "EEPER",
-         "note": "a goalie is a KEEPER, and it is the K at the front that goes missing"
+         "gives": "K"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A goalkeeper missing a header is ordinary match commentary, and the football runs on one word past the point where the definition has quietly begun.",
-     "definitionFit": "A deeper note sits lower on the scale, so 'further down pitch' is the musical reading — the football pitch of the surface is another word entirely."
+     "surface": "A Dutch goalkeeper fails to stop a header and a player drops further back.",
+     "walkthrough": "'Header' looks like a football header, but it means the first letter of KEEPER is dropped.",
+     "definitionFit": "In football a player positioned deeper sits further back toward their own goal on the pitch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "header"
     }
    }
   },
