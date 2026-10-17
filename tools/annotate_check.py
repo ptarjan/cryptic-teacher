@@ -199,6 +199,19 @@ def to_write(puzzle, before):
     return only
 
 
+def nothing_due(puzzle):
+    """Whether a run on this puzzle would have nothing to write: it has hints,
+    every clue a run could write has one, and no clue is on the shape list.
+    to_write answers None for that case (the whole puzzle), which is right
+    for a hand-started re-annotation and wrong for the burn: a queue entry
+    gone stale (its shape rows pruned since the plan was read) bought a
+    whole-puzzle rewrite of azed-2573 (b5320ba868, ~114k tokens, 36 clues
+    already hinted). The burn skips such a puzzle (pool_launch)."""
+    clues = [e for e in puzzle["entries"] if entry_id(e) not in groups.leader_of(puzzle["entries"])]
+    return (to_write(puzzle, None) is None
+            and any(e.get("annotation") for e in clues))
+
+
 def grid_rows(puzzle):
     """The filled grid as one string per row, `.` a block and `-` a square no
     answer fills yet, so crossings are read off the view rather than rebuilt
@@ -989,6 +1002,11 @@ def main(argv):
         return 0
     if argv[0] == "--reread":
         return reread(argv[1])
+    if argv[0] == "--nothing-due":  # exit 0: hinted, nothing missing, nothing listed
+        try:
+            return 0 if nothing_due(read_puzzle_file(resolve_puzzle(argv[1]))) else 1
+        except (SystemExit, OSError, ValueError, KeyError):
+            return 1
     if argv[0] == "--view":
         print(write_view(resolve_puzzle(argv[1])).relative_to(ROOT))
         return 0
