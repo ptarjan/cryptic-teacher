@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -107,25 +108,29 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "BLUEPETER",
      "indicators": [
       {
        "text": "cooking",
-       "note": "Cooking breaks ingredients down and reassembles them into something else, so the two words in front of it come out in a different order."
+       "at": 15,
+       "note": "cooking means preparing and mixing up, so the letters are rearranged"
       }
      ],
      "parts": [
       {
        "words": "Peel tuber",
-       "gives": "BLUEPETER",
-       "note": "these nine letters are the whole of the material; nothing else in the clue joins in"
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Definition by example: a programme in general, one particular show in fact. The BBC has run this children's magazine since 1958, named after the flag a ship flies when about to sail.",
-     "definitionFit": "programme -> BLUE PETER: a named instance rather than a synonym, the long-running BBC children's show standing in for the general word."
+     "surface": "A kitchen instruction to skin a potato ready for cooking.",
+     "walkthrough": "'cooking programme' reads as a TV food show, but 'cooking' rearranges the letters and 'programme' alone is the definition. Blue Peter is a long-running BBC children's television show.",
+     "definitionFit": "Blue Peter is a British children's TV show on the BBC since 1958, so it is a programme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cooking"
     }
    }
   },
@@ -289,25 +294,29 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "REDSHANK",
      "indicators": [
       {
        "text": "fancy",
-       "note": "Fancy is the verb here, to picture something other than what is in front of you — so the eight letters are to be imagined in a new arrangement."
+       "at": 10,
+       "note": "fancy means elaborate or fanciful, so the letters are arranged in a new way"
       }
      ],
      "parts": [
       {
        "words": "Dark hens",
-       "gives": "REDSHANK",
-       "note": "these two words hold all eight letters, and nothing else in the clue is needed"
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a poultry keeper's note, so 'one with colourful legs' reads as another bird in the run. It is the definition, and the bird it describes is wild.",
-     "definitionFit": "one with colourful legs -> REDSHANK: a wader named for its bright orange-red legs, so the vague phrase points at the bird by its most obvious feature."
+     "surface": "A poultry keeper's fancy for a dark-feathered breed with bright legs.",
+     "walkthrough": "'fancy' reads as a verb of liking, but it rearranges the letters of DARK HENS.",
+     "definitionFit": "The redshank is a wading bird named for its bright orange-red legs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fancy"
     }
    }
   },
@@ -485,40 +494,57 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "BUDGEUP",
-     "indicators": [
-      {
-       "text": "replacing",
-       "note": "One thing replacing another takes its place rather than joining it, so a letter is swapped out instead of added on."
-      },
-      {
-       "text": "last of",
-       "note": "'Last of' picks the final letter of what it governs — here of the word that means cheap, not of the word 'cheap' itself."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "cheap",
-       "gives": "BUDGET",
-       "note": "a budget airline or a budget hotel is a cheap one"
-      },
-      {
-       "words": "University",
-       "gives": "U",
-       "note": "U is the standard abbreviation for university, and it stands in for the T at the end of the previous word"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "replacing",
+         "at": 11,
+         "note": "replacing says the university letter takes the place of another"
+        },
+        {
+         "text": "last of",
+         "at": 21,
+         "note": "last of points to the final letter of the cheap word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cheap",
+         "at": 29,
+         "gives": "BUDGET",
+         "note": "budget means cheap, as in a budget airline"
+        },
+        {
+         "gives": "T",
+         "note": "the final letter that is swapped out"
+        },
+        {
+         "words": "University",
+         "at": 0,
+         "gives": "U"
+        }
+       ]
       },
       {
        "words": "parking",
+       "at": 35,
        "gives": "P",
-       "note": "P is the standard abbreviation for parking, the letter on the road sign"
+       "note": "P is the road-sign abbreviation for parking"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a university buying up cheap parking. The trap is reading 'last of cheap' as the letter P: it is the last letter of a word that MEANS cheap.",
-     "definitionFit": "make room -> BUDGE UP: the everyday request to shift along a bench or a sofa, moving over so that someone else can sit down."
+     "surface": "A university swaps out its cheap car park to free up space.",
+     "walkthrough": "U replaces the T at the end of BUDGET, and P follows. Budge up is British for shuffle along to let someone sit.",
+     "definitionFit": "To budge up is to move along a bench or seat to make space for another person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parking"
     }
    }
   },
@@ -743,45 +769,47 @@
      "op": "container",
      "indicators": [
       {
-       "text": "finally",
-       "note": "Finally marks the end of the run, so only the closing letter of the word in front is taken and the rest of the drug's name is dropped."
+       "text": "admitted to",
+       "at": 47,
+       "note": "admitted to, like a patient, places the other pieces inside"
       }
      ],
      "parts": [
       {
        "words": "A&E",
-       "note": "A&E is Accident and Emergency, the British hospital department an American would call the ER, and its two letters open and close the word"
+       "at": 59,
+       "gives": "AE",
+       "note": "the letters A and E, as in the hospital department"
       },
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "admitted to",
-         "note": "Being admitted to a hospital puts you inside the building, so everything named before goes within the two letters named after."
-        }
-       ],
        "parts": [
         {
          "words": "mother",
+         "at": 11,
          "gives": "DAM",
-         "note": "a dam is an animal's mother, the breeder's word that sits beside sire"
+         "note": "a dam is an animal's mother"
         },
         {
          "words": "opposed to",
+         "at": 18,
          "gives": "ANTI",
-         "note": "someone opposed to a plan is anti it"
+         "note": "anti means opposed to"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "N",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 39,
+           "note": "finally picks the last letter of ibuprofen"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "ibuprofen finally",
-           "gives": "N",
-           "select": "last",
-           "note": "the closing letter of the drug's name and nothing else of it"
+           "words": "ibuprofen",
+           "at": 29,
+           "note": "the word whose last letter N is taken"
           }
          ]
         }
@@ -790,8 +818,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "The whole surface is a casualty ward, which is what makes 'A&E' look like scenery rather than two letters with work to do.",
-     "definitionFit": "Very tough -> ADAMANTINE: adamant was the legendary unbreakable stone, so adamantine means as hard as that — yielding to nothing."
+     "surface": "A tough mother, against painkillers, is taken into hospital.",
+     "walkthrough": "A&E, Accident and Emergency, is the British hospital casualty department; 'admitted to' puts the other pieces between its two letters, and 'finally' gives the last letter of ibuprofen.",
+     "definitionFit": "Adamantine means as hard as adamant, an unbreakable legendary stone, so unyielding and very tough."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "admitted"
     }
    }
   },
@@ -848,52 +882,62 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "INSTITUTE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "carrying",
+       "at": 30,
+       "note": "carrying means holding within, so the other letters go inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "INSTITUTE",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "carrying",
-           "note": "A truck carries its load inside it rather than behind it, so what follows is set within the letters already assembled."
-          },
-          {
-           "text": "to the north",
-           "note": "North is the top of the page, and this entry runs downwards, so the letters beside it are read from the bottom upwards."
-          }
-         ],
-         "parts": [
-          {
-           "words": "filling",
-           "gives": "IN",
-           "note": "whatever is filling something is in it"
-          },
-          {
-           "words": "melons",
-           "gives": "STIT",
-           "note": "melons is slang for a woman's breasts, and in a down clue those four letters are climbed rather than read down"
-          },
-          {
-           "words": "Aussie's truck",
-           "gives": "UTE",
-           "note": "a ute is an Australian pickup, short for utility vehicle"
-          }
-         ]
+         "words": "filling",
+         "at": 6,
+         "gives": "IN",
+         "note": "to be filling a truck is to be in it"
+        },
+        {
+         "words": "Aussie's truck",
+         "at": 14,
+         "gives": "UTE",
+         "note": "a ute is an Australian pickup truck, short for utility vehicle"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to the north",
+         "at": 46,
+         "note": "in a down clue, going north reads the word upwards, i.e. backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "melons",
+         "at": 39,
+         "gives": "TITS",
+         "note": "melons and tits are both slang for breasts"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The loading-bay surface holds together so well that the definition at the front reads as part of it. 'Start filling' is two separate jobs sitting side by side.",
-     "definitionFit": "Start -> INSTITUTE: to institute proceedings or a new rule is to start it formally, the verb sense rather than the college on the corner."
+     "surface": "Someone begins loading an Australian pickup with melons heading north.",
+     "walkthrough": "'Start filling' looks like the instruction, but 'Start' is the definition, a verb. 'filling Aussie's truck' gives IN UTE, which carries STIT, TITS read upward.",
+     "definitionFit": "To institute something is to set it up or begin it, so to start it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Start"
     }
    }
   },
@@ -1025,7 +1069,8 @@
      "indicators": [
       {
        "text": "in",
-       "note": "A ship in port is inside it, not beside it, so those letters are placed within the word that follows."
+       "at": 24,
+       "note": "in places the ship letters inside what is left"
       }
      ],
      "parts": [
@@ -1034,40 +1079,42 @@
        "indicators": [
         {
          "text": "unloading",
-         "note": "Unloading takes the cargo out of the hold, so the letters named afterwards are removed from what came before."
+         "at": 32,
+         "note": "unloading means taking cargo off, so the gold letters are removed"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "gold",
-           "gives": "OR",
-           "note": "OR is gold in heraldry, the tincture named on a coat of arms — and it is what has to come out"
-          },
-          {
-           "words": "port unloading gold",
-           "gives": "PT",
-           "note": "the harbour is PORT, and losing those two letters leaves a shell of two"
-          }
-         ]
+         "words": "port",
+         "at": 27,
+         "gives": "PORT",
+         "note": "taken as a word for a harbour town"
         },
         {
-         "gives": "OR"
+         "words": "gold",
+         "at": 42,
+         "gives": "OR",
+         "note": "or is gold in heraldry"
         }
        ]
       },
       {
        "words": "ship",
+       "at": 19,
        "gives": "SS",
-       "note": "SS is the prefix on a steamship's name"
+       "note": "SS is the abbreviation for steamship"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a smuggling story, gold coming ashore at night. The definition is the noise you make to catch one person's attention without anyone else hearing.",
-     "definitionFit": "Secret alert -> PSST: the hissed sound that flags something to one person only, so it alerts them and keeps the rest of the room out of it."
+     "surface": "A quiet warning that a ship in harbour is offloading gold.",
+     "walkthrough": "'unloading' takes OR out of PORT, leaving PT, and the ship SS goes 'in' it.",
+     "definitionFit": "Psst is the hushed sound used to catch someone's attention secretly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "port"
     }
    }
   },
@@ -1092,36 +1139,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LACUNA",
-     "indicators": [
-      {
-       "text": "nearly all",
-       "note": "Nearly all of a word is every letter but the last one, so the final letter is left behind on the page."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly all",
+         "at": 8,
+         "note": "nearly all keeps the word for want but its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "want",
-         "gives": "LAC",
-         "note": "to want something is to lack it, and nearly all of that word is these three letters"
+         "at": 19,
+         "gives": "LACK",
+         "note": "want means lack"
         },
         {
-         "words": "one in Rome",
-         "gives": "UNA",
-         "note": "una is Italian for one, so what is wanted is the modern Roman's own word, not a Roman numeral"
+         "gives": "K",
+         "note": "the final letter dropped"
         }
        ]
+      },
+      {
+       "words": "one in Rome",
+       "at": 24,
+       "gives": "UNA",
+       "note": "una is Italian for one, in the feminine"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A lacuna is the gap left where something has dropped out, so the definition and the missing letter of the wordplay are telling the same joke.",
-     "definitionFit": "Break -> LACUNA: a lacuna is a gap where something has been left out — the break in a manuscript, an argument or a run of records."
+     "surface": "Taking a break in Rome, nearly everyone wants one.",
+     "walkthrough": "'nearly all' trims LACK to LAC. Una is the Italian for one.",
+     "definitionFit": "A lacuna is a gap or missing section, a break in a text or sequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Break"
     }
    }
   },
@@ -1253,25 +1311,30 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "GYMNASIUM",
      "indicators": [
       {
        "text": "anagrams",
-       "note": "The setter names the device outright: in the surface it is a noun about puzzles, underneath it tells you the two words in front are to be respelled."
+       "at": 29,
+       "note": "anagrams is used as a verb: the phrase that follows is turned into a rearrangement of itself"
       }
      ],
      "parts": [
       {
        "words": "my amusing",
-       "gives": "GYMNASIUM",
-       "note": "these two words hold all nine letters between them"
+       "at": 18
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Work out' does double duty in the surface, where it means solving the puzzles. The definition needs the other sense, the one done in trainers.",
-     "definitionFit": "Space to work out -> GYMNASIUM: the hall fitted with bars and mats where people exercise, so 'work out' is meant physically rather than mentally."
+     "surface": "A boast that one's clever word games give the brain a workout.",
+     "walkthrough": "'anagrams' is a verb here: MY AMUSING rearranges into the answer.",
+     "definitionFit": "A gymnasium is a hall equipped for physical exercise, a place where people go to train."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "work"
     }
    }
   },
@@ -1373,29 +1436,30 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Pacific Islander",
+      "text": "Pacific Islander going east or west?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "palindrome",
-     "indicators": [
-      {
-       "text": "going east or west",
-       "note": "East and west are the two ways an across entry can be read, and the question is which one you should use: the letters come out the same either way."
-      }
-     ],
+     "op": "cryptic",
      "parts": [
       {
-       "unchecked": true,
-       "words": "Pacific Islander",
-       "note": "a person from one particular island republic — all the definition offers, since the wordplay has to supply the spelling"
+       "words": "Pacific Islander going east or west?",
+       "at": 0,
+       "note": "an islander whose name reads the same whichever way, east or west, an across entry is read"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Nothing is built here and nothing is turned round to become something else — the clue simply says the word reads the same both ways, and the definition narrows the Pacific to one tiny republic.",
-     "definitionFit": "Pacific Islander -> NAURUAN: Nauru is an eight-square-mile republic in the central Pacific, so one of its citizens is exactly that."
+     "surface": "A puzzle about which way a Pacific traveller is heading.",
+     "walkthrough": "The question mark flags the trick: the islander's name is a palindrome, the same whether read eastward (left to right) or westward.",
+     "definitionFit": "Nauru is a tiny island nation in the Pacific, and its people are Nauruans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "east"
     }
    }
   },
@@ -1430,33 +1494,33 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FEEDONESFACE",
-     "indicators": [
-      {
-       "text": "spreading",
-       "note": "What is spread is scattered loosely instead of being kept in line, so the letters of the word after it can land anywhere."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Charge",
+       "at": 0,
+       "gives": "FEE",
+       "note": "a fee is a charge"
+      },
+      {
+       "words": "fellow",
+       "at": 7,
+       "gives": "DON",
+       "note": "a don is a fellow of a university college"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spreading",
+         "at": 14,
+         "note": "spreading means smearing about, so the letters of faeces are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Charge",
-         "gives": "FEE",
-         "note": "the charge made for a service is its fee"
-        },
-        {
-         "words": "fellow",
-         "gives": "DON",
-         "note": "a don is a fellow of an Oxford or Cambridge college, which is where the crossword's 'fellow' usually comes from"
-        },
-        {
          "words": "faeces",
-         "gives": "ESFACE",
-         "note": "the six letters of the British spelling, reordered"
+         "at": 24
         }
        ]
       }
@@ -1464,8 +1528,15 @@
     },
     "spelling": "FEED ONE'S FACE",
     "explanation": {
-     "walkthrough": "The surface is the farmyard job nobody wants, and 'Charge fellow' reads as an accusation. The definition is the single verb at the end.",
-     "definitionFit": "pig -> FEED ONE'S FACE: to pig, or pig out, is to eat greedily, and the answer is the same idea drawn out as a phrase."
+     "surface": "A farmer bills a man for muck-spreading in the pigsty.",
+     "walkthrough": "'pig' is a verb here, not the farmyard animal: to eat greedily.",
+     "definitionFit": "To feed one's face is to eat greedily, which is what pigging out means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pig"
     }
    }
   }
