@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -90,52 +91,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PALPITATE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "Receiving",
+       "at": 0,
+       "note": "receiving means taking in, so the friend-and-had letters take in the reversed word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "PALPITATE",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "Receiving",
-           "note": "whatever receives something takes it inside, so the outer pieces close around the one between them"
-          },
-          {
-           "text": "contrary",
-           "note": "a contrary thing goes the opposite way, so the word it governs is set down back to front"
-          }
-         ],
-         "parts": [
-          {
-           "words": "friend",
-           "gives": "PAL",
-           "note": "a friend is a pal"
-          },
-          {
-           "words": "tip",
-           "gives": "PIT",
-           "note": "the word for a gratuity, its three letters written the other way round"
-          },
-          {
-           "words": "had",
-           "gives": "ATE",
-           "note": "someone who had lunch ate it"
-          }
-         ]
+         "words": "friend",
+         "at": 24,
+         "gives": "PAL",
+         "note": "a pal is a friend"
+        },
+        {
+         "words": "had",
+         "at": 31,
+         "gives": "ATE",
+         "note": "had, as in had a meal, means ate"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "contrary",
+         "at": 10,
+         "note": "contrary means turned the other way, so the word is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tip",
+         "at": 19
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Receiving contrary tip' reads as a bribe that went the wrong way, which is the whole disguise: no money is involved anywhere in the wordplay.",
-     "definitionFit": "flutter -> PALPITATE: a heart that palpitates throbs and flutters unevenly, and that is nearly the only thing the verb is used of."
+     "surface": "A friend gets a tip that goes against them and has a flutter, a small bet.",
+     "walkthrough": "'contrary' turns TIP into PIT, and 'Receiving' puts PIT between PAL and ATE. 'flutter' looks like a bet, which suits the tip, but it is the verb.",
+     "definitionFit": "To palpitate is to beat rapidly or flutter, as a nervous heart does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flutter"
     }
    }
   },
@@ -363,36 +372,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INFIELD",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "dropped",
-       "note": "in a down entry to drop is to fall lower, so the letter named leaves its place and lands at the foot of the word"
+       "text": "has daughter dropped",
+       "at": 8,
+       "note": "the daughter letter D is dropped lower in this down answer, moving two places toward the end"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Heathen",
-         "gives": "INFIEL",
-         "note": "a heathen is an infidel, and this is what is left of that word once the letter below has moved out"
-        },
-        {
-         "words": "daughter",
-         "gives": "D",
-         "note": "D is the standard abbreviation for daughter, and it is the letter that shifts"
-        }
-       ]
+       "words": "Heathen",
+       "at": 0,
+       "gives": "INFIDEL",
+       "note": "an infidel is an unbeliever or heathen"
+      },
+      {
+       "gives": "DEL"
+      },
+      {
+       "gives": "ELD"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a christening gone wrong. The answer is baseball, where the marked square holding all four bases is the diamond.",
-     "definitionFit": "marked area around bases -> INFIELD: in baseball the infield is the chalked diamond enclosing the four bases, as against the outfield beyond it."
+     "surface": "A pagan whose daughter has fallen into a marked-out field.",
+     "walkthrough": "'has daughter dropped' moves the D of INFIDEL, D for daughter, two places down the column, past E and L. The infield is the diamond in baseball and the area near the wicket in cricket.",
+     "definitionFit": "In baseball the infield is the diamond-shaped ground enclosed by the four bases, so it is a marked zone around them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dropped"
     }
    }
   },
@@ -1080,36 +1091,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PYRAMID",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "'almost' means stopping just short, so the last letter of the word it governs never arrives"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 19,
+         "note": "almost means not quite all of the word, so its last letter goes"
+        }
+       ],
        "parts": [
         {
          "words": "Wood for cremation",
-         "gives": "PYR",
-         "note": "the stack of wood built for a cremation is a pyre, here docked of its final letter"
+         "at": 0,
+         "gives": "PYRE",
+         "note": "a pyre is a heap of wood on which a body is burned"
         },
         {
-         "words": "in centre of",
-         "gives": "AMID",
-         "note": "'amid' is a one-word substitute for the phrase, meaning in the middle of"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "in centre of",
+       "at": 26,
+       "gives": "AMID",
+       "note": "amid means in the middle of"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The whole surface is a funeral, and every word of it belongs to the wordplay except the last, which is the tomb the clue is really describing.",
-     "definitionFit": "mausoleum -> PYRAMID: the Egyptian pyramids were built as royal tombs, so the definition works by example rather than as a synonym."
+     "surface": "Firewood for a funeral is nearly at the heart of a tomb.",
+     "walkthrough": "'almost' cuts PYRE to PYR, and AMID, meaning in the centre of, follows.",
+     "definitionFit": "The Egyptian pyramids were built as monumental tombs for pharaohs, so a pyramid is a kind of mausoleum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -1176,34 +1196,45 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LEAST",
      "indicators": [
       {
        "text": "for",
-       "note": "'X for Y' is the setter's shorthand for X taking Y's place in the word"
+       "at": 22,
+       "note": "for means in place of, so the word for left stands where the starting letter was"
       },
       {
        "text": "starter",
-       "note": "the starter of a word is the letter it opens with, and that letter is the one being displaced"
+       "at": 36,
+       "note": "the starter of a word is its first letter, the one being replaced"
       }
      ],
      "parts": [
       {
-       "words": "left",
-       "gives": "L",
-       "note": "L is the standard abbreviation for left"
+       "words": "banquet",
+       "at": 26,
+       "gives": "FEAST",
+       "note": "a feast is a banquet"
       },
       {
-       "words": "banquet",
-       "gives": "FEAST",
-       "note": "a banquet is a feast, and it is that word's opening letter which makes way"
+       "gives": "F"
+      },
+      {
+       "words": "left",
+       "at": 17,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The whole clue is one swap. Read 'banquet' as its five-letter synonym first, then stand the abbreviation for left where the F was.",
-     "definitionFit": "Smallest portion -> LEAST: 'not the least of it' uses the superlative as a noun, meaning the smallest amount or share of something."
+     "surface": "Only a tiny helping is left of the first course of a big dinner.",
+     "walkthrough": "In FEAST, L for left replaces F, the banquet's 'starter'. The surface makes starter a first course; it means the first letter.",
+     "definitionFit": "The least is the smallest amount possible, so it means the tiniest share or portion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starter"
     }
    }
   },
