@@ -960,50 +960,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENCHILADA",
-     "indicators": [
-      {
-       "text": "Opening late",
-       "note": "the opening letter is late, that is gone"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Opening late",
+         "at": 0,
+         "note": "the word's opening letter arrives late, that is, it is missing"
+        }
+       ],
        "parts": [
         {
          "words": "seat",
-         "gives": "ENCH",
-         "note": "BENCH without its first letter"
+         "at": 14,
+         "gives": "BENCH",
+         "note": "a bench is a long seat"
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral one"
-        },
-        {
-         "words": "youngster",
-         "gives": "LAD",
-         "note": "a lad is a young boy"
-        },
-        {
-         "words": "ace",
-         "gives": "A",
-         "note": "A = ace, on playing cards"
+         "gives": "B"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 19,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "youngster",
+       "at": 23,
+       "gives": "LAD",
+       "note": "a lad is a boy, a youngster"
+      },
+      {
+       "words": "ace",
+       "at": 39,
+       "gives": "A",
+       "note": "A is the abbreviation for ace on playing cards"
       }
      ]
     },
     "explanation": {
-     "surface": "A restaurant opening late seats a child who is given a spicy starter.",
-     "walkthrough": "'Opening late' reads as a restaurant's hours, but it tells you to drop the first letter of the seat.",
-     "definitionFit": "A definition by description: the Mexican dish is a rolled tortilla in a chilli sauce, so spicy and a treat."
+     "surface": "A late-opening venue seats a boy with a top card and serves him something spicy.",
+     "walkthrough": "'Opening late' tells you the seat word has lost its opening letter, so BENCH becomes ENCH.",
+     "definitionFit": "An enchilada is a Mexican rolled tortilla with a chilli sauce, an example of a spicy dish."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "late"
     }
@@ -1640,40 +1646,31 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "bags",
+       "at": 34,
+       "note": "bags means holds inside, so the answer is contained within these clue words"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "stop-and-",
-       "note": "surface padding: the hidden letters start later"
-      },
-      {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "bags",
-         "note": "the phrase bags, or holds, the answer"
-        }
-       ],
-       "parts": [
-        {
-         "words": "search: I vetted",
-         "gives": "ARCHIVE",
-         "note": "starts after the first two letters of search and stops before the last four of vetted"
-        }
-       ]
+       "words": "stop-and-search: I vetted",
+       "at": 8,
+       "gives": "ARCHIVE",
+       "note": "the letters run across the end of search, I and the start of vetted"
       }
      ]
     },
     "explanation": {
-     "surface": "A security guard at a shop describes checking customers' bags.",
-     "walkthrough": "The shop-security scene hides the answer across three words; 'bags' is the verb that holds it.",
-     "definitionFit": "A plain synonym as a noun: an archive is a store of records, and 'Store‘s' reads as store is."
+     "surface": "A police officer describes a stop-and-search in which bags were checked.",
+     "walkthrough": "'bags' looks like the luggage being searched, but it is the verb: the phrase holds the answer, running from search through I into vetted.",
+     "definitionFit": "An archive is a place where records are kept, so as a verb or noun it is a store for documents."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "bags"
     }
    }
