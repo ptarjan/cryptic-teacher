@@ -682,37 +682,33 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "out of",
+       "at": 11,
+       "note": "out of here means with the named letter removed, so every instance of the time abbreviation is taken away"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ALAS",
-       "indicators": [
-        {
-         "text": "out of",
-         "note": "time (T) is taken out of the phrase"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Ultimately",
-         "gives": "ATLAST",
-         "note": "at last = ultimately"
-        }
-       ]
+       "words": "Ultimately",
+       "at": 0,
+       "gives": "ATLAST",
+       "note": "at last means ultimately, in the end"
       },
       {
-       "unchecked": true,
-       "words": "out of time",
-       "note": "remove T, the abbreviation for time; both Ts go"
+       "words": "time",
+       "at": 18,
+       "gives": "TT",
+       "note": "T is the standard abbreviation for time; both of the phrase's T's are taken out"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone apologising that, in the end, there is no time left.",
-     "walkthrough": "\"Ultimately\" looks like a last-letter instruction, but it is AT LAST in full; T is the usual abbreviation for time.",
-     "definitionFit": "\"Alas\" expresses regret, just as \"I'm sorry to say\" does."
+     "surface": "Someone apologises that they have finally run out of time.",
+     "walkthrough": "'Ultimately' gives AT LAST, and 'out of time' strips out every T, the time abbreviation, both of them, leaving the answer.",
+     "definitionFit": "Alas is an interjection of regret, used when giving bad news much as one might say unfortunately."
     },
     "features": {
      "answerInScene": false,
@@ -745,57 +741,52 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "initially",
-       "note": "take the first letter of often"
+       "text": "rioting",
+       "at": 41,
+       "note": "rioting means running wild, so the gathered letters are thrown into disorder"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "involved in"
+         "text": "initially",
+         "at": 10,
+         "note": "initially picks out the first letter of often"
         }
        ],
        "parts": [
         {
-         "words": "One",
-         "gives": "I",
-         "note": "I = one, the Roman numeral"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "rioting",
-           "note": "the letters of STARTING run riot"
-          }
-         ],
-         "parts": [
-          {
-           "words": "often initially",
-           "note": "first letter of often"
-          }
-         ]
-        },
-        {
-         "words": "starting",
-         "note": "anagram fodder, 8 letters"
+         "words": "often",
+         "at": 4,
+         "note": "its first letter is used"
         }
        ]
+      },
+      {
+       "words": "starting",
+       "at": 32,
+       "note": "taken as written, part of the anagram fodder"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A description of the kind of person who is usually there when a riot kicks off.",
-     "walkthrough": "The whole clue is both the wordplay and the definition: read plainly, it describes a rabble-rouser.",
-     "definitionFit": "An instigator is someone who starts trouble, often a riot."
+     "surface": "A troublemaker is frequently found at the start of a riot.",
+     "walkthrough": "I (one) and O ('often initially') are 'involved in' STARTING, and 'rioting' scrambles the lot. Read whole, the clue also describes the answer: someone often behind the start of a riot.",
+     "definitionFit": "An instigator is someone who provokes or sets in motion trouble, such as a riot."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "starting"
+     "misdirectedWord": "rioting"
     }
    }
   },
@@ -934,45 +925,44 @@
      "indicators": [
       {
        "text": "posterior to",
-       "note": "posterior means coming after"
+       "at": 7,
+       "note": "posterior to means behind, so the word for move comes after the single letter"
       }
      ],
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "E",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "take the last letter of dance"
+         "at": 26,
+         "note": "ultimately picks the final letter of dance"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "dance ultimately",
-         "gives": "E",
-         "select": "last",
-         "note": "last letter of dance"
+         "words": "dance",
+         "at": 20,
+         "note": "its last letter is used"
         }
        ]
       },
       {
        "words": "move",
+       "at": 2,
        "gives": "GO",
-       "note": "go = move"
+       "note": "to go is to move"
       }
      ]
     },
     "explanation": {
-     "surface": "A dancer saying they shake their bottom at the end of the dance.",
-     "walkthrough": "\"Posterior\" suggests a backside, which suits the dancing; here it just means after.",
-     "definitionFit": "Ego is Latin for I, and in psychology the ego is the self."
+     "surface": "A dancer explains that they shake their bottom at the end of the dance.",
+     "walkthrough": "'posterior' looks like a backside in the surface but means after: GO (move) follows E, the last letter of 'dance' ('ultimately'). Ego is Latin for I, the self.",
+     "definitionFit": "Ego is the Latin first-person pronoun and the psychological term for the conscious self."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "posterior"
     }
@@ -999,40 +989,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INFLATED",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "pocketing",
+       "at": 31,
+       "note": "pocketing means putting into a pocket, so the jumble holds the pound sign inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "criminal",
-         "note": "the letters are wrongly arranged"
-        },
-        {
-         "text": "pocketing"
+         "at": 8,
+         "note": "criminal means wrong or bad, so the letters of defiant are put into a different order"
         }
        ],
        "parts": [
         {
          "words": "defiant",
-         "gives": "INFATED",
-         "note": "anagram of defiant"
-        },
-        {
-         "words": "pound",
-         "gives": "L",
-         "note": "L = pound, from the Latin libra"
+         "at": 17,
+         "note": "taken as written, the anagram fodder"
         }
        ]
+      },
+      {
+       "words": "pound",
+       "at": 41,
+       "gives": "L",
+       "note": "L is the abbreviation for a pound, from Latin libra"
       }
      ]
     },
     "explanation": {
-     "surface": "A self-important crook still defiant after stealing a pound.",
-     "walkthrough": "\"Criminal\" reads as a noun for a crook, but here it is an adjective telling the letters of \"defiant\" to go astray.",
-     "definitionFit": "Inflated means puffed up or pompous, as in an inflated opinion of oneself."
+     "surface": "A pompous defiant crook is caught pocketing a pound.",
+     "walkthrough": "'criminal' rearranges DEFIANT, and 'pocketing' sets L (pound) inside, 'after' it is jumbled.",
+     "definitionFit": "Inflated language or self-regard is puffed up and exaggerated, which is what pompous describes."
     },
     "features": {
      "answerInScene": false,
@@ -1171,47 +1165,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "COSANOSTRA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "featuring",
+       "at": 22,
+       "note": "featuring means including as a part, so the scrambled cartoons take the trimmed word inside them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Looney Tunes",
-         "note": "loony means crazy, so the letters are tuned up madly"
-        },
-        {
-         "text": "featuring"
-        },
-        {
-         "text": "mostly",
-         "note": "most of sad, losing its last letter"
+         "at": 0,
+         "note": "looney tunes suggests something crazy, so the letters go mad and are rearranged"
         }
        ],
        "parts": [
         {
          "words": "cartoons",
-         "gives": "CONOSTRA",
-         "note": "anagram of cartoons"
+         "at": 13,
+         "note": "taken as written, part of the anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 32,
+         "note": "mostly means not quite all, so the last letter of sad is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sad",
+         "at": 39,
+         "note": "taken as written, before trimming"
         },
         {
-         "words": "mostly sad",
-         "gives": "SA",
-         "note": "sad without its last letter"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bugs Bunny and friends appearing alongside a gang of downcast smart alecks.",
-     "walkthrough": "Looney Tunes is the Warner Bros cartoon series, so the surface is one piece; \"wiseguys\" is American slang for mobsters.",
-     "definitionFit": "Cosa Nostra is the Sicilian-American Mafia, whose members are called wiseguys."
+     "surface": "Warner Bros cartoons include some rather glum gangsters.",
+     "walkthrough": "Looney Tunes is the Warner Bros cartoon series, so it reads as a title rather than a signal for rearranging; 'mostly' drops the last letter of 'sad' before 'featuring' places it.",
+     "definitionFit": "The Cosa Nostra is the Sicilian and American Mafia, and wiseguys is American slang for its members."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "Tunes"
     }
@@ -1307,44 +1315,47 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MOLE",
      "indicators": [
       {
        "text": "leaving",
-       "note": "to leave is to go away, so A, the area, departs from the word"
+       "at": 19,
+       "note": "leaving means going away, so the abbreviation for area goes out of the word"
       },
       {
-       "text": "for"
+       "text": "for",
+       "at": 32,
+       "note": "for means in exchange for, so the abbreviation for Ohio takes its place"
       }
      ],
      "parts": [
       {
        "words": "chap",
+       "at": 14,
        "gives": "MALE",
        "note": "a chap is a male"
       },
       {
        "words": "area",
-       "gives": "A",
-       "note": "A = area"
+       "at": 27,
+       "gives": "A"
       },
       {
        "words": "Ohio",
+       "at": 36,
        "gives": "O",
-       "note": "O = Ohio, as a US state abbreviation"
+       "note": "OH is the postal code, but O alone is a common abbreviation for Ohio"
       }
      ]
     },
     "explanation": {
-     "surface": "A tale of a gardener or miner leaving one region for Ohio.",
-     "walkthrough": "A mole is the burrowing animal; and in spy slang a mole also digs into an organisation.",
-     "definitionFit": "A mole is a small animal that digs tunnels."
+     "surface": "A worker who digs leaves his area to move to Ohio.",
+     "walkthrough": "In MALE, 'leaving' takes out the A (area) and 'for' puts O (Ohio) in its place.",
+     "definitionFit": "Moles are small burrowing mammals that tunnel underground, so they are natural diggers."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "digs"
+     "aptDefinition": true,
+     "misdirectedWord": "Ohio"
     }
    }
   },
@@ -1562,45 +1573,44 @@
     "definitions": [
      {
       "text": "Animal House",
-      "at": 37
+      "at": 37,
+      "note": "a farmyard where animals are kept, taken from the film title"
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BARNYARD",
      "indicators": [
       {
        "text": "Spooneresque",
-       "note": "in the manner of Reverend Spooner, who swapped the first sounds of words"
+       "at": 0,
+       "note": "in the manner of Dr Spooner, who swapped the opening sounds of pairs of words"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "anecdote",
+       "at": 13,
+       "gives": "YARN",
+       "note": "a yarn is a story or anecdote"
+      },
+      {
+       "op": "homophone",
+       "spelt": "BARD",
        "parts": [
         {
-         "unchecked": true,
          "words": "not allowed",
-         "gives": "BARN",
-         "soundsLike": "BARRED",
-         "note": "barred = not allowed; its opening B sound trades places with the Y of the other word"
-        },
-        {
-         "unchecked": true,
-         "words": "anecdote",
-         "gives": "YARD",
-         "soundsLike": "YARN",
-         "note": "a yarn is an anecdote; its opening Y sound trades places with the B"
+         "at": 22,
+         "gives": "BARRED",
+         "note": "barred means forbidden, not allowed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A story too rude to be told in the film Animal House.",
-     "walkthrough": "Animal House is a 1978 college comedy film; here it is just a house for animals.",
-     "definitionFit": "A barnyard is the yard round a barn where farm animals live."
+     "surface": "A forbidden story told in the style of the film Animal House.",
+     "walkthrough": "'Spooneresque' swaps the opening sounds of YARN and BARRED, which sounds like BARD, giving the answer. Animal House is a 1978 college comedy, here read literally.",
+     "definitionFit": "A barnyard is the yard around a barn where farm animals live, a home for livestock."
     },
     "features": {
      "answerInScene": false,
