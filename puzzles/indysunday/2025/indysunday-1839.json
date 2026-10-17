@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -275,42 +276,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GONZO",
-     "indicators": [
-      {
-       "text": "with tails removed",
-       "note": "an animal's tail is at its back end, so each word named loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with tails",
+         "at": 37,
+         "note": "a tail is the back end, so each word here loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "left",
-         "gives": "GON",
-         "note": "left in the sense of departed is GONE, docked of its E"
+         "at": 10,
+         "gives": "GONE",
+         "note": "someone who has left is gone"
         },
         {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "removed",
+         "at": 48,
+         "note": "removed completes the instruction: the tail of this word is taken off too"
+        }
+       ],
+       "parts": [
+        {
          "words": "collection of animals",
-         "gives": "ZO",
-         "note": "a zoo is a collection of animals, docked of one O"
+         "at": 15,
+         "gives": "ZOO",
+         "note": "a zoo is a collection of animals"
+        },
+        {
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An oddball walked out on a menagerie of animals that had been docked.",
-     "walkthrough": "Gonzo is Hunter S. Thompson's word for reporting that puts the reporter in the story, and it has drifted to mean simply bizarre. 'Left' is the past tense of leave, not the opposite of right.",
-     "definitionFit": "Eccentric -> GONZO: gonzo describes the wild, rule-breaking and off-kilter, the adjective having spread from Thompson's journalism to anything odd."
+     "surface": "An odd character has walked out on a zoo full of tailless animals.",
+     "walkthrough": "'with tails removed' serves both words: GONE loses E and ZOO loses its last O.",
+     "definitionFit": "Gonzo is slang for bizarre or wildly unconventional, as in gonzo journalism."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "left"
+     "misdirectedWord": "tails"
     }
    }
   },
@@ -457,26 +477,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "TRESS",
      "indicators": [
       {
        "text": "the top comes off",
-       "note": "in a down answer the top is the first letter, and a top that comes off leaves the word one letter shorter"
+       "at": 6,
+       "note": "in a down answer the top is the first letter, so it is removed"
       }
      ],
      "parts": [
       {
        "words": "Worry",
-       "gives": "TRESS",
-       "note": "worry is STRESS, here without the S at its head"
+       "at": 0,
+       "gives": "STRESS",
+       "note": "stress is worry or anxiety"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "Anxiety that the top of a lock is about to come away.",
-     "walkthrough": "'Lock' is hair rather than hardware: a tress is a long lock of it, and the clue leans on the other sense from end to end. In a down clue a word's top is its first letter.",
-     "definitionFit": "lock -> TRESS: a tress is a long lock of hair, lock being the everyday word for the same hank."
+     "surface": "Anxiety about a lid coming off a lock.",
+     "walkthrough": "'lock' is a lock of hair, not a fastening.",
+     "definitionFit": "A tress is a long lock of hair."
     },
     "features": {
      "answerInScene": false,
@@ -686,28 +709,39 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LARGEIT",
+     "spelt": "LARGEIT",
      "indicators": [
       {
        "text": "by Spooner",
-       "note": "the Reverend Spooner was the Oxford don whose tongue traded the opening sounds of neighbouring words, so the two named here swap their fronts"
+       "at": 20,
+       "note": "the Reverend Spooner swapped the opening sounds of neighbouring words, so the two words here trade their fronts"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Glass of beer drunk",
-       "gives": "LARGEIT",
-       "soundsLike": "JAR LIT",
-       "note": "a jar is a glass of beer and lit means drunk; trade the J and the L at the front and 'jar lit' comes out as these letters"
+       "op": "homophone",
+       "spelt": "GAR",
+       "parts": [
+        {
+         "words": "Glass of beer",
+         "at": 0,
+         "gives": "JAR",
+         "note": "a jar is British slang for a glass of beer; its opening J sound is the one written as the soft G of large once the sounds swap"
+        }
+       ]
+      },
+      {
+       "words": "drunk",
+       "at": 14,
+       "gives": "LIT",
+       "note": "lit is slang for drunk"
       }
      ]
     },
     "explanation": {
-     "surface": "The Reverend Spooner sinking a glass of beer by way of celebration.",
-     "walkthrough": "To large it is British slang for going out and celebrating hard, heard from the 1990s on. 'Drunk' is the state rather than the verb, which is where the sounding starts.",
-     "definitionFit": "to celebrate -> LARGE IT: British slang for going out and enjoying yourself without restraint, usually heard as larging it."
+     "surface": "A glass of beer is downed with a celebratory flourish.",
+     "walkthrough": "Swap the opening sounds of JAR and LIT and you hear 'large it', British slang for partying hard. A jar is a pint at the pub.",
+     "definitionFit": "To large it is British slang for celebrating extravagantly or partying wildly."
     },
     "features": {
      "answerInScene": true,
@@ -1508,41 +1542,40 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CANNOLI",
      "indicators": [
       {
        "text": "for the last of",
-       "note": "for means in place of here, and the last of a word is its final letter, so that letter steps aside for the piece named first"
+       "at": 3,
+       "note": "for means in place of, so the final letter of the word is swapped out"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "26",
-         "gives": "CANNO",
-         "note": "26 across answers CAN'T, which written out in full is CANNOT, and that word gives up its final letter"
-        },
-        {
-         "words": "£1",
-         "gives": "LI",
-         "note": "l is the pound, from the Latin libra the £ sign is drawn from, and i is Roman one"
-        }
-       ]
+       "words": "26",
+       "at": 19,
+       "gives": "CANNOT",
+       "note": "26 across is CAN'T, which written in full is CANNOT"
+      },
+      {
+       "gives": "T"
+      },
+      {
+       "words": "£1",
+       "at": 0,
+       "gives": "LI",
+       "note": "L stands for pound, from the Latin libra, and I is Roman one"
       }
      ]
     },
     "explanation": {
-     "surface": "A pound each for the last of the Italian pastries in the tray.",
-     "walkthrough": "Cannoli are the Sicilian tubes of fried pastry piped full of sweetened ricotta. The chain runs through the long form: 26's answer is the contraction, and it is CANNOT that loses its letter.",
-     "definitionFit": "Italian pastries -> CANNOLI: the plural of cannolo, the Sicilian pastry tubes filled with sweetened ricotta."
+     "surface": "A pound buys the last of the twenty-six pastries in an Italian bakery.",
+     "walkthrough": "'26' points to the answer at 26 across, CAN'T, written out as CANNOT; LI then replaces its T.",
+     "definitionFit": "Cannoli are Sicilian tubes of fried pastry filled with sweet ricotta."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "last"
+     "misdirectedWord": "26"
     }
    }
   },
