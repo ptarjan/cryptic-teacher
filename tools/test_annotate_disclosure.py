@@ -220,6 +220,12 @@ w = []
 V.check_blocks_carry_notes([{"number": 9, "direction": "down", "annotation": {"blocks": [
     {"gives": "EDGE"}, {"clueFragment": "", "gives": "EDGE"}]}}], w)
 say("fragmentless_block_no_note_line", not w)
+# A sound clue with no soundsLike: the error names this clue's block and the wp to write.
+e = []
+V.check_sound_names_its_source("1A", {"type": ["homophone"], "answer": "PACK", "blocks": [
+    {"clueFragment": "bundle", "gives": "PACK"}]}, e, [])
+say("sound_error_names_the_block", len(e) == 1 and "'bundle' > 'PACK'" in e[0]
+    and "sound<indicator>([bundle]HEARD, PACK)" in e[0])
 w = []
 V.check_surface("1A", {"type": ["charade"]}, "Flat pack", w)
 V.check_surface("1A", {"type": ["double_definition"]}, "Seize part of a finger", w)

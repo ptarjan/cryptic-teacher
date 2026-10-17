@@ -1438,8 +1438,18 @@ def check_sound_names_its_source(tag, ann, errors, warnings):
                           f"{ann.get('type')!r} — add the sound to the type or drop the field")
         return
     if not heard:
+        blocks = [b for b in ann.get("blocks", []) if b.get("clueFragment") and b.get("gives")]
+        ours = [b for b in blocks if letters(b["gives"]) == letters(ann.get("answer") or "")]
+        pick = (ours or blocks[-1:] or [None])[-1]
+        here = ""
+        if pick:
+            frag, gives = pick["clueFragment"], pick["gives"]
+            here = (f"In this clue the block to fix is {frag!r} > {gives!r}: write it in "
+                    f"`wp` as sound<indicator>([{frag}]HEARD, {gives}) with HEARD the "
+                    f"word you say aloud for {frag!r}, not {gives!r} itself. ")
         errors.append(
             f"{tag}: type {ann.get('type')!r} but no block says what is said aloud. "
+            f"{here}"
             f"Add `soundsLike` to the block that does the sounding: the word you "
             f"HEAR is the clue's whole mechanism, and a block that jumps a "
             f"fragment straight to the answer has taught none of it. The note "
