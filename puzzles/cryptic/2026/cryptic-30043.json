@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1041,45 +1042,57 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Alluring?",
+      "text": "Alluring",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COMEHITHER",
-     "indicators": [
-      {
-       "text": "not love"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Happen",
+       "at": 10,
+       "gives": "COME",
+       "note": "to come about is to happen, so come can mean happen"
+      },
+      {
+       "words": "success",
+       "at": 25,
+       "gives": "HIT",
+       "note": "a hit is a success, such as a hit record"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not love",
+         "at": 51,
+         "note": "love is zero in tennis scoring, written O, and not love means that O is taken away"
+        }
+       ],
        "parts": [
         {
-         "words": "Happen",
-         "gives": "COME",
-         "note": "to come to pass = to happen"
-        },
-        {
-         "words": "success",
-         "gives": "HIT",
-         "note": "a success = a hit"
-        },
-        {
          "words": "leading man",
-         "gives": "HER",
-         "note": "HERO, the leading man, minus O — 'love' in tennis"
+         "at": 38,
+         "gives": "HERO",
+         "note": "the hero is the leading man of a story"
+        },
+        {
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The pieces divide as COME-HIT-HER, which is not how the answer reads at all. And 'love' for O comes from tennis, one of the handful of ways a setter can clue nothing.",
-     "definitionFit": "A come-hither look is a classic idiom for an inviting, seductive glance, so 'Alluring' names its everyday sense directly."
+     "surface": "Advice to an actor: to be seductive, land a hit alongside the leading man, minus the romance.",
+     "walkthrough": "In tennis love means a score of zero, which looks like the letter O; 'not love' drops it from HERO.",
+     "definitionFit": "A come-hither look is one that invites someone closer, so as an adjective it means flirtatiously alluring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
     }
    }
   },
@@ -1104,35 +1117,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RESULT",
-     "indicators": [
-      {
-       "text": "rejecting"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Concerned with",
+       "at": 0,
+       "gives": "RE",
+       "note": "re means concerning or about, as in the heading of a letter"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "rejecting",
+         "at": 29,
+         "note": "rejecting means turning something away, so the letters of an are thrown out of the word"
+        }
+       ],
        "parts": [
         {
-         "words": "Concerned with",
-         "gives": "RE",
-         "note": "re = concerning, as in memo headers"
+         "words": "Muslim leader",
+         "at": 15,
+         "gives": "SULTAN",
+         "note": "a sultan is a Muslim sovereign"
         },
         {
-         "words": "Muslim leader",
-         "gives": "SULT",
-         "note": "a SULTAN who 'rejects' the AN"
+         "words": "an",
+         "at": 39,
+         "gives": "AN"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Rejecting' sounds as though it should reverse something; here it simply throws letters away, and the news-bulletin surface keeps you thinking about the man rather than his title.",
-     "definitionFit": "A result is simply what follows from an action, which is exactly what an outcome is — a direct, everyday synonym pair."
+     "surface": "A report about a Muslim ruler who turns down an offer.",
+     "walkthrough": "RE is the Latin-derived 'in the matter of' used in business letters. 'rejecting an' strips AN from the end of SULTAN.",
+     "definitionFit": "A result is the consequence of an action or event, a direct synonym for outcome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rejecting"
     }
    }
   },
@@ -1198,35 +1224,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SILVERY",
-     "indicators": [
-      {
-       "text": "A lot of"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "A lot of",
+         "at": 0,
+         "note": "a lot of means most but not all of the word, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "mud",
-         "gives": "SIL",
-         "note": "'A lot of' SILT — all but its last letter"
+         "at": 9,
+         "gives": "SILT",
+         "note": "silt is fine mud deposited by water"
         },
         {
-         "words": "intensely",
-         "gives": "VERY",
-         "note": "intensely = very"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "intensely",
+       "at": 14,
+       "gives": "VERY",
+       "note": "very means intensely or extremely"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'A lot of' is the indicator to learn here: most of a word, not all of it. The surface, a muddy field described with feeling, gives nothing away about gleaming.",
-     "definitionFit": "Silvery describes a bright, metallic sheen like polished silver, which is exactly the shining quality 'gleaming' points at."
+     "surface": "A great deal of mud, gleaming intensely in the light.",
+     "walkthrough": "'A lot of' looks like a quantity of mud, but it trims SILT to SIL.",
+     "definitionFit": "Silvery describes something shining with a bright, pale lustre like silver, so it means gleaming."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lot"
     }
    }
   },
@@ -1438,35 +1475,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NATAL",
-     "indicators": [
-      {
-       "text": "Not entirely"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "name",
+       "at": 17,
+       "gives": "N"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not entirely",
+         "at": 34,
+         "note": "not entirely means the phrase stops one letter short of its end"
+        }
+       ],
        "parts": [
         {
-         "words": "name",
-         "gives": "N",
-         "note": "n = name"
+         "words": "in any way",
+         "at": 22,
+         "gives": "ATALL",
+         "note": "at all means in any way, as in 'not at all'"
         },
         {
-         "words": "in any way",
-         "gives": "ATAL",
-         "note": "AT ALL = in any way; 'Not entirely' trims the final L"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "It reads like a question on a form, and 'Not entirely' is the giveaway — a phrase that merely qualifies the sentence on the surface, but underneath tells you to drop a final letter.",
-     "definitionFit": "Natal is the adjective form of birth, as in 'prenatal' or a natal chart, so it literally describes anything to do with being born."
+     "surface": "A puzzled query about whether a name can describe a birth at all.",
+     "walkthrough": "'in any way' is a two-word phrase, AT ALL, and 'Not entirely' cuts its final L.",
+     "definitionFit": "Natal is the adjective relating to the place or time of one's birth, as in a natal day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entirely"
     }
    }
   },
