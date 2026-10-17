@@ -446,37 +446,52 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "Initially",
-       "note": "at the start, so take the opening letter of each word"
+       "text": "flipping",
+       "at": 59,
+       "note": "flipping means turned over, so the string of first letters is read backwards"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "YTTONK",
-       "indicators": [
-        {
-         "text": "flipping",
-         "note": "flipping something turns it back to front"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "yarn's twisted trying out needle-less knitting",
-         "gives": "YTTONK",
-         "select": "first",
-         "note": "Yarn's Twisted Trying Out Needle-less Knitting"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "Initially",
+           "at": 0,
+           "note": "initially picks the first letter of each of the following six words"
+          }
+         ],
+         "parts": [
+          {
+           "words": "yarn's twisted trying out",
+           "at": 10,
+           "note": "first letters of these four words"
+          }
+         ]
+        },
+        {
+         "words": "needle-less",
+         "at": 36,
+         "gives": "N",
+         "note": "first letter of the hyphenated word needle-less, still under 'Initially'"
+        },
+        {
+         "words": "knitting",
+         "at": 48,
+         "gives": "K",
+         "note": "first letter of knitting, still under 'Initially'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A knitter trying to work without needles and ending up with tangled yarn, cursing it as flipping puzzling.",
-     "walkthrough": "'Flipping' reads as a mild British swear word; it is the instruction to turn the letters round.",
-     "definitionFit": "Knotty in its figurative sense: a knotty problem is tangled and hard to solve, just as the yarn is."
+     "surface": "A knitter finds that trying to knit without needles leaves the yarn in a baffling tangle.",
+     "walkthrough": "'Initially' governs all six words, needle-less counting as one hyphenated word: YTTONK. 'flipping' reverses it, while also reading as a mild exclamation.",
+     "definitionFit": "A knotty problem is a tangled, difficult one, so knotty means hard to solve."
     },
     "features": {
      "answerInScene": true,
@@ -698,36 +713,36 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RAINING",
      "indicators": [
       {
        "text": "changing direction halfway",
-       "note": "the middle letter is a compass point, and changing direction swaps it for another"
+       "at": 28,
+       "note": "the letter in the middle of the word is a compass point, and it swaps for the opposite point"
       }
      ],
      "parts": [
       {
        "words": "stepping up",
+       "at": 15,
        "gives": "RAISING",
-       "note": "raising = stepping up"
+       "note": "stepping up something is raising it"
       },
       {
-       "words": "changing direction halfway",
-       "gives": "N",
-       "note": "the central S (south) becomes N (north)"
+       "gives": "S"
+      },
+      {
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone either stepping down or stepping up, and turning around halfway through.",
-     "walkthrough": "S and N are both compass directions, so swapping the middle letter is literally changing direction.",
-     "definitionFit": "An idiom: when rain is coming down, it is raining, as in 'it's coming down in buckets'."
+     "surface": "Climbing or descending, someone turns round on the middle of the stairs.",
+     "walkthrough": "The middle letter of RAISING is S, for south; 'changing direction' turns it to N, north. Coming down is said of rain.",
+     "definitionFit": "Rain is falling when it is raining, so raining means coming down from the sky."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "direction"
     }
    }
@@ -997,50 +1012,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ABHORRED",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "stashing",
+       "at": 18,
+       "note": "stashing means hiding something inside, so the rearranged letters hold the book"
+      },
+      {
+       "text": "away",
+       "at": 32,
+       "note": "away completes stashing away, putting something out of sight inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Eccentric",
-         "note": "odd, off-centre, so the letters are jumbled"
-        },
-        {
-         "text": "stashing",
-         "note": "to stash something is to hide it inside"
-        },
-        {
-         "text": "away",
-         "note": "stashed away, tucked in out of sight"
+         "at": 0,
+         "note": "eccentric means off-centre and odd, so the letters of hoarder are rearranged"
         }
        ],
        "parts": [
         {
          "words": "hoarder",
-         "gives": "AHORRED",
-         "note": "HOARDER rearranged"
-        },
-        {
-         "words": "book",
-         "gives": "B",
-         "note": "B = book"
+         "at": 10
         }
        ]
+      },
+      {
+       "words": "book",
+       "at": 27,
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "surface": "An odd hoarder hiding a book he couldn't bear to look at.",
-     "walkthrough": "'Book' goes in right after the first letter of the rearranged word; 'away' only finishes the phrase 'stashing away'.",
-     "definitionFit": "A plain synonym in the past tense: to abhor is to find something unbearable."
+     "surface": "An odd collector who squirrels a volume away was something others could not bear.",
+     "walkthrough": "'Eccentric' turns hoarder into AHORRED, and 'stashing' with 'away' tucks B inside it after the first letter.",
+     "definitionFit": "To abhor is to detest, so abhorred means could not stand someone or something."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "book"
+     "misdirectedWord": "Eccentric"
     }
    }
   },
@@ -1662,41 +1679,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STODGY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "in puts the rearranged letters inside the pig's home"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "pig's place",
+       "at": 27,
+       "gives": "STY",
+       "note": "a sty is where a pig lives"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "new",
-         "note": "made new, so the letters are rearranged"
-        },
-        {
-         "text": "in",
-         "note": "the new dog goes in the pig's place, so inside the sty"
+         "at": 16,
+         "note": "new says the letters of dog are made into a fresh arrangement"
         }
        ],
        "parts": [
         {
-         "words": "pig's place",
-         "gives": "STY",
-         "note": "a sty is where a pig lives"
-        },
-        {
          "words": "dog",
-         "gives": "ODG",
-         "note": "DOG rearranged"
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A farmer struggling to put a new dog where the pig used to live.",
-     "walkthrough": "'Laboured' is the adjective, heavy and dull, as in laboured prose, not the past tense of work.",
-     "definitionFit": "Applied to writing, both words mean heavy and effortful: stodgy prose is laboured prose."
+     "surface": "It was hard work getting a new dog to live in the pigsty.",
+     "walkthrough": "'Laboured' looks like a verb about the effort, but it is an adjective meaning heavy and plodding, as in laboured prose; 'to get' only links.",
+     "definitionFit": "Stodgy writing is dull and heavy-going, as laboured writing is."
     },
     "features": {
      "answerInScene": false,
