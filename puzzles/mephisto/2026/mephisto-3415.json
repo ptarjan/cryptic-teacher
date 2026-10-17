@@ -663,44 +663,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RELACHE",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is dropped"
+       "text": "around",
+       "at": 43,
+       "note": "the shortened word goes around the single letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "around",
-         "note": "going around something encloses it, so one piece sits inside the other"
+         "text": "almost",
+         "at": 15,
+         "note": "almost the whole word: its last letter is cut off"
         }
        ],
        "parts": [
         {
-         "words": "succeeded",
-         "gives": "REACHE",
-         "note": "succeeded in getting to a goal is reached, minus its final letter"
+         "words": "succeeded in getting",
+         "at": 22,
+         "gives": "REACHED",
+         "note": "to have reached something is to have succeeded in getting to it"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "principle of",
-           "note": "a principle is a first thing, so the first letter is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "law",
-           "note": "the first letter of the word"
-          }
-         ]
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "principle of",
+         "at": 50,
+         "note": "principle here is used in its root sense of beginning, so it points to the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "law",
+         "at": 63,
+         "note": "its first letter is the one used"
         }
        ]
       }
@@ -708,15 +714,14 @@
     },
     "spelling": "RELÂCHE",
     "explanation": {
-     "surface": "The rest of France nearly managed to work around a legal principle.",
-     "walkthrough": "'Rest of France' looks like the remainder of the country, but it means a French word for rest. 'Succeeded in getting' together suggests reached; 'principle' is used in its old sense of beginning.",
-     "definitionFit": "Relâche is the French word for a break, respite or relaxation, so it is a French word meaning rest."
+     "surface": "A Frenchman nearly managed to get round a basic legal rule.",
+     "walkthrough": "'almost' trims REACHED to REACHE, and 'around' puts it round L, the first letter of 'law' (principle in the sense of beginning), after RE.",
+     "definitionFit": "Relâche is the French word for a rest or break, so it is literally the French for rest."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Rest"
+     "misdirectedWord": "principle"
     }
    }
   },
@@ -741,42 +746,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RUSMA",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is dropped"
+       "text": "to return",
+       "at": 28,
+       "note": "in a down clue the letters return, going back up the column, so the whole string is read in reverse"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "to return",
-         "note": "returning means going back, so the whole string is read the other way"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "Are",
+         "at": 0,
+         "gives": "A",
+         "note": "an are is a metric unit of area, abbreviated A"
+        },
+        {
+         "words": "millions",
+         "at": 4,
+         "gives": "M",
+         "note": "M is the abbreviation for million"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 13,
+           "note": "almost the whole word: its last letter is dropped"
+          }
+         ],
          "parts": [
           {
-           "words": "Are",
-           "gives": "A",
-           "note": "an are is a metric unit of area, abbreviated A"
-          },
-          {
-           "words": "millions",
-           "gives": "M",
-           "note": "M stands for million"
-          },
-          {
            "words": "certain",
-           "gives": "SUR",
-           "note": "sure means certain, minus its last letter"
+           "at": 20,
+           "gives": "SURE",
+           "note": "sure means certain"
+          },
+          {
+           "gives": "E"
           }
          ]
         }
@@ -785,9 +796,9 @@
      ]
     },
     "explanation": {
-     "surface": "A question about whether a hair remover is sure to bring back a fortune.",
-     "walkthrough": "'Are' looks like the verb opening a question, but it is the unit of land area, one hundred square metres.",
-     "definitionFit": "Rusma is a Turkish paste of orpiment and lime once used to strip body hair, so it is a hair remover."
+     "surface": "Someone asks whether a million people are nearly sure to bring back a hair remover.",
+     "walkthrough": "'Are' is the metric unit of area (100 square metres), abbreviated A. 'almost' trims SURE to SUR, and 'to return' reverses AMSUR.",
+     "definitionFit": "Rusma is a Turkish preparation of lime and orpiment used to remove body hair, a depilatory paste."
     },
     "features": {
      "answerInScene": false,
@@ -817,48 +828,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MARAUDS",
+     "op": "container",
      "indicators": [
       {
-       "text": "cut",
-       "note": "cutting a word trims it, so its final letter is lost"
+       "text": "into",
+       "at": 14,
+       "note": "the shortened word goes into the plural noun for plaids"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "woollen plaids",
+       "at": 19,
+       "gives": "MAUDS",
+       "note": "a maud is a grey striped woollen plaid worn in southern Scotland"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "into",
-         "note": "putting something into another places it inside"
+         "text": "cut",
+         "at": 10,
+         "note": "cut here means docked, losing its last letter"
         }
        ],
        "parts": [
         {
-         "words": "woollen plaids",
-         "gives": "MAUDS",
-         "note": "a maud is a grey striped woollen plaid worn by Scottish shepherds"
+         "words": "are",
+         "at": 6,
+         "note": "the word whose tail is cut"
         },
         {
-         "words": "are",
-         "gives": "AR",
-         "note": "the word with its last letter trimmed"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Bags are being cut up to make woollen tartan blankets.",
-     "walkthrough": "'Sacks' looks like a noun for bags, but it is the verb meaning plunders. A maud is a Scottish shepherd's plaid.",
-     "definitionFit": "To maraud is to roam about raiding and plundering, which is what an army does when it sacks a town."
+     "surface": "Bags have been trimmed and fitted into tartan blankets.",
+     "walkthrough": "'cut' docks ARE to AR, and 'into' places it inside MAUDS, after MA. 'Sacks' is the verb meaning plunders, not the noun for bags.",
+     "definitionFit": "To maraud is to raid and plunder, so marauds is a synonym of sacks in the sense of pillaging."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Sacks"
     }
    }
@@ -1402,41 +1416,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TROUSE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "short",
-       "note": "something short is cut down, so the last letter goes"
+       "text": "on",
+       "at": 28,
+       "note": "in an across clue, one piece on another follows it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 31,
+         "note": "short means missing its end, so the last letter goes"
+        }
+       ],
        "parts": [
         {
          "words": "jog",
-         "gives": "TRO",
-         "note": "a jog is a trot, minus its last letter"
+         "at": 37,
+         "gives": "TROT",
+         "note": "to trot is to jog"
         },
         {
-         "words": "help",
-         "gives": "USE",
-         "note": "use means help or benefit, as in 'of no use'"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "help",
+       "at": 23,
+       "gives": "USE",
+       "note": "use means help or benefit, as in 'of some use'"
       }
      ]
     },
     "explanation": {
-     "surface": "Tight breeches are useful for a brief jog.",
-     "walkthrough": "'On' puts the help after the shortened jog. Trouse is an old variant of trews, tight tartan trousers.",
-     "definitionFit": "Trouse is an archaic word for trews, close-fitting breeches worn especially in Ireland and Scotland."
+     "surface": "Tight trousers are useful for a brief run.",
+     "walkthrough": "'short' cuts TROT to TRO, and 'on' places USE after it. 'Trouse' is an old word, a form of trews.",
+     "definitionFit": "Trouse is an archaic word for close-fitting trousers or trews, especially the tight breeches once worn in Ireland and Scotland."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "jog"
     }
    }
   },
@@ -1758,42 +1784,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BOHEA",
-     "indicators": [
-      {
-       "text": "just about",
-       "note": "just about means nearly all, so the last letter is cut"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Dude",
+       "at": 0,
+       "gives": "BO",
+       "note": "bo is American slang for a pal, a dude"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "just about",
+         "at": 5,
+         "note": "just about means nearly all, so the last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Dude",
-         "gives": "BO",
-         "note": "bo is American slang for pal or buddy"
+         "words": "to warm up",
+         "at": 16,
+         "gives": "HEAT",
+         "note": "to heat is to warm up"
         },
         {
-         "words": "to warm up",
-         "gives": "HEA",
-         "note": "to warm up is to heat, minus its last letter"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A guy is about to heat up a cup of tea.",
-     "walkthrough": "'Just about' looks like time, as in about to, but it trims the next word.",
-     "definitionFit": "Bohea is a black China tea from the Wuyi hills, once the general name for the cheapest grades of black tea."
+     "surface": "A guy is nearly ready to warm up his cuppa.",
+     "walkthrough": "'just about' trims HEAT to HEA, which follows BO, American slang for a fellow or buddy.",
+     "definitionFit": "Bohea is a black China tea, once the name for the best grade and later for a coarse one."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "Dude"
     }
    }
   },
