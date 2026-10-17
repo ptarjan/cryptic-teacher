@@ -983,42 +983,63 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 31,
+       "note": "in an across clue, on means placed before, so the letter from tell leads"
+      }
+     ],
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
          "text": "beginning to",
-         "note": "the beginning of a word is its first letter, so only that letter is taken"
+         "at": 13,
+         "note": "the beginning of a word is its first letter"
         }
        ],
        "parts": [
         {
          "words": "tell",
-         "note": "the first letter of tell"
+         "at": 26,
+         "note": "first letter of tell"
         }
        ]
       },
       {
-       "words": "on",
-       "note": "taken as written"
-      },
-      {
-       "unchecked": true,
-       "words": "unopened school",
-       "note": "a second, independent route to the same three letters: the school Eton with its first letter removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unopened",
+         "at": 34,
+         "note": "unopened means the opening of the school's name is stripped away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "school",
+         "at": 43,
+         "gives": "ETON",
+         "note": "Eton is the famous English public school"
+        },
+        {
+         "gives": "ET"
+        }
+       ]
       }
      ]
     },
     "explanation": {
      "surface": "A heavy burden starts to take its toll on a school that has not yet opened.",
-     "walkthrough": "The clue offers two routes to one answer: T plus ON, and also 'unopened school', which is ETON without its first letter. ETON is the famous English public school.",
-     "definitionFit": "A ton is a unit of mass of about a thousand kilograms, the standard example of a very heavy load."
+     "walkthrough": "'Beginning to tell' gives T, placed on what is left of Eton once 'unopened' strips its opening. Stripping only the E also gives the answer, with T then beginning it.",
+     "definitionFit": "A ton is a large unit of weight, about a thousand kilograms."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "tell"
+     "misdirectedWord": "unopened"
     }
    }
   },
