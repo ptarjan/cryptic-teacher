@@ -1745,41 +1745,43 @@
      "indicators": [
       {
        "text": "behind",
-       "note": "something behind comes after, so this piece is placed second"
+       "at": 15,
+       "note": "behind says the setter's piece comes after the other one in the answer"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "ORIG",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half of",
-         "note": "half of a word is its first half, the opening four of eight letters"
+         "at": 22,
+         "note": "half of an eight-letter word is four letters, here the front half of original"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "original",
-         "gives": "ORIG",
-         "select": "first",
-         "note": "the first four of its eight letters"
+         "at": 30,
+         "note": "its first half is ORIG"
+        },
+        {
+         "gives": "INAL"
         }
        ]
       },
       {
        "words": "Is this writer",
+       "at": 0,
        "gives": "AMI",
-       "note": "the setter, 'this writer', asks am I, inverting I am"
+       "note": "'is this writer' said from the setter's own viewpoint becomes 'am I'"
       }
      ]
     },
     "explanation": {
-     "surface": "A setter wonders whether they are responsible for some of the original documents.",
-     "walkthrough": "'Is this writer' is the setter speaking of themself; in the first person it becomes AM I. 'Paperwork' suggests forms, not folding.",
-     "definitionFit": "Origami is the Japanese craft of folding sheets into shapes, so it is literally creative work done with paper."
+     "surface": "A setter wonders whether they are to blame for half of some original bureaucratic forms.",
+     "walkthrough": "'this writer' is the setter, so 'Is this writer' turns into AM I, placed 'behind' ORIG. 'paperwork' looks like office admin, but the question mark warns it is literally work done with paper.",
+     "definitionFit": "Origami is the Japanese art of folding paper into shapes, a craft made entirely of paper."
     },
     "features": {
      "answerInScene": false,
