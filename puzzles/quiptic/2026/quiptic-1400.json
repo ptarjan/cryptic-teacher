@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -786,61 +787,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NEST",
+     "indicators": [
+      {
+       "text": "found in",
+       "at": 17,
+       "note": "found in means the picked letter sits inside the abbreviations"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "North",
+         "at": 26,
+         "gives": "N",
+         "note": "N is the compass abbreviation for north"
+        },
+        {
+         "words": "Street",
+         "at": 32,
+         "gives": "ST",
+         "note": "ST is the address abbreviation for street"
+        }
+       ]
+      },
+      {
+       "op": "last",
        "indicators": [
         {
          "text": "finally",
-         "note": "What comes finally comes at the very end, so it is the closing letter of the word in front of it."
+         "at": 9,
+         "note": "finally means at the end, so only the closing letter of one is used"
         }
        ],
        "parts": [
         {
-         "words": "North",
-         "gives": "N",
-         "note": "n is the compass abbreviation for north"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "E",
-         "indicators": [
-          {
-           "text": "found in",
-           "note": "To be found in a place is to be inside it, so that letter goes between the two pieces named next rather than after them."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "one finally",
-           "gives": "E",
-           "select": "last",
-           "note": "the last letter of one"
-          }
-         ]
-        },
-        {
-         "words": "Street",
-         "gives": "ST",
-         "note": "st is how street is written on an address and a signpost"
+         "words": "one",
+         "at": 5,
+         "note": "taken for its last letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody is tracked down at last at an address on North Street.",
-     "walkthrough": "'Home' is the bird's rather than the householder's, which is why a street address is the wrong place to be looking. Two abbreviations stand side by side with a single letter dropped in between.",
-     "definitionFit": "A nest is the home a bird builds and comes back to, and the word covers any snug dwelling made by an animal."
+     "surface": "Someone finally finds a house on North Street.",
+     "definitionFit": "A nest is a bird's home, and by extension any cosy dwelling."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Street"
+     "misdirectedWord": "finally"
     }
    }
   },
