@@ -604,31 +604,31 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "ALP",
      "indicators": [
       {
        "text": "beginning to fall behind",
-       "note": "the word's opening letter drops from the front to the back, rotating the word"
+       "at": 9,
+       "note": "beginning to fall behind means the opening letter drops back to the end of the word"
       }
      ],
      "parts": [
       {
        "words": "Friend's",
+       "at": 0,
        "gives": "PAL",
-       "note": "a pal is a friend; the 's means the following beginning belongs to it"
+       "note": "a pal is a friend; the 's is read as 'has' or 'is', with the friend's beginning doing the moving"
       }
      ]
     },
     "explanation": {
-     "surface": "A friend starts lagging behind the group on a tough climb.",
-     "walkthrough": "Moving the P of PAL to the end gives ALP. The question mark flags that a mountain is only loosely a 'challenge'.",
-     "definitionFit": "An alp is a high mountain, the kind of peak climbers take on as a test of skill."
+     "surface": "A mountaineering friend starts to lag behind the rest of the party on a hard climb.",
+     "walkthrough": "'Beginning to fall behind' looks like a friend starting to lag on the climb, but it sends the first letter of PAL to the back. The question mark marks the definition as an example.",
+     "definitionFit": "An alp is a high mountain, so climbing one is a challenge; the question mark signals a definition by example."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "fall"
+     "misdirectedWord": "beginning"
     }
    }
   },
@@ -1517,31 +1517,37 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CREWEL",
-     "indicators": [
-      {
-       "text": "with no beginning or end",
-       "note": "without its first and last letters, only the middle remains"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "sailors",
+       "at": 5,
        "gives": "CREW",
-       "note": "a ship's crew are its sailors"
+       "note": "a ship's crew is its sailors"
       },
       {
-       "words": "tell",
-       "note": "taken as written, before its outer letters go"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "with no beginning or end",
+         "at": 18,
+         "note": "with no beginning or end strips the first and last letters from the word tell"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tell",
+         "at": 13,
+         "note": "the word tell, trimmed at both ends"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Sailors spin a tall tale with no start and no finish.",
-     "walkthrough": "'Yarn' and 'sailors' suggest a sea story, but the yarn is the wool kind.",
-     "definitionFit": "Crewel is a thin worsted wool used for embroidery and tapestry, so it is a kind of yarn."
+     "surface": "Seamen spinning a story that seems to go on without ever starting or finishing.",
+     "walkthrough": "'Yarn' and 'tell' together suggest a sailor's tall story, but yarn is the definition in its sense of thread; 'with no beginning or end' trims TELL to EL.",
+     "definitionFit": "Crewel is a thin worsted wool used for tapestry and embroidery, so it is a kind of yarn."
     },
     "features": {
      "answerInScene": false,
