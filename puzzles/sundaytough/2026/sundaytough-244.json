@@ -1199,58 +1199,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHIANTI",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter of the word is dropped"
+       "text": "Affected",
+       "at": 0,
+       "note": "affected, in the sense of disturbed or altered, signals the letters that follow are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "first",
        "indicators": [
         {
-         "text": "Affected",
-         "note": "letters that have been affected are altered, so they are rearranged"
+         "text": "initially",
+         "at": 14,
+         "note": "initially means only the first letter of area is used"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially points to the very start of the word before it, keeping just its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "area",
-           "note": "the opening letter of this word"
-          }
-         ]
-        },
+         "words": "area",
+         "at": 9,
+         "note": "the word whose opening letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 33,
+         "note": "mostly means the word itching loses its last letter"
+        }
+       ],
+       "parts": [
         {
          "words": "itching",
-         "gives": "ITCHIN",
-         "note": "this word without its last letter"
+         "at": 24,
+         "note": "the word cut short, giving its first six letters"
+        },
+        {
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A patch of skin, itchy at first, has gone largely red, like a rash.",
-     "walkthrough": "The skin-and-rash picture hides a wine: 'red' is the definition, and 'affected' signals rearranging the letters, not a symptom.",
-     "definitionFit": "Chianti is a Tuscan wine, and red is everyday shorthand for red wine."
+     "surface": "A medical-sounding note: the affected patch began itching and is mostly red.",
+     "walkthrough": "The surface reads like a rash, with 'red' as its colour, but 'red' is the definition: a wine. 'Affected' shuffles A plus ITCHIN.",
+     "definitionFit": "Chianti is a Tuscan red wine, so it is an example of a red in the wine-list sense."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "red"
     }
    }
