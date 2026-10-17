@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -508,37 +509,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NOON",
-     "indicators": [
-      {
-       "text": "rejected",
-       "note": "To reject something is to throw it back, and a short word thrown back is read from its last letter to its first."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Two refusals",
+       "at": 0,
+       "gives": "NO",
+       "note": "the first of the two refusals: no"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 18,
+         "note": "rejected suggests something turned back, so the second no is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Two refusals",
+         "words": "one",
+         "at": 14,
          "gives": "NO",
-         "note": "the plainest word of refusal there is, and the clue asks for a pair of them"
-        },
-        {
-         "words": "one rejected",
-         "gives": "ON",
-         "note": "the second of that pair, turned round"
+         "note": "one of those refusals, another no"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two rejections, one of which is itself turned down.",
-     "walkthrough": "'One' counts the refusals rather than joining in as a letter of its own, which is the only real trap. 'In time' reads as an idiom and is a link word with the definition behind it.",
-     "definitionFit": "Twelve o'clock in the middle of the day is one particular point on the clock, so the definition names the class the answer sits in."
+     "surface": "Someone says no twice, and one of those refusals is overturned in good time.",
+     "walkthrough": "'One' means one of the two refusals, not the letter I, and 'in' is just a link to the definition.",
+     "definitionFit": "Midday is a specific time of day, twelve o'clock."
     },
     "features": {
      "answerInScene": false,
@@ -1362,52 +1364,55 @@
     "definitions": [
      {
       "text": "You need this",
-      "at": 33,
-      "note": "The definition is a recommendation rather than a synonym: the clue's freezing weather is the occasion and the answer is the garment that meets it, so no noun in the clue means what the answer means."
+      "at": 33
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DUFFLECOAT",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Endless",
-       "note": "Something endless has had its end taken off, so the word beside it gives up its final letter before anything else is done to it."
+       "text": "shivering",
+       "at": 22,
+       "note": "shivering suggests trembling, jumbled movement, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "shivering",
-         "note": "A shiver runs through a thing and leaves nothing steady, so the letters beside it will not stay in the order they were given."
+         "text": "Endless",
+         "at": 0,
+         "note": "endless means the word fateful loses its final letter"
         }
        ],
        "parts": [
         {
          "words": "fateful",
-         "gives": "FATEFU",
-         "note": "six of the word's seven letters, the last one docked"
+         "at": 8,
+         "note": "taken as written, minus its last letter"
         },
         {
-         "words": "cold",
-         "note": "four more letters, taken as they stand before the shuffle"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "cold",
+       "at": 16,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A grim spell of freezing weather that leaves you shaking.",
-     "walkthrough": "'Cold, shivering' reads as one unbroken description of the weather and is two separate jobs: the first word is raw material, the second is the instruction. The hooded coat with toggles and rope loops was Royal Navy issue long before it was student uniform.",
-     "definitionFit": "The heavy hooded wool coat fastened with toggles is what you reach for when it is cold enough to shiver."
+     "surface": "A fateful cold leaves someone shivering, and the clue tells them what they need.",
+     "walkthrough": "'Endless' cuts FATEFUL to FATEFU; add COLD and 'shivering' rearranges FATEFUCOLD. The definition leans on the surface: if you are shivering with cold, this is what you need.",
+     "definitionFit": "A duffle coat is a heavy woollen toggled coat, just the garment someone shivering needs."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Endless"
+     "misdirectedWord": "shivering"
     }
    }
   },
