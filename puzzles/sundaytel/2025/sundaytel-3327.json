@@ -105,37 +105,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "POPULAR",
-     "indicators": [
-      {
-       "text": "virtually",
-       "note": "virtually means almost but not quite, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "report",
+       "at": 3,
+       "gives": "POP",
+       "note": "a report is a bang, and pop is a sharp bang"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "incomprehensible",
+         "at": 28,
+         "note": "incomprehensible suggests garbled, so the letters of a and the shortened rule are jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "report",
-         "gives": "POP",
-         "note": "a report is a loud bang, a pop"
+         "words": "a",
+         "at": 11
         },
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "incomprehensible",
-           "note": "something incomprehensible is jumbled and makes no sense, so the letters are scrambled"
+           "text": "virtually",
+           "at": 18,
+           "note": "virtually means almost, so the word rule is used short of its last letter"
           }
          ],
          "parts": [
           {
-           "words": "a rule",
-           "gives": "ARUL",
-           "note": "the words as written, losing their last letter"
+           "words": "rule",
+           "at": 13,
+           "note": "the word rule, cut short"
+          },
+          {
+           "gives": "E"
           }
          ]
         }
@@ -144,9 +152,9 @@
      ]
     },
     "explanation": {
-     "surface": "A regulation in some official report is almost impossible to understand.",
-     "walkthrough": "'In' looks like a preposition leading into the clue, but it is the definition: something in is fashionable. 'Report' means a bang, not a document.",
-     "definitionFit": "Saying something is 'in' means it is currently fashionable and widely liked, the same as being well liked by many people."
+     "surface": "A news story saying some regulation is close to unintelligible.",
+     "walkthrough": "'In' looks like a placement word, but it is the definition: in fashion. 'report' is a loud noise here, not a document.",
+     "definitionFit": "Something that is in, meaning currently fashionable, is widely liked, so the two are synonyms."
     },
     "features": {
      "answerInScene": false,
@@ -954,51 +962,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GODAWFUL",
-     "indicators": [
-      {
-       "text": "not half",
-       "note": "without half of it, the word keeps only its first two of four letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Leader in",
+         "at": 0,
+         "note": "leader in means the first letter of the next word"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Leader in",
-           "note": "a leader is at the front, so only the opening letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "government",
-           "note": "first letter"
-          }
-         ]
+         "words": "government",
+         "at": 10,
+         "note": "the word government, whose first letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "useless",
+         "at": 42,
+         "note": "useless suggests broken and not working, so the pooled letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "would",
+         "at": 21
         },
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "useless",
-           "note": "something useless is broken or out of order, so the letters are put in a new order"
+           "text": "not half",
+           "at": 33,
+           "note": "not half means the word is cut to half its letters, losing the second half"
           }
          ],
          "parts": [
           {
-           "words": "would",
-           "note": "taken as written"
+           "words": "fail",
+           "at": 27,
+           "note": "the word fail, cut in half"
           },
           {
-           "words": "fail",
-           "gives": "FA",
-           "note": "the word loses its second half"
+           "gives": "IL"
           }
          ]
         }
@@ -1007,14 +1020,14 @@
      ]
     },
     "explanation": {
-     "surface": "A political leader predicts failure: utterly useless, how dreadful!",
-     "walkthrough": "'Not half' is a British slang intensifier meaning 'very', but here it simply cuts a word in two.",
-     "definitionFit": "God-awful is an informal intensified way of saying extremely bad or appalling, matching the exclaimed sense of shocking."
+     "surface": "A prediction that the head of government's plans will collapse, the half-hearted effort being worthless.",
+     "walkthrough": "Take G from 'government', then pool WOULD with FA (half of FAIL) and rearrange. 'not half' is British slang for 'very much', but here it is literal.",
+     "definitionFit": "Godawful is an informal intensifier meaning extremely bad or appalling."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "half"
+     "misdirectedWord": "useless"
     }
    }
   },
