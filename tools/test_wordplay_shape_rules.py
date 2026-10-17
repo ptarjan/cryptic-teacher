@@ -99,7 +99,19 @@ leaf = {"words": "nearly obtains", "gives": "HA"}
 check("an indicator inside a leaf is counted", 1, v.ind_in_leaf({"op": "deletion", "indicators": [{"text": "nearly"}], "parts": [leaf, {"words": "x"}]}))
 check("a whole-leaf indicator is not", 0, v.ind_in_leaf({"op": "deletion", "indicators": [{"text": "nearly"}], "parts": [{"words": "nearly"}]}))
 
-for field in ("arityIns", "arityOther", "delSingle", "indInLeaf", "charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
+sl = lambda w, g: v.scrambled_leaves({"op": "charade", "parts": [{"words": w, "gives": g}]})
+check("a permuted leaf is scrambled", 1, sl("gaunt", "GUTAN"))
+check("so is a spaced one", 1, sl("one raged", "ORGEANED"))
+check("a sub-multiset out of order is not (coincident synonym)", 0, sl("summer clothes", "SHORTS"))
+check("a leaf directly under an anagram is not", 0, v.scrambled_leaves({"op": "anagram", "parts": [{"words": "war", "gives": "RAWS"}]}))
+check("an unchecked leaf too", 1, v.scrambled_leaves({"words": "tent", "gives": "ENTT", "unchecked": True}))
+check("an abbreviation is not", 0, sl("about", "C"))
+check("a synonym is not", 0, sl("clever", "CUTE"))
+check("a leaf giving its own letters is not", 0, sl("tent", "TENT"))
+check("a selection in order is not", 0, sl("garden", "GARD"))
+check("a one-letter or short leaf is not", 0, sl("to", "OT"))
+
+for field in ("scrambledLeaf", "arityIns", "arityOther", "delSingle", "indInLeaf", "charadeInCharade", "noIndicator", "cdefRepeat", "arity", "spanOverlap", "inDefinition",
               "leafFold", "repeatedSelection", "singleLeaf", "bareInCharade", "anagramOfContainer"):
     check(f"wordplay.{field} is a ratchet field", True, f"wordplay.{field}" in v.BACKLOG_MARKERS)
 warn = v.shape_warnings("1A", {"wordplay": cc, "definitions": []})
