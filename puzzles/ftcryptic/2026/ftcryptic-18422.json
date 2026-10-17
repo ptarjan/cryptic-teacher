@@ -371,43 +371,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SANTA",
+     "op": "container",
      "indicators": [
       {
-       "text": "refined",
-       "note": "to refine something is to process and rework it, so these letters are rearranged"
+       "text": "Put",
+       "at": 0,
+       "note": "put ... in tells you to place one piece inside another"
+      },
+      {
+       "text": "in",
+       "at": 10,
+       "note": "completes 'put ... in', so the books go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Put",
-         "note": "to put one thing in another is to place it inside, with 'in' completing the instruction"
+         "text": "refined",
+         "at": 18,
+         "note": "refined in the sense of processed and reworked, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "as a",
-         "gives": "SAA",
-         "note": "the three letters rearranged"
-        },
-        {
-         "words": "books",
-         "gives": "NT",
-         "note": "NT is the New Testament, a set of books of the Bible"
+         "at": 13
         }
        ]
+      },
+      {
+       "words": "books",
+       "at": 4,
+       "gives": "NT",
+       "note": "NT, the New Testament, is a set of books of the Bible"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice that a few books make a classy present to slip into a Christmas stocking.",
-     "walkthrough": "'Stocking-filler' looks like a small present, but it means the person who fills the stockings.",
-     "definitionFit": "Father Christmas is the figure who fills children's Christmas stockings, so the hyphenated phrase describes him literally."
+     "surface": "Advice to slip a classy book into a Christmas stocking.",
+     "walkthrough": "'refined' rearranges AS A into SAA, and 'Put ... in' places NT inside. The definition is playful: Santa is the one who fills the stockings.",
+     "definitionFit": "Father Christmas is the figure who traditionally fills children's stockings with presents."
     },
     "features": {
      "answerInScene": true,
@@ -700,57 +705,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CARAVAN",
-     "indicators": [
-      {
-       "text": "ruined",
-       "note": "something ruined is wrecked, so the remaining letters are knocked into a different order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CARAVAN",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "dropped",
-         "note": "something dropped is let go, so the named letter falls out of the word"
+         "text": "ruined",
+         "at": 17,
+         "note": "ruined, spoilt, so the remaining letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "Caviar",
-         "note": "taken as written"
-        },
-        {
-         "words": "I",
-         "note": "the letter that is removed"
-        },
-        {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
-         "words": "new",
-         "gives": "N",
-         "note": "N is the standard abbreviation for new"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "dropped",
+           "at": 9,
+           "note": "the I is dropped, left out of the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Caviar",
+           "at": 0
+          },
+          {
+           "words": "I",
+           "at": 7
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 24,
+       "gives": "A"
+      },
+      {
+       "words": "new",
+       "at": 26,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone confesses that spilling caviar has spoiled their brand-new motorhome.",
-     "walkthrough": "Taking I out of CAVIAR leaves CAVAR, which is rearranged before A and N are added.",
-     "definitionFit": "A caravan is a towed vehicle fitted out for living in, called a trailer in American English."
+     "surface": "Someone drops the caviar, spoiling a treat in a new home on wheels.",
+     "walkthrough": "'dropped' takes I out of CAVIAR, leaving CAVAR, which 'ruined' rearranges into CARAV before A and N.",
+     "definitionFit": "A caravan is a towed or motorised dwelling, a home that can be moved from place to place."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "dropped"
     }
    }
