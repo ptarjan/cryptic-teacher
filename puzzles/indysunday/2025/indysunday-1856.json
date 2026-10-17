@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -391,8 +392,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "term",
-       "note": "'term' is standing in for termination, the end of a thing, so it asks for the final letter of the word beside it"
+       "text": "given after",
+       "at": 10,
+       "note": "the per and the answer are given after the final letter of Rigoletto"
       }
      ],
      "parts": [
@@ -400,34 +402,43 @@
        "op": "last",
        "indicators": [
         {
-         "text": "after",
-         "note": "what comes after a thing follows it, so the letters just built are parked behind the letter already found"
+         "text": "term for",
+         "at": 23,
+         "note": "a term is an end, so the term for a word is its final letter"
         }
        ],
        "parts": [
         {
-         "words": "term for Rigoletto?",
-         "note": "the termination — the last letter — of Rigoletto"
+         "words": "Rigoletto",
+         "at": 32,
+         "note": "its last letter, O, is taken"
         }
        ]
       },
       {
        "words": "An",
+       "at": 0,
        "gives": "PER",
-       "note": "fifty miles an hour is fifty miles per hour, so 'an' = per"
+       "note": "an can mean per, as in five pounds an hour"
       },
       {
        "words": "answer",
-       "gives": "A",
-       "note": "a = answer, as in a Q and A"
+       "at": 3,
+       "gives": "A"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A quiz question about Verdi's hunchbacked jester, and the answer somebody gives to it.",
-     "walkthrough": "Read straight, this is a question with its own answer attached; read as wordplay, 'term' is short for termination and hands over Rigoletto's last letter. Both readings use every word.",
-     "definitionFit": "Rigoletto is one of Verdi's, so naming the form it belongs to is exactly what answers the question the clue asks."
+     "surface": "A quiz: what's the word for Rigoletto? This is the reply.",
+     "walkthrough": "Read whole, the clue asks what Verdi's Rigoletto is, and the answer gives the reply; read in pieces, 'term' is an end, not a word.",
+     "definitionFit": "Rigoletto is Verdi's opera, so the reply to a question asking what kind of work it is would be that genre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "term"
     }
    }
   },
@@ -985,49 +996,53 @@
    "annotation": {
     "definitions": [
      {
-      "text": "dreadful prognosis",
-      "at": 32,
-      "note": "'At worst' is an adverbial phrase and 'dreadful prognosis' a noun phrase, so they will not swap places in a sentence; the setter is defining by what the words introduce, the grimmest outcome on offer."
+      "text": "given dreadful prognosis",
+      "at": 26
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ATWORST",
+     "op": "container",
      "indicators": [
       {
-       "text": "mad",
-       "note": "a mad thing is deranged, and deranged letters do not keep the arrangement they were given"
+       "text": "bitten by",
+       "at": 7,
+       "note": "the couple is bitten by, held between the teeth of, the rearranged rats"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "bitten by",
-         "note": "a bite closes around whatever it takes hold of, so what is bitten ends up inside the biter"
+         "text": "mad",
+         "at": 17,
+         "note": "mad means crazed, so the letters of rats run wild into a new order"
         }
        ],
        "parts": [
         {
-         "words": "mad rats",
-         "gives": "ARST",
-         "note": "RATS with its four letters deranged, opening up after the A"
-        },
-        {
-         "words": "Couple",
-         "gives": "TWO",
-         "note": "a couple is two"
+         "words": "rats",
+         "at": 21
         }
        ]
+      },
+      {
+       "words": "Couple",
+       "at": 0,
+       "gives": "TWO",
+       "note": "a couple is two"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone bitten by rabid rats being handed the grimmest possible diagnosis.",
-     "walkthrough": "'Mad rats' does double duty on the surface, where rabies is exactly what produces a dreadful prognosis. The definition is the phrase you reach for when naming a worst case.",
-     "definitionFit": "You say 'at worst' when naming the grimmest outcome available, which is what a dreadful prognosis states."
+     "surface": "A pair bitten by rabid rodents hears a grim forecast.",
+     "walkthrough": "RATS is rearranged as ARST, and TWO sits after its A.",
+     "definitionFit": "At worst introduces the gloomiest outcome, the case if things go as badly as possible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bitten"
     }
    }
   },
@@ -1110,41 +1125,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GOCARTS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 16,
+       "note": "in an across answer, on means placed after, so the rearranged name follows the grand letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "grand",
+       "at": 19,
+       "gives": "G",
+       "note": "G is slang for a grand, a thousand pounds or dollars"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "hectored",
-         "note": "to hector is to bully and harangue, and a name knocked about like that comes out in a different order"
-        },
-        {
-         "text": "on",
-         "note": "in an across clue, one thing on another sits after it, so the shuffled letters follow the single letter"
+         "at": 7,
+         "note": "hectored means bullied, so the letters are pushed about into a new order"
         }
        ],
        "parts": [
         {
-         "words": "grand",
-         "gives": "G",
-         "note": "g = grand, the standard abbreviation"
-        },
-        {
          "words": "Castro",
-         "gives": "OCARTS",
-         "note": "the six letters of CASTRO rearranged"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fidel Castro being harangued from a grand platform.",
-     "walkthrough": "A soapbox in Britain is the home-made cart children race downhill as well as the box an orator stands on, and the surface is leaning on the orator.",
-     "definitionFit": "A soapbox is the British name for a home-made downhill racer, so the definition is the same vehicles under their nickname."
+     "surface": "Fidel Castro haranguing crowds from soapboxes, at great length.",
+     "walkthrough": "'soapboxes' suggests orators' platforms, which suits Castro, but a soapbox is also a homemade go-cart raced downhill.",
+     "definitionFit": "A soapbox is a child's homemade racing cart, originally built from a wooden soap crate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "soapboxes"
     }
    }
   },
@@ -1603,41 +1626,53 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PRESSAGENT",
      "indicators": [
       {
        "text": "for",
-       "note": "'for' is the word of exchange — one thing standing in place of another, as a deputy stands for a boss"
+       "at": 24,
+       "note": "for means in place of, so the team word is swapped out"
       }
      ],
      "parts": [
       {
        "words": "11's",
+       "at": 28,
        "gives": "PRESIDENT",
-       "note": "the answer to 11 across, which is the word being operated on"
+       "note": "the answer to 11 across, the chief executive"
       },
       {
        "words": "team",
+       "at": 33,
        "gives": "SIDE",
-       "note": "a side is a team, and one is sitting in the middle of that word: pre-SIDE-nt"
+       "note": "a side is a team"
       },
       {
-       "words": "second",
-       "gives": "S",
-       "note": "s = second, as written on a stopwatch"
-      },
-      {
-       "words": "wise guy",
-       "gives": "SAGE",
-       "note": "a sage is a wise man"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "second",
+         "at": 8,
+         "gives": "S"
+        },
+        {
+         "words": "wise guy",
+         "at": 15,
+         "gives": "SAGE",
+         "note": "a sage is a wise man"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A publicist and a smart alec picked out for the boss's line-up.",
-     "walkthrough": "11 across has to be solved first, because its answer is the raw material here. 'Wise guy' is a smart alec on the surface and a sage underneath.",
-     "definitionFit": "A press agent handles publicity for a client, which is the job 'PR man' names — public relations, by its initials."
+     "surface": "A spin doctor and a second clever operator working for the President's staff.",
+     "walkthrough": "PRESIDENT contains SIDE; replace it with S and SAGE to get the answer.",
+     "definitionFit": "A press agent is employed to handle publicity, a public relations man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "team"
     }
    }
   }
