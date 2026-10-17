@@ -395,47 +395,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BASIC",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "coarse",
+       "at": 16,
+       "note": "coarse here describes the letters of cabbies roughed up and rearranged, signalling an anagram"
+      },
+      {
+       "text": "gone",
+       "at": 34,
+       "note": "be gone says the letters of be must disappear from the jumbled word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "BASIC",
-       "indicators": [
-        {
-         "text": "coarse",
-         "note": "coarse work is rough and unfinished, and letters left rough sit in no fixed order"
-        },
-        {
-         "text": "gone",
-         "note": "what is gone has left the word it was in, taking its letters out of the count"
-        }
-       ],
-       "parts": [
-        {
-         "words": "cabbies",
-         "note": "cabbies are taxi drivers, and the word is the raw material"
-        },
-        {
-         "words": "be",
-         "note": "the B and E that walk out, dropping CABBIES to the five letters CABIS"
-        }
-       ]
+       "words": "cabbies",
+       "at": 23,
+       "note": "taken as written, the anagram fodder"
+      },
+      {
+       "words": "be",
+       "at": 31,
+       "note": "taken as written, the letters to remove"
       }
      ]
     },
     "explanation": {
-     "surface": "A rant demanding that coarse cab drivers clear off.",
-     "walkthrough": "'Be gone!' is an order in the surface and two jobs in the parse, the word naming its own letters and the command sending them away. 'PC' is the computer here, not the constable or the correctness.",
-     "definitionFit": "BASIC is the beginner's programming language that came built into early home computers, so a PC speaks it."
+     "surface": "A foul-mouthed rant telling taxi drivers to clear off, in the spirit of Private Eye.",
+     "walkthrough": "'gone' takes B and E ('be') out of CABBIES to leave CABIS, then let 'coarse' rearrange those letters. 'Coarse' also hints at the answer's everyday sense of crude or unrefined.",
+     "definitionFit": "BASIC is an early programming language widely used on home and personal computers."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "PC"
+     "joke": "absurd",
+     "misdirectedWord": "coarse"
     }
    }
   },
@@ -1038,37 +1033,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ODDISH",
+     "op": "charade",
      "indicators": [
       {
-       "text": "about",
-       "note": "a party turned about faces the other way, and its letters are read back"
+       "text": "to get on",
+       "at": 12,
+       "note": "to get on means the second piece is placed after the first, as if added on"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 6,
+         "note": "about here means turned round, so the word for a party is read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "Party",
-         "gives": "OD",
-         "note": "a party is a do, and DO turned about reads OD"
-        },
-        {
-         "words": "course",
-         "gives": "DISH",
-         "note": "a course at dinner is a dish"
+         "at": 0,
+         "gives": "DO",
+         "note": "a do is an informal word for a party"
         }
        ]
+      },
+      {
+       "words": "course",
+       "at": 22,
+       "gives": "DISH",
+       "note": "a dish is a course of a meal"
       }
      ]
     },
     "explanation": {
-     "surface": "A political party looks about to get itself back on track.",
-     "walkthrough": "'On course' is the phrase the surface wants, a party correcting itself, and 'course' is really on its own as one of dinner's. The definition is the three words after the question mark.",
-     "definitionFit": "Oddish is odd but only mildly so, which is the hedge that 'a bit unusual' makes."
+     "surface": "Someone wonders whether a party can be held on a golf course, which seems a bit odd.",
+     "walkthrough": "'about' turns DO (a party) into OD, and 'to get on' adds DISH, a course in a meal; 'course' looks like a golf course or racecourse but is the food sense.",
+     "definitionFit": "The suffix -ish softens odd to mean somewhat strange, so it means slightly peculiar."
     },
     "features": {
      "answerInScene": false,
