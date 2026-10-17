@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -247,39 +248,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "STUDMARE",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "The Reverend Spooner's trick was swapping the opening sounds of two words, so what you say and what you write begin each other's way round."
+       "at": 31,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of the two words here change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "dirt",
+       "at": 26,
+       "gives": "MUD",
+       "note": "mud is wet dirt"
+      },
+      {
+       "op": "homophone",
+       "spelt": "STARE",
        "parts": [
         {
-         "unchecked": true,
-         "words": "dirt",
-         "gives": "STUD",
-         "soundsLike": "MUD",
-         "note": "dirt is mud, and after the swap its M has gone next door and an ST has arrived in exchange"
-        },
-        {
-         "unchecked": true,
          "words": "steps",
-         "gives": "MARE",
-         "soundsLike": "STAIR",
-         "note": "steps are a stair, and with its ST traded away it takes the M and is written out to match the sound"
+         "at": 17,
+         "gives": "STAIR",
+         "note": "a stair is a flight of steps"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A mother in a stable pulls hard towards the nativity, and there is no manger here at all — the stable is a horse's and the mother is a breeding animal.",
-     "definitionFit": "Mother in stable -> STUD-MARE: at a stud farm the stud-mare is the animal kept for breeding, so being a mother in a stable is her entire job."
+     "surface": "Someone tramping mud through the house, as the elderly Reverend Spooner might put it.",
+     "walkthrough": "MUD and STAIR, with their opening sounds swapped, are said as STUD MAIR, and MAIR sounds like MARE, a female horse.",
+     "definitionFit": "A stud mare is a female horse kept for breeding, so she is a mother living in a stable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "steps"
     }
    }
   },
@@ -355,25 +361,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "PLUS",
      "indicators": [
       {
        "text": "nearly",
-       "note": "Nearly a whole word is all of it bar the final character, so the fabric's name stops one letter short of finishing."
+       "at": 15,
+       "note": "nearly means not quite all of the word, so its last letter is dropped"
       }
      ],
      "parts": [
       {
        "words": "Velvety fabric",
-       "gives": "PLUS",
-       "note": "plush is the deep-piled velvety cloth, and it hands over everything except its closing H"
+       "at": 0,
+       "gives": "PLUSH",
+       "note": "plush is a fabric with a long soft velvety nap"
+      },
+      {
+       "gives": "H"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Four words that read as one sentence about upholstery, and 'nearly' is the hinge: it belongs to the fabric behind it, not to the quality in front of it.",
-     "definitionFit": "quality that's desirable -> PLUS: a plus is a point in something's favour, the advantage you list when weighing one option against another."
+     "surface": "A shopper praising a velvety cloth as almost the ideal material.",
+     "walkthrough": "'nearly' cuts the final H from PLUSH.",
+     "definitionFit": "A plus is an advantage or asset, a good point in something's favour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nearly"
     }
    }
   },
