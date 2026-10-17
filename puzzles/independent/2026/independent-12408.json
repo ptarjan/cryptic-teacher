@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -548,43 +549,60 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "the stripped waste word sits inside the American and church letters"
+      }
+     ],
      "parts": [
       {
-       "words": "American",
-       "gives": "A",
-       "note": "A stands for American, as in the A of USA"
-      },
-      {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "FFLUEN",
-       "indicators": [
-        {
-         "text": "exposed",
-         "note": "To expose something is to strip off what covers it, so the word for waste loses the letter at each end and shows its middle."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "waste exposed",
-         "gives": "FFLUEN",
-         "select": "middle",
-         "note": "EFFLUENT is liquid waste, here without its first and last letters"
+         "words": "American",
+         "at": 27,
+         "gives": "A"
+        },
+        {
+         "words": "church",
+         "at": 36,
+         "gives": "CE",
+         "note": "CE is the Church of England"
         }
        ]
       },
       {
-       "words": "church",
-       "gives": "CE",
-       "note": "CE is the Church of England, the crossword's standard church"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "exposed",
+         "at": 16,
+         "note": "exposed means stripped of its covering, so the first and last letters of the waste word go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "waste",
+         "at": 10,
+         "gives": "EFFLUENT",
+         "note": "effluent is liquid waste"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Wealth and sewage are one letter apart in English, and this clue makes you build the pleasant word out of the unpleasant one.",
-     "definitionFit": "Affluence is plenty — a plentiful supply of money — and both words are mass nouns, so the swap is clean."
+     "surface": "Lots of sewage left out in the open inside a church in the US.",
+     "walkthrough": "'exposed' strips EFFLUENT to FFLUEN, which goes 'in' between A and CE.",
+     "definitionFit": "Affluence is wealth, an abundance of money and comfort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exposed"
     }
    }
   },
@@ -612,36 +630,35 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "originally",
-       "note": "Originally means at the outset, so the word beside it gives up its opening letter only."
+       "text": "revolutionary",
+       "at": 44,
+       "note": "revolutionary means turning right round, so the combined letters are read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "revolutionary",
-         "note": "A revolution takes a thing all the way round, so the assembled letters are read from the far end back."
-        }
-       ],
        "parts": [
         {
          "words": "square",
+         "at": 18,
          "gives": "NINE",
          "note": "nine is a square number, three times three"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "L",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 25,
+           "note": "originally means at its origin, so the opening letter is taken"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "originally leading",
-           "gives": "L",
-           "select": "first",
-           "note": "the first letter of leading"
+           "words": "leading",
+           "at": 36,
+           "note": "first letter of leading"
           }
          ]
         }
@@ -650,8 +667,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "'Revolutionary' earns its keep twice over: it is the instruction to read the letters backwards, and it describes the man the definition points at.",
-     "definitionFit": "Lenin led the Bolsheviks and then the new Soviet state, so 'Russian leader' names him by the job he held."
+     "surface": "A Soviet chief stands in a city square, first among the revolutionaries.",
+     "walkthrough": "'square' is not a plaza but a number: NINE, then L ('originally leading'), and 'revolutionary' turns NINEL round.",
+     "definitionFit": "Vladimir Lenin led the Bolshevik revolution of 1917 and was the first head of the Soviet state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "square"
     }
    }
   },
@@ -727,60 +750,64 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ORIGINATE",
-     "indicators": [
-      {
-       "text": "sent back",
-       "note": "Sent back means returned the way it came, and along an across entry that direction is right to left."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "sent back",
+         "at": 31,
+         "note": "sent back means returned, so the cheque word is reversed"
+        }
+       ],
        "parts": [
         {
          "words": "social security cheque",
-         "gives": "ORIG",
-         "note": "a giro was the benefit cheque the British state paid out through its Girobank, written here the other way round"
-        },
-        {
-         "words": "in",
-         "note": "the word taken as itself"
-        },
-        {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "AT",
-         "indicators": [
-          {
-           "text": "regularly",
-           "note": "Regularly asks for letters at a fixed interval, here every second one, so half of the word is dropped."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "haste regularly",
-           "gives": "AT",
-           "select": "alternate",
-           "note": "the second and fourth letters of hAsTe"
-          }
-         ]
-        },
-        {
-         "words": "Earl",
-         "gives": "E",
-         "note": "E is the abbreviation for earl in lists of the peerage"
+         "at": 8,
+         "gives": "GIRO",
+         "note": "a giro was a British fortnightly benefit payment cheque"
         }
        ]
+      },
+      {
+       "words": "in",
+       "at": 41,
+       "gives": "IN"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 50,
+         "note": "regularly means every other letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "haste",
+         "at": 44,
+         "note": "second and fourth letters of haste"
+        }
+       ]
+      },
+      {
+       "words": "Earl",
+       "at": 63,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Four pieces in a row is a lot of joinery, and the giro is the one worth knowing: for decades 'the giro' simply meant the dole.",
-     "definitionFit": "To originate something is to produce it, to bring it into being, and both are transitive verbs in the same form."
+     "surface": "An earl hurriedly returns a benefits payment.",
+     "walkthrough": "GIRO 'sent back' gives ORIG; 'regularly' takes AT from haste. A giro was the British unemployment benefit cheque.",
+     "definitionFit": "To originate is to bring into being, to create or give rise to something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Produce"
     }
    }
   },
@@ -963,47 +990,47 @@
     "definitions": [
      {
       "text": "Quietly hiding",
-      "at": 0,
-      "note": "The answer is an adverb that survives only in the phrase 'lie doggo', so the definition describes the state rather than swapping in word for word."
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DOGGO",
-     "indicators": [
-      {
-       "text": "perhaps",
-       "note": "Perhaps marks an example: the Roman named is one of a class, and it is the class word that supplies the letters."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "turned",
-         "note": "A thing turned round is read the other way, so those three letters arrive in reverse."
+         "at": 33,
+         "note": "turned means turned round, so the god word is read backwards"
         }
        ],
        "parts": [
         {
          "words": "Silvanus perhaps",
-         "gives": "DOG",
-         "note": "Silvanus was the Roman god of woods and fields, and GOD is turned round here"
-        },
-        {
-         "words": "leave",
-         "gives": "GO",
-         "note": "to leave is to go"
+         "at": 16,
+         "gives": "GOD",
+         "note": "Silvanus was the Roman god of woods and fields, an example of a god"
         }
        ]
+      },
+      {
+       "words": "leave",
+       "at": 43,
+       "gives": "GO",
+       "note": "to go is to leave"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The capital letter points hard at a person, and the wordplay only wants his job description — a deity, turned about.",
-     "definitionFit": "To lie doggo is to stay hidden and keep quiet, the way a dog lies still, which is exactly what the definition describes."
+     "surface": "A woodland deity, keeping still and out of sight, then turns away to depart.",
+     "walkthrough": "GOD 'turned' gives DOG. 'Lie doggo' is British slang for keeping quiet and out of sight.",
+     "definitionFit": "To lie doggo is to stay hidden and motionless, keeping a low profile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Silvanus"
     }
    }
   },
