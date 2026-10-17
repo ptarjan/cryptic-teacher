@@ -502,12 +502,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "YAHRZEIT",
      "indicators": [
       {
        "text": "stopping",
-       "note": "something stopping a gap plugs it, so these letters sit inside the other words"
+       "at": 10,
+       "note": "stopping means plugging a gap, so these letters fill the middle of the reversed word pair"
       }
      ],
      "parts": [
@@ -516,7 +515,8 @@
        "indicators": [
         {
          "text": "recalled",
-         "note": "to recall is to call back, so the whole string is taken back to front"
+         "at": 42,
+         "note": "recalled means called back, so the pair of words is read in reverse"
         }
        ],
        "parts": [
@@ -525,39 +525,48 @@
          "parts": [
           {
            "words": "to bind",
+           "at": 19,
            "gives": "TIE",
            "note": "to tie is to bind"
           },
           {
-           "words": "Zulu",
-           "gives": "Z",
-           "note": "Zulu is Z in the NATO alphabet"
-          },
-          {
-           "words": "king",
-           "gives": "R",
-           "note": "R for rex, Latin for king"
-          },
-          {
            "words": "a bale perhaps",
+           "at": 27,
            "gives": "HAY",
-           "note": "hay is often baled, so a bale is an example of it"
+           "note": "a bale is one example of hay as it is gathered, hence the perhaps"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "king",
+         "at": 5,
+         "gives": "R",
+         "note": "R is short for rex, Latin for king"
+        },
+        {
+         "words": "Zulu",
+         "at": 0,
+         "gives": "Z",
+         "note": "Zulu is the radio alphabet word for Z"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Zulu monarch interrupts farm work tying bales, remembered on a sad anniversary.",
-     "walkthrough": "Zulu is a NATO alphabet code word, and R stands for Rex, Latin for king; the whole string runs backwards once assembled.",
-     "definitionFit": "Yahrzeit is the Jewish yearly commemoration of a relative's death, marked by lighting a candle and saying kaddish."
+     "surface": "An African monarch interrupts haymaking, and a sad date is remembered.",
+     "walkthrough": "'Recalled' turns TIE HAY into YAHEIT, and R and Z stop its gap. A yahrzeit is the yearly Jewish commemoration of a relative's death.",
+     "definitionFit": "Yahrzeit, from Yiddish 'year-time', is the annual remembrance of a death, marked with a candle and prayer."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "bale"
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
     }
    }
   },
@@ -1026,32 +1035,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EBAUCHE",
+     "op": "middle",
      "indicators": [
       {
        "text": "undressed",
-       "note": "undressed means stripped of its outer covering, so the outside letters are taken off"
+       "at": 17,
+       "note": "undressed means stripped of its outer layer, so the first and last letters go"
       }
      ],
      "parts": [
       {
        "words": "libertine",
+       "at": 7,
        "gives": "DEBAUCHEE",
-       "note": "a debauchee is a libertine, a person given to dissipation"
+       "note": "a debauchee is a person given to debauchery, a libertine"
       }
      ]
     },
     "spelling": "ÉBAUCHE",
     "explanation": {
      "surface": "A drawing of a rake with no clothes on.",
-     "definitionFit": "An ébauche is a rough draft or preliminary outline of a painting or literary work, borrowed from French."
+     "walkthrough": "'Undressed' strips the D and final E from DEBAUCHEE. An ébauche is a French word for a first rough draft of a painting or writing.",
+     "definitionFit": "An ébauche is a rough draft or preliminary outline, so a sketch of a work to come."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "undressed"
     }
    }
