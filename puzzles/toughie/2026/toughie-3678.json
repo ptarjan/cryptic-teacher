@@ -96,40 +96,38 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "rampant",
+       "at": 38,
+       "note": "rampant means rearing up, so in this down clue the buried letters are read from the bottom upwards"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "hidden",
        "indicators": [
         {
-         "text": "rampant",
-         "note": "a rampant beast in heraldry rears up on its hind legs, and in a down clue rearing up means reading from the bottom"
+         "text": "pounding",
+         "at": 28,
+         "note": "the letters are battered out of the words cembalo and Ivor's, run together across the comma, so a word is buried in them"
         }
        ],
        "parts": [
         {
-         "op": "hidden",
-         "parts": [
-          {
-           "words": "cembalo, Ivor's",
-           "gives": "ALOIV",
-           "note": "the letters running across the end of the first word and the start of the second"
-          }
-         ]
+         "words": "cembalo, Ivor's",
+         "at": 12,
+         "note": "the string of letters that holds the answer, read backwards"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "pounding",
-       "note": "surface padding: it only paints Ivor hammering at the keys"
       }
      ]
     },
     "explanation": {
-     "surface": "Ivor is hammering away wildly at a harpsichord.",
-     "walkthrough": "A cembalo is a harpsichord, which makes 'Instrument' look like a description of it; the answer is a different instrument hiding backwards inside the words, with 'pounding' only there for the picture.",
-     "definitionFit": "The viola is a bowed string instrument, slightly larger than a violin, so it is one example of a musical instrument."
+     "surface": "A list of musical goings-on: a harpsichord being hammered by Ivor in wild fashion.",
+     "walkthrough": "A cembalo is a harpsichord, pulling the eye to keyboards. \"pounding\" signals letters buried in cembalo, Ivor's: ALOIV, and \"rampant\" (rearing up) reads them upwards in this down clue.",
+     "definitionFit": "The viola is a stringed instrument slightly larger than the violin, played under the chin."
     },
     "features": {
      "answerInScene": true,
@@ -979,47 +977,54 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "CONSULTANT",
-     "indicators": [
-      {
-       "text": "succumbs to",
-       "note": "to succumb to something is to give way to it, so one letter yields its place to another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "against",
+       "words": "is against",
+       "at": 7,
        "gives": "CON",
-       "note": "con is the argument against, as in pros and cons"
+       "note": "con is a reason against, as in pros and cons"
       },
       {
-       "words": "fruit",
-       "gives": "SULTANA",
-       "note": "a sultana is a dried grape"
-      },
-      {
-       "words": "an adult",
-       "gives": "A",
-       "note": "A is the abbreviation for adult, as in film certificates"
-      },
-      {
-       "words": "temperature",
-       "gives": "T",
-       "note": "T is the abbreviation for temperature"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "succumbs to",
+         "at": 36,
+         "note": "the adult letter gives way to, and is replaced by, the temperature letter in the fruit"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fruit",
+         "at": 18,
+         "gives": "SULTANA",
+         "note": "a sultana is a dried grape"
+        },
+        {
+         "words": "an adult",
+         "at": 27,
+         "gives": "A",
+         "note": "A is the film-certificate abbreviation for adult"
+        },
+        {
+         "words": "temperature",
+         "at": 48,
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor objects to fruit because an adult went down with a fever.",
-     "walkthrough": "The final adult letter of the dried fruit is swapped for the temperature letter.",
-     "definitionFit": "In Britain a consultant is a senior hospital doctor in charge of a specialty."
+     "surface": "A sick-room scene: a doctor objecting to fruit for an adult who has come down with a fever.",
+     "walkthrough": "'Doctor' looks like an anagram signal but is the definition. The fruit is the dried grape, whose final adult letter \"succumbs to\" the temperature letter.",
+     "definitionFit": "A consultant is a senior hospital doctor, a specialist in British medical ranking."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "temperature"
+     "misdirectedWord": "succumbs"
     }
    }
   },
@@ -1613,34 +1618,45 @@
    "annotation": {
     "definitions": [
      {
-      "text": "cod",
+      "text": "cod?",
       "at": 28
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "WHITEFISH",
+     "spelt": "WHITEFISH",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of words"
+       "at": 18,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the two words here exchange their first sounds"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Scrap request",
-       "gives": "WHITEFISH",
-       "soundsLike": "FIGHT WISH",
-       "note": "a scrap is a fight and a request is a wish; swap their opening sounds"
+       "op": "homophone",
+       "spelt": "FITE",
+       "parts": [
+        {
+         "words": "Scrap",
+         "at": 0,
+         "gives": "FIGHT",
+         "note": "a scrap is a fight"
+        }
+       ]
+      },
+      {
+       "words": "request",
+       "at": 6,
+       "gives": "WISH",
+       "note": "a wish is a request"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks for scraps for cod, as if ordering at a chip shop.",
-     "walkthrough": "Scraps are the bits of loose batter a British chip shop gives away, which makes the fish-shop picture convincing.",
-     "definitionFit": "Cod is the classic example of white fish, the category of pale-fleshed sea fish."
+     "surface": "A puzzled question about what Spooner would call a cod.",
+     "walkthrough": "\"Spooner's\" says to swap the opening sounds of FIGHT (scrap) and WISH (request), giving WIGHT FISH, which is said like the answer.",
+     "definitionFit": "Cod is a prime example of the pale-fleshed sea fish grouped under this name; the question mark flags definition by example."
     },
     "features": {
      "answerInScene": true,
