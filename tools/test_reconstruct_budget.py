@@ -28,7 +28,8 @@ spec = [(None, "across", None)] * 16 + [(None, "down", None)] * 16
 t = time.time()
 found, info = R.reconstruct(spec, cols=15, rows=15, max_nodes=30_000, min_light=3)
 check("budget stops an all-unknown search", info["truncated"] and not found
-      and info["nodes"] <= 33_000 and time.time() - t < 60,
+      and info["steps"] <= 4 * 30_000 + 100
+      and info["nodes"] <= 30_001 and time.time() - t < 60,
       f"nodes={info['nodes']} {time.time() - t:.0f}s")
 
 # 2. Linked groups squeeze their unknown members' lengths.
