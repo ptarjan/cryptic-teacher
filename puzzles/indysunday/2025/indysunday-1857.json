@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -293,51 +294,59 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "STOCKTON",
+     "indicators": [
+      {
+       "text": "carrying",
+       "at": 51,
+       "note": "the reversed letters carry the next piece inside them"
+      }
+     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "carrying",
-         "note": "Carrying something means holding it inside you, so the King rides in among the other letters instead of following them."
+         "text": "north",
+         "at": 65,
+         "note": "in a down answer, going north means reading from bottom to top"
         }
        ],
        "parts": [
         {
          "op": "charade",
-         "indicators": [
-          {
-           "text": "north",
-           "note": "North is up the page, and a down entry read upwards is read backwards, so the whole assembly goes down in reverse."
-          }
-         ],
          "parts": [
           {
            "words": "not",
-           "note": "the little word taken at face value, all three letters of it"
-          },
-          {
-           "words": "King",
-           "gives": "K",
-           "note": "K is the king on a chessboard and in a pack of cards"
+           "at": 40,
+           "note": "taken as written"
           },
           {
            "words": "Beds",
+           "at": 44,
            "gives": "COTS",
-           "note": "cots are beds, the small ones, and nothing to do with a county"
+           "note": "cots are small beds"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "King",
+       "at": 60,
+       "gives": "K",
+       "note": "K is the chess abbreviation for king"
       }
      ]
     },
     "explanation": {
-     "surface": "A railway landmark in the north-east with a royal passenger aboard.",
-     "walkthrough": "The capital B and the dashes are there to sell you Bedfordshire, an aside about which county this is. Read as an ordinary plural noun instead.",
-     "definitionFit": "Stockton-on-Tees was the terminus of the 1825 Stockton and Darlington Railway, the world's first steam-hauled public line."
+     "surface": "A railway buff describes a famous old terminus in County Durham, pointedly not in Bedfordshire, with a monarch travelling north.",
+     "walkthrough": "'Beds' looks like the abbreviation for Bedfordshire, an English county, but it means cots. NOT COTS written upwards gives STOCTON, 'carrying' K.",
+     "definitionFit": "Stockton-on-Tees was one end of the Stockton and Darlington Railway of 1825, the first public steam railway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Beds"
     }
    }
   },
@@ -601,40 +610,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LIPSTICK",
+     "spelt": "LIPSTICK",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "The Reverend Spooner's slips traded the opening sounds of neighbouring words, so you say the phrase aloud and swap the noises at the front."
+       "at": 0,
+       "note": "Spooner swapped the opening sounds of words, so the first letters of the two words change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "LIPS",
        "parts": [
         {
-         "unchecked": true,
          "words": "suggestions",
-         "gives": "LIPS",
-         "soundsLike": "TIPS",
-         "note": "suggestions are tips; hand its opening T to the word behind and take that word's L in exchange"
-        },
-        {
-         "unchecked": true,
-         "words": "are much better than",
-         "gives": "TICK",
-         "soundsLike": "LICK",
-         "note": "to lick a rival is to beat them soundly; its L goes forward and the T arrives from the front word"
+         "at": 10,
+         "gives": "TIPS",
+         "note": "tips are hints or suggestions"
         }
        ]
+      },
+      {
+       "words": "are much better than",
+       "at": 22,
+       "gives": "LICK",
+       "note": "to lick an opponent is to beat them soundly, to be much better than them"
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner insisting his advice beats any amount of make-up.",
-     "walkthrough": "The hard half is 'are much better than', which is the verb lick — Victorian slang for a thrashing, still alive in 'a licking'.",
-     "definitionFit": "LIPSTICK is make-up, so 'cosmetic' is the noun for it, sitting where the surface reads it as an adjective."
+     "surface": "Someone claims some advice is far superior to make-up.",
+     "walkthrough": "TIPS LICK has its opening letters swapped by 'Spooner's' to give LIPS TICK.",
+     "definitionFit": "Lipstick is a stick of colour for the lips, one of the commonest cosmetic products."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suggestions"
     }
    }
   },
@@ -659,42 +672,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OWL",
-     "indicators": [
-      {
-       "text": "hiding",
-       "note": "What goes into hiding is out of sight, so the letter named just before it never appears in the answer."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "hiding",
+         "at": 10,
+         "note": "the hard letter is hidden, kept out of sight, so it drops out"
+        }
+       ],
        "parts": [
         {
          "words": "How",
-         "gives": "OW",
-         "note": "the question word with its opening letter gone"
+         "at": 0,
+         "note": "taken as written"
         },
         {
-         "words": "large",
-         "gives": "L",
-         "note": "L is the size on a clothing label"
-        },
-        {
-         "unchecked": true,
          "words": "hard",
-         "note": "hard is H, the grade stamped on a pencil, and that is the letter that hides"
+         "at": 4,
+         "gives": "H",
+         "note": "H is the pencil-grading abbreviation for hard"
         }
        ]
+      },
+      {
+       "words": "large",
+       "at": 17,
+       "gives": "L",
+       "note": "L is the clothing-size abbreviation for large"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone wondering how difficult it is to conceal a big nose.",
-     "walkthrough": "'Hooter' is British slang for a nose, which is the picture the comma sets up; the bird is the thing that actually hoots.",
-     "definitionFit": "An OWL is the bird that hoots, so 'hooter' names it by the noise it makes rather than by anything you can see."
+     "surface": "Someone marvels at how hard it is to conceal a big nose.",
+     "walkthrough": "'Hooter' looks like slang for a big nose, which the surface supports, but it is a bird that hoots. HOW with H 'hiding' leaves OW.",
+     "definitionFit": "The bird is named a hooter because of its call, the hoot heard at night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hooter"
     }
    }
   },
@@ -748,17 +768,17 @@
     "definitions": [
      {
       "text": "The Sun's",
-      "at": 0
+      "at": 0,
+      "note": "a possessive, of the Sun, matching the adjective's sense"
      }
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "SOLAR",
      "indicators": [
       {
        "text": "eclipsed",
-       "note": "An eclipse blots a thing out, so the letters it names disappear from the word they were sitting in."
+       "at": 32,
+       "note": "something eclipsed is blotted out, so these letters vanish from the phrase"
       }
      ],
      "parts": [
@@ -767,27 +787,34 @@
        "parts": [
         {
          "words": "as",
+         "at": 10,
          "gives": "SO",
-         "note": "as big as, so big — the two words swap freely"
+         "note": "as large means so large, so as gives SO"
         },
         {
          "words": "large",
-         "gives": "LAR",
-         "note": "LARGE with its final two letters dropped"
-        },
-        {
-         "unchecked": true,
-         "words": "Earth's",
-         "note": "Ge is the Greek earth goddess, the ge- of geology and geography, and hers are the letters that go"
+         "at": 13,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "Earth",
+       "at": 24,
+       "gives": "GE",
+       "note": "Ge or Gaia is the Greek goddess of the Earth, as in geography"
       }
      ]
     },
     "explanation": {
-     "surface": "An eclipse in which the Sun looks as big as ever while the Earth is blacked out.",
-     "walkthrough": "Earth is GE here, which is worth keeping: setters reach for the Greek goddess whenever those two letters suit them, and nothing in the clue announces her.",
-     "definitionFit": "SOLAR means of the sun, and the possessive 'The Sun's' does the same job — a solar year is the sun's year."
+     "surface": "During an eclipse of the Earth, the Sun is said to look just as big.",
+     "walkthrough": "SO LARGE with GE, the Earth, 'eclipsed' leaves the answer. The definition is possessive: 'The Sun's' means belonging to the Sun.",
+     "definitionFit": "Solar is the adjective for anything belonging to or coming from our star, as in solar energy or solar flares."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eclipsed"
     }
    }
   },
@@ -818,53 +845,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SOH",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "parts",
+       "at": 38,
+       "note": "the hushing letters part, opening up to take the remaining letter between them"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "not a word",
+       "at": 6,
+       "gives": "SH",
+       "note": "sh is the call for silence, asking that not a word be said"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "omitted",
-         "note": "What is omitted is left out, so the editor's two letters never reach the answer."
+         "at": 30,
+         "note": "the editor's letters are left out of the dictionary's initials"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "parts",
-           "note": "To part two things is to push them away from each other, so the arriving letter comes between them."
-          }
-         ],
-         "parts": [
-          {
-           "words": "not a word",
-           "gives": "SH",
-           "note": "'not a word!' is the hiss you use telling somebody to keep quiet"
-          },
-          {
-           "words": "OED",
-           "gives": "O",
-           "note": "the dictionary's three letters minus the editor's pair"
-          }
-         ]
+         "words": "OED",
+         "at": 19,
+         "note": "taken as written"
         },
         {
-         "unchecked": true,
          "words": "editor",
-         "note": "editor is ED, the two letters that are dropped"
+         "at": 23,
+         "gives": "ED"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lexicographer ruling that something is not a word and leaving parts of the entry out.",
-     "walkthrough": "The colon after the first word reads as a heading and is really the seam between definition and wordplay, which is why the clue looks like a memo.",
-     "definitionFit": "SOH is the fifth note of the tonic sol-fa scale — doh, ray, me, fah, soh — so 'Note' names it as a musical one."
+     "surface": "A footnote claims a term is missing because a dictionary editor left out some sections.",
+     "walkthrough": "OED with ED 'omitted' leaves O, which SH 'parts' to hold. OED is the Oxford English Dictionary.",
+     "definitionFit": "In tonic sol-fa the fifth degree of the scale is soh, one of the named notes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
     }
    }
   },
@@ -889,42 +917,45 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "thrown in for",
+       "at": 12,
+       "note": "these letters are thrown in to take the place of the other letter"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "CHESTS",
-       "indicators": [
-        {
-         "text": "thrown in for",
-         "note": "Throwing one thing in for another is an exchange, so what follows is taken out and what precedes it takes the vacant place."
-        }
-       ],
-       "parts": [
-        {
-         "words": "in the price of suit",
-         "gives": "COSTS",
-         "note": "the price of a thing is its cost, and the suit is spades, written S on a bridge scorecard"
-        },
-        {
-         "words": "he's",
-         "gives": "HE",
-         "note": "the word taken at face value, its 's dropped as the ordinary verb 'is'"
-        }
-       ]
+       "words": "the price of suit",
+       "at": 37,
+       "gives": "COSTS",
+       "note": "in a lawsuit the losing side pays the legal costs"
       },
       {
-       "unchecked": true,
        "words": "nothing",
-       "note": "nothing is the letter O, and it is the one that makes way"
+       "at": 26,
+       "gives": "O",
+       "note": "O looks like zero, nothing"
+      },
+      {
+       "words": "he's",
+       "at": 7,
+       "gives": "HE",
+       "note": "the pronoun he, its 's read as is, part of the link"
       }
      ]
     },
     "explanation": {
-     "surface": "Swimming trunks thrown in free when you buy the suit.",
-     "walkthrough": "'Trunks' wants to be swimwear or elephants and is the plural of a packing box, while 'suit' is not tailoring but cards — one of the four.",
-     "definitionFit": "A CHEST is a stout box for storage, which is exactly what a trunk is, so the two plurals match sense for sense."
+     "surface": "A tailor throws in swimming trunks free with the cost of a suit.",
+     "walkthrough": "'Suit' looks like clothing beside trunks, but it is a lawsuit. In COSTS, HE is 'thrown in for' O, the nothing.",
+     "definitionFit": "A trunk is a large travelling box, so trunks are large storage chests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "suit"
     }
    }
   },
@@ -1044,37 +1075,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HUMBLER",
-     "indicators": [
-      {
-       "text": "has no head",
-       "note": "Having no head means losing the letter at the top, which is the first one the word is written with."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "height",
+       "at": 21,
+       "gives": "H"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "has no head",
+         "at": 45,
+         "note": "the word loses its head, its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "height",
-         "gives": "H",
-         "note": "H is the abbreviation for height in any table of measurements"
+         "words": "acrobat",
+         "at": 37,
+         "gives": "TUMBLER",
+         "note": "a tumbler is an acrobat who does somersaults"
         },
         {
-         "words": "acrobat",
-         "gives": "UMBLER",
-         "note": "an acrobat is a tumbler, here beheaded"
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A height at which an acrobat loses his nerve, or his head.",
-     "walkthrough": "'Comparatively' is doing grammar rather than describing anything: it tells you the definition is a comparative, which is where the -ER on the end comes from.",
-     "definitionFit": "HUMBLER is the comparative of humble, so 'Comparatively modest' asks for 'more modest' and gets it in a single word."
+     "surface": "A circus act at a lofty height where the acrobat goes headless, which is a humbling thought.",
+     "walkthrough": "TUMBLER that 'has no head' is UMBLER, with H for height in front.",
+     "definitionFit": "Humbler is the comparative of humble, meaning more modest or more lowly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "height"
     }
    }
   },
@@ -1439,44 +1479,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ELUARD",
+     "op": "container",
      "indicators": [
       {
-       "text": "in translation",
-       "note": "A translation says the same thing in a different set of letters, which is the licence to reorder these ones."
+       "text": "about it",
+       "at": 48,
+       "note": "the jumbled letters go about, around, it: the French word just named"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about it",
-         "note": "About means round the outside, and 'it' points back to the word just made, so the reordered letters close over it."
+         "text": "in translation",
+         "at": 33,
+         "note": "a translation turns the word into another form, so its letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "read in translation",
-         "gives": "EARD",
-         "note": "the four letters of READ set down in another order"
-        },
-        {
          "words": "read",
-         "gives": "LU",
-         "note": "lu is how a Frenchman writes it, the past participle of lire"
+         "at": 28,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "read in French",
+       "at": 12,
+       "gives": "LU",
+       "note": "lu is the French past participle of lire, to read"
       }
      ]
     },
     "spelling": "ÉLUARD",
     "explanation": {
-     "surface": "A French poet enjoyed both in the original and in somebody's translation.",
-     "walkthrough": "The clue says 'read' twice and means something different each time: once the French word, once the four letters shuffled. The semicolon is the only warning you get.",
-     "definitionFit": "Paul Éluard was a leading French surrealist poet, so the definition places him by nationality and trade."
+     "surface": "A French poet's work is read in the original and then in translation.",
+     "walkthrough": "'It' refers back to LU, the French for read. 'In translation' jumbles READ into EARD, which goes 'about it', around LU.",
+     "definitionFit": "Paul Éluard was a French Surrealist poet, known for the wartime poem Liberty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "translation"
     }
    }
   },
@@ -1501,42 +1547,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NEEDED",
-     "indicators": [
-      {
-       "text": "no longer",
-       "note": "What is no longer there has gone, so the letter named just before it is taken out of the word."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Born",
+       "at": 0,
+       "gives": "NEE",
+       "note": "nee, from French, introduces a woman's name at birth"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no longer",
+         "at": 21,
+         "note": "the one is no longer there, removed from the word"
+        }
+       ],
        "parts": [
         {
-         "words": "Born",
-         "gives": "NEE",
-         "note": "née is what stands in front of a married woman's birth name"
-        },
-        {
          "words": "died",
-         "gives": "DED",
-         "note": "the past tense with one letter taken out of the middle"
+         "at": 11,
+         "gives": "DEAD",
+         "note": "dead means having died"
         },
         {
-         "unchecked": true,
          "words": "one",
-         "note": "one is the Roman numeral I, and that is the letter that goes"
+         "at": 17,
+         "gives": "A",
+         "note": "A means one, as in a single thing"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A whole life in two dates, and somebody who is no longer wanted.",
-     "walkthrough": "'One' is the numeral I, which turns up whenever a clue mentions a single anything — a convention that costs a solver a lot of time the first few times it appears.",
-     "definitionFit": "Something NEEDED is required, which is 'essential' in the sense of being the thing you cannot do without."
+     "surface": "A life summed up as born, then died, someone who no longer matters.",
+     "walkthrough": "'One no longer essential' reads as someone dispensable, but 'essential' alone is the definition. DEAD with A 'no longer' present gives DED.",
+     "definitionFit": "Needed means required, something you cannot do without, which is what essential means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "essential"
     }
    }
   },
@@ -1865,26 +1918,32 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "NORSE",
      "indicators": [
       {
        "text": "has cycled",
-       "note": "Cycling sends the letters round a loop: the ones at the front go to the back and every letter keeps its order."
+       "at": 18,
+       "note": "the word goes round in a cycle, letters moving from the front to the back"
       }
      ],
      "parts": [
       {
        "words": "Spanish gentleman",
+       "at": 0,
        "gives": "SENOR",
-       "note": "señor is the Spanish for gentleman or sir, and crosswords drop the accent"
+       "note": "senor is the Spanish for a gentleman or Mr"
       }
      ]
     },
     "explanation": {
-     "surface": "A Spanish gentleman who has ridden his bicycle down from Scandinavia.",
-     "walkthrough": "Cycling looks like an anagram and is far stricter: no letter passes another, the run simply starts two letters further along.",
-     "definitionFit": "NORSE means of ancient Scandinavia — its people and their language — so the definition places the adjective on the map."
+     "surface": "A man from Spain has ridden a bicycle all the way up from Scandinavia.",
+     "walkthrough": "'Has cycled' sounds like a bike ride; it means the first letters of SENOR move to the end.",
+     "definitionFit": "Norse means relating to ancient or medieval Scandinavia, its people and their language."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cycled"
     }
    }
   }
