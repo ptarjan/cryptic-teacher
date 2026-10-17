@@ -421,52 +421,60 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "KONGONI",
      "indicators": [
       {
        "text": "in",
-       "note": "in puts the word for stab inside the word for bar"
+       "at": 5,
+       "note": "the word for stab is placed in the middle of the reversed letters"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "reversal",
        "indicators": [
         {
          "text": "upset",
-         "note": "upset means knocked over and disordered, so the letters are jumbled"
+         "at": 22,
+         "note": "in a down clue, upset turns the pair of words for bar and certainly upside down, so they read backwards"
         }
        ],
        "parts": [
         {
-         "words": "bar",
-         "gives": "INN",
-         "note": "an inn is a pub, a bar"
-        },
-        {
-         "words": "Stab",
-         "gives": "GO",
-         "note": "to have a stab is to have a go"
-        },
-        {
-         "words": "certainly",
-         "gives": "OK",
-         "note": "OK as an agreeing 'certainly'"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "bar",
+           "at": 8,
+           "gives": "INN",
+           "note": "an inn is a bar or pub"
+          },
+          {
+           "words": "certainly",
+           "at": 12,
+           "gives": "OK",
+           "note": "OK means certainly, all right"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "Stab",
+       "at": 0,
+       "gives": "GO",
+       "note": "to have a stab at something is to have a go"
       }
      ]
     },
     "explanation": {
-     "surface": "A knifing in a bar has certainly upset someone from Tanzania who is used to being pushed around.",
-     "walkthrough": "'Tanzanian' looks like a person; it is an animal of the East African plains.",
-     "definitionFit": "The kongoni is the Coke's hartebeest, a grazing antelope of the savannas of Kenya and Tanzania."
+     "surface": "Someone is knifed in a pub and is understandably upset.",
+     "walkthrough": "INN plus OK, reversed by 'upset', gives KONNI; GO ('stab', as in have a go) goes inside it.",
+     "definitionFit": "The kongoni is an East African hartebeest, an antelope that grazes the Tanzanian plains."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Tanzanian"
+     "misdirectedWord": "Stab"
     }
    }
   },
