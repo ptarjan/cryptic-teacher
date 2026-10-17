@@ -99,50 +99,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "WEBS",
+     "op": "container",
      "indicators": [
       {
-       "text": "up",
-       "note": "in a down clue, 'up' turns the word to read from the bottom"
-      },
-      {
-       "text": "top of",
-       "note": "takes the first letter of breeches"
+       "text": "outside of",
+       "at": 10,
+       "note": "outside of means the reversed word wraps round the letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "outside of",
-         "note": "the stitching goes around the next piece"
+         "text": "up",
+         "at": 7,
+         "note": "in a down entry, up means the word is written from the bottom, so backwards"
         }
        ],
        "parts": [
         {
-         "words": "Stitch up",
-         "gives": "WES",
-         "note": "sew = stitch, turned upwards to WES"
-        },
+         "words": "Stitch",
+         "at": 0,
+         "gives": "SEW",
+         "note": "to stitch is to sew"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "top of breeches",
-         "gives": "B",
-         "note": "first letter of breeches, placed inside WE…S"
+         "text": "top of",
+         "at": 21,
+         "note": "the top of a word in a down clue is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "breeches",
+         "at": 28,
+         "note": "the word breeches, giving its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tailor sews up the fly of some trousers, and the word 'flies' plays along.",
-     "walkthrough": "The trouser surface makes 'flies' look like zips on breeches; in the definition they are insects caught in spiders' webs.",
-     "definitionFit": "A descriptive definition: spiders spin these sticky traps precisely to snare flying insects."
+     "surface": "A tailor sews up the outside of a pair of trousers, where the fly might snag.",
+     "walkthrough": "'flies' looks like the opening at the front of breeches, but here the insects are meant. 'up' turns SEW into WES in this down entry, and 'outside of' puts it round the B from 'top of breeches'.",
+     "definitionFit": "Spiders spin webs to trap insects, so flies get stuck in them."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "flies"
