@@ -94,58 +94,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ADORABLE",
+     "op": "container",
      "indicators": [
       {
-       "text": "served up",
-       "note": "in a down entry, served upward reads the word from bottom to top"
+       "text": "bottles",
+       "at": 34,
+       "note": "the beer bottles the party and bar, holding them inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "bottles",
-         "note": "the beer holds the other letters inside it as a bottle holds a drink"
-        }
-       ],
+       "words": "beer",
+       "at": 29,
+       "gives": "ALE",
+       "note": "ale is a kind of beer"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "beer",
-           "gives": "ALE",
-           "note": "ale is beer; it bottles, or holds, the party and the reversed bar"
-          },
-          {
-           "words": "bar served up",
-           "gives": "RAB",
-           "note": "BAR turned upside down"
-          }
-         ]
+         "words": "party",
+         "at": 9,
+         "gives": "DO",
+         "note": "a do is an informal word for a party"
         },
         {
-         "words": "party",
-         "gives": "DO",
-         "note": "a do is a party"
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "served up",
+           "at": 19,
+           "note": "in a down answer, up means read from bottom to top, so bar is served in reverse"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bar",
+           "at": 15,
+           "note": "taken as written"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A charming party where the bar serves bottled beer.",
-     "walkthrough": "The surface makes 'bar' a pub counter and 'served up' something a barman does; together they are an instruction to write BAR upwards.",
-     "definitionFit": "Adorable and charming both describe someone delightful to be with."
+     "surface": "A delightful party where the bar serves bottled beer.",
+     "walkthrough": "'bottles' looks like a noun for how the beer is served, but it is a verb: the beer holds the other pieces. 'served up' only works as a reversal because this is a down clue.",
+     "definitionFit": "Adorable and charming are synonyms, both describing something delightful that wins affection."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "served"
+     "misdirectedWord": "bottles"
     }
    }
   },
@@ -666,74 +668,89 @@
     "definitions": [
      {
       "text": "Strummer",
-      "at": 69
+      "at": 69,
+      "note": "someone who strums, as on a guitar"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GUITARIST",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 23,
+       "note": "the rearranged I start comes after the soldier containing the sound"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "to get excited",
-         "note": "letters that get excited jump about into a new order"
+         "text": "getting introduced to",
+         "at": 43,
+         "note": "the sound of you is introduced into the soldier, going inside it"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "Joe",
+         "at": 65,
+         "gives": "GI",
+         "note": "GI Joe is an American soldier, so Joe gives GI"
+        },
+        {
+         "op": "homophone",
+         "spelt": "U",
          "indicators": [
           {
            "text": "report of",
-           "note": "a report is something heard"
+           "at": 29,
+           "note": "a report is something heard, so we want the sound of the word you"
           }
          ],
          "parts": [
           {
-           "words": "Joe",
-           "gives": "GI",
-           "note": "GI Joe, the American soldier"
-          },
-          {
-           "op": "homophone",
-           "spelt": "U",
-           "indicators": [
-            {
-             "text": "getting introduced to"
-            }
-           ],
-           "parts": [
-            {
-             "words": "report of you",
-             "gives": "YOU",
-             "note": "the letter U; goes inside GI: G(U)I"
-            }
-           ]
+           "words": "you",
+           "at": 39,
+           "gives": "YOU",
+           "note": "the word you, said aloud, sounds like the letter U"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to get excited",
+         "at": 8,
+         "note": "excited letters jump about, so I start is rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I",
+         "at": 0
         },
         {
-         "words": "I start to get excited",
-         "gives": "TARIST",
-         "note": "anagram of I START"
+         "words": "start",
+         "at": 2
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fan gets excited on being introduced to Joe Strummer, of The Clash.",
-     "walkthrough": "'Joe Strummer' reads as the punk singer's name; it splits into Joe, the GI, and a strummer, the definition. The anagram comes first in the clue but last in the answer, since it sits 'after' the rest.",
-     "definitionFit": "A description by action: strumming the strings is what this player does, and Joe Strummer was one."
+     "surface": "A nervous fan meets Joe Strummer, the singer and guitarist of The Clash.",
+     "walkthrough": "'Joe Strummer' reads as one name, the frontman of the punk band The Clash; split it, and Joe is the American soldier while Strummer is the definition. 'report of' asks for a sound, 'getting introduced to' puts it inside, and 'after' places the excited letters last.",
+     "definitionFit": "A guitarist plays by strumming the strings, so a strummer is a fair cryptic description of one."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Joe"
+     "misdirectedWord": "Strummer"
     }
    }
   },
