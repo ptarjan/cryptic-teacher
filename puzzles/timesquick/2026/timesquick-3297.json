@@ -620,57 +620,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "VENDETTA",
-     "indicators": [
-      {
-       "text": "overturning",
-       "note": "turning over puts AT back to front"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taking",
+         "at": 7,
+         "note": "the doctor takes in, holds, the next word inside"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "taking"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Doctor",
-           "gives": "VET",
-           "note": "a vet is an animal doctor"
-          },
-          {
-           "words": "aim",
-           "gives": "END",
-           "note": "an end = an aim, as in 'to that end'"
-          }
-         ]
+         "words": "Doctor",
+         "at": 0,
+         "gives": "VET",
+         "note": "a vet is an animal doctor"
         },
         {
-         "words": "at overturning",
-         "gives": "TA",
-         "note": "AT turned round"
+         "words": "aim",
+         "at": 14,
+         "gives": "END",
+         "note": "an aim or goal is an end"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "overturning",
+         "at": 21,
+         "note": "the little word is turned over, read from back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "at",
+         "at": 18,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor takes aim at overthrowing a rival in an old quarrel.",
-     "walkthrough": "'Aim at' looks like a single phrase about targeting, but it splits: 'aim' is END and 'at' is the word to be turned over.",
-     "definitionFit": "A vendetta is a prolonged bitter feud, originally a blood feud between families."
+     "surface": "A doctor sets a goal of reversing an old quarrel.",
+     "walkthrough": "'Taking' puts END inside VET, giving VENDET; 'overturning' flips AT to TA, which follows.",
+     "definitionFit": "A vendetta is a prolonged bitter quarrel, often a blood feud carried on between families over generations."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "at"
+     "misdirectedWord": "Doctor"
     }
    }
   },
