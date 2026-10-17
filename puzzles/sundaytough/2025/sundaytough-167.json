@@ -173,7 +173,8 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so the outer letters surround the inner ones"
+       "at": 16,
+       "note": "about means the outer letters go round the inner ones"
       }
      ],
      "parts": [
@@ -182,11 +183,13 @@
        "parts": [
         {
          "words": "Nearly",
+         "at": 0,
          "gives": "NIGH",
-         "note": "nigh is an old word for nearly"
+         "note": "nigh means nearly, as in nigh on impossible"
         },
         {
          "words": "personal",
+         "at": 7,
          "gives": "OWN",
          "note": "your own things are personal to you"
         }
@@ -194,35 +197,32 @@
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "TG",
        "indicators": [
         {
          "text": "occasionally",
-         "note": "something done occasionally happens only now and then, so only every other letter is used"
+         "at": 28,
+         "note": "occasionally means only every other letter of the word is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "togs",
-         "gives": "TG",
-         "select": "alternate",
-         "note": "first and third letters of togs"
+         "at": 22,
+         "note": "togs are clothes, used here for alternate letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone almost fussy about their clothes, now and then in a negligee.",
-     "walkthrough": "The two outer pieces are joined first and then sit about the selected letters. Togs is informal British for clothes.",
-     "definitionFit": "A negligee is a light, flimsy woman's dressing gown or nightdress, so it is a kind of garment worn to bed."
+     "surface": "A personal shopper suggests that, among the clothes, a negligee is now and then nearly the thing.",
+     "walkthrough": "'Nearly' and 'personal' together go 'about' the T and G that 'occasionally' picks from togs, so TG sits between the two words. 'togs' is British slang for clothes.",
+     "definitionFit": "A negligee is a light, flimsy dressing gown or nightdress worn by women."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "personal"
+     "misdirectedWord": "Nearly"
     }
    }
   },
@@ -592,37 +592,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VERTEBRA",
-     "indicators": [
-      {
-       "text": "cropped",
-       "note": "a cropped thing has been cut short, so the final letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cropped",
+         "at": 19,
+         "note": "something cropped is cut short, so the last letter is cut off"
+        }
+       ],
        "parts": [
         {
          "words": "top",
-         "gives": "VERTE",
-         "note": "vertex means the top or apex; dropping its end leaves VERTE"
+         "at": 27,
+         "gives": "VERTEX",
+         "note": "a vertex is the top or highest point"
         },
         {
-         "words": "undergarment",
-         "gives": "BRA",
-         "note": "a bra is a woman's undergarment"
+         "gives": "X"
         }
        ]
+      },
+      {
+       "words": "undergarment",
+       "at": 31,
+       "gives": "BRA",
+       "note": "a bra is an undergarment"
       }
      ]
     },
     "explanation": {
-     "surface": "A cropped top worn with an underwired, supportive bra.",
-     "walkthrough": "'Cropped top' suggests a short garment, but it means vertex with its last letter cut.",
-     "definitionFit": "Each vertebra is one of the small bones of the spine, which holds the body upright and bears its weight."
+     "surface": "A cropped top worn with a bra gives a woman some support.",
+     "walkthrough": "'cropped top' reads as a short garment, but 'top' is the noun VERTEX, the highest point, and 'cropped' trims its last letter. 'Supporting' fits both the bra and the backbone.",
+     "definitionFit": "A vertebra is one of the bones of the spine, which supports the body."
     },
     "features": {
      "answerInScene": false,
@@ -1094,37 +1098,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOBSTER",
-     "indicators": [
-      {
-       "text": "tailless",
-       "note": "something tailless has lost its end, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Throw",
+       "at": 0,
+       "gives": "LOB",
+       "note": "to lob is to throw in a high arc"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "tailless",
+         "at": 11,
+         "note": "without its tail, the word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Throw",
-         "gives": "LOB",
-         "note": "to lob is to throw in a high arc"
+         "words": "back",
+         "at": 6,
+         "gives": "STERN",
+         "note": "the stern is the back of a ship"
         },
         {
-         "words": "back",
-         "gives": "STER",
-         "note": "the stern is the back of a ship; without its end it leaves STER"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An angler tosses an undersized shellfish back into the sea.",
-     "walkthrough": "'Throw back' reads as one phrase about returning a catch, and 'back' looks like a reversal signal; it is a noun, the stern.",
-     "definitionFit": "A lobster is a large marine crustacean with claws, a well-known kind of shellfish eaten as seafood."
+     "surface": "Someone tosses back a shellfish that has lost its tail.",
+     "walkthrough": "'back' looks like part of 'Throw back', but it is the noun STERN, the back of a boat, which 'tailless' shortens.",
+     "definitionFit": "A lobster is a large marine crustacean, a kind of shellfish."
     },
     "features": {
      "answerInScene": true,
@@ -1412,42 +1420,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "COPRA",
-     "indicators": [
-      {
-       "text": "practically",
-       "note": "practically means almost but not quite, so the word stops one letter short"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Acquire",
+       "at": 0,
+       "gives": "COP",
+       "note": "to cop is informal for to get or acquire, as in cop a fine"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "practically",
+         "at": 8,
+         "note": "practically means almost all, so the last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Acquire",
-         "gives": "COP",
-         "note": "to cop is informal for to get or obtain"
+         "words": "unrefined",
+         "at": 20,
+         "gives": "RAW",
+         "note": "unrefined means raw, in its natural state"
         },
         {
-         "words": "unrefined",
-         "gives": "RA",
-         "note": "raw means unrefined; cut short it leaves RA"
+         "gives": "W"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Buying a source of almost crude oil.",
-     "walkthrough": "'Unrefined oil' suggests crude petroleum, but the oil source is plant-based.",
-     "definitionFit": "Copra is the dried kernel of the coconut, pressed to extract coconut oil, so it is a raw material for oil."
+     "surface": "A buyer is told to get hold of nearly crude oil.",
+     "walkthrough": "'practically' cuts RAW to RA. Copra is dried coconut kernel, pressed to make coconut oil.",
+     "definitionFit": "Copra, dried coconut meat, is the raw material from which coconut oil is pressed."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "unrefined"
+     "misdirectedWord": "practically"
     }
    }
   },
