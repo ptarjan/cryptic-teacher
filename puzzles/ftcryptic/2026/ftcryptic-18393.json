@@ -354,41 +354,45 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "QUEEN",
      "indicators": [
       {
        "text": "bringing in",
-       "note": "bringing in one thing for another means swapping a newcomer into the place of an existing letter"
+       "at": 4,
+       "note": "bringing in means introducing something new, so the note letter enters the word for odd"
+      },
+      {
+       "text": "for",
+       "at": 21,
+       "note": "for here means in place of, so the note letter replaces the Republican one"
       }
      ],
      "parts": [
       {
        "words": "Odd",
+       "at": 0,
        "gives": "QUEER",
-       "note": "queer in its old sense means odd or strange"
-      },
-      {
-       "words": "note",
-       "gives": "N",
-       "note": "N is the abbreviation for note"
+       "note": "queer in its older sense means strange or odd"
       },
       {
        "words": "Republican",
-       "gives": "R",
-       "note": "R is the abbreviation for Republican"
+       "at": 25,
+       "gives": "R"
+      },
+      {
+       "words": "note",
+       "at": 16,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A strange business: a note arriving in place of a Republican crew member on a ship.",
-     "walkthrough": "The final R of QUEER is swapped for N. 'Man on board' suggests a sailor; chess pieces are called men.",
-     "definitionFit": "Chess pieces are traditionally called men, and this most powerful piece is one of them on the chessboard."
+     "surface": "A strange fellow sends in a message nominating a Republican for a seat on the board.",
+     "walkthrough": "'man on board' suggests a company director, but the board is a chessboard; 'bringing in' N 'for' R turns QUEER into the answer.",
+     "definitionFit": "The queen is one of the pieces in chess, and chessmen are the men moved around the board."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "board"
     }
    }
@@ -1368,40 +1372,40 @@
      "parts": [
       {
        "words": "Retired",
+       "at": 0,
        "gives": "EX",
-       "note": "an ex-player is a former, retired one"
+       "note": "ex means former, as someone retired from a post is an ex-holder of it"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "PEL",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half of",
-         "note": "half of a word is one of its two equal parts, here the second, so only those letters stay"
+         "at": 8,
+         "note": "half of takes only three of the six letters of chapel, its second half"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "chapel",
-         "gives": "PEL",
-         "select": "last",
-         "note": "the second half of 'chapel'"
+         "at": 16
+        },
+        {
+         "gives": "CHA"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A retired churchgoer takes half the congregation for a drive.",
-     "walkthrough": "EX means former, as in ex-wife, which is how 'retired' gets there.",
-     "definitionFit": "To expel is to force someone or something to leave, such as a pupil from school, which is driving them away."
+     "surface": "Half the congregation of a chapel has stepped down, leaving it to drive people away.",
+     "walkthrough": "'half of' keeps the back half of 'chapel', PEL, after EX for 'Retired'.",
+     "definitionFit": "To expel someone is to force them to leave, eject or banish them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "drive"
+     "misdirectedWord": "Retired"
     }
    }
   },
@@ -1810,53 +1814,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "COCHINEAL",
+     "op": "composite",
      "indicators": [
       {
        "text": "tipsy",
-       "note": "a tipsy person staggers about, so the letters are thrown into disorder"
+       "at": 16,
+       "note": "tipsy means unsteady from drink, so these letters reel into a new order"
+      },
+      {
+       "text": "without",
+       "at": 22,
+       "note": "without means lacking, so the wife letter is absent from the mix"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "COCHINEAL",
-       "indicators": [
-        {
-         "text": "without",
-         "note": "without means lacking something, so that letter is taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "calico",
-         "note": "taken as written"
-        },
-        {
-         "words": "when",
-         "note": "taken as written"
-        },
-        {
-         "words": "wife",
-         "gives": "W",
-         "note": "W is the abbreviation for wife, the letter taken away"
-        }
-       ]
+       "words": "calico when",
+       "at": 4,
+       "note": "the fodder, taken as written"
+      },
+      {
+       "words": "wife",
+       "at": 30,
+       "gives": "W",
+       "note": "W is the abbreviation for wife, as in genealogy"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone dyes calico cloth while drunk, without his wife around.",
-     "walkthrough": "W is the standard abbreviation for wife; calico is a plain cotton fabric, fitting the dyeing scene.",
-     "definitionFit": "This crimson colouring made from crushed scale insects is a natural dye, used in food and fabrics."
+     "surface": "Someone dyes a calico fabric while drunk and with no spouse around to stop them.",
+     "walkthrough": "A composite anagram: strike W from the letters of CALICO WHEN, and 'tipsy' rearranges the remaining nine.",
+     "definitionFit": "Cochineal is a crimson colouring made from crushed scale insects, used in food and fabric."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "tipsy"
+     "misdirectedWord": "when"
     }
    }
   },
