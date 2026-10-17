@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -476,49 +477,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ASYMMETRY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "defended by",
+       "at": 38,
+       "note": "to be defended by something is to be guarded on both sides by it, so the awards sit inside the a and the judge"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "ASYMMETRY",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "upcoming"
-          },
-          {
-           "text": "defended by"
-          }
-         ],
-         "parts": [
-          {
-           "words": "a",
-           "note": "the clue's own 'a', defending from the front"
-          },
-          {
-           "words": "TV awards",
-           "gives": "SYMME",
-           "note": "the EMMYS, climbing the down entry"
-          },
-          {
-           "words": "judge",
-           "gives": "TRY",
-           "note": "to try a case is to judge it"
-          }
-         ]
+         "words": "a",
+         "at": 50,
+         "gives": "A"
+        },
+        {
+         "words": "judge",
+         "at": 52,
+         "gives": "TRY",
+         "note": "to try a case is to judge it"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upcoming",
+         "at": 19,
+         "note": "in a down clue upcoming means rising, so the awards are read from bottom to top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "TV awards",
+         "at": 28,
+         "gives": "EMMYS",
+         "note": "the Emmys are the American television awards"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The Emmys are the television awards, and 'upcoming' is the right word for a reversal in a down entry. 'Judge' wants the courtroom verb, not the person.",
-     "definitionFit": "Asymmetry is the state of two halves failing to match, which is precisely what a lack of balance describes in a shape or a design."
+     "surface": "An imbalance in this year's TV awards is being defended by a judge.",
+     "walkthrough": "In a down clue 'upcoming' reads the awards bottom to top; to try a case is to judge it.",
+     "definitionFit": "Asymmetry is the absence of symmetry, an unevenness or imbalance between two sides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upcoming"
     }
    }
   },
@@ -1007,57 +1019,62 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "Dotty"
+       "text": "going after",
+       "at": 32,
+       "note": "the rest of the letters go after the name Eve, so it comes first"
       }
      ],
      "parts": [
       {
        "words": "Eve",
-       "note": "the name Eve, taken whole"
+       "at": 44,
+       "gives": "EVE",
+       "note": "taken as written"
       },
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "discovered"
+         "text": "Dotty",
+         "at": 0,
+         "note": "dotty means crazy, so the letters of Brody are jumbled"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "going after"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Brody",
-           "note": "anagram fodder"
-          },
-          {
-           "op": "middle",
-           "unchecked": true,
-           "gives": "Y",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "Nye discovered",
-             "gives": "Y",
-             "select": "middle",
-             "note": "nYe with its covering letters taken off"
-            }
-           ]
-          }
-         ]
+         "words": "Brody",
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "discovered",
+         "at": 21,
+         "note": "discovered here means with its cover taken off, so the outer letters of Nye go, leaving its middle"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Nye",
+         "at": 17,
+         "note": "taken as written before it is uncovered"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Discovered' is the trick: not found out but dis-covered, its covering letters removed. Chief Brody and Nye Bevan keep the surface looking like a guest list.",
-     "definitionFit": "'Tom, Dick and Harry' is the English idiom for people in general, three stock names standing in for the population at large."
+     "surface": "A roll-call of people, Dotty, Brody and Nye, turning up after Eve, Tom, Dick and Harry.",
+     "walkthrough": "The list of names makes 'Dotty' look like one more person; it is the anagram signal. The last three names are the definition, not part of the list.",
+     "definitionFit": "Every Tom, Dick and Harry is an idiom for ordinary people in general, that is, all and sundry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Dotty"
     }
    }
   },
@@ -1082,55 +1099,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BOOKPLATE",
-     "indicators": [
-      {
-       "text": "revolutionary"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "container",
+       "words": "Surprising announcement",
+       "at": 0,
+       "gives": "BOO",
+       "note": "boo is what you say to make someone jump"
+      },
+      {
+       "words": "King",
+       "at": 27,
+       "gives": "K",
+       "note": "K is the chess and card abbreviation for king"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "about"
+         "text": "revolutionary",
+         "at": 46,
+         "note": "something revolutionary turns right round, so the record is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Surprising announcement",
-           "gives": "BOO",
-           "note": "BOO is what you shout to startle someone"
-          },
-          {
-           "words": "King",
-           "gives": "K",
-           "note": "K is the chess and card abbreviation for king"
-          },
-          {
-           "words": "worried",
-           "gives": "ATE",
-           "note": "worried in the sense of 'what's eating you'"
-          }
-         ]
-        },
-        {
-         "words": "revolutionary record",
-         "gives": "PL",
-         "note": "an LP spun round"
+         "words": "record",
+         "at": 60,
+         "gives": "LP",
+         "note": "an LP is a long-playing record"
         }
        ]
+      },
+      {
+       "words": "worried about",
+       "at": 32,
+       "gives": "ATE",
+       "note": "ate means worried about, as in what's eating you"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Worried' = ATE is the sense in 'what's eating you', and a record is an LP that 'revolutionary' spins round. The surface promises a royal scandal instead.",
-     "definitionFit": "A bookplate is the printed label pasted inside a front cover to record who owns the book, so 'label' is its literal sense."
+     "surface": "A king, fretting over a radical album, makes a startling statement.",
+     "walkthrough": "BOO and K, then 'revolutionary' turns LP into PL, followed by ATE (worried about).",
+     "definitionFit": "A bookplate is a decorative label pasted inside a book's cover to show who owns it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
     }
    }
   },
@@ -1164,34 +1181,44 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "Just over half of"
+       "text": "punished",
+       "at": 31,
+       "note": "something punished is knocked about, so those seven letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "PARATRO",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "punished"
+         "text": "Just over half of",
+         "at": 0,
+         "note": "the word has twelve letters, and just over half of it is its first seven"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "paratroopers",
-         "gives": "PARATRO",
-         "select": "first",
-         "note": "the first seven letters of a twelve-letter word"
+         "at": 18,
+         "gives": "PARATROOPERS",
+         "note": "taken as written before it is cut"
+        },
+        {
+         "gives": "OPERS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Just over half' is arithmetic rather than vagueness: paratroopers runs to twelve letters, so seven of them are the fodder. Count first, shuffle second.",
-     "definitionFit": "Pro rata is the Latin tag for a share worked out in proportion, still used by accountants and lawyers where plain English would say proportionately."
+     "surface": "More than half of a parachute unit were disciplined.",
+     "walkthrough": "'Just over half of' keeps PARATRO, the first seven of twelve letters, and 'punished' rearranges them.",
+     "definitionFit": "Pro rata is Latin for in proportion, used of payments shared out according to each person's share."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "punished"
     }
    }
   },
@@ -1216,41 +1243,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "fixed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "primarily"
+         "text": "primarily",
+         "at": 19,
+         "note": "primarily means first of all, so only the first letter of guy is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "guy",
+         "at": 15,
+         "note": "taken as written; only its first letter is used"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fixed",
+         "at": 6,
+         "note": "fixed in the sense of repaired or adjusted, so the letters of E key are rearranged"
         }
        ],
        "parts": [
         {
          "words": "E key",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "first",
-         "parts": [
-          {
-           "words": "guy primarily",
-           "note": "the first letter of Guy"
-          }
-         ]
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Fixed' means mended on the surface, where somebody is repairing a keyboard, and rearranged in the wordplay. The question mark admits the definition is a caricature.",
-     "definitionFit": "Geeky describes someone absorbed in technical detail, computers being the stock example, so the definition names the enthusiasm rather than the person."
+     "surface": "A man who mainly likes computers mends the E key on his keyboard.",
+     "walkthrough": "'primarily' gives G from guy, and 'fixed' turns E KEY into EEKY.",
+     "definitionFit": "A geek is a person obsessed with technology, so geeky describes someone keen on computers, as the question mark allows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fixed"
     }
    }
   },
