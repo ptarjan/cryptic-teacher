@@ -105,7 +105,7 @@ WORKERS="${OCR_FULL_PASS_WORKERS:-25}"
 # Puzzle No 13.682"), and the vote puts back a "(" one reading prints
 # where it kept the ")" (1970s Times blanks). Before it (2026-10-13T19:09:41):
 # a count clue_repair takes from another reading keeps its parts.
-REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-17T03:40:00+00:00}"
+REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-17T03:55:00+00:00}"
 
 publish() {  # publish <what>: commit and push the puzzles filed so far
   durable_checkpoint "OCR" || return 1
