@@ -47,38 +47,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "clothing of",
-       "note": "the clothing of a word is its outside, its first and last letters"
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "the outer letters go inside the next piece"
+         "at": 25,
+         "note": "the letters from empress go inside the word for a photo"
         }
        ],
        "parts": [
         {
          "words": "photo",
+         "at": 28,
          "gives": "SHOT",
-         "note": "a shot is a photo"
+         "note": "a shot is a photograph"
         },
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "ES",
+         "indicators": [
+          {
+           "text": "clothing of",
+           "at": 5,
+           "note": "the clothing of a word is its outside, its first and last letters"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "clothing of empress",
-           "gives": "ES",
-           "select": "outer",
-           "note": "the outside letters of EmpresS"
+           "words": "empress",
+           "at": 17,
+           "note": "the first and last letters of empress are E and S"
           }
          ]
         }
@@ -86,20 +85,21 @@
       },
       {
        "words": "call",
+       "at": 34,
        "gives": "RING",
-       "note": "to ring is to call on the phone"
+       "note": "to ring someone is to call them on the phone"
       }
      ]
     },
     "explanation": {
-     "surface": "A royal photo shoot where everyone is fussing over the empress's lace outfit.",
-     "walkthrough": "The surface makes 'Lace' sound like fabric on the empress; it is the noun for the cord in a shoe. 'In photo' means inside the photo word, not in the picture.",
-     "definitionFit": "A plain synonym in the footwear sense: the string that ties a shoe, not the lace fabric the empress is wearing."
+     "surface": "A fashion shoot calls for a lace garment to be worn by an empress.",
+     "walkthrough": "'Clothing of empress' gives ES, which goes 'in' SHOT to make SHOEST; RING follows.",
+     "definitionFit": "A shoestring is a shoelace, the cord used to tie a shoe."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Lace"
+     "misdirectedWord": "clothing"
     }
    }
   },
@@ -395,24 +395,20 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "recalled",
-       "note": "called back, so the letters run backwards"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "wings of",
-         "note": "the wings of a word are its two ends"
+         "text": "recalled",
+         "at": 6,
+         "note": "called back, so the word for males is read in the reverse direction"
         }
        ],
        "parts": [
         {
          "words": "Males",
+         "at": 0,
          "gives": "MEN",
          "note": "men are males"
         }
@@ -420,29 +416,32 @@
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "ES",
+       "indicators": [
+        {
+         "text": "wings of",
+         "at": 15,
+         "note": "the wings of a word are its two end letters"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "wings of enormous",
-         "gives": "ES",
-         "select": "outer",
-         "note": "the ends of EnormouS"
+         "words": "enormous",
+         "at": 24,
+         "note": "the end letters of enormous are E and S"
         }
        ]
       },
       {
        "words": "island",
-       "gives": "IS",
-       "note": "IS = island"
+       "at": 33,
+       "gives": "IS"
       }
      ]
     },
     "explanation": {
-     "surface": "Men recalled from a vast island shrine where some great god was worshipped.",
-     "walkthrough": "Nemesis was the Greek goddess of retribution.",
-     "definitionFit": "Nemesis is the Greek goddess of retribution, so a deity."
+     "surface": "Men remember the giant flanks of a god worshipped on an island.",
+     "walkthrough": "MEN 'recalled' is NEM; the 'wings of' enormous are ES; IS follows.",
+     "definitionFit": "Nemesis was the Greek goddess of retribution, so she is a deity."
     },
     "features": {
      "answerInScene": true,
@@ -829,47 +828,51 @@
     "definitions": [
      {
       "text": "drawings from vessels?",
-      "at": 30,
-      "note": "the question mark flags a definition by example: blood donations"
+      "at": 30
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DONATIONS",
-     "indicators": [
-      {
-       "text": "moving",
-       "note": "the letters are moved about"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Fellow",
+       "at": 0,
+       "gives": "DON",
+       "note": "a don is a fellow of a university college"
+      },
+      {
+       "words": "American",
+       "at": 7,
+       "gives": "A"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "moving",
+         "at": 23,
+         "note": "letters that are moving shift about into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Fellow",
-         "gives": "DON",
-         "note": "a don is a fellow of a university college"
+         "words": "is",
+         "at": 16,
+         "note": "taken as written"
         },
         {
-         "words": "American",
-         "gives": "A",
-         "note": "A = American"
-        },
-        {
-         "words": "is not",
-         "gives": "TIONS",
-         "note": "IS NOT rearranged"
+         "words": "not",
+         "at": 19,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An American academic sitting still, sketching pictures of ships.",
-     "walkthrough": "'Drawings' suggests sketches and 'vessels' ships; the vessels are blood vessels, and the drawings are blood being drawn.",
-     "definitionFit": "Blood donations are drawn from the donor's veins, so drawings from vessels."
+     "surface": "An American academic's drawings stay put when taken from ships.",
+     "walkthrough": "IS NOT 'moving' gives TIONS. The definition plays on blood being drawn from blood vessels, hence the question mark.",
+     "definitionFit": "Blood donations are drawn from donors' veins, which are blood vessels, so the phrase cryptically describes gifts of blood."
     },
     "features": {
      "answerInScene": false,
@@ -951,46 +954,45 @@
      "indicators": [
       {
        "text": "introducing",
-       "note": "the pen takes the other letters into itself"
+       "at": 15,
+       "note": "the writer has the letters put into its middle, as if introduced inside"
       }
      ],
      "parts": [
       {
        "words": "writer",
+       "at": 8,
        "gives": "BIC",
-       "note": "a Bic is a ballpoint pen"
+       "note": "a Bic is a ballpoint pen, a writer"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "AS",
        "indicators": [
         {
          "text": "case for",
-         "note": "the case of a word is its outside letters"
+         "at": 27,
+         "note": "the case for a word is its outer shell, its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "case for aesthetics",
-         "gives": "AS",
-         "select": "outer",
-         "note": "the outside letters of AestheticS"
+         "words": "aesthetics",
+         "at": 36,
+         "note": "the first and last letters of aesthetics are A and S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A revolutionary author bringing an argument for beauty into the debate.",
-     "walkthrough": "'Radical' is not political here: a radical change is a basic, fundamental one.",
-     "definitionFit": "Radical means of the root, fundamental, basic."
+     "surface": "An extremist author puts forward an argument in favour of aesthetics.",
+     "walkthrough": "The 'case for' aesthetics, AS, goes inside BIC, the writer 'introducing' it. 'Radical' here means fundamental, not extremist.",
+     "definitionFit": "Radical in the sense of root or fundamental is a synonym of basic, as in a basic change."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "writer"
+     "misdirectedWord": "case"
     }
    }
   },
@@ -1332,8 +1334,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "over",
-       "note": "turned over, so written backwards"
+       "text": "covering",
+       "at": 27,
+       "note": "in a down answer this piece sits on top of the following one, covering it"
       }
      ],
      "parts": [
@@ -1341,49 +1344,49 @@
        "op": "reversal",
        "indicators": [
         {
-         "text": "covering",
-         "note": "in a down answer, the grass sits on top of the next piece"
+         "text": "over",
+         "at": 16,
+         "note": "over here means turned over, so the letters for about are read backwards"
         }
        ],
        "parts": [
         {
          "words": "about",
+         "at": 10,
          "gives": "RE",
-         "note": "re = about, concerning"
+         "note": "re means about or concerning"
         }
        ]
       },
       {
        "words": "grass",
+       "at": 21,
        "gives": "RAT",
-       "note": "to grass and to rat are both to inform on someone"
+       "note": "to rat is to grass, to inform on someone"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "IC",
        "indicators": [
         {
          "text": "centre of",
-         "note": "the centre of an even-length word is its middle pair"
+         "at": 36,
+         "note": "the centre of an eight-letter word is its middle two letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "centre of domicile",
-         "gives": "IC",
-         "select": "middle",
-         "note": "the middle two letters of domICile"
+         "words": "domicile",
+         "at": 46,
+         "note": "the two middle letters of domicile are I and C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone drifting around, walking across the lawn to the middle of a house.",
-     "walkthrough": "'Grass' looks like a lawn; it is the slang verb for informing, so RAT.",
-     "definitionFit": "Erratic means wandering, irregular, not keeping a fixed course."
+     "surface": "Someone roams about over the lawn that covers the middle of a house.",
+     "walkthrough": "RE turned 'over' is ER; RAT sits on the 'centre of' domicile, IC, 'covering' it in this down answer.",
+     "definitionFit": "Erratic means moving irregularly without a fixed course, like something straying or roaming."
     },
     "features": {
      "answerInScene": false,
@@ -1413,45 +1416,50 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "NEPAL",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "joining",
+       "at": 5,
+       "note": "joining says the second piece is attached straight after the first"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Pole",
+       "at": 0,
+       "gives": "N",
+       "note": "N is the north pole"
+      },
+      {
+       "op": "cycling",
        "indicators": [
         {
-         "text": "joining",
-         "note": "the first pole is put next to the second"
-        },
-        {
          "text": "cycling",
-         "note": "the last letter goes round to the front"
+         "at": 21,
+         "note": "cycling sends the last letter round to the front of the word"
         }
        ],
        "parts": [
         {
-         "words": "Pole",
-         "gives": "N",
-         "note": "N = north pole"
-        },
-        {
          "words": "another",
-         "gives": "EPAL",
-         "note": "another pole is a PALE, a wooden stake, cycled to EPAL"
+         "at": 13,
+         "gives": "PALE",
+         "note": "a pale is a stake, so another kind of pole"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Polish cyclist teaming up with another rider on a tour abroad.",
-     "walkthrough": "'Pole' suggests a person from Poland. A pale is a pointed stake, as in a paling fence.",
-     "definitionFit": "A definition by example: the Himalayan state between India and China."
+     "surface": "A Polish man rides a bike with a companion across the country.",
+     "walkthrough": "'Another' means another pole, a pale or stake; 'cycling' its last letter to the front gives EPAL, 'joining' N.",
+     "definitionFit": "Nepal is a Himalayan nation between India and China."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Pole"
     }
    }
@@ -1531,45 +1539,55 @@
     "definitions": [
      {
       "text": "Thai rhino",
-      "at": 39,
-      "note": "plural: rhino is uncountable slang for money"
+      "at": 39
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 20,
+       "note": "in says the letter goes back inside the remaining word"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
          "text": "lowered",
-         "note": "in a down answer, the T moves one place down"
+         "at": 12,
+         "note": "lowered says the temperature letter is taken from its place so it can drop further down"
         }
        ],
        "parts": [
         {
          "words": "public pool",
+         "at": 23,
          "gives": "BATHS",
-         "note": "public baths are a swimming pool"
+         "note": "public baths are a municipal swimming pool"
+        },
+        {
+         "gives": "T"
         }
        ]
       },
       {
-       "unchecked": true,
        "words": "Temperature",
-       "note": "T = temperature, the letter within BATHS that moves"
+       "at": 0,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "Cooling a public pool for a rhinoceros from Thailand.",
-     "walkthrough": "Rhino is old British slang for money, so Thai rhino is Thai currency. BATHS becomes BAHTS by moving T down one place.",
-     "definitionFit": "The baht is the currency of Thailand, and rhino is slang for money."
+     "surface": "The water temperature is reduced at the municipal swimming pool.",
+     "walkthrough": "T is 'lowered' from BATHS, leaving BAHS, and goes back 'in' one place later. 'Rhino' is old British slang for money.",
+     "definitionFit": "The baht is the currency of Thailand, and rhino is slang for money, so bahts are Thai cash."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
      "misdirectedWord": "rhino"
     }
    }
@@ -1672,8 +1690,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "periodically",
-       "note": "at regular periods, so a letter is taken at every second step through the words"
+       "text": "by",
+       "at": 39,
+       "note": "by means next to, so the last letter is put beside the rest"
       }
      ],
      "parts": [
@@ -1682,27 +1701,25 @@
        "indicators": [
         {
          "text": "raised",
-         "note": "in a down answer, lifted to run bottom to top"
+         "at": 32,
+         "note": "in a down answer, raising letters means reading them upwards"
         }
        ],
        "parts": [
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "VREN",
          "indicators": [
           {
-           "text": "by",
-           "note": "by means beside, so the Yankee letter stands next to the rest"
+           "text": "periodically",
+           "at": 19,
+           "note": "taking letters at regular intervals means every other letter"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "verse one periodically",
-           "gives": "VREN",
-           "select": "alternate",
-           "note": "odd letters of VeRsE oNe"
+           "words": "verse one",
+           "at": 9,
+           "note": "every other letter of VERSE ONE, starting with the first, gives V, R, E, N"
           }
          ]
         }
@@ -1710,15 +1727,16 @@
       },
       {
        "words": "Yankee",
+       "at": 42,
        "gives": "Y",
-       "note": "Y = Yankee in the NATO alphabet"
+       "note": "Y is Yankee in the NATO alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "An American poet anxious about his first verse.",
-     "walkthrough": "'Tense' is the adjective, anxious, not the grammar term that 'verse' nudges towards.",
-     "definitionFit": "A British sense: nervy means jittery, whereas in American English it more often means cheeky."
+     "surface": "A tense moment in a poem raised by an American.",
+     "walkthrough": "Taking verse one 'periodically' gives VREN, which 'raised' reads NERV; Y goes 'by' it.",
+     "definitionFit": "Nervy means anxious and on edge, which is what tense describes."
     },
     "features": {
      "answerInScene": false,
@@ -1749,45 +1767,53 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "INHERIT",
+     "indicators": [
+      {
+       "text": "when flying",
+       "at": 21,
+       "note": "letters flying about land in a fresh order"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "INHERIT",
        "indicators": [
         {
-         "text": "when flying",
-         "note": "things sent flying scatter everywhere, so the letters land in a new order"
-        },
-        {
          "text": "without",
-         "note": "the adult letter is left out"
-        },
-        {
-         "text": "introduction of",
-         "note": "a word is introduced by its opening letter, so only the A of adult"
+         "at": 33,
+         "note": "without means the letter is left out"
         }
        ],
        "parts": [
         {
          "words": "in the air",
-         "note": "anagram fodder before the deletion"
+         "at": 10
         },
         {
-         "words": "introduction of adult",
-         "gives": "A",
-         "note": "the first letter of Adult, removed"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "introduction of",
+           "at": 41,
+           "note": "the introduction of a word is its first letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "adult",
+           "at": 57,
+           "note": "the first letter of adult is A"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pilot taking the controls mid-flight when the grown-up is missing.",
-     "walkthrough": "The surface is a cockpit handover; take over here means receive from someone who has died.",
-     "definitionFit": "To inherit is to take over property or a role from a predecessor."
+     "surface": "An airborne craft takes control without an adult to introduce it.",
+     "walkthrough": "'Without introduction of adult' removes A from IN THE AIR, leaving INTHEIR, and 'when flying' rearranges those letters.",
+     "definitionFit": "To inherit something is to take it over from a predecessor, as an heir succeeds."
     },
     "features": {
      "answerInScene": false,
