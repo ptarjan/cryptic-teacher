@@ -269,40 +269,39 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "VAS",
        "indicators": [
         {
          "text": "at first",
-         "note": "take only the first letter of each of the next words"
+         "at": 20,
+         "note": "at first asks for the opening letter of each of the three words that follow"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "at first very assured skinning",
-         "gives": "VAS",
-         "select": "first",
-         "note": "first letters of Very, Assured, Skinning"
+         "words": "very assured skinning",
+         "at": 29,
+         "note": "the three words whose first letters are taken"
         }
        ]
       },
       {
        "words": "fish",
+       "at": 51,
        "gives": "COD",
-       "note": "the cod, a fish"
+       "note": "the cod is a common food fish"
       },
       {
        "words": "lizard",
+       "at": 60,
        "gives": "AGAMA",
-       "note": "the agama, an Old World lizard"
+       "note": "an agama is an Old World lizard, often brightly coloured"
       }
      ]
     },
     "explanation": {
-     "surface": "An explorer confidently prepares a catch of fish and a lizard for the pot.",
-     "walkthrough": "'Skinning' looks like an instruction to strip letters off 'fish', but it only lends its S. The agama is a crossword regular among lizards.",
-     "definitionFit": "Vasco da Gama was the Portuguese navigator who first sailed from Europe to India."
+     "surface": "A very confident fishmonger skins a fish and a lizard, as if preparing for a voyage of discovery.",
+     "walkthrough": "'Skinning' looks like an operation on the fish, but it is only the third word giving a first letter.",
+     "definitionFit": "Vasco da Gama was the Portuguese navigator who first sailed from Europe to India round the Cape of Good Hope."
     },
     "features": {
      "answerInScene": false,
@@ -498,42 +497,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NAIROBI",
-     "indicators": [
-      {
-       "text": "spoilt",
-       "note": "what is spoilt is ruined, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "spoilt",
+         "at": 5,
+         "note": "something spoilt is damaged out of its proper shape, so the letters of rain are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Rain spoilt",
-         "gives": "NAIR",
-         "note": "RAIN rearranged"
-        },
-        {
-         "words": "outside broadcast",
-         "gives": "OB",
-         "note": "OB is the standard abbreviation for an outside broadcast"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I is the Roman numeral one"
+         "words": "Rain",
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "outside broadcast",
+       "at": 12,
+       "gives": "OB",
+       "note": "OB is the broadcasting abbreviation for an outside broadcast"
+      },
+      {
+       "words": "one",
+       "at": 31,
+       "gives": "I",
+       "note": "the Roman numeral for one is I"
       }
      ]
     },
     "explanation": {
-     "surface": "Bad weather ruins a television crew's location shoot in an African capital.",
-     "walkthrough": "An outside broadcast is a TV or radio programme made away from the studio, so OB reads naturally in a story about rain.",
-     "definitionFit": "A definition by example: the capital of Kenya is one African capital among many."
+     "surface": "Rain ruined an outside broadcast being made in an African capital.",
+     "walkthrough": "'Spoilt' rearranges RAIN to NAIR; OB is TV shorthand for a programme made on location.",
+     "definitionFit": "Nairobi is the capital city of Kenya, in East Africa."
     },
     "features": {
      "answerInScene": true,
@@ -1099,37 +1098,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SANCTUARIES",
-     "indicators": [
-      {
-       "text": "Strange",
-       "note": "the letters of the next word are made strange, rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Strange",
+         "at": 0,
+         "note": "something strange is out of the ordinary, so the letters of Tuscan are put out of their order"
+        }
+       ],
        "parts": [
         {
-         "words": "Strange Tuscan",
-         "gives": "SANCTU",
-         "note": "TUSCAN rearranged"
-        },
-        {
-         "words": "sign",
-         "gives": "ARIES",
-         "note": "Aries, the Ram, a sign of the zodiac"
+         "words": "Tuscan",
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "sign",
+       "at": 15,
+       "gives": "ARIES",
+       "note": "Aries, the ram, is the first sign of the zodiac"
       }
      ]
     },
     "explanation": {
-     "surface": "An odd Tuscan signpost points the way to churches.",
-     "walkthrough": "The question mark flags that churches are only one example of sanctuaries.",
-     "definitionFit": "Churches traditionally offered sanctuary, so each is a sanctuary."
+     "surface": "An odd Tuscan sign is pointing the way to the local churches.",
+     "walkthrough": "The question mark marks the definition by example: churches are one kind of sanctuary, places of refuge or holy places.",
+     "definitionFit": "A sanctuary is a holy place, and churches have traditionally offered sanctuary to fugitives."
     },
     "features": {
      "answerInScene": true,
@@ -1392,44 +1390,51 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "topless",
-       "note": "remove the top, the first letter"
-      }
-     ],
      "parts": [
       {
-       "words": "alluring one",
-       "gives": "IREN",
-       "note": "SIREN, an alluring woman, without its first letter"
-      },
-      {
-       "op": "last",
-       "unchecked": true,
-       "gives": "E",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "at end of",
-         "note": "take the last letter of the next word"
+         "text": "topless",
+         "at": 29,
+         "note": "topless in a down clue means the top, the first letter, is removed"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "at end of promenade",
-         "gives": "E",
-         "select": "last",
-         "note": "last letter of PROMENADE"
+         "words": "alluring one",
+         "at": 15,
+         "gives": "SIREN",
+         "note": "a siren is an alluring woman, after the singers of Greek myth who lured sailors"
+        },
+        {
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "at end of",
+         "at": 38,
+         "note": "at end of picks out the last letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "promenade",
+         "at": 48,
+         "note": "the word whose final letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An alluring girl sunbathes topless at the end of the seafront.",
-     "walkthrough": "Irene is from the Greek for peace, which is why she is a 'peaceful girl'. A promenade is a British seafront walkway.",
-     "definitionFit": "The name Irene means peace in Greek."
+     "surface": "A peaceful girl, an alluring one, goes topless at the far end of the seaside promenade.",
+     "walkthrough": "'Topless' in the surface is a sunbather; in the wordplay it drops the S from SIREN. The name comes from the Greek for peace.",
+     "definitionFit": "Irene derives from the Greek eirene, meaning peace, and Eirene was the Greek goddess of peace."
     },
     "features": {
      "answerInScene": true,
@@ -1638,46 +1643,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ELEGANT",
+     "op": "container",
      "indicators": [
       {
-       "text": "oddly",
-       "note": "arranged oddly, so the letters are rearranged"
+       "text": "concealing",
+       "at": 25,
+       "note": "the rearranged word conceals the limb, holding it inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "concealing",
-         "note": "the rearranged letters hide the next word inside them"
+         "text": "oddly",
+         "at": 19,
+         "note": "oddly means in an odd way, so the letters of neat are arranged differently"
         }
        ],
        "parts": [
         {
-         "words": "neat, oddly",
-         "gives": "EANT",
-         "note": "NEAT rearranged"
-        },
-        {
-         "words": "limb",
-         "gives": "LEG",
-         "note": "a leg is a limb"
+         "words": "neat",
+         "at": 13
         }
        ]
+      },
+      {
+       "words": "limb",
+       "at": 36,
+       "gives": "LEG",
+       "note": "a leg is a limb"
       }
      ]
     },
     "explanation": {
-     "surface": "A graceful, tidy figure is oddly hiding one arm or leg.",
-     "walkthrough": "'Oddly' tempts you to take odd letters, but here it rearranges NEAT, which then wraps round LEG: E-LEG-ANT.",
-     "definitionFit": "A plain synonym: stylish and pleasing in movement or appearance."
+     "surface": "Someone graceful and neat strangely keeps a leg hidden.",
+     "walkthrough": "'Oddly' could suggest taking odd letters, but here it is the anagram signal; the shuffled word splits round the limb.",
+     "definitionFit": "Elegant means stylish and refined in movement or appearance, a close synonym of graceful."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "oddly"
     }
@@ -1772,43 +1777,41 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MOTHBALLS",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "swap the opening sounds of the two words, as Rev. Spooner did"
+       "at": 35,
+       "note": "Spooner, the Oxford don famous for swapping the first sounds of words, signals that the opening consonants are exchanged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "the two",
+       "at": 18,
+       "gives": "BOTH",
+       "note": "both means the two together"
+      },
+      {
+       "op": "homophone",
+       "spelt": "MALLS",
        "parts": [
         {
-         "unchecked": true,
-         "words": "the two",
-         "gives": "MOTH",
-         "soundsLike": "BOTH",
-         "note": "both = the two; it takes the M from the other word"
-        },
-        {
-         "unchecked": true,
          "words": "arcades",
-         "gives": "BALLS",
-         "soundsLike": "MALLS",
-         "note": "shopping malls = arcades; it takes the B in exchange"
+         "at": 26,
+         "gives": "MAWLZ",
+         "note": "malls are shopping arcades, said aloud as MAWLZ; the Spoonerism swaps the opening sounds of the two spoken words"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A developer shelves building work on two shopping arcades.",
-     "walkthrough": "To mothball a project is to put it into storage for later, like clothes packed with mothballs.",
-     "definitionFit": "To mothball something is to put work on it on hold."
+     "surface": "A council postpones work on both shopping arcades, as the Reverend Spooner might put it.",
+     "walkthrough": "'According to Spooner' swaps the opening B and M of BOTH MALLS, giving MOTH BALLS.",
+     "definitionFit": "To mothball a project is to put it into storage and postpone work on it until later."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "arcades"
