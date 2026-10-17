@@ -280,31 +280,36 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "KINGSLYNN",
      "indicators": [
       {
-       "text": "discussed by Spooner",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so the starts of two words trade places"
+       "text": "by Spooner",
+       "at": 27,
+       "note": "the opening sounds of the two words are swapped, as Reverend Spooner famously did"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Heather's",
+       "at": 0,
+       "gives": "LINGS",
+       "note": "ling is another name for heather, so heather's is ling's"
+      },
+      {
+       "op": "homophone",
+       "spelt": "KYNN",
+       "indicators": [
+        {
+         "text": "discussed",
+         "at": 17,
+         "note": "the word for family is spoken, so only its sound counts, not its spelling"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Heather's",
-         "gives": "KINGS",
-         "soundsLike": "LING'S",
-         "note": "ling is another name for heather; it takes the opening sound of the other word"
-        },
-        {
-         "unchecked": true,
          "words": "family",
-         "gives": "LYNN",
-         "soundsLike": "KIN",
-         "note": "kin means family; it takes the opening sound of the first word"
+         "at": 10,
+         "gives": "KIN",
+         "note": "kin means family"
         }
        ]
       }
@@ -312,12 +317,12 @@
     },
     "spelling": "KING'S LYNN",
     "explanation": {
-     "surface": "A woman called Heather has her relatives talked over by a man named Spooner, who lives in Norfolk.",
-     "walkthrough": "Heather is not a person's name but the plant, also called ling. Swap the initial sounds of 'ling's kin' to reach the town.",
-     "definitionFit": "King's Lynn is a port and market town in the English county of Norfolk, so it is one place there."
+     "surface": "Heather's relatives are talked about in a quaint, tongue-twisting way.",
+     "walkthrough": "Heather is LING and family is KIN. 'discussed' means only KIN's sound matters, and 'by Spooner' swaps the opening sounds of LING'S KIN to give KINGS LYNN.",
+     "definitionFit": "King's Lynn is a market town and port in the English county of Norfolk."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Heather's"
@@ -402,22 +407,22 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "YARDAGE",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "covered by",
-       "note": "something covered by others is wrapped by them, so it sits within"
+       "text": "going uphill",
+       "at": 58,
+       "note": "in a down clue, going uphill means reading from the bottom up, so the letters run backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "going uphill",
-         "note": "in a down entry going uphill means reading from the bottom up"
+         "text": "covered by",
+         "at": 26,
+         "note": "the area letter sits inside the other letters, which cover it"
         }
        ],
        "parts": [
@@ -426,34 +431,37 @@
          "parts": [
           {
            "words": "electronic",
+           "at": 37,
            "gives": "E",
-           "note": "E is the abbreviation for electronic, as in e-mail"
+           "note": "E is the standard abbreviation for electronic, as in e-mail"
           },
           {
            "words": "golf",
+           "at": 48,
            "gives": "G",
-           "note": "golf is G in the NATO phonetic alphabet"
-          },
-          {
-           "words": "area",
-           "gives": "A",
-           "note": "A is the abbreviation for area"
+           "note": "G is golf in the NATO phonetic alphabet"
           },
           {
            "words": "cart",
+           "at": 53,
            "gives": "DRAY",
            "note": "a dray is a low cart for heavy loads"
           }
          ]
+        },
+        {
+         "words": "area",
+         "at": 21,
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A caddie estimates a distance while riding an electric buggy up a slope on the course.",
-     "walkthrough": "'Electronic golf cart' reads as one vehicle, but it splits into E, G and DRAY, with the area tucked between, all then read upward. A caddie carries clubs and advises a golfer.",
-     "definitionFit": "A caddie gauges the distance in yards to the flag, and that measured length is the yardage."
+     "surface": "A caddie guesses how much ground an electric golf buggy can cover climbing a slope.",
+     "walkthrough": "Put A inside E G DRAY to get EGADRAY, then read it 'going uphill' to reverse it.",
+     "definitionFit": "In golf, yardage is the distance to the hole in yards, which a caddie works out for the player."
     },
     "features": {
      "answerInScene": true,
