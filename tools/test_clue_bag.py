@@ -110,7 +110,7 @@ sl.write_text(json.dumps([
 shape_queue.PATH = sl
 base = {"hasSolutions": True, "unannotated": 0}
 check("two redo clues: a tail", clue_bag.row_is_tail({**base, "id": "r1"}))
-check("redo=False leaves it to the queue", not clue_bag.row_is_tail({**base, "id": "r1"}, redo=False))
+check("redo=False counts only missing clues (the planner uses the default, redo included)", not clue_bag.row_is_tail({**base, "id": "r1"}, redo=False))
 check("spelling.unsaid is code's: not due", not clue_bag.row_is_tail({**base, "id": "r2"}))
 check("a hidden-word parse is code's: not due", not clue_bag.row_is_tail({**base, "id": "r3"}))
 check("a tried row is not due", not clue_bag.row_is_tail({**base, "id": "r4"}))

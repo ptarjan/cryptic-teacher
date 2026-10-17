@@ -64,9 +64,9 @@ def row_is_tail(row, redo=True):
     (missing an annotation, plus those on the shape redo list), answers present,
     no preamble awaited. The planner puts these at the head of the Annotate
     queue so they are bagged first; the file check in due_clues still decides
-    at launch. redo=False counts only the missing ones: the planner's head-of-
-    queue stage uses that, so redo tails ride in bags without outranking the
-    un-hinted puzzles; they bag from wherever the shape tier interleaves them."""
+    at launch. The planner's tails stage uses the default (redo=True), so
+    flagged-clue redo tails go ahead of the nearly-done/small-series stage.
+    redo=False counts only the missing ones."""
     if not row:
         return False
     if not 1 <= row.get("unannotated", 0) + (redo_due(row.get("id")) if redo else 0) <= MAX_DUE:
