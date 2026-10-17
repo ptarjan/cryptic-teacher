@@ -152,43 +152,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RACCOON",
+     "op": "container",
      "indicators": [
       {
-       "text": "chopped",
-       "note": "the acorn is cut up, so its letters are rearranged"
+       "text": "outside",
+       "at": 26,
+       "note": "the chopped letters are put outside, wrapping round the company letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "outside",
-         "note": "the rearranged letters go around the other piece"
+         "text": "chopped",
+         "at": 12,
+         "note": "chopped up, the letters are broken up and rearranged"
         }
        ],
        "parts": [
         {
-         "words": "chopped acorn",
-         "gives": "RACON",
-         "note": "ACORN rearranged"
-        },
-        {
-         "words": "Company",
-         "gives": "CO",
-         "note": "CO is the usual abbreviation for company"
+         "words": "acorn",
+         "at": 20,
+         "note": "taken as written, as anagram fodder"
         }
        ]
+      },
+      {
+       "words": "Company",
+       "at": 0,
+       "gives": "CO"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone chops up an acorn to feed a wild creature.",
-     "walkthrough": "'Company' sits at the start of the clue as if it were the subject, but it is the piece that ends up in the middle.",
-     "definitionFit": "Definition by category: the masked, ringtailed North American mammal is an animal."
+     "surface": "A firm sets out chopped acorns as feed for a creature.",
+     "walkthrough": "'chopped' turns ACORN into RACON, which 'outside' wraps round CO.",
+     "definitionFit": "The raccoon is a North American mammal with a ringed tail and masked face, an example of an animal."
     },
     "features": {
      "answerInScene": true,
@@ -1198,47 +1198,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REAPPEARANCE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "bent",
-       "note": "the cane is bent out of shape, so its letters are rearranged"
+       "text": "on",
+       "at": 34,
+       "note": "on means the fruit piece sits against the bent letters, directly before them"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "cultivate",
+       "at": 18,
+       "gives": "REAP",
+       "note": "to reap a crop is part of cultivating it"
+      },
+      {
+       "words": "fruit",
+       "at": 28,
+       "gives": "PEAR",
+       "note": "a pear is a fruit"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bent",
+         "at": 37,
+         "note": "bent out of shape, the letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "cultivate",
-         "gives": "REAP",
-         "note": "to reap is to gather a crop you have grown"
-        },
-        {
-         "words": "fruit",
-         "gives": "PEAR",
-         "note": "a pear is a fruit"
-        },
-        {
-         "words": "bent cane",
-         "gives": "ANCE",
-         "note": "CANE rearranged"
+         "words": "cane",
+         "at": 42,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener trains fruit along a bent cane for another crop.",
-     "walkthrough": "'On' just places PEAR before the rearranged CANE.",
-     "definitionFit": "A reappearance is a second coming, arriving again."
+     "surface": "A gardener returns to grow pears trained along a bent cane.",
+     "walkthrough": "'bent' reworks CANE into ANCE to end the answer.",
+     "definitionFit": "A reappearance is a second appearance, so it is the act of coming again, another coming."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Another"
+     "misdirectedWord": "bent"
     }
    }
   }
