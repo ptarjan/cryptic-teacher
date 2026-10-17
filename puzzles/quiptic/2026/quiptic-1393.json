@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -193,26 +194,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
-       "text": "sort of"
+       "text": "sort of",
+       "at": 14,
+       "note": "sort of suggests a loose version of the word, so its letters are rearranged"
       },
       {
-       "text": "less"
+       "text": "less",
+       "at": 40,
+       "note": "less says a letter is taken away from the jumbled word before it settles"
       }
      ],
      "parts": [
       {
-       "words": "troubles, nothing less",
-       "gives": "TRUBLES",
-       "note": "TROUBLES with the O removed — 'nothing' is the letter O, 'less' takes it away"
+       "words": "troubles",
+       "at": 22
+      },
+      {
+       "words": "nothing",
+       "at": 32,
+       "gives": "O",
+       "note": "nothing is zero, the letter O"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Nothing' meaning the letter O is a staple of cryptic subtraction: TROUBLES loses its O, and 'sort of' rearranges the seven letters that remain.",
-     "definitionFit": "Subtle means delicate or understated, and both words here are comparatives — subtler is exactly 'more delicate'."
+     "surface": "Someone tries to say a gentler kind of trouble is nothing more or less than a trouble.",
+     "walkthrough": "Take the letters of TROUBLES, remove O (nothing) as 'less' says, and 'sort of' rearranges the remaining seven letters into the answer.",
+     "definitionFit": "Subtle can mean delicate or faint, as in a subtle flavour, so subtler is the comparative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sort"
     }
    }
   },
@@ -550,29 +566,42 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "DERAIL",
      "indicators": [
       {
-       "text": "backsliding"
+       "text": "when backsliding",
+       "at": 48,
+       "note": "backsliding means sliding back, so the pieces are read in reverse order"
       }
      ],
      "parts": [
       {
-       "words": "dishonest type",
-       "gives": "RAIL",
-       "note": "LIAR, turned around in the answer"
-      },
-      {
-       "words": "journalist",
-       "gives": "DE",
-       "note": "ED (editor), turned around in the answer"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "dishonest type",
+         "at": 17,
+         "gives": "LIAR",
+         "note": "a liar is a dishonest person"
+        },
+        {
+         "words": "journalist",
+         "at": 37,
+         "gives": "ED",
+         "note": "ED, short for editor, is the usual crossword journalist"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Build LIAR + ED — the abbreviated editor is the crossword's stock journalist — then 'backsliding' turns the whole thing tail-first to send it off the rails.",
-     "definitionFit": "To derail a train, or a plan, is literally to throw it off its course and off the rails."
+     "surface": "A crook teams up with a reporter and both relapse into bad ways.",
+     "walkthrough": "'backsliding' sounds like moral relapse in the surface, but here it means the dishonest type and the journalist are written together and then read from the end.",
+     "definitionFit": "To derail a plan or train is to knock it off its intended track or route."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backsliding"
     }
    }
   },
@@ -943,50 +972,58 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BAFFLED",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "British",
+       "at": 0,
+       "gives": "B"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "probing"
+         "text": "probing",
+         "at": 25,
+         "note": "probing means pushing into something, so the fellows go inside the other piece"
         }
        ],
        "parts": [
         {
-         "words": "British",
-         "gives": "B",
-         "note": "B = British, as in BBC"
-        },
-        {
          "op": "anagram",
          "indicators": [
           {
-           "text": "complicated"
+           "text": "complicated",
+           "at": 33,
+           "note": "complicated signals that the letters of deal are mixed up"
           }
          ],
          "parts": [
           {
-           "words": "brace of fellows",
-           "gives": "FF",
-           "note": "a brace = two, and F = fellow, so FF"
-          },
-          {
            "words": "deal",
-           "gives": "ALED",
-           "note": "anagram of DEAL, 'complicated'"
+           "at": 45
           }
          ]
+        },
+        {
+         "words": "brace of fellows",
+         "at": 8,
+         "gives": "FF",
+         "note": "a brace is a pair, and F is the abbreviation for fellow, so two Fs"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Brace' is sporting slang for a pair, so two F's report for duty; 'probing' pushes them into the shaken-up DEAL, with B in front.",
-     "definitionFit": "Baffled means utterly puzzled — precisely the muddled state of mind the definition describes."
+     "surface": "Two British men investigate a tangled business deal and end up confused.",
+     "walkthrough": "'brace' is a pair (as of game birds), so it doubles the fellow abbreviation; that pair sits inside the rearranged deal, with British in front.",
+     "definitionFit": "Baffled means puzzled or bewildered, which is being in a confused state of mind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brace"
     }
    }
   },
