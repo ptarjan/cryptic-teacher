@@ -398,32 +398,31 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ULNA",
      "indicators": [
       {
        "text": "bombs",
-       "note": "something that bombs is blown apart, so the remaining letters are scattered and rebuilt"
+       "at": 7,
+       "note": "a rocket launch that bombs goes wrong and breaks up, so the remaining letters are scrambled"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ULNA",
        "indicators": [
         {
          "text": "wanting",
-         "note": "wanting means lacking, so these letters are left out"
+         "at": 14,
+         "note": "wanting means lacking, so these letters are taken out"
         }
        ],
        "parts": [
         {
          "words": "Launch",
-         "note": "taken as written"
+         "at": 0
         },
         {
          "words": "check",
+         "at": 22,
          "gives": "CH",
          "note": "CH is the chess abbreviation for check"
         }
@@ -432,15 +431,14 @@
      ]
     },
     "explanation": {
-     "surface": "An order to launch bombs is held back for lack of the right arming component.",
-     "walkthrough": "'Arm component' sounds like part of a weapon, but it is the arm of the body.",
-     "definitionFit": "The ulna is one of the two long bones of the human forearm, so it is literally part of an arm."
+     "surface": "A failed rocket launch is put on hold while the crew check an arm of the machinery.",
+     "walkthrough": "'wanting check' removes CH from LAUNCH, leaving LAUN; 'bombs' then rearranges LAUN.",
+     "definitionFit": "The ulna is one of the two long bones of the human forearm."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "arm"
+     "aptDefinition": false,
+     "misdirectedWord": "bombs"
     }
    }
   },
@@ -1272,31 +1270,31 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "ARRISH",
      "indicators": [
       {
        "text": "with head down",
-       "note": "in a down clue the head is the top, so sending it down moves the first letter to the bottom"
+       "at": 18,
+       "note": "in a down clue the head is the top letter, and moving it down sends it to the bottom of the word"
       }
      ],
      "parts": [
       {
        "words": "President manquée",
+       "at": 0,
        "gives": "HARRIS",
-       "note": "Kamala Harris, who stood for US president in 2024 and lost"
+       "note": "Kamala Harris ran for US president and lost, a would-be president (manquée is feminine for one who failed to become)"
       }
      ]
     },
     "explanation": {
-     "surface": "A failed presidential candidate hangs her head out on the campaign field.",
-     "walkthrough": "'Manquée' is the feminine of manqué, meaning one who did not achieve what she aimed at, pointing to a woman who ran and lost.",
-     "definitionFit": "Arrish is a dialect word for a stubble field left after harvest, so it names a kind of agricultural ground."
+     "surface": "A failed presidential candidate walks dejectedly in a field.",
+     "walkthrough": "'with head down' moves the H of HARRIS from the top of this down entry to the bottom.",
+     "definitionFit": "Arrish is a dialect word for a stubble field left after harvest."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "field"
+     "misdirectedWord": "head"
     }
    }
   },
@@ -1499,60 +1497,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "WORRICOW",
+     "op": "container",
      "indicators": [
       {
-       "text": "going back and forth",
-       "note": "the word is taken once backwards and once forwards"
+       "text": "about",
+       "at": 31,
+       "note": "about means surrounding, so the outer letters go round the inner"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "WORRICOW",
+       "op": "palindrome",
        "indicators": [
         {
-         "text": "about",
-         "note": "to be about something is to surround it, so the second copy wraps around"
+         "text": "going back and forth",
+         "at": 10,
+         "note": "the word for arguments is written once backwards and once forwards, side by side"
         }
        ],
        "parts": [
         {
          "words": "Arguments",
-         "gives": "ROWROW",
-         "note": "a row is an argument, and two are needed"
-        },
+         "at": 0,
+         "gives": "WORROW",
+         "note": "rows are arguments; ROW read backwards then forwards gives a run that reads the same either way"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "gutless",
-           "note": "with the guts removed only the shell is left, so just the outer letters stay"
-          }
-         ],
-         "parts": [
-          {
-           "words": "ironic",
-           "note": "the first and last letters of the word"
-          }
-         ]
+         "text": "gutless",
+         "at": 37,
+         "note": "gutless means the insides are removed, keeping only the first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ironic",
+         "at": 45,
+         "note": "only its outside letters are kept"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Quarrels go back and forth over a spineless, sarcastic demon from Scotland.",
-     "walkthrough": "One argument is needed twice, first read backwards and then forwards, with the second copy wrapped around the gutted word.",
-     "definitionFit": "Worricow is a Scots word for a hobgoblin or the Devil himself, so Glasgow marks it as the Scottish name for a fiend."
+     "surface": "Bickering in Glasgow turns on a cowardly, sarcastic demon.",
+     "walkthrough": "'going back and forth' gives WOR then ROW, so WORROW; 'gutless ironic' is IC, and 'about' puts WORROW round it.",
+     "definitionFit": "Worricow is a Scots word for a hobgoblin or the Devil, a bugbear of Scottish folklore."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "ironic"
+     "misdirectedWord": "gutless"
     }
    }
   },
