@@ -42,57 +42,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RIPOSTE",
+     "op": "container",
      "indicators": [
       {
-       "text": "abridged",
-       "note": "an abridged text has been cut short, so the final letter is dropped"
+       "text": "in",
+       "at": 19,
+       "note": "in means these letters are placed inside the shortened colour"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "in",
-         "note": "to be in something is to sit inside it, so one piece goes within another"
+         "text": "abridged",
+         "at": 27,
+         "note": "abridged means shortened, so the word red loses its last letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "red",
-           "gives": "RE",
-           "note": "the colour word with its last letter removed"
-          },
-          {
-           "words": "I",
-           "note": "taken as written"
-          }
-         ]
+         "words": "red",
+         "at": 22,
+         "gives": "RED",
+         "note": "taken as written"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I",
+         "at": 9,
+         "gives": "I"
         },
         {
          "words": "publish",
+         "at": 11,
          "gives": "POST",
-         "note": "to post a notice or message online is to publish it"
+         "note": "to post is to publish, as with a notice or online message"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone replies to a critic by printing a shortened rebuttal in red ink.",
-     "walkthrough": "'In red' suggests red ink, but the colour word itself is the outer piece, trimmed by 'abridged'.",
-     "definitionFit": "A riposte is a quick, sharp reply, originally a fencing term for a return thrust after parrying."
+     "surface": "An editor fires back an answer in red ink, cutting it down to size.",
+     "walkthrough": "'abridged' looks like it describes the response, but it trims RED to RE, which then holds I and POST.",
+     "definitionFit": "A riposte is a quick, clever reply, especially a retort in an argument."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "red"
+     "misdirectedWord": "abridged"
     }
    }
   },
