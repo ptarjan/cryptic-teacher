@@ -303,34 +303,37 @@
      "parts": [
       {
        "words": "corpulent",
+       "at": 11,
        "gives": "FAT",
        "note": "corpulent means fat"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "HOM",
+       "op": "deletion",
        "indicators": [
         {
          "text": "halfway",
-         "note": "halfway means stopping at the middle, so only the first half of the word is kept"
+         "at": 33,
+         "note": "only half the word is kept, its first three of six letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Spanish man",
-         "gives": "HOM",
-         "select": "first",
-         "note": "the first half of hombre, Spanish for man"
+         "at": 21,
+         "gives": "HOMBRE",
+         "note": "hombre is Spanish for man"
+        },
+        {
+         "gives": "BRE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Trying to make sense of a stout Spaniard partway through.",
-     "definitionFit": "To fathom something is to get to the bottom of it, i.e. comprehend it."
+     "surface": "Struggling to make sense of a stout Spaniard who stops mid-sentence.",
+     "walkthrough": "'halfway' cuts HOMBRE, Spanish for man, to HOM.",
+     "definitionFit": "To fathom something is to get to the bottom of it, to understand it fully."
     },
     "features": {
      "answerInScene": false,
@@ -772,33 +775,33 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "FLOURISHING",
      "indicators": [
       {
        "text": "in",
-       "note": "one part is set inside another, which wraps around it"
+       "at": 42,
+       "note": "the reworked beauties sit inside the romance"
       }
      ],
      "parts": [
       {
+       "words": "brief romance",
+       "at": 45,
+       "gives": "FLING",
+       "note": "a fling is a short-lived love affair"
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "FLOURISHING",
        "indicators": [
         {
          "text": "head to toe",
-         "note": "the top of the word is sent to its foot, so the opening letter moves to the end"
+         "at": 30,
+         "note": "the head letter goes down to the toe, so the first letter moves to the end"
         }
        ],
        "parts": [
         {
-         "words": "brief romance",
-         "gives": "FLING",
-         "note": "a fling is a short-lived affair"
-        },
-        {
          "words": "beauties in Paradise",
+         "at": 8,
          "gives": "HOURIS",
          "note": "houris are the beautiful maidens of the Islamic paradise"
         }
@@ -807,14 +810,14 @@
      ]
     },
     "explanation": {
-     "surface": "Attractive fit folk enjoying a short holiday romance somewhere idyllic.",
-     "walkthrough": "Houris are the maidens promised to the faithful in the Islamic paradise; 'head to toe' sends the first letter to the end before the insertion.",
-     "definitionFit": "Something flourishing is thriving and vigorous, so it is a synonym of healthy in the sense of doing well."
+     "surface": "Lovely heavenly maidens thriving amid a short-lived affair.",
+     "walkthrough": "'head to toe' moves the H of HOURIS to the end, giving OURISH, which goes 'in' FLING.",
+     "definitionFit": "Flourishing means thriving and in good health, like a healthy plant."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Paradise"
+     "misdirectedWord": "head"
     }
    }
   },
@@ -1686,36 +1689,48 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "UNCLEAR",
+     "op": "charade",
      "indicators": [
       {
-       "text": "transport",
-       "note": "transporting something carries it to a new place, so a letter is shifted within the word"
-      },
-      {
        "text": "to the front",
-       "note": "this names where the shifted letter lands: at the very start"
+       "at": 27,
+       "note": "the carried letter is put back at the very start"
       }
      ],
      "parts": [
       {
        "words": "uranium",
+       "at": 19,
        "gives": "U",
        "note": "U is the chemical symbol for uranium"
       },
       {
-       "words": "one kind of power",
-       "gives": "NUCLEAR",
-       "note": "nuclear power, from atomic fission"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "After transport of",
+         "at": 0,
+         "note": "the uranium letter is carried away from its place in the power word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one kind of power",
+         "at": 41,
+         "gives": "NUCLEAR",
+         "note": "nuclear power is one kind of power"
+        },
+        {
+         "gives": "U"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Talk of shipping uranium for atomic energy leaves the public baffled.",
-     "walkthrough": "The U of NUCLEAR moves to the front.",
-     "definitionFit": "Unclear means not easily understood, a plain synonym of incomprehensible."
+     "surface": "Shipping uranium about makes nuclear energy policy hard to follow.",
+     "walkthrough": "The uranium is not carried off entirely: 'After transport of' only moves its letter within the power word, and 'to the front' says where it lands, just one place earlier.",
+     "definitionFit": "Unclear means not easy to understand, so an incomprehensible statement is unclear."
     },
     "features": {
      "answerInScene": false,
