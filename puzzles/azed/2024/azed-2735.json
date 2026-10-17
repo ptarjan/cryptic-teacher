@@ -165,46 +165,55 @@
     "definitions": [
      {
       "text": "second funeral?",
-      "at": 40
+      "at": 40,
+      "note": "the question mark flags a definition by description: a second burial is what a second funeral would bring"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REBURIAL",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Incomplete",
-       "note": "something incomplete is missing its final part, so the word loses its last letter"
+       "text": "involved",
+       "at": 28,
+       "note": "involved means intricate, tangled up, so these letters are jumbled together"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "involved",
-         "note": "involved means tangled or intricately mixed, so the letters are jumbled"
+         "text": "Incomplete",
+         "at": 0,
+         "note": "incomplete means lacking its end, so the last letter of rule goes"
         }
        ],
        "parts": [
         {
          "words": "rule",
-         "gives": "RUL",
-         "note": "rule without its final E"
+         "at": 11,
+         "note": "taken as written, shortened before the letters are mixed"
         },
         {
-         "words": "a bier",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 21
+      },
+      {
+       "words": "bier",
+       "at": 23,
+       "note": "taken as written, part of the letters to rearrange"
       }
      ]
     },
     "explanation": {
-     "surface": "An undertaker's half-forgotten regulation about where the coffin stand goes.",
-     "walkthrough": "The question mark admits that a reburial is not a full second funeral, only a second burial.",
-     "definitionFit": "Reburial is burying a body again, which loosely amounts to holding a second funeral for it."
+     "surface": "A broken rule about a coffin stand gets mixed up in a repeat burial service.",
+     "walkthrough": "'Incomplete' trims RULE to RUL; with A and BIER, the letters are 'involved', that is jumbled.",
+     "definitionFit": "A reburial is the act of interring a body again, which would call for a second burial service."
     },
     "features": {
      "answerInScene": true,
@@ -663,50 +672,56 @@
     "definitions": [
      {
       "text": "Gland yielding",
-      "at": 0
+      "at": 0,
+      "note": "a gland that yields, that is secretes, its product; here silk"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SERICTERIUM",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means most but not all, so the last letter is dropped"
+       "text": "within",
+       "at": 39,
+       "note": "within means inside, so the shortened word sits inside the word for fluid"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "fluid",
+       "at": 15,
+       "gives": "SERUM",
+       "note": "serum is the clear fluid of the blood"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "within",
-         "note": "within places the shortened word inside the other one"
+         "text": "mostly",
+         "at": 22,
+         "note": "mostly means most of the word, its last letter dropped"
         }
        ],
        "parts": [
         {
-         "words": "fluid",
-         "gives": "SERUM",
-         "note": "serum is a body fluid"
+         "words": "jaundiced",
+         "at": 29,
+         "gives": "ICTERIC",
+         "note": "icteric means affected by jaundice, from icterus, the medical name for it"
         },
         {
-         "words": "jaundiced",
-         "gives": "ICTERI",
-         "note": "icteric means jaundiced; mostly, it loses its last letter"
+         "gives": "C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A medical note on a gland producing fluid in a jaundiced patient.",
-     "walkthrough": "'Gland yielding fluid' looks like one definition, but 'fluid' belongs to the wordplay. Icterus is the medical name for jaundice.",
-     "definitionFit": "A sericterium is the silk gland of an insect larva, a gland that yields silk."
+     "surface": "A medical note: a gland producing fluid, its patient largely yellow with jaundice.",
+     "walkthrough": "'mostly' trims ICTERIC to ICTERI, which goes 'within' SERUM. A sericterium is the silk gland of a caterpillar, so 'yielding' belongs with the gland, not the fluid.",
+     "definitionFit": "A sericterium is the silk-producing gland of insect larvae such as silkworms, an organ that secretes the silk fibre."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "fluid"
     }
