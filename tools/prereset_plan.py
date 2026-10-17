@@ -1091,9 +1091,8 @@ BACKLOG_CASES = [
 
 
 def reannotate_self_test():
-    """The shape re-annotation tier stays LAST: behind un-hinted puzzles in
-    backlog(), and behind them again after newest_first / head_of_queue re-sort
-    the whole queue by date, however new the listed puzzle is."""
+    """The shape re-annotation tier stays LAST in backlog(), behind un-hinted
+    puzzles; head_of_queue pins its redo tails (a few clues due) at the head."""
     import tempfile
     import shape_queue
     bad = 0
@@ -1120,8 +1119,10 @@ def reannotate_self_test():
                 bad += 1
             shuffled = ["quiptic-5", "times-100", "azed-7", "times-90", "times-99"]
             got, pinned, _ = head_of_queue(shuffled, [], rows, tagged=["times-100"], small=["quiptic"])
-            if set(got[-2:]) != {"times-100", "quiptic-5"} or "times-100" in pinned or "quiptic-5" in pinned:
-                print(f"FAIL head_of_queue tier = {got}, pinned {pinned} (the listed stay last, unpinned)",
+            # Paul 10-17: a listed puzzle with a few clues due is a redo tail, so it
+            # is pinned at the head (bagged); backlog() above still queues it last.
+            if sorted(got) != sorted(shuffled) or not {"times-100", "quiptic-5"} <= set(pinned):
+                print(f"FAIL head_of_queue tier = {got}, pinned {pinned} (the listed redo tails are pinned)",
                       file=sys.stderr)
                 bad += 1
             if pinned[:1] != ["times-99"]:
