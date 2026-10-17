@@ -976,40 +976,48 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ERUDITE",
+     "indicators": [
+      {
+       "text": "Doctor",
+       "at": 0,
+       "note": "to doctor something is to tamper with or alter it, so the letters are rearranged"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ERUDITE",
        "indicators": [
         {
-         "text": "Doctor",
-         "note": "to doctor something is to tamper with it, and tampered letters come out in a different order"
-        },
-        {
          "text": "leaving",
-         "note": "what leaves is no longer there, so the letter named departs before anything is shuffled"
+         "at": 28,
+         "note": "the Newton letter is leaving, so it is taken out of the word reunited"
         }
        ],
        "parts": [
         {
          "words": "reunited",
-         "note": "the eight letters of this word are the raw material"
+         "at": 7,
+         "note": "the word whose letters are used"
         },
         {
          "words": "Newton",
+         "at": 21,
          "gives": "N",
-         "note": "N is the symbol for the newton, the SI unit of force, and that is the letter dropped"
+         "note": "N is the symbol for the newton, the SI unit of force"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Doctor' looks like a person in a sentence about scientists. It is the instruction, and the scientist is present only to donate a unit of force.",
-     "definitionFit": "full of knowledge -> ERUDITE: an erudite scholar is deeply read, so the phrase names learning gathered from books rather than quickness of mind."
+     "surface": "A doctor reunited with the great scientist Isaac Newton, who then leaves.",
+     "walkthrough": "'leaving' takes the N out of REUNITED to leave REUITED, and 'Doctor' rearranges those letters into the answer. Newton looks like Isaac, but it is the unit of force.",
+     "definitionFit": "Erudite describes someone learned, having wide scholarly knowledge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Newton"
     }
    }
   },
@@ -1509,36 +1517,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "HOWDAH",
+     "op": "charade",
      "indicators": [
       {
-       "text": "to be turned",
-       "note": "a thing turned round faces the other way, so the word before it is written from the back"
+       "text": "on",
+       "at": 31,
+       "note": "in an across answer, a piece put on another comes after it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "using what",
+       "at": 34,
+       "gives": "HOW",
+       "note": "how? asks by what means, i.e. using what"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "to be turned",
+         "at": 18,
+         "note": "a word to be turned is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "using what?",
-         "gives": "HOW",
-         "note": "asking by what means is asking how"
-        },
-        {
          "words": "had",
-         "gives": "DAH",
-         "note": "the past tense of 'have', its three letters set down from the back"
+         "at": 14,
+         "note": "the word reversed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Turned on' looks like one phrase about switches. Splitting it is the step that unlocks the clue, since the closing question is a word in its own right.",
-     "definitionFit": "Seat on jumbo -> HOWDAH: a howdah is the canopied seat strapped to an elephant's back, and jumbo is the standard crossword elephant."
+     "surface": "A puzzled question about some unnamed thing that had to be switched on.",
+     "walkthrough": "'to be turned' reverses had into DAH, which goes on, i.e. after, HOW. A jumbo here is an elephant, not a jet.",
+     "definitionFit": "A howdah is a canopied seat fixed on an elephant's back for riders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jumbo"
     }
    }
   }
