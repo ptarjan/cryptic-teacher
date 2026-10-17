@@ -191,9 +191,7 @@ worker_annotate() {   # id log sidfile task [note] [fill]
   # puzzle and both kinds of run, and drop the tools, skills and agents these
   # runs never use. --allowedTools, not --tools, decides what a run may call.
   # shellcheck disable=SC2086 # $WORKER_WRAP is a command and its arguments, or nothing
-  # CT_TASK_PUZZLE: tools/puzzle_paths.py resolve_puzzle reads it, so a bare
-  # number the run types that two papers share still means this puzzle.
-  CT_TASK_PUZZLE="$id" $WORKER_WRAP claude -p "$prompt" "${sess[@]}" "${CLAUDE_HEADLESS[@]}" \
+  $WORKER_WRAP claude -p "$prompt" "${sess[@]}" "${CLAUDE_HEADLESS[@]}" \
     --append-system-prompt-file tools/annotate_prompt.md \
     --exclude-dynamic-system-prompt-sections \
     --tools Read,Write,Edit,Bash,WebSearch,WebFetch \

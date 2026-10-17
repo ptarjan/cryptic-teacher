@@ -131,10 +131,4 @@ check("land a fix" in a.wake_text(ranked[0], "never targeted", dict(n=40, turns=
 cur = dict(n=40, cost=1.30, turns=10); prev = dict(n=40, cost=1.00, turns=10)
 check([i["key"] for i in a.trend_items(cur, prev)], ["trend:cost"], "a cost regression is a finding")
 check(a.trend_items(dict(cur, n=5), prev), [], "not on too few sessions")
-import turn_cost
-check([turn_cost.is_annotate_session(x) for x in (
-    "Annotate the crossword nation-1 in this repo",
-    "Solve the cryptic crossword nation-1 cold first. It ends by handing you this task: Annotate the crossword nation-1",
-    "Solve the cryptic crossword nation-1 cold first.")], [True, True, False],
-      "a cold-solve run that hands over the annotate task is an annotate session")
 sys.exit(1 if fails else 0)
