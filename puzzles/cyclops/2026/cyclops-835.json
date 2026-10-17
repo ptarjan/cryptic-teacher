@@ -23,7 +23,8 @@
   "check": "30 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -483,53 +484,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CORRUPT",
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CORRUPT",
+       "words": "Well",
+       "at": 0,
+       "gives": "COR",
+       "note": "cor is an exclamation of surprise, like 'well!'"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "crooked",
-         "note": "Something crooked has been bent out of its proper shape, and letters bent out of shape come out in another order."
-        },
-        {
-         "text": "emasculated",
-         "note": "To emasculate is to take the manhood out of a thing, so the letter that stands for male is the one dropped."
+         "at": 6,
+         "note": "bent out of shape, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Well",
-         "gives": "COR",
-         "note": "cor is the British exclamation of surprise, the 'well!' of 'cor blimey'"
-        },
-        {
-         "words": "Trump",
-         "note": "five letters of a surname, wanted for their spelling"
-        },
-        {
-         "words": "emasculated",
-         "gives": "M",
-         "note": "M is male on any form, and that is the letter taken out"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "emasculated",
+           "at": 25,
+           "note": "with the male removed, so M, the abbreviation for male, comes out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Trump",
+           "at": 14
+          },
+          {
+           "gives": "M"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bent Trump is cut down to size, and the verdict is delivered.",
-     "walkthrough": "'Well' opens the sentence like a weary sigh and is quietly the first chunk of the answer. M for male is what an emasculation removes, a joke that works only because official forms print the letter.",
-     "definitionFit": "A rotten borough, a rotten copper, a rotten deal — rotten is the everyday word for morally decayed, which is what corrupt means."
+     "surface": "A satirical jibe: a dishonest Trump is unmanned and thoroughly rotten.",
+     "walkthrough": "M is the standard abbreviation for male, so 'emasculated' takes it out of the surname to leave TRUP, which 'crooked' then rearranges. Cor is a British exclamation of surprise.",
+     "definitionFit": "Corrupt means morally rotten, and also decayed or putrid in an older sense."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "Well"
+     "misdirectedWord": "crooked"
     }
    }
   },
@@ -826,42 +831,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "WIPER",
-     "indicators": [
-      {
-       "text": "rejected",
-       "note": "To reject a thing is to throw it back, so the word that follows is written back to front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Female organisation",
+       "at": 0,
+       "gives": "WI",
+       "note": "the WI is the Women's Institute, a British women's organisation"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 20,
+         "note": "turned back, so the letters for the agent are read in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "Female organisation",
-         "gives": "WI",
-         "note": "the WI is the Women's Institute, the British women's society of jam and Jerusalem"
-        },
-        {
-         "words": "rejected agent",
-         "gives": "PER",
-         "note": "a rep is a sales agent, here written backwards"
+         "words": "agent's",
+         "at": 29,
+         "gives": "REP",
+         "note": "a rep, a sales representative, is an agent; the 's stands for 'is', a link"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A women's group has turned down the cleaning fluid a salesman was pushing.",
-     "walkthrough": "The Women's Institute is the answer whenever a clue says female organisation, and it takes two letters. The cleaner wanted is the blade on a windscreen rather than a person with a mop.",
-     "definitionFit": "A wiper is the blade that sweeps a windscreen clear, so it cleans — the thing doing the job rather than the person employed to."
+     "surface": "A women's group has turned down an agent's offer of a cleaner.",
+     "walkthrough": "The Women's Institute is a British organisation for women; a rep is a sales agent, and 'rejected' sends that word back to front, giving PER.",
+     "definitionFit": "A wiper cleans, especially the windscreen wiper of a car."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cleaner"
+     "misdirectedWord": "rejected"
     }
    }
   },
@@ -1095,44 +1101,43 @@
      "indicators": [
       {
        "text": "used",
-       "note": "What is used is no longer in the condition it left the shop in, and letters in that condition will not keep the order given."
+       "at": 5,
+       "note": "put to use in a new way, so these letters are reworked into a different order"
       }
      ],
      "parts": [
       {
        "words": "only",
-       "note": "four letters for the pile, wanted for their spelling"
+       "at": 10
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "NS",
        "indicators": [
         {
          "text": "beginners",
-         "note": "A beginner stands at the start of things, so the starting letter of each word in front is what is taken."
+         "at": 30,
+         "note": "the first letters of the words named"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "novelty sex beginners",
-         "gives": "NS",
-         "select": "first",
-         "note": "the opening letters of the two words"
+         "words": "novelty sex",
+         "at": 18,
+         "note": "the two words themselves, whose first letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Stockings worn only by people just starting out in novelty sex.",
-     "walkthrough": "'Used only by' reads as a single restriction and the clue splits it, leaving the middle word as the pile. Hose is the draper's word for stockings, the one that survives in 'hosiery'.",
-     "definitionFit": "Hose is the trade's old collective for stockings, and nylons are the stockings themselves — a definition by material."
+     "surface": "Stockings worn only by people new to kinky sex.",
+     "walkthrough": "'Beginners' looks like the people in the picture, but it asks for the first letters of novelty and sex, NS; 'used' then mixes them with the word only.",
+     "definitionFit": "Hose is a collective word for stockings and tights, which are commonly made of nylon."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "used"
     }
    }
@@ -1413,46 +1418,45 @@
      "indicators": [
       {
        "text": "about",
-       "note": "To put one thing about another is to wrap it round, so the question word closes over the single letter that follows."
+       "at": 21,
+       "note": "the question word goes around the single letter"
       }
      ],
      "parts": [
       {
        "words": "poses question",
+       "at": 6,
        "gives": "WHAT",
-       "note": "what is the word a bald question is posed with"
+       "note": "what? is a question in itself, so saying it poses one"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "E",
        "indicators": [
         {
          "text": "end",
-         "note": "The end of a name is its final letter, so that one letter is all the name gives up."
+         "at": 36,
+         "note": "the final letter of the surname"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Farage's end",
-         "gives": "E",
-         "select": "last",
-         "note": "the last letter of the surname"
+         "words": "Farage's",
+         "at": 27,
+         "gives": "FARAGE",
+         "note": "the politician's surname, Nigel Farage; the possessive just ties it to 'end'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A police informer is asking questions about how Farage finishes up.",
-     "walkthrough": "'Grass' is the informer the surface wants and the plant the definition means. The answer is a cereal, and cereals are grasses botanically, which is what makes so bare a definition fair.",
-     "definitionFit": "Wheat is a cereal, and cereals are members of the grass family — the botanist's sense of the word rather than the lawn or the informer."
+     "surface": "Someone asks a pointed question about the end of Nigel Farage's career.",
+     "walkthrough": "Nigel Farage is a British politician. 'End' gives the E of his surname, which WHAT goes 'about'.",
+     "definitionFit": "Wheat is a cereal crop and botanically a grass, like barley and oats."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Grass"
     }
    }
