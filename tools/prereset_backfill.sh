@@ -671,7 +671,7 @@ pool_drain() {
 POOL_PLAN_SECS="${POOL_PLAN_SECS:-600}"
 POOL_PLAN_POLL="${POOL_PLAN_POLL:-1}"
 pool_replan() {
-  local f pid id t0 waited p why
+  local f pid id t0 waited p why planner_s
   local -A held=() pending=() placed=()
   local rest=()
   f=$(mktemp "${TMPDIR:-/tmp}/ct-prereset-plan.XXXXXX") || return
@@ -705,6 +705,10 @@ pool_replan() {
     fi
     python3 tools/prereset_plan.py --cover-first "$requeued$resumed" <"$f.in" >"$f.out"
     echo "$?" >"$f.rc"
+    # The planner's own time, apart from the commits this shell made while it
+    # ran: 10-17 a re-plan "took" 1610s, most of it serial commits (the planner
+    # was 45-320s), and most of that a corpus walk fresh_rows now skips.
+    echo $(( (${EPOCHREALTIME/[.,]/} - t0) / 1000000 )) >"$f.secs"
     touch "$f.done"
   ) &
   pid=$!
@@ -733,6 +737,7 @@ pool_replan() {
     # the old order), each id once, and anything else still queued keeps its
     # place after it. Any other outcome is logged with its reason.
     waited=$(( (${EPOCHREALTIME/[.,]/} - t0) / 1000000 ))
+    planner_s=$(cat "$f.secs" 2>/dev/null || echo "?")
     why=$(pool_plan_mismatch "$f.in" "$f.out" "$(cat "$f.rc" 2>/dev/null)")
     if [ -z "$why" ]; then
       for id in "${queue[@]:$at}"; do pending[$id]=1; done
@@ -744,12 +749,12 @@ pool_replan() {
         [ -n "${placed[$id]:-}" ] || { placed[$id]=1; rest+=("$id"); }
       done
       queue=("${queue[@]:0:$at}" ${rest[@]+"${rest[@]}"})
-      echo "--- re-plan done in ${waited}s: order taken, next ${queue[*]:$at:5} ---"
+      echo "--- re-plan done in ${waited}s (planner ${planner_s}s): order taken, next ${queue[*]:$at:5} ---"
     else
-      echo "--- re-plan done in ${waited}s but discarded, the queue keeps its order: $why ---"
+      echo "--- re-plan done in ${waited}s (planner ${planner_s}s) but discarded, the queue keeps its order: $why ---"
     fi
   fi
-  rm -f "$f" "$f.in" "$f.new" "$f.out" "$f.done" "$f.rc"
+  rm -f "$f" "$f.in" "$f.new" "$f.out" "$f.done" "$f.rc" "$f.secs"
 }
 # Why a re-plan's output cannot replace the queue, or nothing when it can:
 # the planner failed, or the ids out are not the ids in (each counted once).
