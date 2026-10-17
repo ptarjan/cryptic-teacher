@@ -709,27 +709,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HAIRBALLS",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev. Spooner was famed for swapping the opening sounds of two words"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the two words here trade their first sounds"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "unfurnished vestibules",
-       "gives": "HAIRBALLS",
-       "soundsLike": "BARE HALLS",
-       "note": "empty entrance rooms; swap their opening sounds"
+       "op": "homophone",
+       "spelt": "BAIR",
+       "parts": [
+        {
+         "words": "unfurnished",
+         "at": 10,
+         "gives": "BARE",
+         "note": "unfurnished means bare, a word sounding like bair"
+        }
+       ]
+      },
+      {
+       "words": "vestibules",
+       "at": 22,
+       "gives": "HALLS",
+       "note": "vestibules are entrance halls"
       }
      ]
     },
     "explanation": {
-     "surface": "Empty entrance halls that a cat would find unsettling.",
-     "definitionFit": "A cat grooming itself swallows fur that clumps in its stomach until it is sick, so these balls of fur upset it."
+     "surface": "Empty entrance halls are blamed for distressing a cat.",
+     "walkthrough": "BARE HALLS with the opening sounds swapped is heard as HAIR BALLS.",
+     "definitionFit": "Hairballs form in a cat's stomach from swallowed fur during grooming and make it sick."
     },
     "features": {
      "answerInScene": false,
@@ -1520,64 +1531,57 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DETRITUS",
-     "indicators": [
-      {
-       "text": "busily",
-       "note": "busily suggests bustling activity, so the letters are moved around"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "DETRITUS",
+       "op": "composite",
        "indicators": [
         {
+         "text": "busily",
+         "at": 7,
+         "note": "busily suggests the letters bustling about into a new order"
+        },
+        {
          "text": "cutting",
-         "note": "cutting removes something, here the letter for old"
+         "at": 14,
+         "note": "cutting means the letter for old is cut out of the editor's letters"
         }
        ],
        "parts": [
         {
          "words": "Editor",
-         "note": "taken as written"
+         "at": 0
         },
         {
          "words": "old",
-         "gives": "O",
-         "note": "standard abbreviation; this letter is removed"
-        },
+         "at": 22,
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "TUS",
-         "indicators": [
-          {
-           "text": "odd bits of",
-           "note": "odd bits are the first, third and fifth letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Truss",
-           "gives": "TUS",
-           "select": "alternate",
-           "note": "letters one, three and five"
-          }
-         ]
+         "text": "odd bits of",
+         "at": 27,
+         "note": "odd bits means the first, third and fifth letters of truss"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Truss",
+         "at": 39,
+         "note": "the word whose alternate letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An editor hurriedly trims bits of a story about former PM Liz Truss as rubbish.",
-     "walkthrough": "The deletion happens before the shuffle. Liz Truss was a short-lived British prime minister.",
-     "definitionFit": "Detritus is debris or waste matter left over, so it amounts to rubbish."
+     "surface": "An editor busily trims a politician's odd remarks into rubbish; Liz Truss was briefly UK prime minister.",
+     "walkthrough": "Take O (old) out of EDITOR and rearrange the rest as DETRI, then add TUS, the odd letters of Truss.",
+     "definitionFit": "Detritus is debris or waste matter, so it is a synonym for rubbish."
     },
     "features": {
      "answerInScene": true,
