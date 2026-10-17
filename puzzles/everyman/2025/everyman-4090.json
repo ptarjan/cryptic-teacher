@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -43,36 +44,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CRAM",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "flipping",
+       "at": 17,
+       "note": "flipping turns the shortened word over so it reads backwards"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "deletion",
        "indicators": [
         {
          "text": "curtailed",
-         "note": "A curtailed animal has had its tail docked, so the word gives up the letter it ends on."
-        },
-        {
-         "text": "flipping",
-         "note": "Flipping a thing turns it over end for end, so the letters are read back the other way."
+         "at": 6,
+         "note": "a curtailed word has its tail, the final letter, cut off"
         }
        ],
        "parts": [
         {
          "words": "March",
-         "gives": "MARC",
-         "note": "The month written out, then docked of its final letter."
+         "at": 0,
+         "note": "the month, taken as written before it is shortened"
+        },
+        {
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A march cut short, and somebody hunched over their books in a temper.",
-     "walkthrough": "'Flipping' is a mild British oath in the surface, which is exactly what disguises it as an instruction, and 'March' is the calendar month rather than a protest.",
-     "definitionFit": "To cram is to study intensely in one short burst — the night-before revision every student has done at least once."
+     "surface": "A student spends the end of March frantically revising for exams.",
+     "walkthrough": "'curtailed' cuts the last letter from March, leaving MARC; 'flipping' then reads MARC backwards.",
+     "definitionFit": "To cram is to revise hard and fast, typically just before an examination."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
     }
    }
   },
@@ -392,21 +403,18 @@
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "DE",
        "indicators": [
         {
          "text": "regularly",
-         "note": "Taken regularly means taken at a fixed step, so every second letter is picked up and the ones between are dropped."
+         "at": 27,
+         "note": "regularly takes every other letter of the word deer, starting with the first"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "deer",
-         "gives": "DE",
-         "select": "alternate",
-         "note": "Every other letter of the animal, starting with the one it begins on."
+         "at": 21,
+         "note": "the word deer, from which every other letter is taken"
         }
        ]
       },
@@ -415,23 +423,30 @@
        "indicators": [
         {
          "text": "first to last",
-         "note": "The phrase is positional rather than descriptive: whichever letter stands at the front goes round to the back and the rest close up."
+         "at": 46,
+         "note": "first to last moves the opening letter of the word to the end"
         }
        ],
        "parts": [
         {
          "words": "cropped",
+         "at": 37,
          "gives": "SHORN",
-         "note": "Cropped hair is shorn hair; this is the word as it stands, before anything moves."
+         "note": "cropped hair is shorn"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A deer given a routine trim, from one end of it to the other.",
-     "walkthrough": "'First to last' sounds like a description of the deer's length and is an instruction: SHORN hands over the S at its front and takes it back at its end.",
-     "definitionFit": "To dehorn an animal is to take its horns off, and a deer's horns are its antlers, so the definition is the operation itself."
+     "surface": "A gamekeeper trims a deer's antlers, cutting them back neatly.",
+     "walkthrough": "'regularly' takes alternate letters of deer. 'first to last' moves the S of SHORN to the back, making HORNS; 'cropped' looks like describing the deer, but it is the word being rearranged.",
+     "definitionFit": "To dehorn an animal is to cut off its horns or antlers, as farmers and keepers do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cropped"
     }
    }
   },
@@ -557,41 +572,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CROCODILECLIP",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 4,
+       "note": "around means the word for cut is wrapped around the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Cut",
+       "at": 0,
+       "gives": "CROP",
+       "note": "to crop is to cut short"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "Going around a thing means enclosing it, so the outer word splits open and what follows sits in the gap."
-        },
-        {
          "text": "nasty",
-         "note": "A nasty state of affairs is one that has gone wrong, and letters gone wrong are letters no longer in their proper order."
+         "at": 11,
+         "note": "nasty suggests something messed up, so the letters are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "Cut",
-         "gives": "CROP",
-         "note": "To crop is to cut; this is the word that splits open to make room."
-        },
-        {
          "words": "old icicle",
-         "gives": "CODILECLI",
-         "note": "The nine letters of those two words, reset in a new order."
+         "at": 17,
+         "note": "taken as written, the letters to be rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hacking away at a horrible old icicle that has frozen onto something.",
-     "walkthrough": "'Cut' is a word to be broken open rather than an instruction to shorten anything, and nine letters go into the gap it leaves — which is why nothing here is a straight anagram.",
-     "definitionFit": "A crocodile clip is the spring clip with toothed jaws used on test leads, and those jaws snap shut and hold, which is gripping tightly."
+     "surface": "Someone hacks away at an unpleasant old icicle hanging from the eaves.",
+     "walkthrough": "'nasty' scrambles OLD ICICLE, and 'around' puts CROP outside that jumble. 'Cut' looks like a verb acting on the icicle, but it is the outer word.",
+     "definitionFit": "A crocodile clip is a sprung metal clip with toothed jaws, used to grip wires in electrical work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "nasty"
     }
    }
   },
@@ -941,29 +964,35 @@
      "indicators": [
       {
        "text": "mixed",
-       "note": "Mixed is a drinks word in the surface and a shuffling word in the wordplay: mixed letters are letters no longer in the order given."
+       "at": 6,
+       "note": "mixed, as a drink is mixed, tells you to shuffle the letters"
       }
      ],
      "parts": [
       {
        "words": "One",
-       "note": "The word itself, three letters of fodder."
+       "at": 0,
+       "note": "taken as written"
       },
       {
        "words": "gin",
-       "note": "Three more letters of fodder, the spirit named outright."
+       "at": 17,
+       "note": "taken as written"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "R",
+       "indicators": [
+        {
+         "text": "drop of",
+         "at": 25,
+         "note": "a drop of rosso is just its first letter"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "drop of rosso",
-         "gives": "R",
-         "select": "first",
-         "note": "Rosso is Italian for red, as in red vermouth, and a drop of a word is the letter it starts on."
+         "words": "rosso",
+         "at": 33,
+         "note": "rosso is Italian red vermouth"
         }
        ]
       }
@@ -971,9 +1000,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "Somebody at the drinks trolley building a cocktail out of gin and a splash of red vermouth.",
-     "walkthrough": "Read straight the sentence is a recipe — one measure of gin, a drop of red vermouth — and read as letters it is the same words shuffled, so the clue defines and spells with one set of words.",
-     "definitionFit": "The whole clue is the drink's own recipe: equal measures with gin among them and red vermouth alongside, which is what a Negroni is."
+     "surface": "A description of a cocktail made by mixing gin with a splash of red vermouth.",
+     "walkthrough": "'mixed' shuffles ONE and GIN together with the R that 'drop of' takes from rosso. Read straight, the whole clue also describes the drink itself.",
+     "definitionFit": "A Negroni is an Italian cocktail of gin, red vermouth and Campari, so it is mixed with gin and rosso."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "drop"
     }
    }
   },
@@ -1001,47 +1035,55 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "emptily",
-       "note": "Emptied of its contents a word keeps only its outside, and the middle letters are the filling that goes."
+       "text": "going round",
+       "at": 20,
+       "note": "going round turns the assembled letters about so they read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "going round",
-         "note": "Going round is turning about, so the assembled letters are read from the far end back towards the front."
-        }
-       ],
        "parts": [
         {
          "words": "Love",
+         "at": 0,
          "gives": "O",
-         "note": "Love is a score of nothing in tennis, and nothing is written as this letter."
+         "note": "love is zero in tennis, shaped like the letter O"
+        },
+        {
+         "words": "to",
+         "at": 5
         },
         {
          "op": "outer",
+         "indicators": [
+          {
+           "text": "emptily",
+           "at": 12,
+           "note": "emptily removes the inside of yak, leaving only its first and last letters"
+          }
+         ],
          "parts": [
           {
-           "words": "to",
-           "note": "The clue's own word, taken exactly as it stands."
+           "words": "yak",
+           "at": 8,
+           "note": "yak, to chatter, emptied so only its outside letters stay"
           }
          ]
-        },
-        {
-         "words": "yak emptily",
-         "gives": "YK",
-         "note": "The animal's name with its middle taken out, leaving the two letters on the outside."
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fondness for empty chatter doing the rounds.",
-     "walkthrough": "'Yak' is the chattering, not the ox, and 'Love' is the tennis nothing rather than affection. The three pieces are built in clue order and only then turned round.",
-     "definitionFit": "Kyoto is the old imperial capital of Japan, so 'city' is the bare category and the answer one very famous instance of it."
+     "surface": "Someone who loves to chatter idly while touring a city.",
+     "walkthrough": "'emptily' strips yak to its outer letters; 'going round' then reads O, TO and those letters backwards. 'yak' here is the chatter verb, not the animal.",
+     "definitionFit": "Kyoto is a Japanese city, the country's former imperial capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "yak"
     }
    }
   },
