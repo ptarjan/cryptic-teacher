@@ -282,36 +282,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DEPOSIT",
-     "indicators": [
-      {
-       "text": "supply",
-       "note": "Read it as the adverb from supple, not the verb everyone expects: done in a bending, flexible way, and letters that bend do not keep their order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "500",
+       "at": 0,
+       "gives": "D",
+       "note": "D is the Roman numeral for 500"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "supply",
+         "at": 12,
+         "note": "supply read as supple-ly, in a pliant way, so the letters of pies and to are bent into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "500",
-         "gives": "D",
-         "note": "D is 500 in Roman numerals"
+         "words": "pies",
+         "at": 4
         },
         {
-         "words": "pies to",
-         "gives": "EPOSIT",
-         "note": "the six letters of PIES TO, bent into a new order"
+         "words": "to",
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a bakery order, and the misdirection is grammatical: the one word carrying the instruction looks like the plain verb it is pronounced nothing like.",
-     "definitionFit": "store → DEPOSIT: to deposit something is to put it somewhere for safekeeping, the bank's sense of storing it rather than a shop."
+     "surface": "A bakery has to provide five hundred pies.",
+     "walkthrough": "'supply' looks like a verb about delivering the pies, but it is read as an adverb from supple, the anagram signal; 'store' is the verb at the end.",
+     "definitionFit": "To deposit something is to put it away for safekeeping, as money is lodged in a bank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "supply"
     }
    }
   },
@@ -891,32 +901,34 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DOONESNUT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "pinching",
+       "at": 24,
+       "note": "pinching means nipping something between, so the pastry word holds the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "deep-fried pastry",
+       "at": 5,
+       "gives": "DONUT",
+       "note": "a donut, or doughnut, is a ring or ball of deep-fried dough"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "pinching",
-         "note": "To pinch a thing is to take it, and what a word takes it keeps inside itself rather than alongside."
-        },
-        {
          "text": "runny",
-         "note": "Something runny has lost its shape and will not hold a form, so its letters do not stay in the order they were given."
+         "at": 33,
+         "note": "a runny nose is a streaming one, and runny suggests the letters of nose flowing out of order"
         }
        ],
        "parts": [
         {
-         "words": "deep-fried pastry",
-         "gives": "DONUT",
-         "note": "a deep-fried ring of pastry is a donut, spelled the short American way; it opens after two letters"
-        },
-        {
          "words": "nose",
-         "gives": "ONES",
-         "note": "the four letters of NOSE, run together in a different order"
+         "at": 39
         }
        ]
       }
@@ -924,8 +936,14 @@
     },
     "spelling": "DO ONE'S NUT",
     "explanation": {
-     "walkthrough": "A runny nose and a doughnut make one greasy picture, which is why neither word looks like an instruction until the enumeration refuses to fit.",
-     "definitionFit": "Flip → DO ONE'S NUT: to flip, or flip your lid, is to lose your temper, and doing your nut is the British idiom for the same explosion."
+     "surface": "Someone eating a doughnut gets sugar up a streaming nose.",
+     "walkthrough": "'Flip' is the definition, the informal sense of losing one's temper; DO ONE'S NUT is British slang for becoming furious.",
+     "definitionFit": "To flip is to fly into a rage, and doing one's nut is the British idiom for exactly that loss of temper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flip"
     }
    }
   },
