@@ -292,8 +292,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "in",
-       "note": "'in' puts the first pieces inside the next one"
+       "text": "returned",
+       "at": 34,
+       "note": "returned means the whole assembled string is sent back, read right to left"
       }
      ],
      "parts": [
@@ -301,53 +302,53 @@
        "op": "container",
        "indicators": [
         {
-         "text": "outskirts of",
-         "note": "the outskirts of a town are its edges, so only the first and last letters of the word are used"
+         "text": "in",
+         "at": 8,
+         "note": "'in' places the party between the outskirts"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "outer",
          "indicators": [
           {
-           "text": "returned",
-           "note": "something returned goes back the way it came, so the letters run in reverse"
+           "text": "outskirts of",
+           "at": 11,
+           "note": "the outskirts of a word are its first and last letters"
           }
          ],
          "parts": [
           {
-           "op": "outer",
-           "unchecked": true,
-           "gives": "SS",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "outskirts of Sevenoaks",
-             "gives": "SS",
-             "select": "outer",
-             "note": "the town's first and last letters"
-            }
-           ]
-          },
-          {
-           "words": "party",
-           "gives": "DO",
-           "note": "a do is an informal word for a party"
+           "words": "Sevenoaks",
+           "at": 24,
+           "note": "first and last letters of Sevenoaks, a town in Kent"
           }
          ]
         },
         {
-         "words": "A",
-         "note": "the article is used as it stands"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "A",
+           "at": 0,
+           "gives": "A"
+          },
+          {
+           "words": "party",
+           "at": 2,
+           "gives": "DO",
+           "note": "a do is a party or celebration"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Revellers heading back from a party on the edge of Sevenoaks with drinks in hand.",
-     "walkthrough": "SEVENOAKS is a commuter town in Kent; only its two S's matter here. 'Returned' applies to A and the party, which flip before they go inside.",
-     "definitionFit": "Sodas are fizzy soft drinks, so 'drinks' covers them as a plain plural."
+     "surface": "Guests at a party on the edge of a Kent town came back for drinks.",
+     "walkthrough": "'outskirts of' gives SS from Sevenoaks (a town in Kent), A and DO go 'in' to make SADOS, and 'returned' reads that backwards.",
+     "definitionFit": "Sodas are fizzy soft drinks, so the word is a plural example of drinks."
     },
     "features": {
      "answerInScene": true,
