@@ -1477,15 +1477,69 @@ def find_solution(puzzle_dir, grid, day, cache=CACHE, articles=None):
 def answers_for(puzzle_dir, grid, day, cache=CACHE, articles=None):
     """({"<n>-<direction>": answer}, info) for a puzzle article: the accepted
     reads of its paired solution grid. Empty when anything is missing."""
-    why = available()
+    why = installed()
     if why:
         return {}, {"ocr": why}
     sol, why = find_solution(Path(puzzle_dir), grid, day, cache, articles)
     if sol is None:
         return {}, {"ocr": why}
-    accepted, stats = read_answers(sol / "grid.jpg", grid)
+    accepted, stats = read_answers_anywhere(sol / "grid.jpg", grid)
     return ({f"{n}-{d}": a for (n, d), a in accepted.items()},
             {"ocr": f"solution article {sol.name}", **stats})
+
+
+def installed():
+    """None when the recogniser's packages are here, else why not: available()
+    without loading the models (the desktop may read the answers)."""
+    import importlib.util
+    for name in ("onnxruntime", "rapidocr_onnxruntime"):
+        if importlib.util.find_spec(name) is None:
+            return f"rapidocr-onnxruntime is not installed (No module named '{name}')"
+    return None
+
+
+def read_answers_anywhere(image, grid):
+    """read_answers(image, grid) run on the desktop when tools/ocr_remote.py can
+    (the models' sessions and the cells' reads cost this host 300 MB and
+    ~10 s of CPU an article; the same code and models read the same
+    answers), else here in a local_slot()."""
+    import ocr_remote
+    data = Path(image).read_bytes()
+    corpus = "\n".join(sorted(corpus_words()))
+    key = hashlib.sha1(corpus.encode()).hexdigest()
+    rows = ["".join(r) for r in grid]
+    got = ocr_remote.call("solution_answers", rows, key, data=data)
+    if got is not None and got[0].get("need"):
+        got = ocr_remote.call("solution_answers", rows, key, corpus, data=data)
+    if got is None or "accepted" not in got[0]:
+        with ocr_remote.local_slot():
+            why = available()
+            if why:
+                raise RuntimeError(why)
+            return read_answers(image, grid)
+    found, stats = got[0]["accepted"], got[0]["stats"]
+    return {(n, d): a for n, d, a in found}, stats
+
+
+#: The corpus_words() set the desktop's process holds, and its key.
+_REMOTE_CORPUS = None
+
+
+def answers_there(data, grid, key, corpus=None):
+    """({"accepted": [[number, direction, word]], "stats"}, b"") of
+    read_answers(the image in `data`, grid) run on the desktop (CALLS), where
+    there is no git checkout of the corpus: the client's corpus_words()
+    (`corpus`, its words a line each, sent once a process, then held by its
+    sha1 `key`) stands in. {"need": True} when this process holds none."""
+    global _REMOTE_CORPUS
+    import io
+    if corpus is not None:
+        _CORPUS[str(CORPUS_ROOT)] = frozenset(corpus.split())
+        _REMOTE_CORPUS = key
+    if _REMOTE_CORPUS != key:
+        return {"need": True}, b""
+    accepted, stats = read_answers(io.BytesIO(data), grid)
+    return {"accepted": [[n, d, a] for (n, d), a in accepted.items()], "stats": stats}, b""
 
 
 # ------------------------------------------------------------ the corpus

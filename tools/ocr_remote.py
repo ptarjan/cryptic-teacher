@@ -579,7 +579,7 @@ def _pdf_pages_there(data):
 #: imported there when it runs: a module the page build need not import.
 CALLS = {"reconstruct": _reconstruct_there, "pdf_pages": _pdf_pages_there, "scan": _scan_there,
          "listener_read": "gale_listener.read_there", "listener_grids": "file_gale_listener.grids_there",
-         "gale_layout": "gale_inbox.layout_there"}
+         "gale_layout": "gale_inbox.layout_there", "solution_answers": "trove_solution_ocr.answers_there"}
 
 
 def run_call(name, data, args, kwargs):
