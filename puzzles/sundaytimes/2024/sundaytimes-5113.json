@@ -193,42 +193,48 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a mode of speech",
-      "at": 32
+      "text": "mode of speech",
+      "at": 34
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LOCUTION",
      "indicators": [
       {
        "text": "has replaced",
-       "note": "one letter has taken another's spot"
+       "at": 19,
+       "note": "posh has taken the place of the letter a, so one letter is swapped for another"
       }
      ],
      "parts": [
       {
        "words": "Place",
+       "at": 0,
        "gives": "LOCATION",
-       "note": "a place is a location"
+       "note": "a location is a place"
       },
       {
-       "words": "\"posh\"",
+       "words": "a",
+       "at": 32,
+       "gives": "A"
+      },
+      {
+       "words": "posh",
+       "at": 13,
        "gives": "U",
-       "note": "U = upper-class; it replaces the A"
+       "note": "U is the old label for upper-class, i.e. posh, usage"
       }
      ]
     },
     "explanation": {
-     "surface": "A spot where a plummy accent has taken over the local way of talking.",
-     "walkthrough": "U for upper-class comes from the 1950s split of \"U\" and \"non-U\" words, those the posh did and did not use.",
-     "definitionFit": "A plain synonym: a locution is a particular form of expression or phrasing."
+     "surface": "A setting where a snobbish word has crept in instead of a plainer way of talking.",
+     "walkthrough": "In LOCATION, 'has replaced' swaps the A for U. U meaning upper-class comes from the U and non-U debate over British posh speech.",
+     "definitionFit": "A locution is a particular word, phrase or style of expression, i.e. a way of speaking."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "posh"
+     "misdirectedWord": "Place"
     }
    }
   },
@@ -693,43 +699,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNCLOTHE",
+     "op": "container",
      "indicators": [
       {
-       "text": "jerky",
-       "note": "moving in jerks and jolts, so the letters are shaken out of order"
+       "text": "eats",
+       "at": 33,
+       "note": "the relative swallows the jumbled letters into his middle"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "mum's brother",
+       "at": 19,
+       "gives": "UNCLE",
+       "note": "your mother's brother is your uncle"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "eats",
-         "note": "what is eaten ends up inside"
+         "text": "jerky",
+         "at": 13,
+         "note": "jerky movement is jolting and irregular, so the letters of hot are shaken up"
         }
        ],
        "parts": [
         {
-         "words": "mum's brother",
-         "gives": "UNCLE",
-         "note": "your mother's brother"
-        },
-        {
-         "words": "hot jerky",
-         "gives": "OTH",
-         "note": "HOT rearranged; goes after UNCL"
+         "words": "hot",
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An uncle munching a strip of spicy dried meat.",
-     "walkthrough": "\"Jerky\" is dried meat in the surface, and \"strip\" of meat goes with it; both are misdirection.",
-     "definitionFit": "A plain synonym: to strip someone is to take their clothes off."
+     "surface": "A relative chewing a piece of spicy dried meat.",
+     "walkthrough": "'jerky' looks like the dried meat, but here it is an adjective meaning jolting, which tells you to jumble the word before it; 'eats' then tucks that jumble inside the relative.",
+     "definitionFit": "To unclothe someone is to remove their clothes, the verb sense of strip."
     },
     "features": {
      "answerInScene": false,
@@ -823,52 +829,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SCHOOLMARM",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 23,
+       "note": "the smarm goes around the next pieces"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "about"
-        }
-       ],
+       "words": "slimy speech",
+       "at": 10,
+       "gives": "SMARM",
+       "note": "smarm is oily, ingratiating talk"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "words": "church",
+         "at": 29,
+         "gives": "CH"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
            "text": "backing",
-           "note": "going backwards, so LOO is read from right to left"
+           "at": 36,
+           "note": "backing means the word for ladies is read in reverse"
           }
          ],
          "parts": [
           {
-           "words": "slimy speech",
-           "gives": "SMARM",
-           "note": "smarm = oily flattery"
-          },
-          {
-           "words": "church",
-           "gives": "CH",
-           "note": "standard abbreviation"
+           "words": "ladies",
+           "at": 44,
+           "gives": "LOO",
+           "note": "the ladies is a British word for a women's toilet, and so is loo"
           }
          ]
-        },
-        {
-         "words": "ladies",
-         "gives": "OOL",
-         "note": "LOO (the ladies' toilet) reversed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A teacher's oily sermon about the church supporting women.",
-     "walkthrough": "\"The ladies\" is a British name for the women's toilet, the loo. \"Teacher's\" reads as Teacher is.",
-     "definitionFit": "A definition by class: a schoolmarm is a teacher, usually a prim, old-fashioned one."
+     "surface": "A flattering teacher's oily talk about a church that supports women.",
+     "walkthrough": "'ladies' suggests women, but in Britain the ladies is the women's lavatory, hence the loo; 'backing' reverses it, and 'about' wraps the smarm around church plus that.",
+     "definitionFit": "A schoolmarm is an old-fashioned, often prim, female schoolteacher."
     },
     "features": {
      "answerInScene": true,
@@ -1056,47 +1065,47 @@
     "definitions": [
      {
       "text": "digging?",
-      "at": 20
+      "at": 20,
+      "note": "digging as slang for liking, an adjective sense matching the answer's 'keen on'"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INTO",
-     "indicators": [
-      {
-       "text": "dressed",
-       "note": "to dress is to arrange, as a shop window is dressed, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dressed",
+         "at": 8,
+         "note": "to dress something is to arrange it, as troops are dressed in line, so the letters of not are put in a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "One",
-         "gives": "I",
-         "note": "Roman numeral"
-        },
-        {
-         "words": "not dressed",
-         "gives": "NTO",
-         "note": "NOT rearranged"
+         "words": "not",
+         "at": 4
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who has turned up to a dig not in work clothes.",
-     "walkthrough": "\"Digging\" is slang for liking, and the question mark flags the slang.",
-     "definitionFit": "Both slang: if you are digging something you are into it, keen on it."
+     "surface": "A person who has no clothes on and is about to go digging.",
+     "walkthrough": "'dressed' looks like the opposite of 'not', but it means arranged, as soldiers dress their ranks. 'digging' is old slang for enjoying, as in being keen on something.",
+     "definitionFit": "Being into something is informal for being enthusiastic about it, as is the slang word digging."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "digging"
+     "misdirectedWord": "dressed"
     }
    }
   },
@@ -1293,42 +1302,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ERRAND",
+     "op": "charade",
      "indicators": [
       {
-       "text": "back",
-       "note": "going back means going backwards, so RE is read from right to left"
+       "text": "to",
+       "at": 29,
+       "note": "the reversed soldiers are joined to the currency that follows"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 24,
+         "note": "back means the abbreviation for soldiers is read in reverse"
+        }
+       ],
        "parts": [
         {
          "words": "soldiers",
-         "gives": "ER",
-         "note": "RE (Royal Engineers) reversed"
-        },
-        {
-         "words": "African capital",
-         "gives": "RAND",
-         "note": "the rand, South Africa's currency"
+         "at": 15,
+         "gives": "RE",
+         "note": "RE, the Royal Engineers, are British Army soldiers"
         }
        ]
+      },
+      {
+       "words": "African capital",
+       "at": 32,
+       "gives": "RAND",
+       "note": "capital as in money: the rand is South Africa's currency"
       }
      ]
     },
     "explanation": {
-     "surface": "A military mission returning troops to an African capital city.",
-     "walkthrough": "\"Capital\" means money, not a city: the rand is South Africa's currency. RE are the Royal Engineers.",
-     "definitionFit": "A near synonym: an errand is a small mission you are sent on."
+     "surface": "A military mission sending troops back to a city in Africa.",
+     "walkthrough": "'back' turns RE into ER. 'African capital' suggests a city, but capital here is money: the South African rand.",
+     "definitionFit": "An errand is a short trip made to carry out a task, a small mission."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "capital"
     }
    }
