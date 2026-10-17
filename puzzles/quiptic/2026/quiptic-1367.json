@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -43,53 +44,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CLEANSE",
+     "op": "container",
      "indicators": [
       {
-       "text": "winding",
-       "note": "A winding lane bends one way then another, and letters told to wind will not stay in the order they were handed over."
+       "text": "in",
+       "at": 31,
+       "note": "the reworked letters go inside the two border letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "in",
-         "note": "Whatever is described as in something else sits inside it, so the reshuffled letters land between the pair already found."
+         "text": "borders of",
+         "at": 34,
+         "note": "the borders of a word are its outside letters"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "borders of",
-           "note": "The borders of a county are its outer edges, so only the opening and closing letters of the word are wanted."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Cheshire",
-           "note": "the outer pair of CheshirE, an English county in the north-west"
-          }
-         ]
-        },
+         "words": "Cheshire",
+         "at": 45,
+         "note": "its first and last letters are used"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "winding",
+         "at": 17,
+         "note": "winding suggests twisting the letters of lanes into a new order"
+        }
+       ],
+       "parts": [
         {
          "words": "lanes",
-         "gives": "LEANS",
-         "note": "the five letters of LANES put in a new order"
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Scrubbing the mud off twisting country lanes at the edge of Cheshire.",
-     "walkthrough": "'Winding lanes' reads as one picture of country roads, and its two words belong to opposite halves of the wordplay: one is the instruction, the other the material.",
-     "definitionFit": "Remove dirt from → CLEANSE: the thorough verb for washing a thing clean, stronger than 'clean' and used of wounds and skin."
+     "surface": "Clearing mud off the winding country lanes along the edges of Cheshire.",
+     "walkthrough": "'winding' turns LANES into LEANS, and 'in' puts that between C and E, the borders of Cheshire, an English county.",
+     "definitionFit": "To cleanse something is to clean it thoroughly, taking the grime away."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "winding"
     }
    }
   },
@@ -1000,37 +1007,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENVELOP",
-     "indicators": [
-      {
-       "text": "stewed",
-       "note": "Long stewing breaks a thing down until its pieces sit in the pot every which way, and the letters beside it change places the same way."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "stewed",
+         "at": 11,
+         "note": "stewed fruit is cooked and broken up, so the letters of even are mixed"
+        }
+       ],
        "parts": [
         {
          "words": "even",
-         "gives": "ENVE",
-         "note": "the four letters of EVEN put in a new order"
-        },
-        {
-         "words": "prune",
-         "gives": "LOP",
-         "note": "to prune a branch is to lop it off"
+         "at": 6
         }
        ]
+      },
+      {
+       "words": "prune",
+       "at": 18,
+       "gives": "LOP",
+       "note": "to prune a tree is to lop its branches"
       }
      ]
     },
     "explanation": {
-     "surface": "Putting a lid on a dish of stewed prunes.",
-     "walkthrough": "'Prune' is a gardener's verb here, not the dried fruit that the stewing beside it points at.",
-     "definitionFit": "Cover → ENVELOP: to wrap something up completely, the verb behind the envelope that closes right round a letter."
+     "surface": "A kitchen instruction: cover the evenly stewed prunes.",
+     "walkthrough": "'prune' looks like the dried plum to go with 'stewed', but it is the verb to cut back; 'stewed' rearranges EVEN to ENVE.",
+     "definitionFit": "To envelop something is to wrap or surround it completely, so to cover it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prune"
     }
    }
   },
