@@ -580,52 +580,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NUDGE",
-     "indicators": [
-      {
-       "text": "snubbed",
-       "note": "snub means short, as in a snub nose, so the end is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 17,
+         "note": "'around' says the horse's word is turned the other way round"
+        }
+       ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "around",
-           "note": "turned around means facing the other way, so the letters run backwards"
-          }
-         ],
-         "parts": [
-          {
-           "words": "dusky horse",
-           "gives": "DUN",
-           "note": "a dun is a greyish-brown horse"
-          }
-         ]
-        },
+         "words": "dusky horse",
+         "at": 5,
+         "gives": "DUN",
+         "note": "a dun is a horse of dull greyish-brown colour"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "snubbed",
+         "at": 32,
+         "note": "snubbed is read as cut short, like a snub nose, so the word loses its final letter"
+        }
+       ],
+       "parts": [
         {
          "words": "get",
-         "gives": "GE",
-         "note": "the word loses its tail"
+         "at": 28
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Shove a dark horse and you get ignored for your trouble.",
-     "walkthrough": "'Snubbed' sounds like being ignored, but here it means docked, like a snub nose.",
-     "definitionFit": "Both words mean to prod or push someone gently, often with the elbow, as near synonyms."
+     "surface": "Someone shoves a dark horse aside and gets rebuffed for it.",
+     "walkthrough": "'snubbed' looks like being rebuffed, but it means docked, cut short like a snub nose, so GE is GET without its tail. A dun is a greyish-brown horse.",
+     "definitionFit": "A nudge is a gentle push, especially with the elbow."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "snubbed"
     }
    }
@@ -652,31 +656,30 @@
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "ACQUAINTANCE",
      "indicators": [
       {
        "text": "seen in",
-       "note": "what is seen in a phrase is visible inside its letters"
+       "at": 17,
+       "note": "'seen in' says the answer can be spotted sitting inside the words that follow"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "almanac, quaint ancestor",
-       "note": "the answer runs from the end of the first word through to the start of the last"
+       "at": 25,
+       "note": "the letters run on from the last two of almanac, through all of quaint, into the first four of ancestor"
       }
      ]
     },
     "explanation": {
-     "surface": "A familiar face turns up in an old almanac, a quaint forebear.",
-     "walkthrough": "The letters start at the tail of 'almanac', take all of 'quaint', and end inside 'ancestor'.",
-     "definitionFit": "A person you have met and know slightly, though not a close friend, is described this way."
+     "surface": "A familiar face turns up in an old almanac describing a quaint forebear.",
+     "walkthrough": "The answer runs across the last two letters of almanac, all of quaint and the first four of ancestor.",
+     "definitionFit": "An acquaintance is a person one knows slightly, though not a close friend."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "ancestor"
+     "misdirectedWord": "seen"
     }
    }
   },
@@ -1343,46 +1346,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "UGH",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "turned",
-       "note": "something turned faces the other way, so its letters run backwards"
+       "text": "away",
+       "at": 41,
+       "note": "'one away' says those letters are taken away from the first word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "UGH",
+       "words": "enough",
+       "at": 16
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "away",
-         "note": "sending something away removes it, so letters are taken out"
+         "text": "turned",
+         "at": 30,
+         "note": "turned means reversed in direction, so the letters of one are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "enough",
-         "note": "taken as written"
-        },
-        {
          "words": "one",
-         "note": "taken as written; its letters are then run backwards and removed"
+         "at": 37
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grumble that something is not pleasant enough, having sent one back.",
-     "walkthrough": "The first three letters of ENOUGH are ONE backwards, so taking them away leaves the answer.",
-     "definitionFit": "The interjection expresses disgust or distaste, the same reaction as saying something is unpleasant."
+     "surface": "Someone grumbles that a ration was too small after one portion was turned down.",
+     "walkthrough": "ONE is 'turned' to ENO, and those letters go 'away' from ENOUGH, leaving the exclamation.",
+     "definitionFit": "Ugh is an exclamation of disgust, the noise someone makes at something unpleasant."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "turned"
     }
