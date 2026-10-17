@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -731,35 +732,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SOLEMN",
-     "indicators": [
-      {
-       "text": "losing heart"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "single",
+       "at": 6,
+       "gives": "SOLE",
+       "note": "sole means single, only one"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing heart",
+         "at": 20,
+         "note": "losing heart means the middle letter is taken out"
+        }
+       ],
        "parts": [
         {
-         "words": "single",
-         "gives": "SOLE",
-         "note": "sole = single, only"
+         "words": "fellow",
+         "at": 13,
+         "gives": "MAN",
+         "note": "a fellow is a man"
         },
         {
-         "words": "fellow",
-         "gives": "MN",
-         "note": "MAN 'losing heart' drops his middle letter A"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Losing heart' is the standard signal to remove a word's middle letter — the poor fellow is left as just M and N.",
-     "definitionFit": "Solemn means gravely serious, and glum means gloomily so — the shared long-faced mood makes them fair synonyms."
+     "surface": "A lonely bachelor gets downhearted and miserable.",
+     "walkthrough": "'Losing heart' sounds like despair, matching glum, but it removes the middle A of MAN.",
+     "definitionFit": "Solemn means serious and grave, close to glum in mood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
     }
    }
   },
@@ -966,48 +978,54 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "absorbing",
+       "at": 18,
+       "note": "absorbing means taking in, so the English letter goes inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "indicators": [
         {
-         "text": "absorbing"
+         "text": "and",
+         "at": 8,
+         "note": "and simply joins the two pieces, one after the other"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "On fire",
-           "gives": "LIT",
-           "note": "lit = on fire, also slang for exciting"
-          },
-          {
-           "words": "sexy",
-           "gives": "RACY",
-           "note": "racy = risqué, sexy"
-          }
-         ]
+         "words": "On fire",
+         "at": 0,
+         "gives": "LIT",
+         "note": "lit means set alight, on fire"
         },
         {
-         "words": "English",
-         "gives": "E",
-         "note": "E = English, absorbed between LIT and RACY"
+         "words": "sexy",
+         "at": 12,
+         "gives": "RACY",
+         "note": "racy means risqué, sexy"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "and",
-       "note": "surface glue joining the two outer pieces"
+       "words": "English",
+       "at": 28,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'On fire' is doing modern slang duty — lit means exciting as well as burning — and the steamy surface is a long way from the classroom the definition points at.",
-     "definitionFit": "Literacy is the ability to read and write; 'writing skill' names half the pair, hence the setter's question mark."
+     "surface": "Passionate, steamy English prose shows off a writer's craft.",
+     "walkthrough": "The question mark marks the definition as loose: literacy is the ability to read and write.",
+     "definitionFit": "Literacy is the ability to read and write, so writing skill is part of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -1172,53 +1190,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "OGLES",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 33,
+       "note": "in means the letter is placed inside the rearranged fish"
+      }
+     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "in"
+         "text": "battered",
+         "at": 36,
+         "note": "battered means knocked about, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "battered"
-          }
-         ],
-         "parts": [
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "bit of"
-            }
-           ],
-           "parts": [
-            {
-             "words": "ginger",
-             "note": "'bit of' takes its first letter"
-            }
-           ]
-          },
-          {
-           "words": "sole",
-           "gives": "OLES",
-           "note": "'battered' — apt for a fish — jumbles it around the G"
-          }
-         ]
+         "words": "sole",
+         "at": 45
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "bit of",
+         "at": 19,
+         "note": "a bit of a word here is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "ginger",
+         "at": 26,
+         "note": "first letter of ginger"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Battered' doing double duty — cooking term on the surface, anagram indicator underneath — is the joke; the G from 'ginger' lands inside the shaken SOLE.",
-     "definitionFit": "To ogle someone is to eye them with open desire — 'looks longingly at', third person matching third person."
+     "surface": "A diner gazes hungrily at a piece of ginger in fried, battered fish.",
+     "walkthrough": "'Battered' suggests fish and chips, but it scrambles SOLE into OLES, with G placed after the O.",
+     "definitionFit": "To ogle is to stare at someone with desire, to look longingly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "battered"
     }
    }
   },
@@ -1284,44 +1307,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LEVEL",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "change of direction"
+       "text": "needing change of direction at the outset",
+       "at": 11,
+       "note": "the first letter, R for right, is swapped for the opposite direction, L for left"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "party",
+       "at": 5,
        "gives": "REVEL",
-       "indicators": [
-        {
-         "text": "at the outset"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "party",
-         "gives": "REVEL",
-         "select": "first",
-         "note": "a revel is a lively party — about to change its first letter"
-        }
-       ]
+       "note": "a revel is a lively party"
       },
       {
-       "words": "change of direction",
-       "gives": "L",
-       "note": "the opening R (right) becomes the other direction, L (left)"
+       "gives": "R"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Direction' here means the everyday kind: R for right and L for left. Swap one for the other at the front of REVEL and the party flattens out.",
-     "definitionFit": "Level ground is flat ground — a plain synonym, once you see 'flat' is the adjective, not the apartment."
+     "surface": "A flat party needs a new tack from the start.",
+     "walkthrough": "R and L are the abbreviations for right and left, so changing direction swaps one for the other.",
+     "definitionFit": "Level means flat, with no slope or bumps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flat"
     }
    }
   },
