@@ -225,7 +225,9 @@ def main():
     k, n = (int(x) for x in a.shard.split("/"))
     paths = flagged_files()[k - 1::n][:a.limit]
     results = run(paths, a.write)
-    total = sum((r[2] for r in results), collections.Counter())
+    total = collections.Counter()
+    for r in results:  # update in place: sum() re-copies the whole Counter per puzzle
+        total.update(r[2])
     n_total = sum(total[o] for o in OUTCOMES)
     cleared = sum(len(r[1]) for r in results)
     print(f"{n_total} unchecked clues in {len(results)} puzzles: "
