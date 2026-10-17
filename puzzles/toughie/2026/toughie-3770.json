@@ -699,32 +699,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OTTER",
+     "op": "middle",
      "indicators": [
       {
        "text": "wingless",
-       "note": "the wings of a word are its two ends, so both outer letters are clipped off"
+       "at": 17,
+       "note": "wingless means the letters on either flank are clipped off"
       }
      ],
      "parts": [
       {
        "words": "Craft using clay",
+       "at": 0,
        "gives": "POTTERY",
        "note": "pottery is the craft of shaping clay"
       }
      ]
     },
     "explanation": {
-     "surface": "A clay model of a creature that has no wings.",
-     "walkthrough": "'Craft' suggests a boat or vessel, but it is the art of working clay.",
-     "definitionFit": "An otter is a semi-aquatic mammal of the weasel family, so it is an animal."
+     "surface": "A pottery class turns out a model of a flightless creature.",
+     "definitionFit": "An otter is a fish-eating aquatic mammal, an example of an animal."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Craft"
+     "misdirectedWord": "wingless"
     }
    }
   },
@@ -868,55 +867,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "STUDIOFLAT",
      "indicators": [
       {
        "text": "stopping",
-       "note": "stopping a gap means plugging it, so this letter fills a space between the other parts"
+       "at": 4,
+       "note": "stopping means plugging a gap, so the letter for one goes in between the other pieces"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "almost",
-         "note": "almost means nearly but not entirely, so the final letter goes"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "boss",
-           "gives": "STUD",
-           "note": "a boss is a raised knob or stud, as on a shield"
-          },
-          {
-           "words": "One",
-           "gives": "I",
-           "note": "the Roman numeral for one"
-          },
-          {
-           "words": "recently",
-           "gives": "OFLATE",
-           "note": "of late means recently"
-          }
-         ]
+         "words": "boss",
+         "at": 13,
+         "gives": "STUD",
+         "note": "a stud is a boss, a raised knob"
         },
         {
-         "gives": "E"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "almost",
+           "at": 27,
+           "note": "almost means the phrase is cut short by its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "recently",
+           "at": 18,
+           "gives": "OFLATE",
+           "note": "of late means recently"
+          },
+          {
+           "gives": "E"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone halts their manager's recent hunt for a bedsit.",
-     "walkthrough": "'Boss' suggests a manager, but here it is an ornamental knob. A studio flat is what Americans call a studio apartment.",
-     "definitionFit": "A studio flat combines living, sleeping and cooking in a single room, so it is a one-room property."
+     "surface": "Someone who lately stood in for the boss has found a small flat.",
+     "walkthrough": "A boss here is a knob or stud, not an employer; I goes between STUD and OF LAT.",
+     "definitionFit": "A studio flat is a small apartment with a single main room."
     },
     "features": {
      "answerInScene": true,
@@ -1258,22 +1260,22 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "MUSICAL",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "nurses",
-       "note": "to nurse is to hold close, so the large amount cradles the other letters"
+       "text": "rising",
+       "at": 56,
+       "note": "in a down answer, rising means the whole is read from the bottom up"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "rising",
-         "note": "in a down entry rising means read from bottom to top, so the letters go backwards"
+         "text": "nurses",
+         "at": 30,
+         "note": "nurses means holds closely, so the picked letters sit inside the others"
         }
        ],
        "parts": [
@@ -1282,33 +1284,32 @@
          "parts": [
           {
            "words": "large",
+           "at": 16,
            "gives": "L",
            "note": "L is the clothing-size abbreviation for large"
           },
           {
-           "op": "alternate",
-           "unchecked": true,
-           "gives": "ACI",
-           "indicators": [
-            {
-             "text": "regularly",
-             "note": "regularly means at fixed intervals, so every other letter is kept"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "watch it",
-             "gives": "ACI",
-             "select": "alternate",
-             "note": "the second, fourth and sixth letters of watch it"
-            }
-           ]
-          },
-          {
            "words": "amount",
+           "at": 22,
            "gives": "SUM",
            "note": "a sum is an amount"
+          }
+         ]
+        },
+        {
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "regularly",
+           "at": 46,
+           "note": "regularly means taking every other letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "watch it",
+           "at": 37,
+           "note": "the words whose alternate letters are taken"
           }
          ]
         }
@@ -1317,9 +1318,9 @@
      ]
     },
     "explanation": {
-     "surface": "A tenant watches their large monthly payment climb steadily.",
-     "walkthrough": "'Rent' looks like money paid to a landlord, but it is the Broadway show. Rent is Jonathan Larson's rock musical about struggling artists.",
-     "definitionFit": "Rent is a famous stage show with songs, so it is an example of a musical, hence 'typically'."
+     "surface": "Nurses keep careful watch on how much rent their lodgings cost.",
+     "walkthrough": "'Rent' looks like housing costs but is the Broadway show, and 'large amount' splits into two pieces rather than one word.",
+     "definitionFit": "Rent is a rock musical by Jonathan Larson, so it is one example of the genre."
     },
     "features": {
      "answerInScene": false,
