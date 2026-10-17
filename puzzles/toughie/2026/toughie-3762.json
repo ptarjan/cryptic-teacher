@@ -256,51 +256,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BELUGA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "squeezed in",
+       "at": 14,
+       "note": "the letter is squeezed into the middle of the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "squeezed in"
-        },
-        {
          "text": "morphing of",
-         "note": "morphing changes shape, so A BLUE is rearranged"
+         "at": 26,
+         "note": "morphing means changing shape, so the letters of a blue are rearranged"
         }
        ],
        "parts": [
         {
          "words": "a blue",
-         "gives": "BELUA",
-         "note": "anagram fodder, rearranged"
-        },
+         "at": 38
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Head of",
-           "note": "the first letter of giant"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Head of giant",
-           "gives": "GIANT",
-           "note": "first letter of giant, placed between U and A"
-          }
-         ]
+         "text": "Head of",
+         "at": 0,
+         "note": "the head of a word is its first letter, so only the start of giant is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "giant",
+         "at": 8,
+         "note": "its first letter supplies G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A giant blue whale changing shape.",
-     "walkthrough": "'Blue whale' reads as one animal, but it splits: 'a blue' is fodder and 'whale' alone is the definition.",
-     "definitionFit": "The beluga is a small white Arctic whale."
+     "surface": "The leader of a giant is squashed as a blue whale changes form.",
+     "walkthrough": "'Blue whale' reads as one creature, but 'blue' belongs to the anagram and 'whale' alone is the definition.",
+     "definitionFit": "The white Arctic cetacean is a small toothed species, and so an example of a whale."
     },
     "features": {
      "answerInScene": true,
@@ -1129,37 +1132,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PALESTRINA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "bamboozled",
-       "note": "bamboozled means confused, so IRAN is rearranged"
+       "text": "by",
+       "at": 16,
+       "note": "by means beside, so the two pieces sit next to each other"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "most sickly",
+       "at": 19,
+       "gives": "PALEST",
+       "note": "a sickly person looks pale, so the most sickly is the palest"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bamboozled",
+         "at": 5,
+         "note": "bamboozled means confused, so the letters of Iran are jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "most sickly",
-         "gives": "PALEST",
-         "note": "palest = most sickly-looking"
-        },
-        {
          "words": "Iran",
-         "gives": "RINA",
-         "note": "anagram of IRAN"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An ill Italian footballer getting the better of Iran.",
-     "walkthrough": "'Scorer' suggests a goal-scorer, but it means a composer who writes scores: Palestrina wrote Renaissance church music.",
-     "definitionFit": "Giovanni Pierluigi da Palestrina was an Italian composer, a writer of musical scores."
+     "surface": "The country of Iran is outwitted by its feeblest opponent.",
+     "walkthrough": "'Scorer' suggests a footballer, but here it is someone who writes musical scores: Palestrina was a 16th-century Italian composer of church music.",
+     "definitionFit": "A composer writes scores, so a crossword can call an Italian composer an Italian scorer."
     },
     "features": {
      "answerInScene": false,
