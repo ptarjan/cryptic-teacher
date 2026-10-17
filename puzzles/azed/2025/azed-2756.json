@@ -516,12 +516,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BRUTAL",
      "indicators": [
       {
        "text": "in",
-       "note": "the track word is put inside the other"
+       "at": 13,
+       "note": "in means inside, so the course goes within the other piece"
       }
      ],
      "parts": [
@@ -530,38 +529,31 @@
        "indicators": [
         {
          "text": "taken up",
-         "note": "in a down answer, taking up means lifting it so it reads bottom to top"
+         "at": 25,
+         "note": "in a down answer, taking a word up lifts it so it reads from the bottom upwards"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "workshop",
-           "gives": "LA",
-           "note": "first part of lab, a workshop"
-          },
-          {
-           "words": "course",
-           "gives": "TUR",
-           "note": "rut, a fixed course, ready to be read backwards"
-          },
-          {
-           "words": "workshop",
-           "gives": "B",
-           "note": "last letter of lab"
-          }
-         ]
+         "words": "workshop",
+         "at": 16,
+         "gives": "LAB",
+         "note": "a lab, short for laboratory, is a scientific workshop"
         }
        ]
+      },
+      {
+       "words": "course",
+       "at": 6,
+       "gives": "RUT",
+       "note": "a rut is a groove or track, a course worn into the ground"
       }
      ]
     },
     "explanation": {
-     "surface": "A hard training course held in a workshop.",
-     "walkthrough": "RUT goes inside LAB, then the whole is read upwards.",
-     "definitionFit": "Brutal and tough both describe something harsh, severe and hard to endure."
+     "surface": "A demanding training course is undertaken in a workshop.",
+     "walkthrough": "'taken up' turns LAB into BAL, and RUT goes 'in' it after the B.",
+     "definitionFit": "Brutal and tough both describe something harsh, severe and hard to endure, so they are near synonyms."
     },
     "features": {
      "answerInScene": false,
@@ -591,48 +583,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ANCILE",
+     "op": "composite",
      "indicators": [
       {
        "text": "possibly",
-       "note": "possibly suggests the letters could be arranged otherwise"
+       "at": 53,
+       "note": "possibly signals that the letters of one miracle can be arranged another way"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ANCILE",
-       "indicators": [
-        {
-         "text": "concealed with this",
-         "note": "the city sits hidden alongside the answer within the fodder, so it is taken out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "one miracle",
-         "note": "taken as written"
-        },
-        {
-         "words": "Rome",
-         "note": "taken as written, the letters to remove"
-        }
-       ]
+       "words": "one miracle",
+       "at": 41
+      },
+      {
+       "words": "Rome",
+       "at": 15,
+       "note": "the city's own letters, which sit alongside the answer in the jumble"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "Could Rome be found hidden with a miraculous object?",
-     "walkthrough": "A compound anagram: ONE MIRACLE rearranges as ROME plus the answer, so remove ROME. Legend says the ancile fell from heaven, a miracle, and Rome's safety depended on it.",
-     "definitionFit": "The ancile was the sacred shield of ancient Rome, said to have fallen from the sky, on which the city's fate rested."
+     "surface": "A question whether a sacred object would reveal Rome's hidden destiny, a miraculous thing.",
+     "walkthrough": "The letters of ONE MIRACLE are those of ROME plus the answer, so Rome is 'concealed with' it. The ancile was the shield said to have fallen from heaven to Numa, on whose safekeeping Rome's fortunes depended.",
+     "definitionFit": "The ancile, a miraculous heaven-sent shield, was kept by the Salii priests as the guarantee of Rome's safety."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "concealed"
     }
    }
   },
@@ -953,34 +933,47 @@
      }
     ],
     "wordplay": {
-     "op": "middle",
-     "unchecked": true,
-     "gives": "PETIT",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "Large part of inner",
-       "note": "most of the inside is kept, with the outer and one more letter dropped"
+       "text": "Large part of",
+       "at": 0,
+       "note": "a large part of a piece is most of it, so one of its letters is dropped"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "hunger",
-       "gives": "PETIT",
-       "select": "middle",
-       "note": "appetite is hunger; its inside, without one more letter"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "inner",
+         "at": 14,
+         "note": "inner means the inside of a word, so its first and last letters go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hunger",
+         "at": 20,
+         "gives": "APPETITE",
+         "note": "appetite is hunger or desire for food"
+        }
+       ]
+      },
+      {
+       "gives": "P"
       }
      ]
     },
     "explanation": {
-     "surface": "Feeling a small pang of hunger that hardly matters.",
-     "walkthrough": "APPETITE loses its outer A and E, and then one P too.",
-     "definitionFit": "Petit, from French for small, means minor or petty, as in petit larceny or petit jury."
+     "surface": "Most of one's inward craving is of no real importance.",
+     "walkthrough": "'inner' strips APPETITE to PPETIT, and 'Large part of' drops one P. Petit is an old legal word for small or minor, as in petit jury.",
+     "definitionFit": "Petit, from French for small, means minor or petty, of little importance, as in petit larceny."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "hunger"
+     "misdirectedWord": "Large"
     }
    }
   },
@@ -1005,48 +998,39 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SWEETALE",
      "indicators": [
       {
        "text": "swallowed",
-       "note": "what is swallowed goes inside, so one word ends up within the other"
+       "at": 16,
+       "note": "something swallowed is taken inside, so the word for water goes within the other"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Tasteless",
-         "gives": "S",
-         "note": "first letter of stale, tasteless"
-        },
-        {
-         "words": "water",
-         "gives": "WEE",
-         "note": "wee is a childish word for urine"
-        },
-        {
-         "words": "Tasteless",
-         "gives": "TALE",
-         "note": "rest of stale, flat and tasteless"
-        }
-       ]
+       "words": "Tasteless",
+       "at": 0,
+       "gives": "STALE",
+       "note": "stale food or drink is flat and has lost its taste"
+      },
+      {
+       "words": "water",
+       "at": 10,
+       "gives": "WEE",
+       "note": "wee is a colloquial word for urine, making water"
       }
      ]
     },
     "spelling": "SWEET ALE",
     "explanation": {
-     "surface": "Someone sipping flat water and declaring it not bitter.",
-     "walkthrough": "Bitter here is the British style of hoppy beer, so a sweet ale is its opposite.",
-     "definitionFit": "Sweet ale is a malty beer without hops, the very opposite of the bitter served in British pubs."
+     "surface": "Flat water downed in a pub is far from a bitter pint.",
+     "walkthrough": "'water' is not drinking water: to make water is to urinate, and wee is the childish word for that. Bitter is the hoppy British pub beer.",
+     "definitionFit": "Sweet ale is beer brewed without the bitterness of hops, the opposite of the British style called bitter."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "bitter"
+     "misdirectedWord": "water"
     }
    }
   },
@@ -1418,51 +1402,44 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "PASHM",
+     "op": "charade",
      "indicators": [
       {
        "text": "in",
-       "note": "the answer is found in the wool, read as the crush plus the letter"
+       "at": 24,
+       "note": "in here means joined in with, so the middle letter is added on after the first piece"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Crush",
+       "at": 0,
+       "gives": "PASH",
+       "note": "a pash is old slang for a crush, an infatuation"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 6,
+         "note": "the middle of a seven-letter word is its fourth letter, the only one used here"
+        }
+       ],
        "parts": [
         {
-         "words": "Crush",
-         "gives": "PASH",
-         "note": "a pash is a schoolgirl crush, short for passion"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "M",
-         "indicators": [
-          {
-           "text": "middle of",
-           "note": "the central letter alone of the next word is kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "stomach",
-           "gives": "M",
-           "select": "middle",
-           "note": "the middle letter of the seven"
-          }
-         ]
+         "words": "stomach",
+         "at": 16,
+         "note": "the fourth and middle letter of stomach"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Squeezing the belly into soft woollens.",
-     "definitionFit": "Pashm is the fine underfleece of Tibetan goats from which pashmina and cashmere are made."
+     "surface": "Pressing down on the belly area of a soft woollen garment.",
+     "walkthrough": "'Crush' looks like a verb but is the noun, a schoolgirl infatuation, which is pash. Pashm is the fine underfleece of Himalayan goats from which pashmina is woven.",
+     "definitionFit": "Pashm is the soft downy undercoat of Tibetan and Kashmir goats, a very fine wool used in shawls."
     },
     "features": {
      "answerInScene": false,
@@ -1548,46 +1525,44 @@
      "indicators": [
       {
        "text": "including",
-       "note": "including means taking within, so the coin's name surrounds a letter"
+       "at": 40,
+       "note": "including means taking in, so the coin's name holds the next letter inside"
       }
      ],
      "parts": [
       {
        "words": "some money in Czechia",
+       "at": 18,
        "gives": "HALER",
-       "note": "first part of haler, a Czech coin"
+       "note": "the haler is a small coin of the Czech Republic, a hundredth of a koruna"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "U",
        "indicators": [
         {
          "text": "heart of",
-         "note": "the heart is the centre, so only the middle letter is kept"
+         "at": 50,
+         "note": "the heart of a word is its middle letter, here the fifth of nine"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "resources",
-         "gives": "U",
-         "select": "middle",
-         "note": "the central letter of the nine"
+         "at": 59,
+         "note": "the fifth and middle letter of resources"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone trying to draw cash in Prague, with resources at heart.",
-     "walkthrough": "'Draw' suggests drawing money or pictures, but here it means pulling a load.",
-     "definitionFit": "A hauler is someone who pulls or hauls things, so tries to draw them along."
+     "surface": "A Czech fundraiser trying to pull in coins at the core of his resources.",
+     "walkthrough": "'heart of resources' is U, which 'including' puts inside HALER after the A.",
+     "definitionFit": "A hauler is one who hauls, pulling or dragging something, so it is a person who tries to draw a load."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "draw"
     }
    }
@@ -1613,62 +1588,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HUARACHE",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "s in",
+         "at": 11,
+         "note": "one's in reads as one is in, so the letter for one goes inside the shortened word"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "in",
-           "note": "one's letter is placed inside the first word"
+           "text": "mostly",
+           "at": 23,
+           "note": "mostly means not quite all, so the last letter of the word for pained goes"
           }
          ],
          "parts": [
           {
            "words": "pained",
-           "gives": "HUR",
-           "note": "hurt, pained, without its last letter"
+           "at": 16,
+           "gives": "HURT",
+           "note": "hurt can mean pained, as in 'he looked hurt'"
           },
           {
-           "words": "one's",
-           "gives": "A",
-           "note": "a means one"
+           "gives": "T"
           }
          ]
         },
         {
-         "words": "pained",
-         "gives": "ACHE",
-         "note": "ached, pained, without its last letter"
-        },
-        {
-         "unchecked": true,
-         "words": "twice",
-         "note": "tells the solver to use the previous words two ways"
+         "words": "one",
+         "at": 7,
+         "gives": "A",
+         "note": "a means one, as in 'a day'"
         }
        ]
+      },
+      {
+       "words": "twice",
+       "at": 31,
+       "gives": "ACHE",
+       "note": "the phrase pained mostly is to be read a second time, now as ached, which mostly is ache"
       }
      ]
     },
     "explanation": {
-     "surface": "A sandal that hurts badly, twice over.",
-     "walkthrough": "'Twice' tells you to use 'pained mostly' two ways: HURT and ACHED, each cut short.",
-     "definitionFit": "A huarache is a Mexican sandal with a woven leather upper."
+     "surface": "A sandal that, being uncomfortable, has caused two bouts of pain.",
+     "walkthrough": "'pained' is read 'twice': as HURT and as ACHED, each 'mostly' losing its last letter to HUR and ACHE; 'one's in' puts A inside HUR. A huarache is a woven leather Mexican sandal.",
+     "definitionFit": "The huarache is a Mexican sandal with a woven leather upper, so it is one specific kind of sandal."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "twice"
     }
    }
   },
