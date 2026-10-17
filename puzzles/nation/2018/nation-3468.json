@@ -180,45 +180,52 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ABRUPT",
      "indicators": [
       {
        "text": "splits",
-       "note": "something that splits a thing pushes into the middle of it"
+       "at": 17,
+       "note": "splits says the jumbled letters force their way into the middle of the pieces given by a and shirt"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 24,
+         "gives": "A"
+        },
+        {
+         "words": "shirt",
+         "at": 26,
+         "gives": "T",
+         "note": "T is short for T-shirt, a kind of shirt"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "rude",
-         "note": "rude in the sense of rough and unrefined says the next word is reworked"
+         "at": 7,
+         "note": "rude here means rough and unpolished, so the letters of burp are knocked out of shape"
         }
        ],
        "parts": [
         {
-         "words": "a",
-         "note": "taken as written"
-        },
-        {
          "words": "burp",
-         "note": "taken as written, to be rearranged"
-        },
-        {
-         "words": "shirt",
-         "gives": "T",
-         "note": "a T is a T-shirt"
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crude belch so violent it tears a shirt apart.",
-     "walkthrough": "The rearranged burp splits the pair 'a T', a T being a T-shirt.",
-     "definitionFit": "Abrupt means happening without warning, a direct synonym of sudden."
+     "surface": "An impolite belch so violent it tears open someone's top.",
+     "walkthrough": "A T-shirt is shortened to T in crosswords; the scrambled belch sits between A and that T.",
+     "definitionFit": "Abrupt describes something happening suddenly and without warning, a straightforward synonym."
     },
     "features": {
      "answerInScene": false,
@@ -702,46 +709,48 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "MAN",
+       "op": "deletion",
        "indicators": [
         {
          "text": "37.5 percent of",
-         "note": "37.5 percent is three eighths, so of an eight-letter word only the first three letters are kept"
+         "at": 36,
+         "note": "Manitoba has eight letters and 37.5 percent of eight is three, so keep only its first three letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Manitoba",
-         "gives": "MAN",
-         "select": "first",
-         "note": "the first three of Manitoba's eight letters"
+         "at": 52,
+         "note": "the Canadian province, taken as written before being cut down"
+        },
+        {
+         "gives": "ITOBA"
         }
        ]
       },
       {
        "words": "is",
+       "at": 61,
        "gives": "S",
-       "note": "is shortened to 's"
+       "note": "S is the contracted form of is, as in it's"
       },
       {
        "words": "prairie",
+       "at": 64,
        "gives": "PLAIN",
-       "note": "a prairie is a grassy plain"
+       "note": "a prairie is a plain, a broad treeless grassland"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone lecturing patronisingly that much of Manitoba is prairie.",
-     "walkthrough": "Manitoba has eight letters, and 37.5% of eight is three. Manitoba is a Canadian prairie province.",
-     "definitionFit": "To mansplain is to explain something to someone, typically a woman, in a patronising manner."
+     "surface": "A dry geography statistic about how much of a Canadian province is grassland.",
+     "walkthrough": "The percentage is an instruction, not trivia: '37.5 percent of' the eight-letter MANITOBA is its first three letters, MAN.",
+     "definitionFit": "To mansplain is to explain something patronisingly, typically a man lecturing a woman on what she already knows."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "percent"
     }
    }
@@ -1443,40 +1452,37 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "hidden",
+     "indicators": [
       {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "among",
-         "note": "among says the answer sits in the midst of the words that follow"
-        }
-       ],
-       "parts": [
-        {
-         "words": "handsome Dickens",
-         "gives": "MEDIC",
-         "note": "the letters running across the two words"
-        }
-       ]
+       "text": "among",
+       "at": 7,
+       "note": "among says the answer sits inside the letters of the next words"
       },
       {
-       "unchecked": true,
-       "words": "characters",
-       "note": "surface padding that completes the picture of a novel's cast"
+       "text": "characters",
+       "at": 30,
+       "note": "characters here means letters, the letters of handsome Dickens that hold the answer"
+      }
+     ],
+     "parts": [
+      {
+       "words": "handsome Dickens",
+       "at": 13,
+       "note": "the answer runs across the end of handsome and the start of Dickens"
       }
      ]
     },
     "explanation": {
-     "surface": "A physician moves among the good-looking people in a Dickens novel.",
-     "walkthrough": "The answer runs from the end of handsome into Dickens.",
-     "definitionFit": "A medic is an informal word for a doctor or other medical worker."
+     "surface": "A physician appears in a line-up of good-looking figures from Dickens's novels.",
+     "walkthrough": "'among' signals a hidden word, and 'characters' suggests people in Dickens's novels but here means letters.",
+     "definitionFit": "A medic is a doctor or medical worker, a common informal synonym."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Dickens"
+     "joke": "pun",
+     "misdirectedWord": "characters"
     }
    }
   },
