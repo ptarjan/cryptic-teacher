@@ -46,41 +46,44 @@
      "indicators": [
       {
        "text": "containing",
-       "note": "the river's name is wrapped around the other piece, holding it inside"
+       "at": 6,
+       "note": "the river's name holds the shortened fish within it"
       }
      ],
      "parts": [
       {
        "words": "River",
+       "at": 0,
        "gives": "DEE",
-       "note": "the Dee is a river in Wales, England and Scotland"
+       "note": "the Dee is a river in Scotland and another on the Welsh border"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "BAS",
+       "op": "deletion",
        "indicators": [
         {
          "text": "75 per cent of",
-         "note": "three quarters of a four-letter word means keeping its first three letters and dropping the last"
+         "at": 17,
+         "note": "three quarters of a four-letter word keeps three letters, so the last one is dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "fish",
-         "gives": "BAS",
-         "select": "first",
-         "note": "the first three of the four letters of bass, a fish"
+         "at": 32,
+         "gives": "BASS",
+         "note": "the bass is a sea fish"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An angler's river holds most of the fish, sitting low in the water.",
-     "walkthrough": "'Lower' is a verb here, to bring down, not an adjective describing the fish.",
-     "definitionFit": "To debase something is to degrade it or reduce its value or standing, a straightforward verb synonym."
+     "surface": "An angler's report of a river where most of the catch is fish swimming low.",
+     "walkthrough": "'75 per cent of' trims BASS to BAS, and 'containing' puts that inside DEE.",
+     "definitionFit": "To debase is to lower in quality, value or character, as with a coinage or someone's reputation."
     },
     "features": {
      "answerInScene": false,
