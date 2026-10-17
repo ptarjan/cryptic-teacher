@@ -26,7 +26,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -138,47 +139,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INFIDEL",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "condemned",
-         "note": "A condemned building is one marked for demolition, and letters treated that way come down and go back up in another order."
+         "at": 18,
+         "note": "condemned suggests something wrecked or written off, so the letters of I find are thrown into a new order"
         }
        ],
        "parts": [
         {
          "words": "I find",
-         "gives": "INFID",
-         "note": "five letters rearranged"
-        },
+         "at": 11
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "the bowels of",
-           "note": "The bowels of a place are deep inside it, so only the inner letters of the word named are wanted."
-          }
-         ],
-         "parts": [
-          {
-           "words": "hell",
-           "note": "the two letters at the heart of HELL, once its outsides are stripped off"
-          }
-         ]
+         "text": "the bowels of",
+         "at": 31,
+         "note": "the bowels are the innermost parts, so the word loses its outer letters and only its inside is kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hell",
+         "at": 45,
+         "note": "only its inner letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A damned unbeliever being sent down to the deepest part of hell.",
-     "walkthrough": "'Condemned' means damned on the surface and broken up in the parse, and it is doing both jobs in one word. The exclamation mark covers hell being used as raw spelling rather than as a place.",
-     "definitionFit": "An infidel is someone outside the faith in question — the word the Crusades used for the other side — so 'unbeliever' is the plain synonym."
+     "surface": "A heathen discovers he is damned to the depths of hell.",
+     "walkthrough": "'Condemned' turns I FIND into INFID, and 'the bowels of' hell, its middle letters EL, follow.",
+     "definitionFit": "An infidel is someone who rejects a given religion, so the word means unbeliever."
     },
     "features": {
      "answerInScene": true,
@@ -415,42 +416,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GIGGLE",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "An endless word has lost its end, so the final letter of the one that follows never gets used."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "concert",
+       "at": 9,
+       "gives": "GIG",
+       "note": "a gig is a concert, especially of pop or rock music"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 22,
+         "note": "endless means the word loses its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "concert",
-         "gives": "GIG",
-         "note": "a gig is a booked live performance"
+         "words": "delight",
+         "at": 30,
+         "gives": "GLEE",
+         "note": "glee is delight"
         },
         {
-         "words": "delight",
-         "gives": "GLE",
-         "note": "delight is glee, with the last letter taken off"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "People laughing together at a show they are thoroughly enjoying.",
-     "walkthrough": "'In concert with' reads as the idiom for doing something jointly, and it is hiding the musician's word for a booking. Glee is delight in the older sense, which survives in glee club and gleeful.",
-     "definitionFit": "To giggle is to laugh in a light, breathy, half-suppressed way, so the bare verb 'laugh' is the plain synonym."
+     "surface": "Laughing in delight at a concert.",
+     "walkthrough": "GIG, then GLEE made 'endless'.",
+     "definitionFit": "A giggle is a light, silly laugh, so the two words share the sense as noun or verb."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "concert"
+     "misdirectedWord": "endless"
     }
    }
   },
@@ -683,47 +688,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BECHAMEL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "scoffed by",
+       "at": 5,
+       "note": "food scoffed by someone goes inside them, so the meat goes into the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "scoffed by",
-         "note": "To scoff food is to eat it up, so whatever does the scoffing closes right round the word in front of it."
-        },
-        {
          "text": "after stirring",
-         "note": "What comes out after stirring is not arranged as it went in, so those letters are used in a new order."
+         "at": 22,
+         "note": "after stirring, the letters of celeb are mixed into a new order"
         }
        ],
        "parts": [
         {
          "words": "celeb",
-         "gives": "BECEL",
-         "note": "five letters rearranged"
-        },
-        {
-         "words": "Meat",
-         "gives": "HAM",
-         "note": "ham is the cured meat off the pig's hind leg"
+         "at": 16
         }
        ]
+      },
+      {
+       "words": "Meat",
+       "at": 0,
+       "gives": "HAM",
+       "note": "ham is a meat"
       }
      ]
     },
     "spelling": "BÉCHAMEL",
     "explanation": {
-     "surface": "A celebrity wolfing down a plate of meat once the sauce has been stirred.",
-     "walkthrough": "'Sauce' sits at the end of the line, where a solver expects the fodder to be heading, and it is the definition. Béchamel is the white sauce of butter, flour and milk that lasagne and cauliflower cheese are built on.",
-     "definitionFit": "Béchamel is one of the French mother sauces, milk thickened with a butter-and-flour roux, so 'sauce' names it by its kind."
+     "surface": "A celebrity wolfs down meat after stirring the sauce.",
+     "walkthrough": "'Stirring' reads as cooking the sauce, but it tells you to mix up the celebrity's letters.",
+     "definitionFit": "Béchamel is the classic French white sauce of milk thickened with a butter and flour roux."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "sauce"
+     "misdirectedWord": "stirring"
     }
    }
   },
@@ -1257,42 +1264,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENGLISH",
-     "indicators": [
-      {
-       "text": "failing",
-       "note": "A failing thing is coming apart, and letters that come apart are free to be put back in another order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "failing",
+         "at": 7,
+         "note": "something failing has broken down, so the letters of single collapse into a new order"
+        }
+       ],
        "parts": [
         {
          "words": "Single",
-         "gives": "ENGLIS",
-         "note": "six letters rearranged"
-        },
-        {
-         "words": "hard",
-         "gives": "H",
-         "note": "H is the grade stamped on a hard pencil"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "hard",
+       "at": 20,
+       "gives": "H",
+       "note": "H is the abbreviation for hard, as on pencils"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody on their own is failing a difficult subject.",
-     "walkthrough": "'Hard' is the pencil grade, the H beside the B on the side of every pencil. The last word of a clue is where a solver expects more fodder, and here it is the definition instead.",
-     "definitionFit": "English is a language, so the definition names the class the answer belongs to rather than offering a synonym for it — definition by example, which crosswords allow."
+     "surface": "A lone person struggles with a difficult tongue.",
+     "walkthrough": "'Single' looks like an adjective about a person, but it is only fodder; H as the pencil-grade abbreviation for hard is a crossword staple.",
+     "definitionFit": "English is a language, the one spoken across Britain, America and much of the world."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "hard"
+     "misdirectedWord": "failing"
     }
    }
   },
