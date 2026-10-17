@@ -46,47 +46,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHAMPERTY",
-     "indicators": [
-      {
-       "text": "shortened",
-       "note": "a thing shortened has been cut down, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortened",
+         "at": 4,
+         "note": "shortened means the last letter of the slang word is cut off"
+        }
+       ],
        "parts": [
         {
          "words": "Pop",
-         "gives": "CHAMPER",
-         "note": "pop is fizzy wine, champers in slang, here docked of its last letter"
+         "at": 0,
+         "gives": "CHAMPERS",
+         "note": "champers is slang for champagne, which is called pop"
         },
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "coat",
-           "note": "a coat is the outside layer, so only the outermost letters of the word are kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Teddy-boy",
-           "note": "the first and last letters of the hyphenated word"
-          }
-         ]
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "coat for",
+         "at": 14,
+         "note": "the coat of a word is its outside, so only its first and last letters are kept"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Teddy-boy",
+         "at": 23,
+         "gives": "TEDDYBOY",
+         "note": "the word whose outer letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dad cuts down the drape jacket of a 1950s Teddy boy so it fits a smart suit.",
-     "walkthrough": "Champers is British slang for champagne, and 'suit' is a lawsuit, not clothing. CHAMPERTY is the old offence of bankrolling someone else's case for a cut of the winnings.",
-     "definitionFit": "Paying for another party's litigation in return for a share of any damages is exactly that legal offence; the question mark flags the pun on clothing."
+     "surface": "A dandy in Edwardian drapes who has been drinking champagne puts money into a new suit of clothes.",
+     "walkthrough": "'Pop' is champagne, whose slang name CHAMPERS is 'shortened' to CHAMPER; 'coat for Teddy-boy' gives its outer letters TY. The suit is a lawsuit, not clothing.",
+     "definitionFit": "Champerty is the old offence of funding someone else's lawsuit in return for a share of the damages."
     },
     "features": {
      "answerInScene": false,
@@ -621,68 +627,76 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TERRAFORM",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter goes"
+       "text": "in",
+       "at": 30,
+       "note": "in means these letters go inside the word for the period"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "these letters are placed inside the outer word"
-        }
-       ],
+       "words": "a limited period",
+       "at": 33,
+       "gives": "TERM",
+       "note": "a term is a limited period of time"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "Set up",
+           "at": 0,
+           "note": "in a down clue, set up means the word is written upwards, so read backwards"
+          }
+         ],
          "parts": [
           {
-           "words": "a limited period",
-           "gives": "TERM",
-           "note": "a term is a fixed, limited length of time"
-          },
-          {
-           "op": "reversal",
-           "indicators": [
-            {
-             "text": "Set up",
-             "note": "set up in a down light means raised, so the letters read from bottom to top"
-            }
-           ],
-           "parts": [
-            {
-             "words": "distant",
-             "gives": "FAR",
-             "note": "distant means far"
-            }
-           ]
+           "words": "distant",
+           "at": 7,
+           "gives": "FAR",
+           "note": "distant means far"
           }
          ]
         },
         {
-         "words": "planet",
-         "gives": "OR",
-         "note": "a planet is an orb, here without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 23,
+           "note": "mostly means the word loses its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "planet",
+           "at": 15,
+           "gives": "ORB",
+           "note": "a planet is an orb"
+          },
+          {
+           "gives": "B",
+           "note": "the last letter of orb, the one dropped"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A space programme plans to make a far-off planet habitable within a fixed timescale.",
-     "walkthrough": "The surface is science fiction about colonising space, which is exactly what the answer means, so the scene and the solution overlap.",
-     "definitionFit": "To terraform a planet is to engineer its atmosphere and surface so that Earth creatures could survive there."
+     "surface": "Scientists plan to colonise a far-off world within a fixed timescale, adapting it so it can support life.",
+     "walkthrough": "'Set up' turns FAR into RAF, and ORB 'mostly' gives OR; 'in' puts RAFOR inside TERM.",
+     "definitionFit": "To terraform a planet is to transform its environment so that it can support Earth-like living things."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Set"
     }
    }
@@ -949,51 +963,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RUMBUSTICAL",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost means just short of the whole, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "spirit",
+       "at": 23,
+       "gives": "RUM",
+       "note": "rum is a spirit"
+      },
+      {
+       "words": "broken",
+       "at": 30,
+       "gives": "BUST",
+       "note": "bust is a colloquial word for broken"
+      },
+      {
+       "words": "I",
+       "at": 38
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 40,
+         "note": "almost means the last letter of the word is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "spirit",
-         "gives": "RUM",
-         "note": "rum is a spirit"
-        },
-        {
-         "words": "broken",
-         "gives": "BUST",
-         "note": "something broken is bust"
-        },
-        {
-         "words": "I",
-         "note": "taken as written"
-        },
-        {
          "words": "serene",
-         "gives": "CAL",
-         "note": "serene means calm, here without its last letter"
+         "at": 54,
+         "gives": "CALM",
+         "note": "serene means calm"
+        },
+        {
+         "gives": "M",
+         "note": "the last letter of calm, the one dropped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A reformed tearaway, once his drink is gone, nearly finds peace.",
-     "walkthrough": "'No longer' is part of the definition: RUMBUSTICAL is an old form of rumbustious, boisterous. 'Broken' and 'become' look like anagram signals but are plain words here.",
-     "definitionFit": "Rumbustious means boisterous and hard to control, and the -ical form is an archaic variant, hence the dated label."
+     "surface": "A former hellraiser, his drink spoiled, feels he has nearly reached a state of peace.",
+     "walkthrough": "'No longer' belongs to the definition: it marks the answer as a dated word for unruly, not a claim of reform. 'Almost' cuts CALM to CAL, after RUM, BUST and I.",
+     "definitionFit": "Rumbustical, an old variant of rumbustious, describes boisterous, hard-to-control behaviour; 'no longer' flags that the word is now dated."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "broken"
+     "misdirectedWord": "serene"
     }
    }
   },
@@ -1018,56 +1038,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VEDUTA",
+     "op": "container",
      "indicators": [
       {
-       "text": "unfinished",
-       "note": "not finished means stopped before the end, so the final letter goes"
+       "text": "in",
+       "at": 23,
+       "note": "in tells us the abbreviation goes inside the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "this piece is put inside the letters that follow"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "very",
-           "gives": "V",
-           "note": "V is the abbreviation for very"
-          },
-          {
-           "words": "state",
-           "gives": "UTA",
-           "note": "the US state of Utah without its last letter"
-          }
-         ]
+         "words": "very",
+         "at": 26,
+         "gives": "V"
         },
         {
-         "words": "edited",
-         "gives": "ED",
-         "note": "ed. is the abbreviation for edited"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "unfinished",
+           "at": 31,
+           "note": "unfinished means the last letter of the word is lost"
+          }
+         ],
+         "parts": [
+          {
+           "words": "state",
+           "at": 42,
+           "gives": "UTAH",
+           "note": "Utah is a US state"
+          },
+          {
+           "gives": "H"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "edited",
+       "at": 16,
+       "gives": "ED"
       }
      ]
     },
     "explanation": {
-     "surface": "A wide city panorama has been touched up but is still far from finished.",
-     "walkthrough": "A VEDUTA is a detailed panoramic painting of a town, the genre of Canaletto's views of Venice.",
-     "definitionFit": "Veduta is the Italian art term for a large-scale, faithful view of a city, so it is a wide painted cityscape."
+     "surface": "A wide city view has been revised while still very much incomplete.",
+     "walkthrough": "'Unfinished' cuts UTAH to UTA; 'in' puts ED between V and UTA.",
+     "definitionFit": "A veduta is a detailed, panoramic painting or print of a town or city, a genre made famous by Canaletto."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "state"
     }
@@ -1234,67 +1258,71 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "KABLOONA",
      "indicators": [
       {
        "text": "covered by",
-       "note": "covered for in the sense of stood in for, so some letters are swapped out for new ones"
+       "at": 34,
+       "note": "the middle is covered over, replaced by the new letters"
       }
      ],
      "parts": [
       {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "KABLOONA",
        "indicators": [
         {
          "text": "lifted",
-         "note": "lifted in a down light means raised, so the word reads from bottom to top"
+         "at": 9,
+         "note": "in a down clue, lifted means written upwards, so read backwards"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "KABLOONA",
-         "indicators": [
-          {
-           "text": "endless",
-           "note": "with no end, the word loses its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "parka",
-           "gives": "ANORAK",
-           "note": "a parka is a hooded anorak"
-          },
-          {
-           "words": "middle",
-           "gives": "RO",
-           "note": "the two central letters of the turned word, which are removed"
-          },
-          {
-           "words": "gore",
-           "gives": "BLOO",
-           "note": "gore is blood, here without its last letter"
-          }
-         ]
+         "words": "parka",
+         "at": 16,
+         "gives": "ANORAK",
+         "note": "an anorak is a parka"
+        }
+       ]
+      },
+      {
+       "words": "middle",
+       "at": 27,
+       "gives": "RO",
+       "note": "the middle two letters of the upturned parka word"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 45,
+         "note": "endless means the last letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "gore",
+         "at": 53,
+         "gives": "BLOOD",
+         "note": "gore is blood"
+        },
+        {
+         "gives": "D",
+         "note": "the last letter of blood, the one dropped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Inuit person refuses to hold up a bloodstained parka.",
-     "walkthrough": "'No Inuit' reads as a refusal but is the definition: KABLOONA is the Inuit word for a non-Inuit, especially a white person.",
-     "definitionFit": "Kabloona is what the Inuit call an outsider of European descent, so it names someone who is not Inuit."
+     "surface": "Someone outside the Inuit people hitches up a parka whose centre has been smeared with blood.",
+     "walkthrough": "'Lifted' turns ANORAK into KARONA; its middle RO is 'covered by' BLOO, which is 'endless' BLOOD, and BLOO takes its place.",
+     "definitionFit": "Kabloona is the Inuit term for a white person or any outsider who is not one of them."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "No"
+     "misdirectedWord": "lifted"
     }
    }
   },
@@ -1511,41 +1539,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GEECHEE",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "short means cut off before the end, so the final letter is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "boy",
+       "at": 16,
+       "gives": "GEE",
+       "note": "'Boy!' and 'Gee!' are both exclamations of surprise"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 25,
+         "note": "short means the word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "boy",
-         "gives": "GEE",
-         "note": "Boy! and Gee! are both exclamations of surprise"
+         "words": "neck",
+         "at": 31,
+         "gives": "CHEEK",
+         "note": "neck is slang for cheek, impudence"
         },
         {
-         "words": "neck",
-         "gives": "CHEE",
-         "note": "neck is cheek, impudence, here without its last letter"
+         "gives": "K"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A young lad from the American South has a stubby neck.",
-     "walkthrough": "'Boy' is the exclamation, not a lad, and 'neck' is the British slang for nerve. GEECHEE is the Gullah Creole of coastal Georgia and South Carolina.",
-     "definitionFit": "Geechee names the Creole language and people of the coastal US South, so it is a Southern Creole tongue."
+     "surface": "A young lad from the American South with a stubby neck.",
+     "walkthrough": "'Boy' is the exclamation, not a lad, giving GEE; 'neck' in the sense of nerve is CHEEK, made 'short' as CHEE.",
+     "definitionFit": "Geechee is another name for Gullah, the English-based creole of the coastal south-eastern United States."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "boy"
     }
    }
