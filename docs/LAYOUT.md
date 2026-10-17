@@ -2891,6 +2891,11 @@ tools/test_clue_bag.py                         which tail puzzles share one anno
 tools/build_spellings.py                       writes tools/data/lexicons/spellings.json:
                                                answer letters mapped to the spelling with an
                                                apostrophe or accent, for the lesson checks
+tools/clear_unchecked.py                       drops the unchecked flag from wordplay trees
+                                               that evaluate to their answer without it
+tools/test_clear_unchecked.py                  proves tools/clear_unchecked.py clears only
+                                               where the tree gives the answer and the
+                                               validator finds nothing new
 tools/fill_spellings.py                        writes the `spelling` that
                                                tools/lesson_checks.py flags as unsaid
                                                (spelling.unsaid), where the answer letters give

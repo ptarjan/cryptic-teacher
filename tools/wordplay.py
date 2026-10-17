@@ -826,10 +826,36 @@ def _count(s):
     return collections.Counter(s)
 
 
+#: The ops whose evaluation reads a fixed part by position, so the count must be
+#: exact. The rest take their shape from elsewhere (a charade has any number, a
+#: homophone may carry its spelling in `spelt`, ana() takes a charade's parts).
+COUNTED = ("reversal", "container", "deletion", "hidden", "substitution", "cycling",
+           *SELECT)
+
+
+def _check_arity(node):
+    """A stored tree is not parsed, so an op filed with the wrong number of parts
+    reaches the evaluator as it is; refuse it with the count it wants. An
+    unchecked node stands for its `gives` and is not looked into."""
+    if node.get("unchecked"):
+        return
+    op = node.get("op")
+    parts = node.get("parts") or []
+    if op in COUNTED:
+        lo, hi = ARITY[op]
+        if not lo <= len(parts) <= hi:
+            want = str(lo) if lo == hi else f"{lo} to {hi}"
+            raise WordplayError(f"{NAMES[op]}() takes {want} part(s), the tree files {len(parts)}: "
+                                f"{render(node)}")
+    for p in parts:
+        _check_arity(p)
+
+
 def evaluate(tree, answer):
     """{id(node): letters} with every node of `tree` giving its share of
     `answer`'s letters; raises WordplayError naming the node that breaks."""
     want = letters(answer)
+    _check_arity(tree)
     try:
         got = match(tree, want)
         if got is None:
@@ -838,6 +864,9 @@ def evaluate(tree, answer):
         raise WordplayError(f"{render(e.args[0])} sits where its letters have to be known in "
                             f"order (inside del, sub, a selection or a homophone): write the "
                             f"letters it gives as a leaf instead") from None
+    except (IndexError, KeyError, TypeError) as e:
+        raise WordplayError(f"the tree is not shaped as its ops need ({type(e).__name__} {e}): "
+                            f"{render(tree)}") from None
     _check_ops(tree, got)
     _check_rebus(tree, want)
     _check_reverse(tree, want)
