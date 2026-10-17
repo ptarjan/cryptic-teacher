@@ -556,12 +556,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ESCORT",
      "indicators": [
       {
        "text": "drinking",
-       "note": "one who drinks takes something inside, so a piece goes within"
+       "at": 27,
+       "note": "drinking means taking something in, so the next piece goes inside"
       }
      ],
      "parts": [
@@ -570,38 +569,35 @@
        "indicators": [
         {
          "text": "first to back",
-         "note": "sending the leading letter to the rear moves it round to the end"
+         "at": 13,
+         "note": "first to back means the opening letter is moved to the end of the word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Supermarket",
-           "gives": "TESCO",
-           "note": "Tesco is Britain's largest supermarket chain"
-          },
-          {
-           "words": "Right",
-           "gives": "R",
-           "note": "R is the abbreviation for right"
-          }
-         ]
+         "words": "Supermarket",
+         "at": 0,
+         "gives": "TESCO",
+         "note": "Tesco is Britain's biggest supermarket chain"
         }
        ]
+      },
+      {
+       "words": "Right",
+       "at": 36,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A supermarket security man who drinks Right Guard deodorant.",
-     "walkthrough": "Right Guard is a deodorant brand, but here the words split: R for right, and 'Guard' is the definition. Moving T of TESCO to the end gives ESCOT, which then takes in R.",
-     "definitionFit": "To escort someone is to accompany and protect them, so it means to guard."
+     "surface": "A shopper in a supermarket takes a swig of a deodorant brand, Right Guard.",
+     "walkthrough": "'first to back' sends the T of TESCO to the end, giving ESCOT, and 'drinking' puts R inside it. 'Right Guard' looks like the deodorant brand, but the two words split.",
+     "definitionFit": "To escort someone is to accompany them for protection, a synonym of guard as a verb."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "Guard"
     }
    }
@@ -1583,40 +1579,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SHORTCUT",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner famously swapped the opening sounds of words"
+       "at": 12,
+       "note": "Spooner's signals that the opening sounds of two words are swapped, after the Reverend Spooner"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "held",
-       "gives": "CUT",
-       "soundsLike": "CAUGHT",
-       "note": "something held has been caught"
+       "op": "homophone",
+       "spelt": "CORT",
+       "parts": [
+        {
+         "words": "held",
+         "at": 22,
+         "gives": "CAUGHT",
+         "note": "held means caught, which sounds like cort"
+        }
+       ]
       },
       {
-       "unchecked": true,
        "words": "close",
-       "gives": "SHORT",
-       "soundsLike": "SHUT",
+       "at": 27,
+       "gives": "SHUT",
        "note": "to close is to shut"
       }
      ]
     },
     "explanation": {
-     "surface": "A famous film star kept close by the Reverend Spooner.",
-     "walkthrough": "Swap the opening sounds of 'caught shut' and you hear the answer.",
-     "definitionFit": "A desktop shortcut is the small screen icon you click to open a program or file quickly."
+     "surface": "A screen icon belongs to Spooner, held tight to him.",
+     "walkthrough": "Held gives CAUGHT and close gives SHUT; 'Spooner's' swaps their opening sounds, K and SH, to give SHORT CUT.",
+     "definitionFit": "A shortcut is a desktop icon that links straight to a file or program."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "icon"
+     "misdirectedWord": "close"
     }
    }
   },
