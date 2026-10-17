@@ -285,40 +285,27 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "Pair of guys",
+       "at": 0,
        "gives": "GU",
-       "indicators": [
-        {
-         "text": "Pair of",
-         "note": "a pair is two, so only the first two letters of the next word are kept"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "guys",
-         "gives": "GU",
-         "select": "first",
-         "note": "the first two letters of guys"
-        }
-       ]
+       "note": "the first pair of letters of the word guys"
       },
       {
        "words": "fall behind",
+       "at": 13,
        "gives": "LAG",
-       "note": "to lag is to trail or drop back"
+       "note": "to lag is to fall behind"
       }
      ]
     },
     "explanation": {
-     "surface": "Two men fall behind while in a labor camp.",
-     "definitionFit": "The Gulag was the Soviet system of forced-labor prison camps, and the word now names any such camp."
+     "surface": "Two prisoners lag behind the others in a labor camp.",
+     "definitionFit": "A gulag was a Soviet forced-labour prison camp, and the word now means any such camp."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Pair"
+     "misdirectedWord": "guys"
     }
    }
   },
@@ -1548,41 +1535,29 @@
      "indicators": [
       {
        "text": "about",
-       "note": "to go about is to surround, so the word wraps around the next letters"
+       "at": 21,
+       "note": "the pun goes about, around, the letters from toxophilites"
       }
      ],
      "parts": [
       {
        "words": "paronomasia",
+       "at": 9,
        "gives": "PUN",
-       "note": "paronomasia is the formal word for punning"
+       "note": "paronomasia is the formal word for punning, so a pun"
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "a couple of toxophilites",
+       "at": 27,
        "gives": "TO",
-       "indicators": [
-        {
-         "text": "a couple of",
-         "note": "a couple is two, so just the first two letters of the next word"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "toxophilites",
-         "gives": "TO",
-         "select": "first",
-         "note": "first two letters of toxophilites"
-        }
-       ]
+       "note": "the first two letters of the word toxophilites"
       }
      ]
     },
     "explanation": {
-     "surface": "Pompous wordplay about a pair of archers.",
-     "walkthrough": "Toxophilites are archery enthusiasts; the obscure words dress up a short answer.",
-     "definitionFit": "Put-on means pretended or feigned, so affected manners are assumed rather than natural."
+     "surface": "A pretentious pun is made about a pair of archers, toxophilites being archers.",
+     "walkthrough": "Paronomasia is the rhetorician's word for wordplay on sound or sense, and toxophilites are archers; the fancy vocabulary makes the surface itself sound affected.",
+     "definitionFit": "Put-on describes manner or speech that is feigned or assumed for show, not genuine."
     },
     "features": {
      "answerInScene": false,
@@ -1733,58 +1708,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "charade",
      "indicators": [
       {
-       "text": "tailless",
-       "note": "without a tail, so the bird's name loses its final letter"
+       "text": "chasing",
+       "at": 16,
+       "note": "the Howard-is-a-boy part follows behind the bird"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "chasing",
-         "note": "what chases comes behind, so these words follow the bird"
+         "text": "tailless",
+         "at": 26,
+         "note": "without its tail, the last letter of the bird is cut off"
         }
        ],
        "parts": [
         {
-         "words": "a tailless bird",
+         "words": "bird",
+         "at": 35,
          "gives": "MACAW",
-         "note": "the macaw is a large parrot"
+         "note": "a macaw is a large parrot"
         },
         {
-         "words": "Howard",
-         "gives": "RON",
-         "note": "Ron Howard, the American actor and director"
-        },
-        {
-         "words": "is a",
-         "note": "taken as written"
-        },
-        {
-         "words": "boy",
-         "gives": "LAD",
-         "note": "a lad is a boy"
+         "gives": "W"
         }
        ]
       },
       {
-       "gives": "W"
+       "words": "Howard",
+       "at": 0,
+       "gives": "RON",
+       "note": "Ron Howard is the American actor and film director"
+      },
+      {
+       "words": "is",
+       "at": 7
+      },
+      {
+       "words": "a",
+       "at": 10
+      },
+      {
+       "words": "boy",
+       "at": 12,
+       "gives": "LAD",
+       "note": "a lad is a boy"
       }
      ]
     },
     "explanation": {
-     "surface": "A man called Howard is a lad running after a parrot with no tail at a picnic.",
-     "walkthrough": "Howard here is a surname: the clue wants the first name of Ron Howard.",
-     "definitionFit": "Macaroni salad, pasta tossed with mayonnaise, is a staple dish at American cookouts and outdoor meals."
+     "surface": "A boy named Howard runs after a bird that has lost its tail during a picnic.",
+     "walkthrough": "Howard is not a surname clue but a first name, from Ron Howard, the American director; the bird is a parrot, docked of its last letter.",
+     "definitionFit": "Macaroni salad is a cold pasta dish typically served at picnics and cookouts."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "Howard"
     }
    }
