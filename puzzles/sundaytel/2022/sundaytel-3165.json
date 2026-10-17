@@ -466,47 +466,34 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STODGE",
+     "op": "composite",
      "indicators": [
       {
+       "text": "not",
+       "at": 21,
+       "note": "not a says the letter a is to be taken out of the pool of letters"
+      },
+      {
        "text": "liquid",
-       "note": "something liquid flows and has no fixed shape, so the letters run into a new order"
+       "at": 27,
+       "note": "liquid means fluid, not fixed, so the remaining letters of dogs eat flow into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "STODGE",
-       "indicators": [
-        {
-         "text": "not",
-         "note": "not tells us to leave out the word that follows it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "dogs",
-         "note": "taken as written"
-        },
-        {
-         "words": "eat",
-         "note": "taken as written"
-        },
-        {
-         "words": "a",
-         "note": "the letter to be taken away"
-        }
-       ]
+       "words": "dogs eat",
+       "at": 11
+      },
+      {
+       "words": "a",
+       "at": 25
       }
      ]
     },
     "explanation": {
-     "surface": "Pet dogs wolf down solid food but won't touch anything runny.",
-     "walkthrough": "Take A out of DOGS EAT to leave DOGSET, then rearrange. 'Liquid' looks like part of the dogs' diet; it is the anagram signal.",
-     "definitionFit": "Stodge is British slang for filling, starchy food such as heavy puddings that sit in the stomach."
+     "surface": "A warning about the heavy, solid stuff dogs eat compared with something runny.",
+     "walkthrough": "'liquid' looks like a food description contrasting with 'Heavy', but it is the anagram signal: DOGS EAT without the A ('not a') rearranges to the answer.",
+     "definitionFit": "Stodge is filling, starchy food such as suet pudding, the kind that sits heavily in the stomach."
     },
     "features": {
      "answerInScene": true,
@@ -1409,51 +1396,45 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "beside",
-       "note": "beside places one piece next to another"
+       "text": "seen beside",
+       "at": 13,
+       "note": "seen beside says the shortened bird is placed next to the word for father, after it"
       }
      ],
      "parts": [
+      {
+       "words": "father",
+       "at": 25,
+       "gives": "POP",
+       "note": "pop is an informal word for father"
+      },
       {
        "op": "deletion",
        "indicators": [
         {
          "text": "briefly",
-         "note": "briefly means cut short, so the last letter of the word is dropped"
+         "at": 5,
+         "note": "briefly means cut short, so the bird's name loses its last letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "father",
-           "gives": "POP",
-           "note": "pop is informal for father"
-          },
-          {
-           "words": "Bird",
-           "gives": "LARK",
-           "note": "a songbird"
-          }
-         ]
+         "words": "Bird",
+         "at": 0,
+         "gives": "LARK",
+         "note": "the lark is a songbird"
         },
         {
          "gives": "K"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "seen",
-       "note": "surface padding, gives no letters"
       }
      ]
     },
     "explanation": {
-     "surface": "A birdwatcher spots a bird next to Dad, perched in a tree.",
-     "walkthrough": "Although the bird is clued first, 'beside' lets it follow the father in the answer.",
-     "definitionFit": "The poplar is a tall, fast-growing deciduous tree, often planted in rows along roads."
+     "surface": "A birdwatcher spots a bird for a moment next to their dad in a tree.",
+     "walkthrough": "'briefly' docks LARK to LAR, and 'seen beside' puts it right after POP.",
+     "definitionFit": "The poplar is a tall, fast-growing tree of the willow family, often planted in rows."
     },
     "features": {
      "answerInScene": true,
