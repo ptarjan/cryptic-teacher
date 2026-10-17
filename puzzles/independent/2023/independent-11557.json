@@ -427,8 +427,6 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "BIKINI",
      "indicators": [
       {
        "text": "for",
@@ -442,14 +440,14 @@
        "note": "cycling is riding a bike"
       },
       {
-       "words": "island",
-       "gives": "I",
-       "note": "I is the abbreviation for island"
-      },
-      {
        "words": "good",
        "gives": "G",
        "note": "G is the abbreviation for good"
+      },
+      {
+       "words": "island",
+       "gives": "I",
+       "note": "I is the abbreviation for island"
       }
      ]
     },
@@ -1288,40 +1286,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "EXACTITUDE",
-     "indicators": [
-      {
-       "text": "entertaining",
-       "note": "to entertain guests is to take them in, so the show holds the other pieces inside"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "entertaining",
+         "note": "to entertain guests is to take them in, so the show holds the other pieces inside"
+        }
+       ],
        "parts": [
         {
-         "words": "show",
-         "gives": "EX",
-         "note": "first part of exude, to show or give off"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "show",
+           "gives": "EX",
+           "note": "first part of exude, to show or give off"
+          },
+          {
+           "words": "tense",
+           "gives": "T",
+           "note": "T is the grammar abbreviation for tense"
+          }
+         ]
         },
         {
          "words": "first part of play",
          "gives": "ACTI",
          "note": "Act I is the opening section of a play"
-        },
-        {
-         "words": "tense",
-         "gives": "T",
-         "note": "T is the grammar abbreviation for tense"
-        },
-        {
-         "words": "show",
-         "gives": "UDE",
-         "note": "rest of exude, closing round the inserted letters"
         }
        ]
+      },
+      {
+       "words": "show",
+       "gives": "UDE",
+       "note": "rest of exude, closing round the inserted letters"
       }
      ]
     },
