@@ -345,42 +345,50 @@
    "annotation": {
     "definitions": [
      {
-      "text": "stay at Gleneagles",
-      "at": 42
+      "text": "a stay at Gleneagles",
+      "at": 40
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "OFFPUT",
      "indicators": [
       {
        "text": "taking",
-       "note": "taking one thing for another means swapping it in where the other was"
+       "at": 21,
+       "note": "taking signals that the word takes in a new letter in exchange"
+      },
+      {
+       "text": "for",
+       "at": 36,
+       "note": "for here means in place of, so the new letter stands in for the A of the phrase"
       }
      ],
      "parts": [
       {
        "words": "Perfectly remembered",
+       "at": 0,
        "gives": "OFFPAT",
-       "note": "known off pat is known perfectly"
+       "note": "known off pat is learnt by heart, perfectly remembered"
+      },
+      {
+       "gives": "A"
       },
       {
        "words": "uniform",
+       "at": 28,
        "gives": "U",
-       "note": "U is Uniform in the NATO alphabet"
+       "note": "U is uniform in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who perfectly remembers wearing a uniform for a stay at a famous Scottish hotel.",
-     "walkthrough": "Gleneagles is a Scottish golf resort, standing for Scotland; U replaces the A of OFF PAT.",
-     "definitionFit": "Offput is a Scots word for a delay or postponement, a stay in the legal sense."
+     "surface": "Someone recalls flawlessly that they wore a uniform during a stay at a Scottish golf hotel.",
+     "walkthrough": "'taking uniform for a' means U replaces the A of OFF PAT. Gleneagles is a famous Scottish hotel, so the definition flags a Scots word: there a stay, or delay, is an offput.",
+     "definitionFit": "In Scots usage the word means a postponement or delay, which is one sense of the noun stay."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "stay"
     }
    }
@@ -669,47 +677,38 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NORTHGERMANIC",
+     "op": "composite",
      "indicators": [
       {
+       "text": "not",
+       "at": 37,
+       "note": "not tells us the letter for English must be left out of the greeting's letters"
+      },
+      {
        "text": "somehow",
-       "note": "somehow suggests the letters are put together in some other way"
+       "at": 50,
+       "note": "somehow says the remaining letters are put together in some other order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NORTHGERMANIC",
-       "indicators": [
-        {
-         "text": "not English",
-         "note": "not English asks for the letter standing for English to be dropped"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Morning, teacher",
-         "note": "taken as written"
-        },
-        {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the abbreviation for English"
-        }
-       ]
+       "words": "Morning, teacher",
+       "at": 18
+      },
+      {
+       "words": "English",
+       "at": 41,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A class greeting its teacher in some language other than English.",
-     "walkthrough": "Remove one E from the greeting before rearranging.",
-     "definitionFit": "The North Germanic branch covers the Scandinavian tongues such as Norwegian, Swedish, Danish and Icelandic."
+     "surface": "A pupil's cheery classroom greeting is offered, oddly said to belong to a language group.",
+     "walkthrough": "'not English' drops one E from MORNINGTEACHER, leaving MORNINGTACHER; the clue's last word, an anagram signal meaning in some fashion or other, then rearranges those thirteen letters into the answer.",
+     "definitionFit": "North Germanic is the branch of Germanic languages that includes Danish, Swedish, Norwegian and Icelandic."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "teacher"
     }
