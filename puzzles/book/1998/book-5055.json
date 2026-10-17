@@ -1104,53 +1104,52 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "CHRONICLE",
      "indicators": [
       {
        "text": "wasted",
-       "note": "something wasted is ruined or squandered, so the remaining letters are scrambled"
+       "at": 27,
+       "note": "something wasted is ruined or broken down, so the letters are reworked into a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "CHRONICLE",
        "indicators": [
         {
          "text": "not",
-         "note": "not means without, so the letter for posh is struck out of the collection"
+         "at": 17,
+         "note": "'not posh' tells us to leave out the letter standing for posh"
         }
        ],
        "parts": [
         {
          "words": "Rich uncle",
-         "note": "taken as written"
-        },
-        {
-         "words": "old",
-         "gives": "O",
-         "note": "O is the abbreviation for old"
+         "at": 0
         },
         {
          "words": "posh",
+         "at": 21,
          "gives": "U",
-         "note": "U means upper-class or posh, in the old British usage of U and non-U"
+         "note": "U is the old label for upper-class, posh usage"
         }
        ]
+      },
+      {
+       "words": "old",
+       "at": 12,
+       "gives": "O"
       }
      ]
     },
     "explanation": {
-     "surface": "A wealthy uncle, elderly and unrefined, squandered the money in a bank account.",
-     "walkthrough": "Add O to RICH UNCLE, take out the U, then rearrange. 'Account' looks like banking but means a written record.",
-     "definitionFit": "A chronicle is a historical record of events in order of time, a narrative report of what happened."
+     "surface": "A wealthy relative, elderly and past his smart days, fritters away his bank account.",
+     "walkthrough": "Take RICHUNCLE, drop the U ('not posh'), add O for 'old', and rearrange ('wasted') the letters.",
+     "definitionFit": "A chronicle is a historical record, a narrative of events set down in order."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "account"
+     "misdirectedWord": "wasted"
     }
    }
   },
@@ -1333,40 +1332,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LOREN",
-     "indicators": [
-      {
-       "text": "different",
-       "note": "different means changed, so these letters appear in an altered order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "different",
+         "at": 26,
+         "note": "'different' says the letters of the word role are made into another arrangement"
+        }
+       ],
        "parts": [
         {
          "words": "role",
-         "gives": "LORE",
-         "note": "the four letters rearranged"
-        },
-        {
-         "words": "new",
-         "gives": "N",
-         "note": "N is the abbreviation for new"
+         "at": 14
         }
        ]
+      },
+      {
+       "words": "new",
+       "at": 40,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "An actor lands a fresh, unusual part in a film.",
-     "definitionFit": "Sophia Loren is the Italian actress, an Oscar-winning screen icon, so she is a movie star."
+     "surface": "An actor lands a part unlike anything played before, a fresh turn.",
+     "walkthrough": "Sophia Loren is the Italian film actress.",
+     "definitionFit": "Sophia Loren is a famous Italian screen actress, an example of a movie star."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "role"
     }
    }
   },
@@ -1392,12 +1391,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HIRST",
      "indicators": [
       {
        "text": "to interrupt",
-       "note": "something that interrupts breaks into the middle, so the letter goes inside the other word"
+       "at": 12,
+       "note": "to interrupt is to break into something, so this letter goes inside the other letters"
       }
      ],
      "parts": [
@@ -1406,33 +1404,33 @@
        "indicators": [
         {
          "text": "outrageous",
-         "note": "outrageous suggests wild and shocking, so these letters are jumbled out of order"
+         "at": 30,
+         "note": "outrageous means wild, out of order, so the letters of this are thrown into a new order"
         }
        ],
        "parts": [
         {
-         "words": "right",
-         "gives": "R",
-         "note": "R is the abbreviation for right"
-        },
-        {
          "words": "this",
-         "gives": "HIST",
-         "note": "the word rearranged"
+         "at": 25
         }
        ]
+      },
+      {
+       "words": "right",
+       "at": 6,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A critic asks whether it is acceptable to heckle a shocking contemporary artist.",
-     "walkthrough": "Damien Hirst is famous for pickled animals, which makes 'outrageous' an apt surface word.",
-     "definitionFit": "Damien Hirst is a leading British contemporary artist, famous for shark in formaldehyde works."
+     "surface": "A puzzled viewer asks whether it is fair to cut in on a shocking piece of contemporary art.",
+     "walkthrough": "'outrageous' rearranges THIS to HIST, and R ('right') interrupts it. Damien Hirst is the British artist famous for shocking works.",
+     "definitionFit": "Damien Hirst is a contemporary British artist known for his provocative work, such as a shark in formaldehyde."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "right"
+     "aptDefinition": false,
+     "misdirectedWord": "outrageous"
     }
    }
   }
