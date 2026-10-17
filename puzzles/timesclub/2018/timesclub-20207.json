@@ -114,45 +114,34 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "TACAMAHACS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "besetting",
-       "note": "besetting means surrounding on all sides"
+       "text": "inflamed",
+       "at": 11,
+       "note": "inflamed means aggravated and disordered, so the letters of asthma are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "inflamed",
-         "note": "something inflamed is agitated, so these letters are stirred up"
-        }
-       ],
-       "parts": [
-        {
-         "words": "asthma",
-         "note": "taken as written"
-        },
-        {
-         "words": "Bill on two occasions",
-         "gives": "ACAC",
-         "note": "AC, account, a bill, written twice"
-        }
-       ]
+       "words": "asthma",
+       "at": 20
+      },
+      {
+       "words": "Bill on two occasions",
+       "at": 37,
+       "gives": "ACAC",
+       "note": "AC, short for account, a bill, taken twice"
       }
      ]
     },
     "explanation": {
-     "surface": "Resinous gums aggravate asthma, troubling Bill twice over.",
-     "walkthrough": "The two ACs are placed among the jumbled letters; the order of operations matters less than the letter count.",
-     "definitionFit": "Tacamahac is an aromatic resin from certain poplars and tropical trees, used in ointments."
+     "surface": "An asthma flare-up is made worse by a doctor's invoice that comes twice.",
+     "walkthrough": "'besetting' says the two bills sit among the asthma letters; in the answer each AC lands at a different spot, so the parse treats all ten letters as one pool for 'inflamed'.",
+     "definitionFit": "Tacamahac is an aromatic resin from various tropical trees, or the balsam poplar, used in ointments and incense."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Bill"
     }
@@ -404,49 +393,52 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CABEZON",
      "indicators": [
       {
        "text": "to the centre",
-       "note": "sent to the centre means placed in the middle of the rest"
+       "at": 39,
+       "note": "it then goes back in at the centre, the fourth of seven letters"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "CABEZON",
        "indicators": [
         {
-         "text": "moving east",
-         "note": "east is the compass letter, and moving it takes it from where it stood"
+         "text": "moving",
+         "at": 27,
+         "note": "the east letter is moved, so it is first lifted from its place at the end"
         }
        ],
        "parts": [
         {
-         "words": "taxis",
-         "gives": "CAB",
-         "note": "a cab is a taxi"
+         "words": "Maybe area served by taxis",
+         "at": 0,
+         "gives": "CABZONE",
+         "note": "a cab zone, by example an area covered by taxis"
         },
         {
-         "words": "Maybe area served by",
-         "gives": "ZONE",
-         "note": "a zone is an area, maybe the one a taxi rank covers"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "east",
+       "at": 34,
+       "gives": "E",
+       "note": "E is the compass abbreviation for east"
       }
      ]
     },
     "explanation": {
-     "surface": "A district covered by cabs heads east into town for a large fish dinner.",
-     "walkthrough": "A taxi zone is written as one word, then its final E is shifted into the middle.",
-     "definitionFit": "The cabezon is a large sculpin of the North American Pacific coast, prized by anglers."
+     "surface": "A taxi operator's patch shifts eastward towards the middle of town, all for a big fish.",
+     "walkthrough": "CAB ZONE is the area; 'moving east to the centre' takes its final E and puts it in the middle, CAB-E-ZON.",
+     "definitionFit": "The cabezon is a large sculpin of the Pacific coast of North America, prized by anglers."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "east"
+     "misdirectedWord": "big"
     }
    }
   },
@@ -1325,34 +1317,27 @@
    "annotation": {
     "definitions": [
      {
-      "text": "camel-hair coat",
-      "at": 11
+      "text": "Reversible camel-hair coat",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "palindrome",
-     "indicators": [
-      {
-       "text": "Reversible",
-       "note": "reversible means it reads the same either way round"
-      }
-     ],
+     "op": "cryptic",
      "parts": [
       {
-       "unchecked": true,
-       "words": "camel-hair coat",
-       "note": "the definition, which happens to read identically in both directions"
+       "words": "Reversible camel-hair coat",
+       "at": 0,
+       "note": "a garment of camel hair whose name reads the same either way round, as a reversible coat can be worn either way out"
       }
      ]
     },
     "explanation": {
-     "surface": "A camel-hair coat that can be worn inside out.",
-     "walkthrough": "The clue reads as a fashion description, but 'Reversible' describes the word itself.",
-     "definitionFit": "An abba is a sleeveless Arab cloak, often woven from camel or goat hair."
+     "walkthrough": "'Reversible' reads as a feature of the coat, but it hints that the name is a palindrome. An abba (or aba) is a Middle Eastern sleeveless cloak.",
+     "definitionFit": "An abba is a loose Arab outer garment often woven from camel or goat hair."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
+     "answerInScene": true,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Reversible"
     }
