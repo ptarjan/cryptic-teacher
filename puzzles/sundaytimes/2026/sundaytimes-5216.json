@@ -47,46 +47,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BIGFOOT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "receives",
+       "at": 7,
+       "note": "the bigot takes in the next piece, so it goes inside the first word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Sexist",
+       "at": 0,
+       "gives": "BIGOT",
+       "note": "a sexist is a kind of bigot, someone prejudiced against a group"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "receives",
-         "note": "the sexist takes the reversed word inside him"
-        },
-        {
          "text": "backing",
-         "note": "backing means going in reverse, so the word it follows runs backwards"
+         "at": 16,
+         "note": "backing here means the small word that follows is turned to run the other way"
         }
        ],
        "parts": [
         {
-         "words": "Sexist",
-         "gives": "BIGOT",
-         "note": "a bigot is a sexist, among other prejudices"
-        },
-        {
          "words": "of",
-         "gives": "FO",
-         "note": "OF backwards, placed inside BIG|OT"
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Some hairy legend of the forest turns out to be a sexist.",
-     "walkthrough": "'Of' looks like a link word joining 'backing' to the primate, but it is the letters being turned round.",
-     "definitionFit": "Bigfoot is the ape-like creature of North American legend."
+     "surface": "A chauvinist somehow ends up supporting a mythical ape-man.",
+     "walkthrough": "'Backing of' looks like support for the creature, but it reverses the word 'of' to FO, which sits inside BIGOT.",
+     "definitionFit": "Bigfoot, or Sasquatch, is the hairy ape-like creature of North American folklore."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "of"
+     "misdirectedWord": "backing"
     }
    }
   },
