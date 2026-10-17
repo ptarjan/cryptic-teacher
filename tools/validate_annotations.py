@@ -3108,6 +3108,27 @@ def check_theme_clue_unchanged(puzzle, path, errors):
             f"states the theme and none is filed, withdraw and say which")
 
 
+def check_spelling_kept(puzzle, path, errors):
+    """A re-annotation may not drop the `spelling` HEAD's annotation of the same
+    answer carries. The `spelling.unsaid` ratchet counts clues per puzzle, not
+    which clue, so an allowance left over from before the spelling was filled
+    (book-26021 22D, APERÇU, 10-17) absorbed the loss and CI caught it
+    hours later. Comparing with HEAD sees it in the run itself."""
+    committed = committed_entries(path)
+    if committed is None:
+        return
+    for e in puzzle["entries"]:
+        was = committed.get(entry_id(e))
+        if not was or (was.get("solution") or "").upper() != (e.get("solution") or "").upper():
+            continue
+        spelling = (was.get("annotation") or {}).get("spelling")
+        if spelling and e.get("annotation") and not e["annotation"].get("spelling"):
+            errors.append(
+                f"{entry_id(e)}: the committed annotation spells the answer {spelling!r} "
+                f"and this one has no spelling. Keep it: in the model's shape write "
+                f"`answer` as {spelling!r}")
+
+
 #: The letters an OCR'd clue's SOURCE_CLUE_WRONG correction may change: a
 #: misread letter or two ("judge" for "fudge", "rn" for "m"), never a reword.
 OCR_MISREAD_EDITS = 3
@@ -4515,6 +4536,7 @@ def check_against_committed(puzzle, path, errors):
     """The checks a run's own puzzle gets against the file as committed."""
     check_clue_unchanged(puzzle, path, errors)
     check_theme_clue_unchanged(puzzle, path, errors)
+    check_spelling_kept(puzzle, path, errors)
     check_clue_rows_held(puzzle, errors)
     check_selectors_are_indicators(puzzle, path, errors)
     check_no_new_abbreviation_notes(puzzle, path, errors)
