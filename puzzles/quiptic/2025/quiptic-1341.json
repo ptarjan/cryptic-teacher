@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -529,42 +530,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HIDEOUT",
-     "indicators": [
-      {
-       "text": "Mostly",
-       "note": "Mostly means all but the tail end, so the word gives up its final letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly means most but not all of the word, so its final letter goes"
+        }
+       ],
        "parts": [
         {
          "words": "horrible",
-         "gives": "HIDEOU",
-         "note": "HIDEOUS means horrible, docked of its last letter"
+         "at": 7,
+         "gives": "HIDEOUS",
+         "note": "hideous means horrible"
         },
         {
-         "words": "time",
-         "gives": "T",
-         "note": "t = time, the symbol in any physics formula"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "time",
+       "at": 16,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A largely dreadful stretch of time spent somewhere safe.",
-     "walkthrough": "'Mostly horrible time' reads as a grumble about a bad week and is an instruction, a word to dock and a letter. 'In' is grammar only; nothing is being put inside anything.",
-     "definitionFit": "A hideout is where somebody on the run holes up, which is a refuge in the plainest sense."
+     "surface": "A dreadful stretch spent sheltering somewhere.",
+     "walkthrough": "'Mostly' cuts the last letter from HIDEOUS, leaving HIDEOU, before T for time.",
+     "definitionFit": "A hideout is a hiding place, somewhere to take shelter from pursuers."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Mostly"
+     "misdirectedWord": "horrible"
     }
    }
   },
@@ -910,41 +914,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IMPRUDENT",
-     "indicators": [
-      {
-       "text": "heartless",
-       "note": "Something heartless has had its middle taken out, so the word loses its central letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "I'm",
+       "at": 0,
+       "gives": "IM",
+       "note": "taken as written, apostrophe dropped"
+      },
+      {
+       "words": "a puritan",
+       "at": 4,
+       "gives": "PRUDE",
+       "note": "a prude is a puritan, someone easily shocked"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 19,
+         "note": "heartless means the middle letter of the word not is removed"
+        }
+       ],
        "parts": [
         {
-         "words": "I'm",
-         "note": "the two letters of the contraction, apostrophe dropped"
-        },
-        {
-         "words": "a puritan",
-         "gives": "PRUDE",
-         "note": "a prude is the puritan about morals and manners"
-        },
-        {
          "words": "not",
-         "gives": "NT",
-         "note": "NOT with its middle letter taken away"
+         "at": 15,
+         "gives": "NOT",
+         "note": "taken as written"
+        },
+        {
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A self-declared puritan insisting there is nothing cold about them.",
-     "walkthrough": "The clue reads as a confession and every word of it before the last is spelling. 'Not heartless' is the denial in the sentence and the instruction in the wordplay: the word NOT loses its own heart.",
-     "definitionFit": "Somebody imprudent acts without weighing the consequences, which is unwise in the plainest sense."
+     "surface": "A self-declared puritan insists they are not cold-hearted, though perhaps foolish.",
+     "walkthrough": "'heartless' takes the middle O out of NOT, leaving NT to follow IM and PRUDE.",
+     "definitionFit": "Imprudent describes rash behaviour lacking care or foresight, the opposite of sensible."
     },
     "features": {
      "answerInScene": false,
