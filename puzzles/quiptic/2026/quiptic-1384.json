@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1138,42 +1139,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EMOTIONAL",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "Almost means falling just short, so the word it governs arrives with its final letter missing."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Energy",
+       "at": 0,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      },
+      {
+       "words": "proposal for conference",
+       "at": 7,
+       "gives": "MOTION",
+       "note": "a motion is a formal proposal put to a meeting or conference for debate"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 31,
+         "note": "almost the whole word, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Energy",
-         "gives": "E",
-         "note": "E is the physicist's symbol for energy"
-        },
-        {
-         "words": "proposal for conference",
-         "gives": "MOTION",
-         "note": "a motion is the proposal put before a conference for debate"
-        },
-        {
          "words": "entirely",
-         "gives": "AL",
-         "note": "ALL means entirely, and it turns up here one letter short"
+         "at": 38,
+         "gives": "ALL",
+         "note": "all means entirely, as in 'all alone'"
+        },
+        {
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An energy proposal going to conference, very nearly complete.",
-     "walkthrough": "Deletion clues hang on a word you have to supply first: 'entirely' is not describing anything here, it is the word ALL waiting to be trimmed.",
-     "definitionFit": "affected by feelings → EMOTIONAL: the adjective for a person governed by their feelings rather than their judgement, or a scene charged with them."
+     "surface": "A conference speaker overcome by feelings while proposing an energy policy.",
+     "walkthrough": "'almost' trims ALL, meaning entirely, to AL.",
+     "definitionFit": "Someone emotional is moved or swayed by their feelings rather than by reason."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entirely"
     }
    }
   },
