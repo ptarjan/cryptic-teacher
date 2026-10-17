@@ -56,41 +56,48 @@
      "indicators": [
       {
        "text": "confused",
-       "note": "the letters are muddled up"
+       "at": 16,
+       "note": "confused letters are muddled up, so the pooled letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "best man",
+       "at": 25
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "dropping",
-         "note": "DENIED lets go of one of its letters"
+         "at": 41,
+         "note": "dropping means letting go of something, so denied loses the letter for ecstasy"
         }
        ],
        "parts": [
         {
-         "words": "best man",
-         "note": "anagram fodder, taken as written"
+         "words": "denied",
+         "at": 34
         },
         {
-         "words": "denied dropping ecstasy",
-         "gives": "DNIED",
-         "note": "DENIED without one E, the letter for the drug ecstasy"
+         "words": "ecstasy",
+         "at": 50,
+         "gives": "E",
+         "note": "E is the street abbreviation for the drug ecstasy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A groom's best man, careless and muddled, is refused something now that he has given up the drug.",
-     "walkthrough": "E for ecstasy is a standard crossword abbreviation. Once one E leaves DENIED, the remaining letters join BEST MAN to make the anagram.",
-     "definitionFit": "Someone absent-minded is not paying attention, which is what inattentive means."
+     "surface": "A best man, muddled and turned down after giving up the party drug, sounds like a disastrous wedding.",
+     "walkthrough": "'dropping' ecstasy takes one E out of DENIED, leaving DNIED, and 'confused' rearranges BESTMAN with DNIED.",
+     "definitionFit": "Someone absent-minded is preoccupied and forgetful, which is to say inattentive."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "man"
+     "misdirectedWord": "ecstasy"
     }
    }
   },
@@ -352,41 +359,62 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "NAMETAG",
-     "indicators": [
-      {
-       "text": "Swapping the headings of",
-       "note": "the first letters of the two words change places"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "Swapping",
+         "at": 0,
+         "note": "swapping means exchanging, so the opening letter of the first word is replaced by the other word's opening letter"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
          "words": "domesticated",
-         "gives": "NAME",
-         "soundsLike": "TAME",
-         "note": "tame = domesticated; its T is swapped for the N heading the next word"
+         "at": 25,
+         "gives": "TAME",
+         "note": "tame means domesticated, no longer wild"
         },
         {
-         "unchecked": true,
-         "words": "horse",
-         "gives": "TAG",
-         "soundsLike": "NAG",
-         "note": "a nag is a horse; its N is swapped for the T heading TAME"
+         "gives": "T"
+        },
+        {
+         "gives": "N"
+        }
+       ]
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "the headings of",
+         "at": 9,
+         "note": "the headings of words are their first letters, and these are what change places, so the second word takes the first word's opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "horse's",
+         "at": 38,
+         "gives": "NAG",
+         "note": "a nag is a horse, usually an old or worn-out one"
+        },
+        {
+         "gives": "N"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is fiddling with the labels on a pet horse's identity tag.",
-     "walkthrough": "The 's in horse's is the 'is' of 'horse is ID', so the swap of the two words' first letters gives the answer.",
-     "definitionFit": "A name tag shows who you are, so it is a form of ID."
+     "surface": "Someone muddles the labels on a farm horse's identity papers.",
+     "walkthrough": "'Swapping the headings of' trades the T of TAME for the N of NAG, turning TAME NAG into NAME TAG.",
+     "definitionFit": "A name tag is a badge showing who you are, a form of identification."
     },
     "features": {
      "answerInScene": true,
@@ -417,38 +445,43 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "to",
+       "at": 8,
+       "note": "to here means up against, so the letters from be at are joined directly onto the rear of the vessel"
+      }
+     ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "EA",
        "indicators": [
         {
          "text": "Content",
-         "note": "the contents of 'be at', its inside letters"
+         "at": 0,
+         "note": "the content of a word is what sits inside it, so the middle letters of be at are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Content to be at",
-         "gives": "EA",
-         "select": "middle",
-         "note": "the inside of B(EA)T"
+         "words": "be at",
+         "at": 11,
+         "note": "taken as written, before its outer letters go"
         }
        ]
       },
       {
        "words": "rear of vessel",
+       "at": 17,
        "gives": "STERN",
-       "note": "the stern is the back of a ship"
+       "note": "the stern is the back end of a ship or boat"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is happy to sit at the back of a boat sailing from China.",
-     "walkthrough": "'Content' looks like happy; it is the insides of 'be at'. The question mark flags that China is only one example of somewhere eastern.",
-     "definitionFit": "A definition by example: China lies in the Far East, so anything from there is one instance of eastern, as the question mark admits."
+     "surface": "A passenger is happy to sit at the back of a ship sailing from China.",
+     "walkthrough": "'Content' looks like happy but takes EA, the inside of BE AT. The question mark marks China as one example of a place in the East.",
+     "definitionFit": "China lies in the Far East, so something from China is eastern, a description by example."
     },
     "features": {
      "answerInScene": true,
@@ -1099,55 +1132,71 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INCISOR",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "penned by",
+       "at": 20,
+       "note": "penned by means enclosed by, so the letter from concerto goes inside the reversed name"
+      }
+     ],
      "parts": [
       {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "INCISOR",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 30,
+         "note": "something revolutionary turns round, so the shortened name is read backwards"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "Opening of",
-           "note": "take the first letter of concerto"
-          },
-          {
-           "text": "penned by"
-          },
-          {
-           "text": "revolutionary",
-           "note": "the composer turns round, reading backwards"
-          },
-          {
            "text": "missing middle",
-           "note": "the centre letter of the seven is dropped"
+           "at": 53,
+           "note": "a word missing its middle loses its central letter, here the fourth of seven"
           }
          ],
          "parts": [
           {
-           "words": "composer missing middle",
-           "gives": "INISOR",
-           "note": "ROSSINI reversed is INISSOR; drop its middle S"
+           "words": "composer",
+           "at": 44,
+           "gives": "ROSSINI",
+           "note": "Gioachino Rossini was an Italian composer of operas such as The Barber of Seville"
           },
           {
-           "words": "Opening of concerto",
-           "gives": "C",
-           "note": "first letter of CONCERTO"
+           "gives": "S"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Opening of",
+         "at": 0,
+         "note": "the opening of a word is its first letter, here the first of concerto"
+        }
+       ],
+       "parts": [
+        {
+         "words": "concerto",
+         "at": 11,
+         "note": "taken as written, before its first letter is picked"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The opening of a concerto was written by a radical composer who has lost a front tooth.",
-     "walkthrough": "Rossini, the Italian opera composer, is the one to find. 'Revolutionary' looks like a radical, but it means turned right round.",
-     "definitionFit": "An incisor is one of the cutting teeth at the front of the mouth."
+     "surface": "An opera composer's concerto begins, but he is missing a front tooth.",
+     "walkthrough": "'missing middle' cuts ROSSINI to ROSINI, 'revolutionary' turns that into INISOR, and 'penned by' sets C, the 'Opening of' concerto, inside it.",
+     "definitionFit": "An incisor is one of the front cutting teeth."
     },
     "features": {
      "answerInScene": false,
@@ -1177,41 +1226,55 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "EXUDING",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "former partner",
+       "at": 10,
+       "gives": "EX",
+       "note": "an ex is a former spouse or partner"
+      },
+      {
+       "op": "substitution",
        "indicators": [
         {
          "text": "with",
-         "note": "'with' means accompanied by, so the daughter's D comes into the word"
+         "at": 34,
+         "note": "with brings in the letter for daughter as the replacement"
         },
         {
          "text": "not",
-         "note": "'not son' refuses the son, so his S is the letter that goes"
+         "at": 49,
+         "note": "not son means the letter for son is taken out where the daughter goes in"
         }
        ],
        "parts": [
         {
-         "words": "former partner",
-         "gives": "EX",
-         "note": "an ex is a former partner"
+         "words": "on drugs",
+         "at": 25,
+         "gives": "USING",
+         "note": "someone using is taking drugs"
         },
         {
-         "words": "on drugs with daughter, not son",
-         "gives": "UDING",
-         "note": "USING (on drugs) with D for daughter in place of S for son"
+         "words": "son",
+         "at": 53,
+         "gives": "S",
+         "note": "S is the genealogical abbreviation for son"
+        },
+        {
+         "words": "daughter",
+         "at": 39,
+         "gives": "D",
+         "note": "D is the genealogical abbreviation for daughter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A former partner, high on drugs, is released along with their daughter but not their son.",
-     "walkthrough": "'Releasing' looks like letting someone go; it is the definition, as in giving off a liquid or smell.",
-     "definitionFit": "Exuding means giving off or releasing, as a plant exudes sap."
+     "surface": "A former partner on drugs is accompanied by their daughter rather than their son.",
+     "walkthrough": "'on drugs' reads as a description of the ex, but it is the word USING, and 'with' daughter, 'not' son tells you which letter of it to change.",
+     "definitionFit": "Exuding means giving off or letting out, as a plant exudes sap, so it is releasing."
     },
     "features": {
      "answerInScene": false,
