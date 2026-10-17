@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -929,12 +930,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "GOODISON",
      "indicators": [
       {
        "text": "hugged",
-       "note": "whoever is hugged is wrapped up by the arms either side, so the letter named sits between the two pieces"
+       "at": 21,
+       "note": "the well-behaved child holds I in a hug, so it sits inside them"
       }
      ],
      "parts": [
@@ -943,31 +943,33 @@
        "parts": [
         {
          "words": "Well-behaved",
+         "at": 0,
          "gives": "GOOD",
-         "note": "a well-behaved child is a good one"
-        },
-        {
-         "words": "I",
-         "note": "the clue's own pronoun, taken as a letter"
+         "note": "good means well-behaved"
         },
         {
          "words": "child",
+         "at": 13,
          "gives": "SON",
-         "note": "a son is somebody's child"
+         "note": "a son is a child"
         }
        ]
+      },
+      {
+       "words": "I",
+       "at": 19
       }
      ]
     },
     "explanation": {
-     "surface": "A parent remembering hugging a well-behaved child in a house they are about to leave.",
-     "walkthrough": "Goodison Park was Everton's ground for 133 years, and this puzzle ran on the day of the last league game there. The cross-reference is misprinted: the new stadium is 1 across and 5 across.",
-     "definitionFit": "Goodison Park is the Liverpool ground Everton played on until 2025, the home they left for the new stadium named at 1 and 5 across."
+     "surface": "A well-behaved child is hugged before leaving home for a new stadium.",
+     "walkthrough": "I is 'hugged' between GOOD and SON. Goodison Park was Everton's ground until the club moved to its new stadium.",
+     "definitionFit": "Goodison Park was the long-time ground of Everton Football Club, which the club was due to leave for its new stadium."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "hugged"
+     "misdirectedWord": "home"
     }
    }
   },
@@ -1240,42 +1242,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FORCIBLE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means most of it and not all, so the word named loses its last letter"
+       "text": "Unusually",
+       "at": 0,
+       "note": "in an unusual order, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "brief",
+       "at": 10
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Unusually",
-         "note": "what is unusual is out of its normal state, and letters out of their normal state are letters in a new order"
+         "text": "mostly",
+         "at": 23,
+         "note": "most of the word, losing its last letter"
         }
        ],
        "parts": [
         {
-         "words": "brief",
-         "note": "anagram fodder, five letters"
+         "words": "cold",
+         "at": 17
         },
         {
-         "words": "cold",
-         "gives": "COL",
-         "note": "cold without its final letter, the three that join the fodder"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A speech unusually short and chilly, and largely persuasive.",
-     "walkthrough": "The indicator sits at the front and reaches over both pieces, so the docking happens before the shuffle. 'Brief, cold' reads as a description of a manner, which is how eight letters of fodder pass unnoticed.",
-     "definitionFit": "A forcible argument carries force and so convinces; the adjective is about the strength that persuades, not about violence."
+     "surface": "A short, chilly remark that nonetheless persuades.",
+     "walkthrough": "'mostly' trims 'cold' to COL; with BRIEF those letters are rearranged, as 'Unusually' signals.",
+     "definitionFit": "A forcible argument is one that carries force, so it is persuasive."
     },
     "features": {
      "answerInScene": false,
