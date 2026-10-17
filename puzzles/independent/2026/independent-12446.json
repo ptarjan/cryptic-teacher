@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -179,36 +180,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HOMERIC",
-     "indicators": [
-      {
-       "text": "Not quite",
-       "note": "falling not quite there means stopping just short, so the word gives up the letter it ends on"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "in",
+       "at": 25,
+       "gives": "HOME",
+       "note": "to be in is to be at home"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not quite",
+         "at": 34,
+         "note": "not quite the whole word, so its final letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "in",
-         "gives": "HOME",
-         "note": "someone who is home is in — the same statement about where they are"
+         "words": "full",
+         "at": 28,
+         "gives": "RICH",
+         "note": "rich can mean full, as of a rich (full-bodied) flavour"
         },
         {
-         "words": "full",
-         "gives": "RIC",
-         "note": "a full-bodied flavour is a rich one, here stopping a letter short"
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'In full' reads as one phrase about telling the whole story. It is two separate words to translate, and only the second is docked.",
-     "definitionFit": "Describing classic story -> HOMERIC: Homer's Iliad and Odyssey are the founding epics, so the adjective from his name means told on that grand scale."
+     "surface": "A question about whether a classic tale has been told completely.",
+     "walkthrough": "'in full' looks like a single phrase about telling a story completely, but 'in' and 'full' each give their own piece.",
+     "definitionFit": "Homeric is the adjective for the epic poems attributed to Homer, the Iliad and the Odyssey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "full"
     }
    }
   },
@@ -286,40 +297,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RURALRIDES",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to engage in",
+       "at": 27,
+       "note": "one word engaging in another sits inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to engage in",
-         "note": "engaging in an activity means getting right into it, so this piece lands inside the other"
-        },
-        {
          "text": "tripping",
-         "note": "someone tripping stumbles and comes down in a heap, and letters that stumble land in a new order"
+         "at": 48,
+         "note": "tripping suggests a hallucinatory trip, so the letters of surreal are scrambled"
         }
        ],
        "parts": [
         {
          "words": "surreal",
-         "gives": "RURALES",
-         "note": "seven letters in a new order, opened out to make room"
-        },
-        {
-         "words": "Free",
-         "gives": "RID",
-         "note": "to free a place of something is to rid it of it"
+         "at": 40
         }
        ]
+      },
+      {
+       "words": "Free",
+       "at": 22,
+       "gives": "RID",
+       "note": "to rid is to free"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Surreal tripping' offers a drug trip and wants the stumbling sense instead, and 'Free' looks like part of that picture when it is a word to swap for a synonym.",
-     "definitionFit": "Early travel writing -> RURAL RIDES: William Cobbett's 1830 book of horseback journeys through the English counties, one of the first travel books in English."
+     "surface": "A wry suggestion that early travel writers were free to describe hallucinogenic journeys.",
+     "walkthrough": "Rural Rides is William Cobbett's 1820s account of riding through the English countryside, which is why the definition calls it early travel writing.",
+     "definitionFit": "Cobbett's book is a classic piece of nineteenth-century travel journalism, early by the standards of the genre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tripping"
     }
    }
   },
@@ -1038,11 +1058,12 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "manoeuvres",
-       "note": "to manoeuvre is to shift things into new positions, and letters shifted about spell something else"
+       "text": "before",
+       "at": 29,
+       "note": "the first piece comes before the second in the answer"
       }
      ],
      "parts": [
@@ -1050,39 +1071,47 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "before",
-         "note": "what comes before is written first, which fixes the order the two pieces go in"
+         "text": "manoeuvres",
+         "at": 18,
+         "note": "manoeuvres here means moves around, so the letters of basic are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "shows up",
-           "note": "in a down clue showing up means coming up the grid, so the word is read from its foot"
-          }
-         ],
-         "parts": [
-          {
-           "words": "basic",
-           "gives": "ABSCI",
-           "note": "the five letters of the word settled into a different order"
-          },
-          {
-           "words": "fool",
-           "gives": "SSA",
-           "note": "an ass is a fool, and the word is read up the grid"
-          }
-         ]
+         "words": "basic",
+         "at": 12
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "shows up",
+         "at": 41,
+         "note": "in a down clue, up means the word is read from bottom to top, i.e. backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fool",
+         "at": 36,
+         "gives": "ASS",
+         "note": "an ass is a fool"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Basic manoeuvres' reads as military drill and 'fool shows up' as somebody arriving late. ASS for fool is a convention worth keeping hold of.",
-     "definitionFit": "Co-ordinate -> ABSCISSA: the x-value of a point on a graph, the horizontal half of the Cartesian pair that fixes where the point sits."
+     "surface": "Simple manoeuvres being carried out ahead of a fool turning up.",
+     "walkthrough": "'Co-ordinate' reads like a verb about organising the manoeuvres, but it is a noun from graph geometry.",
+     "definitionFit": "The abscissa is the x-value of a point on a graph, one of its two coordinates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Co-ordinate"
     }
    }
   },
@@ -1149,39 +1178,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MUDFLAP",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner traded the opening sounds of two words, so his name alone is the instruction to swap them over"
+       "at": 0,
+       "note": "Spooner swapped the opening sounds of words, so the first sounds of the two words are exchanged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "FLUD",
        "parts": [
         {
-         "unchecked": true,
          "words": "water incursion",
-         "gives": "MUD",
-         "soundsLike": "FLOOD",
-         "note": "water where it should not be is a flood; it hands its FL over and takes an M in exchange"
-        },
-        {
-         "unchecked": true,
-         "words": "plan",
-         "gives": "FLAP",
-         "soundsLike": "MAP",
-         "note": "a plan drawn on paper is a map, and it collects the FL the other word gave up"
+         "at": 19,
+         "gives": "FLOOD",
+         "note": "a flood is an incursion of water"
         }
        ]
+      },
+      {
+       "words": "plan",
+       "at": 10,
+       "gives": "MAP",
+       "note": "a map is a plan"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Say the plain version first — the map a council draws of where a flood would reach — and the swap does the rest of the work for you.",
-     "definitionFit": "protective item on vehicle -> MUDFLAP: the rubber sheet hung behind a lorry's wheel to stop it flinging grit and spray at whatever follows."
+     "surface": "Reads like a flood-risk planning document that oddly ends up as a car accessory.",
+     "walkthrough": "The two words are FLOOD MAP; swapping their opening sounds FL and M gives MUD FLAP.",
+     "definitionFit": "A mud flap hangs behind a wheel to stop spray and stones being thrown up from the road."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plan"
     }
    }
   },
@@ -1429,50 +1463,43 @@
    "annotation": {
     "definitions": [
      {
-      "text": "nobleman",
-      "at": 46
+      "text": "this nobleman",
+      "at": 41
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "VISCOUNT",
+     "indicators": [
+      {
+       "text": "initial 99% reduction",
+       "at": 15,
+       "note": "the initial letter, D, is the Roman numeral 500; cutting it by 99% leaves 5, the Roman numeral V"
+      }
+     ],
      "parts": [
       {
        "words": "Reduced price",
+       "at": 0,
        "gives": "DISCOUNT",
-       "note": "a reduction in price is a discount, and this is the word being worked on"
+       "note": "a discount is a reduced price"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "D",
-       "indicators": [
-        {
-         "text": "initial",
-         "note": "what is initial stands at the very front, so the letter in play is the one the word opens with"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "initial",
-         "gives": "D",
-         "select": "first",
-         "note": "the letter that word opens with, which doubles as the Roman numeral for five hundred"
-        }
-       ]
+       "gives": "D"
       },
       {
-       "words": "99% reduction",
-       "gives": "V",
-       "note": "take ninety-nine per cent off five hundred and five is left, which the Romans wrote V"
+       "gives": "V"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Reduced price' looks like the definition of a bargain and is really the word being altered, and the arithmetic is Roman, which is what lets a percentage act on a letter.",
-     "definitionFit": "nobleman -> VISCOUNT: a viscount ranks between an earl and a baron in the British peerage, so the general term names him by his degree."
+     "surface": "Like a sale sign promising enormous price cuts on a title.",
+     "walkthrough": "In Roman numerals D is 500 and V is 5, so a 99% reduction of the initial D turns it into V.",
+     "definitionFit": "A viscount is a peer ranking above a baron and below an earl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "initial"
     }
    }
   },
