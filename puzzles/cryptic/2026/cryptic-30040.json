@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -46,39 +47,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "leader of"
+       "text": "cutting",
+       "at": 36,
+       "note": "the first piece cuts into the second, splitting it so one goes inside"
       }
      ],
      "parts": [
       {
        "words": "expenditure",
+       "at": 44,
        "gives": "OUTLAY",
-       "note": "outlay = expenditure"
+       "note": "an outlay is money spent, an expenditure"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "P",
        "indicators": [
         {
-         "text": "cutting"
+         "text": "leader of",
+         "at": 20,
+         "note": "the leader of a word is its front, so only the first letter of party is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "leader of party",
-         "gives": "P",
-         "select": "first",
-         "note": "the first letter of Party"
+         "words": "party",
+         "at": 30,
+         "note": "its first letter is P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Cutting expenditure' reads as a single piece of budget news, which is why 'cutting' never sounds like an instruction to slide a letter in.",
-     "definitionFit": "To outplay an opponent is to perform noticeably better than them during a game or contest."
+     "surface": "A political party's head is outdoing rivals by slashing public spending.",
+     "definitionFit": "To outplay an opponent is to beat them by playing better, so it means to perform better than them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cutting"
     }
    }
   },
@@ -292,39 +299,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GUAM",
+     "op": "container",
      "indicators": [
       {
-       "text": "Revolutionary"
+       "text": "encapsulating",
+       "at": 19,
+       "note": "encapsulating means enclosing, so the A sits inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "encapsulating"
+         "text": "Revolutionary",
+         "at": 0,
+         "note": "revolutionary here means turning right round, so the word for face is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "Revolutionary face",
-         "gives": "GUM",
-         "note": "MUG (face) turned round"
-        },
-        {
-         "words": "a",
-         "note": "the letter A, tucked inside"
+         "words": "face",
+         "at": 14,
+         "gives": "MUG",
+         "note": "mug is slang for face"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 33,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Revolutionary face' sounds like a poster of Che, and it means MUG turned round. Note that the 'a' is not a link word here — you actually use the letter.",
-     "definitionFit": "Guam is an island in the western Pacific that is an unincorporated US territory."
+     "surface": "A rebel leader's face wrapped up in an American overseas possession.",
+     "walkthrough": "MUG turned round gives GUM, and 'encapsulating' puts A inside it.",
+     "definitionFit": "Guam is a Pacific island administered as an unincorporated territory of the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolutionary"
     }
    }
   },
@@ -349,50 +366,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CHUTNEY",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "in"
+         "text": "in",
+         "at": 8,
+         "note": "the letter for husband is placed in the word for trim"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "overturned"
-          }
-         ],
-         "parts": [
-          {
-           "words": "trim",
-           "gives": "CUT",
-           "note": "to trim = to cut; it wraps around the H"
-          },
-          {
-           "words": "Husband",
-           "gives": "H",
-           "note": "h = husband, as in family trees"
-          }
-         ]
+         "words": "trim",
+         "at": 11,
+         "gives": "CUT",
+         "note": "to trim is to cut"
         },
         {
+         "words": "Husband",
+         "at": 0,
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "overturned",
+         "at": 16,
+         "note": "in a down clue, overturned means the word is turned upside down, read backwards"
+        }
+       ],
+       "parts": [
+        {
          "words": "longing",
-         "gives": "NEY",
-         "note": "YEN (longing) 'overturned' in this down clue"
+         "at": 27,
+         "gives": "YEN",
+         "note": "a yen is a longing or yearning"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "H for husband and YEN for longing are both worth filing away. In a down clue 'overturned' means read upwards, and the curry-house surface covers all three moves.",
-     "definitionFit": "Chutney is a spiced fruit or vegetable condiment central to Indian cooking."
+     "surface": "A husband on a diet who has given up his craving for Indian cuisine.",
+     "walkthrough": "H inside CUT gives CHUT; YEN 'overturned' gives NEY.",
+     "definitionFit": "Chutney is a spiced relish originating in India, so it is a kind of Indian food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trim"
     }
    }
   },
@@ -417,45 +444,68 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "possibly"
+       "text": "possibly",
+       "at": 12,
+       "note": "possibly signals that the letters could be arranged another way"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Term",
+       "at": 0
+      },
+      {
+       "words": "in",
+       "at": 5
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "no end of"
+         "text": "with no",
+         "at": 21,
+         "note": "with no means the named letter is removed from the word use"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
+         "words": "use",
+         "at": 8
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "at": 29,
+           "note": "the end of a word is its final letter, here of churches"
+          }
+         ],
          "parts": [
           {
-           "words": "Term in use",
-           "note": "anagram fodder, before the deletion"
-          },
-          {
-           "gives": "S"
+           "words": "churches",
+           "at": 36,
+           "note": "its last letter is S"
           }
          ]
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "no end of churches",
-       "note": "drop S, the last letter of churcheS"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The payoff is the definition: Fletcher Christian led the mutiny on the Bounty, so 'Christian, say' is a fair example — and the S leaves before the shuffle, not after.",
-     "definitionFit": "Fletcher Christian, who led the mutiny on the Bounty, is a famous example of a mutineer, someone who rebels against authority."
+     "surface": "A school term spent in church use, perhaps for a Christian pupil.",
+     "walkthrough": "USE with no S leaves UE; TERM, IN and UE are rearranged. Fletcher Christian led the 1789 mutiny on HMS Bounty, so 'Christian' is a name, not the faith.",
+     "definitionFit": "Fletcher Christian is the famous example of someone who led a revolt aboard ship, hence 'say'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Christian"
     }
    }
   },
@@ -480,49 +530,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOUGHT",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
        "indicators": [
         {
-         "text": "middle of"
+         "text": "middle of",
+         "at": 8,
+         "note": "the middle of an odd-length word is its central letter, here of canal"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "N",
-         "indicators": [
-          {
-           "text": "is out"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "middle of canal",
-           "gives": "N",
-           "select": "middle",
-           "note": "the central letter of caNal"
-          }
-         ]
+         "words": "canal",
+         "at": 18,
+         "note": "its central letter is N"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "when",
+         "at": 35,
+         "note": "when introduces the condition under which the word for looked for loses a letter"
         },
         {
-         "words": "looked for when sun is out",
-         "gives": "OUGHT",
-         "note": "SOUGHT (looked for) with S (sun) taken out"
+         "text": "is out",
+         "at": 44,
+         "note": "is out means the letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "looked for",
+         "at": 24,
+         "gives": "SOUGHT",
+         "note": "sought means looked for"
+        },
+        {
+         "words": "sun",
+         "at": 40,
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Duck for zero is cricket's gift to crosswords, and it is the definition here — not the bird the canal invites you to picture.",
-     "definitionFit": "In cricket a batsman out for nought is said to make a duck, so 'duck' is slang for a score of zero."
+     "surface": "A duck in the middle of a canal searched for once the sun has gone in.",
+     "walkthrough": "SOUGHT with its S out leaves OUGHT. In cricket a duck is a score of zero.",
+     "definitionFit": "A batter's duck is a score of nothing, and a nought is zero."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Duck"
     }
    }
   },
@@ -593,45 +659,52 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "off"
+       "text": "off",
+       "at": 16,
+       "note": "off in the sense of gone bad or wrong, so the letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "put",
+       "at": 7
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "scrubbing"
+         "text": "after scrubbing",
+         "at": 20,
+         "note": "scrubbing means wiping out, so the article is deleted from many"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "words": "put many",
-           "note": "anagram fodder, before the deletion"
-          },
-          {
-           "gives": "A"
-          }
-         ]
+         "words": "many",
+         "at": 11
+        },
+        {
+         "words": "article",
+         "at": 36,
+         "gives": "A",
+         "note": "a is the indefinite article"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "after scrubbing article",
-       "note": "remove A, the article"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Numpty is cheerfully Scottish. The surface — putting people off — sounds like a real complaint rather than a bag of letters waiting to be shaken.",
-     "definitionFit": "A numpty is Scottish slang for a foolish or stupid person, a dimwit."
+     "surface": "A fool who has deterred lots of people after cleaning a piece of writing.",
+     "walkthrough": "MANY minus A is MNY; PUT and MNY are then rearranged. Numpty is Scottish and British slang for a foolish person.",
+     "definitionFit": "Numpty is informal British slang for a stupid or foolish person, a synonym of dimwit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
     }
    }
   },
@@ -843,24 +916,35 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "DIVER",
      "indicators": [
       {
-       "text": "not half"
+       "text": "not half",
+       "at": 12,
+       "note": "not half means the second five of the ten letters are dropped"
       }
      ],
      "parts": [
       {
-       "words": "Amusements (not half)",
-       "gives": "DIVER",
-       "note": "DIVERSIONS (amusements) keeping only its first half"
+       "words": "Amusements",
+       "at": 0,
+       "gives": "DIVERSIONS",
+       "note": "diversions are amusements or entertainments"
+      },
+      {
+       "gives": "SIONS"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Not half' is a standard instruction: keep the first half, drop the rest. The joke is 'working in a suit' — a diving suit, not a pinstripe.",
-     "definitionFit": "A diver is someone who works underwater wearing a diving suit and breathing apparatus."
+     "surface": "Someone who keeps only half their entertainments while doing an office job in a suit.",
+     "walkthrough": "A 'suit' here suggests office wear, but it is a diving suit.",
+     "definitionFit": "A diver works underwater wearing a wetsuit or diving suit, so the suit is protective gear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suit"
     }
    }
   },
@@ -885,57 +969,65 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CYPRIOT",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "facing",
+       "at": 30,
+       "note": "facing means set against, so the first piece stands directly before the next in a down answer"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
        "indicators": [
         {
-         "text": "disheartened"
-        },
-        {
-         "text": "start of"
+         "text": "disheartened",
+         "at": 17,
+         "note": "disheartened means losing the heart, so only the outer letters of clearly remain"
         }
        ],
        "parts": [
         {
-         "words": "clearly disheartened",
-         "gives": "CY",
-         "note": "CLEARLY loses its heart, leaving C…Y"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "P",
-         "indicators": [
-          {
-           "text": "facing"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "start of public",
-           "gives": "P",
-           "select": "first",
-           "note": "the first letter of Public"
-          }
-         ]
-        },
-        {
-         "words": "disorder",
-         "gives": "RIOT",
-         "note": "a riot = disorder"
+         "words": "clearly",
+         "at": 9,
+         "note": "its outer letters are C and Y"
         }
        ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start of",
+         "at": 37,
+         "note": "the start of a word is its first letter, here of public"
+        }
+       ],
+       "parts": [
+        {
+         "words": "public",
+         "at": 46,
+         "note": "its first letter is P"
+        }
+       ]
+      },
+      {
+       "words": "disorder",
+       "at": 53,
+       "gives": "RIOT",
+       "note": "a riot is a public disorder"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Disheartened' always means scoop out the middle, leaving the two ends. The surface, unrest on a sunny island, keeps you reading news rather than instructions.",
-     "definitionFit": "A Cypriot is a native or inhabitant of Cyprus, an island nation in the Mediterranean."
+     "surface": "Someone plainly dispirited at confronting the outbreak of civil unrest.",
+     "definitionFit": "A Cypriot is a native of Cyprus, a Mediterranean island, so is an islander."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disheartened"
     }
    }
   },
