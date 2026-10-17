@@ -590,36 +590,43 @@
    "annotation": {
     "definedByPreamble": true,
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "KARLOFF",
-     "indicators": [
-      {
-       "text": "swapping tips",
-       "note": "the tips of a word are its two ends, and swapping them exchanges the first and last letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Prank",
-       "gives": "LARK",
-       "note": "a lark is a prank or bit of fun"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "swapping tips",
+         "at": 6,
+         "note": "the tips of a word are its first and last letters, and swapping them exchanges the two ends of the word for prank"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Prank",
+         "at": 0,
+         "gives": "LARK",
+         "note": "a lark is a prank or bit of mischief"
+        }
+       ]
       },
       {
        "words": "on holiday",
+       "at": 20,
        "gives": "OFF",
        "note": "someone on holiday is off work"
       }
      ]
     },
     "explanation": {
-     "surface": "Practical jokers trading pranks while away on holiday.",
-     "walkthrough": "A theme answer, so no definition and no superfluous letter: Boris Karloff, the horror-film actor who played Frankenstein's monster.",
-     "definitionFit": "The theme is the first name Boris, and Boris Karloff was the stage name of the English actor William Pratt."
+     "surface": "A practical joke played on someone while they are away on holiday.",
+     "walkthrough": "This is one of the seven themed answers, so it has no definition: 'swapping tips' exchanges the L and K of LARK gives KARL, and with OFF that is KARLOFF, as in Boris Karloff, the horror film actor.",
+     "definitionFit": "Boris Karloff, star of the 1931 Frankenstein film, is one of the puzzle's seven famous people named Boris."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "tips"
     }
    }
   },
@@ -1587,45 +1594,48 @@
      "parts": [
       {
        "words": "important",
+       "at": 24,
        "gives": "KEY",
-       "note": "key means crucial or important"
+       "note": "a key issue is an important one"
+      },
+      {
+       "words": "in",
+       "at": 34,
+       "gives": "IN"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "ING",
        "indicators": [
         {
-         "text": "ending of",
-         "note": "the ending of a word is its last part, so only its final letters are kept"
+         "text": "tending of",
+         "at": 37,
+         "note": "drop the superfluous T and this reads 'ending of', which asks for the final letter of the next word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Beijing",
-         "gives": "ING",
-         "select": "last",
-         "note": "the final three letters of the city's name"
+         "at": 48,
+         "note": "the word whose final letter is taken"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "tending",
-       "note": "with its T superfluous the word is ending, the signal for what follows"
       }
      ]
     },
     "explanation": {
-     "surface": "A vandal scratching cars matters greatly to someone tending Beijing's streets.",
-     "walkthrough": "The T of 'tending' is this clue's superfluous letter, turning it into 'ending of'. Keying is scraping a car's paint with a key.",
-     "definitionFit": "Keying a car means scoring its paintwork with a key, a common small-scale act of vandalism; 'maybe' marks it as one example."
+     "surface": "Something important happening in the care of China's capital.",
+     "walkthrough": "Dropping the superfluous T turns 'tending of Beijing' into 'ending of Beijing', its last letter; scratching a parked car with a key is a common act of petty vandalism.",
+     "definitionFit": "Keying is scratching a car's paintwork with a key, a typical example of small-scale vandalism."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "tending"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "T",
+     "at": 37
     }
    }
   },
