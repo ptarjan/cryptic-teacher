@@ -328,35 +328,35 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BULLDOG",
      "indicators": [
       {
        "text": "boring",
+       "at": 44,
        "note": "something boring drills into the moss word, so it sits inside it"
       }
      ],
      "parts": [
       {
+       "words": "moss",
+       "at": 51,
+       "gives": "BOG",
+       "note": "a moss is a peat bog in northern English and Scots dialect"
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "BULLDOG",
        "indicators": [
         {
-         "text": "shifting",
-         "note": "the director letter shifts from the front of the dull word to its back"
+         "text": "with director shifting",
+         "at": 21,
+         "note": "the director's letter, D at the front of the dull word, shifts round to its back"
         }
        ],
        "parts": [
         {
-         "words": "uninteresting with director",
+         "words": "uninteresting",
+         "at": 7,
          "gives": "DULL",
-         "note": "dull means uninteresting, and its first letter is D, the abbreviation for director"
-        },
-        {
-         "words": "moss",
-         "gives": "BOG",
-         "note": "a moss is a bog or peat-bog in northern dialect"
+         "note": "dull means uninteresting"
         }
        ]
       }
@@ -364,7 +364,7 @@
     },
     "explanation": {
      "surface": "A film clip is dull, and its director keeps moving through a tedious bog scene.",
-     "walkthrough": "A moss is a northern English and Scots word for a peat bog. A bulldog clip is a sprung metal stationery clip, common in Britain.",
+     "walkthrough": "'with director shifting' moves the D of DULL to the end, giving ULLD, which 'boring' sets inside BOG. A bulldog clip is a sprung metal stationery clip, common in Britain.",
      "definitionFit": "A bulldog clip is a strong spring clip for holding papers, often called simply a bulldog."
     },
     "features": {
@@ -896,55 +896,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "round",
-       "note": "turned round, the mizzle word reads backwards"
+       "text": "circling",
+       "at": 13,
+       "note": "the drizzle word, once reversed, circles the next letter, holding it inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "circling",
-         "note": "circling means going around, so the Ullapool letter is enclosed"
+         "text": "round",
+         "at": 22,
+         "note": "turned round means read backwards"
         }
        ],
        "parts": [
         {
          "words": "Scots mizzle",
+         "at": 0,
          "gives": "SMIR",
-         "note": "smir is Scots for fine drizzle, or mizzle"
-        },
+         "note": "smir is the Scots word for a fine drizzle, or mizzle"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "U",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "west of Ullapool",
-           "gives": "U",
-           "select": "first",
-           "note": "the westernmost, leftmost letter of Ullapool"
-          }
-         ]
+         "text": "west of",
+         "at": 28,
+         "note": "the west of an across word is its leftmost, first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ullapool's",
+         "at": 36,
+         "note": "the word whose first letter is used; Ullapool is a port in the Scottish Highlands"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Fine Scottish drizzle swirls round the pine trees near Ullapool.",
-     "walkthrough": "Ullapool is a small port in the north-west Highlands of Scotland; mizzle is drizzle.",
-     "definitionFit": "Rimus are New Zealand red pines, tall coniferous timber trees."
+     "surface": "Scottish drizzle swirls around the conifers west of Ullapool.",
+     "walkthrough": "'round' reverses SMIR to RIMS, and 'circling' puts the U from 'west of Ullapool' inside it.",
+     "definitionFit": "The rimu is a tall New Zealand conifer, the red pine, so rimus are conifers of that species."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "circling"
+     "misdirectedWord": "west"
     }
    }
   },
@@ -969,42 +975,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HELOTISM",
+     "op": "charade",
      "indicators": [
       {
-       "text": "sadly",
-       "note": "sadly suggests things have gone wrong, so the letters are put in a bad order"
+       "text": "supported by",
+       "at": 44,
+       "note": "in a down clue, supported by means the next piece sits beneath the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "supported by",
-         "note": "in a down entry, being supported means having the next piece underneath"
+         "text": "sadly",
+         "at": 30,
+         "note": "sadly means badly, so the letters come out in a poor, jumbled order"
         }
        ],
        "parts": [
         {
          "words": "hostile",
-         "gives": "HELOTIS",
-         "note": "the letters of hostile, rearranged"
-        },
-        {
-         "words": "money",
-         "gives": "M",
-         "note": "M is the abbreviation for money"
+         "at": 36,
+         "note": "taken as written, as anagram fodder"
         }
        ]
+      },
+      {
+       "words": "money",
+       "at": 57,
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "Slavery is a cruel state sustained by money.",
-     "definitionFit": "Helotism is serfdom like that of the helots, the state-owned serfs of ancient Sparta."
+     "surface": "A state of bondage that is grimly hostile and propped up by cash.",
+     "walkthrough": "'sadly' rearranges HOSTILE as HELOTIS. Helots were the serfs of ancient Sparta.",
+     "definitionFit": "Helotism is the state of being a helot, a Spartan serf, so it is a condition of servitude."
     },
     "features": {
      "answerInScene": true,
@@ -1541,37 +1548,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "going west",
+       "at": 41,
+       "note": "going west in an across entry means travelling leftwards, so the retreat word is turned backwards where it stands"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "WOONED",
-       "indicators": [
-        {
-         "text": "going west",
-         "note": "going west in an across entry means travelling leftwards, so that part is read backwards"
-        }
-       ],
-       "parts": [
-        {
-         "words": "inhibited",
-         "gives": "WOODEN",
-         "note": "wooden means stiff and awkward, as an inhibited performer is"
-        }
-       ]
+       "words": "inhibited",
+       "at": 18,
+       "gives": "WOODEN",
+       "note": "wooden means stiff and awkward, as an inhibited performer is"
       },
       {
-       "unchecked": true,
        "words": "retreat",
-       "note": "a den is a private retreat; it names the three letters at the end of the inhibited word, which are the ones turned round"
+       "at": 33,
+       "gives": "DEN",
+       "note": "a den is a private retreat"
+      },
+      {
+       "gives": "NED"
       }
      ]
     },
     "explanation": {
      "surface": "A poet grew shy as he went into retirement out west.",
-     "walkthrough": "Nothing is added: the retreat is already sitting inside the first word, and only that stretch changes direction.",
-     "definitionFit": "Woon is an archaic Spenserian verb, and wooned is its past tense, used by Spenser in an obsolete sense."
+     "walkthrough": "The retreat, DEN, is already at the end of WOODEN; 'going west' turns only that stretch round to NED.",
+     "definitionFit": "Woon is an archaic Spenserian verb, and its past tense appears in Spenser in an obsolete sense close to dwelt or became."
     },
     "features": {
      "answerInScene": false,
