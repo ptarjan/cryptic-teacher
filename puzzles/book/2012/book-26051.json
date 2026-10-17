@@ -425,46 +425,60 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "FRIEDRICH",
-     "indicators": [
-      {
-       "text": "with no end of",
-       "note": "having no end of something means that letter is dropped, and hot comes in to take its place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "dish",
-       "gives": "FRIEDRICE",
-       "note": "fried rice is a Chinese dish"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with no",
+         "at": 17,
+         "note": "with no means lacking, so the named letter is removed from the dish"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dish",
+         "at": 7,
+         "gives": "FRIEDRICE",
+         "note": "fried rice is a dish of rice stir-fried with other ingredients"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "at": 25,
+           "note": "the end of a word is its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "spice",
+           "at": 32,
+           "note": "the last letter of spice is E"
+          }
+         ]
+        }
+       ]
       },
       {
        "words": "hot",
+       "at": 13,
        "gives": "H",
        "note": "H is the abbreviation for hot, as on taps"
-      },
-      {
-       "op": "last",
-       "parts": [
-        {
-         "words": "spice",
-         "note": "the end of spice is its final letter"
-        }
-       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spicy German meal, served hot with plenty of seasoning.",
-     "walkthrough": "'German dish' looks like one phrase; German alone is the definition, a German man's name. In the dish, H replaces the final letter of spice.",
-     "definitionFit": "Friedrich is a typical German given name, borne by kings of Prussia, so it can stand for a German."
+     "surface": "A German dish is served hot but lacks any spice.",
+     "walkthrough": "'German dish' looks like the definition, but German alone is it. FRIED RICE 'with no end of spice' loses its final E, and H for hot is added at the end.",
+     "definitionFit": "Friedrich is a common German first name, so it can stand for a German man, as Hans or Fritz often do."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "German"
+     "misdirectedWord": "dish"
     }
    }
   },
