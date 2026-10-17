@@ -1467,44 +1467,32 @@
      "indicators": [
       {
        "text": "appearing on",
-       "note": "in a down clue, appearing on another piece means sitting above it"
+       "at": 14,
+       "note": "in a down answer, appearing on means placed above, so the abbreviation comes first"
       }
      ],
      "parts": [
       {
        "words": "obscure",
+       "at": 5,
        "gives": "OBS",
-       "note": "obs is the dictionary abbreviation for obscure"
+       "note": "obs. is the dictionary abbreviation for obsolete or obscure"
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "opening of speedwell (literally)",
+       "at": 27,
        "gives": "ESS",
-       "indicators": [
-        {
-         "text": "opening of",
-         "note": "the opening of a word is its first letter"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "speedwell (literally)",
-         "gives": "ESS",
-         "select": "first",
-         "note": "the first letter is taken, and 'literally' asks for its spelt-out name"
-        }
-       ]
+       "note": "the opening letter of speedwell is S, and literally asks for the letter written out as a word, ess"
       }
      ]
     },
     "explanation": {
-     "surface": "An obscure insect turns up on a speedwell flower.",
-     "walkthrough": "'literally' asks for the letter's name as a word, ESS, rather than the single letter.",
-     "definitionFit": "To bug someone is to pester or preoccupy them, and to obsess them is to preoccupy them constantly."
+     "surface": "A gardener's note: an obscure insect found where a speedwell flower opens.",
+     "walkthrough": "'Bug' is not an insect but a verb, to bother or preoccupy. '(literally)' means the letter itself is spelled out, so S becomes ESS.",
+     "definitionFit": "To bug someone is to nag at their mind, and to obsess them is to preoccupy them constantly."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Bug"
     }
@@ -1526,48 +1514,49 @@
    "annotation": {
     "definitions": [
      {
-      "text": "old-style pie",
+      "text": "old-style pie thereof?",
       "at": 33
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CHEWET",
+     "op": "container",
      "indicators": [
       {
-       "text": "mixed",
-       "note": "mixed letters are jumbled out of their order"
+       "text": "going into",
+       "at": 4,
+       "note": "going into puts the word for cut inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "going into",
-         "note": "something going into another ends up inside it"
+         "text": "what's mixed",
+         "at": 15,
+         "note": "what is mixed is jumbled, so the three letters are put in another order"
         }
        ],
        "parts": [
         {
-         "words": "what's mixed etc",
-         "gives": "CET",
-         "note": "the letters of etc in a new order"
-        },
-        {
-         "words": "Cut",
-         "gives": "HEW",
-         "note": "to hew is to cut"
+         "words": "etc",
+         "at": 28,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "Cut",
+       "at": 0,
+       "gives": "HEW",
+       "note": "to hew is to cut, as with an axe"
       }
      ]
     },
     "explanation": {
-     "surface": "A cut of meat goes into a mixture of this and that, making an old-fashioned pie of the stuff.",
-     "walkthrough": "A chewet was an old pie of chopped meat and other things mixed together, which is the joke of 'thereof?'.",
-     "definitionFit": "Chewet is an obsolete word for a small pie or pasty of minced meat and seasonings."
+     "surface": "Chopped leftovers and odds and ends go into an old-fashioned pie.",
+     "walkthrough": "'thereof' points back at the clue: a pie made of chopped, mixed odds and ends, which is what the old dish was.",
+     "definitionFit": "A chewet was an old English pie or pasty of chopped meat or fish mixed with other ingredients."
     },
     "features": {
      "answerInScene": true,
