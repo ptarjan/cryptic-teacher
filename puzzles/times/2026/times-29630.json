@@ -687,31 +687,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "RUMP",
      "indicators": [
       {
-       "text": "destroying",
-       "note": "TRUMP destroys its own capital letter T, which disappears"
+       "text": "destroying capital",
+       "at": 10,
+       "note": "the capital is the first letter, so destroying it removes the President's initial"
       }
      ],
      "parts": [
       {
-       "words": "President destroying capital",
-       "gives": "RUMP",
-       "note": "TRUMP without its first letter, the capital T"
+       "words": "President",
+       "at": 0,
+       "gives": "TRUMP",
+       "note": "Donald Trump, US President"
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A president has wrecked the capital city, leaving only ruins.",
-     "walkthrough": "'Capital' looks like a city, but it is the capital (first) letter of TRUMP.",
-     "definitionFit": "A rump is the small remaining part of something larger, as in a rump parliament."
+     "surface": "A president wrecking a capital city, with only a remnant surviving.",
+     "walkthrough": "'Capital' looks like a city, but it means the initial letter; 'destroying capital' knocks off the T of TRUMP.",
+     "definitionFit": "A rump is the small remaining part of something larger, such as a rump parliament."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "capital"
     }
    }
@@ -850,44 +852,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DUNSINANE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 31,
+       "note": "in places the jumbled letters inside the word for Hamlet"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Hamlet",
+       "at": 34,
+       "gives": "DANE",
+       "note": "Hamlet is Prince of Denmark, so a Dane"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "wandering",
-         "note": "letters that wander leave their places, so NUN IS is rearranged"
-        },
-        {
-         "text": "in"
+         "at": 21,
+         "note": "wandering means roaming about, so the letters of 'nun is' move out of order"
         }
        ],
        "parts": [
         {
-         "words": "Hamlet",
-         "gives": "DANE",
-         "note": "Hamlet is the Prince of Denmark, a Dane"
-        },
-        {
          "words": "nun is",
-         "gives": "UNSIN",
-         "note": "anagram of NUN IS"
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Asking whether a nun wandering on stage turns up in Hamlet.",
-     "walkthrough": "D(UNSIN)ANE. 'Play' suggests Hamlet is the play, but Hamlet is only the Dane; the play is Macbeth, where Dunsinane is Macbeth's castle.",
-     "definitionFit": "Dunsinane is the hill and castle where Macbeth is finally defeated, a place in the play."
+     "surface": "Where in a Shakespeare play a nun is seen roaming through a small village.",
+     "walkthrough": "'Hamlet' looks like a small village, but it is the prince, a DANE; 'wandering' reworks NUN IS into UNSIN, which goes 'in' him.",
+     "definitionFit": "Dunsinane is the hill castle in Macbeth that Birnam Wood comes to, a setting in Shakespeare's play."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Hamlet"
     }
    }
