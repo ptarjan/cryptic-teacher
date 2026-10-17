@@ -678,7 +678,8 @@
      "indicators": [
       {
        "text": "without",
-       "note": "without means lacking, so the following letters are taken away from the name"
+       "at": 9,
+       "note": "without says the named letters are taken out of the Magus's name"
       }
      ],
      "parts": [
@@ -687,20 +688,24 @@
        "parts": [
         {
          "words": "Wise Man",
+         "at": 0,
          "gives": "MELCHIOR",
-         "note": "Melchior is traditionally one of the three Magi"
+         "note": "Melchior is traditionally one of the three Wise Men, the Magi"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "M",
+         "indicators": [
+          {
+           "text": "a bit of",
+           "at": 17,
+           "note": "a bit of picks just the opening letter of the next word"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "a bit of myrrh",
-           "gives": "M",
-           "select": "first",
-           "note": "the first letter of myrrh"
+           "words": "myrrh",
+           "at": 26,
+           "note": "its first letter is used"
           }
          ]
         }
@@ -708,20 +713,21 @@
       },
       {
        "words": "gold",
+       "at": 35,
        "gives": "OR",
-       "note": "or is gold in heraldry"
+       "note": "OR is gold in heraldry"
       }
      ]
     },
     "explanation": {
-     "surface": "One of the Magi arrives at the stable missing some of his gifts.",
-     "walkthrough": "Melchior loses his M and his OR, leaving ELCHI.",
-     "definitionFit": "An elchi is an ambassador, an envoy sent to act for a foreign ruler, in old Turkish and Persian usage."
+     "surface": "One of the Magi arrives empty-handed, missing his gifts, and acts as a foreign envoy.",
+     "walkthrough": "Myrrh and gold point to the Magi, so MELCHIOR; 'without' takes away both M ('a bit of myrrh'), leaving ELCHIOR, and OR (heraldic gold).",
+     "definitionFit": "An elchi is an ambassador, a Turkish and Persian word for an envoy sent from a foreign power."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "gold"
+     "misdirectedWord": "myrrh"
     }
    }
   },
@@ -1893,45 +1899,34 @@
        "indicators": [
         {
          "text": "regularly",
-         "note": "regularly means at even intervals, so every other letter is kept"
+         "at": 10,
+         "note": "regularly means taking every other letter of synagogue, here the even ones"
         }
        ],
        "parts": [
         {
          "words": "Synagogue",
-         "note": "the second, fourth, sixth and eighth letters"
+         "at": 0,
+         "note": "the second, fourth, sixth and eighth letters are used"
         }
        ]
       },
       {
-       "op": "middle",
-       "unchecked": true,
+       "words": "plundered in the middle",
+       "at": 20,
        "gives": "NDE",
-       "indicators": [
-        {
-         "text": "in the middle",
-         "note": "in the middle points to the central letters of the word that comes before"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "plundered",
-         "gives": "NDE",
-         "select": "middle",
-         "note": "the central three letters"
-        }
-       ]
+       "note": "the central three letters of the nine in plundered, with three either side"
       }
      ]
     },
     "spelling": "YAOUNDÉ",
     "explanation": {
-     "surface": "A synagogue looted in the middle of town.",
-     "definitionFit": "Yaoundé is a real city, the capital of Cameroon in West Central Africa."
+     "surface": "A place of worship was looted in the centre of town.",
+     "walkthrough": "'regularly' takes the even letters of SYNAGOGUE, YAOU; 'in the middle' takes the central three of PLUNDERED, NDE. Yaoundé is the capital of Cameroon.",
+     "definitionFit": "Yaoundé is the capital of Cameroon, so it is a city."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "plundered"
     }
