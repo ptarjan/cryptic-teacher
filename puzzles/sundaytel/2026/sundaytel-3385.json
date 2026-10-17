@@ -343,41 +343,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BETRAYAL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "filling",
+       "at": 5,
+       "note": "filling means going into the middle, so the fish sits inside the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "filling",
-         "note": "the fish goes inside the other letters"
-        },
-        {
          "text": "fishy",
-         "note": "something fishy is suspect, out of order, so the letters are rearranged"
+         "at": 13,
+         "note": "fishy means suspicious or not right, so the letters of table are out of order"
         }
        ],
        "parts": [
         {
          "words": "table",
-         "gives": "BETAL",
-         "note": "TABLE rearranged, then split BET…AL"
-        },
-        {
-         "words": "Fish",
-         "gives": "RAY",
-         "note": "a ray is a flat fish"
+         "at": 19
         }
        ]
+      },
+      {
+       "words": "Fish",
+       "at": 0,
+       "gives": "RAY",
+       "note": "a ray is a flat fish"
       }
      ]
     },
     "explanation": {
-     "surface": "A fish dish laid out on a table sells out.",
-     "walkthrough": "'Fish' and 'fishy' sit side by side to look like one theme; the first is the letters, the second the signal to mix TABLE.",
-     "definitionFit": "A betrayal is a sell-out, giving someone up for your own gain."
+     "surface": "A dodgy restaurant table filled with fish turns out to be a cheat.",
+     "walkthrough": "RAY goes inside BETAL, the anagram of TABLE signalled by 'fishy'; the two fish words do different jobs.",
+     "definitionFit": "A sell-out is an act of treachery for gain, the same as a betrayal."
     },
     "features": {
      "answerInScene": false,
@@ -466,46 +468,45 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Elvis, say?",
+      "text": "Elvis, say",
       "at": 26
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MEGASTAR",
-     "indicators": [
-      {
-       "text": "gyrating",
-       "note": "spinning round, so the letters are mixed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Male",
+       "at": 0,
+       "gives": "M"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "gyrating",
+         "at": 15,
+         "note": "gyrating means whirling round, so the letters of great as spin into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Male",
-         "gives": "M",
-         "note": "M = male"
-        },
-        {
          "words": "great as",
-         "gives": "EGASTAR",
-         "note": "GREAT AS rearranged"
+         "at": 6
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man as great as Elvis gyrating his hips on stage.",
-     "walkthrough": "'Gyrating' is lifted straight from Elvis's famous hip moves, so the indicator belongs to the scene too.",
-     "definitionFit": "Elvis Presley is the example of a megastar, hence 'say' and the question mark."
+     "surface": "A great man gyrating on stage, like Elvis with his famous hip moves.",
+     "walkthrough": "'gyrating' fits Elvis's dancing, which disguises it as the anagram signal for GREAT AS, giving EGASTAR after M.",
+     "definitionFit": "Elvis Presley is an example of a hugely famous performer, a megastar; 'say' marks him as one instance."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "gyrating"
     }
    }
@@ -1237,37 +1238,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "COMEDIAN",
-     "indicators": [
-      {
-       "text": "cracked up",
-       "note": "broken apart, so AND I is rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "show",
+       "at": 15,
+       "gives": "COME",
+       "note": "to show, as in show up, is to come or turn up"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cracked up",
+         "at": 27,
+         "note": "cracked up means broken into pieces, so the letters of and I are reassembled"
+        }
+       ],
        "parts": [
         {
-         "words": "show",
-         "gives": "COME",
-         "note": "to show up is to come"
-        },
-        {
          "words": "and I",
-         "gives": "DIAN",
-         "note": "AND I rearranged"
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A performer in a show says the act made them burst out laughing.",
-     "walkthrough": "'Cracked up' is what an audience does at a comedian, which is why it sits so well; here it breaks up AND I.",
-     "definitionFit": "A comedian is an entertainer who tells jokes."
+     "surface": "A performer admits they burst out laughing on stage during a show.",
+     "walkthrough": "'cracked up' suggests laughing, but it breaks AND I into DIAN, which follows COME.",
+     "definitionFit": "A comedian is a kind of entertainer whose job is making an audience laugh."
     },
     "features": {
      "answerInScene": true,
