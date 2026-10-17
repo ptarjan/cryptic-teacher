@@ -824,42 +824,43 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "CULPRIT",
      "indicators": [
       {
        "text": "shifted",
-       "note": "shifted means moved about, so the remaining letters are put in a new order"
+       "at": 9,
+       "note": "shifted means the letters are moved around into a new order"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CULPRIT",
+       "op": "middle",
        "indicators": [
         {
          "text": "entire contents",
-         "note": "the contents are what lies inside, so the outer shell of letters at each end is discarded"
+         "at": 30,
+         "note": "the entire contents of a phrase are everything between its first and last letters"
         }
        ],
        "parts": [
         {
-         "words": "strip club",
-         "note": "taken as written"
+         "words": "strip club's",
+         "at": 17,
+         "gives": "STRIPCLUB",
+         "note": "taken as written, the two words run together"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crook has moved everything out of a strip club.",
-     "definitionFit": "A culprit is the person guilty of an offence, so a criminal in the noun sense."
+     "surface": "A wrongdoer is pictured whisking away everything inside a strip club.",
+     "walkthrough": "'entire contents' drops the S and B that bound STRIPCLUB, leaving TRIPCLU, which 'shifted' rearranges.",
+     "definitionFit": "A culprit is the person guilty of an offence, a wrongdoer."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "contents"
+     "misdirectedWord": "strip"
     }
    }
   },
@@ -1647,41 +1648,41 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "ROT",
      "indicators": [
       {
        "text": "about",
-       "note": "about suggests turning round, so the letters are taken in reverse order"
+       "at": 27,
+       "note": "about here signals that the letters are turned round, read back to front"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ROT",
+       "op": "middle",
        "indicators": [
         {
          "text": "scrapping borders",
-         "note": "the borders of a word are its edges, and scrapping them strips its first and last letters"
+         "at": 33,
+         "note": "scrapping the borders of a word removes its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "story",
-         "note": "taken as written"
+         "at": 21,
+         "note": "the inner letters of story are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone scoffs at a tale about abolishing national frontiers.",
-     "definitionFit": "Rot is a dismissive exclamation meaning nonsense, voicing disbelief at what has just been said."
+     "surface": "Someone scoffs at a tale about removing national frontiers.",
+     "walkthrough": "'scrapping borders' strips STORY to TOR, and 'about' turns that round. The def is the exclamation of disbelief.",
+     "definitionFit": "Rot! is a dismissive British exclamation meaning nonsense, said of something you don't believe."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
+     "answerInScene": true,
+     "aptDefinition": true,
      "misdirectedWord": "borders"
     }
    }
