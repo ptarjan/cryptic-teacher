@@ -903,38 +903,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NURSEMAID",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 24,
+       "note": "in a down clue, one piece sitting on another comes above it, so the scrambled letters come first"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "fake"
-        },
-        {
-         "text": "on"
+         "text": "fake",
+         "at": 11,
+         "note": "a fake name is made up, so the letters of 'surname' are made up into a new order"
         }
        ],
        "parts": [
         {
          "words": "surname",
-         "gives": "NURSEMA",
-         "note": "anagram of SURNAME, signalled by 'fake'"
-        },
-        {
-         "words": "documents?",
-         "gives": "ID",
-         "note": "identity documents"
+         "at": 16,
+         "note": "anagram fodder"
         }
        ]
+      },
+      {
+       "words": "documents",
+       "at": 27,
+       "gives": "ID",
+       "note": "ID is short for identity documents"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Fake' shuffles SURNAME, and 'on' stacks it above ID — in a down entry, 'on' means on top of. ID for 'documents' is a modern staple.",
-     "definitionFit": "A nursemaid is a woman employed to look after young children — precisely a nanny's job."
+     "surface": "A childminder turns out to have a false family name on her papers.",
+     "walkthrough": "'fake' rearranges SURNAME into NURSEMA, which sits on ID, the abbreviation for identity papers.",
+     "definitionFit": "A nursemaid is a woman employed to look after young children, which is what a nanny does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fake"
     }
    }
   },
