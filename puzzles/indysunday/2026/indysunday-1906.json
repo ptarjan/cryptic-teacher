@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -173,72 +174,76 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "JUXTAPOSE",
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "container",
        "indicators": [
         {
-         "text": "fresh",
-         "note": "Fresh means newly made rather than as it came, so the letters beside it are made up again in another order."
+         "text": "stuffing",
+         "at": 40,
+         "note": "stuffing goes inside, so the rearranged letters are packed into the gravy word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "words": "Gravy",
+         "at": 0,
+         "gives": "JUS",
+         "note": "jus is a thin gravy made from meat juices"
+        },
+        {
+         "op": "anagram",
          "indicators": [
           {
-           "text": "bit of",
-           "note": "A bit of something is a small piece off the front of it, here the opening letter only."
+           "text": "fresh",
+           "at": 11,
+           "note": "fresh here means made anew, so these letters are rearranged"
           }
          ],
          "parts": [
           {
-           "words": "Gravy",
-           "gives": "JUS",
-           "note": "jus is the thin gravy of meat juices on a restaurant menu"
-          },
-          {
            "op": "first",
-           "unchecked": true,
-           "gives": "T",
            "indicators": [
             {
-             "text": "stuffing",
-             "note": "Stuffing is pushed inside the bird, so this piece goes into the middle of the letters around it."
+             "text": "bit of",
+             "at": 17,
+             "note": "a bit of the word turkey is just its first letter"
             }
            ],
            "parts": [
             {
-             "unchecked": true,
-             "words": "bit of turkey",
-             "gives": "T",
-             "select": "first",
-             "note": "the first letter of TURKEY, taken on its own"
+             "words": "turkey",
+             "at": 24,
+             "note": "supplies its opening letter"
             }
            ]
           },
           {
            "words": "Paxo",
-           "note": "Paxo is the packet sage-and-onion stuffing mix on British Christmas tables"
-          },
-          {
-           "words": "European",
-           "gives": "E",
-           "note": "E is the standard abbreviation for European"
+           "at": 35,
+           "note": "taken as written; Paxo is a British brand of stuffing mix"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "European",
+       "at": 54,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "Christmas dinner on a plate: gravy, a fresh bit of turkey and some packet stuffing.",
-     "walkthrough": "The surface is entirely Christmas dinner, and the answer is about setting two things side by side to compare them. 'Stuffing' is the word doing double duty, edible above and an instruction below.",
-     "definitionFit": "To juxtapose two things is to put them together side by side so that the contrast between them shows."
+     "surface": "A Christmas dinner recipe: gravy, fresh turkey and Paxo stuffing, assembled by someone from Europe.",
+     "walkthrough": "'fresh' rearranges T (first of turkey) and PAXO into XTAPO; 'stuffing' puts that inside JUS, giving JUXTAPOS, and E for European ends it. Paxo is a British stuffing brand.",
+     "definitionFit": "To juxtapose things is to place them side by side, set together for comparison."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stuffing"
     }
    }
   },
@@ -451,50 +456,61 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "initially",
-       "note": "What comes initially comes first, so only the opening letter of the word in front of it is used."
+       "text": "claims",
+       "at": 26,
+       "note": "to claim something is to take it in, so the computer abbreviation is held inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "claims",
-         "note": "A claim takes hold of something and keeps it, so these letters close around the piece named next."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Hard-up",
+         "at": 0,
          "gives": "POOR",
-         "note": "someone hard-up has no money — they are poor"
+         "note": "hard-up means short of money, poor"
         },
         {
-         "words": "computer",
-         "gives": "PC",
-         "note": "a PC is a personal computer"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 16,
+           "note": "initially points to the first letter of the word network"
+          }
+         ],
+         "parts": [
+          {
+           "words": "network",
+           "at": 8,
+           "note": "supplies its opening letter"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "first",
-       "parts": [
-        {
-         "words": "network initially",
-         "note": "the first letter of NETWORK, taken on its own"
-        }
-       ]
+       "words": "computer",
+       "at": 33,
+       "gives": "PC",
+       "note": "PC is the usual abbreviation for personal computer"
       }
      ]
     },
     "explanation": {
-     "surface": "A hard-up network blaming its computer for a fare that has been pushed up.",
-     "walkthrough": "'Fare' is food here, the sense in bill of fare, not the price of a journey — and 'inflated' turns out to be literal rather than a complaint about prices.",
-     "definitionFit": "Popcorn is fare — food — that is literally inflated, each kernel bursting to many times its own size in the pan."
+     "surface": "A cash-strapped broadcaster says computers have pushed up its costs.",
+     "walkthrough": "'initially' gives N from network, added to POOR; 'claims' puts PC inside, between PO and OR.",
+     "definitionFit": "Popcorn is maize kernels heated until they burst and puff up, a snack food that has literally been inflated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "inflated"
     }
    }
   },
@@ -838,46 +854,51 @@
      "indicators": [
       {
        "text": "on",
-       "note": "In an across entry a piece written on another follows it, so these letters land after the one named next."
+       "at": 17,
+       "note": "on means placed after, so the firm push follows the letter from Reeves's"
       }
      ],
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "S",
        "indicators": [
         {
          "text": "back",
-         "note": "The back of a word is its final letter, so only the closing letter of the name is taken."
+         "at": 29,
+         "note": "the back of a word is its final letter, here of Reeves's"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Reeves's back",
-         "gives": "S",
-         "select": "last",
-         "note": "the last letter of REEVES — Rachel Reeves, the Chancellor of the Exchequer"
+         "words": "Reeves's",
+         "at": 20,
+         "note": "supplies its last letter"
         }
        ]
       },
       {
        "words": "firm",
+       "at": 7,
        "gives": "CO",
-       "note": "CO is short for company, a firm"
+       "note": "CO is the abbreviation for company, a firm"
       },
       {
        "words": "push",
+       "at": 12,
        "gives": "URGE",
-       "note": "to push somebody to do something is to urge them"
+       "note": "to urge is to push or press someone forward"
       }
      ]
     },
     "explanation": {
-     "surface": "A party whip giving the Chancellor a firm shove from behind.",
-     "walkthrough": "The Whip of the surface is the MP who keeps a party voting the right way; the answer is the older, literal kind of whip. 'On' in an across clue puts a piece after what follows it, not above.",
-     "definitionFit": "A scourge is a whip — the knotted lash used for flogging — long before the word came to mean any general affliction."
+     "surface": "A political whip leaning on Rachel Reeves, the Chancellor, to get something through.",
+     "walkthrough": "The firm push, CO and URGE, goes on, after, the S at the back of Reeves's.",
+     "definitionFit": "A scourge is a whip or lash once used for punishment, the noun matching whip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Whip"
     }
    }
   },
@@ -1096,46 +1117,45 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "outside",
-       "note": "The outside of a word is its two ends, so only the first and last letters of the one named survive."
+       "text": "quakes",
+       "at": 26,
+       "note": "something that quakes shakes about, so the letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "We stay",
+       "at": 0,
+       "note": "taken as written for the rearrangement"
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
-         "text": "quakes",
-         "note": "An earthquake shakes everything out of place, and letters shaken like that settle in a different order."
+         "text": "outside for",
+         "at": 8,
+         "note": "the outside of a word is its first and last letters, here of awful"
         }
        ],
        "parts": [
         {
-         "words": "We stay",
-         "note": "anagram fodder, six letters"
-        },
-        {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "AL",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "outside for awful",
-           "gives": "AL",
-           "select": "outer",
-           "note": "the outer letters of AWFUL, its A and its L"
-          }
-         ]
+         "words": "awful",
+         "at": 20,
+         "note": "supplies its outer letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "People staying out of doors while terrible earthquakes go on.",
-     "walkthrough": "'Outside' looks like where the speaker is standing and is really an instruction about letters — the two ends of the word after it. The rest is what an earthquake does to anything loose.",
-     "definitionFit": "To lay waste to a place is to destroy it completely, leaving nothing standing — the phrase armies have used for centuries."
+     "surface": "Residents insist on staying put despite terrible earthquakes that wreck everything.",
+     "walkthrough": "'outside for awful' gives AL, the outer letters of awful; 'quakes' then jumbles WE STAY plus AL. 'awful quakes' looks like a phrase, but 'awful' is just a source of letters.",
+     "definitionFit": "To lay waste to a place is to devastate it completely, leaving ruins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quakes"
     }
    }
   },
