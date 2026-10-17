@@ -998,12 +998,11 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "ANGELENO",
      "indicators": [
       {
        "text": "to the west",
-       "note": "West is leftwards on the grid, so an across answer built westward is written from its last letter back towards its first."
+       "at": 43,
+       "note": "in an across answer west is leftwards, so the pieces are written running right to left"
       }
      ],
      "parts": [
@@ -1011,24 +1010,27 @@
        "op": "charade",
        "parts": [
         {
-         "words": "North American",
-         "gives": "AN",
-         "note": "NA is the standard short form of North American, and it lands back to front"
-        },
-        {
-         "words": "perhaps",
-         "gives": "GE",
-         "note": "perhaps is eg, for example, and that is turned round too"
+         "words": "A certain",
+         "at": 0,
+         "gives": "ONE",
+         "note": "'a certain' person is an unnamed one, so ONE"
         },
         {
          "words": "Liberal",
-         "gives": "L",
-         "note": "L is the ballot-paper abbreviation for a Liberal candidate"
+         "at": 11,
+         "gives": "L"
         },
         {
-         "words": "A certain",
-         "gives": "ENO",
-         "note": "a certain somebody is one somebody, and it arrives the wrong way round like the rest"
+         "words": "perhaps",
+         "at": 19,
+         "gives": "EG",
+         "note": "EG, for example, signals an instance, as perhaps does"
+        },
+        {
+         "words": "North American",
+         "at": 28,
+         "gives": "NA",
+         "note": "NA is the abbreviation for North America(n)"
         }
        ]
       }
@@ -1036,8 +1038,14 @@
     },
     "andLit": true,
     "explanation": {
-     "walkthrough": "Every word does both jobs at once. Read straight the clue describes a particular westerly American; read as wordplay the same words are four abbreviations written east to west.",
-     "definitionFit": "The whole clue reads straight: this is a Los Angeles native, a North American out west, who might perfectly well be a Liberal."
+     "surface": "A particular left-leaning American living out on the West Coast.",
+     "walkthrough": "'to the west' reverses ONE + L + EG + NA, read in clue order. The whole clue also describes the answer: a person from Los Angeles, a notably liberal city in the American West.",
+     "definitionFit": "An Angeleno is a native or resident of Los Angeles, on the western coast of the United States."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "perhaps"
     }
    }
   },
@@ -1398,41 +1406,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DECLAREWAR",
-     "indicators": [
-      {
-       "text": "turned",
-       "note": "A word turned is facing the other way, so the piece beside it is read from its end back to its start."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Last month",
+       "at": 0,
+       "gives": "DEC",
+       "note": "DEC, December, is the last month of the calendar year"
+      },
+      {
+       "words": "city",
+       "at": 11,
+       "gives": "LA",
+       "note": "LA, Los Angeles, is the usual crossword city"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned",
+         "at": 16,
+         "note": "turned means flipped round, so the word for greener is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Last month",
-         "gives": "DEC",
-         "note": "December is the last of the twelve, and DEC is how a diary prints it"
-        },
-        {
-         "words": "city",
-         "gives": "LA",
-         "note": "LA is Los Angeles in two letters, the way a ticket writes it"
-        },
-        {
          "words": "greener",
-         "gives": "REWAR",
-         "note": "a greener hand is a rawer one, less experienced, and it arrives back to front"
+         "at": 23,
+         "gives": "RAWER",
+         "note": "greener means more inexperienced, rawer"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Greener' is a comparative about inexperience rather than about the environment, and the city is the same one 17 across comes from.",
-     "definitionFit": "announce start of campaign → DECLARE WAR: declaring war is the formal announcement that a military campaign has begun, so the phrase reads almost literally."
+     "surface": "Last December the city went greener, and declared it the launch of an environmental campaign.",
+     "walkthrough": "'turned' reverses RAWER to give REWAR. 'campaign' suggests politics, but it is a military campaign.",
+     "definitionFit": "Declaring war is the formal announcement that begins hostilities, the opening of a military campaign."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "greener"
     }
    }
   },
