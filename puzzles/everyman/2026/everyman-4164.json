@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -736,39 +737,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TENNISBALL",
      "indicators": [
       {
        "text": "Spooner tells us",
-       "note": "The Reverend Spooner swapped the opening sounds of two words, so anything he tells us is that phrase with its first sounds traded."
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the first sounds of the two phrases change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "BENNIS",
        "parts": [
         {
-         "unchecked": true,
          "words": "Franklin's",
-         "gives": "TENNIS",
-         "soundsLike": "BEN'S",
-         "note": "Benjamin Franklin is Ben, and Spooner takes his B away and hands him a T"
-        },
-        {
-         "unchecked": true,
-         "words": "elevated",
-         "gives": "BALL",
-         "soundsLike": "TALL",
-         "note": "elevated means tall, and it collects the B that Ben's gave up"
+         "at": 18,
+         "gives": "BENIS",
+         "note": "Benjamin Franklin is familiarly Ben, and Franklin's stands for 'Ben is'"
         }
        ]
+      },
+      {
+       "words": "elevated",
+       "at": 29,
+       "gives": "TALL",
+       "note": "tall means high up, lofty"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Say 'Ben's tall' and then trade the two opening sounds; the result runs together into the answer. A surname alone is often a first name in disguise.",
-     "definitionFit": "item for service → TENNIS BALL: the ball is what a player serves to open a point, so 'service' is the racket-sport term rather than a favour or a church."
+     "surface": "A report that Benjamin Franklin was a tall man, framed as a quotation.",
+     "walkthrough": "Spooner's 'Ben is tall' becomes 'Ten is ball', which sounds like the answer. 'Service' is the tennis serve, not a church service.",
+     "definitionFit": "In tennis a player serves the ball to start each point, so the ball is the thing used for service."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "service"
     }
    }
   },
