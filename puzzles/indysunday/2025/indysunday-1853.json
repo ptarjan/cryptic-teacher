@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -101,21 +102,28 @@
      "indicators": [
       {
        "text": "going up and down",
-       "note": "A word that reads the same climbing as it does descending is the only kind that survives being sent both ways, which is what this asks for."
+       "at": 26,
+       "note": "in a down entry the word reads the same going up as going down, so it is a palindrome"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Turning point for the sun",
-       "note": "the sun climbs all morning and drops all afternoon, so its turning point is one moment in the middle of the day"
+       "at": 0,
+       "gives": "NOON",
+       "note": "midday is when the sun stops climbing and starts to sink"
       }
      ]
     },
     "explanation": {
-     "surface": "The sun rising and sinking through the day, and the moment it changes its mind.",
-     "walkthrough": "A down entry is read top to bottom, so 'up and down' is asking for letters that come out the same whichever way you travel them. Nothing turns into anything else.",
-     "definitionFit": "Turning point for the sun -> NOON: the sun stops climbing at midday and starts down again, so noon is literally where its course turns."
+     "surface": "The sun's daily arc reaches its peak, rising and setting.",
+     "walkthrough": "The definition is also the wordplay: the word for midday reads the same upward and downward in this down light.",
+     "definitionFit": "At midday the sun reaches its highest point and begins to descend, the turning point of its daily path."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Turning"
     }
    }
   },
@@ -363,42 +371,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SIENA",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "jockeys",
+       "at": 7,
+       "note": "jockeys as a verb means manoeuvres or jostles, so the letters are shifted about"
+      },
+      {
+       "text": "having no",
+       "at": 15,
+       "note": "having no means one letter is taken out of the pool before it is rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SIENA",
+       "words": "Insane",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "having no end of",
-         "note": "The end of a word is its last letter, and having none of it is the instruction to drop that letter before anything else happens."
-        },
-        {
-         "text": "jockeys",
-         "note": "To jockey for position is to shove and jostle, and letters jostled about no longer sit where they started."
+         "text": "end of",
+         "at": 25,
+         "note": "end of picks the last letter of the word that follows"
         }
        ],
        "parts": [
         {
-         "words": "Insane",
-         "note": "the fodder handed over whole, six letters where the grid wants five"
-        },
-        {
          "words": "fun",
-         "gives": "N",
-         "note": "the end of fun is N, and that is the letter surrendered before the jostling"
+         "at": 32,
+         "note": "the last letter of fun"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Jockeys riding like lunatics and enjoying every second of it, with a nudge at where.",
-     "walkthrough": "The Palio is a bareback horse race twice each summer round the sloping main square of Siena, ridden hard enough to make 'insane jockeys' fair comment.",
-     "definitionFit": "here? -> SIENA: the Tuscan city stages the Palio, so 'here' points at the one place those riders are doing this."
+     "surface": "Crazy riders, all fun drained away, might race here.",
+     "walkthrough": "'end of fun' is N; 'having no' takes it out of INSANE, and 'jockeys' rearranges what is left. Siena's Palio is a famously wild bareback horse race round its main square, hence the jockeys.",
+     "definitionFit": "The Italian city stages the Palio, a reckless horse race, so it is the place where insane jockeys compete."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "jockeys"
     }
    }
   },
@@ -424,53 +443,70 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "in to",
-       "note": "'In' asks for an insertion and 'to' is what it inserts into, the two letters of that little word taken at face value."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "initially",
-         "note": "Initially means at the outset, so only the opening letter of the word beside it is wanted."
+         "text": "in",
+         "at": 15,
+         "note": "in places the conjunction and the duck inside the word to"
         }
        ],
        "parts": [
         {
          "words": "to",
-         "note": "the word used literally, two letters that open up after the first"
+         "at": 18,
+         "gives": "TO",
+         "note": "taken as written"
         },
         {
-         "words": "with",
-         "gives": "AND",
-         "note": "with joins two things together and so does and"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "with",
+           "at": 5,
+           "gives": "AND",
+           "note": "and joins things together, as with does"
+          },
+          {
+           "words": "duck",
+           "at": 10,
+           "gives": "O",
+           "note": "a duck in cricket is a score of zero, shaped like O"
+          }
+         ]
         }
        ]
       },
       {
-       "words": "duck",
-       "gives": "O",
-       "note": "a batter dismissed without scoring in cricket has made a duck, and no score is written as a nought"
-      },
-      {
        "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 28,
+         "note": "initially takes the first letter of roast"
+        }
+       ],
        "parts": [
         {
-         "words": "roast, initially",
-         "note": "the opening letter of roast, which is all that is asked for"
+         "words": "roast",
+         "at": 21,
+         "note": "the first letter of roast"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A duck going into the oven to roast, or at least starting to.",
-     "walkthrough": "'In to' belongs to the cooking on the surface - the bird goes in to roast - and splits into an instruction plus the two letters it operates on.",
-     "definitionFit": "Oven -> TANDOOR: a tandoor is the clay charcoal oven of north Indian and Pakistani kitchens, so the plain word covers it exactly."
+     "surface": "A cook puts a duck in the oven to roast it.",
+     "walkthrough": "'with' (AND) and 'duck' (O) go 'in' TO, giving TANDOO; 'roast, initially' adds R. A duck is a cricket score of nought.",
+     "definitionFit": "A tandoor is a clay oven used in Indian and Pakistani cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
     }
    }
   },
@@ -495,42 +531,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OVERTURNED",
-     "indicators": [
-      {
-       "text": "rattled",
-       "note": "Something rattled has been shaken hard, and letters shaken hard come to rest in an order nobody chose."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rattled",
+         "at": 12,
+         "note": "rattled means shaken up, so the letters of voter are jumbled"
+        }
+       ],
        "parts": [
         {
-         "words": "voter rattled",
-         "gives": "OVERT",
-         "note": "the five letters of VOTER shaken into a new order"
-        },
-        {
-         "words": "ballot box",
-         "gives": "URN",
-         "note": "votes are posted into an urn, which is what a ballot box is"
-        },
-        {
-         "words": "Lib Dem leader?",
-         "gives": "ED",
-         "note": "Ed Davey has led the Liberal Democrats, Britain's third party, since 2020"
+         "words": "voter",
+         "at": 6
         }
        ]
+      },
+      {
+       "words": "ballot box",
+       "at": 20,
+       "gives": "URN",
+       "note": "an urn is a ballot box, especially in French elections"
+      },
+      {
+       "words": "Lib Dem leader",
+       "at": 33,
+       "gives": "ED",
+       "note": "Ed Davey leads the UK Liberal Democrats"
       }
      ]
     },
     "explanation": {
-     "surface": "A furious voter shaking the ballot box, with a glance at the man running the Liberal Democrats.",
-     "walkthrough": "'Lib Dem leader' looks like the party's initial letter and wants the leader's first name instead, which is the one piece of the charade you cannot work out from a dictionary.",
-     "definitionFit": "Upset -> OVERTURNED: a boat or a verdict that has been overturned has been upset - tipped over, or reversed by a higher authority."
+     "surface": "An angry voter shook the ballot box, perhaps the Lib Dem leader himself.",
+     "walkthrough": "'Upset' at the front looks like a description of the voter, but it is the definition. Ed Davey leads the Liberal Democrats, a British political party.",
+     "definitionFit": "Overturned means knocked over, the physical sense of upset, as in an upset cart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Upset"
     }
    }
   },
@@ -845,41 +886,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LITERARY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "containing",
+       "at": 27,
+       "note": "containing means the rearranged letters hold the next piece inside them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "novel",
-         "note": "Novel means new, and letters made new are letters that no longer stand in the order they arrived in."
-        },
-        {
-         "text": "containing",
-         "note": "What contains something holds it within, so the two letters named next go inside the shuffled six rather than after them."
+         "at": 14,
+         "note": "novel means new, so the letters of rarely are made into a new arrangement"
         }
        ],
        "parts": [
         {
          "words": "rarely",
-         "gives": "LERARY",
-         "note": "the six letters of RARELY resettled, and they open up after the first"
-        },
-        {
-         "words": "sex?",
-         "gives": "IT",
-         "note": "'it' is the old coy word for sex and for sex appeal, as in a girl who has it"
+         "at": 20
         }
        ]
+      },
+      {
+       "words": "sex",
+       "at": 38,
+       "gives": "IT",
+       "note": "it is an old euphemism for sex or sex appeal"
       }
      ]
     },
     "explanation": {
-     "surface": "A writer's arty new book that hardly ever has any sex in it.",
-     "walkthrough": "'Novel' is the noun everywhere in this sentence except in the wordplay, where it is the adjective meaning new.",
-     "definitionFit": "Writer's arty -> LITERARY: the adjective for writing pursued as art, which is what a writer's arty side amounts to."
+     "surface": "A writer's high-brow novel rarely includes sex scenes.",
+     "walkthrough": "'novel' looks like part of the book picture but is the anagram signal. IT for sex appeal comes from the 1920s 'It girl'.",
+     "definitionFit": "Literary describes things to do with writers and books, and often suggests something cultured or artistic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
     }
    }
   },
@@ -1016,43 +1064,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ONGUARD",
+     "op": "container",
      "indicators": [
       {
-       "text": "nuts",
-       "note": "Nuts means crazy, and a crazy arrangement of letters is not the arrangement you were given."
+       "text": "covered with",
+       "at": 19,
+       "note": "covered with means the article is wrapped inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "covered with",
-         "note": "Something covered with earth is buried in it, so the article ends up inside those letters rather than next to them."
+         "text": "nuts",
+         "at": 39,
+         "note": "nuts means crazy, so the letters of ground are scrambled"
         }
        ],
        "parts": [
         {
-         "words": "ground nuts",
-         "gives": "ONGURD",
-         "note": "the six letters of GROUND in a new order, opening up after the fourth"
-        },
-        {
-         "words": "article",
-         "gives": "A",
-         "note": "the indefinite article, one letter of it"
+         "words": "ground",
+         "at": 32
         }
        ]
+      },
+      {
+       "words": "article",
+       "at": 11,
+       "gives": "A",
+       "note": "a is the indefinite article"
       }
      ]
     },
     "explanation": {
-     "surface": "An object coated all over in crushed peanuts.",
-     "walkthrough": "'Ground nuts' is one space away from groundnuts, which is what the surface wants it to be, and it is really two instructions: the earth and the word that scrambles it.",
-     "definitionFit": "Suspicious -> ON GUARD: someone on guard is wary and watchful, expecting trouble - the sense of suspicious that means alert rather than dubious."
+     "surface": "A wary diner eyes an item coated in crushed nuts.",
+     "walkthrough": "'nuts' scrambles GROUND to ONGURD, and the article A is 'covered with' it: ONGU-A-RD. 'ground nuts' reads like a food, but 'nuts' is the anagram signal.",
+     "definitionFit": "To be on guard is to be watchful and wary, alert to possible danger or deceit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nuts"
     }
    }
   },
@@ -1242,48 +1295,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BOOGIENIGHTS",
+     "op": "charade",
      "indicators": [
       {
-       "text": "wobbly",
-       "note": "Something wobbly will not hold its shape, and letters that will not hold their shape will not hold their order."
+       "text": "on",
+       "at": 36,
+       "note": "on says the jeer is placed first, with the rest of the letters set after it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Show disapproval of",
+       "at": 0,
+       "gives": "BOO",
+       "note": "boo is the jeer of a disapproving crowd"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "on",
-         "note": "In an across entry one thing standing on another is written after it, so the shuffled letters follow the German."
+         "text": "wobbly",
+         "at": 20,
+         "note": "wobbly means unsteady, so the letters are shaken into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Show disapproval of",
-         "gives": "BOO",
-         "note": "an audience shows disapproval by booing"
+         "words": "thingies",
+         "at": 27
         },
         {
          "words": "German",
-         "gives": "G",
-         "note": "G is the standard short form for German, as on a school timetable"
-        },
-        {
-         "words": "wobbly thingies",
-         "gives": "IENIGHTS",
-         "note": "the eight letters of THINGIES refuse to stay put and settle in this order"
+         "at": 39,
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Booing the wobbly bits on show in a German adult film.",
-     "walkthrough": "Boogie Nights is Paul Thomas Anderson's 1997 film about the Californian porn trade, so the definition is a title and not a description of a genre.",
-     "definitionFit": "porn film -> BOOGIE NIGHTS: definition by example, the 1997 picture about the seventies porn industry, so one particular film rather than the type."
+     "surface": "Someone jeers at jiggling objects in a German adult film.",
+     "walkthrough": "'wobbly thingies' paints a risqué image, but 'wobbly' only signals a rearrangement, and 'on' sets the jeer first.",
+     "definitionFit": "Boogie Nights is the 1997 Paul Thomas Anderson film about the pornography industry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "thingies"
     }
    }
   },
