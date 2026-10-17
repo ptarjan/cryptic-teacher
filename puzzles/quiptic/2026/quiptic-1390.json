@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1186,32 +1187,33 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "loses hat"
+       "text": "loses hat",
+       "at": 17,
+       "note": "in a down clue the hat is the top letter, so losing it drops the first letter"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "Member of clergy",
+       "at": 0,
        "gives": "CANON",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Member of clergy",
-         "gives": "CANON",
-         "select": "first",
-         "note": "a canon is a cathedral cleric — about to lose its top"
-        }
-       ]
+       "note": "a canon is a member of the clergy attached to a cathedral"
       },
       {
-       "gives": "C"
+       "gives": "C",
+       "note": "the first letter of canon, removed"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "In a down entry the 'hat' is the top letter, so the C comes off CANON. 'I come, anon!' is how Shakespeare's characters say they'll be right there.",
-     "definitionFit": "Anon is the archaic adverb for soon or immediately, familiar from Shakespeare — hence the qualifier steering you towards Elizabethan English."
+     "surface": "A cleric's hat comes off at once, described in Shakespearean language.",
+     "walkthrough": "In a down entry the 'hat' is the topmost letter, so CANON drops its C. Anon is an archaic word, common in Shakespeare, for at once or soon.",
+     "definitionFit": "Anon is the old Elizabethan adverb for at once, as in 'I come anon', used throughout Shakespeare's plays."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hat"
     }
    }
   },
@@ -1325,39 +1327,37 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Unwell",
+      "text": "Unwell?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ILL",
+     "op": "middle",
      "indicators": [
       {
-       "text": "Unwrap"
+       "text": "Unwrap",
+       "at": 8,
+       "note": "unwrapping takes off the outer covering, so the first and last letters go and the inside remains"
       }
      ],
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
+       "words": "tablets",
+       "at": 15,
        "gives": "PILLS",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "tablets",
-         "gives": "PILLS",
-         "select": "outer",
-         "note": "tablets are pills — unwrapping strips off the outer P and S"
-        }
-       ]
+       "note": "tablets are pills"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Unwrap' means exactly what it says: peel the outside letters off PILLS, the way you would the packaging.",
-     "definitionFit": "Ill means unwell — the plainest of synonyms — and the medicinal surface keeps both words in the sickroom."
+     "surface": "Feeling poorly? Then take your medicine out of its packaging.",
+     "walkthrough": "'Unwrap' strips the outside letters of PILLS, the P and the S.",
+     "definitionFit": "Ill is the everyday adjective for being sick, so it stands in directly for unwell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Unwrap"
     }
    }
   },
