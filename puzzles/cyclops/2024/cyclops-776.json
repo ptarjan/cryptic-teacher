@@ -42,8 +42,9 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Comic",
-      "at": 0
+      "text": "Comic's",
+      "at": 0,
+      "note": "read as 'comic is', the 's linking the definition to the wordplay"
      }
     ],
     "wordplay": {
@@ -51,41 +52,40 @@
      "indicators": [
       {
        "text": "about",
-       "note": "One word placed about another goes round it."
+       "at": 12,
+       "note": "a word placed about another goes round it"
       }
      ],
      "parts": [
       {
        "words": "dig",
+       "at": 8,
        "gives": "JEER",
-       "note": "a dig is a jibe, a jeer"
+       "note": "a dig is a jibe, and to jeer is to make one"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "ST",
        "indicators": [
         {
          "text": "leaders",
-         "note": "The leaders of a group walk at its front, so these are the first letters of senior and Tory."
+         "at": 30,
+         "note": "the leaders of words are their first letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "senior Tory leaders",
-         "gives": "ST",
-         "select": "first",
-         "note": "first letters of senior and Tory"
+         "words": "senior Tory",
+         "at": 18,
+         "note": "S and T open these two words"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A comedian taking a swipe at the grandees of the Conservative Party.",
-     "walkthrough": "The Tories are the UK Conservative Party. Dig about reads as a jab aimed at the leaders; instead the jibe wraps round them.",
-     "definitionFit": "A jester was the court comic, and the word is still used for any joker."
+     "surface": "A satirist's barb aims at the top brass of the Conservative party.",
+     "walkthrough": "'Comic' looks like an adjective for the dig, but it is the noun definition, with the 's standing for 'is'.",
+     "definitionFit": "A jester was a court comedian, a professional fool kept to amuse a monarch."
     },
     "features": {
      "answerInScene": true,
@@ -121,45 +121,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "JEREMYHUNT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "aboard",
+       "at": 36,
+       "note": "a passenger aboard a plane is inside it, so these letters go within the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "plane",
+       "at": 43,
+       "gives": "JET",
+       "note": "a jet is a plane"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "getting screwed",
-         "note": "Something screwed up is twisted out of shape, so these letters are twisted into a new order."
-        },
-        {
-         "text": "aboard"
+         "at": 20,
+         "note": "something screwed up is twisted, so these letters are scrambled"
         }
        ],
        "parts": [
         {
-         "words": "plane",
-         "gives": "JET",
-         "note": "a jet is a plane"
+         "words": "Henry",
+         "at": 9,
+         "note": "taken as written"
         },
         {
-         "words": "Henry, um",
-         "gives": "REMYHUN",
-         "note": "HENRYUM rearranged"
+         "words": "um",
+         "at": 16,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A government minister called Henry fumbling his words while being fleeced on a flight.",
-     "walkthrough": "Jeremy Hunt was Chancellor of the Exchequer, the UK finance minister, when this puzzle was set. Henry is only fodder here, not the minister's name.",
-     "definitionFit": "Jeremy Hunt has held several UK cabinet posts, including Health, Foreign Secretary and Chancellor."
+     "surface": "A government minister named Henry, hesitating, gets cheated or seduced on a flight.",
+     "walkthrough": "'getting screwed' rearranges HENRY UM into REMYHUN, which goes 'aboard' JET.",
+     "definitionFit": "Jeremy Hunt is a Conservative politician who served as Foreign Secretary and Chancellor of the Exchequer."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Henry"
+     "joke": "pun",
+     "misdirectedWord": "screwed"
     }
    }
   },
@@ -184,15 +194,12 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "fantastic",
-       "note": "Something fantastic is fanciful and unreal, so the letters of gains take a fanciful new order."
-      },
-      {
-       "text": "out",
-       "note": "Letters sent out leave, so OS is taken out of LOSS."
+       "text": "followed by",
+       "at": 25,
+       "note": "the first piece is followed by the second, so the second comes after it"
       }
      ],
      "parts": [
@@ -200,29 +207,48 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "followed by",
-         "note": "What follows comes after."
+         "text": "fantastic",
+         "at": 9,
+         "note": "fantastic suggests something wildly fanciful, so these letters are scrambled"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "words": "gains",
+         "at": 19,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 55,
+         "note": "taken out of the word before it, so those letters are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "loss",
+         "at": 37,
+         "note": "taken as written"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
            "text": "backing",
-           "note": "Backing is moving backwards, so SO is read right to left as OS."
+           "at": 47,
+           "note": "backing means moving backwards, so the little word is read from its end"
           }
          ],
          "parts": [
           {
-           "words": "gains",
-           "gives": "SIGNA",
-           "note": "GAINS rearranged"
-          },
-          {
-           "words": "loss — so backing out",
-           "gives": "LS",
-           "note": "LOSS with OS removed"
+           "words": "so",
+           "at": 44,
+           "note": "taken as written"
           }
          ]
         }
@@ -231,9 +257,9 @@
      ]
     },
     "explanation": {
-     "surface": "Stock-market talk of wild gains followed by a slump and investors pulling out.",
-     "walkthrough": "Waves here is a verb: someone who waves signals. LOSS loses its middle OS, which is SO turned round.",
-     "definitionFit": "To wave at someone is to signal to them, so he waves means he signals."
+     "surface": "Waves of huge profits are followed by losses, so investors pull out.",
+     "walkthrough": "'fantastic' rearranges GAINS into SIGNA, 'followed by' the rest; 'backing' turns SO into OS, and 'out' takes those letters from LOSS to leave LS. 'Waves' is a verb.",
+     "definitionFit": "To wave at someone is to gesture to them, and gesturing to communicate is to signal."
     },
     "features": {
      "answerInScene": false,
@@ -1119,15 +1145,10 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "extremely",
-       "note": "The extremes of a word are its ends, so impartial gives its first and last letters."
-      }
-     ],
      "parts": [
       {
        "words": "Victor",
+       "at": 0,
        "gives": "V",
        "note": "Victor is V in the NATO phonetic alphabet"
       },
@@ -1135,26 +1156,32 @@
        "op": "container",
        "indicators": [
         {
-         "text": "accepts"
+         "text": "accepts",
+         "at": 29,
+         "note": "a word that accepts another takes it inside"
         }
        ],
        "parts": [
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "IL",
+         "indicators": [
+          {
+           "text": "extremely",
+           "at": 8,
+           "note": "the extremes of a word are its first and last letters"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "extremely impartial",
-           "gives": "IL",
-           "select": "outer",
-           "note": "first and last letters of impartial"
+           "words": "impartial",
+           "at": 18,
+           "note": "I and L are its outer letters"
           }
          ]
         },
         {
          "words": "threesome",
+         "at": 38,
          "gives": "TRIO",
          "note": "a trio is a group of three"
         }
@@ -1163,14 +1190,14 @@
      ]
     },
     "explanation": {
-     "surface": "A man called Victor, scrupulously fair, conceding that a threesome counts as abuse.",
-     "walkthrough": "The quote marks make threesome equals abuse look like one statement; equals only links wordplay to definition.",
-     "definitionFit": "Vitriol is bitter, savage criticism, which is abuse."
+     "surface": "A neutral man named Victor reckons a three-in-a-bed arrangement counts as mistreatment.",
+     "walkthrough": "'extremely impartial' gives IL, which 'accepts' TRIO; 'equals' is a link word.",
+     "definitionFit": "Vitriol is bitter, caustic criticism, so it means abusive language."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "accepts"
+     "misdirectedWord": "threesome"
     }
    }
   },
@@ -1241,42 +1268,42 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Victim of pot",
+      "text": "Victim of pot?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LOBSTER",
-     "indicators": [
-      {
-       "text": "out",
-       "note": "Out means out of order, so the letters of rest are rearranged."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Chuck",
+       "at": 15,
+       "gives": "LOB",
+       "note": "to chuck something is to lob it"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 26,
+         "note": "out here means out of order, so these letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Chuck",
-         "gives": "LOB",
-         "note": "to chuck is to throw, lob"
-        },
-        {
          "words": "rest",
-         "gives": "STER",
-         "note": "REST rearranged"
+         "at": 21,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone harmed by cannabis being told to give up relaxing.",
-     "walkthrough": "Pot looks like cannabis; it is a lobster pot, the trap they are caught in.",
-     "definitionFit": "Lobsters are caught in pots and often cooked in one too."
+     "surface": "Someone ruined by cannabis is urged to throw away whatever is left.",
+     "walkthrough": "'pot' suggests cannabis, but the pot is a lobster pot, the trap in which the creature is caught.",
+     "definitionFit": "Lobsters are caught in baited traps called pots, so one is the pot's prey."
     },
     "features": {
      "answerInScene": false,
@@ -1355,42 +1382,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STAGNANT",
-     "indicators": [
-      {
-       "text": "false",
-       "note": "What is false is not genuine, so tan is not in its real order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "males only",
+       "at": 9,
+       "gives": "STAG",
+       "note": "a stag party or event is for men only"
+      },
+      {
+       "words": "new",
+       "at": 28,
+       "gives": "N"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "false",
+         "at": 32,
+         "note": "something false is not genuine, so these letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "males only",
-         "gives": "STAG",
-         "note": "a stag party or stag night is for men only"
-        },
-        {
-         "words": "new",
-         "gives": "N",
-         "note": "standard abbreviation for new"
-        },
-        {
          "words": "tan",
-         "gives": "ANT",
-         "note": "TAN rearranged"
+         "at": 38,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Lazy men who just want a fresh fake tan.",
-     "walkthrough": "A stag do is a British bachelor party, men only.",
-     "definitionFit": "Stagnant means not moving or developing, inactive."
+     "surface": "Idle men at an all-male gathering are after a new fake tan.",
+     "walkthrough": "'false' rearranges TAN into ANT; 'wanting' is a link word here.",
+     "definitionFit": "Stagnant water does not flow, so something stagnant is still or sluggish."
     },
     "features": {
      "answerInScene": false,
@@ -1728,40 +1755,53 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "flailing",
-       "note": "To flail is to thrash about wildly, so the letters thrash into a new order."
-      }
-     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "not",
-         "note": "Not means without, so one is taken out of Tories."
+         "text": "flailing",
+         "at": 6,
+         "note": "flailing about wildly, so these letters are thrown into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Tories not one",
-         "gives": "TORES",
-         "note": "TORIES without I, one"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not",
+           "at": 22,
+           "note": "not one means without the one, so that letter is dropped"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Tories",
+           "at": 15,
+           "note": "taken as written"
+          },
+          {
+           "words": "one",
+           "at": 26,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
+          }
+         ]
         }
        ]
       },
       {
        "words": "day",
-       "gives": "D",
-       "note": "standard abbreviation for day"
+       "at": 30,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Floundering Conservatives being rescued, just not one day.",
-     "walkthrough": "The Tories are the UK Conservative Party. One is I, the Roman numeral, removed before shuffling.",
-     "definitionFit": "Saved and stored both mean kept for later."
+     "surface": "Struggling Conservatives were rescued, though not a single day passed.",
+     "walkthrough": "'Saved' looks like rescued, as the flailing Tories suggest, but it means kept back for later.",
+     "definitionFit": "Saved in the sense of put by for later use means kept in reserve, as in a larder."
     },
     "features": {
      "answerInScene": false,
