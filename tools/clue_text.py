@@ -725,6 +725,11 @@ def _inline_slips(line):
         line = re.sub(r"\s*\u00b7\s*", " ", line).strip()
     line = re.sub(r"(?<=\w)`", " `", line).replace("`", "\u2018")  # a backtick is an opening quote read
     line = re.sub(r"(?<=[A-Za-z\"\u201d\u2019?!.])\((?=[\d\u2013\u2014-])", " (", line)  # space lost before a bracket
+    # A cross-reference set after the count, "(3,4,3) (see also 12 ac.)"
+    # (Cyclops 250): the count no longer ends the clue, so the next clue ran
+    # on into it. The reference goes before the count, as every other does.
+    line = re.sub(r"(\(\s*\d{1,2}(?:\s*[,\-\u2013]\s*\d{1,2})*\s*\))\s*(\(\s*see also[^()]*\))\W{0,2}$",
+                  r"\2 \1", line, flags=re.I)
     line = see_one(line)  # a reference to 1 read as its lookalike ("10 See lac.")
     line = ones_read(see_numeral(line))  # "SeeI3." is "See 13."; "l9th" is "19th"
     return WORDS_COUNT.sub(r"(\1)", line)  # "(6, two words)" is "(6)"
