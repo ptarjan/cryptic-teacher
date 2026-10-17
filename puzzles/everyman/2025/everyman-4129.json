@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -430,64 +431,77 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TUTU",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "Lacking",
+       "at": 0,
+       "note": "lacking means going without, so the letter is taken away"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "Lacking",
-         "note": "to lack something is to be without it, so whatever gets named next never makes it into the letters"
+         "text": "twice",
+         "at": 29,
+         "note": "twice says the whole business happens two times, so two copies of the word each lose a letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "reversal",
          "indicators": [
           {
            "text": "up",
-           "note": "this is a down entry, and a piece written up runs from the bottom of the grid towards the top, so its letters arrive in the opposite order"
+           "at": 39,
+           "note": "in a down clue, up means the doubled word is written upwards, so backwards"
           }
          ],
          "parts": [
           {
-           "op": "first",
-           "unchecked": true,
-           "gives": "C",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "shred of compassion",
-             "gives": "C",
-             "select": "first",
-             "note": "a shred is the smallest scrap of a thing, so this is the letter compassion opens on, and it is the one to lose"
-            }
-           ]
-          },
-          {
-           "words": "cut up",
-           "gives": "TU",
-           "note": "CUT climbing a down entry reads T-U-C, and the C just named comes off the end"
-          },
-          {
-           "words": "twice",
-           "gives": "TU",
-           "note": "the same pair written out a second time, one straight after the other"
+           "words": "cut",
+           "at": 35,
+           "gives": "CUTCUT",
+           "note": "the word cut, written out once for each of the two times it is cut"
           }
          ]
         },
         {
-         "gives": "C"
+         "gives": "C",
+         "note": "the second C, taken from the second copy"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "shred of",
+         "at": 8,
+         "note": "a shred is the smallest scrap, so just the first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "compassion",
+         "at": 17,
+         "note": "supplies its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface accuses somebody of heartlessness, and every word of it turns out to be machinery: even 'twice' is an instruction rather than a description.",
-     "definitionFit": "ballerina's clothing → TUTU: the stiff layered skirt a ballet dancer performs in, so the definition names her costume rather than any outfit."
+     "surface": "A heartless dancer has her costume slashed twice over.",
+     "walkthrough": "'up' turns CUTCUT into TUCTUC in the down light; 'Lacking' a C, the shred of compassion, in each half leaves the answer.",
+     "definitionFit": "A tutu is the short stiff skirt of net worn by a ballet dancer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
     }
    }
   },
@@ -721,62 +735,57 @@
    "annotation": {
     "definitions": [
      {
-      "text": ", corrupt",
-      "at": 56
+      "text": "corrupt",
+      "at": 58
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
+       "text": "that's corrupt",
+       "at": 42,
+       "note": "corrupt here is a verb in the instruction: the letters that are corrupted are spoiled into a new order"
+      },
+      {
        "text": "With no",
-       "note": "with no X means X is absent, so the letter named straight afterwards never joins the mix"
+       "at": 0,
+       "note": "with no means without, so the letter named is taken out of the pool before rearranging"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "taunt leader",
+       "at": 29
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "that's corrupt",
-         "note": "something corrupt has been tampered with and no longer stands as it was, so these letters are out of their proper order"
+         "text": "hint of",
+         "at": 8,
+         "note": "a hint is the faintest trace, so just the first letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "op": "first",
-           "unchecked": true,
-           "gives": "N",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "hint of nervousness",
-             "gives": "N",
-             "select": "first",
-             "note": "a hint of a word is the letter it opens on, and this is the one taken out"
-            }
-           ]
-          },
-          {
-           "words": "taunt leader",
-           "gives": "TAUTLEADER",
-           "note": "eleven letters with that N gone, leaving ten to rearrange"
-          }
-         ]
-        },
-        {
-         "gives": "N"
+         "words": "nervousness",
+         "at": 16,
+         "note": "supplies its first letter, which is taken out"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The setter writes the same word twice and gives it two jobs: the first tells you to disturb the letters, the second says what they add up to.",
-     "definitionFit": "corrupt → ADULTERATE: to adulterate is to spoil something pure by mixing a cheaper substance in, the sense of corrupt that applies to goods."
+     "surface": "Calmly mocking a crooked boss, without a trace of nerves.",
+     "walkthrough": "The repeated word is the trick: the first 'corrupt' rearranges the letters of 'taunt leader' once the N from 'nervousness' is removed, and the second is the definition.",
+     "definitionFit": "To adulterate something is to debase it by adding inferior matter, which is to corrupt it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "corrupt"
     }
    }
   },
@@ -895,36 +904,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNCLASP",
-     "indicators": [
-      {
-       "text": "mostly visible",
-       "note": "what is mostly visible is not entirely visible, so the word keeps its last letter out of sight"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly visible",
+         "at": 9,
+         "note": "only most of the word can be seen, so its last letter is lost"
+        }
+       ],
        "parts": [
         {
          "words": "Relative",
-         "gives": "UNCL",
-         "note": "a relative may be an uncle, and here the final E stays out of view"
+         "at": 0,
+         "gives": "UNCLE",
+         "note": "an uncle is a relative"
         },
         {
-         "words": "snake",
-         "gives": "ASP",
-         "note": "the asp is the small venomous snake of Egypt, and three letters make it a crossword regular"
+         "gives": "E",
+         "note": "the last letter of the relative, dropped"
         }
        ]
+      },
+      {
+       "words": "snake",
+       "at": 29,
+       "gives": "ASP",
+       "note": "an asp is a venomous snake"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The clue reads as a warning shouted at somebody gripping a snake. That shout is the definition, and everything in front of it is construction.",
-     "definitionFit": "let go → UNCLASP: to unclasp is to open the grip of fingers or of a fastening, so whatever was being held is released."
+     "surface": "Someone spots most of an uncle beside a snake and shouts to drop it.",
+     "walkthrough": "Only the first four letters of UNCLE are visible, and the snake is added after them.",
+     "definitionFit": "To unclasp a hand or a fastening is to release its grip, to let go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "visible"
     }
    }
   },
@@ -955,41 +975,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PADTHAI",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "most of",
-       "note": "most of a word is all but a little of it, so the word hands over everything except its final letter"
+       "text": "Unwisely",
+       "at": 0,
+       "note": "something done unwisely is done wrongly, so the letters go into a wrong order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "I had",
+       "at": 10
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Unwisely",
-         "note": "to act unwisely is to act without sense or order, and letters handled without order come out in a new arrangement"
+         "text": "most of",
+         "at": 16,
+         "note": "most of the paste is kept, all but its final letter, which is left on the plate"
         }
        ],
        "parts": [
         {
-         "words": "I had",
-         "note": "four letters exactly as written"
+         "words": "pâté",
+         "at": 24,
+         "note": "a meat paste; its last letter is dropped"
         },
         {
-         "words": "pâté",
-         "gives": "PAT",
-         "note": "the French spread, with its final letter left off"
+         "gives": "E",
+         "note": "the last letter of the paste, dropped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Unwisely, I had...' sets up a confession about a bad meal, and the pâté is the giveaway: it is a French delicacy on the surface and three letters underneath.",
-     "definitionFit": "stir-fry → PAD THAI: the Thai dish of rice noodles tossed fast in a hot wok, so it is one example of the form rather than the form."
+     "surface": "A rueful diner admits they foolishly ate most of the pâté.",
+     "walkthrough": "Drop the last letter of pâté to get PAT, then rearrange it with I HAD.",
+     "definitionFit": "Pad thai is a Thai dish of rice noodles stir-fried with egg, tofu or prawns and peanuts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Unwisely"
     }
    }
   },
