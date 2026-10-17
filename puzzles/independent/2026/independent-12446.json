@@ -622,40 +622,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GAMUT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 16,
+       "note": "around means the reversed word wraps the morning letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "recalled",
-         "note": "to recall a thing is to call it back, and letters called back come the other way"
-        },
-        {
-         "text": "around",
-         "note": "a piece set around another wraps outside it, leaving a gap in the middle to fill"
+         "at": 7,
+         "note": "recalled means the pulling word is called back, read in reverse"
         }
        ],
        "parts": [
         {
          "words": "draw",
-         "gives": "GUT",
-         "note": "to draw a rope is to tug it, and that word is set down the other way about"
-        },
-        {
-         "words": "morning",
-         "gives": "AM",
-         "note": "AM marks the hours before noon on a clock"
+         "at": 2,
+         "gives": "TUG",
+         "note": "to tug is to draw or pull"
         }
        ]
+      },
+      {
+       "words": "morning",
+       "at": 23,
+       "gives": "AM",
+       "note": "AM is the abbreviation for morning, ante meridiem"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The dots carry the sentence on from the clue before and bring no letters with them. 'Draw' is a tug of war here, not a picture, which is the pivot of the whole clue.",
-     "definitionFit": "range -> GAMUT: the whole sweep from one end of a scale to the other, originally the complete musical scale, now any full span of possibilities."
+     "surface": "Continuing the climb: a stalemate remembered from the morning on the mountain range.",
+     "walkthrough": "The ellipsis links this to the climbing clue before it, so 'draw' and 'range' sound alpine. 'Recalled' turns TUG into GUT, which goes 'around' AM after the G.",
+     "definitionFit": "A gamut is the full range or scope of something, as in running the gamut of emotions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
     }
    }
   },
@@ -1732,45 +1742,53 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Promises danger",
+      "text": "Promises danger to",
       "at": 0
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "THREATENS",
      "indicators": [
       {
        "text": "wanting",
-       "note": "a thing wanting is a thing missing, so the letter named next is the one no longer there"
+       "at": 27,
+       "note": "wanting means the earl's letter is lacking from that phrase"
       },
       {
        "text": "replaced by",
-       "note": "a replacement takes over the seat the old one had, so the length is untouched — a swap, not an extra"
+       "at": 44,
+       "note": "replaced by means the Australian letter goes in where the earl's one was"
       }
      ],
      "parts": [
       {
        "words": "thirty",
+       "at": 19,
        "gives": "THREETENS",
-       "note": "thirty counted out as three lots of ten, written in words rather than figures"
+       "note": "thirty is three tens, read as one run of letters"
       },
       {
        "words": "one Earl",
+       "at": 35,
        "gives": "E",
-       "note": "Earl is E among the peerage abbreviations, and this is the letter that leaves"
+       "note": "E is the abbreviation for Earl; one marks that only one of the two Es changes"
       },
       {
        "words": "Australian",
-       "gives": "A",
-       "note": "A is the standard short form for Australian, as on a cricket scorecard"
+       "at": 56,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Thirty' is not a number to turn into Roman letters here but a sum to write out in words, and the peer is there to supply a letter for eviction.",
-     "definitionFit": "Promises danger -> THREATENS: a sky that threatens rain promises trouble rather than a gift, so 'promises' is taken in its ominous sense."
+     "surface": "Someone at thirty feels menaced, missing an aristocrat who was swapped for an Aussie.",
+     "walkthrough": "Thirty is written out as THREE TENS. That phrase is 'wanting' one E, which is 'replaced by' A, giving THREATENS.",
+     "definitionFit": "To threaten someone is to put them in danger, which is the sense of promising danger to them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "thirty"
     }
    }
   }
