@@ -3439,7 +3439,8 @@ SHAPE_GRACE_FIELDS = ("wordplay.anagramCharade", "wordplay.charadeInCharade", "w
                       "wordplay.cdefRepeat", "wordplay.arity", "wordplay.spanOverlap",
                       "wordplay.inDefinition", "wordplay.leafFold", "wordplay.repeatedSelection",
                       "wordplay.singleLeaf", "wordplay.bareInCharade", "wordplay.anagramOfContainer",
-                      "wordplay.arityIns", "wordplay.arityOther", "wordplay.delSingle", "wordplay.indInLeaf")
+                      "wordplay.arityIns", "wordplay.arityOther", "wordplay.delSingle", "wordplay.indInLeaf",
+                      "wordplay.ddMissesWordplay", "spelling.unsaid")
 
 
 def whole_rebus(ann, clue):
