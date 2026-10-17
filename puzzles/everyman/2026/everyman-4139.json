@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -43,50 +44,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ABSEIL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grasping",
+       "at": 31,
+       "note": "grasping means holding inside, so the jumbled aisle surrounds the bride's first letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "tipsily",
-         "note": "Somebody tipsy cannot walk a straight line, and letters handed over tipsily will not stand in the line they were given."
+         "at": 23,
+         "note": "someone moving tipsily lurches about, so the letters of aisle stagger into a new order"
         }
        ],
        "parts": [
         {
          "words": "aisle",
-         "gives": "ASEIL",
-         "note": "the five letters of that word re-sorted into a shell with a gap after the first"
-        },
+         "at": 16
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "grasping",
-           "note": "To grasp is to close your hand right round a thing, so the shuffled letters end up wrapped about the one that follows."
-          },
-          {
-           "text": "head",
-           "note": "The head of a word is the end it starts at, so only the letter at the front of that word is taken."
-          }
-         ],
-         "parts": [
-          {
-           "words": "bride's",
-           "note": "the first letter of the word, which is what its head amounts to"
-          }
-         ]
+         "text": "head",
+         "at": 48,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bride's",
+         "at": 40,
+         "note": "its first letter is B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The wedding picture runs through every word, so 'go down aisle' reads as one phrase and hides the fact that the definition stops three words in.",
-     "definitionFit": "Quickly go down: to abseil is to come down a rock face on a doubled rope, a fast controlled descent rather than a climb."
+     "surface": "A wedding guest a little drunk weaves down the aisle, grabbing the bride.",
+     "walkthrough": "'tipsily' jumbles AISLE into ASEIL, and 'grasping' puts it round B, the head of 'bride's'.",
+     "definitionFit": "To abseil is to descend a cliff or wall rapidly on a rope, a fast way of getting down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aisle"
     }
    }
   },
@@ -266,41 +276,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "APPEAR",
+     "spelt": "APPEAR",
      "indicators": [
       {
        "text": "on a podcast",
-       "note": "A podcast reaches you through the ears, so what counts is how the words sound and not how they are spelt."
+       "at": 28,
+       "note": "a podcast is heard rather than read, so the words are taken by their sound"
       }
      ],
      "parts": [
       {
-       "words": "one",
-       "gives": "A",
-       "note": "the indefinite article stands for one: a dog is one dog"
-      },
-      {
-       "words": "that's noble",
-       "gives": "PEER",
-       "note": "a peer is a lord or lady, a member of the nobility"
-      },
-      {
-       "op": "homophone",
-       "spelt": "APPEAR",
-       "parts": [
-        {
-         "words": "one that's noble",
-         "gives": "APEER",
-         "note": "run those two pieces together and say them, and the sound comes out spelt as a single verb"
-        }
-       ]
+       "words": "one that's noble",
+       "at": 11,
+       "gives": "APEER",
+       "note": "a peer is a noble, a member of the nobility, so one noble is a peer"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The pieces are ordinary; the work is hearing them as one word. 'Noble' is a noun in this clue, a member of the peerage, not a description of anyone's character.",
-     "definitionFit": "Seem: the plain synonym in the sense of looking a certain way — she appears tired, she seems tired — not the sense of coming into view."
+     "surface": "Someone seems to be a lord when talking on a podcast.",
+     "walkthrough": "'one that's noble' is A PEER, and 'on a podcast' says to hear it, which gives a verb spelt differently.",
+     "definitionFit": "To appear is to seem, as in 'he appears tired'; both verbs describe how something looks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "podcast"
     }
    }
   },
