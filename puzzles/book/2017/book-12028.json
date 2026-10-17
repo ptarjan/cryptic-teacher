@@ -467,52 +467,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NEGOTIATE",
+     "op": "composite",
      "indicators": [
       {
        "text": "fantastic",
-       "note": "fantastic means fanciful and unreal, so the letters take an imaginative new order"
+       "at": 41,
+       "note": "fantastic in its sense of fanciful and unreal signals the letters are rearranged"
+      },
+      {
+       "text": "save",
+       "at": 27,
+       "note": "save means except, so the letter for pounds is held out of the mix"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NEGOTIATE",
-       "indicators": [
-        {
-         "text": "first off",
-         "note": "first off means the opening letter is taken away"
-        },
-        {
-         "text": "save",
-         "note": "save means except, so whatever follows is left out"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Get into",
-         "note": "taken as written"
+         "at": 0
         },
         {
-         "words": "sale",
-         "note": "taken as written, before its first letter goes"
-        },
-        {
-         "words": "pounds",
-         "gives": "L",
-         "note": "L, from Latin libra, is the symbol for pounds sterling"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "first off",
+           "at": 15,
+           "note": "first off means the word's opening letter is removed"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sale",
+           "at": 9
+          },
+          {
+           "gives": "S",
+           "note": "the opening letter of sale, dropped"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "pounds",
+       "at": 32,
+       "gives": "L",
+       "note": "L is the abbreviation for pounds sterling, from Latin librae"
       }
      ]
     },
     "explanation": {
-     "surface": "Shoppers are urged to get stuck into a sale and save money on a fantastic bargain.",
-     "walkthrough": "'Bargain' looks like a noun ending the shop advert, but it is the verb. SALE loses its S, and the L is then removed from the letters before they are rearranged.",
-     "definitionFit": "To bargain is to haggle over terms, which is what it means to negotiate."
+     "surface": "A shopper's breathless advice: dive into the sale early, save money, grab a fantastic bargain.",
+     "walkthrough": "'save' and 'bargain' look like shopping words, but 'save' means except. GET INTO plus ALE (sale with its first letter off) gives ten letters; take out L and 'fantastic' rearranges the rest.",
+     "definitionFit": "To bargain is to haggle over terms, which is what you do when you negotiate."
     },
     "features": {
      "answerInScene": true,
@@ -940,46 +949,51 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HOUSEMATES",
+     "spelt": "HOUSEMATES",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner swapped the opening sounds of words, so the two words here trade initial sounds"
+       "at": 0,
+       "note": "Spooner swapped the opening sounds of words, so the two words here exchange first letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "HOUSE",
        "parts": [
         {
-         "unchecked": true,
          "words": "timid type",
-         "gives": "HOUSE",
-         "soundsLike": "MOUSE",
-         "note": "a mouse is a shy, timid person; it trades its opening sound with the next word"
-        },
+         "at": 10,
+         "gives": "MOUSE",
+         "note": "a mouse is a proverbially timid person; Spooner gives it the H of the other word"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "MATES",
+       "parts": [
         {
-         "unchecked": true,
          "words": "dislikes",
-         "gives": "MATES",
-         "soundsLike": "HATES",
-         "note": "to hate is to dislike strongly; it takes the first word's opening sound"
+         "at": 21,
+         "gives": "HATES",
+         "note": "hates means dislikes strongly; Spooner gives it the M of the other word"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shy man does not get on with the people he shares a flat with.",
-     "walkthrough": "Swap the opening sounds of MOUSE HATES and you hear HOUSE MATES.",
-     "definitionFit": "Housemates are people who share a house, so to him they are the people living with him."
+     "surface": "Someone timid complains that the people sharing his house are the ones he dislikes.",
+     "walkthrough": "\"Spooner's\" points to the Reverend Spooner, famous for swapping the starting sounds of words: say MOUSE HATES with the M and H sounds exchanged.",
+     "definitionFit": "Housemates are the people who share a house with you, so they are the people living with him."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "dislikes"
+     "misdirectedWord": "type"
     }
    }
   },
@@ -1438,12 +1452,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PINETA",
      "indicators": [
       {
        "text": "in",
-       "note": "in sets one piece inside the others"
+       "at": 25,
+       "note": "in tells us the land word sits inside the other two pieces"
       }
      ],
      "parts": [
@@ -1452,27 +1465,29 @@
        "parts": [
         {
          "words": "very good",
+         "at": 28,
          "gives": "PI",
-         "note": "pi, short for pious, is crossword slang for very good"
-        },
-        {
-         "words": "land",
-         "gives": "NET",
-         "note": "to land a fish is to net it"
+         "note": "PI, short for pious, is crossword shorthand for very good"
         },
         {
          "words": "area",
-         "gives": "A",
-         "note": "A is the abbreviation for area"
+         "at": 38,
+         "gives": "A"
         }
        ]
+      },
+      {
+       "words": "land",
+       "at": 20,
+       "gives": "NET",
+       "note": "to land a fish is to net it"
       }
      ]
     },
     "explanation": {
-     "surface": "Forests are planted on land in an excellent region.",
-     "walkthrough": "'Land' looks like ground, but here it is the verb, as in landing a catch.",
-     "definitionFit": "Pineta is the plural of pinetum, a plantation of pines or other conifers grown for study."
+     "surface": "Plantations of trees are found in land in a very good area.",
+     "walkthrough": "'land' looks like a noun beside plantations, but it is the verb, as in landing a fish, and it goes between PI and A.",
+     "definitionFit": "Pinetum is a plantation or collection of pine trees; pineta is its Latin plural."
     },
     "features": {
      "answerInScene": true,
