@@ -24,7 +24,8 @@
   "check": "32 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -91,41 +92,39 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Bloody hell!",
+       "words": "Bloody hell",
+       "at": 0,
        "gives": "HECK",
-       "note": "the polite four-letter stand-in people say when they are swearing but not quite"
+       "note": "heck is a mild exclamation of annoyance, a tame stand-in for bloody hell"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "LE",
        "indicators": [
         {
          "text": "leaders",
-         "note": "whoever leads is out in front of the rest, so each of the two words hands over only the letter it starts with"
+         "at": 29,
+         "note": "leaders means the opening letters of the words law and enforcement are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Law enforcement leaders",
-         "gives": "LE",
-         "select": "first",
-         "note": "the opening letters of the two-word phrase, in the order written"
+         "words": "Law enforcement",
+         "at": 13,
+         "note": "the two words whose initial letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An outraged oath about police chiefs hounding whoever is addressing the room.",
-     "walkthrough": "The capital-S Speaker of the Commons lurks behind the surface, and the definition wants the ordinary sense — anyone holding the floor. Barracking a candidate at a rally is the picture the answer belongs to.",
-     "definitionFit": "To heckle is to shout a speaker down while they are speaking, which is harassment aimed at whoever has the floor."
+     "surface": "An exasperated cry as police chiefs are accused of harassing the Speaker of the Commons.",
+     "walkthrough": "'the speaker' suggests the Speaker of the House, but it simply means anyone making a speech, whom hecklers shout at.",
+     "definitionFit": "To heckle is to interrupt a public speaker with jeers and taunts, which is harassing them."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "leaders"
+     "misdirectedWord": "speaker"
     }
    }
   },
@@ -393,57 +392,47 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "HAMFISTED",
-     "indicators": [
-      {
-       "text": "in",
-       "note": "a thing that is in something sits inside it, so the letter named before it drops between the two letters of the piece named after"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Hard",
-         "gives": "H",
-         "note": "H is stamped on a pencil for hard, and is the crossword's usual single letter for it"
-        },
-        {
-         "words": "the morning",
-         "gives": "AM",
-         "note": "ante meridiem, the two letters on any clock before noon"
-        },
-        {
-         "words": "fellow",
-         "gives": "F",
-         "note": "F for fellow is the letter in the strings after an academic's name, as in FRS"
-        },
-        {
-         "words": "lives",
-         "gives": "IS",
-         "note": "a man who lives is a man who is, in the third person as written"
-        },
-        {
-         "words": "Edward",
-         "gives": "TED",
-         "note": "Ted is the everyday short form of the name"
-        }
-       ]
+       "words": "Hard",
+       "at": 1,
+       "gives": "H",
+       "note": "H is the pencil-grade abbreviation for hard"
+      },
+      {
+       "words": "in the morning",
+       "at": 6,
+       "gives": "AM",
+       "note": "AM, ante meridiem, marks a morning time"
+      },
+      {
+       "words": "fellow",
+       "at": 22,
+       "gives": "F"
+      },
+      {
+       "words": "lives",
+       "at": 29,
+       "gives": "IS",
+       "note": "lives, in the sense of exists, gives 'is'"
+      },
+      {
+       "words": "Edward",
+       "at": 40,
+       "gives": "TED",
+       "note": "Ted is a common short form of the name Edward"
       }
      ]
     },
     "explanation": {
-     "surface": "A man boasting about his mornings, sharing a house with Edward, to everybody's embarrassment.",
-     "walkthrough": "The quotation marks fence off the boast so it reads as speech rather than as two instructions. Clumsy hands are the picture behind the answer — a fist where fingers should be — and nothing in the surface points at them.",
-     "definitionFit": "Someone ham-fisted handles things as though wearing boxing gloves, which is what calling a person awkward or clumsy says."
+     "surface": "Someone describes a hungover fellow named Edward as clumsy and feeling rough in the morning.",
+     "walkthrough": "The quoted phrase reads like a complaint about a rough morning, but it is two pieces: H for hard, then AM for the morning.",
+     "definitionFit": "Ham-fisted means clumsy with the hands, a colloquial synonym for awkward."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Hard"
     }
    }
@@ -1541,40 +1530,30 @@
     "definitions": [
      {
       "text": "He scored",
-      "at": 0,
-      "note": "The definition is a clause about the man rather than a noun that swaps in, which is how a proper name with no synonym gets defined."
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "well, not altogether",
+       "at": 23,
+       "note": "well, not altogether signals that only part of the phrase lover did is used, the run of letters across its two words"
+      }
+     ],
      "parts": [
       {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "not altogether",
-         "note": "taking not all of something means taking only part of it, so a run inside the words is wanted rather than the words themselves"
-        }
-       ],
-       "parts": [
-        {
-         "words": "lover did",
-         "gives": "VERDI",
-         "note": "the letters run straight on from the end of one word into the next, and only the outer ends of the span are spare"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "well",
-       "note": "the hesitation is surface only and carries no letters"
+       "words": "lover did",
+       "at": 11,
+       "note": "the five-letter answer sits inside these words, spanning the end of lover and the start of did"
       }
      ]
     },
     "explanation": {
-     "surface": "Gossip about how a lover performed, taken back halfway through.",
-     "walkthrough": "'He scored' is the leer the surface wants and the composer's day job at the same time. Giuseppe Verdi wrote Rigoletto, La traviata and Aida, and a score is what an opera is written on.",
-     "definitionFit": "Verdi spent fifty years writing operatic scores, so 'he scored' names the man by the work rather than by any synonym."
+     "surface": "A lover boasts of having scored, and someone replies that he did, though not entirely.",
+     "walkthrough": "'He scored' reads as sexual conquest, but it means composed a musical score; 'well, not altogether' says the answer is only part of 'lover did'.",
+     "definitionFit": "Giuseppe Verdi was the Italian opera composer, so he wrote, or scored, the music of operas like Aida."
     },
     "features": {
      "answerInScene": false,
