@@ -258,44 +258,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DREK",
+     "op": "composite",
      "indicators": [
       {
        "text": "abroad",
-       "note": "abroad means scattered widely, so the remaining letters are rearranged"
+       "at": 7,
+       "note": "abroad means all over the place, so the letters of Kinder are scattered into a new order"
+      },
+      {
+       "text": "not",
+       "at": 15,
+       "note": "not says some letters are left out of that shuffled word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "DREK",
-       "indicators": [
-        {
-         "text": "not",
-         "note": "not tells us the following phrase's letters are to be left out of the German word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Kinder",
-         "note": "the German word for children, taken as written"
-        },
-        {
-         "words": "at home",
-         "gives": "IN",
-         "note": "at home is in"
-        }
-       ]
+       "words": "Kinder",
+       "at": 0
+      },
+      {
+       "words": "at home",
+       "at": 19,
+       "gives": "IN",
+       "note": "in is the usual crossword sense of at home"
       }
      ]
     },
     "explanation": {
-     "surface": "Children overseas, out of the house, making a mess.",
-     "walkthrough": "Remove IN from KINDER to leave KDER, then rearrange.",
-     "definitionFit": "Drek is a Yiddish-derived word for trash or worthless stuff, i.e. rubbish."
+     "surface": "German children travelling abroad, away from home, make a mess.",
+     "walkthrough": "'abroad' shuffles the letters of KINDER and 'not at home' removes IN from them; the four letters left make the answer. Kinder is German for children.",
+     "definitionFit": "Drek is Yiddish-derived slang for trash or worthless stuff, the same as rubbish."
     },
     "features": {
      "answerInScene": false,
@@ -1598,33 +1590,44 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "LAMB",
      "indicators": [
       {
-       "text": "without",
-       "note": "without means lacking, so the sweet item's letters are removed"
-      },
-      {
-       "text": "outside",
-       "note": "outside tells us those removed letters sit at the two ends, around what remains"
+       "text": "without cake",
+       "at": 13,
+       "note": "without means lacking, so the rest of the word cake is taken away from the back of the party"
       }
      ],
      "parts": [
       {
-       "words": "Picnic party",
-       "gives": "CLAMBAKE",
-       "note": "a clambake is a seaside picnic party"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "outside",
+         "at": 26,
+         "note": "outside says the letters of cake sit on the outside of what remains, so its first letter goes from the front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Picnic party",
+         "at": 0,
+         "gives": "CLAMBAKE",
+         "note": "a clambake is an outdoor seaside party where clams are baked, a kind of picnic"
+        },
+        {
+         "gives": "C"
+        }
+       ]
       },
       {
-       "words": "cake",
-       "note": "taken as written; its C opens and its AKE closes the party word"
+       "gives": "AKE"
       }
      ]
     },
     "explanation": {
-     "surface": "An outdoor picnic with no cake, but there's meat.",
-     "definitionFit": "Lamb is the flesh of young sheep eaten as meat."
+     "surface": "Someone asks whether a picnic party came with no cake, and points to the meat instead.",
+     "walkthrough": "'without cake outside' strips C from the front and AKE from the back of CLAMBAKE, leaving the answer in the middle.",
+     "definitionFit": "Lamb is the flesh of a young sheep eaten as food, a common kind of meat."
     },
     "features": {
      "answerInScene": true,
