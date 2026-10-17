@@ -423,48 +423,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 28,
+       "note": "in places the word offering a choice between the two end letters, so it sits in the middle of them"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
+       "op": "outer",
        "indicators": [
         {
-         "text": "terminus in",
-         "note": "a terminus is the end of a line, so either end letter of Southport will do"
+         "text": "terminus",
+         "at": 19,
+         "note": "a terminus is an end, and the town's name has two of them, its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "Southport",
-         "note": "first letter of Southport"
+         "at": 31,
+         "note": "a seaside town in Merseyside whose end letters are used"
         }
        ]
       },
       {
        "words": "choice of",
+       "at": 9,
        "gives": "OR",
-       "note": "a choice is this or that"
-      },
-      {
-       "op": "last",
-       "unchecked": true,
-       "gives": "T",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "terminus",
-         "gives": "T",
-         "select": "last",
-         "note": "last letter of Southport, its other terminus"
-        }
-       ]
+       "note": "or is the word that offers a choice, this or that"
       }
      ]
     },
     "explanation": {
-     "surface": "Deciding which station to end the journey at in Southport, a seaside town in north-west England.",
-     "walkthrough": "A choice between the two ends of Southport is literally 'S or T'.",
-     "definitionFit": "Plain synonym: to sort things is to put them into classes."
+     "surface": "A railway question: how to class the end station at the seaside town of Southport.",
+     "walkthrough": "Read it as 'S or T': a choice of either 'terminus' of SOUTHPORT, so OR goes 'in' between the end letters S and T. Southport is a seaside town north of Liverpool.",
+     "definitionFit": "To sort things is to arrange them into groups by kind, which is to classify them."
     },
     "features": {
      "answerInScene": false,
@@ -597,41 +593,55 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "half-cut",
-       "note": "cut in half, so only the first half of apparently is kept"
-      },
-      {
-       "text": "after"
+       "text": "after",
+       "at": 34,
+       "note": "after means the reversed letters follow the letter for good"
       }
      ],
      "parts": [
       {
        "words": "good",
-       "gives": "G",
-       "note": "standard abbreviation"
+       "at": 40,
+       "gives": "G"
       },
       {
        "op": "reversal",
        "indicators": [
         {
          "text": "rolling over",
-         "note": "something that rolls over ends up the other way round, so the letters read backwards"
+         "at": 21,
+         "note": "something rolling over is turned upside down, so in this down entry the letters are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "Apparently half-cut",
-         "gives": "APPAR",
-         "note": "the first five letters of APPARENTLY's ten"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "half-cut",
+           "at": 11,
+           "note": "half-cut means cut in half, so only the first half of the word is kept"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Apparently",
+           "at": 0,
+           "note": "the ten-letter word whose first five letters are kept"
+          },
+          {
+           "gives": "ENTLY"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone seemingly tipsy and falling over after a glass of good Italian spirit.",
-     "walkthrough": "Half-cut is British slang for tipsy, which fits the spirit, but here it halves the word 'apparently'.",
-     "definitionFit": "Plain example: grappa is the Italian brandy distilled from grape pressings."
+     "surface": "Someone seems drunk and keeling over after a good glass of Italian spirit.",
+     "walkthrough": "'Half-cut' is British slang for drunk, which suits the surface, but here it halves APPARENTLY to APPAR. 'Rolling over' turns that round to RAPPA, placed 'after' G.",
+     "definitionFit": "Grappa is a strong Italian brandy distilled from the skins and pips left after winemaking."
     },
     "features": {
      "answerInScene": true,
@@ -668,42 +678,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CONTROLFREAK",
-     "indicators": [
-      {
-       "text": "after first escapes",
-       "note": "once its first letter has escaped, the word for rest is left without it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "computer means to find",
+       "at": 23,
+       "gives": "CONTROLF",
+       "note": "Control-F is the keyboard shortcut for the find command on a computer"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "after first escapes",
+         "at": 52,
+         "note": "once the first letter has escaped, the word loses its opening letter"
+        }
+       ],
        "parts": [
         {
-         "words": "computer means to find",
-         "gives": "CONTROLF",
-         "note": "Control-F is the keyboard shortcut to find text"
+         "words": "rest",
+         "at": 46,
+         "gives": "BREAK",
+         "note": "a break is a rest"
         },
         {
-         "words": "rest",
-         "gives": "REAK",
-         "note": "BREAK, a rest, without its first letter B"
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone fixated on their computer, hunting for a way to relax.",
-     "walkthrough": "'Computer means to find' is the Ctrl+F shortcut spelled out.",
-     "definitionFit": "Informal synonym: a control freak is obsessed with controlling everything around them."
+     "surface": "Someone uses a computer search to find a moment's peace once the first person has left.",
+     "walkthrough": "'Computer means to find' is the keyboard shortcut Control-F, written out as CONTROL F. BREAK for 'rest' then loses its first letter when the 'first escapes', leaving REAK.",
+     "definitionFit": "A control freak is someone obsessively driven to manage every detail and everyone around them."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "find"
+     "misdirectedWord": "escapes"
     }
    }
   },
@@ -970,41 +984,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANNEALS",
-     "indicators": [
-      {
-       "text": "Nearly",
-       "note": "a word nearly given stops just short, dropping its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "former monarch",
+       "at": 9,
+       "gives": "ANNE",
+       "note": "Queen Anne reigned over Britain from 1702 to 1714"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Nearly",
+         "at": 33,
+         "note": "nearly means not quite all, so the last letter of the word is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "former monarch",
-         "gives": "ANNE",
-         "note": "Queen Anne, who reigned 1702-1714"
+         "words": "as well",
+         "at": 24,
+         "gives": "ALSO",
+         "note": "also means as well"
         },
         {
-         "words": "as well?",
-         "gives": "ALS",
-         "note": "ALSO without its last letter"
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Does a queen of old strengthen things too? More or less.",
-     "walkthrough": "'Nearly' is split off by the question mark, but it still acts on the words just before it.",
-     "definitionFit": "Technical synonym: annealing metal or glass by heating and slow cooling makes it tougher."
+     "surface": "A question about whether a past queen also hardens things, answered with a hesitant 'nearly'.",
+     "walkthrough": "'Nearly' trims ALSO to ALS, which follows ANNE. Queen Anne was the last Stuart monarch.",
+     "definitionFit": "To anneal metal or glass is to heat it and cool it slowly so that it becomes tougher and less brittle."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "Nearly"
     }
    }
   },
@@ -1200,46 +1219,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCRIBBLE",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost the whole word, so it stops one letter short"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Small",
+       "at": 0,
+       "gives": "S",
+       "note": "S is the abbreviation for small, as on clothing sizes"
+      },
+      {
+       "words": "example of plagiarism",
+       "at": 6,
+       "gives": "CRIB",
+       "note": "a crib is something copied from another's work, a piece of plagiarism"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 28,
+         "note": "almost means not quite complete, so the last letter of the word is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Small",
-         "gives": "S",
-         "note": "standard abbreviation"
-        },
-        {
-         "words": "example of plagiarism",
-         "gives": "CRIB",
-         "note": "to crib is to copy someone's work"
-        },
-        {
          "words": "ruined",
-         "gives": "BLE",
-         "note": "BLEW (as in 'blew it') without its last letter"
+         "at": 35,
+         "gives": "BLEW",
+         "note": "to blow a chance is to ruin it, so blew means ruined"
+        },
+        {
+         "gives": "W"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bit of copying that nearly spoiled a sloppy essay.",
-     "walkthrough": "A crib is a student's word for copied work; 'blew it' means ruined it.",
-     "definitionFit": "Plain synonym: a scribble is writing dashed off without care."
+     "surface": "A minor case of copying nearly wrecked a sloppy essay.",
+     "walkthrough": "'Almost' trims BLEW, in the sense of 'blew it', to BLE, after S and CRIB.",
+     "definitionFit": "A scribble is hasty, untidy handwriting, jotted down without care."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "ruined"
     }
    }
   },
@@ -2674,35 +2699,50 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "not",
-       "note": "not very means without V, the abbreviation for very"
-      }
-     ],
      "parts": [
       {
        "words": "the German",
+       "at": 10,
        "gives": "DER",
-       "note": "der is German for 'the'"
+       "note": "der is the masculine form of the in German"
       },
       {
-       "words": "stream, not very",
-       "gives": "RIER",
-       "note": "RIVER without V, very"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 29,
+         "note": "not means without, so the letter for very is taken out of the stream word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stream",
+         "at": 21,
+         "gives": "RIVER",
+         "note": "a river is a stream"
+        },
+        {
+         "words": "very",
+         "at": 33,
+         "gives": "V"
+        }
+       ]
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "ultimately means in the end, so the last letter"
+         "at": 48,
+         "note": "ultimately means at the end, so the last letter of flexible is taken"
         }
        ],
        "parts": [
         {
          "words": "flexible",
-         "note": "last letter of flexible"
+         "at": 38,
+         "note": "the word whose last letter is used"
         }
        ]
       }
@@ -2710,13 +2750,13 @@
     },
     "spelling": "DERRIÈRE",
     "explanation": {
-     "surface": "The bed of a German river that barely bends.",
-     "walkthrough": "'Bottom of the German stream' paints a riverbed; Bottom is the backside.",
-     "definitionFit": "Euphemism: derrière, French for 'behind', is a polite word for the bottom."
+     "surface": "The far end of a German stream that turns out to be not very pliable after all.",
+     "walkthrough": "'Bottom' looks like the bed of the stream, but it means a backside. DER is 'the' in German; 'not very' removes V from RIVER to give RIER; E ends 'flexible'.",
+     "definitionFit": "Derrière is a French borrowing, used jokingly in English for a person's buttocks, their behind."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Bottom"
     }
