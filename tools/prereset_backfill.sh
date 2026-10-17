@@ -1364,6 +1364,10 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
     # never queued for them.
     # Unchecked steps are a re-parse, not an additive field: not backfilled
     # here (design/puzzle_format.md, step 8).
+    # Spelling is display only (the grid holds letters): tools/fill_spellings.py
+    # writes it where it is unambiguous, and the rest stays a warning. A model run
+    # costs more than the field is worth.
+    spelling.unsaid) echo "  not a backfill (tools/fill_spellings.py fills it); skipped"; continue ;;
     wordplay.unchecked) echo "  not a backfill (a re-parse of the step); skipped"; continue ;;
     assembly.anagrams) name="\`assembly.anagrams\` entry"
       what="{fodder, gives} for the clue's shuffle: every letter that goes in, and what it becomes" ;;

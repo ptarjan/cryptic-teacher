@@ -112,17 +112,11 @@ def _fits(said, enumeration):
     return not groups or len(re.findall(r"\d+", enumeration)) == words
 
 
-def spelling_unsaid(ann, answer, enumeration=None):
-    """The answer with the apostrophe or accent it takes, when the annotation has
-    no `spelling` and either its own prose writes the answer so or another
-    annotation gave this answer that spelling; else None."""
-    if ann.get("spelling") or not answer:
-        return None
+def prose_spellings(ann, answer, enumeration=None):
+    """Every distinct way the annotation's own prose writes `answer` with an
+    apostrophe or an accent (upper case, straight apostrophes), in order found."""
     ans = letters(answer)
-    if len(ans) < 4:
-        return None
-    if ans in known_spellings():
-        return known_spellings()[ans]
+    out = []
     for text in _prose(ann):
         if not re.search(r"[’'À-ɏ]", text):
             continue
@@ -134,8 +128,24 @@ def spelling_unsaid(ann, answer, enumeration=None):
                 if run == ans:
                     said = " ".join(words[i:j + 1])
                     if re.search(r"[À-ɏ]", said) or (re.search(r"[’']", said) and _fits(said, enumeration)):
-                        return said
+                        said = said.replace("’", "'").upper()
+                        if said not in out:
+                            out.append(said)
                     break
                 if not ans.startswith(run):
                     break
-    return None
+    return out
+
+
+def spelling_unsaid(ann, answer, enumeration=None):
+    """The answer with the apostrophe or accent it takes, when the annotation has
+    no `spelling` and either its own prose writes the answer so or another
+    annotation gave this answer that spelling; else None."""
+    if ann.get("spelling") or not answer:
+        return None
+    ans = letters(answer)
+    if len(ans) < 4:
+        return None
+    if ans in known_spellings():
+        return known_spellings()[ans]
+    return next(iter(prose_spellings(ann, answer, enumeration)), None)
