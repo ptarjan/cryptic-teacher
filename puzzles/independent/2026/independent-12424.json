@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -393,26 +394,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AFAR",
+     "op": "middle",
      "indicators": [
       {
        "text": "Discovered",
-       "note": "read it as dis-covered, stripped of its covering, so the letters wrapped round the outside come off"
+       "at": 0,
+       "note": "discovered is read as dis-covered, the cover stripped off, so the first and last letters go"
       }
      ],
      "parts": [
       {
        "words": "wildlife trip",
+       "at": 11,
        "gives": "SAFARI",
-       "note": "a safari is a trip to see wildlife; lose the S at the front and the I at the back"
+       "note": "a safari is an expedition to watch or hunt wild animals"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Discovered' is a lovely piece of misdirection — it looks like a past tense reporting a find, and it is an instruction to take the wrapping off.",
-     "definitionFit": "afar survives mainly in the phrase 'from afar', where it means at a great distance, which is what 'a long way away' says plainly."
+     "surface": "Someone stumbling upon a wildlife tour in a distant land.",
+     "walkthrough": "'Discovered' looks like 'found', but it means uncovered: SAFARI loses its outer letters.",
+     "definitionFit": "Afar is an adverb meaning at or to a great distance, the same as the phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Discovered"
     }
    }
   },
@@ -652,37 +659,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "working",
-       "note": "worked in the sense dough is worked, kneaded into a different shape rather than employed"
+       "text": "to be inspired by",
+       "at": 25,
+       "note": "inspired here means breathed in, so the requirement is taken inside the reworked titles"
       }
      ],
      "parts": [
       {
-       "words": "titles",
-       "gives": "LITEST",
-       "note": "the six letters of 'titles' kneaded into a new order, which then parts after three"
-      },
-      {
        "op": "anagram",
        "indicators": [
         {
-         "text": "to be inspired by",
-         "note": "to inspire is literally to breathe in, so whatever is inspired ends up inside the other piece"
+         "text": "working",
+         "at": 43,
+         "note": "working means being processed or reshaped, so the letters of titles are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "requirement",
-         "gives": "MUST",
-         "note": "a requirement is a must"
+         "words": "titles",
+         "at": 51
         }
        ]
+      },
+      {
+       "words": "requirement",
+       "at": 13,
+       "gives": "MUST",
+       "note": "a must is something required"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Touchstone is also the clown in As You Like It, so the apostrophe-s reads as his possession when it is really standing in for 'is'.",
-     "definitionFit": "a touchstone was the dark stone a jeweller rubbed gold against to assay it, so both words name a single trial that settles a question outright."
+     "surface": "A demand that a writer draw inspiration from the titles being worked on.",
+     "walkthrough": "'inspired' reads as creative influence, but here it is literal: breathed in, so one piece is held inside the other. The 's after Touchstone stands for 'is'.",
+     "definitionFit": "A litmus test, like a touchstone, is a decisive standard by which something's quality is judged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inspired"
     }
    }
   },
@@ -749,46 +764,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ESTRANGING",
-     "indicators": [
-      {
-       "text": "The woman's away",
-       "note": "the woman is HER, and 'away' is the order to take those three letters out of the name in front"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "away",
+         "at": 36,
+         "note": "away means those letters are gone from the name Esther"
+        }
+       ],
        "parts": [
         {
          "words": "Esther",
-         "gives": "EST",
-         "note": "drop the HER from ESTHER, minus the woman, and EST is what stays"
+         "at": 16
         },
         {
-         "words": "phoned up",
-         "gives": "RANG",
-         "note": "to ring someone up is to phone them"
-        },
-        {
-         "words": "during",
-         "gives": "IN",
-         "note": "during and in are the same preposition of time"
-        },
-        {
-         "words": "golf",
-         "gives": "G",
-         "note": "golf is the radio alphabet's word for G, alongside alpha and bravo"
+         "words": "The woman's",
+         "at": 24,
+         "gives": "HER",
+         "note": "her is the woman's, the possessive pronoun"
         }
        ]
+      },
+      {
+       "words": "phoned up",
+       "at": 45,
+       "gives": "RANG",
+       "note": "to phone someone up is to ring them, so rang"
+      },
+      {
+       "words": "during",
+       "at": 55,
+       "gives": "IN",
+       "note": "in can mean during, as in 'in the night'"
+      },
+      {
+       "words": "golf",
+       "at": 62,
+       "gives": "G",
+       "note": "G is golf in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The exclamation mark sells the surface as gossip on a fairway, which is why nobody looks at 'golf' and sees a single letter of the radio alphabet.",
-     "definitionFit": "to estrange is to drive people apart until they stop speaking, so the -ing form matches 'separating' in the sense of a relationship coming apart."
+     "surface": "Someone splitting from Esther, she having left after a call came in mid-round on the golf course.",
+     "walkthrough": "'The woman's away' removes HER from ESTHER to leave EST.",
+     "definitionFit": "Estranging means alienating or causing to become separated from someone once close."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "during"
     }
    }
   },
@@ -925,41 +953,50 @@
     "definitions": [
      {
       "text": "ineffective medication",
-      "at": 22,
-      "note": "'Medication' is a mass noun covering any number of pills, so it fairly defines a plural answer without itself being one."
+      "at": 22
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PLACEBOS",
-     "indicators": [
-      {
-       "text": "detailed",
-       "note": "read as de-tailed, robbed of its tail, so the word in front loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Site",
+       "at": 0,
+       "gives": "PLACE",
+       "note": "a site is a place"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "detailed",
+         "at": 13,
+         "note": "detailed is read as de-tailed, the tail or last letter cut off"
+        }
+       ],
        "parts": [
         {
-         "words": "Site",
-         "gives": "PLACE",
-         "note": "the site of something is the place it happens"
+         "words": "manager",
+         "at": 5,
+         "gives": "BOSS",
+         "note": "a boss manages staff"
         },
         {
-         "words": "manager",
-         "gives": "BOS",
-         "note": "a manager is a BOSS, and the tail comes off"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Detailed' is the whole clue in one word: it reads as an adjective describing thorough paperwork and works as a verb meaning docked.",
-     "definitionFit": "a placebo is the dummy pill given to a trial's control group, so 'ineffective medication' names it by the very thing it deliberately lacks."
+     "surface": "A site manager listing the details of some useless drugs.",
+     "walkthrough": "'detailed' looks like 'thorough', but here it means curtailed: BOSS loses its last letter.",
+     "definitionFit": "Placebos are dummy pills with no active drug, given for their psychological effect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "detailed"
     }
    }
   },
@@ -1420,39 +1457,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BRICKWALL",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner swapped the opening sounds of two words, so naming him is the order to trade them over"
+       "at": 31,
+       "note": "Spooner names the Reverend Spooner, who swapped the opening sounds of words"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Northern Scotland",
+       "at": 50,
+       "gives": "WICK",
+       "note": "Wick is a town in the far north of Scotland, in Caithness"
+      },
+      {
+       "op": "homophone",
+       "spelt": "BRALL",
        "parts": [
         {
-         "unchecked": true,
-         "words": "Northern Scotland",
-         "gives": "BRICK",
-         "soundsLike": "WICK",
-         "note": "Wick is the town on the far north coast of Scotland, and it takes in the BR the other word gives up"
-        },
-        {
-         "unchecked": true,
          "words": "fight",
-         "gives": "WALL",
-         "soundsLike": "BRAWL",
-         "note": "a brawl is a fight, and it hands its BR over in exchange for the W"
+         "at": 41,
+         "gives": "BRAWL",
+         "note": "a brawl is a rough fight"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Spooner clues stand or fall on the place name, and this one is a real town rather than a region — the north of Scotland has only so many.",
-     "definitionFit": "a brick wall is the immovable barrier of the idiom, the thing you hit when progress stops dead."
+     "surface": "A wall going up after a scuffle in the far north of Scotland.",
+     "walkthrough": "'Spooner's' asks for the opening sounds of 'Wick brawl' to be swapped; BRAWL is heard as BRALL, rhyming with wall. Wick is a small town in Caithness at Scotland's northern tip.",
+     "definitionFit": "A brick wall is a solid structure that blocks the way, so it is a physical obstruction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Scotland"
     }
    }
   },
