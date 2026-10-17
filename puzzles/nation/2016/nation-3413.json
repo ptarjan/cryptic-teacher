@@ -92,44 +92,50 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "COMICACTOR",
      "indicators": [
       {
        "text": "hoarding",
-       "note": "to hoard is to keep stored inside, so one piece holds the other"
+       "at": 33,
+       "note": "hoarding means keeping a store inside, so the altered physician holds the mineral within"
       }
      ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "COMICACTOR",
        "indicators": [
         {
          "text": "Raise initial grade of",
-         "note": "grades run A, B, C, D, so raising the first letter's grade swaps it for a better one"
+         "at": 0,
+         "note": "the physician's opening letter is a school grade, and raising it one step lifts it to the next grade up"
         }
        ],
        "parts": [
         {
          "words": "physician",
+         "at": 23,
          "gives": "DOCTOR",
          "note": "a doctor is a physician"
         },
         {
-         "words": "flaky mineral",
-         "gives": "MICA",
-         "note": "mica is a mineral that splits into thin flakes"
+         "gives": "D"
+        },
+        {
+         "gives": "C"
         }
        ]
+      },
+      {
+       "words": "flaky mineral",
+       "at": 42,
+       "gives": "MICA",
+       "note": "mica is a mineral that splits into thin flakes"
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor with a mineral stash promotes a famous funnyman.",
-     "walkthrough": "The D at the front of the physician is raised to grade C, and the mineral goes in after its second letter.",
-     "definitionFit": "Jim Carrey is a Canadian-American actor famous for slapstick roles, an example of a comedy performer."
+     "surface": "A doctor gets a better grade while stockpiling a crumbly rock, all somehow linked to Jim Carrey.",
+     "walkthrough": "'Raise initial grade of' turns the D of DOCTOR into a C, giving COCTOR; 'hoarding' puts MICA inside it.",
+     "definitionFit": "Jim Carrey is a performer famous for slapstick roles, an example of a comedy film star."
     },
     "features": {
      "answerInScene": false,
@@ -1278,48 +1284,35 @@
      {
       "text": "Cast",
       "at": 0
-     },
-     {
-      "text": "terminated",
-      "at": 8,
-      "note": "the sound-alike of the answer means terminated"
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "homophone",
+     "spelt": "THREW",
+     "indicators": [
+      {
+       "text": "at an audition",
+       "at": 19,
+       "note": "an audition is a hearing, so the word is taken as it sounds when spoken"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Cast",
-       "note": "first meaning: tossed or flung"
-      },
-      {
-       "op": "homophone",
-       "spelt": "THREW",
-       "indicators": [
-        {
-         "text": "at an audition",
-         "note": "an audition is a hearing, so the word is judged by sound"
-        }
-       ],
-       "parts": [
-        {
-         "words": "terminated",
-         "gives": "THROUGH",
-         "note": "terminated means finished, or through"
-        }
-       ]
+       "words": "terminated",
+       "at": 8,
+       "gives": "THROUGH",
+       "note": "through means finished or terminated, as in 'we're through'"
       }
      ]
     },
     "explanation": {
-     "surface": "An actor learns they're dropped from the production during tryouts.",
-     "walkthrough": "'Cast' and 'audition' paint a theatre scene, but cast is the past tense of throw.",
-     "definitionFit": "Cast and threw are both past tenses of verbs for flinging something."
+     "surface": "A theatre company is dismissed at a tryout.",
+     "walkthrough": "'Cast' looks like a noun for actors, which suits 'audition', but it is the past tense of throw. 'at an audition' gives the sound of THROUGH.",
+     "definitionFit": "Cast as a past-tense verb means flung or tossed, the same as threw."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Cast"
     }
@@ -1347,37 +1340,36 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "a bit of",
-       "note": "a bit of a word is a small part of it, here only its opening letter"
-      }
-     ],
      "parts": [
       {
        "words": "for",
+       "at": 6,
        "gives": "PRO",
-       "note": "pro means for, in favor of"
+       "note": "pro means for, in favour of"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "M",
+       "indicators": [
+        {
+         "text": "a bit of",
+         "at": 10,
+         "note": "only a small piece of the word is taken: its first letter"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "a bit of money",
-         "gives": "M",
-         "select": "first",
-         "note": "the opening letter of money"
+         "words": "money",
+         "at": 19,
+         "note": "the word money supplies its opening letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone will dance if paid a little cash.",
-     "definitionFit": "A prom is a formal dance held for high-school students, especially in the US."
+     "surface": "Someone will dance if paid even a little cash.",
+     "walkthrough": "'for' gives PRO and 'a bit of money' gives M. In the US a prom is a formal high-school dance.",
+     "definitionFit": "A prom is a formal dance, especially one held for students at the end of the school year."
     },
     "features": {
      "answerInScene": false,
