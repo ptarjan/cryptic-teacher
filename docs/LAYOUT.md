@@ -2675,6 +2675,11 @@ tools/test_abbreviation_notes.py               is an abbreviation gloss derived 
                                                never stored: view shows it, the validator
                                                refuses a note that only restates it, from_model
                                                drops one, and a note that adds anything stays?
+tools/test_validate_shard.py                   the deploy's full annotation check runs as 4
+                                               shards (`--shard i/n`), one step each: the
+                                               shards are disjoint, their union is the whole
+                                               corpus, the split is stable, and a malformed or
+                                               mixed-up --shard is refused
 tools/test_validate_speed.py                   the deploy's "Check every annotation" step runs
                                                validate_annotations over the whole corpus
                                                (~51,000 files), so a per-file cost that creeps

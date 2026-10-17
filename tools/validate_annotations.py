@@ -48,6 +48,9 @@ And checks that need the whole puzzle in hand:
 Usage: python3 tools/validate_annotations.py [--unscoped] [--tighten] [puzzle-number ...]
        python3 tools/validate_annotations.py --explain [check-name]
 With no arguments, validates every puzzle that has at least one annotation.
+`--shard i/n` (the deploy runs 0/4 .. 3/4) does that for the puzzles whose id
+hashes to i of n; the ratchet is per puzzle, so each shard enforces its own
+slice and the backlog totals it prints are the slice's.
 `--unscoped` runs the authored-only checks on published puzzles too — that is
 the CALIBRATION harness, not a mode to ship in: a check that flags Araucaria is
 a broken check, so every authored-only rule is measured across the annotated
@@ -59,6 +62,7 @@ import ast
 import collections
 import difflib
 import functools
+import hashlib
 import json
 import multiprocessing
 import os
@@ -4609,11 +4613,43 @@ def check_all(paths, corpus, allowed):
         yield from pool.imap(_pool_one, paths, POOL_CHUNK)
 
 
+def shard_of(stem, n):
+    """Which of n shards checks puzzle `stem`: a stable hash of the id (not
+    Python's per-process hash()), so every step of the deploy agrees on the
+    split. The same rule as tools/build_seo_pages.py's page shards."""
+    return int.from_bytes(hashlib.sha256(stem.encode("utf-8")).digest()[:8], "big") % n
+
+
+def shard_slice(paths, shard):
+    """The paths of `paths` that belong to shard (i, n)."""
+    i, n = shard
+    return [p for p in paths if shard_of(p.stem, n) == i]
+
+
+def take_shard_arg(argv):
+    """(argv without `--shard i/n`, (i, n) or None)."""
+    if "--shard" not in argv:
+        return argv, None
+    at = argv.index("--shard")
+    try:
+        i, n = map(int, argv[at + 1].split("/"))
+    except (IndexError, ValueError):
+        raise SystemExit("--shard takes i/n, e.g. --shard 0/4")
+    if not 0 <= i < n:
+        raise SystemExit(f"--shard {i}/{n}: i must be from 0 to n-1")
+    return argv[:at] + argv[at + 2:], (i, n)
+
+
 def main(argv):
     global FORCE_AUTHORED_CHECKS
     if "-h" in argv or "--help" in argv:
         print(__doc__)
         return 0
+    argv, shard = take_shard_arg(argv)
+    if shard and "--tighten" in argv:
+        raise SystemExit("--shard cannot --tighten: only an unsharded run has seen every puzzle")
+    if shard and [a for a in argv if a != "--unscoped"]:
+        raise SystemExit("--shard splits the full check: it takes no puzzle ids or files")
     if "--explain" in argv:
         rest = argv[argv.index("--explain") + 1:]
         return explain(rest[0] if rest else None)
@@ -4637,6 +4673,12 @@ def main(argv):
     full_run = not argv
     corpus = full_run or deploy
     allowed = load_backlog()
+    if shard:
+        # The ratchet is per puzzle, so a shard enforces exactly its slice of
+        # it; the totals below are the slice's, and the shards' sum is the
+        # whole corpus's. A failure in any shard fails its step, so the deploy.
+        paths = shard_slice(paths, shard)
+        print(f"shard {shard[0] + 1} of {shard[1]}: {len(paths)} puzzle(s)")
     if (deploy or full_run) and not tighten and time.time() < SHAPE_GRACE_UNTIL:
         # The hooks and CI, not a run's own annotate_check, wait for the pushers
         # still on code from before the shape rules (a pre-reset backfill cannot
@@ -4661,7 +4703,9 @@ def main(argv):
         # Only a full run has visited every puzzle, so only a full run may
         # rewrite the file — and only when asked, because widening the
         # allowance is how a regression would get itself forgiven.
-        moved = {f: sum(allowed.get(f, {}).values()) - sum(c[f] for c in observed.values())
+        moved = {f: sum(n for stem, n in allowed.get(f, {}).items()
+                        if not shard or shard_of(stem, shard[1]) == shard[0])
+                 - sum(c[f] for c in observed.values())
                  for f in BACKLOG_MARKERS}
         if tighten and failed:
             # A failing run is the one run that must never record its own state:
