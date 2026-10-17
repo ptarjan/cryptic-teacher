@@ -709,6 +709,7 @@ def _inline_slips(line):
     if "\u00b7" in line:  # a speck read as a middle dot ("study·money", "in· France")
         line = re.sub(r"\s*\u00b7\s*", " ", line).strip()
     line = re.sub(r"(?<=\w)`", " `", line).replace("`", "\u2018")  # a backtick is an opening quote read
+    line = re.sub(r"(?<=[A-Za-z\"\u201d\u2019?!.])\((?=[\d\u2013\u2014-])", " (", line)  # space lost before a bracket
     line = see_one(line)  # a reference to 1 read as its lookalike ("10 See lac.")
     line = ones_read(see_numeral(line))  # "SeeI3." is "See 13."; "l9th" is "19th"
     return WORDS_COUNT.sub(r"(\1)", line)  # "(6, two words)" is "(6)"
@@ -722,6 +723,7 @@ def _line_slips(line):
     # A clue opening on an ellipsis ("5... the", "5_ ... the", "6 . stabbed"). A
     # lone stop glued to the number ("5. the") is the number's own.
     line = ELLIPSIS_HEAD.sub(r"\1 ... ", line)
+    line = re.sub(r"^(\d{1,2})(?=[\"\u201c\u2018'])", r"\1 ", line)  # space lost between number and opening quote
     # Not before a lowercase word: "6 3 put more negatively" is 6 down whose
     # clue opens on a reference to 3 (Cyclops No 19), not 63.
     line = re.sub(r"^(\d) (\d) (?=[^\sa-z])", r"\1\2 ", line)
