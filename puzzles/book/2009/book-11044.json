@@ -645,58 +645,65 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SHOUTINGMATCH",
      "indicators": [
       {
        "text": "in",
-       "note": "in means placed inside the next pair of pieces"
+       "at": 17,
+       "note": "the trip and carpet pieces sit inside the letters for quiet and church"
       }
      ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "quiet",
+         "at": 20,
+         "gives": "SH",
+         "note": "SH is the call for quiet"
+        },
+        {
+         "words": "church",
+         "at": 26,
+         "gives": "CH"
+        }
+       ]
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
          "text": "over",
-         "note": "in a down clue over means above, so the trip word sits on top of the carpet word"
+         "at": 5,
+         "note": "in a down clue, one piece over another sits above it, so it comes first"
         }
        ],
        "parts": [
         {
-         "words": "quiet",
-         "gives": "SH",
-         "note": "sh is the call for quiet"
-        },
-        {
          "words": "Trip",
+         "at": 0,
          "gives": "OUTING",
-         "note": "an outing is a trip"
+         "note": "a trip or excursion is an outing"
         },
         {
          "words": "carpet",
+         "at": 10,
          "gives": "MAT",
          "note": "a mat is a small carpet"
-        },
-        {
-         "words": "church",
-         "gives": "CH",
-         "note": "standard abbreviation for church"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone trips on a church carpet while lining up quietly.",
-     "walkthrough": "'Making a row' suggests forming a line; row here rhymes with cow and means a quarrel.",
-     "definitionFit": "A shouting match is a loud angry argument, and a row is a noisy quarrel."
+     "surface": "Someone stumbles on a rug during a hushed church service and causes a commotion.",
+     "walkthrough": "'Trip over' reads as stumbling, but 'over' is a positional signal for a down entry: the outing sits above the carpet, and both go in between the quiet and church letters.",
+     "definitionFit": "A shouting match is a noisy quarrel, which is one sense of a row, rhyming with cow."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "row"
+     "misdirectedWord": "Trip"
     }
    }
   },
