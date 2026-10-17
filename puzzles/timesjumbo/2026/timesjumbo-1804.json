@@ -107,26 +107,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "OKAY",
      "indicators": [
       {
        "text": "unstarted",
-       "note": "a word left unstarted never gets its first letter"
+       "at": 12,
+       "note": "unstarted means the word loses its start, its opening letter"
       }
      ],
      "parts": [
       {
-       "words": "Wine that's unstarted",
-       "gives": "OKAY",
-       "note": "TOKAY, a sweet Hungarian wine, without its first letter T"
+       "words": "Wine that's",
+       "at": 0,
+       "gives": "TOKAY",
+       "note": "Tokay is a sweet Hungarian dessert wine; the 's is just part of the phrase naming it"
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A wine buff shrugs that a bottle left unopened is perfectly all right.",
-     "walkthrough": "Tokay is the wine to know: a sweet white from Hungary, spelt Tokaji there.",
-     "definitionFit": "A plain synonym: both are the everyday word for acceptable or satisfactory, a shrugging approval."
+     "surface": "A wine that nobody has opened yet is perfectly acceptable.",
+     "walkthrough": "Tokay is a sweet wine from Hungary; 'unstarted' removes its first letter to leave a word meaning all right.",
+     "definitionFit": "Okay and fine are both informal ways of saying satisfactory or all right."
     },
     "features": {
      "answerInScene": false,
@@ -281,8 +284,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "Some",
-       "note": "only some of the letters of biofuel are used, a run inside it"
+       "text": "turned up",
+       "at": 13,
+       "note": "in a down clue, turned up means the letters read from bottom to top, so backwards"
       }
      ],
      "parts": [
@@ -290,29 +294,29 @@
        "op": "hidden",
        "indicators": [
         {
-         "text": "turned up",
-         "note": "in a down answer, turning the run up reads it from bottom to top"
+         "text": "Some",
+         "at": 0,
+         "note": "some means only part of the following word is used, a run of its letters"
         }
        ],
        "parts": [
         {
-         "words": "Some biofuel",
-         "gives": "OFU",
-         "note": "the run O-F-U sits inside biOFUel"
+         "words": "biofuel",
+         "at": 5,
+         "note": "the letters OFU run across the middle of the word biofuel"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A green-energy note about using biofuel to power some novel sort of vehicle.",
-     "walkthrough": "The question mark flags that the definition is playful: an unidentified flying object is a craft nobody has classified yet.",
-     "definitionFit": "A UFO is a flying craft of unknown kind, so a new type in the sense that nobody has named it."
+     "surface": "Some green fuel is put to use for a novel kind of vessel.",
+     "walkthrough": "'Some' takes the letters OFU from inside biofuel, and 'turned up' reverses them; the question mark admits the craft is only reported.",
+     "definitionFit": "A UFO, or flying saucer, is supposedly an alien spaceship, an unfamiliar sort of flying vehicle."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "biofuel"
     }
    }
@@ -621,49 +625,55 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "includes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "one",
+       "at": 19,
+       "gives": "I",
+       "note": "the Roman numeral I is one"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "beginning",
-         "note": "the beginning of cavity is its first letter"
+         "text": "includes",
+         "at": 32,
+         "note": "includes means the word for of teeth holds the next pieces inside it"
         }
        ],
        "parts": [
         {
-         "words": "one",
-         "gives": "I",
-         "note": "I = one, the Roman numeral"
-        },
-        {
          "words": "of teeth",
+         "at": 23,
          "gives": "DENTAL",
-         "note": "dental = of the teeth; it opens to take I and C"
-        }
-       ]
-      },
-      {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "I = one again"
+         "note": "dental means of or relating to teeth"
         },
         {
-         "op": "first",
+         "op": "charade",
          "parts": [
           {
-           "words": "cavity's beginning",
-           "gives": "CAVITYBEGINNING",
-           "note": "first letter of Cavity"
+           "words": "one",
+           "at": 41,
+           "gives": "I",
+           "note": "again the Roman numeral I"
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "beginning",
+             "at": 54,
+             "note": "beginning means just the first letter of the word"
+            }
+           ],
+           "parts": [
+            {
+             "words": "cavity's",
+             "at": 45,
+             "note": "the word cavity, whose first letter is C"
+            }
+           ]
           }
          ]
         }
@@ -672,14 +682,14 @@
      ]
     },
     "explanation": {
-     "surface": "A dentist's note that one tooth has the first sign of a cavity.",
-     "walkthrough": "The dental surface suits the words, since 'cavity' and 'teeth' belong together; the definition, though, is about exact agreement.",
-     "definitionFit": "Identical things agree in every detail, precisely the same."
+     "surface": "A dentist's verdict on one tooth: it has the start of a cavity.",
+     "walkthrough": "I, then DENTAL which 'includes' a second I plus C, the 'beginning' of cavity.",
+     "definitionFit": "Identical means exactly alike, matching in every detail, so things that agree precisely are identical."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "teeth"
+     "misdirectedWord": "cavity's"
     }
    }
   },
@@ -711,51 +721,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NONINTERCHANGEABLE",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 43,
+       "note": "in means the junction goes inside the jumbled letters"
+      }
+     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "the junction sits in the scrambled LEBANON"
+         "text": "crazy",
+         "at": 46,
+         "note": "crazy means the letters of Lebanon are jumbled into a new order"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "crazy",
-           "note": "crazy letters are jumbled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "big road junction",
-           "gives": "INTERCHANGE",
-           "note": "an interchange is a large junction linking main roads"
-          },
-          {
-           "words": "Lebanon",
-           "gives": "NONABLE",
-           "note": "LEBANON rearranged; it splits around INTERCHANGE"
-          }
-         ]
+         "words": "Lebanon",
+         "at": 52
         }
        ]
+      },
+      {
+       "words": "big road junction",
+       "at": 25,
+       "gives": "INTERCHANGE",
+       "note": "an interchange is a large motorway junction with slip roads"
       }
      ]
     },
     "explanation": {
-     "surface": "A traveller's complaint that a huge junction in chaotic Lebanon cannot be crossed.",
-     "walkthrough": "'cross over' suggests getting across a road; it means swapping, as parts cross over from one machine to another.",
-     "definitionFit": "Things that are non-interchangeable cannot be swapped for each other, cannot cross over."
+     "surface": "A huge road junction in chaotic Lebanon cannot be crossed.",
+     "walkthrough": "'Crazy' rearranges Lebanon into NONABLE, and INTERCHANGE goes 'in' it, between NON and ABLE.",
+     "definitionFit": "Things that cannot be swapped or exchanged for one another are non-interchangeable; one cannot cross over into the other's place."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "cross"
     }
    }
@@ -2184,56 +2189,57 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MAGNIFICO",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 13,
+       "note": "around means the note and company go round the shaken letters"
+      }
+     ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Note",
+         "at": 0,
+         "gives": "MI",
+         "note": "mi is the third note of the sol-fa scale"
+        },
+        {
+         "words": "company",
+         "at": 5,
+         "gives": "CO"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "around"
+         "text": "shaking",
+         "at": 26,
+         "note": "shaking means the letters of Fagin are shaken up into a new arrangement"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "shaking",
-           "note": "shaken letters are jumbled"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Note",
-           "gives": "MI",
-           "note": "mi is the third note of the sol-fa scale; it opens to take AGNIF"
-          },
-          {
-           "words": "Fagin",
-           "gives": "AGNIF",
-           "note": "FAGIN rearranged"
-          },
-          {
-           "words": "company",
-           "gives": "CO",
-           "note": "Co = company"
-          }
-         ]
+         "words": "Fagin",
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A note that a gang has gathered round Fagin, who is shaking with fear.",
-     "walkthrough": "Fagin is the thieves' master in Dickens's Oliver Twist; here he is just five letters to shake up.",
-     "definitionFit": "A magnifico was a Venetian nobleman, and more loosely any grandee or important person."
+     "surface": "A musical company gathers round a trembling Fagin, the villain of Oliver Twist.",
+     "walkthrough": "'Shaking' turns Fagin into AGNIF, and MI plus CO go 'around' it, with the M before and ICO after.",
+     "definitionFit": "A magnifico was a Venetian nobleman, and the word came to mean any grandee or very important person."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Fagin"
+     "misdirectedWord": "Note"
     }
    }
   },
@@ -2678,57 +2684,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SQUIRT",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "curtailed",
-         "note": "curtailed means its tail is cut off, so SQUIRE loses the E"
+         "at": 10,
+         "note": "curtailed means docked of its tail, the final letter"
         }
        ],
        "parts": [
         {
-         "words": "Landowner curtailed",
-         "gives": "SQUIR",
-         "note": "SQUIRE, a country landowner, without its last letter"
+         "words": "Landowner",
+         "at": 0,
+         "gives": "SQUIRE",
+         "note": "a squire is the chief landowner in an English country parish"
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "T",
-         "indicators": [
-          {
-           "text": "end of",
-           "note": "the end of pheasant is its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "end of pheasant",
-           "gives": "T",
-           "select": "last",
-           "note": "last letter of pheasanT"
-          }
-         ]
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 20,
+         "note": "end of means the last letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pheasant",
+         "at": 27,
+         "note": "the word pheasant, whose last letter is T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A country squire calls off the pheasant shoot early.",
-     "walkthrough": "'shoot' is a hunting party in the surface; the definition is the verb, as liquid shoots out.",
-     "definitionFit": "A plain synonym for the verb: liquid that squirts spurts out in a thin fast jet, as from a water pistol."
+     "surface": "A country landowner calls an early halt to a pheasant shoot.",
+     "walkthrough": "'Curtailed' docks SQUIRE to SQUIR, and 'end of' pheasant adds T. 'Shoot' looks like the noun from the scene; here it is the verb for spurting liquid.",
+     "definitionFit": "To squirt is to shoot out liquid in a thin jet, as from a water pistol."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "shoot"
     }
    }
@@ -2871,55 +2876,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RADII",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "cut",
-         "note": "a cut word loses its end, so RADIX drops the X"
+         "at": 5,
+         "note": "cut means the word is trimmed, losing its final letter"
         }
        ],
        "parts": [
         {
-         "words": "Root cut",
-         "gives": "RADI",
-         "note": "RADIX, Latin for root, without its last letter"
+         "words": "Root",
+         "at": 0,
+         "gives": "RADIX",
+         "note": "radix is Latin for root, used in botany and mathematics"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "I",
-         "indicators": [
-          {
-           "text": "primarily",
-           "note": "primarily means first, so only the first letter of into"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "primarily into",
-           "gives": "I",
-           "select": "first",
-           "note": "first letter of Into"
-          }
-         ]
+         "gives": "X"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 9,
+         "note": "primarily means the first letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "into",
+         "at": 19,
+         "note": "the word into, whose first letter is I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A surgeon's note that a root has cut into the bones.",
-     "walkthrough": "RADIX is Latin for root, and it survives in English for the base of a number system.",
-     "definitionFit": "The radius is a forearm bone, and radii is its plural."
+     "surface": "A root is chopped up first and put into a stock of bones.",
+     "walkthrough": "Radix is Latin for root; 'cut' trims it to RADI, then 'primarily' adds I from 'into'.",
+     "definitionFit": "The radius is a bone of the forearm, and radii is its Latin plural, so the answer means bones."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Root"
     }
