@@ -890,41 +890,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "accepting"
+       "text": "accepting of",
+       "at": 12,
+       "note": "the word for too accepts the letter, taking it inside"
       }
      ],
      "parts": [
       {
        "words": "too",
+       "at": 8,
        "gives": "OVERLY",
-       "note": "too = overly, excessively; it goes around the T"
+       "note": "overly means too, excessively"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "T",
        "indicators": [
         {
          "text": "leader of",
+         "at": 25,
          "note": "the leader of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "leader of tribe",
-         "gives": "T",
-         "select": "first",
-         "note": "first letter of tribe"
+         "words": "tribe",
+         "at": 35,
+         "note": "its first letter, T, is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is plainly too willing to follow a tribal chief.",
-     "walkthrough": "'Accepting' reads as being too tolerant of a chief; it is the container instruction, and 'Clearly' at the front is the definition, an adverb like the answer.",
-     "definitionFit": "A plain synonym: done in the open, where everyone can see it clearly."
+     "surface": "Someone is plainly far too tolerant of a tribal chief.",
+     "walkthrough": "T, the leader of tribe, goes inside OVERLY between R and L.",
+     "definitionFit": "Overtly means openly and plainly, done in a way anyone can see."
     },
     "features": {
      "answerInScene": false,
@@ -1012,26 +1012,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "OFTEN",
      "indicators": [
       {
        "text": "without leader",
-       "note": "a word without its leader has lost the letter that heads it"
+       "at": 20,
+       "note": "the word loses its leader, its first letter"
       }
      ],
      "parts": [
       {
        "words": "mitigate",
-       "gives": "OFTEN",
-       "note": "mitigate = SOFTEN, minus its first letter S"
+       "at": 11,
+       "gives": "SOFTEN",
+       "note": "to soften something is to mitigate it, make it less severe"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to ease things often when nobody is in charge.",
-     "walkthrough": "SOFTEN loses its S; the leader in the surface sounds like a person in charge.",
-     "definitionFit": "A plain synonym: many times, at short intervals."
+     "surface": "Leaderless groups often try to tone things down.",
+     "walkthrough": "SOFTEN drops its first letter, S.",
+     "definitionFit": "Often is a straightforward synonym of frequently, many times."
     },
     "features": {
      "answerInScene": false,
@@ -1067,47 +1070,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DIRECTOR",
+     "op": "container",
      "indicators": [
       {
-       "text": "returned",
-       "note": "sent back, so it reads backwards"
+       "text": "holding",
+       "at": 27,
+       "note": "the reversed word holds the page inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "holding"
+         "text": "returned",
+         "at": 18,
+         "note": "returned means sent back, so the word is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "Purge returned",
-         "gives": "DIR",
-         "note": "purge = RID, read backwards"
-        },
-        {
-         "words": "right page",
-         "gives": "RECTO",
-         "note": "the recto is the right-hand page of an open book"
+         "words": "Purge",
+         "at": 12,
+         "gives": "RID",
+         "note": "to rid is to purge, clear out"
         }
        ]
+      },
+      {
+       "words": "right page",
+       "at": 35,
+       "gives": "RECTO",
+       "note": "the recto is the right-hand page of an open book"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone shooting the horror film The Purge.",
-     "walkthrough": "The italics make Purge look like the film being shot, so 'One filming Purge' seems to run together; the definition stops at 'One filming' and purge is a plain verb.",
-     "definitionFit": "A description by role: the person in charge of shooting a film."
+     "surface": "A film-maker shooting a horror movie called Purge, with a page of script in hand.",
+     "walkthrough": "'Purge' looks like a film title, but it is the verb rid; reversed it is DIR, which holds RECTO after DI. Recto is the printer's term for a right-hand page.",
+     "definitionFit": "A director is the person in charge of shooting a film, so one filming."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Purge"
     }
    }
