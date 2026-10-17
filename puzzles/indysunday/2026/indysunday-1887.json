@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -312,42 +313,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "CHICHI",
+     "spelt": "CHICHI",
      "indicators": [
       {
-       "text": "sounded",
-       "note": "What is described here is heard, not spelt, so you write down a word that merely matches the noise."
+       "text": "sounded doubly",
+       "at": 11,
+       "note": "sounded doubly means the word is spoken aloud twice in a row and written with a different spelling"
       }
      ],
      "parts": [
       {
        "words": "That woman",
-       "gives": "SHE",
-       "note": "the pronoun that stands in for a female person"
-      },
-      {
-       "op": "homophone",
-       "spelt": "CHICHI",
-       "indicators": [
-        {
-         "text": "doubly",
-         "note": "The little word you hear is not used once but twice over, back to back, which is where the length comes from."
-        }
-       ],
-       "parts": [
-        {
-         "words": "sounded doubly",
-         "gives": "SHESHE",
-         "note": "say that pronoun twice and the sound is spelt this way in the word English took from French"
-        }
-       ]
+       "at": 0,
+       "gives": "SHESHE",
+       "note": "she means that woman; said twice over it is she-she"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The pronoun does not contribute a single letter of its own spelling; only the noise it makes survives, and French spelling supplies the rest.",
-     "definitionFit": "pretentious -> CHICHI: borrowed from French for the fussily stylish, the showy smartness of someone trying visibly too hard."
+     "surface": "Someone complains that a woman's voice came across as twice as affected.",
+     "walkthrough": "The answer is pronounced 'shee-shee', so 'she' (that woman) 'sounded doubly' gives it.",
+     "definitionFit": "Chichi describes something showy and affectedly elegant, which is to say pretentious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sounded"
     }
    }
   },
@@ -826,36 +818,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ELEVEN",
-     "indicators": [
-      {
-       "text": "but no wingers",
-       "note": "A winger plays out at the edge of the pitch, so losing them takes the outermost letter off each end of the name."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "but no wingers",
+         "at": 15,
+         "note": "with no wingers means the outside letters at each flank are dropped"
+        }
+       ],
        "parts": [
         {
          "words": "Pele",
-         "gives": "EL",
-         "note": "strip a letter off each end of the footballer's name and this pair is what is left standing"
-        },
-        {
-         "words": "well-balanced",
-         "gives": "EVEN",
-         "note": "an even spread is a well-balanced one"
+         "at": 10,
+         "note": "middle letters of Pele, the Brazilian footballer"
         }
        ]
+      },
+      {
+       "words": "well-balanced",
+       "at": 31,
+       "gives": "EVEN",
+       "note": "even means level or well-balanced"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Pele supplies both halves of the joke: the greatest of footballers hands over two letters, and his own game is where wingers stand on the edges.",
-     "definitionFit": "Team -> ELEVEN: a football or cricket side puts eleven players out, so the number is used as the name of the side itself."
+     "surface": "A football side built around Pele but playing without wide men: would it be balanced?",
+     "walkthrough": "'but no wingers' sounds like footballers missing from the flanks, but it drops the outer letters of 'Pele', leaving EL.",
+     "definitionFit": "A football or cricket side has eleven players, so an eleven is a team."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wingers"
     }
    }
   },
