@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -436,52 +437,57 @@
      "indicators": [
       {
        "text": "during",
-       "note": "What happens during something happens inside it, so these letters are planted in the middle of the other word."
+       "at": 26,
+       "note": "during means these letters come in the middle of the other word"
       }
      ],
      "parts": [
       {
-       "words": "journey back",
-       "gives": "OG",
-       "note": "a go is a stint or a turn at something, which is how it loosely covers a journey; here it is written from the end"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 41,
+         "note": "back means the word for journey is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "journey",
+         "at": 33,
+         "gives": "GO",
+         "note": "a go is a turn or trip, here standing for a journey"
+        }
+       ]
       },
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
          "words": "to write",
+         "at": 12,
          "gives": "PEN",
-         "note": "to pen a letter is to write it"
+         "note": "to pen something is to write it"
         },
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "back",
-           "note": "Back means written the other way round, so that word's letters are set down from its end."
-          }
-         ],
-         "parts": [
-          {
-           "words": "home",
-           "gives": "IN",
-           "note": "someone who is in is at home"
-          }
-         ]
+         "words": "home",
+         "at": 21,
+         "gives": "IN",
+         "note": "in means at home"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Finding a moment to write home in the middle of the trip back.",
-     "walkthrough": "Everything here reads as travel arrangements, and the definition is the single word at the front. 'Home' for IN is the sense of the darts caller and the phone message: in, and therefore at home.",
-     "definitionFit": "An opening is a gap in a diary or a market that lets you get started — the chance itself, not the hole in a wall."
+     "surface": "A traveller finds a chance to write home on the way back.",
+     "walkthrough": "'home' here is the word for being at home, not a house, and 'during' places the writing and the home inside the reversed journey word.",
+     "definitionFit": "An opening is a chance or opportunity, as in a job opening."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "back"
+     "misdirectedWord": "home"
     }
    }
   },
@@ -507,59 +513,63 @@
    "annotation": {
     "definitions": [
      {
-      "text": "audience there for Lear",
-      "at": 25
+      "text": "audience there for Lear?",
+      "at": 25,
+      "note": "a phrase for a place: where King Lear would hold an audience"
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "THRONEROOM",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "In a down entry an upset word is tipped over and climbs back up the column, so its letters run the other way."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "THRONE",
+       "indicators": [
+        {
+         "text": "heard",
+         "at": 5,
+         "note": "heard means the word is taken by its sound, not its spelling"
+        }
+       ],
        "parts": [
         {
-         "op": "homophone",
-         "spelt": "THRONE",
-         "indicators": [
-          {
-           "text": "heard",
-           "note": "What is heard reaches you as a noise, so you write down a spelling of the sound rather than the word itself."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Cast heard",
-           "gives": "THROWN",
-           "note": "something cast has been thrown, and that past participle said aloud is spelt another way"
-          }
-         ]
-        },
+         "words": "Cast",
+         "at": 0,
+         "gives": "THROWN",
+         "note": "cast means thrown, as a stone is cast"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "words": "Othello upset",
-         "gives": "ROOM",
-         "note": "Othello is Shakespeare's Moor of Venice, and the word is tipped over"
+         "text": "upset",
+         "at": 19,
+         "note": "upset in a down clue means turned upside down, so the word for him is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Othello",
+         "at": 11,
+         "gives": "MOOR",
+         "note": "Othello is Shakespeare's Moor of Venice"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A company performing Othello upsetting the people who had come for King Lear.",
-     "walkthrough": "Two Shakespeare tragedies in one sentence, and the answer belongs to neither: 'audience' here is the formal reception a monarch grants, not the people in the seats.",
-     "definitionFit": "A throne room is where a monarch sits to receive people, so it is where a king like Lear grants an audience."
+     "surface": "A theatre review: the cast heard that Othello had upset the audience at King Lear.",
+     "walkthrough": "'Othello' is not a name to use as letters: he is the Moor, and 'upset' turns MOOR over. The question mark warns that the definition is by example: King Lear holds court from his throne.",
+     "definitionFit": "A throne room is the hall where a monarch sits to grant audiences, as Lear does when dividing his kingdom."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "audience"
+     "joke": "pun",
+     "misdirectedWord": "Othello"
     }
    }
   },
@@ -811,51 +821,54 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SONGSTRESS",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 13,
+       "note": "about means these letters go round the other ones"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "Really",
+         "at": 0,
+         "gives": "SO",
+         "note": "so means really, as in so good"
+        },
+        {
+         "words": "worry",
+         "at": 7,
+         "gives": "STRESS",
+         "note": "stress is worry or strain"
+        }
+       ]
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
-         "text": "about",
-         "note": "Letters set about something go round it, so the pair just clued opens up to hold what follows."
+         "text": "case of",
+         "at": 19,
+         "note": "the case of a word is its outer letters, the first and last"
         }
        ],
        "parts": [
         {
-         "words": "Really",
-         "gives": "SO",
-         "note": "so does the work of really — she was so tired"
-        },
-        {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "case of",
-           "note": "A word's case is its outside, the letters at either end with everything between them shut in."
-          }
-         ],
-         "parts": [
-          {
-           "words": "neighing",
-           "note": "the first and last letters of the word"
-          }
-         ]
-        },
-        {
-         "words": "worry",
-         "gives": "STRESS",
-         "note": "to stress about something is to worry about it"
+         "words": "neighing",
+         "at": 27,
+         "note": "N and G are the first and last letters of neighing"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A singer seriously worried about a bout of neighing.",
-     "walkthrough": "'Chanteuse' is French for a woman who sings and stands alone at the end as the definition. 'Case' is the box sense of the word, not a case of anything medical.",
-     "definitionFit": "A songstress is a woman who sings, which is what the French chanteuse names — the cabaret or nightclub singer."
+     "surface": "A singer frets about a horse's whinnying.",
+     "walkthrough": "'case of' keeps just the outside letters of 'neighing', and SO and STRESS go 'about' them.",
+     "definitionFit": "A chanteuse is a female singer, the same as a songstress."
     },
     "features": {
      "answerInScene": true,
@@ -1222,70 +1235,72 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "indicators": [
-      {
-       "text": "to carry",
-       "note": "To carry something is to hold it inside you, so the letters doing the carrying close around what they are given."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "unloaded",
-         "note": "An unloaded weapon has had its contents taken out, so the word keeps only the letters at its two ends."
+         "text": "to carry",
+         "at": 25,
+         "note": "to carry means to hold inside, so the deer word goes round the next piece"
         }
        ],
        "parts": [
         {
          "words": "does",
+         "at": 13,
          "gives": "DEER",
-         "note": "does are female deer, so more than one doe is deer"
+         "note": "does are female deer, so the word stands for deer"
         },
         {
-         "words": "bother",
-         "gives": "ADO",
-         "note": "much ado about nothing — ado is fuss or bother"
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "around",
-         "note": "Something brought around has been turned about, so those two letters are set down the other way."
-        }
-       ],
-       "parts": [
-        {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "PS",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "around",
+           "at": 51,
+           "note": "around means turned round, so those two letters are read the other way"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "unloaded pistols",
-           "gives": "PS",
-           "select": "outer",
-           "note": "the outer letters of the word, left when everything loaded between them comes out"
+           "op": "outer",
+           "indicators": [
+            {
+             "text": "unloaded",
+             "at": 34,
+             "note": "unloaded means emptied of its contents, leaving only the outside letters"
+            }
+           ],
+           "parts": [
+            {
+             "words": "pistols",
+             "at": 43,
+             "note": "P and S are the first and last letters of pistols"
+            }
+           ]
           }
          ]
         }
        ]
+      },
+      {
+       "words": "bother",
+       "at": 18,
+       "gives": "ADO",
+       "note": "ado is fuss or bother"
       }
      ]
     },
     "explanation": {
-     "surface": "An outlaw who can be bothered to cart a pair of empty pistols about.",
-     "walkthrough": "'Does' looks like the verb propping the sentence up and is the plural of doe. 'Unloaded' does to the word exactly what it claims to do to the guns: empties the middle out.",
-     "definitionFit": "A desperado is a reckless outlaw of the old American West, the sort with nothing left to lose — one example of the breed."
+     "surface": "A Wild West scene: an outlaw takes the trouble to carry empty guns around.",
+     "walkthrough": "'does' reads as the verb, but it is the plural of doe, standing for the animals themselves. 'Outlaw maybe' signals that an outlaw is only one kind of the answer.",
+     "definitionFit": "A desperado is a reckless criminal, so an outlaw is one example of one."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "does"
     }
    }
@@ -1671,42 +1686,57 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SIKORSKY",
-     "indicators": [
-      {
-       "text": "turning",
-       "note": "A turning word comes out the other way round, its letters read from the end."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 32,
+         "note": "turning means these words are read in reverse order and spelling"
+        }
+       ],
        "parts": [
         {
-         "words": "Republican agreed is turning",
-         "gives": "SIKOR",
-         "note": "the party's initial, the two letters that mean agreed and the word 'is', all three written out backwards"
-        },
-        {
-         "words": "blue",
-         "gives": "SKY",
-         "note": "the sky is the blue overhead, and sky blue is named after it"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Republican",
+           "at": 11,
+           "gives": "R"
+          },
+          {
+           "words": "agreed",
+           "at": 22,
+           "gives": "OK",
+           "note": "OK means agreed"
+          },
+          {
+           "words": "is",
+           "at": 29
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "blue",
+       "at": 40,
+       "gives": "SKY",
+       "note": "the sky is blue, and the blue is a poetic word for the sky"
       }
      ]
     },
     "explanation": {
-     "surface": "A Republican conceding that the political map is turning blue.",
-     "walkthrough": "Blue is the other party's colour in American politics, which is what gives the surface its sting. 'Is' looks like the verb holding the sentence together and hands over two letters of the wordplay.",
-     "definitionFit": "Igor Sikorsky's firm built the first mass-produced helicopters, so a Sikorsky is a helicopter named after its maker."
+     "surface": "A political story: a Republican who agreed is now turning blue, switching parties.",
+     "walkthrough": "'turning' acts on the first three pieces together as one block, not on each alone; blue for the sky is a common crossword swap.",
+     "definitionFit": "Sikorsky is a maker of helicopters, so the name stands for one, like the Black Hawk."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "is"
+     "misdirectedWord": "blue"
     }
    }
   },
