@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1160,37 +1161,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RUMBA",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "Most of a word is all of it bar the last letter, so the tail is dropped before the piece is used."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "strange",
+       "at": 9,
+       "gives": "RUM",
+       "note": "rum is British slang for odd or strange"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 22,
+         "note": "mostly means most of the word is kept, its last letter lost"
+        }
+       ],
        "parts": [
         {
-         "words": "strange",
-         "gives": "RUM",
-         "note": "rum is an old British adjective for odd or peculiar — 'a rum do'"
+         "words": "bar",
+         "at": 17,
+         "note": "the word cut short"
         },
         {
-         "words": "bar",
-         "gives": "BA",
-         "note": "the three-letter word with its tail taken off"
+         "gives": "R",
+         "note": "the last letter of bar, which goes"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dance held in a decidedly odd little bar.",
-     "walkthrough": "'Rum' for strange is Victorian slang that survives almost nowhere but crosswords, and it slides into a sentence about a bar without a sound.",
-     "definitionFit": "The RUMBA is the Cuban ballroom dance, so 'Dance' defines it by naming the class it belongs to."
+     "surface": "Someone is dancing in an odd pub, more or less.",
+     "walkthrough": "'strange' looks like an anagram signal, but here it is RUM, the British slang word for odd. 'in' is a link.",
+     "definitionFit": "The rumba is a Cuban ballroom dance, so it is an example of a dance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strange"
     }
    }
   },
@@ -1210,39 +1220,37 @@
    "annotation": {
     "definitions": [
      {
-      "text": "this PM",
-      "at": 29
+      "text": "Rub close-in when partying — this PM liked to",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "when partying",
+       "at": 13,
+       "note": "partying means letting loose, so the letters of rub close-in are thrown into a new order"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "when partying",
-         "note": "A party is where order breaks down and everybody ends up somewhere they did not start, and so do these letters."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Rub close-in",
-         "note": "ten letters of fodder, the hyphen ignored as hyphens always are"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "liked to",
-       "note": "surface only: it ties the picture to the man and hands over no letters"
+       "words": "Rub close-in",
+       "at": 0
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A politician with a taste for getting far too close to people at parties.",
-     "walkthrough": "The 'bunga bunga' parties were front-page news across Europe for years, which is what lets the fodder read as biography instead of as a bag of letters.",
-     "definitionFit": "Silvio Berlusconi was Italy's prime minister four separate times, so 'this PM' points at one particular holder of that office."
+     "surface": "A remark that a certain prime minister enjoyed getting up close at parties.",
+     "walkthrough": "The whole clue is the definition too: the Italian prime minister was notorious for his 'bunga bunga' parties.",
+     "definitionFit": "Silvio Berlusconi was Prime Minister of Italy several times and was famed for his lavish parties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "partying"
     }
    }
   },
@@ -1371,54 +1379,58 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "extremely",
-       "note": "Extremely sends you to both far ends of the word it marks, so the first and last letters are all you keep."
-      }
-     ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "TY",
        "indicators": [
         {
-         "text": "not",
-         "note": "Not marks an absence: whatever is named after it is missing from the letters you have just been given."
+         "text": "extremely",
+         "at": 18,
+         "note": "extremely means at the extremes, so only the first and last letters are used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "extremely tetchy",
-         "gives": "TY",
-         "select": "outer",
-         "note": "the two letters at the outer edges of the word, taken at its extremes"
+         "words": "tetchy",
+         "at": 28,
+         "note": "the word whose outer letters are taken"
         }
        ]
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 43,
+         "note": "not means the following piece is left out"
+        }
+       ],
        "parts": [
         {
          "words": "grandma",
+         "at": 35,
          "gives": "GRANNY",
-         "note": "granny is the everyday word for a grandmother"
+         "note": "granny is a familiar word for grandma"
         },
         {
          "words": "good",
-         "gives": "G",
-         "note": "g is the standard abbreviation, as in a grade on a school report"
+         "at": 47,
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A short-tempered grandmother behaving at her absolute worst.",
-     "walkthrough": "'Not good' reads as a verdict on the old lady and is really a pair of instructions: the abbreviation for good, and the word that takes it away again.",
-     "definitionFit": "TYRANNY is rule by someone whose power has no check on it at all, which is what 'Absolute power' describes."
+     "surface": "A very irritable grandmother who is far from kind holds total control.",
+     "walkthrough": "'extremely tetchy' gives TY; 'grandma not good' is GRANNY without its G, leaving RANNY. 'of' is a link.",
+     "definitionFit": "Tyranny is cruel, unchecked rule by one ruler, which is power exercised absolutely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
     }
    }
   }
