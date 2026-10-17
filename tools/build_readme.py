@@ -761,6 +761,16 @@ LAYOUT = [
     ("annotating", "tools/clue_bag.py", "which tail puzzles one annotate session takes together: a bag"),
     ("annotating", "tools/annotate_bag_prompt.md", "the task a bagged session (several tail puzzles at once) is given"),
     ("annotating", "tools/test_clue_bag.py", "which tail puzzles share one annotate session, and which never do"),
+    ("annotating", "tools/build_spellings.py", "writes tools/data/lexicons/spellings.json: answer letters mapped to the spelling with an apostrophe or accent, for the lesson checks"),
+    ("annotating", "tools/fill_spellings.py", "writes the `spelling` that tools/lesson_checks.py flags as unsaid (spelling.unsaid), where the answer letters give only one"),
+    ("annotating", "tools/hidden_mechanical.py", "the hidden words a clue gives away mechanically"),
+    ("annotating", "tools/lesson_checks.py", "annotation findings that tools/validate_annotations.py counts, each under its own ratchet: a double definition hiding the answer, a spelling left unsaid"),
+    ("annotating", "tools/prefill_hidden.py", "write the annotation of a near-certain hidden word without a model run"),
+    ("annotating", "tools/test_lesson_checks.py", "proves the double-definition and unsaid-spelling findings of tools/lesson_checks.py"),
+    ("annotating", "tools/test_fill_spellings.py", "proves tools/fill_spellings.py writes the spelling only where unambiguous, with grace for the lesson-check ratchets"),
+    ("annotating", "tools/test_hidden_mechanical.py", "proves the near-certain hidden words of tools/hidden_mechanical.py and the annotation tools/prefill_hidden.py builds from one"),
+    ("annotating", "tools/data/lexicons/spellings.json", "answer letters mapped to their spelling with apostrophe or accent, built by tools/build_spellings.py"),
+    ("annotating", "tools/test_reconstruct_budget.py", "reconstruct_grid's node budget covers every path, and its pruning is sound"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

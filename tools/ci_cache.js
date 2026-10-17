@@ -60,7 +60,7 @@ const SMOKE_DEPS = [
     "tools/acquire_book.py", "tools/alert.sh", "tools/annotation.py", "tools/annotation_backlog.json",
     "tools/wordplay.py",
     "tools/app_tables.py", "tools/apply_solution.py", "tools/archive_coverage.py", "tools/blog_facts.py",
-    "tools/blog_facts_gold.jsonl", "tools/book_queue.py", "tools/book_twins.py", "tools/boilerplate.py", "tools/build_abbreviations.py",
+    "tools/blog_facts_gold.jsonl", "tools/book_queue.py", "tools/book_twins.py", "tools/boilerplate.py", "tools/lesson_checks.py", "tools/build_abbreviations.py",
     "tools/build_lexicon.js", "tools/build_readme.py", "tools/build_seo_pages.py", "tools/canberra_london_numbers.py",
     "tools/check_shapes.js", "tools/ci_cache.js", "tools/clue_index.py", "tools/clue_text.py", "tools/clue_types.py", "tools/clues_only.py", "tools/jigsaw_fit.py",
     "tools/clueability.py", "tools/code_reach.py", "tools/corroborate.py", "tools/ctc_transcripts.py",
