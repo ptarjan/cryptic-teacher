@@ -258,7 +258,7 @@ check "the background re-plan's order is the one launched" "pooltest-$$-s8" \
 PLAN_REVERSE=dedup QUEUE_DUP=3 POOL_PLAN_SECS=60 replan_pool d
 check "a re-plan listing a twice-queued id once is taken, and the id runs once" \
   "pooltest-$$-d3 1 1" \
-  "$(awk '$1 == "start" { print $2 }' "$EVENTS" | sed -n 1p) $(grep -c "^start pooltest-$$-d3 " "$EVENTS") $(printf '%s\n' "$out" | grep -cm1 '^--- re-plan done in [0-9]*s: order taken')"
+  "$(awk '$1 == "start" { print $2 }' "$EVENTS" | sed -n 1p) $(grep -c "^start pooltest-$$-d3 " "$EVENTS") $(printf '%s\n' "$out" | grep -cm1 '^--- re-plan done in [0-9]*s (planner [0-9?]*s): order taken')"
 PLAN_REVERSE=drop POOL_PLAN_SECS=60 replan_pool m
 check "a re-plan that loses an id is discarded, with the id named, and the order kept" \
   "1 pooltest-$$-m1" \

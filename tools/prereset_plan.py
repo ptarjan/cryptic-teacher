@@ -1563,7 +1563,39 @@ def corpus_mtimes(tree):
     return sorted(out, key=lambda t: t[1])
 
 
-def fresh_rows(rows, index_path=None, files=None, row_of=None):
+FULL_WALK_SECS = int(os.environ.get("CT_PLAN_FULL_WALK_SECS", 6 * 3600))
+
+
+def _git(tree, *args):
+    """Stdout of git run in tree, or None when it fails."""
+    import subprocess
+    try:
+        out = subprocess.run(["git", "-C", str(tree), *args], capture_output=True, timeout=60)
+    except (OSError, subprocess.SubprocessError):
+        return None
+    return out.stdout if out.returncode == 0 else None
+
+
+def plan_state_path(index_path):
+    import hashlib
+    import tempfile
+    key = hashlib.sha1(str(Path(index_path).resolve()).encode()).hexdigest()[:12]
+    return Path(tempfile.gettempdir()) / f"ct-plan-rows-{key}.json"
+
+
+def changed_since(tree, old_head):
+    """Puzzle files git says changed between old_head and HEAD, as paths; None
+    when git cannot say. The burn commits every puzzle it touches, and a sync
+    brings the others' in as commits, so this is the incremental feed for
+    fresh_rows: no walk of the corpus."""
+    out = _git(tree, "diff", "--name-only", "-z", "--relative", f"{old_head}..HEAD", "--", ".")
+    if out is None:
+        return None
+    names = [n for n in out.decode("utf-8", "replace").split("\0") if PUZZLE_NAME.search(n)]
+    return [Path(tree) / n for n in names if (Path(tree) / n).exists()]
+
+
+def fresh_rows(rows, index_path=None, files=None, row_of=None, state_path=None):
     """The index's rows, each puzzle file written since the index was rebuilt
     read again (fetch_puzzle.index_row), and a file the index lacks added.
 
@@ -1585,9 +1617,27 @@ def fresh_rows(rows, index_path=None, files=None, row_of=None):
     except OSError:
         return rows
     known = {r["id"] for r in rows}
+    saved_rows, state, walked_at = {}, None, time.time()
     if files is None:
-        stale = [Path(path) for stem, path, mtime in corpus_mtimes(index_path.parent)
-                 if stem not in known or mtime > built]
+        # Incremental: the rows read at the last re-plan, and the commit they
+        # were read at. Only what git says changed since is read again; the
+        # corpus is walked (57k stats, 100s on a loaded host) at the first
+        # re-plan and then every FULL_WALK_SECS, to catch what no commit shows.
+        tree = index_path.parent
+        state = Path(state_path) if state_path else plan_state_path(index_path)
+        head = (_git(tree, "rev-parse", "HEAD") or b"").decode().strip()
+        stale = None
+        try:
+            saved = json.loads(state.read_text(encoding="utf-8"))
+            if (saved["built"] == built and head and time.time() - saved["walked_at"] < FULL_WALK_SECS):
+                stale = changed_since(tree, saved["head"])
+                if stale is not None:
+                    saved_rows, walked_at = saved["rows"], saved["walked_at"]
+        except (OSError, ValueError, KeyError, TypeError):
+            pass
+        if stale is None:
+            stale = [Path(path) for stem, path, mtime in corpus_mtimes(tree)
+                     if stem not in known or mtime > built]
     else:
         stale = []
         for f in files:
@@ -1596,16 +1646,27 @@ def fresh_rows(rows, index_path=None, files=None, row_of=None):
                     stale.append(f)
             except OSError:
                 continue
-    if not stale:
+    if not stale and not saved_rows:
         return rows
-    if row_of is None:
+    if not stale:
+        fresh = []
+    elif row_of is None:
         import fetch_puzzle
         import row_cache
         fresh = row_cache.cached_map("fetch_puzzle", fetch_puzzle.index_row, stale,
                                      roots={"index_row_deps"}, deps=fetch_puzzle.index_row_deps)
     else:
         fresh = [row_of(f) for f in stale]
-    by_id = {r["id"]: r for r in fresh if not series.unlisted(r["series"])}
+    by_id = dict(saved_rows)
+    by_id.update({r["id"]: r for r in fresh if not series.unlisted(r["series"])})
+    if state is not None and (stale or not saved_rows) and head:
+        try:
+            tmp = state.with_name(state.name + f".{os.getpid()}")
+            tmp.write_text(json.dumps({"built": built, "head": head, "walked_at": walked_at,
+                                       "rows": by_id}), encoding="utf-8")
+            os.replace(tmp, state)
+        except OSError:
+            pass
     out = [by_id.pop(r["id"], r) for r in rows]
     return out + list(by_id.values())
 
@@ -1639,6 +1700,64 @@ def fresh_self_test():
         if fresh_rows(rows, d / "missing.json", [old, new, added], row_of) is not rows:
             print("FAIL fresh_rows without an index should return the rows as they are", file=sys.stderr)
             bad += 1
+    return bad + incremental_self_test()
+
+
+def incremental_self_test():
+    """A re-plan after the first reads only what git says changed: no corpus
+    walk and no re-read of the rest."""
+    import subprocess
+    import tempfile
+    bad = 0
+    walks, reread = [], []
+    real_walk = globals()["corpus_mtimes"]
+
+    def counting_walk(tree):
+        walks.append(tree)
+        return real_walk(tree)
+
+    def row_of(f):
+        reread.append(Path(f).stem)
+        return _row(Path(f).stem, "2022-01-01", annotated=True)
+
+    def git(d, *a):
+        subprocess.run(["git", "-C", str(d), "-c", "user.name=t", "-c", "user.email=t@t", *a],
+                       check=True, capture_output=True)
+
+    with tempfile.TemporaryDirectory() as d:
+        d = Path(d)
+        tree = d / "puzzles"
+        (tree / "quiptic" / "2001").mkdir(parents=True)
+        for n in (71, 72, 73):
+            (tree / "quiptic" / "2001" / f"quiptic-{n}.json").write_text("{}")
+        index = tree / "index.json"
+        index.write_text("{}")
+        os.utime(index, (1000, 1000))
+        git(d, "init", "-q")
+        git(d, "add", "-A")
+        git(d, "commit", "-q", "-m", "one")
+        state = d / "state.json"
+        rows = [_row("quiptic-71", "2001-03-26")]
+        globals()["corpus_mtimes"] = counting_walk
+        try:
+            fresh_rows(rows, index, None, row_of, state)
+            first = (len(walks), sorted(reread))
+            walks.clear(), reread.clear()
+            got = fresh_rows(rows, index, None, row_of, state)
+            idle = (len(walks), sorted(reread), len(got))
+            (tree / "quiptic" / "2001" / "quiptic-72.json").write_text('{"a": 1}')
+            git(d, "commit", "-q", "-am", "annotate 72")
+            walks.clear(), reread.clear()
+            got = fresh_rows(rows, index, None, row_of, state)
+            after = (len(walks), sorted(reread), [r["id"] for r in got if r["annotated"]])
+        finally:
+            globals()["corpus_mtimes"] = real_walk
+    want = [(1, ["quiptic-71", "quiptic-72", "quiptic-73"]), (0, [], 3),
+            (0, ["quiptic-72"], ["quiptic-71", "quiptic-72", "quiptic-73"])]
+    if [first, idle, after] != want:
+        print(f"FAIL incremental fresh_rows: {[first, idle, after]} (want {want}: one walk the "
+              "first time, then only the committed change read, no walk)", file=sys.stderr)
+        bad += 1
     return bad
 
 
