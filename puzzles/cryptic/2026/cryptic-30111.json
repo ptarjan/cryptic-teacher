@@ -389,37 +389,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NEMATODE",
-     "indicators": [
-      {
-       "text": "to change",
-       "note": "A thing told to change does not come back as it went in, and letters change by swapping places."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to change",
+         "at": 6,
+         "note": "to change means to alter, so the letters of meant are put in a new order"
+        }
+       ],
        "parts": [
         {
          "words": "Meant",
-         "gives": "NEMAT",
-         "note": "the five letters rearranged"
-        },
-        {
-         "words": "some lines",
-         "gives": "ODE",
-         "note": "an ode is a poem, which is some lines of verse"
+         "at": 0,
+         "note": "taken as written, the letters to rearrange"
         }
        ]
+      },
+      {
+       "words": "some lines",
+       "at": 16,
+       "gives": "ODE",
+       "note": "an ode is a poem, a set of lines of verse"
       }
      ]
     },
     "explanation": {
-     "surface": "An actor who intended to rewrite a few of his lines.",
-     "walkthrough": "'Meant to change' reads as an intention never carried out, which is how the instruction hides in plain sight. ODE is the crossword's standard answer whenever lines are wanted.",
-     "definitionFit": "A nematode is a roundworm, so 'worm' is the everyday name for the creature the answer gives the scientific one for."
+     "surface": "Someone intended to revise a few lines of a poem about a worm.",
+     "walkthrough": "'to change' rearranges MEANT into NEMAT, and an ODE follows.",
+     "definitionFit": "Nematodes are roundworms, a large group of slender unsegmented worms, many of them parasites."
     },
     "features": {
      "answerInScene": false,
@@ -1011,46 +1011,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "JUNGFRAU",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "month",
+       "at": 5,
+       "gives": "JUN",
+       "note": "Jun is the calendar abbreviation for June"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "initially",
-         "note": "Initially asks for the letter a word starts with and nothing more of it."
-        },
-        {
-         "text": "perhaps",
-         "note": "Perhaps offers the word as a possibility rather than a fixed thing, which licenses any arrangement of its letters."
+         "text": "tucking into",
+         "at": 25,
+         "note": "tucking into means going inside, so the first letter of for goes within the other letters"
         }
        ],
        "parts": [
         {
-         "words": "month",
-         "gives": "JUN",
-         "note": "jun is June as the calendar prints it"
-        },
-        {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "tucking into",
-           "note": "To tuck into something is to get right inside it, so the letter goes within the other word rather than beside it."
+           "text": "perhaps",
+           "at": 43,
+           "note": "perhaps suggests a possible version, so the letters of ragu are rearranged"
           }
          ],
          "parts": [
           {
            "words": "ragu",
-           "gives": "GRAU",
-           "note": "the four letters of the sauce rearranged, then opened after the first"
-          },
+           "at": 38,
+           "note": "taken as written, the letters to rearrange"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 15,
+           "note": "initially points to the first letter of the word"
+          }
+         ],
+         "parts": [
           {
            "words": "for",
-           "gives": "F",
-           "note": "the letter for begins with"
+           "at": 11,
+           "note": "its first letter is F"
           }
          ]
         }
@@ -1059,13 +1068,14 @@
      ]
     },
     "explanation": {
-     "surface": "The best month of the year for getting stuck into a plate of ragu.",
-     "walkthrough": "'Perhaps' is an unusual anagram indicator, and it catches solvers because in most clues it flags a definition by example instead. 'Peak month' reads as one phrase and only the first word of it defines.",
-     "definitionFit": "The Jungfrau is a mountain in the Bernese Alps above Interlaken, so 'peak' names the answer by its bare category."
+     "surface": "A month is set aside for eating a meat sauce, apparently a high point.",
+     "walkthrough": "'perhaps' rearranges RAGU into GRAU, and F, the first letter of for, goes 'tucking into' it after JUN. The Jungfrau is a famous Swiss Alpine peak.",
+     "definitionFit": "The Jungfrau is a mountain in the Bernese Alps of Switzerland, over 4,000 metres high, so a well-known summit."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "tucking"
     }
    }
