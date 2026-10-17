@@ -26,7 +26,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -388,26 +389,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "SEA",
      "indicators": [
       {
        "text": "losing tail",
-       "note": "The tail of a word is the letter at its end, and losing it takes that letter off."
+       "at": 16,
+       "note": "losing its tail means the creature's last letter is dropped"
       }
      ],
      "parts": [
       {
        "words": "Marine creature",
-       "gives": "SEA",
-       "note": "a seal is a marine creature, here with its last letter taken off"
+       "at": 0,
+       "gives": "SEAL",
+       "note": "a seal is a flippered mammal that lives in coastal waters"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "An animal that has lost its tail somewhere out in the ocean.",
-     "walkthrough": "Losing a tail is a real hazard for an animal, which is what keeps the surface innocent; here it happens to the word instead. The creature wanted is the obvious one, and the clue keeps three-quarters of it.",
-     "definitionFit": "Sea and ocean are the same expanse of salt water, one word standing in for the other in ordinary use."
+     "surface": "A sea animal that has lost its tail out in the ocean.",
+     "walkthrough": "'losing tail' docks the final letter of the seal.",
+     "definitionFit": "The sea and the ocean are synonyms for the great body of salt water."
     },
     "features": {
      "answerInScene": true,
@@ -490,47 +494,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GOSTEADY",
-     "indicators": [
-      {
-       "text": "various",
-       "note": "Various things differ from one another, and letters made to differ from the order given are letters to rearrange."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Leave",
+       "at": 0,
+       "gives": "GO",
+       "note": "to go is to leave"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "various",
+         "at": 6,
+         "note": "various suggests a mixed assortment, so the letters of dates are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Leave",
-         "gives": "GO",
-         "note": "to leave is to go"
-        },
-        {
-         "words": "various dates",
-         "gives": "STEAD",
-         "note": "the five letters of DATES resettled"
-        },
-        {
-         "words": "unknown",
-         "gives": "Y",
-         "note": "y is the algebraist's unknown quantity"
+         "words": "dates",
+         "at": 14
         }
        ]
+      },
+      {
+       "words": "unknown",
+       "at": 30,
+       "gives": "Y",
+       "note": "y is a standard algebraic unknown"
       }
      ]
     },
     "explanation": {
-     "surface": "Walking out on a string of assorted dates for the sake of one nobody can name.",
-     "walkthrough": "'Dates' is raw material the first time and the definition the second, where it is the verb a courting couple would use. Y for an unknown comes from algebra, alongside x and z.",
-     "definitionFit": "To go steady is to date one person regularly and exclusively, so the definition is the plain verb for the same arrangement."
+     "surface": "Taking leave on several dates along with one more yet to be fixed.",
+     "walkthrough": "'Date' at the end is the definition as a verb, to court someone; 'Leave' supplies GO, not a holiday, and the mathematician's unknown closes the answer.",
+     "definitionFit": "To go steady is to court someone regularly, to be in a steady romantic relationship."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "dates"
+     "misdirectedWord": "date"
     }
    }
   },
@@ -794,37 +798,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ADORABLE",
-     "indicators": [
-      {
-       "text": "becoming half-hearted",
-       "note": "A word's heart is the letters at its centre, and going half-hearted gives up half of what is beating there."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Commotion",
+       "at": 0,
+       "gives": "ADO",
+       "note": "ado is fuss or commotion"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "becoming half-hearted",
+         "at": 15,
+         "note": "the mob's heart is its doubled middle letter, and half of that heart goes"
+        }
+       ],
        "parts": [
         {
-         "words": "Commotion",
-         "gives": "ADO",
-         "note": "ado = fuss, as in much ado about nothing"
+         "words": "Mob",
+         "at": 11,
+         "gives": "RABBLE",
+         "note": "a rabble is a disorderly mob"
         },
         {
-         "words": "Mob",
-         "gives": "RABLE",
-         "note": "a mob is a rabble, and RABBLE has a doubled B at its centre that surrenders one"
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rioting crowd going off the boil, which would suit everybody.",
-     "walkthrough": "'Half-hearted' is exact rather than vague: the word it works on carries two letters at its centre and hands over one. The question mark after the first word marks it off as a separate piece rather than part of the mob.",
-     "definitionFit": "Something adorable is something you long to have about you, and that longing is what makes a thing desirable."
+     "surface": "A disturbance as a crowd loses its enthusiasm, which seems welcome.",
+     "walkthrough": "RABBLE has a double B at its heart; 'becoming half-hearted' removes just one of the pair.",
+     "definitionFit": "Adorable means delightful and lovable, and in loose use desirable."
     },
     "features": {
      "answerInScene": false,
@@ -1070,40 +1078,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RECITALIST",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 39,
+       "note": "about means going round, so the jumbled letters surround the word it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "getting excited",
-         "note": "Somebody worked up is thoroughly stirred, and stirred letters come out in a new order."
-        },
-        {
-         "text": "about",
-         "note": "To be about a thing is to be round it, so the stirred letters close on either side of the word that follows."
+         "at": 23,
+         "note": "excited letters are stirred up, so those of 'it's clear' are rearranged"
         }
        ],
        "parts": [
         {
          "words": "it's clear",
-         "gives": "RECALIST",
-         "note": "the eight letters of IT'S CLEAR resettled, the apostrophe ignored"
-        },
-        {
-         "words": "it",
-         "note": "the pronoun taken at face value"
+         "at": 11
         }
        ]
+      },
+      {
+       "words": "it",
+       "at": 45
       }
      ]
     },
     "explanation": {
-     "surface": "A performer, obviously, who is working himself up about something.",
-     "walkthrough": "'It's clear' reads as the setter's aside and is eight letters of raw material; the little 'it' at the end is the one word that keeps its own spelling. A recitalist is the musician who gives a solo recital.",
-     "definitionFit": "A recitalist is someone who gives recitals — a soloist on a platform — so 'Performer' names the class the word sits in."
+     "surface": "A performer explaining that it's obvious, and getting worked up about it.",
+     "walkthrough": "'getting excited' reworks IT'S CLEAR into RECALIST, which goes 'about' IT.",
+     "definitionFit": "A recitalist gives recitals, solo concerts or readings, so is a kind of performer."
     },
     "features": {
      "answerInScene": true,
