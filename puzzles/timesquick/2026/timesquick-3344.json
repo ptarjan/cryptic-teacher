@@ -26,7 +26,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -439,45 +440,61 @@
      "op": "container",
      "indicators": [
       {
-       "text": "essentially",
-       "note": "The essence of a word is what sits at its centre, so each word named gives up its middle letter alone."
+       "text": "around",
+       "at": 40,
+       "note": "the picked letters go around the Roman numeral"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "OIP",
-       "indicators": [
-        {
-         "text": "around",
-         "note": "Going around a thing is closing over it, so the letters gathered first sit either side of what follows."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "shows using helpers",
-         "gives": "OIP",
-         "select": "middle",
-         "note": "the central letters of shOws, usIng and helPers, in that order"
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "essentially",
+           "at": 28,
+           "note": "essentially means at the essence or core, so only the central letter of each of these three words is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "shows",
+           "at": 7,
+           "note": "the middle letter of shows"
+          }
+         ]
+        },
+        {
+         "words": "using",
+         "at": 13,
+         "gives": "I",
+         "note": "the middle letter of using, the same 'essentially' applying to each word"
+        },
+        {
+         "words": "helpers",
+         "at": 19,
+         "gives": "P",
+         "note": "the middle letter of helpers, the same 'essentially' applying to each word"
         }
        ]
       },
       {
        "words": "forty",
+       "at": 47,
        "gives": "XL",
-       "note": "XL is forty in Roman numerals, ten short of L"
+       "note": "XL is forty in Roman numerals"
       }
      ]
     },
     "explanation": {
-     "surface": "Flower shows run on volunteers, most of them around forty.",
-     "walkthrough": "'Flower shows' looks like one phrase and the definition stops at the first word. An oxlip is a pale yellow spring wildflower, Shakespeare's 'bold oxlips' in the Midsummer Night's Dream bank.",
-     "definitionFit": "The oxlip is a primrose-family wildflower of damp woodland, so 'Flower' names it by class."
+     "surface": "A gardening display relies on assistants, about forty of them.",
+     "walkthrough": "'essentially' takes the middle letter of each word in 'shows using helpers', giving OIP, which wraps 'around' XL.",
+     "definitionFit": "The oxlip is a woodland primula with pale yellow blooms, a wild plant related to the cowslip."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "shows"
     }
@@ -821,61 +838,72 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CHARLIE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 31,
+       "note": "the rearranged letters go round the two central letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "distributed",
-         "note": "Distributing something hands it out afresh, so the letters are dealt into another order."
-        },
-        {
-         "text": "centres in",
-         "note": "The centre of a word is its middle letter, and each word named gives up that letter only."
+         "at": 19,
+         "note": "distributed in the sense of spread about, so the letters of Chile are scattered into a new order"
         }
        ],
        "parts": [
         {
          "words": "from Chile",
-         "gives": "CHLIE",
-         "note": "the letters of CHILE dealt again, then opened to take the insert"
-        },
+         "at": 8,
+         "gives": "CHILE",
+         "note": "the letters of the country name Chile, which from introduces as the source of the drug"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "AR",
          "indicators": [
           {
-           "text": "round",
-           "note": "Going round a thing puts it inside, so the dealt letters close over the pair that follows."
+           "text": "centres in",
+           "at": 37,
+           "note": "only the central letters of the two following words are taken"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "far north",
-           "gives": "AR",
-           "select": "middle",
-           "note": "the middle letters of fAr and noRth"
+           "words": "far",
+           "at": 48,
+           "note": "the middle letter of far"
           }
          ]
+        },
+        {
+         "words": "north",
+         "at": 52,
+         "gives": "R",
+         "note": "the middle letter of north, the plural 'centres' covering both words"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cocaine shipped out of Chile is doing the rounds up in the far north.",
-     "walkthrough": "Charlie is British street slang for cocaine, taken from the drug's initial letter. 'Far north' looks like the destination of the shipment and supplies two letters from the middle.",
-     "definitionFit": "Charlie has been street slang for cocaine for decades, a nickname off the C that the police alphabet turns into a name."
+     "surface": "A cocaine shipment from South America is spread around the remote Arctic regions.",
+     "walkthrough": "CHILE scrambled gives CHLIE, which goes round AR, the middle letters of FAR and NORTH.",
+     "definitionFit": "Charlie is long-standing British and American slang for cocaine, from the initial C."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "distributed"
+     "misdirectedWord": "Chile"
     }
    }
   },
