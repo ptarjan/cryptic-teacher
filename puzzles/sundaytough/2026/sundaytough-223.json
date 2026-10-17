@@ -1138,49 +1138,70 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CATSEYE",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "twice",
+       "at": 17,
+       "note": "twice means two times over, so the letter for right is removed on two occasions"
+      },
+      {
+       "text": "ignoring",
+       "at": 23,
+       "note": "ignoring means leaving out, so the letters for right are dropped from the pool"
+      },
+      {
+       "text": "turning",
+       "at": 38,
+       "note": "turning means being twisted about, so the letters that remain are put into a new order"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CATSEYE",
+       "op": "charade",
        "indicators": [
         {
-         "text": "twice ignoring",
-         "note": "leave out the letter two times"
-        },
-        {
-         "text": "turning",
-         "note": "turning the letters round into a new order"
+         "text": "and",
+         "at": 4,
+         "note": "and joins the first two words, adding the letters of see to those of try in one pool"
         }
        ],
        "parts": [
         {
-         "words": "Try and see car",
-         "gives": "TRYSEECAR",
-         "note": "anagram fodder before deletion"
+         "words": "Try",
+         "at": 0,
+         "note": "taken as written"
         },
         {
-         "words": "right",
-         "gives": "R",
-         "note": "R = right; drop both Rs, leaving TYSEECA"
+         "words": "see",
+         "at": 8,
+         "note": "taken as written"
+        },
+        {
+         "words": "car",
+         "at": 12,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "right",
+       "at": 32,
+       "gives": "RR",
+       "note": "R is the standard abbreviation for right; with twice it is taken two times"
       }
      ]
     },
     "spelling": "CAT'S-EYE",
     "explanation": {
-     "surface": "A would-be driver keeps turning left at the test centre.",
-     "walkthrough": "A cat's eye is a small reflective stud set into the road's centre line, a British invention.",
-     "definitionFit": "Cat's-eyes sit along the middle of the road to reflect headlights."
+     "surface": "Advice to a driver to make an attempt to spot a car while not turning right twice.",
+     "walkthrough": "TRY, SEE and CAR hold two Rs; 'twice ignoring right' removes both, leaving TYSEECA, and 'turning' rearranges those seven letters.",
+     "definitionFit": "Cat's eyes are the small reflective studs set along the centre line of British roads to guide drivers at night."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Try"
+     "misdirectedWord": "turning"
     }
    }
   },
