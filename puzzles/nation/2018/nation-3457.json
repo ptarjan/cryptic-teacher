@@ -288,58 +288,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "largely",
-       "note": "largely means mostly, so the word loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Two pieces of pork",
+       "at": 0,
+       "gives": "PO",
+       "note": "two pieces, that is letters, of the word pork: its first two, PO"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "largely",
+         "at": 24,
+         "note": "most of the word, so its last letter goes"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "PO",
-         "indicators": [
-          {
-           "text": "Two pieces of",
-           "note": "two pieces here means the opening two letters of the word"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "pork",
-           "gives": "PO",
-           "select": "first",
-           "note": "the first two letters of the word"
-          }
-         ]
-        },
-        {
          "words": "flavorless",
+         "at": 32,
          "gives": "BLAND",
-         "note": "bland food has little flavour"
+         "note": "bland food is flavorless"
         },
         {
-         "words": "orange",
-         "gives": "O",
-         "note": "O for orange, as in the rainbow mnemonic ROYGBIV"
+         "gives": "D"
         }
        ]
       },
       {
-       "gives": "D"
+       "words": "orange",
+       "at": 43,
+       "gives": "O",
+       "note": "O is the standard abbreviation for the colour orange, as in colour codes"
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe: a little pork with a mild orange pepper.",
-     "walkthrough": "'Orange pepper' looks like one thing, the colour of the pepper, but orange gives the last letter alone.",
-     "definitionFit": "A poblano is a mild Mexican chili, the pepper dried as the ancho and used for chiles rellenos."
+     "surface": "A recipe: two bits of pork with a bland orange pepper.",
+     "walkthrough": "'largely' cuts BLAND to BLAN; 'Two pieces of pork' are its opening letters PO, and O stands for orange.",
+     "definitionFit": "The poblano is a mild chili pepper from Puebla in Mexico, often stuffed for chiles rellenos."
     },
     "features": {
      "answerInScene": true,
