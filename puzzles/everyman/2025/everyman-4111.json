@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -375,52 +376,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MARKANTONY",
-     "indicators": [
-      {
-       "text": "not",
-       "note": "Not rules a thing out, so whatever it names is struck out of the letters standing beside it."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "currency of old",
+       "at": 6,
+       "gives": "MARK",
+       "note": "the mark was Germany's currency before the euro"
+      },
+      {
+       "words": "worker",
+       "at": 31,
+       "gives": "ANT",
+       "note": "the ant is the crossword's standard worker"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 44,
+         "note": "not here means without, so the named letter is taken out of the word only"
+        }
+       ],
        "parts": [
         {
-         "words": "currency of old",
-         "gives": "MARK",
-         "note": "the mark was Germany's money until the euro replaced it"
-        },
-        {
-         "words": "worker",
-         "gives": "ANT",
-         "note": "the ant is the crossword's standard worker, the insect that never stops"
-        },
-        {
          "words": "only",
-         "gives": "ONY",
-         "note": "ONLY with its L lifted out"
+         "at": 38
         },
         {
-         "unchecked": true,
-         "words": "'pounds'",
-         "note": "pounds is L, the abbreviation still printed on the £ sign, from the Latin libra"
+         "words": "pounds",
+         "at": 49,
+         "gives": "L",
+         "note": "L stands for pounds, from the Latin libra behind the £ sign"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old coin handed to a labourer who will take payment in anything but sterling.",
-     "walkthrough": "'Worker' is the ant every time, and the bracket at the end is an instruction rather than an aside. Mark Antony was Caesar's lieutenant, the one Shakespeare hands the funeral speech to.",
-     "definitionFit": "Mark Antony was a Roman general and consul, so the bare word names him once the wordplay has settled which Roman is meant."
+     "surface": "A Roman coin from long ago handed to a labourer, with no pounds involved.",
+     "walkthrough": "'not' drops the L, the pounds sign's letter, from ONLY to leave ONY. The quotation marks round 'pounds' flag it as a word to be turned into its abbreviation.",
+     "definitionFit": "Mark Antony was the Roman general and politician, ally of Julius Caesar and lover of Cleopatra."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "worker"
+     "misdirectedWord": "Roman"
     }
    }
   },
@@ -1480,41 +1482,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NIECES",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accommodating",
+       "at": 12,
+       "note": "to accommodate is to give room to, so the rearranged letters hold another inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Crazy",
-         "note": "Somebody crazy is not in their right mind, and the letters beside the word are not to be left in their right order either."
-        },
-        {
-         "text": "accommodating",
-         "note": "To accommodate a guest is to find room for them indoors, so the letters just made open up and take the next one inside."
+         "at": 0,
+         "note": "the letters of scene go crazy, ending up in a new order"
         }
        ],
        "parts": [
         {
          "words": "scene",
-         "gives": "NECES",
-         "note": "the five letters of SCENE in a new order"
-        },
+         "at": 6
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "first of Italian",
-         "gives": "I",
-         "note": "the opening letter of Italian, dropped in behind the N"
+         "text": "first of",
+         "at": 26,
+         "note": "only the opening letter of Italian is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Italian",
+         "at": 35,
+         "note": "first letter of Italian"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A chaotic house party putting up the first of the Italian relations.",
-     "walkthrough": "'First of Italian relatives' reads as one phrase about which cousins turned up, and only its last word is the definition. The letter goes in after the shuffle, not before it.",
-     "definitionFit": "A niece is a brother's or sister's daughter, which makes nieces relatives by the plainest reckoning there is."
+     "surface": "A wild scene erupts when an Italian joins the family gathering.",
+     "walkthrough": "'Crazy' turns SCENE into NECES, and 'accommodating' lodges the I from 'first of Italian' after its N.",
+     "definitionFit": "Nieces are the daughters of one's brothers or sisters, so they are family members."
     },
     "features": {
      "answerInScene": true,
