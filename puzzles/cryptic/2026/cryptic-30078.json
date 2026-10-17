@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -83,34 +84,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AGAR",
-     "indicators": [
-      {
-       "text": "that's short"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "at": 10,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "that's short",
+         "at": 18,
+         "note": "a word that's short is missing its last letter, so the final letter of the clothing word goes"
+        }
+       ],
        "parts": [
         {
-         "words": "a",
-         "note": "the article supplies its own letter"
+         "words": "dress",
+         "at": 12,
+         "gives": "GARB",
+         "note": "garb is clothing or dress"
         },
         {
-         "words": "dress",
-         "gives": "GAR",
-         "note": "a dress is GARB; 'that's short' cuts off the final letter"
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface dangles a crossword setter in a frock; the real setter works in the kitchen.",
-     "definitionFit": "Agar is the seaweed-derived gelling agent that makes jellies set — a 'setter' in the culinary sense."
+     "surface": "A crossword setter appears wearing a skimpy dress.",
+     "walkthrough": "'Setter' is not the puzzle compiler but something that makes liquids set: agar is a jelly-like gelling agent.",
+     "definitionFit": "Agar is a gelatinous substance from seaweed used to make jellies and culture media set firm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Setter"
     }
    }
   },
@@ -223,44 +236,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "COVERLET",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 20,
+       "note": "in places the stirred letters inside the bed"
+      }
+     ],
      "parts": [
+      {
+       "words": "bed",
+       "at": 23,
+       "gives": "COT",
+       "note": "a cot is a small bed"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "Activation of"
+         "text": "Activation of",
+         "at": 0,
+         "note": "activation sets something in motion, so the letters of lever are stirred into a new order"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "in"
-          }
-         ],
-         "parts": [
-          {
-           "words": "lever",
-           "gives": "VERLE",
-           "note": "'activation of' sets the lever's letters moving"
-          },
-          {
-           "words": "bed",
-           "gives": "COT",
-           "note": "a cot is a bed — it wraps around the shuffled lever"
-          }
-         ]
+         "words": "lever",
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "An anagram tucked inside a container: the activated LEVER climbs into the COT. The question mark excuses the playful definition.",
-     "definitionFit": "A coverlet is a bedspread — the top layer that keeps a sleeper warm through the night."
+     "surface": "Pulling a lever in bed to turn the heating up at night.",
+     "walkthrough": "'Activation of' rearranges lever into VERLE, which goes 'in' COT. The question mark marks the definition as a playful description of a bedspread.",
+     "definitionFit": "A coverlet is a bedspread, something laid over a bed that keeps a sleeper warm at night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Activation"
     }
    }
   },
@@ -659,38 +675,56 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "PLASTICBAG",
+     "op": "charade",
      "indicators": [
       {
-       "text": "concluding"
-      },
-      {
-       "text": "featuring"
+       "text": "concluding",
+       "at": 6,
+       "note": "concluding means coming at the end, so the thing word is placed last"
       }
      ],
      "parts": [
       {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "featuring",
+         "at": 22,
+         "note": "a film featuring something has it inside, so the film word wraps around the final word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "film",
+         "at": 17,
+         "gives": "PIC",
+         "note": "a pic is an informal word for a film, a motion picture"
+        },
+        {
+         "words": "final",
+         "at": 32,
+         "gives": "LAST",
+         "note": "last means final"
+        }
+       ]
+      },
+      {
        "words": "Thing",
+       "at": 0,
        "gives": "BAG",
-       "note": "slang: your bag is your thing, as in 'not my bag'"
-      },
-      {
-       "words": "film",
-       "gives": "PIC",
-       "note": "a pic is a picture — a film"
-      },
-      {
-       "words": "final",
-       "gives": "LAST",
-       "note": "this is what PIC 'features' — LAST goes inside"
+       "note": "your bag is your thing or speciality, as in 'not my bag'"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Thing' for a bag comes straight out of 'not my bag', and it is the best moment in the clue. 'Concluding' is positional rather than definitional: it says where a piece goes, not what it means.",
-     "definitionFit": "A plastic bag weighs next to nothing — a literally lightweight item, whatever the surface's talk of closing credits."
+     "surface": "A film ends with a closing scene featuring something trivial and light.",
+     "walkthrough": "PIC 'featuring' LAST gives PLASTIC, and BAG ('thing', as in 'it's not my bag') is 'concluding'.",
+     "definitionFit": "A carrier made of plastic film weighs almost nothing, so it is a fair example of a lightweight item."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Thing"
     }
    }
   },
