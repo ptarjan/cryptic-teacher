@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -89,40 +90,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IGNOBLE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "cracks",
+       "at": 13,
+       "note": "the large letter cracks, that is breaks into, the rearranged aircraft name, so it sits inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "cracks",
-         "note": "a crack is a split you can slip something into, so the word says these letters open up to admit another one"
-        },
-        {
          "text": "worried",
-         "note": "a dog worries a rag by shaking it about, and letters shaken about will not stay in the order they were given"
+         "at": 20,
+         "note": "worried suggests being shaken about, so the letters of Boeing are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Boeing",
-         "gives": "IGNOBE",
-         "note": "the plane-maker's six letters, resettled into a new order"
-        },
-        {
-         "words": "large",
-         "gives": "L",
-         "note": "L is the clothing-label abbreviation for large"
+         "at": 28
         }
        ]
+      },
+      {
+       "words": "large",
+       "at": 7,
+       "gives": "L",
+       "note": "L is the standard abbreviation for large, as on clothing labels"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two words in this surface read as damage to an aircraft, and only one of them shuffles. The shuffle is six letters long against a seven-letter grid entry, so the L has to be posted into the gap the crack opens.",
-     "definitionFit": "'Common' is meant in the old class sense — low-born, vulgar, beneath one's station — and that disdain is what IGNOBLE carries."
+     "surface": "A large crack has appeared in an anxious-looking Boeing airliner.",
+     "walkthrough": "'worried' rearranges BOEING into IGNOBE, and 'cracks' puts L (large) inside it.",
+     "definitionFit": "Ignoble once meant of low birth, so it is a synonym of common in the sense of lowly or vulgar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Common"
     }
    }
   },
@@ -147,70 +156,69 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "TRIATHLON",
+     "op": "charade",
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "TRIATHLON",
+       "op": "homophone",
+       "spelt": "TRI",
+       "indicators": [
+        {
+         "text": "Sound of",
+         "at": 0,
+         "note": "Sound of tells us to take a word as heard, not as written"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "for cycling",
-           "note": "cycling sends the front letter round to the back, the way a wheel brings the same point round again, and the rest keep their order"
-          },
-          {
-           "text": "around",
-           "note": "the pieces named before and after this word close on either side of what it points at"
-          }
-         ],
-         "parts": [
-          {
-           "op": "homophone",
-           "spelt": "TRI",
-           "indicators": [
-            {
-             "text": "Sound of",
-             "note": "this asks what the quoted word sounds like when you say it, not how the dictionary spells it"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Sound of 'Go'",
-             "gives": "TRY",
-             "note": "a go at something is a try, and said aloud that is the prefix meaning three"
-            }
-           ]
-          },
-          {
-           "words": "hat",
-           "gives": "ATH",
-           "note": "send the H of HAT round to the back and the other two letters stay put"
-          },
-          {
-           "words": "lake",
-           "gives": "L",
-           "note": "L is the map-maker's abbreviation for lake"
-          },
-          {
-           "words": "running",
-           "gives": "ON",
-           "note": "a machine that is running is on"
-          }
-         ]
+         "words": "Go",
+         "at": 10,
+         "gives": "TRY",
+         "note": "a go is a try, an attempt"
         }
        ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "for cycling",
+         "at": 34,
+         "note": "cycling sends the letters of hat round, the first letter moving to the end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hat",
+         "at": 30,
+         "gives": "HAT",
+         "note": "taken as written before its letters are cycled"
+        }
+       ]
+      },
+      {
+       "words": "lake",
+       "at": 20,
+       "gives": "L",
+       "note": "L is the map abbreviation for lake"
+      },
+      {
+       "words": "running",
+       "at": 50,
+       "gives": "ON",
+       "note": "something running is on, as a machine or a show"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "walkthrough": "Read straight, the sentence is a race: a starting shout, a lake, then a bike and a run. Read again, the same words spell that race out, which is why nothing is left over for a separate definition.",
-     "definitionFit": "Every word does double duty: the sentence describes the three-leg race itself — swim the lake, then cycle and run — and that race is the answer."
+     "surface": "A race organiser's picture: a go, then round the lake in a hat, cycling and running.",
+     "walkthrough": "TRY said aloud gives TRI; 'for cycling' turns HAT into ATH, followed by L (lake) and ON (running). The whole clue also pictures the event, laps of a lake.",
+     "definitionFit": "The event combines swimming, cycling and running, and is often staged around a lake used for the swim."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cycling"
     }
    }
   },
@@ -1063,41 +1071,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "ROPY",
+     "spelt": "ROPY",
      "indicators": [
       {
        "text": "in the audience",
-       "note": "someone sitting out front hears the words and never sees them written, so the spelling is left to you"
+       "at": 29,
+       "note": "what the audience hears is the spoken sound, so the phrase is taken as heard"
       }
      ],
      "parts": [
       {
-       "words": "seats",
-       "gives": "ROW",
-       "note": "a theatre's seats are counted in rows"
-      },
-      {
-       "words": "16",
-       "gives": "P",
-       "note": "P is the sixteenth letter of the alphabet, and theatres letter their rows from the front"
-      },
-      {
-       "op": "homophone",
-       "spelt": "ROPY",
-       "parts": [
-        {
-         "words": "seats 16 back",
-         "gives": "ROWP",
-         "note": "said in one breath, that seat description runs together into a single word"
-        }
-       ]
+       "words": "seats 16 back",
+       "at": 15,
+       "gives": "ROWP",
+       "note": "seats sixteen rows back are in Row P, P being the sixteenth letter"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The number is not a cross-reference to another clue, which is the trap — count sixteen letters into the alphabet instead, and say the result out loud.",
-     "definitionFit": "'Ropy' is British colloquial for shoddy or slightly unwell: a ropy performance is one that left the audience unsatisfied."
+     "surface": "A theatregoer complains that seats sixteen rows from the front were poor.",
+     "walkthrough": "Theatre rows are lettered from the front, so the sixteenth row back is Row P; said aloud, 'row P' sounds like the answer.",
+     "definitionFit": "Ropy is British informal for poor in quality or slightly unwell, a synonym of unsatisfactory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "16"
     }
    }
   },
