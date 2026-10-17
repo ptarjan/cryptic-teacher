@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -360,57 +361,60 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a problem for traveller",
-      "at": 46
+      "text": "may be a problem for traveller",
+      "at": 39
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "JETLAG",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 19,
+       "note": "in says the letter goes inside the pair black and silver, landing between them"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "Opening of",
-         "note": "The opening of a word is where it starts, so only the letter at its front is taken."
-        }
-       ],
        "parts": [
         {
          "words": "black",
+         "at": 22,
          "gives": "JET",
          "note": "jet is the deep black of the fossil gemstone, as in jet-black"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "Something put in a pair of things lands between them, so this letter goes inside rather than in front."
-          }
-         ],
-         "parts": [
-          {
-           "words": "luggage",
-           "note": "the first letter of the word and nothing else"
-          }
-         ]
-        },
-        {
          "words": "silver",
+         "at": 32,
          "gives": "AG",
          "note": "the chemical symbol for silver, from the Latin argentum"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Opening of",
+         "at": 0,
+         "note": "the opening of a word is where it starts, so only its front letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "luggage",
+         "at": 11,
+         "note": "only the first letter of the word is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A black and silver suitcase being unzipped at the carousel.",
-     "walkthrough": "'Opening of luggage' reads as a customs search and comes to one letter. The answer belongs to the same airport as the picture, which is unusual enough to be worth noticing.",
-     "definitionFit": "Jet lag is the exhaustion and scrambled body clock that follows a long flight across time zones, the classic complaint of the long-haul traveller."
+     "surface": "A black and silver suitcase being unzipped at the airport carousel.",
+     "walkthrough": "'Opening of luggage' reads as a customs search but means only its first letter. The answer belongs to the same airport scene as the surface, which is unusual.",
+     "definitionFit": "Jet lag is the exhaustion and scrambled body clock after a long flight across time zones, a classic complaint of long-haul travel."
     },
     "features": {
      "answerInScene": true,
@@ -874,28 +878,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INCHOATE",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "Mostly a word is all of it but the final letter, so the last one is left off."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Island",
+       "at": 0,
+       "gives": "INCH",
+       "note": "inch is the Scottish word for a small island, as in Inchcolm and Inchkeith"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 30,
+         "note": "mostly means all of the word except its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Island",
-         "gives": "INCH",
-         "note": "inch is the Scottish word for a small island, as in Inchcolm and Inchkeith"
+         "words": "regarding grass crop",
+         "at": 8,
+         "gives": "OATEN",
+         "note": "oaten means made of or concerning oats, a grass grown as a cereal crop"
         },
         {
-         "words": "regarding grass crop",
-         "gives": "OATE",
-         "note": "oaten means of or concerning the oat, a grass grown as a cereal, and its last letter goes"
+         "gives": "N"
         }
        ]
       }
@@ -903,8 +911,8 @@
     },
     "explanation": {
      "surface": "An island where the cereal harvest has hardly been improved at all.",
-     "walkthrough": "'Inch' for island comes from the Gaelic innis and survives in Scottish place names rather than in dictionaries most solvers reach for. Oats are a grass grown as a crop, so the farming sense is the one wanted and not the slang one.",
-     "definitionFit": "Something inchoate has only just begun and has not yet taken shape, which is exactly what undeveloped describes."
+     "walkthrough": "'mostly' trims OATEN to OATE. Inch for island comes from the Gaelic innis and survives in Scottish place names; the grass here is the farming kind, not the slang.",
+     "definitionFit": "Something inchoate has only just begun and has not yet taken shape, so it is rudimentary and unformed."
     },
     "features": {
      "answerInScene": false,
