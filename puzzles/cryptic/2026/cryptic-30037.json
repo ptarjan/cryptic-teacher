@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -87,48 +88,58 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "fudging",
-       "note": "To fudge something is to mess about with it until it is no longer straight, and letters treated that way will not stay as given."
+       "text": "before",
+       "at": 31,
+       "note": "before places the reworked flaw ahead of the reversed time word"
       }
      ],
      "parts": [
       {
-       "words": "flaw",
-       "gives": "LAWF",
-       "note": "the four letters of FLAW, shuffled"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fudging",
+         "at": 18,
+         "note": "fudging means fiddling or fixing dishonestly, so the letters of flaw are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "flaw",
+         "at": 26,
+         "note": "taken as written, as anagram fodder"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "before",
-         "note": "One thing placed before another is written first, so this piece takes the top of a down entry."
+         "text": "up",
+         "at": 45,
+         "note": "in a down clue, up means the word is written bottom to top, reversing it"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "up",
-           "note": "The entry runs downwards, so a piece written 'up' is read from the bottom and arrives the other way round."
-          }
-         ],
-         "parts": [
-          {
-           "words": "time's",
-           "gives": "ARE",
-           "note": "an ERA is a stretch of time, climbing back up the column here"
-          }
-         ]
+         "words": "time's",
+         "at": 38,
+         "gives": "ERA",
+         "note": "an era is a period of time; the 's reads as 'is'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "ERA is one of the crossword's workhorses for time, and it turns up climbing as often as the right way up. The word defined is a recent coinage: courts used the way weapons are.",
-     "definitionFit": "Lawfare is attacking an enemy through lawsuits and legal process instead of weapons, so it wins by sly means rather than force."
+     "surface": "A sly tactic: covering up a defect just before the deadline runs out.",
+     "walkthrough": "'fudging' turns FLAW into LAWF, which comes 'before' ERA read 'up', ARE.",
+     "definitionFit": "Lawfare is the use of legal action as a weapon to harass or obstruct an opponent, a sneaky strategy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fudging"
     }
    }
   },
@@ -231,30 +242,26 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BEANSALAD",
+     "op": "reverse",
+     "reading": "BEAN + SALAD",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Bane",
-         "gives": "BEAN",
-         "note": "the same four letters in a different order — the clue prints the jumbled version and wants the tidy one"
-        },
-        {
-         "words": "Bane",
-         "gives": "SALAD",
-         "note": "the same word a second time, for the other half: you need a word meaning 'mixed' that turns BEAN into 'Bane', and the answer supplies it — a salad is a mixture, so the answer is its own anagram indicator"
-        }
-       ]
+       "words": "Bane",
+       "at": 0,
+       "note": "read the answer as wordplay: salad, a mixture, signals an anagram of bean, and that anagram is bane"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The clue never says shuffle, because the answer says it: a salad is a mixture, so 'BEAN, mixed' is exactly the word the clue opens with. Setters call this reverse wordplay.",
-     "definitionFit": "Kidney beans are the standard ingredient of such a dish, so the question mark asks you to read 'kidneys' as the pulse, not the organ."
+     "surface": "A cook complains about some dreaded thing in a dish with kidneys in it.",
+     "walkthrough": "This is a reverse clue: the answer's own two words, read as wordplay, give the clue word. SALAD, a jumble, works as an anagram signal on BEAN, and the result is BANE.",
+     "definitionFit": "Kidney beans are a common ingredient of a mixed bean salad, so that dish is where you'd find them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "kidneys"
     }
    }
   },
@@ -436,46 +443,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DONOTHING",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "to pursue",
+       "at": 35,
+       "note": "to pursue means to follow behind, so the reworked knight comes after the other pieces"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "DONOTHING",
+       "words": "mobster",
+       "at": 45,
+       "gives": "DON",
+       "note": "a don is a Mafia boss"
+      },
+      {
+       "words": "Duck",
+       "at": 54,
+       "gives": "O",
+       "note": "a duck in cricket is a score of nought, which looks like the letter O"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "errant",
+         "at": 28,
+         "note": "errant means wandering or straying, so the remaining letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
            "text": "leaderless",
-           "note": "A body with no leader has lost the one at its head, and a word's head is the letter at the front."
-          },
-          {
-           "text": "errant",
-           "note": "A knight errant wanders where he pleases, and letters that wander do not keep the order they came in."
-          },
-          {
-           "text": "to pursue",
-           "note": "To pursue is to come along behind, so this piece is written after the ones it chases."
+           "at": 10,
+           "note": "leaderless means without the first letter, so knight drops its K"
           }
          ],
          "parts": [
           {
-           "words": "mobster",
-           "gives": "DON",
-           "note": "the head of a Mafia family is a don"
-          },
-          {
-           "words": "Duck",
-           "gives": "O",
-           "note": "a duck in cricket is a score of nought, written on the scoreboard as a zero"
-          },
-          {
            "words": "knight",
-           "gives": "THING",
-           "note": "KNIGHT gives up its leading letter and the five that remain are jumbled"
+           "at": 21,
+           "note": "the word that loses its opening letter"
+          },
+          {
+           "gives": "K"
           }
          ]
         }
@@ -484,8 +499,15 @@
      ]
     },
     "explanation": {
-     "walkthrough": "Cricket's duck for zero comes up constantly and is worth learning. The surface has a knight chasing a gangster, a picture from two different centuries that belongs to neither.",
-     "definitionFit": "A deadbeat is an idler who never gets round to anything, and the answer is the older name for the same useless character."
+     "surface": "A wandering knight with no head goes chasing a gangster, and someone shouts a warning to dodge.",
+     "walkthrough": "KNIGHT made 'leaderless' is NIGHT, and 'errant' rearranges it as THING; that goes 'to pursue' DON and O. In cricket a duck is a batsman's score of zero.",
+     "definitionFit": "A deadbeat is a lazy idler, and a do-nothing is someone who never makes any effort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Duck"
     }
    }
   },
@@ -722,44 +744,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LATELATIN",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "eschewing",
+       "at": 28,
+       "note": "eschewing means avoiding, so those three letters are left out of the pool"
+      },
+      {
+       "text": "contrived",
+       "at": 38,
+       "note": "contrived means artificially made up, so the remaining letters are rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "LATELATIN",
-       "indicators": [
-        {
-         "text": "sections of",
-         "note": "A section is a part cut out of something, so it is the individual letters of the name that go, not the name as a block."
-        },
-        {
-         "text": "eschewing",
-         "note": "To eschew is to have nothing to do with something, so the fodder must manage without those letters."
-        },
-        {
-         "text": "contrived",
-         "note": "Something contrived has been put together artificially, so what is left is arranged into an order it never had."
-        }
-       ],
-       "parts": [
-        {
-         "words": "alliteration",
-         "note": "twelve letters, and the raw material for everything that follows"
-        },
-        {
-         "words": "Rio",
-         "note": "R, I and O come out, each one taken from a different place in the twelve"
-        }
-       ]
+       "words": "alliteration",
+       "at": 48,
+       "note": "taken as written, the letters that are rearranged"
+      },
+      {
+       "words": "sections of Rio",
+       "at": 12,
+       "gives": "RIO",
+       "note": "each section, or letter, of the word Rio, the three letters to take away"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Sections of Rio' reads as districts of a Brazilian city and 'contrived alliteration' as a complaint about the clue's own writing. Both are instructions, and the long word at the end is the material.",
-     "definitionFit": "Late Latin is the written form used in the later Roman empire and the early church, a distinct stage of a tongue that lasted centuries."
+     "surface": "A writer, avoiding parts of Rio, falls back on forced alliteration.",
+     "walkthrough": "Take R, I and O out of ALLITERATION ('eschewing'), and the nine letters left, LLTEATAIN, are 'contrived' into the answer.",
+     "definitionFit": "Late Latin is the form of the Latin language written from about the third to the sixth century AD."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rio"
     }
    }
   },
@@ -925,41 +945,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BLINDDATE",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "removed from",
+       "at": 15,
+       "note": "removed from means these three letters are taken out of the pool"
+      },
+      {
+       "text": "unwise",
+       "at": 43,
+       "note": "unwise means ill-judged, signalling the remaining letters are rearranged foolishly"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "BLINDDATE",
-       "indicators": [
-        {
-         "text": "removed from",
-         "note": "What is removed comes out and stays out, so those three letters are gone before anything else happens."
-        },
-        {
-         "text": "unwise",
-         "note": "An unwise arrangement is a badly thought-out one — a loose way of saying the letters end up in no sensible order."
-        }
-       ],
-       "parts": [
-        {
-         "words": "balanced diet",
-         "note": "twelve letters to start from, and the surface's picture of healthy eating"
-        },
-        {
-         "words": "Three vitamins",
-         "gives": "ACE",
-         "note": "A, C and E are all vitamins, and all three come out"
-        }
-       ]
+       "words": "balanced diet",
+       "at": 28,
+       "note": "taken as written, the letters that are rearranged"
+      },
+      {
+       "words": "Three vitamins",
+       "at": 0,
+       "gives": "ACE",
+       "note": "vitamins A, C and E, three of the lettered vitamins"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Take the vitamins out of a balanced diet and what is left spells, pleasingly, a bland one. Those nine letters then rearrange into the evening the definition describes.",
-     "definitionFit": "In American usage a fix-up is an evening someone arranges between two people who have never met, which is the whole point of it."
+     "surface": "Cutting three vitamins out of a healthy diet is a foolish fix.",
+     "walkthrough": "'removed from' takes A, C and E out of BALANCED DIET, and the letters left, BLNDDIT, are 'unwise' ly rearranged into the two words.",
+     "definitionFit": "A blind date is a romantic meeting arranged between strangers by friends, a set-up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fix-up"
     }
    }
   },
@@ -1036,36 +1058,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHEMISE",
-     "indicators": [
-      {
-       "text": "shortened",
-       "note": "A shortened word has had its end trimmed off, so the final letter never reaches the grid."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortened",
+         "at": 12,
+         "note": "shortened means the word loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "Drug dealer",
-         "gives": "CHEMIS",
-         "note": "a chemist in Britain is the pharmacist who dispenses drugs, docked of his last letter here"
+         "at": 0,
+         "gives": "CHEMIST",
+         "note": "a chemist sells medicines, a pharmacist in British English"
         },
         {
-         "words": "Eastern",
-         "gives": "E",
-         "note": "E is the compass abbreviation for eastern"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "Eastern",
+       "at": 22,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Drug dealer' is a British chemist's shop rather than a street corner. It is the same joke every setter makes with the word, and worth expecting on sight.",
-     "definitionFit": "A chemise is a loose slip worn next to the skin, so it goes under a dress rather than over it."
+     "surface": "A drug pusher is arrested and cut down to size in the East.",
+     "walkthrough": "CHEMIST 'shortened' loses its T, and E for Eastern follows. 'Drug dealer' suggests a criminal, but a British chemist is a pharmacist.",
+     "definitionFit": "A chemise is a loose shift or slip worn beneath clothing, a type of underwear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dealer"
     }
    }
   },
