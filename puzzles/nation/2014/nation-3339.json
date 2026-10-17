@@ -443,42 +443,58 @@
    "annotation": {
     "definitions": [
      {
-      "text": "great musician",
-      "at": 49
+      "text": "a great musician",
+      "at": 47
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "RAYCHARLES",
-     "indicators": [
-      {
-       "text": "No turns to yes",
-       "note": "the negative's initial is swapped for the affirmative's initial, one letter exchanged for another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "farm",
-       "gives": "RANCH",
-       "note": "an American farm"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "turns to",
+         "at": 3,
+         "note": "turns to says one letter changes into another inside the farm word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "farm",
+         "at": 19,
+         "gives": "RANCH",
+         "note": "a ranch is a large farm"
+        },
+        {
+         "words": "No",
+         "at": 0,
+         "gives": "N"
+        },
+        {
+         "words": "yes",
+         "at": 12,
+         "gives": "Y"
+        }
+       ]
       },
       {
        "words": "where van Gogh painted",
+       "at": 24,
        "gives": "ARLES",
-       "note": "van Gogh lived and painted in Arles in southern France"
+       "note": "Vincent van Gogh lived and painted in Arles, in the south of France"
       }
      ]
     },
     "explanation": {
-     "surface": "A van Gogh history note about a farm and a change of heart from no to yes.",
-     "walkthrough": "N (no) becomes Y (yes) in RANCH, giving RAYCH.",
-     "definitionFit": "Ray Charles was a celebrated American soul and R&B singer and pianist."
+     "surface": "A puzzling remark about a painter's farm, ending in praise for a great musician.",
+     "walkthrough": "'No' and 'yes' are not words here but their one-letter abbreviations, and 'turns to' swaps one for the other. Arles is the Provençal town where van Gogh painted his sunflowers.",
+     "definitionFit": "Ray Charles was the American singer and pianist, a pioneer of soul music and widely called a genius."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "No"
+     "misdirectedWord": "farm"
     }
    }
   },
@@ -742,36 +758,58 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "IRISH",
-     "indicators": [
-      {
-       "text": "replacing potassium with hydrogen",
-       "note": "the chemical symbol of one element is swapped out for the symbol of the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "I",
-       "note": "taken as written"
+       "at": 12
       },
       {
-       "words": "take a chance",
-       "gives": "RISK",
-       "note": "to take a chance is to risk"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "replacing",
+         "at": 29,
+         "note": "replacing says one letter of the chance word is swapped out for another"
+        },
+        {
+         "text": "with",
+         "at": 49,
+         "note": "with names what goes in when the potassium letter comes out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "take a chance",
+         "at": 14,
+         "gives": "RISK",
+         "note": "to risk is to take a chance"
+        },
+        {
+         "words": "potassium",
+         "at": 39,
+         "gives": "K",
+         "note": "K is the chemical symbol for potassium"
+        },
+        {
+         "words": "hydrogen",
+         "at": 54,
+         "gives": "H",
+         "note": "H is the chemical symbol for hydrogen"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A writer gambling on a Joycean style, described with a chemistry twist.",
-     "walkthrough": "K is potassium's chemical symbol and H is hydrogen's, so I RISK becomes I RISH.",
-     "definitionFit": "James Joyce was a Dublin-born novelist, so the nationality adjective describes him."
+     "surface": "A writer modelling themselves on Joyce gambles, then turns to chemistry.",
+     "walkthrough": "'replacing potassium with hydrogen' reads like a lab note; it swaps the chemical symbols K and H in the gamble word, which then follows I.",
+     "definitionFit": "James Joyce, author of Ulysses and Dubliners, was born in Dublin, so his nationality was Irish."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "potassium"
+     "aptDefinition": true,
+     "misdirectedWord": "Joyce"
     }
    }
   },
@@ -1658,44 +1696,41 @@
     "definitions": [
      {
       "text": "to once again check",
-      "at": 15
+      "at": 15,
+      "meaning": "a verb phrase, as the answer is a verb"
+     },
+     {
+      "text": "anagram for \"street\"",
+      "at": 35,
+      "meaning": "a second, self-describing definition: the answer is itself a rearrangement of the letters of street"
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Cryptic",
+       "at": 0,
+       "note": "cryptic says the letters of setter are hidden in a puzzling new order"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "Cryptic",
-         "note": "something cryptic is scrambled and hard to read, so these letters are jumbled"
-        }
-       ],
-       "parts": [
-        {
-         "words": "setter",
-         "note": "the letters to be rearranged"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "anagram for \"street\"",
-       "note": "a bonus description adding no letters: the same six letters also rearrange from street"
+       "words": "setter",
+       "at": 8
       }
      ]
     },
     "explanation": {
-     "surface": "A crossword setter double-checks an anagram of 'street' in the grid.",
-     "walkthrough": "The tail of the clue is a cheeky bonus: the answer is also an anagram of 'street', as of 'setter'.",
-     "definitionFit": "To retest is to test again, a repeat check of the same thing."
+     "surface": "A setter is asked to recheck a word that is an anagram of street.",
+     "walkthrough": "'Cryptic' rearranges SETTER. The closing words define the answer a second way: it is also a rearrangement of STREET, a wink at the setters themselves.",
+     "definitionFit": "To retest is to test again, examining something a second time to confirm the result."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "setter"
+     "misdirectedWord": "Cryptic"
     }
    }
   },
