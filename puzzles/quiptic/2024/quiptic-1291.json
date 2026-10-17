@@ -43,60 +43,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SPIDERY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 13,
+       "note": "the rearranged letters go into the case, placed between its two outer letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "Doctor",
-         "note": "to doctor something is to tamper with it, so the letters get rearranged"
-        },
-        {
          "text": "case of",
-         "note": "the case of a word is its outer shell, its first and last letters"
+         "at": 18,
+         "note": "the case of a word is its outside, its first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "SY",
-         "indicators": [
-          {
-           "text": "into",
-           "note": "the rearranged letters go into the case"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "case of somebody",
-           "gives": "SY",
-           "select": "outer",
-           "note": "the outer letters of somebody"
-          }
-         ]
-        },
+         "words": "somebody",
+         "at": 26,
+         "note": "the outer letters of somebody are S and Y"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "Doctor pried",
-         "gives": "PIDER",
-         "note": "PRIED rearranged"
+         "text": "Doctor",
+         "at": 0,
+         "note": "to doctor something is to tamper with it, so these letters are altered into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pried",
+         "at": 7
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nosy doctor has been rummaging through someone's file and is commenting on their scrawl.",
-     "walkthrough": "The question mark flags a loose definition: spidery describes thin, straggling handwriting rather than meaning 'regarding' it.",
-     "definitionFit": "Spidery writing has long thin strokes like a spider's legs."
+     "surface": "A medic snooping into a patient's file, with a question about their scrawl.",
+     "walkthrough": "'Doctor' looks like the subject of the sentence but is the anagram signal: it rearranges PRIED into PIDER, and the case of somebody, SY, goes around it.",
+     "definitionFit": "Spindly, thin-stroked writing is described as spidery, like a spider's long legs."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Doctor"
     }
    }
@@ -295,48 +293,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PROCESS",
+     "op": "container",
      "indicators": [
       {
-       "text": "deployed",
-       "note": "troops deployed are spread out and rearranged"
+       "text": "around",
+       "at": 15,
+       "note": "the rearranged word wraps around the two compass points"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "the rearranged letters go around the two points"
+         "text": "deployed",
+         "at": 6,
+         "note": "troops deployed are spread out into new positions, so these letters are arranged afresh"
         }
        ],
        "parts": [
         {
-         "words": "Corps deployed",
-         "gives": "PROCS",
-         "note": "CORPS rearranged"
-        },
-        {
-         "words": "two points",
-         "gives": "ES",
-         "note": "compass points east and south"
+         "words": "Corps",
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "two points",
+       "at": 22,
+       "gives": "ES",
+       "note": "E and S, east and south, are two points of the compass"
       }
      ]
     },
     "explanation": {
-     "surface": "An army unit is sent out to take two positions in a set sequence of manoeuvres.",
-     "walkthrough": "The points are compass points, not places or positions.",
-     "definitionFit": "A process is a series of steps taken to reach an end."
+     "surface": "A military corps being sent out to encircle a pair of positions.",
+     "walkthrough": "The surface's 'points' are positions on a battlefield; in the wordplay they are compass points, east and south.",
+     "definitionFit": "A process is a sequence of actions or stages carried out to reach a result."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "points"
+     "misdirectedWord": "Corps"
     }
    }
   },
@@ -409,42 +407,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CHIPOLATA",
+     "op": "container",
      "indicators": [
       {
-       "text": "varying",
-       "note": "the letters of a lot vary their order"
+       "text": "in",
+       "at": 39,
+       "note": "the joint and the rearranged letters sit inside the state abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "being in a state means sitting within its borders"
-        }
-       ],
+       "words": "California",
+       "at": 42,
+       "gives": "CA",
+       "note": "CA is the US postal abbreviation for California"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "California",
-         "gives": "CA",
-         "note": "state abbreviation"
+         "words": "joint",
+         "at": 19,
+         "gives": "HIP",
+         "note": "the hip is a joint of the body"
         },
         {
-         "op": "charade",
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "varying",
+           "at": 25,
+           "note": "varying means changing, so these letters change their order"
+          }
+         ],
          "parts": [
           {
-           "words": "joint",
-           "gives": "HIP",
-           "note": "the hip is a joint"
-          },
-          {
-           "words": "varying a lot",
-           "gives": "OLAT",
-           "note": "A LOT rearranged"
+           "words": "a lot",
+           "at": 33
           }
          ]
         }
@@ -453,9 +452,9 @@
      ]
     },
     "explanation": {
-     "surface": "A cut of meat in California yields sausages of all sorts of sizes.",
-     "walkthrough": "A chipolata is a thin British sausage, often served wrapped in bacon.",
-     "definitionFit": "A plain description: the name comes via French from Italian cipollata, a dish flavoured with onion, and it now means the thin cocktail-size banger."
+     "surface": "A butcher in California turning out sausages from cuts of meat in assorted sizes.",
+     "walkthrough": "The 'joint' looks like a cut of meat beside the sausage, but it is the body's hip; 'varying' rearranges A LOT into OLAT.",
+     "definitionFit": "A chipolata is a thin, small pork sausage, often served with roast turkey."
     },
     "features": {
      "answerInScene": true,
@@ -489,56 +488,64 @@
      "indicators": [
       {
        "text": "put in",
-       "note": "the pieces are placed inside"
+       "at": 33,
+       "note": "these pieces are placed inside the confines named next"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "SL",
        "indicators": [
         {
          "text": "confines of",
-         "note": "the confines of a word are its boundary letters"
+         "at": 40,
+         "note": "the confines of a word are its boundaries, its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "confines of school",
-         "gives": "SL",
-         "select": "outer",
-         "note": "outer letters of school"
+         "words": "school",
+         "at": 52,
+         "note": "the confines, or outer letters, of school are S and L"
         }
        ]
       },
       {
        "op": "charade",
+       "indicators": [
+        {
+         "text": "with",
+         "at": 21,
+         "note": "with places the agency right after the exercise"
+        }
+       ],
        "parts": [
         {
          "words": "exercise",
+         "at": 12,
          "gives": "PE",
-         "note": "physical education"
+         "note": "PE is physical education, school exercise"
         },
         {
          "words": "agents",
+         "at": 26,
          "gives": "CIA",
-         "note": "the US intelligence agency"
+         "note": "the CIA is the US intelligence agency, a body of agents"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A school puts on an unusual workout, with secret agents joining the class.",
-     "walkthrough": "PE, physical education, is the British name for school sports lessons, which suits the surface.",
-     "definitionFit": "Special means distinctive, set apart from the ordinary."
+     "surface": "Spies running a PE lesson inside a school's walls, which would be unusual.",
+     "walkthrough": "'confines of school' gives SL, its boundary letters; 'with' joins PE to CIA, and both are 'put in' between S and L.",
+     "definitionFit": "Something special stands out from the ordinary, which is what distinctive means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "exercise"
+     "joke": "absurd",
+     "misdirectedWord": "agents"
     }
    }
   },
@@ -667,47 +674,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PANTOMIMES",
+     "op": "container",
      "indicators": [
       {
-       "text": "represented",
-       "note": "the letters are presented again in a new order"
+       "text": "in",
+       "at": 13,
+       "note": "the pronoun goes in among the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in"
+         "text": "represented",
+         "at": 26,
+         "note": "re-presented, presented again in a different form, so these letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "main spot represented",
-         "gives": "PANTOMIS",
-         "note": "MAIN SPOT rearranged"
-        },
-        {
-         "words": "First person",
-         "gives": "ME",
-         "note": "me is the first person pronoun"
+         "words": "main spot",
+         "at": 16
         }
        ]
+      },
+      {
+       "words": "First person",
+       "at": 0,
+       "gives": "ME",
+       "note": "me is the first-person pronoun"
       }
      ]
     },
     "explanation": {
-     "surface": "The star in the central role acted out some farces.",
-     "walkthrough": "Panto is a British Christmas stage show full of slapstick; the word is used for any absurd, farcical carry-on.",
-     "definitionFit": "A pantomime, figuratively, is a ridiculous or farcical situation."
+     "surface": "Someone claiming the starring role at the centre of a stage scene.",
+     "walkthrough": "'represented' rearranges MAIN SPOT into PANTOMIS, and ME goes 'in' it near the end.",
+     "definitionFit": "A pantomime, in British usage, also means a ridiculous charade or chaotic farce, as in 'the meeting was a pantomime'."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "person"
+     "aptDefinition": true,
+     "misdirectedWord": "represented"
     }
    }
   },
@@ -1087,45 +1095,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "starts to",
-       "note": "take the starting letter of each word"
+       "text": "in",
+       "at": 42,
+       "note": "those first letters go inside the word for work"
       }
      ],
      "parts": [
       {
        "words": "work",
+       "at": 45,
        "gives": "TOIL",
        "note": "toil is hard work"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "URM",
        "indicators": [
         {
-         "text": "in"
+         "text": "starts to",
+         "at": 9,
+         "note": "the starts of the words are their first letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "starts to undermine real mission",
-         "gives": "URM",
-         "select": "first",
-         "note": "first letters of undermine, real, mission"
+         "words": "undermine real mission",
+         "at": 19,
+         "note": "the first letters of undermine, real and mission are U, R and M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Chaos threatens to derail a project at the office.",
-     "walkthrough": "\"Starts to\" applies to all three following words, not just the first.",
-     "definitionFit": "Turmoil is a state of great disturbance."
+     "surface": "A saboteur setting out to wreck a genuine assignment at the office.",
+     "walkthrough": "'starts to' reads as 'begins to', making a sentence about sabotage, but it asks for the first letters of the next three words.",
+     "definitionFit": "Turmoil is a state of great disturbance or confusion, the same as an upheaval."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "work"
     }
    }
   },
