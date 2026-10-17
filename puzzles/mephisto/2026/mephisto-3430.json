@@ -1189,36 +1189,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DYELINE",
-     "indicators": [
-      {
-       "text": "uncovered",
-       "note": "removing the cover strips away the outside, so the first and last letters go"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Department",
-       "gives": "D",
-       "note": "D is an abbreviation for department"
+       "at": 0,
+       "gives": "D"
       },
       {
-       "words": "cosmetic",
-       "gives": "EYELINER",
-       "note": "eyeliner is make-up drawn round the eyes"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "uncovered",
+         "at": 11,
+         "note": "uncovered means stripped of its outer layer, so the first and last letters of the cosmetic go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cosmetic",
+         "at": 21,
+         "gives": "EYELINER",
+         "note": "eyeliner is a cosmetic drawn along the eyelids"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A store department exposes a copy of a beauty product.",
-     "walkthrough": "EYELINER loses both ends and goes after D.",
-     "definitionFit": "A dyeline is a copy made by the diazo process, as for architectural plans, so an early photocopy."
+     "surface": "A shop department selling make-up with no packaging.",
+     "walkthrough": "'uncovered' strips EYELINER to YELINE, which follows D.",
+     "definitionFit": "A dyeline is a copy made by the diazo process, an old method of reproducing plans and documents."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "uncovered"
     }
    }
   },
