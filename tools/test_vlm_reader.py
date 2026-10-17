@@ -362,6 +362,41 @@ check("three silent asks are", (False, 2), run([False] * 3, True))
 check("a server that was already down is asked once", (False, 0), run([False], False))
 vlm.reachable, vlm.URL, vlm._MISSED[0] = saved
 
+# Host-wide cap: no more than slots() asks in flight at once across threads,
+# waiting for a slot is not "down" (nothing missed), and the cause is logged.
+import threading
+vlm._SLOTS[0] = 2
+vlm._MISSED[0] = False
+live, peak, lk = [0], [0], threading.Lock()
+def fake_slow(req, timeout=None):
+    with lk:
+        live[0] += 1
+        peak[0] = max(peak[0], live[0])
+    time.sleep(0.05)
+    with lk:
+        live[0] -= 1
+    return io.BytesIO(json.dumps({"choices": [{"message": {"content": "OKc"}}]}).encode())
+urllib.request.urlopen = fake_slow
+vlm._UP[vlm.MODEL] = True
+vlm._CHAT[:] = [time.monotonic() + 1e6, None, True]
+vlm._YIELDED[0] = float("-inf")
+ths = [threading.Thread(target=vlm.ask, args=(Image.new("L", (400, 300), 20 + i), "qcap")) for i in range(8)]
+[t.start() for t in ths]
+[t.join() for t in ths]
+check("8 concurrent asks on 2 slots: never more than 2 in flight, nothing missed", (True, False),
+      (1 <= peak[0] <= 2, vlm.missed()))
+def fake_500(req, timeout=None):
+    raise urllib.error.HTTPError(req.full_url, 500, "x", {}, None)
+urllib.request.urlopen = fake_500
+try:
+    vlm.ask(Image.new("L", (400, 300), 99), "qcause")
+except RuntimeError:
+    pass
+check("a failed ask logs its cause", "HTTP 500", vlm.cause())
+vlm._SLOTS[0] = None
+urllib.request.urlopen = real
+vlm._MISSED[0] = False
+
 if fails:
     print("test_vlm_reader: failed")
     sys.exit(1)

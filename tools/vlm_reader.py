@@ -28,9 +28,13 @@ asks nothing new.
 import base64
 import hashlib
 import io
+import contextlib
+import fcntl
 import json
 import os
 import random
+import socket
+import tempfile
 import time
 import urllib.error
 import urllib.parse
@@ -89,7 +93,7 @@ def wanted():
     if URL:
         _MISSED[0] = True
         if os.environ.get(DEFER_ENV):
-            raise Down(f"VLM {MODEL} at {URL} is down")
+            raise Down(f"VLM {MODEL} at {URL} is down ({_CAUSE[0] or 'unreachable'})")
     return False
 
 
@@ -103,7 +107,7 @@ def guard(what):
     it wanted (missed): `what` (a puzzle write, a ledger row) would record a
     read made without it."""
     if _MISSED[0] and os.environ.get(DEFER_ENV):
-        raise Down(f"VLM {MODEL} at {URL} went down mid-read; {what} not written")
+        raise Down(f"VLM {MODEL} at {URL} went down mid-read ({_CAUSE[0] or 'unknown'}); {what} not written")
 
 
 def went_without(what):
@@ -353,6 +357,65 @@ QUEUE_FULL_WAIT = 10
 RETRY_CODES = (429, 502, 503, 504)
 
 
+#: Why the model last went unused: "HTTP 429", "timeout", "refused", "yield: ..."
+#: (cause()). Every "VLM down"/deferred line carries it, so an audit counts causes.
+_CAUSE = [""]
+#: In-flight asks allowed at once, host-wide: the server's slot count (llama-server
+#: -np), read once from its /props `total_slots`, else SLOTS_FALLBACK. Locks are
+#: flock files in the temp dir (like ocr_remote.local_slot): they matter only while
+#: the asking processes live, and flock frees them when those die, so /tmp suffices.
+SLOTS_FALLBACK = 1
+_SLOTS = [None]
+
+
+def cause():
+    """Why the last ask failed or yielded, "" if none has."""
+    return _CAUSE[0]
+
+
+def cause_of(e):
+    """A short cause for exception `e`: HTTP status, timeout, refused or the error's name."""
+    if isinstance(e, urllib.error.HTTPError):
+        return f"HTTP {e.code}"
+    r = getattr(e, "reason", e)
+    if isinstance(r, (TimeoutError, socket.timeout)):
+        return "timeout"
+    if isinstance(r, ConnectionRefusedError):
+        return "refused"
+    return type(r).__name__
+
+
+def slots():
+    """The server's slot count: /props total_slots (llama-swap's /upstream/MODEL/props),
+    else SLOTS_FALLBACK. Asked once a process."""
+    if _SLOTS[0] is None:
+        n = SLOTS_FALLBACK
+        try:
+            props = json.load(urllib.request.urlopen(f"{URL}/upstream/{MODEL}/props", timeout=5))
+            n = max(1, int(props.get("total_slots") or n))
+        except Exception:
+            pass
+        _SLOTS[0] = n
+    return _SLOTS[0]
+
+
+@contextlib.contextmanager
+def slot():
+    """Hold one of slots() host-wide lock files for one request. Waiting here is
+    queueing, not the server being down: it never marks anything missed."""
+    n = slots()
+    while True:
+        for i in range(n):
+            with open(Path(tempfile.gettempdir()) / f"vlm_reader.slot.{i}.lock", "w") as f:
+                try:
+                    fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                except BlockingIOError:
+                    continue
+                yield
+                return
+        time.sleep(random.uniform(0.2, 1.0))
+
+
 def ask(img, prompt, max_tokens=1500):
     """The model's reply to `prompt` about a PIL image, cached."""
     return ask_png(png(img), prompt, max_tokens)
@@ -368,6 +431,7 @@ def ask_png(data, prompt, max_tokens=1500):
     if why:
         _YIELDED[0] = time.monotonic()
         _MISSED[0] = True
+        _CAUSE[0] = f"yield: desktop busy ({why})"
         raise RuntimeError(f"VLM {MODEL} at {URL} yields: desktop busy ({why})")
     body = {"model": MODEL, "temperature": 0, "max_tokens": max_tokens,
             "messages": [{"role": "user", "content": [
@@ -379,9 +443,11 @@ def ask_png(data, prompt, max_tokens=1500):
     try:
         for tried in range(QUEUE_FULL_TRIES):
             try:
-                reply = json.load(urllib.request.urlopen(req, timeout=600))
+                with slot():
+                    reply = json.load(urllib.request.urlopen(req, timeout=600))
                 break
             except urllib.error.HTTPError as e:
+                _CAUSE[0] = cause_of(e)
                 # 429: llama-swap's queue is full (many reads ask at once). The
                 # server is up and busy, not down: wait for room and ask again.
                 if e.code not in RETRY_CODES or tried == QUEUE_FULL_TRIES - 1:
@@ -391,7 +457,8 @@ def ask_png(data, prompt, max_tokens=1500):
         # Down mid-run (the desktop rebooted): the rest of the run reads without it.
         _UP[MODEL] = False
         _MISSED[0] = True
-        raise RuntimeError(f"VLM {MODEL} at {URL} failed: {e}") from e
+        _CAUSE[0] = cause_of(e)
+        raise RuntimeError(f"VLM {MODEL} at {URL} failed ({_CAUSE[0]}): {e}") from e
     text = reply["choices"][0]["message"]["content"] or ""
     CACHE.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(".part")
