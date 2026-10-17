@@ -87,40 +87,52 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "VACATION",
      "indicators": [
       {
        "text": "making second",
-       "note": "the new letter is made the second letter of the word"
-      },
-      {
-       "text": "at front",
-       "note": "it goes in near the front, replacing what was there"
+       "at": 14,
+       "note": "the second letter of the trade word is replaced, making the new letter second"
       }
      ],
      "parts": [
       {
        "words": "trade",
+       "at": 8,
        "gives": "VOCATION",
        "note": "a vocation is a calling or trade"
       },
       {
-       "words": "arrival",
-       "gives": "A",
-       "note": "A = arrival, as on timetables; it replaces the O in second place"
+       "gives": "O",
+       "note": "the second letter of the trade word"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at front",
+         "at": 36,
+         "note": "the front of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "arrival",
+         "at": 28,
+         "note": "first letter of arrival"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A travel-industry remark about holiday bookings and who gets to the resort first.",
-     "walkthrough": "Only one letter changes: the O of VOCATION gives way to A, the timetable abbreviation for arrival.",
-     "definitionFit": "A vacation is a holiday, especially in American usage."
+     "surface": "A business moves a newly arrived item to the front of the queue.",
+     "walkthrough": "'Making second' tells you to put a new second letter into VOCATION: the A from 'arrival at front' takes the place of its O.",
+     "definitionFit": "Vacation is the usual American word for a holiday, and in Britain names a university's long break."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "trade"
+     "misdirectedWord": "second"
     }
    }
   },
@@ -148,45 +160,44 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "centrally located",
-       "note": "only the letters located at the centre of the word are taken"
+       "text": "located by",
+       "at": 19,
+       "note": "located by means placed beside, so the river letter sits right after the middle letters"
       }
      ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "AI",
        "indicators": [
         {
-         "text": "by",
-         "note": "the next piece is placed beside it"
+         "text": "centrally",
+         "at": 9,
+         "note": "centrally means the middle letters of the word are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "main centrally",
-         "gives": "AI",
-         "select": "middle",
-         "note": "the two central letters of mAIn"
+         "words": "main",
+         "at": 4,
+         "note": "the middle two letters of main"
         }
        ]
       },
       {
        "words": "river",
+       "at": 30,
        "gives": "R",
-       "note": "R = river, a map abbreviation"
+       "note": "R is the map abbreviation for river"
       }
      ]
     },
     "explanation": {
-     "surface": "A utility notice: the gas main runs beside the river.",
-     "walkthrough": "The surface makes \"Gas main\" a single piece of pipework; split it, and Gas is the definition while main is raw material.",
-     "definitionFit": "Air is a mixture of gases, loosely called a gas."
+     "surface": "A gas main is laid beside a river.",
+     "walkthrough": "'Gas main' reads as one utility pipe, but the definition stops at 'Gas'; 'centrally' takes AI from the middle of 'main', and 'located by' puts R after it.",
+     "definitionFit": "Air is the mixture of gases forming the atmosphere."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "main"
     }
@@ -260,38 +271,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "turn",
-       "note": "the letters of the following words are turned about into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "turn",
+         "at": 2,
+         "note": "a turn here is a twist, so the letters of the next words are twisted into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as it stands"
+         "words": "in",
+         "at": 7,
+         "note": "taken as written"
         },
         {
-         "words": "in Cream",
-         "note": "the letters of IN CREAM rearranged"
+         "words": "Cream",
+         "at": 10,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A music-hall act set among the classic rock bands Cream and Foreigner.",
-     "walkthrough": "Cream and Foreigner are both rock bands, and turn suggests a stage act; in fact turn rearranges IN CREAM, and Foreigner is the definition.",
-     "definitionFit": "A definition by example: to a British setter and solver, anyone from the United States is from abroad."
+     "surface": "A musician plays a set in the rock band Cream or in the band Foreigner.",
+     "walkthrough": "Cream and Foreigner are both rock bands, so the clue reads like a musician's CV; 'turn' is not a stage spot but the signal to rearrange the two words before it.",
+     "definitionFit": "To a British setter an American is a national of another country, an outsider from abroad."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "turn"
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Foreigner"
     }
    }
   },
@@ -371,49 +390,59 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "left by",
-       "note": "the A departs from the word before it"
-      }
-     ],
      "parts": [
       {
-       "words": "cook left by a",
-       "gives": "ROST",
-       "note": "ROAST with its A gone"
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "I",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "a slice of",
-         "note": "only the first letter of the following word is taken"
+         "text": "left by",
+         "at": 10,
+         "note": "left by means abandoned by, so the letter A departs from the cooking word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "slice of iceberg",
-         "gives": "I",
-         "select": "first",
-         "note": "the first letter of iceberg"
+         "words": "cook",
+         "at": 5,
+         "gives": "ROAST",
+         "note": "to roast is to cook in an oven"
+        },
+        {
+         "words": "a",
+         "at": 18,
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "slice of",
+         "at": 20,
+         "note": "a slice of the word is just its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "iceberg",
+         "at": 29,
+         "note": "first letter of iceberg"
         }
        ]
       }
      ]
     },
+    "spelling": "RÖSTI",
     "explanation": {
-     "surface": "A kitchen instruction: plate the dish beside a wedge of iceberg lettuce.",
-     "walkthrough": "The a belongs to the deletion, not to the slice: A leaves ROAST, and the slice is just the I of iceberg.",
-     "definitionFit": "Rosti is a Swiss dish of fried grated potato."
+     "surface": "A chef abandons the kitchen beside a lettuce.",
+     "walkthrough": "'Left by a' reads as placing, but it means A leaves ROAST, giving ROST; 'slice of' iceberg adds its I. Iceberg is a lettuce, which adds to the kitchen picture.",
+     "definitionFit": "Rösti is a Swiss potato cake of grated potato fried until crisp, served as a meal."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "iceberg"
+     "misdirectedWord": "left"
     }
    }
   },
@@ -561,41 +590,44 @@
      "indicators": [
       {
        "text": "given to",
-       "note": "the pieces are joined together"
+       "at": 8,
+       "note": "given to means handed over to, so the diner's letter is attached after the sweet word"
       }
      ],
      "parts": [
+      {
+       "words": "A",
+       "at": 0
+      },
+      {
+       "words": "sweet",
+       "at": 2,
+       "gives": "CUTE",
+       "note": "cute means sweet or endearing"
+      },
       {
        "op": "last",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "only the last letter of the word is taken"
+         "at": 23,
+         "note": "ultimately means finally, so the last letter is taken"
         }
        ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as it stands"
+         "words": "diner",
+         "at": 17,
+         "note": "last letter of diner"
         }
        ]
-      },
-      {
-       "words": "sweet",
-       "gives": "CUTE",
-       "note": "sweet = cute, endearing"
-      },
-      {
-       "words": "diner ultimately",
-       "gives": "R",
-       "note": "the last letter of dineR"
       }
      ]
     },
     "explanation": {
-     "surface": "A restaurant-goer is handed a dessert and becomes more alert.",
-     "walkthrough": "Sweet looks like a pudding for the diner; it is the adjective cute.",
-     "definitionFit": "Acute means sharp, so acuter means sharper."
+     "surface": "A restaurant customer receives a dessert and finds it rather tart.",
+     "walkthrough": "'Sweet' looks like a pudding but means CUTE; 'ultimately' takes the R ending 'diner', which 'given to' attaches at the end.",
+     "definitionFit": "Acuter is the comparative of acute, which means keen or sharp, as of a sense or pain."
     },
     "features": {
      "answerInScene": false,
@@ -1386,47 +1418,46 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "Piece of",
-       "note": "take only a piece, the first letter, of the word"
+       "text": "off",
+       "at": 18,
+       "note": "off means removed, so the letter is taken away from the loud word"
       }
      ],
      "parts": [
       {
        "words": "thunderous",
+       "at": 22,
        "gives": "STRIDENT",
-       "note": "strident = loud, thunderous; the S comes off"
+       "note": "strident means loud and harsh, as a thunderous voice is"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "S",
        "indicators": [
         {
-         "text": "off",
-         "note": "that letter is taken off the following word"
+         "text": "Piece of",
+         "at": 0,
+         "note": "a piece of the word here is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Piece of shrapnel",
-         "gives": "S",
-         "select": "first",
-         "note": "the first letter of shrapnel"
+         "words": "shrapnel",
+         "at": 9,
+         "note": "first letter of shrapnel"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A war report: a fragment of shrapnel flies off a deafening weapon.",
-     "walkthrough": "The surface reads as a war report, but the definition is weapon; the S of shrapnel comes off STRIDENT.",
-     "definitionFit": "A trident is a three-pronged spear, a weapon."
+     "surface": "A fragment of a shell is fired from a booming gun.",
+     "walkthrough": "'Piece of shrapnel' gives just S, and 'off' takes it from the front of STRIDENT.",
+     "definitionFit": "A trident is a three-pronged spear, the weapon of Neptune and Roman gladiators."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Piece"
+     "misdirectedWord": "thunderous"
     }
    }
   },
@@ -1451,33 +1482,41 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EXITS",
+     "op": "substitution",
      "indicators": [
       {
        "text": "having turned tail",
-       "note": "the tail end of the word is turned round"
+       "at": 18,
+       "note": "the tail of the word, its last two letters, is turned round so they swap places"
       }
      ],
      "parts": [
       {
        "words": "survive",
+       "at": 9,
        "gives": "EXIST",
-       "note": "to exist is to survive; its last two letters swap"
+       "note": "to exist is to survive or stay alive"
+      },
+      {
+       "gives": "ST",
+       "note": "the last two letters of the survival word"
+      },
+      {
+       "gives": "TS",
+       "note": "those two letters turned round"
       }
      ]
     },
     "explanation": {
-     "surface": "A question about whether anyone lives through it after running away.",
-     "walkthrough": "Does one reads as a question opener; it is British slang, to do one meaning to clear off.",
-     "definitionFit": "To do one is British slang for to leave, so does one = exits."
+     "surface": "Someone asks whether a person survives after running away.",
+     "walkthrough": "'Do one' is British slang for go away or clear off, so 'Does one' means leaves. 'Having turned tail' suggests fleeing, but it turns round the last two letters of EXIST.",
+     "definitionFit": "The slang order 'do one!' means get lost, so someone who does one departs, which is what exits means."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Does"
+     "misdirectedWord": "tail"
     }
    }
   },
