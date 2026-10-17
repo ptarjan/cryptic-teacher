@@ -559,8 +559,10 @@ out = io.StringIO()
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(out):
     eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=0.5, replan=60)
 check("--seconds starts nothing after it and says what it left", (True, True),
-      (len(log.read_text().splitlines()) <= 4, "left for the next run" in out.getvalue()))
-log.unlink()
+      (len((log.read_text() if log.exists() else "").splitlines()) <= 4, "left for the next run" in out.getvalue()))
+# A slow runner can reach the deadline before the one worker logs a start,
+# and then no log is written at all: that is still "nothing after it".
+log.unlink(missing_ok=True)
 eq.plan = units([], [("slow", [])])
 pid = os.fork()
 if pid == 0:
