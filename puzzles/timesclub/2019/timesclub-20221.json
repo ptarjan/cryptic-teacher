@@ -363,43 +363,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KISSME",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is dropped"
+       "text": "engulfing",
+       "at": 20,
+       "note": "engulfing means swallowing up, so the shortened doom wraps round the society letter"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "engulfing",
-         "note": "to engulf is to swallow up and surround, so the letters go round the next piece"
+         "text": "almost",
+         "at": 13,
+         "note": "almost means the word is cut short of its last letter"
         }
        ],
        "parts": [
         {
          "words": "doom",
-         "gives": "KISME",
-         "note": "kismet is fate or doom, here missing its final letter"
+         "at": 8,
+         "gives": "KISMET",
+         "note": "kismet is fate or destiny, one's doom"
         },
         {
-         "words": "society",
-         "gives": "S",
-         "note": "S is the standard abbreviation for society"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "society",
+       "at": 30,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A veil of doom nearly swallowing all of society: a gothic image.",
-     "walkthrough": "KISMET loses its T; the S for society slips in after KIS.",
-     "definitionFit": "Chambers lists the name for a small, flirtatious bonnet or veil-trimmed hat, the sort that invites a peck on the cheek."
+     "surface": "A sombre veil of near-doom closes over polite society.",
+     "walkthrough": "KISMET loses its last letter to give KISME, which swallows S. 'Veil' is not a mourning shroud here; a kiss-me was a light veil or bonnet.",
+     "definitionFit": "Chambers lists kiss-me as a small old-fashioned bonnet or veil, named for its inviting look."
     },
     "features": {
      "answerInScene": false,
@@ -629,53 +633,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CETUXIMAB",
+     "op": "container",
      "indicators": [
       {
-       "text": "endless",
-       "note": "endless means without its final letter, which is dropped"
+       "text": "admits",
+       "at": 27,
+       "note": "admits means lets in, so the reversed letters go inside the organisation"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Free advisory organisation",
+       "at": 0,
+       "gives": "CAB",
+       "note": "the CAB, Citizens Advice Bureau, is a British charity giving free advice"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "admits",
-         "note": "to admit is to let in, so the organisation holds the other letters inside"
+         "text": "brought up",
+         "at": 62,
+         "note": "in a down clue brought up means read from bottom to top, so reversed"
         }
        ],
        "parts": [
         {
-         "words": "Free advisory organisation",
-         "gives": "CAB",
-         "note": "the Citizens Advice Bureau gives free advice in Britain"
-        },
-        {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "brought up",
-           "note": "in a down entry, bringing letters up means reading them from the bottom"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "op": "charade",
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "endless",
+             "at": 34,
+             "note": "endless means losing the final letter"
+            }
+           ],
            "parts": [
             {
              "words": "confusion",
-             "gives": "MIXU",
-             "note": "a mix-up is confusion, here missing its last letter"
+             "at": 42,
+             "gives": "MIXUP",
+             "note": "a mix-up is a confusion"
             },
             {
-             "words": "note",
-             "gives": "TE",
-             "note": "the seventh note of the sol-fa scale"
+             "gives": "P"
             }
            ]
+          },
+          {
+           "words": "note",
+           "at": 57,
+           "gives": "TE",
+           "note": "te is a note of the sol-fa scale"
           }
          ]
         }
@@ -684,14 +695,14 @@
      ]
     },
     "explanation": {
-     "surface": "A free advice service admits its confusion about a musical note raised over a cancer drug.",
-     "walkthrough": "The Citizens Advice Bureau is a British charity offering free help. The confusion and the note are reversed together before going inside, after the first letter.",
-     "definitionFit": "Cetuximab is a monoclonal antibody medicine used to treat bowel and head and neck tumours."
+     "surface": "A free advice charity takes in some confusion over a prescription note for a cancer drug.",
+     "walkthrough": "The CAB is Britain's Citizens Advice Bureau. MIX-UP without its last letter plus TE gives MIXUTE, which 'brought up' turns into ETUXIM inside CAB, after the C.",
+     "definitionFit": "Cetuximab is a monoclonal antibody used to treat colorectal and head-and-neck cancers."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "note"
+     "misdirectedWord": "Free"
     }
    }
   },
