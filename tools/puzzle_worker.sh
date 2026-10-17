@@ -479,12 +479,33 @@ discard_puzzle() {
 # every stage and commit after it fails the same way. Callers hold ct-index.lock,
 # so no sibling run's git is the one waited on. Without a lock path (a stubbed
 # git) it only sleeps.
+# 10-17 12:27:36: another empty lock, the sixth refusal in a row inside the two
+# minutes (sundaytough-167, telegraph-31275, times-29592, sundaytel-3270), with no
+# git alive and nothing in the log to say what died. So a lock past
+# CT_LOCK_MIN_AGE_SECS (10) is taken over as soon as no git process is alive in
+# this worktree (tree_has_live_git); the two minutes remain the limit for a lock
+# whose holder cannot be told (no /proc to read the processes' directories).
+tree_has_live_git() {
+  local top pid comm cwd
+  top=$(git rev-parse --show-toplevel 2>/dev/null) || return 0
+  top=$(cd "$top" && pwd -P) || return 0
+  [ -d /proc/self ] || return 0   # cannot tell whose git it is: assume live
+  while read -r pid comm; do
+    case "$comm" in git|git-*) ;; *) continue ;; esac
+    cwd=$(readlink "/proc/$pid/cwd" 2>/dev/null) || continue
+    case "$cwd/" in "$top"/*) return 0 ;; esac
+    tr '\0' ' ' <"/proc/$pid/cmdline" 2>/dev/null | grep -qF -- "$top" && return 0
+  done < <(ps -eo pid=,comm=)
+  return 1
+}
 clear_stale_index_lock() {
-  local lock waited=0
+  local lock waited=0 age
   lock=$(git rev-parse --git-path index.lock 2>/dev/null) || lock=""
   [ -n "$lock" ] || { sleep 2; return 0; }
   while [ -e "$lock" ]; do
-    if [ -z "$(find "$lock" -mmin -2 2>/dev/null)" ]; then
+    age=$(( $(date +%s) - $(stat -c %Y "$lock" 2>/dev/null || stat -f %m "$lock" 2>/dev/null || date +%s) ))
+    if [ "$age" -ge 120 ] ||
+       { [ "$age" -ge "${CT_LOCK_MIN_AGE_SECS:-10}" ] && ! tree_has_live_git; }; then
       echo "worker: clearing an index.lock from $(date -r "$lock" '+%H:%M:%S') with no live git behind it" >&2
       rm -f "$lock"
       return 0

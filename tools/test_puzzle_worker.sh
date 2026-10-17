@@ -322,6 +322,31 @@ stale_lock() (   # age of the lock in minutes; prints whether it is still there 
 )
 check "a ten-minute-old empty lock is removed" "$(stale_lock 10)" "cleared"
 check "a lock a git may still hold is left alone" "$(stale_lock 0)" "kept"
+# A lock past ten seconds is stale as soon as no git is alive in the tree
+# (10-17 12:27:36: four more puzzles failed inside the two minutes).
+# shellcheck disable=SC2329  # called through the sourced worker
+stale_secs() (   # age in seconds, "live" to keep a git alive in the tree; prints kept/cleared
+  repo=$(mktemp -d)
+  trap 'rm -rf "$repo"; [ -n "${gp:-}" ] && kill "$gp" 2>/dev/null' EXIT
+  CLAUDE_HEADLESS=() WORKER_MODEL=opus WORKER_EFFORT=medium WORKER_WRAP="" WORKER_JOB=test
+  . "$PWD/tools/puzzle_worker.sh"
+  cd "$repo" || exit 1
+  git init -q .
+  touch -d "$1 seconds ago" .git/index.lock
+  if [ "$2" = live ]; then
+    # a process whose name is "git", working in the repo, as a live git is
+    mkdir "$repo/bin"
+    cp "$(command -v sleep)" "$repo/bin/git"
+    ( cd "$repo" && exec "$repo/bin/git" 20 ) &
+    gp=$!
+    sleep 0.3
+  fi
+  CT_LOCK_WAIT_SECS=2 clear_stale_index_lock 2>/dev/null
+  [ -e .git/index.lock ] && echo kept || echo cleared
+)
+check "a 30-second-old lock with no git alive in the tree is removed at once" "$(stale_secs 30 none)" "cleared"
+check "a 5-second-old lock is left alone" "$(stale_secs 5 none)" "kept"
+check "a 30-second-old lock with a git alive in the tree is left alone" "$(stale_secs 30 live)" "kept"
 
 echo "index-rewriting git commands outside the runs' stage and commit take their turn"
 # genius-177 (stage) and sundaytimes-5154 (commit) were refused index.lock by the
