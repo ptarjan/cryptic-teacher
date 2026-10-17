@@ -348,45 +348,51 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "BO",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "left pairs of",
-         "note": "the leftmost pair of letters of each word is what is kept, reading from the start"
+         "text": "left",
+         "at": 9,
+         "note": "left points to the left-hand end of each word, where the kept letters sit, so the rest of the word goes"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "boots",
-         "gives": "BO",
-         "select": "first",
-         "note": "the first letter pair: its opening two letters"
+         "at": 23,
+         "note": "taken as written; its first two letters are kept"
+        },
+        {
+         "gives": "OTS"
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "SH",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "pairs of",
+         "at": 14,
+         "note": "pairs of says only two letters are kept from each word, here the second of the pair of footwear words"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
          "words": "shoes",
-         "gives": "SH",
-         "select": "first",
-         "note": "the first letter pair: its opening two letters"
+         "at": 33,
+         "note": "taken as written; its first two letters are kept"
+        },
+        {
+         "gives": "OES"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Shoe repairers have left behind several pairs of boots and shoes.",
-     "walkthrough": "'Cobblers' looks like shoe menders, fitting the footwear, but it is British slang for nonsense.",
-     "definitionFit": "Both are informal British words for nonsense or rubbish talk, so one can replace the other in speech."
+     "surface": "Shoe repairers abandon a few sets of boots and shoes.",
+     "walkthrough": "'Cobblers' looks like shoe menders to match the footwear, but it is British slang for nonsense. 'left pairs of' governs both words: keep the leftmost two letters of 'boots', BO, and of 'shoes', SH.",
+     "definitionFit": "Both words are British slang for nonsense or rubbish, as in 'what a load of cobblers'."
     },
     "features": {
      "answerInScene": false,
