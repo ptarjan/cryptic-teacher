@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -382,65 +383,73 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "URUGUAYAN",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "UR",
        "indicators": [
         {
          "text": "heard",
-         "note": "What is heard arrives by ear, so the words before it are to be listened to and then written down however English spells that sound."
+         "at": 22,
+         "note": "heard tells us to take the sound of you are, not its spelling"
         }
        ],
        "parts": [
         {
-         "op": "homophone",
-         "spelt": "UR",
-         "indicators": [
-          {
-           "text": "said",
-           "note": "Said means spoken rather than printed, so this scrap too is handed over as a noise rather than as a spelling."
-          }
-         ],
-         "parts": [
-          {
-           "words": "you are",
-           "gives": "YOUARE",
-           "note": "said aloud, the two words are the names of two letters, and the names are all that is kept"
-          }
-         ]
-        },
+         "words": "you are",
+         "at": 14,
+         "gives": "YOUARE",
+         "note": "spoken aloud, you are sounds like the letters U and R"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "U",
+       "indicators": [
         {
-         "op": "homophone",
-         "spelt": "U",
-         "indicators": [
-          {
-           "text": "touring",
-           "note": "A tourist wanders about with no fixed route, and letters sent wandering do not come back in the order they left."
-          }
-         ],
-         "parts": [
-          {
-           "words": "you",
-           "gives": "YOU",
-           "note": "the same trick once more, this time on a single word"
-          }
-         ]
-        },
+         "text": "said",
+         "at": 33,
+         "note": "said again tells us to go by how you sounds when spoken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "you",
+         "at": 29,
+         "gives": "YOU",
+         "note": "spoken aloud, you sounds like the letter U"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "touring",
+         "at": 39,
+         "note": "touring means travelling around, so the letters of Guyana wander into a new order"
+        }
+       ],
+       "parts": [
         {
          "words": "Guyana",
-         "gives": "GUAYAN",
-         "note": "the six letters of the country next door, shuffled into another order"
+         "at": 47
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Both sounds lean on the same trick, that a letter's name said aloud is a whole word, and the country supplying the rest is the one a solver would find on the same map.",
-     "definitionFit": "A S American → URUGUAYAN: S is the usual shorthand for South, and the clue defines by example — this is one particular kind of South American."
+     "surface": "Someone tells a South American traveller what they heard and said while on a trip round Guyana.",
+     "walkthrough": "Text-speak spellings help here: UR and U are how 'you are' and 'you' sound. 'touring' rearranges GUYANA into GUAYAN.",
+     "definitionFit": "A Uruguayan is a native of Uruguay, a country in South America; S is the usual abbreviation for South."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "touring"
     }
    }
   },
