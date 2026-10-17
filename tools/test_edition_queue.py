@@ -1145,7 +1145,7 @@ with contextlib.redirect_stderr(err), contextlib.redirect_stdout(out):
 starts = sorted(line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start")
 check("the VLM down: no edition read starts, the scan does, a Trove read once, it ends deferred and is held",
       (["t1", "vs"], True, True, True, False),
-      (starts, "VLM down: " in err.getvalue(), "deferred (the VLM is down)" in err.getvalue(),
+      (starts, "VLM down (" in err.getvalue(), "deferred (the VLM is down)" in err.getvalue(),
        "left for the next run" in out.getvalue(), "failed" in err.getvalue()))
 check("the slice's tally names the scans deferred", True, "VLM down: 2 scans deferred" in out.getvalue())
 eq.vlm_gate_reader = lambda: True
