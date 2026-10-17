@@ -418,41 +418,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NEDSHERRIN",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "fresh",
-         "note": "made anew, so the letters are reworked"
-        },
-        {
-         "text": "minus tail",
-         "note": "a fish's tail is its end, so without it the word loses its last letter"
+         "at": 5,
+         "note": "fresh suggests the word Send made anew, so its letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Send fresh",
-         "gives": "NEDS",
-         "note": "SEND rearranged"
+         "words": "Send",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "minus tail",
+         "at": 16,
+         "note": "minus tail tells us to drop the final letter of the fish"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fish",
+         "at": 11,
+         "gives": "HERRING",
+         "note": "a herring is a fish"
         },
         {
-         "words": "fish minus tail",
-         "gives": "HERRIN",
-         "note": "HERRING loses its last letter"
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to dispatch fish, tail removed, to a presenter.",
-     "walkthrough": "Ned Sherrin was a British broadcaster and producer, host of Radio 4's Loose Ends and producer of That Was The Week That Was.",
-     "definitionFit": "Ned Sherrin presented radio and television programmes for decades."
+     "surface": "An instruction to post out fresh fish, with the tail cut off, to someone on the radio.",
+     "walkthrough": "'Fresh' rearranges SEND into NEDS; 'minus tail' docks HERRING to HERRIN. Ned Sherrin was a British broadcaster, satirist and producer, long the host of Radio 4's Loose Ends.",
+     "definitionFit": "Ned Sherrin presented radio and television programmes for decades, so he is an example of a broadcaster."
     },
     "features": {
      "answerInScene": false,
@@ -482,45 +492,42 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "container",
+     "indicators": [
       {
-       "unchecked": true,
-       "words": "lands",
-       "note": "surface padding: it only lands the pair in trouble"
+       "text": "lands",
+       "at": 24,
+       "note": "lands ... in means puts one thing into another, so the pair goes inside the trouble"
       },
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "one piece goes inside another"
-        }
-       ],
-       "parts": [
-        {
-         "words": "trouble",
-         "gives": "AIL",
-         "note": "to ail = to trouble"
-        },
-        {
-         "words": "pair",
-         "gives": "PR",
-         "note": "PR = pair"
-        }
-       ]
+       "text": "in",
+       "at": 35,
+       "note": "in completes 'lands ... in', placing the pair inside the trouble word"
+      }
+     ],
+     "parts": [
+      {
+       "words": "trouble",
+       "at": 38,
+       "gives": "AIL",
+       "note": "to ail is to trouble or afflict"
+      },
+      {
+       "words": "pair",
+       "at": 30,
+       "gives": "PR"
       }
      ]
     },
     "explanation": {
-     "surface": "A spring month in which a couple get into difficulties.",
-     "walkthrough": "The Waste Land by T S Eliot opens 'April is the cruellest month'.",
-     "definitionFit": "Eliot named April as the cruellest month in the first line of The Waste Land."
+     "surface": "T. S. Eliot's grim month brings problems for a couple.",
+     "walkthrough": "The Waste Land opens 'April is the cruellest month'. Here 'trouble' is the verb AIL, not a noun.",
+     "definitionFit": "The first line of Eliot's poem calls the fourth month of the year the cruellest, a famous literary quotation."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "lands"
+     "misdirectedWord": "trouble"
     }
    }
   },
@@ -551,42 +558,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BLOCKVOTE",
-     "indicators": [
-      {
-       "text": "damaged",
-       "note": "knocked out of shape, so the letters change order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "City area",
+       "at": 0,
+       "gives": "BLOCK",
+       "note": "a block is an area of a city bounded by streets"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "damaged",
+         "at": 15,
+         "note": "damaged suggests the word veto broken up, so its letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "City area",
-         "gives": "BLOCK",
-         "note": "a city block"
-        },
-        {
-         "words": "veto damaged",
-         "gives": "VOTE",
-         "note": "VETO rearranged"
+         "words": "veto",
+         "at": 10
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A council ban in some district harms the rights of a trade union.",
-     "walkthrough": "A block vote lets a trade union cast all its members' votes as one, a power it has held at Labour Party conferences.",
-     "definitionFit": "The block vote is a voting right exercised by a trade union on behalf of its members."
+     "surface": "A city district where a ban has been spoiled by trade unionists' special rights.",
+     "walkthrough": "'Damaged' turns VETO into VOTE. A block vote lets a delegate, typically a trade union leader, cast the votes of all the members represented at once.",
+     "definitionFit": "Casting many members' votes as one bloc is a power historically held by trade unions at Labour Party conferences."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "veto"
+     "misdirectedWord": "damaged"
     }
    }
   },
@@ -1264,40 +1270,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BYRON",
-     "indicators": [
-      {
-       "text": "first to leave",
-       "note": "the first letter is the one that walks out, as a member leaves a club"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "past",
+       "at": 19,
+       "gives": "BY",
+       "note": "by can mean past, as in 'walk by'"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "first to leave",
+         "at": 24,
+         "note": "first to leave means the opening letter of the club goes"
+        }
+       ],
        "parts": [
         {
-         "words": "past",
-         "gives": "BY",
-         "note": "to go by = to go past"
+         "words": "club",
+         "at": 39,
+         "gives": "IRON",
+         "note": "an iron is a golf club"
         },
         {
-         "words": "club",
-         "gives": "RON",
-         "note": "a golf club, IRON, loses its first letter"
+         "gives": "I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A poet of the Romantic era once gave up his club membership.",
-     "walkthrough": "'Club' reads as a society to be left; it is a golf club, IRON.",
-     "definitionFit": "Lord Byron was one of the great English Romantic poets."
+     "surface": "A Romantic author who once had to resign first from a club.",
+     "walkthrough": "'First to leave' takes the I from IRON. Lord Byron was one of the great English Romantic poets.",
+     "definitionFit": "Byron belongs to the Romantic movement of English poetry, alongside Shelley and Keats."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "club"
     }
