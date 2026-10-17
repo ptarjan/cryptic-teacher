@@ -694,23 +694,16 @@
      "indicators": [
       {
        "text": "Not originally",
-       "note": "the word loses the letter it originally started with"
+       "at": 0,
+       "note": "not originally means the word loses its original, opening letter"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "well-upholstered",
+       "at": 15,
        "gives": "PLUMP",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "well-upholstered",
-         "gives": "PLUMP",
-         "select": "first",
-         "note": "well-upholstered is a jokey way of saying fat; drop the first letter"
-        }
-       ]
+       "note": "a jokey way of calling someone plump, padded like a sofa"
       },
       {
        "gives": "P"
@@ -718,9 +711,9 @@
      ]
     },
     "explanation": {
-     "surface": "A piece of furniture that was not padded to begin with.",
-     "walkthrough": "Well-upholstered sounds like a sofa, but it is humorous slang for a plump person.",
-     "definitionFit": "A plain synonym: a chunk of coal or sugar is a small block."
+     "surface": "Describes a chunk of something that was not always so generously padded.",
+     "walkthrough": "'well-upholstered' sounds like furniture but is a humorous word for a plump person; 'Not originally' drops the P that starts PLUMP.",
+     "definitionFit": "A lump is a solid shapeless mass, much as a block is a solid piece of material."
     },
     "features": {
      "answerInScene": false,
@@ -1346,42 +1339,42 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "top of",
-       "note": "the top of a down word is its first letter"
+       "text": "is missing",
+       "at": 29,
+       "note": "is missing means the letter named is absent from the wire word"
       }
      ],
      "parts": [
       {
        "words": "wire",
+       "at": 7,
        "gives": "CABLE",
-       "note": "a cable is a wire"
+       "note": "a cable is an insulated wire carrying electricity or signals"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "C",
        "indicators": [
         {
-         "text": "is missing",
-         "note": "that letter is taken away"
+         "text": "top of",
+         "at": 12,
+         "note": "top of picks out the first letter of a word in a down clue"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "top of champagne",
+         "words": "champagne",
+         "at": 19,
          "gives": "C",
-         "select": "first",
-         "note": "first letter of champagne, removed from the wire"
+         "note": "first letter of champagne"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A clever gadget: a wire cage over a champagne cork, its top gone missing.",
-     "walkthrough": "The wire cage round a champagne cork fits the surface, but wire here just means cable.",
-     "definitionFit": "A plain synonym: a capable, skilled person is described as clever."
+     "surface": "The wire cage on a champagne cork has gone astray, and someone smart notices.",
+     "walkthrough": "'wire top of champagne' suggests the muselet that holds a cork in place, but the wire is CABLE, and 'top of' gives the C it loses ('is missing').",
+     "definitionFit": "Able and clever both describe someone skilful and capable, quick to learn or do things well."
     },
     "features": {
      "answerInScene": false,
@@ -1518,43 +1511,47 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SUNDECKS",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev Spooner swapped the first sounds of words"
+       "at": 0,
+       "note": "Dr Spooner famously swapped the opening sounds of words, so the starts of the two words trade places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "DUN",
        "parts": [
         {
-         "unchecked": true,
          "words": "finished",
-         "gives": "SUN",
-         "soundsLike": "DONE",
-         "note": "finished = done, which takes its S from the next word"
-        },
+         "at": 10,
+         "gives": "DONE",
+         "note": "done means finished, as in 'all done'"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "SECKS",
+       "parts": [
         {
-         "unchecked": true,
          "words": "it",
-         "gives": "DECKS",
-         "soundsLike": "SEX",
-         "note": "it = sex, as in sex appeal, which takes its D from done"
+         "at": 19,
+         "gives": "SEX",
+         "note": "it is a coy slang word for sex"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cheeky one-liner about someone finishing it off while at sea.",
-     "walkthrough": "It is a crossword convention for sex or sex appeal; swapping the opening sounds of 'done sex' is the cheeky joke.",
-     "definitionFit": "A definition by description: the open top decks of a cruise ship are raised platforms at sea."
+     "surface": "A cheeky remark that something racy, now over, produced the decks of a cruise ship.",
+     "walkthrough": "'it' here is the coy euphemism; done is said like DUN and sex like SECKS, and swapping their first sounds turns DUN SECKS into the answer.",
+     "definitionFit": "Sundecks are open upper decks on a ship where passengers sit in the sun, platforms out on the sea."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "it"
