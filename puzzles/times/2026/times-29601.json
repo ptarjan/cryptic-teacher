@@ -389,36 +389,34 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INSISTED",
-     "indicators": [
-      {
-       "text": "crushed",
-       "note": "the letters of DISSENT are broken up and rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "I",
+       "at": 20
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crushed",
+         "at": 22,
+         "note": "crushed means broken up, so the letters of dissent are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "I",
-         "note": "I as written"
-        },
-        {
          "words": "dissent",
-         "gives": "NSISTED",
-         "note": "DISSENT rearranged"
+         "at": 30
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An authority figure boasting of having put down opposition.",
-     "walkthrough": "The surface is a strongman's boast, and the definition sits in the same voice: crushing dissent is exactly what an insistent ruler does.",
-     "definitionFit": "To insist is to demand something forcefully."
+     "surface": "Someone boasts of having stamped out opposition.",
+     "walkthrough": "'crushed' reads as a verb of suppression, but it is the signal to rearrange DISSENT into NSISTED.",
+     "definitionFit": "To insist is to demand something firmly, refusing to take no for an answer."
     },
     "features": {
      "answerInScene": true,
@@ -444,7 +442,8 @@
     "definitions": [
      {
       "text": "their son?",
-      "at": 50
+      "at": 50,
+      "note": "the question mark admits the definition depends on the names just given in the clue"
      }
     ],
     "wordplay": {
@@ -452,45 +451,67 @@
      "indicators": [
       {
        "text": "embraces",
-       "note": "the patriarch's name wraps round the two letters"
+       "at": 10,
+       "note": "embraces means holds within, so the letters go inside"
       }
      ],
      "parts": [
       {
-       "words": "Patriarch",
-       "gives": "JOB",
-       "note": "Job, the Old Testament figure, counted among the patriarchs"
-      },
-      {
-       "op": "last",
-       "unchecked": true,
-       "gives": "AC",
+       "op": "container",
        "indicators": [
         {
-         "text": "ultimately",
-         "note": "take the last letter of each name"
+         "text": "and",
+         "at": 27,
+         "note": "and carries the embrace over to a second letter, so it also goes inside the patriarch"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Rebecca and Isaac ultimately",
-         "gives": "AC",
-         "select": "last",
-         "note": "last letters of RebeccA and IsaaC"
+         "words": "Patriarch",
+         "at": 0,
+         "gives": "JOB",
+         "note": "Job is one of the Old Testament patriarchs"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 37,
+           "note": "ultimately takes the last letter of each of the two names"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Isaac",
+           "at": 31,
+           "note": "the name Isaac, whose last letter is taken"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "parts": [
+        {
+         "words": "Rebecca",
+         "at": 19,
+         "note": "the name Rebecca, whose last letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A biblical family tree: a patriarch, Rebecca and Isaac, and the question of their son.",
-     "walkthrough": "Rebecca and Isaac really were Jacob's parents, so the definition comes straight from the story the surface tells.",
-     "definitionFit": "In Genesis, Jacob is the son of Isaac and Rebecca."
+     "surface": "A biblical patriarch embraces Rebecca and Isaac, perhaps their son.",
+     "walkthrough": "'ultimately' serves both names, giving A and C, which JOB 'embraces'. The definition leans on the clue's own names: Rebecca and Isaac were the parents of twins Esau and Jacob in Genesis.",
+     "definitionFit": "In Genesis, Jacob is the younger twin born to Isaac and his wife Rebecca."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "Patriarch"
     }
    }
   },
@@ -581,39 +602,40 @@
      "op": "container",
      "indicators": [
       {
-       "text": "first in",
-       "note": "take the first letter of 'theory'"
+       "text": "receives",
+       "at": 39,
+       "note": "receives means takes in, so the other letters are placed inside"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "receives"
-        }
-       ],
        "parts": [
         {
          "words": "when",
+         "at": 14,
          "gives": "AS",
-         "note": "as = when, as in 'as I left'"
+         "note": "as can mean when, as in 'as I left'"
         },
         {
          "words": "is",
-         "note": "IS as written"
+         "at": 19,
+         "note": "taken as written"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "T",
+         "indicators": [
+          {
+           "text": "first in",
+           "at": 22,
+           "note": "first in picks the opening letter of the following word"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "first in theory",
-           "gives": "T",
-           "select": "first",
-           "note": "first letter of Theory"
+           "words": "theory",
+           "at": 31,
+           "note": "the word theory, whose opening letter is taken"
           }
          ]
         }
@@ -624,22 +646,24 @@
        "parts": [
         {
          "words": "prize",
+         "at": 48,
          "gives": "TROPHY",
          "note": "a trophy is a prize"
         },
         {
          "words": "like that",
+         "at": 54,
          "gives": "SIC",
-         "note": "sic, Latin 'thus', marks a quotation as written like that"
+         "note": "sic is Latin for thus, used to mean written like that"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A top pupil who, when theory comes first, wins an award for it.",
-     "walkthrough": "'Star student' reads as a brilliant pupil but means someone who studies stars. AS + IST opens up to hold TROPHY + SIC.",
-     "definitionFit": "An astrophysicist studies the physics of stars."
+     "surface": "A star pupil, theory first, wins a prize just like that.",
+     "walkthrough": "AS, IS and T make ASIST, which takes in TROPHY and SIC. 'Star student' is a pun: the definition is someone who studies stars.",
+     "definitionFit": "An astrophysicist is a scientist who researches the physics of celestial bodies, literally a student of stars."
     },
     "features": {
      "answerInScene": true,
@@ -1180,50 +1204,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "mad",
-       "note": "the letters of GOING go crazy and rearrange"
+       "text": "over",
+       "at": 15,
+       "note": "in a down clue, over means on top of, so the jumbled part comes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "conclusion",
-         "note": "take the last letter of 'inspection'"
+         "text": "mad",
+         "at": 11,
+         "note": "mad means crazy or deranged, so the letters of going are jumbled"
         }
        ],
        "parts": [
         {
          "words": "going",
-         "note": "anagram fodder"
-        },
+         "at": 5
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "parts": [
-          {
-           "words": "inspection's conclusion",
-           "gives": "INSPECTIONCONCLUSION",
-           "note": "last letter of inspectioN"
-          }
-         ]
+         "text": "conclusion",
+         "at": 33,
+         "note": "conclusion means end, so the final letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "inspection's",
+         "at": 20,
+         "gives": "INSPECTION",
+         "note": "the word inspection, whose final letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone losing their mind over the end of an inspection.",
-     "walkthrough": "Head is the definition, not a head teacher panicking about an inspection. The N joins GOING as extra fodder.",
-     "definitionFit": "Noggin is informal British slang for the head."
+     "surface": "Someone goes off their head after an inspection.",
+     "walkthrough": "'Head' looks like part of the picture of someone going mad, but it is the definition, in its slang sense.",
+     "definitionFit": "Noggin is informal slang for a person's skull or brain."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Head"
+     "misdirectedWord": "mad"
     }
    }
   },
@@ -1412,11 +1446,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "IDLED",
      "indicators": [
       {
-       "text": "to grab"
+       "text": "to grab",
+       "at": 10,
+       "note": "to grab means to seize and hold, so the letter is placed inside"
       }
      ],
      "parts": [
@@ -1424,43 +1458,45 @@
        "op": "charade",
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "in the end",
-           "note": "take the last letter of 'sunbed'"
-          }
-         ],
-         "parts": [
-          {
-           "words": "I",
-           "note": "I as written"
-          }
-         ]
-        },
-        {
-         "words": "sunbed in the end",
-         "gives": "D",
-         "note": "last letter of sunbeD"
+         "words": "I",
+         "at": 0
         },
         {
          "words": "managed",
+         "at": 2,
          "gives": "LED",
-         "note": "led = managed, ran"
+         "note": "to lead a team is to manage it"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "in the end",
+         "at": 25,
+         "note": "in the end takes the final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sunbed",
+         "at": 18,
+         "note": "the word sunbed, whose final letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A holidaymaker who got a sunbed by the pool and then lazed.",
-     "walkthrough": "The poolside scene fits the definition so well that 'sunbed' seems to be the point; only its last letter is used.",
-     "definitionFit": "A plain synonym: lazing about without working is taking it easy, both in the past tense."
+     "surface": "A holidaymaker finally secures a sunbed and relaxes.",
+     "walkthrough": "I and LED make ILED, which grabs D.",
+     "definitionFit": "To idle is to be lazy, so idled means lazed or relaxed."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "sunbed"
+     "misdirectedWord": "managed"
     }
    }
   },
