@@ -315,7 +315,9 @@ def geometry(chart):
     return W, H, keys, xs, ticks
 for chart, trimmed in (B.cumulative_chart(long), (B.cumulative_chart(long, full=True)[0], False)):
     W, H, keys, xs, ticks = geometry(chart)
-    assert len(keys) == 3 and any(t == "downloaded 155,555" for *_, t in keys), keys
+    # Four lines; scans on disk and not read are the recorded raw counts, so
+    # the scans line is not filed plus the unread (it was, via nested()).
+    assert len(keys) == 4 and {t for *_, t in keys} >= {"scans on disk 155,555", "scans not read 4,714"}, keys
     # Labels never clip: each one's generous width ends inside the viewBox, at any screen width.
     assert B.KEY_EM >= .6, "a bold 11px label is at least .6em a character"
     for x, y, t in keys:

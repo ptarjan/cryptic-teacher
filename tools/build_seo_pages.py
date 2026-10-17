@@ -1539,6 +1539,13 @@ RATE_DAYS = 60   # days of per-day bars /progress/ draws
 FUNNEL_LABEL = ("known to exist", "downloaded", "filed", "solved", "hinted")
 FUNNEL_CLASS = ("known", "queued", "filed", "solved", "hinted")
 S_KNOWN, S_DOWNLOADED, S_FILED, S_SOLVED, S_HINTED = range(5)
+# The running-totals chart's own lines beyond the funnel's stages: the raw
+# counts the history records, not nested(), whose downloaded is filed plus the
+# unread and so follows filed by construction (Paul 10-17: "why does it track
+# the download line so well").
+L_SCANS, L_UNREAD = "scans", "backlog"
+LINE_LABEL = {S_FILED: "filed", S_HINTED: "hinted", L_SCANS: "scans on disk", L_UNREAD: "scans not read"}
+LINE_CLASS = {S_FILED: "filed", S_HINTED: "hinted", L_SCANS: "queued", L_UNREAD: "backlog"}
 # Solved is not paced: answers are found in the session that hints the puzzle,
 # so it moves with hinted and has no pace of its own.
 PACED = (S_KNOWN, S_DOWNLOADED, S_FILED, S_HINTED)
@@ -1626,14 +1633,25 @@ def day_ticks(start, last, width):
     return ticks[::-1]
 
 
+def line_points(days, key):
+    """[(day, total)] for one running-totals line: filed and hinted from
+    progress.funnel_series, the scans on disk and the unread backlog as
+    recorded (progress.series_of), so each has a slope of its own."""
+    if key == L_SCANS:
+        return progress.series_of(days, progress.DOWNLOADED)
+    if key == L_UNREAD:
+        return progress.series_of(days, progress.QUEUED)
+    return progress.funnel_series(days, key)
+
+
 def cumulative_chart(days, full=False):
-    """Downloaded, filed and hinted's running totals (progress.funnel_series),
-    one line a stage over the days it was counted; a stage counted on one day
+    """Scans on disk, scans not read, filed and hinted's running totals, one
+    line each over the days it was counted; a line counted on one day
     only has no line yet. The axis starts where the lines start to move
     (chart_start) unless `full`; returns (svg, trimmed). The end labels' margin
     is measured from their own text, so a longer number never runs off the side."""
-    lines = {st: pts for st in (S_DOWNLOADED, S_FILED, S_HINTED)
-             if len(pts := progress.funnel_series(days, st)) > 1}
+    lines = {st: pts for st in (L_SCANS, L_UNREAD, S_FILED, S_HINTED)
+             if len(pts := line_points(days, st)) > 1}
     if not lines:
         return "", False
     first = datetime.fromisoformat(next(iter(days)))
@@ -1649,7 +1667,7 @@ def cumulative_chart(days, full=False):
                  + [p for p in pts if p[0] >= cut] for st, pts in lines.items()}
         lines = {st: pts for st, pts in lines.items() if len(pts) > 1}
     span = max((last - start).days, 1)
-    keys = {st: f"{FUNNEL_LABEL[st]} {pts[-1][1]:,}" for st, pts in lines.items()}
+    keys = {st: f"{LINE_LABEL[st]} {pts[-1][1]:,}" for st, pts in lines.items()}
     W, H, L, T, B = 640, 260, 52, 10, 24
     R = 6 + max(map(key_width, keys.values())) + 4
     def px(d):
@@ -1665,8 +1683,8 @@ def cumulative_chart(days, full=False):
     ends = []
     for st, pts in lines.items():
         xy = " ".join(f"{px(d):.1f},{py(n):.1f}" for d, n in pts)
-        body.append(f'<polyline class="line ph-{FUNNEL_CLASS[st]}" points="{xy}"/>')
-        ends.append([py(pts[-1][1]), keys[st], FUNNEL_CLASS[st]])
+        body.append(f'<polyline class="line ph-{LINE_CLASS[st]}" points="{xy}"/>')
+        ends.append([py(pts[-1][1]), keys[st], LINE_CLASS[st]])
     # End labels pushed apart so two close lines do not print over each other,
     # then back up from the floor if the push ran them past it.
     ends.sort()
@@ -1678,8 +1696,8 @@ def cumulative_chart(days, full=False):
     body += [f'<text class="ph-{cls} key" x="{W - R + 6:.1f}" y="{y + 4:.1f}">{text}</text>'
              for y, text, cls in ends]
     since = f" since {short_day(start.date().isoformat())}" if start > first else ""
-    return svg(W, H, "".join(body), f"Running totals by day{since}, the same counts as the bars: "
-               "downloaded from the first night the read queue was counted"), start > first
+    return svg(W, H, "".join(body), f"Running totals by day{since}: filed and hinted as in the bars, scans as recorded, "
+               "scans from the first night the read queue was counted"), start > first
 
 
 def rate_chart(days, st):
@@ -1846,7 +1864,9 @@ def progress_page(idx, today=None, now=None):
             f"<p>The goal is every cryptic puzzle each series has printed, with every answer and a "
             f"hint for every clue. As of {as_of}: {known:,} are known to exist, "
             f"{stages[S_DOWNLOADED]:,} are downloaded, {stages[S_FILED]:,} are filed, "
-            f"{stages[S_SOLVED]:,} are solved and {stages[S_HINTED]:,} are hinted.</p>",
+            f"{stages[S_SOLVED]:,} are solved and {stages[S_HINTED]:,} are hinted."
+            + (f" {queued:,} scans are downloaded but not read yet." if queued is not None else "")
+            + "</p>",
             funnel_chart(stages), table,
             '<p class="muted small-note"><strong>Known</strong> is the coverage ledger\'s count, one '
             "per print date or number, so a reprint counts once, and never less than a series' "
@@ -1859,6 +1879,8 @@ def progress_page(idx, today=None, now=None):
             "articles) never read yet, one puzzle an edition or page, a Trove article counted at the "
             "share of read articles that held one, and no more than is known and not yet filed. "
             "Downloaded less filed is what is not read yet. "
+            "The running totals below are not nested: scans on disk and scans not read are the "
+            "recorded counts, so each moves at its own pace and the gap to filed is real. "
             "In the bars each stage sits inside the one above, and the table shows the same "
             "numbers. A pace over fewer days than its window says how many; &mdash; is a stage "
             "counted on one day only. "
