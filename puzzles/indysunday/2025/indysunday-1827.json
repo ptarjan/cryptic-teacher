@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -267,43 +268,54 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "unfinished",
-       "note": "Something unfinished stops before its end, so the word beside it hands over all but its last letter."
+       "text": "over",
+       "at": 46,
+       "note": "over means turned over, so the combined letters are read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "over",
-         "note": "Turned over, a thing lies the opposite way up, so the letters assembled here are read from the far end back."
-        }
-       ],
        "parts": [
         {
-         "words": "unfinished mud",
-         "gives": "MU",
-         "note": "MUD stopping short of its final letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "unfinished",
+           "at": 6,
+           "note": "unfinished means the word lacks its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "mud",
+           "at": 17,
+           "gives": "MUD"
+          },
+          {
+           "gives": "D"
+          }
+         ]
         },
         {
          "words": "pies that aren't crusted",
+         "at": 21,
          "gives": "TARTS",
-         "note": "a tart is an open pie, with no pastry lid baked over the filling"
+         "note": "tarts are open pies, with pastry beneath but no crust on top"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A child's mud pies, unfinished and left open with no crust over them.",
-     "walkthrough": "The pies of the surface are a child's; the pies of the wordplay are the baker's, and an open one is a tart. 'Over' is the only word telling you the assembly is read backwards.",
-     "definitionFit": "A stratum is one layer in a stack of rock, or of society, and a layer is a level."
+     "surface": "Children's mud pies, left half-made, have no crust on top.",
+     "walkthrough": "'unfinished' cuts MUD to MU; add TARTS and 'over' turns the lot round. 'crusted over' reads as one phrase, but 'over' belongs to the reversal.",
+     "definitionFit": "A stratum is a layer, as of rock or of society."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "pies"
+     "misdirectedWord": "over"
     }
    }
   },
