@@ -143,32 +143,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CARDBOARD",
+     "spelt": "CARDBOARD",
      "indicators": [
       {
        "text": "quoted by Spooner",
-       "note": "Dr Spooner famously swapped the opening sounds of words, so his version exchanges the first sounds"
+       "at": 24,
+       "note": "the Reverend Spooner is famed for swapping the opening sounds of words, so the starts of the two words trade places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Shakespeare line",
-       "gives": "CARDBOARD",
-       "soundsLike": "BARD CORD",
-       "note": "Shakespeare is the Bard, and a cord is a line or string; swap their opening sounds"
+       "words": "Shakespeare",
+       "at": 7,
+       "gives": "BARD",
+       "note": "the Bard is Shakespeare's nickname"
+      },
+      {
+       "op": "homophone",
+       "spelt": "CORD",
+       "parts": [
+        {
+         "words": "line",
+         "at": 19,
+         "gives": "CHORD",
+         "note": "a chord is a straight line joining two points on a circle"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A weak line from Shakespeare is recited by an Oxford don.",
-     "walkthrough": "Shakespeare is known as the Bard; BARD CORD with its first sounds swapped gives the answer.",
-     "definitionFit": "Used figuratively, cardboard describes something thin, unconvincing or insubstantial, like a character with no depth."
+     "surface": "A weak line of Shakespeare's verse, as mangled by a famously tongue-tied clergyman.",
+     "walkthrough": "Chord is said like cord. 'Quoted by Spooner' swaps the opening sounds of BARD and CORD, giving CARD and a word said like board.",
+     "definitionFit": "Cardboard used as an adjective means flimsy or unconvincing, as in a cardboard character."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "line"
     }
    }
@@ -467,41 +479,46 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "OBERON",
      "indicators": [
       {
-       "text": "stripped off",
-       "note": "stripping something off removes its outer layer, so the first and last letters go"
+       "text": "stripped",
+       "at": 18,
+       "note": "stripping each of the two words also bares the letters where they meet, the end of robes and the start of Wrong, so those go too"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 27,
+         "note": "with the outer letters off, the run of the two words loses its first and last letters"
+        }
+       ],
        "parts": [
         {
-         "words": "robes",
-         "gives": "OBE",
-         "note": "the word without its outer letters"
-        },
-        {
-         "words": "Wrong",
-         "gives": "RON",
-         "note": "the word without its outer letters"
+         "words": "robes? Wrong",
+         "at": 31,
+         "note": "the two words run together, then trimmed"
         }
        ]
+      },
+      {
+       "gives": "SW",
+       "note": "the last letter of robes and the first of Wrong, at the join"
       }
      ]
     },
     "explanation": {
-     "surface": "A wizard is told it is a mistake to take off his robes.",
-     "walkthrough": "The stripping applies to both words, which is easy to miss because 'Wrong!' sounds like a separate exclamation.",
-     "definitionFit": "Oberon is the king of the fairies in Shakespeare's A Midsummer Night's Dream, a figure with supernatural powers."
+     "surface": "A conjuror has taken off the wrong robes.",
+     "walkthrough": "Each word loses its outside letters: robes leaves OBE, Wrong leaves RON. In the steps, 'off' trims the ends of the whole run and 'stripped' takes the S and W at the join. Oberon is the fairy king in A Midsummer Night's Dream.",
+     "definitionFit": "Oberon is the king of the fairies in Shakespeare's A Midsummer Night's Dream, so a magical figure."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Wrong"
+     "misdirectedWord": "robes"
     }
    }
   },
@@ -1378,29 +1395,37 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "THROB",
-     "indicators": [
-      {
-       "text": "at first",
-       "note": "at first points to the beginning of each word, so only opening letters count"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "the house — risking one-armed bandits",
-       "gives": "THROB",
-       "select": "first",
-       "note": "the opening letters of these five words"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 43,
+         "note": "at first means take the opening letter of each word in the run"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the house — risking",
+         "at": 5,
+         "note": "the first letters of the, house and risking"
+        }
+       ]
+      },
+      {
+       "words": "one-armed bandits",
+       "at": 25,
+       "gives": "OB",
+       "note": "the same 'at first' applies here: one-armed is a single hyphenated word giving O, and bandits gives B"
       }
      ]
     },
     "explanation": {
-     "surface": "A gambler tries to beat the casino by playing the fruit machines.",
-     "walkthrough": "'Beat the house' is a gambling phrase, but 'Beat' alone is the definition. One-armed bandits are slot machines.",
-     "definitionFit": "A throb is a steady pulsing rhythm, as of a heart, which is what a beat is too."
+     "surface": "Someone plans to beat the casino by gambling on slot machines.",
+     "walkthrough": "One-armed bandits are slot machines. 'At first' takes the opening letter of each of the five words after 'Beat', and one-armed counts as one word, so it gives O alone.",
+     "definitionFit": "A throb is a strong regular beat, as of the heart or of music."
     },
     "features": {
      "answerInScene": false,
