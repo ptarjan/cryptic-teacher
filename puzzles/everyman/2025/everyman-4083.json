@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -46,47 +47,46 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "Ultimately means at the very end, so only the letter the word finishes on is wanted."
+       "text": "after",
+       "at": 15,
+       "note": "after places the photograph behind the single letter in the answer"
       }
      ],
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "E",
        "indicators": [
         {
-         "text": "after",
-         "note": "What comes after a thing is written behind it, so the piece named first in the clue ends up second."
+         "text": "ultimately",
+         "at": 29,
+         "note": "ultimately points to the end of the word, so only the final letter of the second selfie is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "selfie, ultimately",
-         "gives": "E",
-         "select": "last",
-         "note": "the letter the word selfie ends on"
+         "words": "selfie",
+         "at": 21,
+         "note": "the last letter of the second selfie"
         }
        ]
       },
       {
        "words": "Perhaps selfie",
+       "at": 0,
        "gives": "PIC",
-       "note": "a selfie is one kind of pic, the informal shortening of picture, and 'perhaps' flags it as an example"
+       "note": "a selfie is one kind of pic, a photograph, hence perhaps"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody posting one selfie after another until the whole performance gets out of hand.",
-     "walkthrough": "One word serves twice over, which is why the clue reads like a repetition of itself. 'Overblown' looks like a verdict on the photographs and is in fact the definition.",
-     "definitionFit": "Something epic is on a heroic scale, and used of a performance that scale tips over into the overblown."
+     "surface": "A jibe at someone posting selfie after selfie, which in the end is all rather over the top.",
+     "walkthrough": "'ultimately' takes only the last letter of the second selfie, and 'after' puts PIC behind it.",
+     "definitionFit": "Epic as an adjective can mean grandly excessive or exaggerated in scale, so something overblown is epic."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "ultimately"
+     "misdirectedWord": "after"
     }
    }
   },
@@ -412,41 +412,39 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EDISON",
-     "indicators": [
-      {
-       "text": "facing the wrong way",
-       "note": "Something facing the wrong way has been turned about, so its letters are read from the far end back."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "facing the wrong way",
+         "at": 9,
+         "note": "something facing the wrong way is turned round, so the word side is read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "side",
-         "gives": "EDIS",
-         "note": "the four letters of SIDE written from the back"
-        },
-        {
-         "words": "on",
-         "note": "the two letters stand exactly as printed"
+         "at": 31
         }
        ]
+      },
+      {
+       "words": "on",
+       "at": 36
       }
      ]
     },
     "explanation": {
-     "surface": "An inventor photographed back to front and in profile.",
-     "walkthrough": "'Side on' is an everyday phrase for in profile, and the clue needs it as two separate pieces — the colon is what disguises the split. Only the first of the two turns round.",
-     "definitionFit": "Thomas Edison patented the phonograph and the first practical light bulb, so 'inventor' names him by the trade he is famous for."
+     "surface": "A description of an inventor standing back to front, side-on to the viewer.",
+     "walkthrough": "'facing the wrong way' turns SIDE into EDIS, and ON follows it unchanged.",
+     "definitionFit": "Thomas Edison was the prolific American inventor of the phonograph and a practical electric light bulb."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "on"
+     "misdirectedWord": "side"
     }
    }
   },
@@ -486,45 +484,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "STRIKEUPTHEBAND",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner was the Oxford don famous for swapping the opening sounds of two words, so those two openings change places."
+       "at": 0,
+       "note": "Spooner's tells us to swap the opening sounds of the words, as the Reverend Spooner famously did"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "BIKEUPTHE",
        "parts": [
         {
-         "unchecked": true,
-         "words": "to cycle",
-         "gives": "STRIKE",
-         "soundsLike": "BIKE",
-         "note": "To cycle is to bike. That word hands its B over to the other one and takes back the STR coming the other way."
-        },
-        {
-         "words": "past",
-         "gives": "UP",
-         "note": "to ride past a building on a London street is to go up the street it stands on"
-        },
-        {
-         "unchecked": true,
-         "words": "Royal Courts of Justice",
-         "gives": "THEBAND",
-         "soundsLike": "THE STRAND",
-         "note": "The Royal Courts of Justice stand on the Strand in central London. The street name gives up its STR, collects the B, and keeps its 'the'."
+         "words": "to cycle past",
+         "at": 10,
+         "gives": "BYKUPTHE",
+         "note": "to bike up the street is to cycle along and past; Spooner swaps sounds, so it is the spoken 'byke up the' whose opening B moves"
         }
        ]
+      },
+      {
+       "words": "Royal Courts of Justice",
+       "at": 24,
+       "gives": "STRAND",
+       "note": "the Royal Courts of Justice stand on the Strand, the London thoroughfare"
       }
      ]
     },
     "explanation": {
-     "surface": "The Reverend Spooner describing a bike ride up past the London law courts.",
-     "walkthrough": "The address is the whole clue: the Royal Courts of Justice sit on the Strand, the street running east from Trafalgar Square, and 'up the Strand' is how Londoners say it. Say that, then trade the two openings.",
-     "definitionFit": "To strike up the band is to have the music start, so 'let's hear some music' is the same call in plain words."
+     "surface": "An invitation to ride past London's law courts, then a call for music.",
+     "walkthrough": "To cycle past the Royal Courts of Justice is to 'bike up the Strand', a major London street. As Spooner's signals, swap the B and STR sounds and you hear the call to a band to start playing.",
+     "definitionFit": "Strike up the band is the idiomatic call for musicians to begin playing, an invitation to hear music."
     },
     "features": {
      "answerInScene": false,
@@ -763,65 +754,60 @@
    "annotation": {
     "definitions": [
      {
-      "text": "modern",
-      "at": 47
+      "text": "how modern",
+      "at": 43
      }
     ],
     "wordplay": {
      "op": "charade",
      "indicators": [
       {
-       "text": "wearing",
-       "note": "What you wear goes round the outside of you, so the piece named before it ends up inside the piece named after it."
+       "text": "following",
+       "at": 18,
+       "note": "following puts the beam-and-duke piece after the coffee in the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "frothy coffee",
+       "at": 28,
+       "gives": "LATTE",
+       "note": "a latte is a milky coffee with a frothy top"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "following",
-         "note": "To follow is to come along behind, so everything named before it lands second in the answer."
+         "text": "wearing",
+         "at": 5,
+         "note": "the beam wears the duke, so the single letter goes inside the other word like a body in clothes"
         }
        ],
        "parts": [
         {
-         "words": "frothy coffee",
-         "gives": "LATTE",
-         "note": "a latte is the milky coffee, frothed on top"
+         "words": "beam",
+         "at": 13,
+         "gives": "RAY",
+         "note": "a ray is a beam of light"
         },
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "beam",
-           "gives": "RAY",
-           "note": "a beam of light is a ray"
-          },
-          {
-           "words": "Duke",
-           "gives": "D",
-           "note": "d is the standard abbreviation for duke"
-          }
-         ]
+         "words": "Duke",
+         "at": 0,
+         "gives": "D"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "how",
-       "note": "surface padding: the exclamation dresses the definition up as a remark"
       }
      ]
     },
     "explanation": {
-     "surface": "A duke in a spotlight with a cappuccino, offered as a picture of modern life.",
-     "walkthrough": "The colon is the seam — everything in front of it spells, and the exclamation behind it defines. D for duke is one of the single-letter abbreviations worth learning early.",
-     "definitionFit": "A latter-day version of something is its present-day one, so 'modern' is the same adjective doing the same job in front of a noun."
+     "surface": "A duke in a sunbeam sipping a frothy coffee: how very up to date!",
+     "walkthrough": "'wearing' puts D inside RAY to give RDAY, and 'following' puts that after LATTE.",
+     "definitionFit": "Latter-day means belonging to recent times, a present-day version of something, which is to say modern."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "wearing"
     }
    }
@@ -1462,31 +1448,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "BRIE",
      "indicators": [
       {
        "text": "cut",
-       "note": "A word that is cut is shortened, and what comes off is the letter at its end."
+       "at": 8,
+       "note": "a cut word is docked, so the final letter is chopped off"
       }
      ],
      "parts": [
       {
        "words": "Quick",
-       "gives": "BRIE",
-       "note": "the adjective meaning quick or hurried, minus the F it ends on"
+       "at": 0,
+       "gives": "BRIEF",
+       "note": "brief means quick, short in duration"
+      },
+      {
+       "gives": "F"
       }
      ]
     },
     "explanation": {
-     "surface": "An order to hurry up and cut the cheese.",
-     "walkthrough": "The surface reads as somebody hurrying a cheeseboard along, which is why 'cut' looks like slicing rather than shortening. Brie is a district east of Paris, and the cheese carries its name.",
-     "definitionFit": "Brie is the soft white-rinded cheese made east of Paris, so the definition names it by country and kind."
+     "surface": "A hasty instruction to slice some French cheese.",
+     "walkthrough": "'cut' takes the last letter off BRIEF, leaving the cheese.",
+     "definitionFit": "Brie is a soft creamy cheese named after the Brie region east of Paris."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "cut"
+     "misdirectedWord": "Quick"
     }
    }
   },
