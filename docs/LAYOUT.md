@@ -1005,6 +1005,13 @@ tools/test_app_tab_pages.js                    holds the home-screen app's Puzzl
                                                history entries, so the back gesture walks
                                                between tabs, while a browser tab keeps the old
                                                panels
+tools/test_phone_scroll.js                     drives a real headless Chromium as an iPhone
+                                               home-screen app: the Puzzles list scrolls itself,
+                                               never the page behind it after a puzzle visit, and
+                                               touching rows paints no highlight
+tools/mobile_browser.js                        the iPhone-emulating headless Chromium (touch
+                                               swipes, standalone display mode) the scroll test
+                                               drives over the DevTools protocol
 tools/fake_dom.js                              the fake DOM that boots the real app.js under
                                                Node, shared by every harness
 tools/reindex.js                               rebuilds the puzzle manifest before a node

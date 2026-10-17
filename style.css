@@ -201,7 +201,15 @@ button:disabled:hover { border-color: var(--line); }
   display: grid; width: 100%; text-align: left;
   background: none; border: none; padding: 8px 4px; font-size: .92rem;
 }
-#picker-list button:hover { background: var(--accent-soft); }
+/* A row is for tapping, not for painting under a finger. On a touch screen
+   :hover sticks to whatever was last touched, and iOS paints its own grey
+   tap-highlight on the row the moment a finger lands, which is the moment a
+   scroll starts: scrolling the list lit up the rows it passed under. So the
+   hover tint is for a pointer that can hover (the same guard as .clue-list
+   and .s-index below), the system flash is off, and a drag cannot start a
+   text selection or the long-press callout on a row. */
+#picker-list button { -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+@media (hover: hover) { #picker-list button:hover { background: var(--accent-soft); } }
 #picker-list .p-num { min-width: 4.6em; }
 #picker-list li.current button { background: var(--accent-soft); }
 
@@ -593,7 +601,8 @@ button:disabled:hover { border-color: var(--line); }
    gets taller, which costs nothing, the column scrolls anyway. */
 .clue-list ol { list-style: none; margin: 0; padding: 0; font-size: 1.02rem; line-height: 1.45; }
 .clue-list li { padding: 5px 6px; border-radius: 5px; cursor: pointer; display: flex; gap: 7px; }
-.clue-list li:hover { background: var(--accent-soft); }
+@media (hover: hover) { .clue-list li:hover { background: var(--accent-soft); } }
+.clue-list li { -webkit-tap-highlight-color: transparent; }
 .clue-list li.active { background: var(--accent-soft); outline: 1px solid var(--accent); }
 .clue-list li.solved { opacity: .55; }
 .clue-list li.solved .clue-text::after { content: " ✓"; color: var(--ok); }
@@ -1682,7 +1691,8 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   grid-column: 1 / -1; grid-row: 1; display: grid; grid-template-columns: subgrid;
   padding: 9px 10px; border-radius: 8px; text-decoration: none; color: inherit;
 }
-.s-index a:hover { background: var(--accent-soft); }
+@media (hover: hover) { .s-index a:hover { background: var(--accent-soft); } }
+.s-index a { -webkit-tap-highlight-color: transparent; }
 /* An archive row's small link to the answer page, beside the row link that
    opens the puzzle in the app. Two-line rows put it at the end of the badge
    line, which leaves it room; the wide row gives it a track of its own. */
@@ -1859,5 +1869,16 @@ html.standalone #picker-panel, html.standalone #stats-panel {
   width: auto; max-height: none; border: 0; border-radius: 0; box-shadow: none;
   background: var(--bg); padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 12px;
   box-sizing: border-box; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  /* The panel is the page now, so a drag that runs off its end stops there.
+     Left to chain, it carried on into the puzzle underneath (still scrolled to
+     wherever the solver left it) and the list stayed put while the background
+     moved: the "scrolling after visiting a puzzle" bug. */
+  overscroll-behavior: contain;
 }
+/* And while a tab is up the document behind it does not scroll at all: a list
+   that is shorter than the screen, or a gesture that starts on the tab bar's
+   edge, has no panel to scroll and would otherwise move the page. The window
+   keeps its scroll position, so the puzzle is where it was on the way back. */
+html.standalone:has(#picker-panel:not(.hidden)), html.standalone:has(#stats-panel:not(.hidden)) { overflow: hidden; overscroll-behavior: none; }
+html.standalone:has(#picker-panel:not(.hidden)) body, html.standalone:has(#stats-panel:not(.hidden)) body { overflow: hidden; }
 html.standalone #btn-picker-close, html.standalone #btn-stats-close { display: none; }

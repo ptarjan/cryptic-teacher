@@ -288,6 +288,8 @@ LAYOUT = [
     ("building and checking the site", "tools/test_jigsaw.js", "does a jigsaw (tools/puzzle_tags.is_jigsaw) list its clues alphabetically with no numbers, and does picking one leave the grid unlit, so nothing says where an answer goes?"),
     ("building and checking the site", "tools/smoke_test.js", "the whole app driven headless against the real corpus"),
     ("building and checking the site", "tools/test_app_tab_pages.js", "holds the home-screen app's Puzzles and Stats tabs to full pages with their own #picker/#stats history entries, so the back gesture walks between tabs, while a browser tab keeps the old panels"),
+    ("building and checking the site", "tools/test_phone_scroll.js", "drives a real headless Chromium as an iPhone home-screen app: the Puzzles list scrolls itself, never the page behind it after a puzzle visit, and touching rows paints no highlight"),
+    ("building and checking the site", "tools/mobile_browser.js", "the iPhone-emulating headless Chromium (touch swipes, standalone display mode) the scroll test drives over the DevTools protocol"),
     ("building and checking the site", "tools/fake_dom.js", "the fake DOM that boots the real app.js under Node, shared by every harness"),
     ("building and checking the site", "tools/reindex.js", "rebuilds the puzzle manifest before a node harness reads it, through the same --reindex the site's build runs"),
     ("building and checking the site", "tools/e2e_analytics.py", "drives a real browser through a solve and checks every event lands in KV"),

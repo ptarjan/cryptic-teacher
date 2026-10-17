@@ -7826,6 +7826,10 @@
     // no longer offers falls back to "", each menu's "all".
     const box = $("picker-search");
     if (want) {
+      // A page opens at its top: the panel kept the scroll it had when it was
+      // closed, so the list came back already at its end and the next drag up
+      // had nowhere to go but the page behind.
+      el.scrollTop = 0;
       if (box) { box.value = ""; }
       const kept = store.get("ct:picker", null) || {};
       setHTML($("picker-paper"), paperMenuHTML());
