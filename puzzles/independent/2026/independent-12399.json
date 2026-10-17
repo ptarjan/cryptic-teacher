@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -195,40 +196,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ESCABECHE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covered in",
+       "at": 5,
+       "note": "covered in means the taxi is wrapped inside the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "covered in",
-         "note": "something covered in a substance has that substance all round it, so the vehicle ends up enclosed"
-        },
-        {
          "text": "melted",
-         "note": "cheese that has melted has run out of its own shape, and letters treated that way keep none of their order"
+         "at": 16,
+         "note": "melted cheese loses its shape, so the letters of cheese are rearranged"
         }
        ],
        "parts": [
         {
          "words": "cheese",
-         "gives": "ESECHE",
-         "note": "the same six letters in a new order, splitting either side of the vehicle"
-        },
-        {
-         "words": "Taxi",
-         "gives": "CAB",
-         "note": "a cab is a taxi, three letters landing in the middle"
+         "at": 23,
+         "note": "taken as written for rearranging"
         }
        ]
+      },
+      {
+       "words": "Taxi",
+       "at": 0,
+       "gives": "CAB",
+       "note": "a cab is a taxi"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Every other word in the surface is food, which makes 'Taxi' the odd one out and the place to start: it is the only thing here nobody would eat.",
-     "definitionFit": "spicy marinade -> ESCABECHE: the Spanish and Latin American dish of fried fish steeped in vinegar and paprika, named after the steeping liquid."
+     "surface": "A cooking scene: a taxi smothered in molten cheese, served with a hot sauce.",
+     "walkthrough": "'Taxi' and 'melted cheese' make a silly kitchen picture; the taxi is simply the cab. Escabeche is a Spanish and Latin American dish of fish or meat marinated in a vinegary sauce.",
+     "definitionFit": "Escabeche is an acidic, often spiced marinade or pickle used to cook and preserve fish or meat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Taxi"
     }
    }
   },
@@ -435,51 +446,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DREAMLAND",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 34,
+       "note": "inside means these letters go within the others"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "DREAMLAND",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "first",
          "indicators": [
           {
-           "text": "fantastic",
-           "note": "something fantastic is wildly out of the ordinary, so the realm's letters are not left in the order they arrived in"
+           "text": "head",
+           "at": 8,
+           "note": "the head of a word is its first letter"
           }
          ],
          "parts": [
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "inside",
-             "note": "a piece put inside an assembly is buried within it, not joined on at either end"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Dozer's head",
-             "gives": "DOZERHEAD",
-             "note": "the head of a word is its first letter, so the sleeper gives up a D"
-            }
-           ]
-          },
-          {
-           "words": "realm",
-           "gives": "REAML",
-           "note": "the same five letters, shaken into another order"
-          },
-          {
-           "words": "with",
-           "gives": "AND",
-           "note": "'with' and 'and' both join two things, so one can be written for the other"
+           "words": "Dozer's",
+           "at": 0,
+           "gives": "D",
+           "note": "first letter of Dozer's"
           }
          ]
+        },
+        {
+         "words": "with",
+         "at": 13,
+         "gives": "AND",
+         "note": "and means with, joining things together"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "fantastic",
+         "at": 18,
+         "note": "fantastic means wildly fanciful, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "realm",
+         "at": 28,
+         "note": "taken as written for rearranging"
         }
        ]
       }
@@ -487,8 +505,14 @@
     },
     "andLit": true,
     "explanation": {
-     "walkthrough": "An all-in-one: the sentence describes the place and builds it at the same time, and 'with' works twice over, as joinery in the surface and as three letters.",
-     "definitionFit": "The whole clue reads straight: the country a sleeping head wanders into, imaginary and marvellous, which 'That's it!' then points at."
+     "surface": "A sleeper's mind holds a fantastic kingdom, and the clue declares that is exactly what the answer is.",
+     "walkthrough": "'That's it!' tells you the whole clue is also the definition: what lies in a dozer's head is a fantastic realm. 'with' supplies its synonym rather than linking.",
+     "definitionFit": "Dreamland is the imaginary world entered in sleep, a fantastic realm in a dozer's head."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Dozer's"
     }
    }
   },
@@ -773,43 +797,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Stupidly",
-       "note": "doing something stupidly is doing it with no care for where things end up, and these letters end up in a new arrangement"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Stupidly",
+         "at": 0,
+         "note": "stupidly means foolishly, out of proper order, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "rich",
-         "note": "the four letters of the word, rearranged"
-        },
-        {
-         "words": "devoted man",
-         "gives": "ST",
-         "note": "a saint is the devoted man, and st is how a saint's name is written"
-        },
-        {
-         "words": "mother",
-         "gives": "MA",
-         "note": "ma is the familiar word for a mother"
-        },
-        {
-         "words": "sons",
-         "gives": "S",
-         "note": "s is the abbreviation for son, kept singular while the surface talks of several"
+         "at": 9,
+         "note": "taken as written for rearranging"
         }
        ]
+      },
+      {
+       "words": "devoted man",
+       "at": 15,
+       "gives": "ST",
+       "note": "a saint is a devoted, holy man, abbreviated ST"
+      },
+      {
+       "words": "mother",
+       "at": 33,
+       "gives": "MA",
+       "note": "ma is an informal word for mother"
+      },
+      {
+       "words": "sons",
+       "at": 44,
+       "gives": "S",
+       "note": "S is the abbreviation for son or sons in genealogies"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Read the opening three words as one description of a wealthy churchgoer and the clue never comes apart. 'Stupidly' belongs to 'rich' alone.",
-     "definitionFit": "feast-day -> CHRISTMAS: in the church calendar a feast is a day set aside to mark an event, and December 25 is the greatest of them."
+     "surface": "A tale of a very wealthy holy man joining his mother and sons at a celebration.",
+     "walkthrough": "'Stupidly' rearranges RICH; ST is the usual abbreviation for saint, here clued as a devoted man.",
+     "definitionFit": "Christmas Day, 25 December, is the Christian festival marking the birth of Jesus, a major church feast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "devoted"
     }
    }
   },
@@ -1181,54 +1216,63 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "H",
+       "op": "container",
        "indicators": [
         {
-         "text": "The beginning",
-         "note": "the beginning of a word is the single letter it opens with, taken here from the film title named after it"
+         "text": "of",
+         "at": 25,
+         "note": "of ties both picks to Highlander, and the or that sits between them in the clue is set between the two letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "The beginning",
-         "gives": "H",
-         "select": "first",
-         "note": "the opening letter of the title that follows"
-        }
-       ]
-      },
-      {
-       "words": "or",
-       "note": "the little word is lifted straight out of the clue, two letters"
-      },
-      {
-       "op": "last",
-       "indicators": [
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "The beginning",
+           "at": 0,
+           "note": "the beginning of a word is its first letter"
+          },
+          {
+           "text": "the end",
+           "at": 17,
+           "note": "the end of a word is its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Highlander",
+           "at": 28,
+           "gives": "HR",
+           "note": "first and last letters of Highlander"
+          }
+         ]
+        },
         {
-         "text": "the end",
-         "note": "the end of a word is the letter it finishes on, taken from that same title"
-        }
-       ],
-       "parts": [
-        {
-         "words": "the end of Highlander",
-         "gives": "OFHIGHLANDER",
-         "note": "the letter that title finishes on"
+         "words": "or",
+         "at": 14,
+         "gives": "OR",
+         "note": "taken as written"
         }
        ]
       },
       {
        "words": "Or",
-       "note": "the same two letters again, capitalised here only to start a sentence"
+       "at": 40,
+       "gives": "OR",
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two films and only one of them defines: Highlander is there to be taken apart letter by letter, while Kubrick's title is an example of the genre.",
-     "definitionFit": "The Shining -> HORROR: definition by example, one famous film of the genre standing in for the genre itself."
+     "surface": "A movie fan choosing between two classic films, Highlander or The Shining.",
+     "walkthrough": "Read literally: the first letter of Highlander, then 'or', then its last letter, so H, OR, R in the order the clue prints them; the second 'Or' follows. The Shining is Stanley Kubrick's 1980 film of the Stephen King novel.",
+     "definitionFit": "The Shining is a classic of the horror genre, so it is an example of the category named by the answer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Highlander"
     }
    }
   },
@@ -1253,46 +1297,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DANCE",
-     "indicators": [
-      {
-       "text": "shake",
-       "note": "shaking a thing loosens everything in it, so these three letters come out in a different order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "shake",
+         "at": 5,
+         "note": "to shake something is to jumble it up, so these letters are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "and",
-         "gives": "DAN",
-         "note": "the three letters of the joining word, shaken into a new order"
-        },
+         "at": 11,
+         "note": "taken as written for rearranging"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "without stopping",
-           "note": "a stopping is a dentist's filling, and a word without its filling keeps only the letters at its two ends"
-          }
-         ],
-         "parts": [
-          {
-           "words": "carouse",
-           "note": "the first and last letters of the word, once the middle has been taken out"
-          }
-         ]
+         "text": "without stopping",
+         "at": 23,
+         "note": "only the outside of the word is kept, with its middle stopped up and lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "carouse",
+         "at": 15,
+         "gives": "CE",
+         "note": "the first and last letters of carouse"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Without stopping' reads as carousing all night, and that is the trap: it is not about carrying on but about a filling being removed.",
-     "definitionFit": "Jig -> DANCE: a jig is one lively dance, so the particular names the general — and as verbs, to jig about is to dance."
+     "surface": "A lively list of things to do at a party, all night long.",
+     "walkthrough": "'shake' rearranges AND into DAN; 'without stopping' keeps only the outer letters CE of carouse. 'Jig, shake' looks like a list of dance moves, but only Jig defines.",
+     "definitionFit": "A jig is a lively folk dance, so jig used as a verb means to dance in that bouncing way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shake"
     }
    }
   },
@@ -1317,45 +1369,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HONEYDEW",
-     "indicators": [
-      {
-       "text": "held up by",
-       "note": "a thing held up by something rests on it, and that little preposition is what the words hand over"
-      },
-      {
-       "text": "criminal",
-       "note": "a criminal is crooked, and crooked letters are ones bent out of their proper order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "hard",
+       "at": 13,
+       "gives": "H",
+       "note": "H is the abbreviation for hard, as on pencils"
+      },
+      {
+       "words": "held up by",
+       "at": 18,
+       "gives": "ON",
+       "note": "on means resting upon, so held up by"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "criminal",
+         "at": 35,
+         "note": "criminal means wrong or bent, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "hard",
-         "gives": "H",
-         "note": "H is the grade stamped on a hard pencil"
-        },
-        {
-         "words": "held up by",
-         "gives": "ON",
-         "note": "what rests on a support is held up by it, and the preposition is taken as its two letters"
-        },
-        {
          "words": "weedy",
-         "gives": "EYDEW",
-         "note": "the five letters of the word, rearranged"
+         "at": 29,
+         "note": "taken as written for rearranging"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Melon that's hard' sounds like one phrase about unripe fruit. The definition is the first word alone, and 'hard' is already doing wordplay.",
-     "definitionFit": "Melon -> HONEYDEW: the general word points at one variety, the pale green sweet one sold in wedges."
+     "surface": "A tough melon being robbed by a feeble crook.",
+     "walkthrough": "'held up by' sounds like a robbery, but it gives ON, as in resting on; 'criminal' rearranges WEEDY into EYDEW.",
+     "definitionFit": "Honeydew is a variety of melon with smooth pale skin and sweet green flesh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "held"
     }
    }
   },
@@ -1383,8 +1439,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "wrong",
-       "note": "letters called wrong are letters out of their proper places, which is the instruction to rearrange them"
+       "text": "assuming",
+       "at": 18,
+       "note": "assuming means taking on or into oneself, so the other letter goes inside"
       }
      ],
      "parts": [
@@ -1392,42 +1449,49 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "assuming",
-         "note": "to assume a thing is to take it on, so the shuffled letters close around the one they take in"
+         "text": "wrong",
+         "at": 11,
+         "note": "wrong means incorrect, so the letters are put in another order"
         }
        ],
        "parts": [
         {
          "words": "My parse's",
-         "note": "the anagram fodder, eight letters counting the s of the possessive"
+         "at": 0,
+         "note": "taken as written for rearranging"
         }
        ]
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "T",
        "indicators": [
         {
          "text": "first letter",
-         "note": "the first letter is the one a word opens with, and the numeral has to be spelled out before it can give one"
+         "at": 31,
+         "note": "first letter picks out the opening letter of the word that follows"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "2's first letter",
-         "gives": "T",
-         "select": "first",
-         "note": "write the numeral out as a word and it starts with a T"
+         "words": "2's",
+         "at": 27,
+         "gives": "TWO",
+         "note": "the number 2 written out as a word, whose first letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'2' looks like a cross-reference, and 2 down really does begin with M, which is the trap. The number wants spelling out instead.",
-     "definitionFit": "M? -> SPYMASTER: definition by example, M being the head of the secret service in the Bond books, one particular holder of the job."
+     "surface": "A solver frets their parse is wrong, having taken the first letter of clue 2 to be M.",
+     "walkthrough": "'2' is not a cross-reference to 2 Down (whose answer does begin with M) but the number two, giving T. In the James Bond books M heads the secret service.",
+     "definitionFit": "M is the code name of the head of MI6 in the James Bond stories, the chief of spies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "2's"
     }
    }
   },
@@ -1789,45 +1853,56 @@
      "op": "charade",
      "parts": [
       {
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "British",
+       "at": 2,
+       "gives": "B"
+      },
+      {
+       "words": "rugby union",
+       "at": 10,
+       "gives": "RU"
+      },
+      {
        "op": "first",
        "indicators": [
         {
          "text": "opening",
-         "note": "the opening of a word is the letter it starts with, and that letter is all this part of the clue hands over"
+         "at": 31,
+         "note": "opening means the first letter of the word"
         }
        ],
        "parts": [
         {
-         "words": "A",
-         "note": "the article at face value, one letter"
+         "words": "player's",
+         "at": 22,
+         "gives": "P",
+         "note": "first letter of player's"
         }
        ]
       },
       {
-       "words": "British",
-       "gives": "B",
-       "note": "B is the abbreviation for British, as in BBC"
-      },
-      {
-       "words": "rugby union",
-       "gives": "RU",
-       "note": "RU is how the fifteen-a-side code is written on a fixture list"
-      },
-      {
-       "words": "player's opening",
-       "gives": "P",
-       "note": "the first letter of player"
-      },
-      {
        "words": "try",
+       "at": 39,
        "gives": "TEST",
-       "note": "a test is a try in the sense of a trial or an attempt"
+       "note": "a test is a trial or try"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The rugby scene is a decoy: 'try' has to be read as an attempt rather than a score, and the definition is the superlative at the end.",
-     "definitionFit": "most unexpected -> ABRUPTEST: something abrupt arrives with no warning, so the superlative is the one that catches you furthest off guard."
+     "surface": "A British rugby player scores a try early in the match, completely out of the blue.",
+     "walkthrough": "'try' sounds like rugby scoring, but here it means a test or trial.",
+     "definitionFit": "Abrupt describes something sudden and unforeseen, so the superlative names the most unexpected."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "try"
     }
    }
   },
