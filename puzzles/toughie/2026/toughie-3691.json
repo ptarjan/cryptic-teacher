@@ -294,45 +294,59 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ARREARS",
-     "indicators": [
-      {
-       "text": "changing hands",
-       "note": "left and right are the two hands, so one hand letter is swapped for the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ARREARS",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "cockney",
-         "note": "a London cockney drops initial aitches, so the opening H is lost"
+         "text": "changing hands",
+         "at": 24,
+         "note": "changing hands means swapping left for right, so each L becomes an R"
         }
        ],
        "parts": [
         {
          "words": "the entire amount",
+         "at": 6,
          "gives": "ALL",
-         "note": "all is the entire amount; its two L (left) letters each become R (right)"
+         "note": "all means the entire amount"
         },
         {
+         "gives": "LL"
+        },
+        {
+         "gives": "RR"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cockney",
+         "at": 40,
+         "note": "a cockney speaker drops the H at the start of a word"
+        }
+       ],
+       "parts": [
+        {
          "words": "gathers",
+         "at": 48,
          "gives": "HEARS",
-         "note": "one who gathers news hears it; spoken by a cockney it becomes 'EARS"
+         "note": "to gather is to hear or learn of something, so gathers means hears"
+        },
+        {
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cockney collects a debt as the full sum passes from one person to another.",
-     "walkthrough": "L and R stand for left and right, the two hands. A cockney is a working-class Londoner, whose accent famously drops the H at the start of words.",
-     "definitionFit": "Arrears are money owed and overdue, so the plural noun names an outstanding debt."
+     "surface": "A cockney learns that a whole debt is being passed from one person to another.",
+     "walkthrough": "'changing hands' reads as money passing between people, but it swaps L (left) for R (right) in ALL. 'gathers' is hears, which a cockney says without its H.",
+     "definitionFit": "Arrears are money owed that should already have been paid, so they are an overdue debt."
     },
     "features": {
      "answerInScene": true,
@@ -1348,34 +1362,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "RHYMING",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "William Spooner was famed for swapping the opening sounds of words"
+       "at": 21,
+       "note": "Spooner was famous for swapping the opening sounds of words, so the two words here swap their first sounds"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "The compiler's band",
-       "gives": "RHYMING",
-       "soundsLike": "RYE MING",
-       "note": "the setter's band is MY RING; swapping the opening sounds gives these two syllables"
+       "words": "The compiler's",
+       "at": 0,
+       "gives": "MY",
+       "note": "the compiler is the setter, so the compiler's means my"
+      },
+      {
+       "op": "homophone",
+       "spelt": "RHING",
+       "parts": [
+        {
+         "words": "band",
+         "at": 15,
+         "gives": "RING",
+         "note": "a ring is a band, as on a finger"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The setter claims their own band belongs alongside the glam rockers Slade and the Britpop group Suede.",
-     "walkthrough": "Slade and Suede are British rock bands, so 'band' looks musical, but a band here is a ring. Slade and Suede share their final sounds.",
-     "definitionFit": "Words that end with matching sounds are said to rhyme, and the two band names chime at the end."
+     "surface": "The setter boasts that his favourite band is one of the glam and Britpop groups.",
+     "walkthrough": "'according to Spooner' swaps the first sounds of MY RING to give 'rye ming'; the R sound is spelt RH, as in rhyme. Slade and Suede are British rock bands whose names share an ending sound.",
+     "definitionFit": "Slade and Suede sound alike at the end, as slayed and swayed do, so the names are a rhyming pair."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "band"
+     "misdirectedWord": "Slade"
     }
    }
   },
@@ -1454,65 +1478,64 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "ETHNICITY",
      "indicators": [
       {
        "text": "following",
-       "note": "one piece following another comes after it"
+       "at": 26,
+       "note": "following means the later pieces come after the cycled word"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "ETHNICITY",
+       "op": "cycling",
        "indicators": [
         {
-         "text": "Back",
-         "note": "going back means running the word from end to start"
+         "text": "cycling",
+         "at": 40,
+         "note": "cycling means the letters of the go round, the last moving to the front"
         }
        ],
        "parts": [
         {
-         "op": "cycling",
-         "unchecked": true,
-         "gives": "ETHNICITY",
-         "indicators": [
-          {
-           "text": "cycling",
-           "note": "letters cycling go round like a wheel, the front ones riding to the rear"
-          }
-         ],
-         "parts": [
-          {
-           "words": "the",
-           "note": "taken as written; its letters rotate"
-          },
-          {
-           "words": "in",
-           "note": "taken as written"
-          },
-          {
-           "words": "Amsterdam perhaps",
-           "gives": "CITY",
-           "note": "Amsterdam is an example of a city"
-          }
-         ]
+         "words": "the",
+         "at": 36
         }
        ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Back",
+         "at": 0,
+         "note": "back means the word in is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in",
+         "at": 5
+        }
+       ]
+      },
+      {
+       "words": "Amsterdam perhaps",
+       "at": 8,
+       "gives": "CITY",
+       "note": "Amsterdam is an example of a city"
       }
      ]
     },
     "explanation": {
-     "surface": "Back in Amsterdam, perhaps watching the cycle race on its famous bike lanes.",
-     "walkthrough": "'Cycling race' looks like one event; in fact 'cycling' acts on the word before it and 'race' alone is the definition.",
-     "definitionFit": "Race and ethnicity both classify people by shared ancestry or cultural heritage, so they are near synonyms."
+     "surface": "A cycle race in the Netherlands, with a rider at the back in Amsterdam.",
+     "walkthrough": "'race' looks like the cycling event, but it is the definition in its sense of a people. 'cycling' moves the E of THE to the front for ETH, and 'Back' turns IN into NI.",
+     "definitionFit": "A race is a group of people sharing descent, and ethnicity is membership of such a group."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cycling"
+     "joke": "pun",
+     "misdirectedWord": "race"
     }
    }
   },
