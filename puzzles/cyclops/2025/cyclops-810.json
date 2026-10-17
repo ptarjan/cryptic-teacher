@@ -23,7 +23,8 @@
   "check": "29 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -223,7 +224,8 @@
     "definitions": [
      {
       "text": "a depressant",
-      "at": 31
+      "at": 31,
+      "note": "the article goes with the definition: a downer is a depressant"
      }
     ],
     "wordplay": {
@@ -231,35 +233,38 @@
      "parts": [
       {
        "words": "Drink",
+       "at": 0,
        "gives": "DOWN",
-       "note": "to down a pint is to drink it off in one"
+       "note": "to down a drink is to swallow it in one"
+      },
+      {
+       "words": "English",
+       "at": 6,
+       "gives": "E"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "What happens initially happens first, so only the opening letter of the word beside it is taken."
+         "at": 18,
+         "note": "only the opening letter of the word rum is taken"
         }
        ],
        "parts": [
         {
-         "words": "English",
-         "note": "E is the standard letter for English"
+         "words": "rum",
+         "at": 14,
+         "note": "the first letter of rum is R"
         }
        ]
-      },
-      {
-       "words": "rum initially",
-       "gives": "R",
-       "note": "the first letter of the spirit"
       }
      ]
     },
     "explanation": {
-     "surface": "Knocking back a first tot of English rum to take the edge off.",
-     "walkthrough": "Drink is the verb here, something you do to a glass rather than what stands in it. Rum looks like more of the same and gives up nothing but its opening letter.",
-     "definitionFit": "A downer is street slang for a sedative or barbiturate, the pill that brings you down, which is what a depressant does."
+     "surface": "A boozer knocks back a tot of spirits, unaware alcohol slows the system.",
+     "walkthrough": "'initially' picks the R from rum, following DOWN and E.",
+     "definitionFit": "A downer is slang for a sedative drug, one that depresses the nervous system rather than stimulating it."
     },
     "features": {
      "answerInScene": true,
@@ -343,41 +348,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DIATRIBE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to crush",
+       "at": 21,
+       "note": "the word for peter out squeezes the other letters inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "to crush",
-         "note": "To crush a thing is to close on it from both sides, so the letters already found wrap round what comes next."
-        },
-        {
-         "text": "production",
-         "note": "A production is a fresh staging worked up out of existing material, so those letters come out in an order of their own."
-        }
-       ],
+       "words": "Peter out",
+       "at": 11,
+       "gives": "DIE",
+       "note": "to peter out is to die away"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "Peter out",
-         "gives": "DIE",
-         "note": "to peter out is to die away to nothing; the word parts after its second letter"
+         "words": "a",
+         "at": 30,
+         "gives": "A"
         },
         {
-         "words": "a Brit",
-         "gives": "ATRIB",
-         "note": "the five letters in a new arrangement"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "production",
+           "at": 37,
+           "note": "Brit's letters are produced in a new form, so they are rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Brit",
+           "at": 32
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Peter's energy failing just as he sets about flattening some British show.",
-     "walkthrough": "Peter is a man's name in the surface and half a phrasal verb in the wordplay, where to peter out is to fade away and so to die. 'Production' is the shuffling word, the one that makes something new of what it is handed.",
-     "definitionFit": "A diatribe is a sustained tirade against somebody, so it is abuse delivered at length rather than in a single shout."
+     "surface": "A rant against a Briton's show from someone urged to fade away.",
+     "walkthrough": "'production' rearranges BRIT as TRIB; 'to crush' puts A + TRIB inside DIE, which 'Peter out' gives.",
+     "definitionFit": "A diatribe is a bitter verbal attack, a sustained piece of spoken or written abuse."
     },
     "features": {
      "answerInScene": true,
@@ -726,46 +743,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DEPENDANT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "collared by",
+       "at": 17,
+       "note": "the shuffled letters close round DA like a collar, holding it inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "collared by",
-         "note": "To be collared is to be seized and held fast, so this letter is gripped inside the shuffled letters round it."
-        },
-        {
          "text": "change",
-         "note": "What changes does not stay as it was, so those letters are re-set in another order."
+         "at": 41,
+         "note": "the words Pence and needn't are told to change, so their letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "DA, needn't",
-         "gives": "DEENDANT",
-         "note": "the district attorney's two letters and the six of the other word, eight in all re-set, then parted after the second to take the P"
+         "words": "Pence",
+         "at": 10,
+         "gives": "P"
         },
         {
-         "words": "Pence",
-         "gives": "P",
-         "note": "p is pence on any British price tag"
+         "words": "needn't",
+         "at": 33,
+         "note": "taken as written, the apostrophe ignored"
         }
        ]
+      },
+      {
+       "words": "DA",
+       "at": 29,
+       "note": "taken as written: the abbreviation for a district attorney"
       }
      ]
     },
     "explanation": {
-     "surface": "Pence seized by a district attorney and told he need alter nothing.",
-     "walkthrough": "Pence is the American vice-president in the surface and the p of a price tag in the wordplay. 'Needn't' is material for the shuffle rather than an instruction, its apostrophe counting for nothing.",
-     "definitionFit": "A dependant lives at somebody else's expense — the word a tax form uses for the relatives on your hands — which is the charge a hanger-on faces."
+     "surface": "A sneer that Mike Pence, held by a district attorney, need not mend his ways.",
+     "walkthrough": "Pence is the former US vice-president, but here he is just P, the coin abbreviation. 'change' rearranges P + NEEDNT into DEPENNT, and 'collared by' closes those letters round DA, a district attorney.",
+     "definitionFit": "A dependant relies on another for support, which is what a hanger-on does, sponging off a patron."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": true,
      "misdirectedWord": "Pence"
     }
    }
@@ -848,62 +871,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "JUROR",
-     "indicators": [
-      {
-       "text": "floundering",
-       "note": "A man floundering is thrashing about with no order to him, and letters beside the word do the same."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Jack",
+       "at": 17,
+       "gives": "J",
+       "note": "J is the card abbreviation for jack"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "floundering",
+         "at": 27,
+         "note": "the word our is floundering, its letters thrown out of order"
+        }
+       ],
        "parts": [
         {
-         "words": "Jack",
-         "gives": "J",
-         "note": "J is the jack in a pack of cards"
-        },
+         "words": "our",
+         "at": 23
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "n": 3,
+       "indicators": [
         {
-         "words": "our floundering",
-         "gives": "URO",
-         "note": "the three letters in a new order"
-        },
+         "text": "centre",
+         "at": 47,
+         "note": "the letter at the centre of the word party is taken"
+        }
+       ],
+       "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "R",
-         "indicators": [
-          {
-           "text": "centre",
-           "note": "The centre of a word is the letter at its middle, and that single letter is all this takes."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "party's centre",
-           "gives": "R",
-           "select": "middle",
-           "note": "the middle letter of PARTY"
-          }
-         ]
+         "words": "party's",
+         "at": 39,
+         "note": "R is the third and central letter of party"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Jack losing his footing at the very heart of our party.",
-     "walkthrough": "Judgemental is the trap: a juror judges by appointment rather than by temperament. 'Party's centre' is a letter out of a word, not the moderate wing of anybody's organisation.",
-     "definitionFit": "A juror is one of the twelve sworn in to weigh evidence and return a verdict, so judging is the office rather than a failing."
+     "surface": "A judge-like character described as a jack whose faction is in disarray.",
+     "walkthrough": "'floundering' rearranges OUR as URO, and 'centre' takes the R in the middle of party.",
+     "definitionFit": "A juror sits on a jury and must judge the evidence, so is literally a type who passes judgement."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Judgemental"
+     "misdirectedWord": "Jack"
     }
    }
   },
@@ -993,45 +1013,48 @@
      "indicators": [
       {
        "text": "is abused",
-       "note": "A man abused is knocked about, and letters knocked about will not stay in the order they were given."
+       "at": 23,
+       "note": "the letters are mistreated, knocked about into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "a",
+       "at": 14
+      },
+      {
+       "words": "golfer",
+       "at": 16,
+       "note": "taken as written"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
          "text": "head",
-         "note": "The head of a word is the letter at its front, and that is the one taken."
+         "at": 45,
+         "note": "only the first letter of putter is taken"
         }
        ],
        "parts": [
         {
-         "words": "a golfer",
-         "note": "seven letters for re-setting"
-        },
-        {
-         "op": "first",
-         "parts": [
-          {
-           "words": "putter head",
-           "note": "the front letter of the club's name"
-          }
-         ]
+         "words": "putter",
+         "at": 38,
+         "note": "the first letter of putter is P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A golfer taking a beating from someone wielding the business end of a putter.",
-     "walkthrough": "'Play' is the noun, a children's game, and it is the whole definition despite standing alone at the front. The putter's head is its opening letter here, not the lump of metal on the club.",
-     "definitionFit": "Leapfrog is the playground game of vaulting over a bent back, so play is the general word for the kind of thing it is."
+     "surface": "A sporting drama in which a golfer gets battered with a club.",
+     "walkthrough": "'head' supplies P, the first letter of putter, which joins A GOLFER in the pool that 'is abused' rearranges.",
+     "definitionFit": "Leapfrog is a children's game in which players vault over each other's bent backs, a form of play."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "head"
+     "misdirectedWord": "putter"
     }
    }
   },
@@ -1150,7 +1173,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Hastings",
+      "text": "Hastings?",
       "at": 47
      }
     ],
@@ -1158,8 +1181,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "out",
-       "note": "Letters sent out of where they were sitting have to come back in some other arrangement."
+       "text": "to go round",
+       "at": 21,
+       "note": "the shuffled letters go round the central letter, holding it inside"
       }
      ],
      "parts": [
@@ -1167,70 +1191,65 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "to go round",
-         "note": "To go round something is to encircle it, so the letters gathered so far close over the one that follows."
+         "text": "out",
+         "at": 17,
+         "note": "belt with the extra letter is put out of order, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "last",
          "indicators": [
           {
-           "text": "middle of",
-           "note": "The middle of a word is its central letter, and with three letters there is only one candidate."
+           "text": "Finally",
+           "at": 0,
+           "note": "only the last letter of let is taken"
           }
          ],
          "parts": [
           {
-           "words": "belt",
-           "note": "four letters for re-setting, which then open to take a letter inside"
-          },
-          {
-           "op": "last",
-           "indicators": [
-            {
-             "text": "Finally",
-             "note": "What comes finally comes at the end, so the last letter of the word beside it is the one used."
-            }
-           ],
-           "parts": [
-            {
-             "words": "Finally let",
-             "gives": "LET",
-             "note": "the last letter of the word, thrown in with the belt"
-            }
-           ]
+           "words": "let",
+           "at": 8,
+           "note": "the last letter of let is T"
           }
          ]
+        },
+        {
+         "words": "belt",
+         "at": 12,
+         "note": "taken as written"
         }
        ]
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "A",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 33,
+         "note": "only the centre letter of Max is taken"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "middle of Max",
-         "gives": "A",
-         "select": "middle",
-         "note": "the central letter of the three"
+         "words": "Max",
+         "at": 43,
+         "note": "the middle letter of Max is A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Loosening your belt at last to get it round a well-known historian's waist.",
-     "walkthrough": "Max Hastings is a British military historian and newspaper editor, which is why his full name reads as one man. Split it and the surname is the fight of 1066, while the first name gives up a single letter.",
-     "definitionFit": "Hastings names the battle of 1066, the one every British schoolchild is taught, so the question mark lets a particular battle stand for battle itself."
+     "surface": "An urge to let rip at the journalist Max Hastings.",
+     "walkthrough": "'Finally' gives T from let; 'out' rearranges T + BELT, and 'to go round' puts those letters round A, the middle of Max. Sir Max Hastings is a military historian, but 'Hastings?' alone is the definition.",
+     "definitionFit": "Hastings is the most famous English battle, fought in 1066; the question mark shows it is one example."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Hastings"
+     "misdirectedWord": "Max"
     }
    }
   },
