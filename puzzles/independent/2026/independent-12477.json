@@ -232,72 +232,78 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ANDYPANDY",
      "indicators": [
       {
        "text": "claiming",
-       "note": "claiming means taking hold of, so the doubled word wraps round the single letter"
+       "at": 26,
+       "note": "claiming means taking hold of, so the party letter is held between the two halves"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "unchecked": true,
-       "gives": "ANDYPANDY",
+       "op": "deletion",
        "indicators": [
         {
          "text": "twice",
-         "note": "twice means the shortened word is written down two times in a row"
+         "at": 20,
+         "note": "twice means the loss of the source happens to both copies of the fop word"
         }
        ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "ANDYPANDY",
          "indicators": [
           {
            "text": "Without source",
-           "note": "a source is where something begins, so the word loses its first letter"
+           "at": 0,
+           "note": "the source of a word is where it starts, so each copy loses its first letter"
           }
          ],
          "parts": [
           {
            "words": "fop",
-           "gives": "DANDY",
-           "note": "a dandy is a man excessively concerned with his clothes"
+           "at": 16,
+           "gives": "DANDYDANDY",
+           "note": "a dandy is a fop, written here two times over because the clue says twice"
           },
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "leader",
-             "note": "the leader of a word is its first letter, so only that one is kept"
-            }
-           ],
-           "parts": [
-            {
-             "words": "party",
-             "note": "first letter of party"
-            }
-           ]
+           "gives": "D"
           }
          ]
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leader",
+         "at": 43,
+         "note": "the leader of a word is its first letter, here of party's"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party's",
+         "at": 35,
+         "note": "supplies its opening letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A party leader is mocked as a vain dandy and a BBC puppet.",
-     "walkthrough": "DANDY minus its D is ANDY; two of those clasp P to make ANDY PANDY.",
-     "definitionFit": "Andy Pandy is a puppet character from a children's television programme first shown by the BBC in 1950."
+     "surface": "A beheaded dandy, doubled, seizing a party leader sounds like a satire on the BBC.",
+     "walkthrough": "'Without source' takes the D off the first DANDY, giving ANDYDANDY, and 'twice' does it again for ANDYANDY; 'claiming' sets the P from 'party's leader' between them. Andy Pandy was a children's puppet on BBC television from 1950.",
+     "definitionFit": "Andy Pandy is the string puppet in a blue-and-white suit from a classic British children's TV show."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "party"
+     "misdirectedWord": "party's"
     }
    }
   },
@@ -1322,48 +1328,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HATEMAIL",
      "indicators": [
       {
        "text": "splits up",
-       "note": "splitting something puts a wedge into it, so the jumble goes inside"
+       "at": 12,
+       "note": "the rearranged letters split the bombard word apart, sitting inside it"
       }
      ],
      "parts": [
+      {
+       "words": "to bombard",
+       "at": 22,
+       "gives": "HAIL",
+       "note": "to hail is to bombard, as with blows or questions"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "Ground",
-         "note": "ground as in milled, broken down, so the letters are reduced and remade"
+         "at": 0,
+         "note": "ground here is the past tense of grind, so the letters of team are crushed and reshaped"
         }
        ],
        "parts": [
         {
          "words": "team",
-         "gives": "ATEM",
-         "note": "rearranged"
-        },
-        {
-         "words": "to bombard",
-         "gives": "HAIL",
-         "note": "to hail is to shower with blows or missiles"
+         "at": 7,
+         "note": "taken as written for the rearrangement"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A ground force breaks up and attacks the opposing army's front.",
-     "walkthrough": "'enemy lines' looks military, but it means lines written by someone who hates you; 'Ground' looks like infantry but signals a rearrangement.",
-     "definitionFit": "Hate mail is abusive letters sent to someone, the kind of written lines an enemy might send."
+     "surface": "Pitched as a military order: the ground team divides to shell the foe's front lines.",
+     "walkthrough": "'Ground' rearranges TEAM into ATEM, and 'splits up' puts it inside HAIL, after the H. 'enemy lines' is not trenches but lines of writing sent by someone hostile, hence the question mark.",
+     "definitionFit": "Hate mail is abusive letters or messages, written lines from someone who is your enemy."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "lines"
+     "misdirectedWord": "Ground"
     }
    }
   },
