@@ -48,6 +48,8 @@ DIR = downloads.PRIVATE_EYE_WAYBACK
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128 Safari/537.36"
 ISSUE_OFFSET = 845
 MAX_NODES = 4_000_000
+# Longest line of blocks in any of the 777 Cyclops 15x15s filed (a column's).
+MAX_BLACK_RUN = 9
 # (url, matchType) of every page that printed the crossword, and the .puz/.gif
 # files the 2003-2005 page linked.
 # The CDX key sorts a query's arguments ("issue=1165&section_link=crossword"),
@@ -773,7 +775,8 @@ def from_rows(num, rows, answers=None, image=None, fixes=None, jumbo=None):
         grid = list(image)
     else:
         grid, why = rg.unique_grid(spec, cols=15, rows=15, max_nodes=MAX_NODES, groups=groups,
-                                   words=words, min_light=3, no_square=True)
+                                   words=words, min_light=3, no_square=True,
+                                   min_row_white=3, max_black_run=MAX_BLACK_RUN)
         if grid is None:
             seen = f"; the scan's grid: {', '.join(misfits[:4])}" if misfits else ""
             return None, f"grid did not rebuild: {why}{seen}{count_hint(num, misfits)}"

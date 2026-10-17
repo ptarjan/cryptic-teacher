@@ -162,8 +162,10 @@ def _sequence_bounds(nums):
 class _Solver:
     def __init__(self, across, down, anum, dnum, cols, rows,
                  limit, symmetry, max_nodes, strict=True, words=None,
-                 max_black_run=None, groups=None, min_light=2, no_square=False):
+                 max_black_run=None, groups=None, min_light=2, no_square=False,
+                 min_row_white=2):
         self.min_light = min_light
+        self.min_row_white = min_row_white
         self.no_square = no_square
         self.across, self.down = across, down
         # Numbers are always a per-light list from here on, `None` standing for
@@ -218,11 +220,19 @@ class _Solver:
             self.gsum.append(0)
             self.gleft.append(len(ks))
         self.longest = max(cols, rows)
+        self.bound_lengths()
 
         # Tail cursors: one past the last light the mirrored bottom rows have
         # already claimed. They walk down as the top rows are fixed, and the
         # head cursors (ai, di) must never pass them.
         self.at, self.dt = self.na, self.nd
+        # The number the next mirrored light off the tail must carry. The last
+        # numbered cell starts the last across or the last down, so when both
+        # lists end in a known number the larger is how many cells are
+        # numbered, and the bottom rows are numbered backwards from it.
+        self.tn = None
+        if self.na and self.nd and anum[-1] is not None and dnum[-1] is not None:
+            self.tn = max(anum[-1], dnum[-1])
 
         # The longest down light not yet spent from the head. One of length M
         # cannot start below row rows-M, so a row that ends with a long down
@@ -230,7 +240,7 @@ class _Solver:
         # nothing, which is why None reads as 0 here.
         self.deepest = [0] * (self.nd + 1)
         for i in range(self.nd - 1, -1, -1):
-            self.deepest[i] = max(down[i] or 0, self.deepest[i + 1])
+            self.deepest[i] = max(self.lmin[self.na + i], self.deepest[i + 1])
 
         # Room left. The across lights between the head and the tail have to
         # fit in the rows between them, and a row of `cols` cells holds only
@@ -240,8 +250,27 @@ class _Solver:
         # commonest way a promising top half turns out to be impossible.
         self.apre = [0] * (self.na + 1)
         for i, length in enumerate(across):
-            self.apre[i + 1] = self.apre[i] + (length or 2)
+            self.apre[i + 1] = self.apre[i] + self.lmin[i]
         self.per_row = (cols + 1) // 3
+
+    def bound_lengths(self):
+        """lmin[k]..lmax[k]: the lengths light k can have. A known length is
+        its own range. An unknown one is at least `min_light` and at most the
+        board; in a linked group the printed total squeezes it further -- what
+        the group's known lights leave, less the least each other unknown
+        light takes, and at least what the others cannot reach."""
+        total = self.na + self.nd
+        lengths = list(self.across) + list(self.down)
+        self.lmin = [v if v is not None else self.min_light for v in lengths]
+        self.lmax = [v if v is not None else self.longest for v in lengths]
+        for g, gtotal in enumerate(self.gtotal):
+            members = [k for k in range(total) if self.gof[k] == g]
+            unknown = [k for k in members if lengths[k] is None]
+            left = gtotal - sum(lengths[k] for k in members if lengths[k] is not None)
+            for k in unknown:
+                others = len(unknown) - 1
+                self.lmax[k] = min(self.lmax[k], left - self.min_light * others)
+                self.lmin[k] = max(self.lmin[k], left - self.longest * others)
 
     # --- the partial grid -------------------------------------------------
     # Off the board reads as BLACK and refuses to be written white, which is
@@ -342,7 +371,10 @@ class _Solver:
         return self.solutions
 
     def row(self, y, ai, di, n, trail):
-        if self.nodes > self.max_nodes or len(self.solutions) >= self.limit:
+        if self.nodes > self.max_nodes:
+            self.hit_cap = True
+            return
+        if len(self.solutions) >= self.limit:
             return
         if y == self.rows:
             if ai == self.na and di == self.nd and self.whole_grid_ok():
@@ -390,12 +422,14 @@ class _Solver:
         if ai < self.na:
             wanted = self.across[ai]
             if wanted is None:
-                lengths += list(range(self.min_light, reach + 1))
+                lengths += list(range(self.lmin[ai], min(reach, self.lmax[ai]) + 1))
             elif 2 <= wanted <= reach:
                 lengths.append(wanted)
         for length in lengths:
             if x + length < cols and cells[base + x + length] == WHITE:
                 continue        # the run has to be closed by a block or the edge
+            if length >= 2 and not self.tail_run_ok(y, x, length, ai):
+                continue
             mark = len(trail)
             ok = True
             for i in range(length):
@@ -408,6 +442,28 @@ class _Solver:
                 self.in_run(y, x, length, 0, ai, di, n, trail)
             self.undo(trail, mark)
 
+    def tail_run_ok(self, y, x, length, ai):
+        """Could a run of `length` cells at (x, y) be the mirror of a light
+        the tail still holds? Row y's runs, left to right, are the tail's
+        lights read backwards from `at`, so the c-th run answers to light
+        at-1-c: checked here, as the run is chosen, instead of when the whole
+        row is banked after every way of finishing it has been tried."""
+        if not self.symmetry or self.rows - 1 - y <= y:
+            return True
+        cells, base, runs, run = self.cells, y * self.cols, 0, 0
+        for i in range(x):
+            if cells[base + i] == WHITE:
+                run += 1
+            else:
+                if run >= 2:
+                    runs += 1
+                run = 0
+        t = self.at - 1 - runs
+        if t <= ai:
+            return False
+        return self.across[t] in (None, length) \
+            and self.lmin[t] <= length <= self.lmax[t]
+
     def in_run(self, y, x0, length, i, ai, di, n, trail):
         """Match cell i of a white run against the light it would have to be.
 
@@ -417,7 +473,11 @@ class _Solver:
         because the number this cell must carry says whether a down light
         shares it.
         """
-        if self.nodes > self.max_nodes or len(self.solutions) >= self.limit:
+        self.nodes += 1         # every recursion counts, so no path outruns the budget
+        if self.nodes > self.max_nodes:
+            self.hit_cap = True
+            return
+        if len(self.solutions) >= self.limit:
             return
         if i == length:
             self.column(y, x0 + length + 1, ai, di, n, trail)
@@ -472,7 +532,8 @@ class _Solver:
         if may_start:
             want = self.down[di]
             spans = ([want] if want is not None
-                     else range(self.min_light, self.rows - y + 1))
+                     else range(self.lmin[self.na + di],
+                                min(self.rows - y, self.lmax[self.na + di]) + 1))
             for down_len in spans:
                 mark = len(trail)
                 if self.commit_down(x, y, down_len, trail) \
@@ -515,11 +576,13 @@ class _Solver:
         of the search into something that constrains its first decision.
         """
         mirror = self.rows - 1 - y
-        saved = (self.at, self.dt)
+        saved = (self.at, self.dt, self.tn)
         mark = len(trail)
         ok = True
         if self.symmetry and mirror > y:
             ok = self.claim_mirror_row(y, ai, di, trail)
+            if ok and self.tn is not None and self.tn + 1 < n:
+                ok = False      # the head and the tail have passed each other
         if ok and di < self.nd and self.deepest[di] > self.rows - (y + 1):
             ok = False          # a long down light with no row left to start in
         if ok:
@@ -548,7 +611,7 @@ class _Solver:
         if ok:
             self.row(y + 1, ai, di, n, trail)
         self.prev_across = saved_across
-        self.at, self.dt = saved
+        self.at, self.dt, self.tn = saved
         self.undo(trail, mark)
 
     def black_run_ok(self, x, y):
@@ -606,11 +669,17 @@ class _Solver:
                 run = 0
                 continue
             run += 1
+            starts = False
             if run >= 2 and (x + 1 == cols or cells[base + x + 1] != WHITE):
+                starts = True
                 self.at -= 1
-                if self.at < ai or self.across[self.at] not in (None, run):
+                if self.at < ai or self.across[self.at] not in (None, run) \
+                        or not self.lmin[self.at] <= run <= self.lmax[self.at]:
                     return False
                 if not self.peek(self.at, run):
+                    return False
+                if self.tn is not None and not self.number_ok(
+                        self.alo, self.ahi, self.at, self.tn):
                     return False
                 if self.awords is not None and not self.write(
                         self.awords[self.at], cols - 1 - x, my, 1, 0, trail):
@@ -620,14 +689,21 @@ class _Solver:
                 while y - k >= 0 and cells[(y - k) * cols + x] == WHITE:
                     k += 1
                 if k >= 2:
+                    starts = True
                     self.dt -= 1
-                    if self.dt < di or self.down[self.dt] not in (None, k):
+                    if self.dt < di or self.down[self.dt] not in (None, k) \
+                            or not self.lmin[self.na + self.dt] <= k <= self.lmax[self.na + self.dt]:
+                        return False
+                    if self.tn is not None and not self.number_ok(
+                            self.dlo, self.dhi, self.dt, self.tn):
                         return False
                     if not self.peek(self.na + self.dt, k):
                         return False
                     if self.dwords is not None and not self.write(
                             self.dwords[self.dt], cols - 1 - x, my, 0, 1, trail):
                         return False
+            if starts and self.tn is not None:
+                self.tn -= 1
         return True
 
     def next_row_fits(self, y, lo, hi):
@@ -641,12 +717,17 @@ class _Solver:
         searched a hundred thousand times. This is the prune that lets the
         hard 15x15s finish.
         """
-        lengths = set()
+        lengths, spans = set(), []
         for i in range(lo, hi):
             if self.across[i] is None:
-                return True     # an unknown length forgives any stretch
-            lengths.add(self.across[i])
-        longest = max(lengths) if lengths else 0
+                spans.append((self.lmin[i], self.lmax[i]))
+            else:
+                lengths.add(self.across[i])
+        longest = max(lengths | {b for _a, b in spans}, default=0)
+
+        def fits(length):
+            return length in lengths or any(a <= length <= b for a, b in spans)
+
         ny, x = y + 1, 0
         while x < self.cols:
             if self.get(x, ny) != WHITE:
@@ -663,7 +744,7 @@ class _Solver:
             if growable:
                 if longest < length:
                     return False
-            elif length not in lengths:
+            elif not fits(length):
                 return False
         return True
 
@@ -682,7 +763,7 @@ class _Solver:
         for i in range(lo, hi):
             # A light needs its own cells and a block after it, so k lights in
             # one row cost sum(length) + k - 1, which is sum(length + 1) - 1.
-            cost = (self.across[i] or 2) + 1
+            cost = self.lmin[i] + 1
             if used + cost > self.cols + 1:
                 need += 1
                 used = cost
@@ -700,7 +781,7 @@ class _Solver:
     def row_ok(self, y):
         """Two rules about a single row, checked the moment it is decided."""
         white = sum(1 for x in range(self.cols) if self.get(x, y) == WHITE)
-        if white < 2:
+        if white < self.min_row_white:
             return False        # no row of any puzzle has fewer than two
         has_across = bool(self.across_runs(y))
         if not has_across and not self.prev_across:
@@ -917,7 +998,7 @@ def split_words(spec, words):
 def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
                 max_nodes=DEFAULT_MAX_NODES, fallback=False, strict=True,
                 words=None, max_black_run=None, groups=None, min_light=2,
-                no_square=False):
+                no_square=False, min_row_white=2):
     """Every grid whose numbering would print these lights.
 
     Returns (solutions, info). Each solution is a tuple of row strings, '#'
@@ -958,6 +1039,9 @@ def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
     Cyclops grids filed, a checked-alternately style, and it prunes hard: the
     caller's, for a series it has been counted on.
 
+    `min_row_white` is the fewest white cells a row may hold (2, the least
+    any published grid has). Cyclops has none under three in 777 filed grids.
+
     `groups`, a list of ([(direction, index), ...], total), ties lights of
     unknown length together: a linked answer whose enumeration counts words,
     not lights, so only the sum of its lights' lengths is printed. `index`
@@ -975,7 +1059,7 @@ def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
     sys.setrecursionlimit(max(sys.getrecursionlimit(), 8 * cols * rows + 200))
     solver = _Solver(across, down, anum, dnum, cols, rows,
                      limit, bool(symmetry), max_nodes, strict, split,
-                     max_black_run, groups, min_light, no_square)
+                     max_black_run, groups, min_light, no_square, min_row_white)
     found = solver.run()
     info = {"symmetric": bool(symmetry), "nodes": solver.nodes,
             "truncated": solver.hit_cap or len(found) >= limit}
@@ -983,7 +1067,7 @@ def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
         return found, info
     loose = _Solver(across, down, anum, dnum, cols, rows,
                     limit, False, max_nodes, strict, split, max_black_run,
-                    groups, min_light, no_square)
+                    groups, min_light, no_square, min_row_white)
     found = loose.run()
     return found, {"symmetric": False, "nodes": solver.nodes + loose.nodes,
                    "truncated": loose.hit_cap or len(found) >= limit}
@@ -991,7 +1075,7 @@ def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
 
 def unique_grid(spec, cols=15, rows=15, words=None, max_nodes=DEFAULT_MAX_NODES,
                 max_black_run=None, pick=None, limit=DEFAULT_LIMIT, search=None,
-                groups=None, min_light=2, no_square=False):
+                groups=None, min_light=2, no_square=False, min_row_white=2):
     """(grid, None) when exactly one grid prints these lights and the search
     finished, else (None, why not): a filer backsolving a grid from its clue
     list files it only then. `pick`, given every grid of a finished search
@@ -1005,7 +1089,9 @@ def unique_grid(spec, cols=15, rows=15, words=None, max_nodes=DEFAULT_MAX_NODES,
                                   max_black_run=max_black_run,
                                   **({"groups": groups} if groups else {}),
                                   **({"min_light": min_light} if min_light != 2 else {}),
-                                  **({"no_square": True} if no_square else {}))
+                                  **({"no_square": True} if no_square else {}),
+                                  **({"min_row_white": min_row_white}
+                                     if min_row_white != 2 else {}))
     except ValueError as e:
         return None, f"clue list unusable: {e}"
     if info.get("gaps"):
