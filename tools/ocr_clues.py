@@ -2560,7 +2560,7 @@ def clean(text):
     text = re.sub(r"\b([Aa]|[Tt]o)-(?!(?:" + "|".join(HYPHENED_A_TO) + r"|[a-z]+ing)\b)(?=[a-z]{2,}\b)",
                   r"\1 ", text)
     # A one read as l or I before another digit ("l9th-century", "See I3").
-    text = ones_read(see_numeral(text))
+    text = clue_text.tidy_ocr_clues(text, scope="clue", torn_counts=None)
     # The space before a bracket opening on a word lost ("slang(from").
     text = re.sub(r"(?<=[a-z]{2})\((?=[a-z]{3})", " (", text)
     # The space after a question or exclamation mark lost ("Worried?Pulse").
@@ -3042,7 +3042,7 @@ def trimmed(text, lid, voted=True):
                       "", text)
     text = re.sub(rf"\s*{CAPS_HEADING.pattern}\W*?(?=\s|$)", "", text).strip()
     text = re.sub(r"\b([A-Za-z]+)-\s+(?=[^\w\s]|\d)[^\w\s]*\d?[^\w\s]*\s*([a-z]+)\b", line_end_hyphen, text)
-    text = trim_torn_count(text)
+    text = clue_text.tidy_ocr_clues(text, scope="clue", torn_counts="trim")
     if voted:
         text = leading_quote.clean(text)
     return text

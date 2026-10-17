@@ -254,38 +254,12 @@ def by_lines(text):
 
 
 def tidy(text):
-    """Listener counts into the daily's shape: "(6, two words)" is "(6)";
-    a clue number read as two digits ("1 9 Nurse") is one, and specks
-    before it go."""
-    # A two-digit count set wide, "(1 1)", is one number: a count's parts
-    # are printed with a comma or hyphen between them.
-    text = re.sub(r"\((\d) (\d)\)", r"(\1\2)", text)
-    # A speck read as a middle dot ("study·money") is a space.
-    text = text.replace("\u00b7", " ")
-    # A backtick is an opening quote read ("a`squatter's right'."); glued
-    # to the word before, the space before it was lost.
-    text = re.sub(r"(?<=\w)`", " `", text).replace("`", "\u2018")
-    # Specks the scan left before a clue number (". 11", ":. 11").
-    text = re.sub(r"^[.:;,'`\u2018\u2019 ]+(?=[\dIl])", "", text, flags=re.MULTILINE)
-    # A clue opening on an ellipsis, its head as a reader prints it: glued
-    # to the number ("5... the"), a speck between ("5_ ... the"), dots lost
-    # ("6 . stabbed"), no space after ("6 ...stabbed"); Cyclops No 119's
-    # 5 and 6 down. Else the number is no clue start and the clue runs on
-    # into the one before. A lone stop glued to the number ("5. the") is
-    # the number's own.
-    text = clue_text.ELLIPSIS_HEAD.sub(r"\1 ... ", text)
-    # Not before a lowercase word: "6 3 put more negatively" is 6 down
-    # whose clue opens on a reference to 3 (Cyclops No 19), not 63.
-    text = re.sub(r"^(\d) (\d) (?=[^\sa-z])", r"\1\2 ", text, flags=re.MULTILINE)
-    text = re.sub(r"^(\d{1,2})(?=[A-Z]{2})", r"\1 ", text, flags=re.MULTILINE)
-    # A reference to 1 read as its lookalike ("10 See lac."): else it is no
-    # reference, has no count, and runs on into the next clue (Cyclops 179).
-    text = "\n".join(clue_text.see_one(l) for l in text.split("\n"))
-    # A reversed light's "rev." read "rey." or glued to its number ("5rey.Last").
-    text = re.sub(r"^(\d{1,2})\s?re[vy][.,]?\s*(?=[A-Z\"'\u2018])", r"\1 rev. ", text, flags=re.MULTILINE)
-    # A cross-reference's number glued on, its 1 read as I or l ("SeeI3.").
-    text = clue_text.see_numeral(text)
-    return clue_text.WORDS_COUNT.sub(r"(\1)", text)
+    """Listener text into the daily's shape: clue_text.tidy_ocr_clues, the one
+    pipeline every OCR source shares ("(6, two words)" is "(6)"; "1 9 Nurse"
+    is "19 Nurse"; specks before a number go). The archive filer's own hook
+    (fa.glued_a) is part of it, so a text fa.tidy already tidied comes back
+    as it was."""
+    return fa.tidy(text)
 
 
 #: A count inside a clue's text: the next clue ran on after it.
@@ -626,7 +600,7 @@ def vote(words, verdict, cols=None, lengths=None):
     whose count no reading read. Shared by every Listener page reader
     (tools/gale_listener.py's too)."""
     cols = cols or columns
-    texts = unjoined({k: tidy(fa.tidy(text_of(cols(w)))) for k, w in words.items()})
+    texts = unjoined({k: fa.tidy(text_of(cols(w))) for k, w in words.items()})
     tried = []
     for k, t in texts.items():
         parsed, why = parse(t) if t.strip() else (None, "no words")

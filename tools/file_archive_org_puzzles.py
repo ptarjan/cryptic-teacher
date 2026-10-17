@@ -169,10 +169,10 @@ import xml.etree.ElementTree as ET
 from difflib import SequenceMatcher
 from pathlib import Path
 import clue_repair
-from clue_text import (CAPS_HEADING, COUNT_END, HEADING_AFTER_COUNT, HEADING_ALONE, HEADING_BEFORE_ONE,
-                       NUMBERED_HEADING, OPENING_NUMBER, OPENING_SPECK, clue_number_opening, count_closed,
-                       count_closed_open, count_left, direction, heading_of, is_count_end, is_stray_count,
-                       mend_count, number_digits, numbered_heading)
+import clue_text
+from clue_text import (CAPS_HEADING, COUNT_END, HEADING_ALONE, NUMBERED_HEADING, OPENING_NUMBER, OPENING_SPECK,
+                       count_left, counts_mended, direction, heading_of, number_digits, numbered_heading,
+                       uncounted_dropped)
 import enumeration
 import file_trove_puzzles as ftp
 import ocr_clues
@@ -1368,116 +1368,29 @@ def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None,
     return [[w] for w in words]
 
 
+def glued_a(line):
+    """`line` with a clue's opening "A" run into the next word parted:
+    "15 Adanger out east" is "15 A danger out east", unless the whole is a
+    misspelling of a commoner word ("Arived"). A word the lexicon lacks
+    (is_word's closed list: "whore", "togo") has no rank, and ranks below
+    every word it has. The lexicon is why this is the archive filer's hook
+    into clue_text.tidy_ocr_clues."""
+    glued = re.match(r"^(\d{1,2}(?:,\s?\d{1,2})*\s+)A([a-z]{3,})\b", line)
+    word = glued and glued.group(2)
+    if glued and is_word(word) and not is_word("a" + word) and not any(
+            (rank(e) or 10 ** 9) < (rank(word) or 10 ** 9) for e in edits("a" + word) if e != word):
+        return f"{glued.group(1)}A {line[glued.end(1) + 1:]}"
+    return line
+
+
 def tidy(text):
-    """A column text with OCR's commonest slips in the print's shape undone:
-    a brace or square bracket read for a round one, a clue number run into
+    """A column text with OCR's commonest slips in the print's shape undone
+    (clue_text.tidy_ocr_clues, the one pipeline every OCR source shares): a
+    brace or square bracket read for a round one, a clue number run into
     its first word, and a number lost altogether (a line starting a word
     straight after a line that ended on a count) marked "?", which
     file_trove_puzzles.match places by the grid alone."""
-    out, prev = [], ""
-    lines = []
-    for line in text.splitlines():
-        # A heading read onto the line of its first clue ("Down i Beginning",
-        # "ACROSS 1 Fish"), or after the last clue of the list before
-        # ("chance (5) DOWN"), is a line of its own; one inside a line,
-        # another column's read across ("on the DOWN board"), is no word.
-        m = HEADING_BEFORE_ONE.match(line)
-        if m:
-            lines += [direction(m[1]).upper(), (re.search(r"\d+", line[m.end(1):m.end()]) or ["1"])[0] + " " + line[m.end():]]
-            continue
-        m = HEADING_AFTER_COUNT.search(line)
-        tail = [m[1]] if m else []
-        line = line[:m.start()] if m else line
-        lines += [re.sub(rf"(?<=\S)\s+{CAPS_HEADING.pattern}(?=\s+\S)", "", line)] + tail
-    for line in lines:
-        line = line.translate(BRACKETS).strip()
-        heading = heading_of(line) or numbered_heading(line)
-        if heading:
-            line = heading
-        elif out and re.match(r"(?:across|down)\b", line):
-            # A lower-case "down (8)." carries on the line before it: no heading.
-            out[-1] += " " + line
-            prev = out[-1]
-            continue
-        if is_count_end(prev) or heading_of(prev) or not out:
-            line = clue_number_opening(line)
-        line = re.sub(r"^(\d{1,2})(?=[A-Z][a-z]|[A-Z]\s)", r"\1 ", line)
-        # "15 Adanger out east": a clue's opening "A" run into the next word,
-        # unless the whole is a misspelling of a commoner word ("Arived").
-        # A word the lexicon lacks (is_word's closed list: "whore", "togo")
-        # has no rank, and ranks below every word it has.
-        glued = re.match(r"^(\d{1,2}(?:,\s?\d{1,2})*\s+)A([a-z]{3,})\b", line)
-        word = glued and glued.group(2)
-        if glued and is_word(word) and not is_word("a" + word) and not any(
-                (rank(e) or 10 ** 9) < (rank(word) or 10 ** 9) for e in edits("a" + word) if e != word):
-            line = f"{glued.group(1)}A {line[glued.end(1) + 1:]}"
-        line = count_closed(line)
-        if (is_count_end(prev) or heading_of(prev)) and re.match(r"[A-Z][a-z]", line):
-            line = "? " + line
-        out.append(line)
-        prev = line
-    # A count left open at a list's end ("(5r", "(5-" before DOWN): a speck
-    # took its bracket, as nothing follows to carry it on.
-    for k, line in enumerate(out):
-        if k + 1 == len(out) or heading_of(out[k + 1]):
-            out[k] = count_closed_open(line)
-    return "\n".join(uncounted_dropped(counts_mended(out)))
-
-
-def counts_mended(lines):
-    """`lines` with the torn count that ends a clue (its next line a clue's
-    number, a heading or the column's end) read as a count: "writer 17)."
-    is "writer (7)", for a count of 17 could not go in a 15-square grid,
-    and "(8" before "4 American city" is (8). A whole count is left alone."""
-    out = list(lines)
-    for k, line in enumerate(out):
-        nxt = out[k + 1] if k + 1 < len(out) else None
-        if nxt is not None and not (re.match(r"\d{1,2}\s+\S", nxt) or heading_of(nxt)):
-            continue
-        if is_count_end(line):
-            continue
-        mended = mend_count(line)
-        if mended == line:
-            if is_stray_count(line) and not (
-                    k and out[k - 1].count("(") > out[k - 1].count(")")):
-                # A line of nothing but a bracket and a digit or so ("U0).")
-                # is the clue's count, unread: the grid gives it; after a
-                # count left open ("(5-"), it is that count's end.
-                out[k] = "(?)"
-            continue
-        out[k] = mended
-    return out
-
-
-def uncounted_dropped(lines):
-    """`lines` (tidy()'s) without text that is no clue: after a count, lines
-    with no count of their own that run into the next clue's number, a
-    heading or the column's end ("Prize Crossword in The Times tomorrow",
-    a notice printed across the columns). A clue whose number was lost
-    ("? Holds fast (5)") still ends on its count."""
-    out, k = [], 0
-    while k < len(lines):
-        if not lines[k].startswith("? "):
-            out.append(lines[k])
-            k += 1
-            continue
-        end = k
-        while end < len(lines) and not COUNT_END.search(lines[end]) and (
-                end == k or not (re.match(r"\d{1,2}\b", lines[end]) or heading_of(lines[end])
-                                 or lines[end].startswith("? "))):
-            end += 1
-        if end < len(lines) and COUNT_END.search(lines[end]) and not (
-                end > k and (re.match(r"\d{1,2}\b", lines[end]) or heading_of(lines[end]))):
-            out.extend(lines[k:end + 1])
-            k = end + 1
-        else:
-            k = end
-    return out
-
-
-#: A brace, square, angle or full-width bracket (RapidOCR's ch recogniser)
-#: read for a round one.
-BRACKETS = str.maketrans({"{": "(", "[": "(", "<": "(", "}": ")", "]": ")", "\uff08": "(", "\uff09": ")"})
+    return clue_text.tidy_ocr_clues(text, line_hook=glued_a)
 
 
 def parse(text):

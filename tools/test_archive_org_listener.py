@@ -188,6 +188,10 @@ for head in ("5... the", "5_ ... the", "5 ...the", "5 . the", "5 .. the", "5… 
     check(f"an ellipsis head {head!r} is a clue start", "5 ... the vice (4-3)", al.tidy(f"{head} vice (4-3)"))
 check("a stop glued to a number is no ellipsis (mirror)", "5. the vice (4-3)", al.tidy("5. the vice (4-3)"))
 check("a capital after a spaced stop is no ellipsis (mirror)", "5 . The vice (4-3)", al.tidy("5 . The vice (4-3)"))
+# al.tidy is the one clue_text pipeline (tidy_ocr_clues): a text tidied twice, as Private Eye's scans do, is unchanged.
+_once = al.tidy("ACROSS\n1Mythical king {9}\n:. 11 Stood(4)\nDOWN\n2 Talks [3,2]")
+check("tidying twice changes nothing", _once, al.tidy(al.tidy(_once)))
+check("the listener's slips are the archive filer's too", al.tidy("1 9 Nurse (5)"), al.fa.tidy("1 9 Nurse (5)"))
 
 # vote on issue 964's four readings of the 4-5-6 down chain: every reader
 # prints 5 and 6 down whole, so neither is blank nor loses its dots.

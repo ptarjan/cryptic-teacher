@@ -769,8 +769,7 @@ def figures(words):
             # or the gutter read into it (No 17's "7." from x 784, where the
             # column's numbers start at ~864). The number ends where it does.
             w = (int(w[2] - NUMBER_WIDTH * len(w[4]) * (w[3] - w[1])), *w[1:])
-        w = (*w[:4], clue_text.old_figures(w[4]))
-        w = (*w[:4], clue_text.mend_opening(w[4]))
+        w = (*w[:4], clue_text.tidy_ocr_clues(w[4], scope="piece"))
         out.append(w)
     return out
 

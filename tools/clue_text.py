@@ -591,3 +591,226 @@ def mend_scan_text(part):
     part = re.sub(r"(?<=\s)(\d{1,2})([A-Z]) ([a-z]{1,3})\b", r"\1 \2\3", part)
     part = re.sub(r"(?<=\d)(ac|dn)\.(?=[A-Z‘“'\"])", r"\1. ", part)
     return WORDS_COUNT.sub(r"(\1)", part)
+
+
+# ======================================================================
+# The one pipeline every OCR reader sends its clue text through.
+# ======================================================================
+
+#: A brace, square, angle or full-width bracket (RapidOCR's ch recogniser)
+#: read for a round one.
+BRACKETS = str.maketrans({"{": "(", "[": "(", "<": "(", "}": ")", "]": ")", "（": "(", "）": ")"})
+
+
+def counts_mended(lines):
+    """`lines` with the torn count that ends a clue (its next line a clue's
+    number, a heading or the column's end) read as a count: "writer 17)."
+    is "writer (7)", for a count of 17 could not go in a 15-square grid,
+    and "(8" before "4 American city" is (8). A whole count is left alone."""
+    out = list(lines)
+    for k, line in enumerate(out):
+        nxt = out[k + 1] if k + 1 < len(out) else None
+        if nxt is not None and not (re.match(r"\d{1,2}\s+\S", nxt) or heading_of(nxt)):
+            continue
+        if is_count_end(line):
+            continue
+        mended = mend_count(line)
+        if mended == line:
+            if is_stray_count(line) and not (
+                    k and out[k - 1].count("(") > out[k - 1].count(")")):
+                # A line of nothing but a bracket and a digit or so ("U0).")
+                # is the clue's count, unread: the grid gives it; after a
+                # count left open ("(5-"), it is that count's end.
+                out[k] = "(?)"
+            continue
+        out[k] = mended
+    return out
+
+
+def uncounted_dropped(lines):
+    """`lines` (a column's) without text that is no clue: after a "? " line (a
+    clue whose number was lost), lines with no count of their own that run
+    into the next clue's number, a heading or the column's end ("Prize
+    Crossword in The Times tomorrow", a notice printed across the columns). A
+    clue whose number was lost ("? Holds fast (5)") still ends on its count."""
+    out, k = [], 0
+    while k < len(lines):
+        if not lines[k].startswith("? "):
+            out.append(lines[k])
+            k += 1
+            continue
+        end = k
+        while end < len(lines) and not COUNT_END.search(lines[end]) and (
+                end == k or not (re.match(r"\d{1,2}\b", lines[end]) or heading_of(lines[end])
+                                 or lines[end].startswith("? "))):
+            end += 1
+        if end < len(lines) and COUNT_END.search(lines[end]) and not (
+                end > k and (re.match(r"\d{1,2}\b", lines[end]) or heading_of(lines[end]))):
+            out.extend(lines[k:end + 1])
+            k = end + 1
+        else:
+            k = end
+    return out
+
+
+def _split_headings(text):
+    """The lines of a column `text` with each list heading read onto another
+    line made a line of its own: a heading opening the line of its first clue
+    ("Down i Beginning", "ACROSS 1 Fish"), or closing the last clue of the
+    list before ("chance (5) DOWN"). One inside a line, another column's read
+    across ("on the DOWN board"), is no word, and goes."""
+    lines = []
+    for line in text.splitlines():
+        m = HEADING_BEFORE_ONE.match(line)
+        if m:
+            lines += [direction(m[1]).upper(),
+                      (re.search(r"\d+", line[m.end(1):m.end()]) or ["1"])[0] + " " + line[m.end():]]
+            continue
+        m = HEADING_AFTER_COUNT.search(line)
+        tail = [m[1]] if m else []
+        line = line[:m.start()] if m else line
+        lines += [re.sub(rf"(?<=\S)\s+{CAPS_HEADING.pattern}(?=\s+\S)", "", line)] + tail
+    return lines
+
+
+def _heading_in(line, running_head, extra_headings):
+    """"ACROSS" / "DOWN" for a line that is a list heading by any of the
+    readings: the plain fuzzy one, the puzzle-numbered ("No. 18,340 ACROSS"),
+    the publisher's own words (`extra_headings`, {"HORIZONTAL": "ACROSS"}), and,
+    when `running_head`, a book's running head or specks round it."""
+    if heading := heading_of(line) or numbered_heading(line):
+        return heading
+    if extra_headings and (heading := extra_headings.get(re.sub(r"[^A-Za-z]", "", line).upper())):
+        return heading
+    return tolerant_heading(line) if running_head else None
+
+
+def _inline_slips(line):
+    """Slips that hold anywhere in a clue's text, whichever its line: a count
+    set wide, a speck read as a middle dot, a backtick, a
+    cross-reference's number read as letters."""
+    line = re.sub(r"\((\d) (\d)\)", r"(\1\2)", line)  # a two-digit count set wide, "(1 1)"
+    if "\u00b7" in line:  # a speck read as a middle dot ("study·money", "in· France")
+        line = re.sub(r"\s*\u00b7\s*", " ", line).strip()
+    line = re.sub(r"(?<=\w)`", " `", line).replace("`", "\u2018")  # a backtick is an opening quote read
+    line = see_one(line)  # a reference to 1 read as its lookalike ("10 See lac.")
+    line = ones_read(see_numeral(line))  # "SeeI3." is "See 13."; "l9th" is "19th"
+    return WORDS_COUNT.sub(r"(\1)", line)  # "(6, two words)" is "(6)"
+
+
+def _line_slips(line):
+    """One column line's slips that anchor on its start, where its clue number
+    is: specks before the number, an ellipsis head, a number split or run into
+    its word, a "rev." misread; then _inline_slips."""
+    line = re.sub(r"^[.:;,'`\u2018\u2019 ]+(?=[\dIl])", "", line)  # specks left before a clue number
+    # A clue opening on an ellipsis ("5... the", "5_ ... the", "6 . stabbed"). A
+    # lone stop glued to the number ("5. the") is the number's own.
+    line = ELLIPSIS_HEAD.sub(r"\1 ... ", line)
+    # Not before a lowercase word: "6 3 put more negatively" is 6 down whose
+    # clue opens on a reference to 3 (Cyclops No 19), not 63.
+    line = re.sub(r"^(\d) (\d) (?=[^\sa-z])", r"\1\2 ", line)
+    line = re.sub(r"^(\d{1,2})(?=[A-Z]{2})", r"\1 ", line)
+    line = re.sub(r"^(\d{1,2})\s?re[vy][.,]?\s*(?=[A-Z\"'\u2018])", r"\1 rev. ", line)
+    return _inline_slips(line)
+
+
+def tidy_ocr_clues(text, *, scope="column", running_head=False, extra_headings=None, line_hook=None,
+                   torn_counts="mend"):
+    """The one tidy-up every OCR reader sends its clue text through, so a fix
+    found on one source reaches all of them. Stages run in this fixed order,
+    each on what the one before left; every stage is safe on any source's
+    text unless a comment says so.
+
+    `scope` is how much of the page `text` is:
+      "column": a whole column of lines with its ACROSS / DOWN headings.
+          1 headings first: one read onto another line made its own line,
+            then every line that is a heading made the canonical word
+            (heading_of, numbered_heading, `extra_headings`, `running_head`);
+          2 brackets (BRACKETS), then each line's number and opening (a
+            lower-case "down" carries on the line before; clue_number_opening
+            after a count or heading; GLUED; `line_hook`; _line_slips: see_one,
+            see_numeral, ones_read, ELLIPSIS_HEAD, WORDS_COUNT);
+          3 counts: count_closed per line, a "? " marking a number lost,
+            counts_mended for a clue's torn count, count_closed_open at a
+            list's end, uncounted_dropped for text that is no clue;
+          4 joins: mend_link_tails on each list ("11/4" for "11/14").
+          The four stages go round until the text stops changing (three
+          times at most), so the result is idempotent.
+      "clue": one clue's text (no heading, no number, no neighbours): stage
+          2's slips that hold anywhere in a line (_inline_slips),
+          then the count: `torn_counts` "mend" reads a torn count whole
+          (mend_count), "trim" cuts it with the specks round it
+          (trim_torn_count) for a reader that knows the count elsewhere.
+      "piece": one OCR word or fragment of unknown place on its line: only
+          what holds for a word alone (old_figures, mend_opening,
+          see_numeral, see_one, ones_read).
+
+    `running_head` (column) reads "Cryptic Across" or "| ACROSS" as a heading
+    (tolerant_heading). It is OFF by default: it also matches a clue's
+    continuation line like "Come down", so only a source whose lines are known
+    to hold running heads (a book's leaf) sets it. `extra_headings` maps a
+    publisher's own heading word, upper-case letters only, to "ACROSS" or
+    "DOWN". `line_hook(line)` is a source's own last say on a clue line (a
+    lexicon check the pipeline cannot make)."""
+    if scope == "piece":
+        text = old_figures(text)
+        text = mend_opening(text)
+        return ones_read(see_one(see_numeral(text)))
+    if scope == "clue":
+        text = _inline_slips(text)
+        if torn_counts == "trim":
+            return trim_torn_count(text)
+        return mend_count(text) if torn_counts == "mend" else text
+    if scope != "column":
+        raise ValueError(f"unknown scope {scope!r}")
+    # One pass leaves work for the next (a number is opened only once the
+    # count before it is mended; a count closed gains its space), so the
+    # column goes round until it stops changing, three times at most.
+    for _ in range(3):
+        again = _column_pass(text, running_head, extra_headings, line_hook)
+        if again == text:
+            break
+        text = again
+    return text
+
+
+def _column_pass(text, running_head, extra_headings, line_hook):
+    """One pass of tidy_ocr_clues' column stages 1 to 4, in order."""
+    out, prev = [], ""
+    for line in _split_headings(text):
+        line = line.translate(BRACKETS).strip()
+        heading = _heading_in(line, running_head, extra_headings)
+        if heading:
+            line = heading
+        elif out and re.match(r"(?:across|down)\b", line):
+            # A lower-case "down (8)." carries on the line before it: no heading.
+            out[-1] += " " + line
+            prev = out[-1]
+            continue
+        if is_count_end(prev) or heading_of(prev) or not out:
+            line = clue_number_opening(line)
+        line = re.sub(r"^(\d{1,2})(?=[A-Z][a-z]|[A-Z]\s)", r"\1 ", line)
+        if line_hook:
+            line = line_hook(line)
+        line = _line_slips(line)
+        line = count_closed(line)
+        if (is_count_end(prev) or heading_of(prev)) and re.match(r"[A-Z][a-z]", line):
+            line = "? " + line
+        out.append(line)
+        prev = line
+    # A count left open at a list's end ("(5r", "(5-" before DOWN): a speck
+    # took its bracket, as nothing follows to carry it on.
+    for k, line in enumerate(out):
+        if k + 1 == len(out) or heading_of(out[k + 1]):
+            out[k] = count_closed_open(line)
+    out = uncounted_dropped(counts_mended(out))
+    # Last, once the lines are whole: a linked head's tail ("11/4" for
+    # "11/14") is judged against the clue numbers its own list opens.
+    lists, cur = [], []
+    for line in out:
+        if heading_of(line):
+            lists.append(cur)
+            cur = []
+        cur.append(line)
+    lists.append(cur)
+    return "\n".join(line for lst in lists for line in mend_link_tails(lst))
