@@ -750,52 +750,59 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DEVILSBIT",
      "indicators": [
       {
        "text": "in",
-       "note": "placed in something means enclosed by it"
+       "at": 20,
+       "note": "in tells us the rearranged letters are placed inside the two abbreviations"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "deserted",
+         "at": 23,
+         "gives": "D",
+         "note": "D is the abbreviation for deserted, as in old military and naval records"
+        },
+        {
+         "words": "Troy",
+         "at": 32,
+         "gives": "T",
+         "note": "t is the abbreviation for troy, the system of weights for precious metals"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "oddly",
-         "note": "written oddly means set down in a strange way, so the letters are jumbled"
+         "at": 6,
+         "note": "oddly means in an odd, irregular way, so the letters of visible are jumbled"
         }
        ],
        "parts": [
         {
          "words": "visible",
-         "note": "taken as written"
-        },
-        {
-         "words": "deserted",
-         "gives": "D",
-         "note": "Chambers lists D as an abbreviation for deserted"
-        },
-        {
-         "words": "Troy",
-         "gives": "T",
-         "note": "T is the abbreviation for troy, the weight system"
+         "at": 12
         }
        ]
       }
      ]
     },
-    "spelling": "DEVIL'S-BIT",
+    "spelling": "DEVIL'SBIT",
     "explanation": {
-     "surface": "A plant is strangely in view among the ruins of abandoned Troy.",
-     "walkthrough": "'Oddly' tempts a solver to take alternate letters, but those give nothing useful; it shuffles the whole word. Troy is the weight system for gold, not the city.",
-     "definitionFit": "Devil's-bit is a scabious with a short root that legend says the devil bit off, a European wild flower."
+     "surface": "A plant shows up strangely in the ruins of abandoned ancient Troy.",
+     "walkthrough": "'Oddly' tempts you to take alternate letters of visible, but that gives too few; it is the anagram signal, and 'in' sets the jumble between D and T. Troy turns out to be a weight, not a city.",
+     "definitionFit": "Devil's-bit is a scabious, a wild flower whose stubby root looks bitten off, so it is a kind of plant."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Troy"
+     "misdirectedWord": "oddly"
     }
    }
   },
