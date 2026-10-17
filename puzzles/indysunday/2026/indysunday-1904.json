@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -936,36 +937,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OILWELL",
-     "indicators": [
-      {
-       "text": "uncapped",
-       "note": "a cap sits on top of a thing, so taking it off removes the first letter of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "uncapped",
+         "at": 17,
+         "note": "uncapped means with the cap, the top letter in a down clue, removed"
+        }
+       ],
        "parts": [
         {
          "words": "cook",
-         "gives": "OIL",
-         "note": "to cook is to BOIL, and uncapped it loses its first letter"
+         "at": 12,
+         "gives": "BOIL",
+         "note": "to boil is to cook"
         },
         {
-         "words": "successfully",
-         "gives": "WELL",
-         "note": "doing something successfully is doing it well"
+         "gives": "B"
         }
        ]
+      },
+      {
+       "words": "successfully",
+       "at": 26,
+       "gives": "WELL",
+       "note": "well means successfully, as in 'it went well'"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The joke is that the answer caps itself: uncapping is exactly what happens to a real one when it blows, and the surface is a kitchen.",
-     "definitionFit": "An oil well is the hole drilled to bring crude to the surface, and crude is fuel, so the phrase names where the fuel comes from."
+     "surface": "A cook takes the lid off and things go well.",
+     "walkthrough": "'uncapped' takes the first letter off BOIL, leaving OIL; in a down clue the first letter is the cap.",
+     "definitionFit": "An oil well extracts petroleum, so it is a source supplying fuel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cook"
     }
    }
   },
@@ -1090,39 +1101,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "COLLYWOBBLES",
      "indicators": [
       {
-       "text": "Spooner's",
-       "note": "the Reverend Spooner is remembered for trading the opening sounds of two words, so his version of a phrase swaps its first sounds"
+       "text": "for Spooner's",
+       "at": 19,
+       "note": "Spooner's version means the starting sounds of the two words are swapped, after the Rev Spooner"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "WOLLY",
        "parts": [
         {
-         "unchecked": true,
          "words": "Walter",
-         "gives": "COLLY",
-         "soundsLike": "WALLY",
-         "note": "Walter shortens to Wally, who hands his W over and takes a C in exchange"
-        },
-        {
-         "unchecked": true,
-         "words": "fixes shoes",
-         "gives": "WOBBLES",
-         "soundsLike": "COBBLES",
-         "note": "to cobble is to mend shoes, and cobbles gives up its C for Wally's W"
+         "at": 0,
+         "gives": "WALLY",
+         "note": "Wally is a familiar form of the name Walter, said 'wolly' in British speech"
         }
        ]
+      },
+      {
+       "words": "fixes shoes",
+       "at": 7,
+       "gives": "COBBLES",
+       "note": "a cobbler cobbles, that is mends, shoes"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A Spooner clue needs the plain phrase first: find the nickname and the trade, and only then trade their opening sounds.",
-     "definitionFit": "The collywobbles is queasy stomach trouble, and 'the runs' is the same complaint in the same register of polite slang."
+     "surface": "A cobbler called Walter mends footwear.",
+     "walkthrough": "Wally cobbles, with the opening sounds swapped, becomes the answer. Spoonerisms, named after the Rev William Spooner, swap the initial sounds of two words.",
+     "definitionFit": "The collywobbles is an informal word for an upset stomach or nervous queasiness, which can mean the runs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "runs"
     }
    }
   },
@@ -1398,52 +1414,33 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "ENZYME",
+     "op": "homophone",
+     "spelt": "ENZYME",
      "indicators": [
       {
-       "text": "lead characters",
-       "note": "characters here are letters rather than people, and the ones that lead are the initials of the words after them"
+       "text": "told",
+       "at": 61,
+       "note": "I'm told means as heard, so the letters are said aloud"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "NN",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "naughty novel",
-         "gives": "NN",
-         "select": "first",
-         "note": "the initial letters of the two words, a pair of Ns"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "ENZYME",
-       "indicators": [
-        {
-         "text": "told",
-         "note": "being told a thing means you have only heard it, so what goes in the grid is the sound and not the spelling"
-        }
-       ],
-       "parts": [
-        {
-         "words": "I'm",
-         "gives": "NSIM",
-         "note": "two Ns spoken are 'N's', and running that into the clue's own I'm gives the sound of the answer"
-        }
-       ]
+       "words": "lead characters in naughty novel, I'm",
+       "at": 23,
+       "gives": "ENSIM",
+       "note": "the lead characters of naughty and novel are two Ns, said as 'ens', followed by I'm"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'I'm told' looks like one modest aside and is really split in half: 'I'm' is material, 'told' the instruction. The lead characters are letters, not lovers.",
-     "definitionFit": "An enzyme is a protein that speeds a chemical reaction along without being used up, so 'stimulating stuff' is what it does, in substance form."
+     "surface": "Someone has heard that a racy novel is a real stimulant.",
+     "walkthrough": "The first letters of naughty and novel are N and N, said 'ens'; add I'm and say it aloud. 'lead characters' looks like the novel's heroes, but these are letters.",
+     "definitionFit": "An enzyme is a protein catalyst that speeds up chemical reactions in the body, so it stimulates them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "characters"
     }
    }
   }
