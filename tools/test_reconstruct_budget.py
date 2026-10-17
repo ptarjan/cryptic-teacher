@@ -8,10 +8,9 @@ import time
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(REPO / "tools"))
 
-import reconstruct_grid as R  # noqa: E402
-from fetch_puzzle import read_puzzle_file, resolve_puzzle  # noqa: E402
+import reconstruct_grid as R
+from fetch_puzzle import read_puzzle_file, resolve_puzzle
 
 fails = []
 
