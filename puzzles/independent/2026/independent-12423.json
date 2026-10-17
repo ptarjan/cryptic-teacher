@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -43,36 +44,62 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "PROCLAIMER",
+     "op": "charade",
      "indicators": [
       {
-       "text": "entering",
-       "note": "whatever enters a place ends up inside it, so these letters are planted within the ones the clue names next"
+       "text": "and",
+       "at": 23,
+       "note": "and simply adds the next piece on after the hundred, joining the parts in sequence"
       }
      ],
      "parts": [
       {
        "words": "for",
+       "at": 7,
        "gives": "PRO",
-       "note": "pro means in favour of — a pro-hunting vote is a vote for hunting"
+       "note": "pro means for, in favour of"
       },
       {
-       "words": "the sea in France",
-       "gives": "LAMER",
-       "note": "la mer is how the French say the sea, and it opens up in two places"
+       "words": "hundred",
+       "at": 15,
+       "gives": "C",
+       "note": "C is the Roman numeral for a hundred"
       },
       {
-       "words": "one hundred and one",
-       "gives": "CI",
-       "note": "a hundred is C and one is I in Roman numerals, and they go in either side of LA"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "entering",
+         "at": 31,
+         "note": "entering means going into, so the numeral for one goes inside the French phrase"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the sea in France",
+         "at": 40,
+         "gives": "LAMER",
+         "note": "la mer is French for the sea"
+        },
+        {
+         "words": "one",
+         "at": 11,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'In France' is the standing signal to answer in French: the clue wants the French words themselves, not an English translation of them.",
-     "definitionFit": "Herald -> PROCLAIMER: a herald's job was to proclaim news aloud in the street, so the answer names the office by the announcing it does."
+     "surface": "A town crier calls for a hundred and one people to walk into the sea in France.",
+     "walkthrough": "PRO ('for') and C ('hundred') come first; I ('one') is 'entering' LA MER, the French for the sea, giving LAIMER.",
+     "definitionFit": "A herald announces news publicly, so is someone who proclaims it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
     }
    }
   },
@@ -244,42 +271,54 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "with",
+       "at": 20,
+       "note": "with means together with, so the last piece is added on at the end"
+      }
+     ],
      "parts": [
       {
        "words": "Study",
+       "at": 0,
        "gives": "DEN",
-       "note": "a den is the small room you shut yourself in to study"
+       "note": "a den is a private study or room"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "OV",
        "indicators": [
         {
-         "text": "heart",
-         "note": "the heart of a word is what sits at its centre, so the outer letters are left behind and the middle is taken"
+         "text": "heart in",
+         "at": 6,
+         "note": "the heart of a word is its central letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "in love",
-         "gives": "OV",
-         "select": "middle",
-         "note": "lOVe keeps these two at its centre"
+         "words": "love",
+         "at": 15,
+         "note": "the central two letters of love"
         }
        ]
       },
       {
-       "words": "with love",
+       "words": "love",
+       "at": 25,
        "gives": "O",
-       "note": "love is the tennis score of nothing, written as a nought"
+       "note": "love is zero in tennis, which looks like the letter O"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The same word does two different jobs a breath apart: first it is a written word with a middle, then it is a tennis score.",
-     "definitionFit": "once more -> DE NOVO: the Latin tag means 'from new', and English keeps it for starting again from scratch, so it is the formal way of saying afresh."
+     "surface": "Someone studying the heart of love, while in love with love itself.",
+     "walkthrough": "Both 'love's work differently: the 'heart in' the first gives OV, and the second, added 'with', is O, the tennis score of nil.",
+     "definitionFit": "De novo is Latin for from the beginning, so it means anew, starting again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Study"
     }
    }
   },
@@ -568,40 +607,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CLOUDCUCKOOLAND",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 27,
+       "note": "without in its old sense of outside, so the key stands outside the rearranged letters, at the front"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "key",
+       "at": 35,
+       "gives": "C",
+       "note": "C is a musical key"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "Criminal",
-         "note": "a criminal is someone who will not keep to the rules, and letters keeping to no rules will not stay in the order they were given"
-        },
-        {
-         "text": "without",
-         "note": "in its older sense without means outside rather than lacking, so this letter stands outside the jumble instead of joining it"
+         "at": 0,
+         "note": "criminal suggests something crooked, so the letters are twisted into a new order"
         }
        ],
        "parts": [
         {
-         "words": "key",
-         "gives": "C",
-         "note": "a key in music is named by a letter, and C is the plainest of them"
+         "words": "could",
+         "at": 9,
+         "note": "taken as written"
         },
         {
-         "words": "could undo a lock",
-         "gives": "LOUDCUCKOOLAND",
-         "note": "those fourteen letters come out in a completely new order"
+         "words": "undo",
+         "at": 15,
+         "note": "taken as written"
+        },
+        {
+         "words": "a",
+         "at": 20,
+         "note": "taken as written"
+        },
+        {
+         "words": "lock",
+         "at": 22,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Without' is the joint the surface hides: read as lacking it makes a burglary story, and read as outside it parks a single letter in front of everything else.",
-     "definitionFit": "ideal world -> CLOUD-CUCKOO-LAND: the birds' city in Aristophanes, borrowed by English for any scheme too perfect to be real, so calling a plan this calls it fantasy."
+     "surface": "A burglar could pick a lock without needing the key.",
+     "walkthrough": "'without' means outside here: C (a musical 'key') stands in front of COULD UNDO A LOCK made 'Criminal' (rearranged) into LOUDCUCKOOLAND.",
+     "definitionFit": "Cloud-cuckoo-land, from Aristophanes' play The Birds, is a fanciful utopia of unrealistic hopes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
     }
    }
   },
@@ -626,56 +689,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ACTIVATES",
-     "indicators": [
-      {
-       "text": "back",
-       "note": "letters told to go back run the other way, and in an across entry the other way is right to left"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "when Romeo meets Juliet",
+       "at": 7,
+       "gives": "ACTI",
+       "note": "the lovers first meet at the Capulet feast in Act I of Shakespeare's play"
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "sides in",
+         "at": 43,
+         "note": "the sides of a word are its first and last letters"
+        }
+       ],
        "parts": [
         {
-         "words": "when Romeo meets Juliet",
-         "gives": "ACTI",
-         "note": "the two of them meet in Act I of the play"
-        },
+         "words": "Verona",
+         "at": 52,
+         "note": "outer letters of Verona"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "VA",
-         "indicators": [
-          {
-           "text": "sides",
-           "note": "the sides of a word are the letters at either end of it, so the middle is dropped and only the edges are kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "sides in Verona",
-           "gives": "VA",
-           "select": "outer",
-           "note": "Verona is left with the V and A at its two ends"
-          }
-         ]
-        },
+         "text": "back",
+         "at": 35,
+         "note": "set back means turned round, so the word is read in reverse"
+        }
+       ],
+       "parts": [
         {
          "words": "set",
-         "gives": "TES",
-         "note": "the stage set, written the other way round"
+         "at": 31,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Romeo and Juliet are the NATO alphabet's R and J on any other day; here they are the lovers themselves, and what you need is the act they meet in.",
-     "definitionFit": "Sparks -> ACTIVATES: to spark something off is to set it going, which is exactly what activating a device does, so the two verbs swap in that sense."
+     "surface": "Romance flares when Romeo meets Juliet, set against the warring houses of Verona.",
+     "walkthrough": "Romeo first meets Juliet in ACT I; the 'sides in' Verona give VA, and SET reversed ('back') gives TES.",
+     "definitionFit": "To spark something is to set it going, which is what activating it means; both are verbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
     }
    }
   },
@@ -835,31 +901,26 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reverse",
+     "reading": "MIDDLE OF NOWHERE",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "MIDDLEOFNOWHERE",
-       "parts": [
-        {
-         "words": "husband",
-         "gives": "H",
-         "note": "H is the crossword's standing abbreviation for husband"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "Where you might find",
-       "select": "middle",
-       "note": "this asks a question, and the answer is the reply to it: it says whereabouts in a word that letter is sitting"
+       "words": "Where you might find husband",
+       "at": 0,
+       "note": "the central letter of the word nowhere is H, the abbreviation for husband, so the phrase locates the husband"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "NOWHERE has seven letters with the H dead centre, so the answer is its own address — it tells you where the husband is by describing itself.",
-     "definitionFit": "off the beaten track -> MIDDLE OF NOWHERE: both phrases mean far from anywhere anyone goes, one by naming the missing road and the other the emptiness around it."
+     "surface": "A wife wondering where her husband might be found, out in the sticks.",
+     "walkthrough": "Read the answer as wordplay: the middle of N-O-W-H-E-R-E is its fourth letter, H, the standard abbreviation for husband.",
+     "definitionFit": "The middle of nowhere is an idiom for a remote, isolated place far from towns or roads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "husband"
     }
    }
   },
@@ -1412,36 +1473,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GLADIATOR",
-     "indicators": [
-      {
-       "text": "erupted",
-       "note": "an eruption throws everything up in the air, and what is thrown up in the air comes down in a different arrangement"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "happy",
+       "at": 8,
+       "gives": "GLAD",
+       "note": "glad means happy"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "erupted",
+         "at": 21,
+         "note": "erupted means burst out violently, so the letters are scattered into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "happy",
-         "gives": "GLAD",
-         "note": "glad is the plain synonym, and it goes in unshuffled"
+         "words": "a",
+         "at": 14
         },
         {
-         "words": "a riot",
-         "gives": "IATOR",
-         "note": "the five letters of A RIOT come out in a new order"
+         "words": "riot",
+         "at": 16,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'A riot' does double duty in the surface — the scene of chaos in the story, and five letters to be rearranged in the clue — while only the first word is definition.",
-     "definitionFit": "Fighter -> GLADIATOR: the armed man who fought for the crowd in a Roman arena, so the general word is being answered with one historical kind of it."
+     "surface": "A fighter delighted that a riot broke out.",
+     "walkthrough": "'erupted' turns A RIOT into IATOR, which follows GLAD.",
+     "definitionFit": "A gladiator was a trained combatant in the Roman arena, a professional warrior."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "erupted"
     }
    }
   },
