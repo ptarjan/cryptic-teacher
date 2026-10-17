@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -125,40 +126,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NITRO",
-     "indicators": [
-      {
-       "text": "upset",
-       "note": "Something upset has been tipped over, so the three letters beside it are read from their far end."
-      },
-      {
-       "text": "returning",
-       "note": "Soldiers returning are going back the way they came, and their two letters do the same."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upset",
+         "at": 24,
+         "note": "in a down clue, upset means turned upside down, so the word for can is read from the bottom"
+        }
+       ],
        "parts": [
         {
-         "words": "can upset",
-         "gives": "NIT",
-         "note": "a can is a TIN, stood on its head"
-        },
+         "words": "can",
+         "at": 20,
+         "gives": "TIN",
+         "note": "a tin is a can"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "words": "returning troops",
-         "gives": "RO",
-         "note": "OR is the army's other ranks, the ordinary soldiers, and it comes back to front"
+         "text": "returning",
+         "at": 30,
+         "note": "returning means going back, so the abbreviation for troops is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "troops",
+         "at": 40,
+         "gives": "OR",
+         "note": "OR, other ranks, is the military abbreviation for ordinary soldiers"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two turnarounds in a row, and the surface hides both: a can of drink and a column of soldiers make one picture, and neither word looks like an instruction inside it.",
-     "definitionFit": "Stuff that explodes → NITRO: nitro is the short name for nitroglycerine, the liquid explosive, so the definition names the substance by what it does."
+     "surface": "An explosive can tips over and the soldiers head back.",
+     "walkthrough": "'upset' turns TIN to NIT and 'returning' turns OR to RO.",
+     "definitionFit": "Nitro is short for nitroglycerine, a powerful liquid explosive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
     }
    }
   },
@@ -236,36 +252,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DRESSUP",
-     "indicators": [
-      {
-       "text": "various",
-       "note": "It says the reds are not all of one kind, and letters described that way will not stay in one settled order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "various",
+         "at": 23,
+         "note": "various means of different kinds, so the letters of reds are arranged differently"
+        }
+       ],
        "parts": [
         {
          "words": "reds",
-         "gives": "DRES",
-         "note": "the four letters of the wines, in a new arrangement, open the answer"
-        },
-        {
-         "words": "to drink",
-         "gives": "SUP",
-         "note": "to sup is to drink, chiefly in northern English use"
+         "at": 31
         }
        ]
+      },
+      {
+       "words": "to drink",
+       "at": 36,
+       "gives": "SUP",
+       "note": "to sup is to drink, especially in small mouthfuls"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Prepare for party' looks like wordplay and the wines like the definition, because a glass of red is easier to picture than an instruction. It is the other way round.",
-     "definitionFit": "Prepare for party → DRESS UP: dressing up is putting on smarter or fancier clothes than usual, which is the preparation a party calls for."
+     "surface": "Getting ready for a party with several red wines to drink.",
+     "walkthrough": "'reds' looks like red wines on offer, but 'various' asks for its letters in another order; sup is an old word for taking a drink.",
+     "definitionFit": "To dress up is to put on smart clothes or a costume, as you would to get ready for a party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reds"
     }
    }
   },
@@ -395,44 +416,47 @@
      "indicators": [
       {
        "text": "Damaging",
-       "note": "Damage leaves a thing with all its parts and none of its shape, which is what happens to the letters gathered here."
+       "at": 0,
+       "note": "damaging means breaking, so the collected letters are broken up and rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
        "indicators": [
         {
          "text": "middle of",
-         "note": "It asks for the letters at the centre of the word, with both ends thrown away."
+         "at": 9,
+         "note": "middle of means the two central letters of the next word"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "EL",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "middle of smelly",
-           "gives": "EL",
-           "select": "middle",
-           "note": "the word has six letters, so its centre is the third and fourth"
-          }
-         ]
-        },
-        {
-         "words": "bag, soil",
-         "note": "seven more letters join that pair, and the nine are then rearranged together"
+         "words": "smelly",
+         "at": 19,
+         "note": "the middle two letters of smelly"
         }
        ]
+      },
+      {
+       "words": "bag",
+       "at": 26
+      },
+      {
+       "words": "soil",
+       "at": 31
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Spread everywhere' reads as part of the mess the surface describes — soil over the floor — which is exactly why it takes a while to see it as the definition.",
-     "definitionFit": "spread everywhere → GLOBALISE: to globalise a business or a habit is to take it worldwide, which is spreading it as far as everywhere goes."
+     "surface": "A smelly bag of soil is ripped open and its contents are strewn around.",
+     "walkthrough": "'middle of smelly' gives EL, which joins BAG and SOIL in the pool that 'Damaging' rearranges.",
+     "definitionFit": "To globalise is to extend worldwide, so it means to spread across the whole globe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Damaging"
     }
    }
   },
@@ -452,41 +476,52 @@
    "annotation": {
     "definitions": [
      {
-      "text": "piano players",
+      "text": "piano players?",
       "at": 34
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FINGERS",
-     "indicators": [
-      {
-       "text": "wanting top",
-       "note": "To want something here is to lack it, and the top of a word written down a column is the letter it starts with."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Loud",
+       "at": 0,
+       "gives": "F",
+       "note": "f, forte, is the musical direction for loud"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "wanting top",
+         "at": 22,
+         "note": "wanting means lacking, and in a down clue the top is the first letter, so that letter goes"
+        }
+       ],
        "parts": [
         {
-         "words": "Loud",
-         "gives": "F",
-         "note": "f is forte, the direction printed in a score to play loudly"
+         "words": "sopranos perhaps",
+         "at": 5,
+         "gives": "SINGERS",
+         "note": "sopranos are an example of singers, hence perhaps"
         },
         {
-         "words": "sopranos perhaps",
-         "gives": "INGERS",
-         "note": "sopranos are one kind of singer, and that word turns up with its first letter gone"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Perhaps' is the tell that sopranos are an example rather than a synonym: the word you want is the general one they belong to.",
-     "definitionFit": "piano players → FINGERS: a definition by transfer — the pianist plays, but the fingers are what strike the keys, so they do the playing."
+     "surface": "Loud sopranos who lack a top note, perhaps playing the piano.",
+     "walkthrough": "'piano players' suggests pianists, but it is the digits that press the keys, hence the question mark.",
+     "definitionFit": "Fingers press the keys of a piano, so in a playful sense they are what plays it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "players"
     }
    }
   },
@@ -546,20 +581,28 @@
      "op": "charade",
      "parts": [
       {
-       "words": "too",
+       "words": "Maybe too",
+       "at": 0,
        "gives": "OVER",
-       "note": "over- in front of a word means too much of it: over-cautious, over-cooked"
+       "note": "over as a prefix means too, as in overcooked, so it is one way of saying too"
       },
       {
        "words": "powdery",
+       "at": 10,
        "gives": "GROUND",
-       "note": "what has been ground fine is powder, so the two words describe one state"
+       "note": "ground means crushed to a powder, as in ground coffee"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The trap is 'powdery on the surface', which reads as a single phrase about snow. The definition is only the last three words, and the wordplay stops before them.",
-     "definitionFit": "on the surface → OVERGROUND: an overground railway runs above ground instead of through a tunnel, so it is the line you can see at street level."
+     "surface": "Something seems a little too powdery on top.",
+     "walkthrough": "'Maybe' warns that over stands for too only as a prefix, as in overdone.",
+     "definitionFit": "Overground means above the ground rather than underground, so on the surface, as with a railway."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "powdery"
     }
    }
   },
@@ -751,38 +794,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "rising",
-       "note": "The entry runs down the grid, so a gas rising through it is read from the bottom letter upwards."
-      },
-      {
-       "text": "almost",
-       "note": "Almost all of a word is all of it bar the last letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 4,
+         "note": "in a down clue, rising means read from bottom to top, so the gas is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Gas",
+         "at": 0,
+         "gives": "XENON",
+         "note": "xenon is a noble gas"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 25,
+         "note": "almost means not quite complete, so the last letter is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "depleted",
-         "gives": "TPME",
-         "note": "a depleted store is empty, and that word arrives one letter short"
+         "at": 15,
+         "gives": "EMPTY",
+         "note": "depleted means used up, empty"
         },
         {
-         "words": "Gas rising",
-         "gives": "XENON",
-         "note": "xenon is the noble gas, and here it is climbing the column"
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The hyphen falls in the wrong place for the wordplay: the join between the two pieces is two letters later than the grid's, which is what makes the halves hard to see.",
-     "definitionFit": "bound to be taxed → NON-EXEMPT: exempt income is income the taxman cannot touch, so anything non-exempt is caught and has to pay."
+     "surface": "A gas level climbing and then nearly running out, which is bound to be taxing.",
+     "walkthrough": "'rising' turns XENON over to give NONEX, and 'almost' trims EMPTY to EMPT.",
+     "definitionFit": "Non-exempt means not free from an obligation, so someone or something non-exempt is liable to tax."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gas"
     }
    }
   },
@@ -948,40 +1011,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GREASER",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 42,
+       "note": "after means this piece follows the other"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "cast",
-         "note": "In a theatre the cast is the company, but the verb means thrown, and letters thrown down land in a new arrangement."
-        },
-        {
-         "text": "after",
-         "note": "It puts the single letter behind what has just been assembled rather than in front of it."
+         "at": 48,
+         "note": "cast means thrown, so the letters of agrees are thrown into a new order"
         }
        ],
        "parts": [
         {
          "words": "agrees",
-         "gives": "GREASE",
-         "note": "these six letters rearrange into the title of the film the surface is talking about"
-        },
-        {
-         "words": "Romeo",
-         "gives": "R",
-         "note": "Romeo is R in the radio alphabet"
+         "at": 53
         }
        ]
+      },
+      {
+       "words": "Romeo",
+       "at": 35,
+       "gives": "R",
+       "note": "Romeo is R in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The film turns up twice: once as the role Travolta played, once as the six letters 'agrees' rearranges into. One of those is the definition, the other the wordplay.",
-     "definitionFit": "Gang member John Travolta plays → GREASER: a greaser is a 1950s youth with slicked-back hair, and Danny in Grease is exactly one of them."
+     "surface": "John Travolta plays a Romeo role once the cast is in agreement.",
+     "walkthrough": "The surface is a casting story, but 'cast' rearranges AGREES. Travolta played Danny, a member of the T-Birds gang, in the film Grease.",
+     "definitionFit": "In Grease, Travolta's Danny leads the T-Birds, a gang of greasers, slicked-hair 1950s youths."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cast"
     }
    }
   },
@@ -1195,38 +1267,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "wayward",
-       "note": "Something wayward will not keep to the order it was given, and neither will the four letters beside it."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Shot",
+       "at": 0,
+       "gives": "DRAM",
+       "note": "a dram is a small shot of spirits, especially whisky"
+      },
+      {
+       "words": "by",
+       "at": 5,
+       "gives": "AT",
+       "note": "by can mean at, as in sitting by or at the window"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wayward",
+         "at": 8,
+         "note": "wayward means straying from the proper course, so the letters of side are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Shot",
-         "gives": "DRAM",
-         "note": "a dram is a shot of whisky"
-        },
-        {
-         "words": "by",
-         "gives": "AT",
-         "note": "by and at both mean beside: waiting by the door, waiting at the door"
-        },
-        {
          "words": "side",
-         "note": "the same four letters, in a different order, finish the word"
+         "at": 16
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a football match, so 'put in play' reads as a ball coming back into the game rather than as a script. Only 'wayward' is an instruction.",
-     "definitionFit": "put in play, perhaps → DRAMATISED: a novel dramatised for the stage has been turned into a play, and 'perhaps' allows for radio or television instead."
+     "surface": "A shot taken by a team that has lost its way, put into play.",
+     "walkthrough": "'Shot' and 'side' suggest a football match, but a shot is a measure of whisky.",
+     "definitionFit": "To dramatise a story is to adapt it as a play, so one example of being dramatised is being put in a play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shot"
     }
    }
   },
