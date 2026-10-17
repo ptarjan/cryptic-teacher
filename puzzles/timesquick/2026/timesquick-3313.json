@@ -641,47 +641,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BRATWURST",
+     "op": "container",
      "indicators": [
       {
-       "text": "nasty",
-       "note": "the letters of WART are messed up"
+       "text": "covering",
+       "at": 17,
+       "note": "covering means the first piece wraps around the second, so the other letters sit inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "exploded",
+       "at": 8,
+       "gives": "BURST",
+       "note": "exploded means burst, the past tense of the verb"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "covering"
+         "text": "nasty",
+         "at": 26,
+         "note": "nasty suggests the word wart is messed up, so its letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "exploded",
-         "gives": "BURST",
-         "note": "burst = exploded"
-        },
-        {
-         "words": "nasty wart",
-         "gives": "RATW",
-         "note": "WART rearranged"
+         "words": "wart",
+         "at": 32
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sausage that bursts on the grill, over something grim.",
-     "walkthrough": "'Exploded' reads as the sausage splitting on a grill, which is why the container word sits so comfortably in the surface.",
-     "definitionFit": "Definition by category: a German pork sausage, usually grilled."
+     "surface": "Someone describes a sausage that split open over an ugly wart, a grimly comic kitchen image.",
+     "walkthrough": "'Nasty wart' reads as one unpleasant thing, but 'nasty' is the anagram signal on 'wart' alone, and 'covering' says the 'exploded' word wraps round the result.",
+     "definitionFit": "A bratwurst is a German pork sausage, an example of the general category named."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "exploded"
+     "joke": "absurd",
+     "misdirectedWord": "covering"
     }
    }
   },
