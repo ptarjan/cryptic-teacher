@@ -277,46 +277,48 @@
      "indicators": [
       {
        "text": "on",
-       "note": "in a down clue, one thing on another sits above it, so it is written first"
+       "at": 15,
+       "note": "in a down clue, one piece on another sits above it, so the shortened sermon comes first"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "SER",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Half of",
-         "note": "taking half of a word keeps only its front portion of letters"
+         "at": 0,
+         "note": "half of a six-letter word is three letters, so the second half of sermon is dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "sermon",
-         "gives": "SER",
-         "select": "first",
-         "note": "the first three of its six letters"
+         "at": 8,
+         "note": "the word sermon, of which only the first half is kept"
+        },
+        {
+         "gives": "MON"
         }
        ]
       },
       {
        "words": "moral weakness",
+       "at": 18,
        "gives": "VICE",
-       "note": "a vice is a moral failing"
+       "note": "a vice is a moral failing or weakness"
       }
      ]
     },
     "explanation": {
-     "surface": "A preacher's talk on sin is part of what churchgoers hear on Sunday.",
-     "walkthrough": "The dash separates the wordplay from a long descriptive definition.",
-     "definitionFit": "A church service is the act of public worship that congregations attend, with prayers, hymns and a sermon."
+     "surface": "A preacher's half-finished address on sin is what churchgoers sit through.",
+     "walkthrough": "'Half of' keeps the first three letters of sermon, SER, and 'on' stacks it above VICE in this down entry.",
+     "definitionFit": "A church service is the act of worship a congregation attends, so it is what you get when you go."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "sermon"
+     "misdirectedWord": "on"
     }
    }
   },
