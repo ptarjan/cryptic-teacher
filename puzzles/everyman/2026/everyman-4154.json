@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -54,49 +55,58 @@
      {
       "text": "being this?",
       "at": 41,
-      "note": "The definition is a pointer rather than a synonym: 'this' sends you back to the state the rest of the clue describes."
+      "note": "'this' points back at the state the rest of the clue pictures, so the definition is a pointer rather than a synonym"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INABADMOOD",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "having lost tail",
-       "note": "A word's tail is its last letter, and a creature that has lost it hands over everything except that letter."
+       "text": "sadly",
+       "at": 33,
+       "note": "something done sadly is done badly, and letters treated badly do not keep their order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Did",
+       "at": 0
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "sadly",
-         "note": "Something done sadly is done badly, and letters set down badly will not keep the order they were given in."
+         "text": "having lost tail",
+         "at": 10,
+         "note": "a word's tail is its last letter, so the boar gives up its final letter"
         }
        ],
        "parts": [
         {
-         "words": "Did",
-         "note": "the auxiliary verb taken at face value, three letters of fodder"
-        },
-        {
          "words": "boar",
-         "gives": "BOA",
-         "note": "the wild pig loses the R at its tail end, leaving three letters of fodder"
+         "at": 4
         },
         {
-         "words": "moan",
-         "note": "four more letters of fodder, handed over whole"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "moan",
+       "at": 28
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The clue defines itself: 'being this' points back at the picture the other words draw, a boar minus its tail, moaning. Everyman hides the deletion inside that picture by giving the animal a tail to lose.",
-     "definitionFit": "A creature grumbling and short of its tail is out of sorts, and the phrase names exactly that temper, so the clue's own scene is the definition."
+     "surface": "A wild pig that has lost its tail moans miserably, and we are asked what mood that leaves it in.",
+     "walkthrough": "'Having lost tail' turns BOAR into BOA; with DID and MOAN those letters are rearranged, as 'sadly' signals. 'This' sends you back to the grumbling, tailless boar.",
+     "definitionFit": "A creature grumbling over its lost tail is plainly cross, and the phrase is the idiom for a sulky, irritable temper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "sadly"
     }
    }
   },
@@ -657,33 +667,34 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "STAGNATION",
+     "op": "homophone",
+     "spelt": "STAGNATION",
      "indicators": [
       {
        "text": "Spooner says",
-       "note": "The Reverend Spooner was famous for trading the opening sounds of two words as he spoke, so naming him is the whole instruction."
+       "at": 33,
+       "note": "the Reverend Spooner was famous for trading the opening sounds of two words as he spoke"
       }
      ],
      "parts": [
       {
        "words": "stable",
+       "at": 25,
        "gives": "NAGSTATION",
        "note": "a stable is where nags are kept, so it can be read as a station for nags"
-      },
-      {
-       "unchecked": true,
-       "words": "Spooner says",
-       "gives": "STAGNATION",
-       "soundsLike": "NAG STATION",
-       "note": "trade the openings of those two words, N for ST, and say the result aloud"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Stable' is the trap: it wants to mean steady, and the reverend needs the building full of horses instead. Spoonerisms are easiest worked from the definition end, then sounded backwards to check.",
-     "definitionFit": "Stagnation is what sets in when nothing moves or grows — water, an economy, a career — which is a lack of liveliness in one word."
+     "surface": "Someone complains of dullness, then concedes things are at least steady.",
+     "walkthrough": "'Stable' wants to mean steady, but here it is the building: a NAG STATION. Trade the openings N and ST and it says STAG NATION.",
+     "definitionFit": "Stagnation is what sets in when nothing moves or grows, the inertia of still water or a flat economy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stable"
     }
    }
   },
@@ -953,17 +964,16 @@
      {
       "text": "to be working? Not so",
       "at": 45,
-      "note": "The definition arrives as a negated verb phrase — 'not working' — while the answer is the noun for that state, so it describes rather than substitutes."
+      "note": "a negated verb phrase, 'not working', describing the state the noun names"
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LEISURE",
      "indicators": [
       {
        "text": "assumed",
-       "note": "To assume something is to take it in and absorb it, so the letter named here is taken inside the other pieces rather than added at the end."
+       "at": 35,
+       "note": "to assume something is to take it on board, so the writer's letter is taken in among the other pieces"
       }
      ],
      "parts": [
@@ -972,26 +982,35 @@
        "parts": [
         {
          "words": "The French",
+         "at": 0,
          "gives": "LE",
-         "note": "the masculine form of 'the' in French"
-        },
-        {
-         "words": "this writer's",
-         "gives": "I",
-         "note": "the setter referring to himself, which in crosswords is one letter"
+         "note": "le is the masculine French for 'the'"
         },
         {
          "words": "certain",
+         "at": 11,
          "gives": "SURE",
-         "note": "certain of something is sure of it, the plain synonym"
+         "note": "sure means certain"
         }
        ]
+      },
+      {
+       "words": "this writer's",
+       "at": 21,
+       "gives": "I",
+       "note": "the setter refers to himself as I; the 's is 'is'"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition is the whole tail of the clue and works by negation: the question mark and 'not so' turn 'working' inside out before you may use it.",
-     "definitionFit": "Leisure is the time left over when work is not being done, so a phrase saying you are not at work lands on it exactly."
+     "surface": "A Frenchman, sure of himself, insists he is busy, and the clue retorts that he is not.",
+     "walkthrough": "The question mark and 'not so' turn 'working' inside out: the definition is the opposite of work.",
+     "definitionFit": "Leisure is free time, the hours left over when one is not at work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "assumed"
     }
    }
   },
@@ -1069,44 +1088,55 @@
      "indicators": [
       {
        "text": "Striking",
-       "note": "A bargain that is struck has been hit, and letters that take a knock do not stay in the order they were given."
+       "at": 0,
+       "note": "a bargain that is struck has been hit, and knocked letters do not stay in their order"
       }
      ],
      "parts": [
       {
        "words": "bargain",
-       "note": "seven letters of fodder, handed over whole"
+       "at": 9
       },
       {
        "words": "six",
+       "at": 19,
        "gives": "VI",
-       "note": "six written in Roman numerals"
+       "note": "VI is six in Roman numerals"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "BTE",
        "indicators": [
         {
+         "text": "slices of",
+         "at": 23,
+         "note": "only slices, not the whole of the word butter, are taken"
+        },
+        {
          "text": "alternately",
-         "note": "Alternately means every other one, so only every second letter of the word beside it is picked up."
+         "at": 42,
+         "note": "every other letter of butter is picked, starting with the first"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "slices of butter",
-         "gives": "BTE",
-         "select": "alternate",
-         "note": "the first, third and fifth letters of the dairy word, the rest left on the plate"
+         "words": "butter",
+         "at": 33,
+         "note": "its first, third and fifth letters are B, T and E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Butter and shortening belong to one baking picture, and that is the misdirection: the definition is the other sense of shortening, cutting a word down to a few letters.",
-     "definitionFit": "To abbreviate is to cut a word or phrase down to something briefer, so 'shortening' is the plain synonym in the matching -ing form."
+     "surface": "A shopper strikes a deal on butter, taking six slices of it and of shortening by turns.",
+     "walkthrough": "'Slices of' and 'alternately' take only every other letter of butter into the mix. Butter and shortening make a baking picture, but shortening here means cutting words down.",
+     "definitionFit": "To abbreviate is to cut a word or phrase down to something briefer, so the two -ing forms are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shortening"
     }
    }
   },
