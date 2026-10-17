@@ -365,7 +365,7 @@ resumed_first() {
 # writing its fill there (tools/puzzle_worker.sh); it writes the copy it
 # annotates itself, once that fill is in.
 run_claude() {
-  local tag="$1" prompt="$2" fill="${3:-}" log resume_at note=""
+  local tag="$1" prompt="$2" fill="${3:-}" log resume_at note="" m
   log="/tmp/ct-prereset-$1.txt"
   resume_at="/tmp/ct-prereset-$1.resume"
   if [ "$DRY_RUN" = 1 ]; then
@@ -377,7 +377,9 @@ run_claude() {
   rm -f "$resume_at"
   # The annotate prompt names this copy, which leaves out the solutions detail:
   # that names the blog, which annotate_check.py discloses only once the run is stuck.
-  [ -n "$fill" ] || python3 tools/annotate_check.py --view "$tag" >/dev/null
+  [ -n "$fill" ] || for m in $(worker_bag_ids "$RUNS/$tag.sid"); do
+    python3 tools/annotate_check.py --view "$m" >/dev/null
+  done
   worker_annotate "$tag" "$log" "$RUNS/$tag.sid" "$prompt" "$note" "$fill"
   local rc=$?
   # Running out of window is how this job is SUPPOSED to end, so a plain failure
@@ -511,6 +513,7 @@ pool_launch() {
   [ -s "/tmp/ct-prereset-$id.resume" ] ||
     worker_put_back "$id" "$WAVE_WHAT" "/tmp/ct-prereset-$id.resume" "$RUNS/$id.sid" >/dev/null
   [ -s "/tmp/ct-prereset-$id.resume" ] && again=", picking up its cut-off conversation"
+  pool_bag "$id"
   pool_mark
   # A conversation that began with a cold solve keeps its fill, and has it
   # checked, however much of the grid its edits filled in.
@@ -520,14 +523,49 @@ pool_launch() {
     fill="$RUNS/$id.fill"
   fi
   prompt="${POOL_TMPL//@PATH@/$(python3 tools/puzzle_paths.py "$id")}"
+  prompt="${prompt//@/$id}"
+  [ -s "$RUNS/$id.bag" ] && prompt=$(bag_prompt "$RUNS/$id.bag")
   # The run leaves its status in a file too, for a shell that re-execed while
   # it ran and so cannot wait for it (pool_reap).
   rm -f "/tmp/ct-prereset-$id.rc"
-  { run_claude "$id" "${prompt//@/$id}" "$fill"; rc=$?; echo "$rc" >"/tmp/ct-prereset-$id.rc"; exit "$rc"; } &
+  { run_claude "$id" "$prompt" "$fill"; rc=$?; echo "$rc" >"/tmp/ct-prereset-$id.rc"; exit "$rc"; } &
   [ -n "$fill" ] && POOL_SOLVING[$!]=1
   POOL_RUNS[$!]="$id"
   POOL_LAUNCHED_US=${EPOCHREALTIME/[.,]/}
   echo "  [$id] started$again (${#POOL_RUNS[@]} of $wide in flight)"
+}
+
+# The task for a bag (tools/annotate_bag_prompt.md): the ids in bag file $1.
+bag_prompt() {
+  local tmpl ids
+  tmpl=$(<tools/annotate_bag_prompt.md)
+  ids=$(tr '\n' ' ' <"$1")
+  printf '%s' "${tmpl//@IDS@/${ids% }}"
+}
+
+# Decide whether launching $1 takes other puzzles with it (tools/clue_bag.py):
+# a tail puzzle (a few clues missing) shares one session with the next tails in
+# the queue, ~30 clues in all, because a session's fixed cost is paid per
+# session. The bag is named in $RUNS/<id>.bag, which the worker reads, and its
+# other puzzles leave the queue, so nothing launches them again. A conversation
+# already under way keeps the bag it began with. Only the Annotate pool bags.
+pool_bag() {
+  local id="$1" m ids rest=() kept=()
+  [ "$WAVE_WHAT" = Annotate ] && [ "$DRY_RUN" != 1 ] || return 0
+  if [ ! -s "$RUNS/$id.sid" ]; then
+    rm -f "$RUNS/$id.bag"
+    [ -s "/tmp/ct-prereset-$id.resume" ] && return 0
+    ids=$(printf '%s\n' "${queue[@]:$((at + 1))}" | python3 tools/clue_bag.py "$RUNS" "$id") || return 0
+    [ "$(wc -w <<<"$ids")" -gt 1 ] || return 0
+    printf '%s\n' $ids >"$RUNS/$id.bag"
+  fi
+  [ -s "$RUNS/$id.bag" ] || return 0
+  # The members are no longer queued; this puzzle's own place at queue[at] stays.
+  for m in "${queue[@]:$((at + 1))}"; do
+    grep -qxF -- "$m" "$RUNS/$id.bag" || kept+=("$m")
+  done
+  queue=("${queue[@]:0:$((at + 1))}" ${kept[@]+"${kept[@]}"})
+  echo "  [$id] bagged with: $(grep -vxF -- "$id" "$RUNS/$id.bag" | tr '\n' ' ')"
 }
 
 # Whether an adopted run has ended: its status file is written, or it is gone
@@ -642,7 +680,7 @@ pool_replan() {
     # puzzle is repaired (10-14: quiptic-71/166/230/321, repaired after their
     # runs failed, waited for the next run).
     if [ "$POOL_PLANNED" = 1 ]; then
-      for id in "${queue[@]:$at}" "${POOL_RUNS[@]}"; do held[$id]=1; done
+      for id in "${queue[@]:$at}" "${POOL_RUNS[@]}" $(cat "$RUNS"/*.bag 2>/dev/null); do held[$id]=1; done
       for id in $(python3 tools/prereset_plan.py --backlog \
           "$(python3 tools/failed_inputs.py skipped annotate)" \
           "$(python3 tools/failed_inputs.py skipped solve)" 2>/dev/null); do
@@ -670,7 +708,7 @@ pool_replan() {
   wait "$pid" 2>/dev/null
   if [ -e "$f.done" ]; then
     held=()
-    for id in "${queue[@]:$at}" "${POOL_RUNS[@]}"; do held[$id]=1; done
+    for id in "${queue[@]:$at}" "${POOL_RUNS[@]}" $(cat "$RUNS"/*.bag 2>/dev/null); do held[$id]=1; done
     while read -r id; do
       [ -n "$id" ] && [ -z "${held[$id]:-}" ] && { held[$id]=1; queue+=("$id"); }
     done <"$f.new"
@@ -1159,8 +1197,9 @@ after_wave() {
 # itself when the run's last words were a limit or the network.
 #   $1 the five-hour meter the failure was read at
 drop_failed() {
-  local id out rc
+  local id out rc m ids
   for id in ${WAVE_FAILED_IDS[@]+"${WAVE_FAILED_IDS[@]}"}; do
+    ids=$(worker_bag_ids "$RUNS/$id.sid")
     echo "  [$id] failed with the five-hour window at ${1}% — not a lockout, dropped for this run"
     rm -f "/tmp/ct-prereset-$id.resume"
     if [ "$DRY_RUN" != 1 ] && [ "$WAVE_WHAT" = Annotate ]; then
@@ -1175,14 +1214,16 @@ drop_failed() {
       echo "$out" | sed 's/^/  /'
       if [ "$rc" -eq 3 ]; then
         echo "  [$id] transient failure — its conversation is kept to resume at the next start"
-        discard_puzzle "$id"
+        for m in $ids; do discard_puzzle "$m"; done
         continue
       fi
     fi
     worker_forget "$RUNS/$id.sid"
     [ "$DRY_RUN" = 1 ] && continue
-    discard_puzzle "$id"
-    worker_clean "$id"
+    for m in $ids; do
+      discard_puzzle "$m"
+      worker_clean "$m"
+    done
   done
 }
 
@@ -1191,9 +1232,16 @@ drop_failed() {
 commit_puzzle() {
   local id="$1" what="$2"
   if [ "$DRY_RUN" = 1 ]; then echo "  would commit $what $id"; return 0; fi
+  local a
+  WORKER_BAG_AGAIN=""
   WORKER_KEEP_CUTOFF_FIX=1 worker_finish "$id" "$what" "$RUNS/$id.sid" "/tmp/ct-prereset-$id.txt"
   case $? in
-    0) return 0 ;;
+    0) # A bag's puzzles whose unparsed answers were reopened are solved again next.
+       for a in $WORKER_BAG_AGAIN; do
+         queue=("${queue[@]:0:$at}" "$a" "${queue[@]:$at}")
+         echo "  [$a] solving it again next"
+       done
+       return 0 ;;
     3) # Its validation-fix run was cut off: resumed, like any cut-off run.
        worker_failed "$id" "$what" "/tmp/ct-prereset-$id.resume" "$RUNS/$id.sid" || true
        WAVE_FAILED_IDS+=("$id")

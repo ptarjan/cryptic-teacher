@@ -385,7 +385,7 @@ echo "a finished puzzle's scratch in tools/ is deleted, nobody else's"
 check "worker_finish cleans up after the puzzle" \
   "$(awk '/^worker_finish\(\) \{/,/^\}/' tools/puzzle_worker.sh | grep -c '^ *worker_clean "\$1"$')" "1"
 check "the burn's drop and checkpoint clean up too" \
-  "$(awk '/^drop_failed\(\) \{/,/^\}/' tools/prereset_backfill.sh | grep -c 'worker_clean "\$id"') $(awk '/^pool_checkpoint\(\) \{/,/^\}/' tools/prereset_backfill.sh | grep -c '^ *worker_sweep_scratch$')" "1 1"
+  "$(awk '/^drop_failed\(\) \{/,/^\}/' tools/prereset_backfill.sh | grep -c 'worker_clean "\$m"') $(awk '/^pool_checkpoint\(\) \{/,/^\}/' tools/prereset_backfill.sh | grep -c '^ *worker_sweep_scratch$')" "1 1"
 scratch=$(mktemp -d)
 worker=$PWD/tools/puzzle_worker.sh
 (
@@ -406,6 +406,70 @@ check "worker_clean takes the id's files, worker_sweep_scratch the old unnamed o
   "$(cat "$scratch.out")" \
   "_ann_cryptic-30111.json _ann_old-1.json _peek_new.py _puzzle_cryptic-30111.json _tracked_old.py "
 rm -rf "$scratch" "$scratch.out"
+
+echo "a bag: several puzzles in one conversation, each finished and failed on its own"
+# The per-puzzle steps are stubbed, so what is checked is the bag's own logic:
+# which puzzles each step visits, and that one failing leaves the others alone.
+# shellcheck disable=SC2329  # its stubs are called by the sourced worker
+bagflow() (   # mode: finish | cutoff | failed
+  # shellcheck disable=SC2034  # read by the sourced worker
+  WORKER_JOB=test
+  . tools/puzzle_worker.sh
+  runs=$(mktemp -d); trap 'rm -rf "$runs"' EXIT
+  sid="$runs/pw-a.sid"
+  echo "sid-9" >"$sid"; printf 'pw-a\npw-b\npw-c\npw-d\n' >"$runs/pw-a.bag"
+  : >"$runs/log"; : >"$runs/events"
+  worker_clean() { echo "clean $1" >>"$runs/events"; }
+  _worker_finish() {
+    echo "finish $1 $(basename "$4")" >>"$runs/events"
+    case "$MODE:$1" in *:pw-b) return 1 ;; finish:pw-c) return 2 ;; cutoff:pw-c) return 3 ;; esac
+    return 0
+  }
+  _worker_failed_one() {
+    echo "failed $1 $(basename "$4")" >>"$runs/events"
+    [ "$1" = pw-b ] && { echo "note for $1" >"$3"; return 1; }   # discarded: a note, edits not kept
+    [ "$1" = pw-c ] && { rm -f "$3"; return 1; }   # withdrew: no note
+    echo "note for $1" >"$3"; return 0
+  }
+  MODE="$1"
+  case "$MODE" in
+    failed)
+      worker_failed pw-a Annotate "$runs/note" "$sid"; echo "rc=$?"
+      echo "bag=$(tr '\n' ' ' <"$runs/pw-a.bag")"
+      echo "note=$(grep -c '^\[pw-[abd]\]' "$runs/note") $(head -1 "$runs/note" | cut -c1-30)" ;;
+    *)
+      worker_finish_bag pw-a Annotate "$sid" "$runs/log"; echo "rc=$?"
+      echo "again=$WORKER_BAG_AGAIN"
+      echo "left=$(cat "$runs/pw-a.bag" 2>/dev/null | tr "\n" " ")"
+      echo "sid=$([ -e "$sid" ] && echo kept || echo forgotten)" ;;
+  esac
+  echo "cleaned=$(grep -c '^clean' "$runs/events")"
+  echo "visited=$(grep -E '^(finish|failed)' "$runs/events" | awk '{print $2}' | tr '\n' ' ')"
+  echo "logs=$(grep '^finish' "$runs/events" | awk '{print $3}' | sort -u | wc -l | tr -d ' ')"
+)
+out=$(bagflow finish)
+check "every puzzle of the bag is finished, each on its own log" "$(got visited)$(got logs)" "pw-a pw-b pw-c pw-d 4"
+check "one that fails (pw-b) does not stop the rest" "$(got rc)" "0"
+check "one reopened to be solved again is handed back" "$(got again)" "pw-c"
+check "and when all are done the conversation is forgotten" "$(got sid) $(got left)" "forgotten "
+out=$(bagflow cutoff)
+check "a cut-off fix run stops the bag with 3" "$(got rc)" "3"
+check "leaving that puzzle and the ones after it on the bag, the conversation kept" \
+  "$(got left)|$(got sid)" "pw-c pw-d |kept"
+check "the puzzles before it already finished" "$(got cleaned)" "2"
+out=$(bagflow failed)
+check "a stopped bag asks each puzzle what to keep" "$(got visited)" "pw-a pw-b pw-c pw-d "
+check "the ones that kept edits are kept (0), the others are not" "$(got rc)" "0"
+check "the withdrawn puzzle leaves the bag, the discarded one stays to be redone" "$(got bag)" "pw-a pw-b pw-d "
+check "one note for the one conversation, a section for each" "$(got note)" "3 This session holds several puz"
+
+echo "the burn bags only in the Annotate pool, and a bag's ids stay held"
+check "pool_bag does nothing outside the Annotate pool or in a dry run" \
+  "$(awk '/^pool_bag\(\) \{/,/^\}/' tools/prereset_backfill.sh | grep -c '"\$WAVE_WHAT" = Annotate \] && \[ "\$DRY_RUN" != 1 \] || return 0')" "1"
+check "pool_launch bags before it starts the run" \
+  "$(awk '/^pool_launch\(\) \{/,/^\}/' tools/prereset_backfill.sh | awk '/pool_bag "\$id"/{b=NR} /run_claude /{r=NR} END{print (b && r && b < r)}')" "1"
+check "a re-plan holds the ids in running bags, so it does not queue them again" \
+  "$(grep -c 'cat "\$RUNS"/\*\.bag' tools/prereset_backfill.sh)" "2"
 
 [ "$fails" = 0 ] && echo "puzzle worker: all checks passed" || echo "puzzle worker: $fails FAILED"
 exit $((fails > 0))

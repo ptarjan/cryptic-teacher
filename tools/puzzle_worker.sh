@@ -19,6 +19,14 @@
 # sourced, and runs from the repo root. It may define on_fix_run, called
 # with 1 and 0 around a validation-fix run.
 #
+# A bag is one conversation that annotates the missing clues of several tail
+# puzzles at once (tools/prereset_plan.py bag_of): the caller names its puzzles,
+# one per line, in <job dir>/<leader>.bag beside the leader's sid file. The
+# leader's id names the conversation, its sid file, its log and its note; every
+# per-puzzle step below (set aside, put back, failed, finish) runs once per
+# puzzle still listed there, each puzzle committed on its own, and a puzzle
+# that fails costs only itself. worker_bag_ids lists them.
+#
 # What stays the caller's is only scheduling: which ids, when, how many at
 # once, the usage gates, and what to do with an id after each step's verdict.
 #
@@ -51,7 +59,21 @@ worker_runs() {   # job -> its record directory, made if missing
 }
 worker_forget() {   # sidfile
   local rec="${1%.sid}"
-  rm -rf "$rec.sid" "$rec.tree" "$rec.fill" "$rec.aside" "$rec.mended"
+  rm -rf "$rec.sid" "$rec.tree" "$rec.fill" "$rec.aside" "$rec.mended" "$rec.bag"
+}
+# The puzzles conversation $1 (a sid file) is working: the ones its bag still
+# lists, or just its own id when it is not a bag.
+worker_bag_ids() {   # sidfile
+  local rec="${1%.sid}"
+  if [ -s "$rec.bag" ]; then cat "$rec.bag"; else basename "$rec"; fi
+}
+# Take puzzle $2 off conversation $1's bag once its fate is settled; the bag file
+# goes with its last puzzle.
+worker_bag_drop() {   # sidfile id
+  local bag="${1%.sid}.bag" rest
+  [ -s "$bag" ] || return 0
+  rest=$(grep -vxF -- "$2" "$bag")
+  if [ -n "$rest" ]; then printf '%s\n' "$rest" >"$bag"; else rm -f "$bag"; fi
 }
 worker_stale() { [ -n "$(find "$1" -mmin +1440 2>/dev/null)" ]; }
 
@@ -62,8 +84,12 @@ worker_stale() { [ -n "$(find "$1" -mmin +1440 2>/dev/null)" ]; }
 # Read-only on the tree, and once per record.
 worker_set_aside() {   # tree sidfile
   local tree="$1" rec="${2%.sid}" id p
-  id=$(basename "$rec")
+  local -a specs=() names=()
   [ -e "$rec.aside" ] && return 0
+  for id in $(worker_bag_ids "$2"); do
+    specs+=("$(puzzle_spec "$id")" "$(clues_spec "$id")")
+    names+=("tools/_ann_$id.json" "tools/_puzzle_$id.json")
+  done
   if ! { mkdir -p "$rec.aside/files" "$rec.aside/rows" &&
          git -C "$tree" rev-parse HEAD >"$rec.aside/base"; }; then
     rm -rf "$rec.aside"
@@ -72,9 +98,9 @@ worker_set_aside() {   # tree sidfile
   while IFS= read -r p; do
     [ -f "$tree/$p" ] || continue
     mkdir -p "$rec.aside/files/$(dirname "$p")" && cp -p "$tree/$p" "$rec.aside/files/$p"
-  done < <(git -C "$tree" ls-files -m -o --exclude-standard -- "$(puzzle_spec "$id")" "$(clues_spec "$id")"
-           cd "$tree" && ls "tools/_ann_$id.json" "tools/_puzzle_$id.json" 2>/dev/null)
-  git -C "$tree" ls-files -d -- "$(puzzle_spec "$id")" "$(clues_spec "$id")" >"$rec.aside/deleted"
+  done < <(git -C "$tree" ls-files -m -o --exclude-standard -- "${specs[@]}"
+           cd "$tree" && ls "${names[@]}" 2>/dev/null)
+  git -C "$tree" ls-files -d -- "${specs[@]}" >"$rec.aside/deleted"
   while IFS= read -r p; do
     git -C "$tree" diff --quiet HEAD -- "$p" && continue
     mkdir -p "$rec.aside/rows/$(dirname "$p")" && cp -p "$tree/$p" "$rec.aside/rows/$p"
@@ -106,7 +132,7 @@ worker_set_aside_tree() {   # tree
 # the puzzle since. Then worker_failed's rule decides what is kept. Writes the
 # note to resume with to $3; 0 when there is one, 1 when the id starts fresh.
 worker_put_back() {   # id what notefile sidfile
-  local id="$1" what="$2" notefile="$3" sidfile="$4" rec="${4%.sid}" sid tree p moved=""
+  local id="$1" what="$2" notefile="$3" sidfile="$4" rec="${4%.sid}" sid tree p moved="" m
   [ -s "$sidfile" ] || return 1
   sid=$(worker_sid "$sidfile")
   if worker_stale "$sidfile" || ! session_exists "$sid"; then
@@ -116,13 +142,15 @@ worker_put_back() {   # id what notefile sidfile
   tree=$(cat "$rec.tree" 2>/dev/null)
   [ -n "$tree" ] && [ "$tree" != "$(pwd -P)" ] && [ -d "$tree" ] && worker_set_aside "$tree" "$sidfile"
   if [ -d "$rec.aside" ]; then
-    if git diff --quiet "$(cat "$rec.aside/base")" HEAD -- "$(puzzle_spec "$id")" "$(clues_spec "$id")" 2>/dev/null; then
-      restore_puzzle "$id"
+    local -a specs=()
+    for m in $(worker_bag_ids "$sidfile"); do specs+=("$(puzzle_spec "$m")" "$(clues_spec "$m")"); done
+    if git diff --quiet "$(cat "$rec.aside/base")" HEAD -- "${specs[@]}" 2>/dev/null; then
+      for m in $(worker_bag_ids "$sidfile"); do restore_puzzle "$m"; done
       while IFS= read -r p; do
         mkdir -p "$(dirname "$p")" && cp -p "$rec.aside/files/$p" "$p"
       done < <(cd "$rec.aside/files" && find . -type f | sed 's|^\./||')
       while IFS= read -r p; do rm -f "$p"; done <"$rec.aside/deleted"
-      python3 tools/own_rows.py graft "$id" "$rec.aside/rows"
+      for m in $(worker_bag_ids "$sidfile"); do python3 tools/own_rows.py graft "$m" "$rec.aside/rows"; done
     else
       moved=1
     fi
@@ -163,17 +191,20 @@ worker_implausible() {   # id
 # Returns the CLI's exit status (124 when a timeout WORKER_WRAP fired).
 worker_annotate() {   # id log sidfile task [note] [fill]
   local id="$1" log="$2" sidfile="$3" prompt="$4" note="${5:-}" fill="${6:-}"
-  local sid="" kind="" sess=() tools="Read,Write,Edit,Bash(python3 *),Bash(node *)"
+  local sid="" kind="" sess=() tools="Read,Write,Edit,Bash(python3 *),Bash(node *)" bag m
   [ -s "$sidfile" ] && read -r sid kind _ <"$sidfile"
   if [ -n "$note" ] && session_here "$sid"; then
     sess=(--resume "$sid")
     prompt="$note"
     touch "$sidfile"
   else
+    bag=$id
+    [ -s "${sidfile%.sid}.bag" ] && bag=$(cat "${sidfile%.sid}.bag")
     worker_forget "$sidfile"
+    [ "$bag" = "$id" ] || printf '%s\n' "$bag" >"${sidfile%.sid}.bag"
     kind=""
     # A fresh conversation has withdrawn nothing (worker_withdrawn).
-    rm -f "tools/_withdrawn_$id.txt"
+    for m in $bag; do rm -f "tools/_withdrawn_$m.txt"; done
     if [ -n "$fill" ]; then
       kind=solve
       rm -f "$fill"
@@ -558,9 +589,10 @@ worker_flagged() {   # id notefile sidfile output
   local id="$1" notefile="$2" sidfile="$3" out="$4" flags="${3%.sid}.flags" n resumed=""
   grep -q "safeguards flagged this message" "$out" 2>/dev/null || return 1
   [ -s "$notefile" ] && resumed=1
+  local m
+  for m in $(worker_bag_ids "$sidfile"); do discard_puzzle "$m"; done
   worker_forget "$sidfile"
   rm -f "$notefile"
-  discard_puzzle "$id"
   if [ -n "$resumed" ]; then
     echo "  [$id] the API flagged its resumed conversation (safeguards) — session forgotten, the next run starts fresh"
     return 0
@@ -624,6 +656,26 @@ worker_withdraw() {   # id why
 # $5 says how it was stopped; $6 set means master changed the puzzle meanwhile,
 # so nothing it wrote to the puzzle came back. 0 when its edits were kept.
 worker_failed() {   # id what notefile sidfile [how] [moved]
+  local m tmp kept=1 note=""
+  if [ ! -s "${4%.sid}.bag" ]; then _worker_failed_one "$@"; return; fi
+  # A bag: each puzzle still listed is judged on its own, and the notes go to
+  # the one conversation as one note.
+  tmp=$(mktemp "${TMPDIR:-/tmp}/cryptic-bagnote.XXXXXX")
+  for m in $(worker_bag_ids "$4"); do
+    : >"$tmp"
+    if _worker_failed_one "$m" "$2" "$tmp" "$(dirname "$4")/$m.sid" "${5:-}" "${6:-}"; then kept=0; fi
+    if [ -s "$tmp" ]; then note="${note:+$note$'\n\n'}[$m] $(cat "$tmp")"; else worker_bag_drop "$4" "$m"; fi
+  done
+  rm -f "$tmp"
+  if [ -n "$note" ]; then
+    printf '%s\n' "This session holds several puzzles; for each one:"$'\n'"$note" >"$3"
+  else
+    rm -f "$3"
+    worker_forget "$4"
+  fi
+  return $kept
+}
+_worker_failed_one() {   # id what notefile sidfile [how] [moved]
   local id="$1" what="$2" how="${5:-were cut off by a usage limit, which has since cleared}" seen intact="" why
   # A run that withdrew is not resumed into the edits it took back.
   if why=$(worker_withdrawn "$id"); then
@@ -663,6 +715,7 @@ worker_failed() {   # id what notefile sidfile [how] [moved]
 # is the waste this avoids. Only this puzzle is validated: a whole-tree run
 # would fail for a sibling still mid-write.
 worker_finish() {   # id what sidfile log
+  if [ -s "${3%.sid}.bag" ]; then worker_finish_bag "$@"; return; fi
   _worker_finish "$@"
   local rc=$?
   # 3 (only with WORKER_KEEP_CUTOFF_FIX set): the fix run was cut off (a limit, a crash) and the file still fails, so
@@ -671,6 +724,31 @@ worker_finish() {   # id what sidfile log
   worker_forget "$3"
   worker_clean "$1"
   return $rc
+}
+
+# worker_finish for a bag: each puzzle the bag still lists is validated and
+# committed on its own, as a single run's would be, and one that fails costs
+# only itself. Returns 0 when every puzzle was dealt with; the ids among them
+# whose unparsed answers were reopened to be solved again (_worker_finish's 2)
+# are left in WORKER_BAG_AGAIN. Returns 3 as _worker_finish does for a cut-off
+# fix run, with that puzzle and those after it still on the bag and the
+# conversation kept. Each puzzle gets its own copy of the log, so one's fix run
+# does not overwrite another's.
+worker_finish_bag() {   # leader what sidfile log
+  local what="$2" sidfile="$3" log="$4" m rc
+  WORKER_BAG_AGAIN=""
+  for m in $(worker_bag_ids "$sidfile"); do
+    cp "$log" "$log.$m" 2>/dev/null || : >"$log.$m"
+    _worker_finish "$m" "$what" "$sidfile" "$log.$m"
+    rc=$?
+    rm -f "$log.$m"
+    [ "$rc" -eq 3 ] && return 3
+    [ "$rc" -eq 2 ] && WORKER_BAG_AGAIN="${WORKER_BAG_AGAIN:+$WORKER_BAG_AGAIN }$m"
+    worker_clean "$m"
+    worker_bag_drop "$sidfile" "$m"
+  done
+  worker_forget "$sidfile"
+  return 0
 }
 
 # Delete the scratch a finished puzzle left in tools/: its payloads

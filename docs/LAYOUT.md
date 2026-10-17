@@ -2852,5 +2852,13 @@ tools/test_times_four_digit_title.py           the Times title and solution head
                                                read as puzzles, five-digit ones as before
 tools/test_resume_not_redo.py                  pins the two fixes for burn waste found in the
                                                10-16 audit of .prereset.log
+tools/drop_failed_clues.py                     blank just the clues whose annotations fail
+                                               validation, so the rest ship
+tools/clue_bag.py                              which tail puzzles one annotate session takes
+                                               together: a bag
+tools/annotate_bag_prompt.md                   the task a bagged session (several tail puzzles
+                                               at once) is given
+tools/test_clue_bag.py                         which tail puzzles share one annotate session,
+                                               and which never do
 ```
 <!-- LAYOUT-END -->
