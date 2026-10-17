@@ -352,48 +352,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ERUPT",
-     "indicators": [
-      {
-       "text": "up",
-       "note": "in a down clue, up means the word is written bottom to top"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 6,
+         "note": "in a down clue, up means the word is read from the bottom, so backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Clear up",
-         "gives": "ERUP",
-         "note": "PURE = clear, written upwards"
-        },
+         "words": "Clear",
+         "at": 0,
+         "gives": "PURE",
+         "note": "pure means clear, untainted"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "last",
-           "note": "take only the final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "last speck of dust",
-           "gives": "SPECKOFDUST",
-           "note": "the last letter of dusT"
-          }
-         ]
+         "text": "last speck of",
+         "at": 9,
+         "note": "the last speck of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dust",
+         "at": 23,
+         "note": "last letter of dust"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A housekeeper chases the final speck of dust out of an air vent.",
-     "walkthrough": "'Vent' sits in the surface as an air grille, but the definition is the verb: to vent is to burst out, as a volcano does.",
-     "definitionFit": "A plain synonym: a volcano both vents and erupts, each meaning to burst out forcefully."
+     "surface": "Someone cleans up the final bit of dust in an air vent.",
+     "walkthrough": "'Vent' looks like a noun, an air outlet, but it is the verb, to pour out violently.",
+     "definitionFit": "To vent is to let out or discharge forcefully, as a volcano or a temper does when it erupts."
     },
     "features": {
      "answerInScene": false,
@@ -482,36 +483,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HUSHHUSH",
-     "indicators": [
-      {
-       "text": "wanting",
-       "note": "wanting means lacking, so M is taken out"
-      },
-      {
-       "text": "repeatedly",
-       "note": "something done repeatedly happens again"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Hearts",
+       "at": 0,
        "gives": "H",
-       "note": "H = hearts, the card suit"
+       "note": "H is the card abbreviation for hearts"
       },
       {
-       "words": "go faster wanting male",
-       "gives": "USH",
-       "note": "MUSH, the cry urging sled dogs to go faster, without M for male"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "wanting",
+         "at": 17,
+         "note": "wanting means lacking, so the male letter is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "go faster",
+         "at": 7,
+         "gives": "MUSH",
+         "note": "mush is the command to sled dogs to go faster"
+        },
+        {
+         "words": "male",
+         "at": 25,
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "words": "repeatedly",
+       "at": 30,
+       "gives": "HUSH",
+       "note": "repeatedly means the four letters already built are given a second time"
       }
      ]
     },
     "explanation": {
-     "surface": "Pulses race, over and over, in some clandestine affair.",
-     "walkthrough": "Mush is the musher's command to sled dogs to get moving; 'repeatedly' doubles the whole H+USH unit.",
-     "definitionFit": "An informal doubled synonym: repeating 'hush' makes an adjective for what must be kept quiet."
+     "surface": "Hearts race when a man is absent, in a secret affair.",
+     "walkthrough": "Mush is what a musher shouts to make a dog team speed up. Removing M leaves USH, so the first half is H and USH, and 'repeatedly' doubles it.",
+     "definitionFit": "Hush-hush means highly confidential, kept secret."
     },
     "features": {
      "answerInScene": true,
@@ -718,66 +732,54 @@
     "definitions": [
      {
       "text": "Heat in Washington",
-      "at": 0
+      "at": 0,
+      "note": "heat is US slang for a gun, which is also called an equaliser"
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "composite",
      "indicators": [
       {
-       "text": "awful",
-       "note": "something awful is a mess, so the letters are jumbled"
+       "text": "'s awful",
+       "at": 30,
+       "note": "is awful means is dreadful, so the letters of the two words are in a terrible jumble"
+      },
+      {
+       "text": "needing",
+       "at": 40,
+       "note": "needing joins with off to say a letter must be dropped from the pool"
+      },
+      {
+       "text": "off",
+       "at": 52,
+       "note": "off means taken away, so the day letter leaves the pool"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "off"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Square",
-             "note": "anagram fodder"
-            },
-            {
-             "words": "deli",
-             "gives": "ELI",
-             "note": "DELI with its D removed"
-            },
-            {
-             "words": "day",
-             "gives": "D",
-             "note": "D = day, the letter taken off DELI"
-            }
-           ]
-          },
-          {
-           "gives": "D"
-          }
-         ]
+         "words": "Square",
+         "at": 19
+        },
+        {
+         "words": "deli",
+         "at": 26
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "'s",
-       "note": "'s = is, surface glue joining the fodder to its indicator"
+       "words": "day",
+       "at": 48,
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A heatwave in Washington Square, and the deli there is terrible and should close for the day.",
-     "walkthrough": "'Heat' is US slang for a gun, and so is equaliser; Washington flags the American usage. 'Washington Square' is a famous New York park, pulling the capital out of view.",
-     "definitionFit": "In American slang both heat and equaliser mean a gun."
+     "surface": "A sweltering day in Washington Square, and the deli is awful.",
+     "walkthrough": "Washington looks like a place in the scene, but it only says the slang is American. Equaliser and heat are both slang for a gun.",
+     "definitionFit": "In American slang, heat is a firearm, and an equaliser is another slang term for a gun."
     },
     "features": {
      "answerInScene": false,
@@ -1541,31 +1543,30 @@
      "indicators": [
       {
        "text": "Mysterious",
-       "note": "a mysterious arrangement is obscure, so the letters are scrambled"
+       "at": 0,
+       "note": "mysterious suggests something obscured, so the letters are hidden in a new order"
       }
      ],
      "parts": [
       {
        "words": "secret",
-       "note": "anagram fodder"
+       "at": 11,
+       "note": "taken as written"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "OAI",
        "indicators": [
         {
          "text": "primarily",
-         "note": "take the first letter of each word"
+         "at": 42,
+         "note": "primarily points to the first letter of each of the words before it"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "objects and information primarily",
-         "gives": "OAI",
-         "select": "first",
-         "note": "the first letters of Objects And Information"
+         "words": "objects and information",
+         "at": 18,
+         "note": "first letters of objects, and, information"
         }
        ]
       }
@@ -1573,9 +1574,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A description of arcane secret things and knowledge.",
-     "walkthrough": "The whole clue is both the wordplay and the definition: esoterica are mysterious secret objects and information.",
-     "definitionFit": "Esoterica are obscure items or knowledge understood only by a few."
+     "surface": "A description of arcane material: hidden objects and facts.",
+     "walkthrough": "The whole clue defines the answer as well as building it from SECRET plus O, A and I.",
+     "definitionFit": "Esoterica are obscure items or knowledge understood only by a small inner circle."
     },
     "features": {
      "answerInScene": true,
@@ -1605,36 +1606,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "AXING",
      "indicators": [
       {
        "text": "becoming",
-       "note": "one piece turns into another, replacing it"
+       "at": 24,
+       "note": "becoming means turning into, so the marine letters are replaced by the cross"
       }
      ],
      "parts": [
       {
        "words": "Giving weapon to",
+       "at": 0,
        "gives": "ARMING",
-       "note": "arming someone gives them a weapon"
+       "note": "to arm someone is to give them a weapon"
       },
       {
-       "words": "marine becoming cross",
+       "words": "marine",
+       "at": 17,
+       "gives": "RM",
+       "note": "RM is the abbreviation for Royal Marines, a marine"
+      },
+      {
+       "words": "cross",
+       "at": 33,
        "gives": "X",
-       "note": "RM, a Royal Marine, replaced by X, a cross"
+       "note": "a cross is the letter X"
       }
      ]
     },
     "explanation": {
-     "surface": "Handing a gun to a marine who is angry gets him fired.",
-     "walkthrough": "'Cross' looks like angry; it is the letter X. RM stands for Royal Marine.",
-     "definitionFit": "An informal, headline-writer's synonym: the axe falls on a job when someone is sacked."
+     "surface": "Arming a marine who gets angry ends in his sacking.",
+     "walkthrough": "'Cross' reads as angry, but it is the letter X, which replaces RM in ARMING. 'Leads to' is the link to the definition.",
+     "definitionFit": "Axing someone is sacking them, so axing is a dismissal from a job."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "cross"
     }
    }
