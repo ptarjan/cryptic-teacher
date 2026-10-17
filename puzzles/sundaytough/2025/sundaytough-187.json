@@ -715,40 +715,39 @@
      }
     ],
     "wordplay": {
-     "op": "hidden",
-     "unchecked": true,
-     "gives": "GENERATE",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "from",
-       "note": "from says the letters are taken out of the words that follow"
+       "text": "backed",
+       "at": 31,
+       "note": "backed means sent backwards, so the extracted letters are read in reverse"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "unchecked": true,
-       "gives": "GENERATE",
+       "op": "hidden",
        "indicators": [
         {
-         "text": "backed",
-         "note": "something backed has gone into reverse, so the letters read from right to left"
+         "text": "from",
+         "at": 8,
+         "note": "from says the letters are taken out of the run of words that follows"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "street a renegade",
-         "note": "the run of letters sits across these words"
+         "at": 13,
+         "gives": "ETARENEG",
+         "note": "the letters run from the end of street, through a, into the start of renegade"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A street-style look taken up by a rebel who turned against the establishment.",
-     "walkthrough": "Read 'street a renegade' backwards and GENERATE appears inside it. 'Fashion' is the verb, to make.",
-     "definitionFit": "To fashion something is to make or create it, which is what generate means."
+     "surface": "A design created from a turncoat on the street, then reversed.",
+     "walkthrough": "'Fashion' looks like a noun about clothes, but it is the verb meaning create. 'from' takes ETARENEG out of 'street a renegade', and 'backed' turns it round.",
+     "definitionFit": "To fashion something is to make or produce it, which is to generate it."
     },
     "features": {
      "answerInScene": false,
@@ -1122,31 +1121,31 @@
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "LIGHTEN",
      "indicators": [
       {
        "text": "retaining",
-       "note": "retaining means holding within, so the words before it contain the answer"
+       "at": 16,
+       "note": "retaining means the two words hold the answer inside them"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Flight engineer",
-       "note": "the letters run across the join of these two words"
+       "at": 0,
+       "gives": "LIGHTEN",
+       "note": "the letters run from after the F of Flight into the first two of engineer"
       }
      ]
     },
     "explanation": {
-     "surface": "An aircraft's flight engineer keeping the plane climbing.",
-     "walkthrough": "Drop the F of Flight and read on into 'en' of engineer.",
-     "definitionFit": "To uplift someone is to raise their spirits, which is also what it means to lighten a mood."
+     "surface": "An aircraft's flight engineer keeps the plane climbing.",
+     "walkthrough": "The aviation picture makes 'uplift' look like a plane's lift, but it is the verb meaning cheer; the answer sits across 'Flight engineer'.",
+     "definitionFit": "To lighten someone's mood is to uplift them, raising their spirits."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "retaining"
+     "misdirectedWord": "engineer"
     }
    }
   },
