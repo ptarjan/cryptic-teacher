@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1054,50 +1055,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TALLYHO",
+     "indicators": [
+      {
+       "text": "trapped in",
+       "at": 39,
+       "note": "trapped in puts that letter inside the other pieces, as if caught there"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "multi-storey",
+         "at": 50,
+         "gives": "TALL",
+         "note": "a multi-storey building is tall"
+        },
+        {
+         "words": "house",
+         "at": 63,
+         "gives": "HO"
+        }
+       ]
+      },
+      {
+       "op": "last",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "What comes ultimately comes last of all, so the closing letter of the word before it is the one taken."
+         "at": 28,
+         "note": "ultimately means at the end, so the final letter of gentry is taken"
         }
        ],
        "parts": [
         {
-         "words": "multi-storey",
-         "gives": "TALL",
-         "note": "a building of many storeys is tall"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "trapped in",
-           "note": "Something trapped in a place cannot get out of it, so the letter is held between the others rather than added on."
-          }
-         ],
-         "parts": [
-          {
-           "words": "gentry",
-           "note": "the last letter of this word"
-          }
-         ]
-        },
-        {
-         "words": "house",
-         "gives": "HO",
-         "note": "HO is the abbreviation for house on an address"
+         "words": "gentry",
+         "at": 21,
+         "note": "taken as written, its last letter used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Multi-storey' promises a car park and delivers an adjective, and the question mark is there because the house is an abbreviation, not a home.",
-     "definitionFit": "Cry in the country -> TALLY-HO: the huntsman's shout on sighting the fox, so 'the country' means the hunting field rather than a nation."
+     "surface": "Country gentry shout a hunting cry while stuck in a tall house.",
+     "walkthrough": "'Multi-storey house' reads as one car-park-like phrase, but it splits into two pieces; 'in the country' sets the scene of rural fox-hunting.",
+     "definitionFit": "Tally-ho is the huntsman's shout on sighting a fox, a cry heard in rural hunting country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "multi-storey"
     }
    }
   },
@@ -1210,57 +1219,65 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PRISONER",
-     "indicators": [
-      {
-       "text": "in stir",
-       "note": "Stir is what you do to a mixture, so the words caught in it come out with their letters in a different order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 15,
+         "note": "primarily means first, so the opening letter of each of the two words is taken"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "PR",
-         "indicators": [
-          {
-           "text": "primarily",
-           "note": "What is primary comes first, so each of the two words before it gives up its opening letter and nothing else."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Punished rogue",
-           "gives": "PR",
-           "select": "first",
-           "note": "the first letters of the two words"
-          }
-         ]
-        },
-        {
-         "words": "one is",
-         "gives": "ISONE",
-         "note": "these five letters stirred into another order"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "R is right, as on a map or a stage direction"
+         "words": "Punished rogue",
+         "at": 0,
+         "note": "taken as written, first letters of each word used"
         }
        ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "stir",
+         "at": 36,
+         "note": "to stir is to mix up, so the letters of one and is are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "one",
+         "at": 26,
+         "note": "taken as written"
+        },
+        {
+         "words": "is",
+         "at": 30,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "words": "right",
+       "at": 42,
+       "gives": "R"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "walkthrough": "Every word works twice: the sentence describes the man and builds him at the same time, with 'stir' meaning jail and mixture at once.",
-     "definitionFit": "The whole clue reads straight: a rogue caught and locked up is serving his sentence, and stir has been slang for jail since the 1850s."
+     "surface": "A rogue has been punished and is now locked up, the clue asks for confirmation.",
+     "walkthrough": "'Stir' does double duty: it mixes ONE IS into ISONE, and stir is slang for prison, so the whole clue also describes the answer. Almost an &lit.",
+     "definitionFit": "A punished rogue now in jail is an inmate, someone held in custody behind bars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stir"
     }
    }
   },
