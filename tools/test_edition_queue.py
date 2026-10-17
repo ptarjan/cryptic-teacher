@@ -1307,7 +1307,10 @@ check("calm but under 3 GB available: no room", False, mg.room())
 _mi.write_text(f"MemAvailable: {16 * G >> 10} kB\n")
 os.environ["CT_UNIT_CEILING"] = "2"
 eq.plan = units([], [(f"c{k}", []) for k in range(5)])
-fake(default=0.8)
+# Units outlast the dispatcher's 1 s pass nap (the pass after a start): the ceiling line
+# is logged by a pass that finds the ceiling met with units still running, so units that
+# end inside that nap (0.8 s did, and a fast host never logged it) would never be seen at it.
+fake(default=2.0)
 log.unlink(missing_ok=True)
 err = io.StringIO()
 with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
