@@ -94,4 +94,13 @@ check("a spoon of the two results has the inputs unswapped (PITFALL)", True, cle
 check("and gives the leaves their pre-swap letters", ["FIT", "PALL"],
       [p["gives"] for p in R.repaired(C.stripped(spoon), "PITFALL")["parts"]])
 
+# homophone filed with several parts and no `spelt`.
+hom = op("homophone", leaf("Call", "DIAL"), op("homophone", leaf("a number", "EIGHT"), spelt="ATE"),
+         indicators=[{"text": "on the phone"}], unchecked=True)
+check("a spelt-less homophone of several parts is a charade (DIALATE)", True, clears(hom, "DIALATE"))
+fixed = R.repaired(C.stripped(hom), "DIALATE")
+check("the outer indicator moves to the bare inner homophone", ["charade", "on the phone"],
+      [fixed["op"], fixed["parts"][1]["indicators"][0]["text"]])
+check("and the charade must still give the answer", False, clears(hom, "DIALOGUE"))
+
 raise SystemExit(fails)

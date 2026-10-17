@@ -12,6 +12,8 @@ make the tree give the answer is dropped, so none can invent a parse.
                   words holds the answer-order slice; the fodder is the words as written.
   swapped         sub/del/ins filed with the parts in the order the indicator reads
                   ("A for B": new then old; the removed part first) are tried swapped.
+  spelt_charade   a homophone filed with several parts and no `spelt` is a charade with
+                  the sound-alike inside it.
   unpacked_spoon  spoon() filed as one charade of the two results: the pieces before
                   the swap are the letters with their onsets exchanged.
 
@@ -264,9 +266,35 @@ def _gives(tree, answer):
     return True
 
 
+def spelt_charade(tree):
+    """Variants of each homophone filed with several parts and no `spelt`: it is the
+    charade of those parts with the sound-alike inside (sound<we hear>(DIAL, sound(EIGHT,
+    ATE)) is DIAL + the homophone ATE). The outer indicators move onto the one inner
+    homophone that has none, so every homophone still names its indicator."""
+    out = []
+    for at, (node, _) in enumerate(walk(tree)):
+        parts = node.get("parts") or []
+        if node.get("op") != "homophone" or "spelt" in node or len(parts) < 2:
+            continue
+
+        def make(node):
+            new = {k: v for k, v in node.items() if k != "indicators"}
+            new["op"] = "charade"
+            inds = node.get("indicators")
+            bare = [p for p in new["parts"] if p.get("op") == "homophone" and not p.get("indicators")]
+            if inds and len(bare) == 1:
+                bare[0]["indicators"] = inds
+            elif inds:
+                new["indicators"] = inds
+            return new
+        out.append(_rebuild(copy.deepcopy(tree), [0], at, make))
+    return out
+
+
 def variants(tree, answer):
     """The repaired trees worth trying, cheapest first."""
     yield tree
+    yield from spelt_charade(tree)
     idx = _swappable(tree)
     for k in range(1, MAX_SWAPPED + 1):
         for picks in itertools.combinations(idx, k):
