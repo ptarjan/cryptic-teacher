@@ -288,45 +288,54 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the first piece goes inside the second"
+       "at": 6,
+       "note": "in means the rendering of First sits inside the letters from line and soup"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LS",
-       "indicators": [
-        {
-         "text": "heading",
-         "note": "the head of each word is its first letter"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "line heading for soup",
-         "gives": "LS",
-         "select": "first",
-         "note": "the heads of line and soup"
+         "words": "line",
+         "at": 9,
+         "gives": "L"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "heading for",
+           "at": 14,
+           "note": "the heading, or first letter, of soup"
+          }
+         ],
+         "parts": [
+          {
+           "words": "soup",
+           "at": 26,
+           "note": "its first letter"
+          }
+         ]
         }
        ]
       },
       {
        "words": "First",
+       "at": 0,
        "gives": "IST",
-       "note": "1st, with the digit written as I"
+       "note": "first written as 1ST, read as the letters IST"
       }
      ]
     },
     "explanation": {
-     "surface": "At a dinner, the person first in the queue heads for the soup and bread rolls.",
-     "walkthrough": "Rolls in the surface are bread; here they are lists, as in the electoral roll or a roll call.",
-     "definitionFit": "A roll is an official list of names, so rolls are lists."
+     "surface": "A diner first in the queue reaches for the soup and the bread rolls.",
+     "walkthrough": "'First' is read as 1ST, with the figure 1 taken as the letter I; 'in' places it between L for line and S, the letter 'heading for' soup.",
+     "definitionFit": "Rolls in the sense of registers or official lists of names, as in electoral rolls."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "rolls"
     }
@@ -451,45 +460,49 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "PAINKILLER",
      "indicators": [
       {
        "text": "of Spooner",
-       "note": "the Reverend Spooner swapped the opening sounds of pairs of words, so the two words just named swap their first sounds"
+       "at": 28,
+       "note": "as Spooner would say it, the opening sounds of the two words change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "KAIN",
        "parts": [
         {
-         "unchecked": true,
          "words": "murderer",
-         "gives": "PAIN",
-         "soundsLike": "CAIN",
-         "note": "Cain killed Abel, the first murderer in the Bible; his K sound goes to the second word"
-        },
+         "at": 8,
+         "gives": "CAIN",
+         "note": "Cain killed his brother Abel in Genesis"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "PILLER",
+       "parts": [
         {
-         "unchecked": true,
          "words": "supporter",
-         "gives": "KILLER",
-         "soundsLike": "PILLAR",
-         "note": "a pillar holds a roof up; it gives its P to the first word"
+         "at": 18,
+         "gives": "PILLAR",
+         "note": "a pillar is a supporting column"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dull killer turns out to be a supporter of Spooner.",
-     "walkthrough": "Anodyne looks like 'bland' describing the murderer; as a noun it is a medicine that soothes pain.",
-     "definitionFit": "An anodyne is a painkilling drug, which is what a painkiller is."
+     "surface": "A dull killer who backs the famous Oxford don.",
+     "walkthrough": "Spooner, an Oxford don, swapped the starts of words: CAIN PILLAR said his way becomes PAIN KILLER. 'Anodyne' is here the noun for a pain-relieving drug, not the adjective meaning bland.",
+     "definitionFit": "An anodyne, as a noun, is a medicine that relieves pain, such as an analgesic."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "absurd",
+     "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Anodyne"
     }
    }
