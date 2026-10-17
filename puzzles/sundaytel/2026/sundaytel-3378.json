@@ -276,41 +276,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SECTIONS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "loaded with",
+       "at": 5,
+       "note": "loaded with means carrying cargo inside, so the ship letters hold the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Ship",
+       "at": 0,
+       "gives": "SS",
+       "note": "SS, steamship, is the standard abbreviation for a ship"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "loaded with",
-         "note": "a ship loaded with cargo holds it inside"
-        },
-        {
          "text": "melted",
-         "note": "melting changes shape, so the letters lose their order"
+         "at": 26,
+         "note": "melted means turned to liquid and lost its shape, so the letters of ice and not are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Ship",
-         "gives": "SS",
-         "note": "SS, steamship, the usual ship abbreviation"
+         "words": "ice",
+         "at": 17
         },
         {
-         "words": "ice, not",
-         "gives": "ECTION",
-         "note": "ICE and NOT rearranged"
+         "words": "not",
+         "at": 22
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A vessel carries ice that has somehow stayed frozen.",
-     "walkthrough": "'Not melted' reads as one phrase meaning still frozen; split it, and 'not' is fodder while 'melted' does the mixing.",
-     "definitionFit": "Sections are the parts or pieces something is divided into."
+     "surface": "A vessel is carrying a cargo of ice that has stayed frozen.",
+     "walkthrough": "'not melted' reads as frozen ice, but 'not' belongs to the anagram fodder and 'melted' is the signal.",
+     "definitionFit": "Sections are separate parts of a whole, so they are pieces of it."
     },
     "features": {
      "answerInScene": false,
@@ -1308,43 +1314,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BLOWHOLE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 35,
+       "note": "round means surrounding, so the rearranged letters go around the house letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "rattles",
-         "note": "to rattle is to shake up, so the letters are shaken"
-        },
-        {
-         "text": "round"
+         "at": 27,
+         "note": "rattles means shakes up, so the letters of bellow are jumbled"
         }
        ],
        "parts": [
         {
          "words": "bellow",
-         "gives": "BLOWLE",
-         "note": "BELLOW rearranged"
-        },
-        {
-         "words": "house",
-         "gives": "HO",
-         "note": "ho. is the abbreviation for house"
+         "at": 20
         }
        ]
+      },
+      {
+       "words": "house",
+       "at": 41,
+       "gives": "HO"
       }
      ]
     },
     "explanation": {
-     "surface": "A giant's roar shakes the whole house.",
-     "walkthrough": "The giant is not a fairytale ogre but a whale, whose blowhole on top of its head lets it breathe.",
-     "definitionFit": "A whale breathes and spouts through its blowhole, so it is the outlet for this sea giant."
+     "surface": "A huge creature roars so loudly it shakes the walls of a house.",
+     "walkthrough": "'a giant' is a whale, not an ogre: the definition is the nostril on top of its head.",
+     "definitionFit": "A whale breathes and spouts through the blowhole on top of its head, an outlet for the sea giant."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "giant"
     }
