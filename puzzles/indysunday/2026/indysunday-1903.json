@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -748,45 +749,50 @@
      "indicators": [
       {
        "text": "Rewind",
-       "note": "to rewind a tape is to run it back towards where it started, so what follows is read from its far end"
+       "at": 0,
+       "note": "rewind means run back to the start, so everything after it is read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "intro of",
-         "note": "an intro comes before everything else, so the word contributes only the letter it opens with"
-        }
-       ],
        "parts": [
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "E",
+         "indicators": [
+          {
+           "text": "intro of",
+           "at": 7,
+           "note": "the intro of a word is its opening, the first letter of extremely"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "intro of extremely",
-           "gives": "E",
-           "select": "first",
-           "note": "the letter extremely starts with"
+           "words": "extremely",
+           "at": 16,
+           "note": "the first letter of extremely is E"
           }
          ]
         },
         {
          "words": "grating",
+         "at": 26,
          "gives": "GRID",
-         "note": "the grating over a drain is a grid"
+         "note": "a grid is a grating of crossed bars"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A grating is a grid, and seeing that is the whole clue — the surface is busy complaining about a song that grates.",
-     "definitionFit": "A dirge is the slow lament sung at a funeral, so the phrase names it by mood; the word is used of anything gloomily slow."
+     "surface": "Someone asks to rewind the start of an extremely grating, gloomy track.",
+     "walkthrough": "'grating' looks like an adjective for a harsh sound but is the noun, a grid; 'intro of extremely' gives E, and 'Rewind' turns E plus GRID round.",
+     "definitionFit": "A dirge is a slow, mournful piece of music, such as a lament for the dead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grating"
     }
    }
   },
