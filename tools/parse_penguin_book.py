@@ -174,6 +174,16 @@ ORPHAN_NUMBER_DOT_RE = re.compile(r"^\.\s+(?=[A-Za-z(\"'‘])")
 
 
 
+def tidy_leaf(leaf: str) -> str:
+    """A clue leaf through clue_text.tidy_ocr_clues, the pipeline every OCR
+    reader shares: running_head, because a book's leaf is known to hold its
+    "Cryptic Across" / "| DOWN" heads, and a continuation line is never one."""
+    tidied = clue_text.tidy_ocr_clues(leaf, running_head=True)
+    # Its "? " marks a clue whose number the print lost: here no number, not a
+    # word, and off the line so a lone "See 19" still reads as a cross-reference.
+    return re.sub(r"(?m)^\?\s+", "", tidied)
+
+
 def load_leaves(path: Path) -> list[str]:
     text = path.read_text(encoding="utf-8", errors="replace")
     return text.split(FORM_FEED)
@@ -451,6 +461,8 @@ def parse_clue_chunk(chunk: str) -> dict:
     # clean() first: a speck it takes off ("22 * She", "18 _Lechery", "I8
     # Extraordinary") would otherwise keep the number from being read.
     text = ocr_clues.clean(chunk)
+    # tidy_leaf's "? " is a clue number the print lost: no number, not a word.
+    text = re.sub(r"^\?\s+", "", text)
     number = None
     m = LEADING_NUMBER_RE.match(text)
     if m:
@@ -519,9 +531,10 @@ def down_restart(clues: list[dict]) -> int | None:
 
 def build_puzzle(seq_number: int, clue_leaf_idx: int, trailing_idxs: list[int],
                   leaves: list[str], section: str | None = None) -> dict:
-    raw_lines = leaves[clue_leaf_idx].split("\n")
+    raw_lines = tidy_leaf(leaves[clue_leaf_idx]).split("\n")
     content_start, mode = find_content_start(raw_lines)
-    raw_number_ocr = raw_lines[0].strip() if raw_lines and raw_lines[0].strip() else None
+    first = leaves[clue_leaf_idx].split("\n")[0].strip()
+    raw_number_ocr = first or None
     content_lines = raw_lines[content_start:]
 
     setter = extract_setter(leaves, trailing_idxs) or section
@@ -590,7 +603,7 @@ def continued_down(down: list[dict], trailing_idxs: list[int],
         # A chunk opens only at a numbered line, so grid noise between
         # clues is dropped rather than glued to the front of one.
         chunks, current = [], None
-        for line in (ln.strip() for ln in leaves[i].split("\n")):
+        for line in (ln.strip() for ln in tidy_leaf(leaves[i]).split("\n")):
             if LEADING_NUMBER_RE.match(line):
                 current = [line]
             elif current is None or not line:
@@ -619,7 +632,7 @@ def down_page_lines(leaf: str) -> list[str] | None:
     puzzle before it (The Herald Crossword Book prints Ian Rankin's 49-light
     puzzle's Down list on a page by itself).
     """
-    lines = leaf.split("\n")
+    lines = tidy_leaf(leaf).split("\n")
     for i, line in enumerate(lines):
         if clue_text.tolerant_heading(line) == "DOWN":
             return lines[i + 1:]

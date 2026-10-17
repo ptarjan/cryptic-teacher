@@ -14,7 +14,7 @@ most sessions a turn. This reads the transcripts and says which, with no model
 call: every figure is arithmetic over the JSONL the CLI already wrote.
 
 A session is a transcript under $CLAUDE_CONFIG_DIR/projects/*cryptic*/ whose
-first user message starts with turn_cost.ANNOTATE_PREFIX (or hands it over, as a cold-solve run does). Findings are ranked by the
+first user message starts with turn_cost.ANNOTATE_PREFIX. Findings are ranked by the
 share of the window's sessions they touch (one session counts once, however
 many lines it produced), so the first line is what to fix next.
 
@@ -48,7 +48,7 @@ import subprocess
 import sys
 
 from turn_cost import (
-    is_annotate_session,
+    ANNOTATE_PREFIX,
     CLAUDE_DIR,
 )
 
@@ -273,7 +273,7 @@ def read_session(path, templates, retired=()):
                 content = msg.get("content")
                 if first_user is None:
                     first_user = _text(content) if isinstance(content, (str, list)) else ""
-                    if not is_annotate_session(first_user):
+                    if not first_user.startswith(ANNOTATE_PREFIX):
                         return None
                 for b in content if isinstance(content, list) else []:
                     if not isinstance(b, dict) or b.get("type") != "tool_result":

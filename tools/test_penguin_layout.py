@@ -203,7 +203,7 @@ for line in ("13. See 14 Across", "15. See 4 Down", "See 15"):
     else:
         ok(f"closes a clue: {line!r}")
 
-# ------------------------------------------------------------------ case 7
+# ---- case heading-split
 # End to end, because every piece above can be right while the leaf still
 # falls through to jigsaw mode.
 print("case 7: a whole leaf in this layout parses as across/down, not jigsaw")
@@ -306,8 +306,9 @@ WORDED = ["1 Disfigurement hides suffering: make-up required (8, two words) 7 Pa
 chunks = P.segment_clues(WORDED)
 check("worded chunks", len(chunks), 6)
 got = [P.parse_clue_chunk(c) for c in chunks]
-check("two words kept in the words, total as the count", got[0],
-      {"number": "1", "clue": "Disfigurement hides suffering: make-up required (8, two words)",
+# clue_text.WORDS_COUNT ("(6, two words)" is "(6)") is the one shared rule.
+check("two words: the total is the count, as every OCR reader files it", got[0],
+      {"number": "1", "clue": "Disfigurement hides suffering: make-up required",
        "enumeration": "8"})
 check("the next clue its own", got[1], {"number": "7", "clue": "Pays out for turns", "enumeration": "5"})
 check("hyphenated", (got[2]["clue"].endswith("first! (8, hyphenated)"), got[2]["enumeration"]), (True, "8"))
@@ -319,7 +320,23 @@ check("the worded count stays in the clue text, no count field",
 import clues_only
 held, _ = clues_only.lights_from_spec([[1, 8, "read", got[0]]], [[7, 5, "read", got[1]]])
 check("a clues-only hold prints the worded count once", held["across"][0],
-      {"clue": {"text": got[0]["clue"]}, "length": 8})
+      {"clue": {"text": got[0]["clue"], "enumeration": "8"}, "length": 8})
+
+# ---- case heading-split
+# 75yearsoftimescr0000unse puzzle 36: a leaf's "Down 2" head ran into the last
+# Across clue because the book reader kept its own heading rules; every clue
+# leaf now goes through clue_text.tidy_ocr_clues (tidy_leaf).
+print("case heading-split: a Down head run into the last Across clue is split off")
+leaf = "7 Last across clue here (5,4)\nDown 2 In Manila, leading man jumps into bed (7)\n3 Another (4)"
+tidy = P.tidy_leaf(leaf)
+check("the Down head stands alone", [ln for ln in tidy.split("\n") if ln.strip().upper() == "DOWN"], ["DOWN"])
+across, down = P.split_across_down(tidy.split("\n"))
+check("the last Across clue keeps only its own words",
+      [P.parse_clue_chunk(c)["clue"] for c in P.segment_clues(across)], ["Last across clue here"])
+check("Down opens on clue 2", [P.parse_clue_chunk(c)["number"] for c in P.segment_clues(down)], ["2", "3"])
+check("a lone cross-reference stays its own clue",
+      [P.parse_clue_chunk(c)["clue"] for c in P.segment_clues(P.tidy_leaf("1 Foo (4)\nSee 19\n2 Bar (5)").split("\n"))],
+      ["Foo", "See 19", "Bar"])
 
 print()
 if failures:

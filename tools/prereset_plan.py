@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """How wide the pre-reset backfill runs, and in what order it takes the queue.
 
-The job's goal is the paced meter spent to EXHAUSTED right at its reset (aim_hours):
+The job's goal is the paced meter spent to EXHAUSTED before its reset, with a margin (aim_hours):
 quota left on a window when it turns over is gone, and quota spent early locks
 Paul's rooms out until it turns over. Interactive bridge work comes first, so
 the burn takes only what would otherwise be wasted. It keeps in flight the
-width that would spend, evenly until the reset, what it has left
+width that would spend, evenly until that margin before the reset, what it has left
 after the bridge's own projected spend (paced_need), and no more than the
 machine has free once everything else on it is counted: memory over the size
 of a run, and idle cores over a run's measured CPU.
@@ -68,18 +68,19 @@ WINDOW_HOURS = {"weekly": 7 * 24.0, "session": 5.0}
 # The level the paced meter's need aims at, the same in either mode:
 # prereset_backfill.sh stops at it on the weekly meter, and exports its own value.
 EXHAUSTED = float(os.environ.get("EXHAUSTED") or 99)
-# The need aims at the reset itself (Paul 2026-10-01: "finish much closer to
-# the hour in case I need some"; 10-16: "the burn should aim for being done
-# right at the time not so early"). A margin before the reset (86720b59a5, 10-14,
-# after a week ended at 90% needing 14-40 runs in its last 2h against cpu caps
-# of 3-10) spent the window early: the five-hour meter hit 99% with 0.5h left
-# and Paul's own sessions had nothing for it. What that margin guarded is
-# feasibility, and the width already answers it: the need is the runs that
-# spend what is left by the reset, so when the machine is short (the memory or
-# cpu cap under the need) width_for runs at the cap from now, which is as early
-# as the machine requires and no earlier, and the need keeps rising as the hours
-# shrink. Only AIM_MIN_H is kept, so the last checkpoint never divides by ~0.
-AIM_MIN_H = {"weekly": 0.05, "session": 0.05}
+# The need aims at EXHAUSTED some way before the reset, never at the reset
+# itself: a need aimed at the reset has no slack, so every miss (a bridge rate
+# projected from one busy hour that then goes quiet, runs in flight but not
+# yet running, a cpu cap) lands in fewer hours, until the last ones need more
+# runs than the machine holds. 2026-10-14 the week ended at 90%, needing 14-40
+# runs in its last 2h against cpu caps of 3-10. So the aim is the reset less
+# the larger of AIM_EARLY_H for that meter and AIM_EARLY_FRAC of the hours
+# left, and inside that margin the rest is due within AIM_MIN_H: as wide as
+# the machine allows. Quota spent early costs a lockout the burn naps through;
+# quota left at the reset is gone.
+AIM_EARLY_H = {"weekly": 3.0, "session": 0.5}
+AIM_EARLY_FRAC = 0.25
+AIM_MIN_H = {"weekly": 0.25, "session": 0.1}
 # The rates are measured on the five-hour meter, which moves several points for
 # each weekly one. Five-hour points per weekly point is the two meters' rises
 # side by side in usage-history.csv over the last RATIO_SPAN_S, skipping any
@@ -163,8 +164,8 @@ def paced_need(meter, pct, hours_left, rate, bridge_rate, ratio):
     hours_left are its; rate (per run-hour) and bridge_rate (an hour) are
     five-hour points, ratio five-hour points per point of the meter (1 for the
     five-hour one). A reset already passed is a fresh window, all of it left.
-    The spend is due at the reset (aim_hours), and the bridge's is projected
-    to then; a need over the machine's caps is returned as is, width_for caps it. None when any input is missing or unusable."""
+    The spend is due by aim_hours(), not the reset, and the bridge's is
+    projected to then only. None when any input is missing or unusable."""
     try:
         if pct is not None and hours_left <= 0:
             pct, hours_left = 0, WINDOW_HOURS[meter]
@@ -178,9 +179,11 @@ def paced_need(meter, pct, hours_left, rate, bridge_rate, ratio):
 
 
 def aim_hours(meter, hours_left):
-    """Hours until the need's deadline: the reset itself, at least
-    AIM_MIN_H[meter] so the last checkpoint does not divide by ~0."""
-    return max(AIM_MIN_H[meter], hours_left)
+    """Hours until the need's deadline: the reset less the larger of
+    AIM_EARLY_H[meter] and AIM_EARLY_FRAC of the hours left, at least
+    AIM_MIN_H[meter]."""
+    early = max(AIM_EARLY_H[meter], AIM_EARLY_FRAC * hours_left)
+    return max(AIM_MIN_H[meter], hours_left - early)
 
 
 def five_per_weekly(csv_text, start, end):
@@ -547,7 +550,7 @@ def width(arg=None, floor=1):
     name = "five-hour" if meter == "session" else "weekly"
     at = (f"{pct:g}% now, {hours_left:.1f}h to its reset"
           if pct is not None and hours_left is not None else "meter unread")
-    aim = (f", aiming {aim_hours(meter, hours_left):.2f}h out"
+    aim = (f", aiming {aim_hours(meter, hours_left):.1f}h out"
            if hours_left is not None and hours_left > 0 else "")
     print(f"width {w}: need {runs_needed} for {name} {EXHAUSTED:g}% before its reset ({at}{aim}; "
           f"bridge {shown}{per}), memory cap {mem}, "
@@ -607,12 +610,11 @@ WIDTH_CASES = [
 ]
 # (meter, its pct, hours to its reset, per-run rate and bridge points an hour
 #  in five-hour points, five-hour points per meter point) -> need; EXHAUSTED is 99.
-# Every need is due at the reset (aim_hours), less only AIM_MIN_H.
-# (a) plenty of capacity: the aim is the hours left; (c) the bridge alone
-# spends it: 0.
+# Every need is due by aim_hours(): weekly 3h (or a quarter of what is left)
+# before the reset, five-hour 0.5h (or a quarter) before it.
 NEED_CASES = [(("weekly",) + a, w) for a, w in [
-    ((89, 10.0, 2.0, 0, 6.0), 3),     # 10 weekly = 60 five-hour over 10h at 2 a run
-    ((59, 10.0, 2.0, 0, 6.0), 12),    # 40 weekly = 240 over 20 run-hours a run
+    ((89, 10.0, 2.0, 0, 6.0), 4),     # 10 weekly = 60 five-hour over 7h at 2 a run
+    ((59, 10.0, 2.0, 0, 6.0), 17),    # 40 weekly = 240 over 14 run-hours a run
     ((99, 10.0, 2.0, 0, 6.0), 0),     # week spent to EXHAUSTED
     ((100, 10.0, 2.0, 0, 6.0), 0),    # past it
     ((None, 10.0, 2.0, 0, 6.0), None),
@@ -623,38 +625,33 @@ NEED_CASES = [(("weekly",) + a, w) for a, w in [
     ((50, 0.0, 2.0, 0, 6.0), 2),
     ((100, -0.1, 2.0, 0, 6.0), 2),    # the meter still shows the week just spent
     # The bridge's projected spend comes off the top: the burn takes the surplus.
-    ((59, 10.0, 2.0, 12, 6.0), 6),    # bridge 120 of the 240, projected to the reset
-    ((59, 10.0, 2.0, 35, 6.0), 0),    # bridge alone spends the week by the reset
-    ((59, 10.0, 2.0, None, 6.0), 12),  # bridge unmeasured: nothing subtracted
+    ((59, 10.0, 2.0, 12, 6.0), 11),   # bridge 84 of the 240, projected to the aim only
+    ((59, 10.0, 2.0, 35, 6.0), 0),    # bridge alone spends the week by the aim
+    ((59, 10.0, 2.0, None, 6.0), 17),  # bridge unmeasured: nothing subtracted
     # weekly 10% with 58h to go, bridge 4 an hour, 1.95 a run, 6.5
-    ((10, 58.0, 1.95, 4, 6.5), 3),
+    ((10, 58.0, 1.95, 4, 6.5), 5),
     # 2026-10-13 23:00: 73% with 10.5h left, bridge 7.4 an hour from one busy
-    # hour, needed 4 aimed at the reset, and the week ended at 90%; still 4, with
-    # the cap holding the width rather than a margin
-    ((73, 10.5, 2.09, 7.4, 6.37), 4),
-    # (b) capacity short: 11% weekly left with 2h to go is 66 five-hour points
-    # in 4 run-hours, 16 runs: more than a cpu cap of 3-10 holds, so width_for
-    # runs at the cap from now and the need rises as the hours shrink
-    ((88, 2.0, 2.0, 0, 6.0), 16),
-    ((88, 1.0, 2.0, 0, 6.0), 33),
-    ((88, 0.05, 2.0, 0, 6.0), 660),   # the floor: the last checkpoint is finite
+    # hour, needed 4 aimed at the reset, and the week ended at 90%; 7 now
+    ((73, 10.5, 2.09, 7.4, 6.37), 7),
+    # inside the 3h margin with quota left: all of it due within AIM_MIN_H,
+    # so as wide as the machine allows (66 five-hour points in 0.5 run-hours)
+    ((88, 2.0, 2.0, 0, 6.0), 132),
 ]] + [(("session",) + a, w) for a, w in [
-    # five-hour mode: 71 points left by the reset 4h out, bridge 10 an hour, 2 a run-hour
-    ((28, 4.0, 2.0, 10, 1.0), 4),
-    ((28, 4.0, 2.0, 0, 1.0), 9),      # a quiet bridge leaves the burn more
-    ((28, 4.0, 2.0, 24, 1.0), 0),     # the rooms alone spend the window by the reset
-    # 9 points due at the reset, 0.25h out: 4.5 run-hours
-    ((90, 0.25, 2.0, 0, 1.0), 18),
+    # five-hour mode: 71 points left by 3h out of 4, bridge 10 an hour, 2 a run-hour
+    ((28, 4.0, 2.0, 10, 1.0), 7),
+    ((28, 4.0, 2.0, 0, 1.0), 12),     # a quiet bridge leaves the burn more
+    ((28, 4.0, 2.0, 24, 1.0), 0),     # the rooms alone spend the window by the aim
+    # inside the margin: 9 points due within 0.1h, as wide as the machine allows
+    ((90, 0.25, 2.0, 0, 1.0), 45),
     ((99, 0.25, 2.0, 0, 1.0), 0),     # at EXHAUSTED: none, never on into a lockout
-    # reset passed: a fresh 5h window, 99 over 5h at 2 a run-hour
-    ((97, -0.05, 2.0, 0, 1.0), 10),
+    # reset passed: a fresh 5h window, 99 by 3.75h out at 2 a run-hour
+    ((97, -0.05, 2.0, 0, 1.0), 13),
 ]]
 # Replays of a window paced every 5 minutes, where the bridge spends less than
 # projected and a cap holds the width: (meter, its pct, hours left, per-run
 # rate, ratio, bridge projected, bridge real, width cap, share of the width
-# really running) -> must reach EXHAUSTED (within REPLAY_SLACK) at the reset. Weekly is
+# really running) -> must reach EXHAUSTED before the reset. Weekly is
 # 2026-10-13's night (it ended at 90%); five-hour is the same in one window.
-REPLAY_SLACK = 1.5  # aimed at the reset with no margin: a point or so short is a hit
 REPLAY_CASES = [
     ("weekly", 60, 16.0, 2.09, 6.37, 5.0, 2.5, 8, 0.95),
     ("session", 10, 5.0, 2.0, 1.0, 8.0, 4.0, 14, 0.95),
@@ -663,13 +660,15 @@ REPLAY_CASES = [
 
 def replay(meter, pct, hours, rate, ratio, bridge_proj, bridge_real, cap, share,
            step=1 / 12):
-    """The meter's level at the reset; it is read in whole points, as
-    weekly_usage gives it, and spent in steps of five minutes."""
+    """Hours left when the paced meter reaches EXHAUSTED, 0 when it does not
+    by the reset; the meter is read in whole points, as weekly_usage gives it."""
     while hours > 0:
         need = paced_need(meter, int(pct), hours, rate, bridge_proj, ratio) or 0
         pct += (min(need, cap) * share * rate + bridge_real) * step / ratio
         hours -= step
-    return pct
+        if pct >= EXHAUSTED:
+            return hours
+    return 0
 # (FIVE_HOUR's stamp, this week's reset) -> the meter paced
 MODE_CASES = [
     ("1000000\n", 1000000.0, "session"),
@@ -756,7 +755,7 @@ def width_self_test():
             print(f"FAIL {fn.__name__}{args} = {fn(*args)} (want {want})", file=sys.stderr)
             bad += 1
     for args in REPLAY_CASES:
-        if replay(*args) < EXHAUSTED - REPLAY_SLACK:
+        if replay(*args) <= 0:
             print(f"FAIL replay{args}: short of {EXHAUSTED:g}% at the reset", file=sys.stderr)
             bad += 1
     line = "  weekly 1% -> 1%, five-hour {}% -> {}% in 0.1h at width 14"

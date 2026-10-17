@@ -168,10 +168,6 @@ def puzzle_files(*series):
     return sorted(PUZZLE_DIR.glob("*/*/*-[0-9]*.json"))
 
 
-#: The id of the puzzle a worker run (tools/puzzle_worker.sh) is for.
-TASK_ENV = "CT_TASK_PUZZLE"
-
-
 def resolve_puzzle(arg):
     """A puzzle file from either a namespaced id ("everyman-4165") or the bare
     number a person types ("4165").
@@ -197,13 +193,6 @@ def resolve_puzzle(arg):
         return hits[0]
     if not hits:
         raise SystemExit(f"no puzzle {arg} in {PUZZLE_DIR}")
-    # A worker run is for one puzzle (tools/puzzle_worker.sh sets TASK_ENV): a
-    # bare number its own puzzle shares with other papers means that puzzle,
-    # not a guess. 15 of 161 cold-solve runs (10-16, 8h) typed the bare
-    # number the solve prompt shows and spent a turn on this error.
-    task = os.environ.get(TASK_ENV, "")
-    if task.rpartition("-")[2] == arg and any(p.stem == task for p in hits):
-        return next(p for p in hits if p.stem == task)
     raise SystemExit(f"{arg} names more than one puzzle — say which: "
                      + ", ".join(p.stem for p in hits))
 

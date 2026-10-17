@@ -334,8 +334,9 @@ def count_left(text, cells, lights):
 
 #: A closed count with specks after it ("(8)'", "(5).·", "(5). _"); a lone full stop is the print's own.
 _COUNT_SPECKS = re.compile(r"(\(\s*[\dSIl,.\- ]{1,9}\))(?!\.$)(?:[^\w(]|_){1,3}$")
-#: A count whose ")" was read as j or J, or whose "(" was lost, after a word.
-_COUNT_CLOSE_MISREAD = re.compile(r"(?<=[a-z])\s?\(?(\d{1,2}(?:[,.\-]\d{1,2})*)[)jJ]$")
+#: A count whose ")" was read as j or J, or whose "(" was lost, after a word
+#: (not "see": "(See 4)" is a reference, not a count).
+_COUNT_CLOSE_MISREAD = re.compile(r"(?<=[a-z])(?<![Ss]ee)\s?\(?(\d{1,2}(?:[,.\-]\d{1,2})*)[)jJ]$")
 #: A count left open at its end, a speck where the bracket was: "(5r", "(5".
 _COUNT_OPEN_END = re.compile(r"\((\d{1,2})[^\d)\s]?$")
 
@@ -627,6 +628,15 @@ def counts_mended(lines):
     return out
 
 
+#: A cross-reference clue on its own line: "See 19", "? See 4 down."; it has no count.
+_SEE_ONLY = re.compile(r"^(?:\?\s+)?see\s+\d{1,2}\s*(?:across|down|ac|dn)?\.?\s*$", re.IGNORECASE)
+
+
+def _closes(line):
+    """True when `line` ends a clue: on its count, or as a cross-reference alone."""
+    return bool(COUNT_END.search(line) or _SEE_ONLY.match(line))
+
+
 def uncounted_dropped(lines):
     """`lines` (a column's) without text that is no clue: after a "? " line (a
     clue whose number was lost), lines with no count of their own that run
@@ -640,11 +650,11 @@ def uncounted_dropped(lines):
             k += 1
             continue
         end = k
-        while end < len(lines) and not COUNT_END.search(lines[end]) and (
+        while end < len(lines) and not _closes(lines[end]) and (
                 end == k or not (re.match(r"\d{1,2}\b", lines[end]) or heading_of(lines[end])
                                  or lines[end].startswith("? "))):
             end += 1
-        if end < len(lines) and COUNT_END.search(lines[end]) and not (
+        if end < len(lines) and _closes(lines[end]) and not (
                 end > k and (re.match(r"\d{1,2}\b", lines[end]) or heading_of(lines[end]))):
             out.extend(lines[k:end + 1])
             k = end + 1
@@ -779,6 +789,11 @@ def _column_pass(text, running_head, extra_headings, line_hook):
     out, prev = [], ""
     for line in _split_headings(text):
         line = line.translate(BRACKETS).strip()
+        # A speck read as a bracket after a clue's closed count ("(6) <").
+        line = re.sub(r"(?<=\))\s*[(\[]$", "", line)
+        if not line:  # a blank line parts nothing: the clue after it is judged by the line before it
+            out.append(line)
+            continue
         heading = _heading_in(line, running_head, extra_headings)
         if heading:
             line = heading
