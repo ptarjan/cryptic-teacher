@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -43,43 +44,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DOORPOST",
-     "indicators": [
-      {
-       "text": "over",
-       "note": "Turned over means read the other way about, so the word in front of it is written back to front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 28,
+         "note": "in an across clue 'over' asks for the word to be turned back to front"
+        }
+       ],
        "parts": [
         {
-         "words": "cross over",
-         "gives": "DOOR",
-         "note": "a rood is a cross, the one mounted on a church's rood screen, and it is turned round here"
-        },
-        {
-         "words": "something seen on X",
-         "gives": "POST",
-         "note": "X is the site that used to be Twitter, and what people write on it is a post"
+         "words": "cross",
+         "at": 22,
+         "gives": "ROOD",
+         "note": "a rood is a cross or crucifix, especially in a church"
         }
        ]
+      },
+      {
+       "words": "something seen on X",
+       "at": 33,
+       "gives": "POST",
+       "note": "a post is a message seen on the social platform X, formerly Twitter"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stands beside a swinger who is furious about something on Twitter.",
-     "walkthrough": "'Cross' reads as the swinger's temper and is really ROOD, the church cross, turned round. The swinger of the definition is not a party guest but something on hinges.",
-     "definitionFit": "One stands by swinger → DOORPOST: the swinger is a door on its hinges, and the answer is the upright it swings against."
+     "surface": "It reads like a swinging voter standing by a cross marked on an X ballot paper.",
+     "walkthrough": "'swinger' is a door, which swings on its hinges; the doorpost stands beside it. X is the social network formerly called Twitter, where a message is a post.",
+     "definitionFit": "A doorpost is the upright frame member beside a door, which is the thing that swings."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "cross"
+     "misdirectedWord": "swinger"
     }
    }
   },
@@ -1272,18 +1274,16 @@
     "definitions": [
      {
       "text": "pranks",
-      "at": 41,
-      "note": "'Pranks' is plural where the answer is a mass noun: japery is the practice, and the setter names it by the acts that make it up."
+      "at": 41
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "JAPERY",
      "indicators": [
       {
        "text": "accepts",
-       "note": "To accept something is to take it in, so the letters on either side open up and let the rest sit inside."
+       "at": 22,
+       "note": "the judge and Judy's last letter accept, that is take in, the next pieces"
       }
      ],
      "parts": [
@@ -1292,37 +1292,56 @@
        "parts": [
         {
          "words": "Judge",
-         "gives": "J",
-         "note": "J is how a law report abbreviates a judge's name"
+         "at": 0,
+         "gives": "J"
         },
         {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 11,
+           "note": "ultimately points to the final letter of Judy"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Judy",
+           "at": 6,
+           "note": "last letter of Judy"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
          "words": "mimic",
+         "at": 30,
          "gives": "APE",
-         "note": "to ape somebody is to mimic them"
+         "note": "to ape is to mimic"
         },
         {
          "words": "runs",
+         "at": 36,
          "gives": "R",
-         "note": "r is runs on a cricket scorecard"
-        },
-        {
-         "words": "Judy ultimately",
-         "gives": "Y",
-         "note": "the last letter of Judy"
+         "note": "R is the cricket abbreviation for runs"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Judge Judy finally putting up with an impressionist's antics.",
-     "walkthrough": "Judge Judy is a real television courtroom, which is what lets two letters from two separate jobs read as one person's name. R for runs comes off a cricket scorecard.",
-     "definitionFit": "pranks → JAPERY: japery is the business of playing jokes, the activity that a run of pranks adds up to."
+     "surface": "A TV judge called Judy puts up with an impressionist who keeps making mischief.",
+     "walkthrough": "J and Y (Judy's last letter) wrap around APE and R.",
+     "definitionFit": "Japery is playful joking and tomfoolery, a collective word for pranks and jests."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "runs"
+     "misdirectedWord": "Judge"
     }
    }
   },
