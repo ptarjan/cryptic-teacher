@@ -583,28 +583,27 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "RHETT",
      "indicators": [
       {
        "text": "vicious",
-       "note": "a vicious attack mangles its victim, so the letters are thrown into a new order"
+       "at": 9,
+       "note": "vicious suggests something savage and out of control, so the remaining letters are thrown into a new order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "RHETT",
        "indicators": [
         {
          "text": "withholding",
-         "note": "withholding means keeping something back, so a letter is left out of the word"
+         "at": 25,
+         "note": "withholding means keeping back the letter named next from the word threat"
         }
        ],
        "parts": [
         {
          "words": "threat",
+         "at": 17,
          "note": "taken as written"
         },
         {
@@ -612,13 +611,15 @@
          "indicators": [
           {
            "text": "bit of",
-           "note": "a bit is a small piece, so only the opening letter of the next word is meant"
+           "at": 37,
+           "note": "a bit of a word here is its first letter"
           }
          ],
          "parts": [
           {
            "words": "alcohol",
-           "note": "a bit of alcohol is its first letter, the one taken away"
+           "at": 44,
+           "note": "first letter of alcohol"
           }
          ]
         }
@@ -627,9 +628,9 @@
      ]
     },
     "explanation": {
-     "surface": "A household butler menaces someone ominously while refusing to hand over the drink.",
-     "walkthrough": "THREAT loses its A and the rest is rearranged. 'Butler' is not a servant: Rhett Butler is the hero of Gone with the Wind, and the 's stands for 'is'.",
-     "definitionFit": "Rhett is the first name of Rhett Butler, Scarlett O'Hara's husband in Gone with the Wind."
+     "surface": "A household butler makes a nasty threat while refusing to serve any drink.",
+     "walkthrough": "'Bit of alcohol' is A; 'withholding' removes it from THREAT to leave THRET, and 'vicious' rearranges THRET. The butler is not a servant but Rhett Butler; ''s' is 'is'.",
+     "definitionFit": "Rhett is the first name of Rhett Butler, the dashing hero of the novel and film Gone with the Wind."
     },
     "features": {
      "answerInScene": false,
@@ -1484,47 +1485,57 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "GUILT",
-     "indicators": [
-      {
-       "text": "late-arriving",
-       "note": "something arriving late misses its opening, so the word's first letter is lost and replaced"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "first",
        "indicators": [
         {
          "text": "Start to",
-         "note": "'Start to' keeps only the first letter of 'generate'"
+         "at": 0,
+         "note": "the start of a word is its first letter"
         }
        ],
        "parts": [
         {
          "words": "generate",
-         "note": "the first letter of generate"
+         "at": 9,
+         "note": "first letter of generate"
         }
        ]
       },
       {
-       "words": "blanket",
-       "gives": "QUILT",
-       "note": "a quilt is a padded blanket"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "late-arriving",
+         "at": 18,
+         "note": "something late-arriving misses its start, so the word for blanket loses its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "blanket",
+         "at": 32,
+         "gives": "QUILT",
+         "note": "a quilt is a padded bed covering, a kind of blanket"
+        },
+        {
+         "gives": "Q"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone feels bad about sneaking under the covers late at night.",
-     "walkthrough": "The blanket turns up without its start, and the start of generate takes its place.",
-     "definitionFit": "Guilt is the feeling of having done wrong, close kin to regret and contrition."
+     "surface": "A recipe for regret: begin making a blanket too late.",
+     "walkthrough": "'Start to generate' supplies its opening letter, and a blanket that is 'late-arriving' has missed its own start, so it loses its first letter.",
+     "definitionFit": "Guilt is the painful feeling of having done wrong, close in meaning to remorse."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "blanket"
+     "misdirectedWord": "late-arriving"
     }
    }
   },
