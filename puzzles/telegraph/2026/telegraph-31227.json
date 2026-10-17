@@ -91,26 +91,32 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ANGER",
      "indicators": [
       {
        "text": "changes sides",
-       "note": "left and right are the two sides, so one side letter is swapped for the other"
+       "at": 24,
+       "note": "changing sides swaps left for right, so the letter for left gives way to the letter for right"
       }
      ],
      "parts": [
       {
        "words": "good person",
+       "at": 12,
        "gives": "ANGEL",
-       "note": "a kind, virtuous person is called an angel"
+       "note": "an angel is a kind, good person"
+      },
+      {
+       "gives": "L"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Fury erupts once a decent person switches allegiance.",
-     "walkthrough": "Swap the L (left) at the end of ANGEL for R (right) to get ANGER; 'after' only joins definition to wordplay.",
-     "definitionFit": "Wrath is an old, strong word for intense fury, making it a straightforward synonym."
+     "surface": "Fury follows when a decent person defects to the other camp.",
+     "walkthrough": "L (left) and R (right) are the two sides: ANGEL swaps its L for R. 'after' only joins definition and wordplay.",
+     "definitionFit": "Anger and wrath are synonyms, both meaning strong rage or fury."
     },
     "features": {
      "answerInScene": true,
@@ -516,48 +522,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CARROT",
+     "op": "container",
      "indicators": [
       {
-       "text": "uncovered",
-       "note": "uncovering strips off the outside, so the first and last letters go"
+       "text": "within",
+       "at": 25,
+       "note": "within means inside, so the trimmed word goes inside the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "barrow",
+       "at": 32,
+       "gives": "CART",
+       "note": "a barrow is a small cart, pushed by hand"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "within",
-         "note": "within means inside, so one piece is placed inside another"
+         "text": "uncovered",
+         "at": 15,
+         "note": "uncovered means with its outer layer stripped, so the first and last letters go"
         }
        ],
        "parts": [
         {
-         "words": "barrow",
-         "gives": "CART",
-         "note": "a barrow is a small cart"
-        },
-        {
          "words": "crop",
-         "gives": "RO",
-         "note": "the word with its outer letters removed"
+         "at": 10,
+         "note": "the word whose middle letters are kept"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener's harvest of vegetables lies open in a wheelbarrow.",
-     "walkthrough": "'Crop' tempts as a farming word to define the answer, but it only supplies two letters once stripped.",
-     "definitionFit": "The carrot is an orange root grown and eaten as a vegetable."
+     "surface": "A gardener's harvest of vegetables, pulled up and lying in a wheelbarrow.",
+     "walkthrough": "'barrow' is a hand cart here, CART; 'uncovered' strips crop to RO, which goes 'within' it.",
+     "definitionFit": "A carrot is an orange root vegetable, grown in gardens and eaten raw or cooked."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "crop"
+     "misdirectedWord": "uncovered"
     }
    }
   },
@@ -904,38 +911,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SQUEALING",
+     "op": "composite",
      "indicators": [
       {
-       "text": "being one down",
-       "note": "being down by one means one is lost, so a single letter that stands for one goes"
+       "text": "somehow",
+       "at": 10,
+       "note": "somehow suggests an unspecified way of doing it, so the letters are rearranged"
+      },
+      {
+       "text": "being",
+       "at": 30,
+       "note": "being, with down, describes a state of falling short, so a letter is lacking"
+      },
+      {
+       "text": "down",
+       "at": 40,
+       "note": "being one down means one short, so that letter is missing from the result"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "somehow",
-         "note": "somehow means in some unknown way, so the letters come out in a new order"
-        }
-       ],
-       "parts": [
-        {
-         "words": "equalising",
-         "gives": "EQUALSING",
-         "note": "the word with one of its I letters removed"
-        }
-       ]
+       "words": "equalising",
+       "at": 18,
+       "note": "the fodder, taken as written"
+      },
+      {
+       "words": "one",
+       "at": 36,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "Fans scream as their team levels the score after trailing by a goal.",
-     "walkthrough": "I is the Roman numeral for one; drop one I and rearrange the rest.",
-     "definitionFit": "To squeal is to make a high, shrill cry, so the two participles are synonyms."
+     "surface": "A football crowd shrieking as their team somehow levels the score after trailing by one.",
+     "walkthrough": "In football a team one down trails by a goal; here 'being one down' means the rearranged letters of equalising are short of one I.",
+     "definitionFit": "Squealing is making a high-pitched cry, the same as shrieking or screeching."
     },
     "features": {
      "answerInScene": true,
@@ -1180,65 +1191,79 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a refuge",
-      "at": 46
+      "text": "refuge",
+      "at": 48
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SAFETY",
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so one piece goes around another"
+       "at": 14,
+       "note": "about means surrounding, so the outer letters go round the rest"
       }
      ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "SAFETY",
+       "op": "outer",
        "indicators": [
         {
-         "text": "setting up",
-         "note": "in a down entry, setting a letter up moves it higher, towards the start"
+         "text": "Extremely",
+         "at": 0,
+         "note": "extremely means at the extremes, so only the first and last letters of the word are used"
         }
        ],
        "parts": [
         {
-         "op": "outer",
+         "words": "shy",
+         "at": 10,
+         "note": "the word whose outer letters are kept"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 46,
+         "gives": "A"
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "Extremely",
-           "note": "the extremes of a word are its two ends, so only the outer letters are kept"
+           "text": "setting up",
+           "at": 35,
+           "note": "in this down clue, setting up the A lifts it out of its place and moves it higher, to the front"
           }
          ],
          "parts": [
           {
-           "words": "shy",
-           "note": "the first and last letters"
+           "words": "accomplishment",
+           "at": 20,
+           "gives": "FEAT",
+           "note": "a feat is an accomplishment or achievement"
+          },
+          {
+           "gives": "A"
           }
          ]
-        },
-        {
-         "words": "accomplishment",
-         "gives": "FEAT",
-         "note": "a feat is an achievement"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A timid person, wary of success, builds a hiding place.",
-     "walkthrough": "The 'a' belongs to the definition; the A already inside FEAT is the letter set up to the top before S and Y wrap round.",
-     "definitionFit": "Safety is a place or condition of protection from danger, much like a shelter or sanctuary."
+     "surface": "A timid person, wary of success, seeks somewhere to hide.",
+     "walkthrough": "'Extremely shy' gives SY round FEAT (accomplishment); 'setting up a' lifts its A towards the top of this down entry, giving AFET inside.",
+     "definitionFit": "Safety can mean a place of shelter, as in reaching safety, so a refuge from danger."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "setting"
+     "misdirectedWord": "shy"
     }
    }
   },
