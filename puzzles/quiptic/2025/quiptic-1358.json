@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -864,47 +865,50 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Ancient story",
+      "text": "Ancient story?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MYTH",
-     "indicators": [
-      {
-       "text": "only half complete",
-       "note": "Something only half complete stops at its midpoint, so the word beside it gives up its front two letters and no more."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "I am surprised",
+       "at": 15,
+       "gives": "MY",
+       "note": "my! is an exclamation of surprise"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "only half complete",
+         "at": 38,
+         "note": "only half complete means just the first half is there, so the second half of this is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "I am surprised",
-         "gives": "MY",
-         "note": "'My!' is the exclamation you make when startled"
+         "words": "this",
+         "at": 30,
+         "note": "its first two letters are kept"
         },
         {
-         "words": "this",
-         "gives": "TH",
-         "note": "the front half of the four-letter word"
+         "gives": "IS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Astonishment that an old tale has only been told halfway through.",
-     "walkthrough": "The clue's 'this' points at nothing — it is a four-letter word waiting to be cut down the middle. 'My' as an exclamation is the one in 'my word' and 'oh my'.",
-     "definitionFit": "A myth is a traditional tale out of the distant past, told to explain gods or beginnings, which is what 'ancient story' asks for."
+     "surface": "Someone startled to find an old tale is unfinished.",
+     "walkthrough": "The question mark hints that not every myth is ancient. 'Only half complete' leaves TH from this.",
+     "definitionFit": "A myth is a traditional tale, often from antiquity, explaining gods, heroes or the origins of things."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "this"
+     "misdirectedWord": "surprised"
     }
    }
   },
