@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -268,41 +269,45 @@
      "indicators": [
       {
        "text": "comprehending",
-       "note": "To comprehend in its older sense is to take something in and hold it, so the listener's word closes round what follows."
+       "at": 14,
+       "note": "comprehending in its sense of including or taking in, so one piece goes inside the other"
       }
      ],
      "parts": [
       {
        "words": "listener",
+       "at": 5,
        "gives": "EAR",
-       "note": "the ear is the organ that listens"
+       "note": "an ear is what listens, a common crossword equivalence"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "GE",
        "indicators": [
         {
          "text": "finally",
-         "note": "It asks what each word finishes on, and it reaches back over both of the words in front of it."
+         "at": 41,
+         "note": "finally picks the last letter of each of the two words before it"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "long lecture finally",
-         "gives": "GE",
-         "select": "last",
-         "note": "the closing letters of lonG and lecturE, taken in that order"
+         "words": "long lecture",
+         "at": 28,
+         "note": "the two words whose last letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An attentive listener sitting patiently through the end of a long lecture.",
-     "walkthrough": "'Keen listener' reads as one phrase, which is the trap — the definition stops after the first word. 'Long lecture' is not something to be understood but a pair of words giving up their tails.",
-     "definitionFit": "Keen → EAGER: keen in the sense of raring to go, impatient to start, rather than keen as in sharp or cheap."
+     "surface": "A keen pupil listening to a long lecture right to the end.",
+     "walkthrough": "'finally' takes the ends of 'long' and 'lecture', G and E, and 'comprehending' puts them inside EAR.",
+     "definitionFit": "Eager and keen are synonyms, both describing someone full of enthusiasm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "listener"
     }
    }
   },
@@ -375,60 +380,80 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "originally",
-       "note": "The original letter of a word is the one it begins with, and here it is wanted from each of the two words around it."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "It puts those letters down inside the word before it rather than in front of it."
+         "at": 29,
+         "note": "in puts the I and the first letter inside the word for ground"
         }
        ],
        "parts": [
         {
          "words": "ground",
+         "at": 32,
          "gives": "MILLED",
-         "note": "grain that has been ground has been milled"
+         "note": "ground as the past tense of grind, which is what a mill does: milled"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "IP",
-         "indicators": [
-          {
-           "text": "close to",
-           "note": "The close of a word is where it stops, so only its final letter is wanted."
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "unchecked": true,
-           "words": "I originally planted",
-           "gives": "IP",
-           "select": "first",
-           "note": "the opening letters of I and Planted"
+           "words": "I",
+           "at": 8
+          },
+          {
+           "op": "first",
+           "indicators": [
+            {
+             "text": "originally",
+             "at": 10,
+             "note": "originally picks the first letter of planted"
+            }
+           ],
+           "parts": [
+            {
+             "words": "planted",
+             "at": 21,
+             "note": "the word whose first letter is taken"
+            }
+           ]
           }
          ]
         }
        ]
       },
       {
-       "words": "fence",
-       "gives": "E",
-       "note": "the letter fencE closes on"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "at": 39,
+         "note": "close to means the closing, last letter of fence"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fence",
+         "at": 48,
+         "note": "the word whose last letter is taken"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener putting a creeper into the soil right up against the fence.",
-     "walkthrough": "'Creeper' invites a climbing plant, which is exactly what the gardening surface wants you to picture, and it means the many-legged kind. 'Ground' is the past tense of grind, not the soil.",
-     "definitionFit": "Creeper → MILLIPEDE: a creeper is anything that creeps along the ground, and this one does it on a famously large number of legs."
+     "surface": "A gardener describing a creeping plant they put in the soil near a fence.",
+     "walkthrough": "'Creeper' suggests a climbing plant, but it is the many-legged creature. 'in' puts I and P (the first of 'planted') inside MILLED, and E closes it from 'fence'.",
+     "definitionFit": "A millipede is a many-legged arthropod that crawls, so it is a creeper in the literal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Creeper"
     }
    }
   },
@@ -497,62 +522,75 @@
     ],
     "wordplay": {
      "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 27,
+       "note": "in places the detective and the catch inside the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
        "parts": [
         {
-         "words": "had",
-         "gives": "ATE",
-         "note": "had in the sense of having a meal"
+         "words": "a",
+         "at": 30,
+         "gives": "A"
         },
         {
-         "op": "charade",
+         "op": "last",
+         "indicators": [
+          {
+           "text": "ultimately",
+           "at": 37,
+           "note": "ultimately picks the last letter of club"
+          }
+         ],
          "parts": [
           {
-           "words": "club ultimately",
-           "gives": "B",
-           "note": "the letter cluB ends on"
-          },
-          {
-           "words": "Detective Inspector",
-           "gives": "DI",
-           "note": "DI is the rank's usual written form in the British police"
-          },
-          {
-           "words": "caught",
-           "gives": "C",
-           "note": "c is how a cricket scorecard records a batsman caught"
+           "words": "club",
+           "at": 32,
+           "note": "the word whose last letter is taken"
           }
          ]
+        },
+        {
+         "words": "had",
+         "at": 48,
+         "gives": "ATE",
+         "note": "to have a meal is to eat, so had gives ate"
         }
        ]
       },
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "It drops the two police letters inside what surrounds them rather than leaving them out in front."
-        },
-        {
-         "text": "ultimately",
-         "note": "Ultimately means at the very end, so only the last letter of the word beside it is taken."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "a",
-         "note": "the clue's own 'a' goes down as it stands"
+         "words": "Detective Inspector",
+         "at": 0,
+         "gives": "DI",
+         "note": "DI is the police abbreviation for Detective Inspector"
+        },
+        {
+         "words": "caught",
+         "at": 20,
+         "gives": "C",
+         "note": "C is the cricket abbreviation for caught"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A detective inspector caught out at a club and finally forced to step down.",
-     "walkthrough": "'Caught in a club' paints a scandal and both halves are wordplay instead. 'Had' is the eating kind — you had lunch — which is the hardest of the five pieces to spot.",
-     "definitionFit": "resign → ABDICATE: to abdicate is to give up an office or a throne formally, resigning in the grandest available way."
+     "surface": "A police officer, arrested in a nightclub, was forced to quit.",
+     "walkthrough": "'ultimately' gives B from 'club'; 'in' puts DI and C inside A, B and ATE.",
+     "definitionFit": "To abdicate is to give up a throne or office, which is a formal way to resign."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
     }
    }
   },
@@ -960,25 +998,41 @@
      "indicators": [
       {
        "text": "new",
-       "note": "Something made new is remade from what was there, so the letters come back in a fresh arrangement."
-      },
-      {
-       "text": "abridged",
-       "note": "An abridged book has been shortened, so the word gives up its last letter before anything else is done to it."
+       "at": 5,
+       "note": "new suggests a fresh version, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "abridged dictionary",
-       "gives": "DICTIONAR",
-       "note": "DICTIONARY shortened by its final letter, leaving nine"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "abridged",
+         "at": 9,
+         "note": "abridged means shortened, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "dictionary",
+         "at": 18
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cut-down new edition of a dictionary.",
-     "walkthrough": "'Sign' is doing definition work while dressed as part of the publishing scene — signing for a new book. The car sense of the answer, the flashing light saying which way you are turning, is the everyday one.",
-     "definitionFit": "Sign → INDICATOR: an indicator is whatever points a thing out or shows how it stands, which is what a sign does."
+     "surface": "A notice advertising a newly shortened dictionary.",
+     "walkthrough": "'abridged' cuts the last letter from 'dictionary' to leave DICTIONAR, and 'new' rearranges those letters.",
+     "definitionFit": "An indicator is something that signals or points to a state of affairs, so it is a sign."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sign"
     }
    }
   },
@@ -1542,8 +1596,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "bites",
-       "note": "A bite closes teeth round something, so the insect's letters shut over what comes next."
+       "text": "near",
+       "at": 22,
+       "note": "near says the next piece sits right beside what comes before it"
       }
      ],
      "parts": [
@@ -1551,27 +1606,30 @@
        "op": "container",
        "indicators": [
         {
-         "text": "face",
-         "note": "A face is the front a thing presents, and the front of a word is the letter it opens with."
+         "text": "bites",
+         "at": 4,
+         "note": "bites means the word Bug takes something inside it, as a mouth closes on food"
         }
        ],
        "parts": [
         {
          "words": "Bug",
-         "note": "the clue's own bug, taken as three letters"
+         "at": 0
         },
         {
          "op": "first",
          "indicators": [
           {
-           "text": "middle of",
-           "note": "It wants the letter sitting at the dead centre of the word, with the same number on each side."
+           "text": "face",
+           "at": 17,
+           "note": "the face of a word is its front, its first letter"
           }
          ],
          "parts": [
           {
            "words": "lady's",
-           "note": "the letter Lady presents at the front"
+           "at": 10,
+           "note": "the word whose first letter is taken"
           }
          ]
         }
@@ -1579,30 +1637,32 @@
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "E",
        "indicators": [
         {
-         "text": "near",
-         "note": "Near means alongside, so that letter is set beside what has been built rather than tucked inside it."
+         "text": "middle of",
+         "at": 27,
+         "note": "middle of picks the central letter of a five-letter word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "middle of cheek",
-         "gives": "E",
-         "select": "middle",
-         "note": "chEek has five letters, and this is the third"
+         "words": "cheek",
+         "at": 37,
+         "note": "the word whose central letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An insect biting a woman on the cheek and raising a lump.",
-     "walkthrough": "The whole thing reads as one insect bite, so not a word of it looks like an order. 'Face' meaning the front of a thing is the piece of vocabulary to take away.",
-     "definitionFit": "swelling → BULGE: a bulge is a rounded swelling pushing outwards, the shape something makes under a surface."
+     "surface": "An insect bite on a woman's face, close to her cheek, raising a lump.",
+     "walkthrough": "'face' gives L from 'lady's', which 'bites' puts inside BUG; 'middle of' gives E from 'cheek'.",
+     "definitionFit": "A bulge is a rounded swelling or protrusion on a surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bug"
     }
    }
   },
