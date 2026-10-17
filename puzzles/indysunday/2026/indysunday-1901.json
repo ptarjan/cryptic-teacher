@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1347,38 +1348,48 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "GLEAM",
+     "indicators": [
+      {
+       "text": "breaks",
+       "at": 20,
+       "note": "breaks means smashes apart, so the letters are put back in a new order"
+      }
+     ],
      "parts": [
       {
+       "words": "Male",
+       "at": 0,
+       "note": "taken as written, four letters for the anagram"
+      },
+      {
        "op": "first",
-       "unchecked": true,
-       "gives": "GLEAM",
        "indicators": [
         {
          "text": "head",
-         "note": "the head of a word is the letter it starts with, so only that one letter joins the mix"
-        },
-        {
-         "text": "breaks",
-         "note": "something broken has come apart, and letters that have come apart can be set down in any order"
+         "at": 15,
+         "note": "the head of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Male gymnast",
-         "gives": "GLEAM",
-         "select": "first",
-         "note": "MALE, plus the G that heads gymnast, rearranged"
+         "words": "gymnast's",
+         "at": 5,
+         "note": "its first letter is G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Nothing marks 'Male' as material rather than description, which is what makes it hide so well; and a gymnast's head here is a letter, not a body part.",
-     "definitionFit": "A gleam is the faintest showing of light, so the definition fixes the strength as much as the kind."
+     "surface": "A male gymnast's head crashes through the balance beam.",
+     "walkthrough": "'Male' reads as describing the gymnast, but it is anagram fodder: its letters with G (head of 'gymnast's') are rearranged. 'Beam' sounds like gym apparatus but belongs to the definition.",
+     "definitionFit": "A gleam is a faint or brief flash of light, a small weak ray."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beam"
     }
    }
   },
