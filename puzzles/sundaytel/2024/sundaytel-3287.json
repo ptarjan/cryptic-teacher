@@ -305,12 +305,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EXIST",
      "indicators": [
       {
        "text": "after opener dismissed",
-       "note": "the opener is whoever goes in first, so sending that one away removes the initial letter"
+       "at": 32,
+       "note": "in cricket the opener is the first batsman; once dismissed, the first letter is out"
       }
      ],
      "parts": [
@@ -319,33 +318,39 @@
        "indicators": [
         {
          "text": "in",
-         "note": "being in something means sitting inside it, so one piece goes within another"
+         "at": 15,
+         "note": "in places the team inside the match"
         }
        ],
        "parts": [
         {
          "words": "cricket match",
-         "gives": "EST",
-         "note": "a Test is an international cricket match; without its first letter it leaves these three"
+         "at": 18,
+         "gives": "TEST",
+         "note": "a Test is an international cricket match"
         },
         {
          "words": "team",
+         "at": 10,
          "gives": "XI",
-         "note": "a cricket or football team has eleven players, XI in Roman numerals"
+         "note": "XI, eleven, is a cricket or football team"
         }
        ]
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "Spending your life with a side playing a cricket match once the first batsman is out.",
-     "walkthrough": "A Test match is international cricket. Drop its T, then put XI inside what is left.",
-     "definitionFit": "To exist is to be alive or to have being, the same as to live in the intransitive sense."
+     "surface": "A side plays live in a cricket Test once the first batsman is out.",
+     "walkthrough": "In cricket a team is XI (eleven players) and a Test is an international match; the opener is the first batsman, so 'opener dismissed' sends the first letter away.",
+     "definitionFit": "To exist is to be alive, to live."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "opener"
+     "misdirectedWord": "dismissed"
     }
    }
   },
@@ -1420,45 +1425,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "amazing",
-       "note": "to amaze once meant to bewilder or confuse, so these letters are muddled into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "LAKENYAAS",
+       "words": "discovered in Angola",
+       "at": 14,
+       "gives": "LA",
+       "note": "two letters found sitting at the tail of the word Angola"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "discovered in",
-         "note": "discovered means found lying inside, so a run of letters is taken from within the words that follow"
+         "text": "amazing",
+         "at": 45,
+         "note": "amazing, in the sense of astonishing and confusing, rearranges the letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Angola, Kenya as",
-         "gives": "LAKENYAAS",
-         "select": "last",
-         "note": "a run of letters from the end of the first word through the last"
+         "words": "Kenya as",
+         "at": 36,
+         "note": "taken as written, to be rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A wonderful stretch of water found in Angola and Kenya.",
-     "walkthrough": "It looks like a plain hidden word, but the run of letters has the A and S the wrong way round at the end, so 'amazing' is needed to put them right.",
-     "definitionFit": "Lake Nyasa, also called Lake Malawi, is a large freshwater lake in the African Rift Valley."
+     "surface": "A question about an African lake turning up surprisingly among Angola and Kenya.",
+     "walkthrough": "The surface invites a hidden word across 'Angola, Kenya as', but the run there ends in AS, not SA; only the tail of Angola is found, and the rest is shuffled. Lake Nyasa is today's Lake Malawi.",
+     "definitionFit": "Lake Nyasa, now usually called Lake Malawi, is one of Africa's great lakes, a large body of water."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "amazing"
+     "misdirectedWord": "discovered"
     }
    }
   },
