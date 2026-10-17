@@ -402,21 +402,23 @@
      "indicators": [
       {
        "text": "However you look at it",
-       "note": "a word that looks the same from either direction reads identically forwards and backwards"
+       "at": 0,
+       "note": "whichever direction you read the answer, from the left or the right, it says the same thing"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "However you look at it",
-       "note": "the word sought reads the same from left or right"
+       "words": "from a big town",
+       "at": 29,
+       "gives": "CIVIC",
+       "note": "something from a city is described with this adjective"
       }
      ]
     },
     "explanation": {
-     "surface": "A remark that something unmistakably comes from a city, whichever way you see it.",
-     "walkthrough": "The opening phrase sounds like a figure of speech, but it literally means the letters read the same in both directions.",
-     "definitionFit": "Civic describes things belonging to a city or its government, such as a civic centre or civic pride."
+     "surface": "A remark that something, viewed from any angle, comes from a city.",
+     "walkthrough": "'However you look at it' gives no letters; it tells you the word for 'from a big town' is a palindrome, reading the same in both directions.",
+     "definitionFit": "Civic means relating to a city or town, so civic pride belongs to people from a big town."
     },
     "features": {
      "answerInScene": true,
@@ -820,41 +822,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DURATION",
-     "indicators": [
-      {
-       "text": "shortly",
-       "note": "cut short means losing the end, so the last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 4,
+         "note": "shortly here means cut short, so the word due loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "Due",
-         "gives": "DU",
-         "note": "the word with its last letter removed"
+         "at": 0,
+         "note": "taken as written before it is cut short"
         },
         {
-         "words": "allocated amount",
-         "gives": "RATION",
-         "note": "a ration is a fixed allowance"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "allocated amount",
+       "at": 13,
+       "gives": "RATION",
+       "note": "a ration is a fixed amount allocated to each person"
       }
      ]
     },
     "explanation": {
-     "surface": "Something is due soon, a portion has been allotted, and someone asks how long it took.",
-     "walkthrough": "'Shortly' looks like 'soon' but here means cut short, docking a letter.",
-     "definitionFit": "Duration is the length of time something lasts, so it answers the question how long it took."
+     "surface": "Something is owed soon, a share is assigned, and someone asks how long it all took.",
+     "walkthrough": "'shortly' reads as 'soon' in the surface, but its job is to cut the last letter off 'Due', leaving DU.",
+     "definitionFit": "Duration is the length of time something lasts, the measure of how much time a thing takes."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "shortly"
     }
    }
