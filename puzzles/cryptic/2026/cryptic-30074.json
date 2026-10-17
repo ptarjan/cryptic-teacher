@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -44,45 +45,63 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "primarily",
-       "note": "What matters primarily comes first, and the first thing in a word is the letter it opens with."
+       "text": "with these",
+       "at": 53,
+       "note": "with these says the answer is what joins the initial to make the sound, so taking that initial away from the sound leaves the answer"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ACES",
+       "op": "homophone",
+       "spelt": "CACES",
+       "indicators": [
+        {
+         "text": "sound",
+         "at": 38,
+         "note": "sound means what is heard, so the word for lawsuits is written as it is pronounced, a hard opening consonant followed by the answer"
+        }
+       ],
        "parts": [
         {
-         "words": "sound lawsuits",
+         "words": "lawsuits",
+         "at": 44,
          "gives": "CASES",
-         "note": "lawsuits are cases, and sound ones are cases that stand up in court"
-        },
-        {
-         "op": "first",
-         "parts": [
-          {
-           "words": "claims",
-           "note": "the first letter of CLAIMS, and it is the letter that has to come off the front"
-          }
-         ]
+         "note": "cases are lawsuits brought before a court"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "with these",
-       "note": "'these' is the entry itself: the clue says what the answer turns into rather than what it is built from"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 21,
+         "note": "primarily means first of all, so only the opening letter of claims is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "claims",
+         "at": 13,
+         "note": "its first letter is C"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Kite clues this one the other way round, telling you what the answer becomes once a letter is stuck on the front, so you work back from the lawsuits.",
-     "definitionFit": "Court serves → ACES: a serve the receiver never touches is an ace, so the court is the tennis one the surface spends its time disguising."
+     "surface": "A legal scene: a court hands out writs, and claims lead to well-founded lawsuits.",
+     "walkthrough": "Court here is a tennis court, and its serves are the definition. 'Claims, primarily' gives C, which 'with these' makes the 'sound' of CASES, written by ear as CACES; taking away the C leaves the answer.",
+     "definitionFit": "In tennis an ace is a serve the receiver cannot touch, so aces are winning serves on court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Court"
     }
    }
   },
@@ -113,57 +132,66 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MARSHTIT",
+     "op": "charade",
      "indicators": [
       {
        "text": "on",
-       "note": "In a down clue one thing sitting on another is above it, so this piece is entered first."
+       "at": 8,
+       "note": "in a down clue on means placed above, so the blemish word sits on top of what follows"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Blemish",
+       "at": 0,
+       "gives": "MAR",
+       "note": "to mar is to spoil or blemish"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "wobbly",
-         "note": "Anything wobbly refuses to hold its position, and letters that will not hold their position have to be reset in another order."
+         "at": 16,
+         "note": "wobbly means unsteady, so the letters of this are shaken into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Blemish",
-         "gives": "MAR",
-         "note": "to mar something is to blemish it"
-        },
-        {
          "words": "this",
-         "gives": "SHTI",
-         "note": "the four letters of THIS, reset in another order"
-        },
+         "at": 11
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "bottom of",
-           "note": "A word written downwards has its final letter at the bottom, so that single letter is all that is wanted."
-          }
-         ],
-         "parts": [
-          {
-           "words": "frequent",
-           "note": "the last letter of FREQUENT"
-          }
-         ]
+         "text": "bottom of",
+         "at": 23,
+         "note": "the bottom of a word in a down clue is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "frequent",
+         "at": 33,
+         "note": "its last letter is T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Frequent flyer' is one phrase in the surface and two separate jobs underneath, which is the whole misdirection. A marsh tit is the small brown cousin of the blue tit.",
-     "definitionFit": "flyer → MARSH TIT: a marsh tit is a small woodland bird, so the definition names it by example — anything winged fits until the crossing letters decide."
+     "surface": "A cheeky remark about a mark on the wobbly behind of someone who flies often.",
+     "walkthrough": "'Frequent flyer' looks like an air-miles phrase, but flyer alone is the definition, a bird. MAR sits 'on' SHTI ('wobbly' THIS), then the 'bottom of' frequent adds T.",
+     "definitionFit": "The marsh tit is a small European songbird, so it is a flyer in the crossword sense of a bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "frequent"
     }
    }
   },
@@ -233,57 +261,67 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SCANNERS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "crossed",
+       "at": 28,
+       "note": "crossed means travelled over, so the bridges word spans the letter from cantilever, holding it inside"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "SCANNERS",
        "indicators": [
         {
-         "text": "First of",
-         "note": "The first of a word is the letter it begins with, so one letter only joins the mix."
-        },
-        {
-         "text": "crossed",
-         "note": "To cross two things is to breed one into the other, and letters bred together come out in a new arrangement."
+         "text": "having no",
+         "at": 36,
+         "note": "having no means the letter for parking is taken out"
         }
        ],
        "parts": [
         {
          "words": "bridges",
+         "at": 20,
          "gives": "SPANNERS",
-         "note": "a spanner is anything that spans, so bridges are spanners"
+         "note": "spanners can mean things that span a gap, as bridges do"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "having no",
-           "note": "What a word has none of is missing from it, so the letter named next is taken out before anything else happens."
-          }
-         ],
-         "parts": [
-          {
-           "words": "parking",
-           "note": "P is the road sign for parking, and it is the letter that goes"
-          }
-         ]
-        },
+         "words": "parking",
+         "at": 46,
+         "gives": "P",
+         "note": "P is the road-sign abbreviation for parking"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "First of",
+         "at": 0,
+         "note": "first of means just the opening letter is used"
+        }
+       ],
+       "parts": [
         {
          "words": "cantilever",
-         "gives": "C",
-         "note": "the first letter of CANTILEVER joins what is left"
+         "at": 9,
+         "note": "its first letter is C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A spanner here is not the tool but anything that spans, and the P is a road sign — two everyday words used in senses the surface keeps well out of sight.",
-     "definitionFit": "inspectors → SCANNERS: to scan is to look something over closely, so a scanner is whatever does the looking, machine or person."
+     "surface": "An engineering scene: a cantilever bridge crossed by inspectors who find nowhere to park.",
+     "walkthrough": "'Having no' parking strips P from SPANNERS to give SANNERS, and 'crossed' sets C, the 'First of' cantilever, inside it.",
+     "definitionFit": "Scanners are devices or people that examine things closely, as inspectors do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bridges"
     }
    }
   },
@@ -382,39 +420,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "ROCKSINGER",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "The Reverend Spooner traded the opening sounds of two words, so naming him is the instruction to swap them over."
+       "at": 15,
+       "note": "the Reverend Spooner famously swapped the opening sounds of words, so the first sounds of the two words are exchanged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "garment",
+       "at": 25,
+       "gives": "SOCK",
+       "note": "a sock is an item of clothing"
+      },
+      {
+       "op": "homophone",
+       "spelt": "RINGER",
        "parts": [
         {
-         "unchecked": true,
-         "words": "garment",
-         "gives": "ROCK",
-         "soundsLike": "SOCK",
-         "note": "a sock is the garment, and Spooner takes its S away in exchange for an R"
-        },
-        {
-         "unchecked": true,
          "words": "dryer",
-         "gives": "SINGER",
-         "soundsLike": "WRINGER",
-         "note": "a wringer squeezes the water out of washing, and it collects the S the sock gave up"
+         "at": 33,
+         "gives": "WRINGER",
+         "note": "a wringer squeezes water out of washing to dry it; said aloud, it begins with an R sound"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Say the plain phrase first and the swap does the rest. A wringer as a dryer is the loosest link in the clue, so it is the piece to trust last.",
-     "definitionFit": "Plant maybe → ROCK SINGER: Robert Plant fronted Led Zeppelin, so the surname defines the answer by example, and 'maybe' is the setter admitting it."
+     "surface": "A household oddity: a plant growing in something used to dry clothes.",
+     "walkthrough": "'Plant' looks botanical but is Robert Plant of Led Zeppelin. SOCK WRINGER with its opening sounds swapped becomes the answer, since the W of wringer is silent.",
+     "definitionFit": "Robert Plant, Led Zeppelin's frontman, is a famous example of a vocalist in a heavy band."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Plant"
     }
    }
   },
