@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -102,41 +103,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TITANIUM",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covering",
+       "at": 12,
+       "note": "covering means wrapping round, so the belly word goes round the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Corporation",
+       "at": 0,
+       "gives": "TUM",
+       "note": "corporation is an old jocular word for a pot belly, a tum"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "covering",
-         "note": "A cover goes over a thing on every side, so the word doing the covering wraps right round what comes next."
-        },
-        {
          "text": "molten",
-         "note": "Metal gone molten has lost its shape completely, and letters in that state will not hold the order they were handed over in."
+         "at": 29,
+         "note": "molten means melted and reshaped, so these letters are recast in another order"
         }
        ],
        "parts": [
         {
-         "words": "Corporation",
-         "gives": "TUM",
-         "note": "a corporation is an old word for a paunch, the belly a well-fed alderman carries in front of him"
-        },
-        {
          "words": "it in a",
-         "gives": "ITANI",
-         "note": "five small words' worth of letters, run together and melted into a new order"
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A firm quietly hiding something small by dropping it into a bath of molten metal.",
-     "walkthrough": "'Corporation' is planted to look like a company and it is the Victorian sense, a man's belly — the same joke Dickens would have made.",
-     "definitionFit": "metal → TITANIUM: definition by example, since titanium is one metal among dozens and the plain noun is standing in for the particular element."
+     "surface": "A company wrapping something in liquid metal.",
+     "walkthrough": "'Corporation' is old slang for a paunch, a tum; it is the outer piece here, not a company, and 'covering' wraps it round the recast letters.",
+     "definitionFit": "Titanium is a light, strong chemical element classed among the metals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Corporation"
     }
    }
   },
@@ -161,29 +169,72 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "INKED",
-     "indicators": [
-      {
-       "text": "in prime locations",
-       "note": "The locations wanted are the prime-numbered ones: number the letters straight through and keep those standing at 2, 3, 5, 7 and 11."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "Find keen lads",
-       "gives": "INKED",
-       "select": "prime",
-       "note": "twelve letters run together, with the ones at prime positions picked off in order"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 15,
+         "note": "in, read with prime locations, picks letters from inside the run, here the inner pair of find at positions two and three"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Find",
+         "at": 0,
+         "note": "positions two and three of the run are the middle of find"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "prime",
+         "at": 18,
+         "note": "prime positions five and seven of the run fall on the first and third letters of keen, every other letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "keen",
+         "at": 5,
+         "note": "positions five and seven are the first and third letters of keen"
+        }
+       ]
+      },
+      {
+       "op": "nth",
+       "n": 3,
+       "indicators": [
+        {
+         "text": "locations",
+         "at": 24,
+         "note": "locations completes prime locations: position eleven, a prime, is the third letter of lads"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lads",
+         "at": 10,
+         "note": "position eleven is the third letter of lads"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Advice on where to look for the keenest lads, all of them covered in tattoos.",
-     "walkthrough": "Prime numbers are a rare device and the giveaway is that 'prime locations' is estate-agent talk for the best spots, doing surface duty at the same time.",
-     "definitionFit": "tattooed → INKED: ink is what a tattooist works in, so the past participle has become the ordinary word for having had the work done."
+     "surface": "Looking for eager young men in fashionable spots to get body art.",
+     "walkthrough": "'in prime locations' sounds like desirable venues, but it means positions 2, 3, 5, 7 and 11 in FINDKEENLADS: IN from Find, KE from keen and D from lads.",
+     "definitionFit": "Someone who has been inked has had ink worked into the skin, the slang term for being tattooed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "prime"
     }
    }
   },
@@ -431,42 +482,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MASSMEDIA",
-     "indicators": [
-      {
-       "text": "to work",
-       "note": "Working a thing means kneading it about, the way a baker works dough, and letters worked over like that end up in a new arrangement."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Graduate",
+       "at": 0,
+       "gives": "MA",
+       "note": "MA, Master of Arts, is a graduate"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to work",
+         "at": 19,
+         "note": "to work means the letters are put into action in a new working order"
+        }
+       ],
        "parts": [
         {
-         "words": "Graduate",
-         "gives": "MA",
-         "note": "Master of Arts, the letters a graduate puts after their name"
-        },
-        {
          "words": "22",
+         "at": 10,
          "gives": "SS",
-         "note": "22 across is a steamship, and SS is the pair of letters painted before such a vessel's name"
+         "note": "22-across is a steamer, abbreviated SS for steamship"
         },
         {
          "words": "aimed",
-         "gives": "MEDIA",
-         "note": "five letters handed over to be rearranged"
+         "at": 13
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A graduate with ambitions to land a job in broadcasting.",
-     "walkthrough": "The 22 sends you across the grid: solve that entry first and it hands back two letters, which is why a cross-reference is worth doing early.",
-     "definitionFit": "TV, radio etc → MASS MEDIA: the plural noun covers the channels that reach a whole population at once, of which broadcasting is the everyday example."
+     "surface": "A graduate hoping for a career in broadcasting.",
+     "walkthrough": "The answer to 22-across is STEAMER, and a steamship is SS. 'to work' rearranges SS and AIMED into SSMEDIA.",
+     "definitionFit": "Television, radio and newspapers together are the channels of mass communication, the mass media."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
     }
    }
   },
@@ -711,41 +767,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NODULES",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "installing",
+       "at": 17,
+       "note": "installing means putting something in, so the console letters take the game inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Nintendo console",
+       "at": 0,
+       "gives": "NES",
+       "note": "the NES was the Nintendo Entertainment System, an early games console"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "installing",
-         "note": "Installing a thing means fitting it inside whatever will hold it, so this piece drops into the middle of the one before."
-        },
-        {
          "text": "after turning",
-         "note": "The game is turned round before it goes in, so its letters are written out from the back end forwards."
+         "at": 33,
+         "note": "after turning means the game word is read backwards once turned round"
         }
        ],
        "parts": [
         {
-         "words": "Nintendo console",
-         "gives": "NES",
-         "note": "the Nintendo Entertainment System, the 1980s machine everybody called by its initials"
-        },
-        {
          "words": "game",
-         "gives": "ODUL",
-         "note": "ludo, the counters-and-dice race game, written backwards"
+         "at": 28,
+         "gives": "LUDO",
+         "note": "ludo is a board game"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Nintendo machine with a game slotted into it and its control knobs given a twist.",
-     "walkthrough": "'Nintendo console' looks like one indivisible phrase naming a box under the telly, and what the clue wants is the machine's own initials.",
-     "definitionFit": "knobs → NODULES: both plural nouns for small rounded lumps standing up from a surface, nodules being the word a doctor or a geologist reaches for."
+     "surface": "Setting up a game on a Nintendo, fiddling with its controls.",
+     "walkthrough": "The NES, the Nintendo Entertainment System, was the firm's 1980s console; 'installing' puts the reversed game, ludo, inside it.",
+     "definitionFit": "Nodules are small rounded lumps or swellings, and knobs are small rounded protrusions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knobs"
     }
    }
   },
@@ -770,37 +835,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DOORMAT",
-     "indicators": [
-      {
-       "text": "leader abandoning",
-       "note": "A word's leader is the letter at its head, and here that letter is the one walking out, so what remains begins one letter in."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "party",
+       "at": 19,
+       "gives": "DO",
+       "note": "a do is a party"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leader abandoning",
+         "at": 25,
+         "note": "the leader is the first letter, abandoning means it is dropped from the word for make-up"
+        }
+       ],
        "parts": [
         {
-         "words": "party",
-         "gives": "DO",
-         "note": "a do is a party — 'a bit of a do' — and it is the crossword's standard one"
+         "words": "make-up",
+         "at": 43,
+         "gives": "FORMAT",
+         "note": "the make-up of something is its format, its arrangement"
         },
         {
-         "words": "make-up",
-         "gives": "ORMAT",
-         "note": "the make-up of a thing is its FORMAT, which here gives up its opening F"
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Contempt for a party leader who has stopped bothering with make-up.",
-     "walkthrough": "'Party leader' reads as one phrase naming a politician, and the two words belong to different pieces of wordplay: the party is the knees-up.",
-     "definitionFit": "One looked down on → DOORMAT: it lies at the threshold and is literally looked down on, and the same word names a person everybody walks over."
+     "surface": "A party leader walks out over a policy's composition and is treated with contempt.",
+     "walkthrough": "'party leader' looks like a politician, but 'party' is DO and 'leader abandoning' drops F from FORMAT to leave ORMAT.",
+     "definitionFit": "A doormat is a person others walk over, treated with contempt like the mat by a door."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "leader"
     }
    }
   },
@@ -843,60 +917,72 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNITEDWESTANDDIVIDEDWEFALL",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "used by",
+       "at": 13,
+       "note": "used by here means placed next to, so the pieces sit side by side"
+      },
+      {
+       "text": "before",
+       "at": 35,
+       "note": "before means the divide comes ahead of what follows"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "one",
+       "at": 9,
+       "gives": "UNITED",
+       "note": "people who are one are united"
+      },
+      {
+       "words": "Kanye",
+       "at": 21,
+       "gives": "WEST",
+       "note": "Kanye West is the American rapper"
+      },
+      {
+       "words": "and",
+       "at": 27,
+       "gives": "AND"
+      },
+      {
+       "words": "GAP",
+       "at": 31,
+       "gives": "DIVIDE",
+       "note": "a gap is a divide"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "before",
-         "note": "What comes before something else is written ahead of it, so the gap's letters land in front of the shuffled ones."
+         "text": "silly",
+         "at": 42,
+         "note": "silly signals the letters are jumbled into a nonsensical order"
         }
        ],
        "parts": [
         {
-         "words": "one",
-         "gives": "UNITED",
-         "note": "an adjective here: a party or a country that acts as one has joined into a single body"
-        },
-        {
-         "words": "used by Kanye",
-         "gives": "WEST",
-         "note": "the surname Kanye goes by"
-        },
-        {
-         "words": "and",
-         "note": "lifted straight out of the clue, letter for letter"
-        },
-        {
-         "words": "GAP",
-         "gives": "DIVIDE",
-         "note": "a gap between two camps is what a newspaper calls a rift, and the capitals are the shop on the surface"
-        },
-        {
          "words": "flawed",
-         "gives": "DWEFAL",
-         "note": "six letters handed over to be shaken up"
+         "at": 48
         },
         {
          "op": "last",
          "indicators": [
           {
-           "text": "silly",
-           "note": "Something silly has no sense left in the way it is arranged, and letters called silly will not be standing in the order they arrived in."
-          },
-          {
            "text": "conclusion",
-           "note": "A word's conclusion is where it stops, so only the last letter of the one beside it is being handed over."
+           "at": 62,
+           "note": "the conclusion of a word is its last letter"
           }
          ],
          "parts": [
           {
            "words": "deal's",
+           "at": 55,
            "gives": "DEAL",
-           "note": "the letter the word deal stops on"
+           "note": "the word deal, read without its possessive ending; its last letter is taken"
           }
          ]
         }
@@ -905,9 +991,14 @@
      ]
     },
     "explanation": {
-     "surface": "Kanye West's clothing tie-up with Gap, and the daft, botched way that deal came to an end.",
-     "walkthrough": "The two entries tell the story in order: the first is the collaboration, the second the collapse. Kanye supplies his surname, not his music.",
-     "definitionFit": "Slogan → UNITED WE STAND, DIVIDED WE FALL: the proverb has been a rallying motto since the American Revolution and is the state motto of Kentucky."
+     "surface": "Kanye West's fashion tie-up with Gap ended badly, and the clue sums it up in a catchphrase.",
+     "walkthrough": "Kanye's surname gives WEST and GAP is DIVIDE. 'silly' rearranges FLAWED with L, the end of deal's, into DWEFALL.",
+     "definitionFit": "The saying is a familiar rallying motto urging solidarity, used by many movements and campaigns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kanye"
     }
    }
   },
@@ -1061,52 +1152,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DISTURB",
-     "indicators": [
-      {
-       "text": "up",
-       "note": "This entry is written from the top downwards, so a piece told to go up is read from its bottom end back to its top."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "occasionally",
+         "at": 14,
+         "note": "occasionally means taking only some letters, here every other one"
+        }
+       ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "DIS",
-         "indicators": [
-          {
-           "text": "occasionally",
-           "note": "Something done occasionally happens every so often rather than every time, so only every second letter of the word beside it is picked up."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "ad-libs",
-           "gives": "DIS",
-           "select": "alternate",
-           "note": "the second, fourth and sixth letters of the word, the hyphen counting for nothing"
-          }
-         ]
-        },
+         "words": "ad-libs",
+         "at": 6,
+         "gives": "ADLIBS",
+         "note": "the word ad-libs written without its hyphen; its alternate letters are taken"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 31,
+         "note": "up in a down clue means the word for dry is read from bottom to top, backwards"
+        }
+       ],
+       "parts": [
         {
          "words": "dry",
-         "gives": "TURB",
-         "note": "brut is the dry style printed on a champagne label, and here it is climbing the grid"
+         "at": 27,
+         "gives": "BRUT",
+         "note": "brut describes very dry champagne"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An improviser's off-the-cuff lines drying up every now and again.",
-     "walkthrough": "'Dry up' is one phrase on the surface, the thing that happens to a performer who loses their lines, and the wordplay takes the two words apart.",
-     "definitionFit": "Worry → DISTURB: as verbs both mean to unsettle somebody's peace of mind, and 'do not disturb' asks the same thing as 'do not trouble'."
+     "surface": "Worrying that a performer's improvising sometimes falls flat.",
+     "walkthrough": "Brut is the label for very dry sparkling wine; 'up' reverses it in a down entry to give TURB.",
+     "definitionFit": "To disturb someone is to trouble or agitate them, as worrying does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dry"
     }
    }
   },
@@ -1551,58 +1645,63 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Geronimo",
+      "text": "Geronimo?",
       "at": 44
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BATTLECRY",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Book",
+       "at": 0,
+       "gives": "B"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "new",
-         "note": "Something made new has been put together again out of the same parts, and letters rebuilt that way come out in a different order."
+         "text": "to accommodate",
+         "at": 17,
+         "note": "to accommodate means to house, so the letter for lambert is taken inside"
         }
        ],
        "parts": [
         {
-         "words": "Book",
-         "gives": "B",
-         "note": "B is the standard abbreviation for book"
-        },
-        {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "to accommodate",
-           "note": "To accommodate a guest is to find room for them inside, so the letter named next is fitted into the middle of what precedes it."
+           "text": "new",
+           "at": 5,
+           "note": "new means the letters of cattery are arranged afresh"
           }
          ],
          "parts": [
           {
            "words": "cattery",
-           "gives": "ATTECRY",
-           "note": "seven letters rebuilt into a shell with a gap left in the middle of it"
-          },
-          {
-           "words": "Lambert",
-           "gives": "L",
-           "note": "the lambert is the old unit of brightness, and its symbol is a single L"
+           "at": 9
           }
          ]
+        },
+        {
+         "words": "Lambert",
+         "at": 32,
+         "gives": "L",
+         "note": "L is the symbol for the lambert, a unit of luminance"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Reserving space in a newly built cattery for two arrivals called Lambert and Geronimo.",
-     "walkthrough": "The question mark flags a definition by example. Only one of the two names defines anything — the other is a unit of measurement dressed up as a pet.",
-     "definitionFit": "Geronimo → BATTLE-CRY: 'Geronimo!' is what American paratroopers yelled leaving the aircraft, so the Apache leader's name became one particular battle-cry."
+     "surface": "Reserving a fresh cattery to house a cat called Lambert, and one called Geronimo.",
+     "walkthrough": "'new' makes CATTERY into ATTECRY, and L goes inside it.",
+     "definitionFit": "Geronimo is a shout used when leaping into action, an example of a rallying yell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Lambert"
     }
    }
   }
