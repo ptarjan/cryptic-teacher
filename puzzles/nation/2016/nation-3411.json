@@ -1074,50 +1074,55 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BADEGGS",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "wearing",
-       "note": "the wearer is inside the clothing, so the example word goes within the badge"
+       "text": "with a final change of direction",
+       "at": 40,
+       "note": "the last letter, E for east, is swapped for another compass point, S for south"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "BADEGGS",
+       "op": "container",
        "indicators": [
         {
-         "text": "with a final change of direction",
-         "note": "the last letter is a compass point, and it is swapped for a different compass point"
+         "text": "wearing",
+         "at": 23,
+         "note": "the badge is wearing the e.g., so those letters go inside it"
         }
        ],
        "parts": [
         {
          "words": "insignia",
+         "at": 31,
          "gives": "BADGE",
-         "note": "an emblem or mark of rank"
+         "note": "an insignia is a badge, used here as a singular noun as is common in American English"
         },
         {
          "words": "for example",
-         "gives": "EG",
-         "note": "the abbreviation e.g."
+         "at": 10,
+         "gives": "EG"
         }
        ]
+      },
+      {
+       "gives": "E"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "Cartoon villains sporting badges, perhaps, as they make a final U-turn.",
-     "walkthrough": "The badge ends in E, which counts as east; swapping it for S, south, is the change of direction.",
-     "definitionFit": "A bad egg is an idiom for a dishonest or untrustworthy person, a rogue."
+     "surface": "A description of villains as people who wear insignia and turn the other way at the end.",
+     "walkthrough": "EG goes inside BADGE to give BADEGGE; then the final E (east) changes direction to S (south). E and S are compass-point abbreviations.",
+     "definitionFit": "Bad eggs is an idiom for dishonest or wicked people, so villains fits as a plural noun."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "wearing"
+     "misdirectedWord": "direction"
     }
    }
   },
