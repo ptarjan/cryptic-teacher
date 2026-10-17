@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -924,41 +925,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EPHESUS",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Wild",
-       "note": "wild means untamed and unordered, so the letters will not stay in the tidy line the clue lends them"
+       "text": "accompanies",
+       "at": 11,
+       "note": "accompanies means goes along with, so the second word is set beside the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "accompanies",
-         "note": "one thing that accompanies another walks along beside it, so these two letters sit next to the rest and not inside them"
+         "text": "Wild",
+         "at": 0,
+         "note": "wild means out of control, so the letters of sheep run loose into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Wild sheep",
-         "gives": "EPHES",
-         "note": "the five letters of SHEEP resettled into a new order"
-        },
-        {
-         "words": "us",
-         "note": "the pronoun is written in as it stands"
+         "words": "sheep",
+         "at": 5
         }
        ]
+      },
+      {
+       "words": "us",
+       "at": 23
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A wild sheep is a real animal — a mouflon — which is why the phrase reads as description rather than as an instruction to shuffle.",
-     "definitionFit": "Ephesus was the great Greek and Roman city on the coast of what is now Turkey, famous for its temple of Artemis."
+     "surface": "A flock of untamed sheep follows us around a historic site.",
+     "walkthrough": "'Wild' turns sheep into EPHES, which 'us' then accompanies.",
+     "definitionFit": "Ephesus was a Greek city on the coast of Asia Minor, famous for its Temple of Artemis."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wild"
     }
    }
   },
@@ -1458,40 +1464,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GRETAGARBO",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grabs",
+       "at": 24,
+       "note": "grabs means takes hold of, so the jumbled letters clasp the word for dress inside them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "drunk",
-         "note": "a drunk cannot walk a straight line, and these letters will not keep to theirs either"
-        },
-        {
-         "text": "grabs",
-         "note": "to grab something is to close your hand round it, so the letters shut around what they take hold of"
+         "text": "when drunk",
+         "at": 13,
+         "note": "someone drunk is all over the place, so the letters of to rage are scrambled"
         }
        ],
        "parts": [
         {
          "words": "to rage",
-         "gives": "GRETAO",
-         "note": "the six letters of TO RAGE resettled into a new order"
-        },
-        {
-         "words": "dress",
-         "gives": "GARB",
-         "note": "garb is what you dress in — clothing"
+         "at": 5
         }
        ]
+      },
+      {
+       "words": "dress",
+       "at": 30,
+       "gives": "GARB",
+       "note": "garb is clothing, dress"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Star' is the definition and the joke at once: the wordplay has a screen legend raging drunk and grabbing at a frock.",
-     "definitionFit": "Greta Garbo was the Swedish actress of Grand Hotel and Ninotchka, so 'star' names one of the biggest names in Hollywood."
+     "surface": "A celebrity flies into a drunken fury and seizes a frock.",
+     "walkthrough": "'when drunk' rearranges TO RAGE into GRETAO, which 'grabs' GARB (dress) to give GRETA GARB O.",
+     "definitionFit": "Greta Garbo was a Swedish-born Hollywood film star of the 1920s and 1930s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dress"
     }
    }
   }
