@@ -209,8 +209,7 @@ def _parse_direction(entries, notes, direction, damage):
         m = SEE_RE.match(clue)
         if m and not (isinstance(field, str) and "," in field and enum):
             own = _num_of(field)
-            lights.append([own, None, "redirect", {"clue": clue, "enumeration": enum,
-                                           "see": clue_text.see_number(m.group(1))}])
+            lights.append([own, None, "redirect", {"clue": clue, "enumeration": enum}])
             if own is not None:
                 last = own if last is None else max(last, own)
             continue
