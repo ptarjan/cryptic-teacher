@@ -373,42 +373,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REUSABLE",
-     "indicators": [
-      {
-       "text": "promoting",
-       "note": "the E is moved up a place, ahead of the U"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "promoting English",
+         "at": 7,
+         "note": "promoting English means the E (for English) is moved up a place, ahead of the letter before it in this down entry"
+        }
+       ],
        "parts": [
         {
-         "words": "Regret promoting English",
-         "gives": "REU",
-         "note": "to rue = to regret; RUE with its E (English) moved up a place"
+         "words": "Regret",
+         "at": 0,
+         "gives": "RUE",
+         "note": "to rue is to regret"
         },
         {
-         "words": "fur",
-         "gives": "SABLE",
-         "note": "sable is a prized fur"
+         "gives": "UE"
+        },
+        {
+         "gives": "EU"
         }
        ]
+      },
+      {
+       "words": "fur",
+       "at": 25,
+       "gives": "SABLE",
+       "note": "sable is a prized fur, from the marten of that name"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone regrets advertising an English fur coat as green.",
-     "walkthrough": "The irony is that fur is the opposite of what campaigners call ecofriendly. In a down clue, promoting moves a letter higher up the column.",
-     "definitionFit": "Something reusable avoids waste, so it counts as ecofriendly."
+     "surface": "Regretting the promotion of English fur as an environmentally friendly product.",
+     "walkthrough": "In RUE the E is the English letter; 'promoting' lifts it one place higher in the down light, giving REU, before SABLE, a prized fur.",
+     "definitionFit": "Something reusable can be used again rather than thrown away, which makes it kinder to the environment."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "absurd",
+     "answerInScene": true,
+     "aptDefinition": true,
      "misdirectedWord": "promoting"
     }
    }
@@ -669,34 +675,44 @@
    "annotation": {
     "definitions": [
      {
-      "text": "that's often toasted",
+      "text": "that's often toasted?",
       "at": 35
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TEACAKE",
      "indicators": [
       {
        "text": "expressed by Spooner",
-       "note": "Spooner swapped the opening sounds of words"
+       "at": 14,
+       "note": "Spooner was the Oxford don famed for swapping the opening sounds of words, so the two words are said with their first sounds exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Critical view",
-       "gives": "TEACAKE",
-       "soundsLike": "KEY TAKE",
-       "note": "key = critical, take = view (one's take on something); swap the first sounds"
+       "op": "homophone",
+       "spelt": "CEA",
+       "parts": [
+        {
+         "words": "Critical",
+         "at": 0,
+         "gives": "KEY",
+         "note": "key means critical or crucial; said aloud it is just the vowel after a K sound, which the swap writes as the C of the cake"
+        }
+       ]
+      },
+      {
+       "words": "view",
+       "at": 9,
+       "gives": "TAKE",
+       "note": "a take is a view or opinion, as in 'your take on it'"
       }
      ]
     },
     "explanation": {
-     "surface": "A reviewer's harsh opinion that gets raised in a toast at dinners.",
-     "walkthrough": "'Toasted' looks like drinks raised in honour; a teacake, a sweet fruited bun, is split and toasted.",
-     "definitionFit": "A teacake is a currant bun usually eaten toasted."
+     "surface": "A question about a critical opinion that a speaker might raise a glass to.",
+     "walkthrough": "Say KEY TAKE aloud and swap the opening K and T sounds: TEA CAKE. The swap works on sounds, so the K sound comes out spelt C. 'Toasted' points at the grill, not at a drink.",
+     "definitionFit": "A teacake is a sweet bun with currants, usually split, toasted and buttered in Britain."
     },
     "features": {
      "answerInScene": false,
@@ -1627,60 +1643,59 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "tips for",
-       "note": "the ends, here first and last, of the word"
+       "text": "in",
+       "at": 29,
+       "note": "in places the tips inside the gloomy word and base"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "'in' places the Newmarket tips inside the word for gloomy, as something sits in a box"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "gloomy",
+         "at": 32,
          "gives": "DISMAL",
-         "note": "dismal = gloomy"
+         "note": "dismal means gloomy"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "NT",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Newmarket",
-           "gives": "NT",
-           "select": "first",
-           "note": "its tips, first and last letters, inside DISMAL"
-          }
-         ]
+         "words": "base",
+         "at": 39,
+         "gives": "E",
+         "note": "e is the base of natural logarithms"
         }
        ]
       },
       {
-       "words": "base",
-       "gives": "E",
-       "note": "e is the base of natural logarithms"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "tips for",
+         "at": 10,
+         "note": "the tips of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Newmarket",
+         "at": 19,
+         "note": "the first and last letters of Newmarket"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone noting down racing tips for Newmarket in a depressing army base.",
-     "walkthrough": "Newmarket is the English horse-racing town, so 'tips' look like betting tips; they are its end letters. Base reads as a camp; it is the mathematical e.",
-     "definitionFit": "Phrasal-verb synonym: taking down a tent or stage means pulling it apart piece by piece, as dismantling does."
+     "surface": "A racing tipster offers selections for Newmarket from a dreary headquarters.",
+     "walkthrough": "'Tips' suggests racing advice, but 'tips for Newmarket' are its outer letters N and T, which go 'in' DISMAL plus E. Newmarket is the home of British horse racing; e is the mathematical constant, the base of natural logarithms.",
+     "definitionFit": "To dismantle a structure is to take it apart piece by piece, the sense of taking down a tent or stage."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "tips"
     }
    }
