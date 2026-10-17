@@ -194,7 +194,7 @@ def clue_rows(part, scan=False):
         if see:
             return None
         rows.append({"number": ",".join(nums), "clue": text,
-                     "enumeration": re.sub(r"\s+", "", tail[1:-1]).replace("–", "-"),
+                     "enumeration": clue_text.enum_figures(tail[1:-1]),
                      **({"linkSides": sides} if sides else {})})
     left = part[pos:]
     if scan and not re.search(ENUM, left, re.I) and not re.search(r"\bSee \d", left):
@@ -207,22 +207,10 @@ def clue_rows(part, scan=False):
 def answer_rows(part, direction):
     """fetch_privateeye.solve_from_rows rows [(key, direction, LETTERS)]."""
     out = []
-    # "DOWN: i Emma 2 Orgasm": the scan's 1 read as a letter (No 54).
-    part = re.sub(r"^\s*[|lIi](?=\s+(?:[A-Z]|\(see))", "1", part)
     # The page's next item runs on after the last answer ("23 Blair. MONDAY,
     # MARCH 3, 44 BC ..."): it swallowed No 73's 23dn and added keys 0, 4, 94.
     part = re.split(r"\.\s+(?=[A-Z]{4,}\b)", part)[0]
-    # A speck before a number ("2 Belgrano -3 Oppo", No 63) hid 2dn's end.
-    part = re.sub(r"\s[-\u2013\u2014~]+(?=\d)", " ", part)
-    # "12Ethelred", "28See.": the scan ran the number into its answer (No 27, 61).
-    part = re.sub(r"(?:(?<=\s)|^)(\d{1,2})(?=[A-Za-z]{2,})", r"\1 ", part)
-    # "8S and M", "22.Panorama", "18Hess_20 Clever dick", "6/20d Kenneth Clarke"
-    # (No 20): a one-letter start, a full stop or an underscore the scan put
-    # for the space, and the direction letter a link's tail may carry.
-    part = re.sub(r"(?:(?<=\s)|^)(\d{1,2})(?=[A-Za-z]\s)", r"\1 ", part)
-    part = re.sub(r"(?:(?<=\s)|^)(\d{1,2})\.(?=[A-Z])", r"\1 ", part)
-    part = re.sub(r"(?<=[A-Za-z])[_|](?=\d)", " ", part)
-    part = re.sub(r"(?:(?<=\s)|^)(\d{1,2}(?:/\d{1,2})*/\d{1,2})[ad]\b", r"\1", part)
+    part = clue_text.mend_numbered_run(part)
     seen = set()
     for key, words in ANSWER.findall(part):
         words = _unjunk(words)

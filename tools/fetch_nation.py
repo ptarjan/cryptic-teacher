@@ -255,7 +255,7 @@ def clue_lists(lines):
                 text = f"{c} ({note.group(1)}) ({n})"
             m = ENUM.match(text)
             rows.append({"number": number, "clue": (m.group(1) if m else text).strip(),
-                         "enumeration": re.sub(r"\s+", "", m.group(2)).replace("–", "-")
+                         "enumeration": clue_text.enum_figures(m.group(2))
                          if m else None})
         out[direction] = rows
     return out, lines[:a]

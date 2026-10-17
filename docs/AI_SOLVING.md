@@ -282,6 +282,23 @@ the clue itself. A final `suspect()` check refuses a puzzle with any clue no
 reader could have meant. None of this uses Claude: the archive is read with
 local models only.
 
+**One home for text fixes.** A repair to clue, heading, preamble or count text
+that undoes damage from the print, a scan, an OCR engine, a PDF or a page
+encoding (letter-for-digit slips such as l/1 and O/0, dash, quote, ellipsis
+and ligature normalisation, a number run into its word, see/run-on and count
+repair) lives in `tools/clue_text.py` (or `quotes.py`, `dashes.py`,
+`enumeration.py`), never in a paper's reader or fetcher, so a fix learned on
+one source reaches them all. Per-source code keeps only what is the source's
+own: page layout, finding the puzzle page, grid geometry, HTML parsing and URL
+logic. `tools/test_ocr_text_central.py` enforces it in CI: it walks every
+source-reading module (by name, or by importing an OCR, PDF or image library)
+and fails on a `translate`/`maketrans`, a `sub`/`replace` on typographic marks,
+a letter-for-digit regex class, or a single-character confusion table outside
+the central modules. A hit that is not a text fix (a comparison key, a lookup
+fold) goes in the test's `ALLOWED` list with a reason, one per function. The
+test cannot see a digit-only repair under a plain name, so review a new `re.sub`
+on clue text in a reader as a fix to move.
+
 ### Choosing what to hint
 
 Two scheduled jobs annotate, and they split the quota deliberately (their

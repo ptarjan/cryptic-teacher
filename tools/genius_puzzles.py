@@ -352,10 +352,6 @@ COUNT_ONLY = re.compile(rf"\s*{fpp.ENUM_TEXT}\s*")
 UNCLUED_MARK = re.compile(r"(?i)\[unclued\]|\(See (?:special )?instructions\)|See (?:the )?(?:special )?(?:preamble|instructions)")
 
 
-#: The one ligature table (quotes.LIGATURES), which every clue write applies too.
-LIGATURES = str.maketrans(quotes.LIGATURES)
-
-
 def flat(raw, kerned=True):
     """The PDF's text as one line: pypdf's per-word and per-line breaks are
     all spaces, a capital kerned off its word ("T earful") rejoined, and a
@@ -374,7 +370,7 @@ def flat(raw, kerned=True):
     t = re.sub(r"[\u200b\u00ad]", "", raw)
     # A PDF's typeset ligatures ("stu\ufb00", "e\ufb00ervescent": genius-205,
     # 169) are letters: the write gate refuses them in clue text.
-    t = t.translate(LIGATURES)
+    t = quotes.unligature(t)
     t = re.sub(r"\s+", " ", t).strip()
     if kerned:
         t = re.sub(r"\b([B-HJ-Z]) ([a-z]{2,})\b",
@@ -738,7 +734,7 @@ def ocr_page(number, image, post=None):
     first, other = readings[0], {tuple(c["lights"]): c for c in readings[1]["clues"]}
     if not first["clues"] or sorted(tuple(c["lights"]) for c in first["clues"]) != sorted(other):
         return None, "the readers lay different clue lists"
-    norm = lambda s: re.sub(r"[\s—–-]+", "", re.sub("[‘’]", "'", s))
+    norm = clue_text.same_text_key
     clues = []
     for c in first["clues"]:
         o = other[tuple(c["lights"])]

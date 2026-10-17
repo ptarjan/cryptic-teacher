@@ -319,7 +319,7 @@ def solution_number(text, expected):
     REPAIR_COST), and no other as cheap. A clean read near one expected
     but not it ("15,683" under the title 15,683) is the title or the
     heading misread, and which is unknowable: None."""
-    read = re.sub(r"[\s,.^'*`’\-]", "", text)
+    read = clue_text.number_figures(text)
     if read.isdigit() and int(read) in expected:
         return int(read)
     if read.isdigit() and any(abs(int(read) - e) < 10 for e in expected):
@@ -1153,7 +1153,7 @@ def spaced(text):
     # A speck between two words ("flat.and", "for.misdeed"), and a quote or
     # bracket run onto the word before it ("in“The", "sire?(anag.)").
     text = re.sub(r"(?<=[a-z]{2})[.,·](?=[a-z]{2})", " ", text)
-    text = re.sub(r"(?<=[A-Za-z?!])(?=[“‘(])", " ", text)
+    text = clue_text.space_before_quote(text)
     # Half a word broken over a line end ("esta-", "blished") is no run.
     return re.sub(r"(?<![\w\-])[A-Za-z]+(?:'[a-z]+)?(?![\w\-])", lambda m: m[0] if text[:m.start()].endswith(("-\n", "- ")) else one(m), text)
 

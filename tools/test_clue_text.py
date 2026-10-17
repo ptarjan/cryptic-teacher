@@ -241,4 +241,19 @@ assert ct.BARE_SEE.match("sce l5") and ct.BARE_SEE.match("(see I)") and not ct.B
 # run-on number core shared by RUN_ON_NUMBER and NEXT_NUMBER
 assert ct.NEXT_NUMBER.search("clue (5) l] Next") and ct.RUN_ON_NUMBER.search("clue (5) l] Next")
 assert not ct.NEXT_NUMBER.search("clue (5) 7 Across") and not ct.RUN_ON_NUMBER.search("clue (5) 7 Across")
+# fixes moved out of per-source readers (see test_ocr_text_central.py)
+assert ct.mac_punctuation("SantaÕs helpers Ð seamen") == "Santa’s helpers – seamen"
+assert ct.mac_punctuation("Ð alone") == "Ð alone"
+assert ct.enum_figures("5 \u2013 3") == "5-3"
+assert ct.same_text_key("Ann\u2019s \u2014 clue") == "Ann'sclue"
+assert ct.mend_list_start("1.Religion (5)") == "1 Religion (5)" and ct.mend_list_start("1-Chinese") == "1 Chinese"
+assert ct.mend_between_clues("a (3-6). _ 3 It's") == "a (3-6). 3 It's"
+assert ct.mend_between_clues("a (10). : 6 Angry") == "a (10). 6 Angry"
+assert ct.mend_between_clues("a (5) 11.12A product") == "a (5) 11,12 A product"
+assert ct.space_before_quote("in\u201cThe sire?(anag.)") == "in \u201cThe sire? (anag.)"
+assert ct.mend_numbered_run("i Emma 2 Orgasm") == "1 Emma 2 Orgasm"
+assert ct.mend_numbered_run("12Ethelred 18Hess_20 Clever 6/20d Ken 22.Panorama") == "12 Ethelred 18 Hess 20 Clever 6/20 Ken 22 Panorama"
+import quotes
+assert quotes.unligature("stu\ufb00 \u2019") == "stuff \u2019"
+assert ct.number_figures("15,683 *") == "15683" and ct.FIGURE_SLIPS["3"] == "8"
 print("clue_text ok")
