@@ -23,7 +23,8 @@
   "check": "33 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -44,53 +45,60 @@
      {
       "text": "What fun",
       "at": 0,
-      "note": "'What fun' is the cry rather than the thing, but what raises the cry is a frolic, so the setter names the answer by the reaction to it."
+      "note": "a phrase naming the thing that is fun, so it stands for a noun"
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "different",
-       "note": "What is different is not as it was, and letters that are not as they were have been put in another order."
-      }
-     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "leader",
-         "note": "The leader of a word is the letter out in front of it, so that first letter is the only one taken."
+         "text": "different",
+         "at": 13,
+         "note": "different asks for the word for in a different arrangement of its letters"
         }
        ],
        "parts": [
         {
          "words": "for",
-         "note": "anagram fodder, three letters"
-        },
+         "at": 9
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "Labour leader",
-         "gives": "L",
-         "note": "the front letter of Labour, joined to the fodder"
+         "text": "leader",
+         "at": 30,
+         "note": "a leader is at the front, so only the opening letter of Labour is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Labour",
+         "at": 23,
+         "note": "the first letter of Labour"
         }
        ]
       },
       {
        "words": "in charge",
-       "gives": "IC",
-       "note": "i/c is the everyday short form of in charge"
+       "at": 44,
+       "gives": "IC"
       }
      ]
     },
     "explanation": {
-     "surface": "A change at the top of the Labour party, greeted as a treat.",
-     "walkthrough": "'Labour leader' reads as a man — Keir Starmer, say — and is only the letter L. The i/c of 'in charge' is what gets written beside a name on a duty roster.",
-     "definitionFit": "A frolic is a burst of high-spirited play, the thing you would greet with 'what fun'."
+     "surface": "A sarcastic cheer at the prospect of yet another new Labour leader taking charge.",
+     "walkthrough": "'Labour leader' looks like a politician, but 'leader' takes just the first letter of Labour. 'different' rearranges FOR into FRO.",
+     "definitionFit": "A frolic is a playful, lively bit of amusement, so it is fun."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "leader"
     }
    }
@@ -1248,32 +1256,35 @@
     "definitions": [
      {
       "text": "He scored",
-      "at": 0,
-      "note": "'He scored' is a statement rather than a noun, and it names the man by what he did: a composer is someone who writes the score."
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "BRAHMS",
      "indicators": [
       {
        "text": "half",
-       "note": "Half of a two-name phrase is one of the two names, and the one kept here is the one that comes first."
+       "at": 18,
+       "note": "half means keep only one of the two composers in the slang phrase and drop the rest"
       }
      ],
      "parts": [
       {
        "words": "pissed",
-       "gives": "BRAHMS",
-       "note": "the Cockney rhyme for drunk names two composers, and only the first of the pair is kept"
+       "at": 23,
+       "gives": "BRAHMSANDLISZT",
+       "note": "Brahms and Liszt is Cockney rhyming slang for pissed, meaning drunk"
+      },
+      {
+       "gives": "ANDLISZT",
+       "note": "the second half of the slang phrase, 'and Liszt', which is discarded"
       }
      ]
     },
     "explanation": {
-     "surface": "A footballer who found the net despite being half drunk.",
-     "walkthrough": "'Scored' is the goal in the surface and the manuscript in the definition. Brahms and Liszt pairs two composers to rhyme with 'pissed', the Cockney way of calling somebody drunk.",
-     "definitionFit": "Johannes Brahms wrote the scores of four symphonies and a German Requiem, so 'he scored' names him by the work."
+     "surface": "Someone scored, even though they were halfway drunk at the time.",
+     "walkthrough": "In British rhyming slang 'Brahms and Liszt' means pissed (drunk); half of that pair is Brahms. 'scored' is the composer's sense, writing a musical score, not the sexual or sporting one.",
+     "definitionFit": "Johannes Brahms was a composer, so he scored music, writing orchestral scores."
     },
     "features": {
      "answerInScene": false,
