@@ -3075,6 +3075,23 @@ def renamed_reprint_rows(puzzles, renamed, taken):
     return rows
 
 
+def warm_rows(i, n):
+    """Make the row-cache rows of every n-th puzzle file (offset i) and nothing
+    else: the per-file passes reindex() runs, over this slice. A cold cache
+    (code changed, so every row is missing) is ~175s of one step, which a
+    step's budget cannot hold; the deploy runs `--warm-rows i/n` as n steps
+    first, each storing its rows as it ends, so the reindex step after them
+    finds every row and only merges. Same keys as reindex() asks for, so the
+    rows are the ones it reuses."""
+    import row_cache
+    import difficulty
+    paths = sorted(puzzle_files())[i::n]
+    row_cache.cached_map("fetch_puzzle", index_row, paths,
+                         roots={"index_row_deps"}, deps=index_row_deps)
+    difficulty.warm_rows(paths)
+    print(f"warmed {len(paths)} puzzle file(s), slice {i}/{n}")
+
+
 def reindex():
     """Rebuild puzzles/index.json and index.js from the puzzle files on disk.
 
@@ -3569,6 +3586,10 @@ def main(argv):
     if argv[0] == "--reindex":
         index = reindex()
         print(f"indexed {len(index['puzzles'])} puzzle(s); latest = {index['latest']}")
+        return 0
+    if argv[0] == "--warm-rows":
+        i, n = map(int, argv[1].split("/"))
+        warm_rows(i, n)
         return 0
     if argv[0] == "--refresh-unsolved":
         refresh_unsolved()

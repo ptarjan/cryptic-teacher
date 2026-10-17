@@ -173,6 +173,20 @@ jobs:
         run: bash tools/cache_tar.sh unpack .shim-cache.tar
       # Then a restored shim the index no longer names (its puzzle deleted or
       # renamed since) is removed, so the site ships what a clean build would.
+      # A cold row cache (any change to the code a row reaches) makes ~42k
+      # rows, ~175s of one step. So they are made in 4 slices, one step
+      # each (`--warm-rows i/n`: every n-th puzzle file), and the reindex
+      # below finds them all and only merges. Each slice ends cleanly, so the
+      # cache is saved even when the code moved; on a warm cache they are
+      # four lookups.
+      - name: Warm the row cache, slice 1 of 4
+        run: python3 tools/fetch_puzzle.py --warm-rows 0/4
+      - name: Warm the row cache, slice 2 of 4
+        run: python3 tools/fetch_puzzle.py --warm-rows 1/4
+      - name: Warm the row cache, slice 3 of 4
+        run: python3 tools/fetch_puzzle.py --warm-rows 2/4
+      - name: Warm the row cache, slice 4 of 4
+        run: python3 tools/fetch_puzzle.py --warm-rows 3/4
       - name: Build the puzzle shims and reindex
         run: |
           python3 tools/fetch_puzzle.py --reindex

@@ -1011,6 +1011,15 @@ def _files_hash(*paths):
     return h.hexdigest()[:16]
 
 
+def warm_rows(paths):
+    """Make the stored rows all_scores() and history() read, for `paths` only
+    (tools/fetch_puzzle.py --warm-rows): the same calls, so the same keys."""
+    row_cache.cached_map("difficulty", clue_row, paths, roots={"_load_clue_inputs"},
+                         salt=_files_hash(LEXICON, WORDNET), deps=clue_row_deps,
+                         prepare=_load_clue_inputs)
+    row_cache.cached_map("difficulty", history_row, paths, deps=history_row_deps)
+
+
 def all_scores(base=None):
     """Every puzzle's rating as the badges show it: score()'s clue index, and
     where a Times for the Times post has enough comments stating solve times,
