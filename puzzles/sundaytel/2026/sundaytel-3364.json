@@ -45,46 +45,55 @@
      "op": "container",
      "indicators": [
       {
-       "text": "empty",
-       "note": "an emptied word has had its contents scooped out, leaving only its outside letters"
+       "text": "in which",
+       "at": 18,
+       "note": "in which says the following letters go inside the emptied venue"
       },
       {
        "text": "resides",
-       "note": "the mouser lives inside that shell, so its letters sit within it"
+       "at": 36,
+       "note": "resides completes the picture of the cat living inside the venue's letters"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "VE",
        "indicators": [
         {
-         "text": "in which",
-         "note": "points back to the shell of venue as the place where the next piece goes"
+         "text": "empty",
+         "at": 6,
+         "note": "empty means with the inside taken out, leaving only the first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "empty venue",
-         "gives": "VE",
-         "select": "outer",
-         "note": "VENUE with its middle removed"
+         "words": "venue",
+         "at": 12,
+         "note": "venue emptied of its middle leaves V and E"
         }
        ]
       },
       {
-       "words": "a mouser",
-       "gives": "ACAT",
-       "note": "a mouser = a cat, kept for catching mice"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 27
+        },
+        {
+         "words": "mouser",
+         "at": 29,
+         "gives": "CAT",
+         "note": "a mouser is a cat kept to catch mice"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cat has moved into a deserted hall and somebody wants to clear out.",
-     "walkthrough": "'Leave empty' looks like one instruction to clear the hall, but 'Leave' alone is the definition and 'empty' works on venue.",
-     "definitionFit": "A plain synonym: tenants who move out of a flat or guests quitting a hotel room are departing from it."
+     "surface": "Clear out of a deserted building where a cat has taken up residence.",
+     "walkthrough": "'empty venue' leaves V and E, and 'in which ... resides' puts A CAT between them.",
+     "definitionFit": "To vacate a place is to leave it, giving up occupation of a room or seat."
     },
     "features": {
      "answerInScene": true,
@@ -210,44 +219,43 @@
      "indicators": [
       {
        "text": "Before",
-       "note": "the draw's letters are placed ahead of the winner's letter"
+       "at": 0,
+       "note": "the draw word goes before the winner's last letter"
       }
      ],
      "parts": [
       {
        "words": "draw",
+       "at": 28,
        "gives": "TIE",
-       "note": "a drawn match is a tie"
+       "note": "a tie is a drawn game"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
          "text": "at the death",
-         "note": "sporting slang for the final moments of a match, so the final letter"
+         "at": 14,
+         "note": "at the death means at the very end, so the last letter is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "winner at the death",
-         "gives": "R",
-         "select": "last",
-         "note": "last letter of WINNER"
+         "words": "winner",
+         "at": 7,
+         "note": "the last letter of winner is R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A team equalises just before a late winning goal.",
-     "walkthrough": "'Draw level' reads as one sporting phrase, but 'level' is the definition and 'draw' belongs to the wordplay.",
-     "definitionFit": "A plain synonym: stadium seating, wedding cakes and organisations are built in stacked layers."
+     "surface": "Just before a late winner, a team scrapes a draw to draw level.",
+     "walkthrough": "'at the death' is sports slang for the final moments, here the last letter of 'winner'. 'level' looks like an adjective about the score; it is a noun, a layer.",
+     "definitionFit": "A tier is a level or layer, one of a series of rows placed one above another."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "level"
     }
@@ -518,59 +526,62 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "RATHER",
+     "op": "container",
      "indicators": [
       {
-       "text": "turns",
-       "note": "the word for back turns round, reading right to left"
+       "text": "in",
+       "at": 28,
+       "note": "the pair goes in the reversed back word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "after",
-         "note": "hot's letter follows temperature's letter"
+         "text": "turns",
+         "at": 36,
+         "note": "turns means turns round, so the back word is read in reverse"
         }
        ],
        "parts": [
         {
-         "words": "back turns",
-         "gives": "RAER",
-         "note": "REAR (back) reversed"
+         "words": "back",
+         "at": 31,
+         "gives": "REAR",
+         "note": "the rear is the back"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "at": 10,
+         "note": "the hot letter comes after the temperature letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "temperature",
+         "at": 16,
+         "gives": "T"
         },
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "the temperature-and-hot pair goes inside the reversed back"
-          }
-         ],
-         "parts": [
-          {
-           "words": "temperature",
-           "gives": "T",
-           "note": "T = temperature"
-          },
-          {
-           "words": "hot",
-           "gives": "H",
-           "note": "H = hot, as on taps"
-          }
-         ]
+         "words": "hot",
+         "at": 6,
+         "gives": "H",
+         "note": "H is the abbreviation for hot, as on a tap"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone notices the heat creeping back as the weather turns.",
-     "walkthrough": "'Quite hot' reads as one phrase about the weather; 'Quite' alone is the definition and 'hot' is just a letter.",
-     "definitionFit": "A plain synonym: both soften an adjective, as in a fairly good film."
+     "surface": "It gets quite hot once the temperature rises and your back starts to turn.",
+     "walkthrough": "'turns' makes REAR into RAER, and 'in' sets T and H between its A and E.",
+     "definitionFit": "Rather is an adverb meaning quite or somewhat, as in rather warm."
     },
     "features": {
      "answerInScene": false,
@@ -858,42 +869,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "initial",
-       "note": "the initial of a word is its opening letter"
+       "text": "in",
+       "at": 26,
+       "note": "the initial goes in the currency word"
       }
      ],
      "parts": [
       {
        "words": "Turkish currency",
+       "at": 29,
        "gives": "LIRA",
-       "note": "the lira is Turkey's currency"
+       "note": "the lira is the currency of Turkey"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "B",
        "indicators": [
         {
-         "text": "in",
-         "note": "that letter goes inside the currency's name"
+         "text": "initial on",
+         "at": 5,
+         "note": "initial on means the first letter appearing on the word that follows"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "initial on banknotes",
-         "gives": "B",
-         "select": "first",
-         "note": "first letter of BANKNOTES"
+         "words": "banknotes",
+         "at": 16,
+         "note": "the first letter of banknotes is B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone initials Turkish banknotes before signing off.",
-     "walkthrough": "'Sign' pretends to be the verb for initialling notes; it is a zodiac sign.",
-     "definitionFit": "Definition by example: the scales are one of the twelve star signs of the zodiac."
+     "surface": "A sign printed on Turkish banknotes, in the national currency.",
+     "walkthrough": "'initial on banknotes' gives B, which goes 'in' LIRA after LI.",
+     "definitionFit": "Libra, the scales, is the seventh sign of the zodiac in astrology."
     },
     "features": {
      "answerInScene": false,
@@ -1061,39 +1071,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "broken up",
-       "note": "something smashed into bits can be reassembled differently, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Plane",
+       "at": 0,
+       "gives": "JET",
+       "note": "a jet is a jet-engined plane"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken up",
+         "at": 13,
+         "note": "broken up means smashed apart, so the letters are reassembled in a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Plane",
-         "gives": "JET",
-         "note": "a jet is a plane"
-        },
-        {
          "words": "is not",
-         "note": "IS NOT rearranged"
+         "at": 6
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An aircraft is intact and so is not being broken up for scrap.",
-     "walkthrough": "'Broken up for scrap' reads as one phrase about an old plane; 'scrap' is the definition.",
-     "definitionFit": "Originally throwing cargo overboard to lighten a ship, now discarding any plan or thing."
+     "surface": "An aircraft that isn't broken up gets sent off for scrap.",
+     "walkthrough": "'broken up' rearranges IS NOT into TISON. 'Plane' is the aircraft, not the tool or the flat surface.",
+     "definitionFit": "To jettison is to discard or throw away something unwanted, to scrap it."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Plane"
+     "misdirectedWord": "broken"
     }
    }
   },
@@ -1385,37 +1397,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "originally",
-       "note": "what a word is at its origin is its opening letter"
+       "text": "pocketed",
+       "at": 31,
+       "note": "pocketed means taken into a pocket, so the letter is held inside the placed word"
       }
      ],
      "parts": [
       {
        "words": "placed",
+       "at": 4,
        "gives": "PUT",
-       "note": "placed = put"
+       "note": "put means placed, set down"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "pocketed",
-         "note": "something pocketed is tucked inside, so the letter goes within placed"
+         "text": "originally",
+         "at": 20,
+         "note": "originally means at the start, so the first letter of nothing is taken"
         }
        ],
        "parts": [
         {
-         "words": "nothing originally",
-         "note": "first letter of NOTHING"
+         "words": "nothing",
+         "at": 12,
+         "note": "the first letter of nothing is N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gambler places a bet and wins nothing, continuing in the next clue.",
-     "walkthrough": "The ellipsis links the surface to 28 across; it plays no part in the wordplay.",
-     "definitionFit": "British slang for a gamble or wager, especially a speculative one at the bookmaker's."
+     "surface": "A wager was laid, but nothing came of it at first and the money was pocketed.",
+     "walkthrough": "'originally' gives N from 'nothing', and 'pocketed' puts it inside PUT. A punt is British slang for a bet.",
+     "definitionFit": "A punt is an informal British term for a bet or a speculative gamble."
     },
     "features": {
      "answerInScene": true,
@@ -1572,45 +1588,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OBTAINED",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 24,
+       "note": "the rearranged letters come after the nothing letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "nothing",
+       "at": 30,
+       "gives": "O",
+       "note": "O is the round figure zero, nothing"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "differently",
-         "note": "arranged in a different way, so the letters are reordered"
-        },
-        {
-         "text": "after",
-         "note": "the rearranged letters follow the letter for nothing"
+         "at": 12,
+         "note": "differently means in another way, so the letters are put in a different order"
         }
        ],
        "parts": [
         {
-         "words": "nothing",
-         "gives": "O",
-         "note": "O = zero, nothing"
-        },
-        {
          "words": "and I bet",
-         "gives": "BTAINED",
-         "note": "AND I BET rearranged"
+         "at": 2
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Continuing from 25 across: the gambler bets another way after winning nothing.",
-     "walkthrough": "The opening ellipsis only continues the story from 25 across.",
-     "definitionFit": "A plain synonym: got hold of, gained possession of, as winnings are collected after a successful bet."
+     "surface": "Following on from the punt, I bet a different way and got something for nothing.",
+     "walkthrough": "The ellipsis carries the betting picture on from the clue before. 'differently' rearranges AND I BET into BTAINED, which comes 'after' O.",
+     "definitionFit": "To obtain something is to get or acquire it, so obtained means acquired."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
     }
    }
   },
@@ -1728,41 +1747,40 @@
      "indicators": [
       {
        "text": "about",
-       "note": "the rule goes round the other letter, surrounding it"
+       "at": 5,
+       "note": "the rule word goes about, around, the final letter"
       }
      ],
      "parts": [
       {
        "words": "Rule",
+       "at": 0,
        "gives": "CANON",
-       "note": "a canon is a rule or law"
+       "note": "a canon is a rule or principle, as in church law"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "N",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "what comes in the end, so the final letter of the word"
+         "at": 22,
+         "note": "ultimately means in the end, so the last letter of ammunition is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "ammunition ultimately",
-         "gives": "N",
-         "select": "last",
-         "note": "last letter of AMMUNITION"
+         "words": "ammunition",
+         "at": 11,
+         "note": "the last letter of ammunition is N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A regulation governing the supply of shells for heavy artillery.",
-     "walkthrough": "'Big gun' can mean an important person; here it is the weapon.",
-     "definitionFit": "A heavy artillery piece firing iron balls, as on old warships and castle walls."
+     "surface": "A regulation on ammunition decides the fate of a heavy gun.",
+     "walkthrough": "'ultimately' gives N, and 'about' wraps CANON round it to double the N.",
+     "definitionFit": "A cannon is a large heavy gun, the classic artillery piece."
     },
     "features": {
      "answerInScene": true,
