@@ -1290,27 +1290,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EURO",
+     "op": "middle",
      "indicators": [
       {
        "text": "without limits",
-       "note": "with its limits gone, the word loses its letters at both ends"
+       "at": 23,
+       "note": "without limits means the first and last letters are taken off"
       }
      ],
      "parts": [
       {
        "words": "What you need to think",
+       "at": 0,
        "gives": "NEURON",
-       "note": "a neuron is a nerve cell, the unit the brain thinks with"
+       "note": "a neuron is a nerve cell, the brain's basic unit of thought"
       }
      ]
     },
     "explanation": {
-     "surface": "A self-help maxim: to think without limits, all you need is money.",
-     "walkthrough": "'think without limits' reads as a motivational phrase, but 'without limits' trims the brain cell at both ends.",
-     "definitionFit": "The euro is the currency of most of the European Union, so it is a kind of money."
+     "surface": "Someone muses that unbounded thinking is all it takes to make money.",
+     "walkthrough": "'without limits' trims NEURON at both ends. 'think without limits' tempts as a phrase for open-mindedness, but the limits belong to the word for a brain cell.",
+     "definitionFit": "The euro is the currency used by most European Union countries."
     },
     "features": {
      "answerInScene": false,
@@ -1645,35 +1645,50 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TESTBAN",
+     "op": "substitution",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so the next phrase is treated likewise"
+       "at": 0,
+       "note": "Spooner, the Oxford don famed for swapping the opening sounds of words, signals that the first sounds of the two words change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "optimal skin tone",
-       "gives": "TESTBAN",
-       "soundsLike": "BEST TAN",
-       "note": "optimal is best and a skin tone from the sun is a tan; swap their first sounds"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "optimal",
+         "at": 10,
+         "gives": "BEST",
+         "note": "best means optimal, the most favourable"
+        },
+        {
+         "words": "skin tone",
+         "at": 18,
+         "gives": "TAN",
+         "note": "a tan is the brown skin tone left by the sun"
+        }
+       ]
+      },
+      {
+       "gives": "BESTT"
+      },
+      {
+       "gives": "TESTB"
       }
      ]
     },
     "explanation": {
-     "surface": "The perfect suntan, absurdly, becomes the matter of an international treaty.",
-     "walkthrough": "Swap the B and T sounds of the two words.",
-     "definitionFit": "A test ban forbids nuclear weapons testing, the subject of treaties such as the 1963 Partial Test Ban Treaty."
+     "surface": "An ideal suntan is presented, absurdly, as the topic of an international agreement.",
+     "walkthrough": "'Spooner's' swaps the opening sounds of BEST and TAN: the T moves to the front of the first word and the B to the front of the second, giving TEST and BAN.",
+     "definitionFit": "A test ban is an agreement prohibiting nuclear weapons tests, as in the 1963 Partial Test Ban Treaty."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "skin"
+     "misdirectedWord": "optimal"
     }
    }
   },
