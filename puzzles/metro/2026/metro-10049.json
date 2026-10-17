@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -52,45 +53,30 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "removing",
-       "note": "Removing says a named piece leaves the word that follows, so what is wanted is the letters still standing once it has gone."
+       "text": "removing central piece of",
+       "at": 17,
+       "note": "the central piece of the word is its middle letter, which is taken out"
       }
      ],
      "parts": [
       {
        "words": "footrest",
+       "at": 43,
        "gives": "STIRRUP",
-       "note": "the metal loop hanging from a saddle that carries a rider's foot"
+       "note": "a stirrup is the loop a rider rests a foot in"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "R",
-       "indicators": [
-        {
-         "text": "central piece",
-         "note": "The central piece of a word of seven letters is the single one in the middle, with three on either side of it."
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "central piece",
-         "gives": "R",
-         "select": "middle",
-         "note": "the fourth of those seven letters, the one the removal takes out"
-        }
-       ]
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Making a fuss by pulling the middle section out of a piece of furniture.",
-     "walkthrough": "A footrest in a crossword is the rider's loop rather than the stool by the fire, and its centre is one letter, not a slab of wood. The enumeration (4,2) is the other tell: one word goes in and two come out.",
-     "definitionFit": "To stir up a crowd or stir up trouble is to work something into agitation, the deliberate raising of a fuss."
+     "surface": "Someone is stirring up trouble by pulling the middle out of a footrest.",
+     "walkthrough": "The rider's footrest has seven letters, so its central piece is the fourth, the second R.",
+     "definitionFit": "To stir up is to provoke or incite unrest, which is causing agitation."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "footrest"
     }
@@ -238,45 +224,48 @@
    "annotation": {
     "definitions": [
      {
-      "text": "The majority",
+      "text": "The majority of",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MOST",
-     "indicators": [
-      {
-       "text": "Half",
-       "note": "Half of the word beside it is all that is wanted; the clue does not say which half, and only the front one joins on to what follows."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Half",
+         "at": 16,
+         "note": "half of the word moon is its first two letters"
+        }
+       ],
        "parts": [
         {
          "words": "Moon",
-         "gives": "MO",
-         "note": "half of its four letters, cut at the halfway mark and taken from the front"
+         "at": 21,
+         "gives": "MOON"
         },
         {
-         "words": "Street",
-         "gives": "ST",
-         "note": "st. is how a street is written on an envelope"
+         "gives": "ON"
         }
        ]
+      },
+      {
+       "words": "Street",
+       "at": 26,
+       "gives": "ST",
+       "note": "ST is the address abbreviation for street"
       }
      ]
     },
     "explanation": {
-     "surface": "The greater part of a London address.",
-     "walkthrough": "Half Moon Street is a real Mayfair address, which is what makes the capital letters look innocent. The setter wants the three words taken one at a time instead.",
-     "definitionFit": "Most is the greater part of a thing — most of the cake, most of the street — which is what the majority means."
+     "surface": "Most residents of a road called Half Moon Street, as in London's Mayfair.",
+     "walkthrough": "Half Moon Street reads as a single name, a real Mayfair road, but it splits into an instruction and two pieces.",
+     "definitionFit": "Most of something is the greater part of it, the bulk or majority."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Half"
     }
