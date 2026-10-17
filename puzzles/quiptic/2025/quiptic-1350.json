@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -372,8 +373,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "excited",
-       "note": "Letters get excited the way a crowd does, and an excited crowd will not stay in the order it was put in."
+       "text": "about",
+       "at": 36,
+       "note": "the jumbled letters go about, around, the rock's first letter"
       }
      ],
      "parts": [
@@ -381,46 +383,44 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "What is about something is set around it, so the shuffled letters close over the single letter clued next."
+         "text": "excited",
+         "at": 28,
+         "note": "excited means stirred up, so the letters of fan later are jumbled"
         }
        ],
        "parts": [
         {
          "words": "fan later",
-         "note": "eight letters of fodder"
+         "at": 18
         }
        ]
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
          "text": "origin of",
-         "note": "An origin is where a thing begins, so only the first letter of the word after it is used."
+         "at": 42,
+         "note": "the origin of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "origin of rock",
-         "gives": "R",
-         "select": "first",
-         "note": "the letter ROCK begins with"
+         "words": "rock",
+         "at": 52,
+         "note": "its first letter, R, is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Bee Gees fan working himself up over where rock music started.",
-     "walkthrough": "The Bee Gees were the three Gibb brothers, and their relationship to each other is the entire definition — the disco has nothing to do with it.",
-     "definitionFit": "The Bee Gees were brothers, so the adjective for the bond between brothers describes what they were to one another."
+     "surface": "A fan, later worked up about a rock band, recalls the Bee Gees.",
+     "walkthrough": "The Bee Gees were the Gibb brothers, Barry, Robin and Maurice, so the definition is about brothers, not music.",
+     "definitionFit": "Fraternal means of or like brothers, and the Bee Gees were a band of three brothers."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "rock"
     }
@@ -1062,42 +1062,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ADDENDUM",
-     "indicators": [
-      {
-       "text": "not entirely",
-       "note": "Not entirely means stopping short of the whole, so the word it governs gives up its final letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Notice",
+       "at": 0,
+       "gives": "AD",
+       "note": "an ad is an advertisement, a notice"
+      },
+      {
+       "words": "study",
+       "at": 7,
+       "gives": "DEN",
+       "note": "a den is a private room or study"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not entirely",
+         "at": 15,
+         "note": "the word is not given in full, so its last letter goes"
+        }
+       ],
        "parts": [
         {
-         "words": "Notice",
-         "gives": "AD",
-         "note": "an ad is a notice placed in a paper"
-        },
-        {
-         "words": "study",
-         "gives": "DEN",
-         "note": "a den is the little room at home you work in"
-        },
-        {
          "words": "stupid",
-         "gives": "DUM",
-         "note": "stupid is DUMB, held back from its closing B"
+         "at": 28,
+         "gives": "DUMB",
+         "note": "dumb means stupid"
+        },
+        {
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A notice about a piece of research that is not altogether daft.",
-     "walkthrough": "The dashes turn 'not entirely stupid' into an aside about the study, which is how an instruction passes for opinion.",
-     "definitionFit": "An addendum is matter added at the back of a book or a document, an extra item appended once the main text is set."
+     "surface": "An advert for a study that is only half-witted, tacked on as an afterthought.",
+     "walkthrough": "DUMB without its last letter is DUM, which comes after AD and DEN.",
+     "definitionFit": "An addendum is something added at the end, such as an appendix to a book."
     },
     "features": {
      "answerInScene": false,
@@ -1649,12 +1654,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NOMINAL",
      "indicators": [
       {
        "text": "around",
-       "note": "What goes around a thing closes on both sides of it, so these two pieces end up either side of the letters between them."
+       "at": 44,
+       "note": "the no and the aluminium go around the shortened pit"
       }
      ],
      "parts": [
@@ -1663,29 +1667,46 @@
        "parts": [
         {
          "words": "no",
-         "note": "the clue's own no, taken as two letters"
-        },
-        {
-         "words": "pit running short",
-         "gives": "MIN",
-         "note": "a pit is a mine, cut off before its final E"
+         "at": 31
         },
         {
          "words": "aluminium",
+         "at": 34,
          "gives": "AL",
          "note": "Al is the chemical symbol for aluminium"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "running short",
+         "at": 12,
+         "note": "running short means coming up short, so the word loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pit",
+         "at": 8,
+         "gives": "MINE",
+         "note": "a mine is a pit, a coal mine"
+        },
+        {
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mine closing early because there is no aluminium left in the ground.",
-     "walkthrough": "'Running short' does to the word what running short of ore does to a pit, so the instruction passes as part of the story. The outer piece is split, half before the middle and half after.",
-     "definitionFit": "A nominal fee or a nominal role exists in name only, so slight that it hardly counts."
+     "surface": "A minor mine running low on its supplies of aluminium.",
+     "walkthrough": "MINE running short is MIN, which sits between NO and AL.",
+     "definitionFit": "A nominal sum is a token, very small amount, hence trivial."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "pit"
     }
