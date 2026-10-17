@@ -430,7 +430,7 @@ under_index_lock() {
   local lock
   lock=$(git rev-parse --git-path ct-index.lock 2>/dev/null) || lock=""
   [ -n "$lock" ] || { "$@"; return; }   # no lock path (a stubbed git): just run it
-  ( exec 7>"$lock" && flock -w 300 7; exec "$@" )
+  ( exec 7>"$lock" && flock -w 300 7; "$@" )   # not exec: "$@" may be a shell function (a test's git stub)
 }
 # Copy what a run wrote for puzzle $1 to $SALVAGE_ROOT/<id>/<UTC time>/ before
 # a discard throws it away: tools/_ann_<id>.json, tools/_puzzle_<id>.json, the

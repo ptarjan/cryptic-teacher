@@ -366,7 +366,7 @@ lock_turn() (   # prints "ran after release" when the command waited for the hol
 )
 check "under_index_lock waits for a holder of ct-index.lock" "$(lock_turn)" "ran after release"
 check "the sync's tree-wide checkout and reset are taken in turn" \
-  "$(grep -c '^ *under_index_lock git \(checkout -q -- \. \|reset -q --keep \)' tools/prereset_backfill.sh)" "2"
+  "$(grep -c '^ *under_index_lock git checkout -q -- \. \|flock -w 300 7 && {$' tools/prereset_backfill.sh)" "2"
 check "no git status in the worker or burn takes an optional index lock" \
   "$(grep -c '^[^#]*git status --porcelain' tools/puzzle_worker.sh tools/prereset_backfill.sh | tr '\n' ' ')" \
   "tools/puzzle_worker.sh:0 tools/prereset_backfill.sh:0 "
