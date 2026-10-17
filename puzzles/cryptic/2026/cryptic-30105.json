@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -43,37 +44,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TREASURE",
-     "indicators": [
-      {
-       "text": "endless",
-       "note": "The word means having no end, so the piece beside it turns up with its final letter taken off."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 5,
+         "note": "endless means the word loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "free entertainment",
-         "gives": "TREA",
-         "note": "a treat is an entertainment laid on at somebody else's expense, and it arrives here one letter short"
+         "at": 13,
+         "gives": "TREAT",
+         "note": "a treat is something enjoyable paid for by someone else"
         },
         {
-         "words": "Indeed",
-         "gives": "SURE",
-         "note": "'sure' is how you agree with someone, the same shrug of assent as 'indeed'"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "Indeed",
+       "at": 33,
+       "gives": "SURE",
+       "note": "sure means indeed, certainly"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is asked whether they love unlimited free entertainment, and agrees emphatically.",
-     "walkthrough": "'Love' is the verb here — to treasure a thing rather than to feel love for one — and a 'treat' is entertainment somebody else is paying for.",
-     "definitionFit": "To treasure something is to hold it dear, which is 'love' in the verb sense of prizing rather than romance."
+     "surface": "Someone asks whether love is endless free fun, and gets a firm yes.",
+     "walkthrough": "'endless' cuts the last letter from TREAT to leave TREA. 'Love' is the definition, the affectionate way of addressing someone dear.",
+     "definitionFit": "Calling someone 'treasure' or 'love' are both fond terms of address for a cherished person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Love"
     }
    }
   },
@@ -98,37 +108,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TARGET",
+     "op": "charade",
      "indicators": [
       {
-       "text": "smash",
-       "note": "Smash a thing and the bits can be put back in any order, which is the licence the letters beside it are given."
+       "text": "Given",
+       "at": 0,
+       "note": "Given means granted at the outset, so the time letter is set in front of what follows"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "time",
+       "at": 6,
+       "gives": "T"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "smash",
+         "at": 12,
+         "note": "smash means break apart, so the letters are reassembled in another order"
+        }
+       ],
        "parts": [
         {
-         "words": "Given time",
-         "gives": "T",
-         "note": "time hands over its one-letter abbreviation, the T of a timetable"
-        },
-        {
          "words": "great",
-         "gives": "ARGET",
-         "note": "the five letters of the word resettled in a new order"
+         "at": 18,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Given enough time, a player will hammer in a great goal.",
-     "walkthrough": "'Goal' is the target you aim at, not the one you score, which is what the football surface wants you to hear.",
-     "definitionFit": "A target is the mark you aim at and a goal is the objective you aim for — the same idea in two vocabularies."
+     "surface": "With enough time, a striker smashes home a great goal.",
+     "walkthrough": "'smash' looks like a description of the shot, but it tells you to rearrange GREAT after T.",
+     "definitionFit": "A target is an aim or objective, something one sets out to achieve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "smash"
     }
    }
   },
@@ -250,29 +271,25 @@
    "annotation": {
     "definitions": [
      {
+      "text": "Senior Soviet officer",
+      "at": 0,
+      "meaning": "first meaning: a high-ranking naval commander in the Red (Soviet) navy"
+     },
+     {
       "text": "one previously safely cocooned",
-      "at": 23
+      "at": 23,
+      "meaning": "second meaning: a butterfly, which spent its pupal stage wrapped in a chrysalis"
      }
     ],
-    "wordplay": {
-     "op": "charade",
-     "parts": [
-      {
-       "words": "Soviet",
-       "gives": "RED",
-       "note": "the Soviet side were the Reds, after the colour of the flag"
-      },
-      {
-       "words": "officer",
-       "gives": "ADMIRAL",
-       "note": "at sea the flag rank above captain, the one with a fleet under him"
-      }
-     ]
-    },
     "explanation": {
-     "surface": "A high-ranking Russian officer who spent his early years wrapped up safely.",
-     "walkthrough": "'Senior Soviet officer' wants to be the definition and is the wordplay; the butterfly is what the rest describes, having spent its pupal stage wrapped up safely.",
-     "definitionFit": "A red admiral is a butterfly, so it did spend its pupal stage safely wrapped in a cocoon before it flew."
+     "walkthrough": "The first half reads as Cold War history; the second is the butterfly's life cycle, since it grew inside a chrysalis before emerging.",
+     "definitionFit": "The red admiral is a common butterfly, and a Soviet admiral could be called a Red one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cocooned"
     }
    }
   },
@@ -630,51 +647,61 @@
    "annotation": {
     "definitions": [
      {
-      "text": "hurry up",
+      "text": "hurry up!",
       "at": 39
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ACCELERATE",
-     "indicators": [
-      {
-       "text": "not quite",
-       "note": "Stopping not quite at the end of a word means letting go of its last letter and keeping the rest."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "words": "cold",
+       "at": 2,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on taps"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite",
+         "at": 19,
+         "note": "not quite means the word stops short of its final letter"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "the clue's own first word, lifted as a single letter"
-        },
-        {
-         "words": "cold",
-         "gives": "C",
-         "note": "C is the standing abbreviation for cold, as on a bathroom tap"
-        },
-        {
          "words": "salad plant",
-         "gives": "CELER",
-         "note": "celery is the stringy green stalk in the salad bowl, arriving one letter short"
+         "at": 7,
+         "gives": "CELERY",
+         "note": "celery is a salad vegetable"
         },
         {
-         "words": "consumed",
-         "gives": "ATE",
-         "note": "consumed in the past tense — what you did to your dinner"
+         "gives": "Y"
         }
        ]
+      },
+      {
+       "words": "consumed",
+       "at": 29,
+       "gives": "ATE",
+       "note": "ate means consumed"
       }
      ]
     },
     "explanation": {
-     "surface": "A chilled salad left half-eaten, and somebody being told to get a move on.",
-     "walkthrough": "The colon does the work of an equals sign, splitting the recipe from the definition. 'Hurry up!' is an exclamation in the surface and a plain synonym in the parse.",
-     "definitionFit": "To accelerate is to go faster, which is what 'hurry up' asks of anybody it is said to."
+     "surface": "Someone barely finishes a chilled celery salad before being told to get a move on.",
+     "walkthrough": "'not quite' trims CELERY to CELER, and the exclamation is the definition.",
+     "definitionFit": "Accelerate means speed up or go faster, which is what someone told to hurry must do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },
@@ -1168,52 +1195,58 @@
      "op": "container",
      "indicators": [
       {
-       "text": "initially",
-       "note": "It calls for the opening letter of the word beside it and nothing more of it."
+       "text": "in it",
+       "at": 45,
+       "note": "in it means placed inside the thing just named, so these letters go into the prison word"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "in it",
-         "note": "The pictures go inside the prison, so the letters just gathered are placed within the word for it."
-        }
-       ],
-       "parts": [
-        {
-         "words": "prison",
-         "gives": "CAGE",
-         "note": "a cage holds a prisoner, and this one is about to be opened after its first letter"
-        },
-        {
-         "words": "pictures",
-         "gives": "ART",
-         "note": "pictures hung on a wall are art"
-        }
-       ]
+       "words": "prison",
+       "at": 13,
+       "gives": "CAGE",
+       "note": "a cage is a prison or place of confinement"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "H",
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "initially hung",
-         "gives": "H",
-         "select": "first",
-         "note": "the opening letter of the word the instruction sits on"
+         "words": "pictures",
+         "at": 21,
+         "gives": "ART",
+         "note": "art means pictures, as in an art gallery"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 30,
+           "note": "initially means take only the first letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "hung",
+           "at": 40,
+           "gives": "H",
+           "note": "the first letter of hung"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old city's prison, with pictures hung on the cell walls.",
-     "walkthrough": "The question mark covers the cheek of hanging an art collection in a cell. Carthage was the Phoenician power on the North African coast that Rome fought three wars to destroy.",
-     "definitionFit": "Carthage was the great Phoenician city on the North African coast, ancient by any reckoning and long gone."
+     "surface": "A jail in the ancient world with paintings hanging on its walls.",
+     "walkthrough": "'it' refers back to the prison, so 'in it' puts the pictures and the first letter of 'hung' inside. Carthage was the Phoenician city in North Africa that Rome destroyed.",
+     "definitionFit": "Carthage, near modern Tunis, was a great city of antiquity and Rome's chief rival."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pictures"
     }
    }
   },
@@ -1290,42 +1323,48 @@
    "annotation": {
     "definitions": [
      {
-      "text": "fastness",
+      "text": "fastness?",
       "at": 30
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "VELOCITY",
-     "indicators": [
-      {
-       "text": "to break down",
-       "note": "Breaking a thing down leaves its parts loose, free to be built up again in a different order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "to break down",
+         "at": 5,
+         "note": "to break down means the word falls apart, so its letters are reassembled differently"
+        }
+       ],
        "parts": [
         {
          "words": "Love",
-         "gives": "VELO",
-         "note": "the four letters of the clue's first word, set down in a new order"
-        },
-        {
-         "words": "large town",
-         "gives": "CITY",
-         "note": "a town becomes a city once it is grand enough"
+         "at": 0,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "large town",
+       "at": 19,
+       "gives": "CITY",
+       "note": "a city is a large town"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone would love to knock down the stronghold of a large town.",
-     "walkthrough": "'Fastness' is a stronghold in the surface and speed in the answer — fast as in quick, not fast as in held firm — which is what the question mark is marking.",
-     "definitionFit": "Velocity is speed in a given direction, and 'fastness' is the noun from fast, the quality of being quick."
+     "surface": "Romance falling apart in a big town, and a stronghold under threat.",
+     "walkthrough": "'to break down' rearranges LOVE into VELO. 'fastness' usually means a fortress, but the question mark points to the sense of being fast, speed.",
+     "definitionFit": "Velocity is speed of movement, so being fast taken as a quantity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fastness"
     }
    }
   }
