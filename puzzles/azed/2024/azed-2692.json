@@ -481,31 +481,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ROSE",
+     "op": "cycling",
      "indicators": [
       {
-       "text": "each half overturned",
-       "note": "each half of the word is turned over in turn, so both halves are read backwards"
+       "text": "each half",
+       "at": 15,
+       "note": "the turning is done half by half, so after reading the word backwards its two halves change places again"
       }
      ],
      "parts": [
       {
-       "words": "minerals",
-       "gives": "ORES",
-       "note": "ores are minerals mined for metal"
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "overturned",
+         "at": 25,
+         "note": "a thing overturned is upended, so the letters are read in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "minerals",
+         "at": 5,
+         "gives": "ORES",
+         "note": "ores are minerals mined for their metal"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Pink rocks are tipped over, half at a time.",
-     "definitionFit": "Rose is a pale pinkish-red colour, named after the flower."
+     "surface": "A geologist notes pink mineral samples, each one broken in two and flipped over.",
+     "walkthrough": "Split ORES into OR and ES and turn each pair round: RO and SE. The parse reaches the same letters by reversing the whole word to SERO and then swapping its halves.",
+     "definitionFit": "Rose is the name of a pale pinkish-red colour, taken from the flower."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Pink"
+     "misdirectedWord": "half"
     }
    }
   },
