@@ -593,46 +593,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EMPEROR",
+     "op": "container",
      "indicators": [
       {
-       "text": "returning",
-       "note": "the capital is read backwards"
+       "text": "in",
+       "at": 15,
+       "note": "'in' places the words for each inside the turned-round capital"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in"
+         "text": "returning",
+         "at": 26,
+         "note": "returning means the capital's name is read back to front"
         }
        ],
        "parts": [
         {
-         "words": "capital returning",
-         "gives": "EMOR",
-         "note": "ROME, the capital, reversed"
-        },
-        {
-         "words": "for each",
-         "gives": "PER",
-         "note": "per = for each"
+         "words": "capital",
+         "at": 18,
+         "gives": "ROME",
+         "note": "Rome, the capital of Italy"
         }
        ]
+      },
+      {
+       "words": "for each",
+       "at": 6,
+       "gives": "PER",
+       "note": "per means for each, as in ten pounds per person"
       }
      ]
     },
     "explanation": {
-     "surface": "A ruler coming back to his capital to see each subject.",
-     "walkthrough": "Rome is the capital that fits both the letters and the surface: the city of the emperors.",
-     "definitionFit": "A plain synonym, specifically the sovereign of an empire."
+     "surface": "A sovereign's levy is charged per head in the capital on the way back.",
+     "walkthrough": "'returning' tempts you to treat the capital as a city someone goes back to, but it turns the city's name back to front so 'for each' can sit 'in' it.",
+     "definitionFit": "An emperor is the supreme sovereign of an empire, so he is a ruler."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
     }
    }
   },
@@ -1160,28 +1164,26 @@
      "op": "container",
      "indicators": [
       {
-       "text": "about",
-       "note": "'about' means surrounding"
+       "text": "in",
+       "at": 17,
+       "note": "'in' puts the middle letters between the two outer letters of the town's name"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "KK",
        "indicators": [
         {
-         "text": "in",
-         "note": "that goes inside the outer letters"
+         "text": "outer limits of",
+         "at": 20,
+         "note": "the outer limits of a word are its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "outer limits of Kilmarnock",
-         "gives": "KK",
-         "select": "outer",
-         "note": "the first and last letters of Kilmarnock"
+         "words": "Kilmarnock",
+         "at": 36,
+         "note": "first and last letters of Kilmarnock, a town in Ayrshire, Scotland"
         }
        ]
       },
@@ -1189,32 +1191,35 @@
        "op": "container",
        "indicators": [
         {
-         "text": "outer limits of",
-         "note": "take only the first and last letters"
+         "text": "about",
+         "at": 11,
+         "note": "'is' goes about, that is around, the nothing"
         }
        ],
        "parts": [
         {
          "words": "is",
-         "note": "used as printed, wrapped round the O"
+         "at": 8
         },
         {
          "words": "Nothing",
+         "at": 0,
          "gives": "O",
-         "note": "O = zero, nothing"
+         "note": "O, the figure nought, stands for nothing"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The edge of Kilmarnock, a Scottish town, having nothing there but a single kiosk.",
-     "walkthrough": "Kilmarnock is a town in Ayrshire, Scotland; only its first and last letters are used.",
-     "definitionFit": "A kiosk is a small booth selling papers or snacks."
+     "surface": "Nothing much is going on at the edge of a Scottish town except a little booth.",
+     "walkthrough": "'about' wraps 'is' around the nothing, and 'in' sets the result between the outer limits of Kilmarnock, an Ayrshire town in Scotland.",
+     "definitionFit": "A kiosk is a small open-fronted booth selling newspapers, sweets or tickets."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "limits"
     }
    }
   },
