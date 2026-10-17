@@ -1046,52 +1046,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ONAWHIM",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "that's eaten",
+       "at": 25,
+       "note": "the circle and the man take the other word inside them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "ONAWHIM",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "that's eaten",
-           "note": "Something eaten has gone inside, so the letters it names are swallowed by the ones already assembled."
-          },
-          {
-           "text": "up",
-           "note": "The entry runs down the grid, so a piece written up the light comes out the other way round."
-          }
-         ],
-         "parts": [
-          {
-           "words": "circle",
-           "gives": "O",
-           "note": "the letter is drawn as a circle, which is why O also does duty for nothing, love and a ring"
-          },
-          {
-           "words": "pasty",
-           "gives": "NAW",
-           "note": "pasty means pale and sickly — wan — climbing the light"
-          },
-          {
-           "words": "that guy",
-           "gives": "HIM",
-           "note": "the pronoun for a man already mentioned"
-          }
-         ]
+         "words": "circle",
+         "at": 9,
+         "gives": "O",
+         "note": "a circle is the shape of the letter O"
+        },
+        {
+         "words": "that guy",
+         "at": 16,
+         "gives": "HIM",
+         "note": "him refers to a man already mentioned"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 44,
+         "note": "in a down clue, up means the word is written bottom to top, so reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pasty",
+         "at": 38,
+         "gives": "WAN",
+         "note": "a pasty complexion is pale or wan"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Pasty' wants to be the Cornish pie, especially with 'eaten' alongside it. It is the adjective for a pale face instead.",
-     "definitionFit": "For fun → ON A WHIM: doing a thing on a whim is doing it for the fun of it, on a sudden fancy with no reason behind it."
+     "surface": "A man draws a circle around someone who has eaten a Cornish pasty, just for fun.",
+     "walkthrough": "'pasty' looks like the Cornish pie but is the adjective for pale. WAN read upwards goes between O and HIM.",
+     "definitionFit": "Doing something on a whim means doing it impulsively, for the fun of it rather than with reason."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pasty"
     }
    }
   },
@@ -1163,36 +1172,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SHAMPOO",
-     "indicators": [
-      {
-       "text": "Scratching backsides of",
-       "note": "To scratch something is to strike it out, and a backside is the end of a word, so both words named lose their final letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Scratching",
+         "at": 0,
+         "note": "scratching means striking out, here the last letter of the word for stain"
+        }
+       ],
        "parts": [
         {
          "words": "stain",
-         "gives": "SHAM",
-         "note": "a stain on a reputation is a shame, docked at the end"
+         "at": 24,
+         "gives": "SHAME",
+         "note": "a stain on one's character is a shame, a disgrace"
         },
         {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "backsides of",
+         "at": 11,
+         "note": "scratching the backsides applies to both words, so this one too loses its last letter"
+        }
+       ],
+       "parts": [
+        {
          "words": "low-quality",
-         "gives": "POO",
-         "note": "low-quality is poor, and it gives up its final letter too"
+         "at": 31,
+         "gives": "POOR",
+         "note": "poor means of low quality"
+        },
+        {
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The lavatory humour of 'backsides' is a joke aimed at the second piece, and 'stain' is meant abstractly — a blot on a name, not on a shirt.",
-     "definitionFit": "bathroom product → SHAMPOO: the everyday word for the hair-washing liquid, defined by where the bottle stands rather than by what it does."
+     "surface": "Someone scrubs at a stain with a cheap, inferior bathroom cleaner.",
+     "walkthrough": "'Scratching backsides of' applies to both words: SHAME loses its last letter E and POOR loses its R.",
+     "definitionFit": "Shampoo is the liquid soap used for washing hair, typically kept in the bathroom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stain"
     }
    }
   },
@@ -1323,58 +1357,73 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "Almost a word is not quite all of it, so the last letter is left off."
-      }
-     ],
      "parts": [
       {
        "words": "Small",
-       "gives": "S",
-       "note": "S is small on a clothing label"
+       "at": 0,
+       "gives": "S"
       },
       {
-       "words": "bald",
-       "gives": "NAKE",
-       "note": "a bald head is a naked one, docked of its final letter"
-      },
-      {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "INT",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "regularly stripped",
-         "note": "Stripped at regular intervals: every other letter is taken away and what survives is read in order."
+         "text": "almost",
+         "at": 7,
+         "note": "the last letter of the word is left off"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
+         "words": "bald",
+         "at": 14,
+         "gives": "NAKED",
+         "note": "bald, without covering, means naked"
+        },
+        {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly stripped",
+         "at": 33,
+         "note": "every other letter is removed, leaving the alternate ones"
+        }
+       ],
+       "parts": [
+        {
          "words": "dignity",
-         "gives": "INT",
-         "select": "alternate",
-         "note": "the second, fourth and sixth letters, the odd ones discarded"
+         "at": 25,
+         "note": "its second, fourth and sixth letters are kept"
         }
        ]
       },
       {
        "words": "that man",
+       "at": 53,
        "gives": "HE",
-       "note": "the pronoun standing in for a man"
+       "note": "he refers to a man"
       },
       {
        "words": "tell-tale",
+       "at": 63,
        "gives": "GRASS",
-       "note": "to grass is British slang for informing on someone, and a grass is the informer"
+       "note": "a grass is British slang for an informer"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition is the last word on its own: 'treacherer' is a rare form of traitor. 'Tell-tale' belongs to the wordplay, though it reads like part of the definition.",
-     "definitionFit": "treacherer → SNAKE IN THE GRASS: the idiom for a betrayer hidden among friends, which is what a rare noun for one who commits treachery names."
+     "surface": "A slight, nearly bald man, stripped of all dignity, turns out to be a treacherous informer.",
+     "walkthrough": "'regularly stripped' leaves the even letters of 'dignity', INT. A grass is British slang for a police informer.",
+     "definitionFit": "A snake in the grass is an idiom for a treacherous person who feigns friendship, a betrayer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bald"
     }
    }
   },
