@@ -199,38 +199,43 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 8,
+       "note": "in a down clue the first piece sits on top of the second"
+      }
+     ],
      "parts": [
       {
        "words": "Article",
+       "at": 0,
        "gives": "THE",
-       "note": "the definite article"
+       "note": "the is the definite article"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "FT",
        "indicators": [
         {
          "text": "extremely",
-         "note": "take the extremes, first and last letters"
+         "at": 11,
+         "note": "the extremes of a word are its two ends, so take its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "on extremely flagrant",
-         "gives": "FT",
-         "select": "outer",
-         "note": "the outer letters of FlagranT; 'on' places THE first"
+         "words": "flagrant",
+         "at": 21,
+         "note": "its outer letters are F and T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper piece about a blatant offence.",
-     "walkthrough": "'Article' looks like a newspaper story, which suits the crime; it is the grammar word THE.",
-     "definitionFit": "Definition by example: stealing is one particular kind of crime."
+     "surface": "A newspaper article about a blatant, outrageous crime.",
+     "walkthrough": "'Article' is the grammatical article, not a news piece; 'extremely' takes the ends of flagrant, and 'on' sets the article above them in this down entry.",
+     "definitionFit": "Theft, the taking of another's property, is a crime."
     },
     "features": {
      "answerInScene": true,
@@ -263,44 +268,44 @@
      "op": "container",
      "indicators": [
       {
-       "text": "guards"
+       "text": "guards",
+       "at": 6,
+       "note": "guards in the sense of surrounding and protecting, so the second piece goes inside the first"
       }
      ],
      "parts": [
       {
        "words": "Hired",
+       "at": 0,
        "gives": "RENTED",
-       "note": "rented = hired"
+       "note": "something hired is rented"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "SE",
        "indicators": [
         {
          "text": "occasionally",
-         "note": "take the letters on occasion, every other one"
+         "at": 18,
+         "note": "occasionally means now and then, so only every other letter is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "seen occasionally",
-         "gives": "SE",
-         "select": "alternate",
-         "note": "the odd letters of SeEn"
+         "words": "seen",
+         "at": 13,
+         "note": "alternate letters give SE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Security guards on a contract, only seen now and then, left the client sour.",
-     "walkthrough": "'Hired guards' reads as hired security staff; 'guards' is really the container instruction, and 'occasionally' takes every other letter.",
-     "definitionFit": "To resent something is to feel bitter about it."
+     "surface": "Hired security men, rarely spotted, harboured a grudge.",
+     "walkthrough": "'Hired guards' reads as a noun phrase about security staff, but 'guards' is a verb, and 'occasionally' picks SE from seen to go inside.",
+     "definitionFit": "To resent something is to feel bitterness or indignation about it, so resented is felt bitter."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "guards"
     }
@@ -544,39 +549,38 @@
      "parts": [
       {
        "words": "back",
+       "at": 12,
        "gives": "STERN",
        "note": "the stern is the back of a ship"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "EST",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "take the ultimate, last, letter of each word"
+         "at": 41,
+         "note": "ultimately means in the end, so the final letter of each word is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "issue resists treatment ultimately",
-         "gives": "EST",
-         "select": "last",
-         "note": "the last letters of issuE resistS treatmenT"
+         "words": "issue resists treatment",
+         "at": 17,
+         "note": "the last letters of the three words give EST"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A patient's worst back problem that won't respond to any therapy.",
-     "walkthrough": "'Back issue' reads as a medical complaint; 'back' alone is STERN, and 'issue' belongs to the run of last letters.",
-     "definitionFit": "A plain synonym in superlative form: stern and severe both mean strict and harsh."
+     "surface": "A doctor describes the worst back problem, one that refuses to respond to therapy.",
+     "walkthrough": "'Back issue' looks like a spinal complaint, but 'back' is the ship's rear, and 'ultimately' picks EST, the last letters of the next three words.",
+     "definitionFit": "Sternest is the superlative of stern, strict or harsh, so it means the harshest or most severe."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "back"
     }
    }
@@ -603,26 +607,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ROGUE",
      "indicators": [
       {
        "text": "losing face",
-       "note": "a word's face is its front, the first letter, which goes"
+       "at": 28,
+       "note": "the face of a word is its front, so its first letter is dropped"
       }
      ],
      "parts": [
       {
-       "words": "Irish accent losing face",
-       "gives": "ROGUE",
-       "note": "BROGUE, an Irish accent, without its first letter B"
+       "words": "Irish accent",
+       "at": 15,
+       "gives": "BROGUE",
+       "note": "a brogue is a strong regional accent, especially an Irish one"
+      },
+      {
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "surface": "A rascal with an Irish lilt being humiliated.",
-     "walkthrough": "'Losing face' looks like embarrassment, which fits a scoundrel; here it removes the front letter of BROGUE.",
-     "definitionFit": "A plain synonym: both words name a dishonest rascal."
+     "surface": "A villain with an Irish lilt suffers public humiliation.",
+     "walkthrough": "'Losing face' suggests embarrassment, but here it removes the B at the front of BROGUE.",
+     "definitionFit": "A rogue is a dishonest or unprincipled man, which is what a scoundrel is."
     },
     "features": {
      "answerInScene": true,
@@ -995,47 +1002,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SPLITEND",
+     "op": "charade",
      "indicators": [
       {
-       "text": "cracked",
-       "note": "cracked letters are broken up and rearranged"
+       "text": "at first",
+       "at": 25,
+       "note": "at first tells us the jumbled lips come at the start, before the nurse"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "at first"
+         "text": "cracked",
+         "at": 11,
+         "note": "lips that are cracked are broken up, so their letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "cracked lips",
-         "gives": "SPLI",
-         "note": "an anagram of LIPS"
-        },
-        {
-         "words": "Nurse",
-         "gives": "TEND",
-         "note": "to nurse is to tend"
+         "words": "lips",
+         "at": 19,
+         "note": "taken as written, the anagram fodder"
         }
        ]
+      },
+      {
+       "words": "Nurse",
+       "at": 0,
+       "gives": "TEND",
+       "note": "to nurse is to tend, look after"
       }
      ]
     },
     "explanation": {
-     "surface": "A nurse with chapped lips and bad hair.",
-     "walkthrough": "'Nurse' comes first in the clue but its TEND goes last: 'at first' puts the cracked lips at the front.",
-     "definitionFit": "A split end is a hair whose tip has frayed apart."
+     "surface": "A nurse with chapped lips and a frayed strand of hair.",
+     "walkthrough": "'Nurse' looks like a person, but it is a verb meaning look after; 'at first' puts the 'cracked' lips ahead of it.",
+     "definitionFit": "A split end is a hair whose tip has frayed into two, a damaged strand."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
-     "misdirectedWord": "Nurse"
+     "aptDefinition": false,
+     "misdirectedWord": "cracked"
     }
    }
   },
@@ -1381,50 +1390,58 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LARGE",
      "indicators": [
       {
-       "text": "having left for",
-       "note": "Having gone off in favour of something else: one letter goes and another takes its place"
+       "text": "having",
+       "at": 15,
+       "note": "having introduces the swap that the word for in the clue spells out"
+      },
+      {
+       "text": "for",
+       "at": 27,
+       "note": "for here means in place of, so one letter replaces another"
       }
      ],
      "parts": [
       {
        "words": "canal boat",
+       "at": 4,
        "gives": "BARGE",
-       "note": "a barge is a canal boat"
-      },
-      {
-       "words": "left",
-       "gives": "L",
-       "note": "L = left"
+       "note": "a barge is a flat-bottomed canal boat"
       },
       {
        "op": "first",
        "indicators": [
         {
          "text": "capital of",
-         "note": "A capital is a capital letter, the one a word opens with, so only the first letter of the word that follows is taken"
+         "at": 31,
+         "note": "the capital of a word is its first letter"
         }
        ],
        "parts": [
         {
          "words": "Bahrain",
-         "note": "the first letter of Bahrain, swapped out"
+         "at": 42,
+         "note": "its first letter is B"
         }
        ]
+      },
+      {
+       "words": "left",
+       "at": 22,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A huge boat that has departed for the Gulf state's capital.",
-     "walkthrough": "'Capital of Bahrain' tempts you to think of Manama; it is just its capital letter, B.",
-     "definitionFit": "A plain synonym: both describe something of great size."
+     "surface": "A large canal boat left for the Gulf state of Bahrain.",
+     "walkthrough": "'Capital of Bahrain' looks like Manama, but it is the B at the head of the name; 'having left for' puts L where that B was in BARGE.",
+     "definitionFit": "Large is an everyday synonym for big, of considerable size."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "capital"
     }
    }
@@ -1451,30 +1468,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "PLAN",
      "indicators": [
       {
        "text": "Most of",
-       "note": "'most of' a word is nearly all of it, so its last letter is dropped"
+       "at": 0,
+       "note": "most of a word is all but its final letter, which is dropped"
       }
      ],
      "parts": [
       {
-       "words": "Most of aircraft",
-       "gives": "PLAN",
-       "note": "PLANE without its last letter"
+       "words": "aircraft",
+       "at": 8,
+       "gives": "PLANE",
+       "note": "a plane is an aircraft"
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "Nearly the whole design drawing of an aeroplane.",
-     "walkthrough": "The blueprint of an aircraft sounds like one thing; 'aircraft' only supplies PLANE.",
-     "definitionFit": "A plain synonym: an architect's blueprint is the design or scheme for a building."
+     "surface": "Most of an aircraft's design drawing.",
+     "walkthrough": "'Most of' drops the last letter of PLANE; 'blueprint' is a noun here, a design or scheme.",
+     "definitionFit": "A plan is a detailed scheme or drawing of something to be made, as a blueprint is."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "blueprint"
     }
    }
   },
@@ -1614,26 +1635,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EARL",
      "indicators": [
       {
        "text": "contracted",
-       "note": "shortened, losing its last letter"
+       "at": 9,
+       "note": "contracted means shortened, so the word loses its last letter"
       }
      ],
      "parts": [
       {
-       "words": "contracted ahead of time",
-       "gives": "EARL",
-       "note": "EARLY without its last letter"
+       "words": "ahead of time",
+       "at": 20,
+       "gives": "EARLY",
+       "note": "arriving ahead of time is arriving early"
+      },
+      {
+       "gives": "Y"
       }
      ]
     },
     "explanation": {
-     "surface": "An aristocrat who signed his contract early.",
-     "walkthrough": "'Contracted' looks like signing a deal; it means shortened, applied to EARLY.",
-     "definitionFit": "Definition by example: the British peer ranking between viscount and marquess is one kind of nobleman."
+     "surface": "An aristocrat signed a contract in advance.",
+     "walkthrough": "'Contracted' reads as signing a deal, but it means shortened: EARLY cut back.",
+     "definitionFit": "An earl is a British peer ranking above a viscount, a nobleman."
     },
     "features": {
      "answerInScene": true,
@@ -1670,42 +1694,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LORDNELSON",
-     "indicators": [
-      {
-       "text": "worried",
-       "note": "worried letters are fretted into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Left",
+       "at": 0,
+       "gives": "L"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "worried",
+         "at": 15,
+         "note": "worried in the old sense of shaken and tugged about, as a dog worries a bone, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Left",
-         "gives": "L",
-         "note": "L = left"
-        },
-        {
-         "words": "Londoners worried",
-         "gives": "ORDNELSON",
-         "note": "an anagram of LONDONERS"
+         "words": "Londoners",
+         "at": 5,
+         "note": "taken as written, the anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Anxious Londoners left waiting for a hero to save them.",
-     "walkthrough": "Nelson is the admiral who won Trafalgar, commemorated by Nelson's Column in London, which suits the Londoners.",
-     "definitionFit": "Lord Nelson was Britain's great naval hero."
+     "surface": "Anxious Londoners were left waiting for a war hero.",
+     "walkthrough": "'Worried' turns LONDONERS into ORDNELSON. Nelson was Britain's great naval commander, killed at Trafalgar in 1805 and commemorated by Nelson's Column in London.",
+     "definitionFit": "Horatio, Lord Nelson, the admiral who won the Battle of Trafalgar, is a national war hero."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Left"
+     "misdirectedWord": "worried"
     }
    }
   }
