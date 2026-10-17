@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -468,48 +469,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PEYOTE",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "sort of",
+       "at": 10,
+       "note": "sort of here means a loose version of, so the letters of ecotype are rearranged"
+      },
+      {
+       "text": "avoids",
+       "at": 31,
+       "note": "avoids means keeps away from, so the letter for cold is left out of the mix"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "sort of",
-         "note": "Read as an instruction to sort, it asks for the letters put into a different order."
-        }
-       ],
-       "parts": [
-        {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "avoids",
-           "note": "It keeps one letter out of the mix altogether rather than shuffling it in with the others."
-          }
-         ],
-         "parts": [
-          {
-           "words": "ecotype",
-           "gives": "EOTYPE",
-           "note": "anagram fodder, once the cold letter has been kept out"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "cold",
-         "note": "c = cold, the letter on the tap, and it is the one dropped"
-        }
-       ]
+       "words": "ecotype",
+       "at": 18
+      },
+      {
+       "words": "cold",
+       "at": 38,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on a tap"
       }
      ]
     },
     "explanation": {
-     "surface": "A plant described as a variety that cannot stand the cold.",
-     "walkthrough": "Botanical vocabulary is the disguise: an ecotype is a genuine term for a locally adapted population, sitting there in plain sight to be taken apart.",
-     "definitionFit": "Peyote is a small spineless cactus of Mexico and the Texas borderlands, best known for the mescaline in it."
+     "surface": "A botanical note: this cactus is a type of ecological variety that cannot stand the cold.",
+     "walkthrough": "Ecotype sounds like botany jargon; drop the C and rearrange the remaining letters EOTYPE.",
+     "definitionFit": "Peyote is a small spineless Mexican cactus, known for its hallucinogenic buttons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ecotype"
     }
    }
   },
