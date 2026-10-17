@@ -3103,7 +3103,14 @@ def reindex():
     # others), so it is scored in one pass here rather than per-file. It stays
     # optional so that a checkout missing any of its data still gets a working
     # index, with the ratings left off rather than the whole file unwritten.
+    # CT_REINDEX_IDS (comma-separated puzzle ids, set by tools/reindex.js
+    # scoped()) indexes just those puzzles: a tool that boots the app on a few
+    # puzzles need not pay for 57k. Ratings are relative to the whole corpus, so
+    # a scoped index carries none.
+    only = {i for i in os.environ.get("CT_REINDEX_IDS", "").split(",") if i}
     try:
+        if only:
+            raise RuntimeError("scoped index")
         from difficulty import all_scores, snitch_ranges
         ratings = all_scores()
         # The NITCH each band's SNITCH-rated Times puzzles typically got,
@@ -3114,8 +3121,11 @@ def reindex():
         ratings, snitch = {}, {}
 
     import row_cache
-    puzzles = row_cache.cached_map("fetch_puzzle", index_row, puzzle_files(),
-                                   roots={"index_row_deps"}, deps=index_row_deps)
+    if only:
+        puzzles = [index_row(f) for f in puzzle_files() if f.stem in only]
+    else:
+        puzzles = row_cache.cached_map("fetch_puzzle", index_row, puzzle_files(),
+                                       roots={"index_row_deps"}, deps=index_row_deps)
     big = puzzle_tags.big_grids([(row["id"], row["series"], row.pop("area")) for row in puzzles])
     import renamed_ids
     reprints = reprint_rows(puzzles, renamed_ids.read())
