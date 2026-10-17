@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -84,28 +85,32 @@
      }
     ],
     "wordplay": {
-     "op": "middle",
-     "unchecked": true,
-     "gives": "TOSH",
+     "op": "hidden",
      "indicators": [
       {
        "text": "At heart",
-       "note": "What a thing is at heart is what sits at its very centre, so everything but the middle of the word falls away."
+       "at": 0,
+       "note": "at heart points to letters sitting in the very centre of the word, the middle four of its ten"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Photoshop's",
+       "at": 10,
        "gives": "TOSH",
-       "select": "middle",
-       "note": "ten characters counting the s, so three off each end leave four standing in the centre"
+       "note": "the fourth to seventh letters of Photoshop's, the central four of its ten"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a grumble about the software. That apostrophe-s reads as 'is' and is also counted as a letter, which is what puts the centre of the word where it needs to be.",
-     "definitionFit": "'Rubbish' here means nonsense rather than refuse: tosh is the dismissive British word for talk not worth listening to."
+     "surface": "A sceptic declares that, deep down, the photo-editing software is junk.",
+     "walkthrough": "Ignore the apostrophe: PHOTOSHOPS has ten letters, and its central four give the answer.",
+     "definitionFit": "Tosh is British slang for nonsense, the same sense as calling something rubbish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
     }
    }
   },
@@ -912,41 +917,50 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BUDDHISTS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Curt",
-       "note": "A curt reply is one cut short, and a word cut short surrenders the letter standing at its end."
+       "text": "out",
+       "at": 17,
+       "note": "out means out of order or awry, so the combined letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "out",
-         "note": "Something out is out of true or out of order, and letters out of order are letters waiting to be rearranged."
+         "text": "Curt",
+         "at": 0,
+         "note": "curt means short, so the word biddy is cut short by its last letter"
         }
        ],
        "parts": [
         {
          "words": "biddy",
-         "gives": "BIDD",
-         "note": "a biddy is an old woman, mildly rude, and the Y at the end is cut away"
+         "at": 5,
+         "note": "biddy, an old woman, used for its letters with the end lopped off"
         },
         {
-         "words": "shuts",
-         "note": "five letters taken whole into the mix"
+         "gives": "Y"
         }
        ]
+      },
+      {
+       "words": "shuts",
+       "at": 11
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Shuts out' reads as one phrasal verb and splits in two: the verb is material and the small word after it is the instruction. Nobody is being excluded from anything.",
-     "definitionFit": "Definition by example: they are one particular body of believers, the followers of the Buddha's teaching, and both words are plural."
+     "surface": "A brusque old woman locks people out.",
+     "walkthrough": "'Curt' looks like an adjective describing the biddy, but it shortens the word to BIDD; 'out' then rearranges BIDD with SHUTS. A biddy is a slang word for an old woman.",
+     "definitionFit": "Buddhists are followers of the Buddha's teaching, so they are adherents of a faith."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Curt"
     }
    }
   },
@@ -1113,56 +1127,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENNOBLE",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "somehow",
+       "at": 9,
+       "note": "somehow means in some unspecified way, so the letters are arranged afresh"
+      },
+      {
+       "text": "but not",
+       "at": 31,
+       "note": "but not says some letters are left out of the pool before it is rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ENNOBLE",
+       "words": "ankle bone",
+       "at": 18
+      },
+      {
+       "op": "alternate",
        "indicators": [
         {
-         "text": "somehow",
-         "note": "Doing a thing one way or another is doing it in no fixed way, and letters set down in no fixed way lose the order they came in."
-        },
-        {
          "text": "every now and then",
-         "note": "What happens every now and then happens at intervals, and letters picked at intervals means every second one."
+         "at": 46,
+         "note": "every now and then takes letters at intervals, here the second and fourth of back"
         }
        ],
        "parts": [
         {
-         "words": "ankle bone",
-         "note": "nine letters, the material the rest of the clue then trims"
-        },
-        {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "AK",
-         "indicators": [
-          {
-           "text": "but not",
-           "note": "'Not' marks what is missing rather than what is there, so the letters it introduces come back out of the mix."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "back",
-           "gives": "AK",
-           "select": "alternate",
-           "note": "the second and fourth letters of that word, which are the two taken away"
-          }
-         ]
+         "words": "back",
+         "at": 39,
+         "note": "the second and fourth letters of back"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The dashes invite you to lift 'but not back' out as an aside, when it is an instruction operating on its own last word. 'Elevate' is the peerage sense, raising somebody to the Lords.",
-     "definitionFit": "To ennoble is to raise a person into the nobility, and more loosely to lift anything in dignity, which is what elevating means."
+     "surface": "Raise, by some means, a bone in the ankle, though not the back one, from time to time.",
+     "walkthrough": "'Every now and then' picks AK, the second and fourth letters, out of back; 'but not' takes them from ANKLE BONE, and the opening adverb is the signal to rearrange what is left.",
+     "definitionFit": "To ennoble is to raise someone to the nobility, so it means to elevate in rank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
     }
    }
   },
@@ -1197,48 +1207,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "COMEFROMBEHIND",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 21,
+       "note": "without says a letter is left out of the pool before it is rearranged"
+      },
+      {
+       "text": "struggle",
+       "at": 31,
+       "note": "a struggle is a tussle, so the remaining letters are thrown into disorder"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "COMEFROMBEHIND",
-       "indicators": [
-        {
-         "text": "without",
-         "note": "To be without a thing is to lack it, so the letter named never joins the letters being shuffled."
-        },
-        {
-         "text": "struggle",
-         "note": "A struggle is a scramble in which nothing keeps its place, which is precisely what happens to these letters."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "Oh!",
-         "note": "the exclamation gives up both of its letters"
+         "words": "Oh",
+         "at": 0
         },
         {
          "words": "Find",
-         "note": "four more letters, taken as they stand"
+         "at": 4
         },
         {
          "words": "Morecambe",
-         "note": "a seaside resort on the Lancashire coast, and the stage surname of the comedian Eric"
-        },
-        {
-         "words": "a",
-         "note": "the single letter that 'without' takes straight back out again"
+         "at": 9
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 29
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Fifteen letters go in and fourteen come out. 'Without a struggle' reads as one phrase about an easy victory, and the setter has hidden both a deletion and the shuffling instruction inside it.",
-     "definitionFit": "To come from behind is to win after trailing, so the victory is unexpected precisely because the winner was losing until late on."
+     "surface": "An exclamation of relief at locating the seaside town of Morecambe after a fruitless search, then a surprise victory.",
+     "walkthrough": "Morecambe is a seaside town in Lancashire, and also the comedian Eric Morecambe. 'Without' removes the A from OH FIND MORECAMBE, and 'struggle' rearranges the rest.",
+     "definitionFit": "To come from behind is to recover from trailing and win, a sporting idiom for an unlikely victory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "struggle"
     }
    }
   },
@@ -1496,50 +1510,59 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MENSWEAR",
+     "indicators": [
+      {
+       "text": "to put away",
+       "at": 20,
+       "note": "to put away is to store something inside, so the two words take a letter between them"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "Everyman",
+         "at": 0,
+         "gives": "ME",
+         "note": "the setter of this puzzle is Everyman, so the setter's name stands for ME"
+        },
+        {
+         "words": "promise",
+         "at": 12,
+         "gives": "SWEAR",
+         "note": "to swear is to promise solemnly"
+        }
+       ]
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "to put away",
-         "note": "To put something away is to stow it inside somewhere, which is where this letter goes rather than on the end."
+         "text": "for a start",
+         "at": 33,
+         "note": "for a start points to the opening letter of nasty"
         }
        ],
        "parts": [
         {
-         "words": "Everyman",
-         "gives": "ME",
-         "note": "the setter signing himself, as he does most weeks"
-        },
-        {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "for a start",
-           "note": "For a start means to begin with, and the beginning of a written word is its first letter."
-          }
-         ],
-         "parts": [
-          {
-           "words": "nasty",
-           "note": "the first letter of the word and nothing else"
-          }
-         ]
-        },
-        {
-         "words": "promise",
-         "gives": "SWEAR",
-         "note": "to swear is to promise on oath"
+         "words": "nasty",
+         "at": 46,
+         "note": "the first letter of nasty"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Nasty ties etc' sounds like a verdict on somebody's wardrobe, but only 'nasty' is wordplay and the rest is the definition. Everyman means himself whenever his own name turns up.",
-     "definitionFit": "It is the shop department covering men's clothing, and 'etc' shows the definition works by example, with ties standing for the whole range."
+     "surface": "The setter vows to hide some ugly neckties and similar garments.",
+     "walkthrough": "Setters often refer to themselves by name, so Everyman stands for the setter's ME. 'Promise' is the verb, and 'to put away' has the two words close around the start of nasty.",
+     "definitionFit": "Menswear is clothing for men, of which neckties are typical examples."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Everyman"
     }
    }
   }
