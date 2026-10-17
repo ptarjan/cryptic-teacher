@@ -549,41 +549,52 @@
    "annotation": {
     "definitions": [
      {
-      "text": "the idea",
-      "at": 30
+      "text": "that's the idea",
+      "at": 23
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GIST",
-     "indicators": [
-      {
-       "text": "Dropping",
-       "note": "dropping something means letting it go, so those letters are taken away"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "thong",
-       "gives": "GSTRING",
-       "note": "a G-string is a thong"
+       "at": 15,
+       "gives": "G",
+       "note": "a G-string is a minimal thong; its G opens the answer and the rest follows the missing letter"
       },
       {
-       "words": "belt",
-       "gives": "RING",
-       "note": "a belt in the sense of an encircling band or zone, a ring"
+       "gives": "I"
       },
       {
-       "gives": "I",
-       "note": "the letter the wordplay leaves out"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Dropping",
+         "at": 0,
+         "note": "dropping means letting something fall away, so the belt is taken out of the thong"
+        }
+       ],
+       "parts": [
+        {
+         "words": "thong",
+         "at": 15,
+         "gives": "STRING",
+         "note": "the rest of G-STRING, the thong, after its G"
+        },
+        {
+         "words": "belt",
+         "at": 9,
+         "gives": "RING",
+         "note": "a ring is a band or belt encircling something, as in a belt of trees"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stripping off belt and skimpy underwear, with a remark about the point of it.",
-     "walkthrough": "A thong is a G-string, and a belt in the sense of a band or zone is a ring; the missing I goes after the G.",
-     "definitionFit": "The gist is the essential point or main sense of something, its central idea."
+     "surface": "Someone shedding their belt and thong, then announcing that this was the whole point.",
+     "walkthrough": "Thong is G-STRING; 'Dropping' takes RING out of STRING, leaving ST after the G. Per the preamble the wordplay lacks a letter: here it is I, restored after the G to complete the entry.",
+     "definitionFit": "The gist of something is its central point or essence, the main idea."
     },
     "features": {
      "answerInScene": false,
@@ -804,46 +815,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MONUMENTAL",
-     "indicators": [
-      {
-       "text": "nearly",
-       "note": "nearly means not quite all, so the final letter is cut"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 8,
+         "note": "half a day's name means the second half of Monday goes, and here the preamble's missing letter fills the gap"
+        }
+       ],
        "parts": [
         {
-         "words": "half day",
-         "gives": "MON",
-         "note": "the first half of Monday, a day"
+         "words": "day",
+         "at": 13,
+         "gives": "MONDAY",
+         "note": "Monday is a day of the week"
         },
         {
-         "gives": "U",
-         "note": "the letter the wordplay leaves out"
+         "gives": "DAY"
         },
         {
-         "words": "lads",
-         "gives": "MEN",
-         "note": "lads are young men"
-        },
+         "gives": "U"
+        }
+       ]
+      },
+      {
+       "words": "lads",
+       "at": 22,
+       "gives": "MEN",
+       "note": "lads are men"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "op": "reversal",
+         "text": "got up",
+         "at": 36,
+         "note": "in a down entry, got up means the letters are read from the bottom upward"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "got up",
-           "note": "in a down clue, getting up means reading from bottom to top"
+           "text": "nearly",
+           "at": 29,
+           "note": "nearly means the word late without its final letter"
           }
          ],
          "parts": [
           {
            "words": "late",
-           "gives": "LAT",
-           "note": "late without its last letter"
+           "at": 43
+          },
+          {
+           "gives": "E"
           }
          ]
         }
@@ -852,14 +881,14 @@
      ]
     },
     "explanation": {
-     "surface": "An amazing half-day out with friends who got up late.",
-     "walkthrough": "The wordplay is missing only the U, which sits after the half day.",
-     "definitionFit": "Monumental means enormous or remarkable in scale, so it is a strong synonym for amazing."
+     "surface": "A boast about a terrific half-day spent with the lads, almost making them rise late.",
+     "walkthrough": "Only half of Monday survives, and the clue's missing letter U takes the place of DAY, giving MONU. Late 'nearly' is LAT, and 'got up' turns it to TAL in this down entry.",
+     "definitionFit": "Monumental can mean astonishing or colossal in scale, so it serves as a synonym of amazing."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "day"
+     "misdirectedWord": "Amazing"
     }
    }
   },
@@ -1190,46 +1219,32 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "LEMONSQUASH",
      "indicators": [
       {
        "text": "high",
-       "note": "someone high is scrambled, so the letters are mixed up"
+       "at": 39,
+       "note": "high suggests being intoxicated, so the remaining letters are jumbled"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "LEMONSQUASH",
-       "indicators": [
-        {
-         "text": "out of it",
-         "note": "out of it means taken out of the longer word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "methaqualone",
-         "note": "taken as written, the name of a sedative drug"
-        },
-        {
-         "words": "tea",
-         "note": "taken as written, the letters to remove"
-        },
-        {
-         "gives": "S",
-         "note": "the omitted letter, needed twice"
-        }
-       ]
+       "words": "tea, out of it from methaqualone",
+       "at": 6,
+       "gives": "MHQUALONE",
+       "note": "the letters T, E and A are taken out of the drug name methaqualone, leaving these nine"
+      },
+      {
+       "gives": "S"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A drink and a cup of tea for someone spaced out on a sedative drug.",
-     "walkthrough": "The rearranged letters give LEMONQUAH; both Ss are missing. Methaqualone is the sedative sold as Quaaludes.",
-     "definitionFit": "Lemon squash is a soft drink, a concentrated lemon cordial diluted with water."
+     "surface": "A drug-addled scene: someone high on methaqualone and spaced out, turning down tea.",
+     "walkthrough": "'out of it' removes T, E and A from METHAQUALONE, leaving MHQUALONE, and 'high' rearranges it; S is the letter this clue lacks, missing twice, so two S's complete the drink.",
+     "definitionFit": "Lemon squash is a soft drink made from diluted lemon cordial, popular in Britain."
     },
     "features": {
      "answerInScene": true,
@@ -1306,37 +1321,46 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "and",
+       "at": 30,
+       "note": "and simply joins the two sets of initials, one after the other"
+      }
+     ],
      "parts": [
       {
-       "gives": "F",
-       "note": "the letter the wordplay leaves out"
+       "gives": "F"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "ILM",
        "indicators": [
         {
          "text": "Premieres of",
-         "note": "a premiere is a first showing, so each word gives its first letter"
+         "at": 0,
+         "note": "premieres are first showings, so the opening letters of the following words are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Industrial Light and Magic",
-         "gives": "ILM",
-         "select": "first",
-         "note": "first letters of Industrial, Light and Magic"
+         "words": "Industrial Light",
+         "at": 13,
+         "note": "taken as written; its opening letters are used"
         }
        ]
+      },
+      {
+       "words": "Magic",
+       "at": 34,
+       "gives": "M",
+       "note": "M is the opening letter of Magic, the last of the company's initials"
       }
      ]
     },
     "explanation": {
-     "surface": "First screenings of a film made with Industrial Light and Magic effects.",
-     "walkthrough": "The first letters give ILM, which is also the special-effects company's abbreviation; the missing F goes in front. The word 'and' gives no letter.",
-     "definitionFit": "Film and movie are synonyms for a motion picture."
+     "surface": "Industrial Light and Magic is the special-effects company behind many film premieres.",
+     "walkthrough": "'Premieres of' takes IL from Industrial Light, and Magic adds M, giving ILM, the company's own initials; the letter this clue lacks is F, placed in front.",
+     "definitionFit": "A film and a movie are the same thing, a motion picture."
     },
     "features": {
      "answerInScene": true,
