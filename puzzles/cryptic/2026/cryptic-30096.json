@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -350,56 +351,73 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EDINBURGHTATTOO",
+     "op": "charade",
      "indicators": [
       {
-       "text": "cut",
-       "note": "A word that has been cut has had a piece taken off the end, so its last letter never reaches the assembly."
+       "text": "put into",
+       "at": 44,
+       "note": "put into sets the heroin letter against the needle work that follows, as a drug goes into the skin"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terrible",
+         "at": 12,
+         "note": "terrible means in a dreadful state, so the letters of drug and the shortened word are jumbled"
+        }
+       ],
        "parts": [
         {
-         "op": "anagram",
+         "words": "drug",
+         "at": 21
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "terrible",
-           "note": "Something terrible is in a bad state, and letters in a bad state are not left in the order the clue handed them over."
+           "text": "cut",
+           "at": 32,
+           "note": "cut means trimmed, so being loses its last letter"
           }
          ],
          "parts": [
           {
-           "words": "drug",
-           "note": "four letters of fodder, taken as they stand"
-          },
-          {
            "words": "being",
-           "gives": "BEIN",
-           "note": "BEING docked of its last letter gives four more"
+           "at": 26
           },
           {
-           "words": "heroin",
-           "gives": "H",
-           "note": "H is heroin in the crossword's drug shorthand"
+           "gives": "G"
           }
          ]
-        },
-        {
-         "words": "put into skin with needle",
-         "gives": "TATTOO",
-         "note": "ink put into skin with a needle names the second word outright, no letters required"
         }
        ]
+      },
+      {
+       "words": "heroin",
+       "at": 37,
+       "gives": "H",
+       "note": "H is slang for heroin"
+      },
+      {
+       "words": "skin with needle",
+       "at": 53,
+       "gives": "TATTOO",
+       "note": "to tattoo is to mark the skin with ink by needle"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Half the answer is spelled out of letters and half is simply defined, which is why the clue changes gear at the colon. A military tattoo is a display, not a drug.",
-     "definitionFit": "Forces show -> EDINBURGH TATTOO: the massed military display staged on the castle esplanade each August, mounted by the armed services."
+     "surface": "A grim drug story: heroin injected into skin with a needle.",
+     "walkthrough": "'being cut' gives BEIN, which with DRUG is 'terrible', rearranged into EDINBURG. The Edinburgh Military Tattoo is a famous annual display by the armed forces at Edinburgh Castle.",
+     "definitionFit": "The Edinburgh Military Tattoo is a yearly performance of massed military bands and displays, a show by the armed forces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "needle"
     }
    }
   },
@@ -425,60 +443,71 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AUTHORSHIP",
+     "indicators": [
+      {
+       "text": "filling",
+       "at": 26,
+       "note": "filling means going inside, so the jumbled letters fill the gap between A and the puzzle's first letter"
+      }
+     ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 34
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "at the beginning",
+           "at": 43,
+           "note": "at the beginning takes only the first letter of puzzle"
+          }
+         ],
+         "parts": [
+          {
+           "words": "puzzle",
+           "at": 36,
+           "note": "its first letter is the one used"
+          }
+         ]
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "wasted",
-         "note": "Time wasted is time laid to ruin, and ruined letters do not keep the order they arrived in."
+         "at": 19,
+         "note": "wasted means ruined, so the letters of this and hour are jumbled"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "filling",
-           "note": "What fills a space sits inside it, so this material beds down between the two pieces on either side."
-          }
-         ],
-         "parts": [
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "at the beginning",
-             "note": "Only what stands at the front is wanted, so the word beside it gives up its opening letter alone."
-            }
-           ],
-           "parts": [
-            {
-             "words": "a",
-             "note": "the clue's own a, taken as a single letter"
-            }
-           ]
-          },
-          {
-           "words": "this, hour",
-           "note": "eight letters of fodder waiting to be reordered"
-          },
-          {
-           "words": "puzzle",
-           "gives": "P",
-           "note": "the opening letter of puzzle and no more of it"
-          }
-         ]
+         "words": "this",
+         "at": 8
+        },
+        {
+         "words": "hour",
+         "at": 14
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Writing this' looks like the setter at his desk complaining about the hour, and 'this' turns out to be raw material rather than a reference to the crossword.",
-     "definitionFit": "Writing -> AUTHORSHIP: the fact of having written something, as in 'the authorship of the letter is disputed' — who did the writing."
+     "surface": "Composing this crossword, an hour squandered on a puzzle from the start.",
+     "walkthrough": "'wasted' reworks THIS HOUR into UTHORSHI, which goes 'filling' A and P, the start of puzzle.",
+     "definitionFit": "Authorship is the act or fact of writing a work, being its author."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wasted"
     }
    }
   },
@@ -589,41 +618,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "POTPOURRI",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "Most of a word is all of it bar the final letter, so the word beside this one arrives one letter short."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Pocket",
+       "at": 0,
+       "gives": "POT",
+       "note": "in snooker or pool, to pot a ball is to pocket it"
+      },
+      {
+       "words": "tip",
+       "at": 7,
+       "gives": "POUR",
+       "note": "to tip a liquid out is to pour it"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 15,
+         "note": "mostly means all but the last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Pocket",
-         "gives": "POT",
-         "note": "to pot a ball at snooker is to pocket it"
-        },
-        {
-         "words": "tip",
-         "gives": "POUR",
-         "note": "to tip a jug is to pour from it"
-        },
-        {
          "words": "split",
-         "gives": "RI",
-         "note": "to split cloth is to RIP it, and the last letter is left behind"
+         "at": 22,
+         "gives": "RIP",
+         "note": "a rip is a split or tear"
+        },
+        {
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Tip' is a verb here, as it is nowhere else in this puzzle, and the French original of the answer means, aptly enough, rotten pot.",
-     "definitionFit": "collection -> POTPOURRI: a jar of mixed dried petals, and by extension any miscellany — an assortment of unlike things rather than a matched set."
+     "surface": "Instructions to pocket a tip and mostly share it out.",
+     "walkthrough": "'Pocket' and 'tip' read as nouns about money, but they are verbs: POT as in snooker, and POUR; 'mostly' trims RIP.",
+     "definitionFit": "A potpourri is a mixture of dried petals, and by extension any miscellaneous medley or collection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pocket"
     }
    }
   },
@@ -1159,36 +1199,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EPITOME",
-     "indicators": [
-      {
-       "text": "in short",
-       "note": "Something given in short is cut down, so the word governed by this loses its last letter before joining on."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "in short",
+         "at": 8,
+         "note": "in short means cut short, so the word for great loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "great",
-         "gives": "EPI",
-         "note": "an epic is great in scale, and it arrives a letter short"
+         "at": 18,
+         "gives": "EPIC",
+         "note": "epic means grand or great in scale"
         },
         {
-         "words": "book",
-         "gives": "TOME",
-         "note": "a tome is a weighty book"
+         "gives": "C"
         }
        ]
+      },
+      {
+       "words": "book",
+       "at": 24,
+       "gives": "TOME",
+       "note": "a tome is a large, heavy book"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Everyday English uses this word for a perfect specimen; the clue wants the original bookish sense, which is also why a tome turns up in the build.",
-     "definitionFit": "Summary -> EPITOME: the older sense of the word, an abstract or condensed version of a longer work, rather than 'the perfect specimen of'."
+     "surface": "A summary, in brief, of a great book.",
+     "walkthrough": "'in short' looks like the phrase meaning briefly, but it tells you to drop the last letter of the word for great.",
+     "definitionFit": "An epitome is a brief summary or abstract of a longer work, as well as a perfect example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
     }
    }
   },
@@ -1611,36 +1661,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OBSCENE",
-     "indicators": [
-      {
-       "text": "without clothes",
-       "note": "Strip the clothes off a word and its outermost letters go with them, leaving only what they were covering."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "without clothes",
+         "at": 6,
+         "note": "without its clothes the word loses its outer letters, leaving its middle"
+        }
+       ],
        "parts": [
         {
          "words": "Tramp",
-         "gives": "OB",
-         "note": "a tramp is a HOBO, and the two letters at his edges come off"
-        },
-        {
-         "words": "sight",
-         "gives": "SCENE",
-         "note": "a sight to behold is a scene"
+         "at": 0,
+         "gives": "HOBO",
+         "note": "a hobo is a tramp or vagrant"
         }
        ]
+      },
+      {
+       "words": "sight",
+       "at": 23,
+       "gives": "SCENE",
+       "note": "a scene is a sight or view"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Tramp is this setter's own pseudonym, so he opens his last clue by undressing himself — and the whole surface stays in character.",
-     "definitionFit": "disgusting -> OBSCENE: what offends decency outright; the word has widened from indecent to grossly excessive, as in obscene wealth."
+     "surface": "A naked tramp is a revolting sight.",
+     "walkthrough": "Tramp is also the setter's name, a teasing self-reference; the hobo stripped of its outer letters leaves OB.",
+     "definitionFit": "Obscene means offensive to decency, repugnant or disgusting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tramp"
     }
    }
   }
