@@ -26,7 +26,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -406,47 +407,46 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "Letters taken regularly come at a steady interval, every second one, instead of all of them."
+       "text": "put on",
+       "at": 16,
+       "note": "put on signals that the first piece is placed on, ahead of, the second in a down answer"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "RE",
        "indicators": [
         {
-         "text": "put on",
-         "note": "In a down clue one thing put on another sits above it, so the short piece goes in at the top and the rest hangs below."
+         "text": "regularly",
+         "at": 6,
+         "note": "regularly means taking every other letter of the word Greek, here its second and fourth"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Greek regularly",
-         "gives": "RE",
-         "select": "alternate",
-         "note": "the second and fourth letters of GREEK, taken at even spacing"
+         "words": "Greek",
+         "at": 0,
+         "note": "the alternate letters of Greek are taken"
         }
        ]
       },
       {
        "words": "glad rags",
+       "at": 23,
        "gives": "FINERY",
-       "note": "glad rags are your finery, the best clothes you own"
+       "note": "glad rags are one's best clothes, i.e. finery"
       }
      ]
     },
     "explanation": {
-     "surface": "A Greek who regularly turns up at the works in his best clothes.",
-     "walkthrough": "'Regularly' can start from either end of a word, and here it starts from the second letter. Glad rags is British slang for the smart outfit kept for a night out.",
-     "definitionFit": "A refinery is the plant where crude oil or raw sugar is processed into something saleable, so it is a factory of a particular trade."
+     "surface": "A Greek dressing up in his best clothes now and then to go to work at a factory.",
+     "walkthrough": "'regularly' takes R and E from Greek; 'put on' sets them on top of FINERY, as this is a down clue.",
+     "definitionFit": "A refinery is an industrial plant where raw materials such as oil or sugar are purified, so it is a kind of factory."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Greek"
+     "misdirectedWord": "put"
     }
    }
   },
@@ -475,35 +475,33 @@
      "parts": [
       {
        "words": "drink",
+       "at": 10,
        "gives": "RUM",
-       "note": "rum is the spirit distilled from sugar cane"
+       "note": "rum is a spirit, a drink"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "BA",
        "indicators": [
         {
          "text": "initially",
-         "note": "What happens initially happens first, so only the opening letter of each word named is wanted."
+         "at": 27,
+         "note": "initially means take the first letter of each of the words brown and ale"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "brown ale, initially",
-         "gives": "BA",
-         "select": "first",
-         "note": "the first letters of BROWN and ALE"
+         "words": "brown ale",
+         "at": 16,
+         "note": "the first letters of these two words are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Dancing and drinking brown ale at a party.",
-     "walkthrough": "'Initially' sits at the end of the clue and reaches back over both of the words in front of it, not just the nearer one. Rum comes from the same islands as the dance, which is what holds the surface together.",
-     "definitionFit": "The rumba is a Cuban ballroom dance in a slow four beats, so 'Dance' names it by its class."
+     "surface": "An invitation to dance and then knock back a brown ale.",
+     "walkthrough": "'initially' takes B and A from brown ale, which follow RUM.",
+     "definitionFit": "The rumba is a lively ballroom dance of Cuban origin."
     },
     "features": {
      "answerInScene": true,
@@ -668,45 +666,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CARDGAME",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "The Reverend Spooner was famous for swapping the opening sounds of two neighbouring words, so the two things named here trade their fronts."
+       "at": 0,
+       "note": "Spooner's signals swapping the opening sounds of the two words, after the Reverend Spooner famous for such slips"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "GARD",
        "parts": [
         {
-         "unchecked": true,
          "words": "sentry",
-         "gives": "CARD",
-         "soundsLike": "GUARD",
-         "note": "a sentry is a guard; it hands its hard G to the word after it and takes a C back"
-        },
-        {
-         "unchecked": true,
-         "words": "arrived",
-         "gives": "GAME",
-         "soundsLike": "CAME",
-         "note": "arrived = came; it gives up its C and takes the G in exchange"
+         "at": 10,
+         "gives": "GUARD",
+         "note": "a sentry is a guard"
         }
        ]
+      },
+      {
+       "words": "arrived",
+       "at": 17,
+       "gives": "CAME",
+       "note": "arrived means came"
       }
      ]
     },
     "explanation": {
-     "surface": "A sentry turning up for the evening's hand, in a sentence the Reverend has mangled.",
-     "walkthrough": "Say 'guard came' and swap the noises at the front of the two words. William Spooner was an Oxford don whose habitual tongue-slips gave the device his name.",
-     "definitionFit": "Poker is one card game among hundreds, and the 'say' marks it as an example of the class rather than a synonym."
+     "surface": "A sentry turning up to take part in a game of poker.",
+     "walkthrough": "GUARD CAME with the opening G and C sounds swapped becomes CARD GAME.",
+     "definitionFit": "Poker is one example of a game played with cards, hence the 'say' marking it as an instance."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun"
+     "joke": "pun",
+     "misdirectedWord": "poker"
     }
    }
   },
@@ -840,41 +837,46 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "Returned",
-       "note": "Something returned comes back the way it went, so the word after it is written out backwards."
-      }
-     ],
+     "op": "charade",
      "parts": [
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Returned",
+         "at": 0,
+         "note": "returned means the word an is turned back to front"
+        }
+       ],
+       "parts": [
+        {
+         "words": "an",
+         "at": 9
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "awful",
-         "note": "Something awful is in a dreadful state, and letters in a dreadful state are not in the order they ought to be."
+         "at": 12,
+         "note": "awful suggests the letters of pink are messed up and rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Returned an",
-         "gives": "NA",
-         "note": "AN written backwards"
-        },
-        {
-         "words": "awful pink",
-         "gives": "PKIN",
-         "note": "anagram of PINK, 4 letters"
+         "words": "pink",
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hideous pink table linen sent back to the shop.",
-     "walkthrough": "'Returned' and 'awful' each govern their own scrap of the clue and neither reaches into the other's. The pink is there to make a returned purchase sound plausible.",
-     "definitionFit": "Napkin and serviette are the same square of cloth beside your plate; serviette is the word some British households prefer for it."
+     "surface": "Someone sending back a hideous pink table napkin.",
+     "walkthrough": "'Returned' turns AN into NA; 'awful' rearranges PINK into PKIN.",
+     "definitionFit": "A serviette is the cloth or paper square used at table to wipe the mouth, a synonym for the answer."
     },
     "features": {
      "answerInScene": true,
