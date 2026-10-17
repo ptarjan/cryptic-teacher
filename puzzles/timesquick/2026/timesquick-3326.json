@@ -508,35 +508,33 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "SAR",
        "indicators": [
         {
          "text": "Leaders among",
-         "note": "the leading letters of the words that follow"
+         "at": 0,
+         "note": "the leaders of words are their first letters, taken from each of the three words that follow"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Leaders among sharks and rays",
-         "gives": "SAR",
-         "select": "first",
-         "note": "first letters of sharks, and, rays"
+         "words": "sharks and rays",
+         "at": 14,
+         "note": "their first letters are S, A and R"
         }
        ]
       },
       {
        "words": "eat",
+       "at": 30,
        "gives": "DINE",
        "note": "to dine is to eat"
       }
      ]
     },
     "explanation": {
-     "surface": "The big sea predators feeding on smaller fish.",
-     "walkthrough": "'Fish' looks like the thing eaten in the surface; it is the definition, and 'eat' gives DINE.",
-     "definitionFit": "Definition by category: the young pilchard, a small oily sea fish often sold tinned."
+     "surface": "The top sharks and rays feed on smaller fish.",
+     "walkthrough": "'Leaders among' takes S, A and R from 'sharks and rays', including the little word 'and'.",
+     "definitionFit": "A sardine is a small oily sea fish, often sold in tins."
     },
     "features": {
      "answerInScene": true,
@@ -732,26 +730,37 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "nearly",
-       "note": "not quite all: drop the last letter"
-      },
-      {
        "text": "knocked for six",
-       "note": "sent flying, so the letters scatter"
+       "at": 24,
+       "note": "knocked for six means thrown into disarray, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "armistice nearly",
-       "gives": "ARMISTIC",
-       "note": "ARMISTICE minus its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly",
+         "at": 17,
+         "note": "nearly means not quite all, so the last letter of armistice is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "armistice",
+         "at": 7
+        },
+        {
+         "gives": "E"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A truce that almost collapsed, with weapons drawn again.",
-     "walkthrough": "To knock something for six is to hit it hard, a cricket phrase for a shot clearing the boundary.",
-     "definitionFit": "Definition by category: the curved single-edged sword of the Middle East is one kind of weapon."
+     "surface": "A weapon causes a ceasefire agreement to collapse.",
+     "walkthrough": "'nearly' trims ARMISTICE to ARMISTIC, and 'knocked for six' rearranges those letters. Knocked for six is a cricket idiom for being devastated.",
+     "definitionFit": "A scimitar is a curved single-edged sword, a weapon of Middle Eastern origin."
     },
     "features": {
      "answerInScene": true,
@@ -970,42 +979,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MERRYMAKER",
+     "op": "charade",
      "indicators": [
       {
-       "text": "upset",
-       "note": "the letters are knocked over into a new order"
+       "text": "after",
+       "at": 19,
+       "note": "after places the hesitation sound behind the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "after"
+         "text": "upset",
+         "at": 35,
+         "note": "upset means knocked over and disordered, so the letters of my remark are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "my remark upset",
-         "gives": "MERRYMAK",
-         "note": "anagram of MY REMARK"
+         "words": "my",
+         "at": 25
         },
         {
-         "words": "Sign of hesitation",
-         "gives": "ER",
-         "note": "er is what you say when hesitating"
+         "words": "remark",
+         "at": 28
         }
        ]
+      },
+      {
+       "words": "Sign of hesitation",
+       "at": 0,
+       "gives": "ER",
+       "note": "er is the sound a speaker makes when hesitating"
       }
      ]
     },
     "explanation": {
-     "surface": "A partygoer hesitating after an offensive remark.",
-     "walkthrough": "The surface suggests the reveller was upset by the remark; 'upset' is really the anagram signal.",
-     "definitionFit": "A merrymaker is someone joining in festivities, a reveller."
+     "surface": "Someone pauses, umming, after an offensive comment upsets a partygoer.",
+     "walkthrough": "'upset' rearranges MY REMARK into MERRYMAK, and 'after' places ER behind it.",
+     "definitionFit": "A merrymaker joins in festive celebration, which is what a reveller does."
     },
     "features": {
      "answerInScene": true,
