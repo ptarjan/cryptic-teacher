@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -672,43 +673,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GANACHE",
-     "indicators": [
-      {
-       "text": "skipping starter of",
-       "note": "To skip a thing is to leave it out, and a word's starter is the letter it begins with, so that first letter never appears."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Grand",
+       "at": 0,
+       "gives": "G",
+       "note": "G is the abbreviation for grand, a thousand pounds"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "skipping starter of",
+         "at": 7,
+         "note": "skipping means leaving out, and the starter of a word is its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Grand",
-         "gives": "G",
-         "note": "G is the standing abbreviation for grand."
+         "words": "zest",
+         "at": 27,
+         "gives": "PANACHE",
+         "note": "panache is flair, dash or zest"
         },
         {
-         "words": "zest",
-         "gives": "ANACHE",
-         "note": "Zest in the sense of dash and flair is panache, and the skipped starter is its P."
+         "gives": "P",
+         "note": "the first letter of the zest word"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grand dinner where the zesty starter is skipped for the truffles.",
-     "walkthrough": "'Starter' is a course on the surface and a first letter in the wordplay, while 'zest' is the flair kind rather than the lemon kind. Ganache is chocolate melted into cream, the soft centre a truffle is rolled from.",
-     "definitionFit": "Ganache is the chocolate-and-cream paste that is chilled, rolled and dusted to make a truffle, so it is the mixture a truffle is made of."
+     "surface": "Someone big and impressive passes over the opening dish of citrus peel and has the chocolate truffles.",
+     "walkthrough": "'zest' looks like lemon peel but means panache, which loses its first letter after 'skipping starter of'. Ganache is a mix of chocolate and cream used to make truffles.",
+     "definitionFit": "Ganache is a smooth blend of melted chocolate and cream, the standard filling rolled into chocolate truffles."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "starter"
+     "misdirectedWord": "zest"
     }
    }
   },
@@ -978,56 +983,107 @@
     "definitions": [
      {
       "text": "instructions",
-      "at": 48,
-      "note": "The definition is plural and the answer singular: an algorithm is one named thing made of a sequence of instructions, so the plural noun stands for the set the word names."
+      "at": 48
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALGORITHM",
-     "indicators": [
-      {
-       "text": "repeatedly failing to finish",
-       "note": "Failing to finish means stopping before the last letter, and 'repeatedly' says the same stopping happens to each of the four things in turn."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "repeatedly",
+         "at": 19,
+         "note": "part of the phrase repeatedly failing to finish: repeatedly says the cut is made again and again, once for each word"
+        }
+       ],
        "parts": [
         {
          "words": "Al Gore",
-         "gives": "ALGOR",
-         "note": "The former US vice-president's two names run together and cut one letter short."
+         "at": 0,
+         "note": "the former US vice president's name, read as one unit"
         },
+        {
+         "gives": "E",
+         "note": "the last letter of Gore"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "failing",
+         "at": 30,
+         "note": "part of the phrase repeatedly failing to finish: failing to reach the end, this word stops one letter short"
+        }
+       ],
+       "parts": [
         {
          "words": "is",
-         "gives": "I",
-         "note": "The word again stopped before its last letter."
+         "at": 8,
+         "note": "the word is, cut short"
         },
+        {
+         "gives": "S",
+         "note": "the last letter of is"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to",
+         "at": 38,
+         "note": "part of the phrase repeatedly failing to finish, which applies to this word as well, cutting its final letter"
+        }
+       ],
+       "parts": [
         {
          "words": "the",
-         "gives": "TH",
-         "note": "Same treatment: the word without its final letter."
+         "at": 11,
+         "note": "the word the, cut short"
         },
         {
+         "gives": "E",
+         "note": "the last letter of the"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finish",
+         "at": 41,
+         "note": "part of the phrase repeatedly failing to finish: with no finish, this last word loses its closing letter too"
+        }
+       ],
+       "parts": [
+        {
          "words": "MC",
-         "gives": "M",
-         "note": "An MC is the master of ceremonies, and only the first of the two letters survives."
+         "at": 15,
+         "note": "MC, a master of ceremonies, cut short"
+        },
+        {
+         "gives": "C",
+         "note": "the last letter of MC"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Al Gore compering an evening and never quite getting to the end of anything.",
-     "walkthrough": "'Repeatedly' is the only warning that one operation applies four separate times. Even 'is' and 'the' are fodder here, which is what makes the clue read as an ordinary sentence right up to the last word.",
-     "definitionFit": "An algorithm is the step-by-step procedure a computer is set to follow, which is a set of instructions written out in order."
+     "surface": "The American politician hosts an event but keeps breaking off before the end of each sentence.",
+     "walkthrough": "'repeatedly failing to finish' drops the last letter of each word: ALGOR, I, TH and M. Al is treated with Gore as one name, so it keeps its L.",
+     "definitionFit": "An algorithm is a set of step-by-step instructions for solving a problem, especially by computer."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "MC"
     }
    }
@@ -1302,55 +1358,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AWAKENS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 26,
+       "note": "round means surrounding, so the coiled letters wrap round the wombat's head"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "coiled",
-         "note": "A coiled rope has been wound into a heap with no straight line left in it, so the letters lose the order they came in."
+         "at": 19,
+         "note": "a coiled snake is twisted up, so the letters of a snake are rearranged"
         }
        ],
        "parts": [
         {
          "words": "a snake",
-         "gives": "AAKENS",
-         "note": "The six letters of these two words, coiled into a new order."
-        },
+         "at": 11,
+         "note": "taken as written, six letters to rearrange"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "round",
-           "note": "Going round a thing means passing outside it on every side, so the letters just made close round what follows."
-          },
-          {
-           "text": "head of",
-           "note": "The head of a word is the letter at its front, so that single letter is what is taken."
-          }
-         ],
-         "parts": [
-          {
-           "words": "head of wombat",
-           "gives": "WOMBAT",
-           "note": "The front letter of wombat."
-          }
-         ]
+         "text": "head of",
+         "at": 32,
+         "note": "the head of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wombat",
+         "at": 40,
+         "note": "the word wombat, whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A snake wound round a wombat's head, bringing it round.",
-     "walkthrough": "The little word 'a' is fodder as well as an article — leave it out and the count comes up short. The Australian pairing is pure surface: nothing in the answer is antipodean.",
-     "definitionFit": "To awaken someone is to rouse them out of sleep, and both verbs stand here in the third person singular."
+     "surface": "Something stirs, like a serpent wrapping itself round a marsupial's head.",
+     "walkthrough": "'coiled' rearranges A SNAKE to AAKENS, which goes 'round' W, the 'head of' wombat.",
+     "definitionFit": "To rouse someone is to wake them, and awakens is the matching third-person form."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "coiled"
     }
