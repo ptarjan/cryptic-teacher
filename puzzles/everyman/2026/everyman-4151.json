@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -715,60 +716,70 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "GRANDPA",
+     "indicators": [
+      {
+       "text": "including",
+       "at": 33,
+       "note": "including says the outer letters hold the following pieces inside them"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "finale",
-         "note": "A finale is the last thing to happen, so only the letter the word ends on is taken from it."
-        }
-       ],
        "parts": [
         {
          "words": "Greek",
-         "gives": "GR",
-         "note": "Gr is the standard short form for Greek, and Greece's international car plate"
+         "at": 13,
+         "gives": "GR"
         },
         {
-         "words": "additionally",
-         "gives": "AND",
-         "note": "one thing additionally to another is one and another"
-        },
-        {
-         "words": "prince",
-         "gives": "P",
-         "note": "P is the abbreviation for prince, as on a royal monogram"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "A",
+         "op": "nth",
+         "n": 4,
          "indicators": [
           {
-           "text": "including",
-           "note": "To include a thing is to hold it within, so the two pieces named afterwards drop into the middle of what came before."
+           "text": "finale",
+           "at": 26,
+           "note": "the finale of something is its end, so take the last letter of the saga, the 's being only the possessive"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "saga's finale",
-           "gives": "A",
-           "select": "last",
-           "note": "the last letter of sagA"
+           "words": "saga's",
+           "at": 19,
+           "note": "the word saga, whose final letter is taken"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "additionally",
+         "at": 44,
+         "gives": "AND",
+         "note": "and means additionally, in addition"
+        },
+        {
+         "words": "prince",
+         "at": 58,
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Everything after the definition reads like literary criticism — a Greek epic, its ending, a prince — and every word of it is an abbreviation or a single letter.",
-     "definitionFit": "He's related → GRANDPA: the familiar name for a parent's father, so the definition points at a particular male relative rather than at kinship in general."
+     "surface": "A storyteller recounts the ending of a Greek epic that adds a prince.",
+     "walkthrough": "'He's related' reads as 'he told', but it is the definition: a man who is a relative. GR and the A from saga's 'finale' are 'including' AND and P.",
+     "definitionFit": "A grandpa is a grandfather, a male relation two generations up the family tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "related"
     }
    }
   },
