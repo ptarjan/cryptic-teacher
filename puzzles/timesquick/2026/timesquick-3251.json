@@ -57,26 +57,26 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "STRONGARM",
      "indicators": [
       {
        "text": "cycling around",
-       "note": "to cycle round is to rotate, so the front letters of a word are carried round to its back"
+       "at": 27,
+       "note": "cycling suggests a wheel turning, so the surname's letters are rotated, the front chunk moving round to the back"
       }
      ],
      "parts": [
       {
        "words": "disgraced cyclist",
+       "at": 8,
        "gives": "ARMSTRONG",
-       "note": "Lance Armstrong, the cyclist stripped of his Tour de France titles for doping"
+       "note": "Lance Armstrong, the American cyclist stripped of his Tour de France titles for doping"
       }
      ]
     },
     "explanation": {
-     "surface": "A shamed bike racer turns violent, riding round and round.",
-     "walkthrough": "Take ARMSTRONG and move its first three letters to the end, giving STRONG ARM; 'cycling' does double duty with 'cyclist' in the surface.",
-     "definitionFit": "Strong-arm tactics use force or threats, so the phrase describes behaviour that is aggressive and physically coercive."
+     "surface": "A description of a cyclist who fell from grace, still riding about.",
+     "walkthrough": "'cycling around' moves the ARM at the front of ARMSTRONG round to the end, giving STRONG ARM; the cycling theme of the surface hides that this is a letter-rotation signal.",
+     "definitionFit": "Strong-arm tactics use force or threats, so the adjective means violent or coercive."
     },
     "features": {
      "answerInScene": false,
@@ -154,42 +154,43 @@
    "annotation": {
     "definitions": [
      {
-      "text": "The old man's in repose — after this at midday?",
-      "at": 0
+      "text": "after this at midday?",
+      "at": 26
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "REPAST",
      "indicators": [
       {
        "text": "in",
-       "note": "being in something means sitting inside it, so one piece goes within the other"
+       "at": 14,
+       "note": "in tells us the father goes inside the word for repose"
       }
      ],
      "parts": [
       {
        "words": "repose",
+       "at": 17,
        "gives": "REST",
-       "note": "repose is rest"
+       "note": "repose means rest"
       },
       {
        "words": "The old man's",
-       "gives": "PAS",
-       "note": "the old man is father, PA, with the possessive S"
+       "at": 0,
+       "gives": "PA",
+       "note": "the old man is a familiar term for one's father, PA; the 's reads as 'is'"
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "Dad is having a nap, the sort you take after lunch.",
-     "walkthrough": "The whole clue does double duty: the wordplay builds the answer, and the scene of a father dozing at noon implies he has just eaten a midday meal.",
-     "definitionFit": "A repast is a formal word for a meal, and lunch is the meal after which people traditionally doze."
+     "surface": "Dad is having a lie-down, presumably after lunch.",
+     "walkthrough": "PA goes inside REST. The definition is cryptic: a midday meal is the thing you might rest after, which ties back to the repose in the wordplay.",
+     "definitionFit": "A repast is a meal, and a lunchtime meal is often followed by a nap, hence the question mark."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "repose"
     }
    }
   },
@@ -633,48 +634,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AMSTERDAM",
+     "op": "charade",
      "indicators": [
       {
-       "text": "losing head",
-       "note": "the head of a word is its first letter, and losing it means dropping that letter"
+       "text": "going after",
+       "at": 7,
+       "note": "going after places the word for mother behind the beheaded rodent"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "going after",
-         "note": "going after means following, so this piece is placed behind the other"
+         "text": "losing head",
+         "at": 26,
+         "note": "losing its head means the rodent's first letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "rodent",
-         "gives": "AMSTER",
-         "note": "hamster without its first letter"
+         "at": 19,
+         "gives": "HAMSTER",
+         "note": "a hamster is a small rodent kept as a pet"
         },
         {
-         "words": "Mother",
-         "gives": "DAM",
-         "note": "a dam is an animal's mother"
+         "gives": "H"
         }
        ]
+      },
+      {
+       "words": "Mother",
+       "at": 0,
+       "gives": "DAM",
+       "note": "dam is a mother, especially of an animal"
       }
      ]
     },
     "explanation": {
-     "surface": "A mother follows a beheaded rodent around the city.",
-     "walkthrough": "Dam is the term for the mother of livestock; the capital is that of the Netherlands.",
-     "definitionFit": "Amsterdam is the constitutional capital city of the Netherlands, though government sits in The Hague."
+     "surface": "A mother animal chases a rodent that has been decapitated somewhere in the capital.",
+     "walkthrough": "HAMSTER 'losing head' drops its H to give AMSTER, and DAM is 'going after' it.",
+     "definitionFit": "Amsterdam is the official capital city of the Netherlands."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "Mother"
     }
    }
