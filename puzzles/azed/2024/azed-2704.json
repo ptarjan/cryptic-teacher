@@ -307,53 +307,59 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INDUCT",
-     "indicators": [
-      {
-       "text": "most of",
-       "note": "most means not all, so the final letter of the following word is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "favoured",
+       "at": 19,
+       "gives": "IN",
+       "note": "to be in is to be in favour, favoured"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "taking in",
+         "at": 44,
+         "note": "taking in means holding inside, so the shortened word for service encloses the letter for Cuba"
+        }
+       ],
        "parts": [
         {
-         "words": "favoured",
-         "gives": "IN",
-         "note": "to be in with someone is to be in favour"
-        },
-        {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "taking in",
-           "note": "taking in means admitting inside, so one piece goes within the other"
+           "text": "most of",
+           "at": 28,
+           "note": "most of a word is all but its last letter"
           }
          ],
          "parts": [
           {
            "words": "service",
-           "gives": "DUT",
-           "note": "duty, service owed, without its last letter"
+           "at": 36,
+           "gives": "DUTY",
+           "note": "duty is service, as in military duty"
           },
           {
-           "words": "Cuba",
-           "gives": "C",
-           "note": "C is the international vehicle code for Cuba"
+           "gives": "Y"
           }
          ]
+        },
+        {
+         "words": "Cuba",
+         "at": 54,
+         "gives": "C",
+         "note": "C is the international vehicle registration letter for Cuba"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A foreign recruit preferred most of his service to include a spell in Cuba.",
-     "walkthrough": "'Overseas' signals the American sense: in the US, to induct is to enlist someone into the armed forces.",
-     "definitionFit": "In American usage, induct means to draft a person into military service, the act of conscription."
+     "surface": "A popular soldier abroad does most of his tour of duty in Cuba.",
+     "walkthrough": "'most of' trims DUTY to DUT, which 'taking in' wraps round C. Induct is the American sense: to enlist someone into military service.",
+     "definitionFit": "In US usage to induct is to enrol a person into the armed forces, so it means to call up a recruit."
     },
     "features": {
      "answerInScene": true,
@@ -687,54 +693,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SADDLEFAST",
      "indicators": [
       {
        "text": "in",
-       "note": "in says the rearranged letters sit inside the words that follow"
+       "at": 11,
+       "note": "the jumbled letters are placed in the middle of the two words that follow"
       }
      ],
      "parts": [
       {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "serious",
+         "at": 14,
+         "gives": "SAD",
+         "note": "sad can mean grave or serious, as in a sad state of affairs"
+        },
+        {
+         "words": "self-denial",
+         "at": 22,
+         "gives": "FAST",
+         "note": "a fast is a period of self-denial, going without food"
+        }
+       ]
+      },
+      {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "SADDLEFAST",
        "indicators": [
         {
          "text": "astray",
-         "note": "astray means wandering off course, so these letters go out of their order"
+         "at": 4,
+         "note": "led astray means wandering off course, so the letters of Led are scrambled"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "serious",
-           "gives": "SAD",
-           "note": "a sad matter is a grave or serious one"
-          },
-          {
-           "words": "Led",
-           "gives": "DLE",
-           "note": "the letters of this word rearranged"
-          },
-          {
-           "words": "self-denial",
-           "gives": "FAST",
-           "note": "a fast is a period of abstaining from food"
-          }
-         ]
+         "words": "Led",
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone misled into grim abstinence will hold steady.",
-     "walkthrough": "'Led astray' reads as moral corruption, which suits 'self-denial'; but the word led itself is rearranged.",
-     "definitionFit": "A rider who is saddlefast sits firmly in the saddle, so the horse will not unseat them."
+     "surface": "Someone misled into grim self-denial, perhaps by a strict guru.",
+     "walkthrough": "'astray' turns Led into DLE, and 'in' sets it between SAD and FAST. Saddle-fast describes a rider firmly seated.",
+     "definitionFit": "A saddle-fast rider is firmly seated on horseback, so the horse is unlikely to throw them."
     },
     "features": {
      "answerInScene": false,
@@ -1407,34 +1412,40 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "ACATER",
-     "indicators": [
-      {
-       "text": "second to last",
-       "note": "the letter in second place is moved round to the end, shifting the rest along"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "a",
-       "note": "taken as written"
+       "at": 36,
+       "gives": "A"
       },
       {
-       "words": "packing case",
-       "gives": "CRATE",
-       "note": "a crate is a packing case"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "second to last",
+         "at": 52,
+         "note": "the second letter of the word for packing case is shifted to the last place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "packing case",
+         "at": 38,
+         "gives": "CRATE",
+         "note": "a crate is a packing case"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An army quartermaster from the past supplies a packing crate, the second-to-last one.",
-     "walkthrough": "The R in CRATE moves from second place to the end, giving CATER. 'Second to last' looks like a position counted from the end.",
-     "definitionFit": "An acater was an old word for a purveyor of provisions, a caterer to a household or troops."
+     "surface": "A quartermaster supplied old soldiers with a packing case and then moved on.",
+     "walkthrough": "'second to last' moves the second letter of CRATE, R, to the end, giving CATER, after A. An acater was an old word for a purveyor of provisions.",
+     "definitionFit": "An acater was an archaic word for a caterer or purveyor of provisions, such as one victualling troops."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "second"
     }
