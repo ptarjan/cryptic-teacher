@@ -607,42 +607,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BREAKFASTINBED",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "cook",
+       "at": 19,
+       "note": "to cook something is to work it up, so these letters are to be rearranged"
+      },
+      {
+       "text": "not",
+       "at": 43,
+       "note": "not says the second's letter is left out of the mix"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "BREAKFASTINBED",
-       "indicators": [
-        {
-         "text": "cook",
-         "note": "to cook something is to work it into a new form, so rearrange the letters"
-        },
-        {
-         "text": "not",
-         "note": "the letter for 'second' is left out"
-        }
-       ],
-       "parts": [
-        {
-         "words": "baked beans first",
-         "note": "anagram fodder, 15 letters before the deletion"
-        },
-        {
-         "words": "second",
-         "gives": "S",
-         "note": "s = second; remove one S, leaving 14 letters to rearrange"
-        }
-       ]
+       "words": "baked beans first",
+       "at": 24
+      },
+      {
+       "words": "second",
+       "at": 47,
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "A cooking tip: for a fancy meal, cook the baked beans first rather than second.",
-     "walkthrough": "The surface is a kitchen instruction, but 'cook' only tells you to rearrange the letters once an S is dropped.",
-     "definitionFit": "Breakfast brought to you in bed is a classic indulgence, luxury dining."
+     "surface": "A recipe tip: make the baked beans first rather than second.",
+     "walkthrough": "'cook' rearranges the letters of BAKED BEANS FIRST, and 'not second' removes one S from them first, leaving BAKEDBEANFIRST to shuffle.",
+     "definitionFit": "Being served a morning meal while still lying under the covers is a classic treat, a pampered way to eat."
     },
     "features": {
      "answerInScene": true,
@@ -924,40 +917,41 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ROACH",
      "indicators": [
       {
        "text": "exchanging",
-       "note": "one letter is swapped out"
+       "at": 23,
+       "note": "exchanging signals that one letter is swapped out of the word for another"
       },
       {
        "text": "for",
-       "note": "the penny is replaced by the river"
+       "at": 40,
+       "note": "for gives the direction of the swap: the penny goes out and the river comes in"
       }
      ],
      "parts": [
       {
        "words": "Catch without licence",
+       "at": 0,
        "gives": "POACH",
-       "note": "to poach is to catch game or fish illegally"
+       "note": "to poach is to take game or fish illegally, without a licence"
       },
       {
        "words": "penny",
-       "gives": "P",
-       "note": "p = penny, the letter removed"
+       "at": 34,
+       "gives": "P"
       },
       {
        "words": "river",
-       "gives": "R",
-       "note": "r = river, the letter put in its place"
+       "at": 44,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "An angler caught fishing without a licence swaps a penny for a river fish.",
-     "walkthrough": "'River fish' reads as one phrase, but 'river' belongs to the wordplay and 'fish' alone is the definition.",
-     "definitionFit": "A definition by example: the roach is a common European freshwater species, so plain 'fish' covers it."
+     "surface": "An angler caught poaching, swapping cash for a river fish.",
+     "walkthrough": "'exchanging penny for river' swaps the P of POACH for an R.",
+     "definitionFit": "The roach is a common freshwater fish of European rivers, a member of the carp family."
     },
     "features": {
      "answerInScene": true,
