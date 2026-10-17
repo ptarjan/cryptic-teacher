@@ -1118,55 +1118,76 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "initially",
-       "note": "take the first letters of 'University lecturer enraged'"
-      },
-      {
-       "text": "50% cut in"
+       "text": "after",
+       "at": 38,
+       "note": "after places the following letters behind the pieces before them in the answer"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "SCH",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "after",
-         "note": "the initials come after the other pieces"
+         "text": "50% cut in",
+         "at": 44,
+         "note": "50% cut in says half the word is chopped off, here its second half"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "school",
-         "gives": "SCH",
-         "select": "first",
-         "note": "the first half of SCHool"
+         "at": 55,
+         "gives": "SCHOOL",
+         "note": "taken as written"
+        },
+        {
+         "gives": "OOL"
         }
        ]
       },
       {
        "words": "education",
-       "gives": "ED",
-       "note": "ED = education"
+       "at": 62,
+       "gives": "ED"
       },
       {
-       "words": "University lecturer initially enraged",
-       "gives": "ULE",
-       "note": "first letters of University, Lecturer, Enraged"
+       "words": "University",
+       "at": 0,
+       "gives": "U"
+      },
+      {
+       "words": "lecturer",
+       "at": 11,
+       "gives": "L"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 20,
+         "note": "initially asks for the opening letter of the word that follows it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "enraged",
+         "at": 30,
+         "note": "its first letter"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A university lecturer is furious about halved school funding.",
-     "walkthrough": "'Initially' seems to modify 'enraged' alone, but it takes the first letter of all three words before it.",
-     "definitionFit": "A plain synonym: a timetable of events is both a schedule and a programme."
+     "surface": "A furious academic sees a school's education budget halved.",
+     "walkthrough": "'50% cut in' keeps only the first half of school; 'initially' works on enraged alone, while University and lecturer give their standard abbreviations. 'after' puts those three letters at the end.",
+     "definitionFit": "A schedule is a plan setting out when things happen, much like a timetable or programme of events."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "cut"
+     "misdirectedWord": "enraged"
     }
    }
   },
@@ -1292,44 +1313,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TREADMILL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 31,
+       "note": "inside puts the bent letters within the word for pipe"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "pipe",
+       "at": 38,
+       "gives": "TRILL",
+       "note": "to pipe is to sing in a high voice like a bird, which is to trill"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "to bend",
-         "note": "MADE is bent into a new shape"
-        },
-        {
-         "text": "inside"
+         "at": 23,
+         "note": "to bend the letters is to twist them out of their order"
         }
        ],
        "parts": [
         {
-         "words": "pipe",
-         "gives": "TRILL",
-         "note": "to pipe or trill is to sing in a high warble, like a bird"
-        },
-        {
          "words": "made",
-         "gives": "EADM",
-         "note": "MADE rearranged"
+         "at": 18,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spinning cylinder is forced to bend inside a pipe.",
-     "walkthrough": "'Pipe' looks like the tube a cylinder would sit in, but it is the verb meaning to sing shrilly.",
-     "definitionFit": "The original treadmill was a large rotating cylinder turned by people or animals walking on it."
+     "surface": "A workshop instruction: some cylinder has been made to bend inside a pipe.",
+     "walkthrough": "'Pipe' looks like a tube to match the cylinder, but it is the verb for a bird's high song; 'to bend' reorders made, and 'inside' places it within.",
+     "definitionFit": "A treadmill was originally a large wheel turned by people or animals walking on its steps, a revolving drum."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "pipe"
     }
    }
