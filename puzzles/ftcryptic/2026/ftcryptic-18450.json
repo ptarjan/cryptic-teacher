@@ -172,27 +172,25 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the Italian stronghold goes inside the state"
+       "at": 36,
+       "note": "one piece is placed inside the other"
       }
      ],
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "TAT",
+       "op": "middle",
        "indicators": [
         {
          "text": "shelled",
-         "note": "a shelled nut loses its outer casing, so STATE loses its first and last letters"
+         "at": 39,
+         "note": "a shelled thing has its outer casing removed, so the word state loses its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "shelled state",
-         "gives": "TAT",
-         "select": "outer",
-         "note": "STATE without its outer letters"
+         "words": "state",
+         "at": 47,
+         "note": "with its outer letters stripped away, state leaves its middle three letters"
         }
        ]
       },
@@ -201,25 +199,26 @@
        "parts": [
         {
          "words": "Italian",
-         "gives": "IT",
-         "note": "It is short for Italian vermouth"
+         "at": 17,
+         "gives": "IT"
         },
         {
          "words": "stronghold",
+         "at": 25,
          "gives": "FORT",
-         "note": "a fort is a stronghold"
+         "note": "a fort is a fortified stronghold"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Mediterranean fortress is the base for revenge attacks within a battered country.",
-     "walkthrough": "The surface pictures a war-torn country, but 'shelled' means stripped of its shell, like a nut. IT for Italian vermouth is a crossword convention.",
-     "definitionFit": "Tit for tat is retaliation in kind, blow for blow."
+     "surface": "Someone is fleeing an Italian fortress in a war-torn, bombarded country.",
+     "walkthrough": "'Shelled' looks like bombardment, but it strips the outside letters of 'state' to leave TAT, which then wraps around IT and FORT.",
+     "definitionFit": "Tit for tat is an idiom for paying back an injury with an equivalent one, which is exactly what retaliation means."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "shelled"
@@ -377,44 +376,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CARTWHEEL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 17,
+       "note": "the anagrammed letters go around the single letter for wide"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "ground",
-         "note": "ground as in crushed, so the letters of CLEAR THE are broken up and reset"
-        },
-        {
-         "text": "around"
+         "at": 10,
+         "note": "ground is the past tense of grind, so the letters of these words are crushed and reshaped"
         }
        ],
        "parts": [
         {
-         "words": "Clear the",
-         "gives": "CARTHEEL",
-         "note": "anagram of CLEAR THE"
+         "words": "Clear",
+         "at": 0
         },
         {
-         "words": "wide",
-         "gives": "W",
-         "note": "W is the cricket scorer's abbreviation for a wide"
+         "words": "the",
+         "at": 6
         }
        ]
+      },
+      {
+       "words": "wide",
+       "at": 24,
+       "gives": "W",
+       "note": "W is the cricket scorer's abbreviation for a wide"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone clears the land around a broad section of a vehicle.",
-     "walkthrough": "'Clear the ground' reads as one phrase about land, but 'ground' is the anagram instruction for CLEAR THE. A wide is a ball bowled out of the batter's reach in cricket.",
-     "definitionFit": "A cartwheel is the wheel of a cart, so literally part of a vehicle."
+     "surface": "An instruction to clear an area of land around a broad section of a car.",
+     "walkthrough": "'Ground' reads as the noun earth, but it is grind's past tense: CLEAR and THE rearranged give CARTHEEL, and W for wide goes inside. A wide is a ball bowled out of a batter's reach in cricket.",
+     "definitionFit": "A cartwheel is the wooden wheel of a cart, so it is literally a component of that vehicle."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "ground"
     }
    }
@@ -441,42 +448,62 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "IPSWICH",
      "indicators": [
       {
-       "text": "Having no time at all",
-       "note": "every T (time) is taken out of the combined words"
+       "text": "at all",
+       "at": 15,
+       "note": "every occurrence of the named letter goes, not just one, so both instances are removed"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Having no",
+         "at": 0,
+         "note": "the wordplay letters are to have none of the named letter left in them"
+        }
+       ],
        "parts": [
         {
-         "words": "dump",
-         "gives": "IP",
-         "note": "TIP (dump) without its T"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "dump",
+           "at": 23,
+           "gives": "TIP",
+           "note": "to tip rubbish is to dump it, and a tip is a dump"
+          },
+          {
+           "words": "Rod",
+           "at": 28,
+           "gives": "SWITCH",
+           "note": "a switch is a thin flexible rod or cane"
+          }
+         ]
         },
         {
-         "words": "Rod",
-         "gives": "SWICH",
-         "note": "SWITCH (a rod or cane) without its T"
+         "words": "time",
+         "at": 10,
+         "gives": "T"
         }
        ]
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "In a hurry, Rod ditches his wine.",
-     "walkthrough": "'At all' matters: both TIP and SWITCH contain a T, and both must go. Ipswich is a port town in Suffolk, England.",
-     "definitionFit": "Ipswich is a port on the River Orwell estuary in Suffolk."
+     "surface": "Someone in a rush is told to abandon a man named Rod's harbour town.",
+     "walkthrough": "'Rod' looks like a man's name but is a switch, a slender stick. TIP plus SWITCH has two Ts, and 'at all' says both go. Ipswich is a port town in Suffolk, eastern England.",
+     "definitionFit": "Ipswich stands on the Orwell estuary and has long been a working harbour town in eastern England."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "port"
+     "misdirectedWord": "Rod"
     }
    }
   },
@@ -780,39 +807,39 @@
      "op": "charade",
      "parts": [
       {
+       "words": "cold",
+       "at": 20,
+       "gives": "C",
+       "note": "C is the abbreviation for cold, as on a tap"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "CROQUET",
        "indicators": [
         {
          "text": "abandoning",
-         "note": "the cheese abandons the letters FOR"
+         "at": 9,
+         "note": "the word for is abandoned, dropping out of the cheese's name"
         }
        ],
        "parts": [
         {
-         "words": "cold",
-         "gives": "C",
-         "note": "C is the abbreviation for cold on a tap"
+         "words": "blue cheese",
+         "at": 25,
+         "gives": "ROQUEFORT",
+         "note": "Roquefort is a French blue cheese made from ewe's milk"
         },
         {
-         "words": "blue cheese",
-         "gives": "ROQUEFORT",
-         "note": "Roquefort is a French blue cheese"
+         "words": "for",
+         "at": 5
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "for",
-       "note": "FOR is removed from ROQUEFORT, leaving ROQUET"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone gives up a cold blue cheese for a sport.",
-     "walkthrough": "'For' looks like a link word between definition and wordplay, but it is the letters to be taken out.",
-     "definitionFit": "Croquet is a lawn game played with mallets and hoops."
+     "surface": "A sporting event is staged for the sake of giving up chilled blue cheese.",
+     "walkthrough": "'for' looks like a link word, but it is the letters taken out of ROQUEFORT, leaving ROQUET; C goes in front.",
+     "definitionFit": "Croquet is a lawn sport in which mallets drive balls through hoops."
     },
     "features": {
      "answerInScene": false,
@@ -950,49 +977,42 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "every other letter of capital is taken"
+       "text": "damaged",
+       "at": 36,
+       "note": "the combined letters are broken up and put back together in a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Beirut",
+       "at": 9
+      },
+      {
+       "op": "alternate",
        "indicators": [
         {
-         "text": "damaged",
-         "note": "the letters are knocked out of shape and rearranged"
+         "text": "regularly",
+         "at": 26,
+         "note": "taking letters at regular intervals here means the second, fourth and sixth letters of capital"
         }
        ],
        "parts": [
         {
-         "words": "Beirut",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "AIA",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "capital, regularly",
-           "gives": "AIA",
-           "select": "alternate",
-           "note": "the even letters of cApItAl"
-          }
-         ]
+         "words": "capital",
+         "at": 17,
+         "note": "the second, fourth and sixth letters of capital"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plant in Beirut is damaged, as is the capital regularly.",
-     "walkthrough": "The capital seems to be Beirut itself; it is the word 'capital' giving its alternate letters.",
-     "definitionFit": "Aubrietia is a low trailing rock-garden plant with purple flowers."
+     "surface": "A plant growing in a war-damaged Lebanese capital city.",
+     "walkthrough": "The alternate letters of 'capital' are AIA; with BEIRUT, rearranged, they spell the plant.",
+     "definitionFit": "Aubrietia is a trailing rock-garden perennial with purple flowers, a common garden plant."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "capital"
     }
