@@ -783,6 +783,8 @@ LAYOUT = [
     ("annotating", "tools/test_prereset_watch.sh", "does tools/prereset_watch.sh see a burn that is alive but stuck, and one that is dead with orphans holding its tree lease?"),
     ("annotating", "tools/test_reindex_changed.py", "does fetch_puzzle.reindex_changed() re-read only the puzzle files newer than the index, and fall back to the full reindex when there is no index?"),
     ("annotating", "tools/test_spelling_kept.py", "does a re-annotation that drops the spelling HEAD's annotation of the same answer carries (book-26021 22D lost APERÇU) get refused by the run's check against HEAD?"),
+    ("annotating", "tools/unchecked_repairs.py", "mechanical repairs for an unchecked wordplay tree (wordless leaves, unscrambled fodder), each kept only when the evaluator then finds the answer, so tools/clear_unchecked.py can clear more flags"),
+    ("annotating", "tools/test_unchecked_repairs.py", "is each mechanical repair of an unchecked tree kept only when the evaluator then finds the answer, on clues from the corpus?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

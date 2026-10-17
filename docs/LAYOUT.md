@@ -2894,9 +2894,6 @@ tools/build_spellings.py                       writes tools/data/lexicons/spelli
 tools/clear_unchecked.py                       drops the unchecked flag from wordplay trees
                                                that evaluate to their answer without it, one
                                                commit per puzzle (wordplay.unchecked)
-tools/unchecked_repairs.py                     the mechanical repairs clear_unchecked tries on
-                                               an unchecked tree, each kept only if the
-                                               evaluator then finds the answer
 tools/fill_spellings.py                        writes the `spelling` that
                                                tools/lesson_checks.py flags as unsaid
                                                (spelling.unsaid), where the answer letters give
@@ -2913,8 +2910,6 @@ tools/test_lesson_checks.py                    proves the double-definition and 
 tools/test_clear_unchecked.py                  proves tools/clear_unchecked.py drops the flag
                                                only where the tree gives the answer without it
                                                and the validator finds nothing new
-tools/test_unchecked_repairs.py                proves each repair in tools/unchecked_repairs.py
-                                               on a corpus clue and refuses one that misses
 tools/test_fill_spellings.py                   proves tools/fill_spellings.py writes the
                                                spelling only where unambiguous, with grace for
                                                the lesson-check ratchets
@@ -2942,5 +2937,13 @@ tools/test_spelling_kept.py                    does a re-annotation that drops t
                                                HEAD's annotation of the same answer carries
                                                (book-26021 22D lost APERÇU) get refused by the
                                                run's check against HEAD?
+tools/unchecked_repairs.py                     mechanical repairs for an unchecked wordplay
+                                               tree (wordless leaves, unscrambled fodder), each
+                                               kept only when the evaluator then finds the
+                                               answer, so tools/clear_unchecked.py can clear
+                                               more flags
+tools/test_unchecked_repairs.py                is each mechanical repair of an unchecked tree
+                                               kept only when the evaluator then finds the
+                                               answer, on clues from the corpus?
 ```
 <!-- LAYOUT-END -->
