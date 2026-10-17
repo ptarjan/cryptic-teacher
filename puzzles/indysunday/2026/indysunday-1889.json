@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -198,42 +199,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GODFATHER",
+     "op": "container",
      "indicators": [
       {
-       "text": "unexpected",
-       "note": "What arrives unexpectedly turns up in an order nobody was braced for, and so do these letters."
+       "text": "hides",
+       "at": 9,
+       "note": "hides means the king's letters enclose the rearranged ones"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Old king",
+       "at": 0,
+       "gives": "GR",
+       "note": "GR stands for Georgius Rex, King George, an old king"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "hides",
-         "note": "To hide something is to keep it inside you and out of sight, so the two letters beside it close around the rest."
+         "text": "unexpected",
+         "at": 15,
+         "note": "unexpected suggests the letters arrive in a surprising order, so they are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Old king",
-         "gives": "GR",
-         "note": "GR is Georgius Rex, King George — the monogram still cast into old British postboxes"
+         "words": "death",
+         "at": 26,
+         "note": "taken as written"
         },
         {
-         "words": "unexpected death of",
-         "gives": "ODFATHE",
-         "note": "seven letters of 'death of', rearranged and lodged between the king's two"
+         "words": "of",
+         "at": 32,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Old king' promises a story about Cole or Lear. It is two letters of royal shorthand, and everything between them is the same seven letters in a new order.",
-     "definitionFit": "spiritual mentor → GODFATHER: at a christening he undertakes the child's religious upbringing, so the definition names that duty rather than the film."
+     "surface": "An elderly monarch conceals the sudden death of his religious adviser.",
+     "walkthrough": "'unexpected death of' reads as a news report, but the three words are anagram fodder, sealed between G and R.",
+     "definitionFit": "A godfather sponsors a child at baptism and guides its religious upbringing, a kind of spiritual mentor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unexpected"
     }
    }
   },
@@ -392,35 +405,47 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "THINK",
      "indicators": [
       {
-       "text": "when nothing is fine",
-       "note": "The phrase sets up a swap: at the spot where the letter for zero stands, a word meaning slender takes its place."
+       "text": "when",
+       "at": 9,
+       "note": "when, read with is, sets up a swap inside the letters OK"
+      },
+      {
+       "text": "is",
+       "at": 22,
+       "note": "is, read with when, says the letter for nothing becomes the word for fine"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "fine",
-         "gives": "THIN",
-         "note": "fine thread is thin thread — the width sense, not the weather one"
-        },
-        {
-         "words": "OK",
-         "gives": "K",
-         "note": "OK is two letters, and only the second survives the swap"
-        }
-       ]
+       "words": "OK",
+       "at": 5,
+       "note": "taken as written"
+      },
+      {
+       "words": "nothing",
+       "at": 14,
+       "gives": "O",
+       "note": "O, the figure zero, stands for nothing"
+      },
+      {
+       "words": "fine",
+       "at": 25,
+       "gives": "THIN",
+       "note": "fine can mean thin, as a fine thread"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Feel OK' reads as a question about your health, which is the trap: OK is not a state of mind here but a pair of letters, one of them replaced.",
-     "definitionFit": "Feel → THINK: 'I feel we should go' means 'I think we should' — the sense of holding an opinion, with no touching involved."
+     "surface": "Someone reports feeling fine, as long as nothing much is going on.",
+     "walkthrough": "'when nothing is fine' reads as a mood, but it is an instruction: where OK has the O for nothing, write the word for fine.",
+     "definitionFit": "To feel can mean to hold an opinion, which is to think."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
     }
    }
   },
@@ -669,46 +694,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PARTISANSHIP",
-     "indicators": [
-      {
-       "text": "half",
-       "note": "Half asks for one of the two halves of the word beside it — here the front three of its six letters."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Piano",
+       "at": 0,
+       "gives": "P",
+       "note": "P is the musical abbreviation for piano, meaning soft"
+      },
+      {
+       "words": "maker",
+       "at": 6,
+       "gives": "ARTISAN",
+       "note": "an artisan is a skilled maker"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "half",
+         "at": 12,
+         "note": "half means only the first half of the word for polishes is kept"
+        }
+       ],
        "parts": [
         {
-         "words": "Piano",
-         "gives": "P",
-         "note": "p is the musician's mark for piano, an instruction to play softly"
-        },
-        {
-         "words": "maker",
-         "gives": "ARTISAN",
-         "note": "an artisan is someone who makes things by hand"
-        },
-        {
          "words": "polishes",
-         "gives": "SHI",
-         "note": "polishes is shines, and only the front of that word is taken"
+         "at": 17,
+         "gives": "SHINES",
+         "note": "shines means polishes"
         },
         {
-         "words": "piano",
-         "gives": "P",
-         "note": "the second piano is the same single letter, arriving at the end"
+         "gives": "NES"
         }
        ]
+      },
+      {
+       "words": "piano",
+       "at": 26,
+       "gives": "P",
+       "note": "P again, the musical abbreviation for piano"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A piano maker polishing a piano is a lovely picture and a complete fiction: the two pianos are single letters, one at each end.",
-     "definitionFit": "preferring one side → PARTISANSHIP: a partisan backs one party whatever it does, and the noun names that habit of always taking a side."
+     "surface": "A piano-maker gives one side of the instrument a better polish than the other.",
+     "walkthrough": "The surface pictures a craftsman with a piano; both pianos are just P, at either end.",
+     "definitionFit": "Partisanship is bias in favour of one party or faction, the state of preferring one side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Piano"
     }
    }
   },
@@ -1426,45 +1463,54 @@
     "definitions": [
      {
       "text": "game",
-      "at": 30,
-      "note": "Game is the collective word for wild birds shot for the table, so a mass noun is defining a single creature — one instance standing for the class."
+      "at": 30
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PHEASANT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "trousers",
+       "at": 5,
+       "note": "trousers as a verb means pockets, so the word for long takes the other letters inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Long",
+       "at": 0,
+       "gives": "PANT",
+       "note": "to long for something is to pant for it"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "trousers",
-         "note": "To trouser something is to pocket it, so the letters named next are slipped inside rather than added on."
-        },
-        {
          "text": "affected",
-         "note": "An affected accent is not the one you were born with, and letters affected likewise come out other than as they went in."
+         "at": 14,
+         "note": "affected means disturbed or worked upon, so the tennis player's name is rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Long",
-         "gives": "PANT",
-         "note": "to pant for something is to long for it, and the word opens after its first letter"
-        },
-        {
          "words": "Ashe's",
-         "gives": "HEAS",
-         "note": "Arthur Ashe, the tennis champion, supplies four letters in a new order; the 's is the surface's possessive"
+         "at": 23,
+         "gives": "ASHE",
+         "note": "the name Ashe supplies the letters; the 's is read as 'is', joining the wordplay to the definition"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Ashe's game' reads as tennis, and the man's name is only there for its letters. 'Long' is a verb here, and 'trousers' is not a noun at all.",
-     "definitionFit": "game → PHEASANT: birds shot for the pot are game, and this is the commonest of them, so the definition works by example."
+     "surface": "Arthur Ashe, the tennis player, is seen in long trousers, which altered his game.",
+     "walkthrough": "'trousers' looks like clothing but is a verb: PANT pockets HEAS, the rearrangement of ASHE that 'affected' signals. Game here means animals hunted for sport.",
+     "definitionFit": "The pheasant is a bird shot for sport, and such hunted creatures are called game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trousers"
     }
    }
   },
@@ -1537,41 +1583,32 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "APPENDIX",
+     "spelt": "APPENDIX",
      "indicators": [
       {
        "text": "mentioned",
-       "note": "Something merely mentioned is heard rather than seen written, so the words are to be judged by their sound."
+       "at": 19,
+       "note": "mentioned means the word is said aloud and spelt by its sound"
       }
      ],
      "parts": [
       {
-       "words": "A writer",
-       "gives": "APEN",
-       "note": "a writer is a pen, with the clue's own A in front of it"
-      },
-      {
-       "words": "Richard's",
-       "gives": "DICKS",
-       "note": "Dick is the familiar form of Richard"
-      },
-      {
-       "op": "homophone",
-       "spelt": "APPENDIX",
-       "parts": [
-        {
-         "words": "A writer Richard's mentioned",
-         "gives": "APENDICKS",
-         "note": "said aloud at speed, those three little words run together into one long one"
-        }
-       ]
+       "words": "A writer Richard's",
+       "at": 0,
+       "gives": "APENDICKS",
+       "note": "A, plus pen for writer, plus Dick's, Dick being a familiar form of Richard: said together they make the answer's sound"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Nothing is spelled out here — the pieces only work once you say them, which is why the letters never quite add up on the page.",
-     "definitionFit": "added pages → APPENDIX: an appendix is the extra matter bound in at the back of a book, so the definition names it by what it physically is."
+     "surface": "A writer called Richard is credited in some extra pages.",
+     "walkthrough": "Say A, PEN (a writer) and DICK'S (Richard's) together and they sound like the answer, which is spelt differently.",
+     "definitionFit": "An appendix is supplementary matter added at the end of a book, so it means added pages."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
     }
    }
   }
