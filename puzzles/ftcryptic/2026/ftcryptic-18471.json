@@ -306,51 +306,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ROOMS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 30,
+       "note": "in a down clue, on means placed above, so the reversed word sits over the next letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "over",
-         "note": "the word is turned over, read backwards"
-        },
-        {
-         "text": "top of",
-         "note": "the top of a word is its first letter"
+         "at": 25,
+         "note": "over means turned over, so the word for fell is read backwards"
         }
        ],
        "parts": [
         {
          "words": "fell",
-         "gives": "ROOM",
-         "note": "a fell is a moor, upland in northern England; MOOR backwards"
-        },
+         "at": 20,
+         "gives": "MOOR",
+         "note": "a fell is an upland moor in northern England, so fell gives moor"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "on",
-           "note": "in a down entry, one piece sits on top of the next"
-          }
-         ],
-         "parts": [
-          {
-           "words": "someone",
-           "note": "first letter of Someone"
-          }
-         ]
+         "text": "top of",
+         "at": 33,
+         "note": "top of takes the first letter, which in a down clue is the one at the top"
+        }
+       ],
+       "parts": [
+        {
+         "words": "someone",
+         "at": 40,
+         "note": "the word whose opening letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A building collapses and something falls on a person underneath.",
-     "walkthrough": "'Fell' looks like the past of fall, but it is the noun: a fell is a hill or moor in the north of England.",
-     "definitionFit": "A plain synonym: the spaces that a building's walls divide it into."
+     "surface": "Part of a building collapsed and landed on a passer-by.",
+     "walkthrough": "'fell over' looks like a collapse, but 'fell' is a northern English moor, turned round by 'over' into ROOM; 'top of someone' gives S, placed below it because 'on' means above in a down clue.",
+     "definitionFit": "Rooms are the separate enclosed spaces into which the interior of a house or other structure is divided."
     },
     "features": {
      "answerInScene": true,
