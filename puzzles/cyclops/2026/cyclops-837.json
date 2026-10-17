@@ -23,7 +23,8 @@
   "check": "32 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1395,30 +1396,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RONALD",
      "indicators": [
       {
-       "text": "needs to change party",
-       "note": "Each American party is known by a single letter, so changing party swaps the letter the name starts with for the other side's."
+       "text": "to change party",
+       "at": 26,
+       "note": "switching party from Democrat to Republican means the letter for one party is swapped for the other's"
       }
      ],
      "parts": [
       {
        "words": "Trump",
+       "at": 14,
        "gives": "DONALD",
-       "note": "Donald is the first name of the forty-fifth and forty-seventh American president"
+       "note": "Donald Trump, the US president"
+      },
+      {
+       "gives": "D",
+       "note": "D stands for Democrat"
+      },
+      {
+       "gives": "R",
+       "note": "R stands for Republican"
       }
      ]
     },
     "explanation": {
-     "surface": "Trump being told he has to switch sides.",
-     "walkthrough": "'Change party' is the instruction and the joke at once: D is the Democrats and R the Republicans, so swapping one letter swaps the allegiance and lands on a different president's first name.",
-     "definitionFit": "Ronald Reagan was President from 1981 to 1989, so the first name on its own serves for an old president."
+     "surface": "A satirical swipe suggesting Trump ought to defect to the other political party.",
+     "walkthrough": "'to change party' swaps D (Democrat) in DONALD for R (Republican), giving a different Republican president.",
+     "definitionFit": "Ronald Reagan was US president in the 1980s, so he is an earlier holder of the office."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "party"
     }
@@ -1722,48 +1731,53 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MUTILATE",
-     "indicators": [
-      {
-       "text": "cut",
-       "note": "A cut takes the end off, so the dog's name is written with its last letter gone."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cut",
+         "at": 14,
+         "note": "cut means the word is docked, losing its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "dog",
-         "gives": "MUT",
-         "note": "a mutt is a mongrel, here docked of its final letter"
+         "at": 10,
+         "gives": "MUTT",
+         "note": "a mutt is a mongrel dog"
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "the Roman numeral for one"
-        },
-        {
-         "words": "behind",
-         "gives": "LATE",
-         "note": "a train running behind is running late"
+         "gives": "T",
+         "note": "the final T of the dog's name"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 18,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "behind",
+       "at": 25,
+       "gives": "LATE",
+       "note": "behind, as in behind schedule, means late"
       }
      ]
     },
     "explanation": {
-     "surface": "A butcher's dog, docked short and sitting on somebody's backside.",
-     "walkthrough": "'Butcher's' is the definition wearing an apostrophe, which reads as possession and works as 'is'. 'Behind' is the word the surface most wants you to take anatomically, and it is the one piece here that means nothing of the sort.",
-     "definitionFit": "To butcher a job is to hack it about past repair, which is what mutilating something is; the verbs swap without adjustment."
+     "surface": "Reads as an account of a butcher's dog tail-docked and running late.",
+     "walkthrough": "'cut' docks the dog's last letter, as a tail is docked; 'Butcher' is a verb here, not the tradesman.",
+     "definitionFit": "To butcher something is to hack it about savagely, which is what mutilating does."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "behind"
+     "aptDefinition": false,
+     "misdirectedWord": "Butcher's"
     }
    }
   },
