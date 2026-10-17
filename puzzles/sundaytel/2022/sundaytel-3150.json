@@ -455,35 +455,26 @@
     ],
     "wordplay": {
      "op": "hidden",
-     "unchecked": true,
-     "gives": "RINGER",
      "indicators": [
       {
        "text": "in",
-       "note": "the answer sits inside the run of words that follows, spread across them"
+       "at": 7,
+       "note": "in here means contained within, so the answer sits inside the following words"
       }
      ],
      "parts": [
       {
-       "op": "middle",
-       "unchecked": true,
+       "words": "Hanover, in Germany",
+       "at": 10,
        "gives": "RINGER",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Hanover, in Germany",
-         "gives": "RINGER",
-         "select": "middle",
-         "note": "the letters run across the end of the first word, all of the second, and the start of the third"
-        }
-       ]
+       "note": "the words holding the answer within their letters"
       }
      ]
     },
     "explanation": {
-     "surface": "A lookalike spotted in a German city.",
-     "walkthrough": "The comma is ignored; the run starts at the last letter of Hanover.",
-     "definitionFit": "A dead ringer is someone who looks exactly like another person, a lookalike or body double."
+     "surface": "A lookalike spotted in the German city of Hanover.",
+     "walkthrough": "The first 'in' signals the hiding; the answer runs across the end of Hanover, the second 'in' and the start of Germany.",
+     "definitionFit": "A ringer is a person who looks exactly like another, a lookalike or doppelganger."
     },
     "features": {
      "answerInScene": true,
@@ -1410,52 +1401,43 @@
      }
     ],
     "wordplay": {
-     "op": "hidden",
-     "unchecked": true,
-     "gives": "SUPER",
+     "op": "reversal",
      "indicators": [
       {
-       "text": "piece of",
-       "note": "a piece of something is a fragment, so the answer is a small run of letters from the words"
+       "text": "the wrong way",
+       "at": 33,
+       "note": "going the wrong way means the letters run backwards, from right to left"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "hidden",
        "indicators": [
         {
-         "text": "the wrong way",
-         "note": "going the wrong way means backwards, so the letters must be read in reverse"
+         "text": "piece of",
+         "at": 7,
+         "note": "a piece of the words is a run of letters taken from inside them"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "REPUS",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "furniture pushed",
-           "gives": "REPUS",
-           "select": "middle",
-           "note": "the last two letters of the first word and first three of the second"
-          }
-         ]
+         "words": "furniture pushed",
+         "at": 16,
+         "note": "the words holding the answer, reversed, within their letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lovely chair or table shoved around in the wrong direction.",
-     "walkthrough": "'Piece of furniture' reads as one item; 'piece of' is the signal to look inside the words.",
-     "definitionFit": "Super is an informal adjective of approval meaning excellent or wonderful, a near synonym for lovely."
+     "surface": "An item of furniture, lovely as it is, shoved back in the wrong direction.",
+     "walkthrough": "'piece of' takes REPUS from across furniture pushed, and 'the wrong way' reverses it.",
+     "definitionFit": "Super is an informal adjective meaning excellent or very good, so lovely as an exclamation of approval."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "piece"
+     "misdirectedWord": "furniture"
     }
    }
   },
