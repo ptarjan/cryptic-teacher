@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -274,37 +275,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "GARAGED",
-     "indicators": [
-      {
-       "text": "pushed over",
-       "note": "Something pushed over topples and comes to rest the other way round, so those letters read backwards."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "pushed over",
+         "at": 4,
+         "note": "pushed over means toppled, so the word for kid is turned back to front"
+        }
+       ],
        "parts": [
         {
          "words": "Kid",
-         "gives": "GAR",
-         "note": "to kid somebody is to rag them, and those three letters are then turned round"
-        },
-        {
-         "words": "veteran",
-         "gives": "AGED",
-         "note": "a veteran is aged, long in service"
+         "at": 0,
+         "gives": "RAG",
+         "note": "to kid someone is to rag them, to tease"
         }
        ]
+      },
+      {
+       "words": "veteran",
+       "at": 17,
+       "gives": "AGED",
+       "note": "a veteran is aged, old and experienced"
       }
      ]
     },
     "explanation": {
-     "surface": "A child is knocked over and an old soldier tells him to be quiet.",
-     "walkthrough": "'Shut up' looks like an order for silence and means a car put away under cover for the night.",
-     "definitionFit": "shut up → GARAGED: a car that has been garaged is shut up out of the weather, and the definition matches the answer's past tense."
+     "surface": "A child is knocked over in the street and an old soldier is told to be quiet.",
+     "walkthrough": "'Kid' looks like a child but is the verb to tease, and 'pushed over' reverses it. 'shut up' means put away in a garage, not silenced.",
+     "definitionFit": "A car that is garaged has been put away and locked inside its building for the night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Kid"
     }
    }
   },
@@ -329,41 +336,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GRENADIER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "visits",
+       "at": 9,
+       "note": "visits means comes into, so the short word goes inside the other letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "visits",
-         "note": "A visitor goes inside the house rather than standing beside it, so this piece lands within the letters it meets."
-        },
-        {
          "text": "novel",
-         "note": "Novel means newly made, and letters made new cannot be left in the order the clue printed them."
+         "at": 24,
+         "note": "novel means new, so the letters of reading take a new order"
         }
        ],
        "parts": [
         {
          "words": "reading",
-         "gives": "GNADIER",
-         "note": "the seven letters rearranged, then opened up after the first to take the visitor"
-        },
-        {
-         "words": "on",
-         "gives": "RE",
-         "note": "'on' in the sense of about or concerning is RE, as at the head of a memo"
+         "at": 16,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "on",
+       "at": 6,
+       "gives": "RE",
+       "note": "RE, as in a letter heading, means on or about"
       }
      ]
     },
     "explanation": {
-     "surface": "A guard on duty drops in on somebody who is reading a new book.",
-     "walkthrough": "'Reading' is fodder rather than a pastime, and the Grenadier Guards are the senior regiment of the Household Division — the bearskins outside Buckingham Palace.",
-     "definitionFit": "Guard → GRENADIER: a grenadier is a guardsman of that regiment, so the plain word names him as one particular kind."
+     "surface": "A sentry on duty passes the time reading a novel.",
+     "walkthrough": "'novel' rearranges reading to GRENADI, and 'visits' puts RE inside it. 'novel' looks like the book being read, but it is the anagram signal.",
+     "definitionFit": "Grenadiers serve in the Grenadier Guards, the senior infantry regiment of the British Army's Foot Guards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
     }
    }
   },
@@ -675,53 +690,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BANYANTREE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "supply",
-         "note": "Supply is the adverb of supple here — done with a bend in it — so the letters beside it will not hold their shape."
+         "text": "cut by",
+         "at": 14,
+         "note": "cut by means split open by something placed inside"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "cut by",
-           "note": "Something cut by a blade is opened at the point the blade goes in, and the next piece goes into that gap."
+           "text": "supply",
+           "at": 7,
+           "note": "supply here is the adverb of supple, so the letters bend into a new order"
           }
          ],
          "parts": [
           {
            "words": "Nearby",
-           "gives": "BANYRE",
-           "note": "the six letters rearranged, then split four and two to make room"
-          },
-          {
-           "words": "carpenter, say",
-           "gives": "ANT",
-           "note": "the carpenter ant is one kind of ant, and 'say' marks it as an example"
+           "at": 0,
+           "note": "taken as written"
           }
          ]
         },
         {
-         "words": "European",
-         "gives": "E",
-         "note": "E is the standard abbreviation for European"
+         "words": "carpenter, say",
+         "at": 21,
+         "gives": "ANT",
+         "note": "a carpenter ant is one kind of ant, so carpenter is an example"
         }
        ]
+      },
+      {
+       "words": "European",
+       "at": 37,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A carpenter cutting up a local supply of European and Asian timber.",
-     "walkthrough": "'Supply' is not the noun the surface wants but the adverb of supple, one of the sneakiest anagram signals going, and 'carpenter' is naming an insect.",
-     "definitionFit": "Asian wood → BANYAN TREE: the banyan is the huge aerial-rooted fig of India and south-east Asia, and 'wood' here is growing timber."
+     "surface": "A supply of timber from close by, cut by a carpenter, is mixed with European and Asian wood.",
+     "walkthrough": "'supply' is not a store but supple-ly, the anagram signal; 'cut by' splits the result after BANY. A carpenter here is an insect, not a woodworker.",
+     "definitionFit": "The banyan is an Indian fig whose aerial roots grow into new trunks, so one tree can form a whole wood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "supply"
     }
    }
   },
@@ -987,58 +1008,72 @@
    "annotation": {
     "definitions": [
      {
-      "text": "and now this!",
-      "at": 55,
-      "note": "The exclamation is all that the wordplay leaves over, and it points at the answer by topicality alone; the clue's real description of it — for Leave, and extreme — sits inside the wordplay itself."
+      "text": "Concerned with supporting Leave (my, that's extreme) — and now this!",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "REFORMPARTY",
-     "indicators": [
-      {
-       "text": "that's extreme",
-       "note": "Calling the two letters extreme drives them to the outside, leaving the gap between them for another word."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Concerned with",
+       "at": 0,
+       "gives": "RE",
+       "note": "RE means concerning or about, as in a memo heading"
+      },
+      {
+       "words": "supporting",
+       "at": 15,
+       "gives": "FOR",
+       "note": "for means supporting, as in voting for"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "that's",
+         "at": 37,
+         "note": "that's is read as 'that has': the bracketed letters hold the word for leave between them"
+        }
+       ],
        "parts": [
         {
-         "words": "Concerned with",
-         "gives": "RE",
-         "note": "RE is the 'concerning' at the head of a memo"
-        },
-        {
-         "words": "supporting",
-         "gives": "FOR",
-         "note": "to be for something is to support it"
-        },
-        {
-         "words": "my",
-         "gives": "M",
-         "note": "the front letter of MY, pushed out to the edge"
+         "op": "outer",
+         "indicators": [
+          {
+           "text": "extreme",
+           "at": 44,
+           "note": "extreme asks for only the outermost letters of the word it follows"
+          }
+         ],
+         "parts": [
+          {
+           "words": "my",
+           "at": 33,
+           "note": "its first and last letters"
+          }
+         ]
         },
         {
          "words": "Leave",
+         "at": 26,
          "gives": "PART",
-         "note": "to part is to leave, and the capital L belongs to the Brexit campaign of the surface"
-        },
-        {
-         "words": "my",
-         "gives": "Y",
-         "note": "the back letter of MY, closing the sandwich"
+         "note": "to part is to leave, as in parting company"
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A newsreader introducing yet another story about hardline Brexit campaigners.",
-     "walkthrough": "The words that spell the answer also describe it — an outfit for Leave, and extreme with it — which leaves only the exclamation at the end to point you anywhere.",
-     "definitionFit": "and now this! → REFORM PARTY: the bulletin's handover to the next item, aimed at the party then supplying them, Nigel Farage's Leave-born Reform UK."
+     "surface": "A dismayed exclamation about a party backing Brexit, seen as extreme, appearing on the political scene.",
+     "walkthrough": "'extreme' keeps M and Y of my, and 'that's' (that has) has them holding PART. The whole clue describes the British party that grew out of the Brexit Party, so it also defines the answer.",
+     "definitionFit": "Reform UK, formerly the Brexit Party, campaigned for Leave and is seen by critics as a right-wing upstart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Leave"
     }
    }
   },
