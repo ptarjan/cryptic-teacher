@@ -50,42 +50,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BRANFLAKES",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "the Reverend Spooner famously swapped the opening sounds of words, so the initial sounds of a phrase change places"
+       "at": 24,
+       "note": "Dr Spooner famously swapped the opening sounds of words, so the starts of the two words trade places"
       }
      ],
      "parts": [
       {
        "words": "tart",
+       "at": 7,
        "gives": "FLAN",
        "note": "a flan is an open tart"
       },
       {
-       "words": "comes apart",
-       "gives": "BREAKS",
-       "note": "something that comes apart breaks"
-      },
-      {
-       "unchecked": true,
-       "words": "tart comes apart",
-       "gives": "BRANFLAKES",
-       "soundsLike": "FLAN BREAKS",
-       "note": "swap the opening FL and BR sounds"
+       "op": "homophone",
+       "spelt": "BRAKES",
+       "parts": [
+        {
+         "words": "comes apart",
+         "at": 12,
+         "gives": "BREAKS",
+         "note": "something that comes apart breaks, which is said exactly like brakes, the spelling the swap needs"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A baker watches a pastry fall to pieces, with a breakfast cereal somehow involved.",
-     "walkthrough": "Say FLAN BREAKS with its first sounds exchanged and you get BRAN FLAKES.",
-     "definitionFit": "Bran flakes are a common breakfast cereal made from toasted wheat bran."
+     "surface": "A pastry case collapses, as the famously tongue-tied Oxford don might have put it.",
+     "walkthrough": "FLAN BREAKS, said with the opening sounds FL and BR swapped, comes out as the breakfast cereal.",
+     "definitionFit": "Bran flakes are a familiar breakfast cereal made of toasted wheat bran."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "tart"
     }
    }
@@ -431,29 +432,51 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "ABET",
-     "indicators": [
-      {
-       "text": "in prime locations",
-       "note": "prime locations are positions numbered by prime numbers: second, third, fifth, seventh"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "lab tests",
-       "gives": "ABET",
-       "select": "prime",
-       "note": "letters 2, 3, 5 and 7 of the two words run together"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "prime",
+         "at": 22,
+         "note": "prime here means the prime-numbered positions 2 and 3 within the first word, so its opening letter goes"
+        }
+       ],
+       "parts": [
+        {
+         "words": "lab",
+         "at": 9,
+         "note": "positions 1 to 3 of the count: the 2nd and 3rd letters are prime positions, the 1st is not"
+        },
+        {
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "locations",
+         "at": 28,
+         "note": "the prime locations continue at 5 and 7, which fall on every other letter of the second word, starting with its second"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tests",
+         "at": 13,
+         "note": "positions 4 to 8 of the count: its 2nd and 4th letters stand at the prime positions 5 and 7"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Laboratory testing is approved at the best sites.",
-     "walkthrough": "'Prime locations' sounds like estate-agent talk, but it means positions 2, 3, 5 and 7: A, B, E, T.",
-     "definitionFit": "To sanction something can mean to support or permit it, and to abet is to encourage or assist."
+     "surface": "An authority approves a set of laboratory trials carried out in the best venues.",
+     "walkthrough": "'in prime locations' is not about good sites but prime numbers: count the letters of 'lab tests' and keep the 2nd, 3rd, 5th and 7th, giving AB from lab and ET from tests.",
+     "definitionFit": "To abet is to support or encourage, as one sanctions an act by giving it backing."
     },
     "features": {
      "answerInScene": false,
