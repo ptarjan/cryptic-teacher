@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -43,37 +44,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RUMPLE",
-     "indicators": [
-      {
-       "text": "for the most part",
-       "note": "For the most part is most of a thing but not all of it, so the word it follows arrives one letter short at the tail."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "drink",
+       "at": 8,
+       "gives": "RUM",
+       "note": "rum is an alcoholic drink"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "for the most part",
+         "at": 22,
+         "note": "for the most part means not quite all, so the last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "drink",
-         "gives": "RUM",
-         "note": "rum is the spirit the crossword reaches for first"
+         "words": "request",
+         "at": 14,
+         "gives": "PLEA",
+         "note": "a plea is an earnest request"
         },
         {
-         "words": "request",
-         "gives": "PLE",
-         "note": "a request is a PLEA, and only the most of it is being asked for"
+         "gives": "A"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Getting a drinks order mostly wrong.",
-     "walkthrough": "A plea is a request in the formal sense - entering a plea, a plea for calm - which is the step the letters skip over. 'For the most part' nearly always takes the final letter off rather than the first.",
-     "definitionFit": "To rumple a shirt or a bed is to leave it creased and out of order, which is to mess it up."
+     "surface": "Someone bungles an order at the bar.",
+     "walkthrough": "'request' is not a drinks order but a plea, and 'for the most part' lops off its final letter before it joins the spirit.",
+     "definitionFit": "To rumple is to make untidy or crumpled, as with hair or bedclothes."
     },
     "features": {
      "answerInScene": false,
@@ -267,37 +272,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STRIDE",
-     "indicators": [
-      {
-       "text": "Not half",
-       "note": "Not half denies you the whole of the word before it, leaving the front two letters of a four-letter one."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not half",
+         "at": 6,
+         "note": "not half means without half of it, so the second half of the word is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "Step",
-         "gives": "ST",
-         "note": "the front half of STEP"
+         "at": 0
         },
         {
-         "words": "Travel",
-         "gives": "RIDE",
-         "note": "to ride is to travel, on a horse or in a car"
+         "gives": "EP"
         }
        ]
+      },
+      {
+       "words": "Travel",
+       "at": 16,
+       "gives": "RIDE",
+       "note": "to ride is to travel, on a horse or in a vehicle"
       }
      ]
     },
     "explanation": {
-     "surface": "A walker scoffing at the idea of a single step and setting off to travel instead.",
-     "walkthrough": "'Not half!' is the British exclamation meaning very much so, which is the reverse of the instruction it is carrying. The row of dots is typography rather than wordplay - it lets one verb serve the clue twice.",
-     "definitionFit": "To stride is to walk with unusually long paces, so the definition spells out the manner the verb already carries."
+     "surface": "An enthusiastic reply about walking: not half!",
+     "walkthrough": "'Not half!' sounds like the British exclamation meaning 'certainly', but it removes half of STEP to leave ST.",
+     "definitionFit": "To stride is to walk with long, decisive steps."
     },
     "features": {
      "answerInScene": true,
@@ -971,28 +978,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TANKARD",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner is the Oxford don remembered for swapping the opening sounds of two words, so the phrase named next has its first sounds exchanged."
+       "at": 0,
+       "note": "Spooner's says the opening sounds of two syllables change places, as the Reverend Spooner famously did"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "ridden at speed",
-       "gives": "TANKARD",
-       "soundsLike": "CANTERED",
-       "note": "a horse ridden at speed has cantered; exchange the opening sounds of CAN and TERED and what comes out is said like the answer"
+       "op": "homophone",
+       "spelt": "KAN",
+       "parts": [
+        {
+         "words": "ridden",
+         "at": 10,
+         "gives": "CAN",
+         "note": "'ridden at speed' as a whole is cantered; this leaf is only its first syllable, said 'kan' (one word split in two so its syllables can be swapped)"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "TARD",
+       "parts": [
+        {
+         "words": "at speed",
+         "at": 17,
+         "gives": "TERED",
+         "note": "the second syllable of cantered, the word for 'ridden at speed', said 'tard' in a British accent"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner riding hard in return for a pint.",
-     "walkthrough": "William Spooner was the warden of New College whose tongue kept swapping the fronts of words, and crosswords have kept his name for the device ever since. A tankard is the handled pewter or pottery mug British pubs poured beer into.",
-     "definitionFit": "A tankard holds about a pint, and British usage lets the mug's name stand for the measure of ale inside it."
+     "surface": "A rider hurries off for a pint of beer.",
+     "walkthrough": "'ridden at speed' gives one word, CANTERED, said 'kan-tard'. 'Spooner's' swaps the opening K and T sounds of its two syllables to give 'tan-kard'. The parse splits the phrase only so the swap can be shown.",
+     "definitionFit": "A tankard is a large beer mug, so it holds a measure of ale."
     },
     "features": {
      "answerInScene": false,
@@ -1314,36 +1337,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CLASS",
      "indicators": [
       {
-       "text": "Changing sides",
-       "note": "The sides here are left and right, so changing them trades the letter that stands for one for the letter that stands for the other."
+       "text": "Changing sides in",
+       "at": 0,
+       "note": "changing sides means swapping right for left, R for L"
       }
      ],
      "parts": [
       {
        "words": "boorish",
+       "at": 18,
        "gives": "CRASS",
-       "note": "crass is the word for coarse and boorish"
+       "note": "crass means coarse and insensitive, boorish"
       },
       {
-       "words": "sides",
-       "gives": "L",
-       "note": "the R that sits second in that word is right, and the side it changes to is left"
+       "gives": "R"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A defection carried out in a coarse, ill-mannered way.",
-     "walkthrough": "R and L are the crossword's right and left, and trading one for the other is all that 'changing sides' asks for. Form is the British school word for a year group - the third form, the sixth form - which is where the definition is hiding.",
-     "definitionFit": "In British schools a form is the group a pupil is taught with, and class is the ordinary word for the same group."
+     "surface": "A rude pupil switches allegiance in the classroom.",
+     "walkthrough": "Swap the R of CRASS for an L. A form is a school year group in Britain.",
+     "definitionFit": "A form is a British school class, a group of pupils taught together."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "sides"
+     "misdirectedWord": "form"
     }
    }
   },
