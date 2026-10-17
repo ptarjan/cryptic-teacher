@@ -46,15 +46,21 @@ def rows():
     return _cache["rows"]
 
 
+_pending_cache = {}
+
+
 def pending():
     """{puzzle id: {clue key ("22a"): reason}} for the rows not yet tried."""
-    out = {}
-    for r in rows():
-        if r.get("tried"):
-            continue
-        pid, _, clue = r["id"].partition("#")
-        out.setdefault(pid, {})[clue] = r.get("reason", "")
-    return out
+    rs = rows()
+    if _pending_cache.get("rows") is not rs:  # rows() returns one list per file version
+        out = {}
+        for r in rs:
+            if r.get("tried"):
+                continue
+            pid, _, clue = r["id"].partition("#")
+            out.setdefault(pid, {})[clue] = r.get("reason", "")
+        _pending_cache.update(rows=rs, out=out)
+    return _pending_cache["out"]
 
 
 def puzzle_ids():

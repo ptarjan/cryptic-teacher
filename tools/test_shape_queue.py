@@ -174,5 +174,12 @@ check("one definition with no tree is still refused",
 check("two definitions leaving a clue word uncovered are refused",
       bool(Q.regressions(allot, {"definitions": [{"text": "Assign"}, {"text": "Gospels"}]})))
 
+# pending() is memoized per rows() list; a changed file rebuilds it.
+Q.PATH.write_text(json.dumps([{"id": "m-1#1a", "reason": "x"}]))
+check("pending is built from the rows", Q.pending() == {"m-1": {"1a": "x"}})
+check("and reused while the rows are unchanged", Q.pending() is Q.pending())
+Q.PATH.write_text(json.dumps([{"id": "m-1#1a", "reason": "x", "tried": True}, {"id": "m-2#2d", "reason": "yy"}]))
+check("a changed file rebuilds it", Q.pending() == {"m-2": {"2d": "yy"}})
+
 print("FAILED" if fails else "shape queue: all pass")
 raise SystemExit(1 if fails else 0)
