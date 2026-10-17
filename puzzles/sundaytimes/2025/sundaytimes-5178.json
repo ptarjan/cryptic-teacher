@@ -361,42 +361,31 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "STRAW",
-     "indicators": [
-      {
-       "text": "In"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "a way",
-         "gives": "ST",
-         "note": "St = street, a way"
-        },
-        {
-         "words": "green",
-         "gives": "RAW",
-         "note": "green = raw, inexperienced"
-        }
-       ]
+       "words": "In a way",
+       "at": 0,
+       "gives": "ST",
+       "note": "ST is the abbreviation for street, a way, as in an address written in St"
+      },
+      {
+       "words": "green",
+       "at": 10,
+       "gives": "RAW",
+       "note": "raw means green, inexperienced or unripe"
       }
      ]
     },
     "explanation": {
-     "surface": "A paradox: green somehow counts as yellow.",
-     "walkthrough": "Two colour words make the clue look like a colour puzzle, but green means inexperienced here.",
-     "definitionFit": "A colour name: dried stalks give their name to a pale yellow shade."
+     "surface": "A puzzling claim that green is, in a manner of speaking, yellow.",
+     "walkthrough": "'In a way' reads like a hedge, but it supplies ST, the street abbreviation, and green follows as RAW.",
+     "definitionFit": "Straw is a pale yellow colour, named after dried stalks of grain."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "green"
+     "misdirectedWord": "way"
     }
    }
   },
@@ -1022,40 +1011,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MARLENEDIETRICH",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "in means the reworked letters go inside the parade word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "parade",
+       "at": 21,
+       "gives": "MARCH",
+       "note": "a march is a parade"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "cast",
-         "note": "cast things are thrown, so the letters are scattered"
-        },
-        {
-         "text": "in"
+         "at": 13,
+         "note": "cast in the sense of thrown about, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "parade",
-         "gives": "MARCH",
-         "note": "a march is a parade; it opens as MAR and closes as CH"
-        },
-        {
          "words": "I led entire",
-         "gives": "LENEDIETRI",
-         "note": "anagram fodder, 10 letters"
+         "at": 0,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An actress boasts of leading the whole cast in a parade.",
-     "walkthrough": "'Cast' pretends to be the actors in a show, which suits an actress, but it only means the letters are thrown about.",
-     "definitionFit": "A definition by example: a German-American film star of the 1930s onward."
+     "surface": "A star boasts of leading the whole cast in a procession.",
+     "walkthrough": "'cast' looks like the actors in a show but means the letters are thrown into a new order, LENEDIETRI, which goes inside MARCH.",
+     "definitionFit": "Marlene Dietrich was a German-born Hollywood film star and singer, so she is an example of an actress."
     },
     "features": {
      "answerInScene": true,
