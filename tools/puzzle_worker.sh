@@ -537,16 +537,24 @@ stage_puzzle() {
 # Commit what is staged as "$1" under the index lock and push it. $2.. are the
 # pathspecs to unstage if the commit is refused. 0 when committed.
 worker_commit() {   # subject paths...
-  local subject="$1" out sha try ok=0
+  local subject="$1" out sha try ok=0 rc=0
   shift
   # A status or sync elsewhere in this tree holds index.lock for a moment, as
   # stage_puzzle's add knows; refused once, the staged puzzle used to ride in
   # the next run's commit under that run's name. Only a held lock is retried.
+  # The commit names its pathspecs (git's --only form), so whatever else is
+  # staged in the shared index, a sibling's file that a git outside
+  # ct-index.lock put there (10-17: azed-2778 swept into book-12035), is never
+  # in this commit.
   for try in 1 2 3 4 5; do
-    out=$(git commit -q -m "$(printf '%s\n\n%s' "$subject" "$(python3 tools/provenance.py trailer)")" 2>&1) && { ok=1; break; }
+    out=$(git commit -q -m "$(printf '%s\n\n%s' "$subject" "$(python3 tools/provenance.py trailer)")" -- "$@" 2>&1) && { ok=1; break; }
+    rc=$?
     case "$out" in *index.lock*) [ "$try" -lt 5 ] && clear_stale_index_lock ;; *) break ;; esac
   done
   if [ "$ok" = 0 ]; then
+    # -q hides "nothing to commit", so a refusal can arrive with no words at all
+    # (10-17: the alert for azed-2778 ended at its colon). Say what is known.
+    [ -n "$out" ] || out="git commit exited $rc and said nothing; status of $*: $(git --no-optional-locks status --porcelain -- "$@" 2>&1 | tr '\n' ' ')"
     # push_puzzle_commit.sh would find HEAD already on origin and exit 0, so a
     # refused commit has to stop here or the log says "committed".
     git reset -q -- "$@"
