@@ -488,41 +488,40 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RUBIOUS",
      "indicators": [
       {
        "text": "replaces",
-       "note": "replacing means one letter is swapped out and another put in its place"
+       "at": 38,
+       "note": "replaces tells us the Republican letter takes the place of the Democrat letter in the hesitant word"
       }
      ],
      "parts": [
       {
        "words": "hesitant",
+       "at": 13,
        "gives": "DUBIOUS",
-       "note": "someone dubious is doubtful and hesitant"
-      },
-      {
-       "words": "Republican",
-       "gives": "R",
-       "note": "R is the abbreviation for Republican"
+       "note": "dubious means hesitant or uncertain"
       },
       {
        "words": "Democrat",
-       "gives": "D",
-       "note": "D is the abbreviation for Democrat"
+       "at": 47,
+       "gives": "D"
+      },
+      {
+       "words": "Republican",
+       "at": 27,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A US voter is optimistic yet wavering after switching from Democrat to Republican.",
-     "walkthrough": "'Sanguine' looks like hopeful, but here it is the older sense of blood-red.",
-     "definitionFit": "Rubious means ruby-coloured, and sanguine in its original sense means the colour of blood, a deep red."
+     "surface": "A political observer feels optimistic but unsure as one party's candidate takes over from the other's.",
+     "walkthrough": "'when Republican replaces Democrat' swaps the D of DUBIOUS for R. Here 'Sanguine' is meant in its literal sense of blood-coloured, not optimistic.",
+     "definitionFit": "Rubious is a rare word for ruby-red, and sanguine can also mean blood-red in colour."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "Sanguine"
     }
    }
@@ -1046,37 +1045,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WISTITI",
-     "indicators": [
-      {
-       "text": "never completed by eastern",
-       "note": "never finished off with eastern means each word misses its closing E"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Sensible",
-       "gives": "WISE",
-       "note": "a sensible person is wise"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "never completed by",
+         "at": 21,
+         "note": "never completed by says each word is left without its final letter, the eastern one"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sensible",
+         "at": 0,
+         "gives": "WISE",
+         "note": "sensible means wise"
+        },
+        {
+         "words": "eastern",
+         "at": 40,
+         "gives": "E"
+        }
+       ]
       },
       {
        "words": "double knot",
-       "gives": "TIETIE",
-       "note": "a tie is a knot, and doubling it gives two"
+       "at": 9,
+       "gives": "TITI",
+       "note": "a knot is a tie, and double gives it twice; the same instruction to leave each word incomplete cuts each tie short"
       }
      ]
     },
     "explanation": {
-     "surface": "A careful sailor ties a double knot that an eastern monkey never quite finishes.",
-     "walkthrough": "Every word loses its last letter E, which 'eastern' stands for: WISE, TIE and TIE all shorten.",
-     "definitionFit": "The wistiti is another name for the marmoset, a small South American primate with clawed digits."
+     "surface": "Advice on tying a secure double knot that is somehow never finished by someone from the East.",
+     "walkthrough": "'never completed by eastern' means each word lacks its final E: WISE becomes WIS, and each TIE of the double knot becomes TI, giving TITI.",
+     "definitionFit": "The wistiti is the common marmoset, a small South American monkey."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "eastern"
+     "misdirectedWord": "knot"
     }
    }
   },
