@@ -1053,40 +1053,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LAWSUIT",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev Spooner swapped the first sounds of words"
+       "at": 0,
+       "note": "Spooner's signals a Spoonerism, swapping the opening sounds of the two words"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "witnessed",
+       "at": 10,
+       "gives": "SAW",
+       "note": "witnessed means saw"
+      },
+      {
+       "op": "homophone",
+       "spelt": "LUIT",
        "parts": [
         {
-         "unchecked": true,
-         "words": "witnessed",
-         "gives": "LAW",
-         "soundsLike": "SAW",
-         "note": "saw = witnessed; it takes the L sound from the next word"
-        },
-        {
-         "unchecked": true,
          "words": "instrument",
-         "gives": "SUIT",
-         "soundsLike": "LUTE",
-         "note": "a lute is a stringed instrument; it takes the S sound from the first word"
+         "at": 20,
+         "gives": "LUTE",
+         "note": "a lute is a stringed instrument"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner saw a musical instrument case.",
-     "walkthrough": "'Instrument case' reads as a box for a violin; 'case' alone is the definition, a court case.",
-     "definitionFit": "A court case and a suit at law are the same thing, a plain synonym."
+     "surface": "A boast about having watched someone play music.",
+     "walkthrough": "Spooner's swaps the opening sounds of SAW LUTE to give LAW SUIT; lute rhymes with suit, so its sound is respelt LUIT before the swap.",
+     "definitionFit": "A case in the legal sense is a lawsuit, an action brought before a court."
     },
     "features": {
      "answerInScene": false,
@@ -2340,56 +2338,67 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "MICROBREWER",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "sat on by",
+       "at": 41,
+       "note": "in a down answer, a piece sat on by another has that other piece placed above it"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "bug",
+       "at": 51,
+       "gives": "MIC",
+       "note": "a bug is a hidden microphone, a mic"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "runs through"
-        },
-        {
-         "text": "sat on by",
-         "note": "in a down clue, the bug sits on top"
+         "text": "through",
+         "at": 16,
+         "note": "through means the runs letter passes into the middle of the other two words"
         }
        ],
        "parts": [
         {
-         "words": "bug",
-         "gives": "MIC",
-         "note": "a bug is a hidden microphone, a mic"
-        },
-        {
-         "words": "mug",
-         "gives": "ROB",
-         "note": "to mug someone is to rob them"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "mug",
+           "at": 24,
+           "gives": "ROB",
+           "note": "to mug someone is to rob them"
+          },
+          {
+           "words": "pitcher",
+           "at": 32,
+           "gives": "EWER",
+           "note": "a ewer is a large jug or pitcher"
+          }
+         ]
         },
         {
          "words": "runs",
+         "at": 11,
          "gives": "R",
-         "note": "R = runs, in cricket"
-        },
-        {
-         "words": "pitcher",
-         "gives": "EWER",
-         "note": "a ewer is a large jug or pitcher"
+         "note": "R is the cricket scoring abbreviation for runs"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A brewer's mug and jug get sat on by an insect.",
-     "walkthrough": "'Mug' and 'pitcher' look like drinking vessels; mug is a verb here.",
-     "definitionFit": "A plain description: a small independent brewery's owner makes craft beer."
+     "surface": "A craft brewer's beer passes through a mug and a jug, with an insect perched on top.",
+     "walkthrough": "'runs through' puts R between ROB and EWER; 'sat on by' sets MIC above that in the down answer. A bug here is a listening device.",
+     "definitionFit": "A microbrewer runs a small brewery, a producer of craft beer."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "mug"
+     "misdirectedWord": "bug"
     }
    }
   },
@@ -3375,46 +3384,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RAWHIDE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to keep",
+       "at": 23,
+       "note": "to keep means to hold inside, so the rearranged wear holds the concealed word within it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "fashioned",
-         "note": "made into a new shape, so the letters are rearranged"
-        },
-        {
-         "text": "to keep",
-         "note": "holding the next word inside"
+         "at": 13,
+         "note": "fashioned means shaped or made anew, so the letters of wear are rearranged"
         }
        ],
        "parts": [
         {
          "words": "wear",
-         "gives": "RAWE",
-         "note": "anagram of WEAR"
-        },
-        {
-         "words": "concealed",
-         "gives": "HID",
-         "note": "hid = concealed"
+         "at": 8,
+         "note": "taken as written before being rearranged"
         }
        ]
+      },
+      {
+       "words": "concealed",
+       "at": 31,
+       "gives": "HID",
+       "note": "concealed means hid"
       }
      ]
     },
     "explanation": {
-     "surface": "Leather clothing made to hide something.",
-     "walkthrough": "'Leather wear' reads as one phrase; 'Leather' alone is the definition.",
-     "definitionFit": "Definition by description: untanned cattle hide is a kind of leather."
+     "surface": "Clothing designed so as to stay out of sight.",
+     "walkthrough": "'fashioned' turns WEAR into RAWE, and 'to keep' puts HID inside it, between the W and the E.",
+     "definitionFit": "Rawhide is untanned animal skin, a stiff form of leather used for whips and dog chews."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "wear"
+     "misdirectedWord": "fashioned"
     }
    }
   },
