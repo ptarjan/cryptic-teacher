@@ -1333,6 +1333,14 @@ check("a loaded parse stands for an unmoved file; a moved one is read again",
       (loaded[2][0], loaded[1][0], f._HELD_MOVED))
 f.save_held(hc)
 check("save_held writes only after a parse", [], f._HELD_MOVED)
+# A series' snapshot carries its parses to a new process, keyed on each file's stat.
+f.HELD_SERIES_CACHE = str(hp / "series_cache")
+f._HELD_LISTED.clear(); f._HELD.clear(); f._HELD_SAVED.clear()
+f.held_files("zz")
+f._HELD.clear(); f._HELD_LISTED.clear()
+f._load_series_snapshot("zz")
+check("series snapshot holds the series' parses", True, any("/zz/" in k for k in f._HELD))
+f.HELD_SERIES_CACHE = None
 # Across briefs the last listing stands while no year folder moved and it
 # is under HELD_FRESH old: no file is stat'ed again. A file filed (its
 # folder moves) is seen at once; an in-place rewrite once HELD_FRESH passes.

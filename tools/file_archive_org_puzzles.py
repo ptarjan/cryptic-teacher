@@ -2740,6 +2740,57 @@ def _held_listing(series):
     return got
 
 
+#: Where each series' parses are kept between processes (a fresh read unit
+#: would else parse all ~15k times puzzles, 15 s of CPU, for held_dates):
+#: {file path: (stamp, entry)} of one series a file, each entry standing only
+#: while its file's (mtime, size) does, as _HELD's. None turns it off.
+HELD_SERIES_CACHE = os.path.expanduser("~/.cache/held_dates")
+#: {series: when its snapshot was last written (monotonic)}.
+_HELD_SAVED = {}
+#: Seconds between a series' snapshot writes while files keep being parsed.
+HELD_SAVE_EVERY = 30
+
+
+def _series_snapshot_path(series):
+    return os.path.join(HELD_SERIES_CACHE, f"{series}.pickle") if HELD_SERIES_CACHE else None
+
+
+def _load_series_snapshot(series):
+    """Take the parses _save_series_snapshot wrote for a series, for each
+    file this process has not parsed."""
+    path = _series_snapshot_path(series)
+    if path is None:
+        return
+    try:
+        with open(path, "rb") as f:
+            snap = pickle.load(f)
+    except (OSError, EOFError, pickle.UnpicklingError, AttributeError, ValueError):
+        return
+    if isinstance(snap, dict):
+        for k, v in snap.items():
+            _HELD.setdefault(k, v)
+
+
+def _save_series_snapshot(series, force=False):
+    """Write the series' parses (at most every HELD_SAVE_EVERY seconds; an
+    older snapshot only costs the next process a few re-parses)."""
+    path = _series_snapshot_path(series)
+    now = time.monotonic()
+    if path is None or not force and now - _HELD_SAVED.get(series, float("-inf")) < HELD_SAVE_EVERY:
+        return
+    _HELD_SAVED[series] = now
+    prefix = os.fspath(ROOT / "puzzles" / series) + os.sep
+    snap = {k: v for k, v in list(_HELD.items()) if k.startswith(prefix)}
+    tmp = f"{path}.{os.getpid()}.{threading.get_ident()}.tmp"
+    try:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(tmp, "wb") as f:
+            pickle.dump(snap, f, protocol=pickle.HIGHEST_PROTOCOL)
+        os.replace(tmp, path)
+    except OSError:
+        pass
+
+
 def _held_list(series):
     # The last listing stands while no year folder moved (a puzzle written
     # by os.replace, filed or removed moves its folder's mtime) and it is
@@ -2750,6 +2801,9 @@ def _held_list(series):
     # for in-place rewrites, comes HELD_FRESH after the one before.
     folders = _held_folders(series)
     hit = _HELD_LISTED.get(series)
+    if hit is None:
+        _load_series_snapshot(series)
+    parsed = 0
     now = time.monotonic()
     if hit is not None and hit[1] == folders and now - hit[0] < HELD_FRESH:
         return hit[2]
@@ -2761,10 +2815,13 @@ def _held_list(series):
             entries = hit[3][name]
         else:
             entries = []
-            for p in (ROOT / "puzzles" / series / name).glob("*.json"):
-                st = p.stat()
+            for de in os.scandir(ROOT / "puzzles" / series / name):
+                if not de.name.endswith(".json"):
+                    continue
+                p = Path(de.path)
+                st = de.stat()
                 stamp = (st.st_mtime_ns, st.st_size)
-                ps = os.fspath(p)
+                ps = de.path
                 seen = _HELD.get(ps)
                 if seen is None or seen[0] != stamp:
                     d = json.loads(p.read_text())
@@ -2772,12 +2829,15 @@ def _held_list(series):
                     seen = _HELD[ps] = (stamp, (date and datetime.date.fromisoformat(date[:10]),
                                                (d.get("source") or {}).get("url"), (date or "")[:10]))
                     _HELD_MOVED.append(p)
+                    parsed += 1
                 entries.append((int(p.stem.split("-")[1]), seen[1], p))
         by_folder[name] = entries
         for number, entry, p in entries:
             out.append((number, entry))
             _HELD_PATH[series, number] = p
     out = tuple(out)
+    if parsed:
+        _save_series_snapshot(series)
     if hit is None or hit[2][1] != out:
         _HELD_VERSION[series] = _HELD_VERSION.get(series, 0) + 1
     got = (_HELD_VERSION[series], out)
