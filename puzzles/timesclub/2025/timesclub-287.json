@@ -423,78 +423,86 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NEAFFE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Short",
-       "note": "something cut short has lost its final letter"
+       "text": "before",
+       "at": 28,
+       "note": "before puts the reversed letters ahead of the symbol for iron"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "before",
-         "note": "one piece placed before another comes first in the reading"
+         "text": "stands",
+         "at": 21,
+         "note": "in a down clue, stands means is set upright, so the pieces are read from bottom to top"
         }
        ],
        "parts": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "stands",
-           "note": "in a down entry, a thing that stands up reads from bottom to top"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "op": "charade",
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "Short",
+             "at": 0,
+             "note": "short means cut off at the end, so fat loses its final letter"
+            }
+           ],
            "parts": [
             {
              "words": "fat",
-             "gives": "FA",
-             "note": "the word with its last letter dropped"
+             "at": 6,
+             "note": "the word that is cut short"
             },
             {
-             "op": "middle",
-             "indicators": [
-              {
-               "text": "naked",
-               "note": "stripped of its outer covering, a word keeps only its inner letters"
-              }
-             ],
-             "parts": [
-              {
-               "words": "gent",
-               "note": "the two inner letters of the word"
-              }
-             ]
+             "gives": "T"
+            }
+           ]
+          },
+          {
+           "op": "middle",
+           "indicators": [
+            {
+             "text": "naked",
+             "at": 10,
+             "note": "naked means stripped of its covering, so gent loses its outer letters"
+            }
+           ],
+           "parts": [
+            {
+             "words": "gent",
+             "at": 16,
+             "note": "the word whose outer letters are stripped away"
             }
            ]
           }
          ]
-        },
-        {
-         "words": "iron",
-         "gives": "FE",
-         "note": "Fe is the chemical symbol for iron"
         }
        ]
+      },
+      {
+       "words": "iron",
+       "at": 35,
+       "gives": "FE",
+       "note": "Fe is the chemical symbol for iron"
       }
      ]
     },
     "explanation": {
-     "surface": "A short, fat man stands stripped bare in front of a bully with an iron fist.",
-     "walkthrough": "'Will' is Shakespeare: NEAFFE (or neaf) is his word for a fist, as in Henry IV's 'Sweet knight, I kiss thy neaf'. 'Stands' turns both earlier pieces upwards together.",
-     "definitionFit": "It is an archaic northern word for the hand clenched tight, used by Shakespeare, so it is a fist as Will would write it."
+     "surface": "A picture of a stout man with no clothes standing in front of a clenched iron fist.",
+     "walkthrough": "FA and EN make FAEN, which 'stands' upright as NEAF, followed by FE. 'Will' is Shakespeare, who used neaffe, an old word for a fist.",
+     "definitionFit": "Neaffe is a Shakespearean spelling of neif or nieve, the old dialect word for a closed hand."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "absurd",
      "misdirectedWord": "Will"
     }
    }
@@ -973,51 +981,40 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RESIANCE",
      "indicators": [
       {
        "text": "supplants",
-       "note": "to supplant is to take another's place, so one chunk ousts another"
+       "at": 13,
+       "note": "supplants means takes the place of, so the city goes in where that letter was"
+      },
+      {
+       "text": "focus of",
+       "at": 23,
+       "note": "the focus of something is its centre, so the middle letter of the survey word is the one replaced"
       }
      ],
      "parts": [
       {
        "words": "preliminary survey",
+       "at": 32,
        "gives": "RECCE",
-       "note": "a recce is a reconnaissance, a preliminary look round"
+       "note": "a recce, short for reconnaissance, is a preliminary survey of ground"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "C",
-       "indicators": [
-        {
-         "text": "focus of",
-         "note": "the focus of a word is its central point, its middle letter"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "preliminary survey",
-         "gives": "C",
-         "select": "middle",
-         "note": "the central letter of that five-letter word"
-        }
-       ]
+       "gives": "C"
       },
       {
        "words": "Chinese city",
+       "at": 0,
        "gives": "SIAN",
-       "note": "Sian is the older spelling of Xi'an"
+       "note": "Sian is an older spelling of Xi'an, the city in north-west China"
       }
      ]
     },
     "explanation": {
-     "surface": "A Chinese city takes over the central part of a planning survey for a care home.",
-     "walkthrough": "'Old people's home' suggests a care home, but 'old' marks an archaic word and 'people's home' is the definition. RESIANCE is an obsolete word for residence.",
-     "definitionFit": "This archaic term meant one's dwelling or abode, so an obsolete word for the place where people live."
+     "surface": "A Chinese city is chosen instead of a planned survey site for a care home for the elderly.",
+     "walkthrough": "'old people's home' is not a care home: 'old' says the word is archaic and 'people's home' defines it.",
+     "definitionFit": "Resiance is an obsolete word for residence, the place where people make their home."
     },
     "features": {
      "answerInScene": false,
