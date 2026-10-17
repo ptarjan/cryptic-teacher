@@ -879,52 +879,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NOSTALGIC",
+     "op": "composite",
      "indicators": [
       {
        "text": "Different",
-       "note": "a different version is a changed one, so the letters are rearranged"
+       "at": 0,
+       "note": "different signals that the letters are made into a different arrangement"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "NOSTALGIC",
-       "indicators": [
-        {
-         "text": "endlessly",
-         "note": "without ends: each of the three words before it loses its final letter"
-        }
-       ],
-       "parts": [
-        {
-         "words": "age",
-         "note": "taken as written"
-        },
-        {
-         "words": "once",
-         "note": "taken as written"
-        },
-        {
-         "words": "still",
-         "note": "taken as written"
-        }
-       ]
+       "words": "age once, still",
+       "at": 10
+      },
+      {
+       "words": "endlessly",
+       "at": 26,
+       "gives": "EEL",
+       "note": "endlessly tells us to drop the last letter of each of the three words age, once and still"
       }
      ]
     },
     "explanation": {
-     "surface": "Things were different in a past era, and someone still dwells on it.",
-     "walkthrough": "'endlessly' applies to all three words: AG, ONC and STIL together are the nine letters to rearrange.",
-     "definitionFit": "A nostalgic person yearns for the past, which is what harking back means."
+     "surface": "Someone muses that times were different back then, still looking fondly to the past.",
+     "walkthrough": "'endlessly' trims each of age, once and still, leaving AG, ONC and STIL; 'Different' then rearranges those nine letters.",
+     "definitionFit": "A nostalgic person longs for the past, so their thoughts keep returning to earlier times."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "endlessly"
+     "misdirectedWord": "Different"
     }
    }
   },
