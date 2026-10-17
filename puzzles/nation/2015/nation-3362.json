@@ -1588,36 +1588,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RECTANGLE",
-     "indicators": [
-      {
-       "text": "Edges away from",
-       "note": "with the edges taken away, the first and last letters are dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "accident",
-       "gives": "WRECK",
-       "note": "a wreck is an accident, as on the road"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "Edges away from",
+         "at": 0,
+         "note": "with its edges taken away, the word loses its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "accident",
+         "at": 16,
+         "gives": "WRECK",
+         "note": "a wreck is a crash or accident"
+        }
+       ]
       },
       {
        "words": "snarl",
+       "at": 29,
        "gives": "TANGLE",
-       "note": "a snarl is a tangle, as in a snarled rope"
+       "note": "a snarl is a knotted mess, a tangle"
       }
      ]
     },
     "explanation": {
-     "surface": "A traffic accident causes a snarl-up in a town square.",
-     "walkthrough": "'snarl in square' paints gridlock in a plaza; 'in' only joins the wordplay to the definition.",
-     "definitionFit": "A square is one example of a rectangle, a four-sided figure with right angles."
+     "surface": "Drivers inch away from a crash and a traffic snarl in the town square.",
+     "walkthrough": "'Edges away from' trims WRECK to REC. 'square' looks like a town square in the surface, but it is the shape, a four-sided example of the answer.",
+     "definitionFit": "A square is a special case of a rectangle, one whose four sides are all equal."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "square"
     }
    }
