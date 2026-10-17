@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -504,46 +505,56 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Tim Rice",
+      "text": "Tim Rice?",
       "at": 37
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LIBRETTIST",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Half of",
-       "note": "half of a name keeps one part and throws the rest away, and here the front four letters are the survivors"
+       "text": "ordered",
+       "at": 25,
+       "note": "the letters are put in a new order, as a drink ordered at a bar might suggest"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "ordered",
-         "note": "drinks are ordered at a bar, but things put in order are arranged, and an arrangement can leave letters in a sequence they did not start in"
+         "text": "Half of",
+         "at": 0,
+         "note": "only the first part of the surname is kept and its back portion dropped"
         }
        ],
        "parts": [
         {
          "words": "Stilgoe's",
-         "gives": "STIL",
-         "note": "Richard Stilgoe is the British lyricist, and only his front half is wanted"
+         "at": 8,
+         "gives": "STILGOE",
+         "note": "Richard Stilgoe, the lyricist, taken by his surname"
         },
         {
-         "words": "Bitter",
-         "note": "bitter is the English ale, and all six of its letters go into the mix"
+         "gives": "GOE"
         }
        ]
+      },
+      {
+       "words": "Bitter",
+       "at": 18
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a drinks round at the theatre bar, and the two lyricists in it are doing different jobs: one supplies letters, the other is the definition.",
-     "definitionFit": "Tim Rice wrote the words for Evita and Jesus Christ Superstar, so he is one example of the person who writes a show's text."
+     "surface": "A pub scene: one lyricist orders half a pint of bitter for another lyricist.",
+     "walkthrough": "'Half of' keeps STIL from the seven-letter surname, which 'ordered' mixes with BITTER. Richard Stilgoe and Tim Rice both wrote lyrics for Andrew Lloyd Webber, which makes the surface apt.",
+     "definitionFit": "Tim Rice wrote the words for musicals such as Evita, making him an example of a lyric writer for the stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ordered"
     }
    }
   },
@@ -1048,41 +1059,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LUSTRUM",
-     "indicators": [
-      {
-       "text": "curtailed",
-       "note": "to curtail is to cut short, so the name gives up the letter standing at its end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Liberal",
+       "at": 0,
+       "gives": "L"
+      },
+      {
+       "words": "America",
+       "at": 8,
+       "gives": "US",
+       "note": "US is short for the United States of America"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "curtailed",
+         "at": 16,
+         "note": "cut short at the tail, so the final letter goes"
+        }
+       ],
        "parts": [
         {
-         "words": "Liberal",
-         "gives": "L",
-         "note": "L is the ballot-paper abbreviation for Liberal"
-        },
-        {
-         "words": "America",
-         "gives": "US",
-         "note": "the United States, shortened as ever"
-        },
-        {
          "words": "president",
-         "gives": "TRUM",
-         "note": "Trump is the president, with his final letter docked"
+         "at": 26,
+         "gives": "TRUMP",
+         "note": "Donald Trump, US president"
+        },
+        {
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is all politics, and the definition is Roman: an American president's term runs four years, not five, which is the wrong scent the clue lays.",
-     "definitionFit": "A lustrum is the Roman span of five years, originally the gap between one census purification ceremony and the next."
+     "surface": "A liberal America has cut short a president's term in office.",
+     "walkthrough": "A lustrum is a Roman term: originally a purification ceremony held every five years after the census.",
+     "definitionFit": "A lustrum is a period of five years, a term in the sense of a fixed span of time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "term"
     }
    }
   },
@@ -1343,37 +1364,42 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "deletion",
+     "indicators": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "where Henry has gone",
-         "note": "the phrase marks a letter as absent, asking what is left of the town once that symbol has departed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "spa",
-         "gives": "BATH",
-         "note": "the Somerset city of Bath, built on Roman hot springs, is England's spa town"
-        },
-        {
-         "gives": "H"
-        }
-       ]
+       "text": "where",
+       "at": 9,
+       "note": "introduces the condition of the spa: the place from which a letter is now missing"
       },
       {
-       "unchecked": true,
+       "text": "has gone",
+       "at": 21,
+       "note": "the letter for Henry is no longer there, so it is removed"
+      }
+     ],
+     "parts": [
+      {
+       "words": "spa",
+       "at": 5,
+       "gives": "BATH",
+       "note": "Bath is the English spa city famous for its Roman baths"
+      },
+      {
        "words": "Henry",
-       "note": "the henry is the unit of inductance and its symbol is the single letter H"
+       "at": 15,
+       "gives": "H",
+       "note": "H is the symbol for the henry, the unit of inductance"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two facts have to be held at once: the West Country spa city the Romans built, and the electrical unit named after Joseph Henry.",
-     "definitionFit": "A bat is a shaped wooden club for striking a ball, so club names it by its blunt-instrument sense."
+     "surface": "A golf or social club at a spa town that some Henry has left.",
+     "definitionFit": "A bat is a club used to strike the ball in games such as cricket and baseball."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Club"
     }
    }
   },
@@ -1436,22 +1462,39 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "SOYAMILK",
+     "op": "container",
      "indicators": [
       {
-       "text": "for",
-       "note": "for signals a swap, with whatever follows taking the place of the letter named before it"
+       "text": "hosts",
+       "at": 25,
+       "note": "the outer pair of words takes the other piece inside, as a host takes in guests"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "charade",
+       "parts": [
+        {
+         "words": "really",
+         "at": 13,
+         "gives": "SO",
+         "note": "so means really or very, as in 'so kind'"
+        },
+        {
+         "words": "kind",
+         "at": 20,
+         "gives": "ILK",
+         "note": "ilk means kind or sort"
+        }
+       ]
+      },
+      {
+       "op": "substitution",
        "indicators": [
         {
-         "text": "hosts",
-         "note": "a host takes guests inside, so the surrounding letters open up and let the others sit within them"
+         "text": "for",
+         "at": 36,
+         "note": "one letter stands in for another, so the letter for left is swapped out"
         }
        ],
        "parts": [
@@ -1459,39 +1502,40 @@
          "op": "charade",
          "parts": [
           {
-           "words": "really",
-           "gives": "SO",
-           "note": "so really is so tired, in the intensifying sense"
+           "words": "left",
+           "at": 31,
+           "gives": "L"
           },
           {
-           "words": "kind",
-           "gives": "ILK",
-           "note": "an ilk is a kind or sort, as in others of that ilk"
+           "words": "in the morning",
+           "at": 48,
+           "gives": "AM",
+           "note": "AM, ante meridiem, means in the morning"
           }
          ]
         },
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "left for Yolanda",
-           "gives": "Y",
-           "note": "left is L, and the clue trades it in for the letter Yolanda begins with"
-          },
-          {
-           "words": "in the morning",
-           "gives": "AM",
-           "note": "am marks the hours before noon"
-          }
-         ]
+         "gives": "L"
+        },
+        {
+         "words": "Yolanda",
+         "at": 40,
+         "gives": "Y",
+         "note": "Y is the first letter of the name, standing for it"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Kind' is the noun, not the adjective, and the smooth breakfast surface about generous hosts is built to keep you reading it the other way.",
-     "definitionFit": "It is the plant-based white liquid vegans pour on cereal in place of dairy, a staple of the vegan shopping list."
+     "surface": "A really kind person offers a plant-based breakfast option to a guest called Yolanda.",
+     "walkthrough": "'Left for Yolanda' means the letter for left gives way to Yolanda's initial, inside the hosted piece; 'hosts' then places that piece between the two words for really and kind.",
+     "definitionFit": "Soya milk is a plant-based drink used in place of dairy milk, so it suits people on a vegan diet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hosts"
     }
    }
   }
