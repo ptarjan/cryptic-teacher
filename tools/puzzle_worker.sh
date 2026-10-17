@@ -537,7 +537,7 @@ stage_puzzle() {
 # Commit what is staged as "$1" under the index lock and push it. $2.. are the
 # pathspecs to unstage if the commit is refused. 0 when committed.
 worker_commit() {   # subject paths...
-  local subject="$1" out sha try ok=0 rc=0
+  local subject="$1" out sha try ok=0 rc=0 sigs=0
   shift
   # A status or sync elsewhere in this tree holds index.lock for a moment, as
   # stage_puzzle's add knows; refused once, the staged puzzle used to ride in
@@ -549,6 +549,17 @@ worker_commit() {   # subject paths...
   for try in 1 2 3 4 5; do
     out=$(git commit -q -m "$(printf '%s\n\n%s' "$subject" "$(python3 tools/provenance.py trailer)")" -- "$@" 2>&1) && { ok=1; break; }
     rc=$?
+    # A git killed by a signal (10-17: exit 135, SIGBUS, three finished puzzles
+    # left staged, said nothing) most likely had a pack or the index replaced
+    # under its mmap by a gc elsewhere; the same commit a few minutes later
+    # landed. Tried again, still under ct-index.lock, three tries in all.
+    if [ "$rc" -gt 128 ]; then
+      sigs=$((sigs + 1))
+      [ "$sigs" -lt 3 ] || break
+      echo "git commit killed by SIG$(kill -l "$((rc - 128))") (exit $rc); try $((sigs + 1)) of 3 in ${SIGNAL_RETRY_WAIT:-2}s" >&2
+      sleep "${SIGNAL_RETRY_WAIT:-2}"
+      continue
+    fi
     case "$out" in *index.lock*) [ "$try" -lt 5 ] && clear_stale_index_lock ;; *) break ;; esac
   done
   if [ "$ok" = 0 ]; then
