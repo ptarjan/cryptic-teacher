@@ -42,7 +42,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Engineered space unit, life-supporting",
+      "text": "Engineered space unit, life-supporting primarily",
       "at": 0
      }
     ],
@@ -51,31 +51,36 @@
      "indicators": [
       {
        "text": "Engineered",
-       "note": "something engineered has been built, its parts arranged into a new shape"
+       "at": 0,
+       "note": "engineered means put together in a new way, so the letters are rearranged"
       }
      ],
      "parts": [
       {
        "words": "space",
-       "note": "used as printed, anagram fodder"
+       "at": 11,
+       "note": "taken as written: anagram fodder"
+      },
+      {
+       "words": "unit",
+       "at": 17,
+       "gives": "U",
+       "note": "U is a common abbreviation for unit"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "UL",
        "indicators": [
         {
          "text": "primarily",
-         "note": "take only the first, primary letter of each word"
+         "at": 39,
+         "note": "primarily means first of all, so only the opening letter of the word is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "unit, life-supporting primarily",
-         "gives": "UL",
-         "select": "first",
-         "note": "first letters of unit and life"
+         "words": "life-supporting",
+         "at": 23,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
@@ -83,13 +88,14 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A description of a spacecraft module built to keep astronauts alive.",
-     "walkthrough": "The whole clue is both the wordplay and the definition: a capsule really is an engineered space unit that supports life.",
-     "definitionFit": "A space capsule is the crewed compartment of a spacecraft, built to sustain life."
+     "surface": "A description of a built module in orbit whose main job is keeping astronauts alive.",
+     "walkthrough": "Pool SPACE, U (unit) and L, the first letter of 'life-supporting' ('primarily'), and rearrange them ('Engineered'). Read whole, the clue also describes the answer.",
+     "definitionFit": "A space capsule is a manufactured pod that keeps its crew alive while it travels beyond Earth."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "Engineered"
     }
    }
   },
@@ -256,36 +262,36 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UNTIE",
+     "op": "middle",
      "indicators": [
       {
        "text": "coverage for",
-       "note": "the covering of the word, its outer letters"
+       "at": 5,
+       "note": "coverage for the word refers to the outer letters that wrap round the word"
       },
       {
        "text": "cancelled",
-       "note": "those outer letters are removed"
+       "at": 33,
+       "note": "cancelled says that outer covering is removed, keeping only the inside"
       }
      ],
      "parts": [
       {
        "words": "family members",
+       "at": 18,
        "gives": "AUNTIES",
-       "note": "aunties are family members; drop the outer A and S"
+       "note": "aunties are relatives, members of a family"
       }
      ]
     },
     "explanation": {
-     "surface": "An insurance notice saying free cover for relatives has been withdrawn.",
-     "walkthrough": "The surface reads like an insurance policy; 'coverage' actually points at the outside letters of AUNTIES, which are stripped off.",
-     "definitionFit": "A plain synonym: undoing the knots sets something free."
+     "surface": "An insurance policy protecting relatives has been withdrawn, so the cover once free is no more.",
+     "walkthrough": "AUNTIES with its 'coverage' (the outer A and S) 'cancelled' leaves the inside letters.",
+     "definitionFit": "To untie someone or something is to release it from knots, so the verb means set free."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "coverage"
     }
    }
@@ -714,47 +720,45 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "periodically",
-       "note": "take letters at regular intervals"
+       "text": "hidden behind",
+       "at": 21,
+       "note": "hidden behind says those picked letters go after the other piece"
       }
      ],
      "parts": [
       {
        "words": "second",
+       "at": 35,
        "gives": "MO",
-       "note": "a mo is a moment, a second"
+       "note": "a mo is a moment, a second, as in 'wait a mo'"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "ULT",
        "indicators": [
         {
-         "text": "behind",
-         "note": "these letters come after the second"
+         "text": "periodically",
+         "at": 8,
+         "note": "periodically means at regular intervals, so every other letter is picked out"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Bullets periodically",
-         "gives": "ULT",
-         "select": "alternate",
-         "note": "bUlLeTs: every other letter"
+         "words": "Bullets",
+         "at": 0,
+         "note": "the word whose alternate letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ammunition stashed at intervals behind a garden shed.",
-     "walkthrough": "'Shed' looks like the garden building; it is the verb. MO for a second is British informal, as in 'half a mo'.",
-     "definitionFit": "To moult is to shed feathers, hair or skin."
+     "surface": "Spent cartridges tucked away now and then behind a garden shed.",
+     "walkthrough": "'Periodically' picks the even letters of Bullets, ULT, which come 'hidden behind' MO. 'Shed' looks like a noun in the surface but is the verb.",
+     "definitionFit": "Animals moult when they cast off feathers, fur or skin, which is to shed them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "shed"
     }
    }
@@ -1348,47 +1352,54 @@
    "annotation": {
     "definitions": [
      {
-      "text": "device on arm?",
+      "text": "device on arm",
       "at": 34
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SILENCER",
+     "op": "container",
      "indicators": [
       {
-       "text": "complex",
-       "note": "the letters are put into a complicated new order"
+       "text": "stored by",
+       "at": 7,
+       "note": "stored by says the letter goes inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "stored by"
+         "text": "complex",
+         "at": 17,
+         "note": "complex means intricate or tangled, so these letters are mixed up"
         }
        ],
        "parts": [
         {
-         "words": "complex SLR cine",
-         "gives": "SILNCER",
-         "note": "anagram of SLR CINE"
+         "words": "SLR",
+         "at": 25,
+         "note": "taken as written: the camera abbreviation, used as anagram fodder"
         },
         {
-         "words": "Energy",
-         "gives": "E",
-         "note": "E = energy"
+         "words": "cine",
+         "at": 29,
+         "note": "taken as written: anagram fodder"
         }
        ]
+      },
+      {
+       "words": "Energy",
+       "at": 0,
+       "gives": "E",
+       "note": "E is the standard abbreviation for energy in physics"
       }
      ]
     },
     "explanation": {
-     "surface": "Camera kit: an SLR and a cine camera, stored in a device on a strap.",
-     "walkthrough": "SLR and cine are camera types, so the surface is photography; the arm is a firearm, hence the question mark.",
-     "definitionFit": "A silencer fits on the barrel of a firearm to muffle it."
+     "surface": "A photographer's tale: power kept inside a complicated still and film camera.",
+     "walkthrough": "'Complex' scrambles the camera letters into SILNCER, and 'stored by' tucks the energy letter inside. The arm here is a firearm, not a limb.",
+     "definitionFit": "A silencer is a tube fitted to the muzzle of a gun to muffle the shot, so it sits on a firearm."
     },
     "features": {
      "answerInScene": false,
@@ -1522,8 +1533,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "led by",
-       "note": "the actor's name comes in front of the talk"
+       "text": "led by a",
+       "at": 14,
+       "note": "led by a puts the reversed name in front of the talking word"
       }
      ],
      "parts": [
@@ -1532,28 +1544,31 @@
        "indicators": [
         {
          "text": "retired",
-         "note": "withdrawn, going backwards, so reversed"
+         "at": 23,
+         "note": "retired means went back, so the surname is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "a retired acting Christian",
+         "words": "acting Christian",
+         "at": 31,
          "gives": "BALE",
-         "note": "Christian Bale, the actor"
+         "note": "Christian Bale is the actor, so an acting Christian is Bale"
         }
        ]
       },
       {
        "words": "talk",
+       "at": 9,
        "gives": "ORATE",
-       "note": "orate = give a talk"
+       "note": "to orate is to talk, especially pompously"
       }
      ]
     },
     "explanation": {
-     "surface": "A long speech given by a retired Christian actor.",
-     "walkthrough": "'Christian' looks like religion; it is Christian Bale, the actor, whose surname runs backwards.",
-     "definitionFit": "A plain synonym: a plan worked out in detail is intricate and full."
+     "surface": "A lengthy speech preceded by a lapsed Christian who once worked on stage.",
+     "walkthrough": "BALE 'retired' becomes ELAB, and ORATE is 'led by a' that reversed name. 'Christian' looks like a believer, but it is the actor Christian Bale's first name.",
+     "definitionFit": "Elaborate describes something worked out with many parts and much care, so detailed is a synonym."
     },
     "features": {
      "answerInScene": false,
