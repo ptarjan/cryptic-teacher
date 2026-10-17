@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -633,44 +634,50 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "EQUIP",
+     "op": "charade",
      "indicators": [
       {
-       "text": "after"
+       "text": "after",
+       "at": 26,
+       "note": "after says the joke comes behind the other piece in the answer"
       }
      ],
      "parts": [
       {
-       "words": "joke",
-       "gives": "QUIP",
-       "note": "a quip is a witty remark"
-      },
-      {
        "op": "last",
-       "unchecked": true,
-       "gives": "E",
        "indicators": [
         {
-         "text": "end of"
+         "text": "end of",
+         "at": 32,
+         "note": "the end of a word is its final letter, here of game"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "end of game",
+         "words": "game",
+         "at": 39,
          "gives": "E",
-         "select": "last",
-         "note": "the last letter of 'game'"
+         "note": "its last letter is E"
         }
        ]
+      },
+      {
+       "words": "joke",
+       "at": 21,
+       "gives": "QUIP",
+       "note": "a quip is a witty remark or joke"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Watch the order: 'after' places QUIP behind the E, so the single letter leads despite being named second.",
-     "definitionFit": "To equip is to fit someone out with what a task requires — providing the material they need."
+     "surface": "A comedian supplies material for a gag once the match is over.",
+     "walkthrough": "'material' suggests a comic's script, but the definition means to supply with kit; the joke follows E, the end of 'game'.",
+     "definitionFit": "To equip someone is to furnish them with the gear or supplies they need."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "material"
     }
    }
   },
@@ -827,40 +834,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AUTHENTIC",
-     "indicators": [
-      {
-       "text": "Not quite"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "gold",
+       "at": 5,
+       "gives": "AU",
+       "note": "Au is the chemical symbol for gold, from Latin aurum"
+      },
+      {
+       "words": "subsequently",
+       "at": 10,
+       "gives": "THEN",
+       "note": "then means afterwards, subsequently"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not quite",
+         "at": 52,
+         "note": "not quite means falling just short, so the last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "gold",
-         "gives": "AU",
-         "note": "the chemical symbol for gold"
+         "words": "mark of correctness",
+         "at": 31,
+         "gives": "TICK",
+         "note": "a tick is the mark placed beside a right answer"
         },
         {
-         "words": "subsequently",
-         "gives": "THEN",
-         "note": "a plain synonym"
-        },
-        {
-         "words": "mark of correctness?",
-         "gives": "TIC",
-         "note": "a TICK that is 'not quite' finished — the K falls off"
+         "gives": "K"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Not quite' clips the K off TICK. AU for gold is one of the commonest crossword conventions, straight from the periodic table.",
-     "definitionFit": "Authentic means genuine — the real article rather than a fake or forgery."
+     "surface": "Real gold later earns a mark of approval, though not quite a full one.",
+     "walkthrough": "TICK, the 'mark of correctness', is 'Not quite' complete and loses its K; 'getting' just joins the pieces.",
+     "definitionFit": "Something authentic is genuine, not fake or imitation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -1005,35 +1023,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PILGRIM",
-     "indicators": [
-      {
-       "text": "dismissing last"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "dismissing last",
+         "at": 12,
+         "note": "dismissing its last means the word loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "Large house",
-         "gives": "PIL",
-         "note": "a PILE — a grand mansion — dismissing its last letter"
+         "at": 0,
+         "gives": "PILE",
+         "note": "a pile is a large imposing house, such as a stately home"
         },
         {
-         "words": "dour",
-         "gives": "GRIM",
-         "note": "a plain synonym"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "dour",
+       "at": 28,
+       "gives": "GRIM",
+       "note": "dour means stern and gloomy, grim"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Dismissing last' docks the E from PILE, a pile being a grand mansion in British usage. GRIM for 'dour' completes the trip.",
-     "definitionFit": "A pilgrim journeys to a sacred site — Canterbury or Mecca — travelling for religious reasons."
+     "surface": "The owners of a mansion turn away a gloomy wandering pilgrim, the last one.",
+     "walkthrough": "A pile is a British name for a grand country house; with its last letter dismissed it gives PIL.",
+     "definitionFit": "A pilgrim journeys to a sacred place for religious reasons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "last"
     }
    }
   },
