@@ -1706,44 +1706,54 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "TYPAL",
      "indicators": [
       {
        "text": "rising",
-       "note": "in a down entry, something rising reads from bottom to top"
+       "at": 42,
+       "note": "rising in a down answer means read from the bottom upwards, so the assembled letters are reversed"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "TYPAL",
+       "op": "substitution",
        "indicators": [
         {
          "text": "with finale in",
-         "note": "the closing letter is put inside the next word rather than left at the end"
+         "at": 22,
+         "note": "the finale, the last letter, of the melody word is moved so that it sits inside the abbreviation for part"
         }
        ],
        "parts": [
         {
-         "words": "melody",
-         "gives": "LAY",
-         "note": "a lay is a song or melody"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "melody",
+           "at": 15,
+           "gives": "LAY",
+           "note": "a lay is a song or melody, as in a minstrel's lay"
+          },
+          {
+           "words": "part",
+           "at": 37,
+           "gives": "PT"
+          }
+         ]
         },
         {
-         "words": "part",
-         "gives": "PT",
-         "note": "pt is the abbreviation for part"
+         "gives": "YPT"
+        },
+        {
+         "gives": "PYT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A representative's tune climbs to a rousing finish in part of the show.",
-     "walkthrough": "Only the melody's last letter moves inside the abbreviation; the rest stays in front, and the whole reads upwards in the grid.",
-     "definitionFit": "Typal means typical or serving as a type, so it describes something representative of its kind."
+     "surface": "A melody whose closing section, part of the score, rises in pitch to represent something.",
+     "walkthrough": "LAY's finale, Y, goes 'in' PT to make LA + PYT, so LAPYT; 'rising' turns that round. 'Representative' is an adjective here, not a delegate.",
+     "definitionFit": "Typal means relating to or serving as a type, so it describes something that is representative of its class."
     },
     "features": {
      "answerInScene": false,
