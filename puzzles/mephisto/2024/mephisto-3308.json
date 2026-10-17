@@ -430,44 +430,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UKIYOE",
+     "op": "composite",
      "indicators": [
       {
        "text": "novel",
-       "note": "novel means new, so the remaining letters take a new arrangement"
+       "at": 17,
+       "note": "novel means new, so the remaining letters are made into a new arrangement"
+      },
+      {
+       "text": "dismissed",
+       "at": 43,
+       "note": "dismissed says the lecturer's letter is sent away from the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "UKIYOE",
-       "indicators": [
-        {
-         "text": "dismissed",
-         "note": "someone dismissed is sent away, so that letter leaves the phrase"
-        }
-       ],
-       "parts": [
-        {
-         "words": "you like",
-         "note": "taken as written"
-        },
-        {
-         "words": "lecturer",
-         "gives": "L",
-         "note": "L is the abbreviation for lecturer"
-        }
-       ]
+       "words": "you like",
+       "at": 23,
+       "note": "taken as written: the pool of letters"
+      },
+      {
+       "words": "lecturer's",
+       "at": 32,
+       "gives": "L",
+       "note": "L is the abbreviation for lecturer, as on learner plates; the 's reads as 'is'"
       }
      ]
     },
     "explanation": {
-     "surface": "A lecturer is sacked for teaching a graphic novel style the students like.",
-     "walkthrough": "'graphic novel' looks like one phrase, but graphic ends the definition and novel signals the shuffle.",
-     "definitionFit": "Ukiyo-e is the Japanese woodblock printmaking style of the floating world, a form of graphic art."
+     "surface": "A comment that you enjoy a certain graphic novel now the teacher has gone.",
+     "walkthrough": "'novel' looks like part of 'graphic novel' but is the anagram signal. 'dismissed' takes L out of YOU LIKE, leaving YOUIKE to be rearranged.",
+     "definitionFit": "Ukiyo-e is the Japanese genre of woodblock prints and paintings, a school of graphic art."
     },
     "features": {
      "answerInScene": true,
@@ -1275,33 +1268,44 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 17,
+       "note": "in a down clue, on means the soldiers sit above the Troy letter"
+      }
+     ],
      "parts": [
       {
        "words": "Hard",
+       "at": 0,
        "gives": "H",
-       "note": "H for hard, as on pencils"
+       "note": "H is the pencil abbreviation for hard"
       },
       {
        "words": "as",
+       "at": 5,
        "gives": "UT",
-       "note": "ut is Latin for as"
+       "note": "ut is Latin for as, a crossword standard"
       },
       {
        "words": "soldiers",
+       "at": 8,
        "gives": "MEN",
-       "note": "men are ordinary soldiers"
+       "note": "men are soldiers, as in officers and men"
       },
       {
        "words": "Troy",
+       "at": 20,
        "gives": "T",
        "note": "T is the abbreviation for troy weight"
       }
      ]
     },
     "explanation": {
-     "surface": "A tough time for soldiers besieging Troy from their camp.",
-     "walkthrough": "Troy is not the city but the weight system for precious metals.",
-     "definitionFit": "A hutment is an encampment of huts, as for troops."
+     "surface": "The hard life of soldiers camped outside the walls of Troy.",
+     "walkthrough": "Troy suggests the Greek siege, but here it stands for the troy system of weights.",
+     "definitionFit": "A hutment is an encampment of huts, as used to house troops."
     },
     "features": {
      "answerInScene": true,
@@ -1779,41 +1783,48 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "IYNX",
-     "indicators": [
-      {
-       "text": "to disappear",
-       "note": "the left letter disappears and the current letter stands in its place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "current",
+       "at": 9,
        "gives": "I",
-       "note": "I is the symbol for electric current"
+       "note": "I is the physics symbol for electric current"
       },
       {
-       "words": "wild cat",
-       "gives": "LYNX",
-       "note": "the lynx is a wild cat"
-      },
-      {
-       "words": "left",
-       "gives": "L",
-       "note": "L for left"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to disappear",
+         "at": 31,
+         "note": "the left letter is made to vanish from the wild cat word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wild cat",
+         "at": 17,
+         "gives": "LYNX",
+         "note": "a lynx is a wild cat"
+        },
+        {
+         "words": "left",
+         "at": 26,
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Classifying a current species of wild cat whose habitat has disappeared.",
-     "definitionFit": "Iynx is the bird genus of the wrynecks, small woodpeckers."
+     "surface": "A zoologist classifies a modern wild cat that has been allowed to go extinct.",
+     "walkthrough": "'Genus of current wild cat' suggests a feline genus, but the answer is a bird's: the wild cat is only the wordplay.",
+     "definitionFit": "Iynx is the genus of birds containing the wrynecks, small woodpeckers."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "current"
+     "misdirectedWord": "cat"
     }
    }
   },
