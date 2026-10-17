@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -586,52 +587,57 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "foul",
-       "note": "Something foul has gone rotten, and rotten letters no longer hold the shape they were handed to you in."
-      }
-     ],
      "parts": [
       {
        "words": "flower",
+       "at": 5,
        "gives": "LILY",
-       "note": "the flower named is a lily, handed over whole"
+       "note": "a lily is a flower"
       },
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "ultimately",
-         "note": "At the very end — it asks for the letter the word finishes on and nothing before it."
+         "text": "foul",
+         "at": 17,
+         "note": "foul means fouled up, messed about, so the letters of with are rearranged"
         }
        ],
        "parts": [
         {
          "words": "with",
-         "note": "four letters of raw material, not the joinery the word pretends to be"
-        },
+         "at": 12
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "E",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "fragrance, ultimately",
-           "gives": "E",
-           "select": "last",
-           "note": "the last letter of fragrancE"
-          }
-         ]
+         "text": "ultimately",
+         "at": 33,
+         "note": "ultimately points to the final letter of fragrance"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fragrance",
+         "at": 22,
+         "note": "the closing letter of the word fragrance"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'With' reads as grammar and is fodder; 'foul' reads as part of the smell and is the instruction. That double disguise is what makes a short anagram hard.",
-     "definitionFit": "Pure → LILY-WHITE: spotless by comparison with the flower, and used of a reputation with nothing whatever to reproach in it."
+     "surface": "A seemingly pure flower that turns out to have a foul smell.",
+     "walkthrough": "'foul fragrance' reads as a stink, but 'foul' scrambles WITH into WHIT, and 'ultimately' takes only the last letter of 'fragrance'.",
+     "definitionFit": "Lily-white means spotlessly white, figuratively innocent or without blemish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "foul"
     }
    }
   },
@@ -1146,50 +1152,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DEHISCE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "relapsed",
-       "note": "A relapse is a slipping back, so those letters arrive in the reverse of the order the clue gives them."
+       "text": "earlier",
+       "at": 41,
+       "note": "earlier says this piece goes in front of the rest"
       },
       {
-       "text": "earlier",
-       "note": "It fixes the order: that piece belongs at the front of the answer, not where its words sit in the sentence."
+       "text": "attending",
+       "at": 7,
+       "note": "attending means being present beside, so the church goes alongside the word before it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "attending",
-         "note": "To attend somebody is to go along beside them, so these two letters stand next to the church rather than inside it."
+         "text": "relapsed",
+         "at": 32,
+         "note": "relapsed means slipped back, so the letters are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "he had relapsed",
-         "gives": "DEH",
-         "note": "HE'D is 'he had' shortened, and it has slipped back the other way round"
-        },
-        {
-         "words": "is",
-         "note": "the word taken as it stands"
-        },
-        {
-         "words": "church",
-         "gives": "CE",
-         "note": "CE is the Church of England, the church a crossword usually means"
+         "words": "he had",
+         "at": 25,
+         "gives": "HED",
+         "note": "he had contracts to he'd"
         }
        ]
+      },
+      {
+       "words": "is",
+       "at": 4,
+       "gives": "IS"
+      },
+      {
+       "words": "church",
+       "at": 17,
+       "gives": "CE",
+       "note": "CE is the Church of England"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The colon makes the second half sound like gossip about a man at the service. Dehiscence is the botanist's word for a seed pod splitting along its seam.",
-     "definitionFit": "Pop → DEHISCE: a ripe pod dehisces when it bursts open along a line of weakness, which is exactly what popping open means in botany."
+     "surface": "Dad attends church again, having slipped back into old ways before.",
+     "walkthrough": "'Pop' looks like father, but it is the verb, burst open. HED reversed gives DEH, which comes earlier than IS and CE.",
+     "definitionFit": "To dehisce is the botanical term for a seed pod bursting open, as in to pop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pop"
     }
    }
   },
