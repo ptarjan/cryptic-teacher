@@ -1427,6 +1427,23 @@ check("a clue's own 'alphabetical jigsaw' stays", "Initiates of alphabetical jig
 check("bled() names another puzzle's heading", True,
       "another puzzle's heading" in (oc.bled("DJ in Notts. Alphabetical Jigsaw A's A") or ""))
 
+# A reading's output never depends on string-set order (PYTHONHASHSEED): a
+# stray letter's two readings tie on case ("An" / "AN"), one compound is
+# hyphened at two places, one word has two ligature spellings.
+import subprocess
+PROBE = (
+    "import ocr_clues as oc\n"
+    "print(oc.unstrayed('throws d sprightly', ['throws An sprightly', 'throws AN sprightly']))\n"
+    "print(oc.printed_words('Cotopaxi coopted gem', ['Cotopaxi co-opted gem', 'Cotopaxi coo-pted gem',"
+    " 'Cotopaxi coopted gem']))\n"
+    "print(oc.ligatured('Mediaeval and medieval', ['Mediæval and medieval', 'mediæval', 'Mediaeval']))\n")
+outs = {subprocess.run([sys.executable, "-c", PROBE], capture_output=True, text=True, check=True,
+                       env={**os.environ, "PYTHONHASHSEED": str(seed), "PYTHONPATH": os.getcwd()}).stdout
+        for seed in (0, 1, 2, 3, 4, 5, 6, 7)}
+check("tied case, hyphen split and ligature read the same under every PYTHONHASHSEED", 1, len(outs))
+check("a case tie in a stray letter's readings takes the sorted spelling",
+      "throws AN sprightly", next(iter(outs)).splitlines()[0])
+
 print(f"FAILS {fails}")
 if fails:
     print("test_ocr_vote_checks: failed")

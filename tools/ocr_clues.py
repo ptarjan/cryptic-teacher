@@ -2488,10 +2488,10 @@ def ligatured(text, readings):
     9's other readers print "medieval"). A reader does not invent a
     ligature it never saw."""
     for raw in readings:
-        for w in set(re.findall(r"[A-Za-z\u00e6\u00c6\u0153\u0152]+", raw or "")):
+        for w in sorted(set(re.findall(r"[A-Za-z\u00e6\u00c6\u0153\u0152]+", raw or ""))):
             if w == w.translate(LIGATURES) or len(w) < 3:
                 continue
-            for folded in {w.translate(LIGATURES), w.translate(LIGATURE_E)}:
+            for folded in sorted({w.translate(LIGATURES), w.translate(LIGATURE_E)}):
                 text = re.sub(rf"\b{folded}\b", lambda m, w=w: (w[0].upper() if m.group()[0].isupper() else w[0].lower()) + w[1:],
                               text, flags=re.IGNORECASE)
     return text
@@ -3636,7 +3636,7 @@ def unstrayed(text, theirs):
             words = {w for w in between(left, right) if w.lower() != word.lower() and known(w.lower())} \
                 if why == "a stray letter" else set()
             if len({w.lower() for w in words}) == 1:
-                mended = raw[:k] + [raw[k].replace(word, min(words, key=str.islower), 1)] + raw[k + 1:]
+                mended = raw[:k] + [raw[k].replace(word, min(words, key=lambda v: (v.islower(), v)), 1)] + raw[k + 1:]
                 break
         if mended is None:
             break
@@ -4095,7 +4095,7 @@ def printed_words(text, theirs, broken=()):
         for w in WORD.findall(t):
             joined[w.lower()] = joined.get(w.lower(), 0) + 1
     for key, heads in hyphened.items():
-        for head in heads:
+        for head in sorted(heads):
             if key in broken:
                 continue
             n = sum(1 for t in theirs if re.search(rf"\b{head}-{key[len(head):]}\b", t, re.IGNORECASE))
