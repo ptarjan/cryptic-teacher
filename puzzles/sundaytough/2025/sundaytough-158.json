@@ -50,43 +50,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CUBBYHOLE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so his name tells the solver to exchange initial sounds"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the first sounds of the two words change places"
       }
      ],
      "parts": [
       {
        "words": "spouse",
+       "at": 10,
        "gives": "HUBBY",
-       "note": "a hubby is an informal word for a husband"
+       "note": "hubby is an informal word for a husband, a spouse"
       },
       {
-       "words": "mined rock",
-       "gives": "COAL",
-       "note": "coal is the rock dug from mines"
-      },
-      {
-       "unchecked": true,
-       "words": "spouse mined rock",
-       "gives": "CUBBYHOLE",
-       "soundsLike": "HUBBY COAL",
-       "note": "swap the opening sounds of the two words"
+       "op": "homophone",
+       "spelt": "COLE",
+       "parts": [
+        {
+         "words": "mined rock",
+         "at": 17,
+         "gives": "COAL",
+         "note": "coal is the rock dug from mines, said aloud like 'cole'"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An eccentric clergyman's wife digs out stone inside a confined space.",
-     "walkthrough": "HUBBY COAL with its first sounds swapped becomes CUBBY-HOLE.",
-     "definitionFit": "A cubby-hole is a small snug compartment or nook, a tiny room or cupboard closed in on all sides."
+     "surface": "A husband dug out stone in a confined space, as told by the Reverend Spooner.",
+     "walkthrough": "'hubby coal' with its opening sounds swapped by 'Spooner's' becomes 'cubby hole'.",
+     "definitionFit": "A cubbyhole is a small snug room or compartment, an enclosed space."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "spouse"
+     "joke": "absurd",
+     "misdirectedWord": "mined"
     }
    }
   },
@@ -111,42 +112,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CARPAL",
-     "indicators": [
-      {
-       "text": "nearly",
-       "note": "nearly means not quite complete, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Fish",
+       "at": 0,
+       "gives": "CARP",
+       "note": "the carp is a freshwater fish"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly",
+         "at": 5,
+         "note": "nearly means the word falls one letter short, its last letter dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "Fish",
-         "gives": "CARP",
-         "note": "a carp is a freshwater fish"
+         "words": "all",
+         "at": 12
         },
         {
-         "words": "all",
-         "gives": "AL",
-         "note": "the word with its last letter cut"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Nearly every fish is just bone.",
-     "walkthrough": "'Fish' looks like a verb or the definition, but it supplies the opening chunk; the definition is the last word.",
-     "definitionFit": "A carpal is one of the eight small wrist bones, so the word serves as a noun naming that skeletal part."
+     "surface": "A fish that is practically nothing but bones.",
+     "walkthrough": "'nearly' trims all to AL. The answer is an adjective used as a noun.",
+     "definitionFit": "A carpal is any of the small bones of the wrist."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Fish"
+     "misdirectedWord": "all"
     }
    }
   },
@@ -469,60 +472,56 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "indicators": [
       {
        "text": "in",
-       "note": "placing one thing in another means inserting it between pieces"
+       "at": 26,
+       "note": "in only sets the group alongside the bar, following it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "bar",
-         "gives": "SPAR",
-         "note": "a spar is a pole or bar"
-        },
-        {
-         "words": "role",
-         "gives": "PART",
-         "note": "an actor's role is a part"
-        },
-        {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "NER",
-         "indicators": [
-          {
-           "text": "regularly",
-           "note": "at regular intervals means taking every other letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "in tears",
-           "gives": "NER",
-           "select": "alternate",
-           "note": "the second, fourth and sixth letters"
-          }
-         ]
-        }
-       ]
+       "words": "bar",
+       "at": 29,
+       "gives": "SPAR",
+       "note": "a spar is a pole or bar"
       },
       {
        "words": "group",
+       "at": 20,
        "gives": "RING",
-       "note": "a ring is a group, as of criminals"
+       "note": "a ring is a group, as of conspirators or dealers"
+      },
+      {
+       "words": "role",
+       "at": 33,
+       "gives": "PART",
+       "note": "a part is a role in a play"
+      },
+      {
+       "op": "alternate",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 38,
+         "note": "regularly takes every other letter of the words that follow"
+        }
+       ],
+       "parts": [
+        {
+         "words": "in tears",
+         "at": 48,
+         "note": "the words in tears, whose alternate letters are taken"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone helping a team rehearse finds a part in a pub that leaves them crying.",
-     "walkthrough": "'Bar' is a pole here, not a pub, and 'group' sits between the two words either side of it; 'regularly' keeps the even letters of 'in tears'.",
-     "definitionFit": "A boxer practises with a sparring partner, someone who assists with practice bouts before a real fight."
+     "surface": "Someone in a pub, playing a part, keeps bursting into tears.",
+     "walkthrough": "'regularly' takes the second, fourth and sixth letters of 'in tears': N, E, R.",
+     "definitionFit": "A sparring partner is the person a boxer practises with, someone who helps with training."
     },
     "features": {
      "answerInScene": false,
@@ -1402,26 +1401,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "DOWEL",
      "indicators": [
       {
        "text": "after clipping",
-       "note": "once trimmed short, the final letter has been cut off"
+       "at": 14,
+       "note": "clipping trims the last letter off the phrase"
       }
      ],
      "parts": [
       {
        "words": "Be successful",
-       "gives": "DOWEL",
-       "note": "do well, with the last letter cut"
+       "at": 0,
+       "gives": "DOWELL",
+       "note": "to do well is to be successful"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "Thriving once one has trimmed a clasp.",
-     "walkthrough": "DO WELL means succeed; clip off the final L.",
-     "definitionFit": "A dowel is a wooden peg inserted into holes to join two pieces, a simple carpentry fixing."
+     "surface": "Someone makes a success of things once the fasteners are snipped.",
+     "walkthrough": "'after clipping' cuts the end letter off DO WELL.",
+     "definitionFit": "A dowel is a wooden peg that holds two pieces together, a type of fastening."
     },
     "features": {
      "answerInScene": false,
@@ -1446,42 +1448,51 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Country",
-      "at": 0
+      "text": "Country's",
+      "at": 0,
+      "note": "the definition is the adjective form: country here means rural, as in country life"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RURAL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "unframed",
-       "note": "taking a picture out of its frame strips its border, so the outer letters go"
+       "text": "before",
+       "at": 15,
+       "note": "the king comes before the other letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "king",
+       "at": 10,
+       "gives": "R",
+       "note": "R is short for rex, Latin for king"
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "unframed",
+         "at": 22,
+         "note": "unframed takes away the edge letters, the frame of the word"
+        }
+       ],
        "parts": [
         {
-         "words": "king",
-         "gives": "R",
-         "note": "R is short for rex, king"
-        },
-        {
          "words": "paintings",
-         "gives": "URAL",
-         "note": "murals with the outer letters removed"
+         "at": 31,
+         "gives": "MURALS",
+         "note": "murals are paintings done on walls"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nation's monarch stands before canvases taken out of their frames.",
-     "walkthrough": "'Country's' looks like a nation, but 'Country' is an adjective, as in country life, and 's is 'is'.",
-     "definitionFit": "Country used adjectivally describes the countryside, as rural does, meaning away from towns."
+     "surface": "A nation's monarch stands in front of paintings stripped from their frames.",
+     "walkthrough": "'unframed' strips MURALS of its first and last letters, leaving URAL. 'Country's' reads as a possessive but is the definition, the adjectival sense of country.",
+     "definitionFit": "Rural means of the countryside, as country does in phrases like country life."
     },
     "features": {
      "answerInScene": false,
