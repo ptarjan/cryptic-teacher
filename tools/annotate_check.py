@@ -1126,11 +1126,27 @@ def main(argv):
         for line in advice:
             print(f"  - {line}")
 
+    # Warnings alone leave the annotations applied and valid. Runs that chased
+    # them (nation-1621: 6 of 7 post-OK rounds on one advisory line; across 82
+    # sessions 305 checks after the first no-ERROR report, most of them on the
+    # cryptic-definition cap and "never shows the intermediate letters") are
+    # told here that the run is over. Blog warnings are the exception: a blog
+    # backfill is asked to clear exactly those.
+    blog = any("_against_blog]" in l for l in vout.splitlines()
+               if l.startswith(validate_annotations.WARN_PREFIX))
+    advisory = bool(warns) and not errors and not issues and not blog
     counts = ([f"{errors} ERROR"] if errors else []) + \
              ([f"{warns} warn"] if warns else []) + issues
-    print(f"\nannotate_check {stem}: " + (", ".join(counts) if counts else
-                                          "clean, index refreshed — done"))
-    if not counts:
+    print(f"\nannotate_check {stem}: " + (
+        "applied, index refreshed, " + f"{warns} advisory warn — done" if advisory
+        else ", ".join(counts) if counts else "clean, index refreshed — done"))
+    if advisory:
+        print("The annotations are applied and valid; the warns above are advisory "
+              "and several (the cryptic-definition cap, 'never shows the "
+              "intermediate letters') often cannot be satisfied honestly. Do not "
+              "run this command again to chase them. If one fix is obvious and "
+              "cheap, make it in the same single edit and do not re-check.")
+    if not counts or advisory:
         # Otherwise a clean run spends its last turn trying to `rm` the patch
         # file, which needs an approval the run cannot give.
         print("Nothing to tidy up: --patch files are deleted when merged and "
@@ -1138,7 +1154,7 @@ def main(argv):
         # Runs kept going after a clean check, re-reading and summarising,
         # ~3-4% of the burn's spend (10-08..12): said here, where they look.
         print(STOP_NOW)
-    if counts:
+    if counts and not advisory:
         # Two callers: the annotate run, which hands over tools/_ann_<ID>.json,
         # and the field backfills, which edit the puzzle in place. Naming a file
         # that is not there is an invitation to go looking for it.
