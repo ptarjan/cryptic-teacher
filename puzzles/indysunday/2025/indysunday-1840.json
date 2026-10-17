@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -500,47 +501,78 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Bunter",
+      "text": "Bunter?",
       "at": 55
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "misused",
-       "note": "Something misused has been handled wrongly, and letters handled wrongly come out in the wrong order."
-      },
-      {
-       "text": "almost",
-       "note": "Almost stops just short of the thing, so the word it governs arrives without its final letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Closed",
-       "gives": "TO",
-       "note": "a door pushed to is a door closed, and that is the two letters it hands over"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 7,
+         "note": "'in' tells us the word for closed is placed inside the rearranged letters"
+        }
+       ],
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "misused",
+           "at": 11,
+           "note": "letters that are misused are put to the wrong purpose, so the words other half few met are scrambled"
+          }
+         ],
+         "parts": [
+          {
+           "words": "other half few met",
+           "at": 19
+          }
+         ]
+        },
+        {
+         "words": "Closed",
+         "at": 0,
+         "gives": "TO",
+         "note": "a door pushed to is closed, so 'to' can mean closed"
+        }
+       ]
       },
       {
-       "words": "other half few met",
-       "note": "fifteen letters to be re-set"
-      },
-      {
-       "words": "almost done",
-       "gives": "OVE",
-       "note": "when a thing is done it is over, and the word in front stops one letter short of that"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 38,
+         "note": "almost means not quite all, so the last letter of the word for done is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "done",
+         "at": 45,
+         "gives": "OVER",
+         "note": "something done is over, finished"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shut-in man, badly treated, whose other half hardly anybody ever met.",
-     "walkthrough": "Billy Bunter is Frank Richards's greedy schoolboy at Greyfriars, and the Remove is the form he is stuck in; the answer is what the stories call him throughout. A door 'to' is a door shut.",
-     "definitionFit": "The Fat Owl of the Remove is Billy Bunter's standing nickname in the Greyfriars stories — owl for the huge spectacles, Remove for his form."
+     "surface": "A cryptic gloss on someone shut in, misused, nearly finished off by Bunter.",
+     "walkthrough": "'misused' turns OTHER HALF FEW MET into THEFAWLOFTHEREM; 'in' puts TO (as in a door pulled to, closed) after THEFA, and 'almost' trims OVER (done) to OVE at the end.",
+     "definitionFit": "Billy Bunter, the greedy schoolboy of Frank Richards's Greyfriars stories, is nicknamed thus, the Remove being his form."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
+     "answerInScene": true,
+     "aptDefinition": true,
      "misdirectedWord": "Closed"
     }
    }
@@ -1245,43 +1277,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WICKED",
+     "op": "charade",
      "indicators": [
       {
-       "text": "soused",
-       "note": "Soused means drunk, and a drunk's letters will not walk in a straight line, so the four in front come out in some other order."
+       "text": "on",
+       "at": 22,
+       "note": "in a down answer, one piece on another sits above it, so it comes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "women's group",
+       "at": 8,
+       "gives": "WI",
+       "note": "the WI is the Women's Institute, a British women's organisation"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "soused",
+         "at": 30,
+         "note": "soused means drunk, so the letters of deck reel into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "women's group",
-         "gives": "WI",
-         "note": "the WI is the Women's Institute, the British village organisation of jam, talks and committees"
-        },
-        {
          "words": "deck",
-         "gives": "CKED",
-         "note": "four letters re-set to follow on behind"
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Some Women's Institute members getting thoroughly pickled up on deck.",
-     "walkthrough": "'Soused' carries both senses at once — pickled in brine and pickled in drink — and it is the second that tells the letters to move. Pairing it with a village institute is the joke.",
-     "definitionFit": "Wicked means morally bad, as a wicked act or a wicked stepmother is bad, so 'immoral' is the plain adjective for it."
+     "surface": "Members of a women's club behaving badly, drunk on the deck of a ship.",
+     "walkthrough": "The WI (Women's Institute) is a British network of women's clubs; 'on' sets it above CKED, which 'soused' makes from DECK.",
+     "definitionFit": "Wicked is a direct synonym of immoral: morally bad or evil in conduct."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "soused"
+     "misdirectedWord": "deck"
     }
    }
   },
@@ -1306,49 +1343,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "COMBATS",
+     "op": "container",
      "indicators": [
       {
-       "text": "unruly",
-       "note": "An unruly crowd keeps no order, so the letters beside the word need not keep theirs either."
+       "text": "must devour",
+       "at": 28,
+       "note": "to devour is to swallow, so the word for tigers takes the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "tigers",
+       "at": 21,
+       "gives": "CATS",
+       "note": "tigers are big cats"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "must devour",
-         "note": "To devour is to swallow a thing whole, so the word in front opens up and the other letters go down inside it."
+         "text": "unruly",
+         "at": 10,
+         "note": "an unruly crowd is disorderly, so the letters of mob are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "tigers",
-         "gives": "CATS",
-         "note": "a tiger is a big cat, and those four letters part to take the rest inside"
-        },
-        {
-         "words": "unruly mob",
-         "gives": "OMB",
-         "note": "three letters re-set before they go in"
+         "words": "mob",
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Scuffles breaking out in a rowdy crowd the tigers are expected to eat.",
-     "walkthrough": "Three letters have only six possible orders, and just one of them leaves a word once the big cats close round it. Everything after the first word is instruction, though the sentence reads as one continuous scene.",
-     "definitionFit": "Combats are fights — armed engagements, or bouts between two people — so the plural noun answers the plural definition exactly."
+     "surface": "Fights break out amid a disorderly crowd while hungry tigers must eat.",
+     "walkthrough": "'unruly' turns MOB into OMB, and 'must devour' puts it inside CATS (tigers) after its first letter.",
+     "definitionFit": "Combats as a plural noun means battles or fights between opponents."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "devour"
+     "misdirectedWord": "tigers"
     }
    }
   },
@@ -1458,43 +1494,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CASSANDRA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "'in' places the little word as inside the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "What is in a thing sits inside it, so the two letters before this go into the middle of the letters that follow."
-        },
-        {
          "text": "random",
-         "note": "Random order is no order at all, so the word after it may be taken in whatever arrangement is wanted."
+         "at": 27,
+         "note": "random means without order, so the letters of canards are mixed up"
         }
        ],
        "parts": [
         {
          "words": "canards",
-         "gives": "CSANDRA",
-         "note": "seven letters re-set, and then opened up to take the short word inside"
-        },
-        {
-         "words": "as",
-         "note": "the clue's own word, two letters lifted straight off the page"
+         "at": 34
         }
        ]
+      },
+      {
+       "words": "as",
+       "at": 21
       }
      ]
     },
     "explanation": {
-     "surface": "A woman nobody ever believed, of the kind who turns up in made-up stories.",
-     "walkthrough": "A canard is a false report passed off as news, so the surface is all rumour. Apollo gave Cassandra true prophecy and then the curse that nobody would credit a word of it.",
-     "definitionFit": "Cassandra foresaw the fall of Troy and was doomed to be disbelieved, so 'woman never believed' is her whole story in three words."
+     "surface": "A woman whose words were never believed, just like false rumours spread at random.",
+     "walkthrough": "'random' turns CANARDS into CSANDRA, and 'in' puts AS inside it after the C. Canards are false stories, apt for a prophet nobody believed.",
+     "definitionFit": "In Greek legend the Trojan princess was cursed by Apollo to prophesy truly yet never be believed by anyone."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "canards"
     }
