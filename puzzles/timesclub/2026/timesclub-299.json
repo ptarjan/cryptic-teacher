@@ -119,50 +119,53 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "UNIQUELY",
+     "op": "charade",
      "indicators": [
       {
        "text": "exchanged",
-       "note": "things exchanged swap places, so the two short pieces trade positions"
+       "at": 34,
+       "note": "exchanged says the two pieces swap places, so the one for question comes before the one for see"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "UNIQUELY",
        "indicators": [
         {
          "text": "Most of",
-         "note": "most but not all means the final letter is dropped"
+         "at": 0,
+         "note": "most of means the word is taken without its final letter"
         }
        ],
        "parts": [
         {
          "words": "select group",
-         "gives": "UNI",
-         "note": "a unit is a select group, as in a military unit; its last letter goes"
+         "at": 8,
+         "gives": "UNIT",
+         "note": "a unit is a small group picked out for a task"
         },
         {
-         "words": "see",
-         "gives": "ELY",
-         "note": "a see is a bishop's diocese; Ely is the crossword's favourite one"
-        },
-        {
-         "words": "question",
-         "gives": "QU",
-         "note": "QU is a standard abbreviation for question"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "question",
+       "at": 25,
+       "gives": "QU"
+      },
+      {
+       "words": "see",
+       "at": 21,
+       "gives": "ELY",
+       "note": "Ely is a cathedral city and bishop's see in Cambridgeshire"
       }
      ]
     },
     "explanation": {
-     "surface": "Most of an elite team being asked the same thing in turn, each in a striking manner.",
-     "walkthrough": "The clue names the see before the question, so the exchange is what puts them in answer order. Ely is a cathedral city in Cambridgeshire, England.",
-     "definitionFit": "Something done uniquely is done in a manner nobody else matches, which is a remarkable, one-of-a-kind way."
+     "surface": "Most of an elite set has seen its questions swapped in an unusual manner.",
+     "walkthrough": "'Most of' UNIT gives UNI; ELY (see) and QU (question) appear in that order in the clue but are 'exchanged', so QU comes first: UNI-QU-ELY.",
+     "definitionFit": "Uniquely means in a way unlike any other, so in a singular or remarkable manner."
     },
     "features": {
      "answerInScene": false,
@@ -278,48 +281,49 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "UNCLASP",
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so one word goes round the other"
+       "at": 8,
+       "note": "up about means the word up goes round the shifted families"
       }
      ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "UNCLASP",
+       "words": "up",
+       "at": 5,
+       "gives": "UP",
+       "note": "taken as written"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "after name's put forward",
-         "note": "putting a name forward moves its abbreviation from the back of its word to the front"
+         "at": 23,
+         "note": "this asks for the letter for name to be moved to the front of the word for families"
         }
        ],
        "parts": [
         {
          "words": "families",
+         "at": 14,
          "gives": "CLANS",
-         "note": "clans are extended families"
-        },
-        {
-         "words": "up",
-         "note": "taken as written"
+         "note": "clans are families or kin groups, especially in Scotland"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Make public the details of family groups once a candidate's name has been nominated.",
-     "walkthrough": "'Open up' looks like the definition, but 'up' is wordplay. N is the abbreviation for name, and it already sits at the end of the families word, waiting to be moved.",
-     "definitionFit": "To unclasp is to release a fastening, so a clasped bag or hand is thereby opened."
+     "surface": "Someone opens up about their relatives once a name has been suggested.",
+     "walkthrough": "In CLANS (families) the N stands for name; 'after name's put forward' it becomes NCLAS, and UP goes 'about' it: U-NCLAS-P.",
+     "definitionFit": "To unclasp something, such as a bag or a necklace, is to open its fastening."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "up"
+     "misdirectedWord": "forward"
     }
    }
   },
@@ -578,50 +582,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VIRAEMIC",
-     "indicators": [
-      {
-       "text": "repeatedly snubbed",
-       "note": "to snub is to cut short, and doing it repeatedly docks more than one letter from the end"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "repeatedly snubbed",
+         "at": 6,
+         "note": "snubbed means cut short, and doing it twice loses two letters from the end"
+        }
+       ],
        "parts": [
         {
          "words": "Shrew",
-         "gives": "VIRA",
-         "note": "a virago is a shrew, a scolding woman; its last two letters are cut"
+         "at": 0,
+         "gives": "VIRAGO",
+         "note": "a virago is a domineering, bad-tempered woman, a shrew"
         },
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "contaminated",
-           "note": "contaminated things are messed up, so the letters are mixed into a new order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "mice",
-           "note": "taken as written, then mixed"
-          }
-         ]
+         "gives": "GO"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "contaminated",
+         "at": 33,
+         "note": "contaminated means tainted and spoiled, so the letters of mice are mixed up"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mice",
+         "at": 28
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A small mammal keeps being ignored by mice carrying disease in their blood.",
-     "walkthrough": "'Shrew' suggests the small mammal, alongside the mice, but it is the old word for a nagging woman. Snubbing twice takes off the GO.",
-     "definitionFit": "Viraemic describes having viruses present in the blood, the adjective from viraemia, a kind of infection carried in circulation."
+     "surface": "A small rodent-like animal is shunned by mice carrying blood-borne disease.",
+     "walkthrough": "VIRAGO (shrew) 'repeatedly snubbed' loses its last two letters to give VIRA; MICE 'contaminated' gives EMIC. 'Shrew' means a scold, not the animal.",
+     "definitionFit": "Viraemic describes the presence of viruses in the blood, a viraemia being a viral infection of the bloodstream."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Shrew"
     }
@@ -649,47 +657,44 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "ENWOMB",
      "indicators": [
       {
        "text": "pursuing",
-       "note": "one who pursues comes behind, so this piece is placed after the other"
+       "at": 17,
+       "note": "pursuing means chasing behind, so the bachelor's letter comes last"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 26,
+         "note": "cycling means letters go round from the back of the word to the front"
+        }
+       ],
        "parts": [
         {
-         "op": "cycling",
-         "indicators": [
-          {
-           "text": "cycling",
-           "note": "to cycle is to go round, so letters from the front of the word come round to the back"
-          }
-         ],
-         "parts": [
-          {
-           "words": "ladies",
-           "gives": "WOMEN",
-           "note": "ladies are women"
-          }
-         ]
-        },
-        {
-         "words": "bachelor",
-         "gives": "B",
-         "note": "B is the abbreviation for bachelor"
+         "words": "ladies",
+         "at": 34,
+         "gives": "WOMEN",
+         "note": "women are ladies"
         }
        ]
+      },
+      {
+       "words": "bachelor",
+       "at": 8,
+       "gives": "B",
+       "note": "B is the abbreviation for bachelor, as in degrees like BA"
       }
      ]
     },
     "explanation": {
-     "surface": "Keep in check a single man who chases women on bicycles.",
-     "walkthrough": "'Cycling ladies' paints women on bikes, but the word tells you to rotate the letters: the last two move to the front.",
-     "definitionFit": "To enwomb is to hold something as if within a womb, an old poetic verb for enclosing or containing."
+     "surface": "A single man tries to restrain some women out on bicycles.",
+     "walkthrough": "'cycling' suggests bikes, but it means rotating letters: the tail of the word for ladies swings round to the front to make ENWOM, with the bachelor 'pursuing' it at the end.",
+     "definitionFit": "To enwomb is an old word for enclosing as if in a womb, so to hold or contain."
     },
     "features": {
      "answerInScene": false,
@@ -719,42 +724,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HUMMER",
-     "indicators": [
-      {
-       "text": "going topless",
-       "note": "topless means with the top removed, so the first letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "hot",
+       "at": 13,
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on taps"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "going topless",
+         "at": 24,
+         "note": "going topless means losing the top, which is the first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "hot",
-         "gives": "H",
-         "note": "H is the abbreviation for hot, as on a tap"
+         "words": "season",
+         "at": 17,
+         "gives": "SUMMER",
+         "note": "summer is a season of the year"
         },
         {
-         "words": "season",
-         "gives": "UMMER",
-         "note": "summer is a season; the first letter is removed"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who reeks in the heat of the summer months, stripped to the waist.",
-     "walkthrough": "To hum is British slang for to smell bad, so a hummer is something that stinks; 'stinking hot' first reads as a phrase about the weather.",
-     "definitionFit": "Hum is slang for giving off a strong smell, so one that hums is a smelly person or thing."
+     "surface": "It is a sweltering time of year and people are sunbathing without tops on.",
+     "walkthrough": "H (hot) plus SUMMER (season) 'going topless', which leaves UMMER. To hum is British slang for to smell bad, so a hummer is one that stinks.",
+     "definitionFit": "Hum is informal British for a bad smell, so a hummer is something giving off a stench."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "stinking"
+     "misdirectedWord": "topless"
     }
    }
   },
@@ -1061,62 +1070,66 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SKIRMISH",
+     "op": "charade",
      "indicators": [
       {
-       "text": "exposed",
-       "note": "exposed means stripped of its covering, so the outside letters come off"
+       "text": "on",
+       "at": 41,
+       "note": "on means placed after, in a down clue below, the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "on",
-         "note": "in a down entry, what is on something sits above it, so it is read first"
+         "text": "plugging",
+         "at": 24,
+         "note": "plugging means filling a gap, so the stripped companies go inside the runners"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "runners",
+         "at": 33,
+         "gives": "SKIS",
+         "note": "skis are runners on snow"
+        },
+        {
+         "op": "middle",
          "indicators": [
           {
-           "text": "plugging",
-           "note": "a plug fills a hole, so one piece sits inside the other"
+           "text": "exposed",
+           "at": 6,
+           "note": "exposed means with the outer covering removed, so first and last letters go"
           }
          ],
          "parts": [
           {
-           "words": "runners",
-           "gives": "SKIS",
-           "note": "skis are runners on snow"
-          },
-          {
            "words": "companies",
-           "gives": "IRM",
-           "note": "firms are companies; the outer letters are stripped"
+           "at": 14,
+           "gives": "FIRMS",
+           "note": "firms are companies"
           }
          ]
-        },
-        {
-         "words": "heroin",
-         "gives": "H",
-         "note": "H is slang for heroin"
         }
        ]
+      },
+      {
+       "words": "heroin",
+       "at": 44,
+       "gives": "H",
+       "note": "H is slang shorthand for heroin"
       }
      ]
     },
     "explanation": {
-     "surface": "A scandal reveals that businesses are lending money to drug runners.",
-     "walkthrough": "'Runners' suggests drug couriers, given the heroin, but these runners are skis.",
-     "definitionFit": "A skirmish is a short, minor fight, a small-scale clash between troops or rivals."
+     "surface": "A fight breaks out as exposed firms block athletes on drugs.",
+     "walkthrough": "FIRMS (companies) 'exposed' becomes IRM, 'plugging' SKIS (runners) to give SKIRMIS, with H (heroin) placed 'on' it.",
+     "definitionFit": "A skirmish is a brief fight or minor battle, a small clash between forces."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "runners"
     }
@@ -1644,26 +1657,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "TEA",
      "indicators": [
       {
        "text": "most of",
-       "note": "most but not all means the final letter is dropped"
+       "at": 5,
+       "note": "most of means the word is used all but its final letter"
       }
      ],
      "parts": [
       {
        "words": "wood",
-       "gives": "TEA",
-       "note": "teak is a hardwood; its last letter goes"
+       "at": 13,
+       "gives": "TEAK",
+       "note": "teak is a hard tropical wood"
+      },
+      {
+       "gives": "K"
       }
      ]
     },
     "explanation": {
-     "surface": "Burning the greater part of the timber.",
-     "walkthrough": "'Char' looks like the verb to scorch, which suits the wood; it is British slang for a cup of tea, from the Chinese.",
-     "definitionFit": "Char, or cha, is informal British slang for the drink made from steeping leaves, so it is a direct synonym."
+     "surface": "Much of a piece of timber is being scorched.",
+     "walkthrough": "'most of' TEAK (wood) is TEA. 'Char' is British slang for tea (from the Chinese cha), not burning.",
+     "definitionFit": "Char is old British slang for a cup of tea, as in 'a cup of char'."
     },
     "features": {
      "answerInScene": false,
