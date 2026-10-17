@@ -23,7 +23,8 @@
   "check": "30 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -276,31 +277,26 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IMPLICIT",
+     "op": "middle",
      "indicators": [
       {
        "text": "there are no bounds to",
-       "note": "Bounds are the outer limits of a thing, so a word with none of them gives up the letters at its two ends."
+       "at": 11,
+       "note": "with no bounds the word simplicity loses its outer letters, the ones that mark its edges"
       }
      ],
      "parts": [
       {
        "words": "simplicity",
-       "note": "the ten letters the wordplay works on, printed whole"
-      },
-      {
-       "words": "bounds",
-       "gives": "SY",
-       "note": "the letters standing at its two limits, and the ones the clue says are not there"
+       "at": 34,
+       "note": "the word simplicity with its first letter S and last letter Y taken away"
       }
      ]
     },
     "explanation": {
-     "surface": "A weary observation that there is no limit to how simple things can get.",
-     "walkthrough": "Nothing in the clue looks like fodder because the wordplay is one long word with its outer letters taken off. Bounds are limits in the sentence and two particular letters in the parse.",
-     "definitionFit": "An implicit agreement is one taken as understood without ever being spelled out, the two words naming the same unspoken assumption."
+     "surface": "A sage observes that simple living is limitless.",
+     "walkthrough": "'there are no bounds to' sounds like praise of simplicity, but it strips the first and last letters, S and Y.",
+     "definitionFit": "Something implicit is understood without being stated outright, implied rather than expressed."
     },
     "features": {
      "answerInScene": false,
@@ -450,41 +446,43 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "CAPRI",
+     "indicators": [
+      {
+       "text": "set out",
+       "at": 33,
+       "note": "set out means the letters are laid out afresh in another order"
+      }
+     ],
      "parts": [
       {
+       "words": "a",
+       "at": 25
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "CAPRI",
        "indicators": [
         {
          "text": "Needing to get end away",
-         "note": "Getting something away is getting rid of it, and the end of a word is the letter it finishes on."
-        },
-        {
-         "text": "set out",
-         "note": "Letters set out are laid down afresh, in whatever arrangement the setter has chosen for them."
+         "at": 0,
+         "note": "get end away means the word prick loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "a prick",
-         "note": "six letters to work from, one more than the grid has room for"
+         "words": "prick",
+         "at": 27
         },
         {
-         "words": "end",
-         "gives": "K",
-         "note": "the last letter of the six, and the one sent away"
+         "gives": "K"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A randy fool setting off for an island in hope of sex.",
-     "walkthrough": "Getting your end away is British slang for having sex, so the surface stays smutty while the wordplay hears end as a letter. Prick is the Eye's word for a fool and its anatomical joke at the same time.",
-     "definitionFit": "Capri is the island in the Bay of Naples, so the bare word names it by its kind with nothing narrowing it further."
+     "surface": "A cad who wants to get his end away sets off for a holiday island.",
+     "walkthrough": "'Needing to get end away' is Private Eye smut that also tells you to drop the K from PRICK; 'set out' then rearranges A + PRIC, that is APRIC.",
+     "definitionFit": "Capri is an island in the Bay of Naples, off the Sorrento peninsula of Italy."
     },
     "features": {
      "answerInScene": true,
