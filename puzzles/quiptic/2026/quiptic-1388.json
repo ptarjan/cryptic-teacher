@@ -1144,38 +1144,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MISHEAR",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 29,
+       "note": "in a down clue, over means placed above, so this pair comes before the cut"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "upset"
-        },
-        {
-         "text": "over"
+         "text": "upset",
+         "at": 23,
+         "note": "upset means turned over, so in a down clue the letters of I'm are flipped to read upwards"
         }
        ],
        "parts": [
         {
          "words": "I'm",
-         "gives": "MI",
-         "note": "I'M turned upside down"
-        },
-        {
-         "words": "cut",
-         "gives": "SHEAR",
-         "note": "as sheep are shorn"
+         "at": 19,
+         "gives": "IM",
+         "note": "taken as written, the apostrophe ignored"
         }
        ]
+      },
+      {
+       "words": "cut",
+       "at": 34,
+       "gives": "SHEAR",
+       "note": "to shear is to cut, as with sheep's wool"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Upset' flips I'M, which is fair in a down entry; 'over' then places MI above SHEAR, just as the grid reads.",
-     "definitionFit": "To mishear is to catch someone's words wrongly, taking in something other than what was said — one way of failing to understand."
+     "surface": "Someone upset at having been cut short in a conversation.",
+     "walkthrough": "'upset' turns IM round to MI, which goes 'over' SHEAR. 'upset' looks like an emotion here, but it reverses.",
+     "definitionFit": "To mishear is to catch someone's words wrongly, so failing to grasp what was said."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
     }
    }
   },
@@ -1430,50 +1442,68 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "RESILIENT",
+     "op": "container",
      "indicators": [
       {
-       "text": "taken aback"
+       "text": "in",
+       "at": 28,
+       "note": "in places the reversed word and the deception inside the word for lease"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "lease",
+       "at": 31,
+       "gives": "RENT",
+       "note": "to rent is to lease, as in rent a flat"
+      },
+      {
+       "op": "charade",
        "indicators": [
         {
-         "text": "in"
+         "text": "by",
+         "at": 15,
+         "note": "by means beside, so the deception comes next to the reversed pair"
         }
        ],
        "parts": [
         {
-         "words": "lease?",
-         "gives": "RENT",
-         "note": "the lease that wraps around SI + LIE"
-        },
-        {
-         "op": "charade",
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "taken aback",
+           "at": 3,
+           "note": "taken aback reads literally as taken backwards, so the two letters are reversed"
+          }
+         ],
          "parts": [
           {
            "words": "Is",
-           "gives": "SI",
-           "note": "IS reversed — 'taken aback'"
-          },
-          {
-           "words": "deception",
-           "gives": "LIE",
-           "note": "a plain synonym"
+           "at": 0,
+           "gives": "IS",
+           "note": "taken as written"
           }
          ]
+        },
+        {
+         "words": "deception",
+         "at": 18,
+         "gives": "LIE",
+         "note": "a lie is a deception"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Taken aback' reverses IS, and 'in lease' wraps RENT around the middle. Three mechanisms in one clue, each with its own signal.",
-     "definitionFit": "Resilient describes what springs back into shape after a knock — recovering readily from setbacks."
+     "surface": "A tenant shocked to find a trick hidden in their rental agreement.",
+     "walkthrough": "'taken aback' looks like surprise, but it turns IS into SI; with LIE beside it, SILIE goes 'in' RENT.",
+     "definitionFit": "Someone resilient bounces back quickly from setbacks, recovering their strength or spirits with ease."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aback"
     }
    }
   },
