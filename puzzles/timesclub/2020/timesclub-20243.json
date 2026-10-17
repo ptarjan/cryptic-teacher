@@ -425,54 +425,54 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "ADMASSES",
-     "indicators": [
-      {
-       "text": "after",
-       "note": "after puts the shop letter behind the reworked word"
-      }
-     ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "ADMASSES",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "promotion of last",
-         "note": "promotion moves something up, so the final letter climbs towards the top of this down entry"
+         "text": "after promotion of last",
+         "at": 35,
+         "note": "the final letter of the hoarding word is promoted, moving up from the bottom of this down entry to near the top"
         }
        ],
        "parts": [
         {
          "words": "hoarded",
+         "at": 27,
          "gives": "AMASSED",
-         "note": "to hoard is to amass"
+         "note": "to hoard is to amass, so hoarded is amassed"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "opening",
-           "note": "an opening is the start, so only the initial letter of shop is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "shop's",
-           "note": "first letter of shop"
-          }
-         ]
+         "gives": "MASSED"
+        },
+        {
+         "gives": "DMASSE"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening",
+         "at": 66,
+         "note": "the opening of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "shop's",
+         "at": 59,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Crowds swayed by advertising stockpiled goods once a shop opened.",
-     "walkthrough": "In AMASSED the final D rises to sit just after the A, giving ADMASSE, before S joins.",
-     "definitionFit": "Admass is the mass public targeted and swayed by advertising and commercial media, so its plural is such populations."
+     "surface": "Sounds like a business story: crowds swayed by advertising stockpiled goods once a shop opened.",
+     "walkthrough": "'Promotion' reads as advertising, but 'after promotion of last' means the final letter of the hoarding word moves up, here only to second place; the opening of shop then follows.",
+     "definitionFit": "The admass is the section of the public easily swayed by mass advertising and the media; the plural names such groups."
     },
     "features": {
      "answerInScene": true,
@@ -1553,36 +1553,39 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "DEARY",
      "indicators": [
       {
        "text": "for centre of",
-       "note": "for means in place of, so the middle letter of the attack word is swapped out"
+       "at": 15,
+       "note": "the new letter stands in for the one at the very centre of the five-letter word"
       }
      ],
      "parts": [
       {
-       "words": "area",
-       "gives": "A",
-       "note": "A is the abbreviation for area"
+       "words": "attack",
+       "at": 29,
+       "gives": "DECRY",
+       "note": "to decry something is to attack it in words, to denounce it"
       },
       {
-       "words": "attack",
-       "gives": "DECRY",
-       "note": "to decry is to attack verbally"
+       "gives": "C"
+      },
+      {
+       "words": "area",
+       "at": 10,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A sports pundit says the favourite needs space in the middle of the forward line.",
-     "walkthrough": "DECRY has C at its centre; A replaces it.",
-     "definitionFit": "Deary is an affectionate form of address, like darling or love, as pet is too."
+     "surface": "A pet animal needs room to stop it going on the attack.",
+     "walkthrough": "Swap the middle letter of DECRY, its C, for A. Deary is a mostly British term of endearment, like dearie.",
+     "definitionFit": "Deary is an affectionate form of address, the same use as calling someone 'pet' or 'love'."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "attack"
+     "misdirectedWord": "Pet"
     }
    }
   },
