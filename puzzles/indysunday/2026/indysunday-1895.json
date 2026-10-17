@@ -386,46 +386,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BURP",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "Back",
-         "note": "Sent back along an across row, a word is read from its last letter round to its first."
+         "at": 0,
+         "note": "back here is a verb-like signal: the massage word is taken backwards"
         }
        ],
        "parts": [
         {
          "words": "massage",
-         "gives": "BUR",
-         "note": "to rub is to massage, and those three letters are read the other way"
-        },
+         "at": 5,
+         "gives": "RUB",
+         "note": "to massage is to rub"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "ending in",
-           "note": "The ending of a word is its final character, and that single letter is all this takes."
-          }
-         ],
-         "parts": [
-          {
-           "words": "chap",
-           "note": "the last letter of chap"
-          }
-         ]
+         "text": "ending in",
+         "at": 13,
+         "note": "ending in picks out the final letter of the following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "chap",
+         "at": 23,
+         "note": "its last letter, P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a spa treatment. The apostrophe-s belongs to the chap, so he only lends a letter and the definition is the two words he owns.",
-     "definitionFit": "rude emission → BURP: the noun for wind brought up from the stomach, rude here meaning impolite in company rather than crude or rough."
+     "surface": "A man's back massage ends with him letting out an embarrassing noise.",
+     "walkthrough": "'Back' turns RUB into BUR; 'ending in chap's' gives P, the last letter of chap.",
+     "definitionFit": "A burp is an audible release of wind from the stomach, a classic impolite bodily noise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Back"
     }
    }
   },
@@ -724,36 +733,46 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DAHLIA",
-     "indicators": [
-      {
-       "text": "each part being twisted",
-       "note": "A twisted thing has been turned right round, and 'each part' says both halves get the same treatment."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "parts": [
         {
          "words": "had",
-         "gives": "DAH",
-         "note": "the clue's own had, written the other way round"
-        },
+         "at": 13
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "each part being twisted",
+         "at": 26,
+         "note": "each of the two pieces that follow the definition is turned round on its own, rather than the whole"
+        }
+       ],
+       "parts": [
         {
          "words": "trouble",
-         "gives": "LIA",
-         "note": "to ail is to be in trouble, and that word turns too"
+         "at": 17,
+         "gives": "AIL",
+         "note": "to trouble or ail someone is to afflict them"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is somebody recovering from an illness among the flowerbeds. Two small words turn rather than one, which is what 'each part' is quietly telling you.",
-     "definitionFit": "Garden plant → DAHLIA: definition by example — one showy tuberous flower grown in beds, standing in for the whole class of things planted in gardens."
+     "surface": "A gardener's plant has suffered, its stems all bent out of shape.",
+     "walkthrough": "'each part being twisted' reverses both pieces separately: HAD becomes DAH and AIL becomes LIA.",
+     "definitionFit": "The dahlia is a popular tuberous flowering plant grown in borders for its showy blooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "twisted"
     }
    }
   },
@@ -992,52 +1011,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PROTOCOL",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "for",
+       "at": 10,
+       "gives": "PRO",
+       "note": "pro means in favour of, i.e. for"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "returning",
-         "note": "Something returning comes back the way it went, so the word is read from its far end."
+         "text": "fences",
+         "at": 37,
+         "note": "fences means encloses, so one piece goes around the other"
         }
        ],
        "parts": [
         {
-         "words": "for",
-         "gives": "PRO",
-         "note": "pro means for, as in the pros and cons of a plan"
-        },
-        {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "fences",
-           "note": "To fence a piece of land is to put a fence right round it, so this word closes over what follows."
+           "text": "returning",
+           "at": 14,
+           "note": "returning means the word for stolen goods is read backwards"
           }
          ],
          "parts": [
           {
            "words": "stolen goods",
-           "gives": "TOOL",
-           "note": "loot is stolen goods, and these letters are read backwards"
-          },
+           "at": 24,
+           "gives": "LOOT",
+           "note": "loot is stolen goods"
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
           {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "start to",
-             "note": "Where a clue starts a word it takes only the opening character of it and leaves the rest."
-            }
-           ],
-           "parts": [
-            {
-             "words": "consider",
-             "note": "the word consider starts with C"
-            }
-           ]
+           "text": "start to",
+           "at": 44,
+           "note": "start to picks the first letter of the next word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "consider",
+           "at": 53,
+           "note": "first letter C"
           }
          ]
         }
@@ -1046,8 +1069,15 @@
      ]
     },
     "explanation": {
-     "walkthrough": "A fence is a dealer in stolen goods, which is the surface, and to fence is to enclose, which is the instruction. Both senses are live at once and only one of them moves letters.",
-     "definitionFit": "Etiquette → PROTOCOL: the code of correct conduct at official occasions, the diplomat's word for what everybody else calls manners."
+     "surface": "A question of proper conduct when giving back stolen property that receivers (fences) are weighing up.",
+     "walkthrough": "'returning' turns LOOT into TOOL, which 'fences' C from 'start to consider', giving TOCOL after PRO. A fence is a receiver of stolen goods, which helps the surface.",
+     "definitionFit": "Protocol is the formal code of correct behaviour, especially in diplomatic or official settings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fences"
     }
    }
   },
@@ -1295,45 +1325,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TIGERISH",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 19,
+       "note": "after places the Spice Girl and shut-up pieces following the turned word"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "after",
-         "note": "What comes after something is written behind it, so these letters follow the piece named next."
-        },
-        {
          "text": "turned",
-         "note": "A turned word faces the other way, so its two letters are read from the back."
+         "at": 28,
+         "note": "turned means the word it is written backwards"
         }
        ],
        "parts": [
         {
          "words": "it",
-         "gives": "TI",
-         "note": "the clue's own it, facing the other way"
-        },
-        {
-         "words": "Spice Girl",
-         "gives": "GERI",
-         "note": "Geri Halliwell was Ginger Spice, so the fragment points at a name rather than a job"
-        },
-        {
-         "words": "shut up",
-         "gives": "SH",
-         "note": "SH is what you write for the noise that tells somebody to be quiet"
+         "at": 25
         }
        ]
+      },
+      {
+       "words": "Spice Girl",
+       "at": 0,
+       "gives": "GERI",
+       "note": "Geri Halliwell was Ginger Spice of the Spice Girls"
+      },
+      {
+       "words": "shut up",
+       "at": 11,
+       "gives": "SH",
+       "note": "sh is an instruction to be quiet"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Catty' means feline here, of the big-cat kind, not spiteful in the gossip sense the surface is nudging you towards.",
-     "definitionFit": "catty → TIGERISH: cat-like in the fierce, big-cat sense, rather than the spiteful sense the word usually carries about people."
+     "surface": "A member of the Spice Girls was told to be quiet once the situation became spiteful.",
+     "walkthrough": "'turned' makes IT into TI, and 'after' puts GERI and SH behind it. Geri was one of the 1990s British pop group the Spice Girls.",
+     "definitionFit": "Both words describe fierce, feline behaviour: tigerish is like a tiger, catty like a cat, so the clue plays on the animal link."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spice"
     }
    }
   },
