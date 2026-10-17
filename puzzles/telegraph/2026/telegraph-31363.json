@@ -513,39 +513,42 @@
      "parts": [
       {
        "words": "dad's",
+       "at": 7,
        "gives": "PAS",
-       "note": "pa is dad, plus the S of the possessive"
+       "note": "pa is an informal word for dad, and the 's is kept"
       },
       {
        "words": "nervous twitch",
+       "at": 13,
        "gives": "TIC",
        "note": "a tic is an involuntary nervous twitch"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "HE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "top half of",
-         "note": "the top half of a four-letter word in a down clue is its first two letters"
+         "at": 33,
+         "note": "top half of means only the first two of the four letters of head are kept; in a down clue the top is the start"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "head",
-         "gives": "HE",
-         "select": "first",
-         "note": "first two of four letters"
+         "at": 45,
+         "note": "the four-letter word whose upper half is used"
+        },
+        {
+         "gives": "AD"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone mocks their father's nervous tic of the head.",
-     "definitionFit": "A pastiche imitates the style of another work, often for comic effect, much like a spoof."
+     "surface": "A mocking imitation of a father's nervous twitch, involving half his head.",
+     "walkthrough": "'top half of head' leaves HE, since in a down answer the top of a word is its beginning.",
+     "definitionFit": "A pastiche is a work imitating the style of another artist, often humorously, which makes it a kind of parody."
     },
     "features": {
      "answerInScene": false,
@@ -1817,44 +1820,50 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "CLASSMATES",
-     "indicators": [
-      {
-       "text": "for",
-       "note": "X for Y means X stands in the place of Y, so one letter is swapped out for a different one"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Kind",
+       "at": 12,
        "gives": "CLASS",
-       "note": "a kind is a class or category"
+       "note": "a class is a kind, sort or category"
       },
       {
-       "words": "males",
-       "note": "taken as written"
-      },
-      {
-       "words": "time",
-       "gives": "T",
-       "note": "T is the abbreviation for time"
-      },
-      {
-       "words": "student",
-       "gives": "L",
-       "note": "L is for learner, a student driver"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "for",
+         "at": 33,
+         "note": "time for student means the time letter takes the place of the student letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "males",
+         "at": 17
+        },
+        {
+         "words": "student",
+         "at": 37,
+         "gives": "L",
+         "note": "L, for learner, is the letter on a learner driver's plates, standing for a student"
+        },
+        {
+         "words": "time",
+         "at": 28,
+         "gives": "T"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Friendly rugby players, described as decent men.",
-     "walkthrough": "Rugby is the English public school; 'Rugby pals?' means fellow pupils there, not team-mates.",
-     "definitionFit": "Pupils taught in the same form at a school such as Rugby are fellow students together."
+     "surface": "Rugby teammates described as a fine bunch of men, with time set aside for study.",
+     "walkthrough": "'Rugby' suggests the sport, but it is Rugby School in England, so the pals are fellow pupils; the question mark flags the example.",
+     "definitionFit": "Classmates are fellow members of a school class, such as pupils at Rugby School, so they are school friends."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Rugby"
