@@ -1092,43 +1092,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OCEANAUT",
+     "op": "container",
      "indicators": [
       {
-       "text": "diversified",
-       "note": "to diversify is to make varied, so these letters take a different arrangement"
+       "text": "to collect",
+       "at": 30,
+       "note": "the rearranged letters gather the symbol for gold into their midst"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to collect",
-         "note": "collecting something takes it in, so the gold symbol is put inside"
+         "text": "diversified",
+         "at": 18,
+         "note": "diversified means varied, made different, so the letters of at once take a new order"
         }
        ],
        "parts": [
         {
          "words": "at once",
-         "gives": "OCEANT",
-         "note": "the letters to rearrange"
-        },
-        {
-         "words": "gold",
-         "gives": "AU",
-         "note": "Au is the chemical symbol for gold"
+         "at": 10
         }
        ]
+      },
+      {
+       "words": "gold",
+       "at": 41,
+       "gives": "AU",
+       "note": "Au is the chemical symbol for gold"
       }
      ]
     },
     "explanation": {
-     "surface": "Captain Nemo instantly branches out to amass treasure.",
-     "walkthrough": "Captain Nemo is Jules Verne's submarine commander in Twenty Thousand Leagues Under the Sea.",
-     "definitionFit": "An oceanaut is an undersea explorer, and Verne's Nemo, roaming the deep in his submarine, is one such example."
+     "surface": "Captain Nemo instantly branching out to amass gold from the sea bed.",
+     "walkthrough": "'diversified' rearranges AT ONCE to OCEANT, which takes in AU, the chemical symbol for gold, by 'to collect'. Captain Nemo commands the submarine Nautilus in Jules Verne's novel.",
+     "definitionFit": "An oceanaut is an undersea explorer, and Verne's Captain Nemo is the archetypal deep-sea voyager."
     },
     "features": {
      "answerInScene": true,
@@ -1295,39 +1295,47 @@
      "indicators": [
       {
        "text": "round",
-       "note": "the sweeping implements go round the two letters, enclosing them"
+       "at": 15,
+       "note": "the brooms go round the following letters"
       }
      ],
      "parts": [
       {
        "words": "Those sweeping",
+       "at": 0,
        "gives": "BROOMS",
-       "note": "brooms are things that sweep"
+       "note": "brooms are the things that do the sweeping"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "ED",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "last couple of",
+         "at": 21,
+         "note": "only the last two letters of classified are kept, the rest discarded"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "last couple of classified",
-         "gives": "ED",
-         "select": "last",
-         "note": "the final two letters of classified"
+         "words": "classified",
+         "at": 36
+        },
+        {
+         "gives": "CLASSIFI"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cleaners sweeping around secret dormitories.",
-     "walkthrough": "B(ED)ROOMS.",
-     "definitionFit": "Bedrooms are the rooms in a house where people go to rest overnight."
+     "surface": "Cleaners sweeping round secret documents in a dormitory.",
+     "walkthrough": "'last couple of classified' gives ED, and 'round' puts BROOMS about it. 'sleepers' might suggest railway sleepers, but here they are people asleep.",
+     "definitionFit": "Bedrooms are rooms where people sleep, so places for sleepers."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "sleepers"
     }
    }
