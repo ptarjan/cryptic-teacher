@@ -512,31 +512,31 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "TIDE",
      "indicators": [
       {
        "text": "backward",
-       "note": "Something backward runs the other way about, so the word in front of it goes into the grid from its last letter."
+       "at": 6,
+       "note": "backward says the word for alter is read from its last letter to its first"
       }
      ],
      "parts": [
       {
        "words": "Alter",
-       "gives": "TIDE",
-       "note": "to alter a text is to edit it, and those four letters are entered the other way round"
+       "at": 0,
+       "gives": "EDIT",
+       "note": "to edit a text is to alter it"
       }
      ]
     },
     "explanation": {
-     "surface": "Changing a current that is behind the times.",
-     "walkthrough": "Three words and four letters leave nowhere to hide, so the only question is which word is the definition. 'Current' is the sea's rather than the electrician's, and this is the one current that turns round twice a day.",
-     "definitionFit": "The tide is the twice-daily flow of water in and out along a coast, so current names it by the movement it is."
+     "surface": "Instructions to change something that is a retrograde trend.",
+     "walkthrough": "'backward' turns EDIT, from 'Alter', round to give the answer; 'current' is a noun here, not 'present'.",
+     "definitionFit": "A tide is the regular flow of the sea, a current of water."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "backward"
+     "misdirectedWord": "current"
     }
    }
   },
@@ -780,32 +780,34 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "CORTEGE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 7,
+       "note": "in says the reversed word is placed inside the word for heart"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "heart",
+       "at": 10,
+       "gives": "CORE",
+       "note": "the core of something is its heart"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "up",
-         "note": "In a down entry what goes up is read from the bottom end, so the word before it is written in backwards."
-        },
-        {
-         "text": "in",
-         "note": "In drops the piece already in hand inside the word named after it instead of beside it."
+         "at": 4,
+         "note": "in a down clue, up says the letters of get are read from bottom to top"
         }
        ],
        "parts": [
         {
-         "words": "heart",
-         "gives": "CORE",
-         "note": "the heart of an apple or of a problem is its core"
-        },
-        {
          "words": "Get",
-         "gives": "TEG",
-         "note": "the plainest verb in the language, entered from the bottom up as the instruction beside it asks"
+         "at": 0
         }
        ]
       }
@@ -813,14 +815,14 @@
     },
     "spelling": "CORTÈGE",
     "explanation": {
-     "surface": "Standing up in the middle of a funeral procession.",
-     "walkthrough": "'Get up in' reads as rising from a seat and is carrying three separate jobs. A cortège is the slow line of cars behind a hearse, French by origin and printed in English without its accent.",
-     "definitionFit": "A cortège is the train of mourners and vehicles following a hearse, which is a funeral procession named straight."
+     "surface": "A call to rise at the centre of a mourning parade.",
+     "walkthrough": "'Get up' reads like a command to rise, but in a down answer 'up' reverses the word, and 'in' places the result inside the word for 'heart'.",
+     "definitionFit": "A cortège is the line of mourners and vehicles following a coffin, a funeral procession."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Get"
+     "misdirectedWord": "heart"
     }
    }
   },
@@ -1172,42 +1174,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "XERXES",
-     "indicators": [
-      {
-       "text": "returned",
-       "note": "What is returned comes back the way it went, so the words before it are read from their last letter to their first."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returned",
+         "at": 12,
+         "note": "returned says the letters for former king are read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Former king",
-         "gives": "XERXE",
-         "note": "an ex is a former partner and rex is Latin for king, the title printed after a British monarch's name on a coin; the five letters go in from the far end"
-        },
-        {
-         "words": "small",
-         "gives": "S",
-         "note": "S is the size on a clothing label"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Former",
+           "at": 0,
+           "gives": "EX",
+           "note": "ex means former, as in ex-wife"
+          },
+          {
+           "words": "king",
+           "at": 7,
+           "gives": "REX",
+           "note": "rex is Latin for king, as in the abbreviation R"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "small",
+       "at": 24,
+       "gives": "S",
+       "note": "S is the clothing-size abbreviation for small"
       }
      ]
     },
     "explanation": {
-     "surface": "An old monarch brought back by a small Persian ruler.",
-     "walkthrough": "There are two kings in the clue and only the second belongs to the definition; the first is the Latin title crosswords keep in stock. Xerxes ruled Persia in the fifth century BC and had the Hellespont whipped when a storm wrecked his bridge of boats.",
-     "definitionFit": "Xerxes was the Achaemenid ruler who invaded Greece in 480 BC, so the definition names him by throne and country — one example of the kind."
+     "surface": "An ex-monarch outdone by a minor ruler of Persia.",
+     "walkthrough": "'Former king' looks like one ruler, but it splits into two words that 'returned' reverses together; 'by' only means next to, adding the small letter at the end.",
+     "definitionFit": "Xerxes the Great ruled the Achaemenid Persian Empire and invaded Greece in 480 BC."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Former"
+     "misdirectedWord": "returned"
     }
    }
   },
