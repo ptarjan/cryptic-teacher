@@ -25,7 +25,15 @@
   "model": "opus",
   "date": "2026-10-04",
   "check": "32 entries, 58 crossings, 0 conflicts",
-  "officialKey": "never"
+  "officialKey": "never",
+  "corrected": [
+   {
+    "entry": "10-across",
+    "was": "DINGY",
+    "now": "DUNNY",
+    "date": "2026-10-17"
+   }
+  ]
  },
  "annotatedBy": [
   "claude-opus-5-5"
@@ -612,56 +620,58 @@
     "text": "Dull-coloured fringes of napery in basement",
     "enumeration": "5"
    },
-   "solution": "DINGY",
+   "solution": "DUNNY",
    "annotation": {
     "definitions": [
      {
-      "text": "Dull-coloured",
-      "at": 0
+      "text": "basement",
+      "at": 35
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "DINGY",
+     "op": "charade",
      "indicators": [
       {
        "text": "in",
-       "note": "in tells us the kept letters go inside the word for basement"
+       "at": 32,
+       "note": "'in' joins the built-up letters to the definition, saying the wordplay results in the word for a basement"
       }
      ],
      "parts": [
+      {
+       "words": "Dull-coloured",
+       "at": 0,
+       "gives": "DUN",
+       "note": "dun is a dull greyish-brown colour"
+      },
       {
        "op": "outer",
        "indicators": [
         {
          "text": "fringes of",
-         "note": "the fringes of a cloth are its edges, so only the outermost letters are kept"
+         "at": 14,
+         "note": "the fringes of a word are its outside edges, its first and last letters"
         }
        ],
        "parts": [
         {
          "words": "napery",
-         "note": "first and last letters; napery is table linen"
+         "at": 25,
+         "note": "the first and last letters of napery, a word for table linen"
         }
        ]
-      },
-      {
-       "words": "basement",
-       "gives": "DIG",
-       "note": "a dig is an excavation, something below ground level"
       }
      ]
     },
     "explanation": {
-     "surface": "The edges of the table linen kept in the cellar have gone grubby.",
-     "walkthrough": "The setter loosely puts the two edge letters into the word for basement, one inside and one tacked on at the end.",
-     "definitionFit": "Dingy means drab, dirty-looking or lacking brightness, so it describes something dull in colour."
+     "surface": "A description of dowdy table linen with frayed edges stored down in the cellar.",
+     "walkthrough": "Not DINGY, which fits the crossers and the sense of 'Dull-coloured' but has no parse. 'Fringes of' takes NY from napery. In Scots a dunny is the cellar or underground floor of a tenement, fitting this Scotsman puzzle.",
+     "definitionFit": "In Scottish usage a dunny is a cellar or the underground storey of a building, so it is a basement."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "fringes"
+     "misdirectedWord": "Dull-coloured"
     }
    }
   },
