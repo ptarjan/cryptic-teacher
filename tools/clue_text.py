@@ -224,7 +224,16 @@ def is_stray_count(line):
 # ---------------------------------------------------------------- numerals
 
 #: A "See N" clue, which carries no words of its own.
-SEE_RE = re.compile(r"^see\s+(\d+)", re.IGNORECASE)
+SEE_WORD = r"s[ec]e"
+#: A cross-reference's number, OCR'd: l or I read for a 1 only touching a
+#: digit ("l5", "1l"), never a lone letter (a real "see I"). Compile with IGNORECASE.
+SEE_NUMBER = r"(?:[lI]\d|\d[lI](?![a-z])|\d{1,2})"
+SEE_RE = re.compile(rf"^{SEE_WORD}\s+({SEE_NUMBER})", re.IGNORECASE)
+
+
+def see_number(text):
+    """The int a SEE_NUMBER capture names ("l5" is 15; a lone l or I is 1)."""
+    return int(text.translate(str.maketrans("lI", "11")))
 
 #: The letters a digit standing alone may be a reader's misread of.
 DIGIT_LETTERS = {"0": "o", "1": "ilt", "3": "a", "5": "s"}
@@ -491,9 +500,15 @@ ENUM_OR_SEE = (r"\((?:\d(?:[\d,\-.;:/'\s]|and(?=\s*\d))*"
 WORDS_COUNT = re.compile(r"\(\s*(\d{1,2}(?:\s*[,\-]\s*\d{1,2})*)\s*[,.]\s*\(?\s*[a-z]{2,5}\s+w[a-z]{3,4}\s*\)",
                          re.IGNORECASE)
 
+#: The shared core of a clue number opening a clue inside another clue's text:
+#: the number (a 11 read "1l]"), then a stop, then a capital or quote, and not
+#: a direction word. RUN_ON_NUMBER and NEXT_NUMBER are both built from it.
+RUN_ON_NUM = r"\d{1,2}|[1l]\]"
+RUN_ON_AFTER = r"[.:]?\s+(?!(?i:across|down|ac|dn)\b)(?=[A-Z\u2018\u201c'\"])"
+
 #: The next clue's number (">0" for a misread 10) and first word inside a
 #: clue's text.
-NEXT_NUMBER = re.compile(r"\s\S?\d{1,2}\s+[A-Z]")
+NEXT_NUMBER = re.compile(rf"\s\S?(?:{RUN_ON_NUM}){RUN_ON_AFTER}")
 
 #: A clue number and the ellipsis its clue opens on: glued to the number
 #: ("5... the"), a speck between ("5_ ... the"), dots lost ("6 . stabbed"),
@@ -547,7 +562,7 @@ def tolerant_heading(line):
 
 #: "see 14", "See 14 Across", "see 3 dn": the number and, if printed, the
 #: way it runs. Source of a pattern; compile it with IGNORECASE.
-SEE_DIRECTED = r"see\s+(\d{1,2})\s*(across|down|ac|dn)?\b"
+SEE_DIRECTED = rf"{SEE_WORD}\s+({SEE_NUMBER})\s*(across|down|ac|dn)?\b"
 
 
 # ------------------------------------------------------ clue numbers read badly
@@ -865,6 +880,6 @@ ENUM_SEG = re.compile(r"[\s.?!;:'\"]*[(\[{]?\s*(\d{1,2}(?:(?:\s*[,.\-]\s*|\s+)\d
 
 #: A clue number opening a clue inside another clue's text, with the count of
 #: the clue before it in front when that count stands inside the text.
-RUN_ON_NUMBER = re.compile(r"(?:\((\d[\d,\-\u2013]*)\)\s*)?(?<![\d(])(\d{1,2}|[1l]\])[.:]?\s+(?!(?i:across|down|ac|dn)\b)(?=[A-Z\u2018\u201c'\"])")
+RUN_ON_NUMBER = re.compile(rf"(?:\((\d[\d,\-\u2013]*)\)\s*)?(?<![\d(])({RUN_ON_NUM}){RUN_ON_AFTER}")
 #: A clue that is only a cross-reference, its count never there.
-BARE_SEE = re.compile(r"\(?\s*s[ec]e\s*([lI]|\d{1,2})\s*(?:ac|dn|across|down)?\.?\s*\)?$", re.I)
+BARE_SEE = re.compile(rf"\(?\s*{SEE_WORD}\s*({SEE_NUMBER}|[lI])\s*(?:ac|dn|across|down)?\.?\s*\)?$", re.I)

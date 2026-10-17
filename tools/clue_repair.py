@@ -289,7 +289,7 @@ def split_run_on(parsed):
                     later = {"tokens": [{n}], "text": c["text"][m.end():].strip(),
                              "enums": c["enums"], "see": None}
                     if see:
-                        ref = "1" if see.group(1) in "lI" else see.group(1)
+                        ref = str(clue_text.see_number(see.group(1)))
                         head = dict(c, text=f"See {ref}", enums=set(), see=int(ref))
                     else:
                         head = dict(c, text=first, enums={m.group(1).replace("\u2013", "-")} if m.group(1) else set())

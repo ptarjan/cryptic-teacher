@@ -228,4 +228,17 @@ assert ct.tidy_ocr_clues("See 15", scope="clue", cells=15, lights=[15]) == "See 
 # a lone full stop after a count is a speck like any other
 assert ct.count_closed("More than two (5-8).") == "More than two (5-8)"
 print("tidy_ocr_clues ok")
+# one tolerant see core: SEE_RE, SEE_DIRECTED and BARE_SEE all read misreads, none read a real word
+for t in ("See l5", "sce 15", "see I5", "See 1l down"):
+    assert ct.SEE_RE.match(t), t
+    assert re.compile(ct.SEE_DIRECTED, re.I).search(t), t
+assert ct.see_number("l5") == 15 and ct.see_number("1l") == 11 and ct.see_number("I") == 1
+assert re.compile(ct.SEE_DIRECTED, re.I).search("sce l5 Down").groups() == ("l5", "Down")
+for t in ("see I", "See lamp", "see l", "see 1 lamp"):
+    assert not ct.SEE_RE.match(t) or ct.SEE_RE.match(t).group(1) == "1", t
+assert not re.compile(ct.SEE_DIRECTED, re.I).search("see I think")
+assert ct.BARE_SEE.match("sce l5") and ct.BARE_SEE.match("(see I)") and not ct.BARE_SEE.match("see I think")
+# run-on number core shared by RUN_ON_NUMBER and NEXT_NUMBER
+assert ct.NEXT_NUMBER.search("clue (5) l] Next") and ct.RUN_ON_NUMBER.search("clue (5) l] Next")
+assert not ct.NEXT_NUMBER.search("clue (5) 7 Across") and not ct.RUN_ON_NUMBER.search("clue (5) 7 Across")
 print("clue_text ok")

@@ -247,7 +247,7 @@ def by_lines(text):
         elif side and m:
             see = clue_text.SEE_RE.match(m.group(2))
             out[side].append({"tokens": [{int(m.group(1))}], "text": m.group(2).strip(), "enums": set(),
-                              "see": int(see.group(1)) if see else None})
+                              "see": clue_text.see_number(see.group(1)) if see else None})
         elif side and out[side] and line.strip():
             out[side][-1]["text"] += " " + line.strip()
     return out if all(out.values()) else None
