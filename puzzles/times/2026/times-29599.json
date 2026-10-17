@@ -255,46 +255,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DOGINTHEMANGER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 30,
+       "note": "the scrambled letters are placed in the middle of the jeopardy word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Jeopardy",
+       "at": 33,
+       "gives": "DANGER",
+       "note": "jeopardy means danger"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "cast",
-         "note": "letters that are cast are thrown into a new shape"
-        },
-        {
-         "text": "in",
-         "note": "the scrambled letters go inside the next word"
+         "at": 25,
+         "note": "to cast is to throw or mould anew, so the letters of one might are reshaped"
         }
        ],
        "parts": [
         {
-         "words": "Jeopardy",
-         "gives": "DANGER",
-         "note": "jeopardy = danger; it is split D...ANGER around the anagram"
-        },
-        {
          "words": "one might",
-         "gives": "OGINTHEM",
-         "note": "anagram of ONE MIGHT, 8 letters"
+         "at": 15
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A casting director wonders who could play the selfish character on the quiz show Jeopardy.",
-     "walkthrough": "Jeopardy looks like the TV quiz show, but it is just danger. A dog in the manger, from Aesop, keeps others from what it cannot use itself.",
-     "definitionFit": "A dog in the manger is someone who spitefully withholds from others what they have no use for."
+     "surface": "Talk of who might be cast in the American quiz show Jeopardy!",
+     "walkthrough": "'cast' shuffles ONE MIGHT into OGINTHEM, which goes in DANGER after its D. The capital on 'Jeopardy' is there to suggest the TV quiz.",
+     "definitionFit": "A dog in the manger, from Aesop's fable, spitefully keeps others from something it has no use for itself."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Jeopardy"
     }
    }
@@ -1213,43 +1214,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "introducing",
-       "note": "the boyfriend takes a letter into himself"
-      }
-     ],
      "parts": [
       {
        "words": "Thanks",
+       "at": 0,
        "gives": "TA",
-       "note": "ta is British informal for thanks"
+       "note": "ta is British informal for thank you"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "beginning of",
-         "note": "take the first letter of love"
+         "text": "introducing",
+         "at": 18,
+         "note": "the boyfriend brings in a letter, taking it inside himself"
         }
        ],
        "parts": [
         {
          "words": "boyfriend",
+         "at": 7,
          "gives": "BEAU",
-         "note": "a beau is a boyfriend, split B...EAU"
+         "note": "a beau is a boyfriend"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "L",
+         "indicators": [
+          {
+           "text": "beginning of",
+           "at": 30,
+           "note": "beginning of picks the opening letter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "beginning of love",
-           "gives": "L",
-           "select": "first",
-           "note": "first letter of Love"
+           "words": "love",
+           "at": 43,
+           "note": "first letter of love"
           }
          ]
         }
@@ -1258,13 +1259,14 @@
      ]
     },
     "explanation": {
-     "surface": "A thank-you to a boyfriend for bringing a love scene into the story.",
-     "walkthrough": "'Love scene' reads as one phrase, but 'love' only supplies its L and 'scene' alone is the definition.",
-     "definitionFit": "A plain synonym: a tableau is a striking scene, especially one frozen on stage like a picture."
+     "surface": "A grateful note to a boyfriend for bringing romance into a moment.",
+     "walkthrough": "'beginning of love' gives L, which BEAU is 'introducing' into itself after its B.",
+     "definitionFit": "A tableau is a striking scene or group, like a picture, especially one posed by actors."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "introducing"
     }
    }
   },
@@ -1620,41 +1622,41 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'in' places the bow within what follows, so its letters sit inside the emptied display"
+       "at": 20,
+       "note": "the bow sits inside the emptied display"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "DY",
        "indicators": [
         {
          "text": "hollow",
-         "note": "display with its middle scooped out leaves only its outer letters"
+         "at": 23,
+         "note": "a hollow word has its insides scooped out, leaving only the outer letters of display"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "hollow display",
+         "words": "display",
+         "at": 30,
          "gives": "DY",
-         "select": "outer",
-         "note": "DisplaY emptied, split D...Y"
+         "note": "first and last letters of display"
         }
        ]
       },
       {
        "words": "bow",
+       "at": 16,
        "gives": "ARC",
-       "note": "a bow is an arc shape"
+       "note": "a bow is an arc, a curve"
       }
      ]
     },
     "explanation": {
-     "surface": "A romantic hero takes his bow in an empty show.",
-     "walkthrough": "'Bow' looks like the gesture of a hero taking a bow; it is the curved shape ARC. Mr Darcy is the hero of Pride and Prejudice.",
-     "definitionFit": "Mr Darcy is the romantic hero of Jane Austen's Pride and Prejudice."
+     "surface": "A romantic lead takes a bow in an empty show, suggesting a hollow performance.",
+     "walkthrough": "'hollow display' leaves DY, and ARC goes in it. Mr Darcy is the hero of Jane Austen's Pride and Prejudice.",
+     "definitionFit": "Fitzwilliam Darcy is the brooding love interest of Pride and Prejudice, the archetypal heartthrob of the novel."
     },
     "features": {
      "answerInScene": true,
@@ -1744,37 +1746,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LOBSTER",
-     "indicators": [
-      {
-       "text": "with tail missing",
-       "note": "the last letter of the back is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "throw",
+       "at": 36,
+       "gives": "LOB",
+       "note": "to lob is to throw in a high arc"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "with tail missing",
+         "at": 47,
+         "note": "the last letter of the back word is lost"
+        }
+       ],
        "parts": [
         {
-         "words": "throw",
-         "gives": "LOB",
-         "note": "to lob is to throw"
+         "words": "back",
+         "at": 42,
+         "gives": "STERN",
+         "note": "the stern is the back of a ship"
         },
         {
-         "words": "back",
-         "gives": "STER",
-         "note": "the stern is the back of a boat; without its last letter N it is STER"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fisherman catches something in coastal waters and throws it back.",
-     "walkthrough": "'Throw back' reads as a phrase telling you to reverse something, but it is two separate words: LOB, then the stern of a boat.",
-     "definitionFit": "Lobsters are crustaceans caught in pots in coastal waters."
+     "surface": "A fisherman returns an unwanted catch to the sea.",
+     "walkthrough": "'throw back' looks like returning a fish, but it is two pieces: LOB, then STERN 'with tail missing'.",
+     "definitionFit": "Lobsters are crustaceans trapped in pots set along the shore and shallow seas."
     },
     "features": {
      "answerInScene": true,
@@ -1863,58 +1869,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SUGARDADDY",
-     "indicators": [
-      {
-       "text": "Irregular",
-       "note": "irregular guards are out of order, so rearrange them"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Irregular",
+         "at": 0,
+         "note": "irregular troops are a ragtag force, and here it says the letters of guards fall out of order"
+        }
+       ],
        "parts": [
         {
          "words": "guards",
-         "gives": "SUGARD",
-         "note": "anagram of GUARDS"
+         "at": 10
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 33,
+         "note": "the clubs letter is removed from the caddying word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "carry golf bags",
+         "at": 17,
+         "gives": "CADDY",
+         "note": "to caddy is to carry a golfer's bags"
         },
         {
-         "op": "deletion",
-         "indicators": [
-          {
-           "text": "without",
-           "note": "the letter for clubs is left out"
-          }
-         ],
-         "parts": [
-          {
-           "words": "carry golf bags",
-           "gives": "CADDY",
-           "note": "to caddy is to carry a golfer's bags"
-          },
-          {
-           "words": "clubs",
-           "gives": "C",
-           "note": "C = clubs, the card suit; removed from CADDY to leave ADDY"
-          }
-         ]
+         "words": "clubs",
+         "at": 41,
+         "gives": "C",
+         "note": "C is the card-suit abbreviation for clubs"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Irregular soldiers guard a caddy lugging golf bags with no clubs in them, all for a rich old man.",
-     "walkthrough": "The golf surface makes 'clubs' look like golf clubs, but it is the card suit C.",
-     "definitionFit": "A sugar daddy is a rich older man who lavishes gifts on a younger partner."
+     "surface": "Unofficial security staff lug golf bags around without any clubs inside.",
+     "walkthrough": "'Irregular' reworks GUARDS into SUGARD; CADDY 'without' C leaves ADDY. 'Clubs' is the card suit, not golf clubs.",
+     "definitionFit": "A sugar daddy is a wealthy older man who lavishes money on a younger partner."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "clubs"
     }
    }
