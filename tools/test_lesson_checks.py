@@ -46,6 +46,8 @@ check("a pun in the prose (she'd for SHED) is not a spelling", None,
       L.spelling_unsaid(prose("she'd sounds like shed"), "SHED", "4"))
 check("a phrase that counts more words than the enumeration is not one", None,
       L.spelling_unsaid(prose("I'm port"), "IMPORT", "6"))
+check("a known two-word spelling is not wanted by a one-word enumeration", None,
+      L.spelling_unsaid(prose("a plain word"), "IMPATIENT", "9"))
 check("an unaccented answer with nothing to say is fine", None, L.spelling_unsaid(prose("a plain word"), "PLAIN"))
 
 spellings = L.known_spellings()

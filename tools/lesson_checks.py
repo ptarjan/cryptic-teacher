@@ -146,6 +146,12 @@ def spelling_unsaid(ann, answer, enumeration=None):
     ans = letters(answer)
     if len(ans) < 4:
         return None
-    if ans in known_spellings():
-        return known_spellings()[ans]
+    said = known_spellings().get(ans)
+    if said:
+        # Another clue's spelling (I'M PATIENT) is not this one's when the
+        # printed enumeration counts a different number of words (IMPATIENT, 9).
+        groups = re.fullmatch(r"[\d,\-\s]+", enumeration or "")
+        if groups and len(re.findall(r"\d+", enumeration)) != len(said.split()):
+            return None
+        return said
     return next(iter(prose_spellings(ann, answer, enumeration)), None)
