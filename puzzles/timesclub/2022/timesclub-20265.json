@@ -451,40 +451,51 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "OUMA",
      "indicators": [
       {
-       "text": "to leave",
-       "note": "to leave things is to drop them, so those letters are removed from the phrase"
-      },
-      {
        "text": "behind",
-       "note": "behind completes 'leave behind', abandoning them rather than keeping them in the phrase"
+       "at": 64,
+       "note": "leaving something behind means abandoning it, so the second unknown drops out too rather than staying"
       }
      ],
      "parts": [
       {
-       "words": "phrase giving permission",
-       "gives": "YOUMAY",
-       "note": "'you may' is what someone says to allow something"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "to leave",
+         "at": 40,
+         "note": "to leave means to depart, so these letters go out of the phrase"
+        }
+       ],
+       "parts": [
+        {
+         "words": "phrase giving permission",
+         "at": 15,
+         "gives": "YOUMAY",
+         "note": "'you may' is the phrase used to grant permission"
+        },
+        {
+         "words": "unknown things",
+         "at": 49,
+         "gives": "Y",
+         "note": "Y is one of the algebraic unknowns, and the phrase holds two of these things, one at each end"
+        }
+       ]
       },
       {
-       "words": "unknown things",
-       "gives": "YY",
-       "note": "y is a standard algebraic unknown; two unknowns are two of them"
+       "gives": "Y"
       }
      ]
     },
     "explanation": {
-     "surface": "A South African nanny says something allowing a child to go, leaving unknown things behind.",
-     "walkthrough": "Both Ys go from YOU MAY. 'Nanny' here is the British pet word for grandmother, not a hired carer, and Durban places it in South Africa.",
-     "definitionFit": "Ouma is the Afrikaans and South African English word for grandmother, the equivalent of a granny."
+     "surface": "A South African nanny says a phrase that lets you go and leave your belongings behind.",
+     "walkthrough": "Nanny is the informal word for a grandmother here, not a childminder, and Durban places the word in South Africa. Both Ys come off YOU MAY, one at each end.",
+     "definitionFit": "Ouma is the Afrikaans word for grandmother, used in South Africa as an informal term like granny."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "nanny"
     }
    }
