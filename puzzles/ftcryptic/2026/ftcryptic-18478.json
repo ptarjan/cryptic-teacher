@@ -786,62 +786,64 @@
     "definitions": [
      {
       "text": "buried valuables?",
-      "at": 35
+      "at": 35,
+      "note": "the question mark flags a definition by example: hidden treasure need not be buried"
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "TREASURETROVE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
          "text": "stops",
-         "note": "the word for certainly plugs the gap inside the word for nurse"
+         "at": 16,
+         "note": "stops in the sense of plugs a gap, so one word fills the middle of the other"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "cycling",
-           "note": "the letters of OVER cycle round, last letter to the front"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Nurse",
-           "gives": "TREAT",
-           "note": "to nurse is to treat"
-          },
-          {
-           "words": "certainly",
-           "gives": "SURE",
-           "note": "sure = certainly"
-          }
-         ]
+         "words": "Nurse",
+         "at": 0,
+         "gives": "TREAT",
+         "note": "to nurse a patient is to treat them"
         },
         {
+         "words": "certainly",
+         "at": 6,
+         "gives": "SURE",
+         "note": "sure, as in 'sure!', means certainly"
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 22,
+         "note": "cycling means going round, so a letter of over moves from one end of the word to the other"
+        }
+       ],
+       "parts": [
+        {
          "words": "over",
-         "gives": "ROVE",
-         "note": "OVER with the R cycled to the front"
+         "at": 30,
+         "note": "taken as written; its last letter is cycled round to the front"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A nurse on a bike halting over a buried hoard.",
-     "walkthrough": "'Cycling' suggests bikes; it tells you to rotate OVER into ROVE. The question mark is because not all treasure trove is buried.",
-     "definitionFit": "Treasure trove is valuables found hidden, often buried, with no known owner."
+     "surface": "A nurse definitely gives up riding a bike, apparently over some hidden riches.",
+     "walkthrough": "'stops' puts SURE inside TREAT; 'cycling' takes the R of OVER round to the front to give ROVE.",
+     "definitionFit": "Treasure trove is valuable gold or silver found hidden in the ground whose owner is unknown, typically a buried hoard."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "pun",
+     "aptDefinition": true,
      "misdirectedWord": "cycling"
     }
    }
@@ -1048,45 +1050,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TEATOWELS",
-     "indicators": [
-      {
-       "text": "repositioned",
-       "note": "the letters of lowest are put in new positions"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Note",
+       "at": 0,
+       "gives": "TE",
+       "note": "te is the seventh note of the sol-fa scale, also spelt ti"
+      },
+      {
+       "words": "area",
+       "at": 5,
+       "gives": "A"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "repositioned",
+         "at": 22,
+         "note": "repositioned means moved to new places, so the letters of lowest are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Note",
-         "gives": "TE",
-         "note": "te is a note of the sol-fa scale"
-        },
-        {
-         "words": "area",
-         "gives": "A",
-         "note": "A = area"
-        },
-        {
          "words": "lowest",
-         "gives": "TOWELS",
-         "note": "anagram fodder"
+         "at": 15,
+         "note": "taken as written, the letters to rearrange"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A memo about moving the dryers to the lowest area.",
-     "walkthrough": "'Dryers' suggests machines; a tea towel dries dishes. Tea towels are dish cloths.",
-     "definitionFit": "Tea towels are cloths for drying dishes, so dryers."
+     "surface": "A memo about a district, with the lowest-ranked items moved around, ends up concerning dryers.",
+     "walkthrough": "'repositioned' rearranges LOWEST into TOWELS, after TE and A.",
+     "definitionFit": "Tea towels are cloths used to dry dishes and cutlery after washing up, so they are dryers in the kitchen."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "dryers"
     }
