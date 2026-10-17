@@ -121,8 +121,16 @@ function reindex() {
 // index listing only them. Always rebuilt (cheap), and it counts as this
 // process's reindex, so a later boot() does not start the full rebuild. The
 // next full reindex() sees the count mismatch and replaces it.
+//
+// Not when the full index is already current: it lists every id, so there is
+// nothing to save, and overwriting it with a few would hand every other reader
+// of puzzles/index.js a corpus of a few puzzles. In CI that is a smoke slice
+// booting beside test_ctc_hintcheck (shards run their PARALLEL items beside the
+// serial ones): its late boots found only times-28739 and listener-111 was "not
+// loaded".
 function scoped(ids) {
   built = true;
+  if (current()) return;
   execFileSync("python3", [path.join(ROOT, "tools", "fetch_puzzle.py"), "--reindex"],
     { cwd: ROOT, stdio: ["ignore", "ignore", "inherit"],
       env: Object.assign({}, process.env, { CT_REINDEX_IDS: ids.join(",") }) });
