@@ -173,45 +173,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UTAH",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "getting in",
+       "at": 15,
+       "note": "A gets in, going inside the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Ramshackle",
-         "note": "a ramshackle hut is falling apart, so its letters are rearranged"
-        },
-        {
-         "text": "getting in",
-         "note": "A gets inside the rearranged letters"
+         "at": 0,
+         "note": "a ramshackle building is falling apart, so the letters of hut are rearranged"
         }
        ],
        "parts": [
         {
          "words": "hut",
-         "gives": "UTH",
-         "note": "HUT rearranged"
-        },
-        {
-         "words": "a",
-         "note": "A goes inside, after UT"
+         "at": 11
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 26
       }
      ]
     },
     "explanation": {
-     "surface": "A tumbledown shack is getting into a bad condition.",
-     "walkthrough": "'In a state' reads as 'in a mess', but 'state' is the definition: a US state.",
-     "definitionFit": "Definition by example: one of the fifty US states, home of Salt Lake City."
+     "surface": "A tumbledown hut ends up in a sorry condition.",
+     "walkthrough": "'Ramshackle' makes UTH from hut, and 'getting in' puts A inside it. 'in a state' pretends to mean upset; the state is a US one.",
+     "definitionFit": "Utah is one of the fifty states of the USA."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "state"
     }
    }
@@ -561,80 +561,78 @@
    "annotation": {
     "definitions": [
      {
-      "text": "resign",
-      "at": 53
+      "text": "to resign?",
+      "at": 50
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SURRENDER",
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
-       "unchecked": true,
-       "gives": "SURRENDER",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "terrible",
-         "note": "a terrible end is a mangled one, so END is rearranged"
+         "text": "almost",
+         "at": 7,
+         "note": "almost means the last letter is dropped"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "almost",
-           "note": "the county loses its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "County almost",
-           "gives": "SURRE",
-           "note": "SURREY, an English county, without its last letter"
-          },
-          {
-           "words": "end",
-           "gives": "NDE",
-           "note": "END rearranged"
-          },
-          {
-           "op": "last",
-           "unchecked": true,
-           "gives": "R",
-           "indicators": [
-            {
-             "text": "finally",
-             "note": "finally points to the last letter"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "Labour finally",
-             "gives": "R",
-             "select": "last",
-             "note": "last letter of Labour"
-            }
-           ]
-          }
-         ]
+         "words": "County",
+         "at": 0,
+         "gives": "SURREY",
+         "note": "Surrey is an English county south of London"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "terrible",
+         "at": 20,
+         "note": "terrible signals the letters of end are mangled into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "end",
+         "at": 29
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 42,
+         "note": "finally picks the last letter of Labour"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Labour",
+         "at": 35,
+         "note": "the word Labour, whose last letter is R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A county nearly sees Labour collapse, and asks whether the party should finally give up.",
-     "walkthrough": "Surrey is a county just south-west of London.",
-     "definitionFit": "Plain synonym for giving up a post or a fight, as ministers resign and armies yield."
+     "surface": "A Home Counties seat falls, a dreadful end, so Labour must at last give up?",
+     "walkthrough": "'almost' trims SURREY to SURRE, 'terrible' turns END into NDE, and 'finally' gives R from Labour.",
+     "definitionFit": "To surrender is to give in or yield, a near synonym of resigning in a contest."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "terrible"
+     "misdirectedWord": "County"
     }
    }
   },
@@ -707,45 +705,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ATTIC",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grabs",
+       "at": 5,
+       "note": "the bill grabs and holds the other letters inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Bill",
+       "at": 0,
+       "gives": "AC",
+       "note": "AC is short for account, a bill"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "grabs",
-         "note": "the bill grabs the letters, holding them inside"
-        },
-        {
          "text": "roughly",
-         "note": "roughly means handled roughly, so TIT is rearranged"
+         "at": 15,
+         "note": "roughly signals the letters of tit are arranged loosely"
         }
        ],
        "parts": [
         {
-         "words": "Bill",
-         "gives": "AC",
-         "note": "AC = account, a bill"
-        },
-        {
          "words": "tit",
-         "gives": "TTI",
-         "note": "TIT rearranged"
+         "at": 11
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A man called Bill gropes a woman's breast.",
-     "walkthrough": "Bill reads as a man's name; it is an account, AC.",
-     "definitionFit": "Plain description: the room right under the roof of a house."
+     "surface": "A man called Bill crudely gropes someone, a bit of tabloid smut.",
+     "walkthrough": "Bill is not a name here but an account; it 'grabs' the roughly arranged tit, holding TTI inside.",
+     "definitionFit": "An attic is the room right under the roof, the highest space in a house."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Bill"
     }
