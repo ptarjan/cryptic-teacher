@@ -908,49 +908,43 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "at last",
-       "note": "take the last letter only"
+       "text": "cooked",
+       "at": 24,
+       "note": "cooked suggests something worked over and changed, so the letters are mixed into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Macaroni",
+       "at": 0,
+       "note": "taken as written, part of the letters to rearrange"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "cooked",
-         "note": "cooked ingredients are altered and mixed, so the letters are rearranged"
+         "text": "at last",
+         "at": 16,
+         "note": "at last points to the final letter of the word before it"
         }
        ],
        "parts": [
         {
-         "words": "Macaroni",
-         "note": "anagram fodder, taken as printed"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "E",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "cheese at last",
-           "gives": "E",
-           "select": "last",
-           "note": "last letter of cheese"
-          }
-         ]
+         "words": "cheese",
+         "at": 9,
+         "note": "its last letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Macaroni cheese has finally been cooked and is ready to eat.",
-     "walkthrough": "\"Macaroni cheese\" is a single dish in the surface; only the E of cheese is used, and the answer is a drink, not food.",
-     "definitionFit": "An Americano is espresso diluted with hot water, a coffee to refresh you."
+     "surface": "A recipe note: macaroni cheese, finished in the oven, served as a snack.",
+     "walkthrough": "The kitchen picture sends you looking for food, but 'refreshment' here is a coffee: MACARONI plus the E that ends cheese, 'cooked'.",
+     "definitionFit": "An americano is an espresso diluted with hot water, a drink taken as a refreshment."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "cheese"
     }
@@ -1464,56 +1458,54 @@
     "definitions": [
      {
       "text": "The Sun?",
-      "at": 38
+      "at": 38,
+      "note": "the question mark flags a definition by example: the sun is something that rises"
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "RISER",
-     "indicators": [
-      {
-       "text": "Contrary",
-       "note": "contrary means going the opposite way, so the word is written backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Contrary",
+         "at": 0,
+         "note": "contrary means facing the opposite way, so the word is read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "knight",
-         "gives": "RIS",
-         "note": "SIR, a knight's title, turned round"
-        },
+         "at": 9,
+         "gives": "SIR",
+         "note": "Sir is the title of a knight"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "ER",
-         "indicators": [
-          {
-           "text": "regularly",
-           "note": "take letters at regular intervals, every other one"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "earl regularly",
-           "gives": "ER",
-           "select": "alternate",
-           "note": "the first and third letters of EARL"
-          }
-         ]
+         "text": "regularly",
+         "at": 25,
+         "note": "regularly means at even intervals, so every other letter is taken, starting with the first"
+        }
+       ],
+       "parts": [
+        {
+         "words": "earl",
+         "at": 20,
+         "note": "its first and third letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tabloid story about a difficult knight and an earl in The Sun newspaper.",
-     "walkthrough": "\"The Sun\" looks like the British tabloid; it is the star, which rises every morning, and the question mark admits it is one example.",
-     "definitionFit": "The sun rises every day, so it is a riser, one that gets up."
+     "surface": "A perverse knight and an earl appearing in a British tabloid newspaper.",
+     "walkthrough": "The Sun looks like the British tabloid newspaper, but it is the star in the sky, which rises every morning.",
+     "definitionFit": "Anything that gets up is a riser, and the sun rises each day, so it is a riser in a playful sense."
     },
     "features": {
      "answerInScene": false,
@@ -1545,30 +1537,35 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "SLUR",
      "indicators": [
       {
        "text": "mostly",
-       "note": "most of the word, all but the last letter"
+       "at": 14,
+       "note": "mostly means most of the word, so its final letter is dropped"
       }
      ],
      "parts": [
       {
-       "words": "Drink noisily mostly",
-       "gives": "SLUR",
-       "note": "SLURP, drink noisily, without its last letter"
+       "words": "Drink noisily",
+       "at": 0,
+       "gives": "SLURP",
+       "note": "to slurp is to drink noisily"
+      },
+      {
+       "gives": "P",
+       "note": "the last letter of slurp, removed"
       }
      ]
     },
     "explanation": {
-     "surface": "Gulping a drink loudly and ending up sounding drunk.",
-     "walkthrough": "27 across is THE WORSE FOR WEAR, meaning drunk, and drunk people slur their words.",
-     "definitionFit": "To slur is to run words together indistinctly, as a drunk person does."
+     "surface": "A drinker gulps loudly and starts to talk like someone who has had too much.",
+     "walkthrough": "27 across is THE WORSE FOR WEAR, meaning drunk; to slur is to run words together as drunk people do.",
+     "definitionFit": "To slur is to speak indistinctly, the way someone tipsy and the worse for drink sounds."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "Drink"
     }
    }
   },
