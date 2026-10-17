@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -206,43 +207,57 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "the ultimate in",
-       "note": "The ultimate one is the last one, and 'in' points at the phrase that follows: take only its final letter."
-      }
-     ],
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "N",
        "indicators": [
         {
-         "text": "topless",
-         "note": "This is a down clue, so the top of a word is the letter at its head, and a topless word has lost it."
+         "text": "the ultimate in",
+         "at": 7,
+         "note": "the ultimate letter of a word is its last"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "he-men",
-         "gives": "N",
-         "select": "last",
-         "note": "the letter at the very end of the hyphenated phrase"
+         "at": 23,
+         "note": "last letter of he-men"
         }
        ]
       },
       {
-       "words": "virile",
-       "gives": "ACHO",
-       "note": "virile is macho, and that word beheaded leaves four letters"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "topless",
+         "at": 39,
+         "note": "in a down clue, topless means the top letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "virile",
+         "at": 31,
+         "gives": "MACHO",
+         "note": "macho means virile, aggressively manly"
+        },
+        {
+         "gives": "M"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Chip's' looks possessive and is really 'chip is', which is the join between definition and wordplay. The crisp on the plate has nothing to do with the muscle-bound surface.",
-     "definitionFit": "Chip: the clue names the class and leaves you to supply the Mexican member of it, a single triangle of fried tortilla."
+     "surface": "A boast that the last word in he-men is virile and bare-chested.",
+     "walkthrough": "The surface paints a beefcake contest; the definition is a tortilla chip.",
+     "definitionFit": "A nacho is a tortilla chip, usually topped with melted cheese."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Chip"
     }
    }
   },
@@ -1010,51 +1025,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REGIMEN",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "eaten",
+       "at": 34,
+       "note": "eaten means taken inside, so the remaining letters swallow the setter's piece"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "REGIMEN",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "sadly",
+         "at": 16,
+         "note": "sadly means in a sorry state, so the letters are in a mess"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
            "text": "Most of",
-           "note": "Taking most of a word means keeping all of it but the final letter."
-          },
-          {
-           "text": "sadly",
-           "note": "Sadly here means badly, out of sorts — and letters out of sorts are letters out of order."
-          },
-          {
-           "text": "eaten",
-           "note": "What is eaten disappears inside the eater, which is where these two letters go."
+           "at": 0,
+           "note": "most of a word is all but its last letter"
           }
          ],
          "parts": [
           {
            "words": "greens",
-           "gives": "REGEN",
-           "note": "drop the last letter of the vegetables and re-order the five that are left"
+           "at": 8,
+           "note": "taken as written, before the last letter goes"
           },
           {
-           "words": "Everyman's",
-           "gives": "IM",
-           "note": "the setter calls himself Everyman, so 'Everyman is' shortens to I'm"
+           "gives": "S"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "Everyman's",
+       "at": 23,
+       "gives": "IM",
+       "note": "Everyman is the setter, so Everyman's is I'm"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Everyman signs his own puzzles: whenever his name appears it means I or me, and it is worth learning because he uses it most weeks.",
-     "definitionFit": "diet: a regimen is the whole prescribed routine of food, rest and exercise, and 'diet' names the eating half of it."
+     "surface": "The setter sadly admits to eating most of the greens on a diet.",
+     "walkthrough": "'Most of' drops the S of greens, 'sadly' rearranges GREEN as REGEN, and 'eaten' puts IM, for 'Everyman's' (I'm), inside it.",
+     "definitionFit": "A regimen is a prescribed course of diet or exercise for health."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sadly"
     }
    }
   },
@@ -1086,37 +1114,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LIGHTFINGERED",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "The Reverend Spooner traded the opening sounds of two words, so naming him is the instruction to swap them over."
+       "at": 21,
+       "note": "Spooner's signals that the opening sounds of the two words are swapped, after the Rev Spooner"
       }
      ],
      "parts": [
       {
-       "words": "Disorder",
-       "gives": "FIGHT",
-       "note": "a fight is disorder breaking out"
+       "op": "homophone",
+       "spelt": "FIGHT",
+       "parts": [
+        {
+         "words": "Disorder",
+         "at": 0,
+         "gives": "FITE",
+         "note": "a disorder is a brawl, a word said 'fite' and spelt with -ight"
+        }
+       ]
       },
       {
        "words": "persisted",
+       "at": 9,
        "gives": "LINGERED",
-       "note": "what persisted has lingered on"
-      },
-      {
-       "unchecked": true,
-       "words": "Spooner's",
-       "gives": "LIGHTFINGERED",
-       "soundsLike": "FIGHT LINGERED",
-       "note": "say those two words with their opening sounds traded, F for L"
+       "note": "lingered means persisted, stayed on"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A Spooner clue is easiest attacked from the definition end: think of the phrase for a thief first, then swap the sounds back and check the clue's own words appear.",
-     "definitionFit": "inclined to steal: the idiom names a habitual petty thief by the deftness of the hands that do the taking."
+     "surface": "A riot dragged on, and Spooner was tempted to pocket things.",
+     "walkthrough": "FIGHT LINGERED becomes LIGHT FINGERED when the opening F and L change places.",
+     "definitionFit": "Light-fingered means given to petty theft, skilled at stealing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Disorder"
     }
    }
   },
