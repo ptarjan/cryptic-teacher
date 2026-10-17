@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -90,13 +91,12 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EXCLAIM",
+     "op": "charade",
      "indicators": [
       {
-       "text": "warring",
-       "note": "Warring parties are set against one another rather than lined up in order, and letters at war will not stay as they were given."
+       "text": "with",
+       "at": 50,
+       "note": "with here means accompanied by, so the letter for Mike is added on after the rest"
       }
      ],
      "parts": [
@@ -105,31 +105,50 @@
        "indicators": [
         {
          "text": "amid",
-         "note": "Amid means in among, so the letter it governs is dropped into the middle of the others rather than placed beside them."
+         "at": 31,
+         "note": "one thing amid others sits in among them, so it goes inside"
         }
        ],
        "parts": [
         {
-         "words": "Alice warring with Mike",
-         "gives": "ECLAIM",
-         "note": "the five letters of the name with Mike's M from the radio alphabet, shuffled and then opened after the first letter"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "warring",
+           "at": 42,
+           "note": "warring letters are in conflict and scattered, so Alice is rearranged"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Alice",
+           "at": 36
+          }
+         ]
         },
         {
          "words": "cross",
+         "at": 25,
          "gives": "X",
-         "note": "a cross is written X, the mark made on a ballot paper"
+         "note": "X is the shape of a cross"
         }
        ]
+      },
+      {
+       "words": "Mike",
+       "at": 55,
+       "gives": "M",
+       "note": "Mike is M in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "Tempers rise in the middle of a quarrel between Alice and Mike.",
-     "walkthrough": "'Getting cross' reads as losing your temper and is one letter. Mike is M in the NATO radio alphabet, the same list that supplies Charlie, Oscar and Victor whenever a setter wants a single letter from a name.",
-     "definitionFit": "To exclaim is to cry out suddenly, which is how indignation gets shown — the sharp word out loud rather than the silent sulk."
+     "surface": "Someone is outraged to find themselves caught in a fight between Alice and Mike.",
+     "walkthrough": "'Warring' turns ALICE into ECLAI, and X goes 'amid' it after the first E.",
+     "definitionFit": "To exclaim is to cry out suddenly, often in protest, anger or surprise."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "cross"
     }
@@ -156,37 +175,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LIMIT",
-     "indicators": [
-      {
-       "text": "a lot of",
-       "note": "A lot of something is most of it and not the whole, so the word beside it arrives with its last letter missing."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 9,
+         "note": "a lot of a word is most of it, all but its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "fruit",
-         "gives": "LIM",
-         "note": "the lime is the fruit, docked of its final letter"
+         "at": 18,
+         "gives": "LIME",
+         "note": "a lime is a green citrus fruit"
         },
         {
-         "words": "appeal",
-         "gives": "IT",
-         "note": "it is the old word for sex appeal, as in the It girl"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "appeal",
+       "at": 29,
+       "gives": "IT",
+       "note": "it is old slang for sex appeal"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to cut down on most of the tempting fruit.",
-     "walkthrough": "'It' for sex appeal comes from Elinor Glyn's 1927 novel and the silent-film It girl, and setters have kept it ever since. Both definition and answer are verbs, which rules out the noun sense of a boundary.",
-     "definitionFit": "To limit something is to restrict it, setting a bound it may not pass, and the two verbs take the same sort of object."
+     "surface": "Advice to cut back on eating so much attractive fruit.",
+     "walkthrough": "'A lot of' fruit is LIM, LIME without its E. IT for sex appeal comes from the 1920s 'It girl' Clara Bow.",
+     "definitionFit": "To limit something is to restrict it, keeping it within set bounds."
     },
     "features": {
      "answerInScene": false,
