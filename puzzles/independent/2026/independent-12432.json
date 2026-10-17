@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -81,49 +82,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "RELAPSE",
-     "indicators": [
-      {
-       "text": "Returning"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Returning",
+         "at": 0,
+         "note": "returning says the word for more ashen comes back the other way"
+        }
+       ],
        "parts": [
         {
          "words": "more ashen",
-         "gives": "RELAP",
-         "note": "more ashen is PALER, written the other way round"
-        },
+         "at": 10,
+         "gives": "PALER",
+         "note": "more ashen means paler"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "SE",
-         "indicators": [
-          {
-           "text": "starts to"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "suffer extreme",
-           "gives": "SE",
-           "select": "first",
-           "note": "the starting letters of both words"
-          }
-         ]
+         "text": "starts to",
+         "at": 22,
+         "note": "starts to says take only the opening letter of each following word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "suffer extreme",
+         "at": 32,
+         "note": "the first letters of suffer and extreme"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a patient looking worse, which is the very world a relapse belongs to — so the definition hides in plain sight at the end.",
-     "definitionFit": "A relapse is a slide back into an illness or a habit you had beaten, so 'setback' names it as a reverse rather than a mere pause."
+     "surface": "A patient, going back paler, is starting to suffer a severe setback in recovery.",
+     "walkthrough": "'Returning' reverses PALER, then 'starts to' takes S and E from 'suffer extreme'.",
+     "definitionFit": "A relapse is a deterioration after a period of improvement, a reversal of progress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Returning"
     }
    }
   },
@@ -143,8 +149,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "allowed",
-      "at": 25
+      "text": "It's allowed",
+      "at": 20
      }
     ],
     "wordplay": {
@@ -152,33 +158,40 @@
      "parts": [
       {
        "words": "Stage",
+       "at": 0,
        "gives": "LEG",
-       "note": "a leg is a stage of a journey or a race"
+       "note": "a leg is a stage of a journey or race"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "AL",
        "indicators": [
         {
-         "text": "naked"
+         "text": "naked",
+         "at": 6,
+         "note": "naked means stripped of its outer covering, so the word for ramble loses its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "ramble",
-         "gives": "AL",
-         "select": "middle",
-         "note": "a ramble is a WALK, and a naked one has lost its outside letters"
+         "at": 12,
+         "gives": "WALK",
+         "note": "a ramble is a walk"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Naked' is a stripping instruction: a word with its clothes off keeps only its middle. The surface is Britain's naked rambler and whether the law could touch him.",
-     "definitionFit": "Legal means permitted by law, so 'allowed' is the everyday synonym — not merely tolerated but backed by the statute book."
+     "surface": "A question whether a stage of a nude ramble is permitted.",
+     "walkthrough": "'ramble' gives WALK, and 'naked' strips its outer letters to leave AL. The surface conjures a naked rambler, but the nudity applies to the word.",
+     "definitionFit": "Something legal is permitted by law, allowed rather than forbidden."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "naked"
     }
    }
   },
@@ -1078,44 +1091,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GOALPOST",
-     "indicators": [
-      {
-       "text": "initially ignored"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "to attempt",
+       "at": 28,
+       "gives": "GO",
+       "note": "to have a go is to attempt"
+      },
+      {
+       "words": "a",
+       "at": 39
+      },
+      {
+       "words": "record",
+       "at": 41,
+       "gives": "LP",
+       "note": "an LP is a long-playing record"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "initially ignored",
+         "at": 53,
+         "note": "initially ignored says the first letter of most is left out"
+        }
+       ],
        "parts": [
         {
-         "words": "attempt",
-         "gives": "GO",
-         "note": "a go is an attempt"
-        },
-        {
-         "words": "a",
-         "note": "the clue's own a"
-        },
-        {
-         "words": "record",
-         "gives": "LP",
-         "note": "an LP is a long-playing record"
-        },
-        {
          "words": "most",
-         "gives": "OST",
-         "note": "MOST with its own initial letter ignored"
+         "at": 48,
+         "note": "taken as written, before it loses its first letter"
+        },
+        {
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "LP for 'record' is worth banking — the long-playing vinyl album. The surface pretends to be somebody chasing a record on the pitch.",
-     "definitionFit": "A goalpost is one of the uprights holding the net up, so 'supporter' is meant literally, a thing that props something rather than a fan."
+     "surface": "A fan at a match trying to set a record, with most people paying no attention.",
+     "walkthrough": "'initially ignored' drops the M from MOST, leaving OST. 'Supporter' suggests a fan, but here it is the upright that holds the crossbar.",
+     "definitionFit": "Each goalpost is one of the two uprights that hold up the crossbar on a football pitch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Supporter"
     }
    }
   },
