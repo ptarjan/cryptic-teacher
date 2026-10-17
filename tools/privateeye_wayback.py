@@ -599,6 +599,28 @@ def correct_counts(num, rows, table=None):
     return rows
 
 
+def paper_printed_counts(num, rows):
+    """(`rows` with each count the paper printed wrong read by the count its
+    answer has, {light: the count as printed}): fetch_puzzle.PRINTED_COUNT_WRONG
+    keyed cyclops-`num`. The grid is laid by the answer's count; the filed
+    clue keeps the printed one, and the write lays its separators
+    (mend_printed_counts). No 13's "(5,4)" for PENIS, five cells: the next
+    issue owns the cock-up."""
+    import fetch_puzzle
+    pid = f"cyclops-{num}"
+    rows = {d: [dict(r) for r in rows.get(d) or []] for d in ("across", "down")}
+    kept = {}
+    for (row_pid, eid), (printed, read, _why) in fetch_puzzle.PRINTED_COUNT_WRONG.items():
+        if row_pid != pid:
+            continue
+        n, _, d = eid.partition("-")
+        hit = [r for r in rows.get(d, []) if re.split(r"\D+", str(r.get("number") or ""))[0] == n]
+        if len(hit) == 1 and hit[0].get("enumeration") == printed:
+            hit[0]["enumeration"] = read
+            kept[eid] = printed
+    return rows, kept
+
+
 def count_hint(num, misfits):
     """The refusal's pointer when the scan's grid disagrees with the list only
     in single lights' counts: each may be a misread count, which a
@@ -706,6 +728,7 @@ def from_rows(num, rows, answers=None, image=None, fixes=None, jumbo=None):
     from normalise_linked_enumerations import normalise_record, resolve_groups
     import enumeration
     rows = correct_counts(num, rows, fixes)
+    rows, paper_counts = paper_printed_counts(num, rows)
     # "See Preamble" prints no count; the caption's list is the head's count.
     if jumbo and "unclued" in jumbo:
         for r in rows["across"] + rows["down"]:
@@ -809,6 +832,8 @@ def from_rows(num, rows, answers=None, image=None, fixes=None, jumbo=None):
         if grouped.get(entry_id(e), [None])[0] == entry_id(e):
             e["group"] = list(grouped[entry_id(e)])
         e["solution"] = None
+        if entry_id(e) in paper_counts:  # the count as the paper printed it, kept
+            e["clue"] = {**e["clue"], "enumeration": paper_counts[entry_id(e)]}
         out.append(e)
     return {"id": f"cyclops-{num}", "number": num, "series": "cyclops",
             "name": f"Private Eye Cyclops crossword No {num}", "setter": "Cyclops",

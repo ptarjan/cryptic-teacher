@@ -2078,6 +2078,11 @@ SOURCE_LIGHT_WRONG = {
         "issue 917's page image prints \"'Diddles', the familiar topless poser's "
         "catching cold...\" (5), its count on a line of its own; the OCR text "
         "read (6). The grid on the same page gives 22-across five cells"),
+    ("cyclops-87", "3-down"): (
+        {"enumeration": "6,5"}, {"enumeration": "5,5"},
+        "issue 932's page image prints \"Clary: \u201cI'm up Sid's end \u2014 wild "
+        "party!\u201d\" (5,5); the OCR read (6,5). The grid on the same page gives "
+        "3-down ten cells, and issue 933 prints PLAID CYMRU"),
     # Not a row: cyclops-294's 25-across prints no count on issue 1139's page
     # ("A snide get, maybe this is how Gordon Brown sees himself after the
     # Prime Minister?", the crop seen), so its clue is filed with none, as the
@@ -2107,6 +2112,12 @@ PRINTED_COUNT_WRONG = {
         "5,8", "5,3",
         "DITTY BAG fills the eight cells the grid gives 18-down; the Guardian's "
         "page prints (5,8), and no light is blank or spare for five more letters"),
+    ("cyclops-13", "14-down"): (
+        "5,4", "5",
+        "issue 857's page image prints \"Kitty hardly as pure as the driven "
+        "snow!\" (5,4), the clue the Eye owns up to in its APPALLING COCK-UP "
+        "(\"the wrong clue for 14 dn ... the answer was indeed 'penis'\", issue "
+        "858): the grid gives 14-down five cells and issue 858 prints PENIS"),
     ("cyclops-177", "13-across"): (
         "2,5", "2,3",
         "MY EYE fills the five cells the grid gives 13-across, every one "
