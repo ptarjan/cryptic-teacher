@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -91,38 +92,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CRASHBARRIER",
+     "spelt": "CRASHBARRIER",
      "indicators": [
       {
-       "text": "Spooner lecturing"
+       "text": "Spooner lecturing",
+       "at": 0,
+       "note": "the Reverend Spooner, lecturing, famously swapped the opening sounds of two words"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "CRASH",
        "parts": [
         {
-         "unchecked": true,
          "words": "arrogant",
-         "gives": "CRASH",
-         "soundsLike": "BRASH",
-         "note": "arrogant = brash, and Spooner hands its B over for a C"
-        },
-        {
-         "unchecked": true,
-         "words": "airline",
-         "gives": "BARRIER",
-         "soundsLike": "CARRIER",
-         "note": "an airline is a carrier, and it takes the B that BRASH gave up"
+         "at": 18,
+         "gives": "BRASH",
+         "note": "brash means loud and arrogant"
         }
        ]
+      },
+      {
+       "words": "airline",
+       "at": 27,
+       "gives": "CARRIER",
+       "note": "an airline is a carrier, a company that carries passengers"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A spoonerism swaps the opening sounds of two words — brash carrier is what you say before the swap. The Reverend's name is the standing signal to do it.",
-     "definitionFit": "A crash barrier is the steel rail along a road or central reservation that stops vehicles leaving the carriageway, which is how it keeps the toll down."
+     "surface": "An old don holds forth about a cocky airline, while safety is the real concern.",
+     "walkthrough": "'Spooner lecturing' swaps the opening sounds, B and C: brash carrier becomes the barrier on a road that stops cars crossing.",
+     "definitionFit": "A crash barrier is a fence along a road or motorway that stops vehicles leaving it, so it lessens the harm of collisions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "lecturing"
     }
    }
   },
@@ -338,34 +346,54 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "DO",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Half of"
+         "text": "Half",
+         "at": 0,
+         "note": "half of the four-letter word dons is its first two letters, the back half being dropped"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "dons",
-         "gives": "DO",
-         "select": "first",
-         "note": "the front half of DOns"
+         "at": 8
+        },
+        {
+         "gives": "NS"
         }
        ]
       },
       {
-       "words": "hate",
-       "gives": "HA",
-       "note": "the front half of HAte"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "of",
+         "at": 5,
+         "note": "of carries the 'Half of' instruction on to hate, so its back two letters go as well"
+        }
+       ],
+       "parts": [
+        {
+         "words": "hate",
+         "at": 13
+        },
+        {
+         "gives": "TE"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Half of' governs both words, not just the one it stands in front of. One indicator doing two jobs is most of the difficulty in a four-letter clue.",
-     "definitionFit": "Doha is the capital of Qatar and its main Gulf port, so 'city' is the plainest sort of definition: the class of thing the name belongs to."
+     "surface": "Half the university dons are said to hate a particular city.",
+     "walkthrough": "'Half of' applies to both words: DO from dons and HA from hate, losing NS and TE.",
+     "definitionFit": "Doha is the capital city of Qatar, on the Persian Gulf."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dons"
     }
    }
   },
