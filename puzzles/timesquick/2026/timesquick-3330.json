@@ -600,41 +600,41 @@
      "indicators": [
       {
        "text": "including",
-       "note": "the diary includes the other letters inside it"
+       "at": 8,
+       "note": "including means the journal holds the two letters inside it"
       }
      ],
      "parts": [
       {
        "words": "Journal",
+       "at": 0,
        "gives": "DIARY",
-       "note": "a diary is a journal"
+       "note": "a diary is a daily journal"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "ET",
        "indicators": [
         {
          "text": "case",
-         "note": "a word's case is its outer shell, the first and last letters"
+         "at": 27,
+         "note": "a word's case is its outer shell, so only its first and last letters are used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "expert's case",
-         "gives": "ET",
-         "select": "outer",
-         "note": "first and last letters of ExperT, placed inside DIARY"
+         "words": "expert's",
+         "at": 18,
+         "gives": "EXPERT",
+         "note": "the word expert, whose outside letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A journal reports an expert's case study on nutrition.",
-     "walkthrough": "'Case' here means the outside of a word, its first and last letters, so the expert contributes only two letters.",
-     "definitionFit": "Dietary means relating to diet, to what one eats."
+     "surface": "A food diary includes an expert's verdict on someone's eating.",
+     "walkthrough": "'case' keeps just E and T from expert, and 'including' sets them inside DIARY after its first two letters.",
+     "definitionFit": "Dietary is the adjective for anything to do with diet, the food a person eats."
     },
     "features": {
      "answerInScene": true,
@@ -774,52 +774,46 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "second from",
-       "note": "take the second letter from the word"
+       "text": "travelling",
+       "at": 29,
+       "note": "travelling means moving about, so the letters it acts on change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "nth",
+       "n": 2,
        "indicators": [
         {
-         "text": "travelling",
-         "note": "the letters travel, moving into a new order"
+         "text": "second from",
+         "at": 10,
+         "note": "second from means the second letter of the word that follows"
         }
        ],
        "parts": [
         {
-         "op": "nth",
-         "unchecked": true,
-         "gives": "A",
-         "n": 2,
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "second from earth",
-           "gives": "A",
-           "select": 2,
-           "note": "second letter of eArth"
-          }
-         ]
-        },
-        {
-         "words": "to Saturn",
-         "note": "anagram fodder, 8 letters"
+         "words": "earth",
+         "at": 22,
+         "note": "the word whose second letter is taken"
         }
        ]
+      },
+      {
+       "words": "to Saturn",
+       "at": 40,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A space traveller is the second to leave Earth on a voyage to Saturn.",
-     "walkthrough": "The surface is a spaceman's voyage, and it hides that 'to' belongs to the fodder rather than giving the direction.",
-     "definitionFit": "An astronaut is a person who travels into space."
+     "surface": "A spaceman leaves Earth on a journey out to Saturn.",
+     "walkthrough": "'second' tempts as S for second, but 'second from' earth gives its second letter, A, which joins TO SATURN for 'travelling' to rearrange.",
+     "definitionFit": "An astronaut is someone trained to travel in space, a spaceman."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "to"
+     "misdirectedWord": "second"
     }
    }
   },
@@ -1100,50 +1094,45 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "take the ultimate, last letter of the word"
+       "text": "relaxed",
+       "at": 33,
+       "note": "relaxed means loosened, so the letters lose their fixed order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "dog",
+       "at": 7,
+       "note": "taken as written"
+      },
+      {
+       "words": "lie",
+       "at": 13,
+       "note": "taken as written"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "relaxed",
-         "note": "the letters are loosened and fall into a new order"
+         "text": "ultimately",
+         "at": 22,
+         "note": "ultimately means at the end, so only the last letter of back is used"
         }
        ],
        "parts": [
         {
-         "words": "dog",
-         "note": "anagram fodder"
-        },
-        {
-         "words": "lie",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "K",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "back ultimately",
-           "gives": "K",
-           "select": "last",
-           "note": "last letter of bacK"
-          }
-         ]
+         "words": "back",
+         "at": 17,
+         "note": "the word whose last letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A heavenly dog lies back and takes it easy.",
-     "walkthrough": "'Lie back' looks like a reversal, and reversing DOG to GOD is tempting; but 'back' is only there to give its last letter K, and the anagram does the rest.",
-     "definitionFit": "Godlike means like a god, divine."
+     "surface": "A dog stretched out on its back looks blissfully content.",
+     "walkthrough": "'back' suggests reading dog backwards, but here it only supplies its final K via 'ultimately'; 'relaxed' then rearranges DOG, LIE and K together.",
+     "definitionFit": "Godlike means like a god, so divine in nature or quality."
     },
     "features": {
      "answerInScene": false,
