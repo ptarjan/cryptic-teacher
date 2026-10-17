@@ -23,6 +23,14 @@ the check refuses a change to it. An entry under `flagged` already has a hint, a
 the reason it is suspect: write a new annotation for it that fixes that (the old one
 stays until yours validates, so never answer it with null).
 
+An entry under `draftAnnotations` has a draft: a hidden word a program found and
+checked against the answer (`def`, `wp`, `notes`). Write that entry with the
+draft's `def`, `wp` and `notes` as they are, plus the `explanation` (`surface`,
+`definitionFit`) and `features` the draft lacks, which are yours alone. Change the
+draft only when you can show it is wrong (the definition is another part of the
+clue, the fodder or indicator is misread, a reversal is missed); then say why in
+`explanation.walkthrough`.
+
 Write annotations only; do not write a script to produce them. Each entry's
 `"solution"` is ground truth: your `wp` must produce exactly those letters, and if it
 does not, the parse is wrong, so rethink it rather than stretch it. The exception is

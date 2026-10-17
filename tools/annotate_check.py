@@ -286,6 +286,21 @@ def in_notation(ann, entry, puzzle):
         return ann
 
 
+def hidden_drafts(puzzle, only):
+    """{entry id: `def`/`wp`/`notes`} for each clue the run writes that
+    tools/prefill_hidden.py reads as a hidden word and whose draft validates:
+    the mechanical wordplay, shown in `draftAnnotations` for the run to keep and
+    complete with `explanation` and `features` (the prompt says how). Computed
+    on the fly; empty, never an error, when the prefill cannot be built, since
+    a draft is a convenience and the run can always parse the clue itself."""
+    try:
+        import prefill_hidden
+        drafts = prefill_hidden.prefill_puzzle(puzzle)
+    except Exception:
+        return {}
+    return {eid: d for eid, d in drafts.items() if only is None or eid in only}
+
+
 def write_view(path):
     """Write the annotate run's copy of the puzzle file, current as of now.
 
@@ -319,6 +334,9 @@ def write_view(path):
                                   f"parse the clue again and write a new `wp`; the check refuses "
                                   f"a tree with that fault, the old one included"
                                for c, r in flagged.items()}
+    drafts = hidden_drafts(puzzle, only)
+    if drafts:
+        view["draftAnnotations"] = drafts
     leaders = groups.leader_of(puzzle["entries"])
     printed = provenance.printed_answers(puzzle)
     model = ({entry_id(e) for e in puzzle["entries"] if entry_id(e) not in printed}
