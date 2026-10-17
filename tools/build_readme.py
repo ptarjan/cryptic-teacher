@@ -778,6 +778,11 @@ LAYOUT = [
     ("annotating", "tools/data/lexicons/spellings.json", "answer letters mapped to their spelling with apostrophe or accent, built by tools/build_spellings.py"),
     ("annotating", "tools/test_reconstruct_budget.py", "reconstruct_grid's node budget covers every path, and its pruning is sound"),
     ("annotating", "tools/test_ctc_hintcheck.py", "does hintcheck's per-clue comparison classify what it should, and stay silent otherwise?"),
+    ("annotating", "tools/hint_rungs.js", "the hint rungs the app shows, as JSON, for tools that compare them with something"),
+    ("annotating", "tools/prereset_watch.sh", "what the */5 fire of the pre-reset burn checks before it tries to start one"),
+    ("annotating", "tools/test_prereset_watch.sh", "does tools/prereset_watch.sh see a burn that is alive but stuck, and one that is dead with orphans holding its tree lease?"),
+    ("annotating", "tools/test_reindex_changed.py", "does fetch_puzzle.reindex_changed() re-read only the puzzle files newer than the index, and fall back to the full reindex when there is no index?"),
+    ("annotating", "tools/test_spelling_kept.py", "does a re-annotation that drops the spelling HEAD's annotation of the same answer carries (book-26021 22D lost APERÇU) get refused by the run's check against HEAD?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
