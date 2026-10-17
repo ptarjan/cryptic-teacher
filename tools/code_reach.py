@@ -39,6 +39,8 @@ import time
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
+#: Seconds a tools/ file must have stood unchanged before its (size, mtime) is trusted to mean its bytes.
+RACY = 2
 #: Where modules() and key() answers are kept: <tree hash>.json, one per
 #: version of tools/; a file unused for PRUNE_DAYS is removed.
 STORE = Path(os.environ.get("XDG_CACHE_HOME") or Path.home() / ".cache") / "cryptic-teacher" / "code_reach"
@@ -106,7 +108,10 @@ def _tree(fresh=False):
     for path in sorted(TOOLS.glob("*.py")):
         h.update(path.name.encode() + b"\0" + path.read_bytes() + b"\0")
     tree = h.hexdigest()
-    if _signature_of() == sig:
+    # A file written within RACY seconds of this read could change again, same size, in the same
+    # mtime tick (git's "racy" case): its signature is not kept, so the next call reads afresh.
+    settled = time.time_ns() - max((m for _, _, m in _signature()), default=0) > RACY * 10**9
+    if settled and _signature_of() == sig:
         _TREE.update(sig=sig, tree=tree)
         try:
             STORE.mkdir(parents=True, exist_ok=True)
@@ -316,7 +321,8 @@ def key(module, roots, texts=None, opaque=TRANSPORT):
     if hit is not None and hit[0] == sig:
         return hit[1]
     out = _kept(["key", name, sorted(roots), sorted(opaque)], answer)
-    _MEMO[q] = (sig, out)
+    if time.time_ns() - max((m for _, _, m in sig), default=0) > RACY * 10**9:
+        _MEMO[q] = (sig, out)
     return out
 
 
