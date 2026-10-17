@@ -23,7 +23,8 @@
   "check": "30 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -95,54 +96,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Awful",
-       "note": "Something awful has gone badly wrong, and letters that have gone wrong are not left standing in their printed order."
+       "text": "at",
+       "at": 12,
+       "note": "at, as in at the back, puts the next piece after the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "at the end",
-         "note": "The end of a word is the letter it finishes on, and at the end also says where that letter is to sit."
+         "text": "Awful",
+         "at": 0,
+         "note": "something awful is a mess, so the letters of grief are jumbled"
         }
        ],
        "parts": [
         {
          "words": "grief",
-         "note": "five of the six letters the anagram works on"
-        },
+         "at": 6
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "E",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "the end",
-           "gives": "E",
-           "select": "last",
-           "note": "the letter that the little word the finishes on"
-          }
-         ]
+         "text": "end",
+         "at": 19,
+         "note": "the end of the word the is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 15,
+         "note": "only its final letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Dreadful sorrow arriving right at the finish.",
-     "walkthrough": "The end that matters is the end of the word the rather than the end of anything in the picture, and it yields one letter. The email in question called Epstein a supreme friend and was published in 2025.",
-     "definitionFit": "Fergie is what every British paper calls Sarah Ferguson, the Duchess of York, whose grovelling emails to Epstein surfaced in 2025."
+     "surface": "Someone suffers terrible grief when a scandal finally catches up with them.",
+     "walkthrough": "'Awful' rearranges GRIEF to FERGI, and 'at the end' adds E, the last letter of the. Fergie is the nickname of Sarah Ferguson, Duchess of York, whose emails to Jeffrey Epstein were reported in the press.",
+     "definitionFit": "Sarah Ferguson, known as Fergie, was reported to have sent friendly emails to the financier and sex offender Jeffrey Epstein."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "end"
+     "misdirectedWord": "grief"
     }
    }
   },
@@ -391,31 +397,42 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ROUSING",
      "indicators": [
       {
-       "text": "right for hot",
-       "note": "Right and hot are each a single letter in a crossword, and for puts the first of them where the second was standing."
+       "text": "for",
+       "at": 20,
+       "note": "for means one thing stands in for another, so the letter for right replaces the letter for hot"
       }
      ],
      "parts": [
       {
        "words": "Accommodation",
+       "at": 0,
        "gives": "HOUSING",
-       "note": "housing is the word for accommodation, taken before anything happens to it"
+       "note": "housing is accommodation, places to live"
+      },
+      {
+       "words": "hot",
+       "at": 24,
+       "gives": "H",
+       "note": "H is the abbreviation for hot, as on a tap"
+      },
+      {
+       "words": "right",
+       "at": 14,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "Lodgings that turn out to be just right when the weather is hot.",
-     "walkthrough": "The clue names two single letters and never says what word they sit in, so the accommodation has to be found first. H is the hot tap and R the right turn; both are worth knowing on sight.",
-     "definitionFit": "A rousing speech stirs a crowd into feeling something, which is stimulating in its rabble-raising rather than its caffeine sense."
+     "surface": "A slogan demanding that the right to housing be put ahead of hot air.",
+     "walkthrough": "'right for hot' swaps the H at the front of HOUSING for R.",
+     "definitionFit": "A rousing speech or tune is stirring and invigorating, so rousing is a synonym of stimulating."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "right"
+     "misdirectedWord": "Accommodation"
     }
    }
   },
