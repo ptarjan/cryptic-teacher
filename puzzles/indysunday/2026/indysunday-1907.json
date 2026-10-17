@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -49,53 +50,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "THESPECTATOR",
-     "indicators": [
-      {
-       "text": "turned",
-       "note": "A wheel that is turned comes round the other way, so the word for what it does is written from its far end."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Actor",
+       "at": 0,
+       "gives": "THESP",
+       "note": "a thesp, short for thespian, is an actor"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 13,
+         "note": "in places the cricket letter inside the backwards word"
+        }
+       ],
        "parts": [
         {
-         "words": "Actor",
-         "gives": "THESP",
-         "note": "thesp is the everyday clipping of thespian, a person who treads the boards"
-        },
-        {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "in",
-           "note": "Something put in a thing sits within it, so the letter just clued drops inside the word that follows."
+           "text": "turned",
+           "at": 22,
+           "note": "turned means the word is read backwards"
           }
          ],
          "parts": [
           {
-           "words": "wheel turned",
-           "gives": "ETATOR",
-           "note": "to wheel is to rotate, and that word is entered backwards"
-          },
-          {
-           "words": "caught",
-           "gives": "C",
-           "note": "c is caught on a cricket scorecard, and it goes in after the first letter above"
+           "words": "wheel",
+           "at": 16,
+           "gives": "ROTATE",
+           "note": "to wheel is to rotate"
           }
          ]
+        },
+        {
+         "words": "caught",
+         "at": 6,
+         "gives": "C",
+         "note": "C is the cricket abbreviation for caught"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An actor trapped in a wheel that is given a turn to the right once a week.",
-     "walkthrough": "'Weekly to the right' is the whole definition, schedule and politics in four words, which is why it reads as part of the wheel. THESP is the crossword's standard actor and worth banking.",
-     "definitionFit": "The Spectator is a British current-affairs magazine published every week with a firmly Conservative editorial line."
+     "surface": "A performer gets trapped in a turning wheel, every week, towards the right.",
+     "walkthrough": "'Turned' gives ETATOR from ROTATE, and 'in' sets C inside it to make ECTATOR. The Spectator is a British weekly magazine with a right-leaning, conservative outlook.",
+     "definitionFit": "The Spectator is a long-running London weekly of politics and culture, known for its conservative stance."
     },
     "features": {
      "answerInScene": false,
@@ -561,61 +565,58 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BRAGGART",
+     "indicators": [
+      {
+       "text": "packs",
+       "at": 28,
+       "note": "packs means is crammed into, so the emptied letters go inside the other pair"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "lingerie",
+         "at": 34,
+         "gives": "BRA",
+         "note": "a bra is an item of lingerie"
+        },
+        {
+         "words": "pictures",
+         "at": 43,
+         "gives": "ART",
+         "note": "art is pictures, as in a gallery's art"
+        }
+       ]
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
          "text": "on vacation",
-         "note": "A word on vacation is emptied out, leaving the letters at its two ends and nothing between them."
+         "at": 16,
+         "note": "on vacation means vacated, emptied of its middle letters"
         }
        ],
        "parts": [
         {
-         "words": "lingerie",
-         "gives": "BRA",
-         "note": "the bra is the crossword's standard item of lingerie"
-        },
-        {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "GG",
-         "indicators": [
-          {
-           "text": "packs",
-           "note": "To pack a space is to fill it, so the pair just clued goes into the gap in what follows."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "going on vacation",
-           "gives": "GG",
-           "select": "outer",
-           "note": "empty 'going' of its middle and the two Gs at its ends are left"
-          }
-         ]
-        },
-        {
-         "words": "pictures",
-         "gives": "ART",
-         "note": "pictures taken collectively are art"
+         "words": "going",
+         "at": 10,
+         "note": "taken as written, then emptied to its outer letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A big talker heading off on holiday with underwear and photographs in the case.",
-     "walkthrough": "'Going on vacation' does two jobs at once, the holiday in the surface and the emptying-out in the parse, and 'packs' then reads as suitcase packing while telling you where the pair goes.",
-     "definitionFit": "A braggart is someone who will not stop boasting, which is what a loudmouth is in the pub or the office."
+     "surface": "A boastful traveller packs saucy underwear photos for the holiday.",
+     "walkthrough": "'On vacation' empties going to GG, which 'packs' into the gap between BRA and ART.",
+     "definitionFit": "A braggart is a boaster, someone who talks loudly about their own achievements."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "vacation"
     }
    }
@@ -892,41 +893,44 @@
     "definitions": [
      {
       "text": "when the 2D gets new occupants",
-      "at": 24
+      "at": 24,
+      "note": "2D is HOUSE: an election is when the House of Commons is filled with new members"
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ELECTION",
      "indicators": [
       {
-       "text": "changes",
-       "note": "A change here is a swap rather than an addition: one letter steps out of the word already built and another takes its place."
+       "text": "changes hands",
+       "at": 9,
+       "note": "changing hands swaps right for left, the R for L"
       }
      ],
      "parts": [
       {
        "words": "Building",
+       "at": 0,
        "gives": "ERECTION",
-       "note": "a building is an erection, the thing that has been put up"
+       "note": "an erection is a building or structure"
       },
       {
-       "words": "hands",
-       "gives": "L",
-       "note": "your two hands are right and left, so R walks out and L walks in"
+       "gives": "R"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A property changing owners and new people moving in.",
-     "walkthrough": "The definition is handed over by cross-reference, so 2 down has to be solved first: the building that gets new occupants is the Commons. 'Changes hands' reads as a sale and means R for L.",
-     "definitionFit": "An election is the moment the Commons is refilled, sending a new set of MPs into the seats the last lot held."
+     "surface": "A building is sold, and the house acquires new tenants.",
+     "walkthrough": "R and L are the usual abbreviations for right and left; 'changes hands' looks like a sale but swaps one for the other. 2D, HOUSE, is the House of Commons, Britain's elected chamber.",
+     "definitionFit": "A general election is the occasion when the Commons is repopulated with newly chosen MPs."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Building"
+     "joke": "pun",
+     "misdirectedWord": "hands"
     }
    }
   },
@@ -1219,42 +1223,51 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Cafe",
-      "at": 0
+      "text": "Cafe's",
+      "at": 0,
+      "note": "Cafe's reads as 'cafe is', with the definition the cafe itself"
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TEAROOM",
+     "op": "charade",
      "indicators": [
       {
-       "text": "rising",
-       "note": "A down entry reads from the bottom up, so anything rising in it is written in backwards."
+       "text": "but",
+       "at": 16,
+       "note": "but here simply adds the second piece after the first, rent then the rising low"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "rent",
+       "at": 7,
+       "gives": "TEAR",
+       "note": "a rent is a tear, a rip"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising",
+         "at": 20,
+         "note": "in a down entry rising means the letters read upwards, in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "rent",
-         "gives": "TEAR",
-         "note": "a rent in a fabric is a tear, the noun rather than the verb"
-        },
-        {
-         "words": "low but rising",
-         "gives": "OOM",
-         "note": "to low is what cattle do, and that noise goes in upwards"
+         "words": "low",
+         "at": 12,
+         "gives": "MOO",
+         "note": "to low is to moo, the sound of cattle"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cafe whose rent is cheap for now but on the way up.",
-     "walkthrough": "'Rent' is the trap: the surface is all overheads, and the parse wants the noun for a tear in cloth. 'Low' belongs to the cow rather than to the money.",
-     "definitionFit": "A tearoom is the British cafe that serves pots of tea and cake, so cafe is the general word for the same establishment."
+     "surface": "A café owner's lament: the rent is low but going up.",
+     "walkthrough": "'Rent' looks like the payment but is a tear; 'rising' turns MOO upwards to OOM.",
+     "definitionFit": "A tearoom is a small café serving tea and light refreshments."
     },
     "features": {
      "answerInScene": true,
