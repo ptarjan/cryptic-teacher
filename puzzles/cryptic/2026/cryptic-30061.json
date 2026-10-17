@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -382,48 +383,61 @@
    "annotation": {
     "definitions": [
      {
-      "text": "positive",
-      "at": 42
+      "text": "positive?",
+      "at": 42,
+      "note": "a noun: the positive aspect of something"
      }
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 20,
+       "note": "the park letter is placed after the turn letter in the answer"
+      }
+     ],
      "parts": [
       {
        "words": "Turn",
+       "at": 0,
        "gives": "U",
-       "note": "the turn that doubles back on itself is a U-turn"
+       "note": "a U-turn, so Turn gives the letter U"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "P",
        "indicators": [
         {
          "text": "entrance",
-         "note": "The way into a word is its first letter, so this one asks for the opening of the word beside it and nothing else."
+         "at": 31,
+         "note": "the entrance to a word is its opening letter, so only the start of park is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "after park entrance",
-         "gives": "P",
-         "select": "first",
-         "note": "the entrance to PARK is its opening letter"
+         "words": "park",
+         "at": 26,
+         "note": "first letter of park"
         }
        ]
       },
       {
        "words": "left, perhaps",
+       "at": 5,
        "gives": "SIDE",
-       "note": "left is one example of a side, which 'perhaps' flags"
+       "note": "left is one side, so this is SIDE by example"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The comma after the first word is doing real work: that word stands alone rather than joining the driving instruction the rest of the surface promises.",
-     "definitionFit": "The upside of a situation is its positive aspect, so both are nouns naming the good half of something rather than the adjective they look like."
+     "surface": "Driving directions: turn left once you have gone past the park gates, with a hopeful query at the end.",
+     "walkthrough": "'Turn' gives U (as in U-turn), then P from 'park entrance', then SIDE, of which left is an example.",
+     "definitionFit": "The upside of a situation is its good or favourable aspect, a plus point; the question mark admits the loose fit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turn"
     }
    }
   },
@@ -771,76 +785,71 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AWESTRUCK",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Hit",
+       "at": 0,
+       "note": "something hit is knocked about, so the letters that follow are scrambled"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Hit",
-         "note": "Whatever has been hit does not stay in the shape it was in, so these letters land in a new order."
+         "text": "down",
+         "at": 19,
+         "note": "one down means one fewer, so the numeral's letter is dropped"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "down",
-           "note": "In cricket a batter who is down is out, and the numeral named beside it goes out of the fodder too."
-          }
-         ],
-         "parts": [
-          {
-           "op": "charade",
-           "indicators": [
-            {
-             "text": "finally",
-             "note": "Taken finally means taken at the very end, so only the closing letter of the word in front joins in."
-            }
-           ],
-           "parts": [
-            {
-             "words": "wicket",
-             "gives": "WCKET",
-             "note": "WICKET hands over its letters once the 1 has gone"
-            },
-            {
-             "words": "AUS",
-             "note": "the scoreboard's Australia, taken as three letters"
-            },
-            {
-             "op": "last",
-             "unchecked": true,
-             "gives": "R",
-             "parts": [
-              {
-               "unchecked": true,
-               "words": "spinner finally",
-               "gives": "R",
-               "select": "last",
-               "note": "the last letter of spinneR"
-              }
-             ]
-            }
-           ]
-          }
-         ]
+         "words": "wicket",
+         "at": 4,
+         "note": "taken as written, then losing its I"
         },
         {
-         "unchecked": true,
-         "words": "1 down",
-         "note": "1 is the Roman numeral I, and one down is one out, so that I leaves WICKET"
+         "words": "1",
+         "at": 17,
+         "gives": "I",
+         "note": "the Roman numeral for one is I"
+        }
+       ]
+      },
+      {
+       "words": "AUS",
+       "at": 13,
+       "note": "taken as written"
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 33,
+         "note": "only the closing letter of spinner is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spinner",
+         "at": 25,
+         "note": "last letter of spinner"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A whole cricket scoreboard, and every word of it is working. The definition hides best of all, because being knocked over sounds like still more cricket.",
-     "definitionFit": "To be bowled over is to be knocked flat by amazement, the same figurative sense as being struck with awe — both name astonishment, not impact."
+     "surface": "A cricket scorecard: an Australian batter out hit wicket, one down, with the spinner's final ball causing it.",
+     "walkthrough": "'1 down' takes I out of WICKET to leave WCKET; add AUS and R (the final letter of 'spinner') and 'Hit' shuffles the lot. Hit wicket is a cricket dismissal where batters knock over their own stumps.",
+     "definitionFit": "Being bowled over is an idiom for being overwhelmed with amazement, the same feeling as awe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Hit"
     }
    }
   },
@@ -1133,41 +1142,45 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "for",
+       "at": 21,
+       "note": "one thing standing for another, so the drugs are replaced by what was put away"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "DEGENERATE",
-       "indicators": [
-        {
-         "text": "for",
-         "note": "Swapping one thing for another puts the first where the second was, so these three letters take over the place of those two."
-        }
-       ],
-       "parts": [
-        {
-         "words": "US comedian",
-         "gives": "DEGENERES",
-         "note": "Ellen DeGeneres, the American comic and chat-show host"
-        },
-        {
-         "words": "put away",
-         "gives": "ATE",
-         "note": "to put away a big meal is to eat it, and that is what moves in"
-        }
-       ]
+       "words": "US comedian",
+       "at": 0,
+       "gives": "DEGENERES",
+       "note": "Ellen DeGeneres, the American comedian and talk-show host"
       },
       {
-       "unchecked": true,
        "words": "drugs",
-       "note": "Es are ecstasy tablets, and those are the two letters standing at the end of the name"
+       "at": 25,
+       "gives": "ES",
+       "note": "E is ecstasy, so ES is drugs in the plural"
+      },
+      {
+       "words": "put away",
+       "at": 12,
+       "gives": "ATE",
+       "note": "to put away food is to eat it, past tense ATE"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The name is spelt out in full and then loses its tail. E for ecstasy is standard crossword drug slang, and here the setter wants two of them at once.",
-     "definitionFit": "To degenerate is to decline — to fall away from a better state — so verb and definition are plain synonyms in their intransitive sense."
+     "surface": "A US comedian jailed on drug charges, a career in decline.",
+     "walkthrough": "'put away' looks like jailing but means eaten: ATE takes the place of ES (ecstasy tablets) at the end of DEGENERES.",
+     "definitionFit": "To degenerate is to deteriorate or worsen, which is what something in decline does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "away"
     }
    }
   },
@@ -1291,7 +1304,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "port",
+      "text": "port?",
       "at": 54
      }
     ],
@@ -1299,8 +1312,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "originally",
-       "note": "What a word was originally is what it starts as, so only its opening letter is used."
+       "text": "after",
+       "at": 16,
+       "note": "the sound-alike word follows the other part"
       }
      ],
      "parts": [
@@ -1309,21 +1323,31 @@
        "indicators": [
         {
          "text": "aboard",
-         "note": "To be aboard is to be on the ship, inside it, so the letter goes within the word beside it."
+         "at": 41,
+         "note": "a letter taken aboard sits inside the word for leave"
         }
        ],
        "parts": [
         {
          "words": "leave",
+         "at": 48,
          "gives": "DESERT",
-         "note": "to desert a post is to leave it"
+         "note": "to desert is to leave or abandon"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 30,
+           "note": "only the opening letter of sailors is used"
+          }
+         ],
          "parts": [
           {
-           "words": "sailors originally",
-           "note": "the opening letter of sailors"
+           "words": "sailors",
+           "at": 22,
+           "note": "first letter of sailors"
           }
          ]
         }
@@ -1335,22 +1359,31 @@
        "indicators": [
         {
          "text": "Loudly",
-         "note": "Doing something loudly means doing it audibly, so that word is to be heard rather than read."
+         "at": 0,
+         "note": "said out loud, so the complaint word becomes a word sounding the same"
         }
        ],
        "parts": [
         {
          "words": "complain",
+         "at": 7,
          "gives": "WHINE",
-         "note": "to complain is to whine, and whine said aloud is spelt this way instead"
+         "note": "to whine is to complain"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Leave port' reads as one nautical phrase and the clue splits it in two, taking the first word for wordplay and the second for the definition.",
-     "definitionFit": "Port is one particular fortified dessert wine, so the definition works by example: it names a member of the class the answer names."
+     "surface": "Sailors grumbling about going ashore when they leave port.",
+     "walkthrough": "'port' looks like a harbour but is the fortified wine, hence the question mark: port is an example of a dessert wine.",
+     "definitionFit": "Port is a sweet fortified wine traditionally served at the end of a meal, a classic example of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "port"
     }
    }
   },
