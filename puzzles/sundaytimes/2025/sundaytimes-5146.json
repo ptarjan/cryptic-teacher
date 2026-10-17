@@ -107,41 +107,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "stuffed with"
+       "text": "stuffed with",
+       "at": 9,
+       "note": "a taco is stuffed with a filling, so the other letters go inside the first word"
       }
      ],
      "parts": [
       {
        "words": "Tortilla",
+       "at": 0,
        "gives": "TACO",
-       "note": "a taco is a folded filled tortilla"
+       "note": "a taco is a folded tortilla, standing in for the Mexican flatbread here"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "BAS",
        "indicators": [
         {
          "text": "regularly lacking",
-         "note": "lacking letters at regular intervals: every second letter of 'beans' goes, keeping B, A, S"
+         "at": 29,
+         "note": "lacking letters at regular intervals means every other letter of beans is dropped, keeping the first, third and fifth"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "beans, regularly lacking",
-         "gives": "BAS",
-         "select": "alternate",
-         "note": "BeAnS with the even letters dropped"
+         "words": "beans",
+         "at": 22,
+         "note": "the first, third and fifth letters of beans"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lunch order: a bean taco, hold the sauce.",
-     "walkthrough": "The surface says the taco has no sauce, yet the sauce is the answer: TA(BAS)CO.",
-     "definitionFit": "A definition by example: Tabasco is a brand of hot chilli sauce from Louisiana."
+     "surface": "A Mexican food order: a tortilla filled with beans, but short of sauce.",
+     "walkthrough": "A taco is a filled Mexican tortilla, here the outer shell for the letters. 'lacking sauce' reads as a complaint about the food, but sauce is the definition.",
+     "definitionFit": "Tabasco is a brand of hot pepper sauce, so the trade name stands for a condiment."
     },
     "features": {
      "answerInScene": true,
@@ -1622,30 +1622,31 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "WORDS",
      "indicators": [
       {
        "text": "initial thrust forward",
-       "note": "a thrust pushes something ahead, so the first letter is shoved on to the far end"
+       "at": 9,
+       "note": "the initial letter is pushed on ahead past the rest of the word, so it moves from the front to the end"
       }
      ],
      "parts": [
       {
        "words": "Weapon's",
+       "at": 0,
        "gives": "SWORD",
-       "note": "a sword is a weapon; its S moves to the end"
+       "note": "a sword is a bladed weapon"
       }
      ]
     },
     "explanation": {
-     "surface": "A swordsman's first lunge sparks a row.",
-     "walkthrough": "'Thrust' belongs to swordplay in the surface; in the wordplay it just pushes a letter along.",
-     "definitionFit": "An idiom: to have words with someone is to argue with them."
+     "surface": "A fencer's opening lunge with a blade leads to a heated row.",
+     "walkthrough": "'initial thrust forward' sends the S of SWORD to the end. 'thrust' reads as a sword stroke, which hides that it moves a letter.",
+     "definitionFit": "To have words with someone is an idiom for quarrelling, so words can mean an angry exchange."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "thrust"
     }
    }
