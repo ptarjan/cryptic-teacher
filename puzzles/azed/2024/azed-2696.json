@@ -441,55 +441,61 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Bilious",
+      "text": "Bilious?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "unchecked": true,
-     "gives": "CHOLIC",
+     "op": "container",
      "indicators": [
       {
        "text": "before and after",
-       "note": "the cold letter is placed both in front of and behind the middle piece"
+       "at": 35,
+       "note": "placed on both sides of the middle piece"
       }
      ],
      "parts": [
       {
+       "words": "cold",
+       "at": 30,
+       "gives": "CC",
+       "note": "C is the standard abbreviation for cold, needed twice here as it goes on each side"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "CHOLIC",
        "indicators": [
         {
-         "text": "day off",
-         "note": "off tells us the word day is taken away from the longer word"
+         "text": "off",
+         "at": 25,
+         "note": "off says the following word is removed from the holiday"
         }
        ],
        "parts": [
         {
-         "words": "cold",
-         "gives": "C",
-         "note": "C is the abbreviation for cold on taps"
+         "words": "Have break",
+         "at": 9,
+         "gives": "HOLIDAY",
+         "note": "to have a break is to take a holiday"
         },
         {
-         "words": "Have break",
-         "gives": "HOLIDAY",
-         "note": "to holiday is to have a break"
+         "words": "day",
+         "at": 21,
+         "gives": "DAY",
+         "note": "the word day taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Feeling queasy? Take a break, have a day off, and wrap up from the cold.",
-     "walkthrough": "HOLI(DAY) is flanked by C on each side. 'Day off' looks like more holiday advice, but it removes those three letters.",
-     "definitionFit": "Cholic is an old spelling of choleric, meaning full of bile, which is what bilious literally means."
+     "surface": "A sickly holidaymaker is told to take a break and keep warm.",
+     "walkthrough": "'Have break' reads as an instruction to rest, but it clues a noun phrase. CHOLIC is a Chambers form meaning relating to bile, hence 'Bilious?'.",
+     "definitionFit": "Cholic, related to bile, describes the state of someone suffering from excess bile or liver upset, hence the question mark."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "off"
+     "misdirectedWord": "break"
     }
    }
   },
@@ -1460,35 +1466,49 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ERNE",
      "indicators": [
       {
-       "text": "turned out",
-       "note": "turned out means evicted, so those letters are expelled from the word"
+       "text": "out",
+       "at": 11,
+       "note": "out tells us those letters are removed from the fur"
       }
      ],
      "parts": [
       {
-       "words": "I'm",
-       "note": "the letters to be removed, taken as written"
-      },
-      {
        "words": "fur",
+       "at": 18,
        "gives": "ERMINE",
        "note": "ermine is the white winter fur of the stoat"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned",
+         "at": 4,
+         "note": "turned says the letters of I'm are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I'm",
+         "at": 0,
+         "gives": "IM",
+         "note": "I'm without its apostrophe gives the two letters"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone dressed in a long, worn-out fur coat.",
-     "walkthrough": "ERMINE without IM. 'Long' looks like a coat's length but is the verb to yearn; 'outworn' marks the word as obsolete.",
-     "definitionFit": "Erne is an obsolete form of yearn, and to long for something is to yearn for it."
+     "surface": "Someone complains that a long fur garment feels shabby and dated.",
+     "walkthrough": "'I'm turned' gives MI, which comes out of ERMINE to leave ERNE. 'Outworn' marks an obsolete form, as Chambers lists it.",
+     "definitionFit": "Erne is an obsolete spelling of yearn, the verb meaning to desire strongly or pine for something."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "long"
+     "misdirectedWord": "outworn"
     }
    }
   },
