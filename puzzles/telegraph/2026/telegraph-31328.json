@@ -104,46 +104,45 @@
      "indicators": [
       {
        "text": "beneath",
-       "note": "in a down clue, the piece written beneath comes second"
+       "at": 8,
+       "note": "in a down clue the rodents sit below the edge letters"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "PU",
        "indicators": [
         {
          "text": "edges of",
-         "note": "the edges of a word are its first and last letters"
+         "at": 16,
+         "note": "the edges of the word plateau are its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "edges of plateau",
-         "gives": "PU",
-         "select": "outer",
-         "note": "first and last letters of PLATEAU"
+         "words": "plateau",
+         "at": 25,
+         "note": "the first and last letters of plateau are P and U"
         }
        ]
       },
       {
        "words": "Rodents",
+       "at": 0,
        "gives": "MICE",
        "note": "mice are rodents"
       }
      ]
     },
     "explanation": {
-     "surface": "Small animals living under the rim of a high plateau.",
-     "walkthrough": "'Beneath' is a down-clue instruction: the rodents go below the plateau's edges in the grid, just as the surface places them.",
-     "definitionFit": "A definition by example: this light, porous volcanic stone is one kind of rock."
+     "surface": "Small animals scurrying below the rim of a high plateau.",
+     "walkthrough": "'beneath' puts MICE below PU, the outside letters of PLATEAU.",
+     "definitionFit": "Pumice is a light, porous volcanic stone, a type of rock."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "beneath"
+     "misdirectedWord": "Rodents"
     }
    }
   },
@@ -342,52 +341,51 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "periodically",
-       "note": "at regular periods, so every other letter is taken"
-      }
-     ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "PROS",
        "indicators": [
         {
-         "text": "rotating",
-         "note": "turning round, so the letters run backwards"
+         "text": "periodically",
+         "at": 13,
+         "note": "taking letters at regular intervals, the first, third, fifth and seventh of periods"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "periods periodically",
-         "gives": "PROS",
-         "select": "alternate",
-         "note": "first, third, fifth and seventh letters of PERIODS"
+         "words": "periods",
+         "at": 5,
+         "note": "the first, third, fifth and seventh letters of periods"
         }
        ]
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "rotating",
+         "at": 26,
+         "note": "turning the spies round so they read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "US spies",
+         "at": 35,
          "gives": "CIA",
-         "note": "the CIA, the US intelligence agency"
+         "note": "the CIA is the US intelligence agency"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "American agents are moved round in dreary stints of duty.",
-     "walkthrough": "'Periods periodically' uses the same word twice: the first is the fodder, the second tells you to take every other letter.",
-     "definitionFit": "A plain synonym: writing that is like prose rather than poetry is flat and unimaginative."
+     "surface": "American agents on a dreary rota of duty shifts.",
+     "walkthrough": "'periodically' takes PROS from PERIODS; 'rotating' turns CIA into AIC.",
+     "definitionFit": "Prosaic means matter-of-fact and lacking imagination, a near synonym of dull."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "periods"
     }
@@ -968,37 +966,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HAMFISTED",
-     "indicators": [
-      {
-       "text": "when tipsy",
-       "note": "tipsy letters stagger about, so IS DEFT is rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "poor actor",
+       "at": 8,
+       "gives": "HAM",
+       "note": "a ham is an actor who overacts badly"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "when tipsy",
+         "at": 27,
+         "note": "the words is and deft reel about drunkenly, so their letters are mixed up"
+        }
+       ],
        "parts": [
         {
-         "words": "poor actor",
-         "gives": "HAM",
-         "note": "a ham is a bad, overacting actor"
+         "words": "is",
+         "at": 19
         },
         {
-         "words": "is deft",
-         "gives": "FISTED",
-         "note": "IS DEFT rearranged"
+         "words": "deft",
+         "at": 22
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bad actor is only nimble once he has had a few drinks.",
-     "walkthrough": "'Deft' sits right beside 'Clumsy' as its opposite, but it is only fodder.",
-     "definitionFit": "An idiom: having hands like hams, too big to handle things delicately."
+     "surface": "A bad actor who is usually skilful becomes clumsy after drinking.",
+     "walkthrough": "HAM is followed by FISTED, made by mixing up IS and DEFT 'when tipsy'.",
+     "definitionFit": "Ham-fisted describes someone awkward with their hands, a colloquial word for bungling."
     },
     "features": {
      "answerInScene": true,
@@ -1471,47 +1472,46 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "initially",
-       "note": "the initial letters of the words before it"
+       "text": "goes off",
+       "at": 26,
+       "note": "those letters leave the puzzle word, which loses them"
       }
      ],
      "parts": [
       {
        "words": "puzzle",
+       "at": 35,
        "gives": "DILEMMA",
-       "note": "a dilemma is a puzzle"
+       "note": "a dilemma is a puzzle or quandary"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "DIL",
        "indicators": [
         {
-         "text": "goes off",
-         "note": "something that goes off departs, so those initials leave the puzzle word"
+         "text": "initially",
+         "at": 16,
+         "note": "the initial letters of Daughter, in and law"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Daughter in law initially",
-         "gives": "DIL",
-         "select": "first",
-         "note": "first letters of DAUGHTER IN LAW; removed"
+         "words": "Daughter in law",
+         "at": 0,
+         "note": "the first letters of Daughter, in and law"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A daughter-in-law walks out in a huff over a puzzle book.",
-     "walkthrough": "'Puzzle book' is two jobs: 'puzzle' is the word to cut and 'book' the definition, a Jane Austen novel.",
-     "definitionFit": "A definition by example: Jane Austen's 1815 novel."
+     "surface": "A daughter-in-law wanders off from a book of puzzles.",
+     "walkthrough": "'Daughter in law initially' gives DIL, which 'goes off' DILEMMA. Emma is Jane Austen's novel.",
+     "definitionFit": "Emma is the 1815 novel by Jane Austen, so it is an example of a book."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "puzzle"
+     "misdirectedWord": "law"
     }
    }
   },
@@ -1683,46 +1683,41 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "AMNESTY",
      "indicators": [
       {
        "text": "roughly",
-       "note": "the letters are roughed up, rearranged"
+       "at": 13,
+       "note": "the letters are thrown together loosely, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "means",
+       "at": 7
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "to be discharged",
+         "at": 28,
+         "note": "the word twenty is emptied, leaving just its outside letters"
+        }
+       ],
        "parts": [
         {
-         "words": "means",
-         "gives": "AMNES",
-         "note": "MEANS rearranged"
-        },
-        {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "discharged",
-           "note": "discharged of its contents, emptied, leaving only the outer letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "twenty",
-           "note": "TWENTY emptied leaves T…Y"
-          }
-         ]
+         "words": "twenty",
+         "at": 21,
+         "note": "twenty with its inside letters emptied out leaves its first and last"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pardon means about twenty prisoners will be released.",
-     "walkthrough": "'Discharged' fits the prison picture of release; here it means emptied.",
-     "definitionFit": "A plain synonym: a general pardon granted to a whole group of offenders."
+     "surface": "A pardon that lets about twenty prisoners go free.",
+     "walkthrough": "'discharged' empties TWENTY to TY; add MEANS and rearrange 'roughly'.",
+     "definitionFit": "An amnesty is an official pardon granted to a group, typically for political offences."
     },
     "features": {
      "answerInScene": true,
