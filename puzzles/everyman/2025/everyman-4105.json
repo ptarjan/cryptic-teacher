@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -623,26 +624,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "OVERALL",
      "indicators": [
       {
        "text": "cut short",
-       "note": "Something cut short loses its end, so the last letter of the word just named never arrives."
+       "at": 31,
+       "note": "a word cut short loses its final letter, here the closing S"
       }
      ],
      "parts": [
       {
        "words": "protective garment",
-       "gives": "OVERALL",
-       "note": "the loose boiler suit a mechanic pulls on over their clothes is named in the plural, and the instruction alongside docks its final S"
+       "at": 12,
+       "gives": "OVERALLS",
+       "note": "overalls are a loose protective garment worn over clothes"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "Bedding and workwear, both of them trimmed down.",
-     "walkthrough": "'Blanket' is the adjective, not the bedding: a blanket ban is one that covers every case without exception, and that is the sense the answer carries.",
-     "definitionFit": "A blanket ban and an overall ban are the same thing, both adjectives meaning applying to everything without exception."
+     "surface": "A bedcover and a work garment have both been trimmed down.",
+     "walkthrough": "'Blanket' looks like bedding but is used as an adjective, as in a blanket ban; 'cut short' drops the final S of the garment.",
+     "definitionFit": "Blanket and overall both describe something comprehensive that covers every case, as in an overall or blanket figure."
     },
     "features": {
      "answerInScene": false,
@@ -973,41 +977,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CATTLETROUGH",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "takes in",
+       "at": 5,
+       "note": "takes in means swallows or encloses, so the rearranged letters go inside the word for hack"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Hack",
+       "at": 0,
+       "gives": "COUGH",
+       "note": "to hack is to give a dry, harsh cough"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "takes in",
-         "note": "To take something in is to receive it inside, so the word in front opens up to admit the letters that follow."
-        },
-        {
          "text": "tipsy",
-         "note": "Somebody tipsy is unsteady on their feet, so the letters described that way will not stand in the order given."
+         "at": 14,
+         "note": "tipsy means drunk and unsteady, so the letters of tattler stagger into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Hack",
-         "gives": "COUGH",
-         "note": "a hack is the dry rasping bark of a smoker clearing his chest"
-        },
-        {
          "words": "tattler",
-         "gives": "ATTLETR",
-         "note": "a tattler is a tell-tale, and these seven letters go inside once they have been shaken up"
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A journalist listening hard to a drunk who is giving the whole story away.",
-     "walkthrough": "'Hack' is the journalist the surface wants and the smoker's cough the wordplay needs, and a tell-tale is exactly who such a journalist would be buying drinks for. The definition describes the thing rather than naming it.",
-     "definitionFit": "A cattle trough is the long water container standing in a field, which is where a farmer sets drink out for the herd."
+     "surface": "A journalist swallows a drunken gossip at the place a farmer serves drinks.",
+     "walkthrough": "'Hack' reads as a journalist, but here it is the verb for a harsh dry cough; 'takes in' wraps that word around the tipsy letters.",
+     "definitionFit": "A cattle trough is the long container a farmer fills with water for livestock to drink from."
     },
     "features": {
      "answerInScene": false,
@@ -1144,47 +1150,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DELIVERED",
-     "indicators": [
-      {
-       "text": "not half",
-       "note": "A word that is not half there keeps only half its letters, and it is the opening half that joins onto what comes before."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Fancy food shop",
+       "at": 0,
+       "gives": "DELI",
+       "note": "a deli, short for delicatessen, sells fine prepared foods"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not half",
+         "at": 24,
+         "note": "not half means losing half the word, so two of its four letters go"
+        }
+       ],
        "parts": [
         {
-         "words": "Fancy food shop",
-         "gives": "DELI",
-         "note": "the counter selling cold meats, olives and other fine groceries, short for delicatessen"
-        },
-        {
          "words": "veal",
-         "gives": "VE",
-         "note": "the opening half of the word, which is all the instruction alongside leaves standing"
+         "at": 17,
+         "note": "veal without its second half leaves VE"
         },
         {
-         "words": "raw",
-         "gives": "RED",
-         "note": "skin rubbed raw is left red and sore"
+         "gives": "AL"
         }
        ]
+      },
+      {
+       "words": "raw",
+       "at": 33,
+       "gives": "RED",
+       "note": "red describes raw or rare meat, and raw skin that is inflamed"
       }
      ]
     },
     "explanation": {
-     "surface": "A smart grocer sending round veal that turned out to be badly underdone.",
-     "walkthrough": "'Not half' is the trap. In British speech it means the opposite of what it says — not half raw is very raw indeed — which is how the surface reads it, while the wordplay takes it literally and removes half a word.",
-     "definitionFit": "Goods that have been delivered have been brought round and handed over, which is to say supplied."
+     "surface": "A delicatessen sends out veal that is partly undercooked.",
+     "walkthrough": "'Raw' gives RED because raw meat is red, as in a rare steak; 'not half' keeps only the first half of veal.",
+     "definitionFit": "Delivered means handed over or brought to someone, which is what supplied means."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "half"
+     "misdirectedWord": "raw"
     }
    }
   },
@@ -1209,32 +1219,53 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "VOILA",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Victory",
+       "at": 0,
+       "gives": "V",
+       "note": "V stands for victory, as in the V-sign"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "rebuffed",
-         "note": "To rebuff is to push a thing back the way it came, so these letters are set down from the end."
-        },
-        {
-         "text": "tailless",
-         "note": "An animal with no tail has lost its last part, so the final letter of the word goes."
+         "at": 9,
+         "note": "rebuffed means pushed back, so the letters are written in reverse"
         }
        ],
        "parts": [
         {
-         "words": "Victory",
-         "gives": "V",
-         "note": "V for victory, the sign Churchill made with two fingers"
-        },
-        {
-         "words": "a tailless big cat",
-         "gives": "OILA",
-         "note": "the article in front of a lion, the lion docked of its last letter, and the four of them written out backwards"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 18
+          },
+          {
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "tailless",
+             "at": 20,
+             "note": "tailless means losing the last letter, the N"
+            }
+           ],
+           "parts": [
+            {
+             "words": "big cat",
+             "at": 29,
+             "gives": "LION",
+             "note": "a lion is a big cat"
+            },
+            {
+             "gives": "N"
+            }
+           ]
+          }
+         ]
         }
        ]
       }
@@ -1242,14 +1273,13 @@
     },
     "spelling": "VOILÀ",
     "explanation": {
-     "surface": "A triumphant announcement that a big cat with no tail has been seen off.",
-     "walkthrough": "The two colons make the clue read like a caption under a photograph, which hides where the definition starts. A big cat with no tail is an instruction to drop a letter, not a fact about the animal.",
-     "definitionFit": "Voila is the French flourish English has borrowed for presenting a result — there it is — which is the job ta-da does."
+     "surface": "A triumphant fanfare after fending off a lion that had lost its tail.",
+     "walkthrough": "'Tailless' turns LION into LIO, and 'rebuffed' reads A LIO backwards as OILA, after V.",
+     "definitionFit": "Voilà is the French exclamation 'there it is', used like ta-da when revealing something."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
      "misdirectedWord": "rebuffed"
     }
    }
