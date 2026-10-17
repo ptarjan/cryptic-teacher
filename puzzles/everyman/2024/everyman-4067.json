@@ -983,42 +983,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENRAGES",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Tangled",
+       "at": 0,
+       "note": "tangled means twisted out of order, so the remaining letters are rearranged"
+      },
+      {
+       "text": "abandoned by",
+       "at": 18,
+       "note": "abandoned by means these letters leave the fodder before it is mixed"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ENRAGES",
-       "indicators": [
-        {
-         "text": "Tangled",
-         "note": "knotted up, the letters jumbled"
-        },
-        {
-         "text": "abandoned by",
-         "note": "what is abandoned is left behind, so the Dutch abbreviation walks away from the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "dungarees",
-         "note": "overalls with a bib"
-        },
-        {
-         "words": "Dutch",
-         "gives": "DU",
-         "note": "Du. = Dutch; removed from DUNGAREES to leave NGAREES"
-        }
-       ]
+       "words": "dungarees",
+       "at": 8
+      },
+      {
+       "words": "Dutch",
+       "at": 31,
+       "gives": "DU"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone infuriated by snarled-up work trousers.",
-     "walkthrough": "Du. is the dictionary abbreviation for Dutch. Remove it from the front of DUNGAREES, then rearrange the rest.",
-     "definitionFit": "To enrage is to make furious, to cause vexation."
+     "surface": "Someone is annoyed to find their dungarees in a knot and left behind by a Dutchman.",
+     "walkthrough": "DUNGAREES 'abandoned by' DU ('Dutch') leaves NGAREES, then 'Tangled' rearranges those letters.",
+     "definitionFit": "To enrage someone is to make them furious, which is to cause them great annoyance."
     },
     "features": {
      "answerInScene": false,
@@ -1233,37 +1226,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KNOTTIEST",
-     "indicators": [
-      {
-       "text": "beheaded",
-       "note": "a word's head is its first letter, so cutting it off removes the S"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "King",
+       "at": 0,
+       "gives": "K",
+       "note": "K is the chess and card abbreviation for king"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "beheaded",
+         "at": 26,
+         "note": "beheaded means losing the head, so the first letter goes"
+        }
+       ],
        "parts": [
         {
-         "words": "King",
-         "gives": "K",
-         "note": "K = king, as in chess"
+         "words": "extremely stuck up",
+         "at": 6,
+         "gives": "SNOTTIEST",
+         "note": "snottiest means most snooty, so extremely stuck up"
         },
         {
-         "words": "extremely stuck up",
-         "gives": "NOTTIEST",
-         "note": "SNOTTIEST without its first letter S"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A haughty king, loathed for his arrogance, is executed.",
-     "walkthrough": "Snotty means snobbish, so 'extremely stuck up' is SNOTTIEST before its head comes off.",
-     "definitionFit": "A knotty problem is a tricky one; the knottiest is the most awkward."
+     "surface": "A monarch, insufferably haughty, is executed: the most awkward of ends.",
+     "walkthrough": "'extremely stuck up' is a superlative, matching the superlative definition; 'beheaded' is the deletion signal, not part of the story.",
+     "definitionFit": "A knotty problem is a tricky, complicated one, so the knottiest is the hardest to handle."
     },
     "features": {
      "answerInScene": false,
@@ -1451,28 +1448,37 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "then",
+       "at": 15,
+       "note": "then means next in order, so the final piece follows on"
+      }
+     ],
      "parts": [
       {
-       "words": "Cheers!",
+       "words": "Cheers",
+       "at": 0,
        "gives": "TA",
-       "note": "ta = thanks, as is cheers in British speech"
+       "note": "ta is British slang for thanks, as is cheers"
       },
       {
        "words": "Drink",
+       "at": 8,
        "gives": "GIN",
-       "note": "gin = a drink"
+       "note": "gin is a drink"
       },
       {
        "words": "eastern",
-       "gives": "E",
-       "note": "E = eastern"
+       "at": 20,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A toast, a drink, and then a spicy stew from the East for dinner.",
-     "walkthrough": "In Britain 'Cheers!' and 'Ta!' both mean thanks, not only a toast.",
-     "definitionFit": "A tagine is a slow-cooked North African stew, named after its pot."
+     "surface": "A toast, a drink, then a Middle Eastern stew for dinner.",
+     "walkthrough": "'Cheers' and 'ta' are both British ways of saying thanks.",
+     "definitionFit": "A tagine is a North African stew slow-cooked in a pot of the same name, a kind of casserole."
     },
     "features": {
      "answerInScene": true,
