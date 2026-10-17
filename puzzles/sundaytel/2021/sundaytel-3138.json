@@ -675,35 +675,43 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "IDIOT",
-     "indicators": [
-      {
-       "text": "primarily",
-       "note": "primarily means take the first, primary letter of each word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "I'm dense, ignorant, obtuse and thick-headed",
-       "gives": "IDIOT",
-       "select": "first",
-       "note": "initial letters of the five descriptive words, skipping the joining and"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "primarily",
+         "at": 46,
+         "note": "primarily says to take only the first, primary letter of each of the listed words"
+        }
+       ],
+       "parts": [
+        {
+         "words": "I'm dense, ignorant, obtuse",
+         "at": 0,
+         "note": "the initials of I'm, dense, ignorant and obtuse"
+        }
+       ]
+      },
+      {
+       "words": "thick-headed",
+       "at": 32,
+       "gives": "T",
+       "note": "the head, or first letter, of thick is T"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A self-deprecating confession of being slow-witted.",
-     "walkthrough": "The whole clue is both the wordplay and a description of the answer.",
-     "definitionFit": "Someone who calls themselves dense, ignorant and obtuse is describing a fool or dimwit."
+     "surface": "A self-deprecating confession listing every way the speaker is slow-witted.",
+     "walkthrough": "The initials of the five descriptive words spell the answer, and the whole confession is also what such a person would say of themselves.",
+     "definitionFit": "Someone dense, ignorant and obtuse is a fool, which is exactly what the answer names."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun"
+     "misdirectedWord": "primarily"
     }
    }
   },
