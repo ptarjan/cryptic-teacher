@@ -347,6 +347,29 @@ def find_at(clue, text, nth=1, taken=()):
     return pool[nth - 1] if len(pool) >= nth else None
 
 
+def not_in_clue(text, clue, nth=1):
+    """The refusal for words a span names that the clue does not hold, saying
+    what to change: a repeat that has no such copy, words the clue has but not
+    side by side (write each run as its own [..] piece), or words it lacks."""
+    head = f"{text!r} is not in the clue {clue!r}: "
+    low = clue.lower()
+    if nth > 1:
+        have = len(re.findall(re.escape(text.lower()), low))
+        return head + (f"the clue has {have} copy of those words, so there is no copy #{nth}: "
+                       f"drop the `#{nth}`" if have == 1 else f"the clue has {have} copies, "
+                       f"so there is no copy #{nth}")
+    words = re.findall(r"[\w'’]+", text.lower())
+    absent = [w for w in words if w not in low]
+    if len(words) > 1 and not absent:
+        return head + ("each word is in the clue but not side by side: give each run of "
+                       "clue words its own [..] piece (the words between belong to other pieces "
+                       "or are link words)")
+    if absent:
+        return head + (f"{', '.join(repr(w) for w in absent)} {'is' if len(absent) == 1 else 'are'} "
+                       f"not among its words: copy the clue words exactly")
+    return head + "copy the clue words exactly"
+
+
 def locate(node, clue, taken=()):
     """Fill `at` on every span of `node` from `clue`; `#n` suffixes pick the
     nth copy and come off the stored text.
@@ -368,13 +391,26 @@ def locate(node, clue, taken=()):
         if "at" in span:
             used.append((span["at"], span["at"] + len(text)))
         else:
-            todo.append((span, text, nth))
+            todo.append((span, text, nth, key))
     todo.sort(key=lambda t: -len(t[1]))
-    for span, text, nth in todo:
-        at = find_at(clue, text, nth, used)
+    low = clue.lower() if len(clue.lower()) == len(clue) else None
+    repeated = {t.lower() for _, t, n, _ in todo if n > 1}
+    for span, text, nth, key in todo:
+        # "fruit" and "fruit#2" for "Fruit fly turning peeled fruit": the first
+        # copy is capitalised, so counting exact-case copies finds one and the
+        # run was told there is no copy #2 (51 refusals in 48h). A text the
+        # tree repeats is counted without regard to case, both copies alike.
+        at = None
+        if low and text.lower() in repeated:
+            at = find_at(low, text.lower(), nth, used)
         if at is None:
-            raise WordplayError(f"{text!r} is not in the clue {clue!r}: copy the clue words "
-                                f"exactly{'' if nth == 1 else f' (there is no copy #{nth})'}")
+            at = find_at(clue, text, nth, used)
+        if at is None and low:
+            at = find_at(low, text.lower(), nth, used)
+        if at is not None and clue[at:at + len(text)] != text:
+            span[key] = text = clue[at:at + len(text)]
+        if at is None:
+            raise WordplayError(not_in_clue(text, clue, nth))
         span["at"] = at
         used.append((at, at + len(text)))
     return node
@@ -979,6 +1015,31 @@ def _check_ops(node, got):
                             f"so the reversal does nothing")
 
 
+def _fold(text):
+    return " ".join(re.findall(r"\w+", text.lower()))
+
+
+def _rekey(notes, tree):
+    """Land each leftover note on the one span with no note whose words are the
+    note's key apart from case, punctuation and spacing, or (when exactly one
+    span qualifies) contain it or are contained in it. Those keys name the span
+    plainly and the run was only sent back to retype them (172 of the
+    'name no span' refusals in 48h). Anything ambiguous stays refused."""
+    for key in list(notes):
+        want = _fold(re.sub(r"#\d+$", "", key))
+        if not want:
+            continue
+        free = [(s, k) for s, k in _spans(tree, True) if "note" not in s and _fold(s[k])]
+        for hit in ([x for x in free if _fold(x[0][x[1]]) == want],
+                    [x for x in free if f" {want} " in f" {_fold(x[0][x[1]])} "
+                     or (len(_fold(x[0][x[1]]).split()) > 1 and f" {_fold(x[0][x[1]])} " in f" {want} ")]):
+            if len(hit) == 1:
+                hit[0][0]["note"] = notes.pop(key)
+                break
+            if hit:
+                break
+
+
 def translate(clue_out, clue, answer, taken=(), respell=None):
     """The stored tree for one clue of model output ({"wp", "notes"}),
     checked against `answer`. Notes are keyed by span words (`#2` for a
@@ -1004,8 +1065,13 @@ def translate(clue_out, clue, answer, taken=(), respell=None):
                 span["note"] = notes.pop(k)
                 break
     if notes:
+        _rekey(notes, tree)
+    if notes:
+        keys = [s[k] for s, k in _spans(tree, True) if "note" not in s]
         raise WordplayError(f"notes {sorted(notes)} name no span of the wordplay; key each "
-                            f"note by its words as written in the expression")
+                            f"note by its words as written in the expression"
+                            + (f" (spans with no note yet: {keys})" if keys else
+                               " (every span has a note already)"))
     evaluate(tree, answer)
     return tree
 

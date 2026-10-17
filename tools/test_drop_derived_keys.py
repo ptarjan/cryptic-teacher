@@ -35,4 +35,14 @@ with tempfile.TemporaryDirectory() as d:
     check("a clean clue and a null are untouched",
           set(got["2-down"]) == {"def", "wp", "notes"} and got["4-down"] is None)
     check("a second pass changes nothing", AC.drop_derived_keys(f) == [])
+    f.write_text(json.dumps({
+        "5-down": {"def": "d", "wp": "[a]B", "notes": {}, "noIndicator": True, "andLit": False,
+                   "spelling": "BEE"},
+        "6-down": {"def": "d", "wp": "[a]B", "notes": {}, "andLit": True},
+    }))
+    check("noIndicator, andLit false and spelling are mended", AC.drop_derived_keys(f) == ["5-down"])
+    got = json.loads(f.read_text())
+    check("spelling becomes answer, the rest are gone",
+          got["5-down"] == {"def": "d", "wp": "[a]B", "notes": {}, "answer": "BEE"}
+          and got["6-down"]["andLit"] is True)
 sys.exit(1 if fails else 0)

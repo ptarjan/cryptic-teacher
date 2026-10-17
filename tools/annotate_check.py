@@ -758,11 +758,24 @@ def drop_derived_keys(pending):
     for eid, a in (ann.items() if isinstance(ann, dict) else ()):
         if not (isinstance(a, dict) and "wp" in a and annotation.is_model(a)):
             continue
-        for k in annotation.DERIVED_KEYS:
+        # Stored-shape keys a run copies from the validator's own wording
+        # ("or the op is not in the clue" -> noIndicator; "spelling" is `answer`
+        # here; `andLit: false` is the key left out): "unknown key noIndicator"
+        # was 27 refusals, "spelling" 4, "andLit: false" 5, "wordplay" 3 in the
+        # 10-15..17 window. The model shape cannot say the first and last
+        # two, so dropping them loses nothing; `spelling` is renamed.
+        if "spelling" in a and "answer" not in a and isinstance(a["spelling"], str):
+            a["answer"] = a.pop("spelling")
+            changed.append(eid)
+        for k in annotation.DERIVED_KEYS + ("noIndicator", "spelling", "wordplay"):
             if k in a and (k != "definitions" or "def" in a):
                 del a[k]
                 if eid not in changed:
                     changed.append(eid)
+        if a.get("andLit") is False:
+            del a["andLit"]
+            if eid not in changed:
+                changed.append(eid)
     if changed:
         write_pending(pending, ann)
     return changed
@@ -1009,6 +1022,14 @@ def main(argv):
             return 1
     if argv[0] == "--view":
         print(write_view(resolve_puzzle(argv[1])).relative_to(ROOT))
+        # `python3 -c` over this file failed in ~100 runs a window: `entries` is a
+        # list of STRINGS (d['entries'][0].get raises), and before this command ran
+        # the file did not exist. Say both once, where the path is handed out.
+        # (stderr: daily_update.sh captures stdout as the path)
+        print("(JSON: `entries` is a list of strings '1-across | group | ANSWER | clue (enum)', "
+              "not objects: Read the file, no script needed. The full puzzle is "
+              "puzzles/<series>/<year>/<id>.json, whose entries have `number` and "
+              "`direction`, no `id`.)", file=sys.stderr)
         return 0
     if argv[1:2] == ["--withdraw"]:
         return withdraw(resolve_puzzle(argv[0]), " ".join(argv[2:]))
