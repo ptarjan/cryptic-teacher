@@ -467,44 +467,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "spread",
-       "note": "something spread about is scattered, so its letters land in a new order"
+       "text": "within",
+       "at": 12,
+       "note": "the temperature letter goes within the other letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "within",
-         "note": "the first item placed within the other sits inside it"
+         "text": "spread",
+         "at": 29,
+         "note": "gunge that is spread is smeared about, so the letters of my gunge are scattered into a new order"
         }
        ],
        "parts": [
         {
          "words": "my gunge",
-         "note": "the seven letters rearranged"
-        },
-        {
-         "words": "Temperature",
-         "gives": "T",
-         "note": "T is the symbol for temperature"
+         "at": 19
         }
        ]
+      },
+      {
+       "words": "Temperature",
+       "at": 0,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "Warm gloop spread around like a spiced custard.",
-     "definitionFit": "Custard is traditionally dusted with grated nutmeg, so a spiced one tastes or smells of that spice; the question mark flags the example."
+     "surface": "A complaint about warm, gooey mess smeared everywhere, compared to custard.",
+     "walkthrough": "'spread' rearranges MY GUNGE, and 'within' places T inside the result. Custard is commonly dusted with grated nutmeg, hence the question mark.",
+     "definitionFit": "Custard tarts are traditionally spiced with grated nutmeg, so such a custard tastes of that spice."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "spread"
+     "misdirectedWord": "Temperature"
     }
    }
   },
@@ -535,48 +538,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TITYRETU",
+     "op": "container",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "with no end, the final letter is cut off"
+       "text": "interrupted by",
+       "at": 23,
+       "note": "the tyre interrupts the shortened name, breaking into it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "interrupted by",
-         "note": "a word interrupted by another is broken open with that word placed inside"
+         "text": "endlessly",
+         "at": 13,
+         "note": "endlessly means without its end, so the last letter of the name goes"
         }
        ],
        "parts": [
         {
          "words": "Groan maybe",
-         "gives": "TITU",
-         "note": "Titus Groan, Mervyn Peake's hero, is one Groan; his first name loses its last letter"
+         "at": 0,
+         "gives": "TITUS",
+         "note": "Titus Groan is the hero of Mervyn Peake's Gormenghast novels"
         },
         {
-         "words": "band on the road",
-         "gives": "TYRE",
-         "note": "a tyre is the rubber band round a road wheel"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "band on the road",
+       "at": 38,
+       "gives": "TYRE",
+       "note": "a tyre is the rubber band that runs on the road"
       }
      ]
     },
     "explanation": {
-     "surface": "A groan from a loutish toff, cut off by a passing band.",
-     "walkthrough": "Groan looks like a noise, but capitalised it is a surname: Titus Groan of Peake's Gormenghast novels.",
-     "definitionFit": "Tityre-tus were gangs of well-born young hooligans in seventeenth-century London, named from Virgil's opening line."
+     "surface": "A moan from a rowdy upper-class lout is cut short by a band touring the roads.",
+     "walkthrough": "'Groan' is not a noise but Titus Groan of Gormenghast; 'endlessly' leaves TITU, which TYRE splits.",
+     "definitionFit": "The Tityre-tus were a gang of well-born young hooligans in 17th-century London, so one was a rowdy aristocrat."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Groan"
     }
    }
@@ -671,53 +678,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RUMBLOSSOM",
-     "indicators": [
-      {
-       "text": "Briefly",
-       "note": "said briefly, a word is cut short by its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Briefly",
+         "at": 0,
+         "note": "briefly means cut short, so the word loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "clash like Sharks and Jets",
-         "gives": "RUMBL",
-         "note": "a rumble is the gang fight in West Side Story between the Sharks and the Jets, shortened here"
+         "at": 8,
+         "gives": "RUMBLE",
+         "note": "the Sharks and Jets are the rival gangs of West Side Story, whose fight is called the rumble"
         },
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "over",
-           "note": "in an across clue, turned over means written back to front"
-          }
-         ],
-         "parts": [
-          {
-           "words": "animatedly in music",
-           "gives": "MOSSO",
-           "note": "mosso is the Italian score direction for lively, with motion"
-          }
-         ]
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "over",
+         "at": 57,
+         "note": "over means turned over, so the Italian direction is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "animatedly in music",
+         "at": 36,
+         "gives": "MOSSO",
+         "note": "mosso is the Italian musical direction for animated or with movement"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A musical fight scene, two gangs clashing to a lively score, then someone informs.",
-     "walkthrough": "Snitch reads as an informer, but it is old slang for the nose; a spot on it is the drinker's red pimple.",
-     "definitionFit": "A rum blossom is a red pimple or blotch on the nose, blamed on heavy drinking; snitch is slang for nose."
+     "surface": "A musical theatre scene: gangs fighting briefly with lively music playing.",
+     "walkthrough": "'snitch' is slang for the nose, so the definition is a spot on it. RUMBL is followed by MOSSO 'over', OSSOM.",
+     "definitionFit": "Rum blossom is a red pimple or bloom on the nose blamed on heavy drinking; snitch is old slang for nose."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "snitch's"
     }
    }
@@ -869,53 +880,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "JAGUARONDI",
+     "op": "container",
      "indicators": [
       {
-       "text": "Blend",
-       "note": "a blend mixes things up, so these letters are stirred together anew"
+       "text": "containing",
+       "at": 15,
+       "note": "the mixed letters contain the water and right"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "containing",
-         "note": "the mixed word holds the other pieces inside it"
+         "text": "Blend of",
+         "at": 0,
+         "note": "a blend is a mixture, so the letters of Dijon are mixed up"
         }
        ],
        "parts": [
         {
          "words": "Dijon",
-         "gives": "JONDI",
-         "note": "the city's five letters rearranged"
+         "at": 9
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Tabasco water",
+         "at": 26,
+         "gives": "AGUA",
+         "note": "agua is Spanish for water, the language of the Mexican state of Tabasco"
         },
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Tabasco water",
-           "gives": "AGUA",
-           "note": "agua is Spanish for water, as spoken in the Mexican state of Tabasco"
-          },
-          {
-           "words": "right",
-           "gives": "R",
-           "note": "R is the abbreviation for right"
-          }
-         ]
+         "words": "right",
+         "at": 41,
+         "gives": "R"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe: mustard mixed with hot sauce and water.",
-     "walkthrough": "Tabasco looks like the hot sauce, beside Dijon mustard; it is the Mexican state, so its water is Spanish.",
-     "definitionFit": "The jaguarondi is a small slender wild cat of Central and South America, with an otter-like build."
+     "surface": "A recipe for mustard mixed with hot sauce and water, oddly fit for a wild animal.",
+     "walkthrough": "'Tabasco' looks like the hot sauce, but it is the Mexican state, so its water is in Spanish.",
+     "definitionFit": "The jaguarundi or jaguarondi is a small slender wild cat of Central and South America."
     },
     "features": {
      "answerInScene": false,
@@ -1263,43 +1274,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BABICHE",
+     "op": "container",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter goes"
+       "text": "Overrun by",
+       "at": 0,
+       "note": "the shortened babies are overrun by check, which runs into them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Overrun by",
-         "note": "a thing overrun by others is swamped, with them all around it"
+         "text": "mostly",
+         "at": 19,
+         "note": "mostly means all but the last letter"
         }
        ],
        "parts": [
         {
          "words": "infants",
-         "gives": "BABIE",
-         "note": "babies, without the final letter"
+         "at": 11,
+         "gives": "BABIES",
+         "note": "infants are babies"
         },
         {
-         "words": "check",
-         "gives": "CH",
-         "note": "CH is the chess abbreviation for check"
+         "gives": "S"
         }
        ]
+      },
+      {
+       "words": "check",
+       "at": 27,
+       "gives": "CH",
+       "note": "CH is the chess abbreviation for check"
       }
      ]
     },
     "explanation": {
-     "surface": "A parent overrun by toddlers reaches for the strap.",
-     "walkthrough": "Overrun by comes first but governs check, which sits inside the shortened babies.",
-     "definitionFit": "Babiche is thong or lacing made of rawhide strips, used by Indigenous North Americans for snowshoes."
+     "surface": "A household swamped by small children needs some leather restraints checked.",
+     "walkthrough": "'check' is the chess call, abbreviated as it is in written game notation.",
+     "definitionFit": "Babiche is rawhide cut into thongs, used by North American peoples for lacing snowshoes."
     },
     "features": {
      "answerInScene": false,
@@ -1413,49 +1429,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ZYGOMA",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "short means falling short by a letter, so the end is cut"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Extremes of",
+         "at": 0,
+         "note": "the extremes of a word are its first and last letters"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "Extremes of",
-           "note": "the extremes of a word are its first and last letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "zoophysiology",
-           "note": "the opening and closing letters"
-          }
-         ]
-        },
+         "words": "zoophysiology",
+         "at": 12,
+         "gives": "ZY",
+         "note": "the word zoophysiology, whose outermost letters are taken"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 35,
+         "note": "short means missing its end, so the last letter goes"
+        }
+       ],
+       "parts": [
         {
          "words": "see red",
-         "gives": "GOMA",
-         "note": "to see red is to go mad, cut short"
+         "at": 26,
+         "gives": "GOMAD",
+         "note": "to see red is to go mad with anger"
+        },
+        {
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A zoologist sees red at extremes in animal physiology.",
-     "definitionFit": "The zygoma is the cheekbone arch, a bony bridge on each side of the face forming part of the cranium."
+     "surface": "A zoologist studying animal bodies loses their temper over a skull bone.",
+     "walkthrough": "'see red' is the idiom for becoming furious, GO MAD, which 'short' cuts to GOMA.",
+     "definitionFit": "The zygoma is the cheekbone arch, a bony part of the skull."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "red"
     }
@@ -1547,54 +1570,55 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "ANGWANTIBO",
+     "op": "container",
      "indicators": [
       {
-       "text": "to cycle",
-       "note": "cycled letters go round, so the last ones move to the front"
+       "text": "wearing",
+       "at": 39,
+       "note": "the boa is worn around the cycled word, enclosing it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "wearing",
-         "note": "something being worn is wrapped in the garment"
+         "text": "fluttery",
+         "at": 47,
+         "note": "a fluttery boa flaps about, so its letters are shaken into a new order"
         }
        ],
        "parts": [
         {
          "words": "boa",
-         "gives": "ABO",
-         "note": "the three letters rearranged"
-        },
+         "at": 56
+        }
+       ]
+      },
+      {
+       "op": "cycling",
+       "indicators": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "fluttery",
-           "note": "fluttering things flap about, so the letters fall in a different order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "desiring",
-           "gives": "WANTING",
-           "note": "desiring is wanting"
-          }
-         ]
+         "text": "to cycle",
+         "at": 30,
+         "note": "to cycle letters is to move some from one end round to the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "desiring",
+         "at": 21,
+         "gives": "WANTING",
+         "note": "wanting means desiring"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A monkey in a golden coat longing to ride a bike in a feather boa.",
-     "walkthrough": "Gold coat looks like wordplay, OR around something; it is part of the definition, since this animal is also called the golden potto.",
-     "definitionFit": "The angwantibo, or golden potto, is a small slow-moving West African primate with a golden-brown pelt."
+     "surface": "A fancifully dressed creature in golden fur, wanting to ride a bike in a feathery boa.",
+     "walkthrough": "'cycle' is not riding a bike: it moves letters from one end of the word to the other. The definition includes 'in gold coat', the animal's golden fur.",
+     "definitionFit": "The angwantibo, or golden potto, is a small West African primate with golden fur."
     },
     "features": {
      "answerInScene": true,
