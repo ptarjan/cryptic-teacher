@@ -63,6 +63,12 @@ if [ -z "${CT_PRERESET_STATE:-}" ] && [ -e "$PRERESET_PAUSE" ]; then
   echo "pre-reset backfill paused ($PRERESET_PAUSE exists, since $(date -r "$PRERESET_PAUSE" '+%F %H:%M')) — not starting"
   exit 0
 fi
+# Every fire looks first at a burn that is alive but stuck, or dead with orphans
+# still holding its tree lease (tools/prereset_watch.sh), ahead of the lease
+# below, which would only say "holds its tree" and leave either one. It logs
+# and alerts, and frees the lease of a dead burn so this fire restarts it.
+[ -z "${CT_PRERESET_STATE:-}" ] && [ "${DRY_RUN:-0}" != 1 ] && [ -z "${CT_NO_PRERESET_WATCH:-}" ] &&
+  bash "$(dirname "$0")/prereset_watch.sh"
 # A checkout of its own, so days of unmetered annotation cannot collide with
 # the nightly's units or with somebody editing the repo. See tools/nightly_worktree.sh.
 # A commit a dropped run could not push yet is pushed by the next start.
