@@ -1014,37 +1014,35 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENTAIL",
-     "indicators": [
-      {
-       "text": "translation of",
-       "note": "translating changes the form of LATIN, so its letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "English",
+       "at": 8,
+       "gives": "E"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "translation of",
+         "at": 16,
+         "note": "translation here is taken as moving letters across, so the word's letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "English",
-         "gives": "E",
-         "note": "E = English"
-        },
-        {
-         "words": "translation of Latin",
-         "gives": "NTAIL",
-         "note": "LATIN rearranged"
+         "words": "Latin",
+         "at": 31
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A classroom task that requires putting Latin into English.",
-     "walkthrough": "The surface is a school translation exercise; 'translation' here is a signal to rearrange, not to translate.",
-     "definitionFit": "A plain synonym: when one thing necessarily brings another with it, it requires or includes it."
+     "surface": "A request to render a Latin text into English.",
+     "walkthrough": "'translation of' looks like a language task, but it rearranges the five letters of Latin to give NTAIL, after E.",
+     "definitionFit": "If one thing entails another, it necessarily brings it in, so the verbs share the sense of necessitating."
     },
     "features": {
      "answerInScene": false,
@@ -1077,46 +1075,47 @@
      "op": "container",
      "indicators": [
       {
-       "text": "to admit"
+       "text": "to admit",
+       "at": 27,
+       "note": "to admit something is to let it in, so the letter goes inside the name"
       }
      ],
      "parts": [
       {
        "words": "disastrous Tory PM",
+       "at": 8,
        "gives": "TRUSS",
-       "note": "Liz Truss, Conservative prime minister for 49 days in 2022"
+       "note": "Liz Truss was the Conservative British prime minister whose 2022 term lasted only 49 days"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "T",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "ultimately means in the end, so only the final letter of fault is taken"
+         "at": 43,
+         "note": "ultimately means at the end, so the last letter of the word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "fault, ultimately",
-         "gives": "T",
-         "select": "last",
-         "note": "last letter of fault"
+         "words": "fault",
+         "at": 36,
+         "note": "the word whose last letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Hoping a failed prime minister will finally own up to her mistakes.",
-     "walkthrough": "Liz Truss was the British Conservative prime minister whose 2022 term collapsed within weeks. 'Disastrous' describes her, not an anagram: TRUS(T)S.",
-     "definitionFit": "To trust that something will happen is to expect it."
+     "surface": "A political jibe: people anticipate a failed prime minister will eventually own up.",
+     "walkthrough": "'ultimately' gives T from fault, and 'to admit' puts it inside TRUSS. 'admit fault' reads as a confession, but only one letter is admitted.",
+     "definitionFit": "To trust that something will happen is to expect or confidently hope it will."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "disastrous"
+     "joke": "pun",
+     "misdirectedWord": "admit"
     }
    }
   },
@@ -1320,26 +1319,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "OVER",
      "indicators": [
       {
        "text": "Topless",
-       "note": "in a down entry the top is the first letter, so remove it"
+       "at": 0,
+       "note": "in a down clue the top of a word is its first letter, which is taken off"
       }
      ],
      "parts": [
       {
-       "words": "Topless fan",
-       "gives": "OVER",
-       "note": "LOVER without its first letter"
+       "words": "fan",
+       "at": 8,
+       "gives": "LOVER",
+       "note": "a lover of something is a fan of it"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A shirtless supporter at a cricket match.",
-     "walkthrough": "A lover is a fan (a music lover). An over is a set of six balls bowled from one end in cricket.",
-     "definitionFit": "An over is a unit of play in cricket: six deliveries by one bowler."
+     "surface": "A spectator strips off their shirt during the cricket.",
+     "walkthrough": "'Topless' takes the first letter off LOVER. In cricket an over is a set of six balls bowled from one end.",
+     "definitionFit": "An over is a unit of play in cricket, six deliveries by one bowler, so it is one part of a match."
     },
     "features": {
      "answerInScene": true,
