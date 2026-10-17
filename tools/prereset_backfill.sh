@@ -621,6 +621,14 @@ pool_reap() {
   unset "POOL_RUNS[$pid]"
   rm -f "/tmp/ct-prereset-$id.rc"
   POOL_DONE=$((POOL_DONE + 1))
+  # Refill the freed slot BEFORE committing, not after. Committing a bagged run
+  # is one commit per puzzle in it (~15), serial in this shell, and takes minutes
+  # on a loaded box; the slot used to sit empty for all of it, and a re-plan
+  # (pool_replan) waited out the same commits, so a pool planned at 6 averaged
+  # 0.41 over 10-17 03:50-04:10 and the window turned over at 54% with the rest
+  # unspent. The runs are the only parallel part; the commits stay in this shell.
+  # Only after a clean exit: a failure may be a lockout, which the checkpoint judges.
+  [ "$rc" -eq 0 ] && pool_topup
   if [ -n "${POOL_SOLVING[$pid]:-}" ]; then
     unset "POOL_SOLVING[$pid]"
     # Cut off, most likely by a lockout, before its fill went in: requeued to
@@ -641,7 +649,9 @@ pool_reap() {
 
 # Let every run in flight finish, then sync.
 pool_drain() {
+  POOL_HOLD=1
   while [ ${#POOL_RUNS[@]} -gt 0 ]; do pool_reap; done
+  POOL_HOLD=0
   sync_wave
   POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
 }
@@ -777,7 +787,9 @@ pool_topup_room() {
   fi
   [ "$POOL_TOPUP_ROOM" = 1 ]
 }
+POOL_HOLD=0          # 1 while the pool drains or stops: nothing new starts
 pool_topup() {
+  [ "$POOL_HOLD" = 1 ] && return
   case "${wide:-}" in ''|*[!0-9]*) return ;; esac
   while [ ${#POOL_RUNS[@]} -lt "$wide" ] && [ "$at" -lt "${#queue[@]}" ] &&
         pool_topup_room && ! past_deadline; do
@@ -870,6 +882,7 @@ run_pool() {
     if [ "$stop" = 0 ] && past_deadline; then
       if [ -e "$PRERESET_PAUSE" ]; then echo "paused ($PRERESET_PAUSE) — stopping"; else echo "deadline reached — stopping"; fi
       stop=1
+      POOL_HOLD=1
     fi
     if [ "$stop" = 0 ] &&
        [ $(( ${EPOCHREALTIME/[.,]/} - POOL_SYNCED_US )) -ge $(( POOL_SYNC_SECS * 1000000 )) ]; then
@@ -901,8 +914,9 @@ run_pool() {
       # runs since the previous one, which may requeue what a lockout cut off.
       [ "$stop" = 0 ] && [ "$POOL_DONE" -gt 0 ] || break
     fi
-    pool_checkpoint || stop=1
+    pool_checkpoint || { stop=1; POOL_HOLD=1; }
   done
+  POOL_HOLD=0
   sync_wave
   POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
   return $stop
