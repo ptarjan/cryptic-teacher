@@ -96,6 +96,10 @@ def merge(o, a, b, path=""):
         return out
     if isinstance(a, list) and isinstance(b, list):
         return merge_lists(o, a, b)
+    if a is MISSING or b is MISSING:
+        # One side removed the key, the other changed it: keep the change, since
+        # dropping data is the costlier mistake (rows lists drop it: merge_rows).
+        return b if a is MISSING else a
     print(f"json_merge: {path or '/'} changed on both sides; kept the replayed "
           f"side's {json.dumps(b, ensure_ascii=False)[:200]}", file=sys.stderr)
     return b
@@ -254,7 +258,10 @@ def merge_rows(o, a, b):
     rows only %B has after. One row per line, the layout its writers use."""
     def keyed(rows):
         return {r["id"]: r for r in rows}
+    removed = {r["id"] for r in o} - {r["id"] for r in a} | \
+              {r["id"] for r in o} - {r["id"] for r in b}
     held = merge(keyed(o), keyed(a), keyed(b))
+    held = {k: v for k, v in held.items() if k not in removed}
     order = [r["id"] for r in a] + [r["id"] for r in b]
     out = [held[k] for k in dict.fromkeys(order) if k in held]
     return "[\n" + ",\n".join(json.dumps(r, ensure_ascii=False) for r in out) + "\n]\n"
@@ -272,14 +279,16 @@ def main(o_path, a_path, b_path):
         return 1
     if is_rows(a) and is_rows(b) and (o == {} or is_rows(o)):   # {}: no ancestor
         o = o or []
+        text = merge_rows(o, a, b)   # before open(): a crash must not truncate %A
         with open(a_path, "w", encoding="utf-8") as f:
-            f.write(merge_rows(o, a, b))
+            f.write(text)
         return 0
     if not all(isinstance(x, dict) for x in (o, a, b)):
         print("json_merge: not a JSON object; leaving the conflict", file=sys.stderr)
         return 1
+    text = dump_lines(merge(o, a, b))
     with open(a_path, "w", encoding="utf-8") as f:
-        f.write(dump_lines(merge(o, a, b)))
+        f.write(text)
     return 0
 
 

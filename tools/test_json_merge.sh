@@ -241,4 +241,24 @@ check "an annotation written with its own clue change is kept" \
   "$(python3 -c 'import json; d=json.load(open("puzzles/x/x-1.json")); e=d["entries"][1]; print(e["clue"], e["annotation"])')" \
   "{'text': 'New'} {'by': 'fixer'}"
 
+# tools/data/shape_reannotate.json: a list of {id, reason} rows the burn prunes
+# (removes done ids) while other sessions append thousands. genius-161's rebase
+# hit a conflict, then the driver crashed on a row one side removed and the other
+# edited (10-17). Three-way rebase: the burn removes r2 and r3, upstream appends
+# r5 and r6, re-words r1, and re-words r3 (removed by the burn): the rebase
+# completes, additions survive, removals are honoured, and r1 keeps upstream's words.
+git checkout -q master
+rows() { python3 -c '
+import json, sys
+rs = [dict(zip(("id", "reason"), (r.partition("=")[0], r.partition("=")[2] or "redo"))) for r in sys.argv[1:]]
+open("tools/data/shape_reannotate.json", "w").write("[\n" + ",\n".join(json.dumps(r) for r in rs) + "\n]\n")' "$@"; }
+rows "r1" "r2" "r3" "r4"; git add -A; git commit -qm rows-base
+git checkout -qb burnrows; rows "r1" "r4"; git commit -qam "burn prunes r2 r3"
+git checkout -q master; rows "r1=reworded" "r2" "r3=reworded" "r4" "r5" "r6"; git commit -qam "upstream appends"
+git checkout -q burnrows; git rebase -q master >/dev/null 2>&1
+check "rebase over appended and pruned shape_reannotate rows completes" "$(git ls-files -u | wc -l | tr -d ' ')" 0
+check "pruned ids are gone, appended ids kept, upstream's reason kept" \
+  "$(python3 -c 'import json; print([(r["id"], r["reason"]) for r in json.load(open("tools/data/shape_reannotate.json"))])')" \
+  "[('r1', 'reworded'), ('r4', 'redo'), ('r5', 'redo'), ('r6', 'redo')]"
+
 [ "$fails" = 0 ] && echo "json_merge: all checks passed" || { echo "json_merge: $fails FAILED"; exit 1; }
