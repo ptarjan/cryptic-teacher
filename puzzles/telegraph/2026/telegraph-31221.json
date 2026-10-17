@@ -868,46 +868,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LANDOWNER",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is cut"
+       "text": "New",
+       "at": 0,
+       "note": "new means made afresh, so the pooled letters are put into a fresh order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "lord",
+       "at": 4
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "New",
-         "note": "something made new is remade in a different form, so the letters are rearranged"
+         "text": "almost",
+         "at": 13,
+         "note": "almost means not quite all of the word, so its last letter is dropped"
         }
        ],
        "parts": [
         {
-         "words": "lord",
-         "note": "taken as written"
-        },
-        {
          "words": "and",
-         "gives": "AN",
-         "note": "the word minus its final letter"
+         "at": 9
         },
         {
-         "words": "new",
-         "note": "taken as written"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "new",
+       "at": 20
       }
      ]
     },
     "explanation": {
-     "surface": "A newly ennobled peer next to a freshly titled country gentleman.",
-     "walkthrough": "The repeated 'new' has two jobs: the first signals the rearrangement, the second is part of the letters to be rearranged.",
-     "definitionFit": "A squire was the chief landowner of an English village, so the country gentleman owns the estate."
+     "surface": "A newly created peer and a fresh country squire.",
+     "walkthrough": "'almost' trims AND to AN; 'New' then rearranges LORD, AN and NEW together.",
+     "definitionFit": "A squire was traditionally the chief landed proprietor of an English country parish, the owner of its estates."
     },
     "features": {
      "answerInScene": true,
