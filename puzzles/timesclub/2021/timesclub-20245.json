@@ -619,30 +619,36 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SHCHI",
+     "op": "charade",
      "indicators": [
       {
        "text": "sandwich of",
-       "note": "the sandwich is the outside bread only, leaving out the filling word between the two nouns"
+       "at": 26,
+       "note": "the filling of a sandwich is what lies between the bread, so only the inner letters of the phrase fish and chips are kept, with FI, the joining word and PS as the bread"
       }
      ],
      "parts": [
       {
-       "words": "fish and chips",
-       "gives": "SHANDCHI",
-       "note": "the end of fish, the middle word, and the start of chips"
+       "words": "fish",
+       "at": 38,
+       "gives": "SH",
+       "note": "the tail end of fish, its last two letters, inside the sandwich"
+      },
+      {
+       "words": "chips",
+       "at": 47,
+       "gives": "CHI",
+       "note": "the front of chips, its first three letters, inside the sandwich"
       }
      ]
     },
     "explanation": {
-     "surface": "A cabbage dish served in a fish-and-chip sandwich sounds like a strange chip-shop special.",
-     "walkthrough": "Dropping the middle word, the letters either side of it in 'fish and chips' join up as SH+CHI.",
-     "definitionFit": "Shchi is a traditional Russian soup made chiefly from cabbage, so it is a dish prepared from that vegetable."
+     "surface": "A cookery question: is cabbage what goes into a fish-and-chip sandwich?",
+     "walkthrough": "Read 'fish and chips' as a sandwich: discard FI at the start, PS at the end and the 'and' in the middle, and the filling SH plus CHI remains.",
+     "definitionFit": "Shchi is a traditional Russian soup made chiefly from cabbage, so it is a dish prepared from it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "sandwich"
@@ -876,64 +882,70 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SUPERMAX",
      "indicators": [
       {
        "text": "Among",
-       "note": "something among others is placed in their midst"
+       "at": 0,
+       "note": "among means in the midst of, so the city's name goes inside the other letters"
       }
      ],
      "parts": [
       {
        "op": "charade",
+       "indicators": [
+        {
+         "text": "with",
+         "at": 30,
+         "note": "with joins the initials to what follows"
+        }
+       ],
        "parts": [
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "SU",
          "indicators": [
           {
            "text": "leaders in",
-           "note": "leaders are the opening letters of the words that follow"
+           "at": 6,
+           "note": "leaders are the front runners, so the first letters of Soviet and Union are taken"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "Soviet Union",
-           "gives": "SU",
-           "select": "first",
-           "note": "the first letters of Soviet and Union"
+           "at": 17,
+           "note": "its first letters are S and U"
           }
          ]
         },
         {
-         "words": "Molotov now",
-         "gives": "PERM",
-         "note": "the Russian city of Perm was called Molotov from 1940 to 1957"
-        },
-        {
          "words": "a",
-         "note": "taken as written"
+         "at": 35
         },
         {
          "words": "vote",
+         "at": 37,
          "gives": "X",
-         "note": "a voter marks a cross on the ballot"
+         "note": "X is the cross marked on a ballot paper as a vote"
         }
        ]
+      },
+      {
+       "words": "Molotov now is",
+       "at": 43,
+       "gives": "PERM",
+       "note": "the Russian city of Perm was named Molotov from 1940 to 1957, so Molotov is now Perm"
       }
      ]
     },
     "explanation": {
-     "surface": "A Soviet minister, voting among the leadership, is utterly safe in his position.",
-     "walkthrough": "Molotov looks like the Soviet foreign minister, but here it is the old name of a Russian city.",
-     "definitionFit": "A supermax prison is a maximum-security jail, the most tightly guarded kind of penal institution."
+     "surface": "A historical scene: Molotov voting among the Soviet leadership.",
+     "walkthrough": "Molotov looks like the Soviet minister, but the Russian city of Perm bore his name from 1940 to 1957, hence 'now is'. 'Leaders in' Soviet Union give SU; 'with' adds A and X; 'Among' puts PERM in their midst.",
+     "definitionFit": "Supermax describes the highest-security level of prison, so it means extremely secure."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Molotov"
     }
    }
@@ -1401,39 +1413,48 @@
     "definitions": [
      {
       "text": "I once was privileged",
-      "at": 0,
-      "note": "the answer speaks as the person, so this stands for an old noble"
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "regular",
-     "unchecked": true,
-     "gives": "LUCUMO",
+     "op": "charade",
      "indicators": [
       {
-       "text": "take two of every seven in",
-       "note": "taking a fixed pair from each run of seven picks letters at a regular interval"
+       "text": "to take two of every seven in",
+       "at": 22,
+       "note": "taking two of every seven letters means reading a pair, skipping five, and repeating along the phrase"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "lunar excursion modules",
-       "gives": "LUCUMO",
-       "select": "regular",
-       "note": "letters 1-2, 8-9 and 15-16"
+       "words": "lunar",
+       "at": 52,
+       "gives": "LU",
+       "note": "letters 1-2 of the run-together phrase fall here"
+      },
+      {
+       "words": "excursion",
+       "at": 58,
+       "gives": "CU",
+       "note": "letters 8-9 of the run-together phrase fall here"
+      },
+      {
+       "words": "modules",
+       "at": 68,
+       "gives": "MO",
+       "note": "letters 15-16 of the run-together phrase fall here"
       }
      ]
     },
     "explanation": {
-     "surface": "An astronaut recalls the privilege of riding in Apollo landing craft.",
-     "walkthrough": "The definition is written in the first person, as the answer describing itself.",
-     "definitionFit": "A lucumo was an Etruscan prince or priest-king, a member of the ancient ruling class with special rank."
+     "surface": "A boast from someone lucky enough to ride along on the Apollo lunar modules.",
+     "walkthrough": "'To take two of every seven in' means read a pair of letters, skip five, and repeat along 'lunar excursion modules', giving LU, CU and MO. The definition speaks as the answer, a title from the past.",
+     "definitionFit": "A lucumo was an Etruscan prince or priest-king, a person of privileged rank in ancient times."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "seven"
+     "misdirectedWord": "privileged"
     }
    }
   },
@@ -1684,48 +1705,47 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Bones",
-      "at": 63
+      "text": "\"Bones\"",
+      "at": 62
      }
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "ULNAE",
      "indicators": [
       {
        "text": "recalled",
-       "note": "recalled means called back, so the letters run backwards"
+       "at": 50,
+       "note": "recalled suggests calling back, so the letters are read in reverse"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ULNAE",
+       "op": "middle",
        "indicators": [
         {
          "text": "Not taking sides",
-         "note": "without its sides, a word loses its outermost letters"
+         "at": 0,
+         "note": "a word's sides are its outer letters, so the first and last are dropped"
         }
        ],
        "parts": [
         {
          "words": "Enterprise captain's first name",
+         "at": 18,
          "gives": "JEANLUC",
-         "note": "Jean-Luc Picard captained the starship Enterprise in Star Trek"
+         "note": "Jean-Luc Picard captains the starship Enterprise in Star Trek: The Next Generation"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A neutral Star Trek fan remembers that the Enterprise's doctor is nicknamed Bones.",
-     "walkthrough": "Bones is the nickname of the Enterprise's doctor, McCoy, a false trail in this setting.",
-     "definitionFit": "Ulnae is the plural of ulna, the inner of the two long bones in the human forearm."
+     "surface": "Star Trek trivia: is the Enterprise captain's name the same as the ship's doctor's nickname, Bones?",
+     "walkthrough": "Bones is the nickname of Dr McCoy on the Enterprise, which steers toward the doctor; it is the plain plural. 'Not taking sides' trims JEANLUC to EANLU, and 'recalled' reverses it.",
+     "definitionFit": "The ulna is a forearm bone, and ulnae is its Latin plural, so the word names bones."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Bones"
