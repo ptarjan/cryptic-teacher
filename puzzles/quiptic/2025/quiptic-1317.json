@@ -366,35 +366,33 @@
      "parts": [
       {
        "words": "former",
+       "at": 11,
        "gives": "EX",
-       "note": "ex = former"
+       "note": "ex means former, as in ex-wife"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "PEL",
        "indicators": [
         {
-         "text": "leaders initially",
-         "note": "take the first letter of each of the words private, equity and leaders"
+         "text": "initially",
+         "at": 41,
+         "note": "initially points to the opening letter of each of the words private, equity and leaders"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "private equity leaders initially",
-         "gives": "PEL",
-         "select": "first",
-         "note": "first letters of Private Equity Leaders"
+         "words": "private equity leaders",
+         "at": 18,
+         "note": "only the first letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A call to oust the former bosses of a private equity firm.",
-     "walkthrough": "'Leaders' is both one of the words and part of the indicator, so its own L is included.",
-     "definitionFit": "A plain synonym, used of pupils thrown out of school or air forced from the lungs."
+     "surface": "A boardroom purge: ousting the one-time heads of a private equity firm.",
+     "walkthrough": "\"initially\" takes P, E and L from the starts of private equity leaders, after EX.",
+     "definitionFit": "To expel someone is to force them out, removing them from a school, party or country."
     },
     "features": {
      "answerInScene": true,
@@ -694,35 +692,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "Wild",
-       "note": "the letters run wild, rearranged"
+       "at": 0,
+       "note": "a wild animal is untamed, so the letters of rhinoceros run loose into a new order"
       },
       {
        "text": "not",
-       "note": "the greeting is left out of the letters"
+       "at": 16,
+       "note": "not tells the solver to leave the greeting's letters out of the rhinoceros pool"
       }
      ],
      "parts": [
       {
-       "words": "rhinoceros not greeting",
-       "gives": "RNOCEROS",
-       "note": "RHINOCEROS without HI, a greeting"
+       "words": "rhinoceros",
+       "at": 5
+      },
+      {
+       "words": "greeting",
+       "at": 20,
+       "gives": "HI",
+       "note": "hi is a casual greeting"
       }
      ]
     },
     "explanation": {
-     "surface": "A wild rhino that doesn't say hello to the choir.",
-     "walkthrough": "Remove HI from RHINOCEROS before shuffling what remains.",
-     "definitionFit": "A definition by example: Bing Crosby and Frank Sinatra, who sang soft sentimental ballads, are the type."
+     "surface": "A rampaging rhino that pays no attention to a hello.",
+     "walkthrough": "Remove HI (greeting), as \"not\" asks, from RHINOCEROS to leave RNOCEROS, and \"Wild\" rearranges those letters.",
+     "definitionFit": "Crooners are singers of sentimental ballads in a soft, smooth style, like Bing Crosby."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "greeting"
+     "misdirectedWord": "Wild"
     }
    }
   },
@@ -862,47 +867,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HANDLEBAR",
-     "indicators": [
-      {
-       "text": "mangled",
-       "note": "BARE is mangled, its letters rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Worker",
+       "at": 0,
+       "gives": "HAND",
+       "note": "a hand is a manual worker, as in farmhand"
+      },
+      {
+       "words": "left",
+       "at": 7,
+       "gives": "L"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mangled",
+         "at": 17,
+         "note": "something mangled is twisted out of shape, so the letters of bare are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Worker",
-         "gives": "HAND",
-         "note": "a hand is a worker, as in farmhand"
-        },
-        {
-         "words": "left",
-         "gives": "L",
-         "note": "L = left"
-        },
-        {
-         "words": "bare mangled",
-         "gives": "EBAR",
-         "note": "BARE rearranged"
+         "words": "bare",
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A worker abandons a stripped, wrecked bike component.",
-     "walkthrough": "'Left' is L, not the past tense of leave.",
-     "definitionFit": "A plain description: the bar a rider grips to steer is a component of the bike."
+     "surface": "A cycle mechanic left a bare, twisted piece of bike behind.",
+     "walkthrough": "'Worker' here is a farm or factory hand, not the usual ANT or BEE; \"mangled\" then twists the four letters of bare after the abbreviation for left.",
+     "definitionFit": "The handlebar is the steering bar at the front of a bicycle, held in both hands."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "left"
+     "misdirectedWord": "Worker"
     }
    }
   },
