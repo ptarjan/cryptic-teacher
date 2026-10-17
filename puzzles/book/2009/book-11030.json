@@ -909,32 +909,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RESIDENCE",
-     "indicators": [
-      {
-       "text": "edges off",
-       "note": "with its edges off, a word loses its first and last letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "One living there",
-       "gives": "PRESIDENT",
-       "note": "the US president lives in the White House"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "edges off",
+         "at": 34,
+         "note": "the word for an inhabitant has an edge taken off, losing its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "One living there",
+         "at": 17,
+         "gives": "RESIDENT",
+         "note": "a resident is one who lives in a place"
+        },
+        {
+         "gives": "T"
+        }
+       ]
       },
       {
-       "words": "church",
+       "words": "to church",
+       "at": 44,
        "gives": "CE",
-       "note": "CE is the Church of England"
+       "note": "CE is the Church of England abbreviation, added on after"
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzle about who lives in the White House and how they go to church.",
-     "walkthrough": "The question mark marks the White House as only one example of the kind of building the answer names.",
-     "definitionFit": "The White House is the official home of the US president, so it is a residence by example."
+     "surface": "A puzzle about the President's home, with an occupant creeping away to a service.",
+     "walkthrough": "'edges off' reads like a verb of slinking away, but it trims the end letter from RESIDENT, giving RESIDEN, before CE is added. The question mark shows the White House is just one example.",
+     "definitionFit": "The White House is the official residence of the US President, a home attached to an office."
     },
     "features": {
      "answerInScene": true,
