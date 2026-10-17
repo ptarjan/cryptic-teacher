@@ -346,54 +346,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALOHA",
-     "indicators": [
-      {
-       "text": "nearly",
-       "note": "nearly means not quite all, so the last letter of the word is cut"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly",
+         "at": 9,
+         "note": "nearly means not quite all of the word, so its last letter goes"
+        }
+       ],
        "parts": [
         {
          "words": "everyone",
-         "gives": "AL",
-         "note": "everyone is ALL, here missing its last letter"
+         "at": 16,
+         "gives": "ALL",
+         "note": "all means everyone"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "OHA",
-         "indicators": [
-          {
-           "text": "leads to",
-           "note": "leads are the front runners, so only the opening letter of each following word is taken"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "others having anxiety",
-           "gives": "OHA",
-           "select": "first",
-           "note": "the initial letters of these three words"
-          }
-         ]
+         "gives": "L"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leads to",
+         "at": 25,
+         "note": "the leads of words are their first letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "others having anxiety",
+         "at": 34,
+         "note": "the first letters of these three words"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Greeting almost everyone makes some people nervous.",
-     "definitionFit": "Aloha is the Hawaiian word used to say hello or goodbye, so it is a greeting."
+     "surface": "A welcome to nearly everybody makes the others nervous.",
+     "walkthrough": "'nearly' cuts ALL to AL, and 'leads to' takes O, H and A from the starts of the last three words.",
+     "definitionFit": "Aloha is the Hawaiian word used as a salutation, both hello and goodbye."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "leads"
     }
