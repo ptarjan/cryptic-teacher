@@ -1309,49 +1309,59 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "OILRICH",
      "indicators": [
       {
-       "text": "run by",
-       "note": "run by places the other pieces after the industry word"
+       "text": "by",
+       "at": 39,
+       "note": "by here means next to, so the pieces either side sit side by side in order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "OILRICH",
        "indicators": [
         {
          "text": "timeless",
-         "note": "timeless means without the time letter, so it is removed"
+         "at": 17,
+         "note": "time-less means without its T, the abbreviation for time, so that letter is dropped"
         }
        ],
        "parts": [
         {
          "words": "industry",
+         "at": 26,
          "gives": "TOIL",
          "note": "toil is hard work, industry"
         },
         {
-         "words": "one",
-         "gives": "I",
-         "note": "Roman numeral one"
-        },
-        {
-         "words": "champion",
-         "gives": "CH",
-         "note": "Ch is the abbreviation for champion"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "run",
+       "at": 35,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for run"
+      },
+      {
+       "words": "one",
+       "at": 42,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
+      },
+      {
+       "words": "champion",
+       "at": 46,
+       "gives": "CH",
+       "note": "CH is the abbreviation for champion, as in dog shows"
       }
      ]
     },
     "explanation": {
-     "surface": "An oil company described as an industry run by a single champion.",
-     "walkthrough": "TOIL loses T, then R comes from 'run' as well as signalling order.",
-     "definitionFit": "Shell is an oil company, and the 'say' marks it as one example of something wealthy in oil."
+     "surface": "A comment on an oil company whose ageless industry is led by a single champion.",
+     "walkthrough": "'timeless' removes T from TOIL; the rest is a string of standard abbreviations added in order.",
+     "definitionFit": "Shell is an oil major, and a company like that is wealthy from petroleum."
     },
     "features": {
      "answerInScene": true,
@@ -1482,43 +1492,32 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "'ospital",
-       "note": "the dropped letter in the spelling shows the leading letter must go here too"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Incorporated",
-         "gives": "INC",
-         "note": "Inc is short for incorporated"
-        },
-        {
-         "words": "private 'ospital",
-         "gives": "HOME",
-         "note": "a private nursing home is a small hospital"
-        }
-       ]
+       "words": "Incorporated",
+       "at": 0,
+       "gives": "INC",
+       "note": "INC is the abbreviation for incorporated, used after US company names"
       },
       {
-       "gives": "H"
+       "words": "private 'ospital",
+       "at": 13,
+       "gives": "OME",
+       "note": "a private hospital is a nursing home; the dropped H of 'ospital, in Cockney style, tells you to drop the H of home too"
       }
      ]
     },
     "explanation": {
-     "surface": "A company running a private hospital makes money.",
-     "walkthrough": "The dropped H in the Cockney spelling tells you to drop the H of HOME too.",
-     "definitionFit": "Income and revenue both mean money received, especially from business or work."
+     "surface": "A company running a private hospital makes money from it.",
+     "walkthrough": "The apostrophe in 'ospital mimics a Cockney accent that drops its aitches, so the home in question loses its H as well.",
+     "definitionFit": "Income is money coming in, a direct synonym for the earnings a business takes."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "generates"
+     "joke": "pun",
+     "misdirectedWord": "'ospital"
     }
    }
   },
