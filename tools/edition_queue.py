@@ -363,6 +363,14 @@ REPLAN = 60
 #: (5 minutes), as long as the last plan holds enough untried units to keep
 #: the pools full: the planner thread's stats are CPU the burn wants.
 IDLE_BACKOFF = 5
+#: A plan may use at most 1/PLAN_DUTY of the wall clock: the next waits PLAN_DUTY times
+#: as long as the last took (2026-10-17: plans of 29k scans and 47k reads took a median 48 s,
+#: p90 280 s, max 5000 s on a host at load 28, replanned every 60-300 s, so the planner ran
+#: near-continuously against the OCR it feeds). The queue is a burn of ~190 scans and ~310
+#: reads an hour; a plan stale by a few minutes costs nothing.
+PLAN_DUTY = 10
+#: ... but never more than this many seconds.
+PLAN_WAIT_MAX = 1800
 #: How often (seconds) the dispatch loop looks for editions just laid out
 #: (fresh): a listing of the cache and a stat of each item dir, ~0.3s.
 FRESH_POLL = 30
@@ -1045,13 +1053,18 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         IDLE_BACKOFF times it while no core is idle and the last plan still
         holds more untried units than the pools are wide (read at most every
         FRESH_POLL seconds)."""
+        if planned_took[0] * PLAN_DUTY > replan and planned_took[0]:
+            wait = min(planned_took[0] * PLAN_DUTY, PLAN_WAIT_MAX)
+        else:
+            wait = 0
         # Counting stops past pool_width: the queue is ~25k units and the untried come early.
         if sum(1 for _ in itertools.islice((u for u in queue if key_of(u) not in tried), pool_width + 1)) <= pool_width:
             return replan
         if idle_seen[0] is None or time.monotonic() - idle_seen[0] >= FRESH_POLL:
             idle_seen[:] = [time.monotonic(), mem_gate.idle_room(0, idle_gate_reader)]
-        return replan if idle_seen[1] else replan * IDLE_BACKOFF
+        return max(wait, replan if idle_seen[1] else replan * IDLE_BACKOFF)
 
+    planned_took = [0.0]  # seconds the last whole plan took (replan_after)
     upkept = [upkeep] if upkeep else []  # run, and emptied, before the first plan made here
     left = 0
     pools = {"scan": scan_workers, "read": workers, "trove": trove_workers, "listener": LISTENER_WORKERS,
@@ -1318,6 +1331,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             scans, reads, fetches = box["plan"]
             planned, plan_done = box["begun"], None if box.get("partial") else time.monotonic()
             if plan_done is not None:
+                planned_took[0] = plan_done - planned
                 plan_at = time.time()
                 keep_plan(plan_file, plan_key, box["plan"], plan_at)
             for n in box["notes"]:
