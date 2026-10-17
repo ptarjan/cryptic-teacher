@@ -388,42 +388,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HEADSET",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not half",
-       "note": "only half of the word survives, so the second pair of letters is dropped"
+       "text": "complicated",
+       "at": 36,
+       "note": "complicated means tangled up, so the letters are mixed into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "these",
+       "at": 16
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "complicated",
-         "note": "something complicated is tangled up, so the letters are mixed into a new order"
+         "text": "not half",
+         "at": 27,
+         "note": "not half means one half of the word days is dropped, leaving its first two letters"
         }
        ],
        "parts": [
         {
-         "words": "these",
-         "note": "taken as written"
+         "words": "days",
+         "at": 22,
+         "note": "taken as written, before halving"
         },
         {
-         "words": "days",
-         "gives": "DA",
-         "note": "the first half of the word"
+         "gives": "YS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grumble that modern sound gear is far too fiddly nowadays.",
-     "walkthrough": "'Not half' looks like the British slang for 'very', intensifying 'complicated', but it trims the word before it.",
-     "definitionFit": "A headset is a pair of headphones, often with a microphone, worn for listening to sound."
+     "surface": "A grumble that sound gear nowadays is rather complicated.",
+     "walkthrough": "'not half' cuts DAYS to DA; 'complicated' then rearranges THESE with DA. 'not half' reads like the slang intensifier 'not half!', which is the misdirection.",
+     "definitionFit": "A headset is a pair of headphones, often with a microphone, worn to listen to sound."
     },
     "features": {
      "answerInScene": true,
@@ -663,40 +666,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "THROW",
-     "indicators": [
-      {
-       "text": "brief",
-       "note": "brief means short, so the word is shortened by losing its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brief",
+         "at": 4,
+         "note": "brief means cut short, so the word the loses its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "The",
-         "gives": "TH",
-         "note": "the word without its last letter"
+         "at": 0
         },
         {
-         "words": "line",
-         "gives": "ROW",
-         "note": "a row is a line of things"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "line",
+       "at": 10,
+       "gives": "ROW",
+       "note": "a row is a line of people or things"
       }
      ]
     },
     "explanation": {
-     "surface": "A director handing out a short speech for the actors to say.",
-     "walkthrough": "'Cast' and 'line' suggest the theatre, a cast of actors and lines to learn; cast is in fact the verb.",
-     "definitionFit": "To cast something is to hurl or fling it, as when casting a stone or a net."
+     "surface": "A short instruction about the line an angler should cast.",
+     "walkthrough": "'brief' cuts THE to TH, followed by ROW for line. 'cast' looks like a noun for actors but is the verb to fling.",
+     "definitionFit": "To throw and to cast are synonyms, both meaning to hurl or fling something."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "cast"
     }
