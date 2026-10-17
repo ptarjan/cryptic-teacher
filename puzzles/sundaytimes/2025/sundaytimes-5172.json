@@ -461,40 +461,39 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NAYSAY",
-     "indicators": [
-      {
-       "text": "changes",
-       "note": "the letters of ANY are altered into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changes",
+         "at": 11,
+         "note": "changes tells us the letters of the word any are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "any",
-         "gives": "NAY",
-         "note": "letters of ANY rearranged"
-        },
-        {
-         "words": "eg",
-         "gives": "SAY",
-         "note": "'e.g.' and 'say' both introduce an example"
+         "at": 7
         }
        ]
+      },
+      {
+       "words": "eg",
+       "at": 19,
+       "gives": "SAY",
+       "note": "eg (for example) can be replaced by say, as in 'say, a banana'"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to refuse any amendments, for example.",
-     "walkthrough": "'eg' looks like the clue's own aside, but it is a piece of wordplay meaning SAY.",
-     "definitionFit": "A plain synonym: to refuse or deny something, literally by saying 'nay' to it."
+     "surface": "A grammarian rejects some revisions to a sentence containing 'eg'.",
+     "walkthrough": "'changes' rearranges ANY into NAY; 'eg' is SAY, as in 'take, say, a cat'.",
+     "definitionFit": "To naysay is to deny or refuse something, a fair synonym for rejecting it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "eg"
     }
@@ -861,45 +860,52 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NIHILISTS",
+     "op": "charade",
      "indicators": [
       {
-       "text": "turning",
-       "note": "something turning faces the other way, so the word before it is read back to front"
+       "text": "after",
+       "at": 13,
+       "note": "after places the welcome and tips pieces following the turned word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turning",
+         "at": 19,
+         "note": "turning means the word in is read the other way round"
+        }
+       ],
        "parts": [
         {
          "words": "in",
-         "gives": "NI",
-         "note": "IN turned round"
-        },
-        {
-         "words": "Welcome",
-         "gives": "HI",
-         "note": "a greeting"
-        },
-        {
-         "words": "tips",
-         "gives": "LISTS",
-         "note": "a ship that tips to one side lists"
+         "at": 27
         }
        ]
+      },
+      {
+       "words": "Welcome",
+       "at": 0,
+       "gives": "HI",
+       "note": "hi is a word of welcome"
+      },
+      {
+       "words": "tips",
+       "at": 8,
+       "gives": "LISTS",
+       "note": "a ship that tips over to one side lists"
       }
      ]
     },
     "explanation": {
-     "surface": "Gallery visitors welcomed, with advice, at a Warhol exhibition.",
-     "walkthrough": "'Tips' looks like advice, but it is the verb for leaning over. Calling Warhol a nihilist is a contestable view of Pop Art's cool emptiness, not a textbook label.",
-     "definitionFit": "Warhol's deadpan, surface-only art is often read as nihilistic, so he and like-minded artists can be called nihilists."
+     "surface": "A greeting is extended with gratuities to Andy Warhol and his circle.",
+     "walkthrough": "'turning' reverses IN to give NI; HI (welcome) and LISTS (tips, leans) come after it. Warhol is cast as a nihilist in the setter's view of pop art's emptiness.",
+     "definitionFit": "Nihilists reject all values and meaning, a label the setter applies to Warhol and his like."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "misdirectedWord": "tips"
     }
