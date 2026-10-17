@@ -113,52 +113,55 @@
      "op": "charade",
      "parts": [
       {
-       "op": "last",
-       "indicators": [
-        {
-         "text": "extremely",
-         "note": "the extremes of a word are its first and last letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "a",
-         "note": "kept as it is"
-        }
-       ]
+       "words": "a",
+       "at": 15
       },
       {
        "op": "outer",
        "indicators": [
         {
-         "text": "close to",
-         "note": "the close of a word is its final letter"
+         "text": "extremely",
+         "at": 24,
+         "note": "extremely means at the extremes, so only the outermost letters of the word are kept"
         }
        ],
        "parts": [
         {
-         "words": "report extremely",
-         "gives": "REPORT",
-         "note": "first and last letters of REPORT"
+         "words": "report",
+         "at": 17,
+         "note": "first and last letters of report"
         }
        ]
       },
       {
-       "words": "close to the",
-       "gives": "E",
-       "note": "last letter of THE"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "at": 34,
+         "note": "the close of a word is its end, so its last letter is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "the",
+         "at": 43,
+         "note": "last letter of the"
+        }
+       ]
       },
       {
        "words": "truth",
+       "at": 47,
        "gives": "FACT",
        "note": "a fact is a truth"
       }
      ]
     },
     "explanation": {
-     "surface": "A journalist files a story that comes very near to the truth.",
-     "walkthrough": "\"Close to the truth\" reads as one idiom, but it splits: \"close to the\" gives E and \"truth\" is FACT on its own.",
-     "definitionFit": "A plain synonym: any object shaped by human hands counts, which is all \"something made\" asks for."
+     "surface": "A journalist's piece that comes extremely close to the truth.",
+     "walkthrough": "'Close to the truth' reads as one phrase meaning nearly true, but 'close to' only takes the last letter of 'the', and 'truth' stands alone.",
+     "definitionFit": "An artefact is an object made by human hands, such as a tool or ornament."
     },
     "features": {
      "answerInScene": false,
@@ -183,59 +186,65 @@
    "annotation": {
     "definitions": [
      {
-      "text": "clothes store",
-      "at": 26,
-      "note": "An emporium sells all sorts of goods; \"clothes store\" is one kind."
+      "text": "store",
+      "at": 34
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "latest",
-       "note": "the latest letter of a word is its last one"
+       "text": "clothes",
+       "at": 26,
+       "note": "to clothe is to cover, so the rearranged letters wrap around the single letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "new"
+         "text": "new",
+         "at": 14,
+         "note": "new means made afresh, so the letters of premium are given a different order"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "O",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Oslo's latest",
-           "gives": "O",
-           "select": "last",
-           "note": "last letter of OSLO"
-          }
-         ]
-        },
-        {
          "words": "premium",
-         "note": "anagram fodder with the O"
+         "at": 18
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "latest",
+         "at": 7,
+         "note": "the latest part of a word is its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Oslo's",
+         "at": 0,
+         "gives": "OSLO",
+         "note": "the name Oslo, whose last letter is O; the 's reads as 'is'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A smart new boutique has just opened in Oslo.",
-     "walkthrough": "Oslo looks like a place the store is in, but it gives only its last letter to the anagram.",
-     "definitionFit": "An emporium is a large shop, and clothes stores are often given the name."
+     "surface": "An advert for an Oslo shop's newest premium range of clothing.",
+     "walkthrough": "'Clothes store' looks like the definition, but 'clothes' is a verb meaning dresses, wrapping the rearranged PREMIUM around O.",
+     "definitionFit": "An emporium is a large shop selling many kinds of goods, a store."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Oslo"
+     "misdirectedWord": "clothes"
     }
    }
   },
@@ -412,26 +421,34 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 10,
+       "note": "in a down clue on means placed after, so the second piece follows"
+      }
+     ],
      "parts": [
       {
        "words": "Suspended",
+       "at": 0,
        "gives": "HUNG",
-       "note": "hung means suspended"
+       "note": "something suspended is hung up"
       },
       {
        "words": "railway",
-       "gives": "RY",
-       "note": "RY is an abbreviation for railway"
+       "at": 13,
+       "gives": "RY"
       }
      ]
     },
     "explanation": {
-     "surface": "A passenger is thrown off the train for not having enough money for the ticket.",
-     "walkthrough": "Fare as a train ticket fits the railway surface, but here it means food.",
-     "definitionFit": "Someone without enough fare, or food, is hungry."
+     "surface": "Someone was suspended from the railway for not having enough money for the fare.",
+     "walkthrough": "'Fare' looks like a train fare, but here it is food: hungry people lack enough to eat.",
+     "definitionFit": "Fare can mean food, so someone without enough of it is hungry."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "fare"
@@ -787,37 +804,46 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "most of CHASE, so its last letter goes"
+       "text": "prepared",
+       "at": 17,
+       "note": "prepared means made up or worked over, so the combined letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Car",
+       "at": 0
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "prepared",
-         "note": "the letters are made into something new, i.e. rearranged"
+         "text": "mostly",
+         "at": 10,
+         "note": "mostly means all but the last letter"
         }
        ],
        "parts": [
         {
-         "words": "Car chase mostly",
-         "gives": "CARCHAS",
-         "note": "CAR CHASE without its last letter"
+         "words": "chase",
+         "at": 4
         },
         {
-         "words": "DS",
-         "note": "used as printed; DS is a detective sergeant in the surface"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "DS",
+       "at": 27,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A detective sergeant gets ready for a car chase.",
-     "walkthrough": "\"Ready\" means cash here, as in \"ready money\", so the definition is the means of getting cash. \"Get ready\" seems to mean prepare.",
-     "definitionFit": "A cash card lets you take ready money from a machine."
+     "surface": "A detective sergeant has mostly planned a car chase, getting ready for action.",
+     "walkthrough": "'Ready' is slang for cash, so cards that get you ready money fit. DS reads as a detective sergeant in the surface but is used only for its letters.",
+     "definitionFit": "Ready money, or readies, is British slang for cash, and cash cards let you withdraw it from machines."
     },
     "features": {
      "answerInScene": false,
@@ -901,50 +927,52 @@
     "definitions": [
      {
       "text": "speculation",
-      "at": 28,
-      "note": "THEORIES is plural; \"speculation\" is a mass noun covering the same thing."
+      "at": 28
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "THEORIES",
+     "op": "container",
      "indicators": [
       {
-       "text": "up",
-       "note": "in a down answer, up means read from bottom to top"
+       "text": "limiting",
+       "at": 19,
+       "note": "limiting means bounding on each side, so the outer word holds the reversed piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "MPs",
+       "at": 15,
+       "gives": "TORIES",
+       "note": "Tories are Conservative members of Parliament"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "limiting"
+         "text": "up",
+         "at": 7,
+         "note": "in a down clue up means the word is read from bottom to top, so backwards"
         }
        ],
        "parts": [
         {
-         "words": "MPs",
-         "gives": "TORIES",
-         "note": "Tories are Conservative MPs"
-        },
-        {
-         "words": "What's up",
-         "gives": "HE",
-         "note": "\"Eh?\" means \"What?\", and it is written upwards"
+         "words": "What's",
+         "at": 0,
+         "gives": "EH",
+         "note": "eh is a cry of 'what?'; the 's reads as 'is'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A question about the talk going around among members of Parliament.",
-     "walkthrough": "\"What's up\" reads as \"what's happening\". Split it: \"What\" is EH and \"'s up\" turns it over. The Tories are Britain's Conservative party.",
-     "definitionFit": "Theories are ideas not yet proved, which is what speculation offers."
+     "surface": "A puzzled question about what is going on with members of Parliament.",
+     "walkthrough": "'What's up' reads as an idiom, but 'What' is EH and 'up' turns it over. Tories are the UK Conservative Party, here standing for MPs.",
+     "definitionFit": "Theories are ideas put forward without proof, which is what speculation consists of."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "up"
     }
@@ -1184,43 +1212,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "cutting",
+       "at": 8,
+       "note": "cutting means removing, so the letter a is taken out of the word"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "cutting",
-         "note": "cutting A out removes it from the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Careful",
-         "gives": "SPARING",
-         "note": "sparing means careful, as with money"
-        },
-        {
-         "gives": "A"
-        }
-       ]
+       "words": "Careful",
+       "at": 0,
+       "gives": "SPARING",
+       "note": "sparing means careful, economical with resources"
       },
       {
-       "unchecked": true,
        "words": "a",
-       "note": "the A removed from SPARING"
+       "at": 16
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener's advice to take care when pruning a stalk.",
-     "walkthrough": "\"Stem\" looks like a noun, a plant stalk, but it is the verb, as in problems that stem from something.",
-     "definitionFit": "A plain synonym in the verb sense: trouble that stems from a cause can equally be said to arise from it."
+     "surface": "A gardener's caution about taking a cutting from a plant stem.",
+     "walkthrough": "'Cutting a stem' reads as gardening, but 'cutting' takes A out of SPARING, and 'stem' is a verb.",
+     "definitionFit": "To stem from something is to spring from it, both meaning to originate or arise."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "stem"
+     "misdirectedWord": "cutting"
     }
    }
   },
@@ -1310,56 +1331,58 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SAMBA",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gripping",
+       "at": 22,
+       "note": "gripping means holding tight, so the reversed word surrounds the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "backwards"
+         "text": "backwards",
+         "at": 6,
+         "note": "backwards means the word is read from the end"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "gripping"
-          }
-         ],
-         "parts": [
-          {
-           "words": "while",
-           "gives": "SA",
-           "note": "as = while, turned round"
-          },
-          {
-           "words": "a",
-           "note": "kept as it is"
-          }
-         ]
+         "words": "while",
+         "at": 16,
+         "gives": "AS",
+         "note": "as can mean while, as in 'as I was leaving'"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 31
         },
         {
          "words": "medic",
+         "at": 33,
          "gives": "MB",
-         "note": "MB is a medical degree, so a doctor"
+         "note": "MB is Bachelor of Medicine, a doctor's degree"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone dances backwards while holding on to a doctor.",
-     "walkthrough": "\"Dance backwards\" looks like a step in the dance. In fact \"Dance\" is the definition and \"backwards\" turns AS round.",
-     "definitionFit": "A definition by example: a lively Brazilian dance, famous from the Rio carnival."
+     "surface": "A dancer moves backwards while holding on to a doctor.",
+     "walkthrough": "MB, Bachelor of Medicine, is a common way to clue a doctor.",
+     "definitionFit": "The samba is a lively Brazilian dance of African origin, associated with carnival."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "backwards"
+     "aptDefinition": false
     }
    }
   },
@@ -1527,42 +1550,36 @@
      {
       "text": "I'm exasperated",
       "at": 0,
-      "note": "The definition is a whole statement; SIGH is the sound that says it."
+      "note": "an interjection standing in for the one-word exclamation"
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "being wasted",
+       "at": 28,
+       "note": "being wasted means lost or thrown away, so the letter is dropped"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "being wasted",
-         "note": "the T is used up and lost"
-        }
-       ],
-       "parts": [
-        {
-         "words": "seeing",
-         "gives": "SIGHT",
-         "note": "sight is the act of seeing"
-        },
-        {
-         "gives": "T"
-        }
-       ]
+       "words": "seeing",
+       "at": 16,
+       "gives": "SIGHT",
+       "note": "sight is the act of seeing"
       },
       {
-       "unchecked": true,
        "words": "time",
-       "note": "T for time, removed from SIGHT"
+       "at": 23,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is annoyed to watch time frittered away.",
-     "walkthrough": "The whole top and bottom rows make a pun: A BETTING SHOP / SIGH PROPHETS sounds like \"a betting shop's high profits\".",
-     "definitionFit": "A sigh is the sound someone makes to show they are exasperated."
+     "surface": "Someone loses patience watching time being frittered away.",
+     "walkthrough": "'Seeing' looks like a link word but is the noun SIGHT, which loses its T.",
+     "definitionFit": "Saying 'sigh' aloud, as an exclamation, signals weariness or frustration with someone."
     },
     "features": {
      "answerInScene": true,
