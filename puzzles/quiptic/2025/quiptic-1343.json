@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -44,36 +45,29 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "DEGRADE",
      "indicators": [
       {
        "text": "for recreation",
-       "note": "Recreation is re-creation, the making of a thing over again, so the letters beside it are built anew in another order."
+       "at": 30,
+       "note": "recreation, read as re-creation, means making again, so the letters are formed anew in a different order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "day",
-         "gives": "D",
-         "note": "d is the standard short form of day, as in D-Day"
-        },
-        {
-         "words": "geared",
-         "gives": "EGRADE",
-         "note": "the six letters of GEARED made over into a new order"
-        }
-       ]
+       "words": "day",
+       "at": 19,
+       "gives": "D"
+      },
+      {
+       "words": "geared",
+       "at": 23
       }
      ]
     },
     "explanation": {
-     "surface": "A day organised around leisure.",
-     "walkthrough": "'Recreation' is the trap: the surface offers an afternoon off, and the setter wants re-creation, the building of something over again. Only six of the seven letters move, the day staying put in front.",
-     "definitionFit": "To degrade something is to lower its worth or standing, whether a currency, a material or a reputation."
+     "surface": "A complaint that a day kitted out for leisure has lost its worth.",
+     "walkthrough": "'For recreation' sounds like leisure, but read it as re-creation: the letters of D and GEARED are made over into a new order.",
+     "definitionFit": "To degrade something is to reduce its quality, standing or worth."
     },
     "features": {
      "answerInScene": false,
@@ -104,48 +98,61 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EMBARGO",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "amid",
+       "at": 17,
+       "note": "amid means in the middle of, so the jumbled garb goes inside the shortened protest"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "scruffy",
-         "note": "Something scruffy has been thrown on anyhow, so these letters arrive in a mess rather than their proper order."
-        },
-        {
-         "text": "amid",
-         "note": "What sits amid a thing sits in the middle of it, so the jumbled letters go inside the word alongside."
-        },
-        {
          "text": "first off",
-         "note": "Taking something first off is getting rid of it before anything else, and the first thing a word has is its opening letter."
+         "at": 31,
+         "note": "first off means the first letter is taken away"
         }
        ],
        "parts": [
         {
          "words": "protest",
-         "gives": "EMO",
-         "note": "a protest is a demo, and the demo loses its opening letter; what is left parts after its second letter"
+         "at": 22,
+         "gives": "DEMO",
+         "note": "a demo is a demonstration, a public protest"
         },
         {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "scruffy",
+         "at": 4,
+         "note": "scruffy means untidy and messed up, so the letters of garb are jumbled"
+        }
+       ],
+       "parts": [
+        {
          "words": "garb",
-         "gives": "BARG",
-         "note": "the four letters of GARB in another order"
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A call to ban shabby clothing at demonstrations, and to do it before anything else.",
-     "walkthrough": "'First off' reads as the surface's 'before anything else' and works as the instruction to take a word's opening letter away. The protest is a demo, which is the word being docked.",
-     "definitionFit": "An embargo is an official ban — on trade with a country, or on publishing a story before a set hour."
+     "surface": "Protesters in untidy clothes are barred from a demonstration.",
+     "walkthrough": "'First off' strips the D from DEMO to leave EMO, and 'amid' places BARG, the 'scruffy' version of garb, inside it.",
+     "definitionFit": "An embargo is an official prohibition, especially on trade with another country."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "scruffy"
     }
