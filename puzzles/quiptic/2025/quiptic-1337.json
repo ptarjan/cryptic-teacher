@@ -219,38 +219,41 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "heartless",
-       "note": "a heartless word has its middle, its heart, cut out"
+       "text": "changing",
+       "at": 23,
+       "note": "changing says the letters gathered are rearranged into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
        "indicators": [
         {
-         "text": "changing",
-         "note": "letters that are changing will not stay in the order given"
+         "text": "heartless",
+         "at": 5,
+         "note": "without a heart, the word keeps only its outside letters, losing its middle"
         }
        ],
        "parts": [
         {
-         "words": "Odd, heartless",
-         "gives": "OD",
-         "note": "ODD without its middle D"
-        },
-        {
-         "words": "ally is",
-         "note": "anagram fodder alongside OD"
+         "words": "Odd",
+         "at": 0,
+         "note": "the word whose outer letters are kept"
         }
        ]
+      },
+      {
+       "words": "ally is",
+       "at": 15,
+       "note": "taken as written"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "surface": "A friend is strangely turning, and you wonder whether they are about to betray you.",
-     "walkthrough": "The whole clue does double duty: read plainly, an ally who changes sides has turned traitor, and the question mark flags that the definition is the story rather than a synonym.",
-     "definitionFit": "Read straight, the clue describes an ally switching sides, which is exactly what being false to an alliance means."
+     "surface": "A strange, unfeeling friend is turning: what will they become?",
+     "walkthrough": "'heartless' strips the middle D from ODD to leave OD; 'changing' then rearranges OD with ALLYIS. The whole clue also describes the answer: a friend who turns, without heart, is faithless.",
+     "definitionFit": "An ally who changes sides is a traitor to the alliance, which is exactly what the answer describes."
     },
     "features": {
      "answerInScene": true,
@@ -498,30 +501,33 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "twice",
-       "note": "'twice' tells you to write the I that precedes it two times over"
-      },
-      {
        "text": "upset",
-       "note": "letters that are upset are overturned and land in a new order"
+       "at": 27,
+       "note": "upset means knocked over or disordered, so the letters are put into a new order"
       }
      ],
      "parts": [
       {
        "words": "supremo",
-       "note": "anagram fodder"
+       "at": 11,
+       "note": "taken as written"
       },
       {
-       "words": "I twice",
-       "gives": "II",
-       "note": "the letter I, taken two times"
+       "words": "I",
+       "at": 19
+      },
+      {
+       "words": "twice",
+       "at": 21,
+       "gives": "I",
+       "note": "twice says the letter I is used a second time"
       }
      ]
     },
     "explanation": {
-     "surface": "A domineering boss has been upset twice by the speaker.",
-     "walkthrough": "'Supremo' looks like part of the definition, the dominating boss, but every letter of it goes into the anagram.",
-     "definitionFit": "Plain synonym: overbearing and commanding, behaving like an emperor."
+     "surface": "A domineering boss, upset by a clash of two egos.",
+     "walkthrough": "'twice' doubles the I, so the fodder is SUPREMO plus two Is, which 'upset' rearranges.",
+     "definitionFit": "An imperious manner is arrogant and commanding, the attitude of someone who dominates others."
     },
     "features": {
      "answerInScene": true,
@@ -551,48 +557,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SIGNALLED",
+     "op": "container",
      "indicators": [
       {
-       "text": "New",
-       "note": "a new version of a word is a rearranged one"
+       "text": "included",
+       "at": 27,
+       "note": "included puts the word for everything inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "included",
-         "note": "what is included is taken inside"
+         "text": "New",
+         "at": 0,
+         "note": "a new version of the word means its letters are rearranged afresh"
         }
        ],
        "parts": [
         {
-         "words": "New design",
-         "gives": "SIGNED",
-         "note": "DESIGN rearranged"
-        },
-        {
-         "words": "everything",
-         "gives": "ALL",
-         "note": "all = everything, set inside SIGN…ED"
+         "words": "design",
+         "at": 4,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "everything",
+       "at": 16,
+       "gives": "ALL",
+       "note": "everything means all"
       }
      ]
     },
     "explanation": {
-     "surface": "A fresh design with every feature built in, just as specified.",
-     "walkthrough": "The rearranged DESIGN has to split after its fourth letter to take the insert.",
-     "definitionFit": "Plain synonym: to show or point something out by a sign."
+     "surface": "A fresh design, with every feature built in, as was pointed out.",
+     "walkthrough": "'New' turns DESIGN into SIGNED, and 'included' places ALL between SIGN and ED.",
+     "definitionFit": "To signal something is to show or point it out, so signalled matches indicated in the past tense."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "New"
+     "misdirectedWord": "design"
     }
    }
   },
@@ -1247,27 +1254,25 @@
      "indicators": [
       {
        "text": "in",
-       "note": "the cat goes inside the lake"
+       "at": 16,
+       "note": "in places the old cat inside what is left of the lake"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "LE",
        "indicators": [
         {
          "text": "drained-out",
-         "note": "a drained word has its contents emptied, leaving only its outside letters"
+         "at": 19,
+         "note": "a lake drained out has lost its contents, so only its first and last letters stay"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "drained-out lake",
-         "gives": "LE",
-         "select": "outer",
-         "note": "LAKE emptied of its middle, placed around the other pieces"
+         "words": "lake",
+         "at": 31,
+         "note": "the word whose outer letters are kept"
         }
        ]
       },
@@ -1276,25 +1281,26 @@
        "parts": [
         {
          "words": "old",
-         "gives": "O",
-         "note": "O = old"
+         "at": 5,
+         "gives": "O"
         },
         {
          "words": "feline",
+         "at": 9,
          "gives": "CAT",
-         "note": "a domestic feline"
+         "note": "a cat is a feline"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Searching for an elderly cat in a lake that has been drained.",
-     "walkthrough": "'Find' sits at the front looking like an instruction to the solver; it is the definition.",
-     "definitionFit": "Plain synonym: to discover where something is."
+     "surface": "Search for an elderly cat stranded in a lake bed after it was drained.",
+     "walkthrough": "'drained-out' empties LAKE to LE, and 'in' puts O and CAT between L and E.",
+     "definitionFit": "To locate something is to discover where it is, a plain synonym for find as a verb."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "drained-out"
     }
