@@ -774,36 +774,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HECATOMB",
-     "indicators": [
-      {
-       "text": "involved",
-       "note": "an involved story is a tangled one, and tangled letters come out in an order the clue never gave them"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Explosive",
+       "at": 0,
+       "gives": "HE",
+       "note": "HE is the standard abbreviation for high explosive"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "involved",
+         "at": 17,
+         "note": "involved in the sense of twisted or convoluted, so the letters of combat are tangled into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Explosive",
-         "gives": "HE",
-         "note": "HE is the army's marking for high explosive"
-        },
-        {
          "words": "combat",
-         "gives": "CATOMB",
-         "note": "the six letters of combat, tangled into a new order"
+         "at": 10
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The battlefield surface is doing its job: 'Explosive' reads as an adjective describing the combat, and is really a two-letter noun.",
-     "definitionFit": "A hecatomb was the ancient Greek slaughter of a hundred oxen at one altar, so 'great sacrifice' names it by sheer scale."
+     "surface": "An explosive battle has cost many lives, a great sacrifice in war.",
+     "walkthrough": "'Explosive' looks like an adjective for the combat but gives HE; 'involved' then rearranges COMBAT into CATOMB.",
+     "definitionFit": "A hecatomb was originally an ancient Greek offering of a hundred oxen, and now means any large-scale slaughter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Explosive"
     }
    }
   },
@@ -1299,40 +1304,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LIEUTENANT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "blocking",
+       "at": 15,
+       "note": "something blocking a passage sits inside it, so these letters go within the others"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "ground",
-         "note": "what has been ground is broken up small, so the letters come apart and settle somewhere new"
-        },
-        {
-         "text": "blocking",
-         "note": "to block a passage is to stand in the middle of it, so the short piece sits inside the longer one"
+         "at": 34,
+         "note": "ground as in crushed or milled, so the letters of tunnel at are broken up and remixed"
         }
        ],
        "parts": [
         {
          "words": "tunnel at",
-         "gives": "LUTENANT",
-         "note": "the eight letters of tunnel at, ground into a new order"
-        },
-        {
-         "words": "that is",
-         "gives": "IE",
-         "note": "ie is the Latin id est, that is"
+         "at": 24
         }
        ]
+      },
+      {
+       "words": "that is",
+       "at": 7,
+       "gives": "IE",
+       "note": "IE is the abbreviation of id est, Latin for that is"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'At ground' reads as a location beside the tunnel and then splits in two: 'at' is a pair of the letters, 'ground' is what to do with them all.",
-     "definitionFit": "In American police forces a lieutenant outranks a sergeant and runs a shift, so 'US cop' points at the rank rather than the army one."
+     "surface": "A police officer stands at ground level where something is obstructing a tunnel.",
+     "walkthrough": "'ground' turns TUNNEL AT into LUTENANT, and 'blocking' puts IE inside it after the L. In American police forces a lieutenant is a rank above sergeant.",
+     "definitionFit": "Lieutenant is a rank of police officer in US departments, above sergeant and below captain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
     }
    }
   },
