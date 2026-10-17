@@ -434,46 +434,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOHOLDSBARRED",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the word loses its final letter"
+       "text": "distributed",
+       "at": 23,
+       "note": "distributed means spread around, so the gathered letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Borderland",
+       "at": 0,
+       "note": "taken as written, part of the letters to be rearranged"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "distributed",
-         "note": "distributed things are spread around, so the letters end up rearranged"
+         "text": "mostly",
+         "at": 16,
+         "note": "mostly means most but not all of show, so its last letter goes"
         }
        ],
        "parts": [
         {
-         "words": "Borderland",
-         "note": "taken as written"
+         "words": "show",
+         "at": 11,
+         "note": "most of this word is used"
         },
         {
-         "words": "show",
-         "gives": "SHO",
-         "note": "show without its last letter"
+         "gives": "W"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A frontier exhibition has been handed out freely.",
-     "definitionFit": "No-holds-barred comes from wrestling, where every grip is allowed, and so means without limits."
+     "surface": "A frontier region puts on a show that is handed out in pieces.",
+     "walkthrough": "'mostly' trims show to SHO, and 'distributed' rearranges it together with BORDERLAND.",
+     "definitionFit": "The phrase comes from wrestling, where no grip is forbidden, so it means without any limits."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "show"
+     "misdirectedWord": "distributed"
     }
    }
   },
@@ -1140,33 +1145,50 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LIGHTFINGERED",
+     "op": "substitution",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so the starts of two words are exchanged"
+       "at": 19,
+       "note": "Spooner's points to the Reverend Spooner, who swapped the opening sounds of words"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "struggle was protracted",
-       "gives": "LIGHTFINGERED",
-       "soundsLike": "FIGHT LINGERED",
-       "note": "a struggle is a fight, and lingered means was protracted; swap their opening sounds"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "struggle",
+         "at": 29,
+         "gives": "FIGHT",
+         "note": "a fight is a struggle"
+        },
+        {
+         "words": "was protracted",
+         "at": 38,
+         "gives": "LINGERED",
+         "note": "lingered means went on a long time, was protracted"
+        }
+       ]
+      },
+      {
+       "gives": "FIGHTL"
+      },
+      {
+       "gives": "LIGHTF"
       }
      ]
     },
     "explanation": {
-     "surface": "A long-running brawl involving a thief.",
-     "definitionFit": "Light-fingered is an idiom for someone given to petty theft, quick with their hands."
+     "surface": "The Reverend Spooner remarks that a tussle went on and on, while someone eyes the collection plate.",
+     "walkthrough": "'Spooner's' says to swap the opening sounds of FIGHT and LINGERED to get the answer.",
+     "definitionFit": "Light-fingered describes someone skilful at, and prone to, petty stealing such as pickpocketing."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun"
+     "joke": "pun",
+     "misdirectedWord": "struggle"
     }
    }
   },
