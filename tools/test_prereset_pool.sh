@@ -74,6 +74,8 @@ git() {
   [ "$1" = add ] && echo "staged ${*:3}" >>"$EVENTS"
   echo "git $1 ${*: -1}" >>"$EVENTS"
 }
+pool_bag() { :; }   # bagging reads the queue through tools/clue_bag.py; not under test here
+worker_sweep_scratch() { :; }
 tools/push_puzzle_commit.sh() { echo "push" >>"$EVENTS"; }
 discard_puzzle() { echo "discard $1" >>"$EVENTS"; }
 MODEL=opus WORKER_MODEL=opus
@@ -91,9 +93,16 @@ handle() {
 commit_puzzle() { handle ok "$1"; }
 handle_failed_run() { handle fail "$1"; }
 echo 2 >"$WIDTH_FILE"
-wave_width() {
+# Width 0 is read at two checkpoints running, then 1 again. pool_reap refills a
+# freed slot before the checkpoint that may drop the width (the width only
+# changes at checkpoints), so the run launched at the stale width of 1 is still
+# in flight at the first 0; the second 0 is the checkpoint with nothing in
+# flight, where the pool naps.
+wave_width() {  # runs in a $(...) subshell: the zero count is kept in a file
   local w; w=$(cat "$WIDTH_FILE"); echo "width $w $(now)" >>"$EVENTS"; echo "$w"
-  [ "$w" = 0 ] && echo 1 >"$WIDTH_FILE"
+  [ "$w" = 0 ] || { rm -f "$WIDTH_FILE.zero"; return 0; }
+  [ -e "$WIDTH_FILE.zero" ] && echo 1 >"$WIDTH_FILE"
+  : >"$WIDTH_FILE.zero"
 }
 after_wave() { echo "after failed=$4 avg=$3 hours=$2 pool=$6" >>"$EVENTS"; return 0; }
 requeue_failed() { :; }
@@ -307,6 +316,10 @@ readmit_backlog() {
   grep -qE "^(ok|fail) pooltest-$$-r1( |$)" "$EVENTS" || return 0
   [ -e "$EVENTS.readmitted" ] && return 0
   : >"$EVENTS.readmitted"
+  # r5 is listed while it is queued or in flight, not once it is handled: the
+  # real backlog does not hold a puzzle whose annotation is committed. Slots are
+  # refilled before the commit, so r5 may already have run by now.
+  grep -qE "^(ok|fail) pooltest-$$-r5( |$)" "$EVENTS" && { echo "pooltest-$$-r1 pooltest-$$-rnew"; return; }
   echo "pooltest-$$-r1 pooltest-$$-rnew pooltest-$$-r5"
 }
 rm -f "$EVENTS.readmitted"
@@ -328,7 +341,7 @@ set -uo pipefail
 CODE=old
 eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
 for fn in pool_live pool_mark pool_launch pool_reap pool_adopted_done pool_interval_start \
-          pool_checkpoint run_pool resumed_first shell_sum reexec_self reexec_load; do
+          pool_checkpoint run_pool resumed_first shell_sum reexec_self reexec_load pool_topup pool_topup_room; do
   block="$(sed -n "/^$fn() {/,/^}/p" "$SCRIPT")"
   [ -n "$block" ] || { echo "ALERT tools/prereset_backfill.sh no longer defines $fn()" >>"$EVENTS"; exit 1; }
   eval "$block"
@@ -339,6 +352,7 @@ RUN_LOG="$tree/runlog" PRERESET_SELF="$0" SHELL_FILES=("$0") RUNS="$tree/runs" D
 queue=($IDS) at=0 requeued=" " resumed=" " naps=0 NAPPED=0 WAVE_FAILED_IDS=() wide=""
 resets_in=1 RESET_AT=0 STOP_AT=0 MAX_NAPS=1 POOL_PHASE=annotate fields=() field_i=0
 SYNC_OK_US=${EPOCHREALTIME/[.,]/}  # set at the script's top level; reexec_self carries it
+adopted_state=${CT_PRERESET_STATE:-}
 if [ -n "${CT_PRERESET_STATE:-}" ]; then
   st=$CT_PRERESET_STATE; unset CT_PRERESET_STATE
   reexec_load "$st"
@@ -367,6 +381,8 @@ worker_put_back() { :; }
 worker_kind() { echo; }
 worker_implausible() { false; }
 alert() { echo "ALERT $*" >>"$EVENTS"; }
+pool_bag() { :; }
+worker_sweep_scratch() { :; }
 git() { echo abc1234; }
 python3() {
   case "$1" in
@@ -376,6 +392,10 @@ python3() {
     *) echo "ALERT unexpected python3 $*" >>"$EVENTS"; return 1 ;;
   esac
 }
+# The sync clock starts here, not at the eval of the lines above: on a loaded box
+# those take longer than POOL_SYNC_SECS and the first sync would land before any
+# run was in flight. After an exec the state carries it.
+[ -n "$adopted_state" ] || POOL_SYNCED_US=${EPOCHREALTIME/[.,]/}
 run_pool Annotate "Annotate @" 0
 echo "finished $$ $CODE" >>"$EVENTS"
 EOF
@@ -385,13 +405,15 @@ EVENTS="$REEXEC_EVENTS" IDS="$reexec_ids" SCRIPT="$SCRIPT" tree="$tree" \
   bash "$HARNESS" >"$tree/reexec-out" 2>&1
 check "the re-exec ran the harness to its end, onto the new code" "new" \
   "$(awk '$1 == "finished" { print $3 }' "$REEXEC_EVENTS")"
-check "it adopted the two runs in flight" "2" \
+# x1 ends first and its slot is refilled (x4, by the old code) before its commit
+# and before the sync that brings the new code, so three are in flight at the exec.
+check "it adopted the three runs in flight" "3" \
   "$(awk '$1 == "adopted" { print NF - 2 }' "$REEXEC_EVENTS")"
 check "each id started once and committed once, none failed" "6 6 0" \
   "$(awk '$1 == "start" { s[$2]++ } $1 == "ok" { o[$2]++ } $1 == "fail" { f++ }
          END { n = 0; for (i in s) if (s[i] == 1) n++; m = 0; for (i in o) if (o[i] == 1) m++; print n, m, f + 0 }' "$REEXEC_EVENTS")"
 check "the adopted runs, started by the old code, are committed by the new" \
-  "pooltest-$$-x2 pooltest-$$-x3" \
+  "pooltest-$$-x2 pooltest-$$-x3 pooltest-$$-x4" \
   "$(awk '$1 == "start" && $3 == "old" { old[$2] = 1 } $1 == "ok" && $3 == "new" && old[$2] { print $2 }' "$REEXEC_EVENTS" | sort | tr '\n' ' ' | sed 's/ $//')"
 check "one process throughout: the exec keeps the pid" 1 \
   "$(awk '$1 == "ok" || $1 == "adopted" || $1 == "finished" { print $1 == "ok" ? $4 : $2 }' "$REEXEC_EVENTS" | sort -u | wc -l | tr -d ' ')"
