@@ -221,49 +221,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PRESIDENTIAL",
+     "op": "composite",
      "indicators": [
       {
        "text": "put out",
-       "note": "something put out is disturbed or upset, so the letters are thrown into disorder"
+       "at": 16,
+       "note": "something put out is disturbed or disordered, so the letters of the first three words are rearranged"
+      },
+      {
+       "text": "but not",
+       "at": 25,
+       "note": "these words exclude the named letter from the jumbled letters"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "PRESIDENTIAL",
-       "indicators": [
-        {
-         "text": "but not",
-         "note": "but not means except, so one letter is taken away"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Dinner plate",
-         "note": "taken as written"
-        },
-        {
-         "words": "name",
-         "gives": "N",
-         "note": "N is the abbreviation for name; one N is removed"
-        }
-       ]
+       "words": "Dinner plate is",
+       "at": 0
+      },
+      {
+       "words": "name",
+       "at": 33,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "At a state banquet a plate is set out, but the leader's name card is missing.",
-     "walkthrough": "The anagram takes in 'is' too: DINNER PLATE IS loses one N and the remaining twelve letters are rearranged.",
-     "definitionFit": "Presidential means belonging or relating to a president, who is a head of state."
+     "surface": "At a state banquet, a dinner plate is laid out, though the leader's name card is missing.",
+     "walkthrough": "'put out' scrambles DINNER PLATE IS, and 'but not name' removes one N from that pool; the twelve letters left rearrange into the answer. The definition is an adjectival phrase, 'of head of state'.",
+     "definitionFit": "Presidential describes anything belonging to or befitting a president, the head of a republic."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Dinner"
+     "misdirectedWord": "plate"
     }
    }
   },
@@ -1180,36 +1171,43 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "OFLATE",
      "indicators": [
       {
-       "text": "got following for",
-       "note": "for means in place of, so one letter is swapped for another"
+       "text": "got",
+       "at": 33,
+       "note": "the monastic person gets a new letter in place of an old one"
+      },
+      {
+       "text": "for",
+       "at": 47,
+       "note": "the following letter comes in exchange for the bishop's letter, replacing it"
       }
      ],
      "parts": [
       {
        "words": "one into monastic life",
+       "at": 10,
        "gives": "OBLATE",
-       "note": "an oblate is a person dedicated to religious life in a monastery"
-      },
-      {
-       "words": "following",
-       "gives": "F",
-       "note": "F is the abbreviation for following"
+       "note": "an oblate is a person dedicated to religious life, often living with a monastic community without full vows"
       },
       {
        "words": "bishop",
+       "at": 51,
        "gives": "B",
-       "note": "B is the chess abbreviation for bishop"
+       "note": "B is the chess notation for a bishop"
+      },
+      {
+       "words": "following",
+       "at": 37,
+       "gives": "F",
+       "note": "F is the standard abbreviation for following, as in page references"
       }
      ]
     },
     "explanation": {
-     "surface": "A newcomer to the cloister was recently promoted to bishop.",
-     "walkthrough": "Swap the B of OBLATE for F.",
-     "definitionFit": "Of late is an idiom meaning lately or in recent times."
+     "surface": "A recent convert to monastic life has picked up a following in place of the bishop.",
+     "walkthrough": "In OBLATE, the B for bishop is swapped: 'got following for bishop' puts F where B was. An oblate is a layperson attached to a monastery.",
+     "definitionFit": "Of late is an adverbial phrase meaning lately or in the recent past."
     },
     "features": {
      "answerInScene": false,
