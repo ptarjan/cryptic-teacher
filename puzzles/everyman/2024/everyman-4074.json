@@ -305,26 +305,26 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "PEARS",
      "indicators": [
       {
        "text": "falling to the floor",
-       "note": "in a down entry, the top letter drops to the bottom"
+       "at": 24,
+       "note": "in a down clue the first letter is at the top, so letting it fall to the floor moves it to the bottom of the word"
       }
      ],
      "parts": [
       {
        "words": "asparagus tip",
+       "at": 10,
        "gives": "SPEAR",
-       "note": "a spear is an asparagus shoot"
+       "note": "an asparagus spear is the edible tip of the plant"
       }
      ]
     },
     "explanation": {
-     "surface": "Fruit and asparagus dropped on the kitchen floor.",
-     "walkthrough": "'Tip' makes you want the first letter A, but here it means the whole shoot, a spear; its first letter then sinks to the foot of this down entry.",
-     "definitionFit": "A plain example: the pear is an orchard fruit, the clue's 'Fruit' covering it as a category."
+     "surface": "A shopping list of fruit, and an asparagus tip that has dropped on the floor.",
+     "walkthrough": "'Asparagus tip' looks like the first letter of asparagus, but it is the spear itself; its top letter drops to the end.",
+     "definitionFit": "Pears are a common orchard fruit, the plural fitting the single word fruit used as a mass noun."
     },
     "features": {
      "answerInScene": true,
@@ -349,41 +349,54 @@
    "annotation": {
     "definitions": [
      {
-      "text": "its star",
+      "text": "its star?",
       "at": 41
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SOPRANO",
+     "op": "composite",
      "indicators": [
       {
        "text": "never seeing",
-       "note": "never seeing a letter means it is nowhere to be found in the result"
+       "at": 18,
+       "note": "never seeing a letter means it is nowhere to be found, so every one is taken out of the phrase"
       }
      ],
      "parts": [
       {
-       "words": "See opera — ENO",
-       "note": "the letters as printed"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "See",
+         "at": 0
+        },
+        {
+         "words": "opera",
+         "at": 4
+        },
+        {
+         "words": "ENO",
+         "at": 12
+        }
+       ]
       },
       {
        "words": "energy",
-       "gives": "E",
-       "note": "e = energy; every E in the string is removed"
+       "at": 31,
+       "gives": "EEEE",
+       "note": "E is the physics symbol for energy; all four in the phrase go"
       }
      ]
     },
     "explanation": {
-     "surface": "Advice to see an English National Opera production that never shows any energy in its lead.",
-     "walkthrough": "ENO is English National Opera. Delete all four Es from SEE OPERA ENO and the remaining letters spell SOPRANO in order, no rearranging needed.",
-     "definitionFit": "The soprano is usually the star of an opera, the 'its' pointing back to the opera."
+     "surface": "An invitation to see an opera at English National Opera and its leading singer.",
+     "walkthrough": "ENO is English National Opera, the London company. Remove all four Es from 'See opera ENO' and the remaining letters spell the answer in order, with no rearranging.",
+     "definitionFit": "The leading lady of an opera is often the soprano, the highest female voice, so she is the opera's star."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "energy"
+     "misdirectedWord": "See"
     }
    }
   },
@@ -477,40 +490,57 @@
    "annotation": {
     "definitions": [
      {
-      "text": "delightful",
-      "at": 56
+      "text": "being delightful",
+      "at": 50
      }
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "ASNICEASPIE",
+     "spelt": "ASNICEASPIE",
      "indicators": [
       {
        "text": "Spooner tells us",
-       "note": "Rev Spooner swapped the opening sounds of words"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so his version of the phrase is wanted"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "one seasoning food's approaching",
-       "gives": "ASNICEASPIE",
-       "soundsLike": "A SPICE'S NIGH",
-       "note": "a spice seasons food; nigh = approaching"
+       "op": "homophone",
+       "spelt": "ASPICEAS",
+       "parts": [
+        {
+         "words": "one seasoning food's",
+         "at": 17,
+         "gives": "ASPICEIS",
+         "note": "a spice is a seasoning, so one is a spice, and 's is short for is"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "NIE",
+       "parts": [
+        {
+         "words": "approaching",
+         "at": 38,
+         "gives": "NIGH",
+         "note": "something approaching is nigh, near at hand"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner announcing that a spice for the food is on its way, which sounds lovely.",
-     "walkthrough": "Swap the SP of 'spice' with the N of 'nigh' and 'a spice's nigh' becomes 'as nice as pie'.",
-     "definitionFit": "As nice as pie is an idiom for very pleasant, delightful."
+     "surface": "Someone announces that a seasoning is about to arrive and will be delightful.",
+     "walkthrough": "A SPICE IS NIGH, said quickly, sounds like AS PICE AS NIGH; Spooner swaps the P and N sounds.",
+     "definitionFit": "Being as nice as pie means being extremely pleasant and agreeable, an idiom for delightful."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "approaching"
+     "misdirectedWord": "seasoning"
     }
    }
   },
@@ -1277,42 +1307,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DOCUDRAMA",
-     "indicators": [
-      {
-       "text": "wildly",
-       "note": "behaving wildly means out of control, so the letters are thrown out of their order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Quack",
+       "at": 0,
+       "gives": "DOC",
+       "note": "a quack is a doctor, informally a doc, here a phoney one"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wildly",
+         "at": 19,
+         "note": "something done wildly is out of control, so the letters of maraud are thrown into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Quack",
-         "gives": "DOC",
-         "note": "a quack is a doctor, informally a doc"
-        },
-        {
          "words": "maraud",
-         "gives": "UDRAMA",
-         "note": "anagram fodder, 6 letters"
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A duck's noise followed by a rampage, as in some wild tale.",
-     "walkthrough": "'Quack' looks like a duck's call but is a (fake) doctor. 'Then' simply orders the pieces.",
-     "definitionFit": "A docudrama dramatises real events, a kind of story."
+     "surface": "A fake doctor goes on a wild looting spree.",
+     "walkthrough": "'Quack' suggests a duck or fraud, but it gives the informal word for doctor.",
+     "definitionFit": "A docudrama is a dramatised retelling of real events, a type of narrative blending documentary and fiction."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Quack"
     }
    }
