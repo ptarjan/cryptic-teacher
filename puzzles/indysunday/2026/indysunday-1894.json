@@ -304,41 +304,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DOGSTAR",
-     "indicators": [
-      {
-       "text": "after revolution",
-       "note": "A revolution turns a thing full circle, so the words before it are written out from their last letter to their first."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "500",
+       "at": 0,
+       "gives": "D",
+       "note": "D is the Roman numeral for 500"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "after revolution",
+         "at": 18,
+         "note": "a revolution turns something round, so the words for traitors and shot are read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "500",
-         "gives": "D",
-         "note": "D is 500 in Roman numerals"
-        },
-        {
-         "words": "shot",
-         "gives": "OG",
-         "note": "a shot at something is a go, turned round"
-        },
-        {
-         "words": "traitors",
-         "gives": "STAR",
-         "note": "traitors are rats, and the word is written backwards"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "traitors",
+           "at": 4,
+           "gives": "RATS",
+           "note": "rats are informal for traitors or deserters"
+          },
+          {
+           "words": "shot",
+           "at": 13,
+           "gives": "GO",
+           "note": "a shot is a go, an attempt"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Sirius is the brightest thing in the night sky, so the definition works as a straight description and as the idiom at the same time.",
-     "definitionFit": "shining example -> DOG STAR: Sirius outshines every other star, so it is both literally the shining one and idiomatically the model to follow."
+     "surface": "Five hundred turncoats are executed in the aftermath of an uprising, as a warning to others.",
+     "walkthrough": "'after revolution' turns RATS + GO round to give OGSTAR, which follows D. 'Shot' and 'revolution' suggest a firing squad and an uprising, but they mean an attempt and a reversal.",
+     "definitionFit": "Sirius, the brightest star in the night sky, is literally a shining example of a star."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "shot"
     }
    }
   },
@@ -692,42 +705,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "COBALT",
+     "op": "container",
      "indicators": [
       {
-       "text": "rolled over",
-       "note": "A dog rolling over ends up the other way round, and so do the three letters it stands for."
+       "text": "in",
+       "at": 16,
+       "note": "the reversed dog goes inside the bed"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "bed",
+       "at": 19,
+       "gives": "COT",
+       "note": "a cot is a small bed"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "What is in a thing sits inside it, so the letters just turned go between those of the word that follows."
+         "text": "rolled over",
+         "at": 4,
+         "note": "a dog rolling over turns upside down, so its word is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "bed",
-         "gives": "COT",
-         "note": "a cot is a small bed, and its three letters open up after the second"
-        },
-        {
-         "words": "Dog rolled over",
-         "gives": "BAL",
-         "note": "a lab is a retriever, and the breed's short name is turned"
+         "words": "Dog",
+         "at": 0,
+         "gives": "LAB",
+         "note": "a lab is a Labrador, a breed of dog"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Lab is the crossword's usual dog, short for Labrador. 'Kind of blue' is the definition: the metal gives its name to one particular shade.",
-     "definitionFit": "kind of blue -> COBALT: cobalt blue is the deep shade the metal's compounds give to paint and glass, so the answer names one blue among many."
+     "surface": "A pet dog rolls over on its bed, perhaps looking a bit sad.",
+     "walkthrough": "'rolled over' turns LAB into BAL, and 'in' puts that inside COT.",
+     "definitionFit": "Cobalt blue is a deep pigment named after the metal whose salts colour it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blue"
     }
    }
   },
@@ -1056,35 +1077,43 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "AUDITOR",
      "indicators": [
       {
        "text": "swaps",
-       "note": "A swap puts one thing where another was, so the letters named last stand in the place vacated by the letter named first."
+       "at": 16,
+       "note": "swaps tells us one part of the word is exchanged for another"
       }
      ],
      "parts": [
       {
        "words": "Ed",
+       "at": 13,
        "gives": "EDITOR",
-       "note": "Ed is the newsroom's short form for the editor, and the full job title is what the letters spell"
+       "note": "Ed is the usual short form of editor"
       },
       {
        "words": "capital",
+       "at": 22,
        "gives": "E",
-       "note": "his capital is the letter he begins with, the only upper-case one in the name"
+       "note": "the capital letter of the word, its first, which is E"
       },
       {
        "words": "gold",
+       "at": 34,
        "gives": "AU",
-       "note": "AU is the chemical symbol for gold, from the Latin aurum"
+       "note": "Au is the chemical symbol for gold"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Read the surface and Ed is a colleague; read it again and he is the job. 'Capital' is the letter he starts with, not a city.",
-     "definitionFit": "Money expert -> AUDITOR: the accountant who inspects a company's books and signs them off, so the definition names the job by what it handles."
+     "surface": "A man called Ed, a finance whizz, trades his capital for gold bullion.",
+     "walkthrough": "Expand 'Ed' to EDITOR; 'swaps' replaces its capital (first) letter E with AU. The surface's money talk makes 'capital' look financial.",
+     "definitionFit": "An auditor examines an organisation's accounts, so is an expert in matters of money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
     }
    }
   },
