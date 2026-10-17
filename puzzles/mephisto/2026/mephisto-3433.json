@@ -561,51 +561,56 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GLEN",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 4,
+         "note": "mostly means most of the word but not all, so its last letter goes"
+        }
+       ],
        "parts": [
         {
          "words": "Joy",
-         "gives": "GLE",
-         "note": "glee is joy, here without its last letter"
+         "at": 0,
+         "gives": "GLEE",
+         "note": "glee is joy or delight"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "onset of",
-           "note": "the onset of something is its beginning, so only the first letter is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "nasty",
-           "note": "the opening letter of the word"
-          }
-         ]
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "onset of",
+         "at": 23,
+         "note": "the onset of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nasty",
+         "at": 32,
+         "note": "supplies its first letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Happiness mostly gives way to a nasty bout of depression.",
-     "walkthrough": "'Depression' reads as low mood, but it is the landform sense.",
-     "definitionFit": "A glen is a narrow valley, especially in Scotland, and a valley is a depression in the land surface."
+     "surface": "Happiness fades and is followed by the beginnings of a gloomy mood.",
+     "walkthrough": "'mostly' trims GLEE to GLE, and 'onset of' nasty adds N. The surface pushes depression as a mood; here it is a dip in the landscape.",
+     "definitionFit": "A glen is a narrow valley, a hollow or low-lying stretch of ground, which is a depression in the land."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "depression"
     }
@@ -1737,36 +1742,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AROW",
-     "indicators": [
-      {
-       "text": "curt",
-       "note": "curt means cut short, so the final letter is lost"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "retorted",
+         "at": 14,
+         "note": "retorted, read as turned back, has the shortened word read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as written"
-        },
-        {
-         "op": "reversal",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "retorted",
-           "note": "to retort is to turn back, so the letters face the other way"
+           "text": "curt",
+           "at": 2,
+           "note": "curt means cut short, so the word loses its final letter"
           }
          ],
          "parts": [
           {
            "words": "saying",
-           "gives": "WOR",
-           "note": "a word is a saying or remark, here missing its last letter"
+           "at": 7,
+           "gives": "WORD",
+           "note": "a word can mean a saying, as in a word to the wise"
+          },
+          {
+           "gives": "D"
           }
          ]
         }
@@ -1775,14 +1785,13 @@
      ]
     },
     "explanation": {
-     "surface": "A short remark is fired back in a single line.",
-     "walkthrough": "'Retorted' reads as a sharp answer, but it means turned back.",
-     "definitionFit": "Arow is an archaic adverb meaning in a row, one after another, so it matches standing in a line."
+     "surface": "Someone snaps back a terse remark during a quarrel.",
+     "walkthrough": "'curt' docks WORD to WOR, and 'retorted' turns that round to ROW, which follows A. A row is an argument too, which is why the surface feels like a spat.",
+     "definitionFit": "Arow is an archaic adverb meaning in a row, one after another in a straight line."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "retorted"
     }
    }
