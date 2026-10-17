@@ -843,32 +843,38 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "AFTERNOON",
-     "indicators": [
-      {
-       "text": "back-to-back",
-       "note": "two people back to back face opposite ways, so the second of the pair is turned around"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "behind",
+       "at": 3,
        "gives": "AFTER",
-       "note": "after means behind, in time or order"
+       "note": "after means behind, following on"
       },
       {
-       "words": "denials",
-       "gives": "NONO",
-       "note": "two refusals, each one a flat no"
+       "op": "palindrome",
+       "indicators": [
+        {
+         "text": "back-to-back",
+         "at": 10,
+         "note": "back-to-back means the second denial faces away from the first, so the pair reads the same in either direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "denials",
+         "at": 23,
+         "gives": "NOON",
+         "note": "two denials, a no and another no, set side by side"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Prime Minister is trailing behind after repeated denials.",
-     "walkthrough": "PM looks like the Prime Minister, but it is post meridiem, the hours after midday.",
-     "definitionFit": "PM, post meridiem, marks the time after noon, i.e. the afternoon."
+     "surface": "A Prime Minister is trailing after a pair of flat refusals.",
+     "walkthrough": "PM looks like the Prime Minister but is the time of day. With 'back-to-back', one denial is turned round to face the other, so the pair reads the same either way.",
+     "definitionFit": "PM, post meridiem, denotes the part of the day after midday."
     },
     "features": {
      "answerInScene": false,
