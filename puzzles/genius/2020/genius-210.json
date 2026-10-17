@@ -1187,35 +1187,45 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "BERI",
        "indicators": [
         {
          "text": "leaders",
-         "note": "the leaders of words are their front letters, so the first of each is kept"
+         "at": 58,
+         "note": "the leaders of a set of words are their opening letters, so take the first letter of each of these four words"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Bevan: Ebbw re-elects its",
-         "gives": "BERI",
-         "select": "first",
-         "note": "the opening letters of these four words"
+         "words": "Bevan: Ebbw",
+         "at": 32,
+         "note": "first letters B and E"
         }
        ]
       },
       {
-       "words": "a rerun",
+       "words": "re-elects",
+       "at": 44,
+       "gives": "R",
+       "note": "its leader is R, the hyphenated word counting as one"
+      },
+      {
+       "words": "its",
+       "at": 54,
+       "gives": "I",
+       "note": "its leader is I"
+      },
+      {
+       "words": "with a rerun",
+       "at": 66,
        "gives": "BERI",
-       "note": "the same four letters run again"
+       "note": "a rerun repeats what has just been shown, so the four letters just found come round a second time"
       }
      ]
     },
     "explanation": {
-     "surface": "Welsh politics: Nye Bevan's old seat of Ebbw Vale votes again after losing him.",
-     "walkthrough": "Aneurin Bevan was the Welsh Labour MP for Ebbw Vale who founded the NHS, but aneurin is also an old name for vitamin B1, thiamine.",
-     "definitionFit": "Beri-beri is the disease caused by thiamine deficiency, so it follows from lacking aneurin."
+     "surface": "A Welsh political lament: the town of Ebbw Vale keeps returning its leaders after losing its famous MP Aneurin Bevan.",
+     "walkthrough": "Aneurin Bevan was the Ebbw Vale MP who founded the NHS, but here 'Aneurin' is an old name for thiamine (vitamin B1). The 'leaders' of Bevan, Ebbw, re-elects and its give BE, R and I, so BERI, and 'with a rerun' says to repeat it.",
+     "definitionFit": "Beriberi is the deficiency disease caused by a lack of thiamine, a vitamin once called aneurin."
     },
     "features": {
      "answerInScene": false,
@@ -1461,56 +1471,45 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "RANGER",
      "indicators": [
       {
        "text": "upset",
-       "note": "something upset is knocked into disorder, so the remaining letters are shuffled"
+       "at": 43,
+       "note": "upset means knocked over and jumbled, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "RANGER",
        "indicators": [
         {
-         "text": "Removing",
-         "note": "removing takes something away, here the opening pair of the flower name"
+         "text": "Removing a couple of delphiniums",
+         "at": 0,
+         "note": "a couple means two, so removing the opening pair of letters of the flower name takes those two letters out of the gardener"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "DE",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "a couple of delphiniums",
-           "gives": "DE",
-           "select": "first",
-           "note": "the first two letters of delphiniums"
-          }
-         ]
+         "words": "gardener",
+         "at": 34,
+         "note": "taken as written"
         },
         {
-         "words": "gardener",
-         "note": "taken as written"
+         "gives": "DE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener ripping out two flowering plants annoys the park warden.",
-     "definitionFit": "A ranger is an official who patrols and looks after a park or forest."
+     "surface": "A gardener, annoyed at having to dig out some delphiniums, falls out with the park keeper.",
+     "walkthrough": "'Removing a couple of delphiniums' takes DE (the first two letters of 'delphiniums') out of GARDENER, leaving GARNER; 'upset' then rearranges those letters.",
+     "definitionFit": "A ranger is a warden employed to look after a park, forest or nature reserve."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "couple"
+     "misdirectedWord": "upset"
     }
    }
   },
