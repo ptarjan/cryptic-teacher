@@ -1192,39 +1192,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "'in' says the answer sits inside the run of letters of the following words"
+      }
+     ],
      "parts": [
       {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "in says the letters sit inside the words that follow"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Berlin telegraph",
-         "gives": "LINTEL",
-         "note": "found running across the two words"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "office",
-       "note": "surface padding, completing the picture of a post office"
+       "words": "Berlin telegraph office",
+       "at": 21,
+       "gives": "LINTEL",
+       "note": "the letters run across the end of Berlin and the start of telegraph"
       }
      ]
     },
     "explanation": {
-     "surface": "A detail spotted in the window of a German telegraph office.",
-     "definitionFit": "A lintel is the horizontal beam spanning the top of a door or window opening."
+     "surface": "A detail of a window in a Berlin telegraph office building.",
+     "walkthrough": "'in' points inside the words: the answer straddles berLIN TELegraph.",
+     "definitionFit": "A lintel is the horizontal beam spanning the top of a window or door opening."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "office"
+     "misdirectedWord": "Berlin"
     }
    }
   },
@@ -1249,40 +1242,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AGENCY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "heartless",
-       "note": "heartless means the middle of the word is removed, leaving its ends"
+       "text": "on",
+       "at": 13,
+       "note": "in a down clue, one piece placed on another sits above it"
       }
      ],
      "parts": [
       {
        "words": "Advance",
+       "at": 0,
        "gives": "A",
-       "note": "a is an abbreviation for advance in finance and bookkeeping"
+       "note": "A is an abbreviation for advance, as in a payment in advance"
       },
       {
        "words": "info",
+       "at": 8,
        "gives": "GEN",
        "note": "gen is British slang for information"
       },
       {
-       "words": "charity",
-       "note": "the word whose middle is lost"
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 16,
+         "note": "a heartless word loses its middle, leaving only its outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "charity",
+         "at": 26,
+         "note": "the word charity, which loses its middle letters"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Pass on details about a cold-hearted charity office.",
-     "definitionFit": "An agency is an office or organisation providing a service, much like a bureau."
+     "surface": "Someone gets early information about a charity that has lost its compassion.",
+     "walkthrough": "Gen is informal British for information, as in 'get the gen'. 'heartless' strips charity down to CY, and 'on' sets A and GEN above it in this down clue.",
+     "definitionFit": "An agency is an office or bureau that provides a particular service."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Advance"
+     "misdirectedWord": "heartless"
     }
    }
   },
