@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -190,37 +191,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MYHAT",
+     "spelt": "MYHAT",
      "indicators": [
       {
-       "text": "for Spooner?",
-       "note": "The Reverend Spooner was famous for trading the opening sounds of two words, so the phrase clued has to be said with its first sounds swapped."
+       "text": "for Spooner",
+       "at": 11,
+       "note": "the clue asks for the phrase as Spooner would say it, swapping the opening sounds of two words"
       }
      ],
      "parts": [
       {
-       "words": "on top",
-       "gives": "HIGH",
-       "note": "whatever sits on top of everything else is high up"
+       "op": "homophone",
+       "spelt": "MY",
+       "parts": [
+        {
+         "words": "on top",
+         "at": 4,
+         "gives": "HIGH",
+         "note": "something on top is high up"
+        }
+       ]
       },
       {
        "words": "Rug",
+       "at": 0,
        "gives": "MAT",
-       "note": "a mat is a small rug, the sort you wipe your feet on"
-      },
-      {
-       "unchecked": true,
-       "words": "Rug on top",
-       "gives": "MYHAT",
-       "soundsLike": "HIGH MAT",
-       "note": "the two pieces stand as HIGH MAT, and trading their opening sounds gives what you write in"
+       "note": "a rug is a mat"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A Spoonerism happens in the mouth, not on paper: say the two words with their first sounds exchanged and out comes an old-fashioned cry of disbelief.",
-     "definitionFit": "Surely not -> MY HAT: 'my hat!' is a dated British exclamation of flat disbelief, registering the same refusal to accept what has just been claimed."
+     "surface": "A question about whether a toupee counts as a hat, answered with mock disbelief.",
+     "walkthrough": "'Rug on top' gives HIGH MAT; 'for Spooner' swaps the opening sounds, as the Reverend Spooner did, giving MY HAT.",
+     "definitionFit": "'My hat!' is an old exclamation of astonishment, much like saying 'Surely not!'"
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rug"
     }
    }
   },
@@ -245,36 +254,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EQUINOX",
-     "indicators": [
-      {
-       "text": "Shortened",
-       "note": "A shortened word has lost its tail, so the adjective beside it is written without its final letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Shortened",
+         "at": 0,
+         "note": "shortened means the word loses its last letter, cutting it short"
+        }
+       ],
        "parts": [
         {
          "words": "horsy",
-         "gives": "EQUIN",
-         "note": "horsy is equine in a vet's vocabulary, and the word arrives with its last letter clipped"
+         "at": 10,
+         "gives": "EQUINE",
+         "note": "equine means relating to horses"
         },
         {
-         "words": "draught animal",
-         "gives": "OX",
-         "note": "an ox is the beast harnessed to pull a plough or a cart"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "draught animal",
+       "at": 16,
+       "gives": "OX",
+       "note": "an ox is an animal used for pulling ploughs and carts"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition is exact rather than loose: on this date daylight and darkness each last twelve hours, which happens twice a year.",
-     "definitionFit": "12 hour day -> EQUINOX: the date when the sun crosses the equator and light and dark come out equal, twelve hours apiece."
+     "surface": "A description of a rather horse-like animal that pulls a cart.",
+     "definitionFit": "At an equinox the sun is over the equator, so day and night each last about twelve hours."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "day"
     }
    }
   },
@@ -488,25 +506,39 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "STANDALONE",
      "indicators": [
       {
        "text": "troubled",
-       "note": "Troubled water is churned up and no longer settled, so the letters beside the word will not stay in the order they are given."
+       "at": 21,
+       "note": "troubled means disturbed and thrown into disorder, so these letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Nelson a tad",
-       "gives": "STANDALONE",
-       "note": "these ten letters, shaken out of the order the clue prints them in"
+       "words": "Nelson",
+       "at": 30,
+       "note": "taken as written"
+      },
+      {
+       "words": "a",
+       "at": 37
+      },
+      {
+       "words": "tad",
+       "at": 39,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Nelson lends the surface an admiral who stops mattering the moment you count: the name and 'a tad' hold exactly ten letters, which is the enumeration.",
-     "definitionFit": "Acting independently -> STAND-ALONE: a stand-alone unit works on its own without being plugged into anything else, which is independence described as equipment."
+     "surface": "Admiral Nelson, a little worried, going it alone.",
+     "walkthrough": "'troubled' tells you to rearrange the letters of NELSON, A and TAD.",
+     "definitionFit": "Something standalone operates on its own, without support or connection to anything else."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nelson"
     }
    }
   },
@@ -579,25 +611,32 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "SCAM",
      "indicators": [
       {
        "text": "over",
-       "note": "Something turned over lies the other way round, so the letters just clued are read from the far end back."
+       "at": 9,
+       "note": "over means turned over, so the letters are read backwards"
       }
      ],
      "parts": [
       {
        "words": "Anorak's",
-       "gives": "SCAM",
-       "note": "an anorak is a mac, the British word for a raincoat, and one belonging to somebody makes MACS, written in the other way round"
+       "at": 0,
+       "gives": "MACS",
+       "note": "a mac is a raincoat like an anorak, and the 's adds an S"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Both halves of the clue talk about coats: an anorak in the wordplay and a sheep's fleece in the definition, and only one of them is really clothing.",
-     "definitionFit": "fleece -> SCAM: both are verbs for cheating a person out of their money, one drawn from shearing sheep and the other from confidence tricks."
+     "surface": "An anorak worn on top of a fleece jacket.",
+     "walkthrough": "'over' turns MACS (mac plus the 's) round. Fleece here is the verb, not the jacket.",
+     "definitionFit": "To fleece someone is to cheat them of money, which is exactly what a swindle does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fleece"
     }
    }
   },
@@ -776,36 +815,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "READYMIX",
-     "indicators": [
-      {
-       "text": "upsetting",
-       "note": "To upset a tray is to tip everything on it into a heap, and letters tipped over land in a different order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "upsetting",
+         "at": 29,
+         "note": "upsetting means knocking over and disordering, so these letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Mary, die",
-         "gives": "READYMI",
-         "note": "seven letters tipped out of their printed order"
+         "words": "Mary",
+         "at": 39,
+         "note": "taken as written"
         },
         {
-         "words": "cross",
-         "gives": "X",
-         "note": "a cross is written as an X, the mark on a ballot paper"
+         "words": "die",
+         "at": 45,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "cross",
+       "at": 52,
+       "gives": "X",
+       "note": "X is the shape of a cross"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition is a packet of dry cake mix: add water and you get a sponge. 'Perhaps' is there because concrete is sold the same way.",
-     "definitionFit": "Sponge without water perhaps -> READY-MIX: the packet holds everything a sponge needs except the liquid, so the cake is one example of what comes premixed."
+     "surface": "A baking mishap involving Mary, a dice and a cross shape.",
+     "walkthrough": "'upsetting' rearranges MARY and DIE into READYMI, and 'on' places the cross, X, after it.",
+     "definitionFit": "A packet sponge mix is ready-mixed, needing only liquid added, so a dry sponge mix is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Sponge"
     }
    }
   },
@@ -943,36 +993,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HONSHU",
-     "indicators": [
-      {
-       "text": "largely",
-       "note": "Largely means most of a thing but not all of it, so the word beside it arrives with its final letter missing."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "ducks",
+       "at": 16,
+       "gives": "HON",
+       "note": "ducks is a British term of endearment, like hon (honey)"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "largely",
+         "at": 22,
+         "note": "largely means most of the word, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "ducks",
-         "gives": "HON",
-         "note": "ducks is a British term of address for someone you are fond of, and hon, short for honey, does the same job"
+         "words": "avoid",
+         "at": 30,
+         "gives": "SHUN",
+         "note": "to shun is to avoid"
         },
         {
-         "words": "avoid",
-         "gives": "SHU",
-         "note": "to avoid a person is to shun them, and the word turns up here a letter short"
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Ducks' looks like waterfowl, or a batter's score of nothing; it is the friendly Midlands form of address, the sort said across a shop counter.",
-     "definitionFit": "Japanese island -> HONSHU: the largest of Japan's islands and the one holding Tokyo, so the definition names it by country and kind."
+     "surface": "Waterfowl on a Japanese island keeping mostly out of the way.",
+     "walkthrough": "'Ducks' is how some Britons address a friend ('ta, ducks'), the same as hon. 'largely' cuts SHUN to SHU.",
+     "definitionFit": "Honshu is the largest of the main islands of Japan, home to Tokyo."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ducks"
     }
    }
   },
@@ -1151,53 +1212,61 @@
    "annotation": {
     "definitions": [
      {
-      "text": "How to serve cheese and beans",
+      "text": "How to serve cheese and beans?",
       "at": 0
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "inside",
-       "note": "What goes inside a word sits between its letters, so the letter just named moves into the middle of what is left of it."
-      }
-     ],
      "parts": [
       {
        "op": "container",
+       "indicators": [
+        {
+         "text": "inside",
+         "at": 45,
+         "note": "inside means the head letter is moved within the rest of the word"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "OT",
+         "op": "deletion",
          "parts": [
           {
-           "unchecked": true,
            "words": "Not",
-           "gives": "OT",
-           "select": "first",
-           "note": "the word Not with its leading letter taken away"
+           "at": 31,
+           "note": "the word not, without its first letter"
+          },
+          {
+           "gives": "N"
           }
          ]
         },
         {
          "words": "head",
+         "at": 40,
          "gives": "N",
-         "note": "the head of a word is the letter at its front, here the one just removed"
+         "note": "the head of Not is its first letter, N"
         }
        ]
       },
       {
        "words": "oven",
+       "at": 52,
        "gives": "OAST",
-       "note": "an oast is the kiln in a Kentish oast house, built for drying hops"
+       "note": "an oast is a kiln or oven for drying hops"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The trick is that the letter taken off the front never leaves the clue: it moves back in one place, which is why the letter count never changes.",
-     "definitionFit": "How to serve cheese and beans -> ON TOAST: both are British teatime staples ladled over a hot slice, so the phrase answers what they sit on."
+     "surface": "A kitchen question, answered with a warning not to put your head in the oven.",
+     "walkthrough": "Take the head, N, off NOT to leave OT, and put it inside, giving ONT; add OAST, a hop-drying oven common in Kent.",
+     "definitionFit": "Cheese and baked beans are classically served on a slice of toasted bread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "head"
     }
    }
   },
@@ -1457,35 +1526,41 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "CHARGE",
      "indicators": [
       {
        "text": "to replace",
-       "note": "Replacing means one letter steps out and another steps into the same spot, so the word keeps the length it started with."
+       "at": 11,
+       "note": "to replace means one letter takes the place of another in the word"
       }
      ],
      "parts": [
       {
        "words": "coins",
+       "at": 30,
        "gives": "CHANGE",
-       "note": "the coins rattling in your pocket are your change"
+       "note": "loose coins are change"
       },
       {
        "words": "note",
-       "gives": "N",
-       "note": "N is the standard abbreviation for note, and it is the letter that leaves"
+       "at": 22,
+       "gives": "N"
       },
       {
        "words": "right",
-       "gives": "R",
-       "note": "R is the standard abbreviation for right, as on a diagram"
+       "at": 5,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Bill', 'note' and 'coins' are all money on the surface, which is the misdirection: two of them are money and the third is a single letter.",
-     "definitionFit": "Bill -> CHARGE: the sum a garage or a restaurant charges you is what turns up on the bill, so both name the amount demanded."
+     "surface": "Swapping a banknote for coins to pay a bill.",
+     "walkthrough": "'right to replace note' means R takes the place of N in CHANGE.",
+     "definitionFit": "A charge is a price or fee asked, and so is a bill presented for payment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
     }
    }
   },
@@ -1511,12 +1586,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MEDITATE",
      "indicators": [
       {
        "text": "about it",
-       "note": "About means around, and 'it' points back at the alteration just clued, so the two short pieces close round that word."
+       "at": 46,
+       "note": "about it means going round it, the change just named, so these letters surround that piece"
       }
      ],
      "parts": [
@@ -1525,26 +1599,35 @@
        "parts": [
         {
          "words": "Mike",
+         "at": 33,
          "gives": "M",
-         "note": "Mike is M in the radio alphabet, the same list that gives uniform for U"
-        },
-        {
-         "words": "change to clue, perhaps",
-         "gives": "EDIT",
-         "note": "changing a piece of writing is editing it, and a clue is one example of writing"
+         "note": "M is Mike in the NATO phonetic alphabet"
         },
         {
          "words": "worried",
+         "at": 38,
          "gives": "ATE",
-         "note": "what worried you ate at you, in the idiom about something eating a person"
+         "note": "something that ate at you worried you"
         }
        ]
+      },
+      {
+       "words": "change to clue, perhaps",
+       "at": 9,
+       "gives": "EDIT",
+       "note": "to edit is to change a text, such as a crossword clue"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The question mark covers 'perhaps': a clue is only one example of the thing being changed. On the surface a setter is fretting over his own puzzle.",
-     "definitionFit": "Consider -> MEDITATE: to meditate on a problem is to turn it over in the mind at length, which is considering it slowly and deliberately."
+     "surface": "A setter wondering whether to edit a clue that has bothered Mike.",
+     "walkthrough": "'about it' puts M and ATE around EDIT, the 'it' pointing back to the change to the clue.",
+     "definitionFit": "To meditate on something is to ponder or think it over carefully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mike"
     }
    }
   }
