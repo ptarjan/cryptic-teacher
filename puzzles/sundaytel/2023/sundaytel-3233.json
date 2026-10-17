@@ -1109,43 +1109,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENIGMA",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Scratching head",
-       "note": "scratching out the head removes the first letter"
+       "text": "cryptic",
+       "at": 25,
+       "note": "cryptic means mysterious or obscured, so the remaining letters are scrambled"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "cryptic",
-         "note": "something cryptic is obscured, so the letters are disguised in a new order"
+         "text": "Scratching head",
+         "at": 0,
+         "note": "scratching means striking out, so the head, the first letter of imagine, is removed"
         }
        ],
        "parts": [
         {
          "words": "imagine",
-         "gives": "MAGINE",
-         "note": "the word without its opening letter"
+         "at": 17
+        },
+        {
+         "gives": "I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A solver scratches their head over a cryptic crossword.",
-     "walkthrough": "The head-scratching solver picture hides an instruction to drop a first letter.",
-     "definitionFit": "An enigma is a mystery or riddle that is hard to understand, so it is a synonym for a puzzle."
+     "surface": "A puzzled solver scratches their head and tries to picture what a cryptic clue means.",
+     "walkthrough": "'Scratching head' drops the I of IMAGINE, leaving MAGINE, and 'cryptic' rearranges it.",
+     "definitionFit": "Something baffling or mysterious that needs working out is a riddle, the same as a puzzle."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Scratching"
     }
    }
