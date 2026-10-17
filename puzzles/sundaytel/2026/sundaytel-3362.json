@@ -323,31 +323,31 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Starter of",
-       "note": "a starter comes first, so take the first letter of ravioli"
+       "text": "in",
+       "at": 19,
+       "note": "'in' puts the starter letter inside the word for a set"
       }
      ],
      "parts": [
       {
        "words": "set",
+       "at": 22,
        "gives": "BUNCH",
-       "note": "a set or group is a bunch; R goes inside it after the first letter"
+       "note": "a bunch is a set or group of things"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
-         "text": "in"
+         "text": "Starter of",
+         "at": 0,
+         "note": "the starter of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Starter of ravioli",
-         "gives": "R",
-         "select": "first",
+         "words": "ravioli",
+         "at": 11,
          "note": "first letter of ravioli"
         }
        ]
@@ -355,14 +355,14 @@
      ]
     },
     "explanation": {
-     "surface": "A plate of ravioli is served as the opening course of a set menu.",
-     "walkthrough": "'Starter' and 'set meal' dress the clue as a restaurant menu, but 'set' is the noun bunch and the meal is the one between breakfast and lunch.",
-     "definitionFit": "Brunch is a meal eaten late in the morning."
+     "surface": "Ravioli is served as the starter on a fixed-price set menu.",
+     "walkthrough": "'Starter' and 'set meal' suggest a restaurant menu, but 'set' is a group of things and 'Starter of' takes just one letter of 'ravioli', which goes 'in'.",
+     "definitionFit": "Brunch is a late-morning meal combining breakfast and lunch."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "set"
+     "misdirectedWord": "Starter"
     }
    }
   },
@@ -735,45 +735,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "inhabited by"
+       "text": "inhabited by",
+       "at": 16,
+       "note": "the woodland is inhabited by, so holds inside it, what is left of the snake"
       }
      ],
      "parts": [
       {
        "words": "woodland",
+       "at": 7,
        "gives": "FOREST",
-       "note": "forest = woodland; the snake's remains live inside it"
+       "note": "a forest is a large area of woodland"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "CA",
        "indicators": [
         {
          "text": "heartless",
-         "note": "COBRA loses its middle, leaving the outer C and A"
+         "at": 29,
+         "note": "heartless removes the middle, leaving only the first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "heartless cobra",
-         "gives": "CA",
-         "select": "outer",
-         "note": "C-obr-A with the middle removed"
+         "words": "cobra",
+         "at": 39,
+         "note": "first and last letters of cobra"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A heavenly wood that happens to be home to a cruel snake.",
-     "walkthrough": "'Divine' reads as an adjective, heavenly, but it is the verb: to divine the future. FOREST holds CA: FORE(CA)ST.",
-     "definitionFit": "To divine is to predict or foresee, which is to forecast."
+     "surface": "A wood has been taken over by a cobra without any heart.",
+     "walkthrough": "'Divine' looks like an adjective about something holy, but here it is the verb meaning to foresee. 'heartless' leaves CA from 'cobra', and the woodland is 'inhabited by' it.",
+     "definitionFit": "To divine is to predict the future by insight, which is what forecasting does."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Divine"
     }
    }
@@ -847,54 +847,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LOCAL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "arrested",
+       "at": 49,
+       "note": "the jumbled letters have arrested, that is caught and held, the initial letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "squiffy"
-        },
-        {
-         "text": "arrested"
+         "text": "squiffy",
+         "at": 11,
+         "note": "squiffy means slightly drunk, so the letters of all reel into a new order"
         }
        ],
        "parts": [
         {
          "words": "all",
-         "gives": "LAL",
-         "note": "ALL rearranged; this does the arresting, holding the two initials"
-        },
+         "at": 7,
+         "note": "taken as written as anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "OC",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "take the first letters of offensive and customer"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "offensive customer initially",
-           "gives": "OC",
-           "select": "first",
-           "note": "first letters of offensive and customer"
-          }
-         ]
+         "text": "initially",
+         "at": 39,
+         "note": "initially takes the first letter of each word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "offensive customer",
+         "at": 20,
+         "note": "first letters of offensive and customer"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "At a pub where everyone is tipsy, a rude punter gets taken away by the police.",
-     "walkthrough": "A boozer is British slang for a pub, and the local is the pub nearest home. Scrambled ALL holds OC: L(OC)AL.",
-     "definitionFit": "Your local is the pub you regularly drink in; a boozer is a pub."
+     "surface": "At the pub everyone is tipsy and a rude drinker gets arrested first.",
+     "walkthrough": "'squiffy' (British slang for tipsy) rearranges 'all' into LAL, and that has 'arrested' OC, the initial letters. A boozer is British slang for a pub, and a local is your regular nearby pub.",
+     "definitionFit": "In British usage a local is the neighbourhood pub you frequent, and a boozer is a slang word for a pub."
     },
     "features": {
      "answerInScene": true,
@@ -1568,47 +1569,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "marginally",
-       "note": "only the margins, the first and last letters, of squirrels are used"
+       "text": "inside",
+       "at": 27,
+       "note": "the edge letters go inside the squirrels' home"
       }
      ],
      "parts": [
       {
        "words": "their home",
+       "at": 34,
        "gives": "DREY",
-       "note": "a drey is a squirrel's nest; the two edge letters go inside it"
+       "note": "a drey is a squirrel's nest, the squirrels' home"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "SS",
        "indicators": [
         {
-         "text": "inside",
-         "note": "'inside' means within, so the squirrels' edges sit within their home"
+         "text": "marginally",
+         "at": 16,
+         "note": "marginally means only the margins, the first and last letters, are used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "squirrels marginally",
-         "gives": "SS",
-         "select": "outer",
-         "note": "outer letters of squirrels"
+         "words": "squirrels",
+         "at": 6,
+         "note": "first and last letters of squirrels"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Clever squirrels are only just tucked inside their nest.",
-     "walkthrough": "'Their home' refers back to squirrels, so it is the squirrel's nest, the drey. DREY holds SS: DRE(SS)Y.",
-     "definitionFit": "Dressy means smart, elegantly dressed."
+     "surface": "Are squirrels looking smart, just about, inside their nest?",
+     "walkthrough": "'marginally' takes the outside letters SS of 'squirrels', and they go 'inside' the drey. 'their home' refers back to the squirrels: a drey is the nest a squirrel builds.",
+     "definitionFit": "Dressy means stylish or elegant in clothing, which is to say smart."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Smart"
+     "misdirectedWord": "marginally"
     }
    }
   },
@@ -1633,53 +1633,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "travelling around",
-       "note": "the letters travel about into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "capital in",
-         "note": "the capital, first, letter in Harare"
+         "text": "around",
+         "at": 17,
+         "note": "the reshuffled letters go around the capital letter"
         }
        ],
        "parts": [
         {
-         "words": "Again",
-         "note": "anagram fodder"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "H",
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "travelling",
+           "at": 6,
+           "note": "letters that are travelling move about into a new order"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "capital in Harare",
-           "gives": "H",
-           "select": "first",
-           "note": "first letter of Harare"
+           "words": "Again",
+           "at": 0,
+           "note": "taken as written as anagram fodder"
           }
          ]
         },
         {
-         "words": "an",
-         "note": "anagram fodder"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "capital in",
+           "at": 24,
+           "note": "the capital in a word is its first, capital letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Harare",
+           "at": 35,
+           "note": "first letter of Harare, capital of Zimbabwe"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "an",
+       "at": 43
       }
      ]
     },
     "explanation": {
-     "surface": "An African is on the move again, travelling around the Zimbabwean capital.",
-     "walkthrough": "'Capital in Harare' tempts you to think of Harare itself, the capital of Zimbabwe, but it gives only the capital letter H.",
-     "definitionFit": "A Ghanaian is a person from Ghana, in West Africa."
+     "surface": "An African is travelling around the Zimbabwean capital once more.",
+     "walkthrough": "'capital' wants to be Harare, the city, but it is the capital letter of 'Harare'; 'travelling' scrambles 'Again' around it, and 'an' ends the answer.",
+     "definitionFit": "A Ghanaian is a native or citizen of Ghana, a country in West Africa."
     },
     "features": {
      "answerInScene": true,
