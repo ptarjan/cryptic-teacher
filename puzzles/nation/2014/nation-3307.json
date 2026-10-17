@@ -46,48 +46,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "slyly",
-       "note": "acting slyly means moving deviously, so the word it qualifies is rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Leader of",
+         "at": 0,
+         "note": "the leader of a word is its first letter, the one at the front"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Leader of",
-           "note": "the leader of a group is the one at the front, so only the opening letter of the next word is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "caliphate",
-           "note": "the first letter of caliphate"
-          }
-         ]
-        },
+         "words": "caliphate",
+         "at": 10,
+         "note": "the word whose first letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "slyly",
+         "at": 20,
+         "note": "done slyly, the letters are shifted about in a crafty new order"
+        }
+       ],
+       "parts": [
         {
          "words": "hoards",
-         "note": "the six letters of hoards, rearranged"
+         "at": 26,
+         "note": "the fodder, taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A caliph's leader is pictured stockpiling the veils that Iraqi women wear.",
-     "definitionFit": "A chador is the full-length cloak and veil worn by many Muslim women, so the plural answers the long descriptive definition."
+     "surface": "A caliph's chief secretly stockpiles the garments women wear in Iraq.",
+     "walkthrough": "IRAQ is one of the four-letter nations the puzzle's theme hides, here sitting in the clue rather than an entry.",
+     "definitionFit": "A chador is a full-length cloak and veil worn by some Muslim women, covering the head and body."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "slyly"
+     "misdirectedWord": "hoards"
     }
    }
   },
@@ -1413,37 +1418,32 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "LOREN",
+     "op": "charade",
      "indicators": [
       {
        "text": "covering",
-       "note": "a cover goes over and around what it covers"
+       "at": 18,
+       "note": "in a down clue, covering means lying on top of, so this piece comes first, above the other"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Body of knowledge",
-         "gives": "LORE",
-         "note": "lore is traditional knowledge"
-        },
-        {
-         "words": "Northern",
-         "gives": "N",
-         "note": "N is the abbreviation for northern"
-        }
-       ]
+       "words": "Body of knowledge",
+       "at": 0,
+       "gives": "LORE",
+       "note": "lore is the traditional knowledge held by a group"
+      },
+      {
+       "words": "Northern",
+       "at": 27,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "A reference book on a film star from the north.",
-     "walkthrough": "The N sits at the end of LORE, which is the covering word's final place.",
-     "definitionFit": "Sophia Loren is the Italian film actress, an Oscar winner for Two Women."
+     "surface": "A scholarly tome that covers the north of a country.",
+     "walkthrough": "In a down entry one piece covering another sits above it. Sophia Loren is the Italian film actress, star of Two Women.",
+     "definitionFit": "Sophia Loren is a famous Italian film star, so an example of an actress."
     },
     "features": {
      "answerInScene": false,
@@ -1618,57 +1618,60 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "IMMERSE",
      "indicators": [
       {
        "text": "for",
-       "note": "one thing for another means it stands in its place"
+       "at": 14,
+       "note": "one thing for another means a swap: the first letter replaces the ending letter"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "at first",
-         "note": "what comes at first is the opening letter of the word before it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Root",
-         "note": "the first letter of Root"
-        }
-       ]
+       "words": "enormous",
+       "at": 37,
+       "gives": "IMMENSE",
+       "note": "immense means enormous, vast"
       },
       {
        "op": "last",
        "indicators": [
         {
-         "text": "ending",
-         "note": "a word's ending is its final letter"
+         "text": "'s ending",
+         "at": 24,
+         "note": "McCain's ending is the last letter of that name"
         }
        ],
        "parts": [
         {
-         "words": "McCain's",
-         "gives": "MCCAIN",
-         "note": "the last letter of McCain"
+         "words": "McCain",
+         "at": 18,
+         "note": "John McCain, the US senator, whose last letter is replaced"
         }
        ]
       },
       {
-       "words": "enormous",
-       "gives": "IMMENSE",
-       "note": "immense means enormous"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "at first",
+         "at": 5,
+         "note": "at first picks the first letter of the word before it"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Root",
+         "at": 0,
+         "note": "the word whose first letter is swapped in"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An election story: rooting for John McCain as his support takes a huge fall.",
-     "walkthrough": "The letter of Root takes the place of the letter of McCain inside the word for enormous.",
-     "definitionFit": "To immerse something is to dip or submerge it completely, which is what plunging does."
+     "surface": "A political commentator roots for a giant final surge by Senator John McCain.",
+     "walkthrough": "Root's first letter R stands 'for' the N at McCain's end inside IMMENSE (enormous). 'Root for' reads as cheering on, but the words split.",
+     "definitionFit": "To immerse something is to dip or plunge it fully into a liquid."
     },
     "features": {
      "answerInScene": false,
