@@ -623,60 +623,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TULIPS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 23,
+       "note": "around tells us the anagrammed letters wrap about the single letter from urn"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "untidily",
-         "note": "the letters of spilt are put back untidily"
-        },
-        {
-         "text": "top of",
-         "note": "the top of a down-standing word is its first letter"
+         "at": 8,
+         "note": "something done untidily is jumbled, so the letters of spilt are rearranged"
         }
        ],
        "parts": [
         {
          "words": "spilt",
-         "gives": "TLIPS",
-         "note": "SPILT rearranged"
-        },
+         "at": 17
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "U",
-         "indicators": [
-          {
-           "text": "around"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "top of urn",
-           "gives": "U",
-           "select": "first",
-           "note": "first letter of urn, placed after the first letter of the jumble"
-          }
-         ]
+         "text": "top of",
+         "at": 30,
+         "note": "the top of a word is its first letter, here the first letter of urn"
+        }
+       ],
+       "parts": [
+        {
+         "words": "urn",
+         "at": 37,
+         "note": "taken as written, before its first letter is picked"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Flowers have tumbled out of a vase and lie scattered around its rim.",
-     "walkthrough": "The surface paints a knocked-over vase of flowers; the urn only gives its first letter.",
-     "definitionFit": "A definition by category: these cup-shaped spring blooms are one kind of flower."
+     "surface": "Someone has knocked over a vase and the flowers lie spilt in a mess.",
+     "walkthrough": "'untidily' rearranges SPILT into TLIPS, and 'around' puts that round U, the 'top of' urn.",
+     "definitionFit": "Tulips are spring-blooming bulb plants, one example of flowers."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "urn"
+     "misdirectedWord": "spilt"
     }
    }
   },
