@@ -85,12 +85,47 @@ class _Module:
                     self.imports[a.asname or a.name] = (node.module, a.name)
 
 
-def _tree():
-    """A hash of every tools/*.py file's name and bytes."""
+def _tree(fresh=False):
+    """A hash of every tools/*.py file's name and bytes. Reading them all is
+    tens of seconds on a loaded host, and every re-exec paid it again, so the
+    hash is kept (in this process, and in STORE/tree.json for the next) for
+    the tools/ files' (name, size, mtime) signature: it is read afresh only
+    when that moves, or when `fresh`."""
+    sig = hashlib.sha1(repr(_signature()).encode()).hexdigest()
+    if not fresh:
+        if _TREE.get("sig") == sig:
+            return _TREE["tree"]
+        try:
+            kept = json.loads((STORE / "tree.json").read_text())
+            if kept.get("sig") == sig and kept.get("dir") == str(TOOLS):
+                _TREE.update(sig=sig, tree=kept["tree"])
+                return kept["tree"]
+        except (OSError, ValueError, AttributeError):
+            pass
     h = hashlib.sha1()
     for path in sorted(TOOLS.glob("*.py")):
         h.update(path.name.encode() + b"\0" + path.read_bytes() + b"\0")
-    return h.hexdigest()
+    tree = h.hexdigest()
+    if _signature_of() == sig:
+        _TREE.update(sig=sig, tree=tree)
+        try:
+            STORE.mkdir(parents=True, exist_ok=True)
+            fd, tmp = tempfile.mkstemp(dir=STORE, suffix=".tmp")
+            with os.fdopen(fd, "w") as f:
+                json.dump({"sig": sig, "dir": str(TOOLS), "tree": tree}, f)
+            os.replace(tmp, STORE / "tree.json")
+        except OSError:
+            pass
+    return tree
+
+
+#: _tree()'s last answer this process: {"sig": signature hash, "tree": tree hash}.
+_TREE = {}
+
+
+def _signature_of():
+    """The hash of _signature() now (the files read may have moved while read)."""
+    return hashlib.sha1(repr(_signature()).encode()).hexdigest()
 
 
 def _kept(question, answer):
@@ -110,7 +145,7 @@ def _kept(question, answer):
             pass
         return kept[q]
     out = answer()
-    if _tree() != tree:
+    if _tree(fresh=True) != tree:
         return out
     kept[q] = out
     try:
