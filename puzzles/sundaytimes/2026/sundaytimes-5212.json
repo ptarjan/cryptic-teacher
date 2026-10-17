@@ -153,53 +153,56 @@
     "definitions": [
      {
       "text": "a steal",
-      "at": 34,
-      "note": "'a steal' is a noun phrase; DIRT CHEAP is the adjective used of the same bargain"
+      "at": 34
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DIRTCHEAP",
-     "indicators": [
-      {
-       "text": "scuppered",
-       "note": "a scuppered plan is wrecked, so the letters are wrecked and rebuilt"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "End of",
+         "at": 0,
+         "note": "the end of a word is its final letter"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "End of",
-           "note": "takes the final letter of 'third'"
-          }
-         ],
-         "parts": [
-          {
-           "words": "End of third",
-           "gives": "THIRD",
-           "note": "last letter of thirD"
-          }
-         ]
+         "words": "third",
+         "at": 7,
+         "note": "its last letter is D"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "scuppered",
+         "at": 24,
+         "note": "scuppered means wrecked, so the letters of a and pitcher are broken up and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "a",
+         "at": 14
         },
         {
-         "words": "a pitcher",
-         "gives": "IRTCHEAP",
-         "note": "A PITCHER rearranged"
+         "words": "pitcher",
+         "at": 16,
+         "note": "taken as written, part of the letters to rearrange"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A baseball report: in the third inning the pitcher failed to stop a stolen base.",
-     "walkthrough": "The surface is baseball, where a steal is a runner taking a base; the definition wants the other steal, a bargain. The answer is an adjective phrase standing in for 'a steal' as in 'it was a steal'.",
-     "definitionFit": "Something that is a steal is so cheap it is almost free: dirt cheap."
+     "surface": "A baseball scene: in the third inning a pitcher blunders and a runner steals a base.",
+     "walkthrough": "'steal' here is the noun for a bargain, not the baseball move. D from 'End of' third comes before IRTCHEAP, from 'scuppered' A PITCHER.",
+     "definitionFit": "Something dirt cheap costs almost nothing, so buying it is a bargain, informally called a steal."
     },
     "features": {
      "answerInScene": false,
@@ -1126,44 +1129,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SURREAL",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "invading",
+       "at": 9,
+       "note": "invading means entering territory, so these letters go inside the others"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "invading"
-        },
-        {
          "text": "worked",
-         "note": "the letters of URALS are worked into a new shape"
+         "at": 24,
+         "note": "worked means shaped or kneaded, so the letters of Urals are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Urals",
-         "gives": "SURAL",
-         "note": "URALS rearranged, then split around RE"
-        },
-        {
-         "words": "Soldiers",
-         "gives": "RE",
-         "note": "Royal Engineers, British army corps"
+         "at": 18,
+         "note": "taken as written, the letters to rearrange"
         }
        ]
+      },
+      {
+       "words": "Soldiers",
+       "at": 0,
+       "gives": "RE",
+       "note": "RE is the Royal Engineers, a British Army corps, so a crossword word for soldiers"
       }
      ]
     },
     "explanation": {
-     "surface": "A military invasion of the Ural mountains went perfectly.",
-     "walkthrough": "'Worked like a dream' is an idiom for going smoothly; the clue splits it, 'worked' ending the wordplay and 'like a dream' defining.",
-     "definitionFit": "Surreal describes something bizarre and dreamlike."
+     "surface": "Troops push into the Ural mountains, and the campaign goes as smoothly as a dream.",
+     "walkthrough": "'worked' looks like 'went well', but it rearranges URALS into SURAL; RE goes 'invading' it after SUR.",
+     "definitionFit": "Something surreal has the bizarre, irrational quality of a dream, the hallmark of the Surrealist art movement."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "worked"
     }
    }
