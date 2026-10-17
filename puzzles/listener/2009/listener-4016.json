@@ -1045,40 +1045,50 @@
      "parts": [
       {
        "words": "Princess",
+       "at": 0,
        "gives": "DI",
-       "note": "Di, as in Diana, Princess of Wales"
+       "note": "Di, the familiar name of Diana, Princess of Wales"
+      },
+      {
+       "words": "sense",
+       "at": 19,
+       "gives": "S",
+       "note": "first letter of sense, the first of the words whose starts are taken"
+      },
+      {
+       "words": "vile",
+       "at": 25,
+       "gives": "E",
+       "note": "this is the word with the moved letter: put its E back at the front and it reads evil, whose start is E"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "SENDOWS",
        "indicators": [
         {
          "text": "starts to",
-         "note": "the start of each word is its first letter, so only those are kept"
+         "at": 9,
+         "note": "the starts of these words means their first letters are taken in order, as for sense and evil before them"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "sense vile, nasty demands of wedding, so",
-         "gives": "SENDOWS",
-         "select": "first",
-         "note": "the initials, reading the misprinted vile as evil, its E moved to the end"
+         "words": "nasty demands of wedding, so",
+         "at": 31,
+         "note": "taken as written, before each word's first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A princess senses foul wedding demands and takes back the dowry.",
-     "walkthrough": "'vile' is evil with its E moved to the end, so its initial counts as E. 'so' supplies both the last initial and the sense of consequence.",
-     "definitionFit": "To disendow is to strip something of its endowment; a dowry is an endowment, so withdrawing one fits."
+     "surface": "A princess, revolted by the grasping terms of her marriage settlement, takes back the dowry she was to bring.",
+     "walkthrough": "Per the preamble, 'vile' is really 'evil' with its E moved to the end. 'Starts to' then takes the first letters S, E and NDOWS (from nasty demands of wedding so) after DI.",
+     "definitionFit": "To disendow is to strip of an endowment, and a dowry is the endowment a bride brings to a marriage."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "vile"
+     "aptDefinition": true,
+     "misdirectedWord": "Princess"
     }
    }
   },
@@ -1325,60 +1335,61 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "dropped from",
+       "at": 19,
+       "note": "dropped from means that letter is taken out of the letters that follow"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "dropped from",
-         "note": "dropping something from a group leaves it out"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "each",
+         "at": 32,
          "gives": "EA",
-         "note": "ea. is the abbreviation for each"
+         "note": "ea. is the standard abbreviation for each, as on price lists"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "A",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially means at the start, so only the first letter is used"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "has",
-           "gives": "A",
-           "select": "first",
-           "note": "printed with its H moved to the front; restored it is ash, whose first letter is used"
-          }
-         ]
+         "words": "plough",
+         "at": 37,
+         "gives": "ARD",
+         "note": "an ard is a primitive light plough that scratches the soil rather than turning it"
         }
        ]
       },
       {
-       "words": "plough",
-       "gives": "ARD",
-       "note": "an ard is a primitive plough that scratches the soil"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 9,
+         "note": "initially means only the opening letter of the word ash is wanted here"
+        }
+       ],
+       "parts": [
+        {
+         "words": "has",
+         "at": 5,
+         "gives": "ASH",
+         "note": "this is the word with the moved letter: put its H back at the end and it reads ash"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Soil falls away from every plough as it starts work.",
-     "walkthrough": "'has' is ash with its H moved to the front. EA and ARD join with two A's together, and one of them is the A that drops out.",
-     "definitionFit": "Eard is a Scots and old form of earth, so it means soil or ground."
+     "surface": "A farmer notes that soil keeps falling off every plough blade.",
+     "walkthrough": "Per the preamble, 'has' is really 'ash' with its H moved to the front; 'initially' gives its A, which is 'dropped from' EA + ARD. EARD is a Scots word for earth.",
+     "definitionFit": "Eard is the Scots form of earth, listed in Chambers in the sense of ground or soil."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "has"
+     "misdirectedWord": "plough"
     }
    }
   },
@@ -1837,54 +1848,60 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "CL",
        "indicators": [
         {
          "text": "Heads of",
-         "note": "the heads of words are their first letters"
+         "at": 0,
+         "note": "the heads of cunning, levers and are are their opening letters, taken in order"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "cunning elvers",
-         "gives": "CL",
-         "select": "first",
-         "note": "the initials, reading elvers as levers with its E moved to the front"
+         "words": "cunning",
+         "at": 9,
+         "note": "taken as written, before its first letter is taken"
         }
        ]
+      },
+      {
+       "words": "elvers",
+       "at": 17,
+       "gives": "L",
+       "note": "this is the word with the moved letter: put its E back after the L and it reads levers, whose head is L"
+      },
+      {
+       "words": "are",
+       "at": 24,
+       "gives": "A",
+       "note": "head of are, the last of the words whose first letters are taken"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "shifting",
-         "note": "shifting things moves them about, so these letters change places"
+         "at": 28,
+         "note": "shifting means the letters of the word threat move around into a new order"
         }
        ],
        "parts": [
         {
-         "words": "are",
-         "gives": "A",
-         "note": "an are is a unit of area, A"
-        },
-        {
          "words": "threat",
-         "note": "taken as written"
+         "at": 37,
+         "note": "taken as written as the letters to rearrange"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Crafty young eels sense danger and wonder whether they are caught in a net.",
-     "walkthrough": "'elvers' is levers with the E moved to the front; both initials are L anyway. The question mark marks a definition by description.",
-     "definitionFit": "Clathrate means latticed, shaped like a lattice or trellis, which is what a net's mesh is."
+     "surface": "Young eels wriggling about form a menacing mesh.",
+     "walkthrough": "Per the preamble, 'elvers' is really 'levers' with its E moved to the front, so 'Heads of' gives C, L, A; 'shifting' turns THREAT into THRATE.",
+     "definitionFit": "Clathrate means latticed or shaped like a lattice, which is the pattern of a mesh; the question mark flags a definition by example."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false,
+     "answerInScene": false,
+     "aptDefinition": true,
      "misdirectedWord": "elvers"
     }
    }
@@ -2715,55 +2732,65 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Edification at first by unstable man? ____!",
-      "at": 0
+      "text": "____",
+      "at": 38
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "unstable",
-       "note": "something unstable will not stay as it is, so the letters move"
+       "text": "by",
+       "at": 21,
+       "note": "by means the next piece is placed beside the first, following it"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "D",
        "indicators": [
         {
          "text": "at first",
-         "note": "at first means at the start, so only the opening letter is kept"
+         "at": 12,
+         "note": "at first means only the opening letter of the word deification is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Edification",
-         "gives": "D",
-         "select": "first",
-         "note": "printed with its E moved to the front; restored it is deification, whose first letter is used"
+         "at": 0,
+         "gives": "DEIFICATION",
+         "note": "this is the word with the moved letter: put its E back after the D and it reads deification"
         }
        ]
       },
       {
-       "words": "man",
-       "note": "taken as written"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unstable",
+         "at": 24,
+         "note": "unstable means the letters of the word man are not fixed and are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "man",
+         "at": 33,
+         "note": "taken as written as the letters to rearrange"
+        }
+       ]
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "A man being made into a god who then wobbles would cry out this curse.",
-     "walkthrough": "'Edification' is deification with its E moved. Read whole, the clue imagines an unsteady deified man exclaiming the very curse that fills the blank.",
-     "definitionFit": "Damn is an exclamation of annoyance, the oath a mortal raised to godhood and then toppled might utter."
+     "surface": "Someone shaky is made into a god, and the blank asks what the onlooker swears.",
+     "walkthrough": "Per the preamble, 'Edification' is really 'Deification' with its E moved to the front; 'at first' gives D, and 'unstable' turns MAN into AMN. The blank is filled by the answer as an exclamation.",
+     "definitionFit": "The blank followed by an exclamation mark asks for a curse or oath, and damn is the commonest mild expletive."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
-     "joke": "absurd",
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "Edification"
     }
    }
