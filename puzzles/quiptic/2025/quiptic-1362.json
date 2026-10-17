@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -669,40 +670,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TALK",
-     "indicators": [
-      {
-       "text": "unfinished",
-       "note": "What is unfinished stops short of its end, so the word beside it never reaches its final letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unfinished",
+         "at": 12,
+         "note": "unfinished means the word for story is cut short, losing its last letter"
+        }
+       ],
        "parts": [
         {
          "words": "story",
-         "gives": "TAL",
-         "note": "a story is a TALE, and the deletion takes its last letter off"
+         "at": 23,
+         "gives": "TALE",
+         "note": "a tale is a story"
         },
         {
-         "words": "king",
-         "gives": "K",
-         "note": "k is the king of chess notation and of the card pack"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "king",
+       "at": 32,
+       "gives": "K",
+       "note": "K is the chess and card abbreviation for king"
       }
      ]
     },
     "explanation": {
-     "surface": "A story left half-told by a king.",
-     "walkthrough": "'By' joins the two pieces in the order the clue gives them and contributes nothing itself. K is one of the letters a solver meets most often, since king, kilo and thousand all reduce to it.",
-     "definitionFit": "To talk is to communicate in speech, the same verb in the same plain form."
+     "surface": "Someone shares a half-told story about a monarch.",
+     "walkthrough": "TALE without its final E, from 'unfinished', gives TAL, and K follows 'by' it.",
+     "definitionFit": "To talk is to speak, conveying thoughts and information to others."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false
     }
    }
@@ -1126,46 +1131,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DASHER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 8,
+       "note": "the jumbled letters go about, around, the word for quiet"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "up",
-         "note": "In a down clue what runs up is read from the foot of the column, so the word before it is spelt backwards."
-        },
-        {
-         "text": "about",
-         "note": "What goes about a thing wraps round it, so the letters named after sit inside the ones already turned."
+         "at": 5,
+         "note": "up here means stirred up, so the letters of read are jumbled"
         }
        ],
        "parts": [
         {
          "words": "Read",
-         "gives": "DAER",
-         "note": "READ written the other way up the column"
-        },
-        {
-         "words": "quiet",
-         "gives": "SH",
-         "note": "sh is the hiss that asks for quiet"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "quiet",
+       "at": 14,
+       "gives": "SH",
+       "note": "SH is the call for quiet"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody reading up about a quiet reindeer.",
-     "walkthrough": "'Read up about' is one phrase in the surface and three separate instructions underneath. Dasher is the first of the eight reindeer named in the 1823 poem 'A Visit from St Nicholas'.",
-     "definitionFit": "Dasher heads the team of reindeer in the Christmas poem, the first name called out as the sleigh leaves."
+     "surface": "Someone revises the facts about a silent reindeer.",
+     "walkthrough": "READ jumbled by 'up' becomes DAER, wrapped 'about' SH. Dasher is one of Santa's reindeer in 'A Visit from St Nicholas'.",
+     "definitionFit": "Dasher is the first-named of Santa Claus's reindeer in the Christmas poem and song."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "up"
+     "misdirectedWord": "Read"
     }
    }
   },
@@ -1241,46 +1248,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "QUARTILE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 33,
+       "note": "the rearranged letters go in the abbreviation for Quebec"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Quebec",
+       "at": 36,
+       "gives": "QUE",
+       "note": "QUE is the abbreviation for the Canadian province of Quebec"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "scrapped",
-         "note": "Scrapped machinery is broken up for its parts, and letters broken up that way do not keep their order."
-        },
-        {
-         "text": "in",
-         "note": "In puts whatever comes before it inside whatever comes after, so the broken letters land within the province."
+         "at": 24,
+         "note": "scrapped here means broken up, so the letters of trial are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Quebec",
-         "gives": "QUE",
-         "note": "the Canadian province Quebec is Que. for short"
-        },
-        {
          "words": "trial",
-         "gives": "ARTIL",
-         "note": "the five letters of TRIAL rearranged"
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drug trial dropped by a research group out in Quebec.",
-     "walkthrough": "'Quebec' is the province here rather than the radio alphabet's Q, which is the single letter most clues want from that word. Three of its letters are needed, wrapped round the rest.",
-     "definitionFit": "A quartile is one of the four equal groups a ranked set of figures divides into, which is a statistician's way of grouping data."
+     "surface": "A statistical study was cancelled in a Canadian province.",
+     "walkthrough": "'Scrapped' looks like cancelling, but it rearranges TRIAL into ARTIL, which sits in QUE.",
+     "definitionFit": "A quartile is one of four equal portions into which a ranked data set is divided."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Quebec"
+     "misdirectedWord": "scrapped"
     }
    }
   },
