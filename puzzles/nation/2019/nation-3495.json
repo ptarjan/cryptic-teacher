@@ -324,45 +324,51 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "EVANGELIZE",
-     "indicators": [
-      {
-       "text": "replacement for",
-       "note": "a replacement stands in for something, so one letter is swapped for another"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "former senator Bayh",
+       "at": 15,
        "gives": "EVAN",
-       "note": "Evan Bayh was a US senator from Indiana"
+       "note": "Evan Bayh was a US senator for Indiana"
       },
       {
-       "words": "Central American nation",
-       "gives": "BELIZE",
-       "note": "Belize is a country in Central America"
-      },
-      {
-       "words": "face of Central",
-       "gives": "B",
-       "note": "the face, or first letter, of the nation's name"
-      },
-      {
-       "words": "grand",
-       "gives": "G",
-       "note": "G is slang for a grand, a thousand dollars"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "replacement for face of",
+         "at": 49,
+         "note": "the first letter (the face) of the word is replaced by another letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Central American nation",
+         "at": 73,
+         "gives": "BELIZE",
+         "note": "Belize is a country in Central America"
+        },
+        {
+         "gives": "B",
+         "note": "the first letter of the nation's name"
+        },
+        {
+         "words": "grand",
+         "at": 43,
+         "gives": "G",
+         "note": "G is the standard abbreviation for grand, a thousand dollars"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A politician sets out to preach and remake a Central American country.",
-     "walkthrough": "The face of BELIZE is its first letter, B, which G replaces.",
-     "definitionFit": "To evangelize is to preach in order to win converts to a faith or cause."
+     "surface": "Reads like a political news item about a former senator meddling with a Central American country.",
+     "walkthrough": "'replacement for face of' changes the first letter of the country's name; a grand is slang for a thousand dollars.",
+     "definitionFit": "To evangelize is to preach a faith in the hope of winning converts."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "grand"
     }
@@ -390,27 +396,38 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "ETCH",
      "indicators": [
       {
-       "text": "the middle of",
-       "note": "the middle of a word means its central letters, with the ends dropped"
+       "text": "the middle",
+       "at": 8,
+       "note": "the middle keeps the central part of the word, peeling off its outer letters"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "rough drawings",
-       "gives": "ETCH",
-       "select": "middle",
-       "note": "rough drawings are sketches; their central four letters"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "of",
+         "at": 19,
+         "note": "with 'the middle', of asks for the core again, so a second layer of outer letters is peeled away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "rough drawings",
+         "at": 22,
+         "gives": "SKETCHES",
+         "note": "sketches are rough drawings"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An artist carves into the centre of some preliminary sketches.",
-     "definitionFit": "To etch is to cut lines into a surface, the same as engraving it."
+     "surface": "An instruction to engrave the central part of some draft drawings.",
+     "walkthrough": "'the middle of' keeps the central four letters of SKETCHES, losing SK at the front and ES at the back.",
+     "definitionFit": "To etch is to engrave a design, usually by cutting it into metal with acid."
     },
     "features": {
      "answerInScene": true,
@@ -999,32 +1016,46 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "SHOWERCAP",
-     "indicators": [
-      {
-       "text": "with start slightly delayed",
-       "note": "delaying the start moves the opening letter a little later in the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Broadcast",
+       "at": 0,
        "gives": "SHOW",
-       "note": "to broadcast something is to show it"
+       "note": "a broadcast is a show on TV or radio"
       },
       {
-       "words": "summary",
-       "gives": "RECAP",
-       "note": "a recap is a summary"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "with start slightly delayed",
+         "at": 19,
+         "note": "the opening letter is put back one place, so the first two letters swap"
+        }
+       ],
+       "parts": [
+        {
+         "words": "summary",
+         "at": 10,
+         "gives": "RECAP",
+         "note": "a recap is a summary"
+        },
+        {
+         "gives": "RE",
+         "note": "the first two letters of the summary"
+        },
+        {
+         "gives": "ER",
+         "note": "the same two letters with the first moved back one place"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A TV recap is aired late, with an item about something covering a nude.",
-     "walkthrough": "RECAP's first letter moves back one place, giving ERCAP.",
-     "definitionFit": "A shower cap is worn over the hair by someone bathing, who is unclothed at the time."
+     "surface": "Pictures a TV summary that starts late and has to cover for nudity.",
+     "walkthrough": "'with start slightly delayed' moves the R of RECAP back one place, giving ERCAP. The definition is a cryptic hint: the cap is worn in the shower, where people are naked.",
+     "definitionFit": "A shower cap is worn over the hair by someone bathing, who is usually undressed."
     },
     "features": {
      "answerInScene": false,
@@ -1797,54 +1828,60 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "adopts",
+       "at": 28,
+       "note": "to adopt is to take in, so the letter goes inside"
+      }
+     ],
      "parts": [
       {
-       "words": "General",
-       "gives": "G",
-       "note": "G is the film rating for general audiences"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "General",
+         "at": 0,
+         "gives": "G",
+         "note": "G is the abbreviation for General"
+        },
+        {
+         "words": "Taylor, familiarly",
+         "at": 8,
+         "gives": "LIZ",
+         "note": "Liz is the familiar name of the actress Elizabeth Taylor"
+        }
+       ]
       },
       {
-       "op": "container",
+       "op": "first",
        "indicators": [
         {
-         "text": "adopts",
-         "note": "to adopt is to take in, so one piece is held inside another"
+         "text": "a hint of",
+         "at": 35,
+         "note": "a hint of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "words": "Taylor, familiarly",
-         "gives": "LIZ",
-         "note": "Liz is the familiar name of actress Elizabeth Taylor"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "T",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "a hint of tacky",
-           "gives": "T",
-           "select": "first",
-           "note": "the first letter of tacky"
-          }
-         ]
+         "words": "tacky",
+         "at": 45,
+         "note": "the first letter of tacky is T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A military man named Taylor takes on a touch of tasteless showiness.",
-     "walkthrough": "'General Taylor' suggests Zachary Taylor, but the general is the G film rating and Taylor is Liz.",
-     "definitionFit": "Glitz is showy, flashy glamour, a near synonym for ostentatious display."
+     "surface": "Pictures a general taking on a touch of tackiness in display.",
+     "walkthrough": "'a hint of' gives T from tacky, and 'adopts' puts it inside G + LIZ.",
+     "definitionFit": "Glitz is showy glamour, flashy display meant to impress."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "General"
+     "misdirectedWord": "Taylor"
     }
    }
   },
