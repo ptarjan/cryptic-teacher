@@ -922,31 +922,42 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "DOWNFALL",
+     "spelt": "DOWNFALL",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so the starts are exchanged"
+       "at": 0,
+       "note": "Spooner's says to swap the opening sounds of two words, as the Reverend Spooner famously did"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "discovered everything",
-       "gives": "DOWNFALL",
-       "soundsLike": "FOUND ALL",
-       "note": "discovered is found and everything is all; swap their opening sounds"
+       "op": "homophone",
+       "spelt": "FOWND",
+       "parts": [
+        {
+         "words": "discovered",
+         "at": 10,
+         "gives": "FOUND",
+         "note": "discovered means found; said before a vowel its D runs on into the next word"
+        }
+       ]
+      },
+      {
+       "words": "everything",
+       "at": 21,
+       "gives": "ALL",
+       "note": "all means everything"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone uncovered every detail about a disaster.",
-     "walkthrough": "Swap the opening consonants of 'down fall' and you get 'fown dall', which is close to how 'found all' is said.",
-     "definitionFit": "A downfall is a loss of power, status or fortune, so a person's undoing or collapse."
+     "surface": "A tale of the Reverend Spooner uncovering everything that brought him low.",
+     "walkthrough": "Said aloud, 'found all' runs together as 'fown dall'; 'Spooner's' swaps the F and D sounds to give 'down fall'.",
+     "definitionFit": "A downfall is a loss of power, status or prosperity, the ruin of someone or something."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "discovered"
     }
