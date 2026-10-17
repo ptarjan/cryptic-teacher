@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -413,40 +414,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SPIDERMAN",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "punching",
+       "at": 19,
+       "note": "punching means the jumbled letters break into the middle of the other word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "cross",
+       "at": 28,
+       "gives": "SPAN",
+       "note": "to span a river is to cross it, so span means cross"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "in kerfuffle",
-         "note": "A kerfuffle is a disorderly commotion, and letters caught up in one come out in no particular order."
-        },
-        {
-         "text": "punching",
-         "note": "To punch something is to drive straight into it, so the shuffled letters end up inside the word next to them."
+         "at": 6,
+         "note": "a kerfuffle is a commotion or fuss, so letters in one are tossed into disorder"
         }
        ],
        "parts": [
         {
-         "words": "cross",
-         "gives": "SPAN",
-         "note": "to cross a river is to span it"
-        },
-        {
          "words": "Mired",
-         "gives": "IDERM",
-         "note": "the five letters of MIRED in a fresh order"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Cross' is the verb, not the adjective the surface wants, and 6-3 tells you the answer is hyphenated — a small piece of information the enumeration hands over for free.",
-     "definitionFit": "superhero → SPIDER-MAN: Marvel's wall-crawler is one named member of the class, so the general word points at a single example of it."
+     "surface": "Someone stuck in a commotion is lashing out angrily at a comic-book hero.",
+     "walkthrough": "'cross' looks like an adjective for angry, but it is a verb, as a bridge crosses a river. 'in kerfuffle' scrambles MIRED and 'punching' drives that into the verb.",
+     "definitionFit": "Spider-Man is the Marvel comics character Peter Parker, who swings between buildings on webs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
     }
    }
   },
@@ -536,36 +545,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNLEARNT",
-     "indicators": [
-      {
-       "text": "dilapidated",
-       "note": "A dilapidated building has fallen apart, and so have these letters — not one of them stays where it was put."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "in Nice, a",
+       "at": 10,
+       "gives": "UN",
+       "note": "un is the French for 'a', fitting the French city of Nice"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "dilapidated",
+         "at": 21,
+         "note": "dilapidated means falling apart, so the letters of the following word collapse into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "in Nice, a",
-         "gives": "UN",
-         "note": "in Nice they say un for a, and a French word is what 'in Nice' asks for"
-        },
-        {
          "words": "rental",
-         "gives": "LEARNT",
-         "note": "the six letters of RENTAL rebuilt"
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Naming a French city is the standard signal to answer in French, and here it makes the tiniest of words: two letters that mean 'a'.",
-     "definitionFit": "Forgotten → UNLEARNT: a lesson unlearnt is one that never stuck or has been let go again, which is what forgetting amounts to."
+     "surface": "A holidaymaker has forgotten about a run-down rented flat on the Riviera.",
+     "walkthrough": "'Nice' looks like the adjective but is the French city, telling you to put 'a' into French; 'dilapidated' then rearranges RENTAL.",
+     "definitionFit": "Something unlearnt has been put out of mind, its learning lost or deliberately dropped."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nice"
     }
    }
   },
@@ -1051,26 +1066,33 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ERA",
+     "op": "middle",
      "indicators": [
       {
        "text": "unclothed",
-       "note": "Unclothed means stripped of whatever covers it, so the letters at each end of the word come off."
+       "at": 5,
+       "note": "unclothed means stripped of the outer covering, so the first and last letters go"
       }
      ],
      "parts": [
       {
        "words": "Wild",
+       "at": 0,
        "gives": "FERAL",
-       "note": "a feral cat is a wild one"
+       "note": "feral means wild, as of an animal living untamed"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "In three letters there is nowhere to hide, so the whole solve is spotting that 'Wild' is a word to write down rather than an instruction to shuffle.",
-     "definitionFit": "period → ERA: an era is a long stretch of history with a character of its own, so 'period' names it as a span of time."
+     "surface": "A naked, untamed spell of time.",
+     "walkthrough": "'unclothed' strips the outside letters from the word for wild, leaving its middle.",
+     "definitionFit": "An era is a long, distinct period of history, such as the Victorian age."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "unclothed"
     }
    }
   },
@@ -1101,33 +1123,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Spread",
-       "note": "Butter spread across toast has been pushed out of its neat shape, and so have these letters."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Spread",
+         "at": 0,
+         "note": "to spread is to scatter things widely, so the letters are scattered into a fresh order"
+        }
+       ],
        "parts": [
         {
          "words": "if melting",
-         "note": "the nine letters of IF MELTING in a new arrangement"
-        },
-        {
-         "words": "over",
-         "gives": "ON",
-         "note": "butter spread over the toast is butter spread on it"
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "over",
+       "at": 19,
+       "gives": "ON",
+       "note": "over and on can share a sense, as with a blanket lying over or on a bed"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Melting' looks like the instruction and is really the material; the word doing the shuffling is 'Spread', sitting at the front where it reads as a breakfast.",
-     "definitionFit": "steak → FILET MIGNON: filet mignon is the small round cut taken from the end of the tenderloin, so 'steak' defines it by the kind of cut it is."
+     "surface": "Butter melting over a steak is spread across it.",
+     "walkthrough": "'Spread' looks like butter or a topping, but it scatters the letters of IF MELTING; 'over' then adds ON at the end.",
+     "definitionFit": "Filet mignon is a tender cut of beef taken from the narrow end of the tenderloin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spread"
     }
    }
   },
@@ -1208,36 +1238,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IRANIAN",
-     "indicators": [
-      {
-       "text": "translation of",
-       "note": "A translation carries the same content across into a different form of words, and here the same letters come across in a different order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Current",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the symbol for electric current in physics"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "translation of",
+         "at": 8,
+         "note": "translation of turns the word into another form, so its letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Current",
-         "gives": "I",
-         "note": "I is the physicist's symbol for electric current"
-        },
-        {
          "words": "Narnia",
-         "gives": "RANIAN",
-         "note": "the six letters of NARNIA rearranged"
+         "at": 23
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Current' is the electrical one, I, and not the adjective the surface offers. Narnia has a wardrobe rather than a border, which is the joke the geography sets up.",
-     "definitionFit": "from the Middle East → IRANIAN: Iran is one country of that region, so a broad geographical phrase points at a single nationality within it."
+     "surface": "A new version of the Narnia books has been translated for readers in the Middle East.",
+     "walkthrough": "'Current' looks like an adjective for up to date, but it is the physics symbol I; 'translation of' rearranges NARNIA, the land in C. S. Lewis's children's novels.",
+     "definitionFit": "Iranian describes a person or thing from Iran, a country in the Middle East."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Current"
     }
    }
   },
@@ -1329,27 +1364,25 @@
     "definitions": [
      {
       "text": "Performer",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: an entertainer who tells jokes on stage"
+     },
+     {
+      "text": "to share amplifier with another?",
+      "at": 10,
+      "meaning": "second meaning, read cryptically: the prefix co- means jointly with another, and a mic is the microphone that amplifies a voice, so to have a joint mic"
      }
     ],
-    "wordplay": {
-     "op": "charade",
-     "parts": [
-      {
-       "words": "with another",
-       "gives": "CO",
-       "note": "doing a thing with another person is doing it co- — co-pilot, co-star, co-write"
-      },
-      {
-       "words": "amplifier",
-       "gives": "MIC",
-       "note": "a mic is what a stand-up's voice goes through"
-      }
-     ]
-    },
     "explanation": {
-     "walkthrough": "The joke is the hyphen you cannot see. Someone sharing a microphone would be a co-mic, and the question mark is the setter owning up to it.",
-     "definitionFit": "Performer → COMIC: a comic is the stand-up who performs the act, the noun sense rather than the adjective meaning funny."
+     "surface": "A singer asks whether they will have to share the stage microphone with someone else.",
+     "walkthrough": "The question mark flags the second reading as a whimsical split of the word into a prefix meaning jointly and the short name for a microphone.",
+     "definitionFit": "A comic is a comedian, an entertainer whose act consists of jokes and funny stories."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "share"
     }
    }
   },
@@ -1443,35 +1476,29 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "first pair of knickers",
+       "at": 8,
        "gives": "KN",
-       "indicators": [
-        {
-         "text": "first pair of",
-         "note": "A pair is two, so the word hands over only the two letters it begins with."
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "knickers",
-         "gives": "KN",
-         "select": "first",
-         "note": "the two letters knickers starts with"
-        }
-       ]
+       "note": "the first two letters of knickers, a pair being two"
       },
       {
        "words": "to have",
+       "at": 31,
        "gives": "OWN",
-       "note": "to own a thing is to have it"
+       "note": "to own something is to have it"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The underwear is there for the surface and for its first two letters only, which is a favourite Independent trick: the ruder the noun, the smaller its job.",
-     "definitionFit": "Popular → KNOWN: a known name is one the public has heard of, and it is that public recognition, not being liked, that 'popular' means here."
+     "surface": "Someone is keen to get their hands on a well-liked pair of underpants.",
+     "walkthrough": "'pair' suggests a pair of knickers, but here it means two letters: the first two of the word. Knickers are British women's underpants.",
+     "definitionFit": "Known means widely recognised or familiar, so a known figure is a popular one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pair"
     }
    }
   },
@@ -1548,40 +1575,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MENAGERIE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "pursuing",
+       "at": 18,
+       "note": "pursuing means following behind, so the city comes after the rearranged letters"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "pursuing",
-         "note": "To pursue is to come along behind, so the city's letters follow rather than lead."
-        },
-        {
          "text": "absurd",
-         "note": "Something absurd makes no sense in the order it arrives, so these letters are to be taken out of theirs."
+         "at": 27,
+         "note": "absurd means nonsensical, so the letters are put into a senseless new order"
         }
        ],
        "parts": [
         {
-         "words": "new mega",
-         "gives": "MENAG",
-         "note": "new shortens to N, and N with MEGA makes these five letters"
+         "words": "new",
+         "at": 34,
+         "gives": "N"
         },
         {
-         "words": "Pennsylvania city",
-         "gives": "ERIE",
-         "note": "Erie sits on its lake in the north-west corner of the state"
+         "words": "mega",
+         "at": 38
         }
        ]
+      },
+      {
+       "words": "Pennsylvania city",
+       "at": 0,
+       "gives": "ERIE",
+       "note": "Erie is a city in Pennsylvania on the lake of the same name"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The lake is the famous one, so the city is easy to miss — and 'new' is an abbreviation rather than an adjective, which is what makes the fodder the wrong length at first glance.",
-     "definitionFit": "zoo → MENAGERIE: a menagerie is a private collection of wild animals kept for show, the older travelling-show word for what we now call a zoo."
+     "surface": "A Pennsylvania city chases a ridiculous new giant zoo project.",
+     "walkthrough": "'new mega' looks like one stretch of anagram fodder, but 'new' supplies only its abbreviation before 'absurd' does its mixing; 'pursuing' then sends the city to the end.",
+     "definitionFit": "A menagerie is a collection of wild animals kept for exhibition, an old-fashioned word for a zoo."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pursuing"
     }
    }
   },
