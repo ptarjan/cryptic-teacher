@@ -46,6 +46,14 @@ def transcripts():
     sessions() reads it."""
     return sorted(CLAUDE_DIR.glob("projects/*cryptic*/*.jsonl"))
 ANNOTATE_PREFIX = "Annotate the crossword"
+# A cold-solve run (puzzle_worker.sh) opens with the solve and ends "by handing
+# you this task: Annotate the crossword ...", so the prefix is not at the start.
+ANNOTATE_HANDOFF = "handing you this task: " + ANNOTATE_PREFIX
+
+
+def is_annotate_session(first_user):
+    text = (first_user or "").strip()
+    return text.startswith(ANNOTATE_PREFIX) or ANNOTATE_HANDOFF in text
 
 
 #: Each transcript's (started, calls, text_turns, is_annotation), keyed by
@@ -144,7 +152,7 @@ def _parse(path):
         return None
     if not started:
         return None
-    is_annotation = (first_user or "").strip().startswith(ANNOTATE_PREFIX)
+    is_annotation = is_annotate_session(first_user)
     calls = len(turns)
     text_turns = sum(1 for acted in turns.values() if not acted)
     return [started.replace("Z", "+00:00"), calls, text_turns, is_annotation]
