@@ -106,52 +106,51 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "PRAGMATIST",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 36,
+       "note": "the meeting's letters go inside the rearranged ones"
+      }
+     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "'in' says the meeting is placed inside the other letters"
+         "text": "reorganised",
+         "at": 50,
+         "note": "the letters of part and it's are organised afresh into a new order"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "reorganised",
-           "note": "to reorganise is to put into a new order, so the letters of 'part, it's' are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "yearly meeting",
-           "gives": "AGM",
-           "note": "AGM = annual general meeting; it sits after the first two letters"
-          },
-          {
-           "words": "part, it's",
-           "gives": "PRATIST",
-           "note": "PART + ITS rearranged, split around the meeting"
-          }
-         ]
+         "words": "part",
+         "at": 39
+        },
+        {
+         "words": "it's",
+         "at": 45
         }
        ]
+      },
+      {
+       "words": "yearly meeting",
+       "at": 19,
+       "gives": "AGM",
+       "note": "an AGM is an annual general meeting"
       }
      ]
     },
     "explanation": {
-     "surface": "A sensible person's view of the annual general meeting: parts of it get rearranged.",
-     "walkthrough": "The 's after 'person' stands for 'is', joining definition to wordplay. 'In part' looks like a phrase meaning 'partly', but 'in' is the container signal and 'part' is fodder.",
-     "definitionFit": "A plain synonym: someone who deals with things practically rather than by ideals is realistic."
+     "surface": "A sensible member notes that part of the annual meeting has been rearranged.",
+     "walkthrough": "'In part' looks like 'partly', but part is fodder for 'reorganised' and 'in' is the insertion signal. The 's after person is a link standing for is.",
+     "definitionFit": "A pragmatist deals with things sensibly and practically, guided by results rather than theory."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "part"
+     "misdirectedWord": "reorganised"
     }
    }
   },
@@ -602,43 +601,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "head",
-       "note": "the head of a word is its first letter"
+       "text": "stuck in",
+       "at": 15,
+       "note": "the letter is pushed inside the instrument"
       }
      ],
      "parts": [
       {
        "words": "brass instrument",
+       "at": 24,
        "gives": "BUGLE",
-       "note": "a bugle is a brass instrument"
+       "note": "a bugle is a simple brass horn"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "stuck in",
-         "note": "something stuck in a thing is lodged inside it"
+         "text": "head",
+         "at": 10,
+         "note": "the head of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "words": "Roy's head",
-         "gives": "ROYHEAD",
-         "note": "first letter of Roy, lodged after BU"
+         "words": "Roy's",
+         "at": 4,
+         "note": "first letter of Roy's"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Rob Roy, the Scottish outlaw, with his head jammed in a bugle.",
-     "walkthrough": "Rob Roy looks like one name, the Scottish folk hero, but the clue splits it: 'Rob' is the definition, a verb, and 'Roy' is the wordplay.",
-     "definitionFit": "A plain synonym with a twist: to burgle is to rob a building by breaking in."
+     "surface": "Rob Roy, the Scottish outlaw, gets his head jammed in a horn.",
+     "walkthrough": "Rob Roy was a Scottish folk-hero outlaw, so the two names look joined; in fact Rob is the definition and Roy gives only its first letter.",
+     "definitionFit": "To burgle is to break into a building and steal from it, so to rob it."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "absurd",
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Rob"
     }
    }
@@ -665,44 +667,53 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "expelling",
-       "note": "to expel is to throw out, so the lady throws out the S"
-      }
-     ],
      "parts": [
       {
-       "words": "Italian lady expelling son",
-       "gives": "IGNORA",
-       "note": "SIGNORA, Italian for a lady, without S for son"
-      },
-      {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "NT",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "heartless",
-         "note": "a heartless word has lost its centre, so NOT drops its O"
+         "text": "expelling",
+         "at": 13,
+         "note": "the lady throws out the letter for son"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "not heartless",
-         "gives": "NT",
-         "select": "outer",
-         "note": "NOT with its centre removed"
+         "words": "Italian lady",
+         "at": 0,
+         "gives": "SIGNORA",
+         "note": "signora is the Italian for a married woman or lady"
+        },
+        {
+         "words": "son",
+         "at": 23,
+         "gives": "S"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 32,
+         "note": "the word loses its heart, its middle letter, leaving the outside ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "not",
+         "at": 28,
+         "note": "first and last letters of not"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An Italian woman banishes her son, who is neither soulless nor unschooled.",
-     "walkthrough": "S for son is a standard abbreviation, from family trees. 'Or' is a link, and 'not heartless' reads as a character reference.",
-     "definitionFit": "A plain synonym: ignorant means lacking knowledge or schooling."
+     "surface": "An Italian mother throws out her son, not without heart, or maybe just ill-schooled.",
+     "walkthrough": "'Expelling' removes S from SIGNORA to give IGNORA, and 'heartless' takes the O out of not to leave NT.",
+     "definitionFit": "Ignorant describes someone lacking knowledge or education, so uneducated."
     },
     "features": {
      "answerInScene": false,
@@ -791,54 +802,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SUSPICIONS",
+     "op": "charade",
      "indicators": [
       {
-       "text": "working",
-       "note": "something working is in operation, not in its original state, so the letters are rearranged"
+       "text": "following",
+       "at": 28,
+       "note": "the rearranged letters come after the leading letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "following",
-         "note": "something following comes after"
+         "text": "lead for",
+         "at": 38,
+         "note": "the lead, front, letter of the next word"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "lead for",
-           "note": "the lead of a word is the letter that goes first"
-          }
-         ],
-         "parts": [
-          {
-           "words": "lead for shooting",
-           "gives": "SHOOTING",
-           "note": "first letter of shooting"
-          }
-         ]
-        },
+         "words": "shooting",
+         "at": 47,
+         "note": "first letter of shooting"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "working",
+         "at": 7,
+         "note": "working in the sense of being worked over, so the letters are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "cop in US is",
-         "gives": "USPICIONS",
-         "note": "COPINUSIS rearranged"
+         "at": 15
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Doubts about an American police officer who shoots first.",
-     "walkthrough": "'Is following' reads as one verb phrase, but 'is' is fodder and 'following' alone places the rearranged letters after S.",
-     "definitionFit": "A plain synonym: suspicions and doubts are both feelings that something may not be true."
+     "surface": "Questions arise after an American police officer is involved in a shooting.",
+     "walkthrough": "'Working' looks like it describes the cop, but it rearranges COP IN US IS to give USPICIONS, which comes 'following' the S from 'lead for shooting'.",
+     "definitionFit": "Suspicions are feelings of mistrust that something is wrong, and so doubts."
     },
     "features": {
      "answerInScene": true,
@@ -868,46 +879,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OBELISKS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 24,
+       "note": "in a down clue the first part sits on top of the next one"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
          "text": "dancing around",
-         "note": "dancing around moves the letters about, so they end up in a new order"
-        },
-        {
-         "text": "on",
-         "note": "in a down clue, a piece on another sits above it"
+         "at": 9,
+         "note": "the letters dance about into a new order"
         }
        ],
        "parts": [
         {
          "words": "Bloke is",
-         "gives": "OBELISK",
-         "note": "BLOKEIS rearranged"
-        },
-        {
-         "words": "small",
-         "gives": "S",
-         "note": "S = small, as in clothing sizes"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "small",
+       "at": 27,
+       "gives": "S",
+       "note": "S is the standard abbreviation for small, as on clothing labels"
       }
      ]
     },
     "explanation": {
-     "surface": "A man dancing round some small standing stones.",
-     "walkthrough": "'Small stone' looks like a pebble, but 'small' is S and the definition starts at 'stone'.",
-     "definitionFit": "A plain synonym: an obelisk is a tall, four-sided tapering stone pillar, like Cleopatra's Needle."
+     "surface": "A man is jigging about on some little stones.",
+     "walkthrough": "'Dancing around' rearranges BLOKE IS into OBELISK, and S sits below it, since 'on' in a down clue means above.",
+     "definitionFit": "Obelisks are tall, tapering four-sided stone monuments, like Cleopatra's Needle."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "small"
+     "misdirectedWord": "dancing"
     }
    }
   },
@@ -1374,56 +1387,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PORTRAIT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 29,
+       "note": "the rearranged letters wrap themselves around the letter for right"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "funny",
-         "note": "funny can mean odd or peculiar, so the letters are put out of order"
+         "at": 9,
+         "note": "funny in the sense of odd, so these letters come out in a strange order"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "about"
-          }
-         ],
-         "parts": [
-          {
-           "words": "op art",
-           "gives": "POTRA",
-           "note": "OPART rearranged"
-          },
-          {
-           "words": "it",
-           "note": "used as printed"
-          }
-         ]
+         "words": "op art",
+         "at": 15
         },
         {
-         "words": "right",
-         "gives": "R",
-         "note": "R = right; it goes inside after the first two letters"
+         "words": "it's",
+         "at": 24,
+         "gives": "IT",
+         "note": "just the it of it's, the 's standing for is"
         }
        ]
+      },
+      {
+       "words": "right",
+       "at": 35,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A comment on a playful piece of op art: it's pretty much correct.",
-     "walkthrough": "Op art is abstract art built on optical illusions. 'It's about right' reads as approval, but the 's is 'is' and 'about' wraps the rearranged letters plus IT around R.",
-     "definitionFit": "A definition by category: a portrait is a painting of a person, one kind of painting."
+     "surface": "A critic jokes that an Op Art canvas looks about right.",
+     "walkthrough": "Op art is a 1960s style of optical-illusion painting, which makes 'Painting' seem a description. 'Funny' rearranges OP ART IT, and 'about' wraps those letters round R.",
+     "definitionFit": "A portrait is a painting or picture of a person, especially of the face."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "about"
+     "misdirectedWord": "funny"
     }
    }
   },
