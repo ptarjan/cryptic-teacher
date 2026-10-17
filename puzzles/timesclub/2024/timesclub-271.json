@@ -120,31 +120,35 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PINHIGH",
      "indicators": [
       {
-       "text": "to replace cap",
-       "note": "replacing a cap means the first letter of a word is swapped out for something else"
+       "text": "to replace cap in",
+       "at": 18,
+       "note": "the cap of a word is its first letter, and the rod is to take that letter's place"
       }
      ],
      "parts": [
       {
-       "words": "Bone-splicing rod",
-       "gives": "PIN",
-       "note": "surgeons fix broken bones with a metal pin"
+       "words": "place of femur",
+       "at": 36,
+       "gives": "THIGH",
+       "note": "the femur is the thigh bone, so the thigh is where it sits"
       },
       {
-       "words": "place of femur",
-       "gives": "THIGH",
-       "note": "the femur is the thigh bone"
+       "gives": "T"
+      },
+      {
+       "words": "Bone-splicing rod",
+       "at": 0,
+       "gives": "PIN",
+       "note": "a surgical pin is a rod used to hold broken bone together"
       }
      ]
     },
     "explanation": {
-     "surface": "A surgeon fits a rod into a broken thigh bone, worrying about its length.",
-     "walkthrough": "The T heading THIGH is swapped for PIN. The definition is golf: the 'cup' is the hole on the green.",
-     "definitionFit": "In golf a shot finishing pin-high has travelled exactly far enough to be level with the flag, though it has not dropped into the hole."
+     "surface": "An orthopaedic note about fitting a pin into a broken femur.",
+     "walkthrough": "The surface is all surgery, but the definition is golf: the cup is the hole, and 'to replace cap in' means the first letter of the femur's place is swapped out.",
+     "definitionFit": "In golf a shot finishing pin-high has gone exactly the right distance to the flag but lies to one side of the hole."
     },
     "features": {
      "answerInScene": false,
@@ -678,21 +682,41 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "wants this",
+       "at": 27,
+       "note": "the hungry actor is short of this inner part, which is what is left once the coating is gone"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "wants",
-         "note": "wants here means lacks, so something is missing from the combined words"
+         "text": "coated with pecan",
+         "at": 46,
+         "note": "the nut's letters form a coat split around the answer, its first three at the front and last two at the back"
         }
        ],
        "parts": [
         {
-         "words": "Hungry",
-         "gives": "PECKISH",
-         "note": "peckish means slightly hungry"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "Hungry",
+           "at": 0,
+           "gives": "PECKISH",
+           "note": "peckish means a little hungry"
+          },
+          {
+           "words": "Shakespearean actor",
+           "at": 7,
+           "gives": "KEAN",
+           "note": "Edmund Kean was the great Shakespearean actor of the early nineteenth century"
+          }
+         ]
         },
         {
          "gives": "PEC"
@@ -700,41 +724,20 @@
        ]
       },
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "coated with",
-         "note": "a coating is an outer layer, so what is missing sits on the outside and the inside survives"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Shakespearean actor",
-         "gives": "KEAN",
-         "note": "Edmund Kean was the great Shakespearean actor of the Regency stage"
-        },
-        {
-         "gives": "AN"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "pecan",
-       "note": "names the coat: its letters split into PEC at the front and AN at the back"
+       "gives": "AN"
       }
      ]
     },
     "explanation": {
-     "surface": "A famished actor wants a sausage with a nut crust.",
-     "walkthrough": "PECKISH KEAN is the answer with PEC on the front and AN on the back: the letters of pecan coating it. Remove them.",
-     "definitionFit": "Kishke is a Jewish dish of beef casing stuffed with seasoned filling, a type of sausage."
+     "surface": "A starving actor goes without a sausage that comes in a nut coating.",
+     "walkthrough": "PECKISH KEAN, a hungry Shakespearean actor, is the answer with PEC at the front and AN at the back: the answer coated with PECAN. Take the coat away to leave the sausage.",
+     "definitionFit": "Kishke is a Jewish sausage of beef intestine stuffed with meal and fat."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "pecan"
+     "misdirectedWord": "Hungry"
     }
    }
   },
@@ -1082,37 +1085,33 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "VELL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "contractions",
-       "note": "a contraction shortens a word by dropping letters and putting an apostrophe in their place"
+       "text": "affected by contractions",
+       "at": 10,
+       "note": "both words are cut down to their contracted forms, as in I've and we'll, and set side by side"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Have",
-         "gives": "VE",
-         "note": "have contracts to 've, as in I've"
-        },
-        {
-         "words": "will",
-         "gives": "LL",
-         "note": "will contracts to 'll, as in I'll"
-        }
-       ]
+       "words": "Have",
+       "at": 0,
+       "gives": "VE",
+       "note": "contracted, have becomes 've, as in I've"
+      },
+      {
+       "words": "will",
+       "at": 5,
+       "gives": "LL",
+       "note": "contracted, will becomes 'll, as in we'll"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone's resolve is shaken by cramps in the belly.",
-     "walkthrough": "'Contractions' looks like stomach cramps but means shortened words.",
-     "definitionFit": "Vell is a dialect name for the fourth stomach of a calf, used for making rennet."
+     "surface": "A pregnancy note: a woman will have contractions in the stomach.",
+     "walkthrough": "The contracted forms 've and 'll, stripped of apostrophes, give the answer; 'contractions' plays on labour pains.",
+     "definitionFit": "Vell is a dialect word for the fourth stomach of a calf, used to make rennet."
     },
     "features": {
      "answerInScene": false,
