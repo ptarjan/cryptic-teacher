@@ -21,7 +21,8 @@
   "previousOrigin": "model"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -811,61 +812,56 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "composite",
      "indicators": [
       {
+       "text": "for treating",
+       "at": 30,
+       "note": "treating means processing or working on, so the pooled letters are reworked into a new order"
+      },
+      {
        "text": "not",
-       "note": "Putting 'not' in front of a thing takes that thing away from the letters you have been given."
+       "at": 8,
+       "note": "not means the drug's letter is left out of the pool"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "treating",
-         "note": "To treat a substance is to work on it until it comes out changed, which is exactly what happens to these letters."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "deletion",
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "Powder",
-             "note": "the word's own letters, before anything is done to them"
-            },
-            {
-             "words": "it's",
-             "note": "the clue's own word, taken as its three letters"
-            },
-            {
-             "words": "right",
-             "gives": "R",
-             "note": "R is the standard shortening of right"
-            }
-           ]
-          },
-          {
-           "gives": "E"
-          }
-         ]
+         "words": "Powder",
+         "at": 0
+        },
+        {
+         "words": "it's",
+         "at": 19,
+         "note": "taken as written"
+        },
+        {
+         "words": "right",
+         "at": 24,
+         "gives": "R"
         }
        ]
       },
       {
-       "unchecked": true,
        "words": "drug",
-       "note": "E is the drug ecstasy, and it comes out of POWDER"
+       "at": 12,
+       "gives": "E",
+       "note": "E is crossword shorthand for the drug ecstasy"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The medical surface does double work: 'treating' is the instruction and 'condition' the definition, and they sit side by side pretending to be one phrase.",
-     "definitionFit": "medical condition -> WRIST-DROP: the limp hand left by damage to the radial nerve, a named clinical sign rather than a loose description."
+     "surface": "A pharmacist recommending a powder rather than a drug as the right treatment for an ailment.",
+     "walkthrough": "Pool POWDER, ITS and R, remove the E ('not drug'), and 'for treating' reworks what is left. Wrist drop is a paralysis of the wrist's extensor muscles, so the hand hangs limp.",
+     "definitionFit": "Wrist drop is a recognised nerve disorder, often from radial nerve injury, so it is a medical ailment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treating"
     }
    }
   },
