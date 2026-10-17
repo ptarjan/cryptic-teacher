@@ -107,45 +107,49 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "DYNAMIC",
+     "indicators": [
+      {
+       "text": "turned up",
+       "at": 23,
+       "note": "in a down clue, turned up means the whole result is written from the bottom upwards"
+      }
+     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "eating",
-         "note": "What is eaten ends up inside the eater, so one set of letters sits within the other."
-        },
-        {
-         "text": "turned up",
-         "note": "In a down entry 'up' sends the letters back towards the top of the grid, so the whole assembly reads the other way round."
+         "at": 11,
+         "note": "the detectives take the word for lots inside them, as if eating it"
         }
        ],
        "parts": [
         {
          "words": "Detectives",
-         "gives": "DIC",
-         "note": "the CID is Britain's Criminal Investigation Department, its plain-clothes detectives, here climbing the grid"
+         "at": 0,
+         "gives": "CID",
+         "note": "CID is the Criminal Investigation Department, the detective branch of British police"
         },
         {
          "words": "lots",
-         "gives": "YNAM",
-         "note": "lots of something is many, also on its way up"
+         "at": 18,
+         "gives": "MANY",
+         "note": "many means lots, a large number"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Plain-clothes officers put away a huge meal and come away bursting with energy.",
-     "walkthrough": "The meal reads as the detectives' dinner, but 'full of beans' is the definition. Assembled downwards the letters spell CIMANYD, and only the climb back up makes a word of them.",
-     "definitionFit": "Someone full of beans is bouncing with energy, which is what calling a person dynamic claims for them."
+     "surface": "Police officers who scoffed a huge meal arrive brimming with energy.",
+     "walkthrough": "MANY goes inside CID after its first two letters, giving CIMANYD; 'turned up' reverses that in this down clue.",
+     "definitionFit": "Someone full of beans is lively and energetic, which is what a dynamic person is."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "eating"
+     "misdirectedWord": "beans"
     }
    }
   },
@@ -1331,45 +1335,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BOOZEUP",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "taking",
+       "at": 17,
+       "note": "the reversed bar takes the word for leak inside it"
+      },
+      {
+       "text": "in",
+       "at": 29,
+       "note": "'taking ... in' frames the leak as drawn into the reversed bar"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "'In' puts what comes before it inside what comes after, rather than beside it."
-        },
-        {
          "text": "that's spinning",
-         "note": "Something spinning comes round to face the other way, so those letters arrive back to front."
+         "at": 36,
+         "note": "a bar that's spinning is turned round, so its letters run upwards in this down clue"
         }
        ],
        "parts": [
         {
          "words": "bar",
-         "gives": "BUP",
-         "note": "a pub is a bar, spun round to read BUP"
-        },
-        {
-         "words": "leak",
-         "gives": "OOZE",
-         "note": "to ooze is to leak slowly"
+         "at": 32,
+         "gives": "PUB",
+         "note": "a pub is a bar"
         }
        ]
+      },
+      {
+       "words": "leak",
+       "at": 24,
+       "gives": "OOZE",
+       "note": "to leak is to ooze out"
       }
      ]
     },
     "explanation": {
-     "surface": "After one drink too many the room is spinning and someone slips off to the loo.",
-     "walkthrough": "'Leak' is the drinker's trip to the gents on the surface and the verb ooze in the wordplay. The bar spins because the letters of pub have to arrive backwards.",
-     "definitionFit": "A booze-up is a session of heavy drinking, which is what too many drinks adds up to."
+     "surface": "A drinker who nips off for a pee finds the pub's whirling round.",
+     "walkthrough": "'Leak' hints at a toilet trip in the surface, but it is OOZE. 'That's spinning' turns PUB into BUP, and 'taking ... in' puts OOZE inside it: B + OOZE + UP.",
+     "definitionFit": "A booze-up is a British slang term for a heavy drinking session."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "leak"
     }
