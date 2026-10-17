@@ -1203,41 +1203,42 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means around, so one piece is wrapped round another"
+       "at": 6,
+       "note": "about means going round, so the compass point wraps around the next piece"
       }
      ],
      "parts": [
       {
        "words": "Point",
+       "at": 0,
        "gives": "EAST",
-       "note": "east is a point of the compass"
+       "note": "east is one of the four points of the compass"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "IES",
+       "op": "deletion",
        "indicators": [
         {
          "text": "50pc of",
-         "note": "fifty per cent is half, so only half of the word's letters are kept"
+         "at": 12,
+         "note": "50pc of means fifty per cent, so only half of the word is kept, here its second half"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "cities",
-         "gives": "IES",
-         "select": "last",
-         "note": "the second half of the six-letter word"
+         "at": 20
+        },
+        {
+         "gives": "CIT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A claim that a point about half the world's cities is very easy to make.",
-     "walkthrough": "Half of 'cities' could be either half; only the back three letters fit inside EAST.",
-     "definitionFit": "The superlative of easy means simplest of all, so 'extremely simple' matches as an adjective of degree."
+     "surface": "Someone notes that half the cities on a list are very easy.",
+     "walkthrough": "'50pc of' keeps the back half of CITIES, IES, and 'about' puts EAST round it. 'extremely' reads as an intensifier, as in most simple.",
+     "definitionFit": "Easiest is the superlative of easy, so it means the most simple of all."
     },
     "features": {
      "answerInScene": false,
