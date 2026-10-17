@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -109,41 +110,40 @@
      "indicators": [
       {
        "text": "surrounded by",
-       "note": "to be surrounded is to have something on either side, so the piece named first is closed in by the letters that follow"
+       "at": 15,
+       "note": "the head word is enclosed by the letters taken from halo"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "AO",
        "indicators": [
         {
          "text": "every so often",
-         "note": "every so often is now and then rather than all the way through, so only every second letter of the word is taken"
+         "at": 34,
+         "note": "every so often means at regular intervals, so alternate letters are taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "halo every so often",
-         "gives": "AO",
-         "select": "alternate",
-         "note": "taking hALO every other letter from the second gives A and O"
+         "words": "halo",
+         "at": 29,
+         "note": "its second and fourth letters"
         }
        ]
       },
       {
        "words": "head",
+       "at": 10,
        "gives": "POLL",
-       "note": "a poll is a head, the sense that survives in poll tax and in counting heads at a polling station"
+       "note": "poll is an old word for the head, as in a poll tax charged per head"
       }
      ]
     },
     "explanation": {
-     "surface": "A god of the sun shown with his head ringed by a halo.",
-     "walkthrough": "'Head' is not an instruction to take a first letter, which is the trap: it is a whole word meaning the thing on your shoulders. The halo hands over only its second and fourth letters, and they part to let the head in.",
-     "definitionFit": "Apollo drove the sun across the sky in Greek myth, so the definition is by example: one sun god standing for the class."
+     "surface": "A picture of the sun god with a halo glowing round his head now and then.",
+     "walkthrough": "'Head' reads as part of the god in the picture, but it is the old word poll; 'every so often' takes the 2nd and 4th letters of halo, which 'surrounded by' wraps around it.",
+     "definitionFit": "Apollo was the Greek and Roman god associated with the sun, light and music."
     },
     "features": {
      "answerInScene": true,
@@ -180,36 +180,42 @@
        "indicators": [
         {
          "text": "outside",
-         "note": "the outside of a name is the pair of letters at its ends, and only those two are wanted"
+         "at": 7,
+         "note": "the outside of a word is its first and last letters"
         }
        ],
        "parts": [
         {
-         "words": "Dave's outside",
-         "note": "the ends of DAVE are D and E"
+         "words": "Dave's",
+         "at": 0,
+         "gives": "DAVE",
+         "note": "the name Dave, whose outside is its first and last letters"
         }
        ]
       },
       {
        "words": "bar",
+       "at": 15,
        "gives": "BUT",
-       "note": "bar means except, as in 'all bar one', and so does but"
+       "note": "but means bar or except, as in all but one"
       },
       {
        "words": "before",
+       "at": 19,
        "gives": "ANTE",
-       "note": "ante is Latin for before, the ante- of antenatal"
+       "note": "ante is Latin for before, as in ante-room"
       }
      ]
     },
     "explanation": {
-     "surface": "Dave stands outside the bar waiting for a woman who still has not turned up.",
-     "walkthrough": "'Bar' is the conjunction meaning except, not the place the surface has Dave standing outside. Ante keeps its Latin sense in English only in compounds, which is why it is easy to miss on its own.",
-     "definitionFit": "A debutante is a young woman on the brink of her formal presentation to society, so the appearance she is named for is still to come."
+     "surface": "Dave hangs about outside the pub before a woman who hasn't turned up yet.",
+     "walkthrough": "'Bar' suggests a pub but means except; 'appeared' hides the sense of a girl making her first appearance in society.",
+     "definitionFit": "A debutante is a young woman making her formal debut in society, so until then she has not come out."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "bar"
     }
    }
@@ -249,43 +255,54 @@
        "indicators": [
         {
          "text": "said",
-         "note": "what is said is heard rather than spelt, so this piece is wanted as a sound and not as its own letters"
-        },
-        {
-         "text": "finally",
-         "note": "finally is at the very end, so only the last letter of the name beside it is taken"
+         "at": 17,
+         "note": "said means spoken aloud, so a word that sounds the same is used"
         }
        ],
        "parts": [
         {
-         "words": "Getting hitched, said",
+         "words": "Getting hitched",
+         "at": 0,
          "gives": "KNOTTING",
-         "note": "tying the knot is getting hitched, and the K of knotting is silent"
+         "note": "getting hitched is tying the knot, so knotting"
         }
        ]
       },
       {
-       "words": "Hugh finally",
-       "gives": "H",
-       "note": "the closing letter of HUGH"
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 27,
+         "note": "finally points to the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Hugh",
+         "at": 22,
+         "note": "its last letter"
+        }
+       ]
       },
       {
        "words": "bad",
+       "at": 37,
        "gives": "ILL",
-       "note": "ill means bad, as in ill health and ill luck"
+       "note": "ill means bad, as in ill effects"
       }
      ]
     },
     "explanation": {
-     "surface": "Hugh announcing at last that he is getting married, dismissed as a poor sequel to Four Weddings.",
-     "walkthrough": "'Bad' reads as the verdict on the sequel and is three of its letters. Hugh Grant starred in both films, so the name doing the announcing on the surface is the one that ties the two pictures together.",
-     "definitionFit": "Notting Hill, the Richard Curtis film of 1999, was the picture that followed Four Weddings and a Funeral, and it takes its name from the district of west London."
+     "surface": "Hugh Grant gets married, says a critic, and his next film is a poor sequel to Four Weddings.",
+     "walkthrough": "Four Weddings and a Funeral (1994) and Notting Hill (1999) both starred Hugh Grant and were written by Richard Curtis; the Hugh in the clue is a nod to him.",
+     "definitionFit": "Notting Hill was the romantic comedy that came after Four Weddings and a Funeral, from the same writer and lead actor."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "said"
+     "misdirectedWord": "Hugh"
     }
    }
   },
@@ -1138,41 +1155,40 @@
      "indicators": [
       {
        "text": "across",
-       "note": "a thing laid across another lies over it from one side to the other, so this word closes over the letters named next"
+       "at": 18,
+       "note": "the stumbling word stretches across, so goes around, the other letters"
       }
      ],
      "parts": [
       {
        "words": "stumbles",
+       "at": 9,
        "gives": "TRIPS",
-       "note": "to trip is to stumble"
+       "note": "trips means stumbles"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "CE",
        "indicators": [
         {
          "text": "in the Borders",
-         "note": "the borders of a word are the letters at its two edges, and only those are taken"
+         "at": 35,
+         "note": "the borders of a word are its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "corncrake in the Borders",
-         "gives": "CE",
-         "select": "outer",
-         "note": "the outermost letters of CORNCRAKE"
+         "words": "corncrake",
+         "at": 25,
+         "note": "its first and last letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A birdwatcher comes upon a corncrake in the Scottish Borders.",
-     "walkthrough": "A twitcher is a birdwatcher who chases rarities, and the Borders are the hill country either side of the Scotland-England line, so the surface is a real birding story. The definition wants a thing that twitches instead.",
-     "definitionFit": "The triceps is a muscle, and a muscle is the thing that twitches — the birdwatcher lives on the surface only."
+     "surface": "A birdwatcher trips over in the Scottish Borders while chasing a corncrake.",
+     "walkthrough": "A twitcher is a keen birdwatcher, which fits the corncrake, but here it is something that twitches: a muscle. The Borders is also a region of Scotland, which hides the instruction to take the outer letters.",
+     "definitionFit": "The triceps is the muscle at the back of the upper arm, and muscles are what twitch."
     },
     "features": {
      "answerInScene": false,
