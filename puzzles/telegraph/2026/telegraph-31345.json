@@ -474,45 +474,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "gathering"
+       "text": "gathering",
+       "at": 12,
+       "note": "gathering means collecting in, so the first piece wraps round the second"
       }
      ],
      "parts": [
       {
        "words": "that is",
+       "at": 4,
        "gives": "IE",
-       "note": "i.e. = that is"
+       "note": "i.e. is the abbreviation of id est, that is"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "MITAT",
        "indicators": [
         {
          "text": "oddly",
-         "note": "odd here means odd-numbered, so take letters 1, 3, 5 and so on"
+         "at": 35,
+         "note": "oddly asks for the letters in odd positions of moist earth"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "moist earth, oddly",
-         "gives": "MITAT",
-         "select": "alternate",
-         "note": "letters 1, 3, 5, 7, 9 of MOISTEARTH"
+         "words": "moist earth",
+         "at": 22,
+         "note": "the first, third, fifth, seventh and ninth letters of moist earth are M, I, T, A, T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gorilla collecting damp soil.",
-     "walkthrough": "\"Ape\" looks like the animal, but it is the verb, to copy. The odd letters run across both words, three from moist and two from earth.",
-     "definitionFit": "Ape as a verb means to copy someone's behaviour, as apes were thought to mimic people."
+     "surface": "A monkey scooping up handfuls of damp soil.",
+     "walkthrough": "'oddly' takes the 1st, 3rd, 5th, 7th and 9th letters of 'moist earth', MITAT, and 'gathering' means i.e. wraps round them.",
+     "definitionFit": "To ape someone is to copy or mimic them, as apes were thought to copy people."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Ape"
     }
    }
@@ -1067,37 +1067,52 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "THIRSTS",
+     "op": "container",
      "indicators": [
       {
        "text": "lowered",
-       "note": "moved lower, and in a down answer lower means further along"
+       "at": 33,
+       "note": "lowered means moved further down, so in this down entry a letter is shifted lower in the word"
       }
      ],
      "parts": [
       {
-       "words": "Casual garments",
-       "gives": "TSHIRTS",
-       "note": "T-shirts are casual tops"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 25,
+         "note": "finally points to the last letter of mistress, which is the letter lifted out of the garments before it is moved"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Casual garments",
+         "at": 0,
+         "gives": "TSHIRTS",
+         "note": "T-shirts are casual garments"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       },
       {
-       "words": "mistress finally",
+       "words": "mistress",
+       "at": 16,
        "gives": "S",
-       "note": "last letter of mistresS, which is also the second letter of the garments"
+       "note": "the final letter of mistress is S, the letter that is moved lower"
       }
      ]
     },
     "explanation": {
-     "surface": "A mistress slipping off casual clothes, stirring desire.",
-     "walkthrough": "The S that sits second in the garments drops down below the R. \"Urges\" looks like a verb; it is the plural noun, cravings.",
-     "definitionFit": "Thirst is used figuratively for any strong craving, as in a thirst for knowledge, so thirsts are urges."
+     "surface": "A woman relaxing by taking off her casual clothes and feeling desire.",
+     "walkthrough": "The S of 'mistress finally' is the second letter of T-shirts; lift it out to leave THIRTS, and 'lowered' drops it further down this down entry, after the R. 'producing' is a link.",
+     "definitionFit": "Thirsts are cravings or longings, as in thirsts for knowledge, so they are urges."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "lowered"
     }
    }
@@ -1123,42 +1138,74 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AILMENT",
-     "indicators": [
-      {
-       "text": "each denied opening",
-       "note": "an opening is a beginning, so every word is refused its first letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "each",
+         "at": 30,
+         "note": "each spreads the instruction over all three words, so mail too loses its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "mail",
-         "gives": "AIL",
-         "note": "mAIL without its first letter"
+         "at": 15,
+         "note": "mail without its first letter is AIL"
         },
+        {
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "denied",
+         "at": 35,
+         "note": "denied means refused, so I'm is refused its opening letter here"
+        }
+       ],
+       "parts": [
         {
          "words": "I'm",
-         "gives": "M",
-         "note": "I'M without its first letter"
+         "at": 20,
+         "note": "I'm without its first letter is M"
         },
         {
+         "gives": "I"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "opening",
+         "at": 42,
+         "note": "opening is the first letter, the one that sent is denied like the other two words"
+        }
+       ],
+       "parts": [
+        {
          "words": "sent",
-         "gives": "ENT",
-         "note": "sENT without its first letter"
+         "at": 24,
+         "note": "sent without its first letter is ENT"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grumble about letters that were sent but never opened.",
-     "walkthrough": "\"Complaint\" looks like a grievance about the post; it is an illness. \"Denied opening\" also looks like unopened mail.",
-     "definitionFit": "A complaint, in the medical sense, is a minor illness such as a chest complaint."
+     "surface": "A grumble about the post that keeps arriving.",
+     "walkthrough": "Read 'each denied opening' as one instruction for all three words: dropping first letters leaves AIL, M and ENT. 'from' is a link.",
+     "definitionFit": "An ailment is an illness, and a complaint in the medical sense is a disorder or illness."
     },
     "features": {
      "answerInScene": false,
