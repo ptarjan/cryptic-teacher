@@ -1554,32 +1554,53 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "MIDAS",
+     "op": "container",
      "indicators": [
       {
-       "text": "bringing down article",
-       "note": "in a down entry, bringing the article A down moves it lower, further along the word"
+       "text": "down",
+       "at": 25,
+       "note": "in a down light, down means lower, so the lifted article is set back in further on in the word"
       }
      ],
      "parts": [
       {
-       "words": "Female servants",
-       "gives": "MIDAS",
-       "note": "maids are female servants; the article A in that word is moved two places down"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "bringing",
+         "at": 16,
+         "note": "bringing a thing means carrying it away from where it was, so the article is lifted out of the servants' word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Female servants",
+         "at": 0,
+         "gives": "MAIDS",
+         "note": "maids are female servants"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "words": "article",
+       "at": 30,
+       "gives": "A",
+       "note": "a is the indefinite article"
       }
      ]
     },
     "explanation": {
-     "surface": "Maidservants bring a piece of writing down to the king.",
-     "walkthrough": "In MAIDS the A slides two places lower to give the answer.",
-     "definitionFit": "Midas is the legendary king of Phrygia whose touch turned everything to gold."
+     "surface": "Housemaids bring down an article written about the king.",
+     "walkthrough": "MAIDS ('Female servants') already holds the A; 'bringing down' that article means taking it out and setting it two places lower, between the D and the S.",
+     "definitionFit": "Midas was the legendary king of Phrygia whose touch turned everything to gold."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "article"
+     "misdirectedWord": "bringing"
     }
    }
   },
