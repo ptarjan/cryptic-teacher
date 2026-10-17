@@ -489,12 +489,20 @@ def section(text, start, direction):
                 got = countless(text, m.start("head"), min(heading, default=len(text)), lights[0][0], direction)
                 if got:
                     return got
+        # A last "See 7" with the instructions after it, then the next
+        # heading ("26 See 7 Each of the four linked clues ... Down 1 Zip ...
+        # (6)", No 238): the run on to the other section's count is no clue's
+        # words. The stub is the clue and the prose is left to the preamble.
+        reach = m.end()
+        pointer = re.match(r"See\s+\d{1,2}(?:\s*(?:across|down))?(?=\s)", said, re.IGNORECASE)
+        if pointer and any(rx.search(said, pointer.end()) for rx in SECTION_AT.values()):
+            said, reach = pointer.group(0), m.start("text") + pointer.end()
         stub = STUB_COUNTED.fullmatch(said)
         body = (m.group("star") or "") + (stub.group(1) if stub else said)
         e = None if stub else fpp.ENUM.search(body)
         found.append(({"lights": lights, "clue": body,
-                       "enumeration": e.group(1).strip() if e else None}, m.end()))
-        pos = m.end()
+                       "enumeration": e.group(1).strip() if e else None}, reach))
+        pos = reach
         if len(found) > 1 and lights == found[-2][0]["lights"]:
             break
     ends = {id(c): e for c, e in found}
@@ -502,8 +510,22 @@ def section(text, start, direction):
     return clues, (ends[id(clues[-1])] if clues else start)
 
 
+#: A redacted clue's head, then the next clue's, then its count and the next
+#: clue's words, which start in lower case (No 265's "25 26 (4) group of
+#: stunted ..." for "25 [redacted] (4)" and "26 [redacted] group of ...").
+REDACTED_HEAD = re.compile(rf"(?<![\d,])(\d{{1,2}})\s+(\d{{1,2}})\s+({fpp.ENUM_TEXT})\s+(?=[a-z])")
+
+
+def unredacted(text):
+    """The text with a redacted clue's count put back after its own head:
+    "25 26 (4) group of" is "25 (4) 26 group of"."""
+    return REDACTED_HEAD.sub(lambda m: f"{m.group(1)} {m.group(3)} {m.group(2)} "
+                             if int(m.group(2)) == int(m.group(1)) + 1 else m.group(0), text)
+
+
 def parse_text(text):
     """{number, setter, clues, preamble} off the flattened text."""
+    text = unredacted(text)
     m = HEADER.search(text)
     out = {"number": int(m.group(1).replace(" ", "")) if m else None,
            "setter": m.group(2).title() if m and m.group(2) and (
@@ -755,6 +777,7 @@ def read_pdf(path):
                      if out.get("ocr") == "read" else "the Guardian's printable PDF")
     if grid:
         turn_links(out["clues"], set(rg.light_cells(grid)))
+        paired_counts(out["clues"], rg.light_cells(grid))
     return out
 
 
@@ -799,7 +822,24 @@ def read_article(number):
                origin="the Guardian's article page and its grid picture")
     if grid:
         turn_links(out["clues"], set(rg.light_cells(grid)))
+        paired_counts(out["clues"], rg.light_cells(grid))
     return out
+
+
+PAIR_COUNT = re.compile(r"\(\s*(\d{1,2})\s*;\s*(\d{1,2})\s*\)\s*$")
+
+
+def paired_counts(clues, lights):
+    """A clue for two lights printing "(6;8)" with the lights' own lengths
+    (No 173's seven paired across clues: one clue, two answers, one per
+    light) counts them like any linked clue, "6,8". The reader keeps only a
+    "(a;b)" pair's second count, the entry's, for a clue whose answer the
+    preamble alters; here nothing is altered, the counts are the lights'."""
+    for c in clues:
+        m = PAIR_COUNT.search(c["clue"] or "")
+        if m and len(c["lights"]) == 2 and all(l in lights for l in c["lights"]) and \
+                tuple(len(lights[l]) for l in c["lights"]) == (int(m.group(1)), int(m.group(2))):
+            c["enumeration"] = f"{m.group(1)},{m.group(2)}"
 
 
 def turn_links(clues, lights):
@@ -1729,6 +1769,13 @@ def unclued_lights(pdf):
     if not listed <= set(lights):
         return None, "lights and clue list differ"
     unclued = [l for l in lights if l not in listed]
+    # A "See N" whose leader was marked unclued ("3,18 (See special
+    # instructions)", No 46) is left standing with nothing to join: entries_of
+    # skips it, so its light is as unclued as the leader's.
+    joined = {l for c in pdf["clues"] if len(c["lights"]) > 1 for l in c["lights"]}
+    unclued += [c["lights"][0] for c in pdf["clues"] if c["enumeration"] is None and len(c["lights"]) == 1
+                and groups.is_pointer(c["clue"], counted=True) and c["lights"][0] not in joined
+                and c["lights"][0] in pdf.get("marked", ())]
     declared = (bool(preamble) or bool(pdf.get("article"))) and set(unclued) <= pdf.get("marked", set())
     if unclued and not declared and not UNCLUED_SAID.search(preamble):
         return None, f"{len(unclued)} lights unclued, and the preamble says none is"

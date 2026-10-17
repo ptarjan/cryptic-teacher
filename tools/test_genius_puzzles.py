@@ -530,6 +530,47 @@ check("the answer's breaks replace a withheld split only when they fit it",
                  F.worded("Ground (11*)", "5-2,4"), F.worded("Ground (11*)", "11"))),
       "Beast (3,3) | Beast (6, two words) | Assembly (4-4) | Assembly (8, hyphenated) | Ground (5-2,4) | Ground (11*)")
 
+# Genius 238: a last "See 7" with the instructions after it and then the Down
+# heading ran on to the first down clue's count, so 26 across swallowed the
+# preamble and 1 down was lost; the grid then refused the clue list.
+text = ("Across 7,26 Deliveries stopped (8,8) 9 Old illustrator (6) 26 See 7 Each of the four linked "
+        "clues contains two definitions. Deadline for entries is 23:59. Down 1 Zip almost catching (6) "
+        "2 Pull up on weight (6)")
+got = G.parse_text(text)
+check("a last See stub stops at the instructions after it (238)",
+      "|".join(f"{c['lights'][0][0]}{c['lights'][0][1][0]}:{c['clue'][:7]}" for c in got["clues"]),
+      "7a:Deliver|9a:Old ill|26a:See 7|1d:Zip alm|2d:Pull up")
+check("...and the instructions are the preamble", (got["preamble"] or "")[:22], "Each of the four linke")
+
+# Genius 265: a redacted clue prints "25 26 (4) group of ..." for "25 [] (4)" and
+# "26 [] group of ...": 25 is a count-only light and 26 has its own clue.
+got = G.parse_text("Across 22 Encounter resistance (9, 2 words) 25 26 (4) group of stunted mice (10) "
+                   "27 Disinfectant (5) Down 1 A clue (6)")
+check("a redacted clue's count goes back after its own head (265)",
+      "|".join(f"{c['lights'][0][0]}{c['lights'][0][1][0]}:{c['enumeration']}:{c['clue'][:6]}"
+               for c in got["clues"]),
+      "22a:9, 2 words:Encoun|25a:4:(4)|26a:10:group |27a:5:Disinf|1d:6:A clue")
+check("a head followed by an ordinary clue is left alone",
+      G.unredacted("5 6 (4) Upper case (3)"), "5 6 (4) Upper case (3)")
+
+# Genius 173: "(6;8)" on a clue for two lights of 6 and 8 cells is one answer
+# per light, counted "6,8" as any linked clue; elsewhere "(a;b)" keeps b.
+clues = [{"lights": [(8, "across"), (9, "across")], "clue": "Two answers (6;8)", "enumeration": "8"},
+         {"lights": [(1, "across"), (2, "across")], "clue": "Altered (4;7)", "enumeration": "7"}]
+G.paired_counts(clues, {(8, "across"): range(6), (9, "across"): range(8),
+                        (1, "across"): range(5), (2, "across"): range(7)})
+check("a two-light pair of counts equal to the lights' lengths is a linked count (173)",
+      [c["enumeration"] for c in clues], ["6,8", "7"])
+
+# Genius 46 and 200: "3,18 (See special instructions)" is dropped as unclued,
+# so 18 down's "See 3" stands with no leader; its light is unclued too.
+pdf = {"grid": ["...", "#.#", "..."], "preamble": None, "article": True,
+       "marked": {(2, "down"), (3, "across")},
+       "clues": [{"lights": [(1, "across")], "clue": "A (3)", "enumeration": "3"},
+                 {"lights": [(3, "across")], "clue": "See 2", "enumeration": None}]}
+check("a See stub whose leader was marked unclued is unclued (46, 200)",
+      G.unclued_lights(pdf)[0], [(2, "down"), (3, "across")])
+
 if fails:
     print(f"{fails} failed")
     sys.exit(1)
