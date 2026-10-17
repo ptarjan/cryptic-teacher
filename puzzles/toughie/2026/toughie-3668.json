@@ -521,47 +521,47 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "TIDDLER",
      "indicators": [
       {
        "text": "in",
-       "note": "one piece goes inside another"
+       "at": 24,
+       "note": "in says the stripped word goes inside the word for row"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "TIDDLER",
+       "words": "row",
+       "at": 27,
+       "gives": "TIER",
+       "note": "a tier is a row, as of seats in a theatre"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
          "text": "exposed",
-         "note": "stripped of its covering, so the outer letters come off"
+         "at": 16,
+         "note": "something exposed has had its covering removed, so the word loses its outer letters"
         }
        ],
        "parts": [
         {
          "words": "oddly",
-         "note": "taken as written, then stripped of its outer letters to leave DDL"
-        },
-        {
-         "words": "row",
-         "gives": "TIER",
-         "note": "a tier is a row, as of seats"
+         "at": 10,
+         "note": "taken as written: the word that is stripped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Small fish, strangely, are left lying in a line.",
-     "walkthrough": "'Oddly' looks like an odd-letters signal but is the fodder itself, with its outer letters removed.",
-     "definitionFit": "A tiddler is British informal for a very small fish or a small child, exactly like small fry."
+     "surface": "Little fish are oddly visible lined up in a row.",
+     "walkthrough": "'oddly' looks like an instruction to take odd letters, but it is the word being stripped: 'exposed' peels off its first and last letters to leave DDL, which goes 'in' TIER.",
+     "definitionFit": "A tiddler is a very small fish, and small fry is an idiom for young fish or unimportant people."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "oddly"
     }
    }
