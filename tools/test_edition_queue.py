@@ -41,6 +41,7 @@ eq.desktop_gate_reader = lambda: None  # nor whether Paul's desktop is busy
 eq.desktop_mem_reader = lambda: None  # nor its free memory
 eq.vlm_gate_reader = lambda: True  # nor whether its VLM answers
 os.environ["CT_BURN_STATE"] = os.path.join(os.environ["TMP"], "no-burn")  # nor this host's burn
+os.environ["CT_PSI_PATH"] = os.path.join(os.environ["TMP"], "no-psi")  # nor this host's memory pressure
 
 fails = 0
 def check(what, want, got):
@@ -1284,6 +1285,43 @@ with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
 check("with room every unit starts, no memory-bound line", (3, 0),
       (sum(" start " in l for l in log.read_text().splitlines()), err.getvalue().count("memory-bound")))
 eq.mem_gate_reader = None
+
+# Memory pressure (fake /proc/pressure/memory and /proc/meminfo) holds starts back, and says so once.
+_psi, _mi = T / "psi", T / "meminfo"
+_mi.write_text(f"MemAvailable: {16 * G >> 10} kB\n")
+_psi.write_text("some avg10=20.00 avg60=9.00 avg300=1.00 total=1\nfull avg10=12.50 avg60=15.00 avg300=1.00 total=1\n")
+os.environ.update(CT_PSI_PATH=str(_psi), CT_MEMINFO=str(_mi))
+check("pressure reads full avg10", 12.5, mg.pressure())
+check("room says no over the pressure max, memory plenty", False, mg.room())
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=3, scan_workers=1, seconds=2.2, replan=0.5)
+check("under memory pressure nothing starts, and it says so once", (False, 1),
+      (log.exists(), err.getvalue().count("memory-bound")))
+_psi.write_text("full avg10=1.00 avg60=1.00 avg300=1.00 total=1\n")
+check("calm and roomy: room", True, mg.room())
+_mi.write_text(f"MemAvailable: {2 * G >> 10} kB\n")
+check("calm but under 3 GB available: no room", False, mg.room())
+# the unit-children ceiling: 5 queued reads, ceiling 2, never more than 2 at once
+_mi.write_text(f"MemAvailable: {16 * G >> 10} kB\n")
+os.environ["CT_UNIT_CEILING"] = "2"
+eq.plan = units([], [(f"c{k}", []) for k in range(5)])
+fake(default=0.8)
+log.unlink(missing_ok=True)
+err = io.StringIO()
+with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=5, scan_workers=1, seconds=3, replan=0.5)
+_ev = [(float(l.split()[0]) if l.split()[0].replace(".", "").isdigit() else 0, l.split()[1]) for l in log.read_text().splitlines()]
+_open = _peak2 = 0
+for _, w in _ev:
+    _open += 1 if w == "start" else -1 if w == "end" else 0
+    _peak2 = max(_peak2, _open)
+check("the ceiling holds starts to 2 at once, and says so", (True, True),
+      (_peak2 == 2, "unit ceiling" in err.getvalue()))
+os.environ.pop("CT_UNIT_CEILING")
+os.environ["CT_PSI_PATH"] = str(T / "no-psi")
+os.environ.pop("CT_MEMINFO")
 
 # unit_queue.tick shares the gate: short of memory it starts nothing, with room it starts all
 import types
