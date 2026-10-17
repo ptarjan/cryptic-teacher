@@ -62,49 +62,49 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ORTHOPTIST",
      "indicators": [
       {
        "text": "modifying",
-       "note": "to modify is to alter, so the following words are rearranged before use"
+       "at": 4,
+       "note": "modifying means altering, so the pooled letters are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ORTHOPTIST",
        "indicators": [
         {
          "text": "not",
-         "note": "'not good' tells you to drop the letter standing for good from the fodder"
+         "at": 26,
+         "note": "'not good' means the good letter is left out of the fodder"
         }
        ],
        "parts": [
         {
          "words": "poor sight",
-         "note": "taken as written, as anagram fodder"
+         "at": 14
         },
         {
          "words": "good",
-         "gives": "G",
-         "note": "G is the standard abbreviation for good"
-        },
+         "at": 30,
+         "gives": "G"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "start and finish of",
-           "note": "only the opening and closing letters of the next word are wanted"
-          }
-         ],
-         "parts": [
-          {
-           "words": "treatment",
-           "note": "first and last letters of the word"
-          }
-         ]
+         "text": "start and finish of",
+         "at": 41,
+         "note": "the start and finish of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "treatment",
+         "at": 61,
+         "note": "its first and last letters are both T"
         }
        ]
       }
@@ -112,9 +112,9 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A riddle about the specialist who corrects bad eyesight in the course of a course of treatment.",
-     "walkthrough": "Take G out of POOR SIGHT, add the two Ts from treatment, and rearrange to ORTHOPTIST. The whole clue doubles as the definition: an &lit.",
-     "definitionFit": "An orthoptist treats squints and faulty eye movement, so their job is literally improving defective vision through therapy."
+     "surface": "A description of a clinician who corrects defective eyesight from the first to the last of a course of treatment.",
+     "walkthrough": "POOR SIGHT loses its G ('not good'), and the T at each end of 'treatment' joins in; 'modifying' rearranges the ten letters. Read whole, the clue also describes the job.",
+     "definitionFit": "An orthoptist is a specialist who diagnoses and treats squints and other faults of eye movement, so modifying poor sight is the job."
     },
     "features": {
      "answerInScene": true,
@@ -945,49 +945,56 @@
     "definitions": [
      {
       "text": "Show interruption of blood supply?",
-      "at": 24
+      "at": 24,
+      "note": "a verb phrase: to necrose is to show the tissue death that follows loss of blood supply"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NECROSE",
+     "op": "charade",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "most of the word means its last letter is lost"
+       "text": "after",
+       "at": 5,
+       "note": "the colour comes after the shortened kiss"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "after",
-         "note": "the colour word follows the shortened kiss"
+         "text": "mostly",
+         "at": 16,
+         "note": "mostly means all but the last letter"
         }
        ],
        "parts": [
         {
          "words": "kiss",
-         "gives": "NEC",
-         "note": "to kiss and cuddle is to neck, here missing its last letter"
+         "at": 11,
+         "gives": "NECK",
+         "note": "to neck is to kiss and cuddle"
         },
         {
-         "words": "Pink",
-         "gives": "ROSE",
-         "note": "rose is a shade of pink"
+         "gives": "K"
         }
        ]
+      },
+      {
+       "words": "Pink",
+       "at": 0,
+       "gives": "ROSE",
+       "note": "rose is a pink colour"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone goes pink after a long kiss and wonders whether their circulation has failed.",
-     "definitionFit": "To necrose is to undergo necrosis, the death of tissue, which typically follows a cut-off of blood to it."
+     "surface": "Someone flushed pink after a long kiss asks whether that shows a problem with blood flow.",
+     "walkthrough": "'Pink' looks like a blush, but it is the colour ROSE; 'kiss' is the verb NECK, cut short by 'mostly'.",
+     "definitionFit": "To necrose is to undergo necrosis, the death of tissue that commonly results when its blood supply is cut off."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "Pink"
     }
