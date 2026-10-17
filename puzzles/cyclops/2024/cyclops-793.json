@@ -993,48 +993,54 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 15,
+       "note": "in a down clue, on means the following piece comes after, below what precedes it"
+      }
+     ],
      "parts": [
       {
        "words": "Novel",
+       "at": 0,
        "gives": "NEW",
-       "note": "novel = new"
+       "note": "novel means new"
       },
       {
        "words": "position",
+       "at": 6,
        "gives": "SITE",
-       "note": "a site is a position"
+       "note": "a site is a position or location"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "M",
        "indicators": [
         {
          "text": "lead",
-         "note": "the lead is what comes first, so take the first letter"
+         "at": 27,
+         "note": "a word's lead is its leading, first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "on Mirror's lead",
-         "gives": "M",
-         "select": "first",
-         "note": "first letter of Mirror, placed on the end"
+         "words": "Mirror's",
+         "at": 18,
+         "note": "the word whose first letter is used; the Mirror is a British tabloid newspaper"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An editorial stance leads the Daily Mirror's coverage.",
-     "walkthrough": "The Mirror is a British tabloid newspaper, which makes 'press story' blend into the surface.",
-     "definitionFit": "A plain equivalent: journalists call each separate piece in a bulletin or paper an item, and the press is the newspapers."
+     "surface": "A tabloid takes a fresh stance on the Daily Mirror's front-page story.",
+     "walkthrough": "'Mirror's lead' looks like the paper's main story but gives only M, its first letter, which 'on' puts after the rest. The Mirror is a British tabloid.",
+     "definitionFit": "A news item is a single report or story printed in a newspaper, which is a press story."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Novel"
+     "misdirectedWord": "lead"
     }
    }
   },
@@ -1107,43 +1113,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LATRINE",
+     "op": "container",
      "indicators": [
       {
-       "text": "awful",
-       "note": "awful means bad, so the letters are in a bad order"
+       "text": "in",
+       "at": 14,
+       "note": "in means the reworked letters go inside the word for bar"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "bar",
+       "at": 17,
+       "gives": "LINE",
+       "note": "a line is a bar or stripe"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "in places one piece inside another"
+         "text": "awful",
+         "at": 4,
+         "note": "awful letters are in a bad state, so they are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "bar",
-         "gives": "LINE",
-         "note": "a bar or line, a straight stroke"
-        },
-        {
-         "words": "awful art",
-         "gives": "ATR",
-         "note": "ART rearranged, placed after the L of LINE"
+         "words": "art",
+         "at": 10,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A critic slams the ugly pictures on a pub wall as rubbish.",
-     "walkthrough": "Bog is British slang for a toilet, not a marsh here. L(ATR)INE.",
-     "definitionFit": "A latrine is a basic toilet, which bog means in British slang."
+     "surface": "Someone sneers at the dreadful paintings hung in a pub as rubbish.",
+     "walkthrough": "'bar' suggests a pub, but here it is LINE; 'awful' scrambles ART to ATR, and 'in' puts that inside. Bog is British slang for a toilet.",
+     "definitionFit": "A latrine is a basic toilet, especially in a camp, and bog is British slang for a lavatory."
     },
     "features": {
      "answerInScene": false,
@@ -1168,45 +1175,36 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Biden-Trump",
+      "text": "Biden-Trump's more helpful than Trump-Biden's",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 47,
+       "note": "in means the answer sits inside the run of words that follows, across word boundaries"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "more helpful than Trump-Biden's",
-       "note": "surface padding: the joke comparing the two transfers of power"
-      },
-      {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "in means inside, so the answer lies inside the phrase"
-        }
-       ],
-       "parts": [
-        {
-         "words": "faith and overtly",
-         "gives": "HANDOVER",
-         "note": "the run faitH AND OVERtly"
-        }
-       ]
+       "words": "faith and overtly",
+       "at": 50,
+       "note": "the words in which the answer lies hidden"
       }
      ]
     },
     "explanation": {
-     "surface": "A comparison of the two transfers of power between Biden and Trump.",
-     "walkthrough": "Biden handing power to Trump in 2025 was smoother than Trump's grudging handover to Biden in 2021; the rest of the clue is that joke, and the answer hides in 'faith and overtly'.",
-     "definitionFit": "Biden to Trump was a handover, a transfer of power from one president to the next."
+     "surface": "A jibe that the 2025 changeover of presidents went more smoothly than the bitter one of 2021.",
+     "walkthrough": "The definition is a cryptic description: in 2021 Trump disputed the result, whereas Biden passed power to Trump in 2025 in good faith and openly. The bracket holds the hidden word.",
+     "definitionFit": "A handover is the transfer of power from one leader to the next, as between presidents."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun"
+     "misdirectedWord": "helpful"
     }
    }
   },
@@ -1542,48 +1540,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TESTICLES",
-     "indicators": [
-      {
-       "text": "crawling",
-       "note": "crawling suggests movement, so the letters shift about"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Check",
+       "at": 0,
+       "gives": "TEST",
+       "note": "a test is a check"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "crawling",
+         "at": 11,
+         "note": "crawling lice wriggle about, so their letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Check",
-         "gives": "TEST",
-         "note": "to test = to check"
-        },
-        {
-         "words": "lice crawling",
-         "gives": "ICLE",
-         "note": "LICE rearranged"
-        },
-        {
-         "words": "son",
-         "gives": "S",
-         "note": "s = son, from family trees"
+         "words": "lice",
+         "at": 6,
+         "note": "taken as written, as anagram fodder"
         }
        ]
+      },
+      {
+       "words": "son's",
+       "at": 23,
+       "gives": "S",
+       "note": "S is the genealogy abbreviation for son"
       }
      ]
     },
     "explanation": {
-     "surface": "A parent is told to inspect a boy's groin for lice.",
-     "walkthrough": "The definition sits at the end and the surface is exactly about it, so the only work is spotting TEST and the scrambled LICE.",
-     "definitionFit": "A slang equivalent: the round shape gives the vulgar word, which the surface's son and lice make literal."
+     "surface": "A doctor checks for lice crawling over a boy's private parts.",
+     "walkthrough": "'crawling' is the anagram signal for the insects, which come out as ICLE.",
+     "definitionFit": "Balls is the slang word for the testicles."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "Check"
+     "aptDefinition": false
     }
    }
   },
