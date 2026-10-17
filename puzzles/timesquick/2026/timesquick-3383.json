@@ -643,53 +643,55 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ACHIEVEMENT",
+     "op": "container",
      "indicators": [
       {
-       "text": "empty",
-       "note": "empty means the contents are removed, keeping just the outside letters of the word"
+       "text": "around",
+       "at": 36,
+       "note": "around means the rearranged letters are placed on either side of the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "around means wrapping something, so the reworked letters enclose the rest"
+         "text": "working",
+         "at": 16,
+         "note": "working means set in motion and rearranged, so these letters change their order"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "working",
-           "note": "working suggests setting things in motion, so these letters are shaken up"
-          }
-         ],
-         "parts": [
-          {
-           "words": "in the cave",
-           "note": "taken as written, to be rearranged"
-          }
-         ]
-        },
+         "words": "in the cave",
+         "at": 24,
+         "note": "taken as written: nine letters of fodder"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "at": 43,
+         "note": "an empty word has lost its insides, leaving only its first and last letters"
+        }
+       ],
+       "parts": [
         {
          "words": "mine",
-         "gives": "ME",
-         "note": "the word with its middle letters removed"
+         "at": 49,
+         "note": "its outer letters M and E are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A miner's feat while labouring in a cave around an exhausted mine.",
-     "walkthrough": "The rearranged letters ACHIEVE-NT wrap round ME.",
-     "definitionFit": "An achievement is something accomplished by effort, a feat, which is what an accomplishment is."
+     "surface": "Getting a cave-in under control around a disused mine is quite an accomplishment.",
+     "walkthrough": "'Working' reads as miners at work, but it is what scrambles 'in the cave'. 'Empty' reduces mine to ME, which sits inside the rearranged letters.",
+     "definitionFit": "An achievement is something accomplished by effort or skill, so the two words are synonyms."
     },
     "features": {
      "answerInScene": false,
