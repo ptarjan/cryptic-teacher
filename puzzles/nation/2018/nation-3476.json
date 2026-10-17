@@ -296,46 +296,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INSCRIBE",
+     "op": "container",
      "indicators": [
       {
-       "text": "failing",
-       "note": "something failing falls apart, so its letters collapse into a new order"
+       "text": "interrupts",
+       "at": 5,
+       "note": "the teasing word breaks into the rearranged letters, sitting inside them"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "interrupts",
-         "note": "something that interrupts breaks into the middle of another piece"
+         "text": "failing",
+         "at": 22,
+         "note": "failing means breaking down, so the letters of since fall into a new order"
         }
        ],
        "parts": [
         {
          "words": "since",
-         "gives": "INSCE",
-         "note": "first part of the rearranged letters of since"
-        },
-        {
-         "words": "Josh",
-         "gives": "RIB",
-         "note": "to josh or rib someone is to tease them"
+         "at": 16
         }
        ]
+      },
+      {
+       "words": "Josh",
+       "at": 0,
+       "gives": "RIB",
+       "note": "to josh someone is to tease them, which is also to rib them"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone named Josh breaking in to explain why a writer has stalled.",
-     "walkthrough": "'Josh' reads as a name; here it is the verb meaning to tease.",
-     "definitionFit": "To inscribe is to write or carve words on a surface."
+     "surface": "Someone called Josh has kept interrupting, ever since a writer started struggling.",
+     "walkthrough": "'Josh' looks like a name, but it is a verb meaning tease, and 'interrupts' breaks it into the letters that 'failing' has jumbled.",
+     "definitionFit": "To inscribe is to write or carve words on a surface, such as a page, stone or ring."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Josh"
     }
@@ -1090,52 +1090,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DIVORCEE",
+     "op": "container",
      "indicators": [
       {
-       "text": "broken",
-       "note": "a broken object has its parts disordered, so these letters are reassembled differently"
+       "text": "hiding",
+       "at": 31,
+       "note": "the tavern word hides the rearranged letters inside itself"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "disreputable tavern",
+       "at": 11,
+       "gives": "DIVE",
+       "note": "a dive is a shabby, disreputable bar"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "at": 38,
+         "note": "broken means smashed into pieces, so the letters of core are reassembled in another order"
+        }
+       ],
        "parts": [
         {
-         "words": "disreputable tavern",
-         "gives": "DIV",
-         "note": "first part of dive, a seedy bar"
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "hiding",
-           "note": "to hide something is to keep it inside, out of sight"
-          }
-         ],
-         "parts": [
-          {
-           "words": "core",
-           "gives": "ORCE",
-           "note": "core rearranged"
-          },
-          {
-           "words": "disreputable tavern",
-           "gives": "E",
-           "note": "last letter of dive"
-          }
-         ]
+         "words": "core",
+         "at": 45
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A former spouse in a seedy bar, hiding her heartbreak.",
-     "definitionFit": "A divorcee is a person whose marriage has been legally ended, such as an ex-wife."
+     "surface": "A divorced woman sits in a seedy bar, hiding her broken heart.",
+     "walkthrough": "'broken core' suggests a broken heart in the bar, but 'broken' jumbles CORE into ORCE, which the DIVE is 'hiding'.",
+     "definitionFit": "A divorcee is a woman whose marriage has been legally ended, making her someone's former wife."
     },
     "features": {
      "answerInScene": true,
