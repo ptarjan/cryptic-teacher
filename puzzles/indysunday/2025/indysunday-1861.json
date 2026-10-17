@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -822,40 +823,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TERCETS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 24,
+       "note": "in places the caught letter inside the rearranged street"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "the single letter is posted inside the shuffled word rather than parked at either end of it"
-        },
-        {
          "text": "playing",
-         "note": "letters at play are letters that will not stay where they were put, so they come back in a new order"
+         "at": 34,
+         "note": "playing suggests the letters of street at play, moving into a new order"
         }
        ],
        "parts": [
         {
          "words": "street",
-         "gives": "TERETS",
-         "note": "the six letters of the word resettled into a new order"
-        },
-        {
-         "words": "caught",
-         "gives": "C",
-         "note": "C is how a cricket scorecard records a batter who was caught out"
+         "at": 27
         }
        ]
+      },
+      {
+       "words": "caught",
+       "at": 17,
+       "gives": "C",
+       "note": "C is the cricket abbreviation for caught"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Sets of triplets' pulls you towards prams and babies, which is what the street surface wants. The answer belongs to poetry: terza rima is built out of them.",
-     "definitionFit": "A tercet is three lines of verse taken as one unit, so each is literally a triplet of lines and the plural definition matches the plural answer."
+     "surface": "Groups of three children are caught playing in the road.",
+     "walkthrough": "'Playing' turns STREET into TERETS, and 'in' sets C inside it. 'Triplets' here are three-line groups of verse, not babies.",
+     "definitionFit": "A tercet is a group of three lines of verse, so tercets are sets of poetic triplets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "triplets"
     }
    }
   },
@@ -1457,52 +1467,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SHANGHAI",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "quiet",
+       "at": 7,
+       "gives": "SH",
+       "note": "sh is the call for quiet"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
          "text": "filling",
-         "note": "what fills a gap goes inside it, so this letter drops into the middle of the shuffled word rather than beside it"
+         "at": 19,
+         "note": "filling means the hotel letter goes inside the rearranged word"
         }
        ],
        "parts": [
         {
-         "words": "quiet",
-         "gives": "SH",
-         "note": "sh is the noise you make when you are asking for quiet"
-        },
-        {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
            "text": "unexpectedly",
-           "note": "a word that comes out unexpectedly has not come out the way it went in, which is the shuffle"
+           "at": 33,
+           "note": "unexpectedly suggests the letters of again turning up in a surprising order"
           }
          ],
          "parts": [
           {
            "words": "again",
-           "gives": "ANGAI",
-           "note": "the five letters of the word settled into a different order"
-          },
-          {
-           "words": "hotel",
-           "gives": "H",
-           "note": "Hotel is the international radio alphabet's word for H"
+           "at": 27
           }
          ]
+        },
+        {
+         "words": "hotel",
+         "at": 13,
+         "gives": "H",
+         "note": "H is Hotel in the NATO phonetic alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a hotel filling up unexpectedly, and every word of it is quietly doing something else. The place also gave English a verb, for pressing a man into a ship's crew.",
-     "definitionFit": "Definition by example: the answer is one particular city, China's largest port, rather than a word that means city."
+     "surface": "A city's peaceful hotel is suddenly being stocked up once more.",
+     "walkthrough": "'Unexpectedly' turns AGAIN into ANGAI, and 'filling' puts H inside it. The 's is short for 'is', a link.",
+     "definitionFit": "Shanghai is the largest city in China, a major port on the Yangtze delta."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "filling"
     }
    }
   }
