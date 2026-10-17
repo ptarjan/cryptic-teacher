@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -677,44 +678,42 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHEWTHEFAT",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "undone",
+       "at": 38,
+       "note": "undone means unfastened and pulled apart, so the letters fall into a new order"
+      },
+      {
+       "text": "escapes from",
+       "at": 11,
+       "note": "escapes from says the named letter gets out of the pool of letters"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "escapes from"
-        }
-       ],
-       "parts": [
-        {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "undone"
-          }
-         ],
-         "parts": [
-          {
-           "words": "hatch we left",
-           "gives": "HATCHWEEFT",
-           "note": "the fodder once L has escaped"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "large escapes from",
-         "note": "L = large leaves LEFT"
-        }
-       ]
+       "words": "hatch we left",
+       "at": 24,
+       "note": "taken as written"
+      },
+      {
+       "words": "large",
+       "at": 5,
+       "gives": "L",
+       "note": "L is the standard abbreviation for large, as on clothing labels"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Gas' is the definition and it means to chat idly, not the thing escaping from the hatch — the surface is built entirely to keep you reading it the other way."
+     "surface": "A grumble that a gas leak got out through a hatch someone left unfastened.",
+     "walkthrough": "'Gas' looks like the fuel leaking out, but it is the informal verb for idle talk. 'large escapes from' removes L from HATCHWELEFT, and 'undone' rearranges the remaining ten letters.",
+     "definitionFit": "To gas is informal for chatting at length, and chew the fat is an idiom for a long, relaxed chat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gas"
     }
    }
   },
@@ -784,37 +783,56 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "ROTOR",
+     "op": "charade",
      "indicators": [
       {
-       "text": "after"
-      },
-      {
-       "text": "punches"
+       "text": "after",
+       "at": 4,
+       "note": "after places the run letter at the end, following the rest"
       }
      ],
      "parts": [
       {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "punches",
+         "at": 15,
+         "note": "punches means breaks into, so this piece goes inside the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Joey",
+         "at": 23,
+         "gives": "ROO",
+         "note": "a joey is a young kangaroo, a roo for short"
+        },
+        {
+         "words": "Troy",
+         "at": 10,
+         "gives": "T",
+         "note": "t is the abbreviation for troy, the system of weights for precious metals"
+        }
+       ]
+      },
+      {
        "words": "Run",
+       "at": 0,
        "gives": "R",
-       "note": "r = run, as on cricket scorecards"
-      },
-      {
-       "words": "Troy",
-       "gives": "T",
-       "note": "t = troy, the weight system"
-      },
-      {
-       "words": "Joey",
-       "gives": "ROO",
-       "note": "a joey is a baby kangaroo — a roo"
+       "note": "R is the cricket scoring abbreviation for a run"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Capital letters are free in a cryptic: 'Joey Turner' looks like a man and is really a baby kangaroo and a definition. T for troy weight is the obscure piece."
+     "surface": "A boxer called Troy lands a punch on a fighter named Joey Turner after a sprint.",
+     "walkthrough": "'Troy' and 'Joey Turner' read as people's names; Troy is the weight system and a joey is a baby kangaroo.",
+     "definitionFit": "A rotor is the part of a machine that turns, such as the spinning blades of a helicopter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Turner"
     }
    }
   },
@@ -955,50 +973,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "GILET",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "Maybe",
+       "at": 0,
+       "note": "maybe says the words could be arranged otherwise, so these letters are rearranged"
+      },
+      {
+       "text": "removed",
+       "at": 32,
+       "note": "removed means taken away, so the named letters leave the pool"
+      }
+     ],
      "parts": [
       {
+       "words": "get laid",
+       "at": 6,
+       "note": "taken as written"
+      },
+      {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "Maybe"
-        }
-       ],
        "parts": [
         {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "GILET",
-         "indicators": [
-          {
-           "text": "removed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "get laid",
-           "note": "the fodder before the deletions"
-          },
-          {
-           "words": "ace",
-           "gives": "A",
-           "note": "A = ace, removed from the fodder"
-          }
-         ]
+         "words": "ace",
+         "at": 21,
+         "gives": "A",
+         "note": "A is the card abbreviation for an ace"
         },
         {
-         "unchecked": true,
-         "words": "date's removed",
-         "note": "D = date also leaves"
+         "words": "date's",
+         "at": 25,
+         "gives": "D",
+         "note": "D is the abbreviation for date; the 's reads as has, joining it to removed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'removed top' reads as one phrase and does two jobs: 'removed' finishes the deletions and 'top' is the definition. The bawdy surface is there to stop you making that cut."
+     "surface": "A cheeky suggestion that someone might get lucky after a top date takes off their shirt.",
+     "walkthrough": "'top' looks like an adjective for an ace date; it is the clothing. Take A (ace) and D (date) out of GETLAID and 'Maybe' rearranges the GETLI that is left.",
+     "definitionFit": "A gilet is a sleeveless padded jacket, a garment worn on the upper body, which is what a top is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "top"
     }
    }
   },
@@ -1463,53 +1485,66 @@
    "annotation": {
     "definitions": [
      {
-      "text": "do not swallow one!",
+      "text": "do not swallow one",
       "at": 37
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "YARN",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "free"
+         "text": "free",
+         "at": 5,
+         "note": "free here means rid of, so the drug letter is taken out of the period"
         }
        ],
        "parts": [
         {
-         "words": "Drug-free period",
-         "gives": "YAR",
-         "note": "YEAR, a period, without E — the drug ecstasy"
+         "words": "period",
+         "at": 10,
+         "gives": "YEAR",
+         "note": "a year is a period of time"
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "N",
-         "indicators": [
-          {
-           "text": "end of"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "end of addiction",
-           "gives": "N",
-           "select": "last",
-           "note": "the last letter of addictioN"
-          }
-         ]
+         "words": "Drug",
+         "at": 0,
+         "gives": "E",
+         "note": "E is slang for the drug ecstasy"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "end of",
+         "at": 18,
+         "note": "end of means the last letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "addiction",
+         "at": 25,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "E for ecstasy is standard in modern cryptics. The definition is the joke — 'do not swallow one' means do not believe the tall tale."
+     "surface": "A recovering addict's motto about staying clean for a year: don't swallow a single pill.",
+     "walkthrough": "'one' looks like a pill not to swallow; it is a story not to believe, since swallowing a tale means believing it.",
+     "definitionFit": "A yarn is a long, often far-fetched story, the kind of tale a listener should not believe without question."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "swallow"
     }
    }
   },
