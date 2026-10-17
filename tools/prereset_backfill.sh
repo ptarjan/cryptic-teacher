@@ -470,6 +470,8 @@ POOL_SYNC_SECS="${POOL_SYNC_SECS:-3600}"
 # hours (10-13: 05:05-08:35, 16 annotations held by a check master had fixed).
 SYNC_STALL_SECS="${SYNC_STALL_SECS:-7200}"
 SYNC_OK_US=${EPOCHREALTIME/[.,]/}  # when the tree last reached origin/master
+SYNC_BEHIND=0                      # syncs in a row that left the tree behind
+SYNC_BEHIND_MAX="${SYNC_BEHIND_MAX:-3}"  # past this many, sync_wave prints an ALERT line
 declare -A POOL_RUNS=()  # pid -> puzzle id, every run in flight
 declare -A POOL_SOLVING=()  # pid -> 1 for each of those that solves its puzzle first
 declare -A POOL_ADOPTED=()  # pid -> 1 for each of those the shell before a re-exec started
@@ -1038,11 +1040,50 @@ publish_commits() {
 # origin/master, keeps every local edit to the rest, and refuses as a whole,
 # touching nothing, when a file it would update has local edits or an untracked
 # file sits in its way: a run in flight writing a puzzle origin also changed.
-# Prints git's refusal and returns non-zero.
+# When it refuses, sync_tree_around_dirty moves HEAD anyway and brings every
+# path but those local edits up to date, so one in-flight puzzle origin also
+# changed never pins the tree (and the re-exec onto new code) behind. Prints
+# git's refusal and returns non-zero only when that fails too.
 sync_tree() {
   shelve_code_edits || return 1
+  local lock out
+  lock=$(git rev-parse --git-path ct-index.lock 2>/dev/null) || lock=""
   # Rewrites the index for seconds: in turn with the runs' stage and commit.
-  under_index_lock git reset -q --keep origin/master
+  if [ -z "$lock" ]; then
+    out=$(git reset -q --keep origin/master 2>&1) && return 0
+  else
+    out=$( ( exec 7>"$lock" && flock -w 300 7 && {
+      git reset -q --keep origin/master 2>/dev/null || sync_tree_around_dirty
+    } ) 2>&1) && { [ -z "$out" ] || printf '%s\n' "$out"; return 0; }
+  fi
+  printf '%s\n' "$out"
+  return 1
+}
+
+# reset --keep's refusal, worked around: HEAD, the index and the files move to
+# origin/master except the paths origin changed that also hold a local edit (an
+# in-flight run's puzzle, an untracked file in the way). Those keep the file as
+# it is on disk, over origin's version in the index, so the run's own commit
+# lands on top of origin's. Runs with the index lock held.
+sync_tree_around_dirty() {
+  local tmp changed dirty hold gone keep
+  tmp=$(mktemp -d) || return 1
+  changed=$tmp/changed dirty=$tmp/dirty hold=$tmp/hold gone=$tmp/gone keep=$tmp/keep
+  git diff --name-only HEAD origin/master | sort >"$changed"
+  { git diff --name-only HEAD; git ls-files --others --exclude-standard; } | sort -u >"$dirty"
+  comm -12 "$changed" "$dirty" >"$hold"
+  git diff --name-only --diff-filter=D HEAD origin/master | sort | comm -23 - "$hold" >"$gone"
+  comm -23 "$changed" "$hold" | comm -23 - "$gone" >"$keep"
+  if git reset -q --soft origin/master &&
+    { [ ! -s "$changed" ] || git reset -q origin/master --pathspec-from-file="$changed"; } &&
+    { [ ! -s "$keep" ] || git checkout-index -f -q --stdin <"$keep"; } &&
+    { [ ! -s "$gone" ] || xargs rm -f -- <"$gone"; }; then
+    echo "sync: moved to origin/master around $(wc -l <"$hold") in-flight path(s) origin also changed: $(head -3 "$hold" | tr '\n' ' ')" >&2
+    rm -rf "$tmp"
+    return 0
+  fi
+  rm -rf "$tmp"
+  return 1
 }
 
 # A run authors its puzzle, the clues-only file its solve removes, and data
@@ -1134,11 +1175,17 @@ sync_wave() {
   fi
   if out=$(sync_tree 2>&1); then
     SYNC_OK_US=${EPOCHREALTIME/[.,]/}
+    SYNC_BEHIND=0
+    [ -z "$out" ] || echo "$out"
     echo "sync: tree at $(git rev-parse --short HEAD), ${#POOL_RUNS[@]} runs in flight"
     return 0
   fi
   [ "$stale_s" -ge "$SYNC_STALL_SECS" ] &&
     alert "pre-reset backfill has not reached origin/master for $(( stale_s / 60 )) min (reset refused: $out) — see .prereset.log."
+  SYNC_BEHIND=$(( SYNC_BEHIND + 1 ))
+  if [ "$SYNC_BEHIND" -ge "$SYNC_BEHIND_MAX" ]; then
+    echo "ALERT: tree stuck at $(git rev-parse --short HEAD), $(git rev-list --count HEAD..origin/master) commits behind origin/master for $SYNC_BEHIND syncs in a row, so it runs old code: $out"
+  fi
   # With runs in flight a refusal names a puzzle one of them is writing, and the
   # next sync, after it is committed, gets through. With none, nothing will
   # clear it by itself.

@@ -2,11 +2,12 @@
 # The burn's sync (tools/prereset_backfill.sh sync_attempt + sync_tree), with
 # runs in flight: publishing drops a commit whose puzzle origin/master already
 # holds and stops on any other conflict; moving the tree brings origin's code in
-# and keeps a run's uncommitted edit, or refuses whole when origin changed the
-# file that run is writing.
+# and keeps a run's uncommitted edit, going around it (code still moves) when
+# origin changed the file that run is writing.
 set -u
 here=$(cd "$(dirname "$0")" && pwd)
-eval "$(sed -n '/^sync_attempt() {/,/^}/p;/^publish_commits() {/,/^}/p;/^sync_tree() {/,/^}/p;/^shelve_code_edits() {/,/^}/p' "$here/prereset_backfill.sh")"
+eval "$(sed -n '/^sync_attempt() {/,/^}/p;/^publish_commits() {/,/^}/p;/^sync_tree() {/,/^}/p;/^shelve_code_edits() {/,/^}/p;/^sync_tree_around_dirty() {/,/^}/p' "$here/prereset_backfill.sh")"
+eval "$(sed -n '/^under_index_lock() {/,/^}/p' "$here/puzzle_worker.sh")"
 alert() { echo "$*" >>"$t/alerts"; }
 tools/push_puzzle_commit.sh() { bash "$here/push_puzzle_commit.sh" "$@" 2>/dev/null; }
 t=$(mktemp -d); trap 'rm -rf "$t"' EXIT
@@ -40,10 +41,14 @@ g commit -qam fix; g push -q origin HEAD:master
 cd "$t/b"; before=$(git rev-parse HEAD)
 sync_attempt 2>/dev/null; rc=$?
 check "nothing to publish succeeds" '[ "$rc" -eq 0 ]'
-sync_tree 2>/dev/null; rc=$?
-check "the move refuses over an in-flight file origin changed" '[ "$rc" -ne 0 ]'
-check "a refused move leaves HEAD, the run's file and the code as they were" \
-  '[ "$(git rev-parse HEAD)" = "$before" ] && [ "$(cat puzzles/x/1/q.json)" = inflight ] && [ "$(cat tools/plan.py)" = v2 ]'
+g reset -q --keep origin/master 2>/dev/null; rc=$?
+check "plain reset --keep refuses over an in-flight file origin changed" '[ "$rc" -ne 0 ]'
+sync_tree >"$t/out" 2>&1; rc=$?
+check "the move still succeeds" '[ "$rc" -eq 0 ] && [ "$(git rev-parse HEAD)" = "$(git rev-parse origin/master)" ]'
+check "origin's code reaches the tree despite the in-flight puzzle" '[ "$(cat tools/plan.py)" = v3 ]'
+check "the run keeps its file, over origin's version" \
+  '[ "$(cat puzzles/x/1/q.json)" = inflight ] && g diff --name-only HEAD | grep -qx puzzles/x/1/q.json'
+check "the move names the path it went around" 'grep -q "puzzles/x/1/q.json" "$t/out"'
 git checkout -q -- puzzles/x/1/q.json; sync_tree
 
 # An unpublished commit that conflicts stops publishing and keeps HEAD.
