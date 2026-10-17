@@ -299,37 +299,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOTCH",
-     "indicators": [
-      {
-       "text": "reduced",
-       "note": "something reduced has been cut short, so it loses its final letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "reduced",
+         "at": 16,
+         "note": "the word for observe is cut short, losing its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "observe",
-         "gives": "NOT",
-         "note": "note means observe; cut short it loses its E"
+         "at": 8,
+         "gives": "NOTE",
+         "note": "to note something is to observe it"
         },
         {
-         "words": "Church",
-         "gives": "CH",
-         "note": "CH is the standard abbreviation for church"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "Church",
+       "at": 24,
+       "gives": "CH"
       }
      ]
     },
     "explanation": {
-     "surface": "Reads like an instruction for Saint Nick to attend a scaled-down church service.",
-     "walkthrough": "'Reduced' looks as if it describes the Church, but it clips the verb before it.",
-     "definitionFit": "A nick is a small cut or indentation in an edge, exactly what a notch is."
+     "surface": "A churchgoer is told to take note of a congregation in decline.",
+     "walkthrough": "'Nick' looks like a man's name, but it is a small cut; 'reduced' acts on the word for observe, not on Church.",
+     "definitionFit": "A notch is a small V-shaped cut in an edge, just as a nick is a small cut or chip."
     },
     "features": {
      "answerInScene": false,
@@ -725,25 +728,24 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "ETHOS",
      "indicators": [
       {
        "text": "will get back to front",
-       "note": "moving the back to the front shifts the last letter round to the start"
+       "at": 20,
+       "note": "the letter at the back of the word those is moved round to the front"
       }
      ],
      "parts": [
       {
        "words": "those",
-       "note": "taken as written"
+       "at": 14
       }
      ]
     },
     "explanation": {
-     "surface": "A creed whose followers will be sent to the rear, then brought forward again.",
-     "walkthrough": "'Back to front' sounds like a full reversal, but only the final E moves to the start.",
-     "definitionFit": "An ethos is the guiding spirit, values and beliefs that characterise a community or organisation."
+     "surface": "A creed that some people will reach by going backwards and forwards.",
+     "walkthrough": "'Will get back to front' is read literally: the last letter of THOSE, the E, goes to the start.",
+     "definitionFit": "An ethos is the guiding beliefs or ideals that characterise a community or culture."
     },
     "features": {
      "answerInScene": false,
@@ -1142,41 +1144,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RUNNY",
-     "indicators": [
-      {
-       "text": "not at first",
-       "note": "not at first means without its opening, so the first letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "River",
+       "at": 0,
+       "gives": "R"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not at first",
+         "at": 18,
+         "note": "the opening letter of the word for peculiar is not wanted"
+        }
+       ],
        "parts": [
         {
-         "words": "River",
-         "gives": "R",
-         "note": "R is the abbreviation for river"
+         "words": "peculiar",
+         "at": 8,
+         "gives": "FUNNY",
+         "note": "funny can mean peculiar or odd"
         },
         {
-         "words": "peculiar",
-         "gives": "UNNY",
-         "note": "funny means peculiar; its first letter goes"
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A strange river that doesn't start out flowing like water.",
-     "walkthrough": "'Funny' in its odd sense, not its comic one, is the word that loses its head.",
-     "definitionFit": "Something runny flows freely and thinly like a liquid, as a runny egg or nose does."
+     "surface": "A river acting oddly at first, then flowing like ordinary water.",
+     "walkthrough": "'Not at first' means the word for peculiar loses its opening letter, rather than telling you to skip the river.",
+     "definitionFit": "Something runny flows freely like a liquid, the way water does."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "peculiar"
     }
    }
