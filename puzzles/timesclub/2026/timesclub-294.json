@@ -1191,49 +1191,57 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "SIZZURP",
      "indicators": [
       {
        "text": "using",
-       "note": "using one thing for another puts it in the other's place"
+       "at": 15,
+       "note": "using, with for, means the soda letters are put to use in place of the liberal's letter"
+      },
+      {
+       "text": "for",
+       "at": 35,
+       "note": "for means standing in place of, so the soda letters take the place of the liberal's letter"
       }
      ],
      "parts": [
       {
+       "words": "Drink noisily",
+       "at": 0,
+       "gives": "SLURP",
+       "note": "to slurp is to drink noisily"
+      },
+      {
+       "words": "liberal",
+       "at": 39,
+       "gives": "L"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "SIZZURP",
        "indicators": [
         {
          "text": "uncapped",
-         "note": "removing a cap takes off the top, so the first letter goes"
+         "at": 21,
+         "note": "uncapped means the top, the first letter, is taken off"
         }
        ],
        "parts": [
         {
-         "words": "Drink noisily",
-         "gives": "SLURP",
-         "note": "to slurp is to drink noisily"
-        },
-        {
          "words": "soda",
-         "gives": "IZZ",
-         "note": "soda is fizz, and without its first letter that leaves these three"
+         "at": 30,
+         "gives": "FIZZ",
+         "note": "fizz is a fizzy drink such as soda"
         },
         {
-         "words": "liberal",
-         "gives": "L",
-         "note": "L is the abbreviation for Liberal"
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone noisily gulps a cough-syrup cocktail mixed with soda.",
-     "walkthrough": "The 'for' is the swap signal's partner: the soda letters stand in for the liberal letter.",
-     "definitionFit": "Sizzurp is US slang for a recreational drink of codeine cough syrup mixed with soda and sweets."
+     "surface": "Instructions for mixing a cough-syrup cocktail by noisily drinking soda.",
+     "walkthrough": "'uncapped' takes the F off FIZZ, and those letters go in 'for' the L in SLURP. Sizzurp is US slang for a drink of codeine cough syrup mixed with soda.",
+     "definitionFit": "Sizzurp, also called purple drank, is an American recreational mix of prescription cough syrup with soft drink and candy."
     },
     "features": {
      "answerInScene": true,
@@ -1509,52 +1517,73 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "ARTSY",
      "indicators": [
       {
-       "text": "return",
-       "note": "a return goes back the way it came, so the letters read in the opposite direction"
+       "text": "return of",
+       "at": 18,
+       "note": "return means the letters come back in reverse order"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ARTSY",
        "indicators": [
         {
          "text": "withdrawing",
-         "note": "withdrawing means pulling out, so the named letters leave the word"
+         "at": 72,
+         "note": "withdrawing means every other pair of letters is taken out, here the second and fourth pairs"
         }
        ],
        "parts": [
         {
-         "words": "Lysistrata",
-         "note": "taken as written: the Aristophanes comedy"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "every other couple",
+           "at": 53,
+           "note": "every other couple means alternate pairs of letters, the second and fourth, are the ones affected"
+          }
+         ],
+         "parts": [
+          {
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "with lead",
+             "at": 39,
+             "note": "with lead, paired with withdrawing, means the leading letter of the play's name goes"
+            }
+           ],
+           "parts": [
+            {
+             "words": "Lysistrata",
+             "at": 28
+            },
+            {
+             "gives": "L"
+            }
+           ]
+          },
+          {
+           "gives": "IS"
+          }
+         ]
         },
         {
-         "words": "lead",
-         "gives": "L",
-         "note": "the lead of a word is its first letter, which goes"
-        },
-        {
-         "words": "every other couple",
-         "gives": "ISAT",
-         "note": "the second and fourth pairs of letters once the first is gone, which also go"
+         "gives": "AT"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pretentious revival of the Greek comedy Lysistrata, with a lead actor and half the cast pulling out.",
-     "walkthrough": "Drop the leading L, then from the pairs YS IS TR AT A take out every other couple (IS and AT), leaving YSTRA to be read backwards.",
-     "definitionFit": "Artsy is informal for pretentiously artistic, aspiring to culture without quite achieving it."
+     "surface": "A pretentious revival of Aristophanes' comedy Lysistrata, with its star and half the cast pulling out.",
+     "walkthrough": "Dropping L leaves YSISTRATA; in pairs that is YS IS TR AT A, and taking out every other pair (IS, AT) leaves YSTRA, which reads backwards as the answer.",
+     "definitionFit": "Artsy describes someone affecting an interest in the arts, a pretentious would-be aesthete."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "lead"
     }
    }
@@ -1801,53 +1830,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "album",
-      "at": 23
+      "text": "this album",
+      "at": 18
      }
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "ELPEE",
      "indicators": [
       {
-       "text": "comeback",
-       "note": "a comeback is a return, so the letters are read backwards"
+       "text": "comeback of",
+       "at": 6,
+       "note": "comeback means the word is turned back to front"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "will supply",
+         "at": 29,
+         "note": "will supply describes the clue as a sum: quiet plus the reversed answer supplies the followers, so taking quiet away leaves the rest"
+        }
+       ],
        "parts": [
         {
-         "words": "this",
-         "gives": "ELPEE",
-         "note": "'this' points at the answer itself, which is the album"
+         "words": "docile followers",
+         "at": 41,
+         "gives": "SHEEPLE",
+         "note": "sheeple is slang for people who follow the crowd like sheep"
         },
         {
-         "unchecked": true,
          "words": "Quiet",
-         "note": "sh, the call for silence, goes in front of the turned-round word to form the second word; it adds nothing to the grid entry"
-        },
-        {
-         "unchecked": true,
-         "words": "will supply docile followers",
-         "note": "the result of the reverse-clue operation: a slang word for people who follow the herd"
+         "at": 0,
+         "gives": "SH",
+         "note": "sh is the call for quiet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A quiet comeback album is expected to appeal to loyal unquestioning fans.",
-     "walkthrough": "A reverse clue: the answer is fodder, not result. Reverse it to EEPLE, put SH in front, and you get SHEEPLE, the docile followers the clue promises.",
-     "definitionFit": "Elpee is the spelt-out form of LP, a long-playing record, which is an album."
+     "surface": "A quiet comeback album that pleases a meek and loyal fan base.",
+     "walkthrough": "The clue reads SH plus the answer reversed equals SHEEPLE; so remove SH and reverse EEPLE. An elpee is an LP spelt out, the classic crossword trick.",
+     "definitionFit": "Elpee is the spelt-out form of LP, a long-playing record or album, so 'this album' is one."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "this"
+     "aptDefinition": true,
+     "misdirectedWord": "comeback"
     }
    }
   },
@@ -1878,38 +1909,67 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "FOLKRIGHT",
-     "indicators": [
-      {
-       "text": "after switching sides",
-       "note": "the two sides are left and right, so each word swaps one for the other"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "to divide",
-       "gives": "FORK",
-       "note": "to fork is to divide into branches"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "after",
+         "at": 26,
+         "note": "after, read with switching sides, means each word is taken as it stands once its left and right letters have traded places"
+        }
+       ],
+       "parts": [
+        {
+         "words": "to divide",
+         "at": 11,
+         "gives": "FORK",
+         "note": "to fork is to divide or split into branches"
+        },
+        {
+         "gives": "R"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       },
       {
-       "words": "land",
-       "gives": "LIGHT",
-       "note": "to light is to land or settle, as a bird lights on a branch"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "switching sides",
+         "at": 32,
+         "note": "sides are left and right, so an L and an R trade places in each word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "land",
+         "at": 21,
+         "gives": "LIGHT",
+         "note": "to light is to land or settle, as a bird lights on a branch"
+        },
+        {
+         "gives": "L"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Customary law about splitting up property once the parties have changed allegiance.",
-     "walkthrough": "'Switching sides' sounds like defecting; here L for left and R for right trade places, R becoming L in one word and L becoming R in the other.",
-     "definitionFit": "Folkright is the Old English term for customary law belonging to the people, the root of common law."
+     "surface": "A dispute over dividing territory after a change of allegiance.",
+     "walkthrough": "In FORK the R (right) becomes L (left), and in LIGHT the L becomes R. 'land' is the verb, as in alighting.",
+     "definitionFit": "Folkright is an old English term for the customary law of the people, as opposed to written statute."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "sides"
+     "misdirectedWord": "land"
     }
    }
   }
