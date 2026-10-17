@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -159,30 +160,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "NOW",
      "indicators": [
       {
-       "text": "turning 180 degrees",
-       "note": "a half circle leaves you facing the opposite way, and on a compass the opposite way is the point straight across the dial"
+       "text": "head turning 180 degrees",
+       "at": 6,
+       "note": "the head is the first letter, read as a compass point; spinning south round by half a circle points it north"
       }
      ],
      "parts": [
       {
-       "words": "Pig",
+       "words": "Pig's",
+       "at": 0,
        "gives": "SOW",
-       "note": "the pig in the sty is a sow"
+       "note": "a sow is a female pig"
       },
       {
-       "words": "head",
-       "gives": "N",
-       "note": "the head of SOW is S, which is south on any compass, and the bearing facing it is north"
+       "gives": "S"
+      },
+      {
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Degrees of the compass, not degrees of heat - 180 is due south, and the setter wants that letter spun right round. The pig keeps the rest of herself.",
-     "definitionFit": "The present moment is defined by contrast: whatever the case was earlier, it no longer holds, which is what makes the time unlike the time before."
+     "surface": "A pig spins its head right round, which it never could in the past.",
+     "walkthrough": "The first letter of SOW is S, south on a compass; 'turning 180 degrees' points it the opposite way, to N for north. 'unlike before' describes the present moment, as against then.",
+     "definitionFit": "Now refers to the present time, which is set against what was the case earlier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "head"
     }
    }
   },
@@ -505,58 +514,75 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "Curious",
-       "note": "something curious is odd, not as it ought to be, and letters not as they ought to be are letters out of their proper order"
+       "text": "in",
+       "at": 28,
+       "note": "the altered pieces go into the middle of the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "case of",
-         "note": "a case is what a thing is carried in, so it means the outside of the word rather than the contents"
+         "text": "Curious",
+         "at": 31,
+         "note": "curious means odd, so these letters come out in a strange order"
         }
        ],
        "parts": [
         {
-         "words": "amends",
-         "gives": "ALTERS",
-         "note": "to amend a text is to alter it"
-        },
-        {
-         "words": "chapter",
-         "gives": "C",
-         "note": "c. is the abbreviation for chapter in a legal or biblical reference"
-        },
-        {
          "op": "outer",
-         "unchecked": true,
-         "gives": "OR",
+         "indicators": [
+          {
+           "text": "case of",
+           "at": 39,
+           "note": "the case of a word is its outer shell, its first and last letters"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "case of Oliver",
-           "gives": "OR",
-           "select": "outer",
-           "note": "the outside of Oliver, the letter at each end"
+           "words": "Oliver",
+           "at": 47,
+           "note": "the outside letters of Oliver are O and R"
           }
          ]
         },
         {
          "words": "Twist",
-         "note": "the second half of the title joins the pot as five plain letters"
+         "at": 54
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "amends",
+         "at": 13,
+         "gives": "ALTERS",
+         "note": "to amend something is to alter it, so amends means alters"
+        },
+        {
+         "words": "chapter",
+         "at": 20,
+         "gives": "C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The italics dress the last four words up as a Dickens title, and that is the misdirection: Oliver Twist has nothing to do with the answer beyond lending letters.",
-     "definitionFit": "The author of Waverley and Ivanhoe wrote through the early 1800s, so the definition dates him as well as naming his trade."
+     "surface": "A Victorian-era author revises a chapter in an odd retelling of Dickens's orphan tale.",
+     "walkthrough": "'Curious' rearranges OR (the case of Oliver) plus TWIST into SIRWOTT; ALTERS plus C (chapter) goes 'in' it after SIRW.",
+     "definitionFit": "Sir Walter Scott, author of Ivanhoe and Waverley, was a leading Scottish writer of novels in the nineteenth century."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Twist"
     }
    }
   },
@@ -624,47 +650,46 @@
     "definitions": [
      {
       "text": "One put off from playing gig after this?",
-      "at": 0,
-      "note": "The sentence describes the sufferer while the answer is the affliction; 'this' points back at the answer itself, which is what lets the whole clue serve as its definition."
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STAGEFRIGHT",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "playing",
+       "at": 17,
+       "note": "letters that are playing are at play and move around, so the remaining pool is rearranged"
+      },
+      {
+       "text": "put off from",
+       "at": 4,
+       "note": "the one letter is put off, that is sent away, from the pool before the rest is used"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "STAGEFRIGHT",
-       "indicators": [
-        {
-         "text": "playing",
-         "note": "letters at play are not standing to attention in the order they were handed over"
-        },
-        {
-         "text": "put off from",
-         "note": "to be put off from a thing is to be kept out of it, so the letter named is barred from the mixture"
-        }
-       ],
-       "parts": [
-        {
-         "words": "gig after this",
-         "note": "the three words supply the letters, including the 'this' that points at the answer"
-        },
-        {
-         "words": "One",
-         "gives": "I",
-         "note": "one is the single stroke I, and that is the letter shut out"
-        }
-       ]
+       "words": "gig after this",
+       "at": 25
+      },
+      {
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "andLit": true,
     "explanation": {
-     "walkthrough": "The clue defines the answer and spells it out at the same time, which is why every word has to work twice. The question mark is the setter flagging that double duty.",
-     "definitionFit": "Read straight it describes a musician too scared to walk on: the terror of an audience is precisely what keeps a player off the stage."
+     "surface": "A musician scared off performing a concert because of this nervous condition.",
+     "walkthrough": "Take the letters of GIG AFTER THIS, put off one I ('One'), and 'playing' rearranges the rest. Read as a whole, the clue also describes the answer: nerves that stop a performer going on.",
+     "definitionFit": "Stage fright is the nervous dread before performing, which can make a musician pull out of a show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "playing"
     }
    }
   },
@@ -854,44 +879,47 @@
      "indicators": [
       {
        "text": "Bum",
-       "note": "a bum note or a bum deal is one that has come out wrong, and letters that come out wrong are letters in the wrong order"
+       "at": 0,
+       "note": "bum as an adjective means bad or faulty, so these letters come out wrong and rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
        "indicators": [
         {
          "text": "drained",
-         "note": "drain a word and its insides run out, leaving only what was standing at either end"
+         "at": 4,
+         "note": "drained means emptied out, so the word keeps only its outer letters"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "EY",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "drained extremely",
-           "gives": "EY",
-           "select": "outer",
-           "note": "the two letters left at the ends of 'extremely' once the middle has run out"
-          }
-         ]
-        },
-        {
-         "words": "hot brew",
-         "note": "the drink itself supplies seven letters to the mixture"
+         "words": "extremely",
+         "at": 12,
+         "note": "with its middle gone, extremely leaves only E and Y"
         }
        ]
+      },
+      {
+       "words": "hot",
+       "at": 22
+      },
+      {
+       "words": "brew",
+       "at": 26
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Bum' is the first word of the clue and also its instruction, which is why it hides so well: on the surface it is simply the down-and-out doing the drinking.",
-     "definitionFit": "The Bowery is the Manhattan street that became a byword for flophouses and destitution, America's own version of skid row."
+     "surface": "A tramp drinks the last of a scalding cup of tea on a run-down New York street.",
+     "walkthrough": "'drained' empties EXTREMELY to EY; 'Bum' rearranges EY plus HOT and BREW. 'Bum' looks like the tramp of the surface but is the anagram signal.",
+     "definitionFit": "The Bowery is a Manhattan street long known for flophouses and down-and-outs, the archetypal skid row."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bum"
     }
    }
   },
@@ -1159,36 +1187,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FABRIC",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "almost the whole word means the whole word bar its final letter, stopping one short of finishing it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Grand",
+       "at": 0,
+       "gives": "FAB",
+       "note": "fab, short for fabulous, means grand or splendid"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 16,
+         "note": "almost means not quite all, so the opulent word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Grand",
-         "gives": "FAB",
-         "note": "grand and fab are both slang for wonderful"
+         "words": "opulent",
+         "at": 7,
+         "gives": "RICH",
+         "note": "rich means opulent, wealthy"
         },
         {
-         "words": "opulent",
-         "gives": "RIC",
-         "note": "opulent is rich, with the final letter left off"
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Three adjectives in a row read as one breathless description of a room, so nothing marks where the definition starts. Plush is velvet's shaggier cousin.",
-     "definitionFit": "Plush is one particular cloth, so it defines the general word by example - the question mark is the setter admitting the definition points the narrower way."
+     "surface": "A sumptuous description of something nearly luxurious.",
+     "walkthrough": "'almost' trims RICH to RIC, after FAB. The question mark marks 'plush' as an example of the answer: plush is a material.",
+     "definitionFit": "Plush is a soft cloth with a long pile, so it is one kind of woven material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plush"
     }
    }
   },
@@ -1220,37 +1259,48 @@
     ],
     "wordplay": {
      "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 25,
+       "note": "the and word sits in between the two side letters"
+      }
+     ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "CO",
        "indicators": [
         {
          "text": "sides",
-         "note": "the sides of a word are the letters standing at its edges, one at each end"
+         "at": 19,
+         "note": "the sides of a word are its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "in Congo",
-         "gives": "CO",
-         "select": "outer",
-         "note": "the letters at the two edges of Congo"
+         "words": "Congo",
+         "at": 28,
+         "note": "the two outer letters of Congo"
         }
        ]
       },
       {
        "words": "both",
+       "at": 14,
        "gives": "AND",
-       "note": "both this and that - the little word that couples a pair, written out in full and dropped between them"
+       "note": "both A and B is A and B, so both gives and"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Read the wordplay aloud and it is just 'C and O'. Taking the joining word literally is the step that makes the clue click, and nothing here looks like an instruction.",
-     "definitionFit": "A can-do attitude is one that says yes to whatever job is going, so the phrase describes somebody keen to pitch in."
+     "surface": "A volunteer keen to assist on both banks of the Congo river.",
+     "walkthrough": "The two sides of CONGO are C and O; 'both' gives AND, sitting 'in' between them, so the answer reads as 'C and O'.",
+     "definitionFit": "A can-do attitude is a willing, positive keenness to get things done, an eagerness to help."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
     }
    }
   },
@@ -1447,47 +1497,38 @@
     "definitions": [
      {
       "text": "Punches",
-      "at": 0,
-      "note": "The answer is one combination but names two blows, so the setter's plural counts the punches rather than the phrase that describes them."
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "ONETWO",
+     "spelt": "ONETWO",
      "indicators": [
       {
        "text": "on your ear",
-       "note": "whatever reaches your ear is a sound, so the words are to be heard rather than read"
+       "at": 27,
+       "note": "what falls on your ear is what you hear, so the words are taken by sound"
       }
      ],
      "parts": [
       {
-       "words": "landed",
-       "gives": "WON",
-       "note": "a fight landed is a fight won"
-      },
-      {
-       "words": "excessively",
-       "gives": "TOO",
-       "note": "too, as in too much, is excessively"
-      },
-      {
-       "op": "homophone",
-       "spelt": "ONETWO",
-       "parts": [
-        {
-         "words": "landed excessively",
-         "gives": "WONTOO",
-         "note": "said aloud, WON TOO is heard as the pair of numbers"
-        }
-       ]
+       "words": "landed excessively",
+       "at": 8,
+       "gives": "WONTOO",
+       "note": "landed means won, as in landing a prize, and excessively means too: said together, won too"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Boxing on the surface, counting underneath. The hyphenated enumeration helps: it promises two short words, which numbers supply and a match report does not.",
-     "definitionFit": "It is the quick pair of blows a boxer throws, left then right, so the definition names them by counting them."
+     "surface": "A boxer's blows that connected far too often, as heard on the sound of the ear.",
+     "walkthrough": "'landed' gives WON and 'excessively' gives TOO; said aloud, 'won too' sounds like the answer. 'on your ear' marks the sound.",
+     "definitionFit": "In boxing a one-two is a quick pair of blows, a jab followed by a cross."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "landed"
     }
    }
   },
