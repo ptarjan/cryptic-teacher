@@ -777,26 +777,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "DUE",
      "indicators": [
       {
        "text": "stops early",
-       "note": "the word ends before its last letter"
+       "at": 6,
+       "note": "stops early says the word is cut off before its final letter"
       }
      ],
      "parts": [
       {
        "words": "Fight",
-       "gives": "DUE",
-       "note": "DUEL = fight, with its last letter lost"
+       "at": 0,
+       "gives": "DUEL",
+       "note": "a duel is a fight between two people"
+      },
+      {
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A bout halted in good time.",
-     "walkthrough": "'Enough' works as due does in 'with due care': as much as is needed.",
-     "definitionFit": "Due care is sufficient care, so due can mean enough."
+     "surface": "A boxing referee halts a bout before the scheduled end, judging it has gone on long enough.",
+     "walkthrough": "The fight 'stops early', losing its final letter. 'enough' is fair because due can mean adequate or sufficient, as in 'with due care'.",
+     "definitionFit": "Due in the sense of sufficient or proper, as in due care, means as much as is needed."
     },
     "features": {
      "answerInScene": false,
@@ -1210,54 +1213,53 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "focus of",
-       "note": "the focus is the centre, so take the middle letters"
-      }
-     ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "EN",
        "indicators": [
         {
-         "text": "retiring",
-         "note": "going back, so the word is reversed"
+         "text": "focus of",
+         "at": 9,
+         "note": "the focus of something is its centre, so take the middle letters of friendly"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "focus of friendly",
-         "gives": "EN",
-         "select": "middle",
-         "note": "the two middle letters of FRIENDLY"
+         "words": "friendly",
+         "at": 18,
+         "note": "the eight-letter word whose two central letters are taken"
         }
        ]
       },
       {
        "op": "reversal",
+       "indicators": [
+        {
+         "text": "retiring",
+         "at": 28,
+         "note": "retiring means going back, so the word for god is read in the reverse direction"
+        }
+       ],
        "parts": [
         {
          "words": "god",
+         "at": 37,
          "gives": "DEUS",
-         "note": "deus is Latin for god"
+         "note": "Deus is Latin for god"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shy, sociable god was tailed.",
-     "walkthrough": "'Retiring' looks like shy or going to bed; it means backing off, so DEUS reverses.",
-     "definitionFit": "A past-tense synonym in the sense of coming after as a result."
+     "surface": "A friendly match was followed by a deity withdrawing from the scene.",
+     "walkthrough": "The 'focus of' the eight-letter friendly is its middle pair EN, and DEUS 'retiring' gives SUED.",
+     "definitionFit": "Ensued means came afterwards as a result, so it is a synonym for followed."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "retiring"
+     "misdirectedWord": "friendly"
     }
    }
   },
@@ -1338,26 +1340,52 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "leaving",
-       "note": "the named letters are left out"
-      },
-      {
        "text": "nuts",
-       "note": "crazy, so the letters are jumbled"
+       "at": 36,
+       "note": "nuts means crazy, so the remaining letters are jumbled"
       }
      ],
      "parts": [
       {
-       "words": "hand tool leaving no split",
-       "gives": "HADTOL",
-       "note": "HAND TOOL minus N and O, which are split up in it"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving no",
+         "at": 19,
+         "note": "leaving no means departing from, so the two letters of the word no go from hand tool"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "split",
+           "at": 30,
+           "note": "split says those two letters are not side by side but removed from separate places"
+          }
+         ],
+         "parts": [
+          {
+           "words": "hand tool",
+           "at": 9
+          },
+          {
+           "gives": "N"
+          }
+         ]
+        },
+        {
+         "gives": "O"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An outdated tool that won't come apart.",
-     "walkthrough": "'No split' means the N and O removed are not together: the N comes from HAND and the O from TOOL.",
-     "definitionFit": "An informal idiom for anything so familiar it has gone out of date."
+     "surface": "An outdated hand tool whose nuts have come loose.",
+     "walkthrough": "'leaving no split' takes the N and the O, from separate places, out of HANDTOOL, leaving HADTOL, which 'nuts' rearranges.",
+     "definitionFit": "Old hat is an idiom for something out of date and unfashionable, so it fits obsolete."
     },
     "features": {
      "answerInScene": false,
@@ -1439,28 +1467,26 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "regularly ignored",
-       "note": "every other letter is dropped"
+       "text": "before",
+       "at": 32,
+       "note": "before places these letters ahead of the rest"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "IN",
        "indicators": [
         {
-         "text": "before",
-         "note": "'before' in time means earlier, so this piece is written earlier than the next"
+         "text": "regularly ignored",
+         "at": 14,
+         "note": "regularly ignored means every other letter of signs is dropped, keeping the rest"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "signs regularly ignored",
-         "gives": "IN",
-         "select": "alternate",
-         "note": "the second and fourth letters of sIgNs"
+         "words": "signs",
+         "at": 8,
+         "note": "the word whose alternate letters are dropped"
         }
        ]
       },
@@ -1468,13 +1494,15 @@
        "op": "container",
        "indicators": [
         {
-         "text": "twists",
-         "note": "turned round, so the letters run backwards"
+         "text": "in",
+         "at": 51,
+         "note": "in puts the reversed word inside the story"
         }
        ],
        "parts": [
         {
          "words": "story",
+         "at": 54,
          "gives": "FABLE",
          "note": "a fable is a story"
         },
@@ -1482,15 +1510,17 @@
          "op": "reversal",
          "indicators": [
           {
-           "text": "in",
-           "note": "the result goes inside the next word"
+           "text": "twists",
+           "at": 44,
+           "note": "twists means turns round, so the word for sick is read in the reverse direction"
           }
          ],
          "parts": [
           {
            "words": "sick",
+           "at": 39,
            "gives": "ILL",
-           "note": "ill = sick"
+           "note": "ill means sick"
           }
          ]
         }
@@ -1499,14 +1529,14 @@
      ]
     },
     "explanation": {
-     "surface": "Omens are dismissed before a story takes grim turns.",
-     "walkthrough": "'Signs' looks like omens, but only its even letters are wanted; 'regularly' means every other letter.",
-     "definitionFit": "Infallible means never wrong, so certain."
+     "surface": "A storyteller ignores the warning signs while a nasty illness takes a turn.",
+     "walkthrough": "'regularly ignored' drops S, G and S from signs to leave IN, placed 'before' FABLE with ILL inside it, which 'twists' to LLI.",
+     "definitionFit": "Infallible means incapable of being wrong, so its result is certain."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "signs"
+     "misdirectedWord": "twists"
     }
    }
   },
@@ -1642,39 +1672,39 @@
      "parts": [
       {
        "words": "gamey",
+       "at": 7,
        "gives": "HIGH",
-       "note": "game that is high is strong-smelling"
+       "note": "game that has been hung until gamey is said to be high"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "TEA",
        "indicators": [
         {
          "text": "stuffing in",
-         "note": "the stuffing is what is inside, so take the middle letters"
+         "at": 13,
+         "note": "the stuffing in something is its inner part, so take the middle letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "stuffing in cut of beef?",
-         "gives": "TEA",
-         "select": "middle",
-         "note": "STEAK is a cut of beef; its inside is TEA"
+         "words": "cut of beef",
+         "at": 25,
+         "gives": "STEAK",
+         "note": "a steak is a cut of beef"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dish of strong-tasting game stuffed into beef.",
-     "walkthrough": "The question mark flags steak as one example of a cut of beef. High tea is an early-evening British meal with a cooked dish and tea.",
-     "definitionFit": "High tea is a meal taken in the late afternoon or early evening."
+     "surface": "A recipe for a strong-flavoured filling inside a joint of beef.",
+     "walkthrough": "The 'stuffing in' STEAK is its inside, TEA, without the outer S and K. High tea is a British early-evening cooked meal.",
+     "definitionFit": "High tea is a British early-evening meal of a cooked dish with bread and tea."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "stuffing"
     }
    }
