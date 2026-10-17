@@ -88,41 +88,38 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANSWER",
+     "op": "substitution",
      "indicators": [
       {
        "text": "not finished",
-       "note": "A word left not finished stops short of its last letter, and all three little words in front of this one stop short."
+       "at": 41,
+       "note": "each of the three words is left unfinished, so the final letter of every one of them is dropped"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "and",
-         "gives": "AN",
-         "note": "'and' with its tail lopped off"
-        },
-        {
-         "words": "so",
-         "gives": "S",
-         "note": "'so' unfinished is down to a single letter"
-        },
-        {
-         "words": "were",
-         "gives": "WER",
-         "note": "'were' gives up its final E the same way"
-        }
-       ]
+       "words": "and so were",
+       "at": 29,
+       "gives": "ANDSOWERE",
+       "note": "taken as written; trimming each word's last letter (D, O, E) is what the substitution records"
+      },
+      {
+       "gives": "DSOWERE"
+      },
+      {
+       "gives": "SWER"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The instruction sits at the end and reaches back over three words at once, which is easy to miss: 'and so were not finished' reads as ordinary grammar rather than as three separate amputations.",
-     "definitionFit": "What a stuck solver is short of is exactly this, the word that belongs in the grid, so the definition names it by the gap it leaves."
+     "surface": "Solvers short of a solution feel their work was left incomplete.",
+     "walkthrough": "'not finished' applies to all three words: AND loses D, SO loses O and WERE loses E, leaving AN, S and WER.",
+     "definitionFit": "A solver stuck on a clue lacks its solution, the reply to the question the clue poses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "finished"
     }
    }
   },
@@ -1387,40 +1384,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CREATOR",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "It's about",
+       "at": 32,
+       "note": "the reworked rector goes about, that is around, the letter for one"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "having letter forwarded",
-         "note": "A letter that is forwarded is sent on ahead, so one character leaves its place in the churchman's title and goes to the front of the queue."
-        },
-        {
-         "text": "about",
-         "note": "'About' is positional here rather than approximate: the six letters close round the single letter that follows."
+         "at": 7,
+         "note": "one letter of rector, its C, is sent forward to the front, a rearrangement of the word"
         }
        ],
        "parts": [
         {
          "words": "Rector",
-         "gives": "CRETOR",
-         "note": "send the C of RECTOR to the front and this is what is left standing"
-        },
-        {
-         "words": "one",
-         "gives": "A",
-         "note": "A is the indefinite article, crossword shorthand for one"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 43,
+       "gives": "A",
+       "note": "A is the indefinite article, meaning one"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Ecclesiastical from top to bottom, a rector and his post and the being he works for, and only the middle of it is doing any wordplay.",
-     "definitionFit": "Genesis has him make the world, so 'the Creator' is the standard reverent title in English for whoever did the making."
+     "surface": "A parish rector receives redirected mail and ponders a name for the deity.",
+     "walkthrough": "Moving the C of RECTOR to the front gives CRETOR; 'It's about' puts it around A (one).",
+     "definitionFit": "Christians call God the Creator, maker of heaven and earth, so the word is a title of the deity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "forwarded"
     }
    }
   },
