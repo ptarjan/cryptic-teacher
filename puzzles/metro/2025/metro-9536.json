@@ -312,60 +312,51 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "OWNER",
+     "indicators": [
+      {
+       "text": "out",
+       "at": 19,
+       "note": "worn out suggests something knocked out of shape, so the letters are reset"
+      },
+      {
+       "text": "about",
+       "at": 24,
+       "note": "about in the sense of turned around, a second nudge that all these letters are mixed"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "worn",
+       "at": 14
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "out",
-         "note": "'out' as in out of joint: WORN is knocked out of its proper order"
-        },
-        {
          "text": "last to",
-         "note": "'last to' points at the final letter of the next word, leave"
+         "at": 30,
+         "note": "the last of a word is its final letter"
         }
        ],
        "parts": [
         {
-         "words": "worn out",
-         "gives": "OWNR",
-         "note": "anagram of WORN"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "E",
-         "indicators": [
-          {
-           "text": "about",
-           "note": "'about' means surrounding"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "last to leave",
-           "gives": "E",
-           "select": "last",
-           "note": "final letter of leave"
-          }
-         ]
+         "words": "leave",
+         "at": 38,
+         "note": "leave ends in E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A shop owner is exhausted and just about the last one to go home.",
-     "walkthrough": "'Worn out' looks like tiredness, and 'last to leave' like closing up, but they rearrange WORN and wrap it around E.",
-     "definitionFit": "A plain synonym: a proprietor is whoever holds legal title to a shop or business."
+     "surface": "A shop owner admits to being exhausted and about to be the last one out the door.",
+     "walkthrough": "'worn out' reads as tired; split it, and 'out' and 'about' jumble WORN together with E, the last letter of 'leave'.",
+     "definitionFit": "A proprietor is the person who owns a business or property, its owner."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "worn"
+     "misdirectedWord": "out"
     }
    }
   },
@@ -567,27 +558,29 @@
      "indicators": [
       {
        "text": "both ways",
-       "note": "a word that works both ways reads the same forwards and backwards"
+       "at": 6,
+       "note": "the word reads the same from either end, forwards and backwards"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "both ways",
-       "note": "the word for 'looks' must read the same from either end"
+       "words": "Looks",
+       "at": 0,
+       "gives": "SEES",
+       "note": "looks at or perceives, and the word reads the same either way"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone checks left and right before crossing the road.",
-     "walkthrough": "The surface is road-safety advice, but 'both ways' says the answer is a palindrome, so only a synonym for 'looks' spelt the same backwards fits.",
-     "definitionFit": "A plain synonym in the verb sense: she sees the view, she looks at the view."
+     "surface": "Someone glances left and right before crossing.",
+     "walkthrough": "The definition is the verb looks, as in perceives; 'both ways' is the extra hint that the answer is a palindrome.",
+     "definitionFit": "Sees and looks both describe using one's eyes to take something in."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "ways"
+     "misdirectedWord": "both"
     }
    }
   },
@@ -704,51 +697,53 @@
    "annotation": {
     "definitions": [
      {
-      "text": "move stealthily",
-      "at": 31
+      "text": "to move stealthily",
+      "at": 28
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "raised",
-       "note": "a word raised is lifted and turned over, so it reads backwards"
-      }
-     ],
      "parts": [
-      {
-       "words": "Object raised",
-       "gives": "TI",
-       "note": "it = an object, turned back"
-      },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "about",
-         "note": "'about' as in moved about: the poet's letters are shifted around"
+         "text": "raised",
+         "at": 7,
+         "note": "in a down-reading sense lifted up, so the short word is turned back to front"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "poet about",
-           "gives": "PTOE",
-           "note": "anagram of POET"
-          }
-         ]
+         "words": "Object",
+         "at": 0,
+         "gives": "IT",
+         "note": "it is the object pronoun, so an object can be IT"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 22,
+         "note": "about in the sense of round about, so the letters of poet are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "poet",
+         "at": 17
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A poet lifts some item before creeping off quietly.",
-     "walkthrough": "'Raised' properly reverses a word in a down clue; here, in an across entry, it still turns IT round.",
-     "definitionFit": "A plain synonym: going on the tips of your toes keeps footsteps quiet, so stealthy."
+     "surface": "A poet lifts some object while sneaking about.",
+     "walkthrough": "'raised' turns IT round to TI, and 'about' shuffles POET into PTOE.",
+     "definitionFit": "To tiptoe is to walk quietly on the tips of the toes so as not to be heard, sneaking along."
     },
     "features": {
      "answerInScene": true,
@@ -941,41 +936,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RANDOMLY",
-     "indicators": [
-      {
-       "text": "career",
-       "note": "to career is to rush about wildly, so the letters go astray"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Operated",
+       "at": 0,
+       "gives": "RAN",
+       "note": "ran in the sense of managed or operated, as one runs a business"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "career",
+         "at": 16,
+         "note": "to career is to rush along wildly, so the letters of my old are thrown about"
+        }
+       ],
        "parts": [
         {
-         "words": "Operated",
-         "gives": "RAN",
-         "note": "ran = operated (a business, a machine)"
-        },
-        {
-         "words": "my old career",
-         "gives": "DOMLY",
-         "note": "anagram of MY OLD"
+         "words": "my old",
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone recalls having stumbled into their old job by luck.",
-     "walkthrough": "'Career' reads as a job, sitting nicely with 'operated', but here it is the verb meaning to hurtle out of control.",
-     "definitionFit": "A plain synonym: things that happen randomly occur by chance, without plan."
+     "surface": "Someone reflects that they fell into their old line of work through sheer luck.",
+     "walkthrough": "'career' looks like a noun meaning job, but it is the verb for hurtling out of control, which rearranges MY OLD into DOMLY.",
+     "definitionFit": "Randomly means without plan or pattern, so happening by chance."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "career"
     }
    }
@@ -1007,37 +1002,36 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DIGIN",
-     "indicators": [
-      {
-       "text": "flip",
-       "note": "to flip something is to turn it over, so I'D is read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flip",
+         "at": 4,
+         "note": "flipping a word turns it over, so its letters run the other way"
+        }
+       ],
        "parts": [
         {
-         "words": "I'd flip",
-         "gives": "DI",
-         "note": "I'D turned round"
-        },
-        {
-         "words": "drink",
-         "gives": "GIN",
-         "note": "a spirit"
+         "words": "I'd",
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "drink",
+       "at": 9,
+       "gives": "GIN",
+       "note": "gin is a spirit drink"
       }
      ]
     },
     "explanation": {
-     "surface": "A host says they'd throw back a drink and urges guests to have fun.",
-     "walkthrough": "The exclamation mark signals an imperative: this is what a host says to invite guests to start eating.",
-     "definitionFit": "An idiom: 'dig in!' urges people to start eating heartily, just as 'enjoy!' does."
+     "surface": "Someone admits they would lose their temper over a drink and then tells the guests to enjoy.",
+     "walkthrough": "'flip' looks like losing one's temper; here it turns I'D round to DI before the drink.",
+     "definitionFit": "Dig in is an informal invitation to start eating heartily, much like telling diners to enjoy the meal."
     },
     "features": {
      "answerInScene": true,
@@ -1218,37 +1212,39 @@
      "indicators": [
       {
        "text": "around",
-       "note": "'around' means surrounding"
+       "at": 14,
+       "note": "the jumbled letters go around the small word, holding it inside"
       }
      ],
      "parts": [
-      {
-       "words": "Awful odour's",
-       "gives": "DOROUS",
-       "note": "anagram of ODOURS"
-      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "Awful",
-         "note": "something awful is in a dreadful state, so the letters of odour's are jumbled"
+         "at": 0,
+         "note": "an awful version of the letters is a messed-up one, so they are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "look",
-         "gives": "LO",
-         "note": "lo = look! (as in 'lo and behold')"
+         "words": "odour's",
+         "at": 6
         }
        ]
+      },
+      {
+       "words": "look",
+       "at": 22,
+       "gives": "LO",
+       "note": "lo is an old word meaning look or behold"
       }
      ]
     },
     "explanation": {
-     "surface": "A terrible smell hangs about, and someone looks miserable.",
-     "walkthrough": "The 's in 'odour's' is part of the fodder, not a possessive; 'look' is an interjection, not the verb it seems.",
-     "definitionFit": "A plain synonym, somewhat literary: dolorous describes grief or sorrow."
+     "surface": "A terrible smell hangs about, so someone looks glum.",
+     "walkthrough": "'Awful' jumbles ODOUR'S into DOROUS, which goes 'around' LO, an old word for look or behold.",
+     "definitionFit": "Dolorous is a literary word for sorrowful or mournful, so feeling or showing grief."
     },
     "features": {
      "answerInScene": true,
@@ -1273,8 +1269,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "doghouse",
-      "at": 48
+      "text": "the doghouse",
+      "at": 44
      }
     ],
     "wordplay": {
@@ -1282,41 +1278,29 @@
      "indicators": [
       {
        "text": "keeping",
-       "note": "to keep something is to hold it, so the ship part holds the letters inside"
+       "at": 13,
+       "note": "keeping in the sense of holding, so the keel encloses the other letters"
       }
      ],
      "parts": [
       {
        "words": "Part of ship",
+       "at": 0,
        "gives": "KEEL",
-       "note": "the keel runs along a ship's bottom"
+       "note": "the keel is the structural spine along the bottom of a ship"
       },
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "two nervous leaders",
+       "at": 21,
        "gives": "NN",
-       "indicators": [
-        {
-         "text": "leaders",
-         "note": "leaders go at the front, so take the first letter of nervous, here twice"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "two nervous leaders",
-         "gives": "NN",
-         "select": "first",
-         "note": "two copies of the first letter of nervous"
-        }
-       ]
+       "note": "two leaders of nervous, its first letter N taken twice"
       }
      ]
     },
     "explanation": {
-     "surface": "Part of a ship where two jittery leaders are in disgrace.",
-     "walkthrough": "'In the doghouse' is an idiom for being in disgrace, but here only 'doghouse' is the definition.",
-     "definitionFit": "A plain synonym: the small shelter a dog sleeps in is called either name."
+     "surface": "A sailor nervous about part of the vessel ends up in disgrace.",
+     "walkthrough": "'two nervous leaders' asks for the first letter of nervous twice, and 'keeping' has the keel hold them. Being in the doghouse means being in disgrace, a misleading picture here.",
+     "definitionFit": "A kennel is a shelter for a dog, a doghouse in its literal sense."
     },
     "features": {
      "answerInScene": false,
