@@ -23,7 +23,8 @@
   "check": "31 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -909,53 +910,63 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "affected",
-       "note": "Something affected has been acted on and altered, and letters altered do not keep the arrangement they came in."
-      }
-     ],
      "parts": [
-      {
-       "words": "Half in",
-       "gives": "I",
-       "note": "one letter of fodder, half of the two-letter word as instructed"
-      },
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "Half",
-         "note": "A word given in half hands over only part of itself, and half of a two-letter word is the letter it starts with."
+         "text": "affected",
+         "at": 19,
+         "note": "affected means disturbed or altered, so these letters are rearranged"
         }
        ],
        "parts": [
         {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Half",
+           "at": 0,
+           "note": "half of a two-letter word is one letter, here the first"
+          }
+         ],
+         "parts": [
+          {
+           "words": "in",
+           "at": 5
+          },
+          {
+           "gives": "N"
+          }
+         ]
+        },
+        {
          "words": "limbo",
-         "note": "five more letters of fodder, the word taken whole"
+         "at": 8
         },
         {
          "words": "I'm",
-         "note": "two more, the apostrophe read through"
-        },
-        {
-         "words": "Home Counties",
-         "gives": "SE",
-         "note": "the Home Counties are the ring of English counties around London, all of them in the south-east"
+         "at": 15
         }
        ]
+      },
+      {
+       "words": "Home Counties",
+       "at": 31,
+       "gives": "SE",
+       "note": "SE, south-east, is where England's Home Counties around London lie"
       }
      ]
     },
     "explanation": {
-     "surface": "Stuck half in limbo and feeling the cold snap out in the commuter belt.",
-     "walkthrough": "In is the smallest fodder a clue can halve, and the half wanted is the one that joins onto what follows. Freeze is the definition and the weather of the sentence at the same time.",
-     "definitionFit": "To immobilise something is to stop it moving at all, which is freeze in the sense of an order barked at a person rather than what water does."
+     "surface": "Someone caught in limbo, stuck partway, says the commuter belt has left them paralysed.",
+     "walkthrough": "'Half in' gives just I; 'affected' rearranges I, LIMBO and I'M into IMMOBILI. The Home Counties are the counties surrounding London, in the south-east of England.",
+     "definitionFit": "To immobilise something is to stop it moving, to freeze it in place."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "affected"
+     "misdirectedWord": "limbo"
     }
    }
   },
