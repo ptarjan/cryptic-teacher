@@ -1357,34 +1357,48 @@
      }
     ],
     "wordplay": {
-     "op": "regular",
-     "unchecked": true,
-     "gives": "YACHTS",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "regularly operating in pairs",
-       "note": "regular steps taken two letters at a time mean keeping alternate pairs and skipping the pairs between"
+       "text": "operating in pairs",
+       "at": 22,
+       "note": "operating in pairs means the even-interval dropping works on two letters at a time, not one"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Yale cheats",
-       "gives": "YACHTS",
-       "select": "regular",
-       "note": "keep YA, skip LE, keep CH, skip EA, keep TS"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "regularly",
+         "at": 12,
+         "note": "regularly means at even intervals, so every second pair of letters is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Yale cheats",
+         "at": 0,
+         "note": "taken as written, the letters from which pairs are kept and dropped"
+        },
+        {
+         "gives": "LE"
+        }
+       ]
+      },
+      {
+       "gives": "EA"
       }
      ]
     },
     "explanation": {
-     "surface": "Dishonest students at Yale work in twos to show off their handiwork.",
-     "walkthrough": "The usual alternate-letter trick is done in pairs here: two letters taken, two left, all the way through.",
-     "definitionFit": "Craft is a general word for boats and vessels, and these are sailing or motor boats used for leisure."
+     "surface": "Students at Yale who cheat in pairs are put on display.",
+     "walkthrough": "Split YALE CHEATS into pairs: YA, LE, CH, EA, TS. 'regularly operating in pairs' keeps the first, third and fifth pairs. 'exhibit' is the link to the definition.",
+     "definitionFit": "Yachts are sailing or motor boats, and craft is a general word for vessels."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "craft"
     }
    }
