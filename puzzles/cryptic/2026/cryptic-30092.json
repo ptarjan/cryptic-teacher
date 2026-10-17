@@ -304,40 +304,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BUSTICKET",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 18,
+       "note": "in places the reversed letters inside the thing that gets kicked"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "something to kick",
+       "at": 21,
+       "gives": "BUCKET",
+       "note": "to kick the bucket is to die, so a bucket is something to kick"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "rolled over",
-         "note": "Roll something over and it comes to rest the opposite way up, so those letters go down backwards."
-        },
-        {
-         "text": "in",
-         "note": "Plain as it looks, this little word is the instruction: one group of letters is dropped inside another."
+         "at": 5,
+         "note": "rolled over means the word it's is turned round to read backwards"
         }
        ],
        "parts": [
         {
-         "words": "something to kick",
-         "gives": "BUCKET",
-         "note": "kick the bucket — the thing kicked is the one in the idiom, not the one on a football pitch"
-        },
-        {
          "words": "It's",
-         "gives": "STI",
-         "note": "the two words shrink to three letters, then turn round"
+         "at": 0,
+         "gives": "ITS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Something to kick' pulls hard towards a ball, and the answer needs the dying idiom instead.",
-     "definitionFit": "pass → BUS TICKET: a pass is any slip that buys you entry or travel, and the fare paid to ride is one everyday instance."
+     "surface": "A ball rolled over, in a game of kicking and passing.",
+     "walkthrough": "The surface suggests football, but 'pass' is a permit to travel. 'Rolled over' turns ITS into STI, which goes 'in' BUCKET after BU.",
+     "definitionFit": "A bus ticket is a pass allowing the holder to ride on a bus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pass"
     }
    }
   },
@@ -653,51 +663,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NONRIGID",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 21,
+       "note": "in puts the first two pieces inside the reversed noise word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "The smallest word in the clue is the instruction: what comes before it goes inside what comes after."
+         "text": "pulled back",
+         "at": 31,
+         "note": "pulled back means the racket word is read in reverse"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "pulled back",
-           "note": "An across answer reversed reads right to left, and pulling a thing back is exactly that about-turn."
-          }
-         ],
-         "parts": [
-          {
-           "words": "racket",
-           "gives": "NID",
-           "note": "a racket is a din, and the din is turned round to make the shell"
-          },
-          {
-           "words": "on",
-           "note": "two letters taken straight off the page"
-          }
-         ]
+         "words": "racket",
+         "at": 24,
+         "gives": "DIN",
+         "note": "a din is a racket, a loud noise"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "on",
+         "at": 8
         },
         {
          "words": "equipment",
+         "at": 11,
          "gives": "RIG",
-         "note": "a rig is equipment: a drilling rig, a lighting rig"
+         "note": "a rig is a set of equipment"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Every noun here belongs to a tennis club — elastic, equipment, racket — and 'racket' is the one that changes sense, from the thing you swing to the noise you make.",
-     "definitionFit": "Elastic → NON-RIGID: elastic in its adjectival sense means yielding and able to bend, which is precisely what a thing that will not stay stiff does."
+     "surface": "A stretchy string fitted into a tennis racket and drawn back.",
+     "walkthrough": "'Racket' looks like sports equipment but is a noise, DIN; 'pulled back' makes NID, and ON plus RIG go 'in' it after the N.",
+     "definitionFit": "Something non-rigid is not stiff, so it can bend and stretch like elastic material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "racket"
     }
    }
   },
@@ -1194,40 +1212,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TAKEAPEW",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "having caged",
+       "at": 14,
+       "note": "having caged means the reversed word holds the next pieces inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "about",
-         "note": "Turned about, a word faces the other way, so those four letters are entered from the back."
-        },
-        {
-         "text": "having caged",
-         "note": "A cage holds its occupant inside, so one group of letters shuts around the other."
+         "at": 8,
+         "note": "about turns the crying word round to read backwards"
         }
        ],
        "parts": [
         {
          "words": "Was sad",
-         "gives": "TPEW",
-         "note": "someone sad wept, and the word goes down back to front"
+         "at": 0,
+         "gives": "WEPT",
+         "note": "wept means cried, was sad"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 27
         },
         {
-         "words": "a parrot?",
-         "gives": "AKEA",
-         "note": "the kea is a large green parrot from the New Zealand mountains, and the 'a' comes along with it"
+         "words": "parrot",
+         "at": 29,
+         "gives": "KEA",
+         "note": "the kea is a New Zealand parrot"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Parrot, caged, perch: the birds run right through to the last word, and the answer has nothing to do with birds at all.",
-     "definitionFit": "get a perch → TAKE A PEW: a pew is the long bench in a church, so an invitation to take one is the English way of saying sit down."
+     "surface": "Someone grieving because their parrot is shut away, so given a perch.",
+     "walkthrough": "'About' turns WEPT into TPEW, which is 'having caged' A and KEA after its T. The kea is a large green parrot from New Zealand.",
+     "definitionFit": "Take a pew is a British idiom meaning sit down, which is to find a seat or perch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "perch"
     }
    }
   },
@@ -1479,40 +1517,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EXPAT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "filled in by",
+       "at": 24,
+       "note": "filled in by means the unknown letter goes inside the reversed word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "After returning",
-         "note": "Coming back means retracing your steps, so the letters that follow are read from their far end."
-        },
-        {
-         "text": "filled in by",
-         "note": "A gap that is filled in has something dropped into it, so a letter goes inside the other piece."
+         "at": 0,
+         "note": "after returning means the recording word is read backwards"
         }
        ],
        "parts": [
         {
          "words": "record",
-         "gives": "EPAT",
-         "note": "a tape is a recording, and it is laid down the other way round"
-        },
-        {
-         "words": "unknown",
-         "gives": "X",
-         "note": "x is the unknown quantity in algebra"
+         "at": 17,
+         "gives": "TAPE",
+         "note": "to tape is to record"
         }
        ]
+      },
+      {
+       "words": "unknown",
+       "at": 37,
+       "gives": "X",
+       "note": "X is the algebraic unknown"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a traveller home again and filling in a form, which lets the definition sit at the very end looking like the last word of a sentence.",
-     "definitionFit": "emigrant → EXPAT: an expatriate is someone settled outside their own country, which is what emigrating makes of a person; the clipped form is everyday English."
+     "surface": "Back home, someone fills in a form left blank by a stranger who emigrated.",
+     "walkthrough": "'After returning' turns TAPE into EPAT, which is 'filled in by' X after its E.",
+     "definitionFit": "An expat, short for expatriate, is someone living outside their native country, as an emigrant does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
     }
    }
   }
