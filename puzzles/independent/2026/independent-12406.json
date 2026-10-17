@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -178,36 +179,40 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "regularly",
-       "note": "letters taken at a regular interval means every second one, counted straight through both words without a break"
+       "text": "put up",
+       "at": 45,
+       "note": "in a down clue, put up means the letters are read from the bottom upwards, so backwards"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "OLOMERT",
        "indicators": [
         {
-         "text": "put up",
-         "note": "in a down entry, letters put up climb from the foot of the answer to its head, so the sequence arrives the other way round"
+         "text": "regularly",
+         "at": 35,
+         "note": "regularly means taking every other letter of poolroom secrets, here the second, fourth and so on"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "poolroom secrets regularly",
-         "gives": "OLOMERT",
-         "select": "alternate",
-         "note": "every second letter of these two words, starting from the second, gives seven letters that still need turning round"
+         "words": "poolroom secrets",
+         "at": 18,
+         "note": "the fodder whose alternate letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a seedy tale of what gets said around a pool table, and the entire instruction is carried by two innocent-looking words at the end of the clue.",
-     "definitionFit": "Notes that repeat -> TREMOLO: the musical term for a note reiterated rapidly, the wobble a violinist's bow or an organ stop produces."
+     "surface": "Someone in a snooker hall repeats the secrets overheard there and puts them up for all to see.",
+     "walkthrough": "'Regularly' takes the even letters of 'poolroom secrets', OLOMERT; 'put up' turns them round to give TREMOLO.",
+     "definitionFit": "A tremolo is a musical effect made by rapidly repeating a single note."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "poolroom"
     }
    }
   },
@@ -489,8 +494,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "from",
-       "note": "what is taken from a word comes out of it, so the letter named just before disappears from the longer word that follows"
+       "text": "facing",
+       "at": 32,
+       "note": "facing means the first part stands in front of the second, side by side"
       }
      ],
      "parts": [
@@ -498,41 +504,47 @@
        "op": "deletion",
        "indicators": [
         {
-         "text": "facing",
-         "note": "a piece facing another stands in front of it, which puts this chunk at the start of the answer"
+         "text": "Take",
+         "at": 0,
+         "note": "Take ... from tells us to remove a letter from the word that follows, here the religious leader"
+        },
+        {
+         "text": "from",
+         "at": 10,
+         "note": "from marks the word the page abbreviation is taken out of"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "religious leader",
-           "gives": "POPE",
-           "note": "the Pope leads the Roman Catholic church, and his title is the word a letter comes out of"
-          },
-          {
-           "words": "class",
-           "gives": "RATE",
-           "note": "to rate a thing is to class it, to put it in a rank"
-          }
-         ]
+         "words": "religious leader",
+         "at": 15,
+         "gives": "POPE",
+         "note": "the Pope leads the Roman Catholic Church"
         },
         {
+         "words": "page",
+         "at": 5,
          "gives": "P"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "Take page",
-       "note": "P is the standard abbreviation for page, and it is the letter removed from the front"
+       "words": "class",
+       "at": 39,
+       "gives": "RATE",
+       "note": "class as a verb means to rate or grade"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Facing class act' invites you to read a compliment about a performer. The class is a verb of ranking, and the act on its own is the definition.",
-     "definitionFit": "act -> OPERATE: the sense of taking action rather than performing, as an agency that operates in a region is one acting there."
+     "surface": "An instruction to tear a page out of the Pope's book while facing up to a classy performance.",
+     "walkthrough": "'Take page from' POPE leaves OPE, which is 'facing' (sits before) RATE.",
+     "definitionFit": "To operate is to function or work, which is what it means to act, as a drug or machine acts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "class"
     }
    }
   },
@@ -557,41 +569,43 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 13,
+       "note": "son over right means the son takes over the place held by right, replacing it"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "SUCTION",
-       "indicators": [
-        {
-         "text": "over",
-         "note": "one letter laid over another covers it up and takes its place, so nothing is added to the length of the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "son",
-         "gives": "S",
-         "note": "S is the usual abbreviation for son, the one a family tree uses"
-        },
-        {
-         "words": "Row",
-         "gives": "RUCTION",
-         "note": "a ruction is a noisy quarrel or disturbance, which is what a row is here"
-        }
-       ]
+       "words": "Row",
+       "at": 0,
+       "gives": "RUCTION",
+       "note": "a ruction is a noisy row or quarrel"
       },
       {
-       "unchecked": true,
        "words": "right",
-       "note": "R is the standard abbreviation for right, and it is the letter being covered up"
+       "at": 18,
+       "gives": "R"
+      },
+      {
+       "words": "son",
+       "at": 9,
+       "gives": "S",
+       "note": "S is the genealogical abbreviation for son"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Row' is the quarrel, not the line of seats or the business with oars, and the swap is a neat piece of misdirection: a family word takes a direction's place.",
-     "definitionFit": "way to bond -> SUCTION: sticking two things together by pulling the air out between them, the grip a rubber pad keeps on glass."
+     "surface": "A family quarrel with a son over the right way for parent and child to bond.",
+     "walkthrough": "'Son over right': in RUCTION, the R for right gives way to S for son.",
+     "definitionFit": "Suction holds things together by removing air, so it is one method of making surfaces stick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bond"
     }
    }
   },
@@ -668,55 +682,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SHOYU",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "consuming",
+       "at": 12,
+       "note": "consuming means the shortened roar swallows the letter from spicy"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Almost",
-         "note": "a word given almost in full stops one letter short, and the letter it stops short of is the last"
-        },
-        {
-         "text": "last drop of",
-         "note": "the last drop of a word is the letter it finishes with, and only that single letter is wanted"
+         "at": 0,
+         "note": "Almost means the word for roar loses its final letter"
         }
        ],
        "parts": [
         {
-         "words": "Almost roar",
-         "gives": "SHOU",
-         "note": "to SHOUT is to roar, and the word is wanted with its final T lopped off"
+         "words": "roar",
+         "at": 7,
+         "gives": "SHOUT",
+         "note": "to roar is to shout"
         },
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "Y",
-         "indicators": [
-          {
-           "text": "consuming",
-           "note": "to consume a thing is to swallow it whole, so what is swallowed ends up inside rather than alongside"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "last drop of spicy",
-           "gives": "Y",
-           "select": "last",
-           "note": "the final letter of spicy, which drops into the gap left before the U"
-          }
-         ]
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "last drop of",
+         "at": 22,
+         "note": "the last drop of a word is its final letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spicy",
+         "at": 35,
+         "note": "Y is the final letter of spicy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a big cat prowling round the kitchen. Everything before the last word is instruction, and the last word alone is the definition.",
-     "definitionFit": "sauce -> SHOYU: the Japanese name for soy sauce, definition by example, one particular bottle standing in for the general word."
+     "surface": "Someone nearly roars after swallowing the final drop of a hot sauce.",
+     "walkthrough": "'Almost' SHOUT gives SHOU, which is 'consuming' Y, the 'last drop of' spicy.",
+     "definitionFit": "Shoyu is the Japanese name for soy, the salty fermented condiment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -741,45 +763,55 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "overshadowed by",
+       "at": 32,
+       "note": "overshadowed by means one letter is pushed out and replaced by another"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "FOOL",
+       "words": "straight man",
+       "at": 14,
+       "gives": "FOIL",
+       "note": "a comic's straight man is his foil, the partner who sets up jokes"
+      },
+      {
+       "words": "one",
+       "at": 28,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "overshadowed by",
-         "note": "to be overshadowed is to be blotted out by whatever stands in front, so the letter named is covered over and replaced"
-        },
-        {
          "text": "at first",
-         "note": "a word taken at first gives up nothing but the letter it opens with"
+         "at": 54,
+         "note": "at first means just the opening letter of other"
         }
        ],
        "parts": [
         {
-         "words": "straight man",
-         "gives": "FOIL",
-         "note": "a foil is the straight man of a double act, the one who feeds the jokes"
-        },
-        {
-         "words": "other at first",
-         "gives": "O",
-         "note": "the opening letter of 'other', which moves into the vacated place"
+         "words": "other",
+         "at": 48,
+         "note": "O is the first letter of other"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "one",
-       "note": "I is the Roman numeral for one, and it is the letter being blotted out"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Both members of a double act are standing in the clue doing opposite jobs: the comic is the definition, his partner hands over the letters. That symmetry is the disguise.",
-     "definitionFit": "Funny man -> FOOL: the comic figure of a court or a Shakespeare play, the licensed jester rather than somebody merely stupid."
+     "surface": "A double act where one partner is eclipsed by the other at the start.",
+     "walkthrough": "In FOIL, I (one) is 'overshadowed by' O, the letter 'other' has 'at first'.",
+     "definitionFit": "A fool, as in the court jester, is a professional comic entertainer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "straight"
     }
    }
   },
@@ -810,63 +842,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "when blasted",
-       "note": "something blasted has been blown apart, and the pieces come back down in a different arrangement"
+       "at": 26,
+       "note": "when blasted means the letters of hurt the most are blown apart and rearranged"
+      },
+      {
+       "text": "without",
+       "at": 39,
+       "note": "without means a letter is left out of the rearranged pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
+       "words": "hurt the most",
+       "at": 12
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "without",
-         "note": "here 'without' means lacking rather than outside, so the letter it names is missing from the mixture"
+         "text": "hint of",
+         "at": 47,
+         "note": "a hint of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "hint of",
-           "note": "a hint of a word is the merest opening letter of it and nothing more"
-          }
-         ],
-         "parts": [
-          {
-           "words": "hurt the most",
-           "gives": "HURTTHEMOS",
-           "note": "anagram fodder, ten letters once one T has been taken out"
-          },
-          {
-           "op": "first",
-           "unchecked": true,
-           "gives": "T",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "hint of tenderness",
-             "gives": "T",
-             "select": "first",
-             "note": "T opens the word tenderness, and that is the letter withheld from the mixture"
-            }
-           ]
-          }
-         ]
-        },
-        {
-         "gives": "T"
+         "words": "tenderness",
+         "at": 55,
+         "note": "T is the first letter of tenderness"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The whole sentence reads as a description of cruelty, which is why the anagram sits so quietly — 'hurt the most' looks like a phrase, not a bag of letters.",
-     "definitionFit": "Harsh words -> HOME TRUTHS: unwelcome facts about someone told to their face, the plural phrase for the plural definition."
+     "surface": "Harsh words sting worst when delivered with no trace of tenderness.",
+     "walkthrough": "The 'hint of' tenderness is T; the letters of HURT THE MOST 'when blasted', 'without' that T, give the answer.",
+     "definitionFit": "Home truths are unwelcome but accurate remarks about someone, so they are blunt, painful speech."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -891,36 +911,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SCROFULA",
-     "indicators": [
-      {
-       "text": "abused",
-       "note": "letters that have been abused have been knocked about, so they no longer stand in the order the clue gave them"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "son",
+       "at": 16,
+       "gives": "S",
+       "note": "S is the genealogical abbreviation for son"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "abused",
+         "at": 20,
+         "note": "abused means the letters of our calf are mistreated into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "son",
-         "gives": "S",
-         "note": "S is the standard abbreviation for son, the same one a family tree uses"
-        },
-        {
          "words": "our calf",
-         "gives": "CROFULA",
-         "note": "seven letters shaken out of their order, following straight on from the S"
+         "at": 27
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Calf' is the trap: it looks like the young animal or the muscle in a leg, and it is doing neither job — it is seven letters and nothing else.",
-     "definitionFit": "The king’s evil -> SCROFULA: the old name for tuberculosis of the neck glands, once believed curable by a reigning monarch's touch."
+     "surface": "A wicked prince mistreats a young cow belonging to us.",
+     "walkthrough": "'The king's evil' looks like a description of the son, but it is the definition: the disease was once thought curable by a monarch's touch. S comes before CROFULA, 'our calf' 'abused'.",
+     "definitionFit": "Scrofula, a tubercular swelling of the neck glands, was historically called the King's Evil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "evil"
     }
    }
   },
@@ -1045,15 +1071,12 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "experimental",
-       "note": "an experimental version of a thing has been tried in an unfamiliar arrangement, which is what becomes of these letters"
-      },
-      {
-       "text": "regressive",
-       "note": "something regressive runs backwards, retracing its letters from the end towards the start"
+       "text": "over",
+       "at": 34,
+       "note": "over means the rearranged cinema letters spread over the editor's, enclosing them"
       }
      ],
      "parts": [
@@ -1061,39 +1084,61 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "snubbed",
-         "note": "to snub is to cut short, so the word loses the letter standing at its end"
+         "text": "experimental",
+         "at": 6,
+         "note": "experimental means the letters are tried out in a new arrangement"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "over",
-           "note": "'over' piles one piece on the other, so both chunks go into the same mixture rather than staying apart"
+           "text": "snubbed",
+           "at": 26,
+           "note": "snubbed means cut short, like a snub nose, so cinema loses its last letter"
           }
          ],
          "parts": [
           {
-           "words": "cinema snubbed",
-           "gives": "CINEM",
-           "note": "CINEMA loses the letter at its end, leaving five to go into the mix"
+           "words": "cinema",
+           "at": 19
           },
           {
-           "words": "regressive editor",
-           "gives": "DE",
-           "note": "ED is the standard abbreviation for editor, taken here the other way round"
+           "gives": "A"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "regressive",
+         "at": 39,
+         "note": "regressive means going backwards, so the editor abbreviation is reversed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "editor",
+         "at": 50,
+         "gives": "ED"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a review of an arthouse picture house, and 'Local' is not describing the cinema at all — it is the definition, sitting on its own at the front.",
-     "definitionFit": "Local -> ENDEMIC: the medical and ecological sense of a thing native to one particular place and regularly found there, not the pub round the corner."
+     "surface": "An avant-garde picture house is cold-shouldered over a backward-looking editor.",
+     "walkthrough": "'Snubbed' cinema is CINEM, made 'experimental' as ENMIC; 'regressive editor' is DE, and ENMIC goes 'over' it to give EN-DE-MIC.",
+     "definitionFit": "Endemic means native or confined to a particular place, as a disease or species is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Local"
     }
    }
   },
@@ -1304,58 +1349,67 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MANHUNT",
+     "op": "charade",
      "indicators": [
       {
        "text": "joining",
-       "note": "a piece joining another is set down beside it, so the two chunks run straight together"
+       "at": 37,
+       "note": "joining means the two parts are put side by side"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "staff",
+       "at": 45,
+       "gives": "MAN",
+       "note": "to staff a post is to man it"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "initially",
-         "note": "the letter a word starts with is all it gives up when only its initial is wanted"
+         "text": "missing from",
+         "at": 18,
+         "note": "missing from means a letter is taken out of the word for crash"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "words": "crash",
+         "at": 31,
+         "gives": "SHUNT",
+         "note": "a shunt is a minor car crash, especially a rear-end collision"
+        },
+        {
+         "op": "first",
          "indicators": [
           {
-           "text": "missing from",
-           "note": "what is missing from a word has gone out of it, and the letters left behind close up the gap"
+           "text": "initially",
+           "at": 8,
+           "note": "initially means just the first letter of Student"
           }
          ],
          "parts": [
           {
-           "words": "joining staff",
-           "gives": "MAN",
-           "note": "to man a desk is to staff it, the verb behind 'manned'"
-          },
-          {
-           "words": "crash",
-           "gives": "HUNT",
-           "note": "a SHUNT is a minor crash between vehicles, and it arrives here with its front letter already gone"
+           "words": "Student",
+           "at": 0,
+           "note": "S is the first letter of Student"
           }
          ]
-        },
-        {
-         "unchecked": true,
-         "words": "Student initially",
-         "note": "S opens the word student, and that is the letter taken away"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a newsroom sentence about a student who has disappeared, which is why 'crash' reads as an event rather than as a word with a letter knocked off it.",
-     "definitionFit": "search -> MANHUNT: the organised police search for a person on the run, one particular kind of search standing for the general word."
+     "surface": "A student goes missing after a car crash and the staff join the hunt.",
+     "walkthrough": "S ('Student initially') goes 'missing from' SHUNT to leave HUNT, 'joining' MAN.",
+     "definitionFit": "A manhunt is an organised search for a person, usually a fugitive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "staff"
     }
    }
   },
@@ -1418,47 +1472,48 @@
     "definitions": [
      {
       "text": "fleeting moment",
-      "at": 55,
-      "note": "The answer is the quality of fading away rather than a stretch of time; the setter defines the abstract noun by the brief moment in which something vanishes."
+      "at": 55
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "EVANESCENCE",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "European",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
          "text": "takes in",
-         "note": "to take a thing in is to admit it indoors, so the piece named next goes within the letters already assembled"
+         "at": 24,
+         "note": "takes in means the vice-president's name holds the other letters inside"
         }
        ],
        "parts": [
         {
-         "words": "European",
-         "gives": "E",
-         "note": "E is the standard abbreviation for European"
+         "words": "vice-president",
+         "at": 9,
+         "gives": "VANCE",
+         "note": "JD Vance is the US vice-president"
         },
         {
-         "op": "container",
+         "op": "cycling",
          "indicators": [
           {
            "text": "when cycling",
-           "note": "letters that cycle keep their order but roll round the loop, the one at the back coming up to the front"
+           "at": 38,
+           "note": "cycling means the word's letters rotate, the final letter moving round to the front"
           }
          ],
          "parts": [
           {
-           "words": "vice-president",
-           "gives": "VANCE",
-           "note": "JD Vance is the American vice-president, and his surname opens up before its last two letters"
-          },
-          {
            "words": "view",
-           "gives": "ESCEN",
-           "note": "a view is a SCENE, with the letter at its end rolled round to the front"
+           "at": 33,
+           "gives": "SCENE",
+           "note": "a scene is a view or vista"
           }
          ]
         }
@@ -1467,8 +1522,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "The surface reads as a line of political news, and the clue expects you to know a serving vice-president by surname alone — the sort of name that dates a puzzle fast.",
-     "definitionFit": "fleeting moment -> EVANESCENCE: the quality of fading quickly out of sight, from the same root as 'vanish', which is why nothing of it lasts."
+     "surface": "A European vice-president takes in the view while out on his bike.",
+     "walkthrough": "SCENE 'when cycling' puts its final E first to give ESCEN; VANCE 'takes in' that to make VANESCENCE, after E for European.",
+     "definitionFit": "Evanescence is the quality of quickly fading from sight, so it describes something transient and brief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
     }
    }
   }
