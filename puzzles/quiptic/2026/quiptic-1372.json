@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -371,42 +372,46 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "case of",
-       "note": "A case is what encloses a thing, so the word gives up its casing — the outside letters — and nothing from within."
+       "text": "on",
+       "at": 20,
+       "note": "in a down answer one piece placed on another sits above it"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "SE",
        "indicators": [
         {
-         "text": "on",
-         "note": "In a down clue, one piece sitting on another rests on top of it, which fixes these letters above the island rather than beside it."
+         "text": "case of",
+         "at": 5,
+         "note": "a case is the outside of something, so only the outer letters of the word are used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "case of sleaze",
-         "gives": "SE",
-         "select": "outer",
-         "note": "SLEAZE keeps only its shell, the first letter and the last"
+         "words": "sleaze",
+         "at": 13,
+         "note": "only its first and last letters are wanted"
         }
        ]
       },
       {
        "words": "Mediterranean island",
+       "at": 23,
        "gives": "CRETE",
-       "note": "Crete is the largest of the Greek islands, well out in the eastern Mediterranean"
+       "note": "Crete is the largest Greek island, in the Mediterranean"
       }
      ]
     },
     "explanation": {
-     "surface": "A dossier of scandal is being buried somewhere on a Greek island.",
-     "walkthrough": "'On' carries real information in a down clue: the piece before it goes above the piece after it, and that is the order the letters take. Across, the same word would only mean 'next to'.",
-     "definitionFit": "Hide → SECRETE: the verb behind 'secret', meaning to stow something away where it will not be found, rather than the glandular sense."
+     "surface": "A scandal hushed up on a Greek island holiday.",
+     "walkthrough": "'Hide' reads as the hide of an animal or a bird hide, but it is the verb: to secrete something is to hide it away. The SE from 'case of sleaze' sits 'on' CRETE.",
+     "definitionFit": "To secrete an object is to conceal it in a hiding place, so the verb is a synonym of hide."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
     }
    }
   },
@@ -830,37 +835,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PROFFER",
-     "indicators": [
-      {
-       "text": "Not half",
-       "note": "Refusing half of a word leaves the other half standing, and here it is the front half that survives."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "academic",
+       "at": 7,
+       "gives": "PROF",
+       "note": "prof is short for professor, a university academic"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not half",
+         "at": 38,
+         "note": "half the word is not wanted, so its second three letters are dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "academic",
-         "gives": "PROF",
-         "note": "A prof is an academic, the everyday short form of professor"
+         "words": "intensely passionate",
+         "at": 16,
+         "gives": "FERVID",
+         "note": "fervid means burning with intense passion"
         },
         {
-         "words": "intensely passionate",
-         "gives": "FER",
-         "note": "FERVID means intensely passionate, and three of its six letters survive the halving"
+         "gives": "VID"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An academic is being asked just how deeply passionate they really are.",
-     "walkthrough": "'Tender' is the verb, to put something forward, and not the adjective about softness that the passionate surface points you at. Which half 'not half' keeps is the setter's choice.",
-     "definitionFit": "Tender → PROFFER: to tender is to hold something out for acceptance — a resignation, a bid — which is what proffering is."
+     "surface": "A lecturer gives a lover a tender look, though only half-heartedly.",
+     "walkthrough": "'Tender' looks like an adjective describing the passionate academic, but it is the verb, to offer. 'Not half' keeps only FER from FERVID.",
+     "definitionFit": "To proffer is to hold out or present something for acceptance, as one tenders an offer or a resignation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Tender"
     }
    }
   },
