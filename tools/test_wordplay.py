@@ -425,4 +425,27 @@ check("a checked deletion tree is not asked for assembly.pieces",
 check("the deletion tree evaluates (no wordplay error)",
       not [x for x in errs if "wordplay" in x], [x for x in errs if "wordplay" in x])
 
+# A stored tree with the wrong number of parts is a clean WordplayError, not a crash.
+def refused(tree, answer):
+    try:
+        w.evaluate(tree, answer)
+    except w.WordplayError as e:
+        return str(e)
+    except Exception as e:
+        return f"CRASH {type(e).__name__}: {e}"
+    return "evaluated"
+leaf = lambda x, g=None: {"words": x, "gives": g or x.upper()}
+for name, tree in [
+    ("a container with one part", {"op": "container", "parts": [leaf("ab")]}),
+    ("a deletion with three parts", {"op": "deletion", "parts": [leaf("ab"), leaf("a"), leaf("b")]}),
+    ("a substitution with two parts", {"op": "substitution", "parts": [leaf("ab"), leaf("a")]}),
+    ("a reversal with none", {"op": "reversal"}),
+    ("a first with two", {"op": "first", "parts": [leaf("ab"), leaf("cd")]}),
+    ("a nested bad count", {"op": "charade", "parts": [leaf("a"), {"op": "container", "parts": [leaf("b")]}]}),
+]:
+    r = refused(tree, "AB")
+    check(f"{name} is a WordplayError naming the count", r.startswith(("(", "")) and "part(s)" in r and "CRASH" not in r, r)
+check("an unchecked node with a wrong count is left alone",
+      refused({"op": "container", "unchecked": True, "gives": "AB", "parts": [leaf("ab")]}, "AB") == "evaluated")
+
 raise SystemExit(fails > 0)
