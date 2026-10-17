@@ -877,43 +877,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OLYMPIAN",
+     "op": "container",
      "indicators": [
       {
-       "text": "blowing top",
-       "note": "losing your top means losing the first letter, the top in a down answer"
+       "text": "about",
+       "at": 19,
+       "note": "the shortened cleric goes about, around, the pious letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "about",
-         "note": "about means around, so one part wraps around another"
+         "text": "blowing top",
+         "at": 7,
+         "note": "blowing one's top loses the top, the first letter"
         }
        ],
        "parts": [
         {
          "words": "Cleric",
-         "gives": "OLYMAN",
-         "note": "a holy man, with its first letter dropped"
+         "at": 0,
+         "gives": "HOLYMAN",
+         "note": "a cleric is a holy man"
         },
         {
-         "words": "pious",
-         "gives": "PI",
-         "note": "pi is short informal British slang for pious, sanctimonious"
+         "gives": "H"
         }
        ]
+      },
+      {
+       "words": "pious",
+       "at": 25,
+       "gives": "PI",
+       "note": "PI is a short informal word for pious"
       }
      ]
     },
     "explanation": {
-     "surface": "A clergyman loses his temper over a devout worshipper of the Greek gods.",
-     "walkthrough": "'Blowing top' suggests losing your temper, but it means removing the first letter. PI is old schoolboy slang for pious.",
-     "definitionFit": "The Olympians were the twelve chief deities of Greek myth, who lived on Mount Olympus."
+     "surface": "A priest loses his temper over pious talk of a Greek deity.",
+     "walkthrough": "'blowing top' takes the H off HOLY MAN, leaving OLYMAN, which goes 'about' PI, splitting after OLYM.",
+     "definitionFit": "The Olympians were the twelve chief gods of Greek myth, said to live on Mount Olympus."
     },
     "features": {
      "answerInScene": true,
@@ -1349,51 +1354,44 @@
      "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "middle",
        "indicators": [
         {
-         "text": "fancy",
-         "note": "fancy means elaborate or ornamental, so the letters are arranged decoratively anew"
+         "text": "heart of",
+         "at": 6,
+         "note": "the heart of the word is its two central letters"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "OH",
-         "indicators": [
-          {
-           "text": "heart of",
-           "note": "the heart of something is its centre, so only the middle letters are kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "cohort",
-           "gives": "OH",
-           "select": "middle",
-           "note": "the two central letters of this six-letter word"
-          }
-         ]
+         "words": "cohort",
+         "at": 15,
+         "note": "its central letters are HO"
         }
        ]
       },
       {
        "op": "anagram",
+       "indicators": [
+        {
+         "text": "fancy",
+         "at": 30,
+         "note": "fancy as in elaborate, made into something fanciful, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "lady I",
-         "note": "these two words taken letter for letter"
+         "at": 23
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A heartbroken suitor in a group, or a comrade whose heart is broken by a lady he admires.",
-     "walkthrough": "'Fancy' looks like the verb of desire, but it is the anagram signal; 'Break' seems to go with 'heart' but is the definition.",
-     "definitionFit": "A holiday is a break from work or school, a period of rest or travel."
+     "surface": "Someone's heart breaks over a fancied lady in their group.",
+     "walkthrough": "'heart of' takes HO from the centre of 'cohort'; 'fancy' rearranges LADY I into LIDAY.",
+     "definitionFit": "A holiday is a break from work or school, as in a summer break."
     },
     "features": {
      "answerInScene": false,
