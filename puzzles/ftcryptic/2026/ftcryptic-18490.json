@@ -907,46 +907,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EYEPATCH",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "possibly",
+       "at": 32,
+       "note": "possibly says the letters of archetype are only one possible arrangement, so they are reordered"
+      },
+      {
+       "text": "not",
+       "at": 41,
+       "note": "not says a letter is removed from the pool before the rest are rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "EYEPATCH",
-       "indicators": [
-        {
-         "text": "possibly",
-         "note": "the letters might be arranged otherwise"
-        },
-        {
-         "text": "not"
-        }
-       ],
-       "parts": [
-        {
-         "words": "archetype",
-         "note": "taken as printed"
-        },
-        {
-         "words": "right",
-         "gives": "R",
-         "note": "abbreviation; it is removed"
-        }
-       ]
+       "words": "archetype",
+       "at": 22
+      },
+      {
+       "words": "right",
+       "at": 45,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A stereotypical pirate's trademark is described as an archetype, maybe not quite right.",
-     "walkthrough": "The parenthesis reads as a comment on the definition, but it is the whole of the wordplay.",
-     "definitionFit": "Definition by example: the cliché one-eyed buccaneer wears one over the missing eye."
+     "surface": "A note that a pirate's stock accessory may or may not be truly archetypal.",
+     "walkthrough": "'Possibly' rearranges ARCHETYPE and 'not right' takes an R out of that pool first. 'Archetype' in the bracket looks like a comment on the stereotype, but it is the fodder.",
+     "definitionFit": "A patch over one eye is a stock image of the pirate in stories and pantomime, alongside the parrot and wooden leg."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Stock"
+     "misdirectedWord": "archetype"
     }
    }
   },
