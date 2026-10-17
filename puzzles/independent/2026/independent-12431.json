@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -211,35 +212,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OVEN",
-     "indicators": [
-      {
-       "text": "After the start"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "After the start",
+         "at": 0,
+         "note": "after the start means everything following the opening letter, so the first letter of the word for adore is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "adore",
-         "gives": "OVE",
-         "note": "to adore is to LOVE, and everything after its start is OVE"
+         "at": 17,
+         "gives": "LOVE",
+         "note": "to adore is to love"
         },
         {
-         "words": "new",
-         "gives": "N",
-         "note": "N is the standard abbreviation for new"
+         "gives": "L"
         }
        ]
+      },
+      {
+       "words": "new",
+       "at": 23,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'After the start' is a beheading instruction wearing ordinary clothes — in a puzzle full of recipes it reads as a note about timing.",
-     "definitionFit": "kitchen appliance → OVEN: a plain synonym in its category sense, the box that bakes rather than the whole cooker it sits inside."
+     "surface": "Once you get going, you will adore your new cooker.",
+     "walkthrough": "'After the start' keeps what follows the first letter of LOVE, leaving OVE.",
+     "definitionFit": "An oven is the enclosed heated compartment of a cooker in which food is baked or roasted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
     }
    }
   },
@@ -521,32 +532,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "cut up"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cut up",
+         "at": 36,
+         "note": "cut up means chopped into pieces, so these letters are broken up and rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "I can",
-         "note": "the four letters of I CAN rearranged"
-        },
-        {
-         "words": "at home",
-         "gives": "IN",
-         "note": "someone at home is in"
+         "at": 30,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "at home",
+       "at": 43,
+       "gives": "IN",
+       "note": "in means at home, as in 'staying in'"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Cut up' reads as kitchen work and is really the shuffle instruction — the game this whole puzzle plays. Niacin is vitamin B3.",
-     "definitionFit": "Something in fish for example → NIACIN: definition by example, naming one nutrient oily fish happens to carry rather than defining the vitamin itself."
+     "surface": "A cook offers to chop up something fishy in their own kitchen.",
+     "walkthrough": "'cut up' rearranges I CAN into NIAC before IN. The definition is a description: fish is one food that contains the vitamin.",
+     "definitionFit": "Niacin is vitamin B3, found in foods such as fish, meat and whole grains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cut"
     }
    }
   },
@@ -613,24 +634,33 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "PEA",
      "indicators": [
       {
-       "text": "Chop the end off"
+       "text": "Chop the end off",
+       "at": 0,
+       "note": "chopping the end off a word removes its last letter"
       }
      ],
      "parts": [
       {
        "words": "fruit",
-       "gives": "PEA",
-       "note": "the everyday name for this fruit is one letter longer, ending in an R that gets chopped off"
+       "at": 17,
+       "gives": "PEAR",
+       "note": "a pear is a fruit"
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Pear and pea sit one letter apart, which is the whole clue. 'Chop the end off' is doing kitchen duty on the surface and letter duty underneath.",
-     "definitionFit": "vegetable → PEA: definition by example — the pea is one vegetable among many, so the general word fairly covers the particular one."
+     "surface": "A recipe instruction to trim the end of a fruit and a vegetable.",
+     "walkthrough": "'Chop the end off' removes the final R of PEAR.",
+     "definitionFit": "A pea is the small round green seed of a pod, eaten as a vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -1035,55 +1065,66 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "AMYLOPECTIN",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "contains"
+         "text": "unfortunately",
+         "at": 4,
+         "note": "unfortunately suggests things going wrong, so the letters of May come out in the wrong order"
         }
        ],
        "parts": [
         {
          "words": "May",
-         "gives": "AMY",
-         "note": "the three letters of MAY shuffled"
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "contains",
+         "at": 26,
+         "note": "contains means holds inside, so the reversed mushroom sits within the pair of words for see and can"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "see",
+           "at": 18,
+           "gives": "LO",
+           "note": "lo is an old word meaning see or behold"
+          },
+          {
+           "words": "can",
+           "at": 22,
+           "gives": "TIN",
+           "note": "a tin is a can"
+          }
+         ]
         },
         {
          "op": "reversal",
          "indicators": [
           {
-           "text": "rejected"
+           "text": "rejected",
+           "at": 35,
+           "note": "rejected means turned back, so the word for mushroom is read backwards"
           }
          ],
          "parts": [
           {
-           "op": "anagram",
-           "indicators": [
-            {
-             "text": "unfortunately"
-            }
-           ],
-           "parts": [
-            {
-             "words": "see",
-             "gives": "LO",
-             "note": "LO is the archaic 'see', as in lo and behold"
-            },
-            {
-             "words": "mushroom",
-             "gives": "PEC",
-             "note": "a CEP is the mushroom, and 'rejected' turns it round"
-            },
-            {
-             "words": "can",
-             "gives": "TIN",
-             "note": "a can is a tin"
-            }
-           ]
+           "words": "mushroom",
+           "at": 44,
+           "gives": "CEP",
+           "note": "a cep is an edible mushroom, the porcini"
           }
          ]
         }
@@ -1092,8 +1133,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "CEP for a mushroom and LO for 'see' are the two bits of crossword vocabulary to bank here. Amylopectin is the branched half of starch; its partner is amylose.",
-     "definitionFit": "starch component → AMYLOPECTIN: technical usage — starch is a mixture, and this branched polysaccharide is the larger of its two constituents."
+     "surface": "Someone called May finds that a can of mushrooms has gone off.",
+     "walkthrough": "'unfortunately' rearranges MAY as AMY; 'rejected' turns CEP into PEC, and 'contains' puts it between LO and TIN.",
+     "definitionFit": "Amylopectin is one of the two polysaccharides, with amylose, that make up starch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "May"
     }
    }
   },
@@ -1215,59 +1262,74 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "OVERSLEEPS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 32,
+       "note": "after places the final piece following the reversed word"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Finished",
+       "at": 0,
+       "gives": "OVER",
+       "note": "over means finished, as in 'the game is over'"
+      },
+      {
+       "words": "small",
+       "at": 9,
+       "gives": "S",
+       "note": "S is the abbreviation for small, as on clothing labels"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "at last"
+         "text": "flipping",
+         "at": 38,
+         "note": "flipping means turning over, so the word for flake is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "Finished",
-         "gives": "OVER",
-         "note": "when something is finished it is over"
-        },
-        {
-         "words": "small",
-         "gives": "S",
-         "note": "S is the clothing-label abbreviation for small"
-        },
-        {
          "words": "flake",
-         "gives": "LEEP",
-         "note": "paint that flakes PEELs, and 'flipping' turns it round"
-        },
+         "at": 47,
+         "gives": "PEEL",
+         "note": "to peel is to flake off, as paint does"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "S",
-         "indicators": [
-          {
-           "text": "flipping"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "pastries at last",
-           "gives": "S",
-           "select": "last",
-           "note": "the final letter of pastrieS"
-          }
-         ]
+         "text": "at last",
+         "at": 24,
+         "note": "at last means the final letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "pastries",
+         "at": 15,
+         "note": "its last letter is S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Flake' as a verb — what old paint does — is the step to find, not a person or a chocolate bar. The definition is delightfully literal.",
-     "definitionFit": "fails to rise → OVERSLEEPS: 'rise' in its getting-out-of-bed sense, so failing at it is exactly sleeping past the hour you meant."
+     "surface": "A baker's small pastries have flopped: the flaky dough refuses to rise.",
+     "walkthrough": "'fails to rise' looks like a baking failure, but it means not getting up on time. 'flipping' turns PEEL into LEEP, and 'after' puts the S from 'pastries at last' behind it.",
+     "definitionFit": "To oversleep is to sleep too long and so not get up at the intended time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rise"
     }
    }
   },
@@ -1293,24 +1355,35 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EARED",
      "indicators": [
       {
-       "text": "initially forgotten"
+       "text": "when initially forgotten",
+       "at": 7,
+       "note": "initially forgotten means the first letter is left out"
       }
      ],
      "parts": [
       {
        "words": "Burned",
-       "gives": "EARED",
-       "note": "burned is SEARED with an S stuck on the front — drop that first letter"
+       "at": 0,
+       "gives": "SEARED",
+       "note": "seared means burned or scorched on the surface"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Cereals grow in ears, which is the sense wanted — nothing here to do with hearing. 'Initially forgotten' is a beheading instruction, not a memory lapse.",
-     "definitionFit": "as cereal typically is → EARED: bearing ears, the botanical term for the seed-heads wheat and barley carry at the top of the stalk."
+     "surface": "Toast gets burned when you forget it, as breakfast cereal often does.",
+     "walkthrough": "'when initially forgotten' drops the S from SEARED. Cereal here is the crop in the field, not the breakfast food.",
+     "definitionFit": "Cereal plants such as wheat and corn bear their grain in ears, so they are described as eared."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cereal"
     }
    }
   },
@@ -1617,40 +1690,73 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "brief"
-      },
-      {
-       "text": "reconstituted"
-      }
-     ],
      "parts": [
       {
-       "words": "brief wait",
-       "gives": "STA",
-       "note": "a wait is a STAY, and 'brief' clips its last letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "brief",
+         "at": 16,
+         "note": "brief means cut short, so the last letter of the word for wait is lost"
+        }
+       ],
+       "parts": [
+        {
+         "words": "wait",
+         "at": 22,
+         "gives": "STAY",
+         "note": "to stay is to wait or remain"
+        },
+        {
+         "gives": "Y"
+        }
+       ]
       },
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "if dropped"
+         "text": "reconstituted",
+         "at": 47,
+         "note": "reconstituted means made up again in a new form, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "trifle, if dropped",
-         "gives": "TRLE",
-         "note": "TRIFLE loses its I and its F, leaving four letters to rebuild"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "dropped",
+           "at": 38,
+           "note": "dropped means left out, so the letters of if are taken from the dessert's name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "trifle",
+           "at": 27,
+           "note": "taken as written: a layered British dessert of sponge, custard and cream"
+          },
+          {
+           "words": "if",
+           "at": 35,
+           "note": "taken as written"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A dropped trifle is a fine picture of a surprise, and it is the instruction too: the letters I and F fall out of the word before the rest is put back together.",
-     "definitionFit": "Surprise → STARTLE: both verbs, though STARTLE is the sharper of the two — a sudden jolt rather than any piece of unexpected news."
+     "surface": "After a short wait, a dropped trifle is put back together, to everyone's surprise.",
+     "walkthrough": "'brief' cuts STAY to STA; 'if dropped' takes I and F from TRIFLE, leaving TRLE, which 'reconstituted' rearranges as RTLE.",
+     "definitionFit": "To startle someone is to give them a sudden shock or fright, which is what surprising them does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trifle"
     }
    }
   }
