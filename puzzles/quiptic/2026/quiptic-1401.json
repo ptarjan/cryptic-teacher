@@ -1129,61 +1129,69 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CONJUREDUP",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 16,
+       "note": "before places the criminal ahead of the rest"
+      }
+     ],
      "parts": [
       {
+       "words": "criminal",
+       "at": 7,
+       "gives": "CON",
+       "note": "a con is a convict, a criminal"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "CONJUREDUP",
+       "indicators": [
+        {
+         "text": "not half",
+         "at": 29,
+         "note": "not half means only half the word survives, so jury loses its second half"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "before",
-           "note": "one part comes before the next"
-          },
-          {
-           "text": "not half",
-           "note": "only half of the word is used"
-          },
-          {
-           "text": "awful",
-           "note": "the letters are in an awful state, so they are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "criminal",
-           "gives": "CON",
-           "note": "a con is a convict"
-          },
-          {
-           "words": "jury",
-           "gives": "JU",
-           "note": "the first half of JURY"
-          },
-          {
-           "words": "prude",
-           "gives": "REDUP",
-           "note": "PRUDE rearranged"
-          }
-         ]
+         "words": "jury",
+         "at": 23,
+         "note": "taken as written before it is halved"
+        },
+        {
+         "gives": "RY"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awful",
+         "at": 38,
+         "note": "awful means dreadful or messed up, so the letters of prude are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "prude",
+         "at": 44,
+         "note": "taken as written before it is rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A criminal appears before a jury of which half are dreadful prudes.",
-     "walkthrough": "The courtroom picture hides three separate pieces: CON + JU + REDUP.",
-     "definitionFit": "To conjure up is to evoke an image or memory."
+     "surface": "A courtroom scene: a crook in the dock, with a strait-laced juror looking on aghast.",
+     "walkthrough": "The surface pairs 'criminal' with 'jury' as a trial, but each is a separate piece: 'not half' keeps only the first two letters of jury, and 'awful' is the signal to rearrange prude.",
+     "definitionFit": "To conjure up is to call to mind or summon an image or memory, which is what evoking means."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "awful"
     }
    }
   },
@@ -1375,43 +1383,19 @@
     "definitions": [
      {
       "text": "Perhaps Basil",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: basil is one example of a culinary plant of this kind"
+     },
+     {
+      "text": "Sybil's central feature",
+      "at": 18,
+      "meaning": "second meaning, read playfully as the answer: the B is the letter at the centre of Sybil's name"
      }
     ],
-    "wordplay": {
-     "op": "charade",
-     "parts": [
-      {
-       "words": "Sybil's",
-       "gives": "HER",
-       "note": "Sybil's = her, the possessive for a woman"
-      },
-      {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "B",
-       "indicators": [
-        {
-         "text": "central feature",
-         "note": "the central feature of a word is its middle letter"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "central feature",
-         "gives": "B",
-         "select": "middle",
-         "note": "the middle letter of SYBIL"
-        }
-       ]
-      }
-     ]
-    },
     "explanation": {
-     "surface": "A question about the two Fawlty Towers hoteliers and their main quirk.",
-     "walkthrough": "Basil and Sybil Fawlty are the couple running the hotel in the British sitcom Fawlty Towers, but basil here is the herb.",
-     "definitionFit": "Basil is an example of a herb, hence 'Perhaps'."
+     "surface": "A nod to Fawlty Towers, whose hotelier Basil is married to Sybil.",
+     "walkthrough": "Basil and Sybil Fawlty run the hotel in the British sitcom Fawlty Towers. The second sense splits the answer as HER B, the B at the centre of Sybil's name.",
+     "definitionFit": "Basil is a leafy plant used for flavouring, so an instance of the answer, flagged by 'Perhaps'."
     },
     "features": {
      "answerInScene": false,
@@ -1442,40 +1426,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "resigning from",
+       "at": 16,
+       "note": "a judge resigning from the word leaves it, so its letter is taken out"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "resigning from",
-         "note": "the judge resigns, leaving the word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "prize",
-         "gives": "JEMMY",
-         "note": "a jemmy is a crowbar used to prize doors open"
-        },
-        {
-         "words": "Judge",
-         "gives": "J",
-         "note": "J = judge, removed"
-        }
-       ]
+       "words": "prize in US",
+       "at": 31,
+       "gives": "JEMMY",
+       "note": "prize is the American spelling of prise, to lever open, which is what you do with a jemmy"
       },
       {
-       "unchecked": true,
-       "words": "in US",
-       "note": "surface padding; the award is American"
+       "words": "Judge",
+       "at": 10,
+       "gives": "J"
       }
      ]
     },
     "explanation": {
-     "surface": "A judge steps down from an American award panel.",
-     "walkthrough": "The second 'prize' is not an award but the verb meaning to lever open, which is what a jemmy does.",
-     "definitionFit": "The Emmy is the main US television award."
+     "surface": "A quiz question about an American award and a judge stepping down from its panel.",
+     "walkthrough": "A jemmy is the British name for a burglar's short crowbar, and to jemmy is to force open, spelt prize in the US and prise in Britain. Remove J for judge.",
+     "definitionFit": "The Emmy is the annual American award for excellence in television."
     },
     "features": {
      "answerInScene": true,
@@ -1559,48 +1535,56 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "starts to",
-       "note": "take the starts, i.e. first letters, of the words"
-      }
-     ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "TR",
        "indicators": [
         {
-         "text": "Not at first",
-         "note": "'not at first' says the word is absent at its first position, so its opening letter goes"
+         "text": "starts to",
+         "at": 15,
+         "note": "the starts of the two words are their first letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "tempt reclusive",
-         "gives": "TR",
-         "select": "first",
-         "note": "the first letters of each"
+         "at": 25,
+         "note": "these two words supply their first letters"
         }
        ]
       },
       {
-       "words": "US composer",
-       "gives": "ONDHEIM",
-       "note": "Stephen SONDHEIM without his first letter"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Not at first",
+         "at": 54,
+         "note": "the composer is not there at first, so his name loses its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "US composer",
+         "at": 41,
+         "gives": "SONDHEIM",
+         "note": "Stephen Sondheim was the American composer of Sweeney Todd and Into the Woods"
+        },
+        {
+         "gives": "S"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Norwegian city tries to lure a shy American composer.",
-     "walkthrough": "Sondheim was the American composer of musicals like Sweeney Todd.",
-     "definitionFit": "A definition by example: Trondheim is one of Norway's largest cities, on its central coast."
+     "surface": "Someone hoping to lure a shy American songwriter to Norway.",
+     "walkthrough": "'starts to' gives T and R; Stephen Sondheim, minus his first letter by 'Not at first', gives ONDHEIM.",
+     "definitionFit": "Trondheim is a historic port in central Norway, once the country's capital."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "reclusive"
     }
    }
   },
