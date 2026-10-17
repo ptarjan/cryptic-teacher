@@ -108,31 +108,50 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EXCLAIM",
      "indicators": [
       {
        "text": "incorporating",
-       "note": "the test takes the elements into its body"
+       "at": 11,
+       "note": "incorporating means taking into the body of something, so the second piece goes inside the first"
       }
      ],
      "parts": [
       {
-       "words": "test",
-       "gives": "EXAM",
-       "note": "an exam is a test"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "separate",
+         "at": 29,
+         "note": "separate says the two elements do not go in side by side, so the first is placed on its own"
+        }
+       ],
+       "parts": [
+        {
+         "words": "test",
+         "at": 6,
+         "gives": "EXAM",
+         "note": "an exam is a test"
+        },
+        {
+         "words": "two",
+         "at": 25,
+         "gives": "CL",
+         "note": "Cl, the chemical symbol for chlorine, is the first of the two elements"
+        }
+       ]
       },
       {
-       "words": "two separate elements",
-       "gives": "CLI",
-       "note": "Cl (chlorine) and I (iodine), chemical symbols placed at two separate points"
+       "words": "elements",
+       "at": 38,
+       "gives": "I",
+       "note": "I, the chemical symbol for iodine, is the other element"
       }
      ]
     },
     "explanation": {
-     "surface": "A test paper on chemistry in which two distinct elements appear.",
-     "walkthrough": "'Separate' is the key: the two elements do not go into the test side by side but at two different points, so the chlorine and iodine are split by a letter.",
-     "definitionFit": "To exclaim is to state something, typically loudly or suddenly."
+     "surface": "A chemistry examination including two distinct elements.",
+     "walkthrough": "'State' looks like a noun but is the verb, to declare. The two elements are chlorine and iodine; 'separate' keeps them apart within the test, so they are not entered as one block.",
+     "definitionFit": "To exclaim is to cry out or declare something suddenly, so it works as a verb meaning to say or state."
     },
     "features": {
      "answerInScene": false,
@@ -547,35 +566,33 @@
      "parts": [
       {
        "words": "hard",
+       "at": 11,
        "gives": "STERN",
-       "note": "stern = hard, severe"
+       "note": "stern means hard or severe"
       },
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "UM",
+       "op": "middle",
        "indicators": [
         {
          "text": "shaved",
-         "note": "trimmed at both edges, losing its outer letters"
+         "at": 21,
+         "note": "something shaved has its edges trimmed off, so only the middle letters of the word remain"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "lump shaved",
-         "gives": "UM",
-         "select": "outer",
-         "note": "LUMP without its first and last letters"
+         "words": "lump",
+         "at": 16,
+         "note": "lump without its first and last letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bone with a hard lump on it needs smoothing down.",
-     "walkthrough": "Here the outer letters are the ones thrown away, and the middle UM is kept.",
-     "definitionFit": "A plain synonym: sternum is the anatomist's name for the flat breastbone in the chest."
+     "surface": "A medical note: a bone has to deal with a hard lump being shaved down.",
+     "walkthrough": "The surface pictures surgery on a growth; 'shaved' instead trims both ends off a word, and 'needs' is only a link.",
+     "definitionFit": "The sternum is the breastbone, the flat bone in the centre of the chest joined to the ribs."
     },
     "features": {
      "answerInScene": true,
@@ -665,39 +682,41 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ABODE",
      "indicators": [
       {
        "text": "'s ousted",
-       "note": "the daughter has pushed out Victor and taken his place"
+       "at": 23,
+       "note": "the daughter has ousted, meaning thrown out and replaced, the letter for Victor"
       }
      ],
      "parts": [
       {
        "words": "over",
+       "at": 5,
        "gives": "ABOVE",
-       "note": "above = over"
-      },
-      {
-       "words": "daughter",
-       "gives": "D",
-       "note": "D = daughter"
+       "note": "above means over, higher than"
       },
       {
        "words": "Victor",
+       "at": 33,
        "gives": "V",
-       "note": "V is Victor in the NATO alphabet"
+       "note": "Victor is V in the NATO phonetic alphabet"
+      },
+      {
+       "words": "daughter",
+       "at": 15,
+       "gives": "D",
+       "note": "D is the abbreviation for daughter in family trees"
       }
      ]
     },
     "explanation": {
-     "surface": "A father sleeps over at his daughter's house after she threw out a man named Victor.",
-     "walkthrough": "D replaces the V in ABOVE. 'Stay' looks like a verb, but the answer is the noun: an abode is a stay, a place of residence.",
-     "definitionFit": "An abode is a place where one stays or lives; the old sense of abide is to stay."
+     "surface": "A family drama: a stay is over once a daughter has kicked out Victor.",
+     "walkthrough": "'Stay' is a noun, a place where one stays. In ABOVE (over), the daughter 's ousted Victor: D takes the place of V.",
+     "definitionFit": "An abode is a dwelling, the place where someone lives or stays."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Victor"
     }
@@ -730,54 +749,57 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ARTDECO",
+     "op": "charade",
      "indicators": [
       {
-       "text": "having a change of heart",
-       "note": "the middle letter of the first name is swapped"
+       "text": "when given",
+       "at": 58,
+       "note": "when given adds the next letter on at the end"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "when given",
-         "note": "something given is handed over and added"
+         "text": "the first having a change of heart",
+         "at": 23,
+         "note": "the first of the pair has a change at its heart, so the middle letter of the first name is swapped"
         }
        ],
        "parts": [
         {
-         "words": "TV duo, the first having a change of heart",
-         "gives": "ART",
-         "note": "ANT of Ant and Dec, with its middle N changed to R"
-        },
-        {
          "words": "TV duo",
-         "gives": "DEC",
-         "note": "the second of Ant and Dec"
+         "at": 15,
+         "gives": "ANTDEC",
+         "note": "Ant and Dec are a British television presenting pair"
         },
         {
-         "words": "Oscar",
-         "gives": "O",
-         "note": "O is Oscar in the NATO alphabet"
+         "gives": "N"
+        },
+        {
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "Oscar",
+       "at": 69,
+       "gives": "O",
+       "note": "Oscar is O in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A TV double act's taste in design, with one of them changing his mind after winning an Oscar.",
-     "walkthrough": "Ant and Dec are a hugely popular British TV presenting pair. 'Change of heart' is the key: ANT's heart, N, becomes R.",
-     "definitionFit": "A definition by category: the geometric look of 1920s and 1930s design is one named style among many."
+     "surface": "A TV double act's style changes after one of them wins an Academy Award.",
+     "walkthrough": "Ant and Dec are a British TV presenting double act. 'the first having a change of heart' swaps the N in ANT for R; 'when given' Oscar adds O.",
+     "definitionFit": "Art Deco is the bold geometric decorative style of the 1920s and 1930s."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "heart"
+     "misdirectedWord": "Oscar"
     }
    }
   },
@@ -808,61 +830,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PRETEEN",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 17,
+       "note": "after places the scrambled letters behind the single letter"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "Fantastic",
-         "note": "wildly imagined, so the letters are rearranged"
-        },
-        {
          "text": "a drop of",
-         "note": "just the first bit of the whisky"
+         "at": 23,
+         "note": "a drop of a drink is a tiny amount, so only the opening letter of the word is taken"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "P",
-         "indicators": [
-          {
-           "text": "after"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "a drop of Penderyn",
-           "gives": "P",
-           "select": "first",
-           "note": "the first letter of Penderyn"
-          }
-         ]
-        },
+         "words": "Penderyn",
+         "at": 33,
+         "note": "first letter of Penderyn, a Welsh whisky"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "Fantastic entrée",
-         "gives": "RETEEN",
-         "note": "ENTREE rearranged"
+         "text": "Fantastic",
+         "at": 0,
+         "note": "fantastic means fanciful or bizarre, so the letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "entrée",
+         "at": 10
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A superb starter served after a dram of whisky aged twelve years.",
-     "walkthrough": "Penderyn is a Welsh whisky, and 'twelve years old' reads as a whisky's age statement. It is really a child just short of the teens.",
-     "definitionFit": "At twelve a child is a pre-teen, just below thirteen; the question mark flags the whisky pun."
+     "surface": "A wine list: a fancy starter served after a nip of twelve-year-old Welsh whisky.",
+     "walkthrough": "Penderyn is a Welsh whisky, and 'twelve years old' looks like its age statement; it actually defines a child. 'Fantastic' rearranges ENTREE behind P, 'a drop of' Penderyn.",
+     "definitionFit": "A preteen is a child just under thirteen, and twelve years old is the upper example of that age."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "old"
+     "misdirectedWord": "twelve"
     }
    }
   },
@@ -1096,39 +1117,48 @@
      }
     ],
     "wordplay": {
-     "op": "composite",
+     "op": "deletion",
      "indicators": [
       {
        "text": "scrubbing",
-       "note": "rubbing out letters from the word"
-      },
-      {
-       "text": "recycled",
-       "note": "the letters of TIN turn up in another order"
+       "at": 21,
+       "note": "scrubbing means wiping out or cancelling, so letters are removed"
       }
      ],
      "parts": [
       {
        "words": "fastidiously",
+       "at": 8,
        "gives": "DAINTILY",
-       "note": "daintily = fussily, fastidiously"
+       "note": "daintily means fastidiously, with fussy delicacy"
       },
       {
-       "words": "recycled tin",
-       "gives": "NTI",
-       "note": "TIN rearranged, removed from DAINTILY"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "recycled",
+         "at": 31,
+         "note": "recycled means sent round again, so a letter of tin moves round from one end to the other"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tin",
+         "at": 40
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cleaner meticulously scouring a used can.",
-     "walkthrough": "A daily is British slang for a cleaner who comes in each day. The letters removed are not in the order TIN, which is why 'recycled' is there.",
-     "definitionFit": "In Britain a daily is a domestic cleaner who comes in by the day."
+     "surface": "A housekeeper carefully scours a can for the recycling bin.",
+     "walkthrough": "'Cleaner' is a person, not an adjective; a daily is British for a domestic cleaner who comes in each day. 'recycled' moves the T of tin round to the end before the letters are scrubbed out.",
+     "definitionFit": "In British usage a daily is a domestic help who comes in each day to do housework."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "scrubbing"
+     "misdirectedWord": "Cleaner"
     }
    }
   },
@@ -1730,35 +1760,33 @@
      "parts": [
       {
        "words": "hard",
+       "at": 6,
        "gives": "SOLID",
-       "note": "solid = hard"
+       "note": "solid means hard, firm"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "US",
        "indicators": [
         {
          "text": "bits from",
-         "note": "just the first pieces of each word are taken"
+         "at": 11,
+         "note": "bits from here means the opening scraps of each word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "bits from Unfinished Symphony",
-         "gives": "US",
-         "select": "first",
-         "note": "the first letters of Unfinished and Symphony"
+         "words": "Unfinished Symphony",
+         "at": 21,
+         "note": "first letters of Unfinished and Symphony"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cut the difficult passages from Schubert's Unfinished Symphony.",
-     "walkthrough": "'Slash' reads as a command to cut; it is the name of the / symbol.",
-     "definitionFit": "A solidus is the oblique stroke /, also called a slash."
+     "surface": "Some tough passages from Schubert's Unfinished Symphony.",
+     "walkthrough": "'bits from' takes U and S, the first letters of Unfinished Symphony. Solidus is another name for the slash punctuation mark.",
+     "definitionFit": "A solidus is the oblique stroke used in writing, a formal name for the forward slash."
     },
     "features": {
      "answerInScene": false,
@@ -1788,48 +1816,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "THERAPY",
+     "op": "container",
      "indicators": [
       {
-       "text": "back",
-       "note": "the letters run the other way"
+       "text": "cutting",
+       "at": 11,
+       "note": "cutting means slicing into, so the reversed letters go inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "your old",
+       "at": 19,
+       "gives": "THY",
+       "note": "thy is the old form of your"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "cutting",
-         "note": "the reversed word cuts into the old possessive"
+         "text": "back",
+         "at": 5,
+         "note": "back means the word is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "your old",
-         "gives": "THY",
-         "note": "thy = your, in old English"
-        },
-        {
-         "words": "Trim back",
-         "gives": "ERAP",
-         "note": "PARE (trim) reversed"
+         "words": "Trim",
+         "at": 0,
+         "gives": "PARE",
+         "note": "to pare is to trim"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A barber's instruction to trim the back, then a remark on someone's old-fashioned beauty treatment.",
-     "walkthrough": "'Trim back' reads as a haircut instruction; 'back' is the reversal signal applied to PARE.",
-     "definitionFit": "Therapy is treatment intended to heal or relieve a disorder."
+     "surface": "An old-fashioned barber's advice: a trim at the back sorts out your look.",
+     "walkthrough": "'Trim back' reads as a haircut, but back is the reversal signal; 'your old' points to the archaic pronoun.",
+     "definitionFit": "Therapy is treatment aimed at healing an illness or disorder, physical or mental."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "back"
+     "misdirectedWord": "Trim"
     }
    }
   }
