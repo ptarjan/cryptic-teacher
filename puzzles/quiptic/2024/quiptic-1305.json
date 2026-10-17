@@ -186,54 +186,55 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "includes"
+       "text": "includes",
+       "at": 17,
+       "note": "includes means the church and programme pieces hold another letter within them"
       }
      ],
      "parts": [
       {
-       "words": "Church",
-       "gives": "CE",
-       "note": "CE = Church of England"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Church",
+         "at": 0,
+         "gives": "CE",
+         "note": "CE is the abbreviation for the Church of England"
+        },
+        {
+         "words": "programme",
+         "at": 7,
+         "gives": "LIST",
+         "note": "a list of items, like a running order, is a programme"
+        }
+       ]
       },
       {
-       "op": "container",
+       "op": "first",
        "indicators": [
         {
          "text": "top",
-         "note": "the top of a down entry's word is its first letter"
+         "at": 26,
+         "note": "top in a down clue picks out the first letter of the word lay"
         }
        ],
        "parts": [
         {
-         "words": "programme",
-         "gives": "LIST",
-         "note": "a list of items, as a programme is"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "L",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "top lay",
-           "gives": "L",
-           "select": "first",
-           "note": "first letter of Lay"
-          }
-         ]
+         "words": "lay",
+         "at": 30,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A church's order of service features a leading lay musician.",
-     "walkthrough": "Lay here means not ordained, one of the congregation rather than clergy; only its first letter is used.",
-     "definitionFit": "A cellist is a musician who plays the cello."
+     "surface": "A church's order of service features a talented amateur string player.",
+     "walkthrough": "'top lay' reads as a description of a non-professional musician, but 'top' just takes the first letter of lay, which the church-and-programme pair 'includes'.",
+     "definitionFit": "A cellist is a musician who plays the cello, the large bowed string instrument held between the knees."
     },
     "features": {
      "answerInScene": true,
@@ -267,55 +268,56 @@
      "parts": [
       {
        "words": "Designer",
+       "at": 0,
        "gives": "QUANT",
-       "note": "Mary Quant, the designer who popularised the miniskirt"
+       "note": "Mary Quant was the British fashion designer who popularised the miniskirt"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "last of",
-         "note": "the last of a word is its final letter, so the last of mini is its closing I"
+         "at": 13,
+         "note": "last of takes only the final letter of the word mini"
         }
        ],
        "parts": [
         {
-         "words": "last of mini",
-         "gives": "MINI",
-         "note": "last letter of minI"
+         "words": "mini",
+         "at": 21,
+         "note": "the word whose final letter is taken"
         }
        ]
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "TY",
        "indicators": [
         {
-         "text": "skirts",
-         "note": "the edges of a word, its first and last letters"
+         "text": "skirts in",
+         "at": 26,
+         "note": "the skirts of something are its edges, so only the outside letters of the model's name are used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "skirts in Twiggy's",
-         "gives": "TY",
-         "select": "outer",
-         "note": "outer letters of TwiggY"
+         "words": "Twiggy's",
+         "at": 36,
+         "gives": "TWIGGY",
+         "note": "Twiggy was the 1960s British model; the possessive is read as her name alone"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Mary Quant's miniskirts come in the size the 1960s model Twiggy wore.",
-     "walkthrough": "Mary Quant was the 1960s London fashion designer behind the miniskirt, and Twiggy was the model of the same era; skirts looks like clothing but is the verb for edging a word.",
-     "definitionFit": "Size and quantity both mean amount or magnitude."
+     "surface": "A fashion designer makes a miniskirt in the size worn by the famously thin sixties model Twiggy.",
+     "walkthrough": "'mini skirts' looks like the garment, but 'mini' gives its last letter I, and 'skirts in' takes the outside letters T and Y of Twiggy.",
+     "definitionFit": "Quantity is an amount or measure of something, so it serves as a synonym for size or extent."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "skirts"
     }
    }
@@ -350,46 +352,57 @@
      "op": "container",
      "indicators": [
       {
-       "text": "surrounding"
+       "text": "surrounding",
+       "at": 26,
+       "note": "surrounding means the crime word wraps around the letters from the heart of policed"
       }
      ],
      "parts": [
       {
        "words": "crime",
+       "at": 20,
        "gives": "OFFENCE",
-       "note": "an offence is a crime"
+       "note": "an offence is a crime or breach of the law"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "LIC",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Essentially",
-         "note": "the essence of a word is its middle"
+         "at": 0,
+         "note": "essentially means keeping only the essence or core of policed, so its outer pairs of letters are shed"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Essentially policed",
-         "gives": "LIC",
-         "select": "middle",
-         "note": "middle letters of poLICed"
+         "op": "deletion",
+         "parts": [
+          {
+           "words": "policed",
+           "at": 12,
+           "note": "the three letters at the centre of this word are taken"
+          },
+          {
+           "gives": "PO"
+          }
+         ]
+        },
+        {
+         "gives": "ED"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crime near a liquor store gets only token attention from the police.",
-     "walkthrough": "An off-licence is the British name for a shop selling alcohol to take away, like a liquor store.",
-     "definitionFit": "An off-licence is licensed to sell alcohol for drinking off the premises."
+     "surface": "Police have cracked down on lawbreaking around a shop that sells drink.",
+     "walkthrough": "'Essentially' wants the three letters at the very heart of 'policed', not just the centre one; 'surrounding' wraps the crime word round them, splitting after its third letter.",
+     "definitionFit": "In Britain an off-licence is a shop licensed to sell alcohol for drinking off the premises, like a US liquor store."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Essentially"
+     "misdirectedWord": "policed"
     }
    }
   },
@@ -414,60 +427,71 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "indicators": [
       {
-       "text": "initially",
-       "note": "initially means at the start, so only the word's opening letter is used"
+       "text": "keeping",
+       "at": 30,
+       "note": "keeping here means the opening letter holds on to what follows it, so the pieces are joined in this order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "first",
        "indicators": [
         {
-         "text": "keeping"
+         "text": "initially",
+         "at": 20,
+         "note": "initially takes the first letter of the Austrian resort's name"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "new",
-           "note": "the letters of skis are made new, rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "words": "new skis",
-           "gives": "ISKS",
-           "note": "SKIS rearranged"
-          },
-          {
-           "words": "old",
-           "gives": "O",
-           "note": "O = old"
-          }
-         ]
+         "words": "Kitzbuhel",
+         "at": 10,
+         "note": "the word whose first letter is taken; Kitzbuhel is an Austrian ski resort"
         }
        ]
       },
       {
-       "op": "first",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "among",
+         "at": 42,
+         "note": "among places the abbreviation for old within the rearranged letters"
+        }
+       ],
        "parts": [
         {
-         "words": "Kitzbuhel initially",
-         "note": "first letter of Kitzbuhel"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "new",
+           "at": 48,
+           "note": "new means the letters of skis are made into a fresh arrangement"
+          }
+         ],
+         "parts": [
+          {
+           "words": "skis",
+           "at": 52
+          }
+         ]
+        },
+        {
+         "words": "old",
+         "at": 38,
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Stalls in an Austrian ski resort stock old gear among the new skis.",
-     "walkthrough": "Kitzbuhel is an Austrian ski resort; the O goes after the I of the rearranged skis.",
-     "definitionFit": "Kiosks are small stalls selling newspapers, snacks and the like."
+     "surface": "Market stalls in an Austrian ski resort stock old equipment alongside new skis.",
+     "walkthrough": "'initially' gives K. 'new' rearranges SKIS to ISKS, and 'among' sets O inside it, giving IOSKS.",
+     "definitionFit": "Kiosks are small booths selling newspapers or snacks, so they are a kind of stall."
     },
     "features": {
      "answerInScene": true,
@@ -498,43 +522,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "leader of",
-       "note": "the leader of a word is the letter at its front, here the I of innovation"
-      }
-     ],
      "parts": [
       {
        "words": "Artist",
+       "at": 0,
        "gives": "RA",
-       "note": "RA = Royal Academician"
+       "note": "RA is a Royal Academician, the crossword's usual artist"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "in places one thing inside another"
+         "at": 29,
+         "note": "in puts that letter inside the word for movement"
         }
        ],
        "parts": [
         {
          "words": "movement",
+         "at": 32,
          "gives": "DANCE",
-         "note": "dance is movement"
+         "note": "dance is movement to music"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "I",
+         "indicators": [
+          {
+           "text": "leader of",
+           "at": 8,
+           "note": "the leader of a word is its first letter, here of innovation"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "leader of innovation",
-           "gives": "I",
-           "select": "first",
-           "note": "first letter of Innovation"
+           "words": "innovation",
+           "at": 18,
+           "note": "the word whose first letter is taken"
           }
          ]
         }
@@ -543,14 +567,14 @@
      ]
     },
     "explanation": {
-     "surface": "An artist who pioneered new work in dance and lighting.",
-     "walkthrough": "RA, a member of the Royal Academy, is the standard crossword artist.",
-     "definitionFit": "A near synonym: the glow given off by the sun or a lamp, and the surface hides it by making light sound like stage lighting."
+     "surface": "A painter leads the way with a new style of movement and light.",
+     "walkthrough": "'leader of' innovation is I, which goes 'in' DANCE to make DIANCE.",
+     "definitionFit": "Radiance is brightness or glowing light given off by something."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "light"
+     "misdirectedWord": "movement"
     }
    }
   },
@@ -903,56 +927,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GRADUAL",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "reduced",
-         "note": "GRADE loses its last letter"
+         "at": 20,
+         "note": "reduced means the word is cut short, losing its final letter"
         }
        ],
        "parts": [
         {
-         "words": "exam mark reduced",
-         "gives": "GRAD",
-         "note": "GRADE shortened"
+         "words": "exam mark",
+         "at": 10,
+         "gives": "GRADE",
+         "note": "a grade is a mark awarded in an exam"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "a first in",
-           "note": "the first in a word is its opening letter, borrowing the university grade the surface is about"
-          }
-         ],
-         "parts": [
-          {
-           "words": "university",
-           "note": "U = university"
-          }
-         ]
-        },
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "university",
+       "at": 31,
+       "gives": "U"
+      },
+      {
+       "words": "a",
+       "at": 43,
+       "gives": "A"
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "a",
-         "note": "as printed"
-        },
+         "text": "first in",
+         "at": 45,
+         "note": "first in takes the opening letter of the word Linguistics"
+        }
+       ],
+       "parts": [
         {
-         "words": "first in Linguistics",
-         "gives": "L",
-         "note": "first letter of Linguistics"
+         "words": "Linguistics",
+         "at": 54,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A student still got a first in Linguistics despite a marked-down exam.",
-     "walkthrough": "A first is a top British degree grade, which the surface uses; the clue wants the first letter.",
-     "definitionFit": "A gradual slope or rise is an even one, without sudden steps."
+     "surface": "A student's results level out after their mark is cut by the university, despite a top degree in Linguistics.",
+     "walkthrough": "'a first' sounds like a top degree, but it splits: A as written, and 'first in' gives L. 'Even' is the definition in the sense of steady.",
+     "definitionFit": "A gradual slope or change is steady and even, rising or falling smoothly without sudden jumps."
     },
     "features": {
      "answerInScene": false,
@@ -982,47 +1012,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ANACONDA",
+     "op": "container",
      "indicators": [
       {
-       "text": "startled",
-       "note": "the letters of Canada jump about"
+       "text": "in",
+       "at": 8,
+       "note": "in puts the word for working inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in"
+         "text": "startled",
+         "at": 19,
+         "note": "startled suggests jumping about, so the letters of Canada are thrown into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Canada, startled",
-         "gives": "ANACDA",
-         "note": "CANADA rearranged"
-        },
-        {
-         "words": "Working",
-         "gives": "ON",
-         "note": "a machine that is on is working"
+         "words": "Canada",
+         "at": 11
         }
        ]
+      },
+      {
+       "words": "Working",
+       "at": 0,
+       "gives": "ON",
+       "note": "a machine that is on is working"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone working in Canada is shocked to come across an enormous snake.",
-     "walkthrough": "There are no anacondas in Canada, which is the joke of the surface.",
-     "definitionFit": "The anaconda is a very large South American snake."
+     "surface": "Someone employed in Canada is shocked to come across an enormous snake.",
+     "walkthrough": "'Working in Canada' reads as a job abroad, but 'startled' is the signal to jumble the country's letters, and 'in' lodges the word for working among them.",
+     "definitionFit": "The anaconda is a very large South American constrictor, among the heaviest snakes in the world."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "Working"
     }
    }
@@ -1098,42 +1128,49 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "reportedly"
+       "text": "under",
+       "at": 27,
+       "note": "in a down clue, under places the sounded word below the detective's piece"
       }
      ],
      "parts": [
       {
        "words": "Detective's",
+       "at": 0,
        "gives": "DIS",
-       "note": "DI = Detective Inspector, plus the 's"
+       "note": "DI is a Detective Inspector, with the possessive adding S"
       },
       {
        "op": "homophone",
        "spelt": "GUISE",
        "indicators": [
         {
-         "text": "under"
+         "text": "reportedly",
+         "at": 16,
+         "note": "reportedly means the next piece is what is heard, not what is written"
         }
        ],
        "parts": [
         {
-         "words": "men reportedly",
+         "words": "men",
+         "at": 12,
          "gives": "GUYS",
-         "note": "men are guys"
+         "note": "guys is an informal word for men"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A detective's officers are working undercover.",
-     "walkthrough": "Under cover suggests one phrase; under places the men below the detective, and cover alone is the definition.",
-     "definitionFit": "A disguise covers who you really are."
+     "surface": "A detective's officers are said to be working undercover.",
+     "walkthrough": "'reportedly' applies to 'men' alone: the informal word for men sounds like a word for outward appearance. DI is a Detective Inspector, the usual crossword detective.",
+     "definitionFit": "A disguise is a costume or false appearance that conceals who you are, a cover for one's identity."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "under"
+     "joke": "pun",
+     "misdirectedWord": "cover"
     }
    }
   },
@@ -1314,48 +1351,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CREASE",
+     "op": "charade",
      "parts": [
       {
-       "op": "reversal",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Special",
-         "note": "the letters of care are made special, rearranged"
+         "at": 0,
+         "note": "special care is care of an unusual kind, so the letters of care are made into a different arrangement"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "words": "care",
+         "at": 8
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 27,
+         "note": "returning means what is left is turned back to front"
+        }
+       ],
+       "parts": [
+        {
+         "op": "deletion",
          "indicators": [
           {
            "text": "lost",
-           "note": "ewes that have lost we no longer have those two letters, leaving ES"
+           "at": 22,
+           "note": "lost shows the letters of we go missing from the word ewes"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "indicators": [
-            {
-             "text": "returning",
-             "note": "the remaining ES goes back to front"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Special care",
-             "gives": "CREA",
-             "note": "CARE rearranged"
-            },
-            {
-             "words": "ewes we lost returning",
-             "gives": "SE",
-             "note": "EWES minus WE is ES, turned round"
-            }
-           ]
+           "words": "ewes",
+           "at": 14
+          },
+          {
+           "words": "we",
+           "at": 19
           }
          ]
         }
@@ -1364,9 +1404,9 @@
      ]
     },
     "explanation": {
-     "surface": "Special care is needed as some ewes went missing coming back to the sheepfold.",
-     "walkthrough": "Fold looks like a sheep pen, fitting the ewes; it is the crease in paper or cloth.",
-     "definitionFit": "The fold here is the line pressed into paper or cloth, not the sheep pen the ewes suggest; the noun sense is a plain synonym."
+     "surface": "Sheep needing extra attention, with some strays, are brought back to the pen.",
+     "walkthrough": "'fold' looks like a sheep pen, which suits the ewes, but it is the definition as a crease. 'Special' rearranges CARE; EWES with WE 'lost' is ES, which 'returning' makes SE.",
+     "definitionFit": "A crease is the line or ridge left where material has been folded."
     },
     "features": {
      "answerInScene": false,
@@ -1397,37 +1437,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CUSTOM",
-     "indicators": [
-      {
-       "text": "out",
-       "note": "the letters are out of place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 6,
+         "note": "out here means the letters of Scout are put out of their order"
+        }
+       ],
        "parts": [
         {
-         "words": "Scout out",
-         "gives": "CUSTO",
-         "note": "SCOUT rearranged"
-        },
-        {
-         "words": "money",
-         "gives": "M",
-         "note": "M = money"
+         "words": "Scout",
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "money",
+       "at": 10,
+       "gives": "M",
+       "note": "M is the abbreviation for money, as in M1 and M2 measures of money supply"
       }
      ]
     },
     "explanation": {
-     "surface": "Scouting around for cash to fund a company.",
-     "walkthrough": "Scout out reads as one phrasal verb; out is the instruction to rearrange.",
-     "definitionFit": "Custom is the trade a shop gets from its customers, its business."
+     "surface": "A youth group member raises cash for a company venture.",
+     "walkthrough": "'Scout out' looks like searching, but 'out' rearranges SCOUT into CUSTO.",
+     "definitionFit": "Custom means the patronage of regular buyers, so a shop that loses custom has lost trade."
     },
     "features": {
      "answerInScene": false,
