@@ -1315,52 +1315,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BLEMISH",
      "indicators": [
       {
        "text": "in",
-       "note": "in places one piece inside another"
+       "at": 26,
+       "note": "in tells us the shuffled letters go inside the emptied word"
       }
      ],
      "parts": [
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "at": 29,
+         "note": "empty means the word bath loses its inside letters, keeping only its outer ones"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bath",
+         "at": 35,
+         "note": "the outer letters of bath"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "smeared",
-         "note": "something smeared is spread about out of shape, so the letters lose their order"
+         "at": 18,
+         "note": "smeared suggests the letters of slime are smudged into a new order"
         }
        ],
        "parts": [
         {
          "words": "slime",
-         "gives": "LEMIS",
-         "note": "the letters of the word rearranged"
-        },
-        {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "empty",
-           "note": "emptying a word removes its contents, leaving only the outer letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "bath",
-           "note": "the first and last letters of the word"
-          }
-         ]
+         "at": 12
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mark left by gunk smeared inside a drained bathtub.",
-     "walkthrough": "Every word fits the bathroom picture; the anagrammed letters go between the outside letters of the tub.",
-     "definitionFit": "A blemish is a spot or mark that spoils a surface, much like a dirty smear."
+     "surface": "Someone notices a mark made by slime left smeared inside a bath they have just drained.",
+     "walkthrough": "'empty' leaves BH from bath; 'smeared' turns slime into LEMIS, which goes 'in' between B and H.",
+     "definitionFit": "A blemish is a mark or stain spoiling a surface, so it is a synonym for a smudge."
     },
     "features": {
      "answerInScene": true,
