@@ -29,7 +29,6 @@ import base64
 import hashlib
 import io
 import contextlib
-import fcntl
 import json
 import os
 import random
@@ -403,6 +402,7 @@ def slots():
 def slot():
     """Hold one of slots() host-wide lock files for one request. Waiting here is
     queueing, not the server being down: it never marks anything missed."""
+    import fcntl  # POSIX only: the desktop (Windows) imports this module without using the lock
     n = slots()
     while True:
         for i in range(n):
