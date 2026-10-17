@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -138,38 +139,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "awful",
-       "note": "'Awful' describes a thing in a bad state, and a word in a bad state is one whose letters have stopped keeping their proper places."
+       "text": "in",
+       "at": 15,
+       "note": "'in' tells us the bit of English sits inside the reworked letters"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "E",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "awful",
+         "at": 23,
+         "note": "awful suggests something mangled, so the letters of 'that' are rearranged"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Bit of English",
-         "gives": "E",
-         "select": "first",
-         "note": "the opening bit of E-nglish"
+         "words": "that",
+         "at": 18,
+         "note": "taken as written as anagram fodder"
         }
        ]
       },
       {
-       "words": "that",
-       "note": "four letters of fodder, joined by the E to make five"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Bit of",
+         "at": 0,
+         "note": "a bit of a word here is just its opening letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "English",
+         "at": 7,
+         "note": "first letter of English"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scrap of English turning up inside some dreadful Greek.",
-     "walkthrough": "'In' reads as an insertion instruction — a bit of English going inside something — but nothing here encloses anything; the E simply joins the letters being shuffled.",
-     "definitionFit": "Theta is the eighth letter of the Greek alphabet, written θ, so the definition names its category and leaves you to pick which of the twenty-four."
+     "surface": "Someone is grumbling about a dreadful bit of English found in a Greek text.",
+     "walkthrough": "'awful' looks like a verdict on the Greek, but it scrambles 'that'; 'Bit of' takes just the first letter of 'English', and 'in' places it among the scrambled letters.",
+     "definitionFit": "Theta is the eighth character of the Greek alphabet, written as a circle with a bar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "awful"
     }
    }
   },
@@ -1265,12 +1288,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HELIOTROPE",
      "indicators": [
       {
        "text": "put around",
-       "note": "'Put around' has the cord wrapped rather than laid alongside, so it opens up and the poet ends up between its letters."
+       "at": 21,
+       "note": "the hard cord is put around the poet, so the poet's name goes inside those letters"
       }
      ],
      "parts": [
@@ -1279,27 +1301,35 @@
        "parts": [
         {
          "words": "hard",
+         "at": 11,
          "gives": "H",
-         "note": "h is the hardness grade stamped on a pencil"
-        },
-        {
-         "words": "Poet",
-         "gives": "ELIOT",
-         "note": "T. S. Eliot, the poet of The Waste Land"
+         "note": "H is the pencil-grading abbreviation for hard"
         },
         {
          "words": "cord",
+         "at": 16,
          "gives": "ROPE",
-         "note": "a rope is a cord"
+         "note": "a rope is a thick cord"
         }
        ]
+      },
+      {
+       "words": "Poet",
+       "at": 0,
+       "gives": "ELIOT",
+       "note": "T. S. Eliot, the poet of The Waste Land"
       }
      ]
     },
     "explanation": {
-     "surface": "A poet who needs stout string to tie a plant up.",
-     "walkthrough": "Heliotrope is the garden shrub whose flowers turn to follow the sun, from the Greek for sun-turning, and Eliot is the crossword setter's default poet.",
-     "definitionFit": "Heliotrope names a fragrant garden shrub of the borage family, so the bare word 'plant' gives its category and no more."
+     "surface": "A gardener's instruction: a poet needs a strong cord tied around a plant.",
+     "walkthrough": "'put around' means the hard cord wraps the poet: T. S. Eliot sits between the H and the rope.",
+     "definitionFit": "Heliotrope is a garden shrub with fragrant purple flowers that turn toward the sun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Poet"
     }
    }
   },
