@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -670,12 +671,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "MANSIONHOUSE",
      "indicators": [
       {
        "text": "welcomed in",
-       "note": "Whatever is welcomed in is taken inside, so the letter before it goes among the letters already standing."
+       "at": 36,
+       "note": "something welcomed in is let inside, so the single letter goes into the other pieces"
       }
      ],
      "parts": [
@@ -684,32 +684,36 @@
        "parts": [
         {
          "words": "Fellow's",
+         "at": 0,
          "gives": "MANS",
-         "note": "a fellow is a man, and the apostrophe-s comes along with him"
-        },
-        {
-         "words": "one's",
-         "gives": "I",
-         "note": "i is the Roman numeral for one"
+         "note": "a fellow is a man, and the possessive gives MAN'S"
         },
         {
          "words": "playing",
+         "at": 9,
          "gives": "ON",
-         "note": "a show that is playing tonight is on"
+         "note": "a show that is on is playing or being performed"
         },
         {
          "words": "dance music",
+         "at": 17,
          "gives": "HOUSE",
-         "note": "house is the four-to-the-floor dance music of the clubs"
+         "note": "house is a genre of electronic dance music"
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 30,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A man spinning house records at a reception in the mayor's official home.",
-     "walkthrough": "'Fellow's playing' looks like one verb phrase but is two pieces, the fellow and the 'on' that a show playing tonight is. 'Dance music' wants a genre, and the genre it wants doubles as a building.",
-     "definitionFit": "The Mansion House is the Lord Mayor of London's official residence, the Georgian palace facing Bank junction, so the plain phrase is literal."
+     "surface": "A man spinning dance records, with someone being welcomed into the official residence.",
+     "walkthrough": "'One's welcomed in' means one is welcomed in: I goes into MANS-ON-HOUSE. The Mansion House is the official home of the Lord Mayor of London.",
+     "definitionFit": "The Mansion House in the City of London is the official residence of the Lord Mayor, a mayoral residence."
     },
     "features": {
      "answerInScene": true,
@@ -923,40 +927,39 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "FOREIGN",
-     "indicators": [
-      {
-       "text": "Backing",
-       "note": "Something backing is travelling to the rear, so the word it takes hold of is written out the other way about."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "Backing",
+         "at": 0,
+         "note": "backing, as in a car backing up, means going in reverse, so the word of is read from the end"
+        }
+       ],
        "parts": [
         {
-         "words": "Backing of",
-         "gives": "FO",
-         "note": "the word 'of' turned round"
-        },
-        {
-         "words": "rule of monarch",
-         "gives": "REIGN",
-         "note": "a monarch's rule is a reign, the years spent on the throne"
+         "words": "of",
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "rule of monarch",
+       "at": 11,
+       "gives": "REIGN",
+       "note": "a reign is the period of a monarch's rule"
       }
      ]
     },
     "explanation": {
-     "surface": "The support behind a king's rule coming from abroad.",
-     "walkthrough": "The clue prints two 'of's and only the first is a word to be used; the second belongs to the phrase that means reign. In an across entry a reversal runs the letters right to left.",
-     "definitionFit": "A foreign visitor, coin or policy is one belonging to a country other than this one, which is the plain sense of the phrase."
+     "surface": "Support for a king or queen who comes from abroad.",
+     "walkthrough": "'Backing' reads as support for the monarch, but it turns the little word 'of' around to make FO.",
+     "definitionFit": "Foreign describes a person or thing originating in another country, the same idea as from another land."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Backing"
     }
