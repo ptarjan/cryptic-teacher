@@ -1439,6 +1439,53 @@ def lag_allowed(ocr_head, lag, puzzle_day):
     return 0 <= lag <= 9
 
 
+def fits(gray, grid, rivals):
+    """(how well the solution image `gray` fits `grid` (block_agreement), [how
+    well it fits each rival puzzle image's grid]), or None when no lattice
+    fits the image. `rivals` are the images (paths or files) of the other
+    puzzles printed in the solution's window."""
+    try:
+        lat = lattice(gray, len(grid))
+    except ValueError:
+        return None
+    mine = block_agreement(gray, grid, lat)
+    rival = []
+    for image in rivals:
+        g, _ = trove_grid.read_grid(image)
+        if g and len(g) == len(grid) and g != list(grid):
+            rival.append(block_agreement(gray, g, lat))
+    return mine, rival
+
+
+def fits_anywhere(solution, grid, rivals):
+    """fits() of the solution image file and the rival image files, run on the
+    desktop when tools/ocr_remote.py can (the lattice search and each
+    rival's grid read are ~1-10 s of numpy and pure Python a solution
+    candidate, and the images are the only thing sent), else here in a
+    local_slot()."""
+    import ocr_remote
+    blobs = [Path(p).read_bytes() for p in (solution, *rivals)]
+    got = ocr_remote.call("solution_fits", [list(r) if not isinstance(r, str) else r for r in grid],
+                          [len(b) for b in blobs], data=b"".join(blobs))
+    if got is None or "fit" not in got[0]:
+        with ocr_remote.local_slot():
+            return fits(np.asarray(Image.open(solution).convert("L")), grid, rivals)
+    fit = got[0]["fit"]
+    return None if fit is None else (fit[0], list(fit[1]))
+
+
+def fits_there(data, grid, sizes):
+    """({"fit": fits() or None}, b"") of the solution image and rival images
+    packed in `data` (their `sizes` in order), run on the desktop (CALLS)."""
+    import io
+    images, at = [], 0
+    for size in sizes:
+        images.append(io.BytesIO(data[at:at + size]))
+        at += size
+    gray = np.asarray(Image.open(images[0]).convert("L"))
+    return {"fit": fits(gray, grid, images[1:])}, b""
+
+
 def find_solution(puzzle_dir, grid, day, cache=CACHE, articles=None):
     """(solution article dir, None) for a puzzle article, or (None, why)."""
     articles = articles if articles is not None else _articles(cache)
@@ -1450,22 +1497,15 @@ def find_solution(puzzle_dir, grid, day, cache=CACHE, articles=None):
         head = (d / "ocr.txt").read_text(encoding="utf-8", errors="replace")[:600]
         if not lag_allowed(head, lag, day):
             continue
-        gray = np.asarray(Image.open(d / "grid.jpg").convert("L"))
-        try:
-            lat = lattice(gray, len(grid))
-        except ValueError:
-            continue
-        mine = block_agreement(gray, grid, lat)
         # The solution must fit this puzzle's grid better than every other
         # puzzle printed in its window.
-        rivals = []
-        for pday, p, p_sol in articles:
-            if p_sol or p == puzzle_dir or not 0 <= (sday - pday).days <= 9 \
-                    or not lag_allowed(head, (sday - pday).days, pday):
-                continue
-            g, _ = trove_grid.read_grid(p / "grid.jpg")
-            if g and len(g) == len(grid) and g != list(grid):
-                rivals.append(block_agreement(gray, g, lat))
+        window = [p / "grid.jpg" for pday, p, p_sol in articles
+                  if not (p_sol or p == puzzle_dir or not 0 <= (sday - pday).days <= 9
+                          or not lag_allowed(head, (sday - pday).days, pday))]
+        fit = fits_anywhere(d / "grid.jpg", grid, window)
+        if fit is None:
+            continue
+        mine, rivals = fit
         tried.append((mine, d))
         if mine >= PAIR_MIN and all(mine - r >= PAIR_MARGIN for r in rivals):
             return d, None
