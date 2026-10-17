@@ -160,42 +160,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WARHEAD",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "Letters that are about are turned around and moved, so HEARD is rearranged."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Washington",
+       "at": 0,
+       "gives": "WA",
+       "note": "WA is the postal abbreviation for Washington state"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 17,
+         "note": "about here means turned around and jumbled, so the letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Washington",
-         "gives": "WA",
-         "note": "WA is the postal abbreviation for Washington state"
-        },
-        {
          "words": "heard",
-         "gives": "RHEAD",
-         "note": "HEARD rearranged"
+         "at": 11,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The US government has been told of a missile.",
-     "walkthrough": "'Washington' as the US government is the misdirection; here it is the state's two-letter code.",
-     "definitionFit": "A warhead is the explosive front end of a missile."
+     "surface": "Washington has heard about a missile tip, a bit of defence-news gossip.",
+     "walkthrough": "'Washington' gives the two-letter state code, not just W; 'about' then reworks HEARD into RHEAD.",
+     "definitionFit": "A warhead is the explosive front section of a missile, the part at its tip."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Washington"
+     "misdirectedWord": "about"
     }
    }
   },
@@ -674,44 +674,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HYPNOTIST",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "without",
+       "at": 39,
+       "note": "without here means outside, so the rearranged letters go around the power letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "lost",
-         "note": "Letters that are lost have lost their way, so TONY SHIT is scrambled."
-        },
-        {
-         "text": "without"
+         "at": 34,
+         "note": "lost suggests something astray and out of order, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Tony — shit",
-         "gives": "HYNOTIST",
-         "note": "TONY SHIT scrambled"
+         "words": "Tony",
+         "at": 21,
+         "note": "taken as written"
         },
         {
-         "words": "power",
-         "gives": "P",
-         "note": "P = power in physics"
+         "words": "shit",
+         "at": 28,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "power",
+       "at": 47,
+       "gives": "P",
+       "note": "P is the standard abbreviation for power in physics"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone cursing a man called Tony who has lost his power.",
-     "walkthrough": "Put P after HY in the scrambled letters. 'Put you under' sounds like a threat or anaesthetic; it is hypnosis.",
-     "definitionFit": "'Put under' is the idiom for inducing a trance, the stage performer's trade."
+     "surface": "Someone curses at Tony for being lost and without power.",
+     "walkthrough": "'Without' is used in its old sense of outside: 'lost' rearranges the two words into HYNOTIST, which then goes around P.",
+     "definitionFit": "A hypnotist induces a trance, which is what putting someone under means."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "without"
     }
    }
@@ -943,61 +953,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MISOGYNY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "vibrating",
-       "note": "Vibrating shakes things, so the letters of GISMO move about."
+       "text": "covering",
+       "at": 34,
+       "note": "covering puts the rearranged gismo above the initials, as this is a down clue"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "covering",
-         "note": "In a down answer, what covers sits above."
+         "text": "vibrating",
+         "at": 18,
+         "note": "vibrating suggests the letters shaking about into a new order"
         }
        ],
        "parts": [
         {
          "words": "gismo",
-         "gives": "MISOG",
-         "note": "GISMO shaken up"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "YNY",
-         "indicators": [
-          {
-           "text": "tops of",
-           "note": "The top of each word is its first letter."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "tops of your natty Y-fronts",
-           "gives": "YNY",
-           "select": "first",
-           "note": "Your, Natty, Y-fronts"
-          }
-         ]
+         "at": 28,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "tops of",
+         "at": 43,
+         "note": "tops of means the first letter of each word, the top in a down answer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "your natty",
+         "at": 51,
+         "note": "taken as written, first letter of each word used"
+        }
+       ]
+      },
+      {
+       "words": "Y-fronts",
+       "at": 62,
+       "gives": "Y",
+       "note": "the top of Y-fronts is its letter Y, the same first-letter pick applied to the last item"
       }
      ]
     },
     "explanation": {
-     "surface": "A sex toy advertised with smart men's underpants, which is sexist.",
-     "walkthrough": "Y-fronts are British men's briefs. The surface is so risqué that the definition hides in plain sight at the front.",
-     "definitionFit": "Misogyny, hatred of or prejudice against women, is the quality of being sexist."
+     "surface": "A sexist vibrating gadget is worn over a pair of smart Y-fronts.",
+     "walkthrough": "'Vibrating' shakes GISMO into MISOG, and in a down answer 'covering' means sitting above the tops YNY. Y-fronts are British men's briefs.",
+     "definitionFit": "Misogyny is hatred of or prejudice against women, so it is a sexist trait."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "vibrating"
@@ -1031,41 +1044,44 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SENDUP",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "covered in",
+       "at": 15,
+       "note": "covered in puts the rearranged letters inside the drink word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "drink",
+       "at": 26,
+       "gives": "SUP",
+       "note": "to sup is to drink"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "Dirty",
-         "note": "Dirty letters are messed up, so DEN is rearranged."
-        },
-        {
-         "text": "covered in",
-         "note": "What is covered in something has it all around it."
+         "at": 5,
+         "note": "dirty suggests something messed up, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "drink",
-         "gives": "SUP",
-         "note": "to sup is to drink"
-        },
-        {
          "words": "Den",
-         "gives": "END",
-         "note": "DEN rearranged"
+         "at": 11,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Dirty Den, the EastEnders pub landlord, getting drenched in a drink.",
-     "walkthrough": "Dirty Den was a villainous landlord in the BBC soap EastEnders, so the name hides an anagram indicator.",
-     "definitionFit": "A plain synonym: a parody or satire mocks its target."
+     "surface": "Dirty Den, the soap villain, is covered in drink.",
+     "walkthrough": "Dirty Den was the scheming landlord in the British soap EastEnders, which is why the surface reads naturally.",
+     "definitionFit": "A send-up is a parody, a piece that mocks something by imitation."
     },
     "features": {
      "answerInScene": false,
@@ -1505,56 +1521,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ECHO",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 23,
+       "note": "after puts the shortened house behind the energy and cuts letters"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "energy",
+       "at": 29,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
          "text": "introduced",
-         "note": "What is introduced shows only its first letter."
-        },
-        {
-         "text": "after",
-         "note": "The house comes after the other letters."
+         "at": 41,
+         "note": "introduced points to the opening letter, the one that introduces the word"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "downsized",
-           "note": "A downsized word has lost some of its size."
-          }
-         ],
-         "parts": [
-          {
-           "words": "energy",
-           "note": "E = energy in physics"
-          }
-         ]
+         "words": "cuts",
+         "at": 36,
+         "note": "taken as written, its first letter used"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "downsized",
+         "at": 13,
+         "note": "downsized means the word is cut down, here to its abbreviation"
+        }
+       ],
+       "parts": [
+        {
+         "words": "house",
+         "at": 7,
+         "note": "taken as written, then shortened"
         },
         {
-         "words": "cuts introduced",
-         "gives": "C",
-         "note": "first letter of CUTS"
-        },
-        {
-         "words": "house downsized",
-         "gives": "HO",
-         "note": "HOUSE cut to HO, its usual abbreviation"
+         "gives": "USE"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pet bird's home shrinking once energy cuts arrive.",
-     "walkthrough": "'Parrot' is the verb, to repeat. 'Energy cuts' reads as one phrase, but energy and cuts give a letter each.",
-     "definitionFit": "To parrot and to echo both mean to repeat what someone else says."
+     "surface": "A parrot's house is downsized after energy cuts are brought in.",
+     "walkthrough": "'Parrot' is the verb: to repeat back. HO is the usual abbreviation for house.",
+     "definitionFit": "To echo someone is to repeat their words back, as a parrot does."
     },
     "features": {
      "answerInScene": false,
