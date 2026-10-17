@@ -948,58 +948,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MATRIARCH",
+     "op": "container",
      "indicators": [
       {
-       "text": "short",
-       "note": "short means lacking its end, so the final letter is lopped off"
+       "text": "includes",
+       "at": 19,
+       "note": "includes means the walk word holds the other pieces inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "includes",
-         "note": "to include is to take inside, so one piece holds the others within it"
-        }
-       ],
+       "words": "walk",
+       "at": 14,
+       "gives": "MARCH",
+       "note": "to march is to walk in step"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "walk",
-           "gives": "MARCH",
-           "note": "to march is to walk briskly"
-          },
-          {
-           "words": "a",
-           "note": "taken as it stands"
-          }
-         ]
+         "words": "a",
+         "at": 28,
+         "gives": "A"
         },
         {
-         "words": "cut",
-         "gives": "TRI",
-         "note": "TRIM, a cut, with its last letter lopped"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 30,
+           "note": "short means the word for cut loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cut",
+           "at": 36,
+           "gives": "TRIM",
+           "note": "to trim is to cut"
+          },
+          {
+           "gives": "M",
+           "note": "the last letter of the word for cut, dropped"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The head of a family going for a walk and taking a shortcut.",
-     "walkthrough": "'A short cut' reads as a shortcut on the walk; it is A plus a trim missing its end. The 's stands for 'has', linking definition to wordplay.",
-     "definitionFit": "A matriarch is the woman who rules a family or clan, so she is the senior figure of the household."
+     "surface": "A family head goes for a walk and takes a shortcut on the way.",
+     "walkthrough": "'short cut' reads as one phrase, a quicker route, but 'short' acts on the word for cut; 'includes' then has the walk word swallow A and that shortened cut.",
+     "definitionFit": "A matriarch is the woman who rules a family, its female head."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "short"
+     "misdirectedWord": "cut"
     }
    }
   },
