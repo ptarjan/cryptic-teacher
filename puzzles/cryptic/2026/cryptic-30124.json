@@ -353,27 +353,33 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LIAR",
+     "op": "substitution",
      "indicators": [
       {
        "text": "with switched contents",
-       "note": "the inner letters swap places, so they run the other way round"
+       "at": 27,
+       "note": "with switched contents means the inner letters of the word swap places while its ends stay put"
       }
      ],
      "parts": [
       {
        "words": "hide-out",
+       "at": 18,
        "gives": "LAIR",
-       "note": "an animal's or villain's den"
+       "note": "a lair is an animal's den or a criminal's hiding place"
+      },
+      {
+       "gives": "AI"
+      },
+      {
+       "gives": "IA"
       }
      ]
     },
     "explanation": {
-     "surface": "A crook lies low in a den where everything has been moved around.",
-     "walkthrough": "Only the two middle letters of LAIR trade places; the L and R stay put.",
-     "definitionFit": "A liar tells untruths, so a person who deceives is fairly called a dishonest type."
+     "surface": "A fraudster sheltering in a hideaway whose contents have been moved around.",
+     "walkthrough": "The contents of LAIR are its two middle letters; switching them gives the answer while L and R stay at the ends.",
+     "definitionFit": "A liar tells untruths, so a liar is a dishonest person."
     },
     "features": {
      "answerInScene": true,
@@ -513,57 +519,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ELICIT",
+     "op": "composite",
      "indicators": [
       {
        "text": "fancy",
-       "note": "fancy as an adjective means elaborate or ornamental, so the letters get dressed up in a new order"
+       "at": 19,
+       "note": "fancy as an adjective means elaborate or decorated, so the letters of client I are rearranged"
+      },
+      {
+       "text": "with no",
+       "at": 25,
+       "note": "with no means a letter is removed from the pool before the rest are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ELICIT",
+       "words": "client I",
+       "at": 10
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "with no",
-         "note": "having none of something means that letter is taken away"
+         "text": "end of",
+         "at": 33,
+         "note": "end of picks out the last letter of the next word"
         }
        ],
        "parts": [
         {
-         "words": "client I",
-         "note": "the letters as printed"
-        },
-        {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "end of",
-           "note": "the end of a word is its final letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "distinction",
-           "note": "the last letter of the word, to be removed"
-          }
-         ]
+         "words": "distinction",
+         "at": 40,
+         "note": "the word distinction, of which only the final letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lawyer admits a fancy for a client entirely lacking in distinction.",
-     "walkthrough": "Take the N out of CLIENTI, then rearrange what is left. 'Fancy' reads as a verb after 'I'; it is the anagram signal.",
-     "definitionFit": "To elicit is to draw a response or fact from someone, a verb synonym of draw out or evoke."
+     "surface": "A lawyer coaxing out a client the lawyer is attracted to, though the client lacks distinction.",
+     "walkthrough": "'Fancy' rearranges CLIENT I, and 'with no end of distinction' removes N, the last letter of distinction, from that pool. 'Fancy' reads as a verb of attraction, but it is the adjective signalling the rearrangement.",
+     "definitionFit": "To elicit is to draw out a response or information from someone, so it means to bring out."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "fancy"
     }
