@@ -186,55 +186,75 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INCESSANT",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 25,
+       "note": "after puts the next piece behind what came before"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "drops",
-         "note": "the royal's name loses letters"
-        },
-        {
-         "text": "opening",
-         "note": "the first letter of 'tailor'"
+         "text": "drops braces",
+         "at": 44,
+         "note": "braces means pairs, so the royal drops a pair of letters at each end"
         }
        ],
        "parts": [
         {
-         "words": "senior royal drops braces outside",
-         "gives": "INCESSAN",
-         "note": "PRINCESS ANNE loses a brace (pair) of letters from each end, PR and NE"
-        },
-        {
-         "op": "first",
+         "op": "deletion",
          "indicators": [
           {
            "text": "outside",
-           "note": "the letters lost are on the outer ends"
-          },
-          {
-           "text": "after"
+           "at": 57,
+           "note": "outside says the dropped pairs are taken from the outer ends of the name"
           }
          ],
          "parts": [
           {
-           "words": "tailor's opening",
-           "gives": "TAILOROPENING",
-           "note": "first letter of tailor"
+           "words": "senior royal",
+           "at": 31,
+           "gives": "PRINCESSANNE",
+           "note": "Princess Anne is the King's sister, a senior member of the British royal family"
+          },
+          {
+           "gives": "PR"
           }
          ]
+        },
+        {
+         "gives": "NE"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening",
+         "at": 17,
+         "note": "the opening of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tailor's",
+         "at": 8,
+         "gives": "T",
+         "note": "the first letter of tailor's is T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A round-the-clock tailor making braces for a princess.",
-     "walkthrough": "Braces holding up trousers belong to the tailor's scene; here a brace is a pair, and two of them come off the outside of PRINCESS ANNE, the King's sister.",
-     "definitionFit": "Something going on 24 hours a day never stops, so it is incessant."
+     "surface": "A senior royal's tailor's shop is open round the clock, though she drops the braces.",
+     "walkthrough": "'braces' are pairs: 'drops braces outside' takes PR and NE off the ends of PRINCESS ANNE, leaving INCESSAN; the 'opening' T of tailor's comes 'after'.",
+     "definitionFit": "Incessant means continuing without pause, like something that runs all day and night."
     },
     "features": {
      "answerInScene": false,
@@ -493,45 +513,43 @@
      "indicators": [
       {
        "text": "keeps",
-       "note": "WHO holds the middle letters inside it"
+       "at": 14,
+       "note": "keeps means holds inside, so the word who wraps around the next piece"
       }
      ],
      "parts": [
       {
        "words": "who",
-       "note": "used as it stands"
+       "at": 10
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "ACK",
        "indicators": [
         {
          "text": "everything in",
-         "note": "all of 'sacks' that lies inside its ends"
+         "at": 20,
+         "note": "everything in a word is all its inner letters, without its two ends"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "everything in sacks",
-         "gives": "ACK",
-         "select": "middle",
-         "note": "the inside of SACKS, dropping the outer S and S"
+         "words": "sacks",
+         "at": 34,
+         "note": "the inner letters of sacks are ACK"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A hoarder who stuffs all their belongings into sacks.",
-     "walkthrough": "'Everything in' seems to describe what is stuffed in the sacks; it means every letter inside the word, leaving ACK.",
-     "definitionFit": "Whacko is informal for a crazy or eccentric person."
+     "surface": "A strange person hoards all his belongings in bags.",
+     "walkthrough": "'everything in' sacks is ACK, which WHO 'keeps'.",
+     "definitionFit": "Whacko is informal for crazy or odd, describing a person who behaves strangely."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "everything"
+     "misdirectedWord": "sacks"
     }
    }
   },
@@ -659,30 +677,33 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "after",
-       "note": "in its time sense, what comes later in the letter comes later in the answer"
+       "text": "given",
+       "at": 7,
+       "note": "given means added to, so the next piece follows on"
       }
      ],
      "parts": [
       {
        "words": "Parent",
+       "at": 0,
        "gives": "MUM",
-       "note": "mum = mother"
+       "note": "mum is a British word for mother, a parent"
       },
       {
        "words": "further information after signing off",
+       "at": 13,
        "gives": "PS",
-       "note": "a postscript is added after the signature"
+       "note": "PS, postscript, is extra text added after the signature of a letter"
       }
      ]
     },
     "explanation": {
-     "surface": "A parent's note excusing a sick child, with an afterthought below the signature.",
-     "walkthrough": "The surface is so domestic that 'signing off' reads as a parent signing a sick note; in wordplay the extra information after a signature is a postscript.",
-     "definitionFit": "Mumps is a viral illness most common in children."
+     "surface": "A mother adds a postscript to her letter about her child being ill.",
+     "walkthrough": "A PS is what one writes after signing a letter.",
+     "definitionFit": "Mumps is a viral infection causing swollen glands, once common among schoolchildren."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false
     }
    }
@@ -831,50 +852,51 @@
    "annotation": {
     "definitions": [
      {
-      "text": "be dismissed",
-      "at": 32
+      "text": "to be dismissed",
+      "at": 29
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STRIKEOUT",
+     "op": "container",
      "indicators": [
       {
-       "text": "ordered",
-       "note": "KEIR's letters are put in a new order"
+       "text": "nurses",
+       "at": 9,
+       "note": "nurses means holds carefully, so the first word holds the rest inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Resolute",
+       "at": 0,
+       "gives": "STOUT",
+       "note": "stout means brave and resolute"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "nurses"
+         "text": "ordered",
+         "at": 21,
+         "note": "ordered means arranged, so the letters of Keir are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Resolute",
-         "gives": "STOUT",
-         "note": "stout = staunch, resolute"
-        },
-        {
-         "words": "Keir ordered",
-         "gives": "RIKE",
-         "note": "KEIR rearranged"
+         "words": "Keir",
+         "at": 16
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Nurses on strike vowing to stand firm while Keir Starmer orders them to be sacked.",
-     "walkthrough": "The industrial-dispute picture sets up 'strike', but the answer is the baseball term: a batter who strikes out is out.",
-     "definitionFit": "In baseball a batter who strikes out is dismissed after three strikes."
+     "surface": "A determined Keir Starmer looks after his nurses, while some are told to go.",
+     "walkthrough": "'ordered' turns KEIR into RIKE, which STOUT 'nurses'.",
+     "definitionFit": "In baseball a batter strikes out when given three strikes and is dismissed from batting."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "nurses"
     }
@@ -1224,46 +1246,47 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "on the outside",
-       "note": "only the outer letters of 'even'"
+       "text": "carries",
+       "at": 30,
+       "note": "carries here means takes along with it, so the newspaper and its partner come after the nothing they bring"
       }
      ],
      "parts": [
       {
        "words": "nothing",
+       "at": 38,
        "gives": "O",
-       "note": "O = zero"
+       "note": "O, the figure zero, means nothing"
       },
       {
        "words": "Newspaper",
+       "at": 0,
        "gives": "FT",
-       "note": "the Financial Times"
+       "note": "FT is the Financial Times, a British newspaper"
       },
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "EN",
        "indicators": [
         {
-         "text": "carries"
+         "text": "on the outside",
+         "at": 15,
+         "note": "on the outside means only the outermost letters are kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "even on the outside",
-         "gives": "EN",
-         "select": "outer",
-         "note": "first and last letters of even"
+         "words": "even",
+         "at": 10,
+         "note": "the first and last letters of even are EN"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper whose front page carries hardly any news.",
-     "walkthrough": "'Much' is the definition in the sense of 'Do you go there much?', meaning often.",
-     "definitionFit": "Doing something much, as in 'I don't go out much', means doing it often."
+     "surface": "A newspaper, even on its cover, carries hardly anything of interest.",
+     "walkthrough": "'on the outside' takes the ends of EVEN. 'much' works as an adverb: 'do you go there much?'",
+     "definitionFit": "Asking if someone does something much is asking whether they do it frequently."
     },
     "features": {
      "answerInScene": false,
@@ -1450,41 +1473,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Maybe"
+       "text": "dividing",
+       "at": 26,
+       "note": "dividing means splitting apart, so the following letters go inside"
       }
      ],
      "parts": [
       {
        "words": "stock",
+       "at": 35,
        "gives": "TRITE",
-       "note": "a stock phrase is a trite one"
+       "note": "a stock phrase is trite, overused"
       },
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "dividing"
-        }
-       ],
        "parts": [
         {
          "words": "Maybe copyright",
+         "at": 0,
          "gives": "IP",
-         "note": "intellectual property, of which copyright is one kind"
+         "note": "copyright is one example of IP, intellectual property, hence the Maybe"
         },
         {
          "words": "pictures",
+         "at": 16,
          "gives": "ART",
-         "note": "pictures = art"
+         "note": "pictures are art"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An artist's copyrighted images being shared out among three shareholders.",
-     "walkthrough": "'Stock' tempts as shares being divided; it is the adjective, as in a stock phrase. Copyright is a kind of intellectual property.",
-     "definitionFit": "Tripartite means in three parts, or involving three parties."
+     "surface": "Copyright images split company shares three ways.",
+     "walkthrough": "'Maybe' marks copyright as one example of IP; IPART is 'dividing' TRITE.",
+     "definitionFit": "Tripartite means made of or divided into three parts, as in a three-party agreement."
     },
     "features": {
      "answerInScene": false,
@@ -1570,41 +1593,28 @@
      "op": "charade",
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
+       "words": "both sides of high",
+       "at": 5,
        "gives": "HANDH",
-       "indicators": [
-        {
-         "text": "both sides of",
-         "note": "the two outside letters of 'high', H and H, joined by AND"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "both sides of high",
-         "gives": "HANDH",
-         "select": "outer",
-         "note": "H and H, the ends of high, written out with AND"
-        }
-       ]
+       "note": "high has H on one side and H on the other, read as H and H"
       },
       {
        "words": "antique",
+       "at": 24,
        "gives": "OLD",
-       "note": "antique = old"
+       "note": "antique means old"
       }
      ]
     },
     "explanation": {
-     "surface": "Grabbing a tall antique by both sides to lift it.",
-     "walkthrough": "'Both sides' spells itself out: the side letters H and H, with the word AND between them.",
-     "definitionFit": "A handhold is something to grip, especially when climbing."
+     "surface": "Hold an old artefact firmly at either end of the top.",
+     "walkthrough": "'both sides of high' is read literally: H AND H.",
+     "definitionFit": "A handhold is a place to grip, such as a ledge or knob on a climbing wall."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "both"
+     "misdirectedWord": "antique"
     }
    }
   }
