@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-fable-5"
+  "claude-fable-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -876,40 +877,71 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "LAUGHLINE",
-     "indicators": [
-      {
-       "text": "covering"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Conducted lessons",
-       "gives": "TAUGHT",
-       "note": "to conduct lessons is to teach"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "covering tenses",
+         "at": 44,
+         "note": "tense is abbreviated T, and covering means the student letter replaces the remaining tense letter too"
+        }
+       ],
+       "parts": [
+        {
+         "op": "substitution",
+         "indicators": [
+          {
+           "text": "with students",
+           "at": 30,
+           "note": "a student is L, for learner, and the first tense letter is covered over by one"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Conducted lessons",
+           "at": 0,
+           "gives": "TAUGHT",
+           "note": "someone who conducted lessons taught"
+          },
+          {
+           "gives": "T"
+          },
+          {
+           "gives": "L"
+          }
+         ]
+        },
+        {
+         "gives": "T"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       },
       {
-       "words": "in English",
-       "gives": "INE",
-       "note": "IN plus E for English"
+       "words": "in",
+       "at": 18,
+       "note": "taken as written"
       },
       {
-       "words": "students",
-       "gives": "LL",
-       "note": "two learner-plate Ls"
-      },
-      {
-       "words": "tenses",
-       "gives": "TT",
-       "note": "T = tense; both Ts of TAUGHT-IN-E get covered"
+       "words": "English",
+       "at": 21,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Covering' as in covering someone's shift: the student Ls stand in for the two tense Ts of TAUGHT IN E, and the wrinkle appears.",
-     "definitionFit": "A laugh line is both a scripted joke meant to raise a smile and the wrinkle smiling leaves by your eyes — the definition covers either sense."
+     "surface": "A teacher ran English classes in which the pupils dealt with verb tenses.",
+     "walkthrough": "'with students covering tenses' swaps each T of TAUGHT for L, first LAUGHT and then LAUGHL; IN and E follow. L for a learner comes from the L-plate on a learner driver's car.",
+     "definitionFit": "A laugh line is a wrinkle at the corner of the eye or mouth, which shows when a person grins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "students"
     }
    }
   },
@@ -1384,22 +1416,20 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "cutting"
-      }
-     ],
      "parts": [
       {
        "words": "state",
+       "at": 8,
        "gives": "PUT",
-       "note": "to state a case is to put it"
+       "note": "to put something is to state it, as in to put it plainly"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "maybe"
+         "text": "back",
+         "at": 36,
+         "note": "back means the deer word with if inside is read in reverse"
         }
        ],
        "parts": [
@@ -1407,18 +1437,23 @@
          "op": "container",
          "indicators": [
           {
-           "text": "back"
+           "text": "cutting",
+           "at": 28,
+           "note": "cutting means the word if slices into the middle of the deer word"
           }
          ],
          "parts": [
           {
            "words": "maybe does",
+           "at": 14,
            "gives": "DEER",
-           "note": "does are deer — 'maybe' flags the definition by example"
+           "note": "does, female deer, are an example of deer, as maybe signals"
           },
           {
            "words": "if",
-           "note": "cuts into DEER before everything reverses"
+           "at": 25,
+           "gives": "IF",
+           "note": "taken as written"
           }
          ]
         }
@@ -1427,8 +1462,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "'Maybe' flags does as one example of DEER. IF cuts in, the whole DEIFER assembly reverses, and PUT — to state a case is to put it — leads off.",
-     "definitionFit": "Putrefied flesh is corrupt in the word's oldest sense — rotted, decayed — not the bribery the surface implies."
+     "surface": "A rotten government would perhaps act if it were making cuts in spending.",
+     "walkthrough": "'cutting' puts IF into DEER to make DEIFER, and 'back' reverses that to REFIED after PUT. Does are female deer, which 'maybe' flags.",
+     "definitionFit": "Putrefied means rotten or decayed, which is what corrupt means in its older physical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "does"
     }
    }
   },
