@@ -498,6 +498,12 @@ pool_launch() {
   # a conversation already under way is left to finish.
   [ "$WAVE_WHAT" = Annotate ] && [ ! -s "$RUNS/$id.sid" ] && [ "$DRY_RUN" != 1 ] &&
     worker_implausible "$id" && return 1
+  # A puzzle already hinted whole, with nothing missing and nothing on the
+  # shape list (a stale queue entry: the plan was read before its rows were
+  # pruned), would be rewritten whole by annotate_check.to_write's None. Skip.
+  [ "$WAVE_WHAT" = Annotate ] && [ ! -s "$RUNS/$id.sid" ] && [ ! -s "/tmp/ct-prereset-$id.resume" ] &&
+    [ "$DRY_RUN" != 1 ] && python3 tools/annotate_check.py --nothing-due "$id" &&
+    { echo "  [$id] skipped: already fully hinted and nothing is due on it"; return 1; }
   wait_us=$(( POOL_LAUNCHED_US + POOL_LAUNCH_GAP_US - ${EPOCHREALTIME/[.,]/} ))
   [ "$wait_us" -gt 0 ] && sleep "$(printf '%d.%06d' $((wait_us / 1000000)) $((wait_us % 1000000)))"
   local again=""

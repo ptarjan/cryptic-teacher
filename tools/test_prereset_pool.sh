@@ -121,7 +121,8 @@ python3() {
     tools/apply_solution.py) echo "applied $2 $*" >>"$EVENTS" ;;
     tools/provenance.py) echo "Trailer: x" ;;
     tools/solve_misses.py) [ "$2" = keep-log ] ;;
-    tools/annotate_check.py) echo "hints $2" >>"$EVENTS" ;;
+    tools/annotate_check.py) [ "$2" = --nothing-due ] && return "${NOTHING_DUE_RC:-1}"
+      echo "hints $2" >>"$EVENTS" ;;
     tools/own_rows.py) : ;;
     tools/clues_only.py) return 1 ;;   # implausible: no clue list here is
     *) echo "unexpected python3 $*" >&2; return 1 ;;
@@ -371,6 +372,7 @@ python3() {
   case "$1" in
     tools/puzzle_paths.py) echo "puzzles/x/$2.json" ;;
     tools/weekly_usage.py) echo 10 ;;
+    tools/annotate_check.py) return 1 ;;   # --nothing-due: there is work
     *) echo "ALERT unexpected python3 $*" >>"$EVENTS"; return 1 ;;
   esac
 }

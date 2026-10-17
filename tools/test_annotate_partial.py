@@ -126,8 +126,22 @@ try:
           == ["3-across", "5-across"])
     check("a fetched puzzle's blank clue is not",
           AC.to_write({"source": {"retrievedFrom": "api"}, "entries": copy.deepcopy(ents)}, []) == ["5-across"])
+    # The burn must not rewrite a fully hinted puzzle with nothing due (azed-2573,
+    # b5320ba868): to_write says None (whole) for it, nothing_due says skip.
+    done = [entry(1, "Fine words", {"x": 1}), entry(5, "Late ones", {"x": 2})]
+    api = {"source": {"retrievedFrom": "api"}}
+    check("a fully hinted puzzle with nothing listed has nothing due",
+          AC.nothing_due({**api, "entries": copy.deepcopy(done)}))
+    check("a puzzle missing a hint has work",
+          not AC.nothing_due({**api, "entries": copy.deepcopy(done) + [entry(7, "More")]}))
+    check("a puzzle with no hints at all has work",
+          not AC.nothing_due({**api, "entries": [entry(1, "Fine words"), entry(5, "Late ones")]}))
+    real_flagged, AC.shape_queue.flagged = AC.shape_queue.flagged, lambda p: {"5-across": "why"}
+    check("a clue on the shape list is due",
+          not AC.nothing_due({**api, "entries": copy.deepcopy(done)}))
+    AC.shape_queue.flagged = real_flagged
     pid = "times-1"
-    F.SOURCE_CLUE_WRONG[(pid, "3-across")] = ("", "Restored from the scan", "Scan reads: Restored from the scan (5)")
+    F.SOURCE_CLUE_WRONG[(pid, "3-across")] = ("","Restored from the scan", "Scan reads: Restored from the scan (5)")
     check("a blank clue takes a row whose served text is empty",
           F.source_clue(pid, "3-across", "") == "Restored from the scan")
     check("and a served clue keeps its text against that row",
