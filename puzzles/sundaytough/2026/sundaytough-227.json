@@ -679,46 +679,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "taken periodically",
-       "note": "something taken periodically is taken at regular intervals, so every other letter is used"
+       "text": "stops",
+       "at": 26,
+       "note": "the letters plug a gap inside the word for sickness, as a stopper does"
       }
      ],
      "parts": [
       {
        "words": "sickness",
+       "at": 32,
        "gives": "DISEASE",
-       "note": "sickness = disease"
+       "note": "disease is illness or sickness"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "PL",
        "indicators": [
         {
-         "text": "stops",
-         "note": "the letters plug the gap inside the word, like a stopper"
+         "text": "taken periodically",
+         "at": 6,
+         "note": "taking letters periodically means taking every other one, here the first and third"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Pill, taken periodically",
-         "gives": "PL",
-         "select": "alternate",
-         "note": "the odd letters of PiLl"
+         "words": "Pill",
+         "at": 0,
+         "note": "the word whose alternate letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pill taken at regular intervals halts the illness caused by a bug.",
-     "walkthrough": "'Bug' in the medical surface is a germ; as the definition it is the verb meaning annoy. 'Stops' means stops up, plugging the gap in the illness.",
-     "definitionFit": "'Bug' is informal for annoy, so it matches displease as a verb; the medical surface uses the germ sense instead."
+     "surface": "A tablet, taken at regular intervals, halts an illness caused by a germ.",
+     "walkthrough": "The surface makes 'bug' a germ and 'stops' a cure; in fact 'bug' is the verb to annoy, and 'stops' means fills a hole in DISEASE.",
+     "definitionFit": "To bug someone is to irritate or annoy them, which is what it means to displease them."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "bug"
     }
