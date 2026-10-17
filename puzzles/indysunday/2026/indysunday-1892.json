@@ -398,40 +398,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SCARECROW",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 17,
+       "note": "in means placed inside, so the welfare word goes within the reversed county letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "Welfare that goes 'in' a county sits inside it rather than beside it, so the county's letters open up and close again around it."
-        },
-        {
          "text": "going up",
-         "note": "This is a down entry, so a name going up is read from the bottom of the grid towards the top."
+         "at": 35,
+         "note": "going up, in a down clue, means read from the bottom upward, so the county abbreviation is reversed"
         }
        ],
        "parts": [
         {
          "words": "Worcestershire",
-         "gives": "SCROW",
-         "note": "Worcestershire is an English county and WORCS is its standard short form, seen on envelopes and road signs; here it climbs the grid"
-        },
-        {
-         "words": "Welfare services",
-         "gives": "CARE",
-         "note": "welfare services are care — social care, care in the community"
+         "at": 20,
+         "gives": "WORCS",
+         "note": "Worcs is the standard abbreviation for the English county of Worcestershire"
         }
        ]
+      },
+      {
+       "words": "Welfare services",
+       "at": 0,
+       "gives": "CARE",
+       "note": "care is the provision of welfare services, as in social care"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface reads as a news item about council funding, so not one word of it looks like an instruction. The county abbreviation is the piece a solver outside Britain has to be told.",
-     "definitionFit": "an alarming figure → SCARECROW: it is a figure standing in a field whose entire job is to alarm birds, so both words of the definition are literal."
+     "surface": "A report that welfare spending in an English county is rising, which some find alarming.",
+     "walkthrough": "Worcestershire is a county in the English Midlands. In this down clue 'going up' reads its abbreviation from the bottom, giving SCROW, and 'in' sets the welfare word just after its first letter.",
+     "definitionFit": "A scarecrow is a dummy set up in a field to frighten birds away, so its figure is meant to alarm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "alarming"
     }
    }
   },
@@ -1318,36 +1328,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MANIOC",
-     "indicators": [
-      {
-       "text": "brought back",
-       "note": "This is an across entry, so a piece brought back is read from right to left and arrives with its letters in reverse."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Mother",
+       "at": 0,
+       "gives": "MA",
+       "note": "ma is an informal word for mother"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "brought back",
+         "at": 22,
+         "note": "brought back means returned the way it came, so the word for 50p is read from right to left"
+        }
+       ],
        "parts": [
         {
-         "words": "Mother",
-         "gives": "MA",
-         "note": "ma = mother, the nursery word"
-        },
-        {
          "words": "50p, say",
-         "gives": "NIOC",
-         "note": "a 50p piece, the British fifty-pence, is one example of a coin — and here it is turned round"
+         "at": 12,
+         "gives": "COIN",
+         "note": "a 50p piece is an example of a British coin, the 'say' marking the example"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Say' is the setter flagging an example rather than a synonym: the value is irrelevant, all that matters is that it names a coin.",
-     "definitionFit": "root vegetable → MANIOC: manioc is cassava, the starchy tropical root that tapioca is made from, so it is a root vegetable in the plainest sense."
+     "surface": "Mum hands over fifty pence and comes home with a root vegetable.",
+     "walkthrough": "'with' joins MA to the next piece, and 'brought back' turns COIN into NIOC.",
+     "definitionFit": "Manioc is another name for cassava, a starchy tropical tuber eaten like a potato."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brought"
     }
    }
   },
