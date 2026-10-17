@@ -100,37 +100,36 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LESOTHO",
-     "indicators": [
-      {
-       "text": "out",
-       "note": "something out of place or out of order is disarranged, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "out",
+         "at": 5,
+         "note": "out here means put out of place, so the letters of lose are disordered"
+        }
+       ],
        "parts": [
         {
          "words": "Lose",
-         "gives": "LESO",
-         "note": "the four letters of lose rearranged"
-        },
-        {
-         "words": "but",
-         "gives": "THO",
-         "note": "tho is the informal spelling of though, which can mean but"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "but",
+       "at": 10,
+       "gives": "THO",
+       "note": "tho is an informal spelling of though, which can mean but"
       }
      ]
     },
     "explanation": {
-     "surface": "A team loses out, but plays on for its country.",
-     "walkthrough": "'Lose out' reads as a phrase meaning to miss out; 'out' alone is the anagram signal. LESOTHO is a small kingdom entirely surrounded by South Africa.",
-     "definitionFit": "Lesotho is a landlocked nation in southern Africa, an example of a country."
+     "surface": "Someone told they will lose out, except for one nation.",
+     "walkthrough": "'but' gives THO, the informal spelling of though; 'for' just links the wordplay to the definition at the end.",
+     "definitionFit": "Lesotho is a small kingdom in southern Africa, entirely surrounded by South Africa."
     },
     "features": {
      "answerInScene": false,
@@ -719,56 +718,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FORTIETH",
+     "op": "container",
      "indicators": [
       {
-       "text": "has become wobbly",
-       "note": "something wobbly is unsteady and out of shape, so the letters are jumbled"
+       "text": "held in",
+       "at": 70,
+       "note": "held in means kept inside, so that letter goes within the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "held in",
-         "note": "something held in sits inside something else, so a letter goes within"
+         "text": "has become wobbly",
+         "at": 35,
+         "note": "something that has become wobbly is unsteady and shaken up, so the letters of fit hero are rearranged"
         }
        ],
        "parts": [
         {
          "words": "fit hero",
-         "gives": "FORIETH",
-         "note": "the letters of fit hero rearranged"
-        },
+         "at": 26
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially points to the beginning, so only the opening letter is taken"
-          }
-         ],
-         "parts": [
-          {
-           "words": "tummy",
-           "note": "the first letter of tummy"
-          }
-         ]
+         "text": "initially",
+         "at": 60,
+         "note": "initially means at the start, so take the first letter of tummy"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tummy",
+         "at": 54,
+         "note": "the first letter of tummy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A once-fit hero reaches a milestone birthday, wobbly now, holding his tummy in.",
-     "definitionFit": "A fortieth is a notable birthday that marks turning forty, so it is one particular birthday."
+     "surface": "A once-fit hero has gone flabby by a milestone birthday, sucking his tummy in.",
+     "walkthrough": "'has become wobbly' signals a fresh order for FIT HERO, and 'initially' takes just the first letter of tummy, which 'held in' places inside: the surface's flabby belly is pure decoration.",
+     "definitionFit": "A fortieth is the birthday marking forty years of age, a milestone often celebrated specially."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "wobbly"
     }
    }
