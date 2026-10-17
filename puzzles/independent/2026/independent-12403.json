@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -199,44 +200,45 @@
      "indicators": [
       {
        "text": "somehow",
-       "note": "the word declines to say by what process the change happens, and an unspecified process is licence to put the letters in any order"
+       "at": 11,
+       "note": "somehow suggests the letters get there by some unstated route, so they are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "canine",
+       "at": 4,
+       "note": "taken as written as anagram fodder"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
          "text": "beginning to",
-         "note": "what a word is beginning to do it does with its opening letter, and that single letter is all this hands over"
+         "at": 19,
+         "note": "the beginning of a word is its first letter, so only the start of talk is used"
         }
        ],
        "parts": [
         {
-         "words": "canine",
-         "note": "six letters of fodder, taken straight from the clue"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "T",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "beginning to talk",
-           "gives": "T",
-           "select": "first",
-           "note": "the opening letter of talk"
-          }
-         ]
+         "words": "talk",
+         "at": 32,
+         "note": "first letter of talk"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Old canine' reads as one phrase about somebody's grey-muzzled dog; the parse cuts between the two words and keeps only the first for the definition.",
-     "definitionFit": "Old -> ANCIENT: the far end of old, used of civilisations and objects rather than of how many years a person has."
+     "surface": "An elderly dog is, against the odds, starting to speak.",
+     "walkthrough": "The surface makes 'canine' the dog in the picture, but it is fodder: 'beginning to' takes T from talk, and the indicator after canine mixes those six letters plus T.",
+     "definitionFit": "Ancient means very old, of great age, a plain synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "canine"
     }
    }
   },
@@ -264,46 +266,56 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "what a word is initially is the letter it starts with, and the rest of 'lowered' never appears"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Temperature",
-         "note": "T is the standard symbol for temperature, on a dial or in a formula"
-        }
-       ]
+       "words": "Temperature",
+       "at": 0,
+       "gives": "T"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "in",
-         "note": "a letter placed in a word goes among its letters instead of before or after them"
+         "at": 30,
+         "note": "one piece is placed inside another"
         }
        ],
        "parts": [
         {
          "words": "America's",
+         "at": 33,
          "gives": "USA",
-         "note": "the country in its three-letter form, which opens up after the first letter"
+         "note": "USA is the abbreviation for the United States of America"
         },
         {
-         "words": "lowered initially",
-         "gives": "L",
-         "note": "the opening letter of lowered"
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 20,
+           "note": "initially means at the start, so take the first letter of lowered"
+          }
+         ],
+         "parts": [
+          {
+           "words": "lowered",
+           "at": 12,
+           "note": "first letter of lowered"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The apostrophe-s does two jobs at once: it makes the sentence read as a possessive while handing over a country whose short form is three letters.",
-     "definitionFit": "city -> TULSA: the second city of Oklahoma, on the Arkansas River, once billed as the oil capital of the world."
+     "surface": "The thermometer readings dropped early on in an American city.",
+     "walkthrough": "'Initially' takes L from 'lowered', and 'in' sets it inside USA to give ULSA, which follows T.",
+     "definitionFit": "Tulsa is a city in Oklahoma, in the United States."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lowered"
     }
    }
   },
@@ -384,36 +396,47 @@
      "op": "container",
      "indicators": [
       {
-       "text": "outside",
-       "note": "what lies outside a word is its two end letters, the pair everything else sits between"
+       "text": "drawn into",
+       "at": 16,
+       "note": "something drawn into another is pulled inside it"
       }
      ],
      "parts": [
       {
        "words": "coach",
+       "at": 27,
        "gives": "TRAIN",
-       "note": "a coach is a railway carriage, and the whole five-letter word parts after three"
+       "note": "a coach is a railway carriage, and a train is a set of them; in Britain coach also means train-like transport"
       },
       {
        "op": "outer",
        "indicators": [
         {
-         "text": "drawn into",
-         "note": "a piece drawn into something finishes up inside it, between the letters rather than beside them"
+         "text": "outside",
+         "at": 8,
+         "note": "the outside of a word is its first and last letters"
         }
        ],
        "parts": [
         {
-         "words": "Drake's outside",
-         "note": "the first and last letters of the word for a male duck"
+         "words": "Drake's",
+         "at": 0,
+         "gives": "DRAKE",
+         "note": "the name Drake, in its possessive form, whose letters are then trimmed"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Drake wants to be Sir Francis, or the rapper, or a first name at least; here it is only the male duck, and only its two ends.",
-     "definitionFit": "deal -> TRADE-IN: the arrangement where the old car is handed over as part of the price of the new one."
+     "surface": "A rapper's exterior has been sketched into a business arrangement over a coach.",
+     "walkthrough": "Drake here is just a name to trim: its 'outside' is DE, which is 'drawn into' the railway word for coach.",
+     "definitionFit": "A trade-in is a deal in which an old item is handed over as part-payment for a new one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drawn"
     }
    }
   },
@@ -1273,41 +1296,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ROCKOFGIBRALTAR",
-     "indicators": [
-      {
-       "text": "move",
-       "note": "telling letters to move is telling them to leave the places they were given and settle in others"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Surprise",
+       "at": 0,
+       "gives": "ROCK",
+       "note": "to rock someone is to shock or surprise them"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "move",
+         "at": 9,
+         "note": "move here means shift around, so the letters of for big are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Surprise",
-         "gives": "ROCK",
-         "note": "news that rocks you shocks you, so the verb can mean to surprise"
-        },
-        {
          "words": "for big",
-         "gives": "OFGIBR",
-         "note": "six letters out of two small words, rearranged"
-        },
-        {
-         "words": "wedding venue",
-         "gives": "ALTAR",
-         "note": "the altar is where a couple stand to be married"
+         "at": 14
         }
        ]
+      },
+      {
+       "words": "wedding venue",
+       "at": 22,
+       "gives": "ALTAR",
+       "note": "a church wedding takes place at the altar"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The two words that look most like grammar are the fodder: 'for big' reads as filler holding the sentence together and it is the middle of the answer.",
-     "definitionFit": "European location -> ROCK OF GIBRALTAR: the limestone headland at the southern tip of Spain, British territory and a byword for solidity."
+     "surface": "A sudden decision to hold a lavish wedding somewhere on the Continent.",
+     "walkthrough": "Gibraltar is a British territory on Spain's south coast; 'Surprise' is a verb in disguise, as to rock someone is to shock them.",
+     "definitionFit": "The Rock of Gibraltar is a limestone promontory at the southern tip of Iberia, so a place in Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Surprise"
     }
    }
   },
