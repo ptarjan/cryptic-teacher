@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1019,48 +1020,65 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "charade",
      "indicators": [
       {
-       "text": "recreated",
-       "note": "something recreated is built again out of the same material in a new shape, which is what happens to these letters"
+       "text": "and",
+       "at": 45,
+       "note": "simply adds the hint of the second word after the hint of the first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "hints of",
-         "note": "a hint of a word is the smallest part of it that shows, and the smallest part of a written word is the letter it starts with"
+         "text": "recreated",
+         "at": 13,
+         "note": "the word genre is made anew, its letters put in a different order"
         }
        ],
        "parts": [
         {
          "words": "genre",
-         "note": "five letters of raw material, taken exactly as they stand"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "CY",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "cravats and yestermorns",
-           "gives": "CY",
-           "select": "first",
-           "note": "the opening letter of each of these two words joins the pile"
-          }
-         ]
+         "at": 7
         }
        ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "hints of",
+         "at": 28,
+         "note": "a hint of each word is just its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cravats",
+         "at": 37,
+         "note": "the first letter of cravats is C"
+        }
+       ]
+      },
+      {
+       "words": "yestermorns",
+       "at": 49,
+       "gives": "Y",
+       "note": "under the same 'hints of', the first letter of yestermorns is Y"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Yestermorns' is not a word anybody uses, and that is the tell: it is there to donate a letter and to let the question mark's costume-drama joke land.",
-     "definitionFit": "Period → REGENCY: a regency is the span during which one person rules for an absent monarch, and Britain names a whole era after one."
+     "surface": "A costume-drama genre brought back to life with touches of neckwear and bygone mornings.",
+     "walkthrough": "'recreated' turns GENRE into REGEN; 'hints of' takes C from cravats and Y from yestermorns, joined by 'and'. Yestermorn is an old word for yesterday morning.",
+     "definitionFit": "The Regency was the era in early 19th-century Britain when the future George IV ruled as Prince Regent, a historical period."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "genre"
     }
    }
   },
