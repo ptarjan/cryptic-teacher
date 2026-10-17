@@ -338,45 +338,46 @@
      "indicators": [
       {
        "text": "over",
-       "note": "the thong goes over the other letter, covering it"
+       "at": 29,
+       "note": "over means the garment is laid across the letter, enclosing it"
       }
      ],
      "parts": [
       {
        "words": "minimal coverage",
+       "at": 12,
        "gives": "THONG",
-       "note": "a thong is skimpy underwear or swimwear that covers very little"
+       "note": "a thong is a skimpy undergarment that covers very little"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
          "text": "end",
-         "note": "the end of a word is its last letter"
+         "at": 41,
+         "note": "end means only the last letter of the word is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "peer's end",
-         "gives": "R",
-         "select": "last",
-         "note": "last letter of peer"
+         "words": "peer's",
+         "at": 34,
+         "gives": "PEER",
+         "note": "peer's end is the end of the word peer, so the possessive just links it to end"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The newspapers barely report on the downfall of a lord.",
-     "walkthrough": "Press looks like the media, and the surface keeps it there; it means a crowd, as in the press of people.",
-     "definitionFit": "A press is a dense crowd pushing together, which is a throng."
+     "surface": "A tabloid jibe: the newspapers barely cover a lord's downfall.",
+     "walkthrough": "'Press' reads as the newspapers, but it is the definition: a crush of people. 'End' takes the R of peer's, and 'over' wraps THONG round it.",
+     "definitionFit": "A press of people is a dense crowd, and a throng is a large crowd crammed together."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Press"
     }
    }
@@ -902,52 +903,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HYPOTHESIS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gets round",
+       "at": 21,
+       "note": "gets round means the rearranged letters surround the single letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "amendment",
-         "note": "an amendment changes the wording, so the letters are rearranged"
+         "at": 11,
+         "note": "an amendment changes a text, so the letters are altered into a new order"
         }
        ],
        "parts": [
         {
          "words": "Hopes this",
-         "gives": "HPOTHESIS",
-         "note": "the letters HOPESTHIS rearranged"
-        },
+         "at": 0,
+         "note": "taken as written, before its letters are jumbled"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "gets round",
-           "note": "the rearranged letters go round the other letter"
-          },
-          {
-           "text": "final",
-           "note": "the final of a word is its last letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "party's final",
-           "gives": "PARTY",
-           "note": "last letter of party"
-          }
-         ]
+         "text": "final",
+         "at": 40,
+         "note": "final means only the last letter of the word is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "party's",
+         "at": 32,
+         "gives": "PARTY",
+         "note": "party's final is the final letter of the word party, so the possessive just links it to final"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A party hopes a change to a motion will win round opponents.",
-     "walkthrough": "The surface is a parliamentary motion being amended; amendment is the anagram signal, and the Y sits second in the answer.",
-     "definitionFit": "A hypothesis is a proposition put forward to be tested."
+     "surface": "A party hopes a parliamentary amendment will win over the final motion.",
+     "walkthrough": "'Amendment' and 'party' sound like parliamentary business, but 'amendment' rearranges HOPES THIS, and 'final' supplies the Y of party's for 'gets round' to enclose.",
+     "definitionFit": "A hypothesis is a supposition put forward for testing, which is a proposition in the logical sense."
     },
     "features": {
      "answerInScene": true,
@@ -1619,55 +1624,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EAGER",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
        "indicators": [
         {
-         "text": "right wing",
-         "note": "a word's right-hand wing is its last letter"
+         "text": "right wing's",
+         "at": 21,
+         "note": "the right wing of a written word is its last letter, at the right-hand end"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "E",
-         "indicators": [
-          {
-           "text": "unrestrained",
-           "note": "letters let loose, so they are rearranged"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Conservative right wing's",
-           "gives": "E",
-           "select": "last",
-           "note": "last letter of Conservative"
-          }
-         ]
-        },
+         "words": "Conservative",
+         "at": 8,
+         "note": "the word whose final letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unrestrained",
+         "at": 34,
+         "note": "unrestrained means let loose, so the letters run free into a new order"
+        }
+       ],
+       "parts": [
         {
          "words": "rage",
-         "gives": "AGER",
-         "note": "the letters RAGE rearranged"
+         "at": 47,
+         "note": "taken as written, before its letters are jumbled"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Passionate Tory right-wingers vent their uncontrolled anger.",
-     "walkthrough": "Conservative right wing reads as a faction of the party; it is the right-hand end of the word Conservative.",
-     "definitionFit": "Fervent and eager both mean keen and enthusiastic."
+     "surface": "A Tory right-winger seethes with uncontrolled anger.",
+     "walkthrough": "'Conservative right wing' looks like C plus R for right, but 'right wing's' means the far right end of the word Conservative, its E. 'Unrestrained' rearranges RAGE to AGER.",
+     "definitionFit": "Someone eager is keen and full of enthusiasm, which is what fervent means."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "wing's"
     }
