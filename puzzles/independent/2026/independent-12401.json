@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -39,61 +40,53 @@
     "definitions": [
      {
       "text": "book",
-      "at": 39,
-      "note": "The answer is the title of one single New Testament letter, so the setter is entitled to define an S-ending answer with the singular 'book'."
+      "at": 39
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ROMANS",
+     "indicators": [
+      {
+       "text": "depicted in",
+       "at": 8,
+       "note": "the country is pictured inside the jacket letters, so it goes between them"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
        "indicators": [
         {
-         "text": "depicted in",
-         "note": "A scene depicted in a frame sits inside it, so the country's letters go within the pair either side."
+         "text": "jacket of",
+         "at": 20,
+         "note": "a jacket is the outer layer, so only the first and last letters of Rabelais are kept"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "R",
-         "indicators": [
-          {
-           "text": "jacket of",
-           "note": "A jacket is worn on the outside, so all the clue keeps of the novelist's name is its first and last letter."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "jacket of Rabelais",
-           "gives": "R",
-           "select": "outer",
-           "note": "the front of RABELAIS, the outside letter it opens with"
-          }
-         ]
-        },
-        {
-         "words": "Country",
-         "gives": "OMAN",
-         "note": "the Arabian state on the Gulf, a favourite short country in wordplay"
-        },
-        {
-         "words": "jacket of Rabelais",
-         "gives": "S",
-         "note": "and the back of the same name, closing the wrapper"
+         "words": "Rabelais",
+         "at": 30,
+         "note": "the word whose outside letters are taken"
         }
        ]
+      },
+      {
+       "words": "Country",
+       "at": 0,
+       "gives": "OMAN",
+       "note": "Oman is a country on the Arabian peninsula"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Rabelais is there because a French novelist gives you a plausible book jacket, and the clue only ever wants the letters at his edges. The definition is biblical, not literary.",
-     "definitionFit": "'Book' is meant in the biblical sense: the epistle Paul sent to the Christians of Rome is one of the books of the New Testament."
+     "surface": "A country is illustrated on the dust jacket of a Rabelais volume.",
+     "walkthrough": "'jacket of' gives RS, the outside of Rabelais, and OMAN is 'depicted in' it. Romans is a book of the New Testament, Paul's letter to the church in Rome.",
+     "definitionFit": "Romans is the Epistle to the Romans, one of the books of the Bible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
     }
    }
   },
@@ -118,52 +111,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BEATIFIC",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gulps",
+       "at": 7,
+       "note": "the pen swallows the other letters, so they go inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "BEATIFIC",
+       "words": "Writer",
+       "at": 0,
+       "gives": "BIC",
+       "note": "a Bic is a ballpoint pen, a writer"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "gulps",
-           "note": "To gulp something down is to take it right inside you, and that is where the shuffled letters end up."
-          },
-          {
            "text": "high",
-           "note": "Someone high is off their head and unsteady, so what they hand over will not stay in the order it was given."
+           "at": 13,
+           "note": "high as in intoxicated, so the letters of tea are scrambled"
           }
          ],
          "parts": [
           {
-           "words": "Writer",
-           "gives": "B",
-           "note": "the writer is a pen, and BIC is the everyday ballpoint brand; this is its first letter"
-          },
-          {
-           "words": "tea if",
-           "gives": "EATIF",
-           "note": "the five letters of those two words, rearranged"
-          },
-          {
-           "words": "Writer",
-           "gives": "IC",
-           "note": "the rest of the same brand name, closing round"
+           "words": "tea",
+           "at": 18,
+           "note": "the word whose letters are rearranged"
           }
          ]
+        },
+        {
+         "words": "if",
+         "at": 22,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Writer' is a pen rather than an author, which is standard crossword shorthand. The surface has someone bolting their tea, so nothing in it reads as an instruction to swallow letters.",
-     "definitionFit": "The answer is the church's word for the radiant calm of the blessed, and 'blissful' is its everyday equivalent as an adjective."
+     "surface": "A writer greedily swallows a high tea, if happy enough.",
+     "walkthrough": "'high' scrambles TEA into EAT, and with IF that is what BIC, the pen, 'gulps'. High tea is a British early-evening meal, which is why 'high' slips past as part of it.",
+     "definitionFit": "Beatific describes a look of serene, saintly joy, so it is close to blissful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "high"
     }
    }
   },
@@ -433,70 +433,64 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ONE",
+     "indicators": [
+      {
+       "text": "put",
+       "at": 2,
+       "note": "the setter tells us to place one piece somewhere, here in the middle letters"
+      },
+      {
+       "text": "in",
+       "at": 26,
+       "note": "the end letter goes inside the pair taken from poem"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
        "indicators": [
         {
-         "text": "the end of",
-         "note": "It asks for the final letter of the name that follows, not for the name itself."
+         "text": "the middle of",
+         "at": 29,
+         "note": "the middle letters of poem, dropping its first and last"
         }
        ],
        "parts": [
         {
-         "words": "the middle of poem",
-         "gives": "O",
-         "note": "the first of the two central letters of POEM"
-        },
+         "words": "poem",
+         "at": 43,
+         "note": "the word whose central letters are taken"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "N",
-         "indicators": [
-          {
-           "text": "in",
-           "note": "This is the container instruction: what was just picked out is dropped inside what comes next."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "the end of Endymion",
-           "gives": "N",
-           "select": "last",
-           "note": "the last letter of Keats's long poem"
-          }
-         ]
-        },
+         "text": "the end of",
+         "at": 6,
+         "note": "only the last letter of Endymion is used"
+        }
+       ],
+       "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "E",
-         "indicators": [
-          {
-           "text": "the middle of",
-           "note": "A four-letter word has a two-letter core, and the middle is what is left once the outside pair is stripped away."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "the middle of poem",
-           "gives": "E",
-           "select": "middle",
-           "note": "the second central letter of POEM, closing round"
-          }
-         ]
+         "words": "Endymion",
+         "at": 17,
+         "note": "Keats's long poem, here only supplying its last letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Endymion is itself a poem, so the two nouns look like one idea; they are separate jobs, one supplying a single letter and one supplying a pair.",
-     "definitionFit": "The 'I' is a Roman numeral rather than the pronoun the surface offers, and that numeral is the number the answer spells out in letters."
+     "surface": "A poet sets the closing part of Endymion, Keats's poem, at the centre of a new work.",
+     "walkthrough": "'the end of' Endymion is N; 'the middle of' poem is OE; N is 'put in' between them. 'I' is the Roman numeral for one.",
+     "definitionFit": "I is the Roman numeral for the number one, as well as a pronoun meaning oneself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "I"
     }
    }
   },
@@ -619,54 +613,58 @@
    "annotation": {
     "definitions": [
      {
-      "text": "of insurance workers",
+      "text": "of insurance workers?",
       "at": 34
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ACTUARIAL",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Do",
+       "at": 0,
+       "gives": "ACT",
+       "note": "to do a part is to act it"
+      },
+      {
+       "words": "you briefly",
+       "at": 3,
+       "gives": "U",
+       "note": "U is the short texting form of you"
+      },
+      {
+       "words": "a",
+       "at": 20
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "briefly",
-         "note": "The pronoun is cut to the single letter texters write instead of being spelled out."
-        },
-        {
          "text": "western",
-         "note": "West is the left-hand end of an across entry, so the den's letters run back that way."
+         "at": 22,
+         "note": "in an across clue a western route runs right to left, so den is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "Do",
-         "gives": "ACT",
-         "note": "to do something is to act"
-        },
-        {
-         "words": "you",
-         "gives": "U",
-         "note": "U is 'you' as a text message writes it"
-        },
-        {
-         "words": "a",
-         "note": "the indefinite article taken as read"
-        },
-        {
          "words": "den",
-         "gives": "RIAL",
-         "note": "an animal's den is a LAIR, and here it runs backwards"
+         "at": 30,
+         "gives": "LAIR",
+         "note": "a lair is an animal's den"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The question mark flags a definition by relation: the answer describes what these workers do rather than naming them. Four chunks in a row makes it a long charade with only one turned piece.",
-     "definitionFit": "Actuaries are the statisticians insurers employ to price risk, and the answer is the adjective for anything belonging to them — tables, exams, calculations."
+     "surface": "An invitation to join a gang of insurance clerks in their lair out West.",
+     "walkthrough": "'Do' is the verb act, as in doing a part; 'western' means read right to left, the way one travels west on a map, so the den runs backwards.",
+     "definitionFit": "Actuaries are the statisticians who calculate insurance risks, and actuarial is the adjective for their work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "western"
     }
    }
   },
@@ -876,41 +874,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "COTOPAXI",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "removed from",
+       "at": 18,
+       "note": "the sulphur letter is taken out of the fodder before it is rearranged"
+      },
+      {
+       "text": "bubbling",
+       "at": 31,
+       "note": "a bubbling mixture is stirred up, so the remaining letters are rearranged"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "COTOPAXI",
-       "indicators": [
-        {
-         "text": "removed from",
-         "note": "It takes the chemical symbol just named out of the letters that follow, before anything is rearranged."
-        },
-        {
-         "text": "bubbling",
-         "note": "A bubbling pot churns its contents round and round, so the letters come out in a different order."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "words": "sulphur",
-         "gives": "S",
-         "note": "S is the chemical symbol for sulphur, and this is the letter that goes"
+         "words": "toxic",
+         "at": 40,
+         "note": "taken as written"
         },
         {
-         "words": "toxic soap",
-         "note": "nine letters of fodder, one of which the line above takes away"
+         "words": "soap",
+         "at": 46,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "sulphur",
+       "at": 10,
+       "gives": "S",
+       "note": "S is the chemical symbol for sulphur"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A soap that bubbles is a fair surface for a volcano, and the removal is signposted before the shuffle rather than after. Cotopaxi is the snow-capped cone above Quito in Ecuador.",
-     "definitionFit": "The definition is the bare category: this is one of the Andes' active peaks, so 'Volcano' points at it as an example of the type."
+     "surface": "A volcano's sulphur has been taken out of a fizzing poisonous soap.",
+     "walkthrough": "'removed from' takes the S out of TOXIC SOAP, leaving TOXICOAP, and 'bubbling' rearranges those eight letters. Cotopaxi is an active volcano in the Andes of Ecuador.",
+     "definitionFit": "Cotopaxi is one of the highest active volcanoes in the world, in Ecuador."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bubbling"
     }
    }
   },
@@ -942,51 +951,52 @@
        "indicators": [
         {
          "text": "Wings quit",
-         "note": "Wings are the outermost parts of a bird or an army, so the letter at each end of the word walks off."
+         "at": 0,
+         "note": "the wings are the outside letters, so each of fancy and show loses its first and last"
         }
        ],
        "parts": [
         {
          "words": "fancy",
-         "note": "that five-letter word without its outside pair"
+         "at": 11,
+         "note": "the first word to lose its wings, its outside letters"
         }
        ]
       },
       {
-       "op": "outer",
-       "unchecked": true,
+       "words": "show",
+       "at": 17,
        "gives": "HO",
+       "note": "the same wing-clipping instruction applies to show as well, which loses S and W to leave its inner pair"
+      },
+      {
+       "op": "outer",
        "indicators": [
         {
          "text": "covers from",
-         "note": "A book's covers are its front and back, so only the first and last letter of the name is taken."
+         "at": 27,
+         "note": "covers are the outside, so the first and last letters of Vanity"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "show",
-         "gives": "HO",
-         "select": "outer",
-         "note": "the same treatment again, leaving the two letters in the middle"
+         "words": "Vanity",
+         "at": 39,
+         "note": "the word whose outer letters are taken"
         }
        ]
-      },
-      {
-       "words": "Vanity",
-       "gives": "V",
-       "note": "the front cover of the magazine title"
-      },
-      {
-       "words": "Vanity",
-       "gives": "Y",
-       "note": "and its back cover"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Wings and covers are two ways of saying the outside of a word, and both are doing that job here. 'Fish' reads as more of the magazine surface, and that is exactly where the definition sits.",
-     "definitionFit": "'Fish' is the bare category, so the answer is one small salty example of it and the enumeration does the narrowing."
+     "surface": "Someone flew off from a fancy show with covers of Vanity Fair, the magazine.",
+     "walkthrough": "'Wings quit' clips both fancy and show, giving ANC and HO; 'covers from' Vanity gives VY. The surface leans on Vanity Fair, the magazine.",
+     "definitionFit": "The anchovy is a small, strongly flavoured sea fish, often salted or tinned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wings"
     }
    }
   },
@@ -1118,36 +1128,41 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "under",
-       "note": "In a down entry what goes under goes at the bottom, so the year lands below everything already built."
+       "text": "under pressure from",
+       "at": 19,
+       "note": "in a down entry the year letter sits underneath, pressed down by the drug and ring above it"
       }
      ],
      "parts": [
       {
        "words": "drug",
+       "at": 39,
        "gives": "POT",
-       "note": "pot is cannabis, the setter's standard three-letter drug"
+       "note": "pot is slang for cannabis"
       },
       {
        "words": "ring",
+       "at": 44,
        "gives": "BELL",
-       "note": "the thing that rings, swapping the noun in for the verb"
+       "note": "to ring is to bell, as in sounding a bell"
       },
       {
        "words": "year",
-       "gives": "Y",
-       "note": "Y is the standard abbreviation for year"
-      },
-      {
-       "unchecked": true,
-       "words": "pressure",
-       "note": "surface only — it makes 'under pressure from a drug ring' read like a news headline and contributes no letters"
+       "at": 14,
+       "gives": "Y"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Corporation' for a paunch is Victorian British slang, still alive in crosswords and almost nowhere else. The surface is a company in trouble, which is the picture the definition hides behind.",
-     "definitionFit": "'Corporation' in dated British slang means a large protruding stomach — a joke on the word's bodily root — and that is the sense the clue needs."
+     "surface": "A company's year is spent under pressure from a drugs ring.",
+     "walkthrough": "'Corporation' is an old jocular word for a large belly, not a company. Y goes 'under' POT and BELL in the down entry.",
+     "definitionFit": "Corporation is old slang for a paunch, so it means a potbelly, the large rounded stomach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Corporation"
     }
    }
   },
@@ -1322,41 +1337,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "OPIATE",
+     "spelt": "OPIATE",
      "indicators": [
       {
        "text": "How Eastender says",
-       "note": "An Eastender is a Cockney Londoner, and how they say a phrase means you write down the accent rather than the spelling."
+       "at": 0,
+       "note": "an East End Londoner, a Cockney, drops the H sounds when speaking"
       }
      ],
      "parts": [
       {
-       "words": "fingers crossed",
-       "gives": "HOPE",
-       "note": "crossing your fingers is hoping for luck"
-      },
-      {
-       "words": "he consumed",
-       "gives": "HEATE",
-       "note": "the plain words under the accent: the pronoun and the past tense of eat"
-      },
-      {
-       "op": "homophone",
-       "spelt": "OPIATE",
-       "parts": [
-        {
-         "words": "fingers crossed he consumed",
-         "gives": "OPEEATE",
-         "note": "a Cockney drops both aitches, and the three words then run together into one"
-        }
-       ]
+       "words": "fingers crossed he consumed",
+       "at": 20,
+       "gives": "HOPEHEATE",
+       "note": "crossing fingers is hoping, so this is 'hope he ate'"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The quotation marks do real work: everything inside them is the accented version, and only the last word of it is the definition rather than the sound.",
-     "definitionFit": "'Drug' names the class — morphine, codeine and the other poppy-derived painkillers are what the answer covers."
+     "surface": "A Cockney hopes some lad has taken his drugs.",
+     "walkthrough": "A Cockney drops the H, so 'hope he ate' comes out as 'ope 'e ate, which runs together as the answer. An Eastender is someone from London's East End, home of Cockney speech.",
+     "definitionFit": "An opiate is a narcotic drug derived from opium, such as morphine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fingers"
     }
    }
   },
@@ -1381,46 +1388,48 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "IMPEDE",
-     "indicators": [
-      {
-       "text": "interrupting",
-       "note": "To interrupt is to cut in mid-flow, so the editor's two letters land inside the exercises rather than beside them."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Mev's",
+       "at": 6,
+       "gives": "IM",
+       "note": "Mev is the setter, so 'Mev's' is I'm, Mev is"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "interrupting",
+         "at": 19,
+         "note": "the editor letters break into the middle of the exercises abbreviation"
+        }
+       ],
        "parts": [
         {
-         "words": "Mev's",
-         "gives": "IM",
-         "note": "the setter speaking as themselves, so Mev's stands for I'm"
-        },
-        {
          "words": "exercises",
-         "gives": "P",
-         "note": "PE is physical education, the school's exercises; this is its first letter"
+         "at": 32,
+         "gives": "PE",
+         "note": "PE is physical education, school exercises"
         },
         {
          "words": "editor",
-         "gives": "ED",
-         "note": "ed. is the standard abbreviation for an editor"
-        },
-        {
-         "words": "exercises",
-         "gives": "E",
-         "note": "the final letter of that same school subject's initials, closing round"
+         "at": 12,
+         "gives": "ED"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Setters put themselves into their own clues, so the byline at the top of the puzzle is available as a first-person pronoun. The surface reads as a row in a newsroom.",
-     "definitionFit": "To block someone is to get in their way and slow them down, which is exactly the verb the answer supplies in a more formal register."
+     "surface": "An editor breaks into the setter's gym session to block his work.",
+     "walkthrough": "The setter names himself, so 'Mev's' gives I'M; ED is 'interrupting' PE.",
+     "definitionFit": "To impede is to obstruct or hinder, which is what blocking something does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exercises"
     }
    }
   },
@@ -1638,36 +1647,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "AFEW",
-     "indicators": [
-      {
-       "text": "raised",
-       "note": "In a down entry what is raised is written upwards, so those initials arrive back to front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "raised",
+         "at": 38,
+         "note": "in a down entry, raising something turns it upwards, so the letters read bottom to top"
+        }
+       ],
        "parts": [
         {
          "words": "sports administrators",
-         "gives": "AF",
-         "note": "the FA is the Football Association, which runs English football, turned round"
-        },
-        {
-         "words": "two points",
-         "gives": "EW",
-         "note": "east and west, two of the four compass points"
+         "at": 16,
+         "gives": "FA",
+         "note": "the FA, the Football Association, runs English football"
         }
        ]
+      },
+      {
+       "words": "two points",
+       "at": 45,
+       "gives": "EW",
+       "note": "E and W, east and west, are two compass points"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Compass points are the crossword's most reliable single letters, and 'two points' names none of them — the crossing entries decide which two you need.",
-     "definitionFit": "The answer is the everyday phrase for a handful of things, so the definition matches it as a whole-phrase idiom for an unstated quantity."
+     "surface": "A few sports officials put two points to a vote.",
+     "walkthrough": "'raised' turns FA upwards to AF; E and W are compass points.",
+     "definitionFit": "A few means a small number of things or people, the idiomatic phrase for several."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
     }
    }
   },
