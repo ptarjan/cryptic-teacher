@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -400,62 +401,44 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a spell",
-      "at": 62
+      "text": "it might be said — for a spell",
+      "at": 39
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "ABRACADABRA",
+     "indicators": [
+      {
+       "text": "defending",
+       "at": 18,
+       "note": "defending means standing guard round something, so the scoundrel sits between the two halves"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "twice",
-         "note": "The chunk just built is wanted two times over, once on each side of what comes next."
-        }
-       ],
-       "parts": [
-        {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "defending",
-           "note": "A defender stands round the thing being protected, so the pieces named go outside and the word after sits within them."
-          }
-         ],
-         "parts": [
-          {
-           "words": "A supporter",
-           "gives": "ABRA",
-           "note": "the letter A followed by the undergarment that does the supporting"
-          },
-          {
-           "words": "scoundrel",
-           "gives": "CAD",
-           "note": "a cad is an ungentlemanly rotter, three letters long"
-          },
-          {
-           "words": "twice",
-           "gives": "ABRA",
-           "note": "the same four letters again, this time on the far side"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "it might be said",
-         "note": "surface only: it points at a magic word being uttered, and hands over no letters"
-        }
-       ]
+       "words": "A supporter twice",
+       "at": 0,
+       "gives": "ABRAABRA",
+       "note": "A plus BRA, a supporter worn as underwear, written out two times"
+      },
+      {
+       "words": "scoundrel",
+       "at": 28,
+       "gives": "CAD",
+       "note": "a cad is a dishonourable man, a scoundrel"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'For a spell' means 'for a while' in the surface and 'as a magic word' in the answer, and the supporter is underwear rather than a fan in the stands.",
-     "definitionFit": "Abracadabra is the incantation a stage magician pronounces to make the trick work, so the answer is a spell in the conjuring sense."
+     "surface": "Someone backs a rogue twice over, and claims it was only for a while.",
+     "walkthrough": "'for a spell' looks like 'for a while', but the definition is a word said when casting a spell; CAD goes between the two ABRAs.",
+     "definitionFit": "Abracadabra is the conjuror's magic word, spoken as an incantation when performing a trick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spell"
     }
    }
   },
@@ -665,52 +648,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MARCONI",
-     "indicators": [
-      {
-       "text": "about",
-       "note": "To go about is to turn and face the other way, so the letters just built are read back to front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 11,
+         "note": "about here means turned round, so the word is read backwards"
+        }
+       ],
        "parts": [
         {
          "words": "Study hard",
-         "gives": "MARC",
-         "note": "to cram is to study hard, and turned round those four letters read the other way"
-        },
+         "at": 0,
+         "gives": "CRAM",
+         "note": "to cram is to study hard before an exam"
+        }
+       ]
+      },
+      {
+       "words": "about",
+       "at": 19,
+       "gives": "ON",
+       "note": "on means about, as in a book on birds"
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "about",
-         "gives": "ON",
-         "note": "a book about a subject is a book on it, so the one preposition stands in for the other"
-        },
+         "text": "primarily",
+         "at": 27,
+         "note": "primarily means first of all, so take the opening letter"
+        }
+       ],
+       "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "primarily",
-           "note": "Primarily means first of all, so only the opening letter of the word beside it is taken."
-          }
-         ],
-         "parts": [
-          {
-           "words": "primarily Italian",
-           "gives": "ITALIAN",
-           "note": "the opening letter of the nationality"
-          }
-         ]
+         "words": "Italian",
+         "at": 37,
+         "gives": "I",
+         "note": "its first letter is I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The ellipses are stage business, making the surface stumble like somebody groping for a name; they carry no letters and nothing hangs on them.",
-     "definitionFit": "Guglielmo Marconi was the Bologna-born inventor who sent the first radio signals across the Atlantic, so the definition names him by trade and nationality."
+     "surface": "A halting note about cramming, about something mainly Italian, about an Italian engineer.",
+     "walkthrough": "The two 'about's do different jobs: the first turns CRAM round to MARC, the second means ON, as in a talk on a subject.",
+     "definitionFit": "Guglielmo Marconi was the Italian inventor and electrical engineer who pioneered long-distance radio transmission."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
     }
    }
   },
