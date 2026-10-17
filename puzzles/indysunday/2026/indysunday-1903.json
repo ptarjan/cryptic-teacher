@@ -1358,40 +1358,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "THIRTEEN",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 53,
+       "note": "around means the shuffled letters surround the next piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "moved",
-         "note": "letters that have been moved no longer sit where they did, which leaves the same set standing in a new order"
-        },
-        {
-         "text": "around",
-         "note": "to put something around a thing is to wrap it, so the rearranged letters close over the single one"
+         "at": 38,
+         "note": "moved means shifted about, so the letters of her tent change places"
         }
        ],
        "parts": [
         {
          "words": "her tent",
-         "gives": "THRTEEN",
-         "note": "the seven letters of her tent, struck and pitched elsewhere"
-        },
-        {
-         "words": "island",
-         "gives": "I",
-         "note": "I is the map-maker's abbreviation for island"
+         "at": 44
         }
        ]
+      },
+      {
+       "words": "island",
+       "at": 60,
+       "gives": "I",
+       "note": "I is the map abbreviation for island"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Nothing in the clue says unlucky. 'Suspected of depleting fortune' is how a setter points at a superstition without naming it, and the camping surface hides the join.",
-     "definitionFit": "Thirteen is the number superstition blames for bad luck — the floor hotels leave out of the lift buttons."
+     "surface": "Someone shifts a woman's tent round on an island, worried it will bring bad luck.",
+     "walkthrough": "The anagram of HER TENT goes round I. The definition leans on the superstition that thirteen is unlucky, so it is a number thought to drain one's luck.",
+     "definitionFit": "Thirteen is the number superstition holds unlucky, a figure believed to rob people of good luck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Figure"
     }
    }
   },
