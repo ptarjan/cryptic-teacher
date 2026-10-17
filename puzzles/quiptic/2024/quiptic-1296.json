@@ -185,46 +185,53 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "initially",
+       "at": 61,
+       "note": "initially means at the start, so this letter comes first"
+      }
+     ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "A",
        "indicators": [
         {
-         "text": "initially",
-         "note": "take the word's initial letter"
+         "text": "source of",
+         "at": 41,
+         "note": "the source of a word is where it starts, its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "source of annoyance initially",
+         "words": "annoyance",
+         "at": 51,
          "gives": "A",
-         "select": "first",
-         "note": "first letter of annoyance"
+         "note": "the first letter of annoyance is A"
         }
        ]
       },
       {
        "words": "items of clothing",
+       "at": 15,
        "gives": "BRAS",
-       "note": "bras are items of underwear"
+       "note": "bras are items of clothing"
       },
       {
        "words": "I have",
+       "at": 33,
        "gives": "IVE",
-       "note": "I've, apostrophe dropped"
+       "note": "I've is the contraction of I have"
       }
      ]
     },
     "explanation": {
-     "surface": "Scratchy garments that irritate their owner.",
-     "walkthrough": "The last piece of wordplay goes first in the answer: A leads, then BRAS, then I'VE.",
-     "definitionFit": "Something abrasive scratches or scrapes a surface."
+     "surface": "Some scratchy garments I own were the first cause of irritation.",
+     "walkthrough": "'source of' annoyance gives A, placed first by 'initially'.",
+     "definitionFit": "Something abrasive wears a surface down by rubbing, so it tends to scratch."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "source"
     }
@@ -513,31 +520,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "PAIN",
      "indicators": [
       {
        "text": "not the first",
-       "note": "the first letter is not included"
+       "at": 20,
+       "note": "not the first means without its opening letter, so the first letter goes"
       }
      ],
      "parts": [
       {
        "words": "European champions",
-       "gives": "PAIN",
-       "note": "SPAIN, football's European champions, minus its first letter S"
+       "at": 0,
+       "gives": "SPAIN",
+       "note": "Spain won football's European Championship in 2024"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "Beaten finalists feel the anguish of the European champions.",
-     "walkthrough": "The champions are a national team: Spain have won football's European Championship several times.",
-     "definitionFit": "A plain synonym: both words name acute suffering, of body or mind."
+     "surface": "European football champions who miss out on first place are left in agony.",
+     "walkthrough": "'not the first' drops S from SPAIN.",
+     "definitionFit": "Pain is suffering of body or mind, and anguish is severe distress."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "champions"
+     "misdirectedWord": "first"
     }
    }
   },
@@ -716,45 +726,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AGITATOR",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "having taken in",
+       "at": 20,
+       "note": "having taken in means holding inside, so the letter goes within the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "disturbed",
-         "note": "the letters are thrown out of order"
-        },
-        {
-         "text": "having taken in",
-         "note": "the anagram takes the next letter inside it"
+         "at": 9,
+         "note": "disturbed means upset or jumbled, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Rita got",
-         "gives": "AGITTOR",
-         "note": "RITA GOT rearranged"
-        },
-        {
-         "words": "a",
-         "note": "taken as it stands, slipped in after the fourth letter"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 36,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Rita is rattled after letting a stirrer into her circle.",
-     "walkthrough": "Anagram first, then insert A: AGIT(A)TOR.",
-     "definitionFit": "A plain synonym: someone who stirs up unrest, often political."
+     "surface": "Rita got upset after being fooled by a stirrer.",
+     "walkthrough": "'disturbed' turns RITA GOT into AGITTOR, which 'having taken in' A becomes the answer.",
+     "definitionFit": "An agitator stirs up public unrest, so is someone who causes trouble deliberately."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Rita"
+     "misdirectedWord": "taken"
     }
    }
   },
@@ -827,41 +839,36 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "REMINDER",
      "indicators": [
       {
        "text": "putting out",
-       "note": "the named letter is put out of the word"
+       "at": 26,
+       "note": "putting out means removing, so this letter is taken out"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Those getting left behind",
-         "gives": "REMINDER",
-         "note": "REMAINDER, those left behind, with the A put out"
-        },
-        {
-         "unchecked": true,
-         "words": "a",
-         "note": "the letter removed"
-        }
-       ]
+       "words": "Those getting left behind",
+       "at": 0,
+       "gives": "REMAINDER",
+       "note": "the remainder are those left over or left behind"
+      },
+      {
+       "words": "a",
+       "at": 38,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Stragglers put out a prompt to get moving.",
-     "walkthrough": "The 'a' that reads as an article in 'a hint' is the letter taken from REMAINDER.",
-     "definitionFit": "A reminder prompts someone to do something."
+     "surface": "People left behind put out a call to do something.",
+     "walkthrough": "'putting out' A from REMAINDER.",
+     "definitionFit": "A reminder is a prompt that jogs someone's memory to do something."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "a"
+     "misdirectedWord": "putting"
     }
    }
   },
