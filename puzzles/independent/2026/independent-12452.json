@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -39,55 +40,65 @@
     "definitions": [
      {
       "text": "Living things",
-      "at": 0,
-      "note": "The definition is plural and the answer singular: it names living things collectively, as one mass noun covering the whole living world."
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "turning",
-       "note": "something that turns ends up facing the way it came from, so the three letters for brown are written back to front"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "missing",
-         "note": "what is missing has gone from the word, so the letter named beside it never gets written"
+         "text": "turning",
+         "at": 14,
+         "note": "turning round means facing the other way, so the word for brown is read backwards"
         }
        ],
        "parts": [
         {
          "words": "brown",
+         "at": 22,
          "gives": "TAN",
-         "note": "brown as a colour is TAN, and it arrives the other way round"
+         "note": "tan is a light brown colour"
         }
        ]
       },
       {
        "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing",
+         "at": 39,
+         "note": "missing means lacking, so one letter is taken out"
+        }
+       ],
        "parts": [
         {
          "words": "certainly",
+         "at": 29,
          "gives": "SURE",
-         "note": "certainly and surely agree, so SURE is the word to work on"
+         "note": "sure means certainly, as in 'sure, I'll come'"
         },
         {
-         "words": "missing sun",
+         "words": "sun",
+         "at": 47,
          "gives": "S",
-         "note": "the diary shortens Sunday to S, and that is the letter that walks out"
+         "note": "S is the standard abbreviation for sun, as in weather maps and Sunday"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Sun for S is one of the shortenings a solver simply has to own; the comma after 'brown' is the setter's punctuation and carries no instruction at all.",
-     "definitionFit": "Living things -> NATURE: the word covers the living world taken as a whole — plants, animals, everything growing — rather than any one creature."
+     "surface": "A gardener notes plants turning brown, surely from too little sunshine.",
+     "walkthrough": "TAN for 'brown' is turned to NAT; SURE for 'certainly', missing S for sun, leaves URE.",
+     "definitionFit": "Nature means the whole world of plants, animals and other living things, as opposed to human works."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
     }
    }
   },
@@ -1260,37 +1271,48 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "provided by",
+       "at": 20,
+       "note": "the answer word is supplied by, so follows, the opening letters"
+      }
+     ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "EC",
        "indicators": [
         {
          "text": "at the outset",
-         "note": "the outset of a word is where it begins, so the two words named here hand over only their opening letters"
+         "at": 43,
+         "note": "at the outset means at the start, so the first letter of each word is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "every cook at the outset",
-         "gives": "EC",
-         "select": "first",
-         "note": "the opening letters of those two words, taken in the order they are given"
+         "words": "every cook",
+         "at": 32,
+         "note": "their first letters are E and C"
         }
        ]
       },
       {
        "words": "first answer",
+       "at": 7,
        "gives": "LAIR",
-       "note": "a cross-reference: this puzzle's first across solution, LAIR at 8, is borrowed whole"
+       "note": "the first answer in this puzzle is 8 Across, LAIR"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The dash hides a cross-reference. 'first answer' does not describe the cake at all — it points at another light in this grid and hands you four of six letters.",
-     "definitionFit": "Cake -> ECLAIR: a finger of choux pastry filled with cream and iced along the top, so the answer is one particular kind of what is defined."
+     "surface": "A recipe note: every cook should first supply the answer for a cake.",
+     "walkthrough": "'first answer' points to the grid: 8 Across is the first clue, a cross-reference rather than a word to define.",
+     "definitionFit": "An eclair is a long choux pastry cake filled with cream and topped with chocolate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "answer"
     }
    }
   },
