@@ -970,41 +970,34 @@
      "op": "charade",
      "parts": [
       {
-       "op": "nth",
-       "unchecked": true,
+       "words": "What precedes locum's final",
+       "at": 0,
        "gives": "U",
-       "n": 4,
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "What precedes locum's final",
-         "gives": "U",
-         "select": 4,
-         "note": "the letter just before the last one in locum"
-        }
-       ]
+       "note": "the final letter of locum is M, and the letter that precedes it in that word is U"
       },
       {
        "words": "training",
+       "at": 28,
        "gives": "PT",
        "note": "PT is physical training"
       },
       {
        "words": "surgery",
+       "at": 42,
        "gives": "OP",
-       "note": "an op is a surgical operation"
+       "note": "OP is short for operation, a piece of surgery"
       }
      ]
     },
     "explanation": {
-     "surface": "What comes before a stand-in doctor's last training stint, with surgery on their mind?",
-     "walkthrough": "'What precedes locum's final' seems to ask about a medical career; it simply points at the letter before the M.",
-     "definitionFit": "Up top is an informal idiom for the head or brain, so something kept there is held in one's thoughts."
+     "surface": "A question about what a stand-in doctor's last stretch of training should be.",
+     "walkthrough": "The surface reads as medical training, but 'What precedes locum's final' is a letter puzzle: the letter just before the M at the end of LOCUM.",
+     "definitionFit": "Up top is an informal idiom for the head or brain, so something up top is held in the mind."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "precedes"
+     "aptDefinition": true,
+     "misdirectedWord": "locum's"
     }
    }
   },
@@ -1726,65 +1719,71 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Black tea",
+      "text": "Black tea — that's disappointing for core of tasters?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "BOHEA",
-     "indicators": [
-      {
-       "text": "for",
-       "note": "one thing given in exchange for another means a swap takes place"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Black",
+       "at": 0,
        "gives": "B",
-       "note": "B is the abbreviation for black"
+       "note": "B is the abbreviation for black, as on pencils"
       },
       {
-       "words": "tea",
-       "note": "taken as written"
-      },
-      {
-       "words": "disappointing",
-       "gives": "OH",
-       "note": "oh is a cry of disappointment"
-      },
-      {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "T",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "core of",
-         "note": "the core is the centre, so only the middle letter is kept"
+         "text": "for",
+         "at": 33,
+         "note": "for means in place of, so one piece replaces another in the word tea"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "tasters",
-         "gives": "T",
-         "select": "middle",
-         "note": "the central letter of the word"
+         "words": "tea",
+         "at": 6,
+         "gives": "TEA",
+         "note": "taken as the word itself"
+        },
+        {
+         "op": "middle",
+         "indicators": [
+          {
+           "text": "core of",
+           "at": 37,
+           "note": "the core is the centre, so the middle letter of tasters is wanted"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tasters",
+           "at": 45,
+           "note": "its middle letter, the fourth of seven, is T"
+          }
+         ]
+        },
+        {
+         "words": "that's disappointing",
+         "at": 12,
+         "gives": "OH",
+         "note": "OH is the exclamation of someone let down"
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A tea taster finds a black tea a letdown.",
-     "walkthrough": "The definition doubles as wordplay: B plus TEA, with OH replacing the middle letter of tasters, the T.",
-     "definitionFit": "Bohea was the name for a low-grade dark Chinese tea, from the Wuyi hills, much drunk in the 18th century."
+     "surface": "A tea-tasting panel finds a black tea a let-down.",
+     "walkthrough": "In TEA the T, the core of 'tasters', is replaced by OH, giving OHEA after B for black. The whole clue doubles as the definition: a black tea whose tasting disappoints.",
+     "definitionFit": "Bohea is a black China tea, once the name for the finest and later for the cheapest grade."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "core"
     }
    }
