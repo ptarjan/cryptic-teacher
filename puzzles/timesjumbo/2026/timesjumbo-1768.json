@@ -200,46 +200,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DEVELOPER",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "grasping",
+       "at": 14,
+       "note": "the rearranged letters hold the next piece in their grip, so it sits inside them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "dodgy",
-         "note": "something dodgy is unsound, so the letters are rearranged"
-        },
-        {
-         "text": "grasping",
-         "note": "grasping holds something inside"
+         "at": 8,
+         "note": "dodgy means unreliable or out of order, so the letters of the word before are rearranged"
         }
        ],
        "parts": [
         {
          "words": "Deplore",
-         "gives": "DELOPER",
-         "note": "DEPLORE rearranged"
-        },
-        {
-         "words": "electronic vehicle",
-         "gives": "EV",
-         "note": "the first letters of electronic vehicle, taken in after the D"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "electronic vehicle",
+       "at": 23,
+       "gives": "EV",
+       "note": "EV is the usual short form for an electric vehicle"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone laments a shady carmaker who is getting hold of electric cars.",
-     "walkthrough": "The rearranged DEPLORE holds EV after its first letter: D, EV, ELOPER.",
-     "definitionFit": "A developer designs things, such as software or buildings."
+     "surface": "Someone deplores a shady car designer who is clutching at an electric vehicle.",
+     "walkthrough": "'Dodgy' rearranges DEPLORE to DELOPER, and 'grasping' has it hold EV after its first two letters: DE + EV + LOPER.",
+     "definitionFit": "A developer is someone who devises and designs new products, such as software or vehicles."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Deplore"
+     "misdirectedWord": "dodgy"
     }
    }
   },
@@ -559,47 +561,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "start to",
-       "note": "the start of a word is its first letter"
+       "text": "within",
+       "at": 30,
+       "note": "within says the single letter sits inside the longer word for periods"
       }
      ],
      "parts": [
       {
        "words": "periods of time",
+       "at": 37,
        "gives": "PHASES",
-       "note": "phases are stages or periods"
+       "note": "phases are stages or periods of time"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
-         "text": "within",
-         "note": "the letter sits inside the other word"
+         "text": "start to",
+         "at": 12,
+         "note": "the start of a word is its first letter, here of reappear"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "start to reappear",
-         "gives": "R",
-         "select": "first",
-         "note": "first letter of reappear, placed after PH"
+         "words": "reappear",
+         "at": 21,
+         "note": "its first letter, R, is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Certain phrases keep turning up again over the years.",
-     "walkthrough": "'Start to reappear' looks like a verb phrase about things coming back; it only supplies one R.",
-     "definitionFit": "Phrases are expressions: groups of words used together."
+     "surface": "A writer notices pet sayings coming back after an interval.",
+     "definitionFit": "Phrases are groups of words, i.e. verbal expressions or idioms."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "start"
+     "misdirectedWord": "reappear"
     }
    }
   },
@@ -1200,27 +1200,33 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "SHARPIE",
+     "op": "substitution",
      "indicators": [
       {
        "text": "last to come forward",
-       "note": "the final letter moves forward one place"
+       "at": 15,
+       "note": "the final letter moves one place forward, swapping with the letter before it"
       }
      ],
      "parts": [
       {
        "words": "Muscular dog",
+       "at": 0,
        "gives": "SHARPEI",
-       "note": "the shar pei, a stocky wrinkled Chinese breed; its last letter I moves ahead of the E"
+       "note": "the shar pei is a wrinkly, muscular Chinese dog breed"
+      },
+      {
+       "gives": "EI"
+      },
+      {
+       "gives": "IE"
       }
      ]
     },
     "explanation": {
-     "surface": "A strong dog's hindmost part pushes forward inside its enclosure.",
-     "walkthrough": "'Pen' looks like the dog's enclosure; it is the definition, a writing pen. Sharpie is a brand of marker pen.",
-     "definitionFit": "A Sharpie is a popular brand of permanent marker pen."
+     "surface": "A beefy dog shut in a pen sees its rear end shuffle up front.",
+     "walkthrough": "'Pen' looks like an enclosure for the dog but is the definition: a Sharpie is a brand of marker pen. Moving the final I of SHAR PEI ahead of the E gives SHARPIE.",
+     "definitionFit": "Sharpie is a well-known brand of permanent marker, so the name stands for that kind of pen."
     },
     "features": {
      "answerInScene": false,
@@ -2150,57 +2156,63 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "starter",
-       "note": "the starter of a word is its first letter"
+       "text": "served up",
+       "at": 41,
+       "note": "in a down clue, served up means the whole string is read from the bottom upwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "served up",
-         "note": "in a down clue, sent upwards, so the letters read bottom to top"
-        }
-       ],
        "parts": [
         {
          "words": "Scorn",
+         "at": 0,
          "gives": "SNEER",
-         "note": "to sneer is to scorn"
+         "note": "to scorn is to sneer"
+        },
+        {
+         "words": "grand",
+         "at": 6,
+         "gives": "G",
+         "note": "G is the slang abbreviation for a grand, a thousand"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "starter",
+           "at": 25,
+           "note": "the starter of a word is its first letter, here of dining-car"
+          }
+         ],
          "parts": [
           {
-           "words": "grand",
-           "note": "G = grand, a thousand"
+           "words": "dining-car's",
+           "at": 12,
+           "note": "its first letter, D, is taken"
           }
          ]
         },
         {
-         "words": "dining-car's starter",
-         "gives": "D",
-         "note": "first letter of dining-car"
-        },
-        {
          "words": "sadly",
+         "at": 35,
          "gives": "ALAS",
-         "note": "alas = sadly"
+         "note": "alas is an exclamation said sadly"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A diner sneers at the first course in a grand dining car: sadly, a plate of leaves.",
-     "walkthrough": "'Starter' and 'served up' belong to the menu picture; one takes a first letter and the other turns the whole string upside down.",
-     "definitionFit": "Lettuce, rocket and spinach are the leaves that make up the bulk of a salad, so leafy fare."
+     "surface": "A diner scorns the miserable starter brought up in a grand restaurant car.",
+     "walkthrough": "SNEER + G + D + ALAS is written upwards, as 'served up' asks in a down clue, giving SALAD GREENS.",
+     "definitionFit": "Salad greens are lettuce and other leaves, so they are food made of leaves."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "starter"
+     "aptDefinition": true,
+     "misdirectedWord": "served"
     }
    }
   },
@@ -2607,66 +2619,61 @@
      "indicators": [
       {
        "text": "kept in",
-       "note": "what is kept in something is held within its walls"
+       "at": 17,
+       "note": "kept in says the tree, very and poorly pieces are held inside the central letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
        "indicators": [
         {
          "text": "centre of",
-         "note": "the centre of a word is its middle letters"
+         "at": 25,
+         "note": "the centre of an eight-letter word is its middle two letters, here of frenetic"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "op": "middle",
-           "unchecked": true,
-           "gives": "NE",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "centre of frenetic",
-             "gives": "NE",
-             "select": "middle",
-             "note": "the middle two letters of frenetic"
-            }
-           ]
-          },
-          {
-           "words": "Tree",
-           "gives": "ASH",
-           "note": "the ash tree"
-          }
-         ]
-        },
-        {
-         "words": "very",
-         "gives": "V",
-         "note": "the abbreviation"
+         "words": "frenetic",
+         "at": 35,
+         "note": "the two middle letters of frenetic are N and E"
         }
        ]
       },
       {
-       "words": "poorly",
-       "gives": "ILL",
-       "note": "poorly = ill; ASH, V and ILL go between N and E"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Tree",
+         "at": 0,
+         "gives": "ASH",
+         "note": "the ash is a common tree"
+        },
+        {
+         "words": "very",
+         "at": 5,
+         "gives": "V"
+        },
+        {
+         "words": "poorly",
+         "at": 10,
+         "gives": "ILL",
+         "note": "poorly means ill"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tree, very sickly, hemmed in by the bustle of a big city.",
-     "walkthrough": "'Capital city' suggests a national capital; Nashville is the capital of Tennessee.",
-     "definitionFit": "Definition by example: a state capital counts, and Nashville, home of country music, is Tennessee's."
+     "surface": "A tree in a hectic city is looking very sickly.",
+     "walkthrough": "The centre of 'frenetic' is NE; 'kept in' puts ASH + V + ILL between those letters.",
+     "definitionFit": "Nashville is the state capital of Tennessee, famed as the home of country music."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "frenetic"
+     "misdirectedWord": "Tree"
     }
    }
   },
@@ -2758,42 +2765,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "FEASIBLE",
-     "indicators": [
-      {
-       "text": "turned",
-       "note": "turned round, so the letters reverse"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Iron",
+       "at": 0,
+       "gives": "FE",
+       "note": "Fe is the chemical symbol for iron"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "grips",
+         "at": 12,
+         "note": "the word for expert holds the reversed piece inside it"
+        }
+       ],
        "parts": [
         {
-         "words": "Iron",
-         "gives": "FE",
-         "note": "Fe, the chemical symbol for iron"
+         "words": "expert",
+         "at": 5,
+         "gives": "ABLE",
+         "note": "able means skilled or expert"
         },
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "grips",
-           "note": "to grip is to hold tight in a clasp"
+           "text": "turned",
+           "at": 21,
+           "note": "turned means the two letters of is are read the other way round"
           }
          ],
          "parts": [
           {
-           "words": "expert",
-           "gives": "ABLE",
-           "note": "able = skilled"
-          },
-          {
-           "words": "is turned",
-           "gives": "SI",
-           "note": "IS reversed, gripped by ABLE after the A"
+           "words": "is",
+           "at": 18
           }
          ]
         }
@@ -2802,9 +2810,9 @@
      ]
     },
     "explanation": {
-     "surface": "An expert with an iron grips something that's been switched on.",
-     "walkthrough": "The last word is the definition: 'that's on' means it can be done. 'Turned on' looks like a phrase, but 'turned' works on IS.",
-     "definitionFit": "When a plan is 'on', it is workable, feasible."
+     "surface": "A skilled golfer clutches an iron, ready to switch on.",
+     "walkthrough": "'On' is used in the sense 'that's not on': possible or acceptable. 'Turned' gives SI, which ABLE 'grips' to make ASIBLE after FE.",
+     "definitionFit": "Saying a plan is on means it is workable or achievable, the same as feasible."
     },
     "features": {
      "answerInScene": false,
@@ -2904,15 +2912,10 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Cockney's",
-       "note": "a Cockney drops the H from the start of words"
-      }
-     ],
      "parts": [
       {
        "words": "reel",
+       "at": 8,
        "gives": "SPIN",
        "note": "to reel is to spin round"
       },
@@ -2921,26 +2924,43 @@
        "indicators": [
         {
          "text": "up",
-         "note": "in a down clue, the letters read bottom to top"
+         "at": 29,
+         "note": "in a down clue, up means the piece is written from the bottom upwards"
         }
        ],
        "parts": [
         {
-         "words": "Cockney's bound",
-         "gives": "ELD",
-         "note": "HELD (bound), said 'eld' without its H"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Cockney's",
+           "at": 13,
+           "note": "a Cockney speaker famously drops the h at the start of words"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bound",
+           "at": 23,
+           "gives": "HELD",
+           "note": "held means bound or restrained"
+          },
+          {
+           "gives": "H"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A fisherman's rod and reel, all tied up by a Cockney.",
-     "walkthrough": "'Rod and reel' reads as fishing tackle; the definition is 'Rod' alone and 'reel' starts the wordplay. A Cockney is a working-class Londoner, who drops the H.",
-     "definitionFit": "A spindle is a slender rod on which thread is wound or something turns."
+     "surface": "A fishing rod and reel tied up by a Londoner.",
+     "walkthrough": "A Cockney drops the H of HELD, giving ELD, which 'up' writes as DLE after SPIN.",
+     "definitionFit": "A spindle is a slender rod on which thread is wound or a part turns."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "reel"
     }
@@ -2970,58 +2990,59 @@
      "op": "container",
      "indicators": [
       {
-       "text": "after",
-       "note": "one piece follows the other"
+       "text": "charging",
+       "at": 29,
+       "note": "charging is read as filling up or loading, so the degree and working pieces are packed inside"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "outer",
        "indicators": [
         {
-         "text": "charging",
-         "note": "a charge is loaded into something"
+         "text": "on vacation",
+         "at": 45,
+         "note": "a word on vacation is emptied of its insides, keeping only its first and last letters"
         }
        ],
        "parts": [
         {
-         "op": "outer",
-         "unchecked": true,
-         "gives": "AD",
-         "indicators": [
-          {
-           "text": "on vacation",
-           "note": "emptied, leaving only the outer letters"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "abroad on vacation",
-           "gives": "AD",
-           "select": "outer",
-           "note": "abroad emptied of its middle"
-          }
-         ]
-        },
-        {
-         "words": "degree",
-         "gives": "BSC",
-         "note": "BSc, Bachelor of Science"
+         "words": "abroad",
+         "at": 38,
+         "note": "the first and last letters of abroad are A and D"
         }
        ]
       },
       {
-       "words": "working",
-       "gives": "ON",
-       "note": "a machine that is on is working; after BSC, inside AD"
+       "op": "charade",
+       "indicators": [
+        {
+         "text": "after",
+         "at": 15,
+         "note": "after puts the word for working behind the degree in the answer"
+        }
+       ],
+       "parts": [
+        {
+         "words": "degree",
+         "at": 21,
+         "gives": "BSC",
+         "note": "BSc is a Bachelor of Science degree"
+        },
+        {
+         "words": "working",
+         "at": 7,
+         "gives": "ON",
+         "note": "on means working, as a switched-on machine"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A graduate starts working, then flees abroad on holiday running up charges.",
-     "walkthrough": "'On vacation' reads as holiday; it empties abroad to AD.",
-     "definitionFit": "To abscond is to escape, especially from custody or with money."
+     "surface": "A graduate goes off on holiday overseas, still charging fees.",
+     "walkthrough": "'Abroad on vacation' leaves AD; 'charging' fills it with BSC followed by ON.",
+     "definitionFit": "To abscond is to run away secretly, usually to avoid arrest, which is a getaway."
     },
     "features": {
      "answerInScene": true,
@@ -3226,26 +3247,39 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "missing",
-       "note": "a duke missing from a place is absent from it, so his D is taken out of Ardennes"
-      },
-      {
        "text": "activated",
-       "note": "stirred into action, so the letters are rearranged"
+       "at": 25,
+       "note": "activated suggests stirring the letters into action, so the remaining ones are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "Duke missing in Ardennes",
-       "gives": "ARENNES",
-       "note": "ARDENNES without D for duke"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing in",
+         "at": 5,
+         "note": "missing in says the letter for duke is absent from the place name, so it is taken out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Ardennes",
+         "at": 16
+        },
+        {
+         "words": "Duke",
+         "at": 0,
+         "gives": "D"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A duke is lost in the Ardennes forest when a trap is sprung.",
-     "walkthrough": "'Activated trap' reads as a sprung snare; 'activated' is the anagram signal and 'trap' is the verb.",
-     "definitionFit": "A plain synonym: to catch in a snare, and by extension to trap anyone by trickery."
+     "surface": "A duke absent from the Ardennes sets off a trap.",
+     "walkthrough": "'Missing' takes D from ARDENNES, leaving ARENNES, which 'activated' rearranges.",
+     "definitionFit": "To ensnare is to catch in a snare, i.e. to trap; both are verbs."
     },
     "features": {
      "answerInScene": true,
