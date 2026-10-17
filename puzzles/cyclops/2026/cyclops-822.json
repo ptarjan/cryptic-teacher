@@ -23,7 +23,8 @@
   "check": "30 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -221,54 +222,55 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "STINK",
-     "indicators": [
-      {
-       "text": "rising up",
-       "note": "in a down clue what rises is read from the bottom of the grid upwards, against the order given"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 7,
+         "note": "finally points to the last letter of the word before it"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "'finally' points at the end of the word in front of it, the letter that word finishes on"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Lovers finally",
-           "gives": "LOVERS",
-           "note": "the last letter of loverS"
-          }
-         ]
-        },
+         "words": "Lovers",
+         "at": 0,
+         "note": "the word whose final letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rising up",
+         "at": 30,
+         "note": "in a down answer, rising up means the letters are read from the bottom upwards"
+        }
+       ],
+       "parts": [
         {
          "words": "come together",
-         "gives": "TINK",
-         "note": "to knit is to come together, and KNIT read up the grid gives these four"
+         "at": 15,
+         "gives": "KNIT",
+         "note": "to knit is to come together, as broken bones knit"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two lovers at last come together, rising up, and hum.",
-     "walkthrough": "'Hum' is British slang for a bad smell — the sense in 'this place hums'. The lovers are there to sell the picture, and only their last letter is wanted.",
-     "definitionFit": "In British usage a thing that hums smells foul, which is exactly what a thing that stinks does."
+     "surface": "A Private Eye smutty innuendo about lovers climaxing together, with a whiff in the air.",
+     "walkthrough": "'rising up' turns KNIT into TINK, after the S at the end of 'Lovers'. Hum is British slang for a bad smell.",
+     "definitionFit": "A stink is a strong unpleasant smell, which British slang also calls a hum."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "hum"
+     "misdirectedWord": "come"
     }
    }
   },
@@ -347,45 +349,57 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "AMBITION",
-     "indicators": [
-      {
-       "text": "ascent",
-       "note": "something in ascent is climbing, and in a down clue a climbing word is read from its foot upwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "America",
+       "at": 0,
+       "gives": "AM",
+       "note": "AM is a standard abbreviation for America or American"
+      },
+      {
+       "words": "scrap",
+       "at": 9,
+       "gives": "BIT",
+       "note": "a bit is a scrap, a small piece"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "ascent",
+         "at": 28,
+         "note": "in a down answer, an ascent means the letters climb, read from bottom to top"
+        }
+       ],
        "parts": [
         {
-         "words": "America",
-         "gives": "AM",
-         "note": "am = America, the standard short form"
-        },
-        {
-         "words": "scrap",
-         "gives": "BIT",
-         "note": "a scrap of something is a bit of it"
-        },
-        {
-         "words": "number one's ascent",
-         "gives": "ION",
-         "note": "number is No. and one is I; NOI climbing the grid reads as these three"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "number",
+           "at": 15,
+           "gives": "NO"
+          },
+          {
+           "words": "one's",
+           "at": 22,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "America is told to abandon its climb to the top spot, and somebody protests.",
-     "walkthrough": "'Object!' with its exclamation mark begs to be heard as the verb, and it is the noun — an aim. No. for number is the abbreviation on an invoice, and I is the Roman one.",
-     "definitionFit": "Your object is the thing you have set yourself to reach, the aim sense of the word rather than the thing you can pick up."
+     "surface": "A satirical headline in which America is told to drop its top dog's rise to power, and to object.",
+     "walkthrough": "'ascent' turns NO I upwards into ION. 'object' is the definition as a noun, a goal, not the verb meaning to protest.",
+     "definitionFit": "An ambition is a goal or aim, the object a person is striving to achieve."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "object"
     }
@@ -686,68 +700,72 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TEMPI",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 32,
+       "note": "in places the European politician inside the reversed sex word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "what is in something sits inside it, with that thing's letters closing on either side"
+         "text": "U-turn",
+         "at": 39,
+         "note": "a U-turn faces the other way, so the letters for sex are reversed"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "sex",
+         "at": 35,
+         "gives": "IT",
+         "note": "it is a coy word for sex, as in 'doing it'"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
          "indicators": [
           {
-           "text": "U-turn",
-           "note": "a U-turn sends you back along the road you came by, so those letters are read in reverse"
+           "text": "top",
+           "at": 17,
+           "note": "the top of a word is its first letter"
           }
          ],
          "parts": [
           {
-           "words": "sex",
-           "gives": "TI",
-           "note": "'it' is the old euphemism for sex, and IT after its U-turn reads TI"
-          },
-          {
-           "op": "first",
-           "indicators": [
-            {
-             "text": "top",
-             "note": "the top of a word is where it begins, so the letter it starts with is the one taken"
-            }
-           ],
-           "parts": [
-            {
-             "words": "Europe's top",
-             "gives": "EUROPES",
-             "note": "the first letter of Europe"
-            }
-           ]
+           "words": "Europe's",
+           "at": 8,
+           "note": "the word whose top, or first letter, is taken"
           }
          ]
         },
         {
          "words": "politician",
+         "at": 21,
          "gives": "MP",
-         "note": "an MP is a Member of Parliament, the crossword's default politician"
+         "note": "MP, Member of Parliament"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper headline has Europe's leading politician changing his mind about sex.",
-     "walkthrough": "'Times' opens the clue like a masthead and means speeds instead — tempo is Italian, and its plural keeps the Italian ending. 'It' for sex is old slang that crosswords have kept in circulation.",
-     "definitionFit": "Tempi are the speeds a piece of music is taken at, and time in that musical sense is what the plural counts."
+     "surface": "A spoof Times headline about a top European politician performing a sex U-turn.",
+     "walkthrough": "'U-turn' turns IT into TI, which holds E (Europe's top) and MP.",
+     "definitionFit": "Tempi is the plural of tempo, a musical term for speeds or times."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "Times"
     }
    }
@@ -773,60 +791,62 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EMPATHY",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "English",
+       "at": 15,
+       "gives": "E"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "all over",
-         "note": "turned all over means flipped end for end, so those letters come out the other way round"
+         "at": 31,
+         "note": "all over here means turned over, so the premier's letters run backwards"
         }
        ],
        "parts": [
         {
-         "words": "English",
-         "gives": "E",
-         "note": "e = English, the usual single letter"
-        },
+         "words": "premier",
+         "at": 23,
+         "gives": "PM",
+         "note": "PM, Prime Minister, the premier"
+        }
+       ]
+      },
+      {
+       "words": "at",
+       "at": 40
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "words": "premier all over",
-         "gives": "MP",
-         "note": "the premier is the PM, and PM turned over reads MP"
-        },
+         "text": "borders",
+         "at": 53,
+         "note": "a country's borders are its edges, so the outer letters of its name"
+        }
+       ],
+       "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "borders",
-           "note": "a country's borders are its outer edges, so the first and last letters are the ones wanted"
-          }
-         ],
-         "parts": [
-          {
-           "words": "at",
-           "note": "the clue's own word, taken exactly as it stands"
-          }
-         ]
-        },
-        {
-         "words": "Hungary's borders",
-         "gives": "HY",
-         "note": "the outer letters of Hungary"
+         "words": "Hungary's",
+         "at": 43,
+         "gives": "HUNGARY",
+         "note": "the country's name, whose borders are its first and last letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An English prime minister is all over the place at the Hungarian border.",
-     "walkthrough": "PM and MP are the same pair of letters either way round, which is the only reason 'all over' has to be in the clue at all. Hungary is there for its H and its Y, not its politics.",
-     "definitionFit": "Fellow feeling is the old phrase for sharing what someone else is going through, which is what empathy names."
+     "surface": "An English Prime Minister fawns over Hungary's frontier, a show of fellow feeling.",
+     "walkthrough": "'all over' turns PM into MP; the borders of Hungary are H and Y.",
+     "definitionFit": "Empathy is the capacity to share and understand another person's feelings."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "premier"
     }
@@ -961,37 +981,43 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost a whole word is all of it but the last letter, which never arrives"
+       "text": "badly",
+       "at": 42,
+       "note": "badly means in poor order, so the letters are scrambled"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "badly",
-         "note": "a job done badly comes out wrong, and letters in the wrong order are exactly that"
+         "text": "almost",
+         "at": 25,
+         "note": "almost means not quite all, so the last letter goes"
         }
        ],
        "parts": [
         {
-         "words": "almost mow",
-         "gives": "MO",
-         "note": "MOW stopped one letter short of the end"
+         "words": "mow",
+         "at": 32,
+         "gives": "MOW",
+         "note": "the word mow, cut short"
         },
         {
-         "words": "grass",
-         "note": "the rest of the fodder, five letters"
+         "gives": "W"
         }
        ]
+      },
+      {
+       "words": "grass",
+       "at": 36
       }
      ]
     },
     "explanation": {
-     "surface": "People turn up to give the grass a half-hearted and thoroughly bad mowing.",
-     "walkthrough": "'Come' is the hinge of the clue: the innocent coming round of the surface against the other sense the definition leans on. The mowing is there only to hand over letters.",
-     "definitionFit": "Coming is the plain verb for having one, so the definition describes the answer by what people are said to do when they get there."
+     "surface": "A gardener gives up halfway, half-mowing the grass in a hurry.",
+     "walkthrough": "'almost' trims MOW to MO, and 'badly' shuffles MO with GRASS. The definition puns on 'come' in its sexual sense, typical Private Eye smut.",
+     "definitionFit": "Orgasms are sexual climaxes, which are what people 'come' to have in the slang sense."
     },
     "features": {
      "answerInScene": false,
