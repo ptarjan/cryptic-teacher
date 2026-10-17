@@ -23,7 +23,8 @@
   "check": "30 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -473,35 +474,43 @@
     "definitions": [
      {
       "text": "being a monarch",
-      "at": 26
+      "at": 26,
+      "note": "a participle phrase: ruling means reigning, as a monarch does"
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "RULING",
      "indicators": [
       {
-       "text": "switch sides",
-       "note": "The sides are left and right, written l and r, and switching them puts each of those letters where the other one stood."
+       "text": "to switch sides",
+       "at": 9,
+       "note": "the sides are left and right, so the letters for left and right trade places in the tempting word"
       }
      ],
      "parts": [
       {
        "words": "Tempting",
+       "at": 0,
        "gives": "LURING",
-       "note": "to tempt somebody on is to lure them"
+       "note": "luring means tempting"
+      },
+      {
+       "gives": "LUR"
+      },
+      {
+       "gives": "RUL"
       }
      ]
     },
     "explanation": {
-     "surface": "A politician crossing the floor and ending up on the throne.",
-     "walkthrough": "Switching sides is defection in the sentence and an exchange of two letters in the parse: the l and the r trade places and the other four never move.",
-     "definitionFit": "A monarch on the throne is ruling, the participle covering the whole business of reigning rather than any one act of it."
+     "surface": "A politician is tempted to defect, as if that were the way to reign.",
+     "walkthrough": "L and R are the abbreviations for left and right; swapping them in LURING turns it into RULING.",
+     "definitionFit": "Ruling means reigning or holding sovereign power, which is what being a monarch is."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "sides"
     }
    }
@@ -913,15 +922,21 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "CHARDONNAY",
+     "indicators": [
+      {
+       "text": "stifles",
+       "at": 20,
+       "note": "to stifle a laugh is to smother it, so the rearranged letters close round it"
+      }
+     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "pissed",
-         "note": "Pissed is drunk, and a drunk's letters will not stay in the order they were given in."
+         "at": 12,
+         "note": "pissed means drunk, so the remaining letters stagger into a new order"
         }
        ],
        "parts": [
@@ -929,50 +944,38 @@
          "op": "deletion",
          "indicators": [
           {
-           "text": "stifles",
-           "note": "To stifle something is to smother it, so what is stifled disappears inside the letters doing it."
+           "text": "gone",
+           "at": 51,
+           "note": "gone means taken away, so the bastard's letter is removed from the fodder"
           }
          ],
          "parts": [
           {
-           "op": "charade",
-           "indicators": [
-            {
-             "text": "'s gone",
-             "note": "What has gone is no longer there, so that letter is missing from the pile beside it."
-            }
-           ],
-           "parts": [
-            {
-             "words": "And Corbyn",
-             "gives": "CRDONNAY",
-             "note": "those letters reset once the b below has left them, and they part after the first to let the next piece in"
-            },
-            {
-             "words": "bastard",
-             "gives": "B",
-             "note": "b is how a paper prints the word when it will not spell it out"
-            },
-            {
-             "words": "half-laugh",
-             "gives": "HA",
-             "note": "a laugh written down is ha-ha, so half of one is a single ha"
-            }
-           ]
+           "words": "And Corbyn",
+           "at": 0
           },
           {
-           "gives": "B"
+           "words": "bastard's",
+           "at": 41,
+           "gives": "B",
+           "note": "B is the euphemistic abbreviation for bastard, as in 'B-word'"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "half-laugh",
+       "at": 28,
+       "gives": "HA",
+       "note": "ha is half of ha-ha, a laugh"
       }
      ]
     },
     "explanation": {
-     "surface": "A drunk Jeremy Corbyn swallowing a snigger as some swine heads off to the pub.",
-     "walkthrough": "Half-laugh is not half the letters of laugh: a laugh on the page is ha-ha, and half of that is one syllable. Pissed is the state of the man in the sentence and the instruction in the parse.",
-     "definitionFit": "Chardonnay is the white grape and the wine pressed from it, so a drink is the general thing it is one particular instance of."
+     "surface": "A satirical scene: Jeremy Corbyn, drunk, smothers a giggle, and some bastard has left to get a drink.",
+     "walkthrough": "AND CORBYN without its B ('bastard's gone') is ANDCORYN; 'pissed' rearranges it to C..ARDONNAY, which 'stifles' HA. Pissed is British slang for drunk.",
+     "definitionFit": "Chardonnay is a popular white wine, so it is a drink."
     },
     "features": {
      "answerInScene": true,
@@ -1255,33 +1258,23 @@
     "definitions": [
      {
       "text": "Precocious girl",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: a pert, precocious young girl"
+     },
+     {
+      "text": "turns up without changing",
+      "at": 16,
+      "meaning": "second meaning: a palindrome, which in a down answer reads the same when turned to run bottom to top"
      }
     ],
-    "wordplay": {
-     "op": "palindrome",
-     "indicators": [
-      {
-       "text": "turns up without changing",
-       "note": "A word that turns up without changing reads the same from either end, so there is nothing to reverse — only a symmetry to spot."
-      }
-     ],
-     "parts": [
-      {
-       "unchecked": true,
-       "words": "Precocious girl",
-       "note": "the definition end: a small girl giving herself the airs of a grown woman"
-      }
-     ]
-    },
     "explanation": {
-     "surface": "A pert little girl arriving and behaving exactly as she always does.",
-     "walkthrough": "Turns up promises a reversal and without changing takes it away again, because the letters already mirror themselves. Calling a small girl a madam is British and only half affectionate.",
-     "definitionFit": "A bossy little girl who is knowing beyond her years gets called a madam in British usage, which is the precocious girl the clue means."
+     "surface": "A forward young girl shows up looking exactly the same as before.",
+     "walkthrough": "'Turns up' looks like 'arrives', but in a down clue it means reversing; the answer reads the same either way.",
+     "definitionFit": "Madam is the British term for a cheeky, self-assured little girl who acts older than her years."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "turns"
     }
    }
