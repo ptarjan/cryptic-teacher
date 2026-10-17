@@ -195,41 +195,40 @@
      "indicators": [
       {
        "text": "under",
-       "note": "in a down clue, the piece written under another comes after it"
+       "at": 19,
+       "note": "in a down clue, a piece under another comes after it"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "T",
        "indicators": [
         {
          "text": "head in",
+         "at": 25,
          "note": "the head of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "head in truth",
-         "gives": "T",
-         "select": "first",
-         "note": "first letter of truth"
+         "words": "truth",
+         "at": 33,
+         "note": "its first letter is T"
         }
        ]
       },
       {
        "words": "more or less",
+       "at": 6,
        "gives": "ORSO",
-       "note": "or so = more or less"
+       "note": "or so means approximately, more or less, as in 'ten or so'"
       }
      ]
     },
     "explanation": {
-     "surface": "A remark that a chest is roughly the heart of the truth.",
-     "walkthrough": "In a down answer, what sits 'under' comes later, so OR SO follows the T.",
-     "definitionFit": "The torso is the trunk of the body, the chest and belly."
+     "surface": "A puzzle about how much of the truth sits beneath what someone gets off their chest.",
+     "walkthrough": "'head in truth' gives T, and 'more or less' is the phrase OR SO, which goes 'under' it in this down answer. 'Chest' is the upper body, not a box.",
+     "definitionFit": "The torso is the trunk of the body, and the chest forms its upper part."
     },
     "features": {
      "answerInScene": false,
@@ -605,49 +604,65 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SURROGATE",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "in front of",
+       "at": 40,
+       "note": "in front of means the earlier pieces come before this one"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "to miss end",
-         "note": "the last letter is left off"
-        },
-        {
-         "text": "back",
-         "note": "'back' as in going backwards: OR is read from its back end first."
-        },
-        {
-         "text": "in front of"
+         "at": 19,
+         "note": "to miss the end is to lose the last letter of the word"
         }
        ],
        "parts": [
         {
-         "words": "certain to miss end",
-         "gives": "SUR",
-         "note": "SURE without its final E"
+         "words": "certain",
+         "at": 11,
+         "gives": "SURE",
+         "note": "sure means certain"
         },
         {
-         "words": "or back",
-         "gives": "RO",
-         "note": "OR reversed"
-        },
-        {
-         "words": "crowd",
-         "gives": "GATE",
-         "note": "the gate is the attendance at a sporting match"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 35,
+         "note": "back means the word is read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "words": "or",
+         "at": 32,
+         "note": "taken as written, then reversed"
+        }
+       ]
+      },
+      {
+       "words": "crowd",
+       "at": 52,
+       "gives": "GATE",
+       "note": "a gate is the crowd attending a sports match"
       }
      ]
     },
     "explanation": {
-     "surface": "A football manager's choice: a substitute either shooting or falling back in front of the crowd.",
-     "walkthrough": "Gate meaning the number of spectators at a match is a British usage. The football surface makes 'Substitute' a player, but here it is a stand-in in general.",
-     "definitionFit": "A surrogate is a substitute, someone standing in for another."
+     "surface": "A substitute player is sure to miss the end of the match, or else is back before the crowd.",
+     "walkthrough": "'to miss end' cuts SURE to SUR, 'or back' gives RO, and both go 'in front of' GATE. In British sport, the gate is the number of spectators at a match.",
+     "definitionFit": "A surrogate is a person or thing standing in for another, a deputy or substitute."
     },
     "features": {
      "answerInScene": false,
