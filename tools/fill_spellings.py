@@ -108,7 +108,7 @@ def flagged_files():
 
 
 def run(paths, write):
-    with multiprocessing.Pool() as pool:
+    with multiprocessing.Pool(int(os.environ.get("CT_JOBS") or 2)) as pool:  # few workers: the host is shared
         return list(pool.imap_unordered(_job, [(str(p), write) for p in paths], 16))
 
 
