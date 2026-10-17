@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -43,37 +44,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PROVIDE",
-     "indicators": [
-      {
-       "text": "a lot of",
-       "note": "'A lot of' something is most of it and not the whole of it, so the word it points at arrives with its tail missing."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "one paid",
+       "at": 7,
+       "gives": "PRO",
+       "note": "a pro, short for professional, is someone paid for what they do"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a lot of",
+         "at": 23,
+         "note": "a lot of a word is most of it, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "one paid",
-         "gives": "PRO",
-         "note": "someone paid to do what others do for love is a pro"
+         "words": "footage",
+         "at": 32,
+         "gives": "VIDEO",
+         "note": "video is recorded footage"
         },
         {
-         "words": "footage",
-         "gives": "VIDE",
-         "note": "footage is VIDEO, and only most of that word is wanted, so the final letter drops off"
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Money handed over to buy a decent stretch of film.",
-     "walkthrough": "'Supply' reads as the money in the sentence and is really the definition, standing alone before any wordplay starts. The paid one is the professional of sport and music, not an employee.",
-     "definitionFit": "'Supply' and the answer are the same verb: to furnish someone with what they need, interchangeable in almost any sentence."
+     "surface": "A paid professional is hired to deliver plenty of film footage.",
+     "walkthrough": "'a lot of' means not quite all: VIDEO loses its final O.",
+     "definitionFit": "To provide something is to supply or furnish it to someone who needs it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "footage"
     }
    }
   },
