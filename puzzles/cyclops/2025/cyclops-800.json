@@ -320,42 +320,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GOLLY",
-     "indicators": [
-      {
-       "text": "initially lacking",
-       "note": "lacking its initial letter, so the first letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "a lot of money",
+       "at": 20,
+       "gives": "G",
+       "note": "G stands for a grand, a thousand pounds"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "initially lacking",
+         "at": 42,
+         "note": "initially lacking says the word loses its first letter"
+        }
+       ],
        "parts": [
         {
-         "words": "a lot of money",
-         "gives": "G",
-         "note": "G is a grand, a thousand pounds"
+         "words": "money",
+         "at": 36,
+         "gives": "LOLLY",
+         "note": "lolly is British slang for money"
         },
         {
-         "words": "money",
-         "gives": "OLLY",
-         "note": "LOLLY, slang for money, without its L"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A moralising line that virtue comes from wealth.",
-     "walkthrough": "\"Goodness\" poses as virtue, but it is the mild exclamation. Lolly is British slang for money.",
-     "definitionFit": "\"Goodness!\" and \"Golly!\" are interchangeable mild exclamations of surprise."
+     "surface": "A cry of surprise at a fortune appearing from nowhere, though the cash itself is missing at the start.",
+     "walkthrough": "'initially lacking' strips the L from LOLLY, British slang for cash, leaving OLLY.",
+     "definitionFit": "Golly is a mild exclamation of surprise, like goodness me."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "Goodness"
     }
    }
@@ -879,50 +882,44 @@
      "indicators": [
       {
        "text": "lost",
-       "note": "someone lost has gone astray, so the letters wander"
+       "at": 16,
+       "note": "something lost is all over the place, so these letters scatter into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Tony",
+       "at": 9,
+       "note": "taken as written"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
          "text": "finally",
-         "note": "takes the final letter of each word"
+         "at": 30,
+         "note": "finally says take the closing letter of each of the words before it"
         }
        ],
        "parts": [
         {
-         "words": "Tony",
-         "note": "taken as it stands"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "ET",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "the plot finally",
-           "gives": "ET",
-           "select": "last",
-           "note": "final letters of the and plot"
-          }
-         ]
+         "words": "the plot",
+         "at": 21,
+         "note": "the last letters of the and plot"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Has Tony Blair gone mad? Not so far.",
-     "walkthrough": "The answer continues into 7 down. \"Lost the plot\" is an idiom for going crazy, but only \"lost\" instructs.",
-     "definitionFit": "\"Not yet\" means that something has not happened so far."
+     "surface": "A jibe that a politician named Tony, presumably Blair, has at last gone mad, with a curt answer.",
+     "walkthrough": "'finally' takes E and T, the end letters of 'the plot', and 'lost' mixes them with TONY.",
+     "definitionFit": "Not yet means not up to now, which is the sense of so far, no."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "plot"
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "lost"
     }
    }
   },
@@ -1288,50 +1285,54 @@
     "definitions": [
      {
       "text": "that'll do for me",
-      "at": 41
+      "at": 41,
+      "note": "a phrase standing for the setter: the answer will serve as a name for me, the writer of this puzzle"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CYCLOPS",
-     "indicators": [
-      {
-       "text": "centre's gone",
-       "note": "the middle of the word is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "centre's gone",
+         "at": 5,
+         "note": "the middle letters of the word are removed, leaving only its ends"
+        }
+       ],
        "parts": [
         {
          "words": "City",
-         "gives": "CY",
-         "note": "CITY without its central IT"
+         "at": 0
         },
         {
-         "words": "Conservative",
-         "gives": "C",
-         "note": "C for Conservative"
-        },
-        {
-         "words": "cuts",
-         "gives": "LOPS",
-         "note": "to lop is to cut"
+         "gives": "IT"
         }
        ]
+      },
+      {
+       "words": "Conservative",
+       "at": 20,
+       "gives": "C"
+      },
+      {
+       "words": "cuts",
+       "at": 33,
+       "gives": "LOPS",
+       "note": "lops means cuts off"
       }
      ]
     },
     "explanation": {
-     "surface": "A voter complains the city has been hollowed out by Tory cuts and they've had enough.",
-     "walkthrough": "\"Me\" is the setter, Cyclops, whose name the clue signs off with.",
-     "definitionFit": "The setter is Cyclops, so the name is what will do for \"me\"."
+     "surface": "A grumble that a city's heart has been ripped out by Tory austerity, which would finish the speaker off.",
+     "walkthrough": "'centre's gone' removes IT from CITY to leave CY. The definition 'me' is the setter speaking: Cyclops sets this Private Eye puzzle, and 'that'll do for me' means the answer will stand for me.",
+     "definitionFit": "Cyclops is the pseudonym of the Private Eye setter, so the answer refers to the clue's own author."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "do"
     }
    }
@@ -1358,43 +1359,46 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "COWER",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 7,
+       "note": "about says the letters turn round, the front part moving to the end"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "COWER",
        "indicators": [
         {
-         "text": "about",
-         "note": "brought about, the letters turn round so the end comes to the front"
-        },
-        {
          "text": "going topless",
-         "note": "the top letter of a down word goes"
+         "at": 20,
+         "note": "going topless says the first letter of the name is removed"
         }
        ],
        "parts": [
         {
          "words": "Bercow",
-         "gives": "ERCOW",
-         "note": "BERCOW without its B"
+         "at": 13,
+         "note": "John Bercow, the former Speaker of the House of Commons; taken as written before losing its first letter"
+        },
+        {
+         "gives": "B"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Squirming at the thought of the former Speaker John Bercow stripping off.",
-     "walkthrough": "John Bercow was Speaker of the House of Commons. ERCOW rotates its last three letters to the front.",
-     "definitionFit": "A plain synonym: both describe shrinking back in fear."
+     "surface": "Someone shrinking in embarrassment at the image of the ex-Speaker without his shirt.",
+     "walkthrough": "'going topless' takes the B from BERCOW to leave ERCOW, and 'about' moves its ER to the end. John Bercow was the famously theatrical Speaker of the UK House of Commons.",
+     "definitionFit": "To cower is to crouch or shrink back in fear, the same as cringe."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "about"
+     "misdirectedWord": "topless"
     }
    }
   },
@@ -1655,57 +1659,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EGOCENTRIC",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Say",
+       "at": 0,
+       "gives": "EG",
+       "note": "EG, short for exempli gratia, means for example, which is what say means here"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
          "text": "constrained by",
-         "note": "held inside the other piece"
+         "at": 17,
+         "note": "constrained by says the letter is held inside the other letters"
         }
        ],
        "parts": [
         {
-         "words": "Say",
-         "gives": "EG",
-         "note": "e.g. means for example, say"
-        },
-        {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
            "text": "rampant",
-           "note": "letters running rampant are out of control"
+           "at": 32,
+           "note": "rampant means running wild, so the letters of conceit are thrown into disorder"
           }
          ],
          "parts": [
           {
            "words": "conceit",
-           "gives": "OCENTIC",
-           "note": "CONCEIT rearranged"
-          },
-          {
-           "words": "Republican's",
-           "gives": "R",
-           "note": "R for Republican"
+           "at": 40,
+           "note": "taken as written, then rearranged"
           }
          ]
+        },
+        {
+         "words": "Republican's",
+         "at": 4,
+         "gives": "R",
+         "note": "R is the abbreviation for Republican"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A jibe at the vain Republican, Donald Trump.",
-     "walkthrough": "The 's is is: the Republican is held inside the reshuffled conceit.",
-     "definitionFit": "Egocentric means self-centred, which the setter says Trump is."
+     "surface": "A political jibe: a Republican trapped by his own runaway vanity, exactly like Trump.",
+     "walkthrough": "'rampant' rearranges CONCEIT to OCENTIC, and 'constrained by' puts R inside it between the T and I.",
+     "definitionFit": "Egocentric means self-centred, the satirical charge laid against Trump, here offered as an example."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "Say"
     }
    }
   },
