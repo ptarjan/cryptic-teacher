@@ -214,26 +214,35 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MENUS",
      "indicators": [
       {
-       "text": "face is magnified by a factor of 200",
-       "note": "the front letter, read as a Roman numeral, is replaced by the numeral worth two hundred times as much"
+       "text": "is magnified by a factor of 200",
+       "at": 42,
+       "note": "read as Roman numerals, the face letter's value is multiplied by two hundred, and the numeral for that bigger value takes its place"
       }
      ],
      "parts": [
       {
        "words": "a planet's",
+       "at": 26,
        "gives": "VENUS",
-       "note": "Venus is the second planet from the sun"
+       "note": "Venus is a planet"
+      },
+      {
+       "words": "face",
+       "at": 37,
+       "gives": "V",
+       "note": "the face of a word is its first letter, here the V of the planet"
+      },
+      {
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "Restaurant menus are pictured beside a telescope that enlarges a planet's surface.",
-     "walkthrough": "V is the Roman five and M the Roman thousand, so swapping V for M multiplies by 200.",
-     "definitionFit": "Menus list the dishes on offer so that diners can pick what they want."
+     "surface": "Choosing from options while gazing at a hugely magnified planet.",
+     "walkthrough": "The magnification is arithmetic on Roman numerals: the planet's V (5) times 200 is M (1,000).",
+     "definitionFit": "Menus are lists of dishes or options from which a diner or computer user picks."
     },
     "features": {
      "answerInScene": false,
@@ -270,43 +279,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "TERMPAPER",
+     "spelt": "TERMPAPER",
      "indicators": [
       {
        "text": "for Rev. Spooner",
-       "note": "Rev. Spooner was famous for swapping the opening sounds of words, so the starts of two words trade places"
+       "at": 18,
+       "note": "the Reverend Spooner swapped the starting sounds of words, so the opening sounds of the two words change places"
       }
      ],
      "parts": [
       {
-       "words": "style hair",
-       "gives": "PERM",
-       "note": "to perm hair is to set it in waves or curls"
+       "op": "homophone",
+       "spelt": "PURM",
+       "parts": [
+        {
+         "words": "style hair",
+         "at": 36,
+         "gives": "PERM",
+         "note": "to perm hair is to style it into lasting waves; its sound is what Spooner moves"
+        }
+       ]
       },
       {
-       "words": "candle",
+       "words": "with a candle",
+       "at": 47,
        "gives": "TAPER",
-       "note": "a taper is a thin candle"
-      },
-      {
-       "unchecked": true,
-       "words": "style hair with a candle",
-       "gives": "TERMPAPER",
-       "soundsLike": "PERM TAPER",
-       "note": "Spooner swaps the opening P and T of the two words"
+       "note": "a taper is a thin candle, here the second word paired with the first"
       }
      ]
     },
     "explanation": {
-     "surface": "A quirky academic assignment: give someone a perm by candlelight.",
-     "definitionFit": "A term paper is an essay a student writes over a school term, an academic assignment."
+     "surface": "A school assignment, as the muddled Reverend Spooner might put it, about hairdressing by candlelight.",
+     "walkthrough": "PERM TAPER, with the P and T sounds swapped, becomes the answer. A term paper is the major essay of a college term.",
+     "definitionFit": "A term paper is a long essay written by a student for a course, an academic exercise."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "style"
+     "misdirectedWord": "candle"
     }
    }
   },
