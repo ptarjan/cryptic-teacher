@@ -110,56 +110,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MEATANDPOTATOES",
+     "op": "composite",
      "indicators": [
       {
        "text": "Travelling",
-       "note": "something travelling is on the move, so these letters move about into a new order"
+       "at": 0,
+       "note": "travelling suggests letters on the move, rearranged into a new order"
+      },
+      {
+       "text": "forgetting",
+       "at": 35,
+       "note": "forgetting means these letters are left out of the pool before it is rearranged"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MEATANDPOTATOES",
-       "indicators": [
-        {
-         "text": "forgetting all",
-         "note": "forgetting every instance means each occurrence is dropped from the letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "man",
-         "note": "taken as written"
-        },
-        {
-         "words": "he",
-         "note": "taken as written"
-        },
-        {
-         "words": "had",
-         "note": "taken as written"
-        },
-        {
-         "words": "toothpaste",
-         "note": "taken as written"
-        },
-        {
-         "words": "hotels",
-         "gives": "H",
-         "note": "H is hotel in the NATO phonetic alphabet; every H in the fodder goes"
-        }
-       ]
+       "words": "man — he had toothpaste",
+       "at": 11,
+       "note": "taken as written"
+      },
+      {
+       "words": "all hotels",
+       "at": 46,
+       "gives": "HHH",
+       "note": "H is the radio-alphabet letter for hotel, and all of them means every H in the fodder, three in total"
       }
      ]
     },
     "explanation": {
-     "surface": "A travelling salesman is assured that, toothpaste aside, the hotels will supply the essentials.",
-     "walkthrough": "There are three Hs among the fodder words, and 'all hotels' removes every one, leaving fifteen letters to rearrange.",
-     "definitionFit": "Meat and potatoes is an idiom for the fundamental, everyday basics of something."
+     "surface": "A travelling salesman forgets toothpaste, but hotels will supply the essentials.",
+     "walkthrough": "Strip every H from MAN HE HAD TOOTHPASTE (there are three) and rearrange the fifteen letters left.",
+     "definitionFit": "Meat and potatoes is an idiom for the fundamental, essential parts of something."
     },
     "features": {
      "answerInScene": false,
@@ -723,53 +704,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STALACTITE",
+     "op": "composite",
      "indicators": [
       {
        "text": "snakes",
-       "note": "to snake is to wind about, so the remaining letters twist into a new order"
+       "at": 32,
+       "note": "snakes as a verb means winds about, signalling the letters are rearranged"
+      },
+      {
+       "text": "unwanted",
+       "at": 23,
+       "note": "unwanted means these letters are thrown out of the pool"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "STALACTITE",
-       "indicators": [
-        {
-         "text": "unwanted",
-         "note": "what is unwanted is thrown out, so those letters are removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Alice",
-         "note": "taken as written"
-        },
-        {
-         "words": "tattoos",
-         "note": "taken as written"
-        },
-        {
-         "words": "over",
-         "gives": "O",
-         "note": "O is the cricket abbreviation for an over; it is one of the letters dropped"
-        },
-        {
-         "words": "old",
-         "gives": "O",
-         "note": "O is a standard abbreviation for old; it is the other letter dropped"
-        }
-       ]
+       "words": "Alice tattoos",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "over old",
+       "at": 14,
+       "gives": "OO",
+       "note": "O is the cricket abbreviation for over and a common abbreviation for old"
       }
      ]
     },
     "explanation": {
-     "surface": "Alice's tattoos of snakes, with old designs she no longer wants, point downward.",
-     "walkthrough": "Both Os come out of the tattoos: one for 'over' (a set of six balls in cricket) and one for 'old'. The question mark flags that 'bottom' is the cave floor, not a body part.",
-     "definitionFit": "A stalactite hangs from a cave roof and tapers downward, pointing at the floor below."
+     "surface": "Alice gets snake tattoos inked over old designs she no longer wants, one pointing down to her rear.",
+     "walkthrough": "Take the two Os out of ALICE TATTOOS and rearrange the ten letters left. The definition plays on bottom: a stalactite hangs from a cave roof, its tip pointing to the floor.",
+     "definitionFit": "A stalactite is an icicle-shaped mineral deposit hanging downward from a cave ceiling."
     },
     "features": {
      "answerInScene": false,
@@ -915,32 +880,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "NUMBSKULL",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "the Reverend Spooner swapped the opening sounds of words, so his version of the phrase is wanted"
+       "at": 36,
+       "note": "Spooner, the Oxford don famed for swapping the opening sounds of words, signals that the first sounds of the two words change places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "Dregs of society of no significance",
-       "gives": "NUMBSKULL",
-       "soundsLike": "SCUM NULL",
-       "note": "the dregs of society are scum, and of no significance is null; swap the opening sounds of that pair"
+       "op": "homophone",
+       "spelt": "SKUMB",
+       "parts": [
+        {
+         "words": "Dregs of society",
+         "at": 0,
+         "gives": "SCUM",
+         "note": "scum means the lowest, most worthless people"
+        }
+       ]
+      },
+      {
+       "words": "of no significance",
+       "at": 17,
+       "gives": "NULL",
+       "note": "null means having no value or effect"
       }
      ]
     },
     "explanation": {
-     "surface": "Worthless low-lifes are being called idiots, in the manner of Spooner.",
-     "definitionFit": "A twerp is a silly or stupid person, the same as a dimwit or dunce."
+     "surface": "Someone dismisses the lowest of society as worthless and calls them an idiot.",
+     "walkthrough": "Swap the opening sounds of SCUM and NULL: the N sound goes to the front of the first, the SK sound to the second, giving NUMB and SKULL as heard.",
+     "definitionFit": "A numbskull is a stupid person, much as a twerp is a silly, contemptible one."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Dregs"
+     "misdirectedWord": "significance"
     }
    }
   },
@@ -1026,35 +1002,43 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MANAGER",
-     "indicators": [
-      {
-       "text": "with no limits",
-       "note": "having no limits means the outermost letters at both ends are removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Maybe pawn",
+       "at": 0,
        "gives": "MAN",
-       "note": "a pawn is an example of a chess man"
+       "note": "a pawn is an example of a man, a chess piece"
       },
       {
        "words": "silver",
+       "at": 11,
        "gives": "AG",
        "note": "Ag is the chemical symbol for silver"
       },
       {
-       "words": "here",
-       "note": "taken as written, then its ends removed"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "with no limits",
+         "at": 23,
+         "note": "no limits means the first and last letters are taken off"
+        }
+       ],
+       "parts": [
+        {
+         "words": "here",
+         "at": 18,
+         "note": "the inner letters of here are taken"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "You might pawn your silver at this boundless place, according to an organiser.",
-     "definitionFit": "A manager is someone who organises and runs a business or team."
+     "surface": "A pawnbroker's shop is suggested as the place to hock silver.",
+     "walkthrough": "In chess any piece, pawn included, is a man; 'with no limits' trims HERE to its middle, ER.",
+     "definitionFit": "A manager is the person who runs and coordinates a business or team."
     },
     "features": {
      "answerInScene": false,
