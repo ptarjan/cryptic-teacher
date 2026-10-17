@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -684,35 +685,28 @@
      "op": "charade",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "first couple of thieves",
+       "at": 6,
        "gives": "TH",
-       "indicators": [
-        {
-         "text": "first couple of",
-         "note": "A couple is two, so exactly two letters are taken from the word that follows."
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "thieves",
-         "gives": "TH",
-         "select": "first",
-         "note": "Only the two letters at the front of the word are used."
-        }
-       ]
+       "note": "the opening two letters of the word thieves"
       },
       {
        "words": "sacks",
+       "at": 35,
        "gives": "ROBS",
-       "note": "To sack a city is to rob it, and the -s carries across."
+       "note": "to sack a town is to rob or plunder it"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Both halves of the surface are crime and neither is the definition: the sense wanted is the pulse, the thump of a heart or a headache.",
-     "definitionFit": "A wound or a pulse that throbs beats steadily, so the verb answers 'beats' in its rhythmic, physical sense."
+     "surface": "Thieves are given a beating, and their loot is carried off in sacks.",
+     "walkthrough": "'sacks' looks like a noun for loot bags but is a verb: to sack is to plunder, so ROBS. TH comes from 'first couple of thieves'.",
+     "definitionFit": "A heart or a headache throbs with a regular pulse, so throbs is a synonym of beats as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sacks"
     }
    }
   },
@@ -804,36 +798,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PRUDENTIAL",
-     "indicators": [
-      {
-       "text": "translation of",
-       "note": "A translation delivers the same material in a different form, and here the difference is the order of the letters."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Puritan",
+       "at": 0,
+       "gives": "PRUDE",
+       "note": "a prude is someone excessively proper, a puritan in manners"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "translation of",
+         "at": 8,
+         "note": "a translation renders the word into a different form, so the letters of Latin are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Puritan",
-         "gives": "PRUDE",
-         "note": "A prude is the puritanical sort, easily shocked."
-        },
-        {
          "words": "Latin",
-         "gives": "NTIAL",
-         "note": "The five letters of the language come out in a new order."
+         "at": 23
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Only half the clue is shuffled — the opening five letters are a straight synonym — and 'is' is doing nothing but joining wordplay to definition.",
-     "definitionFit": "Prudential means governed by prudence, weighing risks before acting, which is what a circumspect person does."
+     "surface": "A Puritan scholar translating a Latin text and being very careful about it.",
+     "walkthrough": "'Puritan' looks like a historical label but just gives PRUDE; 'translation of' then rearranges LATIN into NTIAL.",
+     "definitionFit": "Prudential means showing prudence, careful and cautious in judgement, which is what circumspect means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "translation"
     }
    }
   },
@@ -979,35 +978,39 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "INTRUSION",
      "indicators": [
       {
        "text": "Wrong",
-       "note": "Letters that have gone wrong are letters no longer in their proper order."
+       "at": 31,
+       "note": "wrong means wrongly arranged, so the letters are put into a new order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "popular",
-         "gives": "IN",
-         "note": "Something popular is in — the fashion sense of the word."
-        },
-        {
-         "words": "in tours",
-         "gives": "TRUSION",
-         "note": "These seven letters, shuffled, supply everything after the opening pair."
-        }
-       ]
+       "words": "popular",
+       "at": 13,
+       "gives": "IN",
+       "note": "in means popular or fashionable"
+      },
+      {
+       "words": "in",
+       "at": 21
+      },
+      {
+       "words": "tours",
+       "at": 24
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The word 'in' does two jobs here, once as a synonym for popular and once as raw material, which is exactly where the letter count catches solvers out.",
-     "definitionFit": "An intrusion is an unwanted arrival that breaks in on whatever was happening, which is the interruption meant."
+     "surface": "Someone questions whether a popular stop on a tour itinerary is an unwelcome interruption.",
+     "walkthrough": "'Wrong' rearranges IN (popular), IN and TOURS together.",
+     "definitionFit": "An intrusion is an unwelcome interruption or imposition on someone's time or privacy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "popular"
     }
    }
   },
