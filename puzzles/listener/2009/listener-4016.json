@@ -427,31 +427,48 @@
      "indicators": [
       {
        "text": "smuggling",
-       "note": "a smuggler hides goods inside something, so one word is carried within another"
+       "at": 21,
+       "note": "something smuggled is carried hidden inside, so these letters take the other piece inside them"
       }
      ],
      "parts": [
       {
        "words": "decamped",
+       "at": 12,
        "gives": "SLID",
-       "note": "to slide away is to slip off quietly, decamping"
+       "note": "slid away, i.e. slipped off quietly, so decamped gives SLID"
       },
       {
-       "words": "ether",
-       "gives": "THERE",
-       "note": "printed with an E moved to the front; restored it is there, taken as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "ether",
+         "at": 31,
+         "gives": "THER",
+         "note": "the printed word has had its last letter moved to the front, so it gives only THER in place; the stray E goes back at the end to make the word there"
+        },
+        {
+         "gives": "E",
+         "note": "the moved letter, returned to its proper place at the end, as the preamble directs"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone crept away and fled with a bottle of anaesthetic hidden on them.",
-     "walkthrough": "'Ether' looks like the chemical, but it is there with its last E moved to the front, the third letter of the thematic phrase.",
-     "definitionFit": "To slither is to move along by sliding, the way a snake or a person on their belly crawls."
+     "surface": "Someone crept off and ran away with a bottle of anaesthetic hidden on them.",
+     "walkthrough": "One of the preamble's moved-letter clues: 'ether' is really 'there', whose last E has moved to the front; with the E put back, 'smuggling' puts THERE inside SLID. That E is one letter of the hidden phrase.",
+     "definitionFit": "To slither is to move along by sliding or wriggling, a way of crawling like a snake."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "ether"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "E",
+     "at": 31
     }
    }
   },
@@ -609,59 +626,81 @@
     "definitions": [
      {
       "text": "Townsman",
-      "at": 0
+      "at": 0,
+      "note": "Chambers gives snob as old Cambridge slang for a townsman, as opposed to a gownsman"
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SNOB",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "turned around",
-       "note": "turning something around faces it the opposite way, so the letters run backwards"
+       "text": "for",
+       "at": 36,
+       "note": "one thing for another means swapping it in, so the drama's letters take the place of the union's"
       }
      ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "SNOB",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "for",
-         "note": "one thing given for another is exchanged for it, so a pair of letters is swapped out"
+         "text": "turned",
+         "at": 9,
+         "note": "turned tells us to read the restored word from its last letter to its first"
         }
        ],
        "parts": [
         {
-         "words": "\"bust\"",
-         "gives": "BUTS",
-         "note": "printed with its T moved to the end; restored it is buts, objections, taken as written"
-        },
-        {
-         "words": "drama",
-         "gives": "NO",
-         "note": "No, or Noh, is the classical Japanese masked drama"
-        },
-        {
-         "words": "trade union",
-         "gives": "TU",
-         "note": "TU is the standard abbreviation for trade union"
+         "op": "container",
+         "indicators": [
+          {
+           "text": "around",
+           "at": 16,
+           "note": "around puts the returned letter back inside the rest of the word, where it belongs"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bust",
+           "at": 24,
+           "gives": "BUS",
+           "note": "the printed word has had its T moved to the end, so in place it gives only BUS; the T belongs between U and S, making buts, as in ifs and buts"
+          },
+          {
+           "gives": "T",
+           "note": "the moved letter, returned to its proper place, as the preamble directs"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "trade union",
+       "at": 40,
+       "gives": "TU"
+      },
+      {
+       "words": "drama",
+       "at": 30,
+       "gives": "NO",
+       "note": "NO (also Noh) is the classical Japanese drama"
       }
      ]
     },
     "explanation": {
-     "surface": "A local man spins a story of a raid and a theatrical union dispute.",
-     "walkthrough": "'“bust”' is buts with its T moved to the end. In old Cambridge slang a snob was a townsman, as opposed to a gownsman of the university. The answer holds NO, moved left for the grid.",
-     "definitionFit": "Old Cambridge University slang called any non-member of the university living in the town by this word."
+     "surface": "A local man has turned round a play about a police raid into something for the unions.",
+     "walkthrough": "One of the preamble's moved-letter clues: 'bust' is really 'buts', whose T has moved to the end. Restored and 'turned', BUTS gives STUB; then NO, the Japanese drama, goes 'for' TU, and SNOB is entered with its letters shifted as NOSB.",
+     "definitionFit": "In Cambridge university slang a snob was a townsman, someone not a member of the university."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "drama"
+     "misdirectedWord": "bust"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "T",
+     "at": 27
     }
    }
   },
@@ -1747,45 +1786,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
+     "op": "substitution",
      "indicators": [
       {
        "text": "bypassing",
-       "note": "bypassing something leaves it out of the route"
+       "at": 14,
+       "note": "to bypass something is to go round it and leave it out, so a letter is dropped"
       }
      ],
      "parts": [
       {
        "words": "opens",
-       "gives": "PEONS",
-       "note": "printed with its O moved to the front; restored it is peons, labourers"
+       "at": 7,
+       "gives": "PENS",
+       "note": "the printed word has had its O moved to the front; without it the word reads pens, and with the O returned after the E it is peons, labourers"
       },
       {
        "op": "middle",
        "indicators": [
         {
          "text": "the centre of",
-         "note": "the centre of a word is its middle, so only that letter is used"
+         "at": 24,
+         "note": "the centre of a five-letter word is its third letter"
         }
        ],
        "parts": [
         {
          "words": "Leeds",
-         "note": "the middle letter of the five"
+         "at": 38,
+         "note": "a city in Yorkshire; only its middle letter is used"
         }
        ]
+      },
+      {
+       "gives": "O",
+       "note": "the moved letter, returned to its proper place, as the preamble directs"
       }
      ]
     },
     "explanation": {
-     "surface": "A bridge opens to let traffic avoid the centre of Leeds, a city in northern England.",
-     "walkthrough": "'opens' is peons, Latin American labourers, with the O moved to the front. PONS holds neither AYE nor NO, so it is entered unchanged.",
-     "definitionFit": "Pons is Latin for bridge, and in anatomy names a bridge of tissue in the brainstem."
+     "surface": "A bridge is opened to traffic, with a route that avoids the middle of Leeds.",
+     "walkthrough": "'opens' is 'peons' with its O moved to the front. Restored, PEONS loses E, the centre of Leeds, as 'bypassing' says; the parse shows this as the E of PENS giving way to the returned O.",
+     "definitionFit": "The pons is the part of the brainstem that acts as a bridge between brain regions; pons is Latin for a bridge."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "opens"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "O",
+     "at": 7
     }
    }
   },
@@ -2733,7 +2785,8 @@
     "definitions": [
      {
       "text": "____",
-      "at": 38
+      "at": 38,
+      "note": "the blank stands for an exclamation, filled by a mild oath"
      }
     ],
     "wordplay": {
@@ -2742,27 +2795,15 @@
       {
        "text": "by",
        "at": 21,
-       "note": "by means the next piece is placed beside the first, following it"
+       "note": "by means placed beside, so the two pieces sit next to each other"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "at first",
-         "at": 12,
-         "note": "at first means only the opening letter of the word deification is taken"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Edification",
-         "at": 0,
-         "gives": "DEIFICATION",
-         "note": "this is the word with the moved letter: put its E back after the D and it reads deification"
-        }
-       ]
+       "words": "Edification at first",
+       "at": 0,
+       "gives": "D",
+       "note": "the printed word has had its E moved to the front; put back it is deification, making a god of someone, and at first takes its opening letter"
       },
       {
        "op": "anagram",
@@ -2770,28 +2811,32 @@
         {
          "text": "unstable",
          "at": 24,
-         "note": "unstable means the letters of the word man are not fixed and are rearranged"
+         "note": "something unstable will not stay put, so the letters of man are rearranged"
         }
        ],
        "parts": [
         {
          "words": "man",
-         "at": 33,
-         "note": "taken as written as the letters to rearrange"
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone shaky is made into a god, and the blank asks what the onlooker swears.",
-     "walkthrough": "Per the preamble, 'Edification' is really 'Deification' with its E moved to the front; 'at first' gives D, and 'unstable' turns MAN into AMN. The blank is filled by the answer as an exclamation.",
-     "definitionFit": "The blank followed by an exclamation mark asks for a curse or oath, and damn is the commonest mild expletive."
+     "surface": "A question whether worshipping an unreliable man is uplifting, followed by an exasperated expletive.",
+     "walkthrough": "'Edification' is 'Deification' with its E moved to the front; restored, 'at first' takes its first letter D, 'by' sets it beside the letters of MAN, which 'unstable' rearranges to AMN.",
+     "definitionFit": "The blank followed by an exclamation mark wants a swear word, and damn is a common mild curse."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "Edification"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "E",
+     "at": 0
     }
    }
   },
