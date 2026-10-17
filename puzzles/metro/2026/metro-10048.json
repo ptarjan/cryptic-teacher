@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -142,42 +143,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASSAY",
-     "indicators": [
-      {
-       "text": "Almost",
-       "note": "'Almost' stops just short of the whole, so the word it governs turns up one letter shy of its end."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Almost",
+         "at": 20,
+         "note": "almost means not quite all of the tea's name, so its final letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "tea?",
-         "gives": "ASSA",
-         "note": "Assam is an Indian tea, and it arrives here without its last letter"
+         "words": "tea",
+         "at": 15,
+         "gives": "ASSAM",
+         "note": "Assam is a strong black tea from north-east India"
         },
         {
-         "words": "unknown",
-         "gives": "Y",
-         "note": "y is the algebraist's unknown quantity, alongside x"
+         "gives": "M"
         }
        ]
+      },
+      {
+       "words": "unknown",
+       "at": 27,
+       "gives": "Y",
+       "note": "y is an unknown quantity in algebra"
       }
      ]
     },
     "explanation": {
-     "surface": "A tasting panel checking a brew for purity without being able to name the blend.",
-     "walkthrough": "The question mark flags 'tea' as a for-instance, so a particular tea has to be found. An assay office is where silver and gold are tested before they are hallmarked.",
-     "definitionFit": "To assay a sample is to test what it is made of and how much precious metal it holds."
+     "surface": "Someone checks whether a cup of tea is pure, almost a mystery.",
+     "walkthrough": "ASSAM loses its last letter to give ASSA, then Y joins it. 'Test purity of' reads as a whole verb phrase, which is how an assayer tests metal.",
+     "definitionFit": "To assay a metal or ore is to analyse it chemically for its content and quality."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "unknown"
+     "misdirectedWord": "tea"
     }
    }
   },
@@ -626,7 +631,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Food additive",
+      "text": "Food additive in mum's grub (inits)",
       "at": 0
      }
     ],
@@ -634,32 +639,35 @@
      "op": "charade",
      "parts": [
       {
-       "op": "hidden",
+       "words": "mum's",
+       "at": 17,
+       "gives": "MS",
+       "note": "the initial of mum with the possessive 's kept, M'S"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "in",
-         "note": "'In' points at letters already sitting inside the words that follow, unbroken and in order."
+         "text": "(inits)",
+         "at": 28,
+         "note": "the setter's bracketed note (inits) says the answer is made from initial letters"
         }
        ],
        "parts": [
         {
-         "words": "mum's grub",
-         "gives": "MSG",
-         "note": "the run starts on the last letter of 'mum' and crosses the apostrophe: muM'S Grub"
+         "words": "grub",
+         "at": 23,
+         "note": "initial letter of grub"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "(inits)",
-       "note": "the setter's warning that the answer is a set of initials rather than a word"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "Whatever it is your mother has been putting in her cooking.",
-     "walkthrough": "MSG is monosodium glutamate, the savoury flavour enhancer listed on takeaway packaging. An apostrophe is invisible to a buried answer, and so is the space after it.",
-     "definitionFit": "Monosodium glutamate is added to processed and restaurant food to deepen its savoury taste, and it is sold and labelled as MSG."
+     "surface": "A flavour enhancer turns up in the food Mum cooks.",
+     "walkthrough": "The answer is an abbreviation, which is why the setter flags it with (inits): M and 'S from mum's, then G from grub. Read whole, the clue also describes the additive sitting in the family dinner.",
+     "definitionFit": "Monosodium glutamate is a flavour enhancer added to processed and takeaway dishes."
     },
     "features": {
      "answerInScene": true,
@@ -736,40 +744,31 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "alternate",
+     "indicators": [
+      {
+       "text": "Oddly",
+       "at": 0,
+       "note": "oddly here means taking the odd-numbered letters, first, third and fifth, of the name"
+      }
+     ],
      "parts": [
       {
-       "op": "alternate",
-       "indicators": [
-        {
-         "text": "Oddly",
-         "note": "'Oddly' asks for the odd-numbered letters only - the first, the third and the fifth."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Duncan",
-         "note": "the first, third and fifth letters of DUNCAN"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "(inits)",
-       "note": "the setter's warning that the answer is a set of initials rather than a word"
+       "words": "Duncan",
+       "at": 7,
+       "note": "a man's name, used here only for its letters"
       }
      ]
     },
     "explanation": {
-     "surface": "The strange announcement that one particular man has genetic material inside him.",
-     "walkthrough": "DNA stands for deoxyribonucleic acid, which is what the bracketed note is flagging. Nobody is odd for containing it; the oddness is in which of Duncan's letters to keep.",
-     "definitionFit": "DNA is the molecule carrying the genetic instructions of a living thing, so 'genetic code' names it directly."
+     "surface": "A man called Duncan is said to carry an unusual genetic code.",
+     "walkthrough": "The first, third and fifth letters of Duncan spell the answer; (inits) flags that it is an abbreviation.",
+     "definitionFit": "Deoxyribonucleic acid is the molecule carrying the hereditary instructions in living cells."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "contains"
+     "misdirectedWord": "Oddly"
     }
    }
   },
@@ -847,30 +846,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "USING",
      "indicators": [
       {
        "text": "Not half",
-       "note": "Taken as an instruction rather than as speech, 'not half' throws half the letters away and keeps the rest."
+       "at": 22,
+       "note": "not half says the first half of the word, five of its ten letters, is thrown away"
       }
      ],
      "parts": [
       {
-       "words": "refocusing?",
-       "gives": "USING",
-       "note": "REFOCUSING loses its first five letters, exactly half of its ten"
+       "words": "refocusing",
+       "at": 10
+      },
+      {
+       "gives": "REFOC"
       }
      ]
     },
     "explanation": {
-     "surface": "A manager asked whether the business is refocusing and agreeing emphatically.",
-     "walkthrough": "'Not half!' is British for 'absolutely, yes', which is what the surface is saying and the opposite of what the clue wants. Half the letters go, and it is the front half.",
-     "definitionFit": "Using something is employing it, putting it to work, and the two words swap over without changing the sentence."
+     "surface": "Someone asks if they should refocus and gets the slangy reply 'Not half!', meaning 'absolutely'.",
+     "walkthrough": "'Not half!' is British slang for 'very much so', but here it literally removes the front half of refocusing.",
+     "definitionFit": "Using and employing both mean putting something to work for a purpose."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "half"
     }
    }
@@ -1198,51 +1199,51 @@
     "definitions": [
      {
       "text": "a sort of bliss",
-      "at": 23,
-      "note": "The answer is an adjective and the definition a noun phrase; the question mark licenses it, because the answer names which sort of bliss is meant in the stock phrase."
+      "at": 23
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MARITAL",
-     "indicators": [
-      {
-       "text": "not quite",
-       "note": "'Not quite' falls short of the whole, so the word beside it turns up without its final letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Ruin",
+       "at": 0,
+       "gives": "MAR",
+       "note": "to mar something is to spoil or ruin it"
+      },
+      {
+       "words": "it",
+       "at": 5
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite",
+         "at": 13,
+         "note": "not quite means the word all falls one letter short at its end"
+        }
+       ],
        "parts": [
         {
-         "words": "Ruin",
-         "gives": "MAR",
-         "note": "to mar something is to ruin it"
-        },
-        {
-         "words": "it",
-         "note": "the word taken as it stands"
-        },
-        {
          "words": "all",
-         "gives": "AL",
-         "note": "ALL docked of its last letter"
+         "at": 8
+        },
+        {
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone warned that they are about to wreck the lot, and that this is hardly happiness.",
-     "walkthrough": "Marital bliss is the stock phrase being pointed at, which is why the definition names a kind of bliss instead of offering a synonym. 'Not quite' works on the word in front of it, so 'all' loses its tail and 'it' survives whole.",
-     "definitionFit": "Marital means of marriage, and marital bliss is the set phrase for the contentment of a married couple."
+     "surface": "A gloomy warning that something will spoil everything, set against the cliché of wedded happiness.",
+     "walkthrough": "MAR and IT are followed by AL, which is all cut short. The definition works by completing the phrase 'marital bliss'.",
+     "definitionFit": "Marital bliss is the stock phrase for happiness in marriage, so the adjective names a kind of bliss."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "Ruin"
     }
    }
