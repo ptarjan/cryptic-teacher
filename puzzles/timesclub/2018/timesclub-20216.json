@@ -198,58 +198,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ECONVERSO",
-     "indicators": [
-      {
-       "text": "Mysterious",
-       "note": "something mysterious is obscure and jumbled, so the letters are rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "ECONVERSO",
+       "op": "composite",
        "indicators": [
         {
+         "text": "Mysterious",
+         "at": 0,
+         "note": "the letters of the two words behave mysteriously, ending in a new order"
+        },
+        {
          "text": "not",
-         "note": "not tells us the following abbreviation is to be removed"
+         "at": 23,
+         "note": "not marks the married letter as one to leave out of the mix"
         }
        ],
        "parts": [
         {
-         "words": "Vern",
-         "note": "taken as written"
-        },
-        {
-         "words": "comes",
-         "note": "taken as written"
+         "words": "Vern comes",
+         "at": 11,
+         "note": "the two words whose letters are the fodder"
         },
         {
          "words": "married",
-         "gives": "M",
-         "note": "M is the standard abbreviation for married, removed here"
-        },
-        {
-         "words": "ring",
-         "gives": "O",
-         "note": "O is ring-shaped"
+         "at": 27,
+         "gives": "M"
         }
        ]
+      },
+      {
+       "words": "ring",
+       "at": 41,
+       "gives": "O",
+       "note": "a ring is round like the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "A man called Vern turns up single and wearing a ring, which is puzzling.",
-     "walkthrough": "COMES loses its M to leave COES; with VERN that is rearranged, then the ring O is added.",
-     "definitionFit": "E converso is a Latin phrase meaning conversely, used just as one says on the contrary or alternatively."
+     "surface": "A man called Vern turns up, unmarried, wearing a ring on his other hand.",
+     "walkthrough": "Take M out of VERN COMES and rearrange what is left to ECONVERS; then add O. E converso is Latin, used in English to introduce the converse.",
+     "definitionFit": "E converso means conversely, the same as saying on the other hand."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "ring"
+     "misdirectedWord": "hand"
     }
    }
   },
@@ -825,40 +819,44 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Marry",
+      "text": "Marry old",
       "at": 0
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "WIVE",
      "indicators": [
       {
        "text": "in start of",
-       "note": "in start of means it is placed in the opening position, replacing what was there"
+       "at": 26,
+       "note": "the new letter goes in at the start, replacing the first letter"
       }
      ],
      "parts": [
       {
-       "words": "old Victor's double",
-       "gives": "W",
-       "note": "W was once written as two Vs, and Victor is V in the radio alphabet"
+       "words": "wish for long life?",
+       "at": 38,
+       "gives": "VIVE",
+       "note": "vive, as in 'Vive le roi!', is French for 'long live', a wish for long life"
       },
       {
-       "words": "wish for long life",
-       "gives": "VIVE",
-       "note": "vive, as in vive le roi, means long live"
+       "gives": "V"
+      },
+      {
+       "words": "Victor's double",
+       "at": 10,
+       "gives": "W",
+       "note": "Victor is V in the NATO alphabet, and two Vs side by side make W, the double-u"
       }
      ]
     },
     "explanation": {
-     "surface": "An old man called Victor appears twice in a wish for a long life.",
-     "walkthrough": "The opening V of VIVE is swapped for W, a doubled V.",
-     "definitionFit": "To wive is an old verb meaning to take a woman as wife, that is to wed."
+     "surface": "An old marriage ritual involves wishing someone long life.",
+     "walkthrough": "W, a doubled V, takes the place of the first V in VIVE. The definition is a verb marked as old-fashioned.",
+     "definitionFit": "To wive is an archaic verb meaning to take a wife, to marry."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "double"
     }
