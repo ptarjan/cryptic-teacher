@@ -101,32 +101,36 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MODELT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 23,
+       "note": "in tells you the turned-round word sits inside the test"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "road safety test",
+       "at": 26,
+       "gives": "MOT",
+       "note": "the MOT is the annual roadworthiness test for British vehicles over three years old"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "up",
-         "note": "this entry runs down the grid, so letters written up it are read from the bottom square back to the top"
-        },
-        {
-         "text": "in",
-         "note": "in puts one thing inside another, so the piece lands between the letters of the test rather than beside them"
+         "at": 20,
+         "note": "in a down clue, up means read from bottom to top, so the word is reversed"
         }
        ],
        "parts": [
         {
-         "words": "road safety test",
-         "gives": "MOT",
-         "note": "the MOT is the annual roadworthiness test, named after the Ministry of Transport"
-        },
-        {
          "words": "shown",
-         "gives": "DEL",
-         "note": "shown round a house is led round it, and LED climbing the grid reads DEL"
+         "at": 14,
+         "gives": "LED",
+         "note": "led means showed or guided, as in led the way"
         }
        ]
       }
@@ -134,8 +138,15 @@
     },
     "andLit": true,
     "explanation": {
-     "walkthrough": "Ford's first mass-produced car left the factory in 1908, decades before any such test existed, so the straight reading is a joke about an antique meeting a modern inspection.",
-     "definitionFit": "The whole clue reads straight: a Ford of that vintage is an antique whose brakes, lights and steering no modern inspection would pass."
+     "surface": "A question about whether an old car would be exposed as unsafe at its inspection.",
+     "walkthrough": "'shown' is LED, which 'up' turns into DEL inside MOT. The whole clue is also the definition: an antique Ford would have its flaws shown up at a modern MOT.",
+     "definitionFit": "The Model T, Ford's early mass-produced car, would struggle in today's roadworthiness inspection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shown"
     }
    }
   },
