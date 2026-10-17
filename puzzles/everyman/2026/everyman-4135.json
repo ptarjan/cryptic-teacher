@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -155,42 +156,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ANTIGUA",
+     "op": "container",
      "indicators": [
       {
-       "text": "wild",
-       "note": "An animal described as wild has never been kept in order, and letters in that state will not stay in the order they were given."
+       "text": "enthralled by",
+       "at": 11,
+       "note": "enthralled means held captive, so the time letter is held inside the rearranged lizard"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "enthralled by",
-         "note": "To be enthralled is to be held captive, so the short piece finishes up trapped inside the longer one instead of sitting next to it."
+         "text": "wild",
+         "at": 25,
+         "note": "wild means the letters of iguana run loose into a new order"
         }
        ],
        "parts": [
         {
-         "words": "wild iguana",
-         "gives": "ANIGUA",
-         "note": "the lizard's six letters shaken up, then opened to take a captive"
-        },
-        {
-         "words": "Short time",
-         "gives": "T",
-         "note": "T is the one-letter shortening of time, which is what 'short' is asking for"
+         "words": "iguana",
+         "at": 30
         }
        ]
+      },
+      {
+       "words": "Short time",
+       "at": 0,
+       "gives": "T",
+       "note": "T is the abbreviation for time"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A lizard and a stopwatch make a surface with nothing to say, which is the tell. Everyman almost always has one geographical answer, and this is the puzzle's.",
-     "definitionFit": "somewhere in W Indies: the answer names one Caribbean island, so the vague 'somewhere' defines it as an example rather than by any property."
+     "surface": "Someone is briefly captivated by a free-roaming lizard on a Caribbean island.",
+     "walkthrough": "'wild' rearranges IGUANA to ANIGUA, and 'enthralled by' sets the T inside it.",
+     "definitionFit": "Antigua is an island in the Leeward Islands of the Caribbean, part of Antigua and Barbuda."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wild"
     }
    }
   },
@@ -1294,54 +1301,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Geographical feature",
+      "text": "Geographical feature that is around small lake? The reverse!",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 29,
+       "note": "around means the letters for 'that is' go round the others"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "around",
-         "note": "Going around a thing means enclosing it, so the two letters named first split open and the others are set down between them."
-        }
-       ],
+       "words": "that is",
+       "at": 21,
+       "gives": "IE",
+       "note": "IE is the abbreviation of id est, Latin for 'that is'"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "that is",
-           "gives": "IE",
-           "note": "ie is the Latin id est, the standard shortening for that is"
-          },
-          {
-           "words": "small",
-           "gives": "S",
-           "note": "S is the usual one-letter form of small, as on a clothes label"
-          }
-         ]
+         "words": "small",
+         "at": 36,
+         "gives": "S"
         },
         {
          "words": "lake",
+         "at": 42,
          "gives": "L",
-         "note": "L is lake on a map"
+         "note": "L is the map abbreviation for lake"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "The reverse!",
-       "note": "surface only, and a wink at the geography: land does not sit around a small lake, the water sits around the land"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "walkthrough": "The letters do exactly what the clue says, and the flourish at the end is about the picture rather than the parse — the surface has the water and the land the wrong way round.",
-     "definitionFit": "Geographical feature: a piece of land with water all round it is as much a feature of any map as a mountain range or a bay."
+     "surface": "A geography question about something circling a little lake, quickly corrected: it is the other way round.",
+     "walkthrough": "The wordplay puts IE round SL; 'The reverse!' then turns the picture over for the definition, since the lake is really round the island, not the island round the lake.",
+     "definitionFit": "An isle is a small island, a piece of land with water all round it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reverse"
     }
    }
   },
