@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -50,12 +51,11 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "STRAWMAN",
      "indicators": [
       {
        "text": "climbing",
-       "note": "The two entries it names sit one above the other in a single column of the grid, so climbing them means reading their letters upwards."
+       "at": 7,
+       "note": "climbing means going upwards, so the words from those two entries are read in reverse"
       }
      ],
      "parts": [
@@ -63,22 +63,30 @@
        "op": "charade",
        "parts": [
         {
-         "words": "from 12",
-         "gives": "STRAW",
-         "note": "12 down opens with WARTS, and going up the column you meet those five letters the other way round"
+         "words": "to 7",
+         "at": 24,
+         "gives": "NAM",
+         "note": "the answer to 7 down is NAM, American slang for the Vietnam war"
         },
         {
-         "words": "to 7",
-         "gives": "MAN",
-         "note": "7 down is NAM, read upwards from the foot of the same column"
+         "words": "from 12",
+         "at": 16,
+         "gives": "WARTS",
+         "note": "the answer to 12 down begins with WARTS, its first word"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "12 down and 7 down share a column, and the answer is written up it: the top of one entry, then the whole of the other, read from the bottom of the grid towards the top.",
-     "definitionFit": "Nobody → STRAW MAN: a straw man is an invented opponent, nobody real, set up so that knocking him over looks like winning the argument."
+     "surface": "A question about someone of no account rising through the ranks between two numbered posts.",
+     "walkthrough": "'from 12 to 7' takes WARTS from 12 down (WARTS AND ALL) and NAM from 7 down; 'climbing' reads that run of letters backwards.",
+     "definitionFit": "A straw man is a person of no substance or importance, a mere figurehead, so a nobody."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "climbing"
     }
    }
   },
@@ -188,33 +196,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "makeover",
-       "note": "A makeover throws nothing away and rearranges everything, which is what the two words in front of it undergo."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "miles",
+       "at": 12,
+       "gives": "M"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "after makeover",
+         "at": 28,
+         "note": "a makeover remodels something, so the letters of more posh are rebuilt in a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "miles",
-         "gives": "M",
-         "note": "m is the short form of miles, as printed on a road sign"
-        },
-        {
          "words": "more posh",
-         "note": "these eight letters, given a new arrangement, follow the M"
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Muscly type' sounds like slang for a person and is in fact the technical term for one of the three body builds, which is what makes it a definition rather than a joke.",
-     "definitionFit": "Muscly type → MESOMORPH: in the three-way classification of body builds the mesomorph is the solid, muscular one, so the definition names a category."
+     "surface": "A beefy man who looks far smarter after a style transformation.",
+     "walkthrough": "'after makeover' rearranges MORE POSH, placed after M for miles.",
+     "definitionFit": "A mesomorph is a body type that is naturally compact, strong and muscular."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "makeover"
     }
    }
   },
@@ -351,40 +366,51 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "POLAR",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 12,
+       "note": "wearing means having on, so the standard word goes round the reversed look"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "standard",
+       "at": 20,
+       "gives": "PAR",
+       "note": "par is the standard or normal level, as in 'up to par'"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
          "text": "upset",
-         "note": "Something upset has been tipped over, so the two letters it applies to arrive the other way about."
-        },
-        {
-         "text": "wearing",
-         "note": "What you wear goes round you, so the piece doing the wearing opens up and closes again over the other one."
+         "at": 5,
+         "note": "upset means turned over, so in this down clue lo is read from the bottom upwards"
         }
        ],
        "parts": [
         {
-         "words": "standard",
-         "gives": "PAR",
-         "note": "par is the standard, the score a golf hole is expected to take"
-        },
-        {
          "words": "Look",
-         "gives": "OL",
-         "note": "lo is the old exclamation for look, tipped over here"
+         "at": 0,
+         "gives": "LO",
+         "note": "lo is an old word meaning look, as in 'lo and behold'"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Look' as the archaic lo is a crossword staple worth owning. The definition is the third member of the bear family: brown, black and this one.",
-     "definitionFit": "alternative to brown or black? → POLAR: the three familiar kinds of bear are brown, black and polar, so the question mark flags a definition by example."
+     "surface": "A distressed expression while dressed to a normal standard, in a choice of coloured clothing.",
+     "walkthrough": "'upset' turns LO into OL, and PAR is 'wearing' it. The definition plays on bears: the polar bear is the white alternative to the brown or black bear.",
+     "definitionFit": "Polar, brown and black are three kinds of bear, so polar is an alternative to the other two."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "brown"
     }
    }
   },
@@ -556,40 +582,33 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SINGLEMALT",
+     "op": "homophone",
+     "spelt": "SINGLEMALT",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "The Reverend Spooner's name is the standing signal that two words trade their opening sounds."
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the phrase is heard with its first sounds traded"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "blend",
-         "gives": "SINGLE",
-         "soundsLike": "MINGLE",
-         "note": "to blend is to mingle; it hands its opening sound to the second word and takes that word's in exchange"
-        },
-        {
-         "unchecked": true,
-         "words": "basic flavour",
-         "gives": "MALT",
-         "soundsLike": "SALT",
-         "note": "salt is one of the basic flavours the tongue detects, and it receives the sound the first word gave up"
-        }
-       ]
+       "words": "blend, basic flavour",
+       "at": 10,
+       "gives": "MINGLESALT",
+       "note": "to mingle is to blend, and salt is a basic flavour, so the phrase said aloud is 'mingle salt'"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The joke is that both halves of the swap are still drink words — a blend and a flavour — so the surface stays in the bar while the sounds change places.",
-     "definitionFit": "whiskey → SINGLE MALT: a single malt is whisky made from the malted barley of one distillery, so the definition names the family it belongs to."
+     "surface": "Describing a whiskey as a blend with a fundamental taste.",
+     "walkthrough": "'Spooner's' swaps the opening sounds of MINGLE SALT to give the answer. The surface is ironic: a single malt is by definition not a blend.",
+     "definitionFit": "A single malt is a whisky made from malted barley at a single distillery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blend"
     }
    }
   },
@@ -614,36 +633,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FLAMETHROWER",
-     "indicators": [
-      {
-       "text": "troubled",
-       "note": "A troubled thing has been disturbed out of its settled state, so the seven letters beside it will not stay where they were put."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "troubled",
+         "at": 18,
+         "note": "troubled means disturbed, so the letters of elm haft are thrown into a new order"
+        }
+       ],
        "parts": [
         {
          "words": "elm haft",
-         "gives": "FLAMETH",
-         "note": "seven letters of fodder, shaken into a new order"
-        },
-        {
-         "words": "man wielding blade",
-         "gives": "ROWER",
-         "note": "the flat end of an oar is its blade, so the man wielding one is at the oars"
+         "at": 9
         }
        ]
+      },
+      {
+       "words": "man wielding blade",
+       "at": 27,
+       "gives": "ROWER",
+       "note": "a rower uses an oar, and the flat end of an oar is called the blade"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Man wielding blade' wants to be a swordsman, and that is the trap — the blade belongs to an oar. The surface is assembling an axe from an elm handle while the answer assembles something else.",
-     "definitionFit": "Weapon → FLAMETHROWER: a flamethrower is a weapon in the plainest sense, a device built and carried to attack with, so this is a straight category word."
+     "surface": "A disturbed man swings a sword with an elm-wood hilt.",
+     "walkthrough": "'troubled' rearranges ELM HAFT to FLAMETH. 'blade' looks like a sword, but it is the blade of an oar, so the man wielding it is a rower.",
+     "definitionFit": "A flamethrower is a military weapon that projects a stream of burning fuel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blade"
     }
    }
   },
@@ -682,55 +706,56 @@
      "indicators": [
       {
        "text": "during",
-       "note": "What happens during a walk happens inside it, so the other two pieces are dropped between the letters that survive."
+       "at": 12,
+       "note": "during means inside the span of, so the design and shoe sit within the letters left from walk"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "alternate",
        "indicators": [
         {
          "text": "with regular gaps",
-         "note": "Leave a gap after each letter you keep and a four-letter word gives up only two of them, evenly spaced."
+         "at": 24,
+         "note": "with regular gaps means every other letter is dropped, leaving the first and third letters of walk"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "W",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "walk",
-           "gives": "W",
-           "select": "alternate",
-           "note": "read at alternate letters this word keeps two, and this is the one it starts with"
-          }
-         ]
-        },
-        {
-         "words": "Design",
-         "gives": "ART",
-         "note": "design in the sense of decorative work — the art on a vase"
-        },
-        {
-         "words": "shoe",
-         "gives": "SANDAL",
-         "note": "an open summer shoe, six letters"
+         "words": "walk",
+         "at": 19,
+         "note": "the first and third letters of walk"
         }
        ]
       },
       {
-       "words": "walk",
-       "gives": "L",
-       "note": "the other letter that same word keeps when it is read at alternate spacing"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Design",
+         "at": 0,
+         "gives": "ART",
+         "note": "art is creative design"
+        },
+        {
+         "words": "shoe",
+         "at": 7,
+         "gives": "SANDAL",
+         "note": "a sandal is an open shoe"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two long pieces go inside a two-letter shell, which is back to front for a container — usually the big word is the one that opens up. Counting the gaps is what breaks it open.",
-     "definitionFit": "showing what's better hidden → WARTS AND ALL: the phrase comes from Cromwell's order to paint him complete with blemishes, so it means the flaws left on show."
+     "surface": "Shoe designs paraded with gaps in the catwalk, flaws on show.",
+     "walkthrough": "'with regular gaps' keeps W and L from WALK, and ART plus SANDAL goes 'during' them.",
+     "definitionFit": "Warts and all means including every fault, so showing the blemishes one might prefer to conceal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Design"
     }
    }
   },
@@ -756,38 +781,37 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "skirts",
-       "note": "To skirt a thing is to keep to its outside edge, so what you take is the pair of letters at either end of the word."
-      }
-     ],
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
          "text": "received by",
-         "note": "Whoever receives something has it inside them, so the pop star's name opens up and closes again round it."
+         "at": 24,
+         "note": "received by means taken in, so the singer's name goes round the letters from the edges"
         }
        ],
        "parts": [
         {
          "words": "Sporty Spice",
+         "at": 36,
          "gives": "MELC",
-         "note": "Melanie Chisholm was Sporty Spice of the Spice Girls and goes by Mel C; that short name splits in two here"
+         "note": "Sporty Spice of the Spice Girls is Melanie Chisholm, known as Mel C"
         },
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "AN",
+         "indicators": [
+          {
+           "text": "skirts from",
+           "at": 5,
+           "note": "the skirts of something are its edges, so take the first and last letters of Amazon"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "from Amazon",
-           "gives": "AN",
-           "select": "outer",
-           "note": "the letters at either end of the river's name"
+           "words": "Amazon",
+           "at": 17,
+           "note": "the first and last letters of Amazon"
           }
          ]
         }
@@ -795,14 +819,21 @@
       },
       {
        "words": "divine",
+       "at": 50,
        "gives": "HOLY",
-       "note": "divine in the religious sense is holy"
+       "note": "divine means holy, sacred"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is online shopping, so 'skirts' reads as clothing and 'Amazon' as the shop; both are doing other work. Mel C is the piece a solver outside Britain may need told.",
-     "definitionFit": "Blue → MELANCHOLY: feeling blue is feeling low, and melancholy is that same settled sadness rather than a passing mood."
+     "surface": "A pop star takes delivery of an online order of skirts and loves them, though feeling down.",
+     "walkthrough": "Sporty Spice was the nickname of Mel C in the Spice Girls, the 1990s British pop group. 'skirts from' means the edges of Amazon, AN, which is 'received by' her name.",
+     "definitionFit": "Feeling blue means feeling sad, and melancholy is a deep, lingering sadness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "skirts"
     }
    }
   },
@@ -1336,28 +1367,35 @@
      }
     ],
     "wordplay": {
-     "op": "last",
-     "unchecked": true,
-     "gives": "DEN",
+     "op": "deletion",
      "indicators": [
       {
        "text": "in the second half",
-       "note": "It asks for the back half of a six-letter word rather than the whole of it, so only three letters are kept."
+       "at": 25,
+       "note": "in the second half means only the latter half of the word is kept, its first half dropped"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "without warning",
-       "gives": "DEN",
-       "select": "last",
-       "note": "'without warning' says sudden, and the half of that word you keep is the half at the end"
+       "at": 8,
+       "gives": "SUDDEN",
+       "note": "something sudden happens without warning"
+      },
+      {
+       "gives": "SUD"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Retreat without warning' is one idea on the surface — bolting — and two on the page, because the definition stops after the first word.",
-     "definitionFit": "Retreat → DEN: a den is the private room someone retreats to for peace and quiet, rather than the animal's lair of the other sense."
+     "surface": "A team pulls back abruptly after half-time.",
+     "walkthrough": "'without warning' looks like a description of the retreat, but it gives SUDDEN, and 'in the second half' keeps its last three letters.",
+     "definitionFit": "A den is a private room where someone withdraws to be alone, a personal retreat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Retreat"
     }
    }
   },
@@ -1385,41 +1423,46 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "beginning",
-       "note": "It asks for the front of the name that follows and nothing else — one letter, taken off the start."
+       "text": "on",
+       "at": 55,
+       "note": "on means placed after, so the opening letter comes behind the chopping tool in this across entry"
       }
      ],
      "parts": [
       {
        "words": "chopper",
+       "at": 58,
        "gives": "AXE",
-       "note": "a chopper is an axe, the tool rather than the helicopter the surface offers"
+       "note": "an axe is a chopping tool"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "L",
        "indicators": [
         {
-         "text": "on",
-         "note": "Across the grid one thing written on another has been reached afterwards, so the piece named before it is the one that ends up second."
+         "text": "beginning for",
+         "at": 33,
+         "note": "beginning for means the first letter of the name that follows"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "beginning for Lindsey",
-         "gives": "L",
-         "select": "first",
-         "note": "the letter that name starts with"
+         "words": "Lindsey",
+         "at": 47,
+         "note": "first letter of Lindsey"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "In an across clue one piece 'on' another sits after it, so the single letter goes at the end. 'Chopper' pulls hard towards a helicopter, which is just what an aerial surface wants.",
-     "definitionFit": "Winter Olympics aerial manoeuvre → AXEL: the Axel is the figure-skating jump named after Axel Paulsen, the one entered from a forward edge."
+     "surface": "Skier Lindsey Vonn starts a Winter Olympics jump from a helicopter.",
+     "walkthrough": "'chopper' suggests a helicopter for an aerial stunt, but it is an AXE; 'beginning for' Lindsey adds L.",
+     "definitionFit": "An axel is a figure-skating jump with one and a half turns in the air, performed at the Winter Olympics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chopper"
     }
    }
   },
@@ -1521,34 +1564,43 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "TOTALITY",
      "indicators": [
       {
        "text": "replaced in",
-       "note": "One piece stands down and another takes its place inside the longer word, so nothing is added at either end."
+       "at": 11,
+       "note": "replaced in means one piece is swapped out of the longer word for another"
       }
      ],
      "parts": [
       {
        "words": "ceremony",
+       "at": 23,
        "gives": "FORMALITY",
-       "note": "a ceremony gone through for the sake of appearances is a formality, nine letters"
+       "note": "a formality is a ceremonial or conventional act"
       },
       {
        "words": "form",
-       "note": "the four letters at the front of the word above, and the ones being shown the door"
+       "at": 6,
+       "gives": "FORM",
+       "note": "taken as written: the word form"
       },
       {
        "words": "child",
+       "at": 35,
        "gives": "TOT",
-       "note": "a tot is a small child, and it moves in where those four letters were"
+       "note": "a tot is a small child"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Whole form' reads as a school year group, and that is the trap: the definition is one word long and 'form' belongs to the wordplay.",
-     "definitionFit": "Whole → TOTALITY: the totality of something is the whole of it taken together, the noun for completeness rather than the adjective."
+     "surface": "A complete schedule rewritten for a ceremony involving a child.",
+     "walkthrough": "'replaced in' tells you to take the letters FORM out of FORMALITY, the ceremony, and put TOT, the child, in their place.",
+     "definitionFit": "Totality means the whole of something, every part taken together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "form"
     }
    }
   }
