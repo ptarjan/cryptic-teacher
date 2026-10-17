@@ -50,48 +50,47 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Heading to",
-       "note": "the heading of a word is what stands at its top, its first letter"
+       "text": "parts",
+       "at": 17,
+       "note": "'parts' is read as a verb: the letter splits the word for requires in two"
       }
      ],
      "parts": [
       {
        "words": "requires",
+       "at": 23,
        "gives": "ENTAILS",
-       "note": "to entail is to require"
+       "note": "to entail is to require, so entails means requires"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
-         "text": "parts",
-         "note": "to part something is to split it"
+         "text": "Heading to",
+         "at": 0,
+         "note": "the heading of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Heading to rowdy",
-         "gives": "R",
-         "select": "first",
-         "note": "first letter of rowdy, placed between ENT and AILS"
+         "words": "rowdy",
+         "at": 11,
+         "note": "first letter of rowdy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A trip to the rough end of town takes nerve.",
-     "walkthrough": "'Guts' reads as courage in the surface, but here it means innards. 'Parts' is a verb, not a noun meaning districts.",
-     "definitionFit": "Guts in the literal, anatomical sense: the bowels and other innards of a body."
+     "surface": "Getting through the rough end of town takes courage.",
+     "walkthrough": "'parts' looks like a noun (rough districts) but works as a verb: R, the 'Heading to rowdy', parts ENTAILS. 'guts' also looks like courage, but here it is the innards.",
+     "definitionFit": "Entrails are the intestines and inner organs, which is what guts means literally."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "guts"
+     "misdirectedWord": "parts"
     }
    }
   },
@@ -275,7 +274,8 @@
      "indicators": [
       {
        "text": "after",
-       "note": "one thing after another in a sentence becomes one after the other in the answer"
+       "at": 14,
+       "note": "after places the service's letters behind the rest"
       }
      ],
      "parts": [
@@ -283,33 +283,32 @@
        "op": "container",
        "indicators": [
         {
-         "text": "finally",
-         "note": "finally means at the end, so the last letter of train"
+         "text": "got in",
+         "at": 42,
+         "note": "'finally got in' says the last letter is put inside the other word"
         }
        ],
        "parts": [
         {
          "words": "delayed",
+         "at": 20,
          "gives": "LATE",
-         "note": "a delayed train is late"
+         "note": "late means delayed, behind schedule"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "N",
          "indicators": [
           {
-           "text": "got in",
-           "note": "getting in means entering"
+           "text": "finally",
+           "at": 34,
+           "note": "finally points to the last letter of train"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "train finally",
-           "gives": "N",
-           "select": "last",
-           "note": "last letter of train, placed inside LATE"
+           "words": "train",
+           "at": 28,
+           "note": "last letter of train"
           }
          ]
         }
@@ -317,15 +316,16 @@
       },
       {
        "words": "service",
+       "at": 6,
        "gives": "RN",
        "note": "RN is the Royal Navy, one of the armed services"
       }
      ]
     },
     "explanation": {
-     "surface": "A skeleton rail service runs after the delayed train finally arrived.",
-     "walkthrough": "Commuter words everywhere, but 'service' is the Navy and 'Light' is a noun, a lamp.",
-     "definitionFit": "A definition by example: a lantern is one kind of light, a lamp with a case you can carry."
+     "surface": "A commuter complains that the late train only arrived after the service was over.",
+     "walkthrough": "The surface pins 'finally' to the train arriving, but it picks the train's last letter. A 'service' in crosswords is often one of the armed forces; here the Royal Navy.",
+     "definitionFit": "A lantern is a portable lamp in a case, a source of light."
     },
     "features": {
      "answerInScene": false,
@@ -409,46 +409,51 @@
      "op": "charade",
      "parts": [
       {
-       "words": "able to",
+       "words": "is able to",
+       "at": 8,
        "gives": "CAN",
-       "note": "can = is able to"
+       "note": "can means is able to"
       },
       {
        "words": "provide",
+       "at": 19,
        "gives": "DO",
-       "note": "to do lunch is to provide it"
+       "note": "to do is to provide, as when a café does lunches"
+      },
+      {
+       "words": "you",
+       "at": 27,
+       "gives": "U",
+       "note": "U is the text-speak spelling of you"
       },
       {
        "op": "last",
        "indicators": [
         {
          "text": "ultimately",
-         "note": "ultimately means in the end, so only the last letter of armour is used"
+         "at": 43,
+         "note": "ultimately points to the last letter of the word that follows"
         }
        ],
        "parts": [
         {
-         "words": "you",
-         "note": "U = you, text-speak"
+         "words": "armour",
+         "at": 36,
+         "note": "last letter of armour"
         }
        ]
-      },
-      {
-       "words": "armour ultimately",
-       "gives": "R",
-       "note": "last letter of armour"
       }
      ]
     },
     "explanation": {
-     "surface": "Being honest is the best protection you have.",
-     "walkthrough": "The surface is a proverb about honesty as armour. 'Provide' for DO is the catering sense: a pub that does food provides it.",
-     "definitionFit": "A plain synonym: candour is frankness, the habit of saying honestly what you think."
+     "surface": "Telling the truth, the clue suggests, gives you a kind of protective shield.",
+     "walkthrough": "CAN ('is able') then DO ('provide') then U ('you') then R, the last letter of armour ('ultimately').",
+     "definitionFit": "Candour is frankness and openness in speech, the quality of being truthful."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "armour"
+     "misdirectedWord": "provide"
     }
    }
   },
@@ -1170,41 +1175,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ATHEISTS",
-     "indicators": [
-      {
-       "text": "rejected",
-       "note": "something rejected is thrown back, so TA comes back to front"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rejected",
+         "at": 28,
+         "note": "rejected means sent back, so the volunteers' letters are read the other way"
+        }
+       ],
        "parts": [
         {
          "words": "volunteers",
-         "gives": "AT",
-         "note": "TA = Territorial Army, volunteer soldiers; turned round to AT"
-        },
-        {
-         "words": "jobs",
-         "gives": "HEISTS",
-         "note": "a job is criminal slang for a robbery"
+         "at": 17,
+         "gives": "TA",
+         "note": "TA is the Territorial Army, Britain's volunteer reserve force"
         }
        ]
+      },
+      {
+       "words": "jobs",
+       "at": 37,
+       "gives": "HEISTS",
+       "note": "a job is criminal slang for a robbery, a heist"
       }
      ]
     },
     "explanation": {
-     "surface": "Staff doubt the rejected volunteers were ever doing real work.",
-     "walkthrough": "The definition is spoken by the answer: atheists would say 'we don't believe'. The TA is Britain's former volunteer army reserve.",
-     "definitionFit": "A definition in the answer's own voice: what the group itself would say about God."
+     "surface": "Reservists say they turned down the work on offer.",
+     "walkthrough": "TA (the Territorial Army, Britain's volunteer reserve) is 'rejected' to give AT; 'jobs' are robberies, HEISTS. The definition is something the answer would say about themselves.",
+     "definitionFit": "Atheists are people who hold no belief in God, so they could say they don't believe."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "jobs"
     }
    }
@@ -1233,26 +1240,31 @@
      "op": "container",
      "indicators": [
       {
-       "text": "finally",
-       "note": "finally means at the end, so only the last letter of sell"
+       "text": "in",
+       "at": 26,
+       "note": "'in French city' tells us the letter goes inside the city's name"
       }
      ],
      "parts": [
       {
        "words": "French city",
+       "at": 29,
        "gives": "ANGERS",
-       "note": "Angers is a city in western France"
+       "note": "Angers is a city in the Loire valley of France"
       },
       {
        "op": "last",
        "indicators": [
         {
-         "text": "in"
+         "text": "finally",
+         "at": 13,
+         "note": "finally points to the last letter of sell"
         }
        ],
        "parts": [
         {
-         "words": "finally sell",
+         "words": "sell",
+         "at": 21,
          "note": "last letter of sell"
         }
        ]
@@ -1260,9 +1272,9 @@
      ]
     },
     "explanation": {
-     "surface": "Restaurant staff at last sell fish in a French town.",
-     "walkthrough": "'Fish waiters' looks like staff who serve fish; anglers are those who wait for the fish to bite.",
-     "definitionFit": "A cryptic description: anglers sit waiting for fish, so they are fish waiters."
+     "surface": "Restaurant staff are pushing seafood in a French town.",
+     "walkthrough": "'Fish waiters' looks like restaurant staff serving fish; it is the definition, people who wait for fish. L, the end of 'sell', goes 'in' ANGERS, a city in western France.",
+     "definitionFit": "Anglers sit by the water for hours waiting for a fish to bite."
     },
     "features": {
      "answerInScene": false,
