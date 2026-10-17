@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -44,49 +45,53 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "AUTHOR",
+     "indicators": [
+      {
+       "text": "plated",
+       "at": 42,
+       "note": "plating is a coat on the outside, so the gold letters surround the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "gold",
+       "at": 37,
+       "gives": "AUOR",
+       "note": "gold is Au, its chemical symbol, and or, its name in heraldry; one of each coats the outside"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "plated",
-         "note": "plating lays a coat of metal right over a thing, so the covering shows at both ends of what it covers"
+         "text": "half of",
+         "at": 24,
+         "note": "only half of the word is used, its first two letters"
         }
        ],
        "parts": [
         {
-         "words": "gold",
-         "gives": "AU",
-         "note": "AU is the chemical symbol for gold"
+         "words": "that",
+         "at": 32,
+         "note": "its first half is used"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "TH",
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "half of that",
-           "gives": "TH",
-           "select": "first",
-           "note": "the front half of THat"
-          }
-         ]
-        },
-        {
-         "words": "gold",
-         "gives": "OR",
-         "note": "or is gold in heraldry, the second coat"
+         "gives": "AT",
+         "note": "the second half of that, dropped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "One word for gold does the job twice under two different conventions, which is what a plating means: a coat on this side and a coat on that.",
-     "definitionFit": "Danielle Steel has written a hundred novels, so the clue defines by example - name one novelist and the general word is wanted."
+     "surface": "A sneer at Steel, the novelist, suggesting half her output is merely gilded.",
+     "walkthrough": "Gold supplies two different symbols, Au and or, which sit either side of TH. Danielle Steel is a best-selling romance novelist, so 'Steel' is not the metal.",
+     "definitionFit": "Danielle Steel is a prolific American novelist, so she is an example of a writer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Steel"
     }
    }
   },
@@ -205,46 +210,56 @@
     "definitions": [
      {
       "text": "Neptune's orbit",
-      "at": 61
+      "at": 61,
+      "note": "orbit in the sense of sphere of influence: the Roman sea god rules the sea"
      }
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "OCEAN",
+     "indicators": [
+      {
+       "text": "getting stuck into",
+       "at": 29,
+       "note": "the altered word is stuck inside the other piece"
+      }
+     ],
      "parts": [
       {
+       "words": "dealing with",
+       "at": 48,
+       "gives": "ON",
+       "note": "on means about or dealing with, as in a book on birds"
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "OCEAN",
        "indicators": [
         {
          "text": "putting head down",
-         "note": "the head is the opening letter, and in a down entry sending it down moves it to the foot of its own chunk"
-        },
-        {
-         "text": "getting stuck into",
-         "note": "a thing stuck into something ends up in the middle of it, with the rest closing over"
+         "at": 7,
+         "note": "in a down clue the first letter, the head, moves down to the bottom of the word"
         }
        ],
        "parts": [
         {
          "words": "Expert",
+         "at": 0,
          "gives": "ACE",
-         "note": "an ace is an expert at whatever it is"
-        },
-        {
-         "words": "dealing with",
-         "gives": "ON",
-         "note": "'on' means about - a lecture on birds is one dealing with birds"
+         "note": "an ace is an expert"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Head down' is doing two jobs: a diligent worker on the surface, and on the grid a letter with a journey to make.",
-     "definitionFit": "Neptune here is the Roman sea god, not the planet, and 'orbit' means sphere of influence - the water is what he rules."
+     "surface": "A specialist digs in, head lowered, to work out the path of the planet Neptune.",
+     "walkthrough": "'orbit' points to the planet's path, but Neptune here is the Roman god of the sea; ACE with its head moved down becomes CEA.",
+     "definitionFit": "Neptune was the Roman god of the sea, so his realm or sphere of influence is the ocean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "orbit"
     }
    }
   },
@@ -1058,55 +1073,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PEDESTAL",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 19,
+       "note": "in a down clue, one piece sits over, so before, the other"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "alternate",
        "indicators": [
         {
          "text": "evenly",
-         "note": "taking a word evenly means the letters standing in the even places, second, fourth and sixth"
-        },
-        {
-         "text": "broken",
-         "note": "something broken is in pieces, and pieces can be fitted together in another order"
+         "at": 12,
+         "note": "taking the even-numbered letters, the second, fourth and sixth"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "PED",
-         "indicators": [
-          {
-           "text": "over",
-           "note": "in a down entry whatever is over something is written above it, so it comes first"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "spread",
-           "gives": "PED",
-           "select": "alternate",
-           "note": "the second, fourth and sixth letters of sPrEaD"
-          }
-         ]
-        },
+         "words": "spread",
+         "at": 5,
+         "note": "its even letters are used"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "broken",
+         "at": 24,
+         "note": "broken signals that the letters of slate are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "slate",
-         "gives": "ESTAL",
-         "note": "the five letters of slate rebuilt"
+         "at": 31
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Spread evenly' is one phrase with two jobs: a breakfast-table picture on the surface, and an instruction to count letters in twos.",
-     "definitionFit": "A pedestal is the base a statue or a column stands on, so the definition is the architectural word in plain English."
+     "surface": "Instructions for laying a level foundation over smashed roof tiles.",
+     "walkthrough": "'spread evenly' looks like an instruction for butter; it takes PED, the even letters of spread, above a rearranged slate.",
+     "definitionFit": "A pedestal is the base or support on which a statue or column stands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spread"
     }
    }
   },
@@ -1247,36 +1266,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WELCOME",
-     "indicators": [
-      {
-       "text": "shortly",
-       "note": "'shortly' cuts a word short, taking the last letter off the one it follows"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shortly",
+         "at": 6,
+         "note": "cut short, so the last letter of the word goes"
+        }
+       ],
        "parts": [
         {
          "words": "We'll",
-         "gives": "WEL",
-         "note": "WE'LL run together is WELL, docked of its final letter"
+         "at": 0,
+         "note": "its letters without the apostrophe, losing the last one"
         },
         {
-         "words": "attend",
-         "gives": "COME",
-         "note": "to attend a party is to come to it"
+         "gives": "L",
+         "note": "the last letter, dropped"
         }
        ]
+      },
+      {
+       "words": "attend",
+       "at": 14,
+       "gives": "COME",
+       "note": "to attend an event is to come to it"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The apostrophe is the whole disguise: 'We'll' is a promise on the surface and four letters to trim in the wordplay.",
-     "definitionFit": "A welcome is the reception an arrival is given - 'a warm welcome' and 'a warm reception' are the same greeting."
+     "surface": "A promise to turn up at a party before long.",
+     "walkthrough": "'shortly' looks like 'soon', but it trims the last letter of We'll to give WEL.",
+     "definitionFit": "A welcome is the reception given to a guest on arrival."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shortly"
     }
    }
   },
