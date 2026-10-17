@@ -596,32 +596,55 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "REGARDLESS",
-     "indicators": [
-      {
-       "text": "changing hands",
-       "note": "the hands are L (left) and R (right), which swap places"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "Royal",
-       "gives": "REGAL",
-       "note": "regal = royal"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "changing hands",
+         "at": 14,
+         "note": "hands are left and right, L and R, so changing hands swaps one for the other in each word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Royal",
+         "at": 0,
+         "gives": "REGAL",
+         "note": "regal means royal, befitting a monarch"
+        },
+        {
+         "gives": "L"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       },
       {
-       "words": "costume",
-       "gives": "DRESS",
-       "note": "dress = costume"
+       "op": "substitution",
+       "parts": [
+        {
+         "words": "costume",
+         "at": 6,
+         "gives": "DRESS",
+         "note": "a dress is a costume or outfit"
+        },
+        {
+         "gives": "R"
+        },
+        {
+         "gives": "L"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A royal outfit passes to a new owner all the same.",
-     "walkthrough": "REGALDRESS has one L and one R; swapping those two letters, left for right, gives REGARDLESS.",
-     "definitionFit": "Regardless means anyway, in spite of everything."
+     "surface": "A piece of regal clothing is passing from one owner to another, as an auction lot might.",
+     "walkthrough": "'changing hands' turns the L of REGAL into R and the R of DRESS into L, giving REGAR and DLESS. 'Changing hands' reads as a sale; here the hands are left and right.",
+     "definitionFit": "Regardless, used as an adverb, means anyway: in spite of everything, nevertheless."
     },
     "features": {
      "answerInScene": false,
@@ -1161,57 +1184,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EMIR",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "holds",
+       "at": 6,
+       "note": "holds means grips inside, so the queen's letters go round the others"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Queen",
+       "at": 0,
+       "gives": "ER",
+       "note": "ER, for Elizabeth Regina, is the usual crossword queen"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "holds",
-         "note": "whatever holds something has it in its grip"
+         "text": "reversible",
+         "at": 12,
+         "note": "reversible says this pair can be turned the other way round"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "reversible",
-           "note": "a reversible thing can be turned round, like a reversible coat, so IM becomes MI"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "Queen",
-           "gives": "ER",
-           "note": "ER = Elizabeth Regina"
+           "words": "one",
+           "at": 23,
+           "gives": "I",
+           "note": "I is the Roman numeral for one"
           },
           {
-           "words": "one",
-           "gives": "I",
-           "note": "I = one, the Roman numeral"
+           "words": "metre",
+           "at": 27,
+           "gives": "M"
           }
          ]
-        },
-        {
-         "words": "metre",
-         "gives": "M",
-         "note": "m = metre"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Queen owns a two-sided metre rule.",
-     "walkthrough": "'Metre ruler' looks like a measuring stick; the ruler is the definition, a Muslim prince.",
-     "definitionFit": "An emir is a ruler in parts of the Muslim world."
+     "surface": "The monarch is gripping a two-way metre rule, like a measuring stick.",
+     "walkthrough": "'reversible' turns IM into MI, and 'holds' puts that inside ER. 'ruler' looks like part of the metre rule in the surface but is the definition.",
+     "definitionFit": "An emir is a Muslim ruler or commander, especially in the Middle East."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "ruler"
     }
@@ -1366,59 +1391,45 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "reversal",
      "indicators": [
       {
        "text": "Westerly",
-       "note": "in an across clue, going west means reading right to left"
+       "at": 0,
+       "note": "in an across clue, going westerly means running right to left, so the letters are read backwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "entered by"
-        }
-       ],
-       "parts": [
-        {
-         "words": "parts of Ireland",
-         "gives": "ROI",
-         "note": "ROI = Republic of Ireland"
-        }
-       ]
-      },
-      {
        "op": "container",
        "indicators": [
         {
-         "text": "regularly",
-         "note": "something done regularly happens at even intervals, so the letters of priest are taken at every second place"
+         "text": "entered by",
+         "at": 26,
+         "note": "entered by means the other letters are put inside these"
         }
        ],
        "parts": [
         {
          "words": "parts of Ireland",
-         "gives": "NI",
-         "note": "NI = Northern Ireland"
+         "at": 9,
+         "gives": "ROINI",
+         "note": "the island's two parts are the Republic of Ireland, ROI, and Northern Ireland, NI"
         },
         {
-         "op": "reversal",
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "regularly",
+           "at": 44,
+           "note": "regularly means taking letters at even intervals, every other one"
+          }
+         ],
          "parts": [
           {
-           "op": "alternate",
-           "unchecked": true,
-           "gives": "RET",
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "priest regularly",
-             "gives": "RET",
-             "select": "alternate",
-             "note": "even letters of pRiEsT"
-            }
-           ]
+           "words": "priest",
+           "at": 37,
+           "note": "alternate letters of priest, the second, fourth and sixth, give RET"
           }
          ]
         }
@@ -1427,9 +1438,9 @@
      ]
     },
     "explanation": {
-     "surface": "A priest regularly visits the west of Ireland, far inland.",
-     "walkthrough": "The two parts of Ireland are its two jurisdictions, abbreviated ROI and NI; with RET between them, the whole reads westward.",
-     "definitionFit": "Up-country means in the interior, away from the coast."
+     "surface": "A clergyman makes regular visits to the western counties of Ireland, deep in the countryside.",
+     "walkthrough": "'Westerly parts of Ireland' reads as a region, but the parts are the island's two political halves, and 'Westerly' tells you to write the whole result right to left once the priest's alternate letters are inside.",
+     "definitionFit": "The interior of a country is its inland region away from the coast, which is what up-country describes."
     },
     "features": {
      "answerInScene": false,
@@ -1459,44 +1470,58 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "APATHY",
-     "indicators": [
-      {
-       "text": "making",
-       "note": "the change is being made to the burger"
-      },
-      {
-       "text": "hot"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "a",
-       "note": "taken as it stands"
+       "at": 21,
+       "gives": "A"
       },
       {
-       "words": "burger's",
-       "gives": "PATTY",
-       "note": "a patty is a burger"
-      },
-      {
-       "words": "ultimate temperature hot",
-       "gives": "H",
-       "note": "the last T (temperature) of PATTY becomes H (hot)"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "making",
+         "at": 14,
+         "note": "making here means turning one thing into another: the temperature letter is made into the letter for hot"
+        },
+        {
+         "text": "ultimate",
+         "at": 32,
+         "note": "ultimate means last, so it is the final letter for temperature of the burger that becomes hot"
+        }
+       ],
+       "parts": [
+        {
+         "words": "burger's",
+         "at": 23,
+         "gives": "PATTY",
+         "note": "a patty is a flat cake of minced meat, the burger in a bun"
+        },
+        {
+         "words": "temperature",
+         "at": 41,
+         "gives": "T"
+        },
+        {
+         "words": "hot",
+         "at": 53,
+         "gives": "H",
+         "note": "H is the abbreviation for hot, as on a tap"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Carelessness means a burger ends up overcooked.",
-     "walkthrough": "The burger picture makes 'temperature hot' sound like cooking; the last T of PATTY is swapped for H.",
-     "definitionFit": "A plain synonym: apathy is not caring about anything, from the Greek for without feeling."
+     "surface": "Someone shows indifference to food safety when cooking a burger to its final temperature.",
+     "walkthrough": "The burger is not a beefburger but its meat cake; PATTY has two Ts, and 'ultimate' and 'making' say only the last of them is turned into the letter for hot.",
+     "definitionFit": "Apathy is indifference, a lack of interest or concern, so it is a failure to care."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "temperature"
+     "misdirectedWord": "ultimate"
     }
    }
   },
@@ -1521,34 +1546,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "Thrashing",
-       "note": "the letters of A FASCIST are beaten into a new shape"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Thrashing",
+         "at": 0,
+         "note": "thrashing means beating about violently, so these letters are knocked into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "a fascist",
-         "note": "anagram of A FASCIST"
+         "words": "a",
+         "at": 10
         },
         {
-         "words": "right-winger",
-         "gives": "TORY",
-         "note": "a Tory is a British Conservative"
+         "words": "fascist",
+         "at": 12,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "right-winger",
+       "at": 20,
+       "gives": "TORY",
+       "note": "a Tory is a member of Britain's Conservative Party, on the political right"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone says beating a fascist right-winger is fine.",
-     "walkthrough": "The surface is a political argument; 'thrashing' is only telling you to scramble A FASCIST.",
-     "definitionFit": "A plain synonym: something OK is good enough, which is what satisfactory grades say."
+     "surface": "Beating up a fascist politician of the right is declared to be fine.",
+     "walkthrough": "The surface pairs the fascist and the right-winger as one target, but only 'a fascist' is mixed up; the right-winger stays whole at the end. Tory is the everyday name for a member of Britain's Conservative Party.",
+     "definitionFit": "Satisfactory means acceptable or adequate, which is what calling something OK says."
     },
     "features": {
      "answerInScene": false,
