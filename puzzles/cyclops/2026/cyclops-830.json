@@ -23,7 +23,8 @@
   "check": "30 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -405,7 +406,8 @@
      "indicators": [
       {
        "text": "in",
-       "note": "In names the destination, so the letters just given go inside the ones that follow."
+       "at": 25,
+       "note": "the hotel and boozer letters go in the rearranged word"
       }
      ],
      "parts": [
@@ -414,38 +416,45 @@
        "indicators": [
         {
          "text": "sadly",
-         "note": "Sadly says the thing is in a sorry state, and letters in a sorry state have fallen out of their proper order."
+         "at": 34,
+         "note": "sadly means in a sorry state, so the letters of the rude word are knocked out of order"
         }
        ],
        "parts": [
         {
-         "words": "shit, sadly",
-         "gives": "TISH",
-         "note": "the four letters of shit in another order, opening up after the first"
-        },
-        {
-         "words": "hotel",
-         "gives": "H",
-         "note": "H is hotel in the radio alphabet"
+         "words": "shit",
+         "at": 28
         }
        ]
       },
       {
-       "words": "boozer",
-       "gives": "INN",
-       "note": "a boozer is a pub, and an inn is the crossword's pub"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "hotel",
+         "at": 12,
+         "gives": "H",
+         "note": "H is Hotel in the NATO phonetic alphabet"
+        },
+        {
+         "words": "boozer",
+         "at": 18,
+         "gives": "INN",
+         "note": "a boozer is British slang for a pub, an inn"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "The skinny drinker in the hotel bar is sadly in trouble.",
-     "walkthrough": "A boozer in British usage is the pub itself as often as the man propping it up, and the wordplay wants the building. 'In shit' does double duty: the trouble the surface describes and the instruction to go inside.",
-     "definitionFit": "The -ish ending is exactly the 'rather' of the definition, hedging thin into not-quite-thin."
+     "surface": "A rather skinny hotel bar is, regrettably, in a dreadful mess.",
+     "walkthrough": "The vulgar word is pure fodder, rearranged as T-ISH so the hotel and pub letters can sit inside. A boozer is British slang for a pub.",
+     "definitionFit": "The suffix -ish means somewhat, so thinnish describes someone fairly slim."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "boozer"
+     "misdirectedWord": "sadly"
     }
    }
   },
@@ -702,48 +711,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "OPUSDEI",
+     "op": "charade",
      "indicators": [
       {
-       "text": "dodgy",
-       "note": "A dodgy thing is not what it claims to be, and dodgy letters will not stay in the order printed."
+       "text": "Coming before",
+       "at": 0,
+       "note": "the rearranged word comes before the one"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "Coming before",
-         "note": "Coming before sets the letters it introduces in front of the piece named next."
+         "text": "dodgy",
+         "at": 18,
+         "note": "dodgy means unreliable or crooked, so the letters are bent into a new order"
         }
        ],
        "parts": [
         {
-         "words": "dodgy pseudo",
-         "gives": "OPUSDE",
-         "note": "the six letters of pseudo in another order"
-        },
-        {
-         "words": "one",
-         "gives": "I",
-         "note": "one is the figure 1, written as the letter I"
+         "words": "pseudo",
+         "at": 24
         }
        ]
+      },
+      {
+       "words": "one",
+       "at": 14,
+       "gives": "I",
+       "note": "I is the Roman numeral one"
       }
      ]
     },
     "explanation": {
-     "surface": "A shady fake-religious outfit.",
-     "walkthrough": "Opus Dei is a conservative Catholic prelature, the body The Da Vinci Code turned into a thriller villain, and 'pseudo religious' is Cyclops's dig at it. One for I is a swap worth owning outright.",
-     "definitionFit": "Opus Dei is a personal prelature of the Catholic Church with priestly and lay members, so a religious organisation is what it literally is."
+     "surface": "A shady, sham religious group is said to be ahead of the rest.",
+     "walkthrough": "'pseudo religious' reads as one phrase, but the break comes after 'pseudo': 'religious organisation' is the definition. Private Eye often mocks this group's secrecy.",
+     "definitionFit": "Opus Dei is a Catholic institution of priests and lay members, often portrayed as secretive."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "pseudo"
+     "misdirectedWord": "dodgy"
     }
    }
   },
@@ -820,37 +829,36 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PUSH",
-     "indicators": [
-      {
-       "text": "turned",
-       "note": "A thing turned has been swung round to face the other way, so the word beside it is read back to front."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "turned",
+         "at": 6,
+         "note": "turned means turned round, so the little word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "turned up",
-         "gives": "PU",
-         "note": "UP taken from its last letter to its first"
-        },
-        {
-         "words": "say no more",
-         "gives": "SH",
-         "note": "sh! is the noise that tells someone to be quiet"
+         "words": "up",
+         "at": 13
         }
        ]
+      },
+      {
+       "words": "say no more",
+       "at": 18,
+       "gives": "SH",
+       "note": "sh is the interjection telling someone to be quiet"
       }
      ]
     },
     "explanation": {
-     "surface": "Reporters arriving somewhere they shouldn't, with a nudge to drop the subject.",
-     "walkthrough": "Four letters, two instructions, and the one trap is Press, which looks like newspapers and means shove. SH is spelt the way comics print it rather than the way a dictionary would.",
-     "definitionFit": "To push a button and to press one are the same action, and the two verbs swap freely."
+     "surface": "Journalists arrived and were told to keep quiet.",
+     "walkthrough": "'Press' looks like the media, the reporters who turned up; it is the verb, to shove.",
+     "definitionFit": "To push is to press against something, applying force to move it."
     },
     "features": {
      "answerInScene": false,
@@ -880,50 +888,66 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PETULANCE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "interrupts",
+       "at": 28,
+       "note": "the rearranged letters break into the vice-president's name"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "ex-veep",
+       "at": 39,
+       "gives": "PENCE",
+       "note": "Mike Pence was Trump's former vice-president, a veep in US slang"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "not",
-         "note": "Not marks the piece to be left out, so the letter it names never reaches the grid."
-        },
-        {
          "text": "rudely",
-         "note": "Someone behaving rudely has no respect for the proper order of things, letters included."
-        },
-        {
-         "text": "interrupts",
-         "note": "To interrupt is to break in on something already under way, so the letters that interrupt land inside it."
+         "at": 21,
+         "note": "rudely means roughly, so the remaining letters are roughly rearranged"
         }
        ],
        "parts": [
         {
-         "words": "ex-veep",
-         "gives": "PENCE",
-         "note": "Mike Pence was Trump's vice-president in the first term, and the name splits to let the other letters in"
-        },
-        {
-         "words": "Adult (not Democrat) rudely",
-         "gives": "TULA",
-         "note": "ADULT loses the D of Democrat, and the four letters left come back in another order"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "not",
+           "at": 7,
+           "note": "not means without, so the Democrat letter is dropped from the word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Adult",
+           "at": 0
+          },
+          {
+           "words": "Democrat",
+           "at": 11,
+           "gives": "D",
+           "note": "D is the US political abbreviation for Democrat"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A grown-up breaking rudely into a former vice-president's talk.",
-     "walkthrough": "Mike Pence fell out with Trump over the 2020 election result, which is the work 'ex' is doing. The surface promises a grown-up and the definition delivers the opposite of one.",
-     "definitionFit": "Petulance is childish sulky bad temper, and the clue offers it as one of the traits its target is routinely charged with."
+     "surface": "A grown-up Republican rudely interrupts the former vice-president, typical of Trump.",
+     "walkthrough": "'not Democrat' leaves AULT once D goes, and 'rudely' rearranges those four letters. Mike Pence served as Trump's vice-president, a veep in American slang.",
+     "definitionFit": "Petulance is childish bad temper and sulkiness, which the satirist sees as a Trump characteristic."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "interrupts"
+     "misdirectedWord": "rudely"
     }
    }
   },
@@ -1089,53 +1113,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SIGNAL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "wasted",
-       "note": "Wasted is drunk or wrecked, and what is wrecked keeps neither its shape nor its order."
+       "text": "by",
+       "at": 19,
+       "note": "by means next to, so the leader's letter sits beside the rearranged word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "wasted",
+         "at": 12,
+         "note": "wasted means ruined, so the letters are broken up and rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "gains wasted",
-         "gives": "SIGNA",
-         "note": "the five letters of gains in another order"
-        },
+         "words": "gains",
+         "at": 6
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leader",
-           "note": "A leader is the one out in front, so the word beside it hands over its opening letter."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Labour's leader",
-           "gives": "LABOURS",
-           "note": "the first letter of Labour"
-          }
-         ]
+         "text": "leader",
+         "at": 31,
+         "note": "a leader comes at the front, so only the first letter of Labour's is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Labour's",
+         "at": 22,
+         "note": "the first letter of Labour's is L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Labour's leader throwing away the gains the party had made.",
-     "walkthrough": "Token gains is a real phrase, which is why the two words look like a unit when they are in fact definition and fodder. The party's leader turns out to be nothing grander than the party's initial.",
-     "definitionFit": "A token is an outward sign that something is meant, and a signal is a sign made deliberately to be read."
+     "surface": "Labour's leader squandered a few token electoral advances.",
+     "walkthrough": "'wasted' rearranges GAINS into SIGNA, and 'by' sets L beside it.",
+     "definitionFit": "A signal is a sign or indication of something, as a token of goodwill is."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "wasted"
+     "misdirectedWord": "Token"
     }
    }
   },
@@ -1320,42 +1350,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Initially",
-       "note": "Initially asks for initials, the single letter each of the words after it begins with."
+       "text": "embracing",
+       "at": 28,
+       "note": "the initial letters embrace, hold inside them, the politician"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "TET",
        "indicators": [
         {
-         "text": "embracing",
-         "note": "To embrace is to get your arms right around something, so what is embraced finishes up inside."
+         "text": "Initially",
+         "at": 0,
+         "note": "initially means at the start, so each word gives its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Initially take exception to",
-         "gives": "TET",
-         "select": "first",
-         "note": "the opening letters of take, exception and to, which then part company to take a passenger"
+         "words": "take exception to",
+         "at": 10,
+         "note": "the first letters of take, exception and to are T, E, T"
         }
        ]
       },
       {
-       "words": "politician",
+       "words": "politician's",
+       "at": 38,
        "gives": "MP",
-       "note": "MP is a Member of Parliament, the crossword's default politician"
+       "note": "an MP is a Member of Parliament, a politician"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who objects at first and then warms to a politician's charm.",
-     "walkthrough": "Take exception to is a phrase solvers read whole, which is exactly why its three initials are so hard to see separately. The politician then climbs in between two of them.",
-     "definitionFit": "To tempt someone and to allure them are the same move: dangling in front of them something they want."
+     "surface": "Someone first objects to a politician's charm, then hugs him.",
+     "walkthrough": "'Initially' takes T, E, T from 'take exception to', and 'embracing' puts MP inside them. 'allure' is the verb here.",
+     "definitionFit": "To allure someone is to entice or attract them, which is what to tempt means."
     },
     "features": {
      "answerInScene": false,
