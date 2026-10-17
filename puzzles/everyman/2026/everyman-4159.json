@@ -775,52 +775,69 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WALKATHON",
-     "indicators": [
-      {
-       "text": "unusual",
-       "note": "Something unusual is out of its ordinary state, and for a word that means out of its ordinary order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 31,
+         "note": "about means around, so the rearranged letters go around the next pieces"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "about",
-           "note": "One piece placed about another goes round the outside of it, so what follows drops inside."
+           "text": "unusual",
+           "at": 8,
+           "note": "unusual means out of the ordinary, so the letters of What appear in an unusual order"
           }
          ],
          "parts": [
           {
            "words": "What",
-           "gives": "WATH",
-           "note": "the four letters of the question word, re-ordered"
-          },
-          {
-           "words": "a 50k",
-           "gives": "ALK",
-           "note": "a, then L for the Roman fifty, then k"
+           "at": 0
           }
          ]
         },
         {
-         "words": "concerning",
-         "gives": "ON",
-         "note": "on means concerning, as in a book on birds"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "a",
+           "at": 37
+          },
+          {
+           "words": "50k",
+           "at": 39,
+           "gives": "LK",
+           "note": "L is the Roman numeral for 50 and K is the usual abbreviation for k (kilo, a thousand)"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "concerning",
+       "at": 20,
+       "gives": "ON",
+       "note": "on means concerning, as in a talk on birds"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The question mark concedes that the definition is a joke, and the distance is not measuring anything: '50k' is there to hand over three letters.",
-     "definitionFit": "race no-one runs: a sponsored long-distance walk is a race by courtesy only, since the point of it is that nobody breaks into a run."
+     "surface": "A puzzled question about why a fifty-kilometre race should be odd if nobody runs in it.",
+     "walkthrough": "'50k race' sounds like an ultramarathon distance, but 50 and k split off as Roman L and the abbreviation K. The definition is cryptic: an event where everyone walks is one nobody runs.",
+     "definitionFit": "It is a long-distance walking event, often for charity, so the participants walk rather than run."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "runs"
     }
    }
   },
