@@ -26,7 +26,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -103,50 +104,64 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MISCAST",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 43,
+       "note": "after means the rearranged show comes behind the failure"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "new production of",
-         "note": "a new production stages the same material afresh, so the letters of the title beside it are restaged in a different order"
-        },
-        {
-         "text": "after",
-         "note": "'after' means later, so the restaged four letters take the back of the answer and the piece they follow takes the front"
-        },
-        {
          "text": "endless",
-         "note": "'endless' takes the end off the word it governs, leaving it one letter short"
+         "at": 49,
+         "note": "endless means the last letter is cut off"
         }
        ],
        "parts": [
         {
-         "words": "endless failure",
-         "gives": "MIS",
-         "note": "a failure is a MISS, docked of its final letter"
+         "words": "failure",
+         "at": 57,
+         "gives": "MISS",
+         "note": "a miss is a failure to hit"
         },
         {
-         "words": "new production of Cats",
-         "gives": "CAST",
-         "note": "the four letters of CATS restaged in another order"
+         "gives": "S",
+         "note": "the final letter of miss, which is dropped"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "new production of",
+         "at": 20,
+         "note": "a new production of a show stages it afresh, so its letters are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Cats",
+         "at": 38
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An unlucky actor lands the wrong part in a revival of Cats.",
-     "walkthrough": "Cats is italicised in the paper because it is the musical, so the whole clue passes as theatre gossip. The failure being shortened is a MISS, not the flop the surface offers.",
-     "definitionFit": "To miscast is exactly to give a performer the wrong role, and both definition and answer are past participles."
+     "surface": "A theatre review grumbles that an actor was badly cast in a revival of the musical Cats.",
+     "walkthrough": "The theatre setting makes 'new production of Cats' read as a revival of the show, yet it only signals that those four letters are rearranged. 'in' is a link.",
+     "definitionFit": "To be miscast is to be assigned a part one does not suit, so an actor handed an unsuitable role."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Cats"
+     "misdirectedWord": "production"
     }
    }
   },
