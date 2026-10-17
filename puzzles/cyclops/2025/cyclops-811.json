@@ -23,7 +23,8 @@
   "check": "29 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1211,43 +1212,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DEPRAVED",
-     "indicators": [
-      {
-       "text": "getting end away",
-       "note": "Getting the end away sends the last letter off, so the name beside it finishes one letter short."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "getting end away",
+         "at": 8,
+         "note": "having its end taken away means the final letter of Johnny's surname is dropped"
+        }
+       ],
        "parts": [
         {
          "words": "Johnny",
-         "gives": "DEP",
-         "note": "Johnny Depp the film actor, docked of the last letter of his surname"
+         "at": 0,
+         "gives": "DEPP",
+         "note": "Johnny Depp, the Hollywood actor"
         },
         {
-         "words": "partied",
-         "gives": "RAVED",
-         "note": "to rave is to party the night out, which is where the rave got its name"
+         "gives": "P"
         }
        ]
+      },
+      {
+       "words": "partied",
+       "at": 26,
+       "gives": "RAVED",
+       "note": "to rave is to party wildly, so partied is raved"
       }
      ]
     },
     "explanation": {
-     "surface": "A man called Johnny having it off and then going out dancing.",
-     "walkthrough": "Getting your end away is British for having sex, and a johnny is a condom, so the sentence is filthy twice over before the film star turns up. The exclamation mark is mock outrage and carries no instruction.",
-     "definitionFit": "Somebody depraved is corrupt and past caring who sees it, which is shamelessness carried as far as it goes."
+     "surface": "A tabloid line: a film star, having had his wicked way, partied with no shame.",
+     "walkthrough": "'Getting his end away' is British slang for having sex, which is the surface's joke; here 'getting end away' just docks the actor's surname of its final letter.",
+     "definitionFit": "Someone depraved is morally corrupt, so the word suits a person lacking any sense of shame."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
-     "misdirectedWord": "Johnny"
+     "misdirectedWord": "end"
     }
    }
   },
