@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -43,46 +44,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PARLIAMENT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "contains",
+       "at": 18,
+       "note": "contains says the word for the child's organiser holds the reversed letters inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Child's organiser",
+       "at": 0,
+       "gives": "PARENT",
+       "note": "a parent is the one who organises a child's life"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "contains",
-         "note": "A box contains what has been put in it, so the letters named next sit inside the word before them."
-        },
-        {
          "text": "about",
-         "note": "About turn is the order that faces a soldier the other way, so the word it applies to is written backwards."
+         "at": 35,
+         "note": "about means turned around, so the word for letters is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "Child's organiser",
-         "gives": "PARENT",
-         "note": "a parent is the one who organises a child's day"
-        },
-        {
          "words": "letters",
-         "gives": "LIAM",
-         "note": "letters are mail, and MAIL turned round reads the other way"
+         "at": 27,
+         "gives": "MAIL",
+         "note": "mail is letters sent by post"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A schoolchild's planner with letters in it about the morning assembly.",
-     "walkthrough": "'Assembly' is the school hall at nine o'clock in the surface and the one at Westminster in the answer. 'Letters' means the post rather than the alphabet.",
-     "definitionFit": "An assembly is a body of people gathered to deliberate, and the one that sits to make law is the parliamentary kind."
+     "surface": "A parent sorting out a child's things finds letters about a school assembly.",
+     "walkthrough": "'about' reverses MAIL to LIAM, which PARENT 'contains' between PAR and ENT.",
+     "definitionFit": "A parliament is a legislative assembly, the elected body that meets to make a nation's laws."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "letters"
+     "misdirectedWord": "assembly"
     }
    }
   },
@@ -154,28 +159,38 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "LAWSUIT",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner was the Oxford don who swapped the opening sounds of two words, so the pair named here trade their first noises."
+       "at": 0,
+       "note": "Spooner's signals that the opening sounds of the two words are swapped, as Rev. Spooner famously did"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "noticed stolen goods",
-       "gives": "LAWSUIT",
-       "soundsLike": "SAW LOOT",
-       "note": "to notice something is to see it, so noticed is saw, and stolen goods are loot"
+       "words": "noticed",
+       "at": 10,
+       "gives": "SAW",
+       "note": "saw means noticed"
+      },
+      {
+       "op": "homophone",
+       "spelt": "LUIT",
+       "parts": [
+        {
+         "words": "stolen goods",
+         "at": 18,
+         "gives": "LOOT",
+         "note": "loot is stolen goods; said aloud it rhymes with suit, so it is spelt here with suit's vowels"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner catching sight of a thief's haul packed into a case.",
-     "walkthrough": "Trading the s and the l at the front turns two short words into two others, the second one changing its spelling but not its noise. 'Case' is the one heard in court.",
-     "definitionFit": "A case is what a lawsuit is called once it reaches court, the two words used interchangeably for the same action."
+     "surface": "Someone spotted stolen goods inside a suitcase.",
+     "walkthrough": "'Spooner's' swaps the S of SAW and the L of LOOT: 'saw loot' becomes 'law soot', said like the answer. 'case' is the legal kind, not luggage.",
+     "definitionFit": "A lawsuit is a claim brought before a court, which lawyers call a case."
     },
     "features": {
      "answerInScene": false,
@@ -879,44 +894,46 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PALATABLE",
-     "indicators": [
-      {
-       "text": "brought over",
-       "note": "A thing brought over is turned over on its way, so the word named is written out backwards."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "brought over",
+         "at": 12,
+         "note": "in a down clue, brought over means turned upside down, so the word for drink reads from bottom to top"
+        }
+       ],
        "parts": [
         {
          "words": "drink",
-         "gives": "PAL",
-         "note": "to lap is to drink the way a dog does, and those letters come back the other way"
-        },
-        {
-         "words": "a",
-         "note": "the clue's own a, taken as it stands"
-        },
-        {
-         "words": "board",
-         "gives": "TABLE",
-         "note": "the board of board and lodging is the table you eat at"
+         "at": 6,
+         "gives": "LAP",
+         "note": "to lap is to drink as a cat does"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 28,
+       "gives": "A"
+      },
+      {
+       "words": "board",
+       "at": 30,
+       "gives": "TABLE",
+       "note": "board in the old sense of a table for meals, as in bed and board"
       }
      ]
     },
     "explanation": {
-     "surface": "A tasty drink carried over to a table.",
-     "walkthrough": "'Board' is the table you take your meals at, the sense kept alive in board and lodging rather than the plank the surface suggests. The drink is a verb here: to lap.",
-     "definitionFit": "Palatable food is food the palate is content with, which is a plainer way of saying it tastes good."
+     "surface": "A tasty drink is carried across and placed on a dining board.",
+     "walkthrough": "'brought over' reverses LAP to PAL; then A and TABLE, the sense of board as a dining table.",
+     "definitionFit": "Palatable food is pleasant to taste, which is what tasty also means."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "board"
     }
@@ -943,61 +960,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "spread",
-       "note": "Butter spread across bread goes everywhere at once, so the letters named come out in a new order."
+       "text": "about",
+       "at": 18,
+       "note": "about means around, so the rearranged jokes go round the letter from Pep"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "Letters set about a thing close round it, so the single letter named next finishes up among them."
+         "text": "spread",
+         "at": 5,
+         "note": "spread means scattered about, so the letters of jokes are rearranged"
         }
        ],
        "parts": [
         {
          "words": "jokes",
-         "note": "anagram fodder, five letters"
-        },
+         "at": 12
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "P",
-         "indicators": [
-          {
-           "text": "termination",
-           "note": "A termination is where something stops, so take the last letter of the word before it."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Pep's termination",
-           "gives": "P",
-           "select": "last",
-           "note": "the last letter of Pep"
-          }
-         ]
+         "text": "termination",
+         "at": 30,
+         "note": "termination means the end, so only the final letter of Pep"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Pep's",
+         "at": 24,
+         "gives": "PEP",
+         "note": "Pep, the name, whose termination is its last letter"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Jokes going round about Pep Guardiola losing the Manchester City job.",
-     "walkthrough": "A capital C on 'City' beside Pep points straight at Manchester City's manager, and the definition wants any city at all. 'Termination' is the sack in the surface and a final letter in the wordplay.",
-     "definitionFit": "Skopje is the capital and much the largest city of North Macedonia, so 'City' defines it by class."
+     "surface": "A city spreads jokes about Pep Guardiola leaving his job.",
+     "walkthrough": "'spread' rearranges JOKES as SKOJE, which goes 'about' P, the 'termination' of Pep.",
+     "definitionFit": "Skopje is the capital and largest city of North Macedonia."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "City"
+     "misdirectedWord": "termination"
     }
    }
   },
@@ -1079,46 +1095,45 @@
      "indicators": [
       {
        "text": "wears",
-       "note": "You wear a coat round the outside of yourself, so the piece named before it goes inside the letters after it."
+       "at": 20,
+       "note": "the star wears the odd letters like clothing, so they go around it"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "SILE",
        "indicators": [
         {
          "text": "in odd places",
-         "note": "The odd places are the first, third, fifth and seventh, so only the letters standing in those positions are kept."
+         "at": 36,
+         "note": "in odd places means the first, third, fifth and seventh letters of still wet"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "still wet in odd places",
-         "gives": "SILE",
-         "select": "alternate",
-         "note": "the first, third, fifth and seventh letters of STILL WET, counted straight through both words"
+         "words": "still wet",
+         "at": 26,
+         "note": "the first, third, fifth and seventh letters of still wet"
         }
        ]
       },
       {
        "words": "star",
+       "at": 15,
        "gives": "ICON",
-       "note": "an icon is a star of screen or stage"
+       "note": "an icon is a celebrated figure, a star"
       }
      ]
     },
     "explanation": {
-     "surface": "A star of rubber films putting on an outfit that is still damp in patches.",
-     "walkthrough": "The odd letters run straight through 'still wet' as though the space were not there, which is what hides them. 'Star' is a person in the surface and the word for one in the wordplay.",
-     "definitionFit": "Silicone rubber is the heat-proof synthetic used for baking moulds, seals and bathroom sealant, so it is one sort of rubber among many."
+     "surface": "A celebrity wears an outfit that is still damp in patches.",
+     "walkthrough": "'in odd places' takes S, I, L, E from STILL WET, and the star ICON 'wears' them, sitting inside after SIL.",
+     "definitionFit": "Silicone rubber is a flexible, heat-resistant synthetic rubber used for seals and bakeware."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "star"
+     "misdirectedWord": "rubber"
     }
    }
   },
@@ -1250,39 +1265,45 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "changing",
-       "note": "What is changing will not stay as it was, so the letters named come out in a different order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Presumably all-female",
+       "at": 0,
+       "gives": "NOMEN",
+       "note": "an all-female group would presumably have no men"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "changing",
+         "at": 31,
+         "note": "changing means altering, so the letters of cult are are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Presumably all-female",
-         "gives": "NOMEN",
-         "note": "an all-female gathering would presumably have no men in it"
+         "words": "cult",
+         "at": 22
         },
         {
-         "words": "cult are",
-         "note": "the seven letters of CULT ARE changed round"
+         "words": "are",
+         "at": 27
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cult presumed to be women-only is bringing its terminology up to date.",
-     "walkthrough": "'Presumably' does real work: an all-female gathering is one you would guess holds no men, and that guess is the first five letters. 'Changing' reads as the cult modernising its language.",
-     "definitionFit": "Nomenclature is the system of names a subject uses for its things, which is what 'terminology' says in plainer words."
+     "surface": "A women-only cult is changing its ways.",
+     "walkthrough": "'Presumably all-female' is a cryptic way of saying NO MEN; 'changing' rearranges CULT ARE.",
+     "definitionFit": "Nomenclature is the set of terms used in a field, its terminology."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "changing"
+     "misdirectedWord": "cult"
     }
    }
   },
@@ -1494,44 +1515,44 @@
      "indicators": [
       {
        "text": "claims",
-       "note": "A claim takes a thing in and keeps hold of it, so the letters named next sit within the word before them."
+       "at": 13,
+       "note": "claims means takes hold of, so the brat holds the middle of Chad within it"
       }
      ],
      "parts": [
       {
        "words": "Spoilt child",
+       "at": 0,
        "gives": "BRAT",
-       "note": "a brat is the spoilt child of the family"
+       "note": "a brat is a spoilt child"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "HA",
        "indicators": [
         {
          "text": "inside",
-         "note": "The inside of a word is what is left once both its ends are taken off."
+         "at": 27,
+         "note": "inside means the middle letters of Chad, with its ends removed"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Chad's inside",
-         "gives": "HA",
-         "select": "middle",
-         "note": "the middle two letters of CHAD, with the C and the D taken off"
+         "words": "Chad's",
+         "at": 20,
+         "gives": "CHAD",
+         "note": "the name Chad"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spoilt child insisting that Chad lies somewhere inside India.",
-     "walkthrough": "Chad is an African country in the surface and just a four-letter word to be gutted in the wordplay. Indians call their country this in Hindi, and the constitution gives the two names equal standing.",
-     "definitionFit": "Bharat is the Hindi name for India, used on passports and in the constitution alongside the English one."
+     "surface": "A spoilt child insists that someone called Chad is inside India.",
+     "walkthrough": "'inside' takes HA from the middle of CHAD, and BRAT 'claims' it, giving B-HA-RAT.",
+     "definitionFit": "Bharat is the Hindi name for India, and is official alongside India in the country's constitution."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Chad's"
     }
