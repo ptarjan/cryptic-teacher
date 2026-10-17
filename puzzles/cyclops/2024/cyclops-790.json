@@ -102,35 +102,32 @@
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "EN",
        "indicators": [
         {
          "text": "starts",
-         "note": "the starts of words are their first letters"
+         "at": 10,
+         "note": "starts asks for the opening letter of each of the two words before it"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Eye never starts",
-         "gives": "EN",
-         "select": "first",
-         "note": "first letters of Eye and Never"
+         "words": "Eye never",
+         "at": 0,
+         "note": "the first letters of Eye and never"
         }
        ]
       },
       {
-       "words": "get litigious",
+       "words": "to get litigious",
+       "at": 17,
        "gives": "SUE",
-       "note": "to sue is to get litigious"
+       "note": "to sue is to go to law, the litigious course"
       }
      ]
     },
     "explanation": {
-     "surface": "Private Eye (the magazine) being threatened with a lawsuit and wondering if one will follow.",
-     "walkthrough": "'Eye' looks like the magazine setting this puzzle, which is under near-constant legal threat; here it only donates its E.",
-     "definitionFit": "A plain synonym: what comes after, especially as a result, is said to ensue."
+     "surface": "Private Eye, often threatened with libel actions, wonders whether lawsuits will follow.",
+     "definitionFit": "To ensue is to come afterwards as a result, which is a sense of follow."
     },
     "features": {
      "answerInScene": true,
@@ -295,67 +292,59 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "STUPID",
+     "indicators": [
+      {
+       "text": "to invade",
+       "at": 27,
+       "note": "to invade is to go into, so these letters are placed inside the others"
+      }
+     ],
      "parts": [
       {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "borders",
+         "at": 51,
+         "note": "the borders of a word are its first and last letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Switzerland's",
+         "at": 37,
+         "gives": "SWITZERLAND",
+         "note": "outermost letters S and D"
+        }
+       ]
+      },
+      {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "STUPID",
+       "indicators": [
+        {
+         "text": "resolved",
+         "at": 18,
+         "note": "resolved in the sense of broken up and worked out again, so the letters are reordered"
+        }
+       ],
        "parts": [
         {
          "op": "deletion",
-         "unchecked": true,
-         "gives": "STUPID",
+         "indicators": [
+          {
+           "text": "all but",
+           "at": 10,
+           "note": "all but means every letter except the last one"
+          }
+         ],
          "parts": [
           {
-           "op": "charade",
-           "indicators": [
-            {
-             "text": "all but",
-             "note": "all but the last letter is kept"
-            },
-            {
-             "text": "to invade",
-             "note": "the anagram invades, going inside"
-            }
-           ],
-           "parts": [
-            {
-             "op": "outer",
-             "unchecked": true,
-             "gives": "S",
-             "indicators": [
-              {
-               "text": "resolved",
-               "note": "the letters are resolved into a new order"
-              },
-              {
-               "text": "borders",
-               "note": "the borders of a word are its first and last letters"
-              }
-             ],
-             "parts": [
-              {
-               "unchecked": true,
-               "words": "Switzerland's borders",
-               "gives": "S",
-               "select": "outer",
-               "note": "first letter of Switzerland"
-              }
-             ]
-            },
-            {
-             "words": "Putin all but resolved",
-             "gives": "TUPI",
-             "note": "PUTIN without its last letter, PUTI, rearranged"
-            },
-            {
-             "words": "Switzerland's borders",
-             "gives": "D",
-             "note": "last letter of Switzerland"
-            }
-           ]
+           "words": "Putin",
+           "at": 4,
+           "note": "taken as written, losing its final letter"
+          },
+          {
+           "gives": "N"
           }
          ]
         }
@@ -364,14 +353,14 @@
      ]
     },
     "explanation": {
-     "surface": "Putin as a madman poised to cross the Swiss frontier.",
-     "walkthrough": "'Mad Putin' reads as one noun phrase, but 'Mad' is the definition standing alone.",
-     "definitionFit": "Mad in the sense of foolish or idiotic: stupid."
+     "surface": "A satirical jab at the Russian leader wanting to invade even neutral Switzerland.",
+     "walkthrough": "'all but' drops the last letter of Putin to leave PUTI; 'resolved' rearranges that to TUPI, which 'to invade' puts between S and D, the borders of Switzerland's.",
+     "definitionFit": "Stupid and mad both describe a foolish, senseless idea, so they are synonyms here."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Mad"
+     "misdirectedWord": "resolved"
     }
    }
   },
@@ -502,57 +491,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DESTROYER",
      "indicators": [
       {
        "text": "to be clad in",
-       "note": "the rearranged letters are dressed in the outer word"
+       "at": 21,
+       "note": "clad in means dressed in, so one set of letters is wrapped by the other"
       }
      ],
      "parts": [
       {
+       "words": "fawn",
+       "at": 35,
+       "gives": "DEER",
+       "note": "a fawn is a young deer"
+      },
+      {
        "op": "anagram",
-       "unchecked": true,
-       "gives": "DESTROYER",
        "indicators": [
         {
          "text": "about",
-         "note": "the letters are moved about"
+         "at": 15,
+         "note": "about here means turned around and mixed, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "fawn",
-           "gives": "DE",
-           "note": "first part of DEER; a fawn is a young deer"
-          },
-          {
-           "words": "Tory's about",
-           "gives": "STROY",
-           "note": "TORYS rearranged"
-          },
-          {
-           "words": "fawn",
-           "gives": "ER",
-           "note": "the rest of DEER, wrapped round"
-          }
-         ]
+         "words": "Tory's",
+         "at": 8,
+         "note": "the letters of Tory's, taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Tory wrecker about to be dressed in beige, or dressed in deerskin.",
-     "walkthrough": "'Fawn' reads as the colour; the question mark admits the stretch from a young deer to DEER.",
-     "definitionFit": "A plain synonym: one who wrecks, with a nod to the warship sense."
+     "surface": "A mocking image of a Conservative dressed up as a gentle young deer while doing damage.",
+     "walkthrough": "The question mark admits that a fawn is only a young example of the animal the wordplay needs.",
+     "definitionFit": "A destroyer is one who wrecks or ruins things, so it is a synonym of wrecker."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "fawn"
     }
@@ -834,44 +812,57 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "short",
-       "note": "the word is cut to its abbreviation"
+       "text": "overturned",
+       "at": 23,
+       "note": "overturned means turned over, so the combined letters are read backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "overturned",
-         "note": "turned over, read backwards"
-        }
-       ],
        "parts": [
         {
-         "words": "short rule",
-         "gives": "REG",
-         "note": "reg = short for regulation, a rule"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "short",
+           "at": 7,
+           "note": "short means abbreviated, so the word for rule is cut to its usual short form"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rule",
+           "at": 13,
+           "gives": "REGULATION",
+           "note": "a rule is a regulation, often shortened to reg"
+          },
+          {
+           "gives": "ULATION",
+           "note": "the letters lost in shortening the word to its abbreviation"
+          }
+         ]
         },
         {
          "words": "Mark",
+         "at": 18,
          "gives": "DOT",
-         "note": "a dot is a mark"
+         "note": "a dot is a small mark"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Dick whose brief rule was overturned by a Mark.",
-     "walkthrough": "Todger is British slang for penis; 'Dick' looks like a name, next to 'Mark'.",
-     "definitionFit": "Dick and todger are both slang for penis."
+     "surface": "Someone called Dick briefly rules before Mark overturns him.",
+     "walkthrough": "'short' cuts REGULATION to REG; add DOT for Mark, and 'overturned' reads REGDOT backwards. Todger is British slang for penis, and so is dick.",
+     "definitionFit": "Both words are vulgar slang for the penis, so they are synonyms in that sense."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Dick's"
+     "misdirectedWord": "Dick"
     }
    }
   },
@@ -902,10 +893,12 @@
      }
     ],
     "wordplay": {
-     "op": "container",
+     "op": "charade",
      "indicators": [
       {
-       "text": "in"
+       "text": "is onto",
+       "at": 38,
+       "note": "is onto signals that the following piece comes after, attached to what precedes it"
       }
      ],
      "parts": [
@@ -913,58 +906,49 @@
        "op": "container",
        "indicators": [
         {
-         "text": "outskirts",
-         "note": "the outskirts of a word are its first and last letters"
+         "text": "in",
+         "at": 9,
+         "note": "in places one set of letters within the other"
         }
        ],
        "parts": [
         {
-         "words": "Conservative",
-         "gives": "TORY",
-         "note": "a Tory is a Conservative"
-        },
-        {
-         "op": "charade",
+         "op": "outer",
          "indicators": [
           {
-           "text": "is onto"
+           "text": "outskirts",
+           "at": 28,
+           "note": "the outskirts of a phrase are its very first and very last letters"
           }
          ],
          "parts": [
           {
-           "words": "Everyone",
-           "gives": "ALL",
-           "note": "all = everyone"
-          },
-          {
-           "words": "Tunbridge Wells outskirts",
-           "gives": "S",
-           "note": "last letter of Wells"
+           "words": "Tunbridge Wells",
+           "at": 12,
+           "note": "outer letters T and S"
           }
          ]
+        },
+        {
+         "words": "Everyone",
+         "at": 0,
+         "gives": "ALL",
+         "note": "everyone means all"
         }
        ]
       },
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "T",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Tunbridge Wells outskirts",
-         "gives": "T",
-         "select": "outer",
-         "note": "first letter of Tunbridge"
-        }
-       ]
+       "words": "Conservative",
+       "at": 46,
+       "gives": "TORY",
+       "note": "a Tory is a member of the UK Conservative Party"
       }
      ]
     },
     "explanation": {
-     "surface": "Everyone in the suburbs of Tunbridge Wells falling for a Tory falsehood.",
-     "walkthrough": "Tunbridge Wells is a Kent spa town, a byword for comfortable Tory-voting England. Its outskirts are the ends of the whole name, T and S.",
-     "definitionFit": "An idiom: an exaggerated, hard-to-believe account, close enough to an untruth."
+     "surface": "Everyone in a Kent spa town, stereotypically true-blue, falls for a Conservative falsehood.",
+     "walkthrough": "Tunbridge Wells is a Kent town famous for indignant conservative letter-writers, which makes the surface read naturally.",
+     "definitionFit": "A tall story is an exaggerated, unbelievable account, which is a kind of lie."
     },
     "features": {
      "answerInScene": true,
@@ -1129,36 +1113,39 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "LOBBYIST",
      "indicators": [
       {
        "text": "changes first",
-       "note": "the first letter is changed for another"
+       "at": 21,
+       "note": "changes first means the opening letter of the word is replaced by another"
       }
      ],
      "parts": [
       {
        "words": "Philatelist possibly",
+       "at": 0,
        "gives": "HOBBYIST",
-       "note": "stamp collecting is one hobby, so a philatelist is a hobbyist"
+       "note": "a stamp collector is an example of a hobbyist, so possibly flags a definition by example"
       },
       {
-       "words": "changes first",
-       "gives": "LOBBYIST",
-       "note": "H changes to L"
+       "gives": "H",
+       "note": "the opening letter, which goes"
+      },
+      {
+       "gives": "L",
+       "note": "the replacement opening letter, which the clue leaves the solver to find"
       }
      ]
     },
     "explanation": {
-     "surface": "A stamp collector switching careers to become a political fixer.",
-     "walkthrough": "The replacement L is not clued; the crossing letters and definition supply it. 'Member' is a Member of Parliament.",
-     "definitionFit": "A lobbyist tries to sway MPs, members of parliament."
+     "surface": "A stamp collector changes priorities and starts trying to influence politicians.",
+     "walkthrough": "The clue does not say which letter comes in; swapping the first letter of HOBBYIST for L gives the answer.",
+     "definitionFit": "A lobbyist tries to influence members of parliament or congress, so seeks to manipulate a member."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "member"
+     "misdirectedWord": "Philatelist"
     }
    }
   },
@@ -1183,49 +1170,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "initially",
-       "note": "the initial letter is taken"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "composed",
-         "note": "the letters are composed into a new arrangement"
+         "text": "initially",
+         "at": 20,
+         "note": "initially picks out the first letter of the word"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "Beethoven initially",
-           "note": "first letter of Beethoven"
-          }
-         ]
-        },
+         "words": "Beethoven",
+         "at": 10,
+         "note": "first letter B"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "composed",
+         "at": 30,
+         "note": "composed means put together, as music is, so these letters are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "over",
+         "at": 5,
          "gives": "O",
-         "note": "o = over, as on a cricket scorecard"
+         "note": "O is the cricket abbreviation for over"
         },
         {
          "words": "Erich",
-         "note": "fodder, rearranged with O"
+         "at": 44,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The rock song 'Roll Over Beethoven', written by a composer called Erich.",
-     "walkthrough": "The song title swallows the definition: 'Roll' is the bread, and 'over' is just O.",
-     "definitionFit": "A brioche is a sweet French bread roll."
+     "surface": "A nod to the rock song Roll Over Beethoven, with a composer named Erich.",
+     "walkthrough": "'Roll over Beethoven' is a Chuck Berry song title, so it reads as one phrase, but Roll alone is the definition and over is the cricket O.",
+     "definitionFit": "A brioche is a soft sweet French bread roll, so it is an example of a roll."
     },
     "features": {
      "answerInScene": false,
@@ -1395,55 +1387,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SHIFT",
+     "indicators": [
+      {
+       "text": "involved in",
+       "at": 13,
+       "note": "involved in means wrapped up inside, so one piece goes within the other"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "crap",
+       "at": 25,
+       "gives": "SHIT",
+       "note": "crap and shit are vulgar synonyms"
+      },
+      {
+       "op": "first",
        "indicators": [
         {
          "text": "head",
+         "at": 8,
          "note": "the head of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "words": "crap",
-         "gives": "SHI",
-         "note": "first part of SHIT"
-        },
-        {
-         "op": "first",
-         "unchecked": true,
-         "gives": "F",
-         "indicators": [
-          {
-           "text": "involved in"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Foreign head",
-           "gives": "F",
-           "select": "first",
-           "note": "first letter of Foreign"
-          }
-         ]
-        },
-        {
-         "words": "crap",
-         "gives": "T",
-         "note": "the rest of SHIT, wrapped round F"
+         "words": "Foreign",
+         "at": 0,
+         "note": "first letter F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A foreign leader caught up in a rubbish political manoeuvre.",
-     "walkthrough": "'Foreign head' reads as a foreign head of state; it is the first letter of 'Foreign'.",
-     "definitionFit": "A plain synonym, as verb or noun: to shift furniture is to move it, and a shift is a move."
+     "surface": "A foreign leader gets caught up in some rubbish and wants out.",
+     "definitionFit": "To shift something is to move it from one place to another, so the verbs are synonyms."
     },
     "features": {
      "answerInScene": false,
@@ -1474,11 +1453,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "LANDROVER",
      "indicators": [
       {
-       "text": "gets in"
+       "text": "gets in",
+       "at": 31,
+       "note": "gets in means enters, so this letter goes inside the others"
       }
      ],
      "parts": [
@@ -1487,27 +1466,28 @@
        "parts": [
         {
          "words": "Country",
+         "at": 0,
          "gives": "LAND",
-         "note": "a land is a country"
-        },
-        {
-         "words": "Republican",
-         "gives": "R",
-         "note": "R = Republican"
+         "note": "a country is a land"
         },
         {
          "words": "finished",
+         "at": 8,
          "gives": "OVER",
-         "note": "over = finished"
+         "note": "finished means over, as in the game is over"
         }
        ]
+      },
+      {
+       "words": "Republican",
+       "at": 20,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A warning that the nation is done for if a Republican takes power.",
-     "walkthrough": "A Land Rover is a British four-wheel-drive vehicle built for rough ground; 'rough' also nods at golf.",
-     "definitionFit": "An off-road vehicle carries you over rough terrain."
+     "surface": "A country is done for if a Republican takes power, a dig at US politics.",
+     "definitionFit": "A Land Rover is a rugged off-road vehicle built to cross rough terrain."
     },
     "features": {
      "answerInScene": false,
