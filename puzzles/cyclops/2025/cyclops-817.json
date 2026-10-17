@@ -23,7 +23,8 @@
   "check": "28 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -450,46 +451,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "KIDNAPPED",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 6,
+       "note": "the word for slept goes round the jumbled letters"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Slept",
+       "at": 0,
+       "gives": "KIPPED",
+       "note": "kipped is British slang for slept"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "To go around something is to pass on both sides of it, so the word named splits and the next piece sits in the gap."
-        },
-        {
          "text": "sadly",
-         "note": "A thing in a sad state has fallen out of the shape it should be in, and letters in that state come out in no order of their own."
+         "at": 18,
+         "note": "sadly signals the letters of and are put into a sorry new order"
         }
        ],
        "parts": [
         {
-         "words": "Slept",
-         "gives": "KIPPED",
-         "note": "to kip is British slang for to sleep, and the word parts after its second letter"
-        },
-        {
          "words": "and",
-         "gives": "DNA",
-         "note": "the three letters of the word in another order"
+         "at": 13,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A history of sleeping around that ended, sadly, in abduction.",
-     "walkthrough": "Kip is British slang for sleep, so Slept wants six letters here rather than the four of a nap. Sadly sits between two commas where it looks like a comment on the story, and it is the instruction.",
-     "definitionFit": "Someone kidnapped has been seized and carried off against their will, which is what taken by force describes."
+     "surface": "Someone slept around and was, regrettably, carried off against their will.",
+     "walkthrough": "'Slept around' reads as one phrase about promiscuity, but the phrase splits: 'Slept' is the outer word and 'around' tells it to enclose the jumbled 'and'. Kip is British slang for sleep.",
+     "definitionFit": "To kidnap someone is to seize and carry them off by force, so kidnapped means taken by force."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "sadly"
+     "joke": "pun",
+     "misdirectedWord": "around"
     }
    }
   },
@@ -647,49 +652,57 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "A word given almost in full stops just short of its end, so its last letter is left off."
-      }
-     ],
      "parts": [
       {
-       "words": "Republican outcast",
-       "gives": "PENC",
-       "note": "Mike Pence, Trump's vice-president, cast out of the movement for certifying the 2020 result, with his last letter docked"
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "IL",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "sources",
-         "note": "A source is where something starts, and the plural says each of the words that follow is tapped for its starting letter."
+         "text": "almost",
+         "at": 29,
+         "note": "almost the whole name, so its last letter goes"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
+         "words": "Republican outcast",
+         "at": 10,
+         "gives": "PENCE",
+         "note": "Mike Pence, Trump's vice-president, was cast out by the Republican faithful after refusing to overturn the 2020 election"
+        },
+        {
+         "gives": "E",
+         "note": "the last letter of the name"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "sources",
+         "at": 54,
+         "note": "the sources of words are their first letters"
+        }
+       ],
+       "parts": [
+        {
          "words": "imitating liberal",
-         "gives": "IL",
-         "select": "first",
-         "note": "the starting letter of each word, taken as instructed"
+         "at": 36,
+         "note": "the two words whose first letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drawing of a cast-out Republican done in the manner of the liberal press.",
-     "walkthrough": "Imitating reads as the drawing's style and is really two letters' worth of raw material. The surname is one letter longer than the clue lets you keep, which is the whole of the deletion.",
-     "definitionFit": "To pencil something is to draw it in soft grey lines, the rough first version an artist puts down, which is what sketch asks for as a verb."
+     "surface": "A satirical drawing of a shunned Republican trying to look like a liberal.",
+     "walkthrough": "Mike Pence, Trump's first vice-president, fell out with Trump's base in 2021. 'Almost' cuts him to PENC, and 'sources' takes I and L from 'imitating liberal'.",
+     "definitionFit": "To pencil something is to draw or sketch it lightly, and a pencil sketch is the classic rough drawing."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "sources"
+     "misdirectedWord": "Sketch"
     }
    }
   },
