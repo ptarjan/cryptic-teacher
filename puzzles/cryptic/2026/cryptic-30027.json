@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -43,37 +44,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RESTFUL",
-     "indicators": [
-      {
-       "text": "nearly",
-       "note": "Nearly there is not quite there, so the word governed by it stops one letter short of its own ending."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "interval",
+       "at": 10,
+       "gives": "REST",
+       "note": "a rest is an interval or break"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "nearly",
+         "at": 19,
+         "note": "nearly says the word is not quite whole, so its final letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "interval",
-         "gives": "REST",
-         "note": "the break between two acts is the interval, and a pause of any kind is a rest"
+         "words": "complete",
+         "at": 26,
+         "gives": "FULL",
+         "note": "full means complete or entire"
         },
         {
-         "words": "complete",
-         "gives": "FUL",
-         "note": "complete means full, and the last of those four letters never gets written"
+         "gives": "L"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody unwinding while the interval is almost over.",
-     "walkthrough": "'nearly complete' describes the interval in the surface — the break all but finished — while in the wordplay it is an instruction aimed at one word.",
-     "definitionFit": "Relaxing → RESTFUL: an adjective for what leaves you rested, said of an afternoon or a room rather than of the person in it."
+     "surface": "Someone finds a break almost over and still calls it relaxing.",
+     "walkthrough": "'nearly' trims FULL to FUL, which follows REST.",
+     "definitionFit": "Something restful is calming and soothing, so it is relaxing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "complete"
     }
    }
   },
@@ -98,37 +108,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ROBUST",
-     "indicators": [
-      {
-       "text": "knocked over",
-       "note": "A thing knocked over lands the wrong way up, so the two letters beside it are written out from the back."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "when knocked over",
+         "at": 11,
+         "note": "something knocked over is upended, so in a down entry the word or is turned the other way"
+        }
+       ],
        "parts": [
         {
-         "words": "or, when knocked over",
-         "gives": "RO",
-         "note": "the clue's own 'or', its two letters turned end for end"
-        },
-        {
-         "words": "broken",
-         "gives": "BUST",
-         "note": "a bust washing machine is a broken one"
+         "words": "or",
+         "at": 7,
+         "gives": "OR",
+         "note": "taken as written, then turned round"
         }
        ]
+      },
+      {
+       "words": "broken",
+       "at": 30,
+       "gives": "BUST",
+       "note": "bust is informal for broken"
       }
      ]
     },
     "explanation": {
-     "surface": "Something sturdy that only gives way once it has been knocked over.",
-     "walkthrough": "'or' looks like the smallest word in the sentence, there only to hold 'Strong' and 'broken' together, and it is the entire first piece.",
-     "definitionFit": "Strong → ROBUST: strong in the sturdy, able-to-take-punishment sense, used of machines, health and arguments rather than of muscles."
+     "surface": "A puzzle about whether something is strong or, if it falls, smashed.",
+     "walkthrough": "'when knocked over' turns OR into RO, and BUST (broken) follows.",
+     "definitionFit": "Robust describes something sturdy and hard to damage, a synonym of strong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "or"
     }
    }
   },
@@ -517,42 +533,47 @@
      "op": "container",
      "indicators": [
       {
-       "text": "finally",
-       "note": "Finally comes at the end of things, so what is taken is the last letter of the word in front of it."
+       "text": "caught in",
+       "at": 24,
+       "note": "caught in means held inside the beak word, so the letter goes within it"
       }
      ],
      "parts": [
       {
        "words": "beak",
+       "at": 34,
        "gives": "BILL",
        "note": "a bird's beak is its bill"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
-         "text": "caught in",
-         "note": "Something caught in a thing is stuck inside it, so the letter just found lands in the middle of the word that follows."
+         "text": "finally",
+         "at": 16,
+         "note": "finally points to the closing letter of kingfisher"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "kingfisher finally",
+         "words": "kingfisher",
+         "at": 5,
          "gives": "R",
-         "select": "last",
-         "note": "the last letter of kingfisher, produced by the operation rather than looked up as a short form"
+         "note": "its last letter is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A kingfisher with its catch wedged in its beak.",
-     "walkthrough": "'Fish kingfisher' reads as one phrase, the bird that fishes, so the definition looks two words long when it is only the first.",
-     "definitionFit": "Fish → BRILL: definition by example — the brill is a European flatfish, a close relation of the turbot, rather than a synonym for fish."
+     "surface": "A kingfisher snatches a fish in its beak at last.",
+     "walkthrough": "'finally' takes R from kingfisher, and 'caught in' puts it inside BILL.",
+     "definitionFit": "Brill is a European flatfish related to the turbot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
     }
    }
   },
@@ -784,52 +805,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EMANATION",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "regularly",
-         "note": "Taken regularly is taken at a fixed interval, and the interval here is every other letter of the word beside it."
+         "text": "upset",
+         "at": 31,
+         "note": "upset in a down clue means turned upside down, so those letters are read backwards"
         }
        ],
        "parts": [
         {
          "op": "alternate",
-         "unchecked": true,
-         "gives": "EMA",
          "indicators": [
           {
-           "text": "upset",
-           "note": "Upset in a down clue tips the letters back up the column, so they are read the other way round."
+           "text": "regularly",
+           "at": 21,
+           "note": "regularly takes every other letter of armies, starting with the first"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "armies regularly upset",
-           "gives": "EMA",
-           "select": "alternate",
-           "note": "the first, third and fifth letters of armies, then set down running the other way"
+           "words": "armies",
+           "at": 14,
+           "note": "its first, third and fifth letters are taken"
           }
          ]
-        },
-        {
-         "words": "people",
-         "gives": "NATION",
-         "note": "a nation is a people, the whole population of a country taken together"
         }
        ]
+      },
+      {
+       "words": "people",
+       "at": 37,
+       "gives": "NATION",
+       "note": "a nation is a people"
       }
      ]
     },
     "explanation": {
-     "surface": "Something seeping out of armies that keep upsetting the locals.",
-     "walkthrough": "Nothing here looks like an instruction: the clue is one sentence about armies annoying people, and both 'regularly' and 'upset' are doing mechanical work inside that picture.",
-     "definitionFit": "Effusion → EMANATION: something that flows or streams out from a source — a smell, a light, a warmth — which is what an effusion is."
+     "surface": "Troops are troubled, and something pours out from the population.",
+     "walkthrough": "'regularly' gives AME from armies; 'upset' reverses that to EMA, and NATION (people) follows.",
+     "definitionFit": "An emanation is something flowing out from a source, much as an effusion is an outpouring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
     }
    }
   },
@@ -855,38 +878,44 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "not",
-       "note": "'Not' is the removal: the word in front has to do without the letter named just after it."
-      }
-     ],
      "parts": [
       {
        "words": "Taxi",
+       "at": 0,
        "gives": "UBER",
-       "note": "Uber is the ride-hailing app people summon instead of hailing a cab"
+       "note": "Uber is the ride-hailing taxi firm"
       },
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "initially",
-         "note": "Initially means at the beginning, so only the first letter of the word before it is taken."
+         "text": "not",
+         "at": 17,
+         "note": "not says that letter is missing from the word for Greek"
         }
        ],
        "parts": [
         {
          "words": "from Greece",
+         "at": 5,
          "gives": "GREEK",
-         "note": "somebody from Greece is a Greek"
+         "note": "something from Greece is Greek"
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 31,
+           "note": "initially points to the opening letter of realistic"
+          }
+         ],
          "parts": [
           {
-           "words": "realistic initially",
-           "note": "the first letter of realistic, and the one that comes off the word above"
+           "words": "realistic",
+           "at": 21,
+           "gives": "R",
+           "note": "its first letter is used"
           }
          ]
         }
@@ -895,9 +924,14 @@
      ]
     },
     "explanation": {
-     "surface": "A cab all the way from Greece, which hardly sounds realistic, ordered by someone who lives at a screen.",
-     "walkthrough": "'Taxi from Greece' reads as one journey, and its two halves belong to different pieces. The uber- in front is also German for over, which is what makes the compound mean an extreme one.",
-     "definitionFit": "computer obsessive → UBERGEEK: a geek is someone absorbed in computers, and the uber- prefix pushes that absorption to the far end of the scale."
+     "surface": "A cab ride from Greece for a tech nerd who is out of touch with reality.",
+     "walkthrough": "'initially' gives R, and 'not' removes it from GREEK, leaving GEEK after UBER.",
+     "definitionFit": "An ubergeek is an extreme geek, someone completely absorbed in computers and technology."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "realistic"
     }
    }
   },
