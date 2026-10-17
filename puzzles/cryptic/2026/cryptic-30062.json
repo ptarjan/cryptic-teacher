@@ -20,7 +20,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -238,43 +239,61 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "Something endless has no end, so the last letter of the word beside it is dropped."
-      }
-     ],
      "parts": [
       {
        "words": "Trendy",
+       "at": 0,
        "gives": "IN",
-       "note": "in = trendy, fashionable"
+       "note": "in means fashionable or trendy"
       },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "somehow",
-         "note": "'Somehow' says a result was reached by no particular route, and letters arriving by no particular route arrive out of order."
+         "at": 25,
+         "note": "somehow means in some unknown way, so the shortened letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "endlessly tired",
-         "gives": "TIRE",
-         "note": "TIRED without its final letter"
-        },
-        {
-         "words": "a",
-         "note": "the article joins the letters to be shuffled"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endlessly",
+           "at": 8,
+           "note": "endlessly means without an end, so the last letter of tired is cut off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "tired",
+           "at": 18,
+           "gives": "TIRED"
+          },
+          {
+           "gives": "D"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 40,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Only the tail of the answer is shuffled — the first two letters stand still while the rest are jumbled behind them, which is why the whole thing does not look like an anagram.",
-     "definitionFit": "Inertia is the property that keeps a body at rest until something shifts it, and in ordinary use it names exactly that reluctance to get going."
+     "surface": "Someone fashionable but worn out, reluctant to get moving at all.",
+     "walkthrough": "'endlessly' cuts TIRED to TIRE; the clue's next word, an anagram signal, rearranges that to ERTI, which sits between IN (trendy) and A.",
+     "definitionFit": "Inertia in people is sluggishness or a lack of will to act, borrowed from the physics term for resisting change in motion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Trendy"
     }
    }
   },
@@ -294,57 +313,64 @@
    "annotation": {
     "definitions": [
      {
-      "text": "advantageous",
-      "at": 57
+      "text": "that's advantageous",
+      "at": 50
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EXPEDIENT",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "No longer wanting",
+       "at": 0,
+       "gives": "EX",
+       "note": "ex means former: an ex is someone no longer wanted"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "cluing",
-         "note": "Cluing a word is working it up into crossword material, which here means presenting its letters in an order they did not come in."
+         "text": "engaging",
+         "at": 32,
+         "note": "to engage something is to take it in, so the rearranged letters hold the editor's abbreviation"
         }
        ],
        "parts": [
         {
-         "words": "No longer wanting",
-         "gives": "EX",
-         "note": "an ex is the partner no longer wanted"
-        },
-        {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "engaging",
-           "note": "To engage something is to take hold of it and draw it in, so the piece named beside it ends up inside."
+           "text": "cluing",
+           "at": 24,
+           "note": "the setter jokes that the word inept is being clued: its letters are put into a new order"
           }
          ],
          "parts": [
           {
            "words": "inept",
-           "gives": "PIENT",
-           "note": "the five letters of INEPT, in a new order"
-          },
-          {
-           "words": "editor",
-           "gives": "ED",
-           "note": "ed = editor, as on a title page"
+           "at": 18
           }
          ]
+        },
+        {
+         "words": "editor",
+         "at": 41,
+         "gives": "ED"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The setter is winking at the trade: 'inept cluing' describes both a badly written clue and the state five of these letters are left in.",
-     "definitionFit": "An expedient measure is the one that suits your purpose at the moment, so 'advantageous' catches the practical, faintly self-serving sense."
+     "surface": "A puzzle editor fed up with inept clues takes on an editor, which pays off.",
+     "walkthrough": "'cluing' turns INEPT into PIENT, a self-mocking anagram signal; 'engaging' puts ED (editor) after its P to make PEDIENT, and EX goes in front.",
+     "definitionFit": "Expedient describes something convenient and useful for a purpose, hence advantageous in practice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cluing"
     }
    }
   },
@@ -804,52 +830,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MOSSAGATE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "blocked by",
+       "at": 16,
+       "note": "the pair of words is blocked, broken into, by the reversed animal"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "MOSSAGATE",
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "blocked by",
-           "note": "A blocked entrance has something standing in the middle of it, so the letters named next go inside."
-          },
-          {
-           "text": "flipping over",
-           "note": "To flip something over is to turn it end for end, so the word is read the other way round."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Second",
-           "gives": "MO",
-           "note": "a mo is a moment, and so is a second"
-          },
-          {
-           "words": "donkey",
-           "gives": "SSA",
-           "note": "a donkey is an ASS, turned end for end"
-          },
-          {
-           "words": "entrance",
-           "gives": "GATE",
-           "note": "a gate is an entrance"
-          }
-         ]
+         "words": "Second",
+         "at": 0,
+         "gives": "MO",
+         "note": "a mo is a moment, a second"
+        },
+        {
+         "words": "entrance",
+         "at": 7,
+         "gives": "GATE",
+         "note": "a gate is an entrance"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipping over",
+         "at": 34,
+         "note": "flipping over turns the word for donkey around, so it reads backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "donkey",
+         "at": 27,
+         "gives": "ASS",
+         "note": "an ass is a donkey"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The picture is literal — the donkey is standing in the gateway — which is why the wordplay drops it between the two halves of the entrance rather than after them.",
-     "definitionFit": "Moss agate is a semi-precious quartz veined with green mineral threads that look like moss, so 'stone' names it by the class of gem it belongs to."
+     "surface": "For a moment, a gate is blocked by a donkey that has rolled over onto a stone.",
+     "walkthrough": "'flipping over' reverses ASS to SSA, and 'blocked by' wedges it between MO (a second, as in 'just a mo') and GATE (entrance).",
+     "definitionFit": "The answer is a variety of chalcedony with dendritic, moss-like markings, used as a gemstone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
     }
    }
   },
@@ -1121,20 +1156,24 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "RULEOUT",
+     "op": "reverse",
+     "reading": "RULE + OUT",
      "parts": [
       {
-       "unchecked": true,
        "words": "lure",
-       "note": "not fodder but product: this is the word you get by obeying the answer, whose first half is four letters and whose second half tells you what to do with them"
+       "at": 29,
+       "note": "read the answer as wordplay: the letters of the first word, sent out of order, give lure"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "An anagram turned inside out. Nothing in the clue tells you to shuffle anything — the answer itself is the instruction, and the four-letter word in the clue is what obeying it produces.",
-     "definitionFit": "To rule out a candidate is to reject them from consideration, so the phrasal verb is the everyday way of saying the single word."
+     "surface": "Spurning anything that looks like a lure or bait.",
+     "walkthrough": "A reverse clue: OUT works as an anagram signal, so RULE OUT reads as 'RULE, rearranged', which can be seen as LURE.",
+     "definitionFit": "To exclude something from consideration is to dismiss it, a phrasal-verb synonym of reject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
     }
    }
   },
