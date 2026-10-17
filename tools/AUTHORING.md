@@ -413,6 +413,63 @@ The full list, with each reason in their words, is `python3
 tools/ctc_transcripts.py report`; the data is `tools/data/ctc_moments.json`
 and `tools/data/ctc_reasons.json`.
 
+### Our hint text against what the solver said
+
+`python3 tools/ctc_transcripts.py hintcheck` lines each rung of our ladder up
+against the same clue's spoken explanation (7,076 annotated CtC clues) and
+writes `tools/data/ctc_hint_check.json`. Silence is unknown, so a class needs
+the solver to have said something that differs. Counts, 2026-10-17:
+
+    def_span                    5   the definition they name is not ours
+    indicator_span              1   the indicator they name is not ours
+    device_named_differently  180   a device they name that our type lacks
+    unlock_absent               8   a hard solve's unlock has no rung that carries it
+    early_giveaway             41   an early rung spells the answer or a piece
+    solver_simpler            263   they explained it in <=30 words, we use 3x or more
+    jargon_unsaid           5,014   template words (clue-independent) that the channel never says
+
+Seventy-five of these read by hand: **none showed our hint wrong.** Fifty-nine
+were detector noise (a solver's wrong attempt that they retract, "not firm" read
+as "firm is the definition", the previous clue's talk bleeding in, and the port
+artefacts below), sixteen were real style differences. What we learned:
+
+- **Definition spans agree.** Five flagged, five noise (INANE "no sorry it's not
+  the definition", COMPLIANCE "the definition here is *not* firm"). With the
+  parse check's 39 in 2,292, no definition annotation has been shown wrong by a
+  solver.
+- **The ladder covers what unsticks them.** Of 883 annotated hard solves, 99.9%
+  have a rung that carries the unlock (definition 41%, blocks 20%, indicator
+  15%, device 9%, letters already in the grid 6.5%, a word's other sense 3.6%).
+  The letters-in-the-grid unlock is the reveal-a-letter button, not a rung.
+- **A word read in its other sense** is the one unlock we sometimes omit: INDIE
+  ("pass on" = DIE ON: "passed meaning died") and SPONGY ("soft" read as the
+  definition first) have no `misdirectedWord`. Rare (2 of 32), and it is a data
+  gap, not a wording one.
+- **Solvers explain in one sentence.** On the 263 clues they solved quickly and
+  explained in <=30 words, the explanation is "definition, the one trick"
+  (ORGANIST: "an anagram of ROASTING gives ORGANIST"); our walkthrough is
+  77-239 words. This is a style difference, not a fault: a rung is read by
+  someone who did not solve it. Not acted on.
+- **Jargon is solver-specific.** "Charade" is the label of our commonest type
+  and CtC say it 6 times in 476 videos (Pat Cousins 333, Lucyverbalist 226, in
+  150 videos each); CtC say "wordplay" (1,342) and "surface" (1,414). "Shortfall"
+  in the anagram blurb: 3 (CtC). Our wording is conventional; CtC's is chattier.
+  Not changed.
+- **Do not trust the Python port for wording.** `compare_mc.ladder_steps` is a
+  port of the rung logic, not the text: it says "separable" and "misleads" (not
+  in app.js), does not trim `defPlace` seams or apply `maskAnswer` (so the
+  anagram blurb "comes from elsewhere" read as spelling ELSEWHERE). All 26
+  `early_giveaway` rows read were that. A faithful hint-text comparison renders
+  through `tools/fake_dom.js`, as `make_hint_packets.js` does.
+- **Device disagreements are the solver's wrong attempts.** 21 of 22 read were
+  "maybe it's an anagram" before the real parse, or the neighbouring clue's
+  talk. The real one: WRISTBAND, stored `double_definition`, called "just a
+  cryptic definition"; the rung's "Double or cryptic definition" label does not
+  commit, so the hint text is fine.
+
+No validator check or prompt rule came out of this: nothing was wrong in the
+text, and the one data gap (misdirected word) is already tracked.
+
 ## The surface is a sentence, and it carries a joke
 
 The six worst clues were rewritten under the rule above, and the feedback was:

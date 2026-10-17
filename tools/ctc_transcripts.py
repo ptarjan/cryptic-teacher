@@ -30,6 +30,7 @@ rate.
   python3 tools/ctc_transcripts.py solvecheck                    # our per-clue difficulty vs those solves
   python3 tools/ctc_transcripts.py parsecheck SUBS_DIR          # our parses vs the solvers' explanations -> tools/data/ctc_parse_check.json
   python3 tools/ctc_transcripts.py unstick SUBS_DIR             # what unlocked each hard solve, against the hint ladder -> tools/data/ctc_unstick.json
+  python3 tools/ctc_transcripts.py hintcheck SUBS_DIR           # the hint text we show, rung by rung, against what the solver said -> tools/data/ctc_hint_check.json
   python3 tools/ctc_transcripts.py --channel SLUG[,SLUG] CMD      # any of the above for other channels; SUBS_DIR defaults to theirs
   python3 tools/ctc_transcripts.py --channel all solvecheck     # our difficulty vs every channel's waits, by skill -> tools/data/yt_solvers/skill_check.json
   python3 tools/ctc_transcripts.py --channel all unstick        # unstick per channel, then by skill -> tools/data/yt_solvers/unstick_by_skill.json
@@ -59,6 +60,17 @@ letters already in the grid, or a word read in its other sense. Each unlock
 credits the rung of app.js's ladder that shows it, and every order of the
 rungs is scored by the mean rungs a solver takes to reach one that would have
 unstuck them.
+
+Hint check. Each rung of the ladder as app.js renders it (compare_mc.ladder_steps,
+the Python port) against the same explanation window, one class per difference:
+def_span (the definition the solver names is not ours), indicator_span (the
+indicator they name is not ours), device_named_differently (a device they name
+that our type lacks), unlock_absent (a hard solve's unlock has no rung that
+carries it), jargon_unsaid (words in our template rungs that no solver says in
+any video), early_giveaway (a rung before the blocks already spells the
+letters or the answer) and solver_simpler (they explained it in a third of
+our words). Silence is unknown, never agreement: a class needs the solver to
+have said something that differs.
 
 TITLES.tsv is `id<TAB>title` per video, from `yt-dlp --flat-playlist`; without
 it the titles come from the videos.json playlist dump beside SUBS_DIR. A title's
@@ -122,12 +134,13 @@ def data_file(kind, channel=None):
 
 def use_channel(channel):
     """Point every subcommand's files at one channel."""
-    global CHANNEL, OUT, SOLVES, PARSECHECK, UNSTICK
+    global CHANNEL, OUT, SOLVES, PARSECHECK, UNSTICK, HINTCHECK
     if channel not in CHANNELS:
         sys.exit(f"unknown channel {channel!r}; one of {', '.join(CHANNELS)}")
     CHANNEL = channel
     OUT, SOLVES = data_file("moments"), data_file("solve_times")
     PARSECHECK, UNSTICK = data_file("parse_check"), data_file("unstick")
+    HINTCHECK = data_file("hint_check")
     OUT.parent.mkdir(parents=True, exist_ok=True)
 
 
@@ -1337,6 +1350,163 @@ def unstick(subs_dir):
     return rows, quick
 
 
+HINTCHECK = ROOT / "tools" / "data" / "ctc_hint_check.json"
+#: A word of our template rungs is jargon the solvers never use when it is said
+#: at most this many times across the channel's whole transcript set.
+JARGON_MAX_SAID = 2
+#: The rungs whose wording is the same on every clue of a type, so a word in
+#: them is a choice of ours; blocks and the walkthrough quote the clue.
+TEMPLATE_RUNGS = ("indicators", "definition", "type")
+#: Rungs before the blocks: the cheap ones, which must not spell the answer.
+EARLY_RUNGS = ("indicators", "definition", "type")
+INDICATOR_SAID = re.compile(
+    r"(?P<before>(?:[A-Z]+ ){1,4})(?:IS|AS|BEING|WAS|WOULD BE) (?:THE |AN? |OUR |MY )?(?:[A-Z]+ )?INDICATORS?\b|"
+    r"\bINDICATORS? (?:HERE |THERE )?(?:IS|BEING|WOULD BE|MUST BE) (?P<after>(?:[A-Z]+ ?){1,3})")
+#: A template word is only worth reporting when it is on this many clues' rungs;
+#: a rarer one is the definition's own word, not our wording.
+MIN_JARGON_CLUES = 20
+SIMPLER_RATIO = 3
+SIMPLER_MAX_WORDS = 30
+
+
+def vocabulary(subs):
+    """{word: times said} over every transcript of the channel."""
+    seen = collections.Counter()
+    for f in subs.values():
+        seen.update(norm(" ".join(l for _, l in parse_vtt(f))).split())
+    return seen
+
+
+def template_words(steps, clue, answer):
+    """The words of the template rungs that are ours and not the clue's or the
+    answer's (the clue is read aloud, so its words are said by definition)."""
+    skip = set(norm(re.sub(r"<[^>]+>", " ", clue)).split()) | set(norm(answer).split())
+    return {k: sorted({w for w in norm(t).split() if len(w) >= 5 and w not in skip})
+            for k, t in steps if k in TEMPLATE_RUNGS}
+
+
+def hint_differences(e, steps, explain, unlock, hard, vocab):
+    """[{class, rung, ours, theirs}] for one annotated clue: how the rungs
+    we show differ from what the solver said. Each class needs the solver
+    to have said something that differs; silence adds nothing."""
+    a = e["annotation"]
+    clue = e["clue"].get("text", "")
+    by = dict(steps)
+    cw = _content(clue)
+    ans = set(e["_phrase"].split())
+    out = []
+    res = check_clue(e, explain)
+    if res["definition"][0] == "disagree":
+        out.append({"class": "def_span", "rung": "definition", "ours": [d["text"] for d in a.get("definitions") or []],
+                    "theirs": res["definition"][1]})
+    if res["type"][0] == "disagree":
+        out.append({"class": "device_named_differently", "rung": "type", "ours": a.get("type") or [],
+                    "theirs": res["type"][1]})
+    # indicator: the clue words the solver calls the indicator, against ours.
+    ours_ind = set().union(*(_content(i["text"]) for i in a.get("indicators") or []))
+    ours_def = set().union(*(_content(d["text"]) for d in a.get("definitions") or []))
+    if ours_ind:
+        for m in INDICATOR_SAID.finditer(explain):
+            near = set((m.group("before") or m.group("after") or "").split()) & (cw - ans)
+            if near and not near & ours_ind and not near & ours_def:
+                out.append({"class": "indicator_span", "rung": "indicators",
+                            "ours": [i["text"] for i in a["indicators"]], "theirs": [m.group(0).strip()]})
+                break
+    if hard:
+        got = classify_unlock(e, unlock)
+        have = set(available_rungs(a))
+        for u in got:
+            if u != "crossing" and not unstick_rungs(a, {u}) & have:
+                out.append({"class": "unlock_absent", "rung": "-", "ours": sorted(have), "theirs": [f"{u}: {got[u]}"]})
+    # jargon: template words nobody says in the whole transcript set.
+    jar = sorted({w for ws in template_words(steps, clue, e["solution"]).values() for w in ws
+                  if vocab[w] <= JARGON_MAX_SAID})
+    if jar:
+        out.append({"class": "jargon_unsaid", "rung": "template", "ours": jar, "theirs": []})
+    # early giveaway: a rung before the blocks that spells the answer or a piece.
+    pieces = {_letters(b.get("gives") or "") for b in a.get("blocks") or []}
+    # What the clue itself says is quoted by every rung, so it gives nothing away.
+    quoted = {_letters(w) for w in norm(re.sub(r"<[^>]+>", " ", clue)).split()}
+    pieces = {p for p in pieces if len(p) >= 4 and p != _letters(e["solution"])}
+    for k in EARLY_RUNGS:
+        t = " ".join(norm(by.get(k, "")).split())
+        hit = [x for x in [_letters(e["solution"])] + sorted(pieces)
+               if x not in quoted and re.search(r"\b" + x + r"\b", t)]
+        if hit:
+            out.append({"class": "early_giveaway", "rung": k, "ours": [by[k][:160]], "theirs": hit})
+    # solver simpler: they named the definition and a device in few words.
+    n_theirs, n_ours = len(explain.split()), sum(len(by[k].split()) for k in ("blocks", "walkthrough") if k in by)
+    verdicts = (res["definition"][0], res["type"][0], res["pieces"][0])
+    if ("agree" in verdicts and "disagree" not in verdicts
+            and n_theirs <= SIMPLER_MAX_WORDS and n_ours >= SIMPLER_RATIO * n_theirs):
+        out.append({"class": "solver_simpler", "rung": "walkthrough", "ours": [f"{n_ours} words"],
+                    "theirs": [explain[:200]]})
+    return out
+
+
+def hintcheck(subs_dir):
+    """Each rung we show against the solver's explanation of the same clue -> HINTCHECK."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from compare_mc import ladder_steps
+    data = json.loads(SOLVES.read_text())
+    by_video = collections.defaultdict(list)
+    for c in data["clues"]:
+        by_video[c["video"]].append(c)
+    subs = sub_files(subs_dir)
+    vocab = vocabulary(subs)
+    seen = collections.defaultdict(list)    # (puzzle, entry) -> (explain, unlock, hard, video, wait)
+    for vid, rows in by_video.items():
+        f = subs.get(vid)
+        if not f:
+            continue
+        lines = parse_vtt(f)
+        reads = sorted(r["read"] for r in rows if r["read"] is not None)
+        puz = entries_of(rows[0]["puzzle"])
+        for r in rows:
+            t0 = r["t"] - EXPLAIN_LEAD_S
+            t1 = min([r["t"] + EXPLAIN_TAIL_S] + [x for x in reads if x > r["t"] + 2])
+            explain = own_talk([(t, l) for t, l in lines if t0 <= t <= t1], r["entry"], puz)
+            unlock = norm(" ".join(l for t, l in lines if r["t"] - UNLOCK_LEAD_S <= t <= r["t"] + UNLOCK_TAIL_S))
+            hard = bool(r["stuck"] or (r["read_to_solve"] or 0) >= LONG_WAIT_S)
+            seen[(r["puzzle"], r["entry"])].append((explain, unlock, hard, vid, r["read_to_solve"]))
+    rows = []
+    for (pid, eid), obs in seen.items():
+        e = entries_of(pid).get(eid)
+        if not e or not e.get("annotation"):
+            continue
+        steps = ladder_steps(e["annotation"], e["clue"].get("text", ""))
+        explain = " ".join(re.sub(r"\s+", " ", o[0]).strip() for o in obs)
+        hard = any(o[2] for o in obs)
+        diffs = hint_differences(e, steps, explain, obs[0][1], hard, vocab)
+        rows.append({"puzzle": pid, "entry": eid, "clue": e["clue"].get("text", ""), "answer": e["solution"],
+                     "video": obs[0][3], "wait": obs[0][4], "hard": hard,
+                     "rungs": {k: t[:300] for k, t in steps if k in TEMPLATE_RUNGS},
+                     "said": explain[:600], "differences": diffs})
+    on_clues = collections.Counter(w for r in rows for d in r["differences"] if d["class"] == "jargon_unsaid" for w in d["ours"])
+    for r in rows:
+        for d in r["differences"]:
+            if d["class"] == "jargon_unsaid":
+                d["ours"] = [w for w in d["ours"] if on_clues[w] >= MIN_JARGON_CLUES]
+        r["differences"] = [d for d in r["differences"] if d["class"] != "jargon_unsaid" or d["ours"]]
+    by_class = collections.Counter(d["class"] for r in rows for d in r["differences"])
+    clues_by_class = collections.Counter(c for r in rows for c in {d["class"] for d in r["differences"]})
+    jar = collections.Counter(w for r in rows for d in r["differences"] if d["class"] == "jargon_unsaid" for w in d["ours"])
+    summ = {"clues": len(rows), "with_difference": sum(bool(r["differences"]) for r in rows),
+            "instances_by_class": dict(by_class.most_common()), "clues_by_class": dict(clues_by_class.most_common()),
+            "jargon_unsaid_words": dict(jar.most_common(40))}
+    # A jargon word is on thousands of clues; the summary counts it, and a row
+    # is kept for the clues where the solver said something that differs.
+    rows = [r for r in rows if any(d["class"] != "jargon_unsaid" for d in r["differences"])]
+    row = lambda x: json.dumps(x, ensure_ascii=False, separators=(",", ":"))
+    HINTCHECK.write_text('{"summary":' + json.dumps(summ, ensure_ascii=False, indent=1)
+                         + ',\n"clues":[\n' + ",\n".join(map(row, rows)) + "\n]}\n")
+    print(f"{summ['clues']} annotated clues with a spoken explanation, {summ['with_difference']} differ -> {HINTCHECK}")
+    for c, n in clues_by_class.most_common():
+        print(f"  {c:26s} {n:5d} clues  ({by_class[c]} instances)")
+    print("  words of our template rungs no solver says: " + ", ".join(f"{w} {n}" for w, n in jar.most_common(15)))
+    return rows
+
+
 def unstick_by_skill():
     """unstick() for every channel with solve times, then what unlocked the
     hard solves by solver skill; each level's shares are read against its own
@@ -1495,6 +1665,8 @@ if __name__ == "__main__":
             unstick(subs)
         elif cmd == "parsecheck":
             parsecheck(subs)
+        elif cmd == "hintcheck":
+            hintcheck(subs)
         elif cmd == "solvecheck":
             solvecheck()
         elif cmd == "extract":
