@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -956,45 +957,55 @@
     "definitions": [
      {
       "text": "Perhaps surprisingly",
-      "at": 0
+      "at": 0,
+      "note": "'surprisingly' is an example of the word class, signalled by 'Perhaps'"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ADVERB",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "Calling a word short is docking its tail, so the one before it gives up its final letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "notice",
+       "at": 22,
+       "gives": "AD",
+       "note": "an ad, an advertisement, is a public notice"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 34,
+         "note": "short means the word loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "notice",
-         "gives": "AD",
-         "note": "an ad in the paper is a notice"
-        },
-        {
          "words": "very",
-         "gives": "VER",
-         "note": "VERY docked of its last letter"
+         "at": 29,
+         "note": "the word very, cut short"
         },
         {
-         "words": "book",
-         "gives": "B",
-         "note": "b. is the standard abbreviation for book"
+         "gives": "Y"
         }
        ]
+      },
+      {
+       "words": "book",
+       "at": 40,
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The opening two words read as the setter's aside about the sentence to come, which is exactly what stops you noticing they are the definition.",
-     "definitionFit": "Definition by example: each of those two words is one, so the clue exhibits the class of word instead of describing it."
+     "surface": "Someone reacts with mild surprise at seeing a notice about a very short book.",
+     "walkthrough": "'short' takes the last letter off VERY to leave VER. The definition is an example: 'surprisingly' is itself the kind of word the answer names, hence 'Perhaps'.",
+     "definitionFit": "Surprisingly is a word that modifies a verb or adjective, so it is an instance of that part of speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "surprisingly"
     }
    }
   },
@@ -1338,27 +1349,30 @@
     ],
     "wordplay": {
      "op": "first",
-     "unchecked": true,
-     "gives": "TOR",
      "indicators": [
       {
        "text": "Heads off",
-       "note": "Heads are what come first, and taking them off the words that follow leaves exactly their opening letters."
+       "at": 0,
+       "note": "the heads of the words that follow are their first letters, taken off them"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "to outlying rock-strewn",
-       "gives": "TOR",
-       "select": "first",
-       "note": "the heads of To, Outlying and Rock-strewn"
+       "words": "to outlying rock",
+       "at": 10,
+       "note": "the words whose initials are used; rock-strewn is one hyphenated word, so it gives a single R"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Heads off' sounds like a walker setting out for the hills, which is the picture wanted while the phrase quietly does the letter-picking.",
-     "definitionFit": "The bare rock crowning a Dartmoor hill: a height rather than a true peak, which is why the surface calls it outlying."
+     "surface": "Climbers set off towards a remote, boulder-covered peak.",
+     "walkthrough": "'Heads off' takes the first letters of 'to outlying rock-strewn'.",
+     "definitionFit": "A tor is a rocky hill or peak, especially on Dartmoor in south-west England, so it loosely means a mountain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Heads"
     }
    }
   },
