@@ -260,41 +260,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DENMARK",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 15,
+       "note": "in means the rearranged letters go inside the word for black"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Black",
+       "at": 18,
+       "gives": "DARK",
+       "note": "dark means black, lacking light"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "travelling",
-         "note": "letters on the move are rearranged"
-        },
-        {
-         "text": "in",
-         "note": "the rearranged letters go inside the other word"
+         "at": 4,
+         "note": "travelling men are on the move, so the letters of men shift into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Black",
-         "gives": "DARK",
-         "note": "black = dark"
-        },
-        {
          "words": "Men",
-         "gives": "ENM",
-         "note": "MEN rearranged"
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Men journeying through the Black Country, the industrial West Midlands of England.",
-     "walkthrough": "The Black Country is an English region, which tempts you to read 'Black Country' as one phrase; 'Country' alone is the definition.",
-     "definitionFit": "Definition by category: Denmark is a Scandinavian nation, so 'country' names the class it belongs to."
+     "surface": "Men on a journey through the Black Country, the industrial West Midlands of England.",
+     "walkthrough": "'Black Country' reads as the English region, but the words split: 'Black' is wordplay and 'Country' the definition, while 'travelling' scrambles MEN.",
+     "definitionFit": "Denmark is a Scandinavian nation, so it is an example of a country."
     },
     "features": {
      "answerInScene": false,
@@ -648,8 +650,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "lump",
-      "at": 40
+      "text": "Finale of Byron poem that might bring a lump to the throat?",
+      "at": 0
      }
     ],
     "wordplay": {
@@ -660,41 +662,34 @@
        "indicators": [
         {
          "text": "Finale of",
-         "note": "take the finale, the last letter, of the next word"
+         "at": 0,
+         "note": "the finale is the closing part, here the last letter of the poet's name"
         }
        ],
        "parts": [
         {
-         "words": "Finale of Byron",
-         "gives": "BYRON",
-         "note": "last letter of Byron"
+         "words": "Byron",
+         "at": 10,
+         "note": "only its last letter is used"
         }
        ]
       },
       {
        "words": "poem",
+       "at": 16,
        "gives": "ODE",
        "note": "an ode is a lyric poem"
-      },
-      {
-       "unchecked": true,
-       "words": "that might bring a",
-       "note": "surface padding describing the poem's effect"
-      },
-      {
-       "unchecked": true,
-       "words": "to the throat?",
-       "note": "surface padding completing 'a lump in the throat'"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "The end of a Byron poem moves the reader to tears.",
-     "walkthrough": "A lump in the throat is emotion, but the definition is a physical lump; the swollen glands felt in the neck are lymph nodes, so the tail still fits.",
-     "definitionFit": "A node is a small swelling or knot in tissue, a lump in medical terms."
+     "surface": "The ending of a Byron poem is moving enough to make a reader choke up.",
+     "walkthrough": "'Finale of' Byron gives N. The whole clue does double duty: the wordplay is a poem whose ending might choke you up, while the answer itself is a lump, as found in the throat.",
+     "definitionFit": "A node is a small swelling or knot of tissue, such as a lymph node in the neck."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "lump"
@@ -956,41 +951,41 @@
     "definitions": [
      {
       "text": "Mickey Mouse?",
-      "at": 20
+      "at": 20,
+      "note": "an example, flagged by the question mark: the famous Disney character"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CARTOON",
-     "indicators": [
-      {
-       "text": "Daffy",
-       "note": "daffy means crazy, so the letters are scrambled"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Daffy",
+         "at": 0,
+         "note": "daffy means silly or crazy, so the letters of actor are jumbled"
+        }
+       ],
        "parts": [
         {
          "words": "actor",
-         "gives": "CARTO",
-         "note": "ACTOR rearranged"
-        },
-        {
-         "words": "playing",
-         "gives": "ON",
-         "note": "on = playing, as in a show that is on"
+         "at": 6
         }
        ]
+      },
+      {
+       "words": "playing",
+       "at": 12,
+       "gives": "ON",
+       "note": "an actor who is playing is on, as in on stage"
       }
      ]
     },
     "explanation": {
-     "surface": "Daffy Duck as an actor playing Mickey Mouse.",
-     "walkthrough": "Daffy suggests Daffy Duck, which fits the animated theme but is the anagram indicator. The question mark flags Mickey Mouse as one example.",
-     "definitionFit": "Definition by example: Mickey Mouse is a Disney animated character, the star of a cartoon."
+     "surface": "A silly actor is taking the part of Disney's famous mouse.",
+     "walkthrough": "'Daffy' suggests Daffy Duck alongside Mickey Mouse, but it is the signal to rearrange ACTOR into CARTO.",
+     "definitionFit": "Mickey Mouse is the best-known animated character, so he is an example of a cartoon."
     },
     "features": {
      "answerInScene": true,
@@ -1598,27 +1593,36 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Klopp counsels us to work",
-      "at": 0,
-      "meaning": "a football manager telling players to get kitted out for the match"
-     },
-     {
       "text": "work harder",
       "at": 27,
-      "meaning": "the idiom for making more effort"
+      "note": "a verb phrase matching the idiom, which means make a greater effort"
      }
     ],
-    "spelling": "PULL ONE'S SOCKS UP",
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "to work",
+       "at": 18,
+       "note": "to work letters is to knead them into a new form, so the letters of the phrase are reordered"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Klopp counsels us",
+       "at": 0
+      }
+     ]
+    },
     "explanation": {
-     "surface": "Jürgen Klopp urging his team to try harder.",
-     "walkthrough": "Jürgen Klopp managed Liverpool FC; for footballers, hauling up long socks is literally part of getting ready to play.",
-     "definitionFit": "Idiom: to pull one's socks up is to make more effort, and for a footballer it is also literal kit."
+     "surface": "Jürgen Klopp, the football manager, advises his players to graft.",
+     "walkthrough": "'To work' rearranges all fifteen letters of KLOPP COUNSELS US. 'Work' appears twice: the first is the anagram signal and the second belongs to the definition.",
+     "definitionFit": "To pull up one's socks is an idiom meaning to make more effort and improve one's performance."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "Klopp"
+     "misdirectedWord": "work"
     }
    }
   },
