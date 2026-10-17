@@ -423,23 +423,33 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "BUSSTATION",
-     "indicators": [
-      {
-       "text": "around"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "BUSSTATION",
        "indicators": [
         {
          "text": "capsized",
-         "note": "a capsized vessel is upside down, so in a down entry the word reads upwards"
+         "at": 7,
+         "note": "a capsized boat is turned upside down, so in a down entry this word is turned to read the other way"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Vessel",
+         "at": 0,
+         "gives": "SUB",
+         "note": "a sub (submarine) is a vessel"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 34,
+         "note": "the figure and working pieces sit around the island letter, enclosing it"
         }
        ],
        "parts": [
@@ -447,40 +457,38 @@
          "op": "charade",
          "parts": [
           {
-           "words": "Vessel capsized",
-           "gives": "BUS",
-           "note": "SUB, a submarine, turned upside down"
-          },
-          {
            "words": "figure",
+           "at": 19,
            "gives": "STAT",
-           "note": "a stat is a statistic, a figure"
-          },
-          {
-           "words": "island",
-           "gives": "I",
-           "note": "I = island"
+           "note": "stat is short for statistic, a figure"
           },
           {
            "words": "working",
+           "at": 26,
            "gives": "ON",
-           "note": "on = working, as a machine is"
+           "note": "on means working, as a machine that is on"
           }
          ]
+        },
+        {
+         "words": "island",
+         "at": 41,
+         "gives": "I",
+         "note": "I is the map abbreviation for island"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A boat overturns because someone is busy near an island's far end.",
-     "walkthrough": "'Terminus' reads as the far end of the island in the surface; it is the definition.",
-     "definitionFit": "A definition by function: a terminus is where routes end, and a bus station is where bus routes start and finish."
+     "surface": "A boat overturned near a statue that has been put up around an island at the end of the line.",
+     "walkthrough": "'Capsized' turns SUB into BUS. 'Around' puts STAT and ON either side of I to make STATION.",
+     "definitionFit": "A bus station is where bus routes end, a terminus for coaches and local services."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "terminus"
+     "misdirectedWord": "figure"
     }
    }
   },
@@ -822,45 +830,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BEERCAN",
+     "spelt": "BEERCAN",
      "indicators": [
       {
        "text": "According to Spooner",
-       "note": "Rev. Spooner was famous for swapping the starting sounds of words"
+       "at": 0,
+       "note": "Spooner's name signals swapping the opening sounds of the two words"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "KEER",
        "parts": [
         {
-         "unchecked": true,
          "words": "Starmer",
-         "gives": "BEER",
-         "soundsLike": "KEIR",
-         "note": "Keir is Starmer's first name; it takes the B sound from the next word"
-        },
-        {
-         "unchecked": true,
-         "words": "veto",
-         "gives": "CAN",
-         "soundsLike": "BAN",
-         "note": "a veto is a ban; it takes the K sound from Keir"
+         "at": 22,
+         "gives": "KEIR",
+         "note": "Keir Starmer, the UK Labour Prime Minister; his first name is the word used"
         }
        ]
+      },
+      {
+       "words": "veto",
+       "at": 30,
+       "gives": "BAN",
+       "note": "a ban is a veto, a prohibition"
       }
      ]
     },
     "explanation": {
-     "surface": "A political note about the Prime Minister blocking something.",
-     "walkthrough": "Keir Starmer is the UK Labour leader and Prime Minister, so the surface's politician supplies a first name.",
-     "definitionFit": "A definition by class: the answer is a metal can that holds beer, one kind of container."
+     "surface": "A Spoonerism about a prohibition by Keir Starmer, pretending a container was made for it.",
+     "walkthrough": "KEIR is said like KEER. 'According to Spooner' swaps the first sounds of KEER BAN, and you hear BEER CAN.",
+     "definitionFit": "A beer can is a metal tin holding beer, a kind of drinks container."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
+     "joke": "absurd",
      "misdirectedWord": "Starmer"
     }
    }
@@ -890,46 +897,45 @@
      "indicators": [
       {
        "text": "drawing in",
-       "note": "the outer word draws the letter inside it"
+       "at": 21,
+       "note": "drawing in means pulling something inside, so one piece goes within the other"
       }
      ],
      "parts": [
       {
        "words": "Computer programmers",
+       "at": 0,
        "gives": "CODERS",
-       "note": "people who write computer code"
+       "note": "coders are people who write computer programs"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "G",
        "indicators": [
         {
          "text": "primarily",
-         "note": "primarily means first, so the first letter"
+         "at": 32,
+         "note": "primarily means first of all, so only the opening letter of gifted is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "primarily gifted",
-         "gives": "G",
-         "select": "first",
-         "note": "first letter of Gifted"
+         "words": "gifted",
+         "at": 42,
+         "note": "its first letter is G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Talented software developers are recruiting quirky elderly people.",
-     "walkthrough": "'Gifted' looks like it describes the programmers; only its first letter is used.",
-     "definitionFit": "Informal British: codgers are old men, usually thought of as odd or cantankerous, so eccentric oldies."
+     "surface": "Talented programmers attract odd old people.",
+     "walkthrough": "'Primarily' takes G from gifted, and 'drawing in' puts it inside CODERS.",
+     "definitionFit": "Codger is an informal word for an odd or crotchety elderly man, so codgers are eccentric oldies."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "gifted"
+     "misdirectedWord": "drawing"
     }
    }
   },
@@ -1229,26 +1235,32 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "BRUISER",
      "indicators": [
       {
        "text": "changes top",
-       "note": "in a down entry the top is the first letter, which is swapped for another"
+       "at": 15,
+       "note": "the top of a down entry is its first letter, which is swapped for another"
       }
      ],
      "parts": [
       {
        "words": "Speedy warship",
+       "at": 0,
        "gives": "CRUISER",
-       "note": "a cruiser is a fast warship; its first letter C is replaced by B"
+       "note": "a cruiser is a fast warship"
+      },
+      {
+       "gives": "C"
+      },
+      {
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "surface": "A fast warship refits and becomes a battler.",
-     "walkthrough": "The clue does not say which letter comes in; the definition and crossers show C becomes B.",
-     "definitionFit": "Informal synonym: a bruiser is a big, tough man who likes a fight."
+     "surface": "A fast warship switches commanders and turns into a scrapper.",
+     "walkthrough": "'Changes top' means change the top letter C of CRUISER to B; the clue does not name the new letter, so the definition and crossers settle it.",
+     "definitionFit": "A bruiser is a tough, combative person, especially a heavily built boxer."
     },
     "features": {
      "answerInScene": false,
@@ -1278,47 +1290,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "IXTLE",
+     "op": "container",
      "indicators": [
       {
-       "text": "fancy",
-       "note": "fancy means elaborately worked, so the letters are rearranged"
+       "text": "in",
+       "at": 23,
+       "note": "in places the unknown letter inside the rearranged tile letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in"
+         "text": "fancy",
+         "at": 26,
+         "note": "fancy as an adjective means elaborate or fanciful, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "fancy tile",
-         "gives": "ITLE",
-         "note": "TILE rearranged"
-        },
-        {
-         "words": "unknown",
-         "gives": "X",
-         "note": "x = an unknown quantity in algebra"
+         "words": "tile",
+         "at": 32
         }
        ]
+      },
+      {
+       "words": "unknown",
+       "at": 15,
+       "gives": "X",
+       "note": "x is the algebraic unknown"
       }
      ]
     },
     "explanation": {
-     "surface": "A precious thread is found in a decorative tile.",
-     "walkthrough": "An obscure word, so the wordplay must be trusted; the Toughie allows it because every letter is clued.",
-     "definitionFit": "A definition by class: ixtle is a strong fibre from Mexican agave plants, valued for cord and brushes."
+     "surface": "A precious fibre of uncertain origin turns up in a decorative tile.",
+     "walkthrough": "'Fancy' turns TILE into ITLE, and X ('unknown') goes 'in' it.",
+     "definitionFit": "Ixtle is a strong plant fibre from Mexican agave, used for cordage and brushes."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "unknown"
+     "misdirectedWord": "fancy"
     }
    }
   },
