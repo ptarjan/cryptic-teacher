@@ -92,39 +92,38 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FROGSLEGS",
-     "indicators": [
-      {
-       "text": "ordered",
-       "note": "letters that are ordered are put into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "First of",
+         "at": 0,
+         "note": "the first of a word is its opening letter"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "First of",
-           "note": "the first of a word is its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "First of foot",
-           "gives": "FOOT",
-           "note": "first letter of FOOT"
-          }
-         ]
-        },
+         "words": "foot",
+         "at": 9,
+         "note": "F is the first letter of foot"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "ordered",
+         "at": 23,
+         "note": "ordered here means put into a fresh order, so the letters of sloggers are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "sloggers",
-         "gives": "ROGSLEGS",
-         "note": "SLOGGERS rearranged"
+         "at": 14
         }
        ]
       }
@@ -132,14 +131,14 @@
     },
     "spelling": "FROGS' LEGS",
     "explanation": {
-     "surface": "Foot soldiers who slog along being ordered a French meal.",
-     "walkthrough": "\"Foot sloggers\" reads as one phrase for infantry, but only the first letter of \"foot\" is used and \"sloggers\" is the anagram fodder.",
-     "definitionFit": "A definition by example: frogs' legs are the dish most associated with French cooking, and Gallic means French."
+     "surface": "Infantry slogging along on foot place an order for French food.",
+     "walkthrough": "'Foot sloggers' reads as foot soldiers, but 'First of' takes only the F of foot, and 'ordered' rearranges SLOGGERS into ROGSLEGS.",
+     "definitionFit": "Frogs' legs are a classic item of French cuisine, so a dish from Gaul, France's old name."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "foot"
+     "misdirectedWord": "ordered"
     }
    }
   },
@@ -299,41 +298,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "THEIRMAJESTIES",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "keeping",
+       "at": 27,
+       "note": "keeping means holding inside, so the anagram wraps around the other pieces"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "jockeys",
-         "note": "to jockey is to jostle for position, so the letters are pushed around"
-        },
-        {
-         "text": "keeping",
-         "note": "to keep something is to hold it, so the shuffled letters hold the rest inside them"
+         "at": 18,
+         "note": "to jockey is to manoeuvre or jostle, so the letters of meet Irish are pushed into a new order"
         }
        ],
        "parts": [
         {
          "words": "meet Irish",
-         "gives": "THEIRMIES",
-         "note": "MEET IRISH rearranged, to be split THEIRM…IES"
+         "at": 7
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 35
         },
         {
-         "words": "a kid around",
-         "gives": "AJEST",
-         "note": "A + JEST; to kid around is to jest"
+         "words": "kid around",
+         "at": 37,
+         "gives": "JEST",
+         "note": "to kid around is to joke, or jest"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The royal family meeting Irish jockeys, with a child in tow.",
-     "walkthrough": "Ireland and racing go together, so \"Irish jockeys\" reads as riders; \"jockeys\" is the verb telling MEET IRISH to shift around A JEST.",
-     "definitionFit": "A formal title used as a plural noun: Their Majesties is how a king and queen together are referred to."
+     "surface": "Members of the royal family are introduced to Irish racing riders, joking with them.",
+     "walkthrough": "'Jockeys' is a verb here: it rearranges MEET IRISH, and that anagram keeps A and JEST in its middle.",
+     "definitionFit": "Their Majesties is the formal way of referring to a king and queen together, so royals."
     },
     "features": {
      "answerInScene": true,
@@ -411,42 +421,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "oddly",
-       "note": "oddly means taking the odd-numbered letters, the 1st and 3rd of \"this\""
+       "text": "stuffing",
+       "at": 23,
+       "note": "these letters stuff the bird, so they go inside the word for chicken"
       }
      ],
      "parts": [
       {
        "words": "chicken",
+       "at": 32,
        "gives": "CAPON",
-       "note": "a capon is a fattened cockerel"
+       "note": "a capon is a castrated cockerel fattened for the table"
       },
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "TI",
        "indicators": [
         {
-         "text": "stuffing",
-         "note": "stuffing a bird means filling its inside, so these letters go inside the chicken"
+         "text": "oddly",
+         "at": 11,
+         "note": "oddly picks the letters in the odd positions of the word this, the first and third"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "this, oddly",
-         "gives": "TI",
-         "select": "alternate",
-         "note": "1st and 3rd letters of THIS"
+         "words": "this",
+         "at": 5,
+         "note": "the odd letters of this, first and third, are T and I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A note about stuffing a chicken, like a line in a recipe.",
-     "walkthrough": "\"Stuffing chicken\" reads as kitchen talk, and the bird really is stuffed here, only with letters instead of sage and onion.",
-     "definitionFit": "A plain synonym in one sense: a caption is a short note printed beneath a picture."
+     "surface": "A kitchen reminder to jot something down while filling the chicken.",
+     "walkthrough": "'Note' looks like an instruction to the cook, but it is the definition; 'oddly' works on the single word 'this', and 'stuffing' puts its odd letters inside the bird.",
+     "definitionFit": "A caption is a short note or heading beside a photograph or cartoon, explaining it."
     },
     "features": {
      "answerInScene": false,
