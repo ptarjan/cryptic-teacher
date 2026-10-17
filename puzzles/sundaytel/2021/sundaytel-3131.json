@@ -137,13 +137,12 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "QATARI",
+     "op": "container",
      "indicators": [
       {
-       "text": "endless",
-       "note": "without an end means the final letter of the word is dropped"
+       "text": "importing",
+       "at": 23,
+       "note": "the reversed country takes the shortened word into its middle"
       }
      ],
      "parts": [
@@ -152,30 +151,36 @@
        "indicators": [
         {
          "text": "from the south",
-         "note": "in a down entry, reading from the bottom upward runs the country name backwards"
+         "at": 45,
+         "note": "in a down answer, reading from the south means reading upwards, so the country's name runs backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "importing",
-           "note": "to import is to bring something inside, so one piece goes within the other"
-          }
-         ],
-         "parts": [
-          {
-           "words": "country",
-           "gives": "IRAQ",
-           "note": "a Middle Eastern country, read upward here"
-          },
-          {
-           "words": "tat",
-           "gives": "TA",
-           "note": "the word tat with its last letter removed"
-          }
-         ]
+         "words": "country",
+         "at": 15,
+         "gives": "IRAQ",
+         "note": "Iraq, a country of the Middle East, as the clue's opening words suggest"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endless",
+         "at": 33,
+         "note": "endless means the last letter of tat is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tat",
+         "at": 41,
+         "note": "tat is cheap, tasteless goods"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
@@ -183,8 +188,8 @@
     },
     "explanation": {
      "surface": "A Gulf state buying in cheap trinkets from the south.",
-     "walkthrough": "The country in the wordplay is not the answer's country: Iraq, written upward, takes in the clipped tat.",
-     "definitionFit": "The adjective describes things belonging to a Gulf emirate, which lies in the region called the Middle East."
+     "walkthrough": "'from the south' turns IRAQ upwards into QARI, and 'importing' places TA (tat with its end cut off by 'endless') between QA and RI.",
+     "definitionFit": "Qatari is the adjective for things or people from Qatar, a Gulf state in the Middle East."
     },
     "features": {
      "answerInScene": true,
