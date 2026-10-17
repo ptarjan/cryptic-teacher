@@ -1253,44 +1253,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "NOFEAR",
      "indicators": [
       {
        "text": "might Spooner say",
-       "note": "Rev Spooner swapped the opening sounds of words, so his version swaps them here"
+       "at": 16,
+       "note": "asks for what Reverend Spooner would say, swapping the opening sounds of the two words"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "FO",
        "parts": [
         {
-         "unchecked": true,
          "words": "Rival",
-         "gives": "NO",
-         "soundsLike": "FOE",
-         "note": "a rival is a foe, which takes the N from the next word"
-        },
-        {
-         "unchecked": true,
-         "words": "close by",
-         "gives": "FEAR",
-         "soundsLike": "NEAR",
-         "note": "close by is near, which takes the F from foe"
+         "at": 0,
+         "gives": "FOE",
+         "note": "a rival is a foe, an opponent"
         }
        ]
+      },
+      {
+       "words": "close by",
+       "at": 6,
+       "gives": "NEAR",
+       "note": "close by means near"
       }
      ]
     },
     "explanation": {
-     "surface": "Asked whether a rival lurks nearby, someone answers with a firm denial.",
-     "walkthrough": "Swap the F of FOE with the N of NEAR and the phrase becomes a British exclamation of refusal.",
-     "definitionFit": "An informal British idiom: asked to do something unwelcome, you might retort with this, meaning not a chance."
+     "surface": "An opponent is lurking nearby, and someone imagines how a famous slip of the tongue would put it, before an emphatic refusal.",
+     "walkthrough": "'might Spooner say' swaps the first sounds of FOE NEAR to give 'no fear', said the same as the answer.",
+     "definitionFit": "No fear is an informal British exclamation of refusal, meaning there is no chance of that happening."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": false
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
     }
    }
   },
@@ -1558,56 +1557,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EMINENT",
+     "op": "charade",
      "indicators": [
       {
-       "text": "snubbed",
-       "note": "a snub nose is cut short, so the rapper's name loses its end"
+       "text": "after",
+       "at": 22,
+       "note": "after puts the rapper's shortened name ahead of the emptied word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "after",
-         "note": "'after' in the sense of following in time, so the club's letters come behind the rapper's in the answer"
+         "text": "snubbed",
+         "at": 35,
+         "note": "snubbed suggests a snub nose, cut short, so the rapper's name loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "rapper",
-         "gives": "EMINE",
-         "note": "Eminem, the US rapper, without his last letter"
+         "at": 28,
+         "gives": "EMINEM",
+         "note": "Eminem is a famous American rapper"
         },
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "empty",
-           "note": "an empty word has its insides removed, leaving only its outer letters"
-          }
-         ],
-         "parts": [
-          {
-           "words": "nightspot",
-           "note": "the outer letters of nightspot"
-          }
-         ]
+         "gives": "M"
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "at": 16,
+         "note": "empty means the inside of nightspot is removed, keeping just its outer letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "nightspot",
+         "at": 6,
+         "note": "with its middle emptied out, only its first and last letters remain"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A famous club stands deserted after a rapper stays away.",
-     "walkthrough": "'Snubbed' reads as ignored; here it means docked, like a snub nose.",
-     "definitionFit": "A plain synonym: a noted scientist and an eminent scientist are both well known and respected in their field."
+     "surface": "A famous rapper is turned away from a club that is deserted.",
+     "walkthrough": "'snubbed' docks EMINEM to EMINE, and 'empty' leaves the N and T of 'nightspot'; 'after' places NT behind.",
+     "definitionFit": "An eminent person is famous and respected, which is what noted means as an adjective."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "snubbed"
     }
