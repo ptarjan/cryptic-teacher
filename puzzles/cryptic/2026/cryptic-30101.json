@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -159,40 +160,50 @@
     "definitions": [
      {
       "text": "One probably sits with a computer all day",
-      "at": 39
+      "at": 39,
+      "note": "a noun phrase for the answer: the typing board found in front of nearly every computer"
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "QWERTYKEYBOARD",
-     "indicators": [
-      {
-       "text": "exercising",
-       "note": "A body put through its exercises is worked into one shape after another, which is what happens to these letters."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Question",
+       "at": 0,
+       "gives": "Q"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "exercising",
+         "at": 26,
+         "note": "exercising means putting through movements, so the letters of weaker body and try are worked into a new arrangement"
+        }
+       ],
        "parts": [
         {
-         "words": "Question",
-         "gives": "Q",
-         "note": "the standard short form, as in Q and A"
+         "words": "weaker body",
+         "at": 9
         },
         {
-         "words": "weaker body? Try",
-         "gives": "WERTYKEYBOARD",
-         "note": "thirteen letters that come back in a different arrangement"
+         "words": "Try",
+         "at": 22
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'One' pushes you towards a person — a coder, a gamer — and the definition turns out to be the object on the desk instead.",
-     "definitionFit": "What sits with a computer all day is not the user but the slab of keys they type on, named for its top row."
+     "surface": "Advice to someone flabby: weak body? Try exercise; then a jibe about desk workers glued to computers.",
+     "walkthrough": "The answer is split over 3 and 16. QWERTY names the first six letters on the top row of the standard English keyboard.",
+     "definitionFit": "A QWERTY keyboard is the standard typing board attached to a computer, and it sits there all day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "exercising"
     }
    }
   },
@@ -231,36 +242,26 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "THROWTHEBOOKAT",
-     "indicators": [
-      {
-       "text": "This suggests",
-       "note": "The clue points at its own solution: the first word of it names what has been done to the three words after it."
-      }
-     ],
+     "op": "reverse",
+     "reading": "THROW + THE BOOK AT",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "This suggests",
-         "gives": "THROW",
-         "note": "the opening word is the instruction as well as part of the phrase"
-        },
-        {
-         "words": "he took bat",
-         "gives": "THEBOOKAT",
-         "note": "the same nine letters, hurled into a new order"
-        }
-       ]
+       "words": "This suggests he took bat",
+       "at": 0,
+       "note": "the letters of he took bat are what you get by jumbling three words of the answer, with the first word of the answer serving as the jumble signal"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A self-referential trick: the phrase carries the very verb that scrambles the rest of it, while 'he took bat' keeps the cricket surface going.",
-     "definitionFit": "To throw the book at someone is to punish them with every charge available, which is disciplining them as hard as the rules allow."
+     "surface": "A cricketing scene: he picked up the bat, apparently by way of punishment.",
+     "walkthrough": "A reverse clue: the answer, read as a cryptic instruction, has THROW signalling a jumble of THE BOOK AT, which gives the clue's 'he took bat'. The answer is split over 4 and 22.",
+     "definitionFit": "To throw the book at someone is to punish them as severely as the rules allow, an idiom for harsh discipline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bat"
     }
    }
   },
@@ -736,36 +737,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BREASTMILK",
-     "indicators": [
-      {
-       "text": "clumsily",
-       "note": "Handle something clumsily and it comes down in the wrong order, which is what has happened to these letters."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "clumsily",
+         "at": 26,
+         "note": "clumsily means awkwardly or without care, so the letters of be smart are tumbled about"
+        }
+       ],
        "parts": [
         {
          "words": "be smart",
-         "gives": "BREASTM",
-         "note": "seven letters that come back in a different order"
-        },
-        {
-         "words": "kind",
-         "gives": "ILK",
-         "note": "your ilk is your kind, the sort of people you belong among"
+         "at": 37
         }
        ]
+      },
+      {
+       "words": "kind",
+       "at": 50,
+       "gives": "ILK",
+       "note": "ilk means kind or sort, as in people of that ilk"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'be smart and kind' sounds like advice a mother would hand out, which is the whole disguise: the two halves do quite different jobs.",
-     "definitionFit": "'Express' is the nursing verb for drawing off what a feeding mother produces, so the definition names the answer by how it is obtained."
+     "surface": "Advice that being smart and kind will see you through, however clumsily it is put.",
+     "walkthrough": "'express' here means squeeze out milk with a pump, not put into words. The definition is a whole phrase describing the answer.",
+     "definitionFit": "A nursing mother can express breast milk, pumping it out by hand or machine for a baby to drink later."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "express"
     }
    }
   },
@@ -790,41 +797,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENTREATY",
-     "indicators": [
-      {
-       "text": "ignoring half of",
-       "note": "The word that follows is only two letters long, so ignoring half of it throws away the first and keeps the second."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Two nurses",
+       "at": 0,
+       "gives": "ENTREAT",
+       "note": "an EN is an enrolled nurse, and to treat is to nurse a patient, so the two give EN and TREAT"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "ignoring half of",
+         "at": 11,
+         "note": "ignoring half of drops one of the two letters of my, its first"
+        }
+       ],
        "parts": [
         {
-         "words": "Two nurses",
-         "gives": "EN",
-         "note": "the first of the pair is EN, Britain's enrolled nurse, a standing crossword abbreviation"
-        },
-        {
-         "words": "nurses",
-         "gives": "TREAT",
-         "note": "the second is the verb: to nurse a patient is to treat one"
-        },
-        {
          "words": "my",
-         "gives": "Y",
-         "note": "the M is the half that goes"
+         "at": 28
+        },
+        {
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Two nurses' asks for two different words for the same job, one an abbreviation and one a verb — a common way to hide a short charade.",
-     "definitionFit": "An entreaty is a request made with feeling, a plea rather than a routine asking, so the definition is the plain noun sense."
+     "surface": "A patient's plea, which two nurses partly ignore.",
+     "walkthrough": "The two 'nurses' are different parts of speech: EN, the enrolled nurse, a noun, and TREAT, the verb.",
+     "definitionFit": "An entreaty is an earnest plea or appeal, so it is a request made strongly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nurses"
     }
    }
   },
@@ -1290,26 +1300,33 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "LURE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "swap hands",
-       "note": "Hands are left and right, L and R in the usual shorthand, and swapping tells you those two letters change places."
+       "text": "to swap hands",
+       "at": 7,
+       "note": "hands here are left and right, so the left letter and the right letter trade places"
       }
      ],
      "parts": [
       {
        "words": "Decide",
+       "at": 0,
        "gives": "RULE",
-       "note": "a judge who rules on a point has decided it"
+       "note": "to rule is to decide, as a judge rules on a case"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'draw' offers several meanings at once and the surface points at the sketching one; the pull is the sense the clue wants.",
-     "definitionFit": "A lure draws fish to a hook or customers to a shop, so 'draw' is the pulling sense, not the sketch or the tied match."
+     "surface": "Making up one's mind to switch hands and draw a picture.",
+     "walkthrough": "'hands' are L and R, the left and right; swapping them in RULE turns R_L into L_R.",
+     "definitionFit": "To lure is to draw or entice someone in, as bait draws a fish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hands"
     }
    }
   },
