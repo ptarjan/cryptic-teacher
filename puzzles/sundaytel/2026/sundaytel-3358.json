@@ -135,41 +135,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INELASTIC",
-     "indicators": [
-      {
-       "text": "rebuilt",
-       "note": "the letters of CASTLE I are put together again in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Popular",
+       "at": 0,
+       "gives": "IN",
+       "note": "IN means fashionable or popular"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rebuilt",
+         "at": 17,
+         "note": "a building rebuilt is put together again in a new form, so these letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Popular",
-         "gives": "IN",
-         "note": "what is popular is in"
+         "words": "castle",
+         "at": 8,
+         "note": "taken as written"
         },
         {
-         "words": "castle I",
-         "gives": "ELASTIC",
-         "note": "anagram fodder, 7 letters"
+         "words": "I",
+         "at": 15,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A well-loved castle restored with hardly any alterations.",
-     "walkthrough": "The surface is a sympathetic restoration; the definition is the economist's sense, as in demand that is inelastic, barely changing when price does.",
-     "definitionFit": "Something inelastic does not stretch or respond, so it changes very little."
+     "surface": "A fashionable castle has been reconstructed by the speaker, though barely altered.",
+     "walkthrough": "'castle' looks like the thing being rebuilt in the story, but it is only fodder: its six letters join I in the anagram.",
+     "definitionFit": "Something inelastic, like demand or a rigid material, does not stretch or alter much in response to pressure."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "rebuilt"
     }
    }
@@ -198,45 +203,61 @@
      "op": "container",
      "indicators": [
       {
-       "text": "half"
-      },
-      {
        "text": "into",
-       "note": "'into' means going inside something"
+       "at": 43,
+       "note": "into means the following piece goes inside the baby feeder"
       }
      ],
      "parts": [
       {
        "words": "baby feeder",
+       "at": 48,
        "gives": "TEAT",
-       "note": "the teat of a baby's bottle"
+       "note": "a teat is the rubber nipple on a baby's bottle"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "tipped up"
+         "text": "tipped up",
+         "at": 33,
+         "note": "in a down clue, tipped up means the letters are turned to read bottom to top"
         }
        ],
        "parts": [
         {
-         "words": "half open",
-         "gives": "OP",
-         "note": "the first half of OPEN"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "half",
+           "at": 23,
+           "note": "only half the word open is kept, its first two letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "open",
+           "at": 28,
+           "note": "the word halved"
+          },
+          {
+           "gives": "EN"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A drinks vessel with its lid half open, being tipped into a baby's bottle.",
-     "walkthrough": "TEA(PO)T: the surface pictures the pot itself being tipped, which is apt, since that is how a teapot is used.",
-     "definitionFit": "Literal description: the vessel is named for the drink it holds."
+     "surface": "A cup of something is poured upside down into a baby's bottle.",
+     "walkthrough": "'half open' gives OP; 'tipped up' reverses it to PO, which goes 'into' TEAT. 'that's' is a link.",
+     "definitionFit": "A teapot is the vessel in which tea, the drink, is brewed and served."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "open"
+     "misdirectedWord": "tipped"
     }
    }
   },
@@ -1101,44 +1122,43 @@
      "indicators": [
       {
        "text": "secures",
-       "note": "to secure is to hold fast, so the mark holds the letter inside it"
+       "at": 5,
+       "note": "secures means holds fast, so the mark encloses the next piece"
       }
      ],
      "parts": [
       {
        "words": "Mark",
+       "at": 0,
        "gives": "STAIN",
        "note": "a stain is a mark"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
          "text": "lead on",
-         "note": "the lead on 'rare' is its first letter"
+         "at": 13,
+         "note": "the lead on a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "lead on rare",
-         "gives": "R",
-         "select": "first",
-         "note": "first letter of rare"
+         "words": "rare",
+         "at": 21,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dog owner, Mark, puts a lead on a rare-breed dog.",
-     "walkthrough": "ST(R)AIN: the surface is dog-walking with a lead, but the lead is just the first letter of 'rare'.",
-     "definitionFit": "A strain is a breed or variety of animal or plant."
+     "surface": "A man named Mark puts a leash on an unusual variety of dog.",
+     "walkthrough": "'lead on rare' gives R, which STAIN 'secures' inside it.",
+     "definitionFit": "A strain is a variety or breed of an animal or plant, as in a hardy strain of sheep."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "lead"
@@ -1529,32 +1549,49 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "endlessly",
-       "note": "TIDE loses its last letter, TID"
-      },
-      {
        "text": "turning",
-       "note": "SUN and TID are turned into a new order"
+       "at": 38,
+       "note": "turning means changing round, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "sun, tide endlessly",
-       "gives": "SUNTID",
-       "note": "sun as printed, then TIDE without its last letter: anagram fodder, 6 letters"
+       "words": "sun",
+       "at": 18,
+       "note": "taken as written, the second sun in the clue"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 28,
+         "note": "endlessly means the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tide",
+         "at": 23,
+         "note": "the word whose end is lost"
+        },
+        {
+         "gives": "E",
+         "note": "the final letter of tide, which is the end that goes"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sunbather on the beach as the tide turns.",
-     "walkthrough": "'Sun worshipper' suggests a pagan, but it is someone who strips off to sunbathe.",
-     "definitionFit": "A nudist takes off everything, often to worship the sun on a beach."
+     "surface": "Someone sunbathing on the beach watches the tide come in.",
+     "walkthrough": "'endlessly' cuts TIDE to TID; 'turning' rearranges SUN plus TID. 'in' is a link.",
+     "definitionFit": "A nudist sunbathes naked, so is jokingly a sun worshipper, one devoted to soaking up sunshine."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "worshipper"
+     "misdirectedWord": "turning"
     }
    }
   }
