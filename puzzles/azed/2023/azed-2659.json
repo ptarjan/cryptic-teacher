@@ -417,29 +417,34 @@
      "indicators": [
       {
        "text": "about",
-       "note": "about means surrounding, so the writer goes round what follows"
+       "at": 12,
+       "note": "about means the writing word goes around the other letters"
       }
      ],
      "parts": [
       {
        "words": "One writing",
+       "at": 0,
        "gives": "PEN",
-       "note": "a pen is the thing one writes with"
+       "note": "a pen is something that writes"
       },
       {
        "op": "charade",
        "parts": [
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "R",
+         "indicators": [
+          {
+           "text": "bit of",
+           "at": 18,
+           "note": "a bit of rock is just its first letter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "bit of rock",
-           "gives": "R",
-           "select": "first",
-           "note": "the first letter of rock"
+           "words": "rock",
+           "at": 25,
+           "note": "the word rock, of which only the first letter is used"
           }
          ]
         },
@@ -448,12 +453,14 @@
          "indicators": [
           {
            "text": "turning up",
-           "note": "in a down clue, turning up means reading the word from bottom to top"
+           "at": 38,
+           "note": "in a down clue, turning up reads the word from the bottom, so backwards"
           }
          ],
          "parts": [
           {
            "words": "object",
+           "at": 31,
            "gives": "AIM",
            "note": "an aim is an object or goal"
           }
@@ -464,8 +471,9 @@
      ]
     },
     "explanation": {
-     "surface": "A writer describes finding a lump of rock from an ancient period.",
-     "definitionFit": "The Permian is the last geological period of the Palaeozoic era, roughly 299 to 252 million years ago."
+     "surface": "A geologist writes up a rock sample and an artefact unearthed from ancient times.",
+     "walkthrough": "'object' looks like a thing dug up, but here it is a goal, and 'turning up' suits a down entry, read from the bottom. 'about' signals that the writer's tool surrounds everything else.",
+     "definitionFit": "The Permian is the last period of the Palaeozoic era, roughly 299 to 252 million years ago."
     },
     "features": {
      "answerInScene": true,
@@ -685,42 +693,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "LETHARGY",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "losing heart",
-       "note": "the heart of a word is its middle, and losing it means those central letters go"
+       "text": "slips",
+       "at": 25,
+       "note": "slips means slides out of place, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Hearty",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "slips",
-         "note": "a slip is a blunder, so these letters fall out of their proper order"
+         "text": "losing heart",
+         "at": 12,
+         "note": "losing heart takes away the middle letters of girl"
         }
        ],
        "parts": [
         {
-         "words": "Hearty",
-         "note": "taken as written"
+         "words": "girl",
+         "at": 7,
+         "note": "the word girl, its centre then removed"
         },
         {
-         "words": "girl",
-         "gives": "GL",
-         "note": "girl with its two middle letters removed"
+         "gives": "IR"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A cheerful young woman loses her spirit and sinks into listlessness.",
-     "walkthrough": "'Heart' appears twice: once inside 'Hearty' as a decoy, then as the centre of 'girl', which is what goes.",
-     "definitionFit": "Lethargy is a state of sluggish indifference and lack of energy, close in meaning to apathy."
+     "surface": "A cheerful girl becomes dispirited and drifts into listlessness.",
+     "walkthrough": "'losing heart' strips IR from the middle of girl, leaving GL; 'slips' then shuffles HEARTY with GL.",
+     "definitionFit": "Lethargy is a lack of energy or enthusiasm, a sluggish indifference much like apathy."
     },
     "features": {
      "answerInScene": true,
@@ -870,37 +882,38 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Unwillingness to speak, ignoring extreme limits … of this once?",
-      "at": 0
+      "text": "of this once?",
+      "at": 50,
+      "note": "the clue reads: unwillingness to speak, the reverse of this old word for noise"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "UTIS",
+     "op": "middle",
      "indicators": [
       {
        "text": "ignoring extreme limits",
-       "note": "the extreme limits of a word are its outermost letters, and ignoring them drops both"
+       "at": 24,
+       "note": "ignoring the extreme limits leaves out the first and last letters of the word"
       }
      ],
      "parts": [
       {
        "words": "Unwillingness to speak",
+       "at": 0,
        "gives": "MUTISM",
        "note": "mutism is a refusal or inability to speak"
       }
      ]
     },
-    "andLit": true,
     "explanation": {
-     "surface": "A reluctance to talk about this, once upon a time.",
-     "walkthrough": "MUTISM without its first and last letters. Utis, an old word for din or clamour, is what mutism avoids; the whole clue hints at it as the thing one would once not speak of.",
-     "definitionFit": "Utis is an obsolete Shakespearean word for noisy merriment or confusion, the opposite of silence."
+     "surface": "A reluctance to talk is described as stopping short at the edges.",
+     "walkthrough": "'ignoring extreme limits' trims the outer Ms of MUTISM. The ellipsis carries on the sentence: mutism is the absence of this, an obsolete Shakespearean word for din, hence 'once'.",
+     "definitionFit": "Utis is an old word, used by Shakespeare, for noisy confusion or uproar, the very opposite of silence."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "limits"
     }
    }
   },
