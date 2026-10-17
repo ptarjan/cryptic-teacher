@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -159,38 +160,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AFREEREIN",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "importing",
+       "at": 14,
+       "note": "importing means bringing something in, so one piece goes inside the other"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "change"
-        },
-        {
-         "text": "importing"
+         "text": "change",
+         "at": 7,
+         "note": "change tells us to alter the order of the letters that follow"
         }
        ],
        "parts": [
         {
          "words": "I earn",
-         "gives": "AREIN",
-         "note": "five letters rearranged into A REIN, which then opens up"
-        },
-        {
-         "words": "without charge",
-         "gives": "FREE",
-         "note": "free = at no charge, and it is imported into the middle"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "without charge",
+       "at": 24,
+       "gives": "FREE",
+       "note": "something without charge is free"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Change' shuffles the two words in front of it and 'importing' brings something in, so the surface's customs declaration is doing two mechanical jobs at once.",
-     "definitionFit": "Give someone a free rein and you give them latitude: the picture is a rider slackening the reins so the horse chooses its own line."
+     "surface": "Someone wants to swap money and bring things in without paying fees or being held back.",
+     "walkthrough": "'change' rearranges I EARN into AREIN; 'importing' puts FREE inside it, after the A.",
+     "definitionFit": "Being given a free rein means having latitude, freedom to act as one chooses without control."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
     }
    }
   },
@@ -386,50 +397,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
+     "indicators": [
+      {
+       "text": "revealed by",
+       "at": 6,
+       "note": "revealed by means shown inside, so the answer is the run of letters in the middle of the spelled-out numbers"
+      }
+     ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "N",
-       "indicators": [
-        {
-         "text": "revealed by"
-        }
-       ],
+       "op": "deletion",
        "parts": [
         {
-         "unchecked": true,
-         "words": "14",
-         "gives": "N",
-         "select": "last",
-         "note": "spell the number out — fourteeN — and keep its last letter"
+         "words": "14 or 13",
+         "at": 18,
+         "gives": "FOURTEENORTHIRTEEN",
+         "note": "the numbers fourteen and thirteen written out in words, joined by or"
+        },
+        {
+         "gives": "FOURTEE"
         }
        ]
       },
       {
-       "words": "or",
-       "note": "the clue's own 'or', taken as two letters"
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "TH",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "13",
-         "gives": "TH",
-         "select": "first",
-         "note": "THirteen, spelled out, leads with these two"
-        }
-       ]
+       "gives": "IRTEEN"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Write the numerals out as words and the answer is lying across the join: fourtee | n or th | irteen. Nothing else in the clue does any work, which is what makes it hard.",
-     "definitionFit": "A compass has four cardinal points, and this is the one every map is drawn around, so 'Point' names it by class."
+     "surface": "It looks like a cross-reference to the answers at 14 and 13 across.",
+     "walkthrough": "The numbers look like cross-references, but 'revealed by' wants them spelled out: fourteeN OR THirteen, the letters NORTHIRTEEN trimmed to the five in the middle.",
+     "definitionFit": "North is one of the four cardinal points of the compass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "14"
     }
    }
   },
@@ -506,43 +511,43 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MARTIALARTIST",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "mixing",
+       "at": 12,
+       "note": "mixing tells us the letters of the words that follow are stirred into a new order"
+      },
+      {
+       "text": "missing",
+       "at": 39,
+       "note": "missing means lacking, so one letter is taken out of the mixed letters"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "MARTIALARTIST",
-       "indicators": [
-        {
-         "text": "mixing"
-        },
-        {
-         "text": "missing"
-        }
-       ],
-       "parts": [
-        {
-         "words": "art material",
-         "note": "eleven letters of fodder"
-        },
-        {
-         "words": "it's",
-         "note": "three more, the apostrophe ignored"
-        },
-        {
-         "words": "missing base",
-         "gives": "E",
-         "note": "e is the base of natural logarithms, and it is the letter taken out"
-        }
-       ]
+       "words": "art material — it's",
+       "at": 19,
+       "note": "the three words whose letters are mixed"
+      },
+      {
+       "words": "base",
+       "at": 47,
+       "gives": "E",
+       "note": "E is the base of natural logarithms in mathematics"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Fourteen letters go in and thirteen come out, so something has to leave before the shuffle, and 'base' is the mathematician's e. The art student is pure misdirection.",
-     "definitionFit": "In judo and karate a dan is the black-belt grade, so naming the rank points at the person holding it — which is what 'perhaps' concedes."
+     "surface": "Someone stirs up some art supplies but finds the foundation layer is absent.",
+     "walkthrough": "Dan is a grade in judo or karate; the clue reads like a man's name. Mix ART MATERIAL IT'S, which holds one E too many; the base, E, is missing.",
+     "definitionFit": "A dan is a black-belt rank in martial arts such as judo and karate, so a dan is an example of an expert fighter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dan"
     }
    }
   },
@@ -676,34 +681,33 @@
      "op": "deletion",
      "indicators": [
       {
-       "text": "forgetting"
+       "text": "forgetting Bottom",
+       "at": 20,
+       "note": "forgetting the bottom of the word means its last letter is dropped"
       }
      ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
+       "words": "Shakespeare",
+       "at": 8,
        "gives": "BARD",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Shakespeare",
-         "gives": "BARD",
-         "select": "last",
-         "note": "Shakespeare's popular nickname, ending in a D, supplies the source word for the wordplay"
-        }
-       ]
+       "note": "Shakespeare is known as the Bard of Avon"
       },
       {
-       "words": "Bottom",
-       "gives": "D",
-       "note": "the wordplay drops the last letter of that nickname"
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Bottom is a Shakespeare character and a position in a word at the same time, and the clue means the second while pointing at the first.",
-     "definitionFit": "To bar someone from a place is to prevent them entering — the verb behind 'barred from', nothing to do with the drinking sort."
+     "surface": "Bottom is a character in A Midsummer Night's Dream, so it looks like the playwright overlooked his own weaver.",
+     "walkthrough": "In 'forgetting Bottom', Bottom looks like the weaver in A Midsummer Night's Dream, but here it means the last letter of BARD.",
+     "definitionFit": "To bar someone is to block or forbid them, the same as to prevent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bottom"
     }
    }
   },
@@ -728,45 +732,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MISERY",
-     "indicators": [
-      {
-       "text": "Reckless"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Reckless",
+         "at": 11,
+         "note": "reckless means wild and careless, so the letters before it are thrown about"
+        }
+       ],
        "parts": [
         {
-         "words": "is me!",
-         "gives": "MISE",
-         "note": "four letters, recklessly rearranged"
-        },
+         "words": "is me",
+         "at": 4
+        }
+       ]
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "extremely"
-          }
-         ],
-         "parts": [
-          {
-           "words": "extremely risky",
-           "gives": "RISKY",
-           "note": "the extremes of the word — its first and last letters"
-          }
-         ]
+         "text": "extremely",
+         "at": 24,
+         "note": "extremely means at the extremes, so only the first and last letters are used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "risky",
+         "at": 34,
+         "note": "its outer letters are taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Woe is me' is one exclamation in the surface and two separate jobs in the parse: the definition stops dead after the first word.",
-     "definitionFit": "Misery is woe felt over time — a settled state rather than a single cry of grief — but the two nouns are plain synonyms."
+     "surface": "A lament about one's own careless, dangerous behaviour.",
+     "walkthrough": "'Reckless' scrambles IS ME into MISE; 'extremely' takes RY from the ends of risky.",
+     "definitionFit": "Woe is great sorrow or distress, which is what misery means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Reckless"
     }
    }
   },
@@ -840,44 +851,56 @@
      "op": "container",
      "indicators": [
       {
-       "text": "found in"
+       "text": "found in",
+       "at": 32,
+       "note": "found in tells us these letters sit inside the next word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "French sea",
+       "at": 41,
+       "gives": "MER",
+       "note": "mer is the French word for sea"
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "French sea",
-         "gives": "MER",
-         "note": "la mer — the wrapper"
+         "words": "English",
+         "at": 8,
+         "gives": "E"
         },
         {
          "op": "first",
          "indicators": [
           {
-           "text": "initially"
+           "text": "initially",
+           "at": 22,
+           "note": "initially means at the start, so only the first letter of trout is used"
           }
          ],
          "parts": [
           {
-           "words": "English",
-           "note": "E is the usual abbreviation for English"
+           "words": "trout",
+           "at": 16,
+           "note": "its first letter is taken"
           }
          ]
         }
        ]
-      },
-      {
-       "words": "trout initially",
-       "gives": "T",
-       "note": "the first letter of trout"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "MER for the French sea is worth banking: it turns up constantly, and almost always wrapped around something. The angler is here only to supply one initial.",
-     "definitionFit": "To meter something is to measure it out, which is what a gas or parking meter does all day, so the device and the verb both answer to 'Measure'."
+     "surface": "An English fish caught off the coast of France is being weighed up.",
+     "walkthrough": "MER is French for sea; 'initially' gives T, and 'found in' puts E and T inside MER.",
+     "definitionFit": "A meter is a device for measuring, and to meter something is to measure out its supply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trout"
     }
    }
   },
@@ -980,37 +1003,36 @@
    "annotation": {
     "definitions": [
      {
-      "text": "most smooth",
-      "at": 35
+      "text": "with the most smooth manner",
+      "at": 26,
+      "note": "an adjective phrase matching the superlative adjective"
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "going downhill",
+       "at": 11,
+       "note": "going downhill means deteriorating or falling apart, so the letters are scrambled"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "going downhill"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Celts ski",
-         "note": "eight letters of fodder"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "manner",
-       "note": "surface only: it gives the skiers something to be smooth in, and no letters"
+       "words": "Celts ski",
+       "at": 0
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Going downhill' does two jobs at once — it is what skiers do, and deterioration is the standard image behind an anagram indicator.",
-     "definitionFit": "Slick means smooth to the point of frictionless, so the superlative is the smoothest of the lot, with a hint that it is too smooth to trust."
+     "surface": "Celtic skiers racing down a slope look very polished.",
+     "walkthrough": "'going downhill' fits skiers, but it is the anagram signal for CELTS SKI.",
+     "definitionFit": "Slick means glib and polished in style, so the slickest person has the most polished, assured manner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "downhill"
     }
    }
   },
@@ -1041,50 +1063,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SPINALTAP",
+     "op": "container",
      "indicators": [
       {
-       "text": "rejected"
+       "text": "during",
+       "at": 20,
+       "note": "during means within the time of, so these letters go inside the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "during"
+         "text": "rejected",
+         "at": 36,
+         "note": "rejected means sent back, so the word is read backwards"
         }
        ],
        "parts": [
         {
-         "words": "father's rejected",
-         "gives": "SAP",
-         "note": "PA'S — father's — thrown back to make the wrapper"
+         "words": "father's",
+         "at": 27,
+         "gives": "PAS",
+         "note": "pa is father, and pa's is father's"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Personal number",
+         "at": 0,
+         "gives": "PIN",
+         "note": "a PIN is a personal identification number"
         },
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "Personal number",
-           "gives": "PIN",
-           "note": "a PIN is literally a personal identification number"
-          },
-          {
-           "words": "key",
-           "gives": "ALT",
-           "note": "the Alt key, on every keyboard"
-          }
-         ]
+         "words": "key",
+         "at": 16,
+         "gives": "ALT",
+         "note": "Alt is a key on a computer keyboard"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two pieces go inside at once, and the wrapper is a possessive turned round: PA'S becomes SAP. Nothing here is about the band, or about the spine.",
-     "definitionFit": "A spinal tap is the American name for drawing fluid from the spine, which in Britain is a lumbar puncture — hence the flagged nationality."
+     "surface": "A patient's bank code is entered while their father's claim is turned down in an American hospital.",
+     "walkthrough": "'rejected' turns PA'S into SAP and 'during' sets PIN and ALT inside; Alt is a computer keyboard key. British readers know the procedure as a lumbar puncture.",
+     "definitionFit": "Spinal tap is the American name for a lumbar puncture, the drawing of fluid from the lower spine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
     }
    }
   },
@@ -1144,39 +1177,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "in"
+       "text": "in",
+       "at": 15,
+       "note": "in tells us these letters go inside the other piece"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "HY",
        "indicators": [
         {
-         "text": "on vacation"
+         "text": "on vacation",
+         "at": 26,
+         "note": "on vacation means emptied out, so only the outer letters of the word stay"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Hungary on vacation",
-         "gives": "HY",
-         "select": "outer",
-         "note": "vacated — emptied out — so only the outer letters stay"
+         "words": "Hungary",
+         "at": 18,
+         "note": "its first and last letters are kept"
         }
        ]
       },
       {
        "words": "arrived",
+       "at": 7,
        "gives": "ARR",
-       "note": "arr. is the timetable's abbreviation for arrived"
+       "note": "arr. is the timetable abbreviation for arrived"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'On vacation' means vacated rather than sunbathing, a pun worth keeping: a country on holiday loses everything inside it.",
-     "definitionFit": "The best-known bearer of the name is a prince of the British royal family, so the clue defines by example rather than by meaning."
+     "surface": "A royal turns up in Budapest while on holiday.",
+     "walkthrough": "Hungary 'on vacation' is emptied to HY; 'in' puts ARR, the timetable abbreviation, inside.",
+     "definitionFit": "Harry is the name of a British royal, the younger son of King Charles, so he is an example of a prince."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
     }
    }
   },
@@ -1317,38 +1357,47 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ALLEYCAT",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 23,
+       "note": "around means surrounding, so the anagram goes round the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "wandering"
-        },
-        {
-         "text": "around"
+         "text": "wandering",
+         "at": 13,
+         "note": "wandering means moving aimlessly, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "lately",
-         "gives": "ALLEYT",
-         "note": "six letters rearranged, and they then close around the state"
-        },
-        {
-         "words": "California",
-         "gives": "CA",
-         "note": "the two-letter postal abbreviation"
+         "at": 6
         }
        ]
+      },
+      {
+       "words": "California",
+       "at": 30,
+       "gives": "CA",
+       "note": "CA is the postal abbreviation for California"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The rearranged letters split around CA, which is why the answer's two words do not line up with the clue's — the seam falls inside the anagram.",
-     "definitionFit": "An alley cat is the archetypal stray: no owner, no home, living off bins in the back streets, so the definition names it by what it lacks."
+     "surface": "A stray animal has recently been roaming across the West Coast.",
+     "walkthrough": "The anagram of lately splits around the state abbreviation: four letters before it and one after.",
+     "definitionFit": "An alley cat is a homeless urban cat, so it is an example of a stray."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
