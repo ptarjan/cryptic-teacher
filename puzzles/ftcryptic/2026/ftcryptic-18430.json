@@ -1664,32 +1664,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CARTHORSE",
-     "indicators": [
-      {
-       "text": "without tail",
-       "note": "losing a tail means the end is cut off, so the final letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "somehow",
-         "note": "somehow means in some unspecified way, so the letters arrive in no fixed order"
+         "text": "without tail",
+         "at": 20,
+         "note": "without tail means the final letter of cat is cut off"
         }
        ],
        "parts": [
         {
          "words": "cat",
-         "gives": "CA",
-         "note": "the word with its final letter cut"
+         "at": 16,
+         "note": "the word whose last letter is dropped"
         },
         {
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "somehow",
+         "at": 41,
+         "note": "somehow means the letters of shorter are arranged in some other way"
+        }
+       ],
+       "parts": [
+        {
          "words": "shorter",
+         "at": 33,
          "note": "taken as written"
         }
        ]
@@ -1697,9 +1706,9 @@
      ]
     },
     "explanation": {
-     "surface": "An artist sketching a Manx cat, whose missing tail somehow makes it shorter.",
-     "walkthrough": "'Drawing animal' suggests an artist's sketch, but drawing here means pulling a load.",
-     "definitionFit": "A carthorse is a strong heavy horse bred to pull wagons, so an animal that draws loads."
+     "surface": "A sketch shows an animal, a cat drawn with its tail cut shorter.",
+     "walkthrough": "'without tail' leaves CA from cat, and the anagram signal rearranges SHORTER into RTHORSE. 'Drawing' looks like art, but here it means pulling a load.",
+     "definitionFit": "A carthorse is a heavy horse bred to pull carts, so an animal used for hauling."
     },
     "features": {
      "answerInScene": false,
@@ -1794,24 +1803,35 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "AND",
+     "indicators": [
+      {
+       "text": "'",
+       "at": 0,
+       "note": "the apostrophe stands where a letter has been dropped, the Cockney way, so the synonym loses that same letter"
+      }
+     ],
      "parts": [
       {
-       "words": "'elper",
-       "gives": "AND",
-       "note": "a helper is a hand; the apostrophe says the opening H is dropped, as in Cockney speech"
+       "words": "elper",
+       "at": 1,
+       "gives": "HAND",
+       "note": "the clue's helper, missing its H; a helper is a hand, as in a farmhand"
+      },
+      {
+       "gives": "H"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The dropped H in the clue signals dropping the H of the synonym too: a helper is a hand, so 'elper becomes 'and.",
-     "definitionFit": "The conjunction joins added items, meaning in addition or as well, the same as the adverb given."
+     "surface": "A Cockney voice mentions a helper, as if adding a word as well.",
+     "walkthrough": "The dropped H of 'elper tells you to drop the H of its synonym HAND too, leaving the answer.",
+     "definitionFit": "The conjunction means in addition, which is what also says."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun"
+     "joke": "pun",
+     "misdirectedWord": "'elper"
     }
    }
   },
