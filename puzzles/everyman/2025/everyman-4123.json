@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -50,39 +51,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BEARHUGS",
      "indicators": [
       {
        "text": "according to Spooner",
-       "note": "The Reverend Spooner was the Oxford don who kept trading the opening sounds of two words as he spoke, so anything reported from him arrives with those sounds swapped."
+       "at": 30,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the starts of the two words trade places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "HEAR",
        "parts": [
         {
-         "unchecked": true,
          "words": "headlice",
-         "gives": "BEAR",
-         "soundsLike": "HAIR",
-         "note": "head lice live in hair, and that word hands its H over to the word beside it, taking a B in return"
-        },
-        {
-         "unchecked": true,
-         "words": "headlice",
-         "gives": "HUGS",
-         "soundsLike": "BUGS",
-         "note": "lice are bugs; this word gives up its B and takes the H coming the other way"
+         "at": 20,
+         "gives": "HAIR",
+         "note": "headlice live in the hair; hair is said the same as hear"
         }
        ]
+      },
+      {
+       "words": "giving you",
+       "at": 9,
+       "gives": "BUGS",
+       "note": "the lice are the bugs giving you the itch, read together with headlice as hair bugs"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Say the plain version first — headlice are hair bugs — and then trade the two opening sounds. The surface keeps both halves in the same unpleasant scene so neither gives itself away.",
-     "definitionFit": "Embraces → BEAR HUGS: the big enveloping squeezes that pin your arms, named for the way a bear is imagined to grip its prey."
+     "surface": "A cuddle from a child with nits passes the little pests on to you.",
+     "walkthrough": "Headlice are hair bugs. 'According to Spooner' swaps their opening sounds: HAIR (said like HEAR) and BUGS become BEAR and HUGS.",
+     "definitionFit": "Bear hugs are tight, crushing embraces with both arms wrapped round someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
     }
    }
   },
@@ -232,36 +237,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GREEK",
-     "indicators": [
-      {
-       "text": "not quite",
-       "note": "Not quite the whole of a thing is that thing with its end missing, so the growl before it is stopped one letter short."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not quite",
+         "at": 29,
+         "note": "not quite means the growl is cut short, losing its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "I'm angry",
-         "gives": "GR",
-         "note": "an angry growl written down is grr, and it is cut off before its final letter"
+         "at": 17,
+         "gives": "GRR",
+         "note": "GRR is the growl of someone saying they are angry"
         },
         {
-         "words": "I'm alarmed",
-         "gives": "EEK",
-         "note": "eek is the squeak of alarm printed in comic strips"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "I'm alarmed",
+       "at": 40,
+       "gives": "EEK",
+       "note": "EEK is the squeal of someone alarmed"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two noises, not two words. The surface reads as one person's mood swinging about, while the parse wants only the sounds people write down for those moods.",
-     "definitionFit": "Like some salad? → GREEK: the salad of tomato, cucumber, olives and feta named after the country, so the adjective defines by example."
+     "surface": "Someone fussing over a salad gets cross and then startled.",
+     "walkthrough": "GRR loses its last R to give GR, then EEK follows. The question mark flags that Greek is only one kind of salad.",
+     "definitionFit": "A Greek salad, with feta and olives, is a well-known type, so some salads are Greek."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "salad"
     }
    }
   },
