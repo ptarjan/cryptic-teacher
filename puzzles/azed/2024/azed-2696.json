@@ -1587,52 +1587,73 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Glaswegian drains",
-      "at": 52
+      "text": "in Glaswegian drains",
+      "at": 49
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "POURS",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "regularly alternating with",
-       "note": "the two pieces interleave, each letter of one slotted between letters of the other"
+       "text": "regularly alternating",
+       "at": 15,
+       "note": "regularly alternating means the two sets of letters are woven together one by one, each taking turns"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "POURS",
+       "op": "container",
        "indicators": [
         {
-         "text": "Bits of",
-         "note": "bits of means only part of the word is used"
+         "text": "with",
+         "at": 37,
+         "note": "with brings the ordure letters in among the letters for matter"
         }
        ],
        "parts": [
         {
          "words": "matter",
+         "at": 42,
          "gives": "PUS",
-         "note": "pus is the matter from an infected wound"
+         "note": "pus is the matter discharged from an infected wound"
         },
         {
-         "words": "ordure",
-         "note": "only the first two letters are used"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Bits of",
+           "at": 0,
+           "note": "bits of means only part of the word is taken, here its first two letters"
+          }
+         ],
+         "parts": [
+          {
+           "words": "ordure",
+           "at": 8,
+           "note": "taken as written, only its opening letters used"
+          },
+          {
+           "gives": "DURE"
+          }
+         ]
         }
        ]
+      },
+      {
+       "gives": "ORUS"
+      },
+      {
+       "gives": "OURS"
       }
      ]
     },
     "explanation": {
-     "surface": "Sewage mixed with pus flows down the drains in Glasgow.",
-     "walkthrough": "OR interleaves with PUS. In Scots, to pour potatoes is to drain the water off them.",
-     "definitionFit": "In Scottish usage pour means to drain off liquid, as from cooked vegetables."
+     "surface": "Bits of filth keep turning up in the matter clogging the drains of Glasgow.",
+     "walkthrough": "The grammar has no weave, so the parse first sets OR, the first two letters of ordure, beside PUS and then weaves them letter by letter: P-O-U-R-S. Azed rarely uses 'bits of' for two letters.",
+     "definitionFit": "In Scots, to pour can mean to drain off liquid, as in pouring off water after rinsing, so pours is a Scottish verb form."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "matter"
     }
@@ -1659,45 +1680,43 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "TROPE",
+     "op": "substitution",
      "indicators": [
       {
+       "text": "Last in",
+       "at": 0,
+       "note": "last in points to the final letter of the drinker's word as the one to move"
+      },
+      {
        "text": "moving forward",
-       "note": "moving forward puts that letter back nearer the front, inside the rest"
+       "at": 15,
+       "note": "moving forward sends that final letter up towards the front of the word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "TROPE",
-       "indicators": [
-        {
-         "text": "Last",
-         "note": "the last letter is lifted out of its place at the end"
-        }
-       ],
-       "parts": [
-        {
-         "words": "boozer",
-         "gives": "TOPER",
-         "note": "a toper is a heavy drinker"
-        }
-       ]
+       "words": "boozer",
+       "at": 8,
+       "gives": "TOPER",
+       "note": "a toper is a heavy drinker, a boozer"
+      },
+      {
+       "gives": "OPER"
+      },
+      {
+       "gives": "ROPE"
       }
      ]
     },
     "explanation": {
-     "surface": "The last man left in the pub finally moves along, part of a crowd.",
-     "walkthrough": "TOPER's final R moves up to second place. 'Boozer' suggests a pub but is the drinker; 'mass' is the church service.",
-     "definitionFit": "A trope is a phrase or verse interpolated into a sung part of the Latin liturgy of the Mass."
+     "surface": "The last drinker in the pub is moving forward to take part in mass.",
+     "walkthrough": "'Boozer' looks like the pub, but here it is the drinker, TOPER; 'Last in' picks its R and 'moving forward' sends it up to sit after the T. Chambers defines a trope as a phrase formerly interpolated in the mass.",
+     "definitionFit": "In church music a trope was a phrase or verse added into sung texts of the Catholic liturgy."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "mass"
+     "aptDefinition": false,
+     "misdirectedWord": "boozer"
     }
    }
   },
