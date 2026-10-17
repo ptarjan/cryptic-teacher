@@ -124,6 +124,7 @@ WHITE, BLACK = True, False
 # and on most 15x15s not finishing at all.
 DEFAULT_MAX_NODES = 2_000_000
 DEFAULT_LIMIT = 40
+STEP_RATIO = 4
 
 
 def _sequence_bounds(nums):
@@ -199,6 +200,7 @@ class _Solver:
         self.awords, self.dwords = words if words else (None, None)
         self.solutions = []
         self.nodes = 0
+        self.steps = 0
         self.hit_cap = False
 
         # Linked groups: lights whose lengths are each unknown but whose sum
@@ -391,7 +393,7 @@ class _Solver:
         return self.solutions
 
     def row(self, y, ai, di, n, trail):
-        if self.nodes > self.max_nodes:
+        if self.nodes > self.max_nodes or self.hit_cap:
             self.hit_cap = True
             return
         if len(self.solutions) >= self.limit:
@@ -410,7 +412,7 @@ class _Solver:
         scan for how far a white run could reach runs on every node.
         """
         self.nodes += 1
-        if self.nodes > self.max_nodes:
+        if self.hit_cap or self.nodes > self.max_nodes:
             self.hit_cap = True
             return
         if len(self.solutions) >= self.limit:
@@ -493,8 +495,11 @@ class _Solver:
         because the number this cell must carry says whether a down light
         shares it.
         """
-        self.nodes += 1         # every recursion counts, so no path outruns the budget
-        if self.nodes > self.max_nodes:
+        # Column decisions are the nodes the budget is sized in; the in_run
+        # and branch_down fan-out between them is bounded as well, at the
+        # ratio it runs at (about three to one), so that no path outruns it.
+        self.steps += 1
+        if self.hit_cap or self.steps > STEP_RATIO * self.max_nodes:
             self.hit_cap = True
             return
         if len(self.solutions) >= self.limit:
@@ -1081,7 +1086,7 @@ def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
                      limit, bool(symmetry), max_nodes, strict, split,
                      max_black_run, groups, min_light, no_square, min_row_white)
     found = solver.run()
-    info = {"symmetric": bool(symmetry), "nodes": solver.nodes,
+    info = {"symmetric": bool(symmetry), "nodes": solver.nodes, "steps": solver.steps,
             "truncated": solver.hit_cap or len(found) >= limit}
     if found or not (symmetry and fallback) or info["truncated"]:
         return found, info
