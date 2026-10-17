@@ -23,7 +23,8 @@
   "check": "33 entries verified against the grid (lengths, crossings, linked-clue mapping)"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -47,37 +48,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MACRON",
-     "indicators": [
-      {
-       "text": "almost",
-       "note": "Almost stops just short of the whole thing, so the word beside it arrives without its final letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "State",
+       "at": 0,
+       "gives": "MA",
+       "note": "MA is the postal abbreviation for Massachusetts, a US state"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 12,
+         "note": "almost means the word stops one letter short of its end"
+        }
+       ],
        "parts": [
         {
-         "words": "State",
-         "gives": "MA",
-         "note": "MA is the two-letter postal code for Massachusetts, one of the United States"
+         "words": "Mate",
+         "at": 7,
+         "gives": "CRONY",
+         "note": "a crony is a close mate or pal"
         },
         {
-         "words": "Mate",
-         "gives": "CRON",
-         "note": "a crony is a mate, and the word is taken one letter short of its end"
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "One friend hailing another as very nearly head of state.",
-     "walkthrough": "State looks like the grand noun the exclamation is about and is a US postal abbreviation. The mate the wordplay wants is a crony, a word the clue never prints.",
-     "definitionFit": "Emmanuel Macron has been President of France since 2017, so the clue names the office and expects the man who holds it."
+     "surface": "Someone declares that their pal is nearly head of state.",
+     "walkthrough": "'almost' cuts the last letter from CRONY to leave CRON. Emmanuel Macron is the French president.",
+     "definitionFit": "Emmanuel Macron has been President of France since 2017."
     },
     "features": {
      "answerInScene": true,
@@ -108,43 +113,53 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "MIDDLING",
      "indicators": [
       {
-       "text": "head of",
-       "note": "The head of a word is its front, so the letter wanted is the one it begins with."
-      },
-      {
        "text": "is replaced by",
-       "note": "One thing replaced by another leaves altogether, and the second stands in the gap it left."
+       "at": 40,
+       "note": "is replaced by means one letter gives way and another takes its place"
       }
      ],
      "parts": [
       {
        "words": "interfering",
+       "at": 10,
        "gives": "MEDDLING",
-       "note": "meddling is interfering in what is none of your business"
+       "note": "meddling means interfering"
       },
       {
-       "words": "education",
-       "gives": "E",
-       "note": "the letter the word starts with, taken as instructed"
+       "op": "first",
+       "indicators": [
+        {
+         "text": "head of",
+         "at": 22,
+         "note": "head of means the first letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "education",
+         "at": 30,
+         "gives": "E",
+         "note": "the first letter of education"
+        }
+       ]
       },
       {
        "words": "one",
+       "at": 55,
        "gives": "I",
-       "note": "i is the Roman numeral for one"
+       "note": "I is the Roman numeral for one"
       }
      ]
     },
     "explanation": {
-     "surface": "A meddlesome education chief pushed out and a single replacement put in.",
-     "walkthrough": "Head of education reads as the person running the schools, and only the letter at the front of the word is wanted. One arrives as the Roman numeral, a single letter stepping into a single letter's place.",
-     "definitionFit": "Something middling is halfway up the scale and goes no further, which is the shrug that mediocre gives."
+     "surface": "An average, meddlesome head teacher is swapped for somebody else.",
+     "walkthrough": "'head of education' is the first letter of education, which 'is replaced by' the letter for one.",
+     "definitionFit": "Middling means of moderate or average quality, neither good nor bad."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "head"
     }
@@ -410,41 +425,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ENBLOC",
-     "indicators": [
-      {
-       "text": "Incredible",
-       "note": "What is incredible cannot be taken as it stands, and the letters beside it are not to be taken as they stand either."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Incredible",
+         "at": 15,
+         "note": "Incredible suggests something beyond belief, so the letters are scrambled into a new order"
+        }
+       ],
        "parts": [
         {
          "words": "noble",
-         "gives": "ENBLO",
-         "note": "the five letters of the word redealt"
-        },
-        {
-         "words": "Conservative",
-         "gives": "C",
-         "note": "c = Conservative, the party's letter on a ballot paper"
+         "at": 28,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "Conservative",
+       "at": 34,
+       "gives": "C"
       }
      ]
     },
     "explanation": {
-     "surface": "A crowd shouting its admiration for a Tory aristocrat.",
-     "walkthrough": "The phrase is French taken whole: a council that resigns this way goes in one lump, nobody staying behind. The quotation marks are surface dressing and ask for nothing to be said aloud.",
-     "definitionFit": "To act en bloc is to act as one undivided body, everybody moving at the same moment, which is what all together says."
+     "surface": "Everyone exclaims in unison at the rare sight of an honourable Tory.",
+     "walkthrough": "'Incredible' reads as the speaker's astonishment, which is Private Eye's joke about Tories, but it is the signal to rearrange the word after it.",
+     "definitionFit": "En bloc is French for 'in a block', meaning as one group, all at once."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "absurd",
      "misdirectedWord": "Incredible"
     }
    }
@@ -634,34 +649,37 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "rogue",
-       "note": "A rogue element is one that has gone out of line, and the letters beside it have gone out of theirs."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "rogue",
+         "at": 27,
+         "note": "rogue means behaving wildly, so the letters break out of their order"
+        }
+       ],
        "parts": [
         {
          "words": "lone",
-         "note": "the four letters of the word redealt"
-        },
-        {
-         "words": "odorous thing",
-         "gives": "MUSK",
-         "note": "musk is the heavy animal scent perfumers use"
+         "at": 22,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "odorous thing",
+       "at": 34,
+       "gives": "MUSK",
+       "note": "musk is a strong-smelling substance used in perfume"
       }
      ]
     },
     "explanation": {
-     "surface": "A description of Trump's unreliable friend as a solitary chancer who smells.",
-     "walkthrough": "Lone rogue reads as a character sketch and is an instruction about four letters. The second half wants the perfumer's word, which happens to be spelt like a surname.",
-     "definitionFit": "Elon Musk bankrolled Trump's 2024 campaign, ran his cost-cutting drive and then fell out with him in public, which is the on-off the clue notes."
+     "surface": "A sneer at the president's sometime friend as a smelly maverick.",
+     "walkthrough": "'rogue' looks like an insult in the surface, but it rearranges LONE.",
+     "definitionFit": "The tech billionaire Elon Musk has swung between alliance and feud with Donald Trump."
     },
     "features": {
      "answerInScene": true,
@@ -872,46 +890,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BIRCH",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "coming before",
+       "at": 28,
+       "note": "coming before means this letter is placed in front of the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "bastard",
+       "at": 56,
+       "gives": "B",
+       "note": "B is a common abbreviation for bastard, as in a censored 'b'"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "coming before",
-         "note": "Coming before puts the piece it governs in front of the rest, which fixes where the single letter lands."
-        },
-        {
          "text": "terribly",
-         "note": "Something done terribly is done badly, and letters handled badly do not come out in the order they went in."
+         "at": 42,
+         "note": "terribly means badly, so the letters are jumbled into a new order"
         }
        ],
        "parts": [
         {
-         "words": "bastard",
-         "gives": "B",
-         "note": "b is the printable first letter of the insult"
-        },
-        {
          "words": "rich",
-         "gives": "IRCH",
-         "note": "the four letters of the word redealt"
+         "at": 51,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An old sentence handed down before a fabulously rich swine.",
-     "walkthrough": "The punishment is a bundle of twigs used to flog offenders, abolished in British courts in 1948 and on the Isle of Man only in 1976. Coming before looks like a court appearance and is telling you where one letter goes.",
-     "definitionFit": "The birch is the bundle of twigs offenders were once flogged with, and to be given the birch is to be given that punishment."
+     "surface": "Thrashing was the traditional penalty for a dreadfully wealthy scoundrel.",
+     "walkthrough": "The letter for 'bastard' sits last in the clue, but 'coming before' sends it to the front, ahead of the jumbled 'rich' that 'terribly' signals.",
+     "definitionFit": "Being beaten with a bundle of birch twigs was once a standard corporal punishment."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "coming"
+     "misdirectedWord": "bastard"
     }
    }
   },
@@ -1292,42 +1313,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PIMPLY",
-     "indicators": [
-      {
-       "text": "being topless",
-       "note": "Something topless has lost whatever sat on top of it, and in a down entry that is the first letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "parking",
+       "at": 8,
+       "gives": "P",
+       "note": "P is the abbreviation for parking, as on road signs"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "being topless",
+         "at": 24,
+         "note": "being topless in a down clue means the word loses its first letter, its top"
+        }
+       ],
        "parts": [
         {
-         "words": "parking",
-         "gives": "P",
-         "note": "p is the parking sign on every British street"
+         "words": "easily",
+         "at": 16,
+         "gives": "SIMPLY",
+         "note": "simply means easily, without difficulty"
         },
         {
-         "words": "easily",
-         "gives": "IMPLY",
-         "note": "simply means easily, and the word arrives without the letter on top"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Finding a parking space without trouble, and with nothing on above the waist.",
-     "walkthrough": "Spotted is the trap: it offers itself as noticed and means covered in spots. Topless works vertically because this is a down entry, taking the letter at the head of the word.",
-     "definitionFit": "A pimply face is covered in spots, which is what spotted says of skin rather than of a leopard."
+     "surface": "Someone noticed parking with ease while not wearing a top.",
+     "walkthrough": "'Spotted' looks like 'seen', but it is the adjective, covered in spots. 'being topless' removes the S from SIMPLY, leaving IMPLY.",
+     "definitionFit": "A pimply face is one covered in spots, so spotty."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "Spotted"
     }
    }
@@ -1353,47 +1377,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DITHER",
-     "indicators": [
-      {
-       "text": "only half",
-       "note": "Only half keeps one of the two letters and throws the other away, and it is the front half that stays."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "only half",
+         "at": 13,
+         "note": "only half means the word keeps just one of its two letters"
+        }
+       ],
        "parts": [
         {
          "words": "do",
-         "gives": "D",
-         "note": "half of a two-letter word is one letter, the one at the front"
+         "at": 23
         },
         {
-         "words": "it",
-         "note": "the word taken exactly as it stands"
-        },
-        {
-         "words": "female",
-         "gives": "HER",
-         "note": "her is the female pronoun"
+         "gives": "O"
         }
        ]
+      },
+      {
+       "words": "it",
+       "at": 26
+      },
+      {
+       "words": "female",
+       "at": 34,
+       "gives": "HER",
+       "note": "her is a female pronoun"
       }
      ]
     },
     "explanation": {
-     "surface": "Hanging back, then only half doing it with a woman.",
-     "walkthrough": "Do it reads as a single euphemism and comes apart into two pieces, the first of them halved. Hesitate is the definition, a verb, so the answer is one.",
-     "definitionFit": "To dither is to hover between choices without settling on any, which is hesitating stretched out over time."
+     "surface": "Being unsure whether to do it halfway with a woman.",
+     "walkthrough": "'only half' applies to 'do' alone, keeping its first letter; 'it' is taken as written.",
+     "definitionFit": "To dither is to be indecisive, wavering instead of acting."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "half"
+     "misdirectedWord": "female"
     }
    }
   },
@@ -1638,46 +1663,45 @@
     "definitions": [
      {
       "text": "How dull!",
-      "at": 27,
-      "note": "The definition is the exclamation a dull thing draws rather than an adjective standing on its own, and the solver supplies the word behind the complaint."
+      "at": 27
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LACKLUSTRE",
-     "indicators": [
-      {
-       "text": "unpredictable",
-       "note": "What is unpredictable will not come out the way you expect, and neither will the letters beside it."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Want",
+       "at": 0,
+       "gives": "LACK",
+       "note": "want means lack, a shortage"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "unpredictable",
+         "at": 5,
+         "note": "unpredictable means the letters can turn up in any order, so they are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Want",
-         "gives": "LACK",
-         "note": "to want something is to lack it, the older sense of the verb"
-        },
-        {
          "words": "result",
-         "gives": "LUSTRE",
-         "note": "the six letters of the word redealt"
+         "at": 19,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody hoping for an unpredictable result and finding the whole idea tedious.",
-     "walkthrough": "Want is the old sense, to lack, which crosswords keep alive long after ordinary speech let it go. The question mark marks the seam: everything before it is wordplay.",
-     "definitionFit": "Something lacklustre has no shine to it, flat and spiritless, and draws exactly the complaint the clue makes."
+     "surface": "Someone hoping for a surprise outcome, then bored by the match.",
+     "walkthrough": "'Want' is the noun meaning shortage. 'unpredictable' rearranges RESULT into USTRE.",
+     "definitionFit": "Lacklustre means without energy or brilliance, so flat and boring."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "Want"
     }
    }
@@ -1703,56 +1727,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MYSTERY",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Cyclops's",
+       "at": 0,
+       "gives": "MY",
+       "note": "the setter Cyclops speaking of himself would say my"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "disturbed",
-         "note": "Something disturbed has been knocked out of the arrangement it was in, letters included."
+         "at": 15,
+         "note": "disturbed means stirred up, so the letters are put in another order"
         }
        ],
        "parts": [
         {
-         "words": "Cyclops's",
-         "gives": "MY",
-         "note": "the setter speaks as himself, so whatever belongs to Cyclops is my"
-        },
-        {
          "words": "rest",
-         "gives": "STER",
-         "note": "the four letters of the word redealt"
-        },
+         "at": 10,
+         "note": "taken as written"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "end of",
-           "note": "End of points at the final letter of the word that follows it."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Jimmy",
-           "note": "the last letter of the name, taken as instructed"
-          }
-         ]
+         "text": "end of",
+         "at": 27,
+         "note": "end of means the last letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Jimmy",
+         "at": 34,
+         "gives": "Y",
+         "note": "the last letter of Jimmy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Cyclops's sleep broken, and the end of a Jimmy Riddle.",
-     "walkthrough": "Jimmy Riddle is Cockney rhyming slang for a piddle, which is the joke in the surface; the wordplay wants only the last letter of the name. Riddle on its own is the definition.",
-     "definitionFit": "Both words name something nobody has worked out yet, and a riddle in the loose sense is simply a mystery waiting to be solved."
+     "surface": "The setter's sleep is broken by the need for a jimmy riddle.",
+     "walkthrough": "Jimmy riddle is rhyming slang for a piddle, a wee, so the surface has the setter getting up in the night. 'disturbed' rearranges REST into STER.",
+     "definitionFit": "A riddle is a puzzling question, something baffling: a mystery."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "Riddle"
     }
