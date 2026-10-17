@@ -1608,57 +1608,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NEED",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 20,
+       "note": "about means going round, so these letters surround the other one"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
          "text": "Retrospective",
-         "note": "looking backwards, so DEN is read in reverse"
+         "at": 0,
+         "note": "retrospective means looking back, so the word is read backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "about"
-          }
-         ],
-         "parts": [
-          {
-           "words": "study",
-           "gives": "NE",
-           "note": "DEN = study, reversed to NED and opening around E"
-          },
-          {
-           "words": "European",
-           "gives": "E",
-           "note": "E = European"
-          }
-         ]
-        },
-        {
          "words": "study",
-         "gives": "D",
-         "note": "the end of NED"
+         "at": 14,
+         "gives": "DEN",
+         "note": "a den is a private study or workroom"
         }
        ]
+      },
+      {
+       "words": "European",
+       "at": 26,
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A retrospective academic study of poverty in Europe.",
-     "walkthrough": "'Retrospective study' reads as one academic phrase; the first word is the instruction to reverse the second.",
-     "definitionFit": "A plain noun synonym: lacking the necessities of life, as in 'families in ...'."
+     "surface": "An academic review looking back at hardship across Europe.",
+     "walkthrough": "'Retrospective' turns DEN round to NED, and 'about' puts that around E. 'Study' is the room, not the research.",
+     "definitionFit": "Need is a state of lacking money and the necessities of life, which is poverty."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Retrospective"
+     "misdirectedWord": "study"
     }
    }
   },
