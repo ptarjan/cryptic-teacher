@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -473,25 +474,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "AMBLE",
      "indicators": [
       {
        "text": "Not the first",
-       "note": "Refusing the first of something means starting one along, so the opening letter of the word is left behind."
+       "at": 0,
+       "note": "not the first means the word loses its opening letter"
       }
      ],
      "parts": [
       {
        "words": "risk",
-       "gives": "AMBLE",
-       "note": "to risk is to GAMBLE, and that word arrives without its opening G"
+       "at": 17,
+       "gives": "GAMBLE",
+       "note": "to gamble is to take a risk"
+      },
+      {
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Not the first to risk' sounds like caution about going early, which is the wrong reading entirely: 'first' is counting letters, not people.",
-     "definitionFit": "travel at a leisurely pace -> AMBLE: to walk without hurry, the unpressed gait a horse or a Sunday stroller falls into."
+     "surface": "A cautious person refuses to be the first to take a chance.",
+     "walkthrough": "'Not the first' takes the G off GAMBLE.",
+     "definitionFit": "To amble is to walk slowly and in a relaxed way, at an easy unhurried pace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
     }
    }
   },
@@ -933,27 +943,31 @@
     ],
     "wordplay": {
      "op": "middle",
-     "unchecked": true,
-     "gives": "OUNCE",
      "indicators": [
       {
        "text": "without limits",
-       "note": "The limits of a written word are the letters at its two ends, and removing them leaves the middle standing by itself."
+       "at": 19,
+       "note": "a word without its limits has lost its boundaries, its first and last letters"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "jumps",
-       "gives": "OUNCE",
-       "select": "middle",
-       "note": "jumps is BOUNCES, and stripping the B and the S leaves these five"
+       "at": 13,
+       "gives": "BOUNCES",
+       "note": "bounces means springs or jumps"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Nothing in the surface hints at letters: 'without limits' reads as unbounded enthusiasm, and 'jumps' has to be turned into a longer word before anything can be taken from it.",
-     "definitionFit": "Snow leopard -> OUNCE: ounce is the old name for that cat, a sense which now survives mainly in crosswords and in natural history writing."
+     "surface": "A big cat leaps about with no restraint.",
+     "walkthrough": "'Without limits' strips the outer B and S from BOUNCES. 'Snow leopard' is the definition, not a description of the jumper.",
+     "definitionFit": "The ounce is an old alternative name for the snow leopard, a big cat of Central Asian mountains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "limits"
     }
    }
   },
