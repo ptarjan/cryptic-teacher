@@ -47,53 +47,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "AMBUSH",
-     "indicators": [
-      {
-       "text": "around",
-       "note": "turned around, so SUB reads backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "American",
+       "at": 16,
+       "gives": "AM"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 35,
+         "note": "around means turned round, so the boat word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "American",
-         "gives": "AM",
-         "note": "AM = American"
-        },
+         "words": "submarine",
+         "at": 25,
+         "gives": "SUB",
+         "note": "a sub is the everyday short name for a submarine, as a U-boat is"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "words": "submarine around",
-         "gives": "BUS",
-         "note": "SUB, short for submarine, turned around"
-        },
+         "text": "the opening of",
+         "at": 42,
+         "note": "the opening of a word is its first letter"
+        }
+       ],
+       "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "the opening of",
-           "note": "the opening of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "the opening of Hormuz",
-           "gives": "HORMUZ",
-           "note": "first letter of Hormuz"
-          }
-         ]
+         "words": "Hormuz",
+         "at": 57,
+         "note": "the first letter of Hormuz is H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A news report of a US submarine launching a surprise strike at the mouth of the Strait of Hormuz.",
-     "walkthrough": "The naval setting makes 'around' look like the sub circling the strait; it only asks you to turn SUB round.",
-     "definitionFit": "A plain synonym: the verb means to spring out on someone from hiding, the whole point being surprise."
+     "surface": "An American submarine launches a surprise strike near the Strait of Hormuz.",
+     "walkthrough": "'around' looks like a containment signal, but nothing goes inside; it turns the boat backwards, to BUS, and 'the opening of' Hormuz adds its first letter.",
+     "definitionFit": "An ambush is a surprise attack launched from a concealed position, and the word is also the verb."
     },
     "features": {
      "answerInScene": true,
@@ -522,42 +523,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "initially",
-       "note": "'initially' means at the start, so each name gives only its opening letter"
+       "text": "penned",
+       "at": 35,
+       "note": "penned means shut in, so the initials are enclosed by the song"
       }
      ],
      "parts": [
       {
        "words": "song",
+       "at": 6,
        "gives": "DUET",
-       "note": "a duet is a song for two"
+       "note": "a duet is a song for two voices"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "LC",
        "indicators": [
         {
-         "text": "penned",
-         "note": "a pen is also an enclosure, so what is penned is shut inside another word"
+         "text": "initially",
+         "at": 25,
+         "note": "initially means at the start, so each name gives its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Leonard Cohen initially",
-         "gives": "LC",
-         "select": "first",
-         "note": "first letters of Leonard and Cohen"
+         "words": "Leonard Cohen",
+         "at": 11,
+         "note": "the first letters of Leonard and Cohen are L and C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Praise for a lovely song that Leonard Cohen wrote early in his career.",
-     "walkthrough": "'Penned' is exactly what a songwriter does, so it reads as authorship; here it means enclosed.",
-     "definitionFit": "Dulcet means sweet and soothing, usually of sound."
+     "surface": "A sweet song that the singer Leonard Cohen wrote early in his career.",
+     "walkthrough": "'penned' looks like 'wrote', fitting a songwriter, but it means enclosed: the initials L and C are penned in the song.",
+     "definitionFit": "Dulcet describes a sound that is sweet and soothing to the ear, as in dulcet tones."
     },
     "features": {
      "answerInScene": true,
@@ -641,62 +641,62 @@
    "annotation": {
     "definitions": [
      {
-      "text": "belonging to the vicar",
+      "text": "belonging to the vicar?",
       "at": 35
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CLERICAL",
-     "indicators": [
-      {
-       "text": "pants",
-       "note": "British slang for rubbish, so the letters are messed up"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "Start to",
+         "at": 0,
+         "note": "the start of a word is its first letter"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "Start to",
-           "note": "the start of a word is its first letter"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Start to clean",
-           "gives": "CLEAN",
-           "note": "first letter of clean"
-          }
-         ]
-        },
+         "words": "clean",
+         "at": 9,
+         "note": "the first letter of clean is C"
+        }
+       ]
+      },
+      {
+       "words": "large",
+       "at": 15,
+       "gives": "L",
+       "note": "L is the clothing-size abbreviation for large"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "large",
-         "gives": "L",
-         "note": "L = large, as on clothing sizes"
-        },
+         "text": "pants",
+         "at": 29,
+         "note": "pants is British slang for rubbish, so the letters are a mess, rearranged"
+        }
+       ],
+       "parts": [
         {
-         "words": "lacier pants",
-         "gives": "ERICAL",
-         "note": "LACIER rearranged"
+         "words": "lacier",
+         "at": 22
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone about to launder a pair of rather lacy underpants that turn out to be the vicar's.",
-     "walkthrough": "'Pants' looks like underwear; as a verb-like indicator it is British slang for bad, shaking up LACIER.",
-     "definitionFit": "Clerical means relating to the clergy, such as a vicar."
+     "surface": "Someone sets about washing a large pair of the vicar's lacy knickers.",
+     "walkthrough": "'pants' looks like underwear, matching 'lacier'; it is British slang for rubbish, so it rearranges LACIER into ERICAL.",
+     "definitionFit": "Clerical means relating to the clergy, so a vicar's things are clerical ones."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "absurd",
      "misdirectedWord": "pants"
     }
@@ -816,45 +816,52 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "APOCALYPSE",
+     "indicators": [
+      {
+       "text": "ordered in",
+       "at": 35,
+       "note": "ordered in means arranged into, so the letters are put into a new order"
+      }
+     ],
      "parts": [
       {
        "op": "substitution",
-       "unchecked": true,
-       "gives": "APOCALYPSE",
        "indicators": [
         {
-         "text": "left for"
-        },
-        {
-         "text": "ordered in",
-         "note": "the letters are put in a new order"
+         "text": "left for",
+         "at": 19,
+         "note": "one has left and made way for the Yankee letter, which takes its place"
         }
        ],
        "parts": [
         {
          "words": "A Pepsi cola",
-         "note": "the letters as written"
+         "at": 0
         },
         {
-         "words": "one's left for Yankee",
+         "words": "one's",
+         "at": 13,
+         "gives": "I",
+         "note": "I is the Roman numeral one; one's reads as one has"
+        },
+        {
+         "words": "Yankee",
+         "at": 28,
          "gives": "Y",
-         "note": "I (one) goes, replaced by Y (Yankee in the NATO alphabet)"
+         "note": "Y is Yankee in the NATO phonetic alphabet"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone ordering a Pepsi in The World's End, a pub name, with an American in the bar.",
-     "walkthrough": "'The World's End' is a common English pub name, so 'ordered in' reads as buying a drink there.",
-     "definitionFit": "The biblical Revelation's vision of final destruction, so 'The World's End' fits, capital letters and all."
+     "surface": "An American swaps his soft drink while ordering at a pub called The World's End.",
+     "walkthrough": "'one's left for Yankee' swaps the I of A PEPSI COLA for Y, giving APEPSYCOLA, which 'ordered in' rearranges. The World's End sounds like a pub name.",
+     "definitionFit": "The Apocalypse is the prophesied final destruction of the world, its end in Revelation."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "ordered"
     }
    }
@@ -880,49 +887,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCARLATINA",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 33,
+       "note": "in a down clue the composer goes over, above, the letters that follow"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "taking",
-         "note": "SCARLATTI takes one T away"
+         "at": 17,
+         "note": "taking the time letter out of the name removes it"
         },
         {
          "text": "out",
-         "note": "'taking out' is removing, as a dentist takes a tooth out, so one letter goes"
-        },
-        {
-         "text": "over"
+         "at": 29,
+         "note": "out completes taking out, the instruction to remove the time letter"
         }
        ],
        "parts": [
         {
-         "words": "Baroque composer taking time out",
-         "gives": "SCARLATI",
-         "note": "Domenico SCARLATTI minus one T (time)"
+         "words": "Baroque composer",
+         "at": 0,
+         "gives": "SCARLATTI",
+         "note": "Domenico Scarlatti was a Baroque composer of keyboard sonatas"
         },
         {
-         "words": "new",
-         "gives": "N",
-         "note": "N = new"
-        },
-        {
-         "words": "advanced",
-         "gives": "A",
-         "note": "A = advanced, as in A level"
+         "words": "time",
+         "at": 24,
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "new",
+       "at": 38,
+       "gives": "N"
+      },
+      {
+       "words": "advanced",
+       "at": 42,
+       "gives": "A",
+       "note": "A stands for advanced, as in A level"
       }
      ]
     },
     "explanation": {
-     "surface": "A Baroque composer taking time off with a new illness at an advanced stage.",
-     "walkthrough": "'Taking time out' reads as a rest; T is time, and only one of the composer's two Ts leaves.",
-     "definitionFit": "Scarlatina is another name for scarlet fever, an infection."
+     "surface": "A Baroque composer takes a break while a new, serious illness sets in.",
+     "walkthrough": "'taking time out' removes one T from SCARLATTI, leaving SCARLATI; 'over' stacks it above N and A in this down clue.",
+     "definitionFit": "Scarlatina is another name for scarlet fever, a bacterial infection with a red rash."
     },
     "features": {
      "answerInScene": false,
@@ -958,52 +976,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "MAGICLANTERN",
-     "indicators": [
-      {
-       "text": "refurbished",
-       "note": "RENT is done up into a new form"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Mum",
+       "at": 0,
+       "gives": "MA",
+       "note": "ma is an informal word for mum"
+      },
+      {
+       "words": "Joe",
+       "at": 5,
+       "gives": "GI",
+       "note": "a GI Joe is an American soldier, so Joe gives GI"
+      },
+      {
+       "words": "family",
+       "at": 13,
+       "gives": "CLAN",
+       "note": "a clan is a family group"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "refurbished",
+         "at": 25,
+         "note": "refurbished means done up anew, so the letters are reworked into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "Mum",
-         "gives": "MA",
-         "note": "ma = mum"
-        },
-        {
-         "words": "Joe",
-         "gives": "GI",
-         "note": "GI Joe, the American soldier"
-        },
-        {
-         "words": "family",
-         "gives": "CLAN",
-         "note": "a clan is an extended family"
-        },
-        {
-         "words": "rent refurbished",
-         "gives": "TERN",
-         "note": "RENT rearranged"
+         "words": "rent",
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A family renting out a newly renovated home, with Mum and Joe in charge.",
-     "walkthrough": "Joe is a plain first name in the surface; it becomes GI via GI Joe, the US soldier.",
-     "definitionFit": "A definition by type: the Victorian device threw painted glass slides onto a screen, an early projector."
+     "surface": "Mum, Joe and the rest of the family rent a done-up projector.",
+     "walkthrough": "'rent' looks like a verb sharing the family's action; it is fodder, and 'refurbished' turns it into TERN.",
+     "definitionFit": "A magic lantern is an early image projector that cast pictures from glass slides."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Joe"
+     "misdirectedWord": "rent"
     }
    }
   },
@@ -1028,42 +1047,51 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "flipping"
-      },
-      {
-       "text": "before"
+       "text": "before",
+       "at": 22,
+       "note": "the flipped word comes before the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipping",
+         "at": 6,
+         "note": "flipping means turning over, so the hollow word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "had dinner",
-         "gives": "ETA",
-         "note": "ate = had dinner"
-        },
-        {
-         "words": "you",
-         "gives": "U",
-         "note": "U sounds like you, text-speak"
-        },
-        {
-         "words": "flipping hollow",
+         "words": "hollow",
+         "at": 15,
          "gives": "CAVE",
-         "note": "CAVE, a hollow, reversed"
+         "note": "a cave is a hollow in rock"
         }
        ]
+      },
+      {
+       "words": "you",
+       "at": 29,
+       "gives": "U",
+       "note": "U is text-speak for you"
+      },
+      {
+       "words": "had dinner",
+       "at": 33,
+       "gives": "ATE",
+       "note": "ate means had a meal, had dinner"
       }
      ]
     },
     "explanation": {
-     "surface": "An exasperated host asking whether you ate before arriving and left the plate empty.",
-     "walkthrough": "'Flipping' reads as a mild British swear word, and 'Empty' as an adjective; it is the verb.",
-     "definitionFit": "A plain synonym: clearing out a building, or the bowels, is emptying it."
+     "surface": "Someone empties out a hollowed-out space before sitting down to dinner.",
+     "walkthrough": "'flipping' sounds like an exasperated British intensifier, as in 'flipping hollow'; it is the signal to read CAVE backwards.",
+     "definitionFit": "To evacuate a building or a container is to empty it, clearing everyone or everything out."
     },
     "features": {
      "answerInScene": false,
@@ -1408,47 +1436,46 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "periodically",
-       "note": "take every other letter: iDeA"
+       "text": "supported by",
+       "at": 24,
+       "note": "in a down clue the first part is held up by the paper's letters below it"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "DA",
        "indicators": [
         {
-         "text": "supported by"
+         "text": "periodically",
+         "at": 11,
+         "note": "periodically means at regular intervals, so every other letter is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "idea periodically",
-         "gives": "DA",
-         "select": "alternate",
-         "note": "second and fourth letters of IDEA"
+         "words": "idea",
+         "at": 6,
+         "note": "the second and fourth letters of idea are D and A"
         }
        ]
       },
       {
        "words": "this paper",
+       "at": 37,
        "gives": "FT",
-       "note": "the Financial Times, where this crossword appeared"
+       "note": "FT is the Financial Times, the paper printing the puzzle"
       }
      ]
     },
     "explanation": {
-     "surface": "A daft idea that this newspaper nonetheless backs every so often.",
-     "walkthrough": "'This paper' is the setter's own newspaper, the FT.",
-     "definitionFit": "A British informal synonym for foolish, as in 'don't be daft'."
+     "surface": "A foolish notion now and then gets backing from this newspaper.",
+     "walkthrough": "'this paper' refers to the Financial Times, where the puzzle appeared.",
+     "definitionFit": "Daft is a British informal word meaning silly, foolish or senseless."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
-     "misdirectedWord": "periodically"
+     "misdirectedWord": "supported"
     }
    }
   },
@@ -1640,55 +1667,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "STREAK",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 15,
+       "note": "the rearranged letters go round the final letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "wheeling",
-         "note": "wheeling is turning and circling, so the letters spin into a new order"
-        },
-        {
-         "text": "at the back",
-         "note": "the back of a word is its last letter"
+         "at": 6,
+         "note": "wheeling means turning about, so the letters of karts are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Karts wheeling",
-         "gives": "STRAK",
-         "note": "KARTS rearranged"
-        },
+         "words": "Karts",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "E",
-         "indicators": [
-          {
-           "text": "round"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Silverstone at the back",
-           "gives": "E",
-           "select": "last",
-           "note": "last letter of Silverstone"
-          }
-         ]
+         "text": "at the back",
+         "at": 33,
+         "note": "at the back means the last letter of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Silverstone",
+         "at": 21,
+         "note": "the last letter of Silverstone is E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Go-karts circling Silverstone, the British Grand Prix circuit, only just finishing a run.",
-     "walkthrough": "'Barely run' reads as a narrow finish for the karts; 'barely' actually means without clothes.",
-     "definitionFit": "To streak is to run naked in public, as at sports events."
+     "surface": "Go-karts racing around the back of the Silverstone circuit.",
+     "walkthrough": "'wheeling' rearranges KARTS as STR-AK around E. Silverstone is the British Grand Prix motor-racing circuit. 'barely' means naked here.",
+     "definitionFit": "To streak is to run naked through a public place, so it is to run in the bare."
     },
     "features": {
      "answerInScene": false,
