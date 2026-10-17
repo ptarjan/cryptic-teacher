@@ -378,45 +378,48 @@
      "indicators": [
       {
        "text": "going inside",
-       "note": "going inside means entering, so those letters are placed within another word"
+       "at": 20,
+       "note": "going inside means these letters are put within the word for spell"
       }
      ],
      "parts": [
       {
        "words": "spell",
+       "at": 34,
        "gives": "HEX",
-       "note": "a hex is a magic spell"
+       "note": "a hex is a spell or curse"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LI",
+       "op": "deletion",
        "indicators": [
         {
          "text": "Pair of",
-         "note": "a pair of means just two letters, the opening ones, are taken"
+         "at": 0,
+         "note": "a pair of the word librarians is its opening two letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "librarians",
-         "gives": "LI",
-         "select": "first",
-         "note": "the opening two letters of this word"
+         "at": 8,
+         "note": "only the first two letters are used"
+        },
+        {
+         "gives": "BRARIANS"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Two librarians go in and spell out the letters of a genetic acronym.",
-     "walkthrough": "'Spell' looks like spelling out letters but means a curse.",
-     "definitionFit": "DNA is the classic example of a double spiral molecule, the shape called a helix."
+     "surface": "Two librarians go in to spell out the letters DNA.",
+     "walkthrough": "The quotation marks make DNA look like something to be spelt out; it is the molecule, and 'say' marks it as an example of the shape.",
+     "definitionFit": "DNA famously takes the form of a double helix, so it is an example of that spiral structure."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "spell"
     }
    }
@@ -1187,34 +1190,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "FRYINGPAN",
+     "spelt": "FRYINGPAN",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "the Reverend Spooner famously swapped the opening sounds of pairs of words"
+       "at": 29,
+       "note": "Spooner swapped the starting sounds of words, so the opening letters of these two words trade places"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "nosy supporter",
-       "gives": "FRYINGPAN",
-       "soundsLike": "PRYING FAN",
-       "note": "a nosy supporter is a prying fan; swap the first sounds"
+       "op": "homophone",
+       "spelt": "PRIING",
+       "parts": [
+        {
+         "words": "nosy",
+         "at": 39,
+         "gives": "PRYING",
+         "note": "prying means nosy, interfering in others' business"
+        }
+       ]
+      },
+      {
+       "words": "supporter",
+       "at": 44,
+       "gives": "FAN",
+       "note": "a fan is a supporter, as of a team"
       }
      ]
     },
     "explanation": {
-     "surface": "A wordplay riddle about a figurative leaping spot belonging to an inquisitive backer.",
-     "walkthrough": "The idiom is jumping out of the frying pan into the fire: escaping one trouble for a worse one.",
-     "definitionFit": "In the idiom you leap out of this cooking vessel into the fire, so it is a figurative place to jump from."
+     "surface": "A busybody fan is pictured leaping from a famous metaphorical spot.",
+     "walkthrough": "The idiom is jumping out of the frying pan into the fire, so the pan is the site jumped from.",
+     "definitionFit": "In the idiom about escaping one trouble for a worse one, the frying pan is where the leap begins."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
-     "misdirectedWord": "supporter"
+     "joke": "pun",
+     "misdirectedWord": "jumping"
     }
    }
   },
