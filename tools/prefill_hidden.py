@@ -98,6 +98,18 @@ def prefill_puzzle(puzzle):
             if not any(err.startswith(tag_of(by_id[eid]) + ":") for err in errors)}
 
 
+def has_unannotated(path):
+    """Cheap pre-filter: False when the file is unreadable or every clued entry
+    already has an annotation, so the full parse is skipped."""
+    try:
+        data = json.loads(Path(path).read_text())
+        entries = data["entries"]
+    except (OSError, ValueError, KeyError, TypeError):
+        return False
+    return any(isinstance(e, dict) and not e.get("annotation") and e.get("solution")
+               and (e.get("clue") or {}).get("text") for e in entries)
+
+
 def main(argv):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("paths", nargs="*", help="puzzle files (default: every puzzle)")
@@ -108,11 +120,16 @@ def main(argv):
     paths = [Path(p) for p in args.paths] or sorted((ROOT / "puzzles").rglob("*.json"))
     total = puzzles = 0
     for path in paths:
+        if not has_unannotated(path):
+            continue
         try:
             puzzle = fetch_puzzle.read_puzzle_file(path)
+            got = prefill_puzzle(puzzle)
         except (OSError, ValueError, SystemExit):
             continue
-        got = prefill_puzzle(puzzle)
+        except Exception as err:  # one odd puzzle must not end a corpus run
+            print(f"{path}: {type(err).__name__}: {err}", file=sys.stderr)
+            continue
         if not got:
             continue
         puzzles += 1

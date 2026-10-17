@@ -50,5 +50,20 @@ check("reversed wordplay", "rev<returned>(hid([Australia, Melbourne]LIAME))",
                          "Message from Australia, Melbourne, returned", "EMAIL")["wp"])
 stored = annotation.from_model(model, entry, {"entries": [entry]})
 check("it evaluates to the answer", "hidden", stored["wordplay"]["op"])
+# main() with --out on a tiny tree: one puzzle with a hidden word, one without clues.
+import json, tempfile
+from pathlib import Path
+with tempfile.TemporaryDirectory() as tmp:
+    src = next(Path("..", "puzzles").rglob("azed-2508.json"))
+    (Path(tmp) / "in").mkdir()
+    shutil_target = Path(tmp) / "in" / src.name
+    shutil_target.write_text(src.read_text())
+    (Path(tmp) / "in" / "junk.json").write_text("[]")
+    out = Path(tmp) / "out"
+    P.main(["--out", str(out), str(shutil_target), str(Path(tmp) / "in" / "junk.json")])
+    written = sorted(f.name for f in out.glob("*.json"))
+    check("main --out writes one file per prefilled puzzle", ["azed-2508.json"], written)
+    check("has_unannotated skips junk", False, P.has_unannotated(Path(tmp) / "in" / "junk.json"))
+    check("the file holds annotations", True, bool(json.loads((out / "azed-2508.json").read_text())))
 if fails:
     sys.exit(1)
