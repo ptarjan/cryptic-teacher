@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1636,51 +1637,52 @@
     "definitions": [
      {
       "text": "according to reports",
-      "at": 29,
-      "note": "The definition is a phrase doing an adjective's work: evidence held 'according to reports' is precisely the kind the answer describes."
+      "at": 29
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ANECDOTAL",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "Mostly means most but not all, so the word beside it gives up its last letter."
+       "text": "Criminal",
+       "at": 0,
+       "note": "criminal suggests something crooked or bent out of shape, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "acted",
+       "at": 9
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Criminal",
-         "note": "A criminal act is a crooked one, and crooked letters are letters knocked out of their proper order."
+         "text": "mostly",
+         "at": 21,
+         "note": "mostly means most of the word, so alone loses its last letter"
         }
        ],
        "parts": [
         {
-         "words": "acted",
-         "note": "five letters of fodder"
+         "words": "alone",
+         "at": 15
         },
         {
-         "words": "alone",
-         "gives": "ALON",
-         "note": "most of ALONE is the first four of its five letters"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A criminal who acted alone, at least according to the reports.",
-     "walkthrough": "'Criminal' opens the clue as the man everything else describes, and it is the anagram signal. The definition is the tail: hearsay evidence rather than proof.",
-     "definitionFit": "Anecdotal evidence is what people report having seen rather than what has been measured, so it stands only according to reports."
+     "surface": "A news story that a criminal worked solo, at least according to reports.",
+     "walkthrough": "'Criminal' looks like the subject of the sentence; it is the signal to rearrange ACTED with ALON.",
+     "definitionFit": "Anecdotal evidence rests on hearsay and personal accounts rather than proof, so it is based on reports."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
+     "answerInScene": true,
+     "aptDefinition": false,
      "misdirectedWord": "Criminal"
     }
    }
