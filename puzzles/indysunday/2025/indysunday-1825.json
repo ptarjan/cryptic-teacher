@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -90,46 +91,49 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HUMORIST",
+     "op": "container",
      "indicators": [
       {
-       "text": "50% down",
-       "note": "Down here is the sense a share price is down: cut by 50%, the word beside it keeps only half of its letters."
+       "text": "admitted",
+       "at": 38,
+       "note": "something admitted is let inside, so the pollsters go into the middle of the shortened word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "admitted",
-         "note": "To be admitted is to be let inside, so the letters named here go within the ones already standing."
+         "text": "50% down",
+         "at": 6,
+         "note": "a word brought down by fifty per cent keeps only half its letters, here the front half of hustings"
         }
        ],
        "parts": [
         {
          "words": "hustings",
-         "gives": "HUST",
-         "note": "the hustings are the public meetings of a British election campaign, and halved the word leaves its first four letters"
+         "at": 18
         },
         {
-         "words": "pollsters",
-         "gives": "MORI",
-         "note": "MORI, now Ipsos MORI, is the polling firm quoted whenever a British opinion poll is reported"
+         "gives": "INGS"
         }
        ]
+      },
+      {
+       "words": "pollsters",
+       "at": 28,
+       "gives": "MORI",
+       "note": "MORI is a well-known British polling organisation, now part of Ipsos"
       }
      ]
     },
     "explanation": {
-     "surface": "Nobody laughing on the campaign trail as the pollsters are let in.",
-     "walkthrough": "'Down' looks like a candidate slipping in the polls and means reduced by half. The pollsters admitted are a named firm, which is the piece to learn.",
-     "definitionFit": "A humorist is a professional wit who writes or performs for laughs, which is what a joker does for a living."
+     "surface": "A comic candidate's support halves on the campaign trail, as the pollsters concede.",
+     "walkthrough": "'50% down' halves HUSTINGS to HUST; MORI (the British polling firm) is 'admitted' into it. Hustings are election campaign meetings.",
+     "definitionFit": "A humorist is a writer or performer of comic material, someone who jokes for a living."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "down"
     }
@@ -782,26 +786,24 @@
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "ST",
        "indicators": [
         {
          "text": "drained",
-         "note": "A drained vessel has had everything between its ends emptied out, so the word keeps only its first and last letters."
+         "at": 14,
+         "note": "a drained word is emptied of its contents, leaving only its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Maybe Schmidt",
-         "gives": "ST",
-         "select": "outer",
-         "note": "SCHMIDT emptied of everything between its first letter and its last"
+         "words": "Schmidt",
+         "at": 6,
+         "note": "a typical German surname, emptied to its outside letters"
         }
        ]
       },
       {
        "words": "his one",
+       "at": 22,
        "gives": "EIN",
        "note": "Schmidt being German, his word for one is ein"
       }
@@ -809,15 +811,15 @@
     },
     "andLit": true,
     "explanation": {
-     "surface": "A man called Schmidt finishing off his drink.",
-     "walkthrough": "Every word works twice: read straight a German has emptied his tankard, read as instructions his name is drained and his 'one' is German. Schmidt is 'maybe' because any German surname would serve.",
-     "definitionFit": "Read straight the clue is the thing itself: a stein is the heavy German tankard, and Schmidt has drunk his dry."
+     "surface": "A German, perhaps Herr Schmidt, knocks back his beer.",
+     "walkthrough": "'drained' empties Schmidt to ST, and 'his one' is the German EIN; read whole, the clue also describes a German finishing his drink, which is the definition.",
+     "definitionFit": "A stein is a large earthenware beer mug of German origin, the vessel a German drinker would empty."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "drained"
+     "misdirectedWord": "one"
     }
    }
   },
@@ -1213,42 +1215,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "periodically",
-       "note": "Something done periodically happens at regular intervals rather than all the time, so only every other letter of the word is taken."
+       "text": "traps",
+       "at": 20,
+       "note": "the alternate letters hold the colour word inside them, as a trap holds its catch"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "SDS",
        "indicators": [
         {
-         "text": "traps",
-         "note": "A trap closes round whatever walks into it, so the letters named here hold the next piece inside them."
+         "text": "periodically",
+         "at": 7,
+         "note": "periodically means at regular intervals, so every other letter of sadist is kept, starting with the first"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Sadist periodically",
-         "gives": "SDS",
-         "select": "alternate",
-         "note": "the first, third and fifth letters of SaDiSt"
+         "words": "Sadist",
+         "at": 0,
+         "note": "the word whose odd letters are taken"
         }
        ]
       },
       {
        "words": "brown",
+       "at": 26,
        "gives": "TAN",
-       "note": "tan is the light brown of leather and of sunburnt skin"
+       "note": "tan is a light brown colour"
       }
      ]
     },
     "explanation": {
-     "surface": "A cruel man catching brown bears.",
-     "walkthrough": "The bears of the surface are animals; the definition wants the verb, as in bearing pain. Alternate letters can start from either end, and here it is the odd positions that count.",
-     "definitionFit": "To stand something is to put up with it — 'I can't stand him' — which is exactly what bearing it means."
+     "surface": "A cruel person catches some brown bears in traps.",
+     "walkthrough": "'periodically' takes SDS from 'Sadist'; that 'traps' TAN (brown). 'bears' is not the animal but the verb: the surface hides it among the trapped creatures.",
+     "definitionFit": "To bear something and to stand it both mean to tolerate or put up with it."
     },
     "features": {
      "answerInScene": false,
@@ -1376,8 +1377,7 @@
     "definitions": [
      {
       "text": "European",
-      "at": 0,
-      "note": "The definition names the continent and the answer one of its nationalities, the usual licence for a national."
+      "at": 0
      }
     ],
     "wordplay": {
@@ -1385,44 +1385,43 @@
      "indicators": [
       {
        "text": "in",
-       "note": "What is in something sits within it, so the letters named before go inside the ones that follow."
+       "at": 19,
+       "note": "the wedding word goes in between the two central letters"
       }
      ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "SE",
        "indicators": [
         {
          "text": "middle of",
-         "note": "The middle of a word is its centre, so only the letters at the heart of it are taken."
+         "at": 22,
+         "note": "middle of asks for the central letters of the six-letter word abseil, its third and fourth"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "middle of abseil",
-         "gives": "SE",
-         "select": "middle",
-         "note": "abSEil has six letters and these are the middle two"
+         "words": "abseil",
+         "at": 32,
+         "note": "the word whose central pair is taken"
         }
        ]
       },
       {
        "words": "tied knot",
+       "at": 9,
        "gives": "WED",
-       "note": "tying the knot is getting wed"
+       "note": "to tie the knot is to marry, so tied knot means wed"
       }
      ]
     },
     "explanation": {
-     "surface": "A European who tied a knot halfway down an abseil.",
-     "walkthrough": "'Tied knot' is one idea and not two: to tie the knot is to marry. The rope and the cliff are there to make the middle of the abseil sound like a spot on the descent.",
-     "definitionFit": "A Swede is somebody from Sweden, which is a European country, so the answer names a European by nationality."
+     "surface": "A climber ties a knot partway down a rope descent.",
+     "walkthrough": "'tied knot' suggests climbing rope but is the idiom for marrying: WED goes 'in' SE, the 'middle of abseil'.",
+     "definitionFit": "A Swede is a native of Sweden, a country of northern Europe, so a Scandinavian citizen."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "knot"
     }
@@ -1450,61 +1449,61 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "FANCIABLE",
+     "indicators": [
+      {
+       "text": "wearing",
+       "at": 17,
+       "note": "the spies are inside the two outer pieces, as if those pieces were clothes they had on"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "wearing",
-         "note": "Whoever wears a coat is inside it, so the letters named before this word sit within the ones around them."
-        },
-        {
-         "text": "perhaps",
-         "note": "Perhaps admits that the word beside it is only one instance of what is meant, so the broader word it is an example of is wanted."
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "words": "buff",
+         "at": 25,
+         "gives": "FAN",
+         "note": "a buff is an enthusiast or fan"
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
            "text": "wanting",
-           "note": "A thing wanting something lacks it, so the letter named next is missing from what has been built."
+           "at": 47,
+           "note": "wanting means lacking, so the uniform letter is missing from the colour"
           }
          ],
          "parts": [
           {
-           "words": "buff",
-           "gives": "FAN",
-           "note": "a film buff is a film fan"
-          },
-          {
-           "words": "spies",
-           "gives": "CIA",
-           "note": "the CIA is America's foreign intelligence service"
-          },
-          {
            "words": "navy perhaps",
+           "at": 34,
            "gives": "BLUE",
-           "note": "navy is one particular shade of blue"
+           "note": "navy is an example of a shade of blue"
+          },
+          {
+           "words": "uniform",
+           "at": 55,
+           "gives": "U",
+           "note": "U is Uniform in the NATO phonetic alphabet"
           }
          ]
-        },
-        {
-         "words": "uniform",
-         "gives": "U",
-         "note": "U is uniform in the radio alphabet, and it is the letter taken out"
         }
        ]
+      },
+      {
+       "words": "spies",
+       "at": 11,
+       "gives": "CIA",
+       "note": "the CIA is the US intelligence agency, an organisation of spies"
       }
      ]
     },
     "explanation": {
-     "surface": "Good-looking agents dressed in buff and navy because no uniform was to be had.",
-     "walkthrough": "'Buff' is the enthusiast and not the colour, though the colours around it work hard to suggest otherwise. Uniform is the radio alphabet's U — alpha, bravo, charlie — and it is the letter that leaves.",
-     "definitionFit": "Somebody fanciable is somebody you could fancy, the British way of saying you find a person physically attractive."
+     "surface": "Spies dressed in buff and navy, out of uniform, cut an attractive figure.",
+     "walkthrough": "'buff' is the noun meaning a fan, not the colour. BLUE 'wanting' U (uniform) leaves BLE; CIA (spies) is 'wearing' FAN and BLE, so it sits between them.",
+     "definitionFit": "Fanciable is British slang for sexually attractive, someone you might fancy."
     },
     "features": {
      "answerInScene": true,
@@ -1645,59 +1644,34 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "BEADYEYE",
+     "op": "homophone",
+     "spelt": "BEADYEYE",
      "indicators": [
       {
-       "text": "acronym",
-       "note": "An acronym is built from the opening letters of a name, so those three initials are all that is taken."
+       "text": "announced acronym",
+       "at": 21,
+       "note": "an acronym announced is a set of initials pronounced out loud, so the three letters are spoken as the answer's words"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
+       "words": "Big Data Institute's",
+       "at": 0,
        "gives": "BDI",
-       "indicators": [
-        {
-         "text": "announced",
-         "note": "Announced means read out, so what has been gathered is to be judged by its sound and not by its spelling."
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Big Data Institute's",
-         "gives": "BDI",
-         "select": "first",
-         "note": "the three initials of the name, in order"
-        }
-       ]
-      },
-      {
-       "op": "homophone",
-       "spelt": "BEADYEYE",
-       "parts": [
-        {
-         "words": "announced",
-         "gives": "BDI",
-         "note": "say those three letters out loud, bee-dee-eye"
-        }
-       ]
+       "note": "the institute's initials are B, D and I, which said as letter names run bee-dee-eye"
       }
      ]
     },
     "explanation": {
-     "surface": "A remark that a data institute's initials happen to name the thing a watcher keeps on you.",
-     "walkthrough": "Big Brother is the all-seeing state of Orwell's Nineteen Eighty-Four, and a Big Data Institute is a fair modern stand-in for him. The initials have to be spoken, not read.",
-     "definitionFit": "To keep a beady eye on somebody is to watch them closely and suspiciously, which is all Big Brother ever does."
+     "surface": "A research body's initials are read out as an acronym for state surveillance.",
+     "walkthrough": "The acronym of 'Big Data Institute' is BDI; 'announced' says it aloud as bee-dee-eye. Big Brother is the all-seeing ruler in Orwell's Nineteen Eighty-Four.",
+     "definitionFit": "A beady eye is a sharp, watchful gaze, the close observation that Orwell's Big Brother keeps on every citizen."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "acronym"
+     "misdirectedWord": "Big"
     }
    }
   }
