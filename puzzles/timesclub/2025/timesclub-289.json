@@ -407,26 +407,44 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "SAMBAL",
      "indicators": [
       {
-       "text": "would contain",
-       "note": "the answer is what the longer string would contain, so the letters around it are dropped"
+       "text": "would",
+       "at": 57,
+       "note": "would, with contain, says only what the doubled name holds counts, so its trailing letters are dropped too"
       }
      ],
      "parts": [
       {
-       "words": "double helping of medicinal plant",
-       "gives": "BALSAMBALSAM",
-       "note": "balsam is a medicinal plant; written out twice, a run of six letters straddles the join"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "contain",
+         "at": 63,
+         "note": "contain says the answer is held within the doubled plant name, so the opening letters outside it are dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "double helping of medicinal plant",
+         "at": 23,
+         "gives": "BALSAMBALSAM",
+         "note": "balsam is a medicinal plant, and a double helping writes its name twice"
+        },
+        {
+         "gives": "BAL"
+        }
+       ]
+      },
+      {
+       "gives": "SAM"
       }
      ]
     },
     "explanation": {
-     "surface": "A spicy Asian sauce that would be packed with a herbal remedy taken twice.",
-     "walkthrough": "The plant's letters are not in the clue, so this is not an ordinary hidden word: write BALSAM twice and the answer sits inside, balSAMBALsam.",
-     "definitionFit": "Sambal is a hot chilli relish from Indonesia and Malaysia, served as a side condiment."
+     "surface": "A spicy Eastern relish that would hold two servings of a healing herb.",
+     "walkthrough": "Write the plant's name twice in a row; 'would contain' says the answer sits inside it, across the join: drop the first three letters and the last three, and SAMBALSAM shrinks to the answer.",
+     "definitionFit": "Sambal is a hot chilli relish from Malaysian and Indonesian cooking, served as a condiment."
     },
     "features": {
      "answerInScene": true,
@@ -1172,37 +1190,43 @@
    "annotation": {
     "definitions": [
      {
-      "text": "\"blow\" once",
-      "at": 42
+      "text": "blow\" once",
+      "at": 43
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "WHIRRET",
      "indicators": [
       {
        "text": "gets extra \"line\" twice",
-       "note": "adding one stroke to a letter shape turns it into another letter, done here two times"
+       "at": 14,
+       "note": "adding one more stroke turns the letter P into R, and the clue says to do it to two letters"
       }
      ],
      "parts": [
       {
        "words": "Slender racer",
+       "at": 0,
        "gives": "WHIPPET",
-       "note": "a whippet is a slim racing dog"
+       "note": "a whippet is a slender dog bred for racing"
+      },
+      {
+       "gives": "PP"
+      },
+      {
+       "gives": "RR"
       }
      ]
     },
     "explanation": {
-     "surface": "A thin racing dog is given more lead twice and a blow once.",
-     "walkthrough": "The 'line' is a pen stroke: draw a diagonal leg on the bowl of a P and it becomes an R. Do that to both Ps of WHIPPET.",
-     "definitionFit": "Whirret is an obsolete word for a smart blow or box on the ear, hence 'once', meaning formerly."
+     "surface": "A greyhound-like dog is promised an extra lap twice and a beating once.",
+     "walkthrough": "The 'line' is a pen stroke: draw a diagonal leg on P and it becomes R, so both Ps of WHIPPET change. 'Once' marks the definition as an old word.",
+     "definitionFit": "Whirret is an obsolete word, recorded in Chambers, for a smart blow or box on the ear."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "line"
     }
    }
