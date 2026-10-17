@@ -518,45 +518,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "INEXPERTLY",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Short",
-       "note": "something short is cut down, so the word loses its final letter"
+       "text": "composed",
+       "at": 20,
+       "note": "composed means put together, so these letters are assembled in a fresh order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "composed",
-         "note": "to compose is to put together or arrange, so the letters are set in a new order"
+         "text": "Short",
+         "at": 0,
+         "note": "short means cut short, so the last letter of text is lopped off"
         }
        ],
        "parts": [
         {
          "words": "text",
-         "gives": "TEX",
-         "note": "the word without its last letter"
+         "at": 6,
+         "note": "text without its final T leaves TEX"
         },
         {
-         "words": "in reply",
-         "note": "taken as written"
+         "gives": "T"
         }
        ]
+      },
+      {
+       "words": "in",
+       "at": 11
+      },
+      {
+       "words": "reply",
+       "at": 14
       }
      ]
     },
     "explanation": {
-     "surface": "Someone fires back a brief message, badly worded.",
-     "walkthrough": "'Short text' looks like SMS, but short simply trims one letter before all ten are rearranged.",
-     "definitionFit": "Doing something inexpertly means doing it without skill, awkwardly and ham-fistedly."
+     "surface": "A curt text message sent as an answer, put together carelessly.",
+     "walkthrough": "'Composed' looks like calm, but it means made up: 'Short' cuts text to TEX, which is rearranged with IN and REPLY.",
+     "definitionFit": "Doing something inexpertly means doing it without skill, which is clumsily."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "composed"
     }
@@ -640,44 +647,34 @@
      }
     ],
     "wordplay": {
-     "op": "spoonerism",
-     "unchecked": true,
-     "gives": "HOUSEMATE",
+     "op": "homophone",
+     "spelt": "HOUSEMATE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of words, so initial sounds trade places"
+       "at": 0,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the two words have their first letters exchanged"
       }
      ],
      "parts": [
       {
-       "words": "timid sort",
-       "gives": "MOUSE",
-       "note": "a timid person is called a mouse"
-      },
-      {
-       "words": "loathing",
-       "gives": "HATE",
-       "note": "loathing is hate"
-      },
-      {
-       "unchecked": true,
        "words": "timid sort loathing",
-       "gives": "HOUSEMATE",
-       "soundsLike": "MOUSE HATE",
-       "note": "swap the M and H sounds"
+       "at": 10,
+       "gives": "MOUSEHATE",
+       "note": "a mouse is a proverbially timid person and hate is loathing, so the phrase is said as MOUSE HATE"
       }
      ]
     },
     "explanation": {
-     "surface": "A shy person can't stand the person they share a flat with.",
-     "walkthrough": "Swap the first sounds of MOUSE and HATE.",
-     "definitionFit": "A housemate is someone sharing a house with others, a co-tenant living under the same roof."
+     "surface": "A shy person hates someone, as the Reverend Spooner would put it.",
+     "walkthrough": "\"Spooner's\" means swap the opening sounds: MOUSE HATE said with its first sounds exchanged becomes HOUSE MATE.",
+     "definitionFit": "A housemate is someone who shares your house, so a fellow resident of it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun"
+     "joke": "pun",
+     "misdirectedWord": "timid"
     }
    }
   },
@@ -703,52 +700,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "MOR",
+      "text": "MOR?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EASYLISTENING",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "not loud",
-       "note": "not means without, and loud is the musical forte, so that letter is dropped"
+       "text": "Playing",
+       "at": 5,
+       "note": "playing as performed music, but also playing about with the letters, which are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Genesis",
+       "at": 13
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Playing",
-         "note": "playing with something means fiddling about, so the letters are moved around"
+         "text": "not loud",
+         "at": 30,
+         "note": "F is the musical abbreviation for forte, loud, so not loud means losing that F"
         }
        ],
        "parts": [
         {
-         "words": "Genesis",
-         "note": "taken as written"
+         "words": "faintly",
+         "at": 21,
+         "note": "faintly without its F leaves AINTLY"
         },
         {
-         "words": "faintly",
-         "gives": "AINTLY",
-         "note": "the word minus F, forte"
+         "gives": "F"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Is the band Genesis, played softly, just middle-of-the-road pop?",
-     "walkthrough": "F is forte, the musical direction for loud. MOR stands for 'middle of the road', a radio term for inoffensive music.",
-     "definitionFit": "Middle-of-the-road music is mellow, unchallenging pop, the same genre marketed as easy listening."
+     "surface": "Radio programming question: is a quietly played Genesis track middle-of-the-road?",
+     "walkthrough": "MOR stands for middle-of-the-road, bland radio-friendly music. Genesis is a rock band, which makes 'Playing' look literal; 'not loud' removes F (forte) from faintly, and the anagram uses GENESIS with AINTLY.",
+     "definitionFit": "Middle-of-the-road music is soft, undemanding pop, which radio calls easy listening."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "misdirectedWord": "Playing"
+     "misdirectedWord": "Genesis"
     }
    }
   },
@@ -1531,47 +1531,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IGLOO",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the final letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "One",
+       "at": 0,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "words": "grand",
+       "at": 4,
+       "gives": "G",
+       "note": "G is short for grand, a thousand pounds or dollars"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 24,
+         "note": "mostly means not quite the whole word, so its last letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "One",
-         "gives": "I",
-         "note": "the Roman numeral for one"
-        },
-        {
-         "words": "grand",
-         "gives": "G",
-         "note": "G is short for a grand, a thousand pounds"
-        },
-        {
          "words": "stolen money",
-         "gives": "LOO",
-         "note": "loot without its last letter"
+         "at": 11,
+         "gives": "LOOT",
+         "note": "loot is stolen money or plunder"
+        },
+        {
+         "gives": "T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A thief hides a thousand pounds of stolen cash in a humble cottage.",
-     "walkthrough": "'in' looks like a container signal but is a link. Loot is stolen money; mostly trims it.",
-     "definitionFit": "An igloo is a small dome-shaped shelter built from blocks of snow, a simple dwelling."
+     "surface": "A thief stashes a thousand of the loot in a humble home.",
+     "walkthrough": "'Mostly' trims LOOT to LOO. An igloo is modest in being a simple snow-block shelter.",
+     "definitionFit": "An igloo is a dome-shaped Inuit dwelling built of snow, a small and simple house."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "grand"
+     "misdirectedWord": "modest"
     }
    }
   },
