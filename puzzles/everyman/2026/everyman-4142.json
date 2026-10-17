@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1256,30 +1257,39 @@
      {
       "text": "precipitation",
       "at": 29,
-      "note": "Precipitation is a mass noun covering all water that falls from the sky, so it can define a plural answer without taking a plural form itself."
+      "note": "a mass noun standing for the plural answer: heavy falls of rain are precipitation"
      }
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "RAINSTORMS",
      "indicators": [
       {
        "text": "not started",
-       "note": "A word not started is one you begin without its opening letter, so that letter is simply never written."
+       "at": 14,
+       "note": "a word that has not started is missing its opening letter"
       }
      ],
      "parts": [
       {
        "words": "Idea sessions",
-       "gives": "RAINSTORMS",
-       "note": "sessions for generating ideas are BRAINSTORMS, and without the letter they begin with these ten remain"
+       "at": 0,
+       "gives": "BRAINSTORMS",
+       "note": "brainstorms are group meetings held to generate ideas"
+      },
+      {
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The whole surface is a meeting round a whiteboard and the definition is a weather forecast; one letter at the front is all that stands between them.",
-     "definitionFit": "precipitation → RAINSTORMS: precipitation is the forecaster's word for water falling out of the sky, and a storm of rain is one violent form of it."
+     "surface": "Planning meetings never get going while the weather outside is wet.",
+     "walkthrough": "'not started' removes the first letter, B, from BRAINSTORMS.",
+     "definitionFit": "Rain is the commonest form of precipitation, and rainstorms are bouts of it falling heavily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "precipitation"
     }
    }
   }
