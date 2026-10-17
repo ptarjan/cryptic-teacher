@@ -580,49 +580,59 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Central elements of",
-       "note": "take the letters at the centre of the word"
-      }
-     ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "SP",
        "indicators": [
         {
-         "text": "losing",
-         "note": "drop the O from the second echo"
+         "text": "Central elements of",
+         "at": 0,
+         "note": "the central elements of a six-letter word are its third and fourth letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Central elements of gospel",
-         "gives": "SP",
-         "select": "middle",
-         "note": "the middle two of the six letters of GOSPEL"
+         "words": "gospel",
+         "at": 20,
+         "note": "the third and fourth letters of gospel"
         }
        ]
       },
       {
        "words": "echo",
+       "at": 27,
        "gives": "E",
-       "note": "the first letter of echo, which is also its letter in the NATO radio alphabet"
+       "note": "Echo is E in the NATO phonetic alphabet"
       },
       {
-       "words": "echo, losing nothing",
-       "gives": "ECH",
-       "note": "ECHO without O, the round zero for nothing"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "losing",
+         "at": 42,
+         "note": "losing says the second echo has a letter taken away"
+        }
+       ],
+       "parts": [
+        {
+         "words": "echo",
+         "at": 36,
+         "note": "the word echo itself, before a letter is taken out"
+        },
+        {
+         "words": "nothing",
+         "at": 49,
+         "gives": "O",
+         "note": "O looks like zero, nothing"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A preacher's delivery of the gospel echoes and echoes around the church.",
-     "walkthrough": "The two echoes are used differently: one is the radio letter E, the other is the word itself minus its O.",
-     "definitionFit": "A plain synonym: a speaker's delivery is the manner of their talk."
+     "surface": "A preacher's sermon, the heart of the gospel echoing round the church, delivered without a gap.",
+     "walkthrough": "The two echoes do different jobs: the first is the radio code word for E, the second is the plain word, which loses its O (nothing) to leave ECH.",
+     "definitionFit": "A speaker's delivery is their manner of speaking, so a speech or address delivered can be called a delivery."
     },
     "features": {
      "answerInScene": true,
