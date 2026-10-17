@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -128,37 +129,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ALSO",
-     "indicators": [
-      {
-       "text": "not starting",
-       "note": "A word that is not starting has been denied its opening letter, so the first character comes off."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not starting",
+         "at": 17,
+         "note": "not starting means the word loses its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "mate's",
-         "gives": "ALS",
-         "note": "a mate is a pal, so mate's is PAL'S, and the opening letter is refused"
+         "at": 10,
+         "gives": "PALS",
+         "note": "a mate is a pal, and the possessive gives the S"
         },
         {
-         "words": "round",
-         "gives": "O",
-         "note": "a round shape drawn on the page is this letter"
+         "gives": "P"
         }
        ]
+      },
+      {
+       "words": "round",
+       "at": 37,
+       "gives": "O",
+       "note": "O is round in shape"
       }
      ]
     },
     "explanation": {
-     "surface": "A friend who is slow off the mark when it is his turn to buy a round.",
-     "walkthrough": "'Round' looks like the drink the slow mate never gets in; it is the shape of a letter instead. 'Mate' is the crossword's everyday pal, not a spouse or a ship's officer.",
-     "definitionFit": "'Likewise' and 'also' both tack an extra item on to what has just been said — me too, and this as well."
+     "surface": "A friend fails to make a start on getting round to something, too.",
+     "walkthrough": "'not starting' takes the P off PALS (mate's), leaving ALS; O for 'round' completes it.",
+     "definitionFit": "Also and likewise both mean in addition, in the same way."
     },
     "features": {
      "answerInScene": false,
@@ -724,7 +729,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Easy Street",
+      "text": "Easy Street?",
       "at": 0
      }
     ],
@@ -732,33 +737,32 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "twice",
-       "note": "Twice means the small word beside it is thrown into the mix two times over rather than once."
-      },
-      {
        "text": "dubious",
-       "note": "Something dubious cannot be trusted to be what it looks like, and letters called dubious will not stay in the order given."
+       "at": 31,
+       "note": "dubious, meaning doubtful or shady, signals the letters are not to be trusted in their order"
       }
      ],
      "parts": [
       {
        "words": "Roll eye",
-       "note": "anagram fodder, seven letters"
+       "at": 13,
+       "note": "taken as written, to be rearranged"
       },
       {
        "words": "twice if",
+       "at": 22,
        "gives": "IFIF",
-       "note": "IF joins the fodder two times over, four letters more"
+       "note": "the word if taken two times over"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone rolling their eyes at a claim they do not believe for a moment.",
-     "walkthrough": "'Roll' looks like the instruction and is part of what gets shuffled; the real instruction is the last word. Two IFs go into the mixture, which is what 'twice' is doing there.",
-     "definitionFit": "Living the life of Riley is living in carefree comfort with the money coming easily, which is what being on Easy Street means."
+     "surface": "Someone rolls their eyes, doubtful about a comfortable lifestyle.",
+     "walkthrough": "'twice if' gives IF IF; with ROLL EYE that is the pool 'dubious' rearranges. Easy Street is an idiom for a life of comfort, and the question mark marks it as an example.",
+     "definitionFit": "The life of Riley is an idiom for an easy, carefree existence, the same comfortable state as living on Easy Street."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": true,
      "misdirectedWord": "Roll"
     }
