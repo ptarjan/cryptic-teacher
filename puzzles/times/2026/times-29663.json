@@ -194,44 +194,51 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ILLUMINATE",
      "indicators": [
       {
        "text": "for",
-       "note": "one thing put in place of another: millions stands where reading stood"
+       "at": 29,
+       "note": "one thing for another means a swap: the first replaces the second"
       }
      ],
      "parts": [
       {
-       "words": "Author will",
-       "gives": "ILL",
-       "note": "the setter, as author, says I'll"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Author will",
+         "at": 0,
+         "gives": "ILL",
+         "note": "the author is I, the setter, and 'I will' contracts to I'LL"
+        },
+        {
+         "words": "go",
+         "at": 12,
+         "gives": "URINATE",
+         "note": "to go, informally, is to urinate"
+        }
+       ]
       },
       {
-       "words": "go",
-       "gives": "URINATE",
-       "note": "go is a polite euphemism for passing water"
+       "words": "reading, perhaps",
+       "at": 33,
+       "gives": "R",
+       "note": "reading is one of the three Rs, so it gives R; perhaps flags the example"
       },
       {
        "words": "millions",
-       "gives": "M",
-       "note": "M is the abbreviation for million(s)"
-      },
-      {
-       "words": "reading",
-       "gives": "R",
-       "note": "reading is one of the three Rs, so it stands for R, the letter taken out"
+       "at": 20,
+       "gives": "M"
       }
      ]
     },
     "explanation": {
-     "surface": "A writer reads aloud to a big audience hoping to enlighten them.",
-     "walkthrough": "'Author will go' is I'LL URINATE; swap its R for M and you get ILLUMINATE. The three Rs are reading, writing and arithmetic.",
-     "definitionFit": "To illuminate a subject is to shed light on it, making it clear and so informing people."
+     "surface": "Pictures a writer whose book earns millions from readers, hoping to educate them.",
+     "walkthrough": "The author 'will go' in the lavatory sense: I'LL URINATE. Then 'for' swaps M (millions) in place of R (reading, one of the three Rs).",
+     "definitionFit": "To illuminate a subject is to make it clear, which is to enlighten someone about it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "go"
@@ -595,43 +602,52 @@
     ],
     "wordplay": {
      "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 14,
+       "note": "after places the cut word behind the pub and sing pieces"
+      }
+     ],
      "parts": [
       {
        "words": "pub",
+       "at": 20,
        "gives": "BAR",
        "note": "a bar is a pub"
       },
       {
        "words": "sing",
+       "at": 24,
        "gives": "CAROL",
        "note": "to carol is to sing joyfully"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "LE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half-cut",
-         "note": "cutting the word in half keeps only its first two letters"
+         "at": 5,
+         "note": "half-cut means half the word is chopped off, leaving only its first two letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "Left",
-         "gives": "LE",
-         "select": "first",
-         "note": "the first half of Left"
+         "at": 0
+        },
+        {
+         "gives": "FT",
+         "note": "the second half of left"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone stumbles out of the pub half-cut, that is, tipsy, and has a sing-song.",
-     "walkthrough": "'Half-cut' is British slang for drunk, which suits the pub; 'sing song' looks like one phrase but splits into the verb and the definition. 'After' puts BAR before the rest.",
-     "definitionFit": "A barcarolle is a Venetian gondolier's song or a piece composed in that rocking style."
+     "surface": "Pictures someone leaving a pub tipsy and launching into a singalong.",
+     "walkthrough": "'half-cut' is British slang for drunk, which suits the pub, but here it halves the word for left; 'after' puts that piece last. 'sing' is a verb giving its synonym, not part of the definition.",
+     "definitionFit": "A barcarolle is a Venetian gondolier's song, or a piece of music imitating one."
     },
     "features": {
      "answerInScene": false,
@@ -1132,35 +1148,34 @@
      "parts": [
       {
        "words": "about",
+       "at": 8,
        "gives": "ON",
-       "note": "on means about, concerning"
+       "note": "on means about, as in a talk on a subject"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "EDGE",
        "indicators": [
         {
          "text": "content of",
-         "note": "the content of something is what sits inside its outer edges"
+         "at": 14,
+         "note": "the content of a word is what lies inside it, its letters without the outer ones"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "financial records",
-         "gives": "EDGE",
-         "select": "middle",
-         "note": "a ledger is an accounts book; its inside letters"
+         "at": 25,
+         "gives": "LEDGER",
+         "note": "a ledger is a book of financial records"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is worried about what the company accounts contain.",
-     "walkthrough": "Take LEDGER and drop its outer L and R.",
-     "definitionFit": "Being on edge means nervous and tense, unable to relax, which is anxious."
+     "surface": "Someone is worried about what the accounts contain.",
+     "walkthrough": "'content of' strips the first and last letters from LEDGER, leaving EDGE.",
+     "definitionFit": "Being on edge is an idiom for being nervous and tense."
     },
     "features": {
      "answerInScene": true,
@@ -1229,28 +1244,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "NAMETAG",
+     "spelt": "NAMETAG",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner famously swapped the opening sounds of pairs of words"
+       "at": 17,
+       "note": "Spooner, the Oxford don famous for swapping the starts of words, signals that opening sounds are exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "domesticated horse",
-       "gives": "NAMETAG",
-       "soundsLike": "TAME NAG",
-       "note": "a nag is a horse, tame means domesticated; swap the initial sounds"
+       "op": "homophone",
+       "spelt": "NAME",
+       "parts": [
+        {
+         "words": "domesticated",
+         "at": 27,
+         "gives": "TAME",
+         "note": "tame means domesticated; given the other word's opening sound it becomes name"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "TAG",
+       "parts": [
+        {
+         "words": "horse",
+         "at": 40,
+         "gives": "NAG",
+         "note": "a nag is a horse; given the first word's opening sound it becomes tag"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rider signals how to handle a horse that has been broken in.",
-     "walkthrough": "'Handle' means a name here, as in a nickname; the surface makes it a verb about controlling a horse.",
-     "definitionFit": "A name tag is a label worn to display a person's name, so it advertises what people call them."
+     "surface": "Pictures a signal used for managing a docile horse.",
+     "walkthrough": "'Spooner's' swaps the opening sounds of TAME NAG. 'Handle' is slang for a person's name, which a badge displays.",
+     "definitionFit": "A name tag is a badge showing someone's name, so it signals what to call them."
     },
     "features": {
      "answerInScene": false,
