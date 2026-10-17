@@ -175,54 +175,65 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "most of",
-       "note": "most of a word is all but its last letter"
-      }
-     ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "SALAM",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "a half of",
-         "note": "a half of a four-letter word is two of its letters, here the back pair"
+         "text": "most of",
+         "at": 20,
+         "note": "most of the word means all but its final letter is kept"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "most of sausage",
-         "gives": "SALAM",
-         "select": "last",
-         "note": "the spicy Italian sausage without its final I"
+         "words": "sausage",
+         "at": 28,
+         "gives": "SALAMI",
+         "note": "salami is a cured Italian sausage"
+        },
+        {
+         "gives": "I"
         }
        ]
       },
       {
        "words": "with",
+       "at": 36,
        "gives": "AND",
-       "note": "and = with, together with"
+       "note": "and means together with"
       },
       {
-       "words": "a half of beer",
-       "gives": "ER",
-       "note": "the back half of BEER"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "a half of",
+         "at": 41,
+         "note": "a half of the four-letter word means only one pair of its letters is kept, here the back pair"
+        }
+       ],
+       "parts": [
+        {
+         "words": "beer",
+         "at": 51
+        },
+        {
+         "gives": "BE"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pub lunch: sausage and a half of beer.",
-     "walkthrough": "'A half of beer' reads as a pub order, a half-pint; here it is literally half the word.",
-     "definitionFit": "A plain category: this lizard-like creature of damp places is an amphibian, like a newt."
+     "surface": "A recipe of salami and beer is supposedly what makes up a newt-like creature.",
+     "walkthrough": "'most of' trims SALAMI to SALAM; 'a half of beer' is the back half, ER, of BEER.",
+     "definitionFit": "A salamander is a tailed amphibian related to newts."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "half"
+     "joke": "absurd",
+     "misdirectedWord": "making"
     }
    }
   },
@@ -499,30 +510,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "TWEE",
      "indicators": [
       {
        "text": "largely",
-       "note": "largely means for the most part, so keep most of the word and drop its last letter"
+       "at": 22,
+       "note": "largely means most of the word is kept, dropping its final letter"
       }
      ],
      "parts": [
       {
-       "words": "Professorial material largely",
-       "gives": "TWEE",
-       "note": "the woollen cloth of the stereotyped professor's jacket, minus its final D"
+       "words": "Professorial material",
+       "at": 0,
+       "gives": "TWEED",
+       "note": "tweed is the woollen cloth stereotypically worn by professors"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A fusty academic's jacket fabric judged old-fashioned and precious.",
-     "walkthrough": "The cartoon professor wears a tweed jacket with elbow patches; 'largely' drops the D.",
-     "definitionFit": "A plain synonym: the word means cutesy or quaint in a self-conscious way."
+     "surface": "A professor's clothing is mocked as old-fashioned and cutesy.",
+     "walkthrough": "'largely' trims TWEED, the woollen cloth of the stereotypical academic jacket, by its last letter.",
+     "definitionFit": "Twee is a British word for excessively dainty, sentimental or precious."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "material"
     }
    }
   },
