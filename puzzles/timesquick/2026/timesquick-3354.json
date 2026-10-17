@@ -26,7 +26,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -50,24 +51,31 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "SUPERB",
-     "indicators": [
-      {
-       "text": "hemming",
-       "note": "A hem runs along the edges of a cloth, so the letters on either side of the word close round what sits between them."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "SUPERB",
        "indicators": [
         {
          "text": "retreating",
-         "note": "Anything retreating goes back the way it came, so the letters named before it are written in the opposite order."
+         "at": 3,
+         "note": "something retreating goes back the way it came, so the letters of US are read in the opposite direction"
+        }
+       ],
+       "parts": [
+        {
+         "words": "US",
+         "at": 0
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "hemming",
+         "at": 31,
+         "note": "to hem something in is to surround it, so the pawn and bishop letters enclose the queen"
         }
        ],
        "parts": [
@@ -75,40 +83,38 @@
          "op": "charade",
          "parts": [
           {
-           "words": "US",
-           "gives": "SU",
-           "note": "the two letters of the country written back to front"
-          },
-          {
            "words": "pawn",
+           "at": 15,
            "gives": "P",
-           "note": "p = pawn, as the piece is written on a chess scoresheet"
-          },
-          {
-           "words": "queen",
-           "gives": "ER",
-           "note": "ER is Elizabeth Regina, the royal cipher that was stamped on British postboxes"
+           "note": "P is the chess notation abbreviation for pawn"
           },
           {
            "words": "bishop",
+           "at": 24,
            "gives": "B",
-           "note": "b = bishop, the other chessman shortened to its initial"
+           "note": "B is the chess notation abbreviation for bishop"
           }
          ]
+        },
+        {
+         "words": "queen",
+         "at": 39,
+         "gives": "ER",
+         "note": "ER, Elizabeth Regina, is the crossword's usual queen"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The Americans falling back while two chessmen close in on the queen.",
-     "walkthrough": "The queen here is the British one rather than the chessboard's, and the pawn and bishop stay on the board around her. The exclamation mark belongs to the definition, which is a shout of praise.",
-     "definitionFit": "Superb is praise at full strength, said of a thing so good it needs nothing qualifying it, which is what excellent claims."
+     "surface": "An excited chess commentator praises an American retreat where pawn and bishop trap the opposing queen.",
+     "walkthrough": "'retreating' turns US into SU; 'hemming' puts ER (Elizabeth Regina) between P and B to give PERB.",
+     "definitionFit": "Superb is a straightforward synonym of excellent, describing something of the very highest quality."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "queen"
+     "misdirectedWord": "retreating"
     }
    }
   },
@@ -265,31 +271,36 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "BIB",
      "indicators": [
       {
-       "text": "Each character taking one step",
-       "note": "A character is a letter here, and a letter that takes one step moves one place further along the alphabet."
+       "text": "Each character taking one step on",
+       "at": 5,
+       "note": "every letter moves one place further along the alphabet, so each is replaced by the letter that follows it"
       }
      ],
      "parts": [
       {
-       "words": "Aha!",
-       "gives": "BIB",
-       "note": "A, H and A each advanced by one place in the alphabet"
+       "words": "Aha",
+       "at": 0,
+       "note": "the word as written supplies the three letters to be shifted"
+      },
+      {
+       "gives": "AHA"
+      },
+      {
+       "gives": "BIB"
       }
      ]
     },
     "explanation": {
-     "surface": "A cry of discovery as everybody takes a step out onto the apron.",
-     "walkthrough": "Shifting every letter one place along the alphabet is a rare device, worth storing for the next time a short exclamation turns up. The apron is the cloth tied under a child's chin, not the tarmac beside a terminal.",
-     "definitionFit": "A bib is the cloth tied on to keep a child's front clean at mealtimes, an apron that covers only the chest."
+     "surface": "An exclamation of discovery, as if someone has spotted a pattern in their apron.",
+     "walkthrough": "Advance each letter of AHA by one in the alphabet: A becomes B, H becomes I, A becomes B.",
+     "definitionFit": "A bib is the upper part of an apron, or a small apron-like garment tied under a child's chin."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "character"
+     "misdirectedWord": "Aha"
     }
    }
   },
