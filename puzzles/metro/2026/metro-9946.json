@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -534,29 +535,32 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "BLOC",
      "indicators": [
       {
        "text": "Endlessly",
-       "note": "Endlessly means without an end, so the last letter of the word it governs is dropped."
+       "at": 0,
+       "note": "Endlessly means the word for obstruct loses its final letter"
       }
      ],
      "parts": [
       {
-       "words": "Endlessly obstruct",
-       "gives": "BLOC",
-       "note": "to obstruct a road is to BLOCK it, and the word loses its final letter"
+       "words": "obstruct",
+       "at": 10,
+       "gives": "BLOCK",
+       "note": "to block is to obstruct"
+      },
+      {
+       "gives": "K"
       }
      ]
     },
     "explanation": {
-     "surface": "Getting in the way of something for good.",
-     "walkthrough": "The two words differ by a single letter, which makes this the gentlest deletion in the puzzle and the easiest to miss for that reason. A bloc is a group of countries or parties acting together — the Eastern bloc, a voting bloc.",
-     "definitionFit": "A bloc is a set of states or members that line up together on an issue, which is an alliance."
+     "surface": "A complaint that some coalition never stops getting in the way.",
+     "walkthrough": "'Endlessly' sounds like it describes the obstruction, but it is the instruction to cut the last letter.",
+     "definitionFit": "A bloc is a group of nations or parties joined for a common purpose, which is an alliance."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "Endlessly"
     }
@@ -897,37 +901,37 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NOTCH",
-     "indicators": [
-      {
-       "text": "returning",
-       "note": "Something returning comes back the way it went, so those letters are read in the opposite direction."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 12,
+         "note": "returning means the word for heavyweight comes back, read in reverse"
+        }
+       ],
        "parts": [
         {
-         "words": "Heavyweight returning",
-         "gives": "NOT",
-         "note": "a ton is a great weight, and it comes back the other way as NOT"
-        },
-        {
-         "words": "church",
-         "gives": "CH",
-         "note": "ch is the standard short form of church, as printed on a map"
+         "words": "Heavyweight",
+         "at": 0,
+         "gives": "TON",
+         "note": "a ton is a very heavy weight"
         }
        ]
+      },
+      {
+       "words": "church",
+       "at": 25,
+       "gives": "CH"
       }
      ]
     },
     "explanation": {
-     "surface": "A boxer going back to church to leave his mark.",
-     "walkthrough": "'Heavyweight' offers the boxer and means a literal ton. In a down entry a thing that returns is travelling upwards, so the weight is read from the bottom of those squares.",
-     "definitionFit": "To notch something is to cut a nick in it, the tally mark scored on a stick, which is making a mark in the plainest way."
+     "surface": "A burly boxer goes back to his church to leave his mark there.",
+     "walkthrough": "'Heavyweight' suggests a boxer, but it is just a weight: TON, which 'returning' turns round.",
+     "definitionFit": "To notch is to cut a small nick into something, which is to make a mark on it."
     },
     "features": {
      "answerInScene": false,
