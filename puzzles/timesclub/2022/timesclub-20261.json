@@ -110,47 +110,70 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EXTORTIONER",
      "indicators": [
       {
-       "text": "with both leads cut off",
-       "note": "leads are the front letters, and cutting them off strips the opening letter from each of the two words involved"
+       "text": "cut off",
+       "at": 58,
+       "note": "cut off says those leading letters are removed"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "held by",
-         "note": "to be held by something is to sit inside it, so one piece goes within the other"
+         "text": "with both leads",
+         "at": 42,
+         "note": "both leads are the first letters of the two words, the inventor's and the part's"
         }
        ],
        "parts": [
         {
-         "words": "Morse inventor",
-         "gives": "EXTER",
-         "note": "Colin Dexter created Inspector Morse; his surname loses its first letter D"
+         "op": "container",
+         "indicators": [
+          {
+           "text": "held by",
+           "at": 19,
+           "note": "held by puts the part inside the inventor's name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Morse inventor",
+           "at": 27,
+           "gives": "DEXTER",
+           "note": "Colin Dexter created the detective Inspector Morse"
+          },
+          {
+           "words": "part",
+           "at": 14,
+           "gives": "PORTION",
+           "note": "a portion is a part"
+          }
+         ]
         },
         {
-         "words": "part",
-         "gives": "ORTION",
-         "note": "portion means a part; it loses its first letter P"
+         "gives": "D",
+         "note": "the lead of the inventor's name"
         }
        ]
+      },
+      {
+       "gives": "P",
+       "note": "the lead of the word for part"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone who wrings things is caught up in the work of the man who gave us the Morse code.",
-     "walkthrough": "'Morse inventor' suggests Samuel Morse of the code, but it is Colin Dexter, author of the Inspector Morse novels.",
-     "definitionFit": "An extortioner wrings money from victims by threats, squeezing them financially."
+     "surface": "A torturer's grip on a section held by a code-maker, with his wires snipped.",
+     "walkthrough": "'Morse inventor' suggests Samuel Morse of the code, but means Colin Dexter, the novelist who invented Inspector Morse. The 'both leads' are the initial letters of the two words, inventor's and part's.",
+     "definitionFit": "An extortioner wrings money out of people, so is one who squeezes them."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Morse"
+     "joke": "pun",
+     "misdirectedWord": "inventor"
     }
    }
   },
@@ -523,41 +546,25 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "ATOK",
+     "op": "reverse",
+     "reading": "A TO K",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "this change",
-         "gives": "ATOK",
-         "note": "the entry reads as 'A to K', an instruction to replace A by K"
-        },
-        {
-         "unchecked": true,
-         "words": "Repeating",
-         "note": "the instruction is applied to both A's in the word that follows, not just one"
-        },
-        {
-         "unchecked": true,
-         "words": "sauna",
-         "note": "the word the change is applied to; with both A's turned to K it becomes the animal"
-        }
-       ]
+       "words": "Repeating this change would make sauna",
+       "at": 0,
+       "note": "changing A to K, done for both of sauna's As, turns sauna into skunk"
       }
      ]
     },
     "explanation": {
-     "surface": "A recipe for turning a steamy sauna into something that reeks.",
-     "walkthrough": "Read the answer as 'A to K': swap each A in SAUNA for K and you get SKUNK, so the entry names its own creature.",
-     "definitionFit": "The atok is a South American skunk, an animal famous for spraying a foul odour."
+     "surface": "A riddle about a word-change that turns a steam room into something smelly.",
+     "walkthrough": "Read the answer as the instruction 'A to K'; applied twice to SAUNA it gives SKUNK, which is what the answer means.",
+     "definitionFit": "An atok is a kind of skunk, an animal famous for its foul-smelling spray."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "sauna"
     }
    }
@@ -716,37 +723,49 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "RHEBOK",
-     "indicators": [
-      {
-       "text": "its second half absorbing the first",
-       "note": "the latter half of the word swallows its own front half, so the two halves are nested instead of side by side"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "plant used in cooking",
-       "gives": "HERB",
-       "note": "a herb is a plant used for flavouring food"
+       "op": "container",
+       "indicators": [
+        {
+         "text": "absorbing",
+         "at": 56,
+         "note": "absorbing means taking in, so the first half goes inside the second"
+        }
+       ],
+       "parts": [
+        {
+         "words": "plant used in cooking, its second half",
+         "at": 17,
+         "gives": "RB",
+         "note": "the plant is a herb, whose second half is its last two letters"
+        },
+        {
+         "words": "the first",
+         "at": 66,
+         "gives": "HE",
+         "note": "the first half of herb"
+        }
+       ]
       },
       {
        "words": "green light",
+       "at": 76,
        "gives": "OK",
-       "note": "giving the green light means saying OK"
+       "note": "OK means approval, like a green light"
       }
      ]
     },
     "explanation": {
-     "surface": "A South African plant used in cookery is described oddly, then given the go-ahead.",
-     "walkthrough": "Split the herb in two; its back half wraps around its front half, so the word is turned inside out.",
-     "definitionFit": "The rhebok is a small grey antelope found only in southern Africa."
+     "surface": "A recipe note about a South African herb that soaks up green light.",
+     "walkthrough": "The plant splits into two halves of two letters; 'absorbing' puts the first half inside the second. OK, a go-ahead, is the green light.",
+     "definitionFit": "The rhebok is a small grey antelope that lives only in southern Africa."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "native"
+     "misdirectedWord": "plant"
     }
    }
   },
@@ -851,42 +870,42 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "DIGGERWASP",
      "indicators": [
       {
        "text": "in",
-       "note": "in places the jumbled letters inside the outer word"
+       "at": 41,
+       "note": "in places the rearranged eggs inside the sauce"
       }
      ],
      "parts": [
+      {
+       "words": "thick sauce",
+       "at": 44,
+       "gives": "DIP",
+       "note": "a dip is a thick sauce for dunking food"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "demolished",
-         "note": "something demolished is knocked to pieces, so the letters are broken up and rebuilt"
+         "at": 21,
+         "note": "demolished means knocked down and scattered, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "raw eggs",
-         "gives": "GGERWAS",
-         "note": "the seven letters reworked"
-        },
-        {
-         "words": "thick sauce",
-         "gives": "DIP",
-         "note": "a dip is a thick sauce for dunking food"
+         "at": 32
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Raw eggs are smashed into a thick dip.",
-     "walkthrough": "'Diminutive' belongs to the definition: digger wasps are small insects that burrow.",
-     "definitionFit": "Digger wasps are small solitary insects that excavate burrows in soil to house their larvae."
+     "surface": "A small miner wrecks a raw-egg dish in a heavy sauce.",
+     "walkthrough": "'Diminutive tunneller' sounds like a small human digger, but it is an insect that burrows.",
+     "definitionFit": "Digger wasps are small insects that excavate burrows in the ground for their young."
     },
     "features": {
      "answerInScene": false,
@@ -927,45 +946,50 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "GENSDEPEU",
      "indicators": [
       {
        "text": "injecting",
-       "note": "an injection puts something inside, so the scrambled letters go within the other word"
+       "at": 14,
+       "note": "injecting signals putting one thing inside another"
+      },
+      {
+       "text": "into",
+       "at": 40,
+       "note": "into names the knee word as the container"
       }
      ],
      "parts": [
+      {
+       "words": "knee",
+       "at": 45,
+       "gives": "GENU",
+       "note": "genu is the Latin and anatomical word for knee"
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "foolishly",
-         "note": "acting foolishly means without sense or order, so those letters are scrambled"
+         "at": 30,
+         "note": "foolishly means senselessly, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "speed",
-         "gives": "SDEPE",
-         "note": "the five letters reworked"
-        },
-        {
-         "words": "knee",
-         "gives": "GENU",
-         "note": "genu is the anatomical Latin word for knee"
+         "at": 24
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Ordinary folk stupidly inject amphetamines into their knees.",
-     "walkthrough": "'Speed' is drug slang in the surface but here is simply the letters to jumble; GEN(SDEPE)U.",
-     "definitionFit": "Gens de peu is French for people of little account, the lower classes."
+     "surface": "A drug user foolishly shoots up amphetamine into a knee.",
+     "walkthrough": "'speed' looks like the drug but is only letters to rearrange. Genu is the Latin word for knee, used in anatomy.",
+     "definitionFit": "Gens de peu is French for people of little worth, the humble lower classes."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "speed"
     }
@@ -1156,30 +1180,39 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "EVENSTEVEN",
      "indicators": [
       {
        "text": "after central switch",
-       "note": "the two letters in the very middle trade places, so the phrase changes only at its centre"
+       "at": 30,
+       "note": "the two letters in the middle trade places"
       }
      ],
      "parts": [
       {
        "words": "last part of heptathlon",
+       "at": 6,
        "gives": "EVENTSEVEN",
-       "note": "a heptathlon has seven events, so its last part is event seven"
+       "note": "a heptathlon has seven events, the last being event seven"
+      },
+      {
+       "gives": "TS",
+       "note": "the two central letters"
+      },
+      {
+       "gives": "ST",
+       "note": "the same two letters switched round"
       }
      ]
     },
     "explanation": {
-     "surface": "An athlete gives up in the final heptathlon discipline after a mid-race change.",
-     "walkthrough": "'Quits' looks like a verb about giving up, but it is the adjective for being square; swapping the middle T and S of EVENT SEVEN gives EVENS TEVEN.",
-     "definitionFit": "Being quits with someone means owing nothing either way, which is what even-steven expresses."
+     "surface": "An athlete gives up after a change in the final heptathlon discipline.",
+     "walkthrough": "'Quits' is an adjective, meaning square with nobody owing. EVENT SEVEN has T and S at its centre; switching them gives the answer.",
+     "definitionFit": "Being even-steven means neither side owes the other anything, just as being quits does."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Quits"
     }
    }
@@ -1385,41 +1418,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "substitution",
+     "indicators": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "CHOULTRY",
-       "indicators": [
-        {
-         "text": "hybrid",
-         "note": "a hybrid mixes two things, here grafting the change that turns one word into another onto this word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "fowl",
-         "gives": "POULTRY",
-         "note": "poultry are domestic fowl"
-        }
-       ]
+       "text": "hybrid",
+       "at": 7,
+       "note": "hybrid says the word is crossed with another"
       },
       {
-       "unchecked": true,
-       "words": "to complement \"picken\"?",
-       "note": "picken needs CH in place of P to become chicken, and the same swap is made here"
+       "text": "to complement \"picken\"?",
+       "at": 19,
+       "note": "picken is chicken with P swapped in for CH, so the matching change swaps CH in for P"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fowl",
+       "at": 14,
+       "gives": "POULTRY",
+       "note": "poultry is domestic fowl"
+      },
+      {
+       "gives": "P",
+       "note": "the opening letter replaced"
+      },
+      {
+       "gives": "CH",
+       "note": "the letters borrowed from the other bird"
       }
      ]
     },
     "explanation": {
-     "surface": "A khan breeds a crossbred bird to go alongside a chicken with a misprinted name.",
-     "walkthrough": "Changing P to CH turns picken into chicken; doing the same to POULTRY gives CHOULTRY.",
-     "definitionFit": "A khan is an inn for caravans, and a choultry is an Indian travellers' rest house or caravanserai."
+     "surface": "A hybrid bird bred alongside a mock 'picken'.",
+     "walkthrough": "Chicken with PO for CH is 'picken'; the matching hybrid takes POULTRY and puts CH for PO. The 's after Khan is 'is'.",
+     "definitionFit": "A khan is a caravanserai, and a choultry is the Indian equivalent: a rest house for travellers."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "joke": "absurd",
      "misdirectedWord": "Khan"
     }
