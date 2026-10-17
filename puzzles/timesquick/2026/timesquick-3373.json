@@ -281,62 +281,48 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PHYSIO",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "gets involved in",
+       "at": 40,
+       "note": "the picked letters go inside the reversed abbreviation"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "regularly",
-         "note": "Regularly means at even intervals, so take every other letter of the words before it."
-        },
-        {
          "text": "back",
-         "note": "Back means backwards, the direction you go when you go back, so the word is written in reverse."
+         "at": 57,
+         "note": "back says the abbreviation is turned round to read the other way"
         }
        ],
        "parts": [
         {
-         "words": "back operation",
-         "gives": "PO",
-         "note": "OP, short for operation, written backwards; HYSI goes inside it"
-        },
-        {
-         "op": "nth",
-         "unchecked": true,
-         "gives": "HYSI",
-         "n": 2,
-         "indicators": [
-          {
-           "text": "gets involved in",
-           "note": "To get involved in something is to be drawn inside it, so these letters go inside the next piece."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "they'd said regularly",
-           "gives": "HYSI",
-           "select": 2,
-           "note": "every second letter of tHeYdSaId"
-          }
-         ]
+         "words": "operation",
+         "at": 62,
+         "gives": "OP"
         }
        ]
+      },
+      {
+       "words": "they'd said regularly",
+       "at": 18,
+       "gives": "HYSI",
+       "note": "the regular, even-placed letters of they'd said: its second, fourth, sixth and eighth"
       }
      ]
     },
     "explanation": {
-     "surface": "A physiotherapist is drawn into an operation on someone's back, according to what they said.",
-     "walkthrough": "The medical setting makes 'back operation' sound like spinal surgery; really it is OP turned back. Physio is the everyday short form of physiotherapist.",
-     "definitionFit": "A definition by category: a physio (physiotherapist) is one kind of healthcare worker, treating injuries with exercise and massage."
+     "surface": "A physiotherapist, people said, often helps after back surgery.",
+     "walkthrough": "'Back operation' sounds like spinal surgery, which suits the physio, but 'back' turns OP into PO, and the regular letters of 'they'd said' sit inside it.",
+     "definitionFit": "Physio is short for physiotherapist, a healthcare professional who treats injuries with exercise and massage."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "back"
     }
    }
@@ -875,48 +861,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DALMATIAN",
-     "indicators": [
-      {
-       "text": "barking",
-       "note": "Barking is British slang for mad, and mad letters are scrambled into a new order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "last",
+       "indicators": [
+        {
+         "text": "close to",
+         "at": 12,
+         "note": "the close of a word is its final letter"
+        }
+       ],
        "parts": [
         {
-         "op": "last",
-         "indicators": [
-          {
-           "text": "close to",
-           "note": "The close of something is its end, so take the last letter of the next word."
-          }
-         ],
-         "parts": [
-          {
-           "words": "close to field",
-           "gives": "FIELD",
-           "note": "last letter of fielD"
-          }
-         ]
+         "words": "field",
+         "at": 21,
+         "note": "the word whose last letter is taken"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "barking",
+         "at": 27,
+         "note": "barking means mad, so the letters go wild into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "at",
+         "at": 35
         },
         {
-         "words": "at animal",
-         "gives": "ALMATIAN",
-         "note": "AT ANIMAL rearranged; 'barking' is the indicator"
+         "words": "animal",
+         "at": 38,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A spotted dog near a field barks at some creature.",
-     "walkthrough": "'Barking' fits the dog perfectly, but it is British slang for mad, the anagram signal.",
-     "definitionFit": "A definition by description: the Dalmatian is the breed marked all over with black or liver spots."
+     "surface": "A dog near a field barks at some other creature.",
+     "walkthrough": "'Barking' fits a dog so well that it hides its other sense, mad, which is the anagram signal; barking mad is British slang for crazy.",
+     "definitionFit": "The Dalmatian is the dog breed famous for its white coat covered in black or liver spots."
     },
     "features": {
      "answerInScene": true,
@@ -995,60 +985,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "shot",
-       "note": "Shot means wrecked, as in 'my nerves are shot', so the letters are broken up and rearranged."
+       "text": "to gain",
+       "at": 23,
+       "note": "the jumbled letters take in, or gain, the single letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "to gain",
-         "note": "To gain something is to take it on, so the next piece is added to the fodder before it is shuffled."
+         "text": "shot",
+         "at": 18,
+         "note": "shot means ruined or broken, so the letters of adept are jumbled"
         }
        ],
        "parts": [
         {
          "words": "adept",
-         "note": "anagram fodder"
-        },
+         "at": 12,
+         "note": "taken as written, as anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "P",
-         "indicators": [
-          {
-           "text": "lead in",
-           "note": "The lead is whoever goes first, so the lead in a word is its first letter."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "lead in polo",
-           "gives": "P",
-           "select": "first",
-           "note": "first letter of Polo, added to the fodder"
-          }
-         ]
+         "text": "lead in",
+         "at": 31,
+         "note": "the lead of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "polo",
+         "at": 39,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A skilled polo player gently strikes the ball to take the lead.",
-     "walkthrough": "The polo surface makes 'shot' a stroke of the mallet; it means the letters of ADEPT plus P are shot to pieces.",
-     "definitionFit": "A plain synonym: to tap is to strike lightly, and the past tense matches 'hit'."
+     "surface": "A skilled player takes a gentle swing to get the lead in a polo match.",
+     "walkthrough": "'Shot' looks like a polo stroke, but it is the anagram signal on 'adept'.",
+     "definitionFit": "To tap is to strike gently, so tapped means hit lightly."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "shot"
     }
    }
