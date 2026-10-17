@@ -43,38 +43,31 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "after",
-       "note": "popular comes after ten before the pair is turned round"
-      }
-     ],
      "parts": [
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "reversing"
+         "text": "after reversing",
+         "at": 19,
+         "note": "after reversing means the words ten and popular, once turned into letters, are read backwards"
         }
        ],
        "parts": [
         {
          "op": "charade",
-         "indicators": [
-          {
-           "text": "at last",
-           "note": "take only the final letter of policy"
-          }
-         ],
          "parts": [
           {
            "words": "Ten",
-           "note": "the number written as a word"
+           "at": 7,
+           "gives": "TEN",
+           "note": "taken as written"
           },
           {
            "words": "popular",
+           "at": 11,
            "gives": "IN",
-           "note": "in = popular, fashionable"
+           "note": "in means popular, fashionable"
           }
          ]
         }
@@ -82,29 +75,31 @@
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "Y",
+       "indicators": [
+        {
+         "text": "at last",
+         "at": 42,
+         "note": "at last points to the final letter of the word policy"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "policy at last",
-         "gives": "Y",
-         "select": "last",
-         "note": "last letter of policY"
+         "words": "policy",
+         "at": 35,
+         "note": "the final letter of policy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A political sketch: Downing Street's standing rises after a U-turn on policy.",
-     "walkthrough": "Number Ten looks like Downing Street, but 'Number' is the definition and 'Ten' is just TEN, joined by IN and flipped to NINET.",
-     "definitionFit": "A plain definition by category: ninety is one particular number, the kind of broad class-word setters often use for numerals."
+     "surface": "A political jibe about Number Ten winning popularity by doing a U-turn on policy.",
+     "walkthrough": "TEN plus IN is TENIN; 'after reversing' turns it to NINET, and 'at last' adds the Y of policy. Number Ten is the British prime minister's residence, 10 Downing Street.",
+     "definitionFit": "Ninety is a number, nine times ten, so it is a straightforward example of the definition."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Number"
     }
    }
@@ -334,27 +329,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EVEN",
+     "op": "middle",
      "indicators": [
       {
        "text": "not using wings",
-       "note": "the wings of a word are its two end letters, which are dropped"
+       "at": 22,
+       "note": "not using wings means the outer letters at either side of the word are dropped"
       }
      ],
      "parts": [
       {
        "words": "type of rugby",
+       "at": 8,
        "gives": "SEVENS",
-       "note": "sevens is seven-a-side rugby"
+       "note": "sevens is rugby played with seven players a side"
       }
      ]
     },
     "explanation": {
-     "surface": "A rugby variant played without wingers.",
-     "walkthrough": "Sevens is the seven-a-side form of rugby; 'wings' looks like positions on the pitch but means the word's outer letters.",
-     "definitionFit": "A plain synonym: a steady, unvarying pulse or rhythm can be called either regular or even."
+     "surface": "A regular style of rugby played without wingers.",
+     "walkthrough": "'not using wings' drops both S letters from SEVENS. The wings are positions in rugby, so the surface plays on both senses.",
+     "definitionFit": "Even can mean regular or uniform, as an even pace or even breathing is steady and unvarying."
     },
     "features": {
      "answerInScene": false,
@@ -389,35 +384,51 @@
      "indicators": [
       {
        "text": "about",
-       "note": "the song goes around the other piece"
-      },
-      {
-       "text": "leaving",
-       "note": "J for Jack departs from JUST"
+       "at": 13,
+       "note": "about means the song wraps around the remaining letters"
       }
      ],
      "parts": [
       {
        "words": "song",
+       "at": 8,
        "gives": "ARIA",
-       "note": "an aria is an operatic song"
+       "note": "an aria is a song in an opera"
       },
       {
-       "words": "just leaving Jack",
-       "gives": "UST",
-       "note": "JUST without J (Jack)"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "leaving",
+         "at": 24,
+         "note": "leaving means the Jack letter departs from the word just"
+        }
+       ],
+       "parts": [
+        {
+         "words": "just",
+         "at": 19,
+         "gives": "JUST",
+         "note": "taken as written"
+        },
+        {
+         "words": "Jack",
+         "at": 32,
+         "gives": "J",
+         "note": "J is the abbreviation for Jack in a pack of cards"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A country song about someone who has just walked out on Jack.",
-     "walkthrough": "'Country song' reads as one phrase, a genre of music; split it, and Country is the definition and song is ARIA. J = Jack, as on playing cards.",
-     "definitionFit": "A definition by example: this Alpine republic, capital Vienna, is one nation among many."
+     "surface": "A country song about someone who has just walked out on a man called Jack.",
+     "walkthrough": "'leaving' takes J out of JUST to leave UST, and 'about' puts ARIA around it. 'Country song' suggests country music.",
+     "definitionFit": "Austria is a country in central Europe, with Vienna as its capital."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "Country"
     }
    }
@@ -919,26 +930,41 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "lacking",
-       "note": "one E for energy is removed"
-      },
-      {
        "text": "to run",
-       "note": "the remaining letters run into a new order"
+       "at": 44,
+       "note": "to run means the remaining letters run around into a new order"
       }
      ],
      "parts": [
       {
-       "words": "centipedes lacking energy",
-       "gives": "CNTIPEDES",
-       "note": "centipedes with one E (energy) removed"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "lacking",
+         "at": 29,
+         "note": "lacking means the word centipedes is without one of its energy letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "centipedes",
+         "at": 18,
+         "note": "taken as written"
+        },
+        {
+         "words": "energy",
+         "at": 37,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone peers at centipedes too sluggish to scurry off.",
-     "walkthrough": "'Lacking energy to run' reads as a tired centipede; E = energy, and run is the anagram signal.",
-     "definitionFit": "A plain synonym: examining something carefully for faults, as an official might, is looking closely at it."
+     "surface": "Someone examining centipedes too tired to run away.",
+     "walkthrough": "'lacking' removes one E from CENTIPEDES, leaving CNTIPEDES, which 'to run' rearranges.",
+     "definitionFit": "To inspect is to examine carefully, so inspected means looked at closely."
     },
     "features": {
      "answerInScene": true,
@@ -968,65 +994,59 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "periodically",
-       "note": "periodically means at regular intervals, so letters are taken at regular spacing through the word"
+       "text": "to conserve",
+       "at": 37,
+       "note": "to conserve means to hold safely inside, so the old letter goes within"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "to conserve"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Maybe Glaswegian",
+         "at": 0,
          "gives": "SCOT",
-         "note": "a Glaswegian is a Scot"
+         "note": "a Glaswegian is an example of a Scot; maybe flags the example"
         },
         {
-         "words": "old",
-         "gives": "O",
-         "note": "O = old"
+         "op": "alternate",
+         "indicators": [
+          {
+           "text": "periodically",
+           "at": 17,
+           "note": "periodically means taking every other letter of learns, here the second, fourth and sixth"
+          }
+         ],
+         "parts": [
+          {
+           "words": "learns",
+           "at": 30,
+           "note": "the even letters of learns"
+          }
+         ]
         }
        ]
       },
       {
-       "op": "alternate",
-       "unchecked": true,
-       "gives": "ERS",
-       "indicators": [
-        {
-         "text": "Maybe",
-         "note": "a Glaswegian is one example of a Scot"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "periodically learns",
-         "gives": "ERS",
-         "select": "alternate",
-         "note": "lEaRnS, even letters"
-        }
-       ]
+       "words": "old",
+       "at": 49,
+       "gives": "O"
       }
      ]
     },
     "explanation": {
-     "surface": "A thrifty Glaswegian learns to preserve his old cars.",
-     "walkthrough": "Glaswegian is from Glasgow, Scotland's largest city; O sits between SCO and T.",
-     "definitionFit": "A definition by example: mopeds and kick-along two-wheelers are kinds of vehicle."
+     "surface": "A Glaswegian who learns from time to time how to preserve vintage cars.",
+     "walkthrough": "'periodically' takes ERS from learns to follow SCOT, and 'to conserve' places O inside, after SCO. A Glaswegian comes from Glasgow, Scotland's largest city.",
+     "definitionFit": "Scooters are small motorcycles or kick-propelled toys, both of them vehicles."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "conserve"
+     "misdirectedWord": "periodically"
     }
    }
   },
@@ -1379,50 +1399,52 @@
      "indicators": [
       {
        "text": "after",
-       "note": "the pieces before it follow the drained relative"
+       "at": 30,
+       "note": "after places the rest of the clue behind the emptied word"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "RE",
        "indicators": [
         {
          "text": "drained",
-         "note": "relative is emptied of its middle, leaving the outer letters"
+         "at": 36,
+         "note": "drained means the word relative is emptied, keeping only its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "drained relative",
-         "gives": "RE",
-         "select": "outer",
-         "note": "RelativE with its contents gone"
+         "words": "relative",
+         "at": 44,
+         "note": "the outer letters of relative"
         }
        ]
       },
       {
        "words": "in",
-       "note": "kept as it is"
+       "at": 17,
+       "gives": "IN",
+       "note": "taken as written"
       },
       {
        "words": "river",
+       "at": 20,
        "gives": "DEE",
-       "note": "the Dee is a river in Britain"
+       "note": "the Dee is a river in Scotland and another in Wales and England"
       },
       {
        "words": "run",
+       "at": 26,
        "gives": "R",
-       "note": "R = run, as on a cricket scoresheet"
+       "note": "R is the cricket abbreviation for run"
       }
      ]
     },
     "explanation": {
-     "surface": "Deer wading into a river after a relative has been drained.",
-     "walkthrough": "'In' looks like a link word joining definition to wordplay, but it is a piece; the Dee is a river in Scotland and Wales.",
-     "definitionFit": "Reindeer are deer, and both sexes grow antlers."
+     "surface": "Deer wading through a river and running after a tired-out family member.",
+     "walkthrough": "'drained' gives RE, and 'after' puts IN, DEE and R behind it. 'in' is part of the wordplay, not a link.",
+     "definitionFit": "Reindeer are Arctic deer in which both males and females grow antlers."
     },
     "features": {
      "answerInScene": true,
