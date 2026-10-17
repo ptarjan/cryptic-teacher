@@ -294,8 +294,17 @@ def build_spec(puzzle):
             if n == leader:
                 return True
         return False
+    placed = {}
     for d in ("across", "down"):
         for number, length, leader in pending[d]:
+            # A light two linked groups share (Cyclops 147's 52 down, "15/52dn"
+            # across and "45/52" down): the first group placed it, the second
+            # names the same light, not a second one.
+            if number in placed:
+                notes.append(f"{d} {number}: shared by the linked groups of {placed[number]} "
+                             f"and {leader}; one light")
+                continue
+            placed[number] = leader
             if number not in slots and printed_elsewhere(d, number, leader):
                 notes.append(f"{d} {number}: linked to {leader} but printed under the "
                              f"other direction's list; not synthesised as {d}")
