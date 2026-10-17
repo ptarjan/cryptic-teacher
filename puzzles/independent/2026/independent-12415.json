@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -252,62 +253,70 @@
    "annotation": {
     "definitions": [
      {
-      "text": "\"in\"",
-      "at": 54
+      "text": "in",
+      "at": 55
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "AMONGST",
+     "op": "container",
      "indicators": [
       {
-       "text": "cycles",
-       "note": "A cycle sends the letter at one end round to the other and leaves every other letter where it was."
+       "text": "about",
+       "at": 13,
+       "note": "about means going around something, here the containing letters"
+      },
+      {
+       "text": "On the contrary",
+       "at": 32,
+       "note": "on the contrary flips the containment: the mountain goes about the song, not the song about the mountain"
       }
      ],
      "parts": [
       {
        "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 20,
+         "gives": "A",
+         "note": "taken as written"
+        },
+        {
+         "words": "mountain",
+         "at": 22,
+         "gives": "MT",
+         "note": "MT is the standard abbreviation for mount or mountain"
+        }
+       ]
+      },
+      {
+       "op": "cycling",
        "indicators": [
         {
-         "text": "\"about\"",
-         "note": "About means placed round the outside of something, and the quotation marks flag the word as an instruction to be read literally."
+         "text": "cycles",
+         "at": 5,
+         "note": "cycles means the first letter rides round to the end of the word"
         }
        ],
        "parts": [
         {
-         "words": "a",
-         "note": "the single letter, taken as it stands"
-        },
-        {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "On the contrary",
-           "note": "It reverses the roles the sentence has just handed out: whatever was going round the outside is what ends up inside."
-          }
-         ],
-         "parts": [
-          {
-           "words": "mountain",
-           "gives": "MT",
-           "note": "MT is the map-maker's abbreviation for mount"
-          },
-          {
-           "words": "Song cycles",
-           "gives": "ONGS",
-           "note": "SONG sends its opening letter round to the back"
-          }
-         ]
+         "words": "Song",
+         "at": 0,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The clue quotes its own instructions. Read straight, it would wrap the mountain round the cycled letters; the middle phrase turns that arrangement inside out.",
-     "definitionFit": "\"in\" -> AMONGST: amongst is the preposition for being in the middle of a group, which is the sense of 'in' the quotation marks are pointing at."
+     "surface": "A cryptic instruction about putting a song cycle around a mountain, which the setter then turns on its head.",
+     "walkthrough": "The quoted words are a set of instructions that 'On the contrary' overturns: the mountain wraps round the cycled song rather than the other way, and the result means 'in'.",
+     "definitionFit": "Amongst means in the middle of or surrounded by, so it can replace 'in' in a phrase like 'in the crowd'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cycles"
     }
    }
   },
@@ -679,60 +688,66 @@
    "annotation": {
     "definitions": [
      {
-      "text": "What was foreshadowed",
+      "text": "What was foreshadowed by Percival Lowell initially before bowing out?",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PLUTO",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "before",
+       "at": 51,
+       "note": "before places the initials ahead of the rest"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
-         "text": "before",
-         "note": "A piece that comes before another is written in front of it, so those two letters lead and the rest follow."
-        },
-        {
-         "text": "bowing",
-         "note": "To bow is to bend out of true, and letters bent out of shape no longer stand in the order they were handed over in."
+         "text": "initially",
+         "at": 41,
+         "note": "initially takes the first letter of each of the two names"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "PL",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "What is taken initially is taken at the outset, so each name gives up only the letter it opens with."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Percival Lowell initially",
-           "gives": "PL",
-           "select": "first",
-           "note": "the opening letters of the two names, which are also the astronomer's initials"
-          }
-         ]
-        },
+         "words": "Percival Lowell",
+         "at": 25,
+         "note": "first letters of Percival and Lowell"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "bowing",
+         "at": 58,
+         "note": "bowing means bending out of shape, so the letters of the next word are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "out",
-         "gives": "UTO",
-         "note": "the three letters of OUT, bent into a different order"
+         "at": 65,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "walkthrough": "Those two initials were built into the name deliberately when the planet was found, in Lowell's honour. 'Bowing out' catches the demotion to dwarf planet that came later.",
-     "definitionFit": "What was foreshadowed -> PLUTO: Lowell predicted a ninth planet from wobbles in the outer orbits, and it was found close to where he said Planet X would be."
+     "surface": "A riddle about what the American astronomer Percival Lowell predicted before he died.",
+     "walkthrough": "Lowell predicted a ninth planet but died in 1916, 'bowing out' before it was found in 1930 at his observatory, so the whole clue is also the definition.",
+     "definitionFit": "Pluto was the planet discovered at Lowell Observatory after Lowell's search for a predicted 'Planet X'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bowing"
     }
    }
   },
@@ -766,49 +781,61 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "out of his head",
-       "note": "A lad out of his head has lost what sits on top of him, and the top of a written word is the letter it begins with."
+       "text": "when approaching",
+       "at": 47,
+       "note": "approaching puts the last piece right after the others"
       }
      ],
      "parts": [
       {
+       "words": "runs",
+       "at": 16,
+       "gives": "R",
+       "note": "R is the cricket abbreviation for runs"
+      },
+      {
+       "words": "over",
+       "at": 21,
+       "gives": "O",
+       "note": "O is the cricket abbreviation for over"
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ROADHOG",
        "indicators": [
         {
-         "text": "when approaching",
-         "note": "Something approaching another thing arrives just in front of it, so everything built so far sits directly before the last piece."
+         "text": "out of his head",
+         "at": 31,
+         "note": "his head is the lad's first letter, and out of means it is dropped"
         }
        ],
        "parts": [
         {
-         "words": "runs",
-         "gives": "R",
-         "note": "R is the cricket scoreboard's abbreviation for runs"
-        },
-        {
          "words": "lad",
-         "gives": "AD",
-         "note": "LAD shown without the letter that heads it"
+         "at": 26,
+         "note": "taken as written"
         },
         {
-         "words": "corner",
-         "gives": "HOG",
-         "note": "to corner a market is to hog it, taking far more than a fair share"
+         "gives": "L"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "his head",
-       "note": "the head of LAD is its first letter, L, and that is the one removed"
+       "words": "corner",
+       "at": 64,
+       "gives": "HOG",
+       "note": "to corner a market is to hog it, keeping it all to oneself"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Cricket supplies the two single letters, an over being the six balls bowled from one end. 'Corner' is the verb, which is where the greed in the surface comes from.",
-     "definitionFit": "Reckless driver -> ROAD HOG: a road hog drives selfishly, hogging the whole carriageway, so the definition names the behaviour rather than the vehicle."
+     "surface": "A dangerous motorist mows down a boy who was out of his mind as he neared a bend.",
+     "walkthrough": "'out of his head' sounds like a drugged or crazy lad, but it means removing the lad's first letter, leaving AD.",
+     "definitionFit": "A road hog is a motorist who drives carelessly or selfishly, taking up more than a fair share of the road."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
     }
    }
   },
@@ -1361,36 +1388,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IMPERFECT",
-     "indicators": [
-      {
-       "text": "cutting short",
-       "note": "Cutting something short docks its end, so the word beside it arrives one letter lighter than it left."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "setter is",
+       "at": 6,
+       "gives": "IM",
+       "note": "the setter says 'I am', shortened to I'm"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "cutting short",
+         "at": 16,
+         "note": "cutting short means the last letter is removed"
+        }
+       ],
        "parts": [
         {
-         "words": "setter is",
-         "gives": "IM",
-         "note": "the setter writing the clue speaks as I, so 'setter is' becomes I'm"
+         "words": "cigar",
+         "at": 30,
+         "gives": "PERFECTO",
+         "note": "a perfecto is a cigar thick in the middle and tapered at both ends"
         },
         {
-         "words": "cigar",
-         "gives": "PERFECT",
-         "note": "a perfecto is a cigar tapered at both ends, docked here of its last letter"
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Tense' is the grammarian's noun and not an adjective about nerves, which is the whole misdirection: the surface has a nervous smoker.",
-     "definitionFit": "Tense -> IMPERFECT: in grammar the imperfect is a tense in its own right, the one for continuing past action, so the definition is a category word."
+     "surface": "A nervous setter is trimming a cigar.",
+     "walkthrough": "'Tense' reads as an adjective for the nervous setter, but it is the grammatical tense. 'cutting short' drops the final O of PERFECTO.",
+     "definitionFit": "The imperfect is a verb tense for continuing or repeated past action, as in 'I was walking'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Tense"
     }
    }
   },
@@ -1551,50 +1588,49 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EVE",
+     "indicators": [
+      {
+       "text": "evicting",
+       "at": 9,
+       "note": "evicting means throwing out, so a letter is removed"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "flat",
+       "at": 41,
+       "gives": "EVEN",
+       "note": "flat means level or even"
+      },
+      {
+       "op": "last",
        "indicators": [
         {
-         "text": "evicting",
-         "note": "To evict is to put out of the premises, so the letter named next has to leave the word it was living in."
+         "text": "finally",
+         "at": 28,
+         "note": "finally takes the last letter of the word it qualifies"
         }
        ],
        "parts": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "EVE",
-         "indicators": [
-          {
-           "text": "finally",
-           "note": "Taken finally means taken at the end, so only the closing letter of the word counts."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "flat",
-           "gives": "EVE",
-           "select": "last",
-           "note": "the four-letter word for level, docked of the letter it ends with"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "companion finally",
-         "note": "the last letter of companion is N, and that is the one evicted"
+         "words": "companion",
+         "at": 18,
+         "note": "last letter of companion"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Scrumping is stealing apples out of somebody else's orchard, which is the joke: the first apple ever taken was taken in Eden. 'Flat' is the level sense.",
-     "definitionFit": "Scrumper -> EVE: scrumping is raiding an orchard for apples, and Eve took the first apple of all, so the definition names her by the deed."
+     "surface": "An apple thief is thrown out of an apartment, ending a friendship.",
+     "walkthrough": "A scrumper steals apples from orchards, a British word; Eve took the apple in Eden. 'evicting companion finally' takes N out of EVEN.",
+     "definitionFit": "Eve took fruit from the forbidden tree in Genesis, making her the first apple thief, a playful example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flat"
     }
    }
   },
