@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -76,44 +77,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "container",
      "indicators": [
       {
-       "text": "repeatedly",
-       "note": "Doing something repeatedly means doing it more than once, so the two letters are written out twice before anything else happens."
-      },
-      {
        "text": "in",
-       "note": "This is a placement instruction rather than joinery: the single letter drops inside the pair instead of joining at either end."
+       "at": 36,
+       "note": "in puts the letter for ace inside the reversed letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "turned over",
-         "note": "Turning a thing over shows you its other face, and letters shown that way are read from the far end back."
+         "at": 20,
+         "note": "turned over means flipped, so the doubled letters are read backwards in this down entry"
         }
        ],
        "parts": [
         {
          "words": "Setter's repeatedly",
+         "at": 0,
          "gives": "IMIM",
-         "note": "The setter speaking of himself is I'M, and the clue asks for that twice over."
-        },
-        {
-         "words": "ace",
-         "gives": "A",
-         "note": "An ace is A, the card's own letter, and it lands in the middle of the reversed pair."
+         "note": "the setter's means I am, contracted to IM, and repeatedly writes it twice"
         }
        ]
+      },
+      {
+       "words": "ace",
+       "at": 32,
+       "gives": "A",
+       "note": "A is the abbreviation for ace on playing cards"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Whenever a clue mentions the setter, expect I, ME or I'M — it is one of the conventions that pays for itself every week.",
-     "definitionFit": "Definition by example: the answer is one Florida city among many, so the clue points at the class rather than naming it."
+     "surface": "A crossword setter keeps flipping an ace in an American city.",
+     "walkthrough": "'Setter's repeatedly' is IM written twice; 'turned over' reads it backwards as MIMI, and A for ace goes 'in' the middle.",
+     "definitionFit": "Miami is a large city in Florida, in the south-east of the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ace"
     }
    }
   },
@@ -292,46 +299,73 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "EUPHEMISTICALLY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "replacing",
-       "note": "One letter stands in for another: the quiet man's letter moves into the slot the Conservative's held, and the rest of the word is untouched."
+       "text": "with",
+       "at": 76,
+       "note": "with here joins the friend on at the end of the answer"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Brussels",
+       "at": 14,
+       "gives": "EU",
+       "note": "Brussels is home to the EU institutions, so it stands for the EU"
+      },
+      {
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "replacing",
+         "at": 43,
+         "note": "replacing says the letter for quietly takes the place of the letter for Conservative"
+        }
+       ],
        "parts": [
         {
-         "words": "Brussels",
-         "gives": "EU",
-         "note": "Brussels is where the European Union is headquartered, so the city stands for the union."
+         "words": "drug-dealer",
+         "at": 23,
+         "gives": "CHEMIST",
+         "note": "a chemist sells medicines, a legitimate drug dealer"
         },
         {
-         "words": "drug-dealer quietly replacing Conservative",
-         "gives": "PHEMIST",
-         "note": "A drug-dealer is a chemist in British usage — the high-street pharmacist — and P for quiet takes over its C for Conservative."
+         "words": "Conservative",
+         "at": 53,
+         "gives": "C"
         },
         {
-         "words": "in charge",
-         "gives": "IC",
-         "note": "In charge shortens to i/c on a duty roster, the officer's abbreviation."
-        },
-        {
-         "words": "with friend",
-         "gives": "ALLY",
-         "note": "An ally is a friend, especially the political kind."
+         "words": "quietly",
+         "at": 35,
+         "gives": "P",
+         "note": "P is piano, the musical direction for quiet"
         }
        ]
+      },
+      {
+       "words": "in charge",
+       "at": 66,
+       "gives": "IC"
+      },
+      {
+       "words": "friend",
+       "at": 81,
+       "gives": "ALLY",
+       "note": "an ally is a friend or supporter"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The joke is 'chemist' for drug-dealer, a British pharmacy rather than a cartel; P for quiet comes from the piano marking in written music.",
-     "definitionFit": "Speaking euphemistically is speaking suggestively — hinting at the blunt thing rather than naming it, so both adverbs describe the same sideways manner."
+     "surface": "A Brussels drug dealer, swapping a Tory for a pal, acts in a suggestive manner.",
+     "walkthrough": "A chemist is the British word for a pharmacist, hence 'drug-dealer'; swapping its C for P gives PHEMIST.",
+     "definitionFit": "A euphemism hints at something without naming it outright, so speaking euphemistically is speaking by indirect implication."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drug-dealer"
     }
    }
   },
@@ -608,43 +642,43 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "to conserve",
-       "note": "To conserve something is to keep it safely inside, so the word before closes around the letter after."
-      }
-     ],
      "parts": [
       {
        "words": "Welcome",
+       "at": 0,
        "gives": "HI",
-       "note": "A welcome is a greeting, and the shortest greeting there is runs to two letters."
+       "note": "hi is a word of greeting or welcome"
       },
       {
        "op": "container",
        "indicators": [
         {
-         "text": "bit of",
-         "note": "A bit of a word is just its opening letter, the smallest piece a clue can take from it."
+         "text": "to conserve",
+         "at": 14,
+         "note": "to conserve something is to keep it safe within, so the sanders hold the letter"
         }
        ],
        "parts": [
         {
          "words": "tools",
+         "at": 8,
          "gives": "SANDERS",
-         "note": "Sanders are power tools for smoothing wood, and they open up to admit a letter."
+         "note": "sanders are power tools for smoothing wood"
         },
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "H",
+         "indicators": [
+          {
+           "text": "bit of",
+           "at": 26,
+           "note": "a bit of harmony is just its first letter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "bit of harmony",
-           "gives": "H",
-           "select": "first",
-           "note": "Only the opening letter of the noun that follows is wanted."
+           "words": "harmony",
+           "at": 33,
+           "note": "its first letter is used"
           }
          ]
         }
@@ -653,8 +687,14 @@
      ]
     },
     "explanation": {
-     "walkthrough": "Sanders are the tools, not a surname, and harmony is here purely to donate its H. The question mark owns up to a whole-phrase definition.",
-     "definitionFit": "A whole-phrase idiom: matching towels, bathrobes or car keys owned by a couple, not two pronouns being read separately."
+     "surface": "A welcome gift of tools to keep a couple's marriage harmonious.",
+     "walkthrough": "SANDERS keeps H, a 'bit of' harmony, inside; the question mark flags that the definition describes matching items for a couple.",
+     "definitionFit": "His and hers describes a matched pair of items, such as towels, meant for husband and wife."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tools"
     }
    }
   },
@@ -824,36 +864,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "NOUGHTIES",
-     "indicators": [
-      {
-       "text": "late-starting",
-       "note": "To start late is to not start at the beginning, so the word's opening letter is left behind."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "late-starting",
+         "at": 11,
+         "note": "late-starting means the word begins late, so its opening letter is missing"
+        }
+       ],
        "parts": [
         {
          "words": "Sufficient",
-         "gives": "NOUGH",
-         "note": "Sufficient is enough, and beginning one letter in leaves five of its six."
+         "at": 0,
+         "gives": "ENOUGH",
+         "note": "enough means sufficient"
         },
         {
-         "words": "matches",
-         "gives": "TIES",
-         "note": "Matches that finish level are ties, the sporting sense of the word."
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "matches",
+       "at": 25,
+       "gives": "TIES",
+       "note": "ties are matches or fixtures, as in cup ties"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The Noughties are the years 2000 to 2009, named after the noughts in the dates — 'nought' being the British word for zero.",
-     "definitionFit": "What Britain calls the ten years from 2000, after the two zeros — noughts — standing in the middle of every one of those dates."
+     "surface": "Enough sports fixtures kicked off late to fill ten years.",
+     "walkthrough": "A cup tie is a British term for a knockout match; ENOUGH starting a letter late gives NOUGH.",
+     "definitionFit": "The noughties is a name for the decade from 2000 to 2009, years whose tens digit is nought."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "matches"
     }
    }
   },
@@ -878,40 +928,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "INSTAL",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "next to",
+       "at": 12,
+       "note": "next to places the rearranged salt directly after home"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "words": "home",
+       "at": 7,
+       "gives": "IN",
+       "note": "in means at home"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "next to",
-         "note": "Next to means side by side, so the two pieces are simply laid against each other in the order given."
-        },
-        {
          "text": "supply",
-         "note": "Not the noun: this is the adverb from 'supple', said supp-lee, and letters handled flexibly bend into a new order."
+         "at": 25,
+         "note": "supply here is the adverb meaning supplely, flexibly, so the letters of salt bend into a new order"
         }
        ],
        "parts": [
         {
-         "words": "home",
-         "gives": "IN",
-         "note": "Someone at home is in, the crossword's usual two letters for it."
-        },
-        {
          "words": "salt",
-         "gives": "STAL",
-         "note": "The four letters of the seasoning, resettled."
+         "at": 20,
+         "note": "taken as written, then rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The one-L spelling is the older form and still good in Chambers, which is what lets six letters do a job you would expect to need seven.",
-     "definitionFit": "To instal something is to set it up in place — the sense used of software, of equipment, and of a new bishop."
+     "surface": "Someone sets up their home next to a stock of salt.",
+     "walkthrough": "'supply' reads as a noun, but it is the adverb from supple, and it rearranges SALT to STAL; INSTAL is a British spelling.",
+     "definitionFit": "To instal, a variant of install, is to put equipment in place ready for use, or set it up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supply"
     }
    }
   },
@@ -1059,47 +1118,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TELECAST",
-     "indicators": [
-      {
-       "text": "abandoned",
-       "note": "Abandoned describes behaviour with no restraint left, and letters behaving that way will not stay where they were put."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "empty",
+         "at": 29,
+         "note": "an empty word has lost its inside, leaving only the first and last letters of the"
+        }
+       ],
        "parts": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "empty",
-           "note": "A word emptied out keeps its walls and loses its insides, so only the first and last letters survive."
-          }
-         ],
-         "parts": [
-          {
-           "words": "the empty",
-           "gives": "THE",
-           "note": "The three-letter article, emptied of its middle, keeps its two ends."
-          }
-         ]
-        },
+         "words": "the",
+         "at": 25,
+         "note": "its first and last letters are used"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "abandoned castle",
-         "gives": "LECAST",
-         "note": "The six letters of the building, resettled in a new order."
+         "text": "abandoned",
+         "at": 35,
+         "note": "abandoned means wild and unrestrained, so the letters of castle run free into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "castle",
+         "at": 45,
+         "note": "taken as written, then rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'broadcast' looks like the shuffle instruction and is not — it belongs to the definition. The word doing the shuffling is 'abandoned'.",
-     "definitionFit": "A telecast is a programme sent out over television, so the definition names the thing and the medium carrying it at once."
+     "surface": "A television show is broadcast from an empty, derelict castle.",
+     "walkthrough": "'empty' leaves TE of THE, and 'abandoned' rearranges CASTLE to LECAST.",
+     "definitionFit": "A telecast is a programme transmitted by television, a show that has been broadcast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abandoned"
     }
    }
   },
@@ -1166,25 +1231,31 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "RAPS",
      "indicators": [
       {
        "text": "over",
-       "note": "Turning a thing over shows you its far side, so the letters are read from the other end."
+       "at": 11,
+       "note": "over means turned over, so the word for box is read backwards"
       }
      ],
      "parts": [
       {
        "words": "box",
-       "gives": "RAPS",
-       "note": "To box is to spar, and the letters of that verb are read the other way round."
+       "at": 7,
+       "gives": "SPAR",
+       "note": "to spar is to box, especially in practice"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Three words and one mechanism, which is what makes it hard: 'box' has to be read as a verb, not as a container.",
-     "definitionFit": "Raps are sharp knocks — knuckles on a door — so noun and verb both line up with the plural definition."
+     "surface": "Someone knocks a box over.",
+     "walkthrough": "'box' looks like a noun, but it is the verb; SPAR read 'over' gives the answer.",
+     "definitionFit": "Raps are sharp blows or taps, such as knocks on a door."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "box"
     }
    }
   },
