@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1124,28 +1125,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "BASERATE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Spooner's version of a two-word phrase swaps the sounds the two words begin with."
+       "at": 27,
+       "note": "Spooner's tells us to swap the opening sounds of the two words, as the Reverend Spooner famously did"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "hare at the dog track",
-       "gives": "BASERATE",
-       "soundsLike": "RACE BAIT",
-       "note": "the hare at a greyhound track is the mechanical lure the dogs chase, the bait of the race; trade the opening sounds of those two words"
+       "op": "homophone",
+       "spelt": "RASE",
+       "parts": [
+        {
+         "words": "at the dog track",
+         "at": 42,
+         "gives": "RACE",
+         "note": "a greyhound meeting is a race"
+        }
+       ]
+      },
+      {
+       "op": "homophone",
+       "spelt": "BATE",
+       "parts": [
+        {
+         "words": "hare",
+         "at": 37,
+         "gives": "BAIT",
+         "note": "the mechanical hare at a greyhound race is the bait the dogs chase"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Greyhounds tear round the track after the mechanical hare.",
-     "walkthrough": "Greyhound racing runs a dummy hare on a rail ahead of the dogs, which is the 'bait'. 'Level of interest' reads as how keen somebody is, and means a percentage.",
-     "definitionFit": "The base rate is the interest rate the Bank of England sets, the level every other lender works from."
+     "surface": "A sly question about the mechanical hare at a greyhound track, dressed as a query on banking rates.",
+     "walkthrough": "The hare is 'race bait'. As Spooner's signals, swap the R and B sounds: 'bace rait', heard as BASE RATE.",
+     "definitionFit": "The base rate is the central bank's benchmark interest rate, the level from which other lending rates are set."
     },
     "features": {
      "answerInScene": false,
@@ -1239,48 +1256,51 @@
    "annotation": {
     "definitions": [
      {
-      "text": "put Six Feet down",
+      "text": "put Six Feet down?",
       "at": 33
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENTOMB",
-     "indicators": [
-      {
-       "text": "Only half",
-       "note": "'Only half' keeps one half of the word and throws the other half away."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Only half",
+         "at": 0,
+         "note": "keeping only half of a word means dropping its back end, here the -ology suffix"
+        }
+       ],
        "parts": [
         {
          "words": "studying insects",
-         "gives": "ENTOM",
-         "note": "studying insects is entomology, ten letters, of which half is ENTOM"
+         "at": 10,
+         "gives": "ENTOMOLOGY",
+         "note": "entomology is the study of insects"
         },
         {
-         "words": "book",
-         "gives": "B",
-         "note": "b = book"
+         "gives": "OLOGY"
         }
        ]
+      },
+      {
+       "words": "book",
+       "at": 27,
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone skimming an insect textbook puts down their box set of Six Feet Under.",
-     "walkthrough": "The italics flag Six Feet Under, the drama set in a family funeral home, so putting six feet down is burying. Entomology is long enough that half of it is still five letters.",
-     "definitionFit": "To entomb is to shut a body away in a tomb — put it six feet down, as the gravediggers' measure has it."
+     "surface": "A student of bugs only half-reads a book about Six Feet Under, the TV drama about undertakers.",
+     "walkthrough": "'Only half' keeps ENTOM, the front of ENTOMOLOGY (roughly half), before B. Six Feet Under is an American series set in a funeral home; graves are six feet deep.",
+     "definitionFit": "To entomb is to place a body in a grave or tomb, burying it six feet under the ground."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "book"
+     "misdirectedWord": "Feet"
     }
    }
   },
@@ -1658,27 +1678,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AXE",
+     "op": "middle",
      "indicators": [
       {
        "text": "unlimited",
-       "note": "Something unlimited has no limits, so the word loses the letters at both its ends."
+       "at": 13,
+       "note": "without its limits a word loses its first and last letters"
       }
      ],
      "parts": [
       {
        "words": "tariffs",
+       "at": 23,
        "gives": "TAXES",
-       "note": "tariffs are taxes, and with its limits gone the word keeps only its middle"
+       "note": "taxes are tariffs, charges levied on goods"
       }
      ]
     },
     "explanation": {
-     "surface": "A government promises to scrap tariffs that have no ceiling.",
-     "walkthrough": "'Unlimited' is the standard instruction for a word with both end letters taken off. The surface stays a piece of trade policy from first word to last.",
-     "definitionFit": "To axe something is to abolish it at a stroke — a job, a service, a programme — which is doing away with it."
+     "surface": "A trade policy demand to scrap tariffs that have no cap on them.",
+     "walkthrough": "'unlimited' strips the outer letters of TAXES.",
+     "definitionFit": "To axe something is to abolish or cut it entirely, as when a programme or job is axed."
     },
     "features": {
      "answerInScene": true,
