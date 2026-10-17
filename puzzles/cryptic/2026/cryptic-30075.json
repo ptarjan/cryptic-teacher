@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -84,36 +85,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MISSTEP",
-     "indicators": [
-      {
-       "text": "flipping",
-       "note": "To flip a thing is to turn it over, so the piece just named is written the other way round."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Fail to attend",
+       "at": 0,
+       "gives": "MISS",
+       "note": "to miss a meeting is to fail to attend it"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "flipping",
+         "at": 24,
+         "note": "flipping means turning over, so in this down answer the word for precious is written upwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Fail to attend",
-         "gives": "MISS",
-         "note": "to miss a lecture is to fail to attend it"
-        },
-        {
          "words": "precious",
-         "gives": "TEP",
-         "note": "a precious one is a PET — a darling — and those three letters turn over"
+         "at": 15,
+         "gives": "PET",
+         "note": "pet is an affectionate term, like precious, for a darling"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Precious' is working as a noun, the household darling, not as an adjective. Setters lean on that shift constantly, and it is what hides the reversal.",
-     "definitionFit": "A misstep is a stumble, which is what 'trip' names as a noun; the figurative blunder sense grows out of that literal one."
+     "surface": "Someone skips their beloved's flipping holiday.",
+     "walkthrough": "'flipping' looks like a mild British swear word qualifying trip, but it turns PET round to TEP.",
+     "definitionFit": "A misstep is a stumble or slip, a trip in the sense of a false step."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flipping"
     }
    }
   },
@@ -486,36 +495,51 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DEFEND",
+     "op": "charade",
      "indicators": [
       {
-       "text": "upstanding",
-       "note": "Something upstanding is stood on its end, and in a down entry a piece stood up reads from the bottom."
+       "text": "on",
+       "at": 28,
+       "note": "in a down answer one piece on another sits above it, so the reversed agent comes first"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "upstanding",
+         "at": 8,
+         "note": "upstanding means standing up, so in this down answer the word is written from bottom to top"
+        }
+       ],
        "parts": [
         {
          "words": "US agent",
-         "gives": "DEF",
-         "note": "a FED is an American federal agent, here stood on his head"
-        },
-        {
-         "words": "border",
-         "gives": "END",
-         "note": "the end of a field is its border or edge"
+         "at": 19,
+         "gives": "FED",
+         "note": "a Fed is an FBI agent in American slang"
         }
        ]
+      },
+      {
+       "words": "border",
+       "at": 31,
+       "gives": "END",
+       "note": "an end is a boundary or border"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface paints an honourable officer on patrol; 'upstanding' is really a compass direction in disguise. FED is the standard American agent.",
-     "definitionFit": "To defend is to protect, a plain synonym — though 'defend' leans towards warding off an attack while 'protect' is the wider word."
+     "surface": "An honest American agent guards the frontier.",
+     "walkthrough": "'upstanding' looks like praise for the agent, but it turns FED into DEF, which 'on' puts above END.",
+     "definitionFit": "To defend is to guard against attack, which is what protecting someone or something means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "upstanding"
     }
    }
   },
@@ -541,25 +565,30 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "SUCCULENT",
      "indicators": [
       {
        "text": "up",
-       "note": "Read as mixed up rather than as a direction — in an across entry there is no upwards to point at."
+       "at": 11,
+       "note": "up as in messed up or broken up, so the letters of these two words are jumbled"
       }
      ],
      "parts": [
       {
        "words": "Uncle cuts",
-       "gives": "SUCCULENT",
-       "note": "the nine letters of UNCLE CUTS rearranged"
+       "at": 0,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface asks you to picture an uncle pruning, so the fodder reads as a sentence rather than as raw material. The definition is the bare last word.",
-     "definitionFit": "A succulent is a fleshy, water-storing plant such as an aloe, so 'plant' defines it by the family it belongs to."
+     "surface": "A relative chops a plant down to size.",
+     "walkthrough": "'up' looks like it finishes the phrase 'cuts up', but it signals that the nine letters of UNCLE CUTS are rearranged.",
+     "definitionFit": "A succulent is a plant with thick fleshy leaves that store water, such as a cactus or aloe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
     }
    }
   },
@@ -1142,25 +1171,30 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "LIAISE",
      "indicators": [
       {
        "text": "tricky",
-       "note": "A tricky thing is slippery and awkward to handle, and letters like that will not stay in the order given."
+       "at": 9,
+       "note": "tricky means involving trickery, so these letters are worked into a deceptive new order"
       }
      ],
      "parts": [
       {
        "words": "Is a lie",
-       "gives": "LIAISE",
-       "note": "the six letters of IS A LIE rearranged"
+       "at": 0,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The question mark carries the joke: the clue asks whether a lie is hard to pass on, while quietly handing over its own letters.",
-     "definitionFit": "To liaise is to act as go-between and keep two parties in touch, so 'communicate' names it in its cooperative sense."
+     "surface": "A question of whether a fib is a hard thing to get across.",
+     "walkthrough": "'tricky' rearranges the six letters of IS A LIE.",
+     "definitionFit": "To liaise is to work with and keep in contact with others, sharing information, which means to communicate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tricky"
     }
    }
   },
@@ -1295,36 +1329,51 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HERBALTEA",
-     "indicators": [
-      {
-       "text": "sorted out",
-       "note": "Sorting something out means putting it into a different arrangement, which is what happens to those letters."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
+       "words": "That woman",
+       "at": 0,
+       "gives": "HER",
+       "note": "her is the pronoun for that woman"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "That woman",
-         "gives": "HER",
-         "note": "that woman = HER, untouched by the shuffling"
+         "text": "sorted out",
+         "at": 11,
+         "note": "sorted out means arranged in order, so these letters are put in a new arrangement"
         },
         {
-         "words": "table with a",
-         "gives": "BALTEA",
-         "note": "the letters of TABLE and A rearranged"
+         "text": "with",
+         "at": 28,
+         "note": "with means together with, adding the single letter to the letters of table before they are sorted out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "table",
+         "at": 22,
+         "note": "taken as written"
+        },
+        {
+         "words": "a",
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The shuffled letters run straight across the gap between the two words, so the 6,3 in the clue tells you nothing about where the fodder ends.",
-     "definitionFit": "Herbal tea is an infusion of leaves or flowers taken hot, so 'hot drink' defines it by category rather than by synonym."
+     "surface": "A woman tidied a table and brought a hot drink.",
+     "walkthrough": "'sorted out' rearranges TABLE and A into BALTEA, after HER.",
+     "definitionFit": "Herbal tea is an infusion of herbs, flowers or fruit in boiling water, a hot drink without tea leaves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sorted"
     }
    }
   },
