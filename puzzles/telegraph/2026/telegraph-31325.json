@@ -119,45 +119,57 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "lifted",
-       "note": "in a down clue, raising a word turns it upside down"
-      }
-     ],
      "parts": [
       {
-       "words": "parent briefly",
-       "gives": "MOTHE",
-       "note": "MOTHER with its last letter dropped"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "briefly",
+         "at": 16,
+         "note": "briefly means cut short, so the parent loses the last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "parent",
+         "at": 9,
+         "gives": "MOTHER",
+         "note": "a mother is a parent"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       },
       {
        "words": "advanced",
-       "gives": "A",
-       "note": "A = advanced, as in A level"
+       "at": 24,
+       "gives": "A"
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "briefly",
-         "note": "said briefly, a word is cut short, so MOTHER loses its last letter"
+         "text": "lifted",
+         "at": 37,
+         "note": "lifted means raised up, which in a down clue reads the word from bottom to top"
         }
        ],
        "parts": [
         {
          "words": "bag",
+         "at": 44,
          "gives": "NET",
-         "note": "to net = to bag, to catch"
+         "note": "to net is to bag or catch"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An exhausted parent hauls a bag up.",
-     "walkthrough": "'Bag' is a verb here, as in bagging a catch; lifted in a down clue it reads upwards.",
-     "definitionFit": "Figurative use: cloth chewed by moths is shabby, so anything tired and outdated is called moth-eaten."
+     "surface": "A tired mother stepped forward and picked up a handbag.",
+     "walkthrough": "'briefly' clips MOTHER to MOTHE; 'lifted' turns NET upside down in this down clue to give TEN.",
+     "definitionFit": "Moth-eaten describes cloth damaged by moth larvae, and by extension anything shabby and worn-out."
     },
     "features": {
      "answerInScene": false,
@@ -466,47 +478,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "tail",
-       "note": "the tail of a word is its last letter"
+       "text": "in",
+       "at": 19,
+       "note": "in puts the single letter inside the word for places"
       }
      ],
      "parts": [
       {
        "words": "places",
+       "at": 22,
        "gives": "PUTS",
-       "note": "to put = to place"
+       "note": "to place something is to put it, so places is puts"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "T",
        "indicators": [
         {
-         "text": "in",
-         "note": "one thing in another sits inside it"
+         "text": "tail",
+         "at": 14,
+         "note": "a tail is the end, so only the last letter of cat is taken"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "cat's tail",
-         "gives": "T",
-         "select": "last",
-         "note": "last letter of CAT"
+         "words": "cat's",
+         "at": 8,
+         "gives": "CAT",
+         "note": "cat's tail reads as the tail of cat"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone strokes a cat's tail here and there.",
-     "walkthrough": "'Strokes' suggests petting the cat; in golf a putt is a stroke on the green.",
-     "definitionFit": "Golf's sense of stroke, one hit of the ball; putts are the gentle ones on the green."
+     "surface": "Someone strokes the tail of a cat as it settles in various spots.",
+     "walkthrough": "Strokes here are golf shots, not caresses; 'cat's tail' is the last letter of CAT, a T, which goes in PUTS.",
+     "definitionFit": "A putt is a gentle golf stroke played on the green towards the hole."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Strokes"
     }
    }
@@ -940,28 +951,39 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SPEEDWELL",
+     "spelt": "SPEEDWELL",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "swap the opening sounds of the two words, as Rev Spooner did"
+       "at": 12,
+       "note": "the Reverend Spooner swapped the opening sounds of words, so the two words trade their opening consonants"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "unwanted plant patch",
-       "gives": "SPEEDWELL",
-       "soundsLike": "WEED SPELL",
-       "note": "unwanted plant = weed, patch = spell (a period); swap W and SP"
+       "op": "homophone",
+       "spelt": "WED",
+       "parts": [
+        {
+         "words": "unwanted plant",
+         "at": 22,
+         "gives": "WEED",
+         "note": "a weed is a plant growing where it is not wanted; said aloud it is the same as we'd"
+        }
+       ]
+      },
+      {
+       "words": "patch",
+       "at": 37,
+       "gives": "SPELL",
+       "note": "a patch is a spell, a period of time, as in a bad patch"
       }
      ]
     },
     "explanation": {
-     "surface": "A gardener's flower growing in a weedy patch.",
-     "walkthrough": "'Patch' means a spell of time, as in a bad patch, not a piece of ground.",
-     "definitionFit": "A category for one example: speedwell is a small blue wild flower."
+     "surface": "Garden talk: a bloom from the bit of the garden overrun with weeds.",
+     "walkthrough": "Spooner's swap of opening sounds turns 'weed spell' into 'speed well'. 'patch' looks like a garden plot but means a spell of time, as in a bad patch.",
+     "definitionFit": "Speedwell is a small wild plant of the genus Veronica, usually with blue flowers."
     },
     "features": {
      "answerInScene": true,
