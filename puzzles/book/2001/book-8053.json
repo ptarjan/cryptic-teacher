@@ -145,51 +145,44 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "up",
+       "at": 25,
+       "note": "in a down entry, up means the letters are read from bottom to top"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "hidden",
        "indicators": [
         {
-         "text": "up",
-         "note": "in a down answer, going up means reading the letters from bottom to top"
+         "text": "some",
+         "at": 5,
+         "note": "some means only part of the following words is used"
         }
        ],
        "parts": [
         {
-         "op": "hidden",
-         "indicators": [
-          {
-           "text": "some",
-           "note": "only some of the following word is wanted, a run of letters inside it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "evasive",
-           "gives": "EVAS",
-           "note": "the run of letters inside this word, before being turned round"
-          }
-         ]
+         "words": "evasive action",
+         "at": 10,
+         "gives": "EVAS",
+         "note": "the run of letters is found at the start of evasive"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "action",
-       "note": "surface padding completing the phrase evasive action"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone holds on by keeping their dodging manoeuvres going.",
-     "walkthrough": "Read 'evasive' backwards and SAVE appears within it.",
-     "definitionFit": "To save something is to keep or retain it rather than spend or discard it, a straightforward synonym."
+     "surface": "An instruction to maintain some dodging manoeuvres.",
+     "walkthrough": "'some' picks EVAS out of 'evasive', and 'up' turns it round in this down light.",
+     "definitionFit": "To save something is to keep it, as in saving money or keeping it aside for later."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "up"
+     "misdirectedWord": "action"
     }
    }
   },
@@ -495,40 +488,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "in fashion",
+       "at": 7,
+       "note": "in fashion is read as 'in the manner of' the following words, which carry the answer inside them"
+      },
+      {
+       "text": "useful",
+       "at": 34,
+       "note": "useful here says the two words are put to use for the answer, which they hold in their own letters"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "fashion",
-       "note": "surface padding, part of the phrase about style"
-      },
-      {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "in",
-         "note": "in tells you the letters sit inside the words that follow"
-        }
-       ],
-       "parts": [
-        {
-         "words": "therefore very",
-         "gives": "FOREVER",
-         "note": "the letters run across the join of these two words"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "useful",
-       "note": "surface padding completing the sentence"
+       "words": "therefore very",
+       "at": 19,
+       "gives": "FOREVER",
+       "note": "the letters run across the end of therefore and the start of very"
       }
      ]
     },
     "explanation": {
-     "surface": "Something perennially stylish is therefore extremely handy.",
-     "walkthrough": "'Fashion' and 'useful' are only surface dressing; the answer runs through therefore very.",
-     "definitionFit": "Forever means for all time, at every moment, which is a direct synonym of always."
+     "surface": "Something always fashionable, and so very handy.",
+     "walkthrough": "'in fashion' tempts as a definition of stylish; instead it and 'useful' point into 'therefore very', where the answer runs across the two words.",
+     "definitionFit": "Forever means for all time, so it can stand for always, as in 'he is forever complaining'."
     },
     "features": {
      "answerInScene": false,
@@ -1299,40 +1284,37 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "hidden",
+     "indicators": [
       {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "from",
-         "note": "from means taken out of the words that follow, a short run of their letters"
-        }
-       ],
-       "parts": [
-        {
-         "words": "car as petrol",
-         "gives": "RASP",
-         "note": "the letters straddle these three words"
-        }
-       ]
+       "text": "from",
+       "at": 12,
+       "note": "from signals the answer is taken out of the next words"
       },
       {
-       "unchecked": true,
-       "words": "runs out",
-       "note": "surface padding completing the motoring picture"
+       "text": "runs out",
+       "at": 31,
+       "note": "the answer's letters run out partway through petrol, so only its first letter is used"
+      }
+     ],
+     "parts": [
+      {
+       "words": "car as petrol",
+       "at": 17,
+       "gives": "RASP",
+       "note": "the letters run from the end of car through as to the start of petrol"
       }
      ]
     },
     "explanation": {
-     "surface": "A motor makes a grating sound as the fuel tank empties.",
-     "walkthrough": "'Runs out' completes the motoring picture and plays no part in the wordplay.",
-     "definitionFit": "A rasp is a rough grating sound, like a file on wood, so it means a harsh noise."
+     "surface": "A grating sound from an engine as the fuel tank empties.",
+     "walkthrough": "'from' points inside 'car as petrol', and 'runs out' says the answer stops at the first letter of 'petrol'.",
+     "definitionFit": "A rasp is a rough grating sound, like a file scraped across wood, so a harsh noise."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "car"
+     "misdirectedWord": "petrol"
     }
    }
   },
