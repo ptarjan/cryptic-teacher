@@ -107,11 +107,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "BOOMERANG",
      "indicators": [
       {
-       "text": "round"
+       "text": "round",
+       "at": 22,
+       "note": "round says the two words go around the letter that follows"
       }
      ],
      "parts": [
@@ -120,27 +120,41 @@
        "parts": [
         {
          "words": "blast",
+         "at": 9,
          "gives": "BOOM",
-         "note": "a boom is a loud blast"
-        },
-        {
-         "words": "exhaust's opening",
-         "gives": "E",
-         "note": "first letter of 'exhaust'"
+         "note": "a boom is a loud blast of sound"
         },
         {
          "words": "echoed",
+         "at": 15,
          "gives": "RANG",
-         "note": "rang = echoed, resounded"
+         "note": "rang in the sense of resounded or reverberated"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opening",
+         "at": 38,
+         "note": "an opening is the start, so only the first letter of exhaust's is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "exhaust's",
+         "at": 28,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A car backfires with a bang that echoes round its exhaust pipe.",
-     "walkthrough": "The whole surface is a car engine backfiring, but 'Backfire' is a verb here: to boomerang is to rebound on the person who started it.",
-     "definitionFit": "A plan that boomerangs recoils on its maker, just as one that backfires does."
+     "surface": "A car backfires: the bang reverberated around the mouth of its exhaust pipe.",
+     "walkthrough": "The surface makes 'Backfire' a car noise, but it is the definition as a verb. 'round' puts BOOM and RANG either side of E, the 'opening' of exhaust's.",
+     "definitionFit": "A plan that boomerangs recoils on its maker, just as one that backfires harms the person behind it."
     },
     "features": {
      "answerInScene": false,
@@ -452,40 +466,52 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "SERVE",
+     "op": "container",
      "indicators": [
       {
-       "text": "shifting"
-      },
-      {
-       "text": "to centre"
+       "text": "to centre",
+       "at": 27,
+       "note": "to centre says the letter is moved into the middle of what remains"
       }
      ],
      "parts": [
       {
-       "words": "cut",
-       "gives": "SEVER",
-       "note": "to sever is to cut"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "shifting",
+         "at": 12,
+         "note": "shifting takes the letter for right out of its place at the end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cut",
+         "at": 8,
+         "gives": "SEVER",
+         "note": "to sever is to cut"
+        },
+        {
+         "gives": "R"
+        }
+       ]
       },
       {
        "words": "right",
-       "gives": "R",
-       "note": "R = right; the last letter of the cut word moves to its middle"
+       "at": 21,
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "surface": "A welfare payment reduced, with a politician moving rightwards to the centre.",
-     "walkthrough": "The political picture of a party moving from right to centre is the instruction itself: take SEVER's last letter and put it in the middle.",
-     "definitionFit": "To serve someone is to benefit them, as in serving their interests."
+     "surface": "A welfare payment has been reduced, with a right-wing policy moving to the political centre.",
+     "walkthrough": "Take SEVER (cut); 'shifting' lifts its final R out, leaving SEVE, and 'to centre' puts that R back in the middle.",
+     "definitionFit": "To serve someone is to be of use to them, so it can mean benefit, as in 'this will serve you well'."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "right"
+     "misdirectedWord": "Benefit"
     }
    }
   },
@@ -874,41 +900,53 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "detailed",
-       "note": "de-tailed: ALL loses its last letter"
+       "text": "about",
+       "at": 25,
+       "note": "about means the combined letters are turned round"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "about",
-         "note": "'about' as in 'about turn': the letters face the other way"
-        }
-       ],
        "parts": [
         {
-         "words": "Complete detailed",
-         "gives": "AL",
-         "note": "ALL = complete, minus its tail"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "detailed",
+           "at": 9,
+           "note": "detailed read as de-tailed: the last letter is cut off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Complete",
+           "at": 0,
+           "gives": "ALL",
+           "note": "all can mean complete or whole, as in all day"
+          },
+          {
+           "gives": "L"
+          }
+         ]
         },
         {
          "words": "series",
+         "at": 18,
          "gives": "SET",
-         "note": "a set is a series"
+         "note": "a set is a series or collection"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A thorough, detailed series of articles about an inventor.",
-     "walkthrough": "'Detailed' reads as thorough; split it as de-tailed, meaning cut off the last letter.",
-     "definitionFit": "Nikola Tesla invented the alternating-current induction motor."
+     "surface": "A finished, thoroughly described series of programmes about an inventor.",
+     "walkthrough": "'detailed' is read as de-tailed, so ALL loses its last letter to become AL; add SET and 'about' turns ALSET round.",
+     "definitionFit": "Nikola Tesla was the Serbian-American engineer who devised the alternating-current induction motor, a famous inventor."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "detailed"
@@ -1593,61 +1631,45 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "heart"
+       "text": "following",
+       "at": 23,
+       "note": "following means the sweetheart letter comes after the other piece"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "HAT",
        "indicators": [
         {
          "text": "oddly",
-         "note": "the 1st, 3rd and 5th letters of 'heart'"
+         "at": 40,
+         "note": "oddly picks the letters in odd-numbered places of heart"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "heart, oddly",
-         "gives": "HAT",
-         "select": "alternate",
-         "note": "odd letters of HeArT"
+         "words": "heart",
+         "at": 33,
+         "note": "the word whose odd letters are taken"
         }
        ]
       },
       {
-       "op": "middle",
-       "unchecked": true,
+       "words": "sweetheart",
+       "at": 12,
        "gives": "E",
-       "indicators": [
-        {
-         "text": "following",
-         "note": "one thing following another comes after it"
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "sweetheart",
-         "gives": "E",
-         "select": "middle",
-         "note": "the middle letter of swEet"
-        }
-       ]
+       "note": "the heart of sweet is its middle letter E"
       }
      ]
     },
     "explanation": {
-     "surface": "A broken heart: someone who cannot bear their ex-sweetheart.",
-     "walkthrough": "'Sweetheart' is a crossword staple for E, the heart of 'sweet', not a lover.",
-     "definitionFit": "An idiom: can't stand is everyday English for detest."
+     "surface": "Someone loathes their partner after a change of heart.",
+     "walkthrough": "Read sweetheart as the heart of 'sweet', its middle letter E. 'oddly' takes the first, third and fifth letters of heart, HAT, and 'following' puts E after them.",
+     "definitionFit": "To hate something is to be unable to bear it, which is what saying you can't stand it means."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "sweetheart"
     }
    }
