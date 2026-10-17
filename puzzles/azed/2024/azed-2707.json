@@ -247,48 +247,47 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "ASTILBE",
      "indicators": [
       {
        "text": "variety of",
-       "note": "a variety of something is a different version of it, so the letters are reshaped"
+       "at": 27,
+       "note": "a variety of something is a different form of it, so the letters that follow are rearranged"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "ASTILBE",
        "indicators": [
         {
-         "text": "not active",
-         "note": "not active asks for the abbreviation of active to be taken away"
+         "text": "not",
+         "at": 10,
+         "note": "not tells us the letter standing for active is absent from the word labiates"
         }
        ],
        "parts": [
         {
-         "words": "active",
-         "gives": "A",
-         "note": "A is the grammatical abbreviation of active"
+         "words": "labiates",
+         "at": 38
         },
         {
-         "words": "labiates",
-         "note": "taken as written"
+         "words": "active",
+         "at": 14,
+         "gives": "A",
+         "note": "A is the grammatical abbreviation for active (voice)"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A garden plant is said to be found among a range of mint-family species, though not a lively one.",
-     "walkthrough": "Labiates are plants of the mint family; one A goes from the word before the rest are rearranged.",
-     "definitionFit": "Astilbe is a hardy herbaceous plant with feathery plumes that returns every year."
+     "surface": "A botanist notes some perennial that is dormant among a range of mint-family plants.",
+     "walkthrough": "'not active' removes A from LABIATES, leaving LABITES; 'variety of' then rearranges those seven letters. Labiates are plants of the mint family, which makes the surface plausibly botanical.",
+     "definitionFit": "An astilbe is a hardy herbaceous plant with feathery plumes that returns every year, so it is a perennial."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "active"
+     "misdirectedWord": "variety"
     }
    }
   },
@@ -409,53 +408,52 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Strong drink?",
+      "text": "Strong drink",
       "at": 0
      }
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "HOGEN",
      "indicators": [
       {
        "text": "drunk",
-       "note": "drunk suggests something reeling and disordered, so the letters are jumbled"
+       "at": 29,
+       "note": "drunk means unsteady and jumbled, so the letters of the word before it are reshuffled"
       }
      ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "HOGEN",
        "indicators": [
         {
-         "text": "when leaving university",
-         "note": "leaving university means the abbreviation for university departs"
+         "text": "when leaving",
+         "at": 35,
+         "note": "the letter for university departs from the word enough before the reshuffle"
         }
        ],
        "parts": [
         {
          "words": "enough",
-         "note": "taken as written"
+         "at": 22
         },
         {
          "words": "university",
-         "gives": "U",
-         "note": "U is the standard abbreviation for university"
+         "at": 48,
+         "gives": "U"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone has had enough strong liquor after drinking through their student days.",
-     "walkthrough": "'There's' is padding in the surface: it links the definition to wordplay. Remove U from ENOUGH and rearrange.",
-     "definitionFit": "Hogen, short for hogen-mogen, is an old name for strong Dutch liquor."
+     "surface": "A drinker boasts that there is plenty of strong liquor downed once student days are over.",
+     "walkthrough": "'when leaving university' takes U out of ENOUGH, giving ENOGH; 'drunk' rearranges those letters. Hogen is an archaic word found in Chambers.",
+     "definitionFit": "Hogen (from hogen-mogen) is an old term for a potent Dutch-style liquor, so it names a strong alcoholic beverage."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "drunk"
     }
    }
@@ -1866,36 +1864,53 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ELSE",
      "indicators": [
       {
-       "text": "not found when going round",
-       "note": "the tea word goes missing from the outside of the place name, which it went round"
+       "text": "not found",
+       "at": 4,
+       "note": "not found says the tea letters are absent; this removes the final part of the word for tea"
       }
      ],
      "parts": [
       {
-       "words": "Tea",
-       "gives": "CHA",
-       "note": "cha is tea"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "when going round",
+         "at": 14,
+         "note": "the tea letters go round what is left, so the front part of the word for tea comes off the start"
+        }
+       ],
+       "parts": [
+        {
+         "words": "bun place",
+         "at": 31,
+         "gives": "CHELSEA",
+         "note": "a Chelsea bun is named after the London district of Chelsea"
+        },
+        {
+         "words": "Tea",
+         "at": 0,
+         "gives": "CH",
+         "note": "cha is a slang word for tea; its first two letters come off here and its last letter in the next step"
+        }
+       ]
       },
       {
-       "words": "bun place",
-       "gives": "CHELSEA",
-       "note": "a Chelsea bun is named after the London district"
+       "gives": "A",
+       "note": "the final letter of cha, the word for tea"
       }
      ]
     },
     "explanation": {
-     "surface": "A café with no tea, only a bun shop, refuses anything said.",
-     "walkthrough": "Remove C-HA, wrapping the outside of CHELSEA, to leave ELSE. A Chelsea bun is a sweet currant roll.",
-     "definitionFit": "Else means other than, excepting, so it stands for 'bar that mentioned'."
+     "surface": "A café-goer complains that tea is unavailable on a visit to a bakery, apart from what was said.",
+     "walkthrough": "Tea is CHA, which is split around the answer in CHELSEA, a London district famous for a currant bun. 'when going round' strips CH from the front, leaving ELSEA; 'not found' then drops the final A.",
+     "definitionFit": "Else means other than or besides, just as 'bar that mentioned' means excepting what has already been named."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "bar"
+     "aptDefinition": true,
+     "misdirectedWord": "bun"
     }
    }
   },
