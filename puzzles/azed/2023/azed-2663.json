@@ -647,53 +647,61 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FINNAC",
+     "op": "container",
      "indicators": [
       {
-       "text": "without tail",
-       "note": "without its tail a word loses its final letter"
+       "text": "around",
+       "at": 40,
+       "note": "the cooked letters go around the letter for noon"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "around",
-         "note": "around means wrapping one piece about another"
+         "text": "cooked",
+         "at": 20,
+         "note": "cooked as in cooked up, fiddled, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
+         "words": "I",
+         "at": 12
+        },
+        {
+         "op": "deletion",
          "indicators": [
           {
-           "text": "cooked",
-           "note": "cooked suggests ingredients mixed up and transformed"
+           "text": "without tail",
+           "at": 27,
+           "note": "the word loses its tail, its last letter"
           }
          ],
          "parts": [
           {
-           "words": "I fancy",
-           "gives": "IFANC",
-           "note": "the two words with the last letter dropped"
+           "words": "fancy",
+           "at": 14
+          },
+          {
+           "gives": "Y"
           }
          ]
-        },
-        {
-         "words": "noon",
-         "gives": "N",
-         "note": "N is the abbreviation for noon"
         }
        ]
+      },
+      {
+       "words": "noon",
+       "at": 47,
+       "gives": "N"
       }
      ]
     },
     "explanation": {
-     "surface": "An angler fancies a young trout cooked for lunch around midday.",
-     "definitionFit": "Finnac, also finnock, is a Scots name for a young sea trout."
+     "surface": "An angler fancies a young trout cooked, minus its tail, around midday.",
+     "walkthrough": "'without tail' cuts FANCY to FANC; with I those letters are 'cooked' into FINAC, which goes 'around' N. A finnac is a young sea trout in Scots use.",
+     "definitionFit": "A finnac (also finnack or finnock) is a young sea trout or white trout, in Scottish and Irish use."
     },
     "features": {
      "answerInScene": true,
@@ -1002,41 +1010,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SUBGRADE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "most of",
-       "note": "most of a word means all but its last letter"
+       "text": "anew",
+       "at": 19,
+       "note": "done anew, made again in a new form, so the letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Redug",
+       "at": 0
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "anew",
-         "note": "done anew means made again in a fresh arrangement"
+         "text": "most of",
+         "at": 6,
+         "note": "most of the word, dropping its last letter"
         }
        ],
        "parts": [
         {
-         "words": "Redug",
-         "note": "taken as written for the fodder"
+         "words": "base",
+         "at": 14
         },
         {
-         "words": "base",
-         "gives": "BAS",
-         "note": "the word with its final letter dropped"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Builders redig most of a base afresh, preparing what lies under the foundations.",
-     "definitionFit": "A subgrade is the natural ground prepared to support a road or building, beneath the foundations."
+     "surface": "A builder digs again under most of a base to make new footings.",
+     "walkthrough": "'most of' trims BASE to BAS; with REDUG those letters are rearranged, as 'anew' signals.",
+     "definitionFit": "The subgrade is the prepared native soil beneath a road or building, on which the foundation layers rest."
     },
     "features": {
      "answerInScene": true,
@@ -1536,54 +1547,52 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "combined with",
-       "note": "combined with means the two selected pieces are joined together"
+       "text": "a creation of",
+       "at": 13,
+       "note": "only part of the run-together letters is made into the answer, so the tail of the pasta word goes"
       }
      ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "OK",
-       "indicators": [
-        {
-         "text": "a creation of",
-         "note": "the answer is created from pieces of the words that follow, the end of one and start of the other"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "cook",
-         "gives": "OK",
-         "select": "last",
-         "note": "the final pair of letters"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "combined with",
+           "at": 32,
+           "note": "where cook combines with the next word only its end joins in, so its opening letters go"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cook",
+           "at": 27
+          },
+          {
+           "gives": "CO"
+          }
+         ]
+        },
+        {
+         "words": "ravioli",
+         "at": 46
         }
        ]
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "RA",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "ravioli",
-         "gives": "RA",
-         "select": "first",
-         "note": "the opening pair of letters"
-        }
-       ]
+       "gives": "VIOLI"
       }
      ]
     },
     "explanation": {
-     "surface": "An edible vegetable dish made by a chef who serves it with ravioli.",
-     "walkthrough": "The answer straddles the two words, as in a hidden clue, but with 'combined with' sitting between them.",
-     "definitionFit": "Okra is the vegetable whose green seed pods are eaten, known also as ladies' fingers."
+     "surface": "A dish of vegetable pods that a cook has made to go with ravioli.",
+     "walkthrough": "Run COOK and RAVIOLI together, as 'combined with' says, and the answer straddles the join: co(OK RA)violi. 'a creation of' tells you only part of the joined letters is made into the answer.",
+     "definitionFit": "Okra is the vegetable lady's fingers, eaten for its green seed pods."
     },
     "features": {
      "answerInScene": true,
@@ -1764,53 +1773,34 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TEAN",
+     "op": "composite",
      "indicators": [
       {
+       "text": "This",
+       "at": 20,
+       "note": "this points at the answer itself, which together with the bracketed letters makes up the jumble"
+      },
+      {
        "text": "is creation of",
-       "note": "a creation is something newly made, so the letters are rearranged"
+       "at": 36,
+       "note": "the answer plus the named letters is what the jumbled phrase is created from"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "This",
-         "note": "refers to the answer itself, whose letters join the next fragment"
-        },
-        {
-         "op": "deletion",
-         "unchecked": true,
-         "gives": "TEAN",
-         "indicators": [
-          {
-           "text": "not",
-           "note": "not means these letters must be removed from the fodder"
-          }
-         ],
-         "parts": [
-          {
-           "words": "epic",
-           "note": "taken as written"
-          },
-          {
-           "words": "ancient poet",
-           "note": "the letters of the two words"
-          }
-         ]
-        }
-       ]
+       "words": "ancient poet",
+       "at": 51
+      },
+      {
+       "words": "not epic",
+       "at": 26
       }
      ]
     },
     "explanation": {
-     "surface": "A puzzle about whether a style of light verse comes from an ancient poet, though not an epic one.",
-     "walkthrough": "A composite anagram: the answer plus the letters of NOT EPIC rearrange to ANCIENT POET.",
-     "definitionFit": "Tean, or Teian, means of Teos, birthplace of Anacreon, so Anacreontic verse is Tean."
+     "surface": "Asking whether a short Anacreontic poem, being no epic, is the work of an old Greek poet.",
+     "walkthrough": "'This' plus NOT EPIC 'is creation of' ANCIENT POET: rearrange those eleven letters, take out NOT EPIC, and four remain. Tean, or Teian, means of Teos, the birthplace of Anacreon.",
+     "definitionFit": "Anacreon came from Teos, so a poem in his style can be called Teian, here spelt Tean as Chambers allows."
     },
     "features": {
      "answerInScene": true,
