@@ -1792,7 +1792,7 @@ def tails_first(queue, pinned, rows):
     by_id = {r["id"]: r for r in rows}
     taken = set(pinned)
     return pinned + [pid for pid in queue
-                     if pid not in taken and clue_bag.row_is_tail(by_id.get(pid))]
+                     if pid not in taken and clue_bag.row_is_tail(by_id.get(pid), redo=False)]
 
 
 def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=()):
