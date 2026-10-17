@@ -106,46 +106,53 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "REFERENDA",
-     "indicators": [
-      {
-       "text": "lost for"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "priest",
-       "gives": "REVEREND",
-       "note": "a reverend is a member of the clergy"
-      },
-      {
-       "words": "very",
-       "gives": "V",
-       "note": "v = very; this V is swapped out"
-      },
-      {
-       "words": "fine",
-       "gives": "F",
-       "note": "f = fine, as on pencil grades; it replaces the V, giving REFEREND"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "lost for",
+         "at": 38,
+         "note": "lost for says one letter goes and another takes its place"
+        }
+       ],
+       "parts": [
+        {
+         "words": "priest",
+         "at": 25,
+         "gives": "REVEREND",
+         "note": "a reverend is a member of the clergy, such as a priest"
+        },
+        {
+         "words": "very",
+         "at": 33,
+         "gives": "V"
+        },
+        {
+         "words": "fine",
+         "at": 47,
+         "gives": "F",
+         "note": "F is the abbreviation for fine, as on pencil leads"
+        }
+       ]
       },
       {
        "words": "answer",
-       "gives": "A",
-       "note": "a = answer"
+       "at": 52,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A priest has lost his way and is looking for a good answer to some political questions.",
-     "walkthrough": "Referenda is the Latin plural of referendum, a vote put to the whole electorate on one question.",
-     "definitionFit": "Each referendum puts a single political question to the voters."
+     "surface": "A priest, quite at a loss for a good answer to political questions.",
+     "walkthrough": "In REVEREND, the V (very) is 'lost for' F (fine), giving REFEREND; then add A for answer.",
+     "definitionFit": "Referenda are public votes on single political issues, the plural of referendum."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "lost"
+     "misdirectedWord": "fine"
     }
    }
   },
@@ -1321,34 +1328,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "RAFFIA",
-     "indicators": [
-      {
-       "text": "No case for",
-       "note": "the word loses its case, its outer letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "words": "illegal trade",
-       "gives": "TRAFFIC",
-       "note": "traffic is illegal dealing, as in drug traffic; losing T and C leaves RAFFI"
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "No case for",
+         "at": 0,
+         "note": "the case of a word is its outer letters, so with no case the first and last letters are removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "illegal trade",
+         "at": 12,
+         "gives": "TRAFFIC",
+         "note": "traffic is illicit dealing, as in drug trafficking"
+        }
+       ]
       },
       {
        "words": "a",
-       "note": "as printed"
+       "at": 31,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "A lawyer says there is no case against someone smuggling tropical goods.",
-     "walkthrough": "'No case' sounds like a court ruling; it strips the outer letters off TRAFFIC.",
-     "definitionFit": "Raffia is fibre from the leaves of a tropical palm, used for weaving and tying."
+     "surface": "Someone claims there is no case for illegal trading in a tropical product.",
+     "walkthrough": "'No case for' strips the outer T and C from TRAFFIC, leaving RAFFI, and then A is added. 'No case' sounds legal, but it is about letters.",
+     "definitionFit": "Raffia is fibre from the leaves of a tropical palm, used for weaving baskets and mats."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "case"
     }
@@ -1773,26 +1786,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "RASH",
      "indicators": [
       {
        "text": "Head off",
-       "note": "the head, the first letter, comes off"
+       "at": 0,
+       "note": "the head of a word is its first letter, so head off removes it"
       }
      ],
      "parts": [
       {
-       "words": "Head off accident",
-       "gives": "RASH",
-       "note": "CRASH without its first letter"
+       "words": "accident",
+       "at": 9,
+       "gives": "CRASH",
+       "note": "a crash is a collision or accident"
+      },
+      {
+       "gives": "C"
       }
      ]
     },
     "explanation": {
-     "surface": "A driver tries to prevent a collision but is too careless.",
-     "walkthrough": "'Head off' reads as prevent; it means cut the first letter off.",
-     "definitionFit": "A rash act is one done without enough care or thought."
+     "surface": "A plea to prevent an accident caused by someone careless.",
+     "walkthrough": "'Head off' reads like a warning to prevent an accident, but it tells you to remove the first letter of CRASH.",
+     "definitionFit": "A rash person acts hastily without considering the consequences."
     },
     "features": {
      "answerInScene": true,
@@ -2220,40 +2236,53 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "has",
+       "at": 7,
+       "note": "has means holds: the shortened word holds the energy letter again, in a new spot"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
          "text": "to move",
-         "note": "the E is moved to a different spot"
+         "at": 18,
+         "note": "to move the energy letter means first lifting it out of its place in the word for nobody"
         }
        ],
        "parts": [
         {
          "words": "Nobody",
+         "at": 0,
          "gives": "NONE",
-         "note": "none = not one, nobody"
+         "note": "none means not one, nobody"
+        },
+        {
+         "gives": "E"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "has energy to move",
-       "note": "the E of NONE moves up to second place"
+       "words": "energy",
+       "at": 11,
+       "gives": "E",
+       "note": "E is the physics symbol for energy"
       }
      ]
     },
     "explanation": {
-     "surface": "Nobody can be bothered to shift a lump that won't budge.",
-     "walkthrough": "'Energy' reads as get-up-and-go; it is the E already in NONE, which is moved.",
-     "definitionFit": "Neon is one of the inert or noble gases, which hardly react with anything."
+     "surface": "Nobody has the energy to get up and move.",
+     "walkthrough": "'to move' lifts the E out of NONE, leaving NON, and 'has' puts the E (energy) back inside, after the first N. The surface's lazy nobody fits an inert gas.",
+     "definitionFit": "Neon is one of the noble gases, which barely react chemically and so are called inert."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "energy"
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Nobody"
     }
    }
   },
@@ -2323,48 +2352,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DIPLOMATIC",
+     "op": "charade",
      "indicators": [
       {
-       "text": "complex",
-       "note": "the letters are made complicated, rearranged"
+       "text": "on top",
+       "at": 52,
+       "note": "in a down clue, on top means this piece comes first, above the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "depression",
+       "at": 41,
+       "gives": "DIP",
+       "note": "a dip is a hollow or depression in the ground"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "on top",
-         "note": "in a down answer, the depression sits above the rest"
+         "text": "complex",
+         "at": 19,
+         "note": "complex means intricate or tangled, so the letters of to claim are mixed up"
         }
        ],
        "parts": [
         {
-         "words": "depression",
-         "gives": "DIP",
-         "note": "a dip is a hollow"
-        },
-        {
          "words": "to claim",
-         "gives": "LOMATIC",
-         "note": "anagram fodder, 7 letters"
+         "at": 27,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Claiming immunity is complicated if you are feeling low.",
-     "walkthrough": "'Depression' suggests mood; it is a dip in the ground.",
-     "definitionFit": "Diplomatic immunity shields envoys from prosecution in the country where they serve."
+     "surface": "A tricky legal claim about immunity, complicated by depression.",
+     "walkthrough": "The anagram ('complex') of TO CLAIM gives LOMATIC, with DIP 'on top' of it. The definition is a sentence: immunity may be diplomatic.",
+     "definitionFit": "Diplomatic immunity is the legal protection from prosecution given to foreign envoys."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
-     "misdirectedWord": "depression"
+     "aptDefinition": true,
+     "misdirectedWord": "complex"
     }
    }
   },
@@ -2826,60 +2856,55 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reversal",
      "indicators": [
       {
        "text": "put up",
-       "note": "in a down answer, putting up reads the letters from bottom to top"
+       "at": 13,
+       "note": "put up means raised, so in a down clue the whole string is read from the bottom upwards"
       }
      ],
      "parts": [
       {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "initially",
-         "note": "only the first letter of across"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "op": "charade",
+         "op": "first",
+         "indicators": [
+          {
+           "text": "initially",
+           "at": 20,
+           "note": "initially picks out the first letter of across"
+          }
+         ],
          "parts": [
           {
-           "words": "better",
-           "gives": "CAP",
-           "note": "to cap a story is to better it"
-          },
-          {
-           "words": "city",
-           "gives": "LA",
-           "note": "LA = Los Angeles; CAP LA reversed gives ALPAC"
+           "words": "across",
+           "at": 30,
+           "note": "first letter A"
           }
          ]
-        }
-       ]
-      },
-      {
-       "op": "first",
-       "unchecked": true,
-       "gives": "A",
-       "parts": [
+        },
         {
-         "unchecked": true,
-         "words": "initially across",
-         "gives": "A",
-         "select": "first",
-         "note": "first letter of Across"
+         "words": "better",
+         "at": 37,
+         "gives": "CAP",
+         "note": "to cap something is to better or outdo it"
+        },
+        {
+         "words": "city",
+         "at": 44,
+         "gives": "LA",
+         "note": "LA, Los Angeles, is the city"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A swindled gambler raises a stake on a city bet.",
-     "walkthrough": "'Fleeced' suggests cheated, but the alpaca is literally shorn of its fleece.",
-     "definitionFit": "Alpacas are South American animals kept and sheared for their wool."
+     "surface": "Someone cheated, swindled across the city by a better operator.",
+     "walkthrough": "A (the first letter of across, through 'initially'), CAP and LA make ACAPLA, and 'put up' turns the lot upside down in this down clue. 'Fleeced' suggests cheated, but here it means shorn.",
+     "definitionFit": "The alpaca is a South American relative of the llama, kept and shorn for its fine wool."
     },
     "features": {
      "answerInScene": false,
@@ -3184,48 +3209,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "NIRVANA",
+     "op": "container",
      "indicators": [
       {
-       "text": "wild",
-       "note": "the letters of RAIN run wild into a new order"
+       "text": "having",
+       "at": 7,
+       "note": "having means holding: the scrambled letters hold the vehicle"
+      },
+      {
+       "text": "in",
+       "at": 22,
+       "note": "in confirms the vehicle goes inside the scrambled letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "having",
-         "note": "the rain has the vehicle inside it"
+         "text": "wild",
+         "at": 25,
+         "note": "wild suggests disorder, so the letters of rain are scrambled"
         }
        ],
        "parts": [
         {
          "words": "rain",
-         "gives": "NIRA",
-         "note": "anagram fodder, 4 letters"
-        },
-        {
-         "words": "vehicle",
-         "gives": "VAN",
-         "note": "a van is a vehicle; it sits inside the jumbled rain"
+         "at": 30,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "vehicle",
+       "at": 14,
+       "gives": "VAN",
+       "note": "a van is a vehicle"
       }
      ]
     },
     "explanation": {
-     "surface": "Being snug in your camper van during a storm is pure bliss.",
-     "walkthrough": "The picture is a cosy van in a downpour; nirvana comes from the Buddhist state of perfect peace.",
-     "definitionFit": "Nirvana is a state of perfect happiness, bliss."
+     "surface": "Pure happiness: being snug in your van while a storm rages outside.",
+     "walkthrough": "'wild' rearranges RAIN into NIRA, and VAN goes 'in' it, after the N-I-R.",
+     "definitionFit": "Nirvana is the Buddhist state of perfect peace, used loosely for any state of ideal happiness."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "vehicle"
+     "aptDefinition": false
     }
    }
   },
@@ -3251,55 +3281,52 @@
    "annotation": {
     "definitions": [
      {
-      "text": "country",
-      "at": 44
+      "text": "the country",
+      "at": 40
      }
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "THEGAMBIA",
      "indicators": [
       {
        "text": "gaining",
-       "note": "to gain something is to take it on, so the ploy takes A into itself"
+       "at": 15,
+       "note": "gaining means taking on the new letter in the word"
       },
       {
-       "text": "for"
+       "text": "for",
+       "at": 28,
+       "note": "for says the new letter stands in place of the old one"
       }
      ],
      "parts": [
       {
-       "words": "A certain",
-       "gives": "THE",
-       "note": "the definite article marks a certain one"
-      },
-      {
-       "words": "ploy",
-       "gives": "GAMBIT",
-       "note": "a gambit is an opening ploy"
-      },
-      {
-       "words": "area",
-       "gives": "A",
-       "note": "a = area; replaces the T"
+       "words": "A certain ploy",
+       "at": 0,
+       "gives": "THEGAMBIT",
+       "note": "the gambit names one specific ploy, a certain one, as a gambit is an opening ploy"
       },
       {
        "words": "time",
-       "gives": "T",
-       "note": "t = time; swapped out, so GAMBIT becomes GAMBIA"
+       "at": 32,
+       "gives": "T"
+      },
+      {
+       "words": "area",
+       "at": 23,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone tries a particular trick to buy land out of town.",
-     "walkthrough": "'In the country' reads as rural; 'country' is the definition. The Gambia is a small West African nation.",
-     "definitionFit": "The Gambia is a country in West Africa, whose name officially keeps the article."
+     "surface": "A chess-style tactic for gaining territory and time in a country.",
+     "walkthrough": "Take THE GAMBIT; 'gaining area for time' puts A where the final T was. The Gambia is a small West African state.",
+     "definitionFit": "The Gambia is a West African nation whose official name includes the article."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "country"
+     "misdirectedWord": "ploy"
     }
    }
   },
