@@ -168,35 +168,25 @@
     ],
     "wordplay": {
      "op": "first",
-     "unchecked": true,
-     "gives": "RAIL",
      "indicators": [
       {
-       "text": "Heads",
-       "note": "heads are the tops of words, so only the opening letters are kept"
+       "text": "Heads off",
+       "at": 0,
+       "note": "the heads of words are their first letters, taken off the four words that follow"
       }
      ],
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "ORAIL",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "off right away into lounge",
-         "gives": "ORAIL",
-         "select": "first",
-         "note": "the first letter of each word"
-        }
-       ]
+       "words": "right away into lounge",
+       "at": 10,
+       "note": "the first letters of these four words spell the answer"
       }
      ]
     },
     "explanation": {
-     "surface": "Drinkers head off straight away into the lounge bar.",
-     "walkthrough": "'Heads off' tempts you to remove letters; 'off' is just one of the words whose first letter is not used, and the heads are of the next four words.",
-     "definitionFit": "A rail is a horizontal bar, as in a towel rail or handrail."
+     "surface": "A drinker heads straight off into the lounge bar.",
+     "walkthrough": "'lounge bar' reads as one phrase, a room in a British pub, but 'bar' alone is the definition and 'lounge' supplies a letter.",
+     "definitionFit": "A rail is a horizontal rod or bar, as on a fence or a towel rail."
     },
     "features": {
      "answerInScene": false,
@@ -233,45 +223,54 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EXTREMESPORT",
      "indicators": [
       {
        "text": "in",
-       "note": "in puts one piece inside the other"
+       "at": 16,
+       "note": "in says the rearranged letters sit inside the other pieces"
       }
      ],
      "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "old",
+         "at": 19,
+         "gives": "EX",
+         "note": "ex means former or old, as in ex-wife"
+        },
+        {
+         "words": "harbour",
+         "at": 23,
+         "gives": "PORT",
+         "note": "a port is a harbour"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "Swimming",
-         "note": "swimming letters move about freely and settle in a new order"
+         "at": 0,
+         "note": "swimming means moving about in water, so the letters swirl into a new order"
         }
        ],
        "parts": [
         {
-         "words": "old",
-         "gives": "EX",
-         "note": "ex means former or old"
-        },
-        {
          "words": "metres",
-         "note": "taken as written"
-        },
-        {
-         "words": "harbour",
-         "gives": "PORT",
-         "note": "a port is a harbour"
+         "at": 9,
+         "note": "taken as written, as anagram fodder"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Swimming a few metres in an old harbour could be risky.",
-     "definitionFit": "Extreme sports such as BASE jumping are pursuits with a high level of physical danger."
+     "surface": "Swimming many metres in an old harbour is a risky pastime.",
+     "walkthrough": "The anagram of METRES, TREMES, goes 'in' between EX and PORT; the surface swimmer is part of the risky sport scene.",
+     "definitionFit": "An extreme sport, such as base jumping, is a hazardous pursuit involving speed, height or danger."
     },
     "features": {
      "answerInScene": true,
@@ -453,38 +452,49 @@
    "annotation": {
     "definitions": [
      {
-      "text": "a citizen of another",
-      "at": 51,
-      "note": "another South American country"
+      "text": "citizen of another?",
+      "at": 53
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "PARAGUAYAN",
-     "indicators": [
-      {
-       "text": "giving lift to",
-       "note": "in a down entry, lifting a letter moves it higher, which means earlier in the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "Soldier",
+       "at": 0,
        "gives": "PARA",
-       "note": "a para is a paratrooper"
+       "note": "a para is a paratrooper, a soldier"
       },
       {
-       "words": "S American country",
-       "gives": "GUYANA",
-       "note": "Guyana is on the north coast of South America"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "giving lift to a",
+         "at": 36,
+         "note": "in a down entry, lifting the letter a moves it higher, nearer the top, here up past three letters of the country's name"
+        }
+       ],
+       "parts": [
+        {
+         "words": "S American country",
+         "at": 16,
+         "gives": "GUYANA",
+         "note": "Guyana is a country in South America"
+        },
+        {
+         "gives": "YANA"
+        },
+        {
+         "gives": "AYAN"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A soldier arrives in a South American country and gives a ride to someone from a neighbouring state.",
-     "walkthrough": "The 'a' does double duty: it is the letter lifted, and it begins the definition. In a down entry, raising a letter moves it nearer the start.",
-     "definitionFit": "A Paraguayan is a national of Paraguay, which is a different South American country from Guyana."
+     "surface": "A soldier reaches a South American country and offers a ride to someone from a neighbouring state.",
+     "walkthrough": "In GUYANA the final A is lifted up, as this is a down clue, to come before YAN, giving GUAYAN. The question mark marks 'another' as another South American country, Paraguay.",
+     "definitionFit": "A Paraguayan is a native or citizen of Paraguay, a country other than Guyana."
     },
     "features": {
      "answerInScene": true,
@@ -1373,27 +1383,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "OTTO",
+     "op": "middle",
      "indicators": [
       {
        "text": "frayed at the edges",
-       "note": "cloth frayed at its edges has lost its border, so the outer letters go"
+       "at": 25,
+       "note": "frayed at the edges means its outer letters have worn away, so the first and last letters go"
       }
      ],
      "parts": [
       {
        "words": "clothing material",
+       "at": 7,
        "gives": "COTTON",
-       "note": "cotton is a fabric for clothes"
+       "note": "cotton is a fabric used for clothes"
       }
      ]
     },
     "explanation": {
-     "surface": "German fabric worn thin at the edges.",
+     "surface": "A German's cotton clothes are worn ragged at the hems.",
      "walkthrough": "'German' looks like an adjective for the material, but it is the definition: Otto is a typical German man's name.",
-     "definitionFit": "Otto is a common German first name, so a man called this is a typical German in crosswords."
+     "definitionFit": "Otto is a common German given name, so it can stand for a German man, as crosswords often allow."
     },
     "features": {
      "answerInScene": false,
