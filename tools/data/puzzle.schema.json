@@ -954,6 +954,10 @@
      "type": "string",
      "minLength": 1
     },
+    "device": {
+     "description": "A checked leaf with no clue words: its letters come from a puzzle-level device the preamble or `themeClue` declares (a Genius edge letter, an Azed collision's shared letters), not from any clue word. Exempts the leaf from wordplay.bareInCharade; a clue with a `hiddenLetter` needs no marker.",
+     "const": true
+    },
     "indicators": {
      "description": "The words that signal this op, in clue order.",
      "type": "array",
@@ -1049,7 +1053,8 @@
      "words": {},
      "at": {},
      "gives": {},
-     "note": {}
+     "note": {},
+     "device": {}
     },
     "additionalProperties": false,
     "refused": {
