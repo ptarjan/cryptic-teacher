@@ -445,46 +445,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "the ultimate letter is the last one"
+       "text": "in",
+       "at": 36,
+       "note": "the letter from neighbour goes in the word for shout"
       }
      ],
      "parts": [
       {
        "words": "Shout",
+       "at": 0,
        "gives": "BAWL",
-       "note": "to bawl is to shout"
+       "note": "to bawl is to shout or cry loudly"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "R",
        "indicators": [
         {
-         "text": "in",
-         "note": "'in' places one thing inside another, so neighbour's last letter sits inside the shout"
+         "text": "ultimately",
+         "at": 25,
+         "note": "ultimately means at the end, so only the final letter of neighbour is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "neighbour ultimately",
-         "gives": "R",
-         "select": "last",
-         "note": "the last letter of neighbouR"
+         "words": "neighbour",
+         "at": 15,
+         "note": "the last letter of neighbour"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Shouting erupts when a neighbour finally gets drawn into a row.",
-     "walkthrough": "The surface reads straight through as a garden-fence dispute, so 'in quarrel' looks like wordplay; only 'quarrel' is the definition and 'in' is the container.",
-     "definitionFit": "A near synonym, though a brawl is a quarrel that has turned rowdy and physical."
+     "surface": "Raised voices next door, with the neighbour finally drawn into the row.",
+     "walkthrough": "'ultimately' takes R from neighbour, and 'in' puts it inside BAWL.",
+     "definitionFit": "A brawl is a noisy, rough fight, a quarrel that has turned physical."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "neighbour"
     }
    }
   },
@@ -896,49 +896,58 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "with no",
-       "note": "'with no' means lacking, so the host must do without the letter that follows"
-      }
-     ],
      "parts": [
       {
        "words": "Generous guest",
+       "at": 0,
        "gives": "TIPPER",
-       "note": "a guest who tips generously is a tipper"
+       "note": "a generous guest leaves a good tip, so is a tipper"
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "ARY",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "end of",
-         "note": "the end of charm is its last letter, M"
+         "text": "with no",
+         "at": 24,
+         "note": "with no means lacking, so that letter is removed from the word for host"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "host with no end of charm",
-         "gives": "ARY",
-         "select": "last",
-         "note": "host = ARMY, a great multitude; it loses M, the last letter of charM"
+         "words": "host",
+         "at": 19,
+         "gives": "ARMY",
+         "note": "a host is a great number, especially an army"
+        },
+        {
+         "op": "last",
+         "indicators": [
+          {
+           "text": "end of",
+           "at": 32,
+           "note": "the end of a word is its last letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "charm",
+           "at": 39,
+           "note": "the last letter of charm"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lavish guest and an unfailingly charming host, somewhere in Irish hospitality.",
-     "walkthrough": "'Host' pairs with 'guest' to look like hospitality, but it is the old sense of an army; and 'no end of charm' reads as 'plenty of charm'.",
-     "definitionFit": "Definition by example: Tipperary is a county and town in Ireland, famous from the wartime song about the long way there."
+     "surface": "A generous guest and a charmless host somewhere on a trip to Ireland.",
+     "walkthrough": "'host' looks like the partner of the guest, but here it means a multitude, ARMY; 'with no end of charm' drops its M to leave ARY.",
+     "definitionFit": "Tipperary is a county and town in the south of Ireland, famous from the wartime song."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "host"
     }
    }
@@ -1011,49 +1020,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CUSTODIANSHIP",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "surprisingly",
+       "at": 17,
+       "note": "surprisingly suggests the letters turn up in an unexpected order, so they are rearranged"
+      },
+      {
+       "text": "to be spent",
+       "at": 71,
+       "note": "spent letters are used up, so they leave the pool before rearranging"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "CUSTODIANSHIP",
-       "indicators": [
-        {
-         "text": "surprisingly",
-         "note": "surprisingly signals the letters come out in an unexpected order"
-        },
-        {
-         "text": "to be spent"
-        }
-       ],
+       "words": "unsophisticated",
+       "at": 30
+      },
+      {
+       "op": "charade",
        "parts": [
         {
-         "words": "unsophisticated",
-         "note": "anagram fodder, 15 letters before the deletion"
-        },
-        {
          "words": "time",
-         "gives": "T",
-         "note": "t = time, removed"
+         "at": 55,
+         "gives": "T"
         },
         {
          "words": "energy",
+         "at": 64,
          "gives": "E",
-         "note": "e = energy, removed"
+         "note": "E is the physics symbol for energy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A steward's post turns out to be unexpectedly crude, eating up time and effort.",
-     "walkthrough": "UNSOPHISTICATED has one T too many and an E too many; take one of each out and the remaining 13 letters rearrange to the answer.",
-     "definitionFit": "Custodianship is the office or role of a custodian, a steward in charge of something."
+     "surface": "An office run in a surprisingly crude way needs time and energy invested in it.",
+     "walkthrough": "Take a T and an E out of UNSOPHISTICATED ('to be spent'), then 'surprisingly' rearranges the remaining thirteen letters.",
+     "definitionFit": "Custodianship is the position of a keeper or guardian, which is the role a steward holds."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "spent"
     }
@@ -1138,11 +1147,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "HILLTOP",
      "indicators": [
       {
-       "text": "involving"
+       "text": "involving",
+       "at": 26,
+       "note": "the letters for hard work involve, enclose, the rest"
       }
      ],
      "parts": [
@@ -1150,47 +1159,58 @@
        "op": "charade",
        "parts": [
         {
+         "words": "Hard",
+         "at": 16,
+         "gives": "H",
+         "note": "H is the pencil-grading abbreviation for hard"
+        },
+        {
+         "words": "work",
+         "at": 21,
+         "gives": "OP",
+         "note": "op is short for opus, a work"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "bad",
+         "at": 36,
+         "gives": "ILL",
+         "note": "ill means bad, as in ill effects"
+        },
+        {
          "op": "first",
          "indicators": [
           {
            "text": "initially",
-           "note": "the initial letter of track"
+           "at": 46,
+           "note": "initially means at the start, so only the first letter of track is taken"
           }
          ],
          "parts": [
           {
-           "words": "Hard",
-           "note": "h = hard, as on pencils"
+           "words": "track",
+           "at": 40,
+           "note": "the first letter of track"
           }
          ]
-        },
-        {
-         "words": "bad",
-         "gives": "ILL",
-         "note": "ill = bad"
-        },
-        {
-         "words": "track initially",
-         "gives": "T",
-         "note": "the first letter of Track"
-        },
-        {
-         "words": "work",
-         "gives": "OP",
-         "note": "op = opus, a work; H and OP enclose ILL T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mountaineer's aim reached by a hard slog along a poor path.",
-     "walkthrough": "'Hard work' reads as one phrase for a slog, but it splits into two abbreviations that together form the outer shell.",
-     "definitionFit": "The top of a hill is a climber's goal, though a modest one, hence the question mark."
+     "surface": "Climbing is hard work, especially on a rough path at the start.",
+     "walkthrough": "H and OP enclose ILL plus T ('track initially'), as 'involving' signals.",
+     "definitionFit": "A hilltop is the summit a climber aims for; the question mark marks the example."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true
+     "aptDefinition": true,
+     "misdirectedWord": "work"
     }
    }
   },
@@ -1364,65 +1384,69 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "UGLIEST",
+     "indicators": [
+      {
+       "text": "penning",
+       "at": 27,
+       "note": "penning means enclosing, so the outer pair holds the rest"
+      }
+     ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "finally",
-         "note": "the final letter of student"
-        }
-       ],
        "parts": [
         {
          "words": "University",
-         "gives": "U",
-         "note": "u = university"
-        },
-        {
-         "words": "grand",
-         "gives": "G",
-         "note": "g = grand, a thousand pounds or dollars"
-        },
-        {
-         "words": "stories",
-         "gives": "LIES",
-         "note": "lies = stories, as a child tells stories"
+         "at": 0,
+         "gives": "U"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "T",
          "indicators": [
           {
-           "text": "penning"
+           "text": "finally",
+           "at": 19,
+           "note": "finally takes the final letter of student"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "student finally",
-           "gives": "T",
-           "select": "last",
-           "note": "the last letter of studenT"
+           "words": "student",
+           "at": 11,
+           "note": "the last letter of student"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "grand",
+         "at": 35,
+         "gives": "G",
+         "note": "G is slang for a grand, a thousand"
+        },
+        {
+         "words": "stories",
+         "at": 41,
+         "gives": "LIES",
+         "note": "lies are stories, as in telling stories to deceive"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A university student at last writing grand tales of the most unpleasant kind.",
-     "walkthrough": "'University student' reads as one phrase for an undergraduate, but it splits: U, then the final letter of 'student'.",
-     "definitionFit": "A plain synonym: foul and ugly both describe the nasty, and the superlatives match."
+     "surface": "A student is finally writing tall tales at university, grim stuff.",
+     "walkthrough": "U and T ('student finally') pen G and LIES between them.",
+     "definitionFit": "Ugliest is the superlative of ugly, which means foul or vile in character or appearance."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "stories"
+     "misdirectedWord": "penning"
     }
    }
   },
@@ -1566,26 +1590,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EVENSO",
      "indicators": [
       {
        "text": "has lost two final elements",
-       "note": "the last two letters, N and G, are dropped"
+       "at": 15,
+       "note": "losing two final elements means the last two letters of the service drop away"
       }
      ],
      "parts": [
       {
-       "words": "Church service has lost two final elements",
-       "gives": "EVENSO",
-       "note": "EVENSONG, the evening service, without NG"
+       "words": "Church service",
+       "at": 0,
+       "gives": "EVENSONG",
+       "note": "evensong is the Anglican evening service"
+      },
+      {
+       "gives": "NG"
       }
      ]
     },
     "explanation": {
-     "surface": "A church service cut short of its closing parts.",
-     "walkthrough": "Evensong is the Anglican evening service; 'elements' reads as parts of the liturgy but means letters.",
-     "definitionFit": "An idiom: 'even so' concedes a point and carries on regardless, the same job 'however' does."
+     "surface": "An evening church service has shed its last two parts, yet goes on.",
+     "walkthrough": "'has lost two final elements' cuts NG from the end of EVENSONG, the Church of England's evening prayer service.",
+     "definitionFit": "Even so is an adverbial phrase meaning nevertheless, which matches however."
     },
     "features": {
      "answerInScene": false,
@@ -1611,8 +1638,7 @@
     "definitions": [
      {
       "text": "altarpiece?",
-      "at": 38,
-      "note": "defined by example: an altarpiece is often a triptych"
+      "at": 38
      }
     ],
     "wordplay": {
@@ -1620,44 +1646,43 @@
      "parts": [
       {
        "words": "Journey",
+       "at": 0,
        "gives": "TRIP",
        "note": "a trip is a journey"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "TY",
        "indicators": [
         {
          "text": "finishes off",
-         "note": "the finishes of at and lovely are their last letters"
+         "at": 8,
+         "note": "the finishes of words are their final letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "finishes off at lovely",
-         "gives": "TY",
-         "select": "last",
-         "note": "the last letters of aT and lovelY"
+         "words": "at lovely",
+         "at": 21,
+         "note": "the last letters of at and lovely"
         }
        ]
       },
       {
        "words": "church",
-       "gives": "CH",
-       "note": "ch. = church"
+       "at": 31,
+       "gives": "CH"
       }
      ]
     },
     "explanation": {
-     "surface": "A trip that ends at a lovely church, where the altarpiece awaits.",
-     "walkthrough": "The question mark admits a triptych need not be an altarpiece, though many are: three hinged painted panels behind an altar.",
-     "definitionFit": "A triptych is a three-panelled painting, often an altarpiece."
+     "surface": "A trip that ends at a lovely church with a fine altarpiece.",
+     "walkthrough": "'finishes off' gives T and Y from 'at lovely'; 'church' is then the abbreviation CH, not another final letter.",
+     "definitionFit": "A triptych is a three-panelled painting, often used as an altarpiece, hence the question mark."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "finishes"
     }
    }
   }
