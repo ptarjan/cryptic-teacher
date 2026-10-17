@@ -2560,6 +2560,8 @@ tools/test_genius_puzzles.py                   does tools/genius_puzzles.py read
                                                keep the Genius's printed pair of counts, and
                                                does the write gate refuse a tag's remnant in
                                                any string?
+tools/test_light_spec_shared_light.py          is a light two linked groups share one light,
+                                               not two?
 tools/test_linked_group_sums.py                does the grid search use a linked answer's
                                                printed total?
 tools/test_self_clued.py                       can a light with a clue of its own also finish
