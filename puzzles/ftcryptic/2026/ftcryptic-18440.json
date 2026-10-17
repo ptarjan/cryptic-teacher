@@ -1184,41 +1184,45 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "IMAGINARY",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "mostly means not quite all, so the word's last letter is dropped"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "island",
+       "at": 9,
+       "gives": "I",
+       "note": "I is the standard abbreviation for island, as on maps"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "cultivated",
+         "at": 16,
+         "note": "crops that are cultivated are worked over, so these letters are worked into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "island",
-         "gives": "I",
-         "note": "I is the abbreviation for island"
+         "words": "grain",
+         "at": 27
         },
         {
-         "op": "anagram",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "cultivated",
-           "note": "cultivated ground is turned over and worked, so these letters are churned up"
+           "text": "mostly",
+           "at": 42,
+           "note": "mostly means not quite all of the word, so its last letter is dropped"
           }
          ],
          "parts": [
           {
-           "words": "grain",
-           "note": "taken as written"
+           "words": "yams",
+           "at": 37,
+           "note": "yams loses its final S to leave YAM"
           },
           {
-           "words": "yams",
-           "gives": "YAM",
-           "note": "the word without its final letter"
+           "gives": "S"
           }
          ]
         }
@@ -1227,14 +1231,14 @@
      ]
     },
     "explanation": {
-     "surface": "A legendary isle where grain and yams are mostly farmed.",
-     "walkthrough": "'Mythical island' reads as one place, like Atlantis, but island gives just I and Mythical is the definition.",
-     "definitionFit": "Something mythical exists only in stories and legend, not in reality, so it is made up or imagined."
+     "surface": "A legendary island where grain and yams were grown.",
+     "walkthrough": "'Cultivated' reads like farming the island, but it is the anagram signal, and 'mostly' tells you to cut the last letter off yams first.",
+     "definitionFit": "Something mythical exists only in stories or the mind, so it is unreal, invented, not real."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "island"
+     "misdirectedWord": "cultivated"
     }
    }
   },
