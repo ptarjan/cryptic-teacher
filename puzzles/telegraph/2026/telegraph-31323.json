@@ -391,39 +391,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "AFRO",
-     "indicators": [
-      {
-       "text": "advancing"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Article",
+       "at": 0,
+       "gives": "A",
+       "note": "a is the indefinite article"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "advancing king's",
+         "at": 21,
+         "note": "advancing the king's letter means the one standing for rex, king, moves forward a place in the word"
+        }
+       ],
        "parts": [
         {
-         "words": "Article",
-         "gives": "A",
-         "note": "A is the indefinite article"
-        },
-        {
-         "words": "in favour of advancing king's",
-         "gives": "FRO",
-         "note": "for = in favour of; its R (rex, king) moves one place forward"
+         "words": "in favour of",
+         "at": 8,
+         "gives": "FOR",
+         "note": "for means in favour of, as in voting for"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A newspaper piece backing a monarch's new haircut.",
-     "walkthrough": "R is Latin rex, king. No letter is added: the R already in FOR just steps ahead of the O.",
-     "definitionFit": "A plain synonym: the hairstyle is a large rounded mass of tightly curled hair, popular from the 1960s."
+     "surface": "Someone backs the idea of the king growing his hair out.",
+     "walkthrough": "FOR already ends in an R, the abbreviation for king (Latin rex); 'advancing king's' moves that R forward past the O, so FOR becomes FRO.",
+     "definitionFit": "An Afro is a rounded, bushy hairstyle of naturally tightly curled hair."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "advancing"
     }
@@ -450,65 +452,69 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "FINDINGS",
-     "indicators": [
-      {
-       "text": "enveloping",
-       "note": "to envelop is to wrap around"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "enveloping",
+         "at": 22,
+         "note": "enveloping means wrapping around another piece"
+        }
+       ],
        "parts": [
         {
-         "words": "loud",
-         "gives": "F",
-         "note": "f = forte, loud in music"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "loud",
+           "at": 11,
+           "gives": "F",
+           "note": "F, for forte, is the musical direction for loud"
+          },
+          {
+           "words": "noise",
+           "at": 16,
+           "gives": "DIN",
+           "note": "a din is a loud noise"
+          }
+         ]
         },
         {
          "words": "popular",
+         "at": 33,
          "gives": "IN",
-         "note": "in = popular, fashionable"
-        },
+         "note": "in means popular, fashionable"
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
         {
-         "words": "noise",
-         "gives": "DIN",
-         "note": "a din is a loud noise"
-        },
+         "text": "centre for",
+         "at": 41,
+         "note": "the centre of a word is its middle letters"
+        }
+       ],
+       "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "GS",
-         "indicators": [
-          {
-           "text": "centre for",
-           "note": "takes the two middle letters of YOUNGSTERS"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "youngsters",
-           "gives": "GS",
-           "select": "middle",
-           "note": "the middle two of its ten letters, G and S"
-          }
-         ]
+         "words": "youngsters",
+         "at": 52,
+         "note": "middle two letters of youngsters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A study of what happens when a youth club gets too noisy.",
-     "walkthrough": "'Loud noise' looks like one idea but splits in two: F and DIN. 'Centre for youngsters' reads as a youth club but is the middle of the word.",
-     "definitionFit": "The conclusions reached by an inquiry, study or court are its results; a plain synonym."
+     "surface": "The outcome of racket around a popular youth club.",
+     "walkthrough": "'centre for' takes the middle of the ten-letter 'youngsters', which with an even count is two letters, GS, not one; FINDIN comes first.",
+     "definitionFit": "Findings are the conclusions reached after an inquiry, so they are its outcomes."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "centre"
     }
@@ -1024,36 +1030,45 @@
      "op": "charade",
      "parts": [
       {
-       "words": "Sure",
-       "gives": "USER",
-       "note": "SURE rearranged"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "agitated",
+         "at": 5,
+         "note": "agitated means stirred up, so the letters are shaken into a new order"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sure",
+         "at": 0,
+         "note": "the letters to be rearranged"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "lying over"
+         "text": "lying over",
+         "at": 27,
+         "note": "lying over means turned over, read backwards"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "agitated",
-           "note": "SURE is stirred into a new order"
-          }
-         ],
+         "op": "charade",
          "parts": [
           {
-           "words": "guy",
-           "gives": "MAN",
-           "note": "a guy is a man; reversed to NAM"
+           "words": "European",
+           "at": 14,
+           "gives": "E"
           },
           {
-           "words": "European",
-           "gives": "E",
-           "note": "E = European"
+           "words": "guy",
+           "at": 23,
+           "gives": "MAN",
+           "note": "a guy is a man"
           }
          ]
         }
@@ -1062,9 +1077,9 @@
      ]
     },
     "explanation": {
-     "surface": "A rattled European caught lying about his identity documents.",
-     "walkthrough": "In a down entry NAM sits over E, so 'over' also places it. 'Lying' suggests dishonesty, but here the man is lying down, flipped.",
-     "definitionFit": "Computing sense: the login name that identifies an account holder to a website or system."
+     "surface": "An anxious European man lies about his identity.",
+     "walkthrough": "'lying over' is the reversal signal, turning the European and the guy round together, not a hint at dishonesty.",
+     "definitionFit": "A username is the name that identifies a person when logging on to a computer system."
     },
     "features": {
      "answerInScene": true,
