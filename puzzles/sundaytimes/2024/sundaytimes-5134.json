@@ -932,58 +932,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PARTICLES",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 20,
+       "note": "inside means placed within, so the picked letters go into the rearranged word"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "regularly",
-         "note": "take letters at regular intervals: I and C of i-t-c-h"
-        },
-        {
          "text": "cast",
-         "note": "cast can mean shaped or thrown about, so the letters are rearranged"
+         "at": 35,
+         "note": "cast in the sense of thrown into a new shape, so the letters of plaster are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "plaster cast",
-         "gives": "PARTLES",
-         "note": "PLASTER rearranged, split around the inserted letters"
-        },
+         "words": "plaster",
+         "at": 27,
+         "note": "taken as written, as anagram fodder"
+        }
+       ]
+      },
+      {
+       "op": "alternate",
+       "indicators": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "IC",
-         "indicators": [
-          {
-           "text": "inside"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "regularly itch",
-           "gives": "IC",
-           "select": "alternate",
-           "note": "alternate letters of ITCH, the first and third"
-          }
-         ]
+         "text": "regularly",
+         "at": 5,
+         "note": "regularly means at even intervals, so every other letter of itch is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "itch",
+         "at": 15,
+         "note": "the alternate letters picked are I and C"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An itch under a plaster cast on a broken limb.",
-     "walkthrough": "'Plaster cast' reads as one medical object; split, it is fodder and anagram indicator.",
-     "definitionFit": "A plain synonym: particles are minute pieces, bits, of a substance."
+     "surface": "Someone in a plaster cast complains that bits inside it keep making them itch.",
+     "walkthrough": "'plaster cast' reads as a single thing from a fracture clinic, but 'cast' works on its own as the instruction to rearrange.",
+     "definitionFit": "Particles are tiny pieces of matter, so they are small bits of something."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "cast"
     }
@@ -1131,45 +1131,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SAFARI",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 22,
+       "note": "round means surrounding, so the reversed word wraps the other piece"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "turning",
-         "note": "turning something turns it about, so IS comes out backwards"
-        },
-        {
-         "text": "round",
-         "note": "to go round something is to surround it"
+         "at": 14,
+         "note": "turning means the word is is read backwards"
         }
        ],
        "parts": [
         {
          "words": "is",
-         "gives": "SI",
-         "note": "IS turned about"
-        },
-        {
-         "words": "a long way off",
-         "gives": "AFAR",
-         "note": "afar = a long way off"
+         "at": 11,
+         "note": "taken as written"
         }
        ]
+      },
+      {
+       "words": "a long way off",
+       "at": 28,
+       "gives": "AFAR",
+       "note": "afar means at a great distance, a long way off"
       }
      ]
     },
     "explanation": {
-     "surface": "An expedition changing course to go around something far away.",
-     "walkthrough": "'A long way off' reads as a loose adverbial phrase in the surface, yet it stands for a single short word.",
-     "definitionFit": "A safari is an expedition, especially to see wildlife."
+     "surface": "An expedition turns back when it gets a long way from base.",
+     "walkthrough": "'turning' makes SI from 'is', and 'round' splits it to enclose AFAR.",
+     "definitionFit": "A safari is a journey or expedition, especially one to watch or hunt wild animals in Africa."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
     }
    }
   },
@@ -1194,54 +1198,59 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "stopped by"
+       "text": "stopped by",
+       "at": 7,
+       "note": "stopped by means plugged by, so the letter is put inside the other pieces"
       }
      ],
      "parts": [
       {
-       "words": "A",
-       "note": "A as written"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0
+        },
+        {
+         "words": "draw",
+         "at": 2,
+         "gives": "TEMPT",
+         "note": "to draw someone in is to tempt them"
+        }
+       ]
       },
       {
-       "op": "container",
+       "op": "nth",
+       "n": 3,
        "indicators": [
         {
          "text": "third",
-         "note": "take the third letter of Bath"
+         "at": 25,
+         "note": "third means the third letter of the word Bath's is taken"
         }
        ],
        "parts": [
         {
-         "words": "draw",
-         "gives": "TEMPT",
-         "note": "to draw = to attract, tempt"
-        },
-        {
-         "op": "nth",
-         "n": 3,
-         "parts": [
-          {
-           "words": "Bath's third",
-           "gives": "BATHTHIRD",
-           "note": "third letter of BATH"
-          }
-         ]
+         "words": "Bath's",
+         "at": 18,
+         "note": "its third letter is T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rugby report: Bath's third try breaks a deadlock.",
-     "walkthrough": "The rugby picture makes 'draw' a tied match and 'try' a score; draw is to entice, and try is the definition.",
-     "definitionFit": "Try as a noun means an effort, as in 'have a try'; the rugby sense in the surface is the decoy."
+     "surface": "A rugby match heading for a draw is saved by Bath scoring a third try.",
+     "walkthrough": "Bath is an English rugby club, so 'draw' and 'try' look like match results, but 'draw' means TEMPT and 'third' takes T from Bath's.",
+     "definitionFit": "An attempt is an effort to do something, which is what a try means outside rugby."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "draw"
     }
    }
@@ -1267,27 +1276,27 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MIDGE",
+     "op": "middle",
      "indicators": [
       {
        "text": "Wingless",
-       "note": "a word's wings are its outer letters, cut off"
+       "at": 0,
+       "note": "wingless means without its wings, the letters at either side, so the first and last letters are cut"
       }
      ],
      "parts": [
       {
        "words": "little",
+       "at": 9,
        "gives": "SMIDGEN",
-       "note": "a smidgen = a little"
+       "note": "a smidgen is a little, a very small amount"
       }
      ]
     },
     "explanation": {
-     "surface": "A tiny insect that cannot fly.",
-     "walkthrough": "'Little insect' looks like a single description; 'little' is SMIDGEN, and midges do have wings.",
-     "definitionFit": "A midge is a small biting fly."
+     "surface": "A small insect is described as having no wings.",
+     "walkthrough": "'Wingless little insect' reads as one description, but 'little' is a noun meaning SMIDGEN, and 'Wingless' clips its two ends.",
+     "definitionFit": "A midge is a tiny two-winged fly, a familiar biting insect in Scotland."
     },
     "features": {
      "answerInScene": true,
