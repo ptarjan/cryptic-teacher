@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -90,36 +91,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AFTERYOU",
-     "indicators": [
-      {
-       "text": "Without leader",
-       "note": "the leader of a word is the letter standing at its front, and a word deprived of one has that first letter stripped off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Without leader",
+         "at": 0,
+         "note": "a word without its leader loses its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "more silly",
-         "gives": "AFTER",
-         "note": "DAFTER means more silly, and the D at its front is what the clue throws away"
+         "at": 16,
+         "gives": "DAFTER",
+         "note": "dafter means sillier"
         },
         {
-         "words": "people",
-         "gives": "YOU",
-         "note": "the pronoun addresses a whole roomful at once, so it stands in for a crowd"
+         "gives": "D"
         }
        ]
+      },
+      {
+       "words": "people",
+       "at": 27,
+       "gives": "YOU",
+       "note": "you is used generically for people in general, as in 'you never know'"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Politeness is the joke. The surface calls a crowd stupid, while the phrase itself is what you murmur at a doorway to hold it open for them.",
-     "definitionFit": "lead the way -> AFTER YOU: the phrase used to let somebody else go first, so it is the invitation to lead the way rather than a synonym for it."
+     "surface": "Sillier people, with no one in charge, are told to go first.",
+     "walkthrough": "'Without leader' drops the D from DAFTER. The definition is a whole phrase: 'After you' is the courteous invitation for someone else to go first, that is, lead the way.",
+     "definitionFit": "Saying 'after you' politely invites another person to go ahead first, which is to tell them to lead the way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "leader"
     }
    }
   },
@@ -196,41 +207,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "KATMANDU",
+     "spelt": "KATMANDU",
      "indicators": [
       {
        "text": "on radio",
-       "note": "a word reaching you over the radio arrives as sound alone, so how it is spelt is left entirely to the listener"
+       "at": 15,
+       "note": "something heard on the radio is only heard, so the words are judged by how they sound"
       }
      ],
      "parts": [
       {
-       "words": "Two dudes",
-       "gives": "CATMAN",
-       "note": "a cat and a man are both dudes — 'cat' for a bloke comes out of jazz slang"
-      },
-      {
-       "words": "work",
-       "gives": "DO",
-       "note": "to do a job is to work at it"
-      },
-      {
-       "op": "homophone",
-       "spelt": "KATMANDU",
-       "parts": [
-        {
-         "words": "on radio",
-         "gives": "CATMANDO",
-         "note": "those three scraps said out loud in one breath are written down as the city"
-        }
-       ]
+       "words": "Two dudes work",
+       "at": 0,
+       "gives": "CATMANDO",
+       "note": "cat and man are both slang for a dude or guy, and do means work, giving cat man do"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Nepal's capital is spelt Kathmandu in most atlases; the older eight-letter spelling is the one that fits, and it is the sound the clue gives you, never the letters.",
-     "definitionFit": "foreign capital -> KATMANDU: the capital of Nepal, high in the Himalayas, and foreign from the London newspaper the puzzle is printed in."
+     "surface": "A pair of guys have a job in broadcasting from abroad.",
+     "walkthrough": "Cat (a hipster) and man are two words for a dude, and do is to work; said together they sound like the name of the city, also spelt Kathmandu.",
+     "definitionFit": "Katmandu is the capital city of Nepal, so a capital foreign to the British setter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "radio"
     }
    }
   },
@@ -313,55 +316,62 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "KNEE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inhales",
+       "at": 39,
+       "note": "to inhale is to take in, so the regular letters of Keef take the reversed nurse inside them"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "alternate",
        "indicators": [
         {
-         "text": "rolled",
-         "note": "something rolled over comes to rest the other way round, so its letters are read from the far end back"
-        },
-        {
-         "text": "inhales",
-         "note": "to inhale is to draw something in, so the outer piece takes the other one inside it"
+         "text": "regularly",
+         "at": 29,
+         "note": "regularly means at regular intervals, so every other letter of Keef is taken"
         }
        ],
        "parts": [
         {
-         "op": "alternate",
-         "unchecked": true,
-         "gives": "KE",
-         "indicators": [
-          {
-           "text": "regularly",
-           "note": "letters picked regularly are taken at a fixed interval, here every second one from the start"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Keef regularly",
-           "gives": "KE",
-           "select": "alternate",
-           "note": "Keith Richards is Keef to the music press, and every second letter of that nickname is wanted"
-          }
-         ]
-        },
+         "words": "Keef",
+         "at": 24,
+         "note": "the first and third letters of Keef"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "rolled",
+         "at": 12,
+         "note": "rolled means turned over, so the nurse word is read backwards"
+        }
+       ],
+       "parts": [
         {
          "words": "nurse",
-         "gives": "NE",
-         "note": "an EN is an enrolled nurse in Britain, and those two letters are turned round"
+         "at": 6,
+         "gives": "EN",
+         "note": "EN is the crossword abbreviation for an enrolled nurse"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The whole surface is a Rolling Stone rolling a joint, so 'joint' arrives already meaning something else. The definition wants the anatomical one.",
-     "definitionFit": "Joint -> KNEE: a joint is any place where two bones hinge against each other, and this is the big one halfway down a leg."
+     "surface": "A nurse rolls a joint that Keith Richards, nicknamed Keef, smokes now and then.",
+     "walkthrough": "'Joint' looks like the cannabis cigarette of the surface but is the body part. 'regularly' takes KE from Keef; 'rolled' turns EN into NE, which KE 'inhales'.",
+     "definitionFit": "The knee is the hinge joint between the thigh and the lower leg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Joint"
     }
    }
   },
@@ -386,37 +396,43 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "deletion",
+     "indicators": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "away",
-         "note": "letters given away are parted with altogether, removed from the word rather than shuffled about inside it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "sweet",
-         "gives": "TOFFEE",
-         "note": "a chewy sweet in a twist of paper, six letters before the trim"
-        },
-        {
-         "gives": "EE"
-        }
-       ]
+       "text": "giving",
+       "at": 20,
+       "note": "giving something away means parting with it, so the drug letters are removed"
       },
       {
-       "unchecked": true,
+       "text": "away",
+       "at": 33,
+       "note": "with giving, away completes the instruction to lose the drug letters"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sweet",
+       "at": 13,
+       "gives": "TOFFEE",
+       "note": "a toffee is a chewy sweet"
+      },
+      {
        "words": "drugs",
-       "note": "E is ecstasy in crossword shorthand, and the plural means there are two of them to lose"
+       "at": 27,
+       "gives": "EE",
+       "note": "E is the slang abbreviation for the drug ecstasy, so two of them are EE"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "In the surface a rich boy is handing pills out; in the parse the clue confiscates them. The plural matters, because one E would leave a letter too many.",
-     "definitionFit": "Aristocrat -> TOFF: British slang for someone of the upper class, said with a sneer at the accent and the inherited money."
+     "surface": "A posh person shares a sweet and gives up taking drugs.",
+     "walkthrough": "'giving drugs away' removes EE (two Es, ecstasy) from TOFFEE. A toff is British slang for an upper-class person.",
+     "definitionFit": "A toff is a British informal word for a rich or upper-class person, someone of the gentry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drugs"
     }
    }
   },
@@ -523,44 +539,46 @@
      "op": "charade",
      "parts": [
       {
+       "words": "dope",
+       "at": 4,
+       "gives": "ASS",
+       "note": "a dope is a fool, an ass"
+      },
+      {
        "op": "deletion",
        "indicators": [
         {
-         "text": "lacking",
-         "note": "a word lacking something is short of it, so the letter named goes missing before the rest is used"
+         "text": "if lacking",
+         "at": 18,
+         "note": "lacking means without, so the millions letter is taken out of the hash word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "dope",
-           "gives": "ASS",
-           "note": "an ass is a fool, which is what calling someone a dope means"
-          },
-          {
-           "words": "hash",
-           "gives": "MESS",
-           "note": "to make a hash of a job is to make a mess of it"
-          }
-         ]
+         "words": "hash",
+         "at": 13,
+         "gives": "MESS",
+         "note": "to make a hash of something is to make a mess of it"
         },
         {
-         "gives": "M"
+         "words": "millions",
+         "at": 29,
+         "gives": "M",
+         "note": "M is the abbreviation for million or millions"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "millions",
-       "note": "M is the standard abbreviation for millions, and it is the letter that goes"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two drug words in a row and neither is a drug: 'dope' is the idiot and 'hash' the muddle. That double bluff is the whole joke of the surface.",
-     "definitionFit": "Tax -> ASSESS: to tax someone is to work out and impose the sum they owe, which is precisely what a revenue officer does to a return."
+     "surface": "Drugs, dope and hash, put up for taxation if there is no big money in them.",
+     "walkthrough": "'dope' and 'hash' look like drugs but mean a fool and a muddle; 'if lacking' takes the M out of MESS.",
+     "definitionFit": "To assess a person or property is to fix the amount of tax they must pay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hash"
     }
    }
   },
@@ -1150,8 +1168,9 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "in",
-       "note": "a piece put in another sits between its letters rather than before or after them"
+       "text": "flipping",
+       "at": 26,
+       "note": "flipping means turning over, so the whole construction is read backwards"
       }
      ],
      "parts": [
@@ -1159,43 +1178,48 @@
        "op": "container",
        "indicators": [
         {
-         "text": "extremes of",
-         "note": "the extremes of a word are the letters at either end of it, and everything between them is left behind"
+         "text": "in",
+         "at": 4,
+         "note": "in places the men letters between the outer letters of strife"
         }
        ],
        "parts": [
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "SE",
          "indicators": [
           {
-           "text": "flipping",
-           "note": "something flipped lands the other way up, so the assembly is read from its far end back"
+           "text": "extremes of",
+           "at": 7,
+           "note": "the extremes of a word are its first and last letters"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "extremes of strife",
-           "gives": "SE",
-           "select": "outer",
-           "note": "the letters at the two ends of the word, in the order they stand"
+           "words": "strife",
+           "at": 19,
+           "note": "the first and last letters of strife"
           }
          ]
         },
         {
          "words": "Men",
+         "at": 0,
          "gives": "OR",
-         "note": "OR is the army's abbreviation for other ranks, the soldiers who are not officers"
+         "note": "OR, other ranks, is the military abbreviation for soldiers who are not officers"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Assembled, the wordplay spells a word for aching, and only then does it turn over. The men and the strife make a battlefield that has nothing to do with the answer.",
-     "definitionFit": "love God -> EROS: the Greek god of desire, the Romans' Cupid, whose winged statue stands above Piccadilly Circus."
+     "surface": "Soldiers caught up in conflict curse the god of love in exasperation.",
+     "walkthrough": "'extremes of' strife gives SE; 'in' puts OR inside to make SORE, and 'flipping' turns that round. Flipping also pretends to be a mild British oath in the surface.",
+     "definitionFit": "Eros is the Greek god of desire and love, the counterpart of the Roman Cupid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
     }
    }
   },
@@ -1220,36 +1244,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "MOTION",
-     "indicators": [
-      {
-       "text": "unopened",
-       "note": "a word left unopened keeps its lid on, so the letter it would have opened with never appears"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Medium-size",
+       "at": 0,
+       "gives": "M",
+       "note": "M is the clothing-size abbreviation for medium"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "unopened",
+         "at": 13,
+         "note": "unopened means without its opening, so the first letter of the concoction word goes"
+        }
+       ],
        "parts": [
         {
-         "words": "Medium-size",
-         "gives": "M",
-         "note": "M is the letter on the label in the collar of a medium shirt"
+         "words": "concoction",
+         "at": 22,
+         "gives": "POTION",
+         "note": "a potion is a mixed drink or concoction"
         },
         {
-         "words": "concoction",
-         "gives": "OTION",
-         "note": "a concoction in a bottle is a potion, arriving here with the P at its front still shut away"
+         "gives": "P"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Evacuation' sounds like clearing a burning building and is medical here: the doctor's word for what the bowels do, which the concoction in the surface has brought on.",
-     "definitionFit": "evacuation -> MOTION: a motion is the polite clinical word for a bowel movement, one narrow sense of the general word for moving."
+     "surface": "A medium-sized bottle of potion, still sealed, is kept for an emergency evacuation.",
+     "walkthrough": "'unopened' drops the P of POTION. Evacuation here is not leaving a building but emptying the bowels.",
+     "definitionFit": "A motion is a bowel movement, the act of emptying the bowels, which is the medical sense of evacuation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "evacuation"
     }
    }
   },
