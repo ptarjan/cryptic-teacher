@@ -166,6 +166,19 @@ try:
 except w.WordplayError as e:
     check("a note naming no span is refused", "name no span" in str(e), str(e))
 
+# A repeat counts copies without regard to case: the clue's first "Fruit" is a copy.
+t = w.parse("[fruit]APPLE + [fruit#2]PEAR", "Fruit fly turning peeled fruit")
+check("#2 counts a capitalised first copy", [p["at"] for p in t["parts"]] == [0, 25], t)
+# A note keyed by the span's words apart from case or punctuation lands on it; an
+# ambiguous key stays refused and the refusal lists the spans still free.
+tree = w.translate({"wp": "[Tea]T + [in]IN", "notes": {"tea,": "a drink"}}, "Tea in", "TIN")
+check("a note key differing in case/punctuation is re-keyed", tree["parts"][0].get("note") == "a drink", tree)
+try:
+    w.translate({"wp": "[a]A + [b]B", "notes": {"zzz": "x"}}, "a b", "AB")
+    check("an unmatched note lists the free spans", False, "accepted")
+except w.WordplayError as e:
+    check("an unmatched note lists the free spans", "'a'" in str(e) and "'b'" in str(e), str(e))
+
 # ---------- annotation.view against stored annotations ----------
 # Real clues (nation-3289, as filed), each written as a tree; the fields the
 # tree implies must equal the stored ones. Notes are left out of the trees and
