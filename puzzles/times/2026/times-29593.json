@@ -46,46 +46,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CYBERSQUATTING",
-     "indicators": [
-      {
-       "text": "Extremely",
-       "note": "the extremes of a word are its first and last letters"
-      },
-      {
-       "text": "about",
-       "note": "the letters are moved about, rearranged"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "outer",
+       "indicators": [
+        {
+         "text": "Extremely",
+         "at": 0,
+         "note": "only the extremes of the next word are wanted: its first and last letters"
+        }
+       ],
        "parts": [
         {
-         "words": "Extremely crafty",
-         "gives": "CY",
-         "note": "the outer letters of CRAFTY"
-        },
+         "words": "crafty",
+         "at": 10,
+         "note": "first and last letters of crafty"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 31,
+         "note": "about in the sense of round and round, so the letters are moved around into a new order"
+        }
+       ],
+       "parts": [
         {
          "words": "quintet brags",
-         "gives": "BERSQUATTING",
-         "note": "QUINTET BRAGS rearranged"
+         "at": 17,
+         "note": "the twelve letters to be rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A crafty band of five boasts about their shady doings on the internet.",
-     "walkthrough": "Cybersquatting is registering a web domain that matches someone else's name or brand, hoping to sell it to them.",
-     "definitionFit": "Cybersquatting is grabbing domain names in bad faith, a disreputable thing to do online."
+     "surface": "Five sly boasters chatter about some shady internet practice.",
+     "walkthrough": "'Extremely' takes CY from crafty; 'about' rearranges QUINTET BRAGS to give BERSQUATTING. Cybersquatting is registering a domain name that trades on someone else's trademark.",
+     "definitionFit": "Grabbing web domains matching famous brand names in order to sell them back is a shady internet practice."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "quintet"
+     "misdirectedWord": "about"
     }
    }
   },
@@ -163,69 +170,71 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "finally",
-       "note": "takes the final letter of each of the next two words"
+       "text": "having secured",
+       "at": 29,
+       "note": "the outer letters hold on to, or secure, the inner ones"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "having secured"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "Airline",
+         "at": 0,
          "gives": "BA",
-         "note": "BA = British Airways"
+         "note": "BA is British Airways"
         },
         {
-         "op": "charade",
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 8,
+           "note": "the last letters of each of the two words that follow"
+          }
+         ],
          "parts": [
           {
-           "words": "one",
-           "gives": "I",
-           "note": "I = one, the Roman numeral"
-          },
-          {
-           "words": "place",
-           "gives": "PL",
-           "note": "PL is the abbreviation for place, as in street names"
+           "words": "can advance",
+           "at": 16,
+           "note": "last letters of can and advance"
           }
          ]
         }
        ]
       },
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "NE",
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "finally can advance",
-         "gives": "NE",
-         "select": "last",
-         "note": "the last letters of CAN and ADVANCE"
+         "words": "one",
+         "at": 44,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "place",
+         "at": 48,
+         "gives": "PL",
+         "note": "PL is the abbreviation for place, as in street names"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An airline pushing ahead at last after grabbing a slot for a plane.",
-     "walkthrough": "\"Finally\" reaches past \"can\" to \"advance\" as well, taking the last letter of both. \"Can advance\" reads as a verb phrase, but neither word keeps its meaning.",
-     "definitionFit": "A biplane is an aircraft with two pairs of wings."
+     "surface": "An airline is finally allowed to expand after acquiring a site.",
+     "walkthrough": "'Finally' works on both of the next two words, not just can; 'having secured' then wraps the airline's letters round one and place.",
+     "definitionFit": "A biplane is an early aeroplane with two pairs of wings, one stacked above the other."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "can"
+     "misdirectedWord": "advance"
     }
    }
   },
@@ -250,34 +259,49 @@
      }
     ],
     "wordplay": {
-     "op": "middle",
-     "unchecked": true,
-     "gives": "RURAL",
-     "indicators": [
-      {
-       "text": "in the middle",
-       "note": "takes the central letter of each word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "unchecked": true,
-       "words": "Large grounds are located all",
-       "gives": "RURAL",
-       "select": "middle",
-       "note": "five words, each of odd length, so each has a single central letter"
+       "words": "Large",
+       "at": 0,
+       "gives": "R",
+       "note": "middle letter of Large"
+      },
+      {
+       "words": "grounds",
+       "at": 6,
+       "gives": "U",
+       "note": "middle letter of grounds"
+      },
+      {
+       "words": "are",
+       "at": 14,
+       "gives": "R",
+       "note": "middle letter of are"
+      },
+      {
+       "words": "located",
+       "at": 18,
+       "gives": "A",
+       "note": "middle letter of located"
+      },
+      {
+       "words": "all",
+       "at": 26,
+       "gives": "L",
+       "note": "middle letter of all"
       }
      ]
     },
     "explanation": {
-     "surface": "A description of a big estate sitting at the heart of the nation.",
-     "walkthrough": "GROUNDS has seven letters, so its middle is U; each other word has an odd length with a single centre too.",
-     "definitionFit": "Rural means of or belonging to the country rather than the town."
+     "surface": "Big estates all sit at the centre of a nation.",
+     "walkthrough": "'In the middle' takes the centre letter of each of the five words: R, U, R, A, L.",
+     "definitionFit": "Rural describes the countryside, as opposed to towns and cities."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "middle"
+     "misdirectedWord": "country"
     }
    }
   },
@@ -1284,47 +1308,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "TREASURER",
+     "op": "charade",
      "indicators": [
       {
-       "text": "changes",
-       "note": "RATE changes its letter order"
+       "text": "after",
+       "at": 28,
+       "note": "the comparative comes after the reworked word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "after"
+         "text": "changes",
+         "at": 39,
+         "note": "the word rate changes its form, its letters reordered"
         }
        ],
        "parts": [
         {
-         "words": "rate changes",
-         "gives": "TREA",
-         "note": "RATE rearranged"
-        },
-        {
-         "words": "less hesitant",
-         "gives": "SURER",
-         "note": "surer = more certain, less hesitant"
+         "words": "rate",
+         "at": 34
         }
        ]
+      },
+      {
+       "words": "less hesitant",
+       "at": 14,
+       "gives": "SURER",
+       "note": "surer means more certain, so less hesitant"
       }
      ]
     },
     "explanation": {
-     "surface": "A fund manager growing more confident once interest rates move.",
-     "walkthrough": "SURER comes first in the clue but last in the answer, because it sits after the jumbled RATE.",
-     "definitionFit": "A plain description: a club or charity hands its accounts and funds to the officer holding this post."
+     "surface": "A finance officer grows more confident once the interest rate moves.",
+     "walkthrough": "'Less hesitant' needs a comparative, more sure; 'changes' acts on rate alone.",
+     "definitionFit": "A treasurer looks after the funds of a club, company or society."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "rate"
+     "misdirectedWord": "changes"
     }
    }
   },
@@ -1402,42 +1427,41 @@
      "op": "container",
      "indicators": [
       {
-       "text": "starts to",
-       "note": "the start of a word is its opening letter, here taken from each of the next two words"
+       "text": "inside",
+       "at": 36,
+       "note": "the opening letters go within the vehicle"
       }
      ],
      "parts": [
       {
        "words": "saloon, perhaps",
+       "at": 43,
        "gives": "CAR",
-       "note": "a saloon is a type of car, a sedan"
+       "note": "a saloon is a type of car, the British name for a sedan"
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "IG",
        "indicators": [
         {
-         "text": "inside",
-         "note": "what is inside something is enclosed by it, so these letters go within the car"
+         "text": "starts to",
+         "at": 6,
+         "note": "the opening letters of the two words that follow"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "starts to intoxicate gamblers",
-         "gives": "IG",
-         "select": "first",
-         "note": "the first letters of INTOXICATE and GAMBLERS"
+         "words": "intoxicate gamblers",
+         "at": 16,
+         "note": "first letters of intoxicate and gamblers"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Wild West scene: drunken gamblers puffing away in a saloon bar.",
-     "walkthrough": "\"Saloon\" paints a Western bar; in British English it is a car body style, a sedan.",
-     "definitionFit": "A plain synonym: \"a smoke\" is anything lit up and puffed, and a rolled tobacco leaf qualifies."
+     "surface": "In a Wild West saloon, smoke and drink go to the gamblers' heads.",
+     "walkthrough": "The surface paints a Western bar, but saloon here is the British word for a sedan, and 'perhaps' marks it as one example of the vehicle.",
+     "definitionFit": "A cigar is a roll of tobacco leaves for smoking, and a smoke is a common informal name for one."
     },
     "features": {
      "answerInScene": true,
@@ -1515,39 +1539,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "indicators": [
-      {
-       "text": "travelling",
-       "note": "things that are travelling change position, so the letters are on the move into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Father",
+       "at": 0,
+       "gives": "PA",
+       "note": "pa is an informal word for father"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "travelling",
+         "at": 7,
+         "note": "letters that travel move about, so they are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Father",
-         "gives": "PA",
-         "note": "pa = father"
-        },
-        {
          "words": "again to",
-         "note": "AGAIN TO rearranged"
+         "at": 18
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Dad heading off once more to the far south of South America.",
-     "walkthrough": "\"Travelling again\" reads as one idea; \"travelling\" is the only signal and \"to\" is part of the letters.",
-     "definitionFit": "A plain description: the land shared by Argentina and Chile at the continent's southern tip."
+     "surface": "Dad sets off on his journeys once more.",
+     "walkthrough": "'Travelling' looks like part of the father's story, but it signals that 'again to' is rearranged.",
+     "definitionFit": "Patagonia is the southern tip of the continent, shared between Argentina and Chile."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "to"
+     "misdirectedWord": "travelling"
     }
    }
   },
