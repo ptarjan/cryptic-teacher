@@ -603,60 +603,73 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ANTEMORTEM",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "on",
+       "at": 20,
+       "note": "on, in an across clue, puts the reversed part after the heart of Franco"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "middle",
        "indicators": [
         {
-         "text": "back",
-         "note": "An across entry read back runs right to left, so the two words named before it are written from their far ends."
-        },
-        {
          "text": "heart",
-         "note": "The heart of a word is what lies at its centre, equally far from either end."
+         "at": 32,
+         "note": "the heart of Franco's name is its central part, so only the two letters in the middle are kept"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "AN",
-         "indicators": [
-          {
-           "text": "on",
-           "note": "In an across entry a piece landing on another follows it, so the reversed pair comes after the letters it lands on."
-          }
-         ],
+         "words": "Franco's",
+         "at": 23,
+         "gives": "FRANCO",
+         "note": "the name Franco, taken as written; the 's is possessive, the heart belonging to Franco"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "back",
+         "at": 15,
+         "note": "back means the words for Tube and connected are read in reverse"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
          "parts": [
           {
-           "unchecked": true,
-           "words": "Franco's",
-           "gives": "AN",
-           "select": "middle",
-           "note": "the two letters at the dead centre of the Spanish dictator's name"
+           "words": "Tube",
+           "at": 0,
+           "gives": "METRO",
+           "note": "a metro is an underground railway, like London's Tube"
+          },
+          {
+           "words": "connected",
+           "at": 5,
+           "gives": "MET",
+           "note": "met can mean joined or connected, as lines that meet"
           }
          ]
-        },
-        {
-         "words": "connected",
-         "gives": "TEM",
-         "note": "two people who connected have MET, and that word arrives the wrong way round"
-        },
-        {
-         "words": "Tube",
-         "gives": "ORTEM",
-         "note": "the Paris underground is the METRO, turned round like the piece before it"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The Tube is a London one on the surface and a Paris one in the wordplay, and 'connected' is the past tense of meet rather than an instruction to join things up.",
-     "definitionFit": "before death → ANTE MORTEM: the Latin tag means precisely that, and English keeps it for statements and injuries dated to while the patient still lived."
+     "surface": "A tube is attached to a dying dictator's heart in his last hours.",
+     "walkthrough": "The surface suggests a medical tube in a patient; Tube is London's underground railway. Ante mortem is Latin, the counterpart of post mortem.",
+     "definitionFit": "Ante mortem is the Latin phrase meaning prior to dying, used of evidence or examinations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tube"
     }
    }
   },
@@ -1159,7 +1172,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "worry",
+      "text": "worry reported to Houston?",
       "at": 30
      }
     ],
@@ -1171,37 +1184,42 @@
        "indicators": [
         {
          "text": "aboard",
-         "note": "Whatever is taken aboard is carried within the vessel, so the letter goes inside the craft's name rather than beside it."
+         "at": 5,
+         "note": "aboard means the letter for left is carried inside the spacecraft word"
         }
        ],
        "parts": [
         {
          "words": "spaceship",
+         "at": 12,
          "gives": "PROBE",
-         "note": "an unmanned craft sent off to another planet is a probe"
+         "note": "a probe is an unmanned spacecraft"
         },
         {
          "words": "Left",
-         "gives": "L",
-         "note": "L is left, as on a pair of gloves or a stage direction"
+         "at": 0,
+         "gives": "L"
         }
        ]
       },
       {
-       "words": "Mike",
+       "words": "Mike's",
+       "at": 23,
        "gives": "M",
-       "note": "Mike is M in the NATO alphabet that flight crews actually speak"
-      },
-      {
-       "unchecked": true,
-       "words": "reported to Houston?",
-       "note": "surface only: it nods at the Apollo 13 radio call, and 'reported' is not asking for a sound here"
+       "note": "Mike is M in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Reported' is the trap, because it almost always calls for a homophone. Here it belongs to the picture — the famous line sent up from a crippled spacecraft.",
-     "definitionFit": "worry → PROBLEM: the thing on your mind that needs solving is your problem, the everyday sense in which a worry and a difficulty are one and the same."
+     "surface": "An astronaut radios mission control about a worry on board the craft.",
+     "walkthrough": "'aboard' puts L inside PROBE, giving PROBLE. The definition recalls the Apollo 13 message, 'Houston, we've had a problem'; the question mark flags the allusion.",
+     "definitionFit": "A problem is a difficulty or cause for concern, and the famous radio call made it the thing reported to Houston."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Left"
     }
    }
   },
