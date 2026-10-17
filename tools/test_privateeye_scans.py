@@ -397,6 +397,13 @@ _fixed = pw.renumbered_by_grid({"across": [{"number": "9", "enumeration": "4"},
                                            {"number": "4", "enumeration": "5"}], "down": []}, _g)
 check("a clue whose length fits no unclaimed light is left", "9", _fixed["across"][0]["number"] if _fixed["across"][0]["number"] == "9" else "moved")
 
+# A reference set after the count ("(3,4,3) (see also 12 ac.)", No 250) must
+# not leave the next clue running on into this one.
+import clue_text as _ct
+check("a see-also set after the count goes before it",
+      "mouth here (see also 12 ac.) (3,4,3)",
+      _ct.tidy_ocr_clues("mouth here (3,4,3) (see also 12 ac.)", scope="line"))
+
 if fails:
     print(f"{fails} failed")
     sys.exit(1)
