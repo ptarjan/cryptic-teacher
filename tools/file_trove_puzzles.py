@@ -893,6 +893,63 @@ def parse_reading(text):
     return parsed, None
 
 
+def reconcile_texts(laid, texts, lengths):
+    """(laid, blank) of ocr_clues.reconcile with every reading's text put to
+    each clue: the vote's first half, a pure function of its arguments."""
+    return ocr_clues.reconcile(laid, texts, lengths, keep_known=True)
+
+
+def finish_vote(laid, blank, before, texts, ocr, lengths):
+    """(laid, blank, bad) once the readings are reconciled (and the VLM has
+    picked among the blanks): each clue as the readings print it, the
+    suspect words, a pure function of its arguments. `before` is the clues
+    as Trove's text laid them, `texts` {reader: text}, `ocr` Trove's own."""
+    # The vote settles words only: a count reconcile() took from the light
+    # stands in for one Trove read in parts it could not print ("(6,4)").
+    laid = {k: (t, before[k][1] if k in before else e, g) for k, (t, e, g) in laid.items()}
+    # Each filed clue as the readings print it, Trove's text among them: its
+    # count's shape, each word's capital, hyphen and spelling.
+    laid, blank = ocr_clues.as_printed({**texts, "trove": ocr}, laid, blank, parse_reading, lengths)
+    laid, blank = ocr_clues.one_light_each(laid, blank, {
+        lid for lid, (_, enum, group) in before.items() if enum and not group and count(enum) == lengths.get(lid)})
+    shared = None
+    for t in texts.values():
+        got = {w.lower() for w in ocr_clues.marked(ocr_clues.clean(t))}
+        shared = got if shared is None else shared & got
+    bad = {k: ocr_clues.suspect(t, shared) + [
+        d for d in ocr_clues.doubled(t) if d not in ocr_clues.doubled(before[k][0])]
+        for k, (t, _, _) in laid.items() if k not in blank}
+    bad = {k: v for k, v in bad.items() if v}
+    laid = {k: ("", e, g) if k in blank or k in bad else (t, e, g) for k, (t, e, g) in laid.items()}
+    return laid, blank, bad
+
+
+#: The vote's two pure halves by the name vote_anywhere is given.
+VOTE_STAGES = {"reconcile": reconcile_texts, "finish": finish_vote}
+
+
+def vote_anywhere(stage, *args):
+    """VOTE_STAGES[stage](*args) run on the desktop when tools/ocr_remote.py
+    can (the clue language model, alignment and spelling checks are ~8 s of
+    pure Python a clue page, a function of the readings alone), else here in
+    a local_slot(). The arguments and the result travel pickled, so the
+    values come back as the same types."""
+    import ocr_remote
+    import pickle
+    got = ocr_remote.call("clue_vote", stage, data=pickle.dumps(args, protocol=4))
+    if got is None or not got[1]:
+        with ocr_remote.local_slot():
+            return VOTE_STAGES[stage](*args)
+    return pickle.loads(got[1])
+
+
+def vote_there(data, stage):
+    """({}, the pickled VOTE_STAGES[stage](*the pickled arguments in `data`))
+    run on the desktop (CALLS)."""
+    import pickle
+    return {}, pickle.dumps(VOTE_STAGES[stage](*pickle.loads(data)), protocol=4)
+
+
 def vote(d, laid, grid, zones=None):
     """(laid, why) with every clue's words put to our own readings of the
     page (ocr_clues.reconcile, Trove's text one voter among them). `why` is
@@ -915,7 +972,7 @@ def vote(d, laid, grid, zones=None):
     # each clue the vote leaves blank shown every reading's text for it.
     texts.update(vlm_reading(d, zones))
     before = dict(laid)
-    laid, blank = ocr_clues.reconcile(laid, list(texts.values()), lengths, keep_known=True)
+    laid, blank = vote_anywhere("reconcile", laid, list(texts.values()), lengths)
     if blank and "vlm" in texts and vlm.wanted():
         page = stacked(images)
         try:
@@ -924,24 +981,8 @@ def vote(d, laid, grid, zones=None):
                 lambda lid, cands: vlm.pick_in(vlm.crop(page, (0, 0, page.width, page.height)), lid, cands))
         except RuntimeError:
             pass
-    # The vote settles words only: a count reconcile() took from the light
-    # stands in for one Trove read in parts it could not print ("(6,4)").
-    laid = {k: (t, before[k][1] if k in before else e, g) for k, (t, e, g) in laid.items()}
-    # Each filed clue as the readings print it, Trove's text among them: its
-    # count's shape, each word's capital, hyphen and spelling.
     ocr = (d / "ocr.txt").read_text(encoding="utf-8", errors="replace") if (d / "ocr.txt").exists() else ""
-    laid, blank = ocr_clues.as_printed({**texts, "trove": ocr}, laid, blank, parse_reading, lengths)
-    laid, blank = ocr_clues.one_light_each(laid, blank, {
-        lid for lid, (_, enum, group) in before.items() if enum and not group and count(enum) == lengths.get(lid)})
-    shared = None
-    for t in texts.values():
-        got = {w.lower() for w in ocr_clues.marked(ocr_clues.clean(t))}
-        shared = got if shared is None else shared & got
-    bad = {k: ocr_clues.suspect(t, shared) + [
-        d for d in ocr_clues.doubled(t) if d not in ocr_clues.doubled(before[k][0])]
-        for k, (t, _, _) in laid.items() if k not in blank}
-    bad = {k: v for k, v in bad.items() if v}
-    laid = {k: ("", e, g) if k in blank or k in bad else (t, e, g) for k, (t, e, g) in laid.items()}
+    laid, blank, bad = vote_anywhere("finish", laid, blank, before, texts, ocr, lengths)
     if blank:
         return laid, ("clues-unread", "clues unread: " + "; ".join(f"{k} {v}" for k, v in sorted(blank.items())))
     if bad:
