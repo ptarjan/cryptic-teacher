@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -834,42 +835,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SARCASM",
+     "op": "charade",
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "SARCASM",
+       "words": "South African",
+       "at": 6,
+       "gives": "SA"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "wanting",
-         "note": "To want a thing is to be without it, so the letter named next is missing from what goes into the mix."
-        },
-        {
          "text": "reform",
-         "note": "Re-form is to form again, and letters formed a second time are set down in a fresh order."
+         "at": 55,
+         "note": "to reform is to reshape, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "South African racism",
-         "gives": "SARACISM",
-         "note": "SA is the standing abbreviation for South Africa, and the whole of the next word follows it: eight letters before anything is taken out"
-        },
-        {
-         "words": "wanting independence",
-         "gives": "I",
-         "note": "independence is I in the shorthand of clues, and that is the letter which goes missing"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "wanting",
+           "at": 28,
+           "note": "wanting means lacking, so the letter for independence is taken out"
+          }
+         ],
+         "parts": [
+          {
+           "words": "racism",
+           "at": 20
+          },
+          {
+           "words": "independence",
+           "at": 36,
+           "gives": "I",
+           "note": "I is the abbreviation for independence or independent"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The dash is a red herring in the punctuation: 'and reform' belongs to the wordplay rather than to any political programme. The definition is the single word at the front.",
-     "definitionFit": "Scorn -> SARCASM: both name mockery meant to wound, sarcasm being the sharp-tongued form of it and scorn the contempt behind the words."
+     "surface": "A call to scorn South African racism, seeking independence and reform.",
+     "walkthrough": "The surface reads as a political slogan, but 'wanting' means lacking: the independence letter leaves racism, and 'reform' shuffles what remains.",
+     "definitionFit": "Sarcasm is cutting, mocking speech used to express scorn or contempt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wanting"
     }
    }
   },
@@ -939,21 +956,30 @@
      "spelt": "ROEDEER",
      "indicators": [
       {
-       "text": "Cockney",
-       "note": "A Cockney speaker drops the aitch at the front of a word, so what is heard begins one letter later than what is written."
+       "text": "How the Cockney",
+       "at": 0,
+       "note": "how the Cockney puts it: a Cockney Londoner drops the initial H, and the dropped-H words are what is heard"
       }
      ],
      "parts": [
       {
-       "words": "How the Cockney oarsman got to this",
+       "words": "oarsman got to this",
+       "at": 16,
        "gives": "ROWEDERE",
-       "note": "he rowed, and the place he arrived at is 'here' with its aitch gone"
+       "note": "an oarsman got here because he rowed here, which a Cockney says as rowed 'ere"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Say the answer quickly and it turns into a sentence about a boatman. 'Doe-eyed' is a genuine hint as well as a pun, because the female of this species is a doe.",
-     "definitionFit": "doe-eyed creature -> ROE DEER: a small European deer whose female is called a doe, and the phrase also describes the large soft eyes it has."
+     "surface": "A whimsical question about how a rower reached a wide-eyed animal.",
+     "walkthrough": "'How the Cockney' tells you to say it in a Cockney accent: the oarsman 'rowed 'ere', with the dropped H, which sounds like the name of a small deer. Cockney is the working-class London accent.",
+     "definitionFit": "The roe deer is a small European deer, and the doe is its female, with large dark eyes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "oarsman"
     }
    }
   },
@@ -1177,40 +1203,52 @@
      "op": "container",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "What happens ultimately happens last, so only the closing letter of the word beside it is taken."
+       "text": "welcoming",
+       "at": 40,
+       "note": "welcoming means taking in, so one piece holds the other"
       },
       {
        "text": "The reverse",
-       "note": "It swaps the two roles just described: the piece said to be doing the taking in is really the one taken in."
+       "at": 62,
+       "note": "the reverse swaps the roles, so the carefree word welcomes the relaxed letter rather than the other way round"
       }
      ],
      "parts": [
       {
-       "words": "carefree?",
+       "words": "carefree",
+       "at": 52,
        "gives": "GAY",
-       "note": "the older sense of the word, light-hearted and merry"
+       "note": "gay in its older sense means light-hearted and carefree"
       },
       {
        "op": "last",
        "indicators": [
         {
-         "text": "welcoming",
-         "note": "To welcome someone is to take them in, so one piece opens up and the other is set inside it."
+         "text": "ultimately",
+         "at": 20,
+         "note": "ultimately points to the last letter of relaxed"
         }
        ],
        "parts": [
         {
-         "words": "ultimately relaxed",
-         "note": "the closing letter of the second of those two words"
+         "words": "relaxed",
+         "at": 31,
+         "note": "the last letter of relaxed is the one taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The ellipsis and 'The reverse' between them undo the clue's own instruction, since taken at face value it asks for a three-letter word inside a single letter. Victoria is an Australian state, not only a queen.",
-     "definitionFit": "Victorian greeting -> G'DAY: the standard Australian hello, and Victoria here is a state of Australia rather than a monarch or an era."
+     "surface": "A laid-back greeting from a Victorian that is breezy, or the other way about.",
+     "walkthrough": "'Victorian' means from the Australian state of Victoria, not the 19th century. Read literally, D would welcome GAY; 'The reverse' makes GAY welcome D.",
+     "definitionFit": "G'day is the classic Australian hello, so a greeting heard in Melbourne, Victoria's capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Victorian"
     }
    }
   },
