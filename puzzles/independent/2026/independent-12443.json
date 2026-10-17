@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -643,40 +644,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "THIRSTILY",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "New",
+       "at": 0,
+       "note": "new means made over in a fresh form, so the letters of hairstylist are rearranged"
+      },
+      {
+       "text": "cutting",
+       "at": 16,
+       "note": "cutting here means taking out, so the letters of as are removed from the hairstylist's letters"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "THIRSTILY",
-       "indicators": [
-        {
-         "text": "New",
-         "note": "made new means made over, and letters made over do not keep the order they came in"
-        },
-        {
-         "text": "cutting",
-         "note": "to cut a thing is to take it out, so those letters never reach the answer"
-        }
-       ],
-       "parts": [
-        {
-         "words": "hairstylist",
-         "note": "eleven letters to start from"
-        },
-        {
-         "words": "as",
-         "note": "the two letters cut away, leaving the nine wanted"
-        }
-       ]
+       "words": "hairstylist",
+       "at": 4,
+       "note": "the fodder word, used letter by letter"
+      },
+      {
+       "words": "as",
+       "at": 24
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The salon picture holds together because cutting is what stylists do - and it is also the instruction to lose two letters.",
-     "definitionFit": "To drink or read something thirstily is to do it with a parched eagerness, so the adverb carries intensity rather than thirst."
+     "surface": "A new hairdresser snips away with great concentration.",
+     "walkthrough": "'cutting as' removes A and S from HAIRSTYLIST, and 'New' rearranges the nine letters left; cutting is what a hairstylist does, which hides the subtraction.",
+     "definitionFit": "To do something thirstily is to do it with eager craving, so with intense desire; the fit is loose but fair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cutting"
     }
    }
   },
