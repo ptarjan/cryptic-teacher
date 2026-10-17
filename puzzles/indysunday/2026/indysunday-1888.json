@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -131,29 +132,29 @@
    "annotation": {
     "definitions": [
      {
-      "text": "instrument",
-      "at": 11
+      "text": "Reversible instrument",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "palindrome",
-     "indicators": [
-      {
-       "text": "Reversible",
-       "note": "A reversible garment can be worn either way out and is the same garment, so the letters must work from either end."
-      }
-     ],
+     "op": "cryptic",
      "parts": [
       {
-       "unchecked": true,
-       "words": "instrument",
-       "note": "not a violin: in law an instrument is a formal written document that does something, such as transferring a house"
+       "words": "Reversible instrument",
+       "at": 0,
+       "note": "an instrument in the legal sense is a formal signed document, and this one's name reads the same either way"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two words and one job each: the first says what shape the answer has to have, the second says what it is. The legal sense is the only one that fits.",
-     "definitionFit": "instrument → DEED: lawyers call any formal document an instrument, and the deed is the one that hands ownership of property from one party to another."
+     "walkthrough": "'instrument' is not musical but legal: a formal document. 'Reversible' says the four letters read the same backwards, like a palindrome.",
+     "definitionFit": "A deed is a legal instrument, a signed and delivered document such as a conveyance of property."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "instrument"
     }
    }
   },
@@ -1506,36 +1507,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHABLIS",
-     "indicators": [
-      {
-       "text": "mostly",
-       "note": "Mostly means nearly all of it, so the word beside it turns up with its final letter missing."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "tea",
+       "at": 13,
+       "gives": "CHA",
+       "note": "cha (or char) is informal British slang for tea"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "mostly",
+         "at": 31,
+         "note": "most of the word, so its final letter is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "tea",
-         "gives": "CHA",
-         "note": "cha is the British slang word for tea, taken from the Chinese name for it"
+         "words": "delight",
+         "at": 22,
+         "gives": "BLISS",
+         "note": "bliss is great happiness or delight"
         },
         {
-         "words": "delight",
-         "gives": "BLIS",
-         "note": "delight is bliss, arriving one letter short"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'French drink tea' reads as a single sentence about national habits, and the definition stops after the first two words.",
-     "definitionFit": "French drink → CHABLIS: Chablis is a dry white wine from the northern edge of Burgundy, so the general phrase points at one instance of it."
+     "surface": "Someone choosing between a cup of tea and a glass of French wine, delighted with both.",
+     "walkthrough": "Cha is British slang for tea, from the Chinese; 'mostly' trims the last letter off BLISS.",
+     "definitionFit": "Chablis is a dry white wine from the Chablis area of northern Burgundy, so a French drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tea"
     }
    }
   }
