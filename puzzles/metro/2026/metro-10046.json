@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1162,44 +1163,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DISGUSTED",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "inside",
+       "at": 17,
+       "note": "inside says the rearranged guests go within the word for made"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Made",
+       "at": 0,
+       "gives": "DID",
+       "note": "did is the past tense of do, as in made or performed something"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "move",
-         "note": "Letters told to move do not stay where they were put, so they come back in a different order."
-        },
-        {
-         "text": "inside",
-         "note": "Inside places the shuffled letters within the word already found, which splits apart to hold them."
+         "at": 12,
+         "note": "to move the guests about is to rearrange the letters of that word"
         }
        ],
        "parts": [
         {
-         "words": "Made",
-         "gives": "DID",
-         "note": "made in the sense of did the deed, three letters that open and close the answer"
-        },
-        {
          "words": "guests",
-         "gives": "SGUSTE",
-         "note": "the six letters reset before being dropped inside"
+         "at": 5
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "The guests were made to move indoors once something had driven them back.",
-     "walkthrough": "Made is the past tense of do here, not of make, and that swap is the step most solvers reach last. Repelled works in two directions — pushed back, or turned off — and the definition wants the stomach rather than the battlefield.",
-     "definitionFit": "To be disgusted is to be repelled by something in the sense of revolted by it, which is how the definition reads once the military sense is set aside."
+     "surface": "A host got the guests to shift to another room because they were put off by something.",
+     "walkthrough": "'move' rearranges GUESTS into SGUSTE, and 'inside' places that between DI and D of DID.",
+     "definitionFit": "Disgusted means filled with revulsion, the feeling of being repelled by something offensive."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "Made"
     }
