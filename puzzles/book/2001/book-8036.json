@@ -311,43 +311,46 @@
      "op": "anagram",
      "indicators": [
       {
-       "text": "engendered",
-       "note": "something engendered is freshly produced, so new letters are formed from old"
+       "text": "engendered by",
+       "at": 8,
+       "note": "engendered by means produced or bred from, so the answer is made out of these letters in a new order"
       }
      ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "EN",
+       "op": "deletion",
        "indicators": [
         {
          "text": "last pair of",
-         "note": "'last pair of' keeps only the final two letters of the word"
+         "at": 22,
+         "note": "the last pair of a word is its final two letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
          "words": "woollen",
-         "gives": "EN",
-         "select": "last",
-         "note": "its final two letters"
+         "at": 35,
+         "note": "the word woollen, of which only the end is used"
+        },
+        {
+         "gives": "WOOLL"
         }
        ]
       },
       {
        "words": "mittens",
+       "at": 43,
        "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A pair of woolly mittens stirs warm emotions.",
-     "definitionFit": "A sentiment is an emotion or attitude, so it is a synonym of a feeling."
+     "surface": "A sentimental knitter pours warm feeling into a pair of woollen gloves.",
+     "walkthrough": "'last pair of' takes EN from the end of woollen; 'engendered by' rearranges those two letters with MITTENS.",
+     "definitionFit": "A sentiment is an emotion or attitude, so it can stand for a feeling."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "pair"
     }
