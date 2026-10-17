@@ -178,4 +178,43 @@ for hang in ("word " + "1234567890" * 8 + "!", "word" + " 12345678901234567890" 
     ct.STANDING_FIGURES.search(hang)
     ct.count_left(hang, 10, {})
     assert time.time() - t0 < 0.1, hang
+# ---- tidy_ocr_clues: the one pipeline (column / clue / piece scopes)
+col = ct.tidy_ocr_clues("{ACROSS}\n1Mythical king {9}\n2 Talks [3,2]\nDOW'N\nl0 See l3. (4)")
+assert col.splitlines()[0] == "ACROSS", col
+assert "1 Mythical king (9)" in col and "2 Talks (3,2)" in col, col
+assert col.splitlines()[-2:] == ["DOWN", "10 See 13. (4)"], col
+# headings first: a heading read onto a clue's line is a line of its own
+assert ct.tidy_ocr_clues("Down i Beginning (5)").splitlines()[:2] == ["DOWN", "1 Beginning (5)"]
+assert ct.tidy_ocr_clues("chance (5) DOWN\n2 Next (4)").splitlines() == ["chance (5)", "DOWN", "2 Next (4)"]
+# a number lost after a count is marked; a wrapped line is not
+assert ct.tidy_ocr_clues("ACROSS\nNymph (8)") == "ACROSS\n? Nymph (8)"
+assert ct.tidy_ocr_clues("10 Nurse holding\nNote (7)") == "10 Nurse holding\nNote (7)"
+# counts: torn at a clue's end, set wide, "(6, two words)"
+assert ct.tidy_ocr_clues("9 Leggy beatera T10\n12 Only about (4)") == "9 Leggy beatera (10)\n12 Only about (4)"
+assert ct.tidy_ocr_clues("3 Deal (1 1)") == "3 Deal (11)"
+assert ct.tidy_ocr_clues("3 Colonist (6, two words)") == "3 Colonist (6)"
+# slips from the listener: a split number, an ellipsis head, a middle dot
+assert ct.tidy_ocr_clues("1 9 Nurse (5)") == "19 Nurse (5)"
+assert ct.tidy_ocr_clues("6 3 put more negatively (4)") == "6 3 put more negatively (4)"
+assert ct.tidy_ocr_clues("5... the vice (4-3)") == "5 ... the vice (4-3)"
+assert ct.tidy_ocr_clues("2 study·money (5)") == "2 study money (5)"
+# joins: a linked head's tail one digit too many (14 opens a clue of its own)
+assert (ct.tidy_ocr_clues("ACROSS\n11/14 Link (4,7)\n14 Own (5)\nDOWN\n3 x (3)")
+        == "ACROSS\n11/4 Link (4,7)\n14 Own (5)\nDOWN\n3 x (3)")
+# running heads and publisher heading words are the source's to ask for
+assert ct.tidy_ocr_clues("Cryptic Across\n1 A (3)").splitlines()[0] != "ACROSS"
+assert ct.tidy_ocr_clues("Cryptic Across\n1 A (3)", running_head=True).splitlines()[0] == "ACROSS"
+assert ct.tidy_ocr_clues("HORIZONTAL\n1 A (3)", extra_headings={"HORIZONTAL": "ACROSS"}).splitlines()[0] == "ACROSS"
+# idempotent: a text already tidied comes back as it was
+for t in ("ACROSS\n1 Mythical king (9)\n? Nymph (8)\nDOWN\n2 Talks (3,2)", col):
+    assert ct.tidy_ocr_clues(t) == t, t
+# clue scope: one clue's text, count policy named by the caller
+assert ct.tidy_ocr_clues("(see I3) the l9th-century", scope="clue", torn_counts=None) == "(see 13) the 19th-century"
+assert ct.tidy_ocr_clues("hair (8", scope="clue") == "hair (8)"
+assert ct.tidy_ocr_clues("a clue (1 1)", scope="clue", torn_counts=None) == "a clue (11)"
+# piece scope: an OCR word alone
+assert ct.tidy_ocr_clues("II.", scope="piece") == "11."
+assert ct.tidy_ocr_clues("25Recipient", scope="piece") == "25 Recipient"
+assert ct.tidy_ocr_clues("O.", scope="piece") == "O."
+print("tidy_ocr_clues ok")
 print("clue_text ok")
