@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1322,61 +1323,62 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EMMYS",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 32,
+       "note": "after places the setter's possessive and the final letter behind the reversed piece"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "ultimately",
-         "note": "What comes ultimately comes last of all, so only the closing letter of the word beside it is taken."
-        },
-        {
          "text": "up",
-         "note": "In a down entry the grid is climbed, so the letters named arrive the opposite way round from how they are said."
+         "at": 49,
+         "note": "in a down answer, up means the word is written from bottom to top, so it is reversed"
         }
        ],
        "parts": [
         {
-         "words": "Everyman's up",
-         "gives": "EM",
-         "note": "the setter signs himself Everyman, so what is his is ME, and climbing the column those two letters arrive this way round"
-        },
-        {
          "words": "Everyman's",
-         "gives": "MY",
-         "note": "what belongs to Everyman is his own, written in the first person"
-        },
+         "at": 38,
+         "gives": "ME",
+         "note": "Everyman is the setter, so he is ME; the 's here is just 'is'"
+        }
+       ]
+      },
+      {
+       "words": "Everyman's",
+       "at": 0,
+       "gives": "MY",
+       "note": "Everyman's means the setter's, which is MY"
+      },
+      {
+       "op": "last",
+       "indicators": [
         {
-         "op": "last",
-         "unchecked": true,
-         "gives": "S",
-         "indicators": [
-          {
-           "text": "after",
-           "note": "What goes after something follows it, so the letters named first in the clue are put at the back."
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "ultimately prizeless",
-           "gives": "S",
-           "select": "last",
-           "note": "the closing letter of the word the instruction points at"
-          }
-         ]
+         "text": "ultimately",
+         "at": 11,
+         "note": "ultimately points to the very last letter of the word that follows"
+        }
+       ],
+       "parts": [
+        {
+         "words": "prizeless",
+         "at": 22,
+         "note": "the last letter of prizeless"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Everyman goes home empty-handed on a night when he was nominated.",
-     "walkthrough": "The Emmys are American television's annual prizes, the small screen's Oscars. Everyman is the setter's own signature, and it does two jobs in one sentence: his word for himself, then the same word turned round.",
-     "definitionFit": "The Emmys are handed out each year for American television, so the plural name is a set of awards and nothing else."
+     "surface": "The setter laments going without a prize while competing for awards.",
+     "walkthrough": "The two 'Everyman's' do different jobs: the first is possessive (MY), the second is 'Everyman is' (ME), which 'up' turns to EM in this down clue, placed first because the rest comes 'after' it. 'ultimately' takes S from prizeless.",
+     "definitionFit": "The Emmys are the annual American television awards, named after the statuette given to winners."
     },
     "features": {
      "answerInScene": true,
