@@ -1309,42 +1309,65 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SABBATICAL",
-     "indicators": [
-      {
-       "text": "at work",
-       "note": "Letters described as at work are busy doing something, and what they are busy doing here is taking up new places."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Southern",
+       "at": 0,
+       "gives": "S"
+      },
+      {
+       "words": "sailor",
+       "at": 9,
+       "gives": "AB",
+       "note": "AB is an able seaman, a sailor"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "at work",
+         "at": 31,
+         "note": "at work suggests the letters are busily being worked into a new shape, so they are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "Southern",
-         "gives": "S",
-         "note": "s is the standard abbreviation for southern"
-        },
-        {
-         "words": "sailor",
-         "gives": "AB",
-         "note": "an AB is an able seaman, the Royal Navy rating crosswords use for any sailor"
-        },
-        {
-         "words": "one in Baltic",
-         "gives": "BATICAL",
-         "note": "one is A, and the letters of A BALTIC come out in a new order"
+         "op": "container",
+         "indicators": [
+          {
+           "text": "in",
+           "at": 21,
+           "note": "in means placed inside, so the letter for one goes among the letters of the sea's name"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Baltic",
+           "at": 24,
+           "note": "taken as written"
+          },
+          {
+           "words": "one",
+           "at": 17,
+           "gives": "A",
+           "note": "a means one, as in 'a pound'"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A southern seaman working somewhere in the Baltic earns himself some time off.",
-     "walkthrough": "The surface is entirely nautical and 'Baltic' is the one sea word in it contributing letters rather than meaning.",
-     "definitionFit": "period of leave → SABBATICAL: the stretch of paid leave a university grants a scholar, originally one year in every seven."
+     "surface": "A sailor from the south, working on a Baltic vessel, is due some time off.",
+     "walkthrough": "'Baltic' looks like the sea the sailor works on, but its letters are fodder: with one added (BAALTIC) they are set 'at work' into a new order.",
+     "definitionFit": "A sabbatical is an extended break from normal duties, traditionally granted to academics for study or travel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Baltic"
     }
    }
   },
