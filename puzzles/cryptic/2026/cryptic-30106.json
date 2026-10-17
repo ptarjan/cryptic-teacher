@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -46,38 +47,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "first",
-       "note": "It asks for the opening letter of the word in front of it, the letter that word starts on."
+       "text": "to occupy",
+       "at": 32,
+       "note": "the single letter moves in and takes up space inside the landing strip"
       }
      ],
      "parts": [
       {
        "words": "landing zone",
+       "at": 42,
        "gives": "RUNWAY",
-       "note": "the strip of tarmac an aircraft comes down on, taken whole before anything is let in"
+       "note": "a runway is the strip where aircraft land"
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "to occupy",
-         "note": "To occupy a space is to sit inside it, so the single letter takes up residence within the longer piece."
+         "text": "first",
+         "at": 26,
+         "note": "only the opening letter of the word before it is taken"
         }
        ],
        "parts": [
         {
-         "words": "aircraft's first",
-         "gives": "AIRCRAFTFIRST",
-         "note": "the opening letter of the word aircraft, cut off because the clue asks for its first"
+         "words": "aircraft's",
+         "at": 15,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A plane nobody can steer is coming down and takes over the landing strip.",
-     "walkthrough": "'Out-of-control' reads as part of the aircraft's plight and is quietly the definition, which leaves the rest of the sentence as a strip of tarmac with one letter parked on it.",
-     "definitionFit": "A runaway horse, train or lorry is one nobody can stop, so the adjective sits straight in for 'out-of-control'."
+     "surface": "A plane loses control and its first part ends up sitting on the landing strip.",
+     "walkthrough": "'Out-of-control aircraft' reads as one phrase, but the definition stops at the hyphenated adjective; 'to occupy' means the lone letter from 'first' goes inside the landing strip.",
+     "definitionFit": "Runaway as an adjective describes something no longer under control, like a runaway train."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Out-of-control"
     }
    }
   },
@@ -570,29 +579,47 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "Cockney",
-       "note": "East End speech drops the aitch from the front of a word, so the word it labels arrives short of its first letter."
-      }
-     ],
      "parts": [
       {
        "words": "snogging",
+       "at": 28,
        "gives": "KISSING",
-       "note": "snogging is British slang for kissing at length"
+       "note": "snogging is British slang for kissing"
       },
       {
-       "words": "that Cockney woman",
-       "gives": "ER",
-       "note": "the word is 'her', and dropped-aitch speech leaves only the two letters that follow"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "that Cockney",
+         "at": 37,
+         "note": "the woman is named the way that Cockney speaker would say it, dropping the aitch at the start"
+        }
+       ],
+       "parts": [
+        {
+         "words": "woman",
+         "at": 50,
+         "gives": "HER",
+         "note": "her is the pronoun for a woman"
+        },
+        {
+         "gives": "H",
+         "note": "the dropped aitch"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A controversial American politician is caught kissing a local woman.",
-     "walkthrough": "Henry Kissinger ran American foreign policy for Nixon and Ford, and 'controversial' is the definition doing a lot of quiet work — Cambodia and Chile are still argued over.",
-     "definitionFit": "Kissinger was US Secretary of State and national security adviser, and few American politicians of the century are fought over harder."
+     "surface": "A notorious American statesman is caught kissing a woman from London's East End.",
+     "walkthrough": "A Cockney, from London's East End, says 'er for her, so 'Cockney' removes the H and leaves ER. Henry Kissinger was US Secretary of State under Nixon and Ford.",
+     "definitionFit": "Henry Kissinger was a divisive American statesman, praised for diplomacy and attacked over Vietnam and Cambodia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "snogging"
     }
    }
   },
