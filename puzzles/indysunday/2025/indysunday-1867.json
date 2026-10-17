@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -43,40 +44,59 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HEADMISTRESS",
+     "op": "charade",
      "parts": [
       {
        "op": "container",
        "indicators": [
         {
-         "text": "knots",
-         "note": "Hair in knots has lost the order it was combed into, and letters left that way can be written out in any sequence."
-        },
-        {
          "text": "in",
-         "note": "Something put in a thing sits among its letters, so the tangled piece is planted inside the word beside it rather than added on the end."
+         "at": 19,
+         "note": "in means placed inside, so the knotted letters sit within the word his"
         }
        ],
        "parts": [
         {
-         "words": "his hair",
-         "gives": "HISTRESS",
-         "note": "a tress is a length of hair, and with HIS in front the eight letters split open after the first"
+         "words": "his",
+         "at": 22,
+         "note": "taken as written"
         },
         {
-         "words": "made",
-         "gives": "EADM",
-         "note": "the four letters of MADE, tangled into a new order"
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "knots",
+           "at": 13,
+           "note": "knots used as a verb means tangles, so the letters of made are twisted into a new order"
+          }
+         ],
+         "parts": [
+          {
+           "words": "made",
+           "at": 8,
+           "note": "taken as written"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "hair",
+       "at": 26,
+       "gives": "TRESS",
+       "note": "a tress is a long lock of hair"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface sells a scruffy schoolmaster and the answer is a woman: 'his' belongs to the wordplay only, and never to the person being defined.",
-     "definitionFit": "Teacher -> HEADMISTRESS: the woman in charge of a school is a teacher, the most senior one in the building, so the definition names her by her job."
+     "surface": "A teacher has tied knots in a boy's hair.",
+     "walkthrough": "'made knots' reads as 'tied knots', but 'knots' is the anagram signal on MADE, giving EADM; 'in' puts that inside HIS after its H, and TRESS follows.",
+     "definitionFit": "A headmistress is the woman in charge of a school, its senior teacher."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knots"
     }
    }
   },
@@ -145,46 +165,55 @@
    "annotation": {
     "definitions": [
      {
-      "text": "old cotton belt",
+      "text": "old cotton belt?",
       "at": 32
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DEEPSOUTH",
-     "indicators": [
-      {
-       "text": "up",
-       "note": "A down entry is read bottom to top, so up tells you the word just clued is written into the grid the other way round."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 5,
+         "note": "in a down clue, up means read from the bottom, so the word for tear runs backwards"
+        }
+       ],
        "parts": [
         {
          "words": "Tear",
-         "gives": "DEEPS",
-         "note": "to tear along a road is to speed, and those five letters go in backwards"
-        },
-        {
-         "words": "unfashionable",
-         "gives": "OUT",
-         "note": "what is out is no longer in fashion"
-        },
-        {
-         "words": "husband",
-         "gives": "H",
-         "note": "H is the standard abbreviation for husband, as on a form"
+         "at": 0,
+         "gives": "SPEED",
+         "note": "to tear along is to speed"
         }
        ]
+      },
+      {
+       "words": "unfashionable",
+       "at": 8,
+       "gives": "OUT",
+       "note": "out means no longer in fashion"
+      },
+      {
+       "words": "husband's",
+       "at": 22,
+       "gives": "H",
+       "note": "H is the abbreviation for husband, as in genealogy tables"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Tear' is the verb that rhymes with air, not the one that comes with crying. The Cotton Belt is the old plantation country of the southern United States.",
-     "definitionFit": "old cotton belt -> DEEP SOUTH: the states where cotton plantations once ruled the economy, Mississippi and Alabama among them, are still called the Deep South."
+     "surface": "An old-fashioned husband's cotton belt gets ripped apart.",
+     "walkthrough": "'Tear' sounds like ripping, but it means to rush, SPEED, and 'up' reverses it to DEEPS. The Deep South is the region of the southern United States where cotton plantations once dominated.",
+     "definitionFit": "The Deep South was historically the heart of the American Cotton Belt, the region where cotton was the main crop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tear"
     }
    }
   },
@@ -253,41 +282,46 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "empty",
-       "note": "Emptying a word tips out everything between its first and last letters, leaving just the two standing at the ends."
+       "text": "ahead",
+       "at": 32,
+       "note": "ahead means in front, so the emptied word comes before the word for case"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "TR",
        "indicators": [
         {
-         "text": "ahead",
-         "note": "What is ahead goes first, so the pair just taken opens the answer instead of trailing along behind."
+         "text": "empty",
+         "at": 15,
+         "note": "empty means with the contents removed, so only the first and last letters of travelator remain"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "empty travelator",
-         "gives": "TR",
-         "select": "outer",
-         "note": "the moving walkway keeps only the letter it starts with and the letter it ends with"
+         "words": "travelator",
+         "at": 21,
+         "note": "outer letters T and R"
         }
        ]
       },
       {
        "words": "case",
+       "at": 5,
        "gives": "ACTION",
-       "note": "an action is a case brought before a court of law"
+       "note": "a case in law is an action, a lawsuit"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Case' sits next to a travelator and looks like luggage at an airport. It is the legal sort, and the airport never comes into it.",
-     "definitionFit": "Grip -> TRACTION: traction is the grip a tyre or a boot keeps on the ground, the friction that stops the thing sliding away."
+     "surface": "Someone grips a suitcase at an airport, with a deserted moving walkway in front of them.",
+     "walkthrough": "'case' looks like luggage beside the travelator, but it is a lawsuit, ACTION; 'empty' leaves TR, and 'ahead' puts it first.",
+     "definitionFit": "Traction is the grip a tyre or shoe has on a surface, the friction that stops it slipping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
     }
    }
   },
@@ -590,37 +624,55 @@
      "op": "container",
      "indicators": [
       {
-       "text": "beginning",
-       "note": "The beginning of a word is the letter it opens with, so a single character of the noun in front of this is all that is wanted."
+       "text": "in",
+       "at": 30,
+       "note": "in means inside, so the opening letter of trip goes within a frenzy"
       }
      ],
      "parts": [
       {
-       "words": "a frenzy",
-       "gives": "AMANIA",
-       "note": "a frenzy is a mania, with the article riding in front; the six letters split before the last one"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 33
+        },
+        {
+         "words": "frenzy",
+         "at": 35,
+         "gives": "MANIA",
+         "note": "mania is a frenzy of wild excitement"
+        }
+       ]
       },
       {
        "op": "first",
        "indicators": [
         {
-         "text": "in",
-         "note": "One letter put in a phrase finishes up inside it, so the character just taken is planted within the words that follow."
+         "text": "beginning",
+         "at": 20,
+         "note": "beginning means the first part, so only the opening letter of trip's is used"
         }
        ],
        "parts": [
         {
-         "words": "trip's beginning",
-         "gives": "TRIPBEGINNING",
-         "note": "trip hands over its opening letter and nothing else"
+         "words": "trip's",
+         "at": 13,
+         "note": "first letter of trip's"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A bad mushroom trip is the picture, and mushrooms really are the subject. This genus holds the death cap and the destroying angel.",
-     "definitionFit": "Bad mushroom -> AMANITA: the amanitas are the toadstool genus that includes the death cap, so 'bad' means deadly poisonous rather than merely off."
+     "surface": "A bad trip on magic mushrooms starts with the user in a wild state.",
+     "walkthrough": "'trip' suggests a hallucinogen, which suits the mushroom, but it only gives T; 'in' puts it inside A MANIA, before the last A.",
+     "definitionFit": "Amanita is a genus of fungi that includes the death cap and fly agaric, both poisonous toadstools."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trip's"
     }
    }
   },
@@ -703,25 +755,32 @@
     ],
     "wordplay": {
      "op": "reversal",
-     "unchecked": true,
-     "gives": "LAGER",
      "indicators": [
       {
        "text": "brought round",
-       "note": "Bringing a thing round turns it to face the other way, so the word beside this one is entered right to left."
+       "at": 25,
+       "note": "brought round means turned about, so the word for majestic is read backwards"
       }
      ],
      "parts": [
       {
        "words": "Majestic",
-       "gives": "LAGER",
-       "note": "majestic means regal, and those five letters are turned round"
+       "at": 16,
+       "gives": "REGAL",
+       "note": "regal means majestic, befitting a monarch"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Majestic is a British wine chain, which is what makes the surface read as a shopping trip. The wordplay wants the adjective regal, spelled backwards.",
-     "definitionFit": "Cheap fizz -> LAGER: the pale gassy beer that is the cheapest pint in most bars, so both halves of the phrase point at it."
+     "surface": "Someone brings a bottle of cheap sparkling wine round from Majestic.",
+     "walkthrough": "Majestic Wine is a British wine retailer, so 'Cheap fizz from Majestic' reads as a bargain bottle of bubbly; 'brought round' reverses REGAL instead.",
+     "definitionFit": "Lager is a fizzy, inexpensive beer, so it fits as a jokey cheap fizz in place of champagne."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Majestic"
     }
    }
   },
@@ -746,47 +805,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HATFUL",
-     "indicators": [
-      {
-       "text": "exploited",
-       "note": "A fault that is exploited gets worked at until it breaks open, and letters treated that way do not stay in the order they arrived in."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
+       "indicators": [
+        {
+         "text": "opener",
+         "at": 12,
+         "note": "an opener is what comes first, so only the first letter of Hampshire's is taken"
+        }
+       ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "opener",
-           "note": "In cricket the opener is the batsman who goes in first, and a word's opener is likewise the letter it starts with."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Hampshire's opener",
-           "gives": "HAMPSHIRES",
-           "note": "the county's name gives up its first letter and nothing more"
-          }
-         ]
-        },
+         "words": "Hampshire's",
+         "at": 0,
+         "note": "first letter of Hampshire's"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "exploited",
+         "at": 19,
+         "note": "exploited means worked or manipulated, so the letters of fault are rearranged"
+        }
+       ],
+       "parts": [
         {
          "words": "fault",
-         "gives": "ATFUL",
-         "note": "the five letters of FAULT, shaken into another arrangement"
+         "at": 29
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Every word points at cricket: Hampshire, an English county side, its opening batsman, and a bowler taking wickets. The answer is about millinery.",
-     "definitionFit": "as much as bowler could bear? -> HATFUL: a bowler is a hard round hat, so what one could hold is a hatful, the loose measure the word names."
+     "surface": "A Hampshire opening batsman took advantage of a fielding error, more than the bowler could stand.",
+     "walkthrough": "The cricket surface makes the bowler a player and the opener a batsman, but a bowler is a hat. 'exploited' rearranges FAULT to ATFUL after H. Hampshire is an English county cricket team.",
+     "definitionFit": "A hatful is the amount a hat can hold, and a bowler is a hard round felt hat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bowler"
     }
    }
   },
@@ -852,52 +917,60 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "WOOLLIES",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Offer suit",
+       "at": 0,
+       "gives": "WOO",
+       "note": "to pay suit to someone is to court them, to woo"
+      },
+      {
+       "op": "container",
        "indicators": [
         {
-         "text": "back",
-         "note": "In an across entry the way back is right to left, so the word before this one is written into the grid in reverse."
+         "text": "keeping",
+         "at": 25,
+         "note": "keeping means holding within, so the current symbol is kept inside the reversed word"
         }
        ],
        "parts": [
         {
-         "words": "Offer suit",
-         "gives": "WOO",
-         "note": "to pay suit to somebody is to woo them, the old sense of courting"
-        },
-        {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "keeping",
-           "note": "What you keep you hold on to and enclose, so the letter after this word is kept within the one already turned round."
+           "text": "back",
+           "at": 19,
+           "note": "back means in reverse, so the word sell is read backwards"
           }
          ],
          "parts": [
           {
            "words": "sell",
-           "gives": "LLES",
-           "note": "the four letters go in the other way round, and they open up before the last of them"
-          },
-          {
-           "words": "current",
-           "gives": "I",
-           "note": "I is the physicist's symbol for electric current"
+           "at": 14,
+           "note": "taken as written"
           }
          ]
+        },
+        {
+         "words": "current",
+         "at": 33,
+         "gives": "I",
+         "note": "I is the symbol for electric current in physics"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Offer suit' is the courtship sense rather than a tailor's, and 'current' is the electrical one. Two everyday words, both doing crossword jobs.",
-     "definitionFit": "winter clothing -> WOOLLIES: woollies are the jumpers and socks knitted from wool that people pull on once the weather turns cold."
+     "surface": "A tailor offers a suit and tries to sell it back, holding on to the latest winter wear.",
+     "walkthrough": "'Offer suit' suggests a tailor, but it means to court, WOO. 'back' reverses SELL to LLES, and 'keeping' holds I inside it, before the E.",
+     "definitionFit": "Woollies is an informal British word for knitted woollen garments such as jumpers worn in cold weather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suit"
     }
    }
   },
@@ -990,44 +1063,63 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "BROMANCE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 39,
+       "note": "in means inside, so the jumbled name goes within the shortened word bed"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "troubled",
-         "note": "A troubled thing is unsettled, and letters that will not settle can be set down in any order at all."
-        },
-        {
-         "text": "in",
-         "note": "One word put in another sits between its letters, so the shuffled name lands inside the shortened word rather than beside it."
-        },
-        {
          "text": "mostly",
-         "note": "Mostly means all but a little, and the little left off the end of a word is its final letter."
+         "at": 46,
+         "note": "mostly means most but not all, so the last letter of bed is cut off"
         }
        ],
        "parts": [
         {
-         "words": "bed mostly",
-         "gives": "BE",
-         "note": "bed drops its last letter, and the two that remain part company to take something in"
+         "words": "bed",
+         "at": 42,
+         "note": "taken as written, then cut short"
         },
         {
+         "gives": "D"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "troubled",
+         "at": 22,
+         "note": "troubled means disturbed, so the letters of Macron are rearranged"
+        }
+       ],
+       "parts": [
+        {
          "words": "Macron",
-         "gives": "ROMANC",
-         "note": "the six letters of the French president's surname, rearranged"
+         "at": 31,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface reads as a headline about Macron's private life. The word itself is a portmanteau, brother spliced onto romance, coined for friendships between men.",
-     "definitionFit": "Platonic relationship -> BROMANCE: a bromance is a close and affectionate friendship between two men with nothing sexual in it, which is what platonic means."
+     "surface": "A tabloid report says a troubled President Macron has been spending most of his time in bed.",
+     "walkthrough": "'troubled' rearranges MACRON to ROMANC, and 'in bed mostly' puts it between B and E, what is left of BED without its D. Emmanuel Macron is the French president.",
+     "definitionFit": "A bromance is a close but non-sexual friendship between two men, a blend of brother and romance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bed"
     }
    }
   },
@@ -1198,35 +1290,50 @@
      "indicators": [
       {
        "text": "turned",
-       "note": "Milk that has turned has gone off, and a word turned the same way comes out with its letters no longer in the order they were given."
+       "at": 8,
+       "note": "turned means twisted around, so the letters of up to and the remaining letter are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "up to",
+       "at": 15,
+       "note": "taken as written"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
          "text": "missing",
-         "note": "What is missing has been taken out, so the letters named after this word are lifted away from the word standing before it."
+         "at": 28,
+         "note": "missing means lacking, so the word for point is removed from speak"
         }
        ],
        "parts": [
         {
-         "words": "up to",
-         "note": "four letters of fodder, taken exactly as they stand"
+         "words": "speak",
+         "at": 21,
+         "note": "taken as written, then shortened"
         },
         {
-         "words": "speak, missing point",
-         "gives": "S",
-         "note": "a point is a peak, and lifting PEAK out of SPEAK leaves a single letter behind"
+         "words": "point",
+         "at": 36,
+         "gives": "PEAK",
+         "note": "a peak is a pointed summit, a point"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Point' is a peak, and spotting that is the whole clue: four ordinary letters and one survivor, shuffled into the acronym Washington uses every day.",
-     "definitionFit": "Premier -> POTUS: premier is used loosely for a country's chief executive, and POTUS is the acronym officials use for the one in the White House."
+     "surface": "A prime minister arrives to give a speech but fails to make a point.",
+     "walkthrough": "'turned up' reads as 'arrived', but 'turned' alone is the anagram signal and 'up' is fodder. 'speak, missing point' is SPEAK without PEAK, leaving S; UP TO plus S are rearranged.",
+     "definitionFit": "POTUS is the acronym for the President of the United States, the country's leading figure, so a premier in a loose sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
     }
    }
   },
