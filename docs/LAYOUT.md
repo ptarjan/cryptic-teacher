@@ -200,6 +200,11 @@ tools/test_file_trove_puzzles.sh               files three real Trove articles: 
                                                count the OCR misread held back by name, a
                                                second run touching nothing, and the clues alone
                                                filing a puzzle whose picture is missing
+tools/test_desktop_offload.py                  do the Trove clue vote and the solution image
+                                               match take the desktop's answer when ocr_remote
+                                               gives one, the same answer here when it gives
+                                               none, and do CALLS name the functions that run
+                                               there?
 tools/clue_repair.py                           repairs the clues a newspaper OCR loses (a
                                                number read as junk, a broken bracket, "(S)")
                                                from the other readings of the page's clue
@@ -2030,6 +2035,8 @@ tools/vlm_pick_prompt.md                       what the VLM reader is told when 
 tools/test_drop_derived_keys.py                a clue written with wp and a derived key
                                                (assembly, type) is applied with the key
                                                dropped, not refused
+tools/test_annotate_drafts.py                  the annotate run's view carries the mechanical
+                                               hidden-word drafts for the run to complete
 tools/test_annotate_partial.py                 a puzzle that has hints and lacks some is
                                                annotated only where it lacks them
 tools/test_resolve_task_puzzle.py              a worker run's bare number resolves to its own
