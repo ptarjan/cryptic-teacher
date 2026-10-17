@@ -84,6 +84,11 @@ dn = [line((1300, 650 + 45 * k, 1350, str(2 + k)), (1360, 650 + 45 * k, 1900, "W
            (1910, 650 + 45 * k, 1990, f"({5 + k})")) for k in range(5)]
 got = ps.columns(page(*(art + acr + dn)))
 assert len(got) == 2 and got[0][2] >= 1100, got
+# No 302: a wrapped line naming "entries" is its clue's words, not the prize line's end.
+wrap = list(dn)
+wrap.insert(2, line((1350, 650 + 45 * 2 + 20, 1900, "position two entries in a grid? (5)")))
+got = ps.columns(page(*(acr + wrap)))
+assert got[1][3] >= 860, got
 # No 138: a gap wider than a clue's between the ACROSS and DOWN lists of one column.
 one = [line((100, 100, 300, "ACROSS"))] + [
     line((100, 150 + 45 * k, 150, str(1 + k)), (160, 150 + 45 * k, 700, "Some clue words"), (710, 150 + 45 * k, 790, "(5)"))

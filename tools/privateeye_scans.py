@@ -173,6 +173,10 @@ SOLVED = re.compile(r"solution\s+to\s+crossword\s+(?:no\.?\s*)?(\d{1,3})|"
                     r"\bcrossword\s+(?:no\.?\s*)?(\d{1,3})\s+winner", re.IGNORECASE)
 
 
+#: How far right of its column's clue numbers a wrapped line starts.
+WRAP_INDENT = 25
+
+
 def columns(lines):
     """[(x0, y0, x1, y1)] of the clue columns in reading order (left to
     right), from the page's djvu lines: clue starts grouped by their left
@@ -204,7 +208,10 @@ def columns(lines):
             heading = clue_text.heading_of(r[4])
             clueish = heading or STARTS.match(r[4]) or COUNTED.search(r[4])
             # A clue's own words ("20 This crossword is Cyclops's first") end nothing.
-            ends = bool(END.search(r[4])) and not heading and not STARTS.match(r[4])
+            # Nor does a wrapped line, indented under its clue's number
+            # ("position two entries in a sudoku grid?", No 302).
+            ends = (bool(END.search(r[4])) and not heading and not STARTS.match(r[4])
+                    and r[0] <= x0 + WRAP_INDENT)
             if run and (r[1] - run[-1][3] > GAP_LINES * height or ends):
                 best = max(best, run, key=score)
                 runs.append(run)
