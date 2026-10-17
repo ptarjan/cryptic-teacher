@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -216,56 +217,54 @@
     "definitions": [
      {
       "text": "just what we need",
-      "at": 39,
-      "note": "The answer is plural while the definition carries no -s; a phrase like 'what we need' stands for a whole set of things at once, so it substitutes fairly."
+      "at": 39
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ESSENTIALS",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 22,
+       "note": "in means the reversed milk goes inside the city's name"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "unchecked": true,
-       "gives": "ESSENTIALS",
+       "words": "German city's",
+       "at": 25,
+       "gives": "ESSENS",
+       "note": "Essen is a city in Germany's Ruhr; with the 's it gives ESSENS"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "served up",
+         "at": 12,
+         "note": "in a down clue, served up means turned to read upwards, so the word is reversed"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "served up",
-           "note": "Serving something up presents it the other way about, and 'up' is the direction a down entry reverses in."
-          },
-          {
-           "text": "in",
-           "note": "'in' is the plainest containment instruction there is: the reversed word goes inside the city, not next to it."
-          }
-         ],
-         "parts": [
-          {
-           "words": "German city",
-           "gives": "ESSEN",
-           "note": "Essen is a city in the Ruhr, a setter's favourite for its vowels"
-          },
-          {
-           "words": "French milk",
-           "gives": "TIAL",
-           "note": "milk in French is lait, and this entry runs down the grid, so it is set out from the bottom"
-          },
-          {
-           "words": "'s",
-           "note": "the possessive tacks its own letter onto the city"
-          }
-         ]
+         "words": "French milk",
+         "at": 0,
+         "gives": "LAIT",
+         "note": "lait is French for milk"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The apostrophe-s does two jobs at once: it is the final letter of the assembly and the 'is' joining wordplay to definition. Setters allow themselves that double duty.",
-     "definitionFit": "Essentials are the things you cannot do without, so 'just what we need' names them by the test they have to pass."
+     "surface": "Someone praises French milk poured out in a German city as exactly what is wanted.",
+     "walkthrough": "Don't drop the possessive: the 's of 'city's' supplies the final letter, and 'in' puts the upturned French milk inside that city.",
+     "definitionFit": "Essentials are the things that are absolutely necessary, so exactly what is needed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "served"
     }
    }
   },
@@ -511,39 +510,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SPECTATE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "The Reverend Spooner traded the opening sounds of two words, so naming him is the instruction to swap them over."
+       "at": 6,
+       "note": "Spooner's tells you to swap the opening sounds of the two words, after the Reverend Spooner's famous slips"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "TEC",
        "parts": [
         {
-         "unchecked": true,
          "words": "electronics",
-         "gives": "SPEC",
-         "soundsLike": "TEC",
-         "note": "electronics is tech, and it gives its opening sound away in exchange for an SP"
-        },
-        {
-         "unchecked": true,
-         "words": "series",
-         "gives": "TATE",
-         "soundsLike": "SPATE",
-         "note": "a spate of things is a run of them one after another, and it collects the T that tech gave up"
+         "at": 16,
+         "gives": "TECH",
+         "note": "tech, said 'tek', is short for technology such as electronics"
         }
        ]
+      },
+      {
+       "words": "series",
+       "at": 28,
+       "gives": "SPATE",
+       "note": "a spate is a run or series of things in quick succession"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The question mark admits the looseness: tech for electronics and a spate for a series are both everyday shorthand rather than dictionary equivalents.",
-     "definitionFit": "To spectate is to watch from the side rather than take part — the verb built backwards out of 'spectator'."
+     "surface": "A puzzle asks what Spooner would call a run of gadget programmes.",
+     "walkthrough": "Swap the opening sounds of 'tech spate' and you get 'spec tate', which spells the answer.",
+     "definitionFit": "To spectate is to look on at an event, so to watch it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "series"
     }
    }
   },
@@ -823,46 +827,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DISPLACEMENT",
-     "indicators": [
-      {
-       "text": "heartless",
-       "note": "The heart of a three-letter word is its middle letter, and a heartless word has had that letter taken out."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "criticise",
+       "at": 20,
+       "gives": "DIS",
+       "note": "to dis is slang for to criticise or disrespect"
+      },
+      {
+       "words": "put down",
+       "at": 34,
+       "gives": "PLACE",
+       "note": "to place something is to put it down"
+      },
+      {
+       "words": "setter",
+       "at": 43,
+       "gives": "ME",
+       "note": "the setter of the puzzle refers to themself as ME"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "heartless",
+         "at": 51,
+         "note": "heartless means the middle letter is removed"
+        }
+       ],
        "parts": [
         {
-         "words": "criticise",
-         "gives": "DIS",
-         "note": "to dis someone is to criticise them, in the slang spelling"
-        },
-        {
-         "words": "put down",
-         "gives": "PLACE",
-         "note": "to put something down is to place it"
-        },
-        {
-         "words": "setter",
-         "gives": "ME",
-         "note": "the setter is the person writing the clue, so 'setter' is ME"
-        },
-        {
          "words": "nut",
-         "gives": "NT",
-         "note": "the U at its centre is the heart that goes"
+         "at": 61,
+         "note": "the word that loses its centre"
+        },
+        {
+         "gives": "U",
+         "note": "the middle letter of nut, which goes"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Out of order' means out of its proper place here, not broken or badly behaved. The setter-is-ME convention is worth owning: it turns up in every grid.",
-     "definitionFit": "Displacement is the state of having been shifted out of position, which is what 'out of order' means when order is arrangement rather than repair."
+     "surface": "A solver lashes out at the setter, calling them a crazy nut for a jumbled clue.",
+     "walkthrough": "'heartless nut' drops the U from NUT, leaving NT; 'and' is a link.",
+     "definitionFit": "A displacement is a shift out of the usual place, so things being out of their proper order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nut"
     }
    }
   },
@@ -1517,52 +1533,63 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ELEMENT",
-     "indicators": [
-      {
-       "text": "half-cut",
-       "note": "Cut in half, the village word keeps only one of its halves, and it is the back one that survives."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "English",
+       "at": 16,
+       "gives": "E"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 13,
+         "note": "in means the company goes inside the shortened hamlet"
+        }
+       ],
        "parts": [
         {
-         "words": "English",
-         "gives": "E",
-         "note": "E is the usual abbreviation for English"
-        },
-        {
-         "op": "container",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "in",
-           "note": "'in' is the plainest way of saying something goes inside, and the company is what goes in."
+           "text": "half-cut",
+           "at": 32,
+           "note": "half-cut means half the word is cut away"
           }
          ],
          "parts": [
           {
            "words": "hamlet",
-           "gives": "LET",
-           "note": "a hamlet is a village too small for a church, and only its back half is used"
+           "at": 24,
+           "note": "the word whose first half goes"
           },
           {
-           "words": "company",
-           "gives": "MEN",
-           "note": "a company is a body of men, in the army sense of the word"
+           "gives": "HAM",
+           "note": "the first half of hamlet, which is cut"
           }
          ]
+        },
+        {
+         "words": "company",
+         "at": 5,
+         "gives": "MEN",
+         "note": "men can mean a company or crew of people"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Part company' is the phrase the surface wants and the parse cuts in two: 'Part' is the definition, 'company' the wordplay. Half-cut is British slang for tipsy.",
-     "definitionFit": "An element is one part of a whole: the elements of a plan are its components, which is the sense the definition uses."
+     "surface": "A troupe parts ways in an English village, slightly drunk.",
+     "walkthrough": "'half-cut' looks like British slang for tipsy, but it removes HAM from hamlet, leaving LET for MEN to sit 'in'.",
+     "definitionFit": "An element is a component or part of a larger whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "half-cut"
     }
    }
   }
