@@ -601,33 +601,43 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "CORNERSHOP",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Reverend Spooner swapped the opening sounds of words, so the starts are exchanged"
+       "at": 0,
+       "note": "Spooner's signals that the opening sounds of the two words are swapped, as Rev. Spooner famously did"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "fleeced a policeman",
-       "gives": "CORNERSHOP",
-       "soundsLike": "SHORN A COP",
-       "note": "fleeced is shorn, and a policeman is a cop; swapping the SH and C sounds gives the new phrase"
+       "op": "homophone",
+       "spelt": "SHORNER",
+       "parts": [
+        {
+         "words": "fleeced a",
+         "at": 10,
+         "gives": "SHORNA",
+         "note": "fleeced means shorn, as a sheep is; shorn a, said aloud in a British accent, sounds like shorner"
+        }
+       ]
+      },
+      {
+       "words": "policeman",
+       "at": 20,
+       "gives": "COP",
+       "note": "cop is informal for a policeman"
       }
      ]
     },
     "explanation": {
-     "surface": "Reverend Spooner robbed an officer inside a neighbourhood shop.",
-     "walkthrough": "'Fleeced' suggests cheating, but here it is shearing a sheep. In a British accent CORNA sounds like corner.",
-     "definitionFit": "A corner shop is a small neighbourhood convenience store serving the immediate area, the British equivalent of a corner store."
+     "surface": "A tale of a policeman being robbed in a neighbourhood shop.",
+     "walkthrough": "'Spooner's' swaps the SH of 'shorn a' with the C of COP, giving 'corn a shop', which said aloud is the answer. 'fleeced' looks like robbed, but means sheared.",
+     "definitionFit": "A corner shop is a small neighbourhood grocery, the local store for everyday items."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "joke": "absurd",
+     "joke": "pun",
      "misdirectedWord": "fleeced"
     }
    }
