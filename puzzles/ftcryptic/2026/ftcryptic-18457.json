@@ -812,45 +812,46 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "INVALIDATE",
+     "indicators": [
+      {
+       "text": "dreadful",
+       "at": 10,
+       "note": "dreadful suggests something in a terrible mess, so the remaining letters are thrown into a new order"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "INVALIDATE",
        "indicators": [
         {
-         "text": "dreadful",
-         "note": "something dreadful is in a terrible state, so the letters are a mess to be rearranged"
-        },
-        {
-         "text": "no"
+         "text": "no",
+         "at": 33,
+         "note": "no good tells us the good is to be absent, so that letter comes out of the fodder"
         }
        ],
        "parts": [
         {
          "words": "vigilante ad",
-         "note": "11 letters"
+         "at": 19
         },
         {
          "words": "good",
-         "gives": "G",
-         "note": "g = good; removed, leaving VIILANTEAD to be rearranged"
+         "at": 36,
+         "gives": "G"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Rubbishing a badly made advert for a vigilante group.",
-     "walkthrough": "Remove the G first, then rearrange the ten letters left.",
-     "definitionFit": "A plain synonym: to show a claim is unsound is to discredit it."
+     "surface": "Someone attacks a lurid advertisement featuring a vigilante as worthless.",
+     "walkthrough": "'no good' removes G from VIGILANTEAD to leave VIILANTEAD, which 'dreadful' then rearranges.",
+     "definitionFit": "To invalidate a claim or argument is to show it is unsound, which discredits it."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "good"
+     "misdirectedWord": "dreadful"
     }
    }
   },
