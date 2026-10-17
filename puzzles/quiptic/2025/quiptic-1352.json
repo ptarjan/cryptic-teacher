@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -387,42 +388,45 @@
      "op": "container",
      "indicators": [
       {
-       "text": "external",
-       "note": "What is external sits on the outside, so the protecting word wraps round the letters instead of joining them end to end."
+       "text": "needing external",
+       "at": 16,
+       "note": "the first letters need something wrapped round the outside of them, so they go inside the next piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
-       "parts": [
-        {
-         "words": "needing external protection",
-         "gives": "SHIELD",
-         "note": "a shield is protection, the piece of armour rather than a bodyguard"
-        },
-        {
-         "words": "Eastern",
-         "gives": "E",
-         "note": "e is the compass abbreviation for eastern"
-        }
-       ]
+       "words": "protection",
+       "at": 33,
+       "gives": "SHIELD",
+       "note": "a shield is a form of protection"
       },
       {
-       "words": "females",
-       "gives": "FF",
-       "note": "f stands for female, and the plural doubles the letter"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Eastern",
+         "at": 0,
+         "gives": "E"
+        },
+        {
+         "words": "females",
+         "at": 8,
+         "gives": "FF",
+         "note": "F is the abbreviation for female, doubled for the plural"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Women from the East are in need of protection from outside.",
-     "walkthrough": "Doubling a letter to make it plural — f for female, ff for females — is a standard move worth banking. The shield opens after only two of its own letters, which is an awkward split to spot.",
-     "definitionFit": "Sheffield sits in South Yorkshire and is that county's largest city, long the centre of English steel and cutlery."
+     "surface": "Women from the East look for safety while in a northern English city.",
+     "walkthrough": "'needing external' says E and FF have SHIELD placed round them. Sheffield is a large city in South Yorkshire, in northern England.",
+     "definitionFit": "Sheffield is a major city in South Yorkshire, famed for its steel industry."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "protection"
+     "misdirectedWord": "external"
     }
    }
   },
@@ -761,37 +765,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "TERRAIN",
+     "op": "charade",
      "indicators": [
       {
-       "text": "second half of",
-       "note": "Taking the second half of a word keeps its back portion and throws the front away."
+       "text": "needing",
+       "at": 41,
+       "note": "the trimmed season needs the next piece added to it, so the two are joined in order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "second half of",
+         "at": 19,
+         "note": "only the second half of the season's name is kept, so its first three letters go"
+        }
+       ],
        "parts": [
         {
          "words": "season",
-         "gives": "TER",
-         "note": "winter is the season whose back half is TER; spring, summer and autumn lead nowhere"
+         "at": 34,
+         "gives": "WINTER",
+         "note": "winter is one of the four seasons"
         },
         {
-         "words": "needing wet weather",
-         "gives": "RAIN",
-         "note": "wet weather is rain"
+         "gives": "WIN"
         }
        ]
+      },
+      {
+       "words": "wet weather",
+       "at": 49,
+       "gives": "RAIN",
+       "note": "rain is wet weather"
       }
      ]
     },
     "explanation": {
-     "surface": "A pitch late in the season is crying out for rain.",
-     "walkthrough": "The setter leaves 'season' unspecified, so you try all four and only winter's back half goes anywhere. The surface sells the whole thing as one phrase about a playing surface late in the campaign.",
-     "definitionFit": "Terrain is a stretch of land considered for its lie and surface, which is what calling something a piece of ground amounts to."
+     "surface": "A patch of land late in the year that badly needs a downpour.",
+     "walkthrough": "'second half of' keeps only TER from WINTER, and RAIN for 'wet weather' follows it.",
+     "definitionFit": "Terrain means a stretch of land considered for its physical features, a piece of ground."
     },
     "features": {
      "answerInScene": true,
@@ -975,42 +990,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "BATTLE",
-     "indicators": [
-      {
-       "text": "endlessly",
-       "note": "Something endless has no end, so the politician's name arrives without its final letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Bishop",
+       "at": 0,
+       "gives": "B",
+       "note": "B is the chess abbreviation for bishop"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "endlessly",
+         "at": 21,
+         "note": "without its end, the name loses its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "Bishop",
-         "gives": "B",
-         "note": "b is the chess notation for a bishop"
+         "words": "former PM",
+         "at": 11,
+         "gives": "ATTLEE",
+         "note": "Clement Attlee was the British prime minister from 1945 to 1951"
         },
         {
-         "words": "former PM",
-         "gives": "ATTLE",
-         "note": "Clement Attlee, Labour prime minister from 1945, docked of his last letter"
+         "gives": "E"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A bishop and an ex-prime minister are locked in an unending fight.",
-     "walkthrough": "Attlee led the Labour government that founded the National Health Service, and his name is a crossword regular for its run of convenient letters. B for bishop comes from the chessboard, not the church.",
-     "definitionFit": "To battle is to fight hard and at length against something, which is exactly what struggling against it means."
+     "surface": "A churchman and an ex-prime minister grapple without ever finishing.",
+     "walkthrough": "Clement Attlee was Britain's post-war Labour prime minister; 'endlessly' trims ATTLEE to ATTLE, which follows B for Bishop.",
+     "definitionFit": "A battle is a fight or conflict, so it can mean a struggle against something."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Bishop"
+     "misdirectedWord": "endlessly"
     }
    }
   },
