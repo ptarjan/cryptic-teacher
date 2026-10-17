@@ -188,16 +188,18 @@ def columns(lines):
         else:
             groups.append([r])
     groups = [g for g in groups if len(g) >= MIN_STARTS]
-    out = []
     lefts = [min(r[0] for r in g) for g in groups]
-    for k, g in enumerate(groups):
+    # Each group's box is cut at the next column to its right that is a
+    # column: a numbered list in an article above (No 14's "1. Aircraft
+    # paint will Not ...") is a group with no clue count, and cutting the
+    # across list at its left edge lost every clue wider than that.
+    out, right = [], 10 ** 6
+    for k in reversed(range(len(groups))):
         x0 = lefts[k]
-        right = lefts[k + 1] - 8 if k + 1 < len(groups) else 10 ** 6
         mine = [r for r in rows if x0 - 15 <= r[0] <= x0 + 3 * COLUMN_SLOP and r[2] <= right + 15]
         mine.sort(key=lambda r: r[1])
         height = sorted(r[3] - r[1] for r in mine)[len(mine) // 2] if mine else 30
-        best = []
-        run = []
+        best, run, runs = [], [], []
         for r in mine:
             heading = clue_text.heading_of(r[4])
             clueish = heading or STARTS.match(r[4]) or COUNTED.search(r[4])
@@ -205,14 +207,27 @@ def columns(lines):
             ends = bool(END.search(r[4])) and not heading and not STARTS.match(r[4])
             if run and (r[1] - run[-1][3] > GAP_LINES * height or ends):
                 best = max(best, run, key=score)
+                runs.append(run)
                 run = []
             if ends:
                 continue
             if run or clueish:
                 run.append(r)
         best = max(best, run, key=score)
-        if (sum(1 for r in best if STARTS.match(r[4])) >= MIN_STARTS
-                and sum(1 for r in best if COUNTED.search(r[4])) >= MIN_COUNTED):
+        runs.append(run)
+
+        def column(rs):
+            return (sum(1 for r in rs if STARTS.match(r[4])) >= MIN_STARTS
+                    and sum(1 for r in rs if COUNTED.search(r[4])) >= MIN_COUNTED)
+        # The ACROSS list and the DOWN list one column holds, a gap wider
+        # than a clue's between them (No 138's, the clues the djvu layer
+        # lost), are two runs each led by its heading: the box takes both,
+        # or the list of the lesser run is lost and no reading parses.
+        if best and clue_text.heading_of(best[0][4]):
+            best = sorted([best] + [r for r in runs if r is not best and r and column(r)
+                                    and clue_text.heading_of(r[0][4])], key=lambda r: r[0][1])
+            best = [row for r in best for row in r]
+        if column(best):
             # A line the djvu layer breaks mid-row ("— it's crap ... Paisley (8)"
             # after "11 The sex act") starts inside the column and runs past
             # its clue lines' right edge: the box takes it in, or the words
@@ -220,7 +235,8 @@ def columns(lines):
             top, bottom = best[0][1], best[-1][3]
             reach = max([r[2] for r in best] + [r[2] for r in rows
                         if x0 <= r[0] <= right and r[2] <= right + 15 and top <= r[1] and r[3] <= bottom])
-            out.append((x0 - 8, top - 6, reach + 8, bottom + 8))
+            out.insert(0, (x0 - 8, top - 6, reach + 8, bottom + 8))
+            right = x0 - 8
     return out
 
 
@@ -263,13 +279,14 @@ def column_cols(boxes):
     named = {}
 
     def cols(words):
-        lines = []
+        lines, firsts = [], set()
         for b in boxes:
             col = [(w[1], w[3], w[0], w[2], w[4]) for w in words
                    if b[0] <= (w[0] + w[2]) / 2 <= b[2] and b[1] <= (w[1] + w[3]) / 2 <= b[3]]
+            firsts.add(len(lines))
             lines += fa.merge_rows(col)
         side, out = None, [[], []]
-        for ln in lines:
+        for i, ln in enumerate(lines):
             text = clue_text.tidy_ocr_clues(ln[4], scope="line")
             while SLASH.match(text):
                 text = SLASH.sub(r"\1, ", text, count=1)
@@ -282,6 +299,9 @@ def column_cols(boxes):
                 continue
             if side is None and re.match(r"\W{0,2}1\b", text):
                 side = 0  # the ACROSS heading lost, the list starts at 1
+            elif side == 0 and i in firsts and (m := CLUE_NUMBER.match(text)) and any(
+                    (o := CLUE_NUMBER.match(l[4])) and int(o.group(1)) > int(m.group(1)) for l in out[0]):
+                side = 1  # the DOWN heading lost: a column starting again at a lower number (Nos 208, 275)
             if side is not None:
                 m = NAMED.match(text)
                 if m:
