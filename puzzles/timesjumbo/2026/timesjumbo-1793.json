@@ -732,29 +732,36 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "PARSI",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "turning tail"
+       "text": "turning tail",
+       "at": 32,
+       "note": "the tail of the word is its last two letters, and turning them flips their order"
       }
      ],
      "parts": [
       {
        "words": "European capital",
+       "at": 15,
        "gives": "PARIS",
-       "note": "the French capital; its last two letters swap to SI"
+       "note": "Paris is the capital of France"
+      },
+      {
+       "gives": "IS"
+      },
+      {
+       "gives": "SI"
       }
      ]
     },
     "explanation": {
-     "surface": "A Zoroastrian in Paris fleeing.",
-     "walkthrough": "\"Turning tail\" means running away in the surface; here only the tail is turned.",
-     "definitionFit": "Definition by example: a follower of the Zoroastrian faith descended from Persian settlers in India."
+     "surface": "A follower of an ancient faith in Paris runs away.",
+     "walkthrough": "'turning tail' looks like fleeing, but it flips the final IS of PARIS. A Parsi is a member of the Zoroastrian community of India, descended from Persian émigrés.",
+     "definitionFit": "Parsis are Indian followers of the religion of Zoroaster, whose ancestors fled Persia, so each one is a Zoroastrian."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "turning"
     }
@@ -3180,42 +3187,50 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ICEDTEA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "enlivened",
-       "note": "the letters are stirred into life, in a new order"
+       "text": "after",
+       "at": 26,
+       "note": "after places the scrambled letters behind the letter for one"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "one",
+       "at": 32,
+       "gives": "I",
+       "note": "I is the Roman numeral for one"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "enlivened",
+         "at": 16,
+         "note": "enlivened means stirred into action, so the letters are shaken into a new order"
+        }
+       ],
        "parts": [
         {
-         "words": "one",
-         "gives": "I",
-         "note": "I is the Roman numeral one"
-        },
-        {
          "words": "Energy in cadet",
-         "gives": "CEDTEA",
-         "note": "E for energy added to CADET, then mixed"
+         "at": 0,
+         "gives": "ECADET",
+         "note": "E, the physics symbol for energy, goes in with the letters of cadet to make one pool"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A young officer livened up after a single drink.",
-     "walkthrough": "\"After one\" puts I at the front.",
-     "definitionFit": "Definition by example: a brew served chilled over ice, popular in summer."
+     "surface": "A trainee officer is livened up by a drink after a pep of energy.",
+     "walkthrough": "'cadet' looks like the person being revived, but it is only letters: with E (energy) added, 'enlivened' rearranges them to follow I (one). Order matters here: the scrambled part comes 'after' the numeral.",
+     "definitionFit": "Iced tea is chilled tea, often sweetened or with lemon, served as a cold beverage."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "enlivened"
+     "misdirectedWord": "cadet"
     }
    }
   },
