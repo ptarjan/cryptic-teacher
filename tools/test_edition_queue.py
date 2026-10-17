@@ -1414,7 +1414,7 @@ code_reach.TOOLS.mkdir()
 (code_reach.TOOLS / "ra.py").write_text("import rb\ndef f():\n    return rb.g()\n")
 (code_reach.TOOLS / "rb.py").write_text("def g():\n    return 1\n")
 first = (code_reach.modules("ra"), code_reach.key("ra", {"f"}))
-again = (code_reach.modules("ra"), code_reach.key("ra", {"f"}), len(list(code_reach.STORE.glob("*.json"))))
+again = (code_reach.modules("ra"), code_reach.key("ra", {"f"}), len([p for p in code_reach.STORE.glob("*.json") if p.name != "tree.json"]))  # tree.json is the kept tree hash, not an answer
 (code_reach.TOOLS / "rb.py").write_text("def g():\n    return 2\n")
 (code_reach.TOOLS / "ra.py").write_text("import rb\ndef f():\n    import rc\n    return rb.g()\n")
 (code_reach.TOOLS / "rc.py").write_text("")
@@ -1423,8 +1423,6 @@ check("code_reach answers again from its store, and anew after an edit",
       ({"ra", "rb"}, True, 1, {"ra", "rb", "rc"}, True),
       (first[0], again[:2] == first, again[2], edited[0], edited[1] != first[1]))
 code_reach.TOOLS, code_reach.STORE = saved
-lock_path = subprocess.run(["git", "rev-parse", "--path-format=absolute", "--git-path", "code.lock"],
-                           capture_output=True, text=True, check=True).stdout.strip()
 # count_left_requests finds each id off one listing of its series' year
 # folders and parses a file again only once its stat moves (a plan's ~8k
 # files took two minutes a plan); save/load carries the parses to a re-exec.
@@ -1503,6 +1501,8 @@ check("scans run one at a time: the default and any --scan-workers are capped at
 import inspect
 check("dispatch caps scan_workers at SCAN_WORKERS", True, "min(scan_workers, SCAN_WORKERS)" in inspect.getsource(eq.dispatch))
 
+lock_path = subprocess.run(["git", "rev-parse", "--path-format=absolute", "--git-path", "code.lock"],
+                           capture_output=True, text=True, check=True).stdout.strip()
 with open(lock_path, "a") as lk:
     fcntl.flock(lk, fcntl.LOCK_EX)
     waiting = subprocess.Popen([sys.executable, "edition_queue.py", "-h"], stdout=subprocess.DEVNULL)
