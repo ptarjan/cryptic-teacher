@@ -1033,6 +1033,18 @@ def small_self_test():
         print(f"FAIL head_of_queue with partly hinted pins {pinned} at {stages} (want {want})",
               file=sys.stderr)
         bad += 1
+    # tails (a bag leader and its members) lead the partly hinted: a 1-missing
+    # puzzle awaiting a preamble and a 9-missing one are not tails, so they
+    # follow the 5-, 4- and 3-missing tails (in queue order); a pin stays ahead of all
+    miss = {"cryptic-1": 9, "cryptic-2": 1, "tls-5": 5, "tls-6": 4, "book-7": 3}
+    trows = [dict(r, unannotated=miss[r["id"]], awaitsPreamble=r["id"] == "cryptic-2")
+             for r in rows]
+    _, pinned, _ = head_of_queue(["cryptic-1", "cryptic-2", "tls-5", "tls-6", "book-7"], ["r"],
+                                 trows)
+    want = ["r", "book-7", "tls-6", "tls-5", "cryptic-2", "cryptic-1"]
+    if pinned != want:
+        print(f"FAIL head_of_queue tails first pins {pinned} (want {want})", file=sys.stderr)
+        bad += 1
     return bad
 
 
@@ -1770,9 +1782,21 @@ def partly_first(queue, pinned, rows):
                            key=lambda pid: missing[pid])
 
 
+def tails_first(queue, pinned, rows):
+    """pinned, then the queue's bag-eligible tails (clue_bag.row_is_tail) in
+    queue order. A bag forms only when its leader is a tail, so tails at the
+    head are bagged and run together instead of each paying a session's fixed
+    cost; resumes, lockout cut-offs and hand requests stay ahead in `pinned`."""
+    import clue_bag
+    by_id = {r["id"]: r for r in rows}
+    taken = set(pinned)
+    return pinned + [pid for pid in queue
+                     if pid not in taken and clue_bag.row_is_tail(by_id.get(pid))]
+
+
 def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=()):
     """(the queue newest first, the ids that go ahead of it in order): pinned
-    (cut off by a lockout), then the hand requests (asked, requested()), then the partly hinted (partly_first), then the nearly-done and small series' puzzles
+    (cut off by a lockout), then the hand requests (asked, requested()), then the bag-eligible tails (tails_first), then the partly hinted (partly_first), then the nearly-done and small series' puzzles
     (small_first), then
     /showcase/'s wanted, then each series' No 1,
     then each series' oldest few, then the notable-tagged; each set in queue
@@ -1792,6 +1816,7 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=(), asked=())
     pinned = requested_first(queue, list(pinned), list(asked))
     asked_n = len(pinned) - len(set(pinned) - set(asked)) if asked else 0
     cut = len(pinned)
+    pinned = tails_first(cryptic, pinned, rows)
     pinned = partly_first(cryptic, pinned, rows)
     partly = len(pinned) - cut
     pinned = small_first(cryptic, pinned, rows, small)
