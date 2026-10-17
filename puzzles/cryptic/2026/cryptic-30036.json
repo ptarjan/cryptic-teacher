@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -137,43 +138,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "UNPOLISHED",
+     "op": "container",
      "indicators": [
       {
-       "text": "rogue",
-       "note": "a rogue element is one that has broken ranks, so the word next to it will not stay in the order given"
+       "text": "in",
+       "at": 13,
+       "note": "in means one piece goes inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "the plain instruction to drop one word inside the letters beside it"
+         "text": "rogue",
+         "at": 21,
+         "note": "rogue as an adjective means behaving wildly and out of control, so these letters go astray from their order"
         }
        ],
        "parts": [
         {
-         "words": "nude rogue",
-         "gives": "UNED",
-         "note": "the four letters of nude, reshuffled into a shell with a gap in the middle"
-        },
-        {
-         "words": "tongue",
-         "gives": "POLISH",
-         "note": "a tongue is a language, and this one is spoken in Warsaw"
+         "words": "nude",
+         "at": 16
         }
        ]
+      },
+      {
+       "words": "tongue",
+       "at": 6,
+       "gives": "POLISH",
+       "note": "a tongue is a language, and Polish is one"
       }
      ]
     },
     "explanation": {
-     "surface": "A naked scoundrel with a coarse, rough tongue in his head.",
-     "walkthrough": "'Rough tongue' wants to be one phrase, a coarse mouth on somebody. It splits: only 'Rough' is the definition, and 'tongue' is the language sense.",
-     "definitionFit": "Something unpolished has had no finishing work done to it, so its surface stays rough — the word covers manners as readily as wood."
+     "surface": "A rough tongue belongs to some naked scoundrel.",
+     "walkthrough": "'tongue' suggests the body part of the surface, but it is a language here; 'rogue' looks like a noun for the scoundrel and is the anagram signal.",
+     "definitionFit": "Unpolished means crude or unrefined, lacking finish, which is what rough describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "tongue"
     }
    }
   },
@@ -212,7 +219,8 @@
      "indicators": [
       {
        "text": "supply",
-       "note": "not the noun about deliveries but the adverb from supple, done limberly, so the letters bend into a new shape"
+       "at": 42,
+       "note": "supply is read here as the adverb of supple, meaning bendily or flexibly, so the letters are bent into a new order"
       }
      ],
      "parts": [
@@ -221,31 +229,40 @@
        "indicators": [
         {
          "text": "discontented",
-         "note": "read it as dis-contented: the contents are taken out and only the letters at the two ends survive"
+         "at": 14,
+         "note": "discontented, read as dis-contented, means having the contents emptied out, leaving the first and last letters"
         }
        ],
        "parts": [
         {
-         "words": "Samoa discontented",
-         "gives": "SAMOA",
-         "note": "strip the middle out of the island's name and the outer pair is left"
+         "words": "Samoa",
+         "at": 8,
+         "note": "the outer letters of Samoa, with its contents removed, give SA"
         }
        ]
       },
       {
        "words": "here",
-       "note": "four letters of fodder, taken straight off the page"
+       "at": 27,
+       "note": "taken as written"
       },
       {
        "words": "poor",
-       "note": "four more letters of fodder, taken as they stand"
+       "at": 37,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Grumbling on a Pacific island where the supplies have been arriving in a poor state.",
-     "walkthrough": "'Western Samoa' looks like one country and splits in two: the definition is 'Western' on its own, and only Samoa goes into the mixer.",
-     "definitionFit": "A horse opera is the old trade name for a cowboy picture, so 'Western' is the film-genre noun rather than a compass direction."
+     "surface": "Western Samoa is said to be unhappy about its meagre provisions.",
+     "walkthrough": "'supply' is not the noun but an adverb, in a supple way, which makes it an anagram signal; 'Western' is not part of the place name but the definition. 'discontented' leaves SA, mixed with HERE and POOR.",
+     "definitionFit": "A horse opera is a slang term for a Western, a cowboy film or show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "supply"
     }
    }
   },
@@ -347,45 +364,45 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Christmas!",
+      "text": "Christmas",
       "at": 29
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "deletion",
+     "indicators": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "cut, cut",
-         "note": "said twice because the trimming happens twice, one letter off the end each time"
-        }
-       ],
-       "parts": [
-        {
-         "words": "movie",
-         "gives": "NOELLE",
-         "note": "the 2019 Disney film about Santa's daughter, which is the festive one meant here"
-        },
-        {
-         "words": "cut, cut",
-         "gives": "LE",
-         "note": "the two letters that come off the end, one per cut"
-        }
-       ]
+       "text": "cut",
+       "at": 16,
+       "note": "cut means trimmed short, so the film's title loses its final letter"
       },
       {
-       "unchecked": true,
-       "words": "Christmas",
-       "note": "no letters of its own: it narrows down which film, and the setter then puts the same word to work at the end as the definition"
+       "text": "cut",
+       "at": 21,
+       "note": "cut a second time, the shortened title loses its new final letter too"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Christmas movie",
+       "at": 0,
+       "gives": "NOELLE",
+       "note": "Noelle is a 2019 Christmas film starring Anna Kendrick"
+      },
+      {
+       "gives": "LE"
       }
      ]
     },
     "explanation": {
-     "surface": "A festive film trimmed and trimmed again to fit the Christmas schedules.",
-     "walkthrough": "The doubled word is a doubled instruction: 'cut' twice takes two letters off. The film is Noelle, a 2019 Disney comedy, and the exclamation mark marks the definition.",
-     "definitionFit": "Noel is Christmas itself — the French word for the feast, sung in carols and printed on cards every December."
+     "surface": "A festive film is trimmed in the edit, then trimmed again for the holiday season.",
+     "walkthrough": "'cut, cut' trims NOELLE twice from the end: first to NOELL, then to NOEL. Noelle is a 2019 Disney Christmas comedy.",
+     "definitionFit": "Noel is another word for Christmas, from the French for the festival, heard in carols."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
     }
    }
   },
@@ -454,54 +471,57 @@
     "definitions": [
      {
       "text": "level up",
-      "at": 27,
-      "note": "The surface reads 'level up' as an order to straighten a hat; the answer needs it as a noun phrase, a level that is up in the air."
+      "at": 27
      }
     ],
     "wordplay": {
      "op": "anagram",
      "indicators": [
       {
-       "text": "cap",
-       "note": "a cap sits on top of a head, and the top of a written word is the letter it begins with"
+       "text": "badly",
+       "at": 20,
+       "note": "badly means poorly done, so these letters are put together wrongly, in another order"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "first",
        "indicators": [
         {
-         "text": "badly",
-         "note": "something done badly comes out wrong, and letters that come out wrong come out in the wrong order"
+         "text": "cap in",
+         "at": 2,
+         "note": "the cap of a word is its first letter, its top in a down clue"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "parts": [
-          {
-           "words": "A",
-           "note": "the clue's first word, taken as a single letter of fodder"
-          }
-         ]
-        },
-        {
-         "words": "cap in use",
-         "gives": "U",
-         "note": "the letter sitting at the top of use — an operation, not an abbreviation"
-        },
-        {
-         "words": "tilted",
-         "note": "six letters of fodder, taken straight off the page"
+         "words": "use",
+         "at": 9,
+         "note": "the first letter of use"
         }
        ]
+      },
+      {
+       "words": "tilted",
+       "at": 13,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A hat sitting crooked on somebody's head and badly in need of straightening.",
-     "walkthrough": "The surface has you reaching up to straighten a hat, so 'level up' passes as the end of that sentence rather than as a height a pilot would report.",
-     "definitionFit": "Altitude is height above the ground — the level a thing has got up to, which is the sense used in the cockpit."
+     "surface": "Someone's hat sits crooked while it is worn, and needs straightening.",
+     "walkthrough": "'level up' reads like a command to straighten the cap, but it is the definition: a level that is up high.",
+     "definitionFit": "Altitude is height above the ground or sea, so it is a level reached up in the air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "level"
     }
    }
   },
@@ -521,8 +541,8 @@
    "annotation": {
     "definitions": [
      {
-      "text": "bulb",
-      "at": 11
+      "text": "Clue about bulb, essentially?",
+      "at": 0
      }
     ],
     "wordplay": {
@@ -530,41 +550,46 @@
      "indicators": [
       {
        "text": "about",
-       "note": "something placed about a thing is wrapped round it, so the short pair goes in the middle"
+       "at": 5,
+       "note": "about means going round, so the hint's letters surround the others"
       }
      ],
      "parts": [
       {
        "words": "Clue",
+       "at": 0,
        "gives": "TIP",
-       "note": "a tip is a hint — what you give somebody who is stuck"
+       "note": "a tip is a hint or clue"
       },
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "UL",
        "indicators": [
         {
          "text": "essentially",
-         "note": "the essence of a word is its middle, so this asks for the letters at the heart of it"
+         "at": 17,
+         "note": "essentially means at its essence or core, so only the central letters are used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "essentially",
-         "gives": "UL",
-         "select": "middle",
-         "note": "the two letters at the heart of the word the definition has just used"
+         "words": "bulb",
+         "at": 11,
+         "note": "the middle letters of bulb"
         }
        ]
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A hint concerning a light bulb, more or less.",
-     "walkthrough": "'Bulb' is doing two jobs at once: it is the definition and it is also the word the middle letters are dug out of. The question mark is Paul owning up to it.",
-     "definitionFit": "A tulip is a bulb by example — one of the plants a gardener buys dry in autumn rather than as a packet of seed."
+     "surface": "A cryptic hint is said to be all about a flower bulb.",
+     "walkthrough": "The whole clue is the definition too: the answer is a plant grown from a bulb, and its essence is a bulb.",
+     "definitionFit": "A tulip is the classic spring flower grown from a bulb, so a clue about a bulb could well be this."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Clue"
     }
    }
   },
@@ -781,59 +806,66 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "PRINCEIGOR",
+     "op": "charade",
      "indicators": [
       {
-       "text": "comic",
-       "note": "comic here is odd and laughable rather than funny-ha-ha, and letters treated as a joke will not stay put"
+       "text": "in support of",
+       "at": 10,
+       "note": "in a down clue, one piece in support of another sits under it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "in support of",
-         "note": "supporting something means holding it up from underneath, so in a down clue these letters go below the rest"
+         "text": "describing",
+         "at": 33,
+         "note": "describing means drawing a line round, so the animal's letters go round the others"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "words": "stinker",
+         "at": 24,
+         "gives": "PIG",
+         "note": "a pig is a stinker, being dirty and smelly"
+        },
+        {
+         "op": "anagram",
          "indicators": [
           {
-           "text": "describing",
-           "note": "to describe a circle is to draw one round something, so one chunk of letters encloses another"
+           "text": "comic",
+           "at": 50,
+           "note": "comic means funny or absurd, so the letters are made to play about"
           }
          ],
          "parts": [
           {
-           "words": "stinker",
-           "gives": "PIG",
-           "note": "a pig of a job is a stinker of one"
-          },
-          {
-           "words": "nicer comic",
-           "gives": "RINCE",
-           "note": "the five letters of nicer, rearranged"
+           "words": "nicer",
+           "at": 44
           }
          ]
-        },
-        {
-         "words": "That said",
-         "gives": "OR",
-         "note": "'or' in the sense of then again, the concession a speaker makes when they say that said"
         }
        ]
+      },
+      {
+       "words": "That said",
+       "at": 0,
+       "gives": "OR",
+       "note": "or can mean that said, introducing a qualification: or rather"
       }
      ]
     },
     "explanation": {
-     "surface": "Something kinder offered in defence of a thoroughly horrible person.",
-     "walkthrough": "'Comic 23 down' wants to be one phrase naming a genre, and the definition stops at the cross-reference: Borodin's opera is a grim tale of a captured prince, not a comedy.",
-     "definitionFit": "23 down is OPERA, and this is Borodin's, so the definition names the art form while the wordplay supplies which one."
+     "surface": "Someone backs a stinker, with a nicer comedian playing the opera's title role.",
+     "walkthrough": "The definition points to the answer of 23 down, OPERA: Borodin's Prince Igor is a Russian opera, and not a comic one, despite the surface. 'That said' gives a word meaning 'or rather'.",
+     "definitionFit": "Prince Igor is a nineteenth-century Russian work by Borodin for the stage, famous for its Polovtsian Dances."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "comic"
     }
    }
   },
@@ -864,37 +896,26 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SOLIDGROUND",
-     "indicators": [
-      {
-       "text": "in trouble",
-       "note": "letters in trouble have been knocked out of their order, and the word for what was done to them is the second half of what you write in"
-      }
-     ],
+     "op": "reverse",
+     "reading": "SOLID GROUND",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "idols",
-         "gives": "SOLID",
-         "note": "the same five letters in a different order"
-        },
-        {
-         "words": "in trouble",
-         "gives": "GROUND",
-         "note": "what you just did to those five letters — you put them through the mill — and the clue asks you to write that down"
-        }
-       ]
+       "words": "idols in trouble",
+       "at": 5,
+       "note": "read cryptically, the answer says take SOLID and grind it up, and the letters of solid in trouble, rearranged, give idols"
       }
      ]
     },
     "explanation": {
-     "surface": "False gods getting themselves into difficulty.",
-     "walkthrough": "A reverse anagram: the second word is not shuffled letters, it is the past participle of grind, naming the operation that turns the first word into 'idols'.",
-     "definitionFit": "Solid ground is land as opposed to sea or air — what you are glad to be standing on again after a rough crossing."
+     "surface": "Idol worshippers find themselves in difficulty on their territory.",
+     "walkthrough": "The answer is the wordplay: GROUND, meaning crushed, signals a jumble of SOLID, which makes IDOLS, and 'in trouble' says the same of the clue.",
+     "definitionFit": "Solid ground is firm earth as opposed to water or bog, which is what land means here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trouble"
     }
    }
   },
@@ -977,51 +998,57 @@
      "indicators": [
       {
        "text": "burying",
-       "note": "bury a thing and it ends up under the surface, so these letters go inside the pair around them"
+       "at": 34,
+       "note": "burying means holding something deep inside, so these letters are buried within the others"
       }
      ],
      "parts": [
       {
        "words": "while",
+       "at": 28,
        "gives": "AS",
-       "note": "as means while — 'as I was leaving' is 'while I was leaving'"
+       "note": "as can mean while, at the same time"
       },
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "head",
-         "note": "the head of a word is its front, so this takes the opening letter of the word that follows"
-        }
-       ],
        "parts": [
         {
          "op": "first",
-         "unchecked": true,
-         "gives": "W",
+         "indicators": [
+          {
+           "text": "head in",
+           "at": 42,
+           "note": "the head of a word is its first letter"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "head in whelk",
-           "gives": "W",
-           "select": "first",
-           "note": "the letter at the front of whelk, picked out rather than looked up"
+           "words": "whelk",
+           "at": 50,
+           "note": "the first letter of whelk"
           }
          ]
         },
         {
          "words": "shell",
+         "at": 56,
          "gives": "SHUCK",
-         "note": "to shuck is to shell: what you do to oysters and to corn"
+         "note": "to shuck is to shell, removing a husk or a shell"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A red-faced person hiding their head inside a whelk's shell.",
-     "walkthrough": "'Whelk shell' looks like one object and is two separate jobs: the whelk hands over its first letter, and 'shell' is wanted as the verb.",
-     "definitionFit": "Aw shucks is what a bashful American says when praised, to the point that an aw-shucks grin means an embarrassed one."
+     "surface": "Someone sheepishly speaks while tucking a head inside a whelk shell, hiding like a hermit crab.",
+     "walkthrough": "'shell' is a verb here: to shuck shellfish is to open them.",
+     "definitionFit": "Aw shucks is an American interjection used to show bashfulness or modest embarrassment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "shell"
     }
    }
   },
@@ -1292,8 +1319,9 @@
      "op": "container",
      "indicators": [
       {
-       "text": "outrageous",
-       "note": "outrageous behaviour respects no order, and these letters respect none either"
+       "text": "dressing",
+       "at": 38,
+       "note": "dressing means clothing, so these letters are wrapped round the others"
       }
      ],
      "parts": [
@@ -1301,32 +1329,31 @@
        "op": "anagram",
        "indicators": [
         {
-         "text": "initially",
-         "note": "asks for the letter the preceding word starts with and nothing else"
+         "text": "outrageous",
+         "at": 9,
+         "note": "outrageous means wild and shocking, so these letters are thrown into disorder"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "words": "Sense of",
+         "at": 0,
+         "note": "taken as written"
+        },
+        {
+         "op": "first",
          "indicators": [
           {
-           "text": "dressing",
-           "note": "dressing goes on the outside of whatever it dresses, so the shuffled letters wrap round the short word"
+           "text": "initially",
+           "at": 28,
+           "note": "initially means at the start, taking only the word's first letter"
           }
          ],
          "parts": [
           {
-           "words": "Sense of",
-           "note": "seven letters of fodder, taken as they stand"
-          },
-          {
-           "op": "first",
-           "parts": [
-            {
-             "words": "theatre initially",
-             "note": "the first letter of theatre, joined to the fodder before the shuffle"
-            }
-           ]
+           "words": "theatre",
+           "at": 20,
+           "note": "the first letter of theatre"
           }
          ]
         }
@@ -1334,15 +1361,22 @@
       },
       {
        "words": "Australian",
+       "at": 47,
        "gives": "OZ",
-       "note": "Oz is what Australians call Australia, and the crossword's shorthand for it"
+       "note": "Oz is informal for Australia, so Australian gives OZ"
       }
      ]
     },
     "explanation": {
-     "surface": "A wildly theatrical Australian got up in a frock.",
-     "walkthrough": "'In drag' is the definition hiding inside the costume joke — a drag is a bore, and 'in' is doing nothing but joining.",
-     "definitionFit": "A snoozefest is something so dull it sends you to sleep, which is what people mean when they call a thing a drag."
+     "surface": "A flamboyant theatre show dresses an Australian performer in drag.",
+     "walkthrough": "'drag' is not the drag act of the surface but its other sense, a tedious bore. 'dressing' wraps SNOEFEST, the jumble of SENSE OF and T, round OZ.",
+     "definitionFit": "A snoozefest is a very boring event, informally, so it is a drag, something tedious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drag"
     }
    }
   },
