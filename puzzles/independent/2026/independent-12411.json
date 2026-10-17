@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -242,40 +243,60 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ANKLESOCK",
      "indicators": [
       {
        "text": "Losing",
-       "note": "to lose a thing is to be left without it, so the letter named goes missing from each word"
+       "at": 0,
+       "note": "losing something means doing without it, so one R, standing for runs, is taken away"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "runs",
+         "at": 7,
+         "note": "R is the cricket abbreviation for a run; the plural names two of them, so a second R goes as well"
+        }
+       ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "runs",
-         "note": "runs is R on a cricket scorecard, and R is the letter that goes from both words"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "is irritating",
+           "at": 12,
+           "gives": "RANKLES",
+           "note": "something that rankles is irritating, a lasting annoyance"
+          },
+          {
+           "words": "stone",
+           "at": 31,
+           "gives": "ROCK",
+           "note": "a rock is a stone"
+          }
+         ]
         },
         {
-         "words": "is irritating",
-         "gives": "ANKLES",
-         "note": "what rankles irritates; take the R away and six letters remain"
-        },
-        {
-         "words": "stone",
-         "gives": "OCK",
-         "note": "a stone is a rock, less the same R"
+         "gives": "R"
         }
        ]
+      },
+      {
+       "gives": "R"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Two words each give up an R, and the break between the pieces is not where the enumeration puts it — the letters split after six, not five.",
-     "definitionFit": "footwear -> ANKLE SOCK: a short sock ending just above the shoe, so it counts as footwear in the everyday clothing sense."
+     "surface": "Someone losing at cricket is annoyed, and a stone in their shoe makes it worse.",
+     "walkthrough": "'Losing runs' takes an R (cricket's abbreviation for a run) from each word: RANKLES becomes ANKLES and ROCK becomes OCK. The plural 'runs' is why two Rs go; the parse splits the one instruction into two removals.",
+     "definitionFit": "This is a short sock reaching just above the ankle, an item of footwear worn inside shoes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
     }
    }
   },
@@ -356,49 +377,58 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FIVER",
-     "indicators": [
-      {
-       "text": "limited",
-       "note": "what is limited has been cut short of its full extent, so the word stops one letter early"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "FIVER",
        "indicators": [
         {
          "text": "On retirement",
-         "note": "to retire is to withdraw, to go back the way you came, so the piece is written in the opposite direction"
+         "at": 0,
+         "note": "something on retirement withdraws, going back, so the word for provided reads backwards"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "provided",
-           "gives": "FI",
-           "note": "provided that means if, and those two letters are then turned round"
-          },
-          {
-           "words": "very",
-           "gives": "VER",
-           "note": "the word docked of its last letter"
-          }
-         ]
+         "words": "provided",
+         "at": 15,
+         "gives": "IF",
+         "note": "if means provided, as in 'provided that'"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "limited",
+         "at": 34,
+         "note": "limited means kept short, so the word very loses its last letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "very",
+         "at": 29,
+         "gives": "VERY",
+         "note": "taken as written before being shortened"
+        },
+        {
+         "gives": "Y"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a pension paying next to nothing, and both instructions hide as ordinary description: one word turns a piece, the other trims one.",
-     "definitionFit": "amount of money -> FIVER: British slang for a five-pound note, one named sum rather than money in general."
+     "surface": "A pensioner on retirement finds themselves with very little money.",
+     "walkthrough": "'On retirement' turns IF (provided) back to FI, and 'limited' trims VERY to VER.",
+     "definitionFit": "A fiver is British slang for a five-pound note, a fixed sum of money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
     }
    }
   },
@@ -1323,66 +1353,79 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ETHIC",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "press",
+       "at": 14,
+       "note": "pressing something in pushes it into place, so the middle letter goes inside"
+      },
+      {
+       "text": "in",
+       "at": 36,
+       "note": "'in' says where the pressed letter goes: inside the rearranged letters"
+      }
+     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "Release",
-         "note": "to release something is to let go of it, so the letter named leaves the material being worked on"
-        },
-        {
          "text": "complicated",
-         "note": "something complicated has been tangled out of its plain arrangement, which is what happens to these letters"
+         "at": 39,
+         "note": "complicated means made tangled, so the remaining letters are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "charade",
+         "op": "deletion",
          "indicators": [
           {
-           "text": "press",
-           "note": "pressing a thing in pushes it among what is already there, so the letter joins the pile to be jumbled"
+           "text": "Release",
+           "at": 0,
+           "note": "to release something is to let it go, so the letter A is let out of cheat"
           }
          ],
          "parts": [
           {
            "words": "cheat",
-           "gives": "CHET",
-           "note": "cheat with its A let go, leaving four letters"
+           "at": 51
           },
           {
-           "op": "middle",
-           "unchecked": true,
-           "gives": "I",
-           "indicators": [
-            {
-             "text": "middle of",
-             "note": "the middle of a word is its central letter, with as many letters before it as after"
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "middle of stick",
-             "gives": "I",
-             "select": "middle",
-             "note": "the central letter of the five in stick"
-            }
-           ]
+           "gives": "A"
           }
          ]
+        }
+       ]
+      },
+      {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 20,
+         "note": "the middle of a five-letter word is its third, central letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "stick",
+         "at": 30,
+         "note": "the central letter of stick is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The order is unusual: one letter comes out and another goes in before anything is shuffled, and the count only reaches five once both have happened.",
-     "definitionFit": "code -> ETHIC: a professional ethic is the code of conduct a trade holds itself to, rules kept by agreement rather than by law."
+     "surface": "Gaming instructions: release the A button and press the middle of the stick to enter a cheat code.",
+     "walkthrough": "'Release' lets A out of CHEAT, leaving CHET; 'complicated' rearranges that to ETHC, and 'press' and 'in' put I, the middle of STICK, between H and C.",
+     "definitionFit": "An ethic is a set of moral principles, a personal code of conduct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "code"
     }
    }
   },
@@ -1497,12 +1540,11 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "OTHELLO",
      "indicators": [
       {
        "text": "Leaving",
-       "note": "to leave a place is to go out of it, so the letter named departs from the word that held it"
+       "at": 0,
+       "note": "leaving means departing, so the letter for hotel departs"
       }
      ],
      "parts": [
@@ -1510,27 +1552,36 @@
        "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "hotel",
-         "note": "hotel is H in the radio alphabet, and that is the letter going"
-        },
-        {
          "words": "warm",
-         "gives": "OT",
-         "note": "warm is hot, now short of its aitch"
+         "at": 15,
+         "gives": "HOT",
+         "note": "hot means very warm"
         },
         {
          "words": "welcome",
+         "at": 20,
          "gives": "HELLO",
-         "note": "the welcome you call out at the door"
+         "note": "hello is a greeting, a welcome"
         }
        ]
+      },
+      {
+       "words": "hotel",
+       "at": 8,
+       "gives": "H",
+       "note": "Hotel is H in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Leaving hotel' looks like checking out, and it is where a letter goes missing; the rest is two ordinary words of greeting.",
-     "definitionFit": "jealous husband -> OTHELLO: definition by example — Shakespeare's Moor of Venice, worked up by Iago into murdering Desdemona over invented infidelity."
+     "surface": "On checking out of a hotel, a guest receives a warm farewell, or rather welcome.",
+     "walkthrough": "'warm welcome' gives HOT HELLO; 'Leaving' takes out the first H (hotel in the radio alphabet). 'Leaving hotel' suggests an anagram of HOTEL, which only gets you part way.",
+     "definitionFit": "Shakespeare's Moor of Venice murders his wife Desdemona in a fit of sexual jealousy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hotel"
     }
    }
   },
