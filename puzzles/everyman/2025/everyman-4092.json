@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -92,40 +93,37 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Not late",
+      "text": "Not late, anyway",
       "at": 29
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "Somewhat",
+       "at": 0,
+       "note": "somewhat means to some extent, so only part of the following words' letters is taken"
+      }
+     ],
      "parts": [
       {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "Somewhat",
-         "note": "Somewhat means partly rather than wholly, so only a portion of what follows is wanted — a run of letters inside the words, not the words themselves."
-        }
-       ],
-       "parts": [
-        {
-         "words": "upfront? I'm early",
-         "gives": "ONTIME",
-         "note": "six consecutive letters, beginning partway into the first word and running on across two of the gaps"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "anyway …",
-       "note": "surface only — the shrug that keeps the sentence sounding spoken, with the ellipsis carrying it into the next clue"
+       "words": "upfront? I'm early",
+       "at": 9,
+       "gives": "ONTIME",
+       "note": "the letters run across upfront, I'm and early"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody protesting, a little too hard, that they turned up ahead of schedule.",
-     "walkthrough": "'Somewhat' is the one word in the sentence with no business in a conversation about punctuality, and that oddity is what marks it as the instruction.",
-     "definitionFit": "Arriving on time is arriving at the appointed moment, which is not being late said from the other side."
+     "surface": "Someone protesting that they arrived ahead of time, so certainly not late.",
+     "walkthrough": "'Somewhat' signals a run of letters inside 'upfront? I'm early'; 'anyway' just rounds off the surface as a link.",
+     "definitionFit": "Arriving at the scheduled moment means being punctual, the opposite of tardy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Somewhat"
     }
    }
   },
@@ -157,31 +155,43 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "EVENSO",
      "indicators": [
       {
-       "text": "to take place of queen",
-       "note": "R is the queen in a monarch's shorthand, Regina, and taking her place means the new letter is written exactly where that R stood."
+       "text": "to take place of",
+       "at": 21,
+       "note": "one letter taking the place of another means it replaces it in the word"
       }
      ],
      "parts": [
       {
        "words": "really",
+       "at": 5,
        "gives": "EVERSO",
-       "note": "'ever so' is the everyday intensifier — ever so kind, ever so sorry"
+       "note": "ever so, as in 'ever so kind', means really"
+      },
+      {
+       "words": "queen",
+       "at": 38,
+       "gives": "R",
+       "note": "R, for Regina, is the abbreviation for a queen"
       },
       {
        "words": "knight",
+       "at": 14,
        "gives": "N",
-       "note": "N is the knight in chess notation, K having gone to the king"
+       "note": "N is the chess notation for a knight"
       }
      ]
     },
     "explanation": {
-     "surface": "A chess player wondering whether the knight can be moved onto the square the queen is standing on.",
-     "walkthrough": "R for Regina is worth keeping: queens and kings both hand over R in crossword shorthand, taken from the Latin printed on the coins.",
-     "definitionFit": "Even so and yet both concede the point just made and then push straight past it: 'it rained; even so, we went' works as 'yet we went'."
+     "surface": "A chess player wondering whether a knight could really stand in for the queen.",
+     "walkthrough": "The chess setting suggests Q for queen, but here queen is R (Regina). In EVER SO ('really'), N ('knight') is 'to take place of' that R.",
+     "definitionFit": "Even so means nevertheless or however, the conjunction sense of the short word given."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "queen"
     }
    }
   },
@@ -857,47 +867,54 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ELTONJOHN",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "stripped off",
-       "note": "Stripping off takes away what is on the outside, so the word named loses its first and last letters."
+       "text": "trashed",
+       "at": 17,
+       "note": "a trashed hotel room is wrecked, so the letters are thrown into a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "Jack",
+       "at": 9,
+       "gives": "J",
+       "note": "J is the card abbreviation for jack"
+      },
+      {
+       "words": "hotel",
+       "at": 25,
+       "note": "taken as written"
+      },
+      {
+       "op": "middle",
        "indicators": [
         {
-         "text": "trashed",
-         "note": "Trashing a room leaves nothing where it was, so the letters gathered here come out in a different order."
+         "text": "stripped off",
+         "at": 39,
+         "note": "stripped off means the outer layer, the first and last letters, is removed"
         }
        ],
        "parts": [
         {
-         "words": "Jack",
-         "gives": "J",
-         "note": "the jack in a pack of cards is written J"
-        },
-        {
-         "words": "hotel",
-         "note": "five letters handed over whole"
-        },
-        {
          "words": "sonny",
-         "gives": "ONN",
-         "note": "the outside letters come off and three are left in the mix"
+         "at": 32,
+         "note": "sonny without its outer letters"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A rowdy night in which a lad called Jack wrecks a hotel room and loses his clothes.",
-     "walkthrough": "The italics point at the television series and that is the decoy — the two words are doing duty as a plain description of a singer. Watch 'sonny': it is the only fodder that arrives shortened.",
-     "definitionFit": "Elton John has been a superstar of British pop for fifty years, so 'Pop Idol' names him by category and the italics only dress it as the talent show."
+     "surface": "A rock star's son trashes a hotel room and strips naked.",
+     "walkthrough": "'stripped off' leaves ONN from sonny; J (Jack), HOTEL and ONN are 'trashed' together into the singer's name.",
+     "definitionFit": "Elton John is a hugely famous pop star, a musical idol for decades; the clue's capitals hint at the TV show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Idol"
     }
    }
   },
@@ -982,52 +999,56 @@
     "definitions": [
      {
       "text": "bling",
-      "at": 35
+      "at": 35,
+      "note": "a noun: showy jewellery, matching the noun answer"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DIAMANTE",
+     "op": "charade",
      "indicators": [
       {
        "text": "never stop",
-       "note": "A word that never stops never reaches its ending, so each of the four here is cut off before its final letter."
+       "at": 16,
+       "note": "never coming to a stop means none of the four words reaches its final letter"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Did",
-         "gives": "DI",
-         "note": "the final letter is never reached, so two letters arrive instead of three"
-        },
-        {
-         "words": "Amy",
-         "gives": "AM",
-         "note": "the same again — the last letter is dropped before the name is used"
-        },
-        {
-         "words": "and",
-         "gives": "AN",
-         "note": "the little joining word also loses its final letter"
-        },
-        {
-         "words": "Ted",
-         "gives": "TE",
-         "note": "the last letter goes here too, and the entry is full"
-        }
-       ]
+       "words": "Did",
+       "at": 0,
+       "gives": "DI",
+       "note": "did with its last letter cut off, never reaching its stop"
+      },
+      {
+       "words": "Amy",
+       "at": 4,
+       "gives": "AM",
+       "note": "the name Amy with its last letter cut off"
+      },
+      {
+       "words": "and",
+       "at": 8,
+       "gives": "AN",
+       "note": "the word and with its last letter cut off"
+      },
+      {
+       "words": "Ted",
+       "at": 12,
+       "gives": "TE",
+       "note": "the name Ted with its last letter cut off"
       }
      ]
     },
     "spelling": "DIAMANTÉ",
     "explanation": {
-     "surface": "A gossipy question about whether two people ever stopped buying flashy jewellery.",
-     "walkthrough": "Four short words in a row, each losing its tail, is a shape worth recognising: all four are three letters long and the entry is eight, which is the arithmetic that gives it away.",
-     "definitionFit": "Diamanté is the sparkling paste jewellery stitched onto frocks in place of real stones, which is the flashy sham that 'bling' names."
+     "surface": "A gossip asking whether a couple kept on acquiring flashy jewellery.",
+     "walkthrough": "'never stop' drops the last letter (D, Y, D, D) of each of Did, Amy, and, Ted, leaving DI, AM, AN, TE.",
+     "definitionFit": "Diamante is cheap sparkling decoration of paste or sequins, exactly the flashy jewellery called bling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stop"
     }
    }
   },
@@ -1053,43 +1074,46 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Plan",
+      "text": "Plan for how to get out",
       "at": 0
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "flailing",
+       "at": 29,
+       "note": "flailing means thrashing wildly, so the letters are thrown about into a new order"
+      }
+     ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "how to get out",
-       "note": "no letters here — these words go on describing the kind of plan wanted, which is why the entry is two words rather than one"
+       "words": "try",
+       "at": 25,
+       "note": "taken as written"
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "flailing",
-         "note": "Flailing arms go everywhere at once, so the letters either side of the word end up anywhere but where they started."
-        }
-       ],
-       "parts": [
-        {
-         "words": "try",
-         "note": "the first three letters of the fodder"
-        },
-        {
-         "words": "axes, get it",
-         "note": "nine more, making twelve in all"
-        }
-       ]
+       "words": "axes",
+       "at": 43,
+       "note": "taken as written"
+      },
+      {
+       "words": "get it",
+       "at": 49,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody hacking their way out of a burning building with an axe in each hand.",
-     "walkthrough": "'Get it?' reads as the setter checking you have followed the joke, and it is fodder: five of the twelve letters are sitting in those two little words.",
-     "definitionFit": "An exit strategy is the route out worked out in advance — of a war, a business, an investment — so it is a plan in the plainest sense."
+     "surface": "Someone trapped is told to hack a way out with axes; do they understand?",
+     "walkthrough": "'flailing' acts on TRY, AXES and GET IT together; 'with' joins the pieces.",
+     "definitionFit": "An exit strategy is a prepared scheme for leaving a situation, such as a war or investment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flailing"
     }
    }
   },
@@ -1196,41 +1220,53 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "POMPEII",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "wherein",
+       "at": 34,
+       "note": "wherein means in which, so the next letters go inside the Greek letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "Greek character",
+       "at": 18,
+       "gives": "PI",
+       "note": "pi is a letter of the Greek alphabet"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "wherein",
-         "note": "Wherein means inside which, so the letters named next are set within the piece just given rather than written after it."
-        },
-        {
          "text": "about",
-         "note": "Moving about is moving with no settled order, so the two words beside it are re-set in a fresh arrangement."
+         "at": 49,
+         "note": "about means around in a muddle, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "Greek character",
-         "gives": "PI",
-         "note": "pi is the Greek letter mathematicians use for the circle constant"
+         "words": "I",
+         "at": 42
         },
         {
-         "words": "I mope",
-         "gives": "OMPEI",
-         "note": "five letters rearranged and dropped into the gap"
+         "words": "mope",
+         "at": 44,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A tourist sulking somewhere in Greece.",
-     "walkthrough": "'Greek character' is not a person but a letter, which is the pun hiding the outer shell — and the city it wraps is Italian, not Greek at all.",
-     "definitionFit": "Pompeii was the Roman town buried by Vesuvius in AD 79, so 'Classical city' places it by period as well as by kind."
+     "surface": "A Greek character in a story moping around.",
+     "walkthrough": "'Greek character' is the letter PI, not a person; 'about' shuffles I and MOPE into OMPEI, and 'wherein' puts that between P and I.",
+     "definitionFit": "Pompeii is the Roman town buried by Vesuvius in AD 79, a city of classical antiquity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
     }
    }
   },
