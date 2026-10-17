@@ -397,45 +397,46 @@
      "indicators": [
       {
        "text": "in",
-       "note": "one thing sits inside another"
+       "at": 5,
+       "note": "in, read with between, says the bird is set inside the pair of outer letters"
       },
       {
-       "text": "wings",
-       "note": "wings are at the edges, so the outer letters"
+       "text": "between",
+       "at": 13,
+       "note": "between means the bird sits in the gap between those two letters"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "FR",
        "indicators": [
         {
-         "text": "between",
-         "note": "the bird sits between the two letters"
+         "text": "wings",
+         "at": 30,
+         "note": "the wings of a word are its two outer letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "fulmar's wings",
-         "gives": "FR",
-         "select": "outer",
-         "note": "the first and last letters of FULMAR"
+         "words": "fulmar's",
+         "at": 21,
+         "gives": "FULMAR",
+         "note": "a fulmar is a seabird; the possessive only ties it to wings, so the word itself is fulmar"
         }
        ]
       },
       {
        "words": "bird",
+       "at": 8,
        "gives": "EMU",
-       "note": "the emu is a flightless bird"
+       "note": "the emu is a large flightless Australian bird"
       }
      ]
     },
     "explanation": {
-     "surface": "A bone lodged in a seabird's wing.",
-     "walkthrough": "A fulmar is a real seabird, which makes 'wings' look anatomical; here it means only the outside letters.",
-     "definitionFit": "A definition by category: the thigh's long bone is one example of a bone."
+     "surface": "A bone found in a bird, lodged between the wings of a fulmar.",
+     "walkthrough": "The fulmar is a grey-and-white seabird, which keeps the whole clue in an ornithologist's notebook; its 'wings' are just F and R, and 'in' and 'between' set EMU inside them.",
+     "definitionFit": "The femur is the thigh bone, the longest bone in the human body."
     },
     "features": {
      "answerInScene": true,
@@ -866,48 +867,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "WOLVERINE",
+     "op": "container",
      "indicators": [
       {
-       "text": "furious",
-       "note": "furious means wildly agitated, so the letters are rearranged"
+       "text": "tucked into",
+       "at": 31,
+       "note": "tucked into means the jumbled letters are placed inside the word for the drink"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Chardonnay, say",
+       "at": 43,
+       "gives": "WINE",
+       "note": "Chardonnay is an example of wine, as the word say signals"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "tucked into",
-         "note": "one thing is put inside another"
+         "text": "furious",
+         "at": 17,
+         "note": "furious means wild and agitated, so the letters of lover are thrown into disorder"
         }
        ],
        "parts": [
         {
-         "words": "Chardonnay, say",
-         "gives": "WINE",
-         "note": "Chardonnay is a kind of wine"
-        },
-        {
-         "words": "furious lover",
-         "gives": "OLVER",
-         "note": "LOVER rearranged"
+         "words": "lover",
+         "at": 25
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An angry lover drowns their sorrows in white wine.",
-     "walkthrough": "'Say' marks Chardonnay as an example of the category wanted, wine.",
-     "definitionFit": "The wolverine is a fierce, powerful animal of the weasel family."
+     "surface": "An angry lover hides away inside a glass of white wine.",
+     "walkthrough": "'furious' rearranges LOVER to OLVER, which is 'tucked into' WINE.",
+     "definitionFit": "The wolverine is a stocky carnivore of northern forests famed for its strength and aggression."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "lover"
+     "misdirectedWord": "furious"
     }
    }
   },
@@ -932,56 +933,58 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CREATIVE",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "put away",
+       "at": 46,
+       "note": "put away means the letter is stowed inside the rearranged letters, as food is put away by eating"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "butcher",
-         "note": "to butcher is to hack apart, so the letters are rearranged"
-        },
-        {
-         "text": "put away",
-         "note": "put away inside, as food is put away in a stomach"
+         "at": 9,
+         "note": "to butcher something is to hack it up, so these letters are cut into a new order"
         }
        ],
        "parts": [
         {
-         "words": "butcher ate rice",
-         "gives": "CREATIE",
-         "note": "ATE RICE rearranged"
+         "words": "ate",
+         "at": 17
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "V",
-         "indicators": [
-          {
-           "text": "starter of",
-           "note": "a starter is what begins a meal, so the starter of a word is its opening letter"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "starter of venison",
-           "gives": "V",
-           "select": "first",
-           "note": "first letter of VENISON"
-          }
-         ]
+         "words": "rice",
+         "at": 21
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "starter of",
+         "at": 27,
+         "note": "the starter of a word is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "venison",
+         "at": 38,
+         "note": "only the first letter of venison is used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An inventive butcher sits down to rice and a venison starter.",
-     "walkthrough": "'Butcher' looks like a person eating; it is a verb telling you to mangle ATE RICE.",
-     "definitionFit": "A plain synonym: original thinking is inventive and imaginative."
+     "surface": "A butcher ate rice and polished off a venison starter too.",
+     "walkthrough": "'butcher' looks like the cook, but it is the anagram signal, and 'put away' is the eating sense turned into an instruction to stow a letter inside.",
+     "definitionFit": "Creative work is original and imaginative, showing fresh invention, so the two adjectives are synonyms."
     },
     "features": {
      "answerInScene": false,
@@ -1316,59 +1319,60 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "on",
-       "note": "in a down answer, one piece on another sits above it"
+       "text": "after",
+       "at": 29,
+       "note": "after means the other pieces come after the opening letter of investigation"
       },
       {
-       "text": "opening of",
-       "note": "the opening of something is where it begins, so the opening of a word is its first letter"
+       "text": "on",
+       "at": 13,
+       "note": "on means the word for artist comes just before, sitting on, the next piece"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "I",
        "indicators": [
         {
-         "text": "after",
-         "note": "this group follows the first letter"
+         "text": "opening of",
+         "at": 35,
+         "note": "the opening of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "opening of investigation",
-         "gives": "I",
-         "select": "first",
-         "note": "first letter of INVESTIGATION"
+         "words": "investigation",
+         "at": 46,
+         "note": "only the first letter of investigation is used"
         }
        ]
       },
       {
        "words": "artist",
+       "at": 6,
        "gives": "RA",
-       "note": "RA = Royal Academician"
+       "note": "RA is a Royal Academician, an artist"
       },
       {
        "words": "question",
-       "gives": "Q",
-       "note": "Q = question"
+       "at": 16,
+       "gives": "Q"
       },
       {
        "words": "one",
+       "at": 25,
        "gives": "I",
-       "note": "I = one"
+       "note": "I is the Roman numeral one"
       }
      ]
     },
     "explanation": {
-     "surface": "An Asian painter questioned when an inquiry begins.",
-     "walkthrough": "RA, a member of the Royal Academy, is the usual crossword artist.",
-     "definitionFit": "Iraq is in western Asia, so an Iraqi is an Asian."
+     "surface": "An Asian painter is quizzed, with one name put first in an inquiry.",
+     "walkthrough": "'opening of' gives I, and 'after' puts the rest behind it; 'on' sets RA ahead of Q in this down clue. RA stands for Royal Academician, a member of London's Royal Academy of Arts.",
+     "definitionFit": "An Iraqi comes from Iraq, a country in western Asia, so the word fits as a noun for an Asian person."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "artist"
     }
@@ -1396,26 +1400,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ARES",
      "indicators": [
       {
        "text": "no leader",
-       "note": "the first letter is removed"
+       "at": 25,
+       "note": "with no leader, the word loses its first letter"
       }
      ],
      "parts": [
       {
        "words": "is brave",
-       "gives": "ARES",
-       "note": "DARES, is brave, without its first letter"
+       "at": 8,
+       "gives": "DARES",
+       "note": "someone who dares is brave enough to act"
+      },
+      {
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "A god of war who fights bravely but without commanding.",
-     "walkthrough": "'Is brave' is a verb phrase, so it gives DARES rather than a word like BOLD.",
-     "definitionFit": "A definition by description: the Greek deity of battle, Mars to the Romans."
+     "surface": "A war god is courageous even without a commander at the front.",
+     "walkthrough": "'is brave' must be turned into a single verb form before 'no leader' takes off its first letter.",
+     "definitionFit": "Ares is the Greek god of war, the counterpart of the Roman Mars."
     },
     "features": {
      "answerInScene": true,
