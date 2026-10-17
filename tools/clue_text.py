@@ -973,3 +973,13 @@ def number_figures(text):
     """A printed number read as figures only: the commas, stops, specks and
     spaces a scan put in it ("15,683", "1 5.683") taken out."""
     return re.sub(r"[\s,.^'*`\u2019\-]", "", text)
+
+
+def mark_counts(text):
+    """The punctuation marks in `text` as a Counter, to compare two readings
+    of one clue: dashes made "-" and curly apostrophes "'" first, so a mark
+    printed in either form counts the same."""
+    import collections
+    straight = re.sub("[\u2018\u2019]", "'", re.sub("[\u2010-\u2014]", "-", text))
+    return collections.Counter(straight) - collections.Counter(
+        ch for ch in text if ch.isalnum() or ch.isspace())
