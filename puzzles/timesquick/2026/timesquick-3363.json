@@ -26,7 +26,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -126,42 +127,42 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "FUNDAMENTALLY",
-     "indicators": [
-      {
-       "text": "first to last",
-       "note": "The letter standing first is sent round to the end, and the others close up in front of it keeping their order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "supply",
+       "at": 10,
+       "gives": "FUND",
+       "note": "to fund something is to supply the money for it"
+      },
+      {
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "first to last",
+         "at": 23,
+         "note": "the first letter of the word is moved to the end"
+        }
+       ],
        "parts": [
         {
-         "words": "supply",
-         "gives": "FUND",
-         "note": "to supply the money for a thing is to fund it"
-        },
-        {
-         "words": "name, first to last",
-         "gives": "AMEN",
-         "note": "NAME with its leading N carried round to the back"
-        },
-        {
-         "words": "score",
-         "gives": "TALLY",
-         "note": "a running score kept by strokes on a sheet is a tally"
+         "words": "name",
+         "at": 17
         }
        ]
+      },
+      {
+       "words": "score",
+       "at": 42,
+       "gives": "TALLY",
+       "note": "a tally is a running score or count"
       }
      ]
     },
     "explanation": {
-     "surface": "An instruction to hand over your name in full and then settle up.",
-     "walkthrough": "'First to last' reads as 'from beginning to end' in the surface, which is why the rotation hides inside it. 'Score' here is a count of points, not a piece of music.",
-     "definitionFit": "What is fundamentally so is so at the foundation, which is the claim 'basically' makes in plainer words."
+     "surface": "A form-filling instruction: supply your name, swap things round, and add a total.",
+     "walkthrough": "'First to last' moves the N of NAME to the end, giving AMEN, between FUND and TALLY.",
+     "definitionFit": "Fundamentally means at the most basic level, in essence, which is what basically conveys."
     },
     "features": {
      "answerInScene": false,
@@ -253,48 +254,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NEVADA",
+     "op": "container",
      "indicators": [
       {
-       "text": "written up",
-       "note": "In a down clue what is written up runs from the foot of the entry towards the top, so those letters go in backwards."
+       "text": "about",
+       "at": 19,
+       "note": "about means around, so the reversed letters go around the state abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "about",
-         "note": "Set about a thing means placed round the outside of it, so the letters made so far close over what follows."
+         "text": "written up",
+         "at": 8,
+         "note": "in a down clue, written up means the letters are entered from the bottom upwards, so backwards"
         }
        ],
        "parts": [
         {
-         "words": "A study written up",
-         "gives": "NEDA",
-         "note": "a study is a den, so A and DEN make four letters and the climb turns them round"
-        },
-        {
-         "words": "Virginia",
-         "gives": "VA",
-         "note": "VA is the two-letter postal code for Virginia"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "A",
+           "at": 0
+          },
+          {
+           "words": "study",
+           "at": 2,
+           "gives": "DEN",
+           "note": "a den is a private room for study or work"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "Virginia",
+       "at": 25,
+       "gives": "VA",
+       "note": "VA is the US postal abbreviation for Virginia"
       }
      ]
     },
     "explanation": {
-     "surface": "Notes about a woman called Virginia, written up in the quiet of the study.",
-     "walkthrough": "'A study' is two pieces of wordplay glued into one noun phrase, and a bare A is the easiest letter in a clue to read straight past. Virginia is a woman's name in the surface and a postal code in the grid.",
-     "definitionFit": "Nevada is the desert state between California and Utah, so 'US state' names it by its class."
+     "surface": "A report on a study, written up, about the state of Virginia.",
+     "walkthrough": "'Written up' turns A DEN into NEDA, which goes 'about' VA, splitting after NE. A US state is defined using another state's abbreviation.",
+     "definitionFit": "Nevada is a western American state whose cities include Las Vegas and Reno."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Virginia"
+     "misdirectedWord": "written"
     }
    }
   },
@@ -425,62 +437,66 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "WHITEELEPHANT",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "after",
+       "at": 17,
+       "note": "after means the rearranged letters come after the first part"
+      }
+     ],
      "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "detained by",
+         "at": 29,
+         "note": "to be detained by something is to be held inside it, so the blow word goes inside the tiny word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "tiny",
+         "at": 41,
+         "gives": "WEE",
+         "note": "wee is Scottish and informal British for tiny"
+        },
+        {
+         "words": "blow",
+         "at": 23,
+         "gives": "HIT",
+         "note": "a hit is a blow"
+        }
+       ]
+      },
       {
        "op": "anagram",
        "indicators": [
         {
          "text": "changed",
-         "note": "Something changed is no longer as it was, so the letters beside the word come out in a different arrangement."
-        },
-        {
-         "text": "detained by",
-         "note": "To detain a thing is to keep it inside, so the word before goes within the word after."
+         "at": 9,
+         "note": "changed means altered, so the letters of the plan are put in a new order"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "after",
-           "note": "What comes after a thing follows it, so the shuffled letters go at the back although the clue writes them first."
-          }
-         ],
-         "parts": [
-          {
-           "words": "tiny",
-           "gives": "WEE",
-           "note": "wee is tiny, a Scottish word long since general"
-          },
-          {
-           "words": "blow",
-           "gives": "HIT",
-           "note": "a blow landed is a hit"
-          },
-          {
-           "words": "The plan changed",
-           "gives": "LEPHANT",
-           "note": "the seven letters of THE PLAN in a new order"
-          }
-         ]
+         "words": "The plan",
+         "at": 0
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A scheme rethought after somebody threw a punch.",
-     "walkthrough": "The clue writes the shuffled letters first and the grid wants them last, which is the job 'after' is quietly doing. 'The' belongs to the fodder rather than to the grammar of the sentence.",
-     "definitionFit": "A white elephant is a possession too costly to keep and too awkward to be rid of, named for the albino elephants a Siamese king gave to ruin courtiers."
+     "surface": "A plan altered after a setback, held up by a small and unwanted matter.",
+     "walkthrough": "HIT goes inside WEE ('detained by') to make WHITEE; 'changed' rearranges THE PLAN into LEPHANT, which comes 'after'.",
+     "definitionFit": "A white elephant is a costly possession or project that is useless or troublesome and that nobody wants."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "plan"
+     "misdirectedWord": "blow"
     }
    }
   },
@@ -563,47 +579,48 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CONTROVERSIAL",
+     "op": "container",
      "indicators": [
       {
-       "text": "foolish",
-       "note": "A fool keeps nothing in its proper place, so the letters beside the word will not stay as they are written."
+       "text": "in",
+       "at": 6,
+       "note": "in means the letter for Romeo is placed within the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "in",
-         "note": "'in' puts the thing named before it inside the thing named after it, so the single letter goes within the shuffled ones."
+         "text": "foolish",
+         "at": 9,
+         "note": "foolish means silly or senseless, so the letters of lover's action are jumbled"
         }
        ],
        "parts": [
         {
-         "words": "foolish lover's action",
-         "gives": "CONTOVERSIAL",
-         "note": "the twelve letters of LOVER'S ACTION rearranged"
-        },
-        {
-         "words": "Romeo",
-         "gives": "R",
-         "note": "R is Romeo in the radio alphabet"
+         "words": "lover's action",
+         "at": 17
         }
        ]
+      },
+      {
+       "words": "Romeo",
+       "at": 0,
+       "gives": "R",
+       "note": "Romeo is R in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "Some idiotic thing a suitor did that people are still arguing about.",
-     "walkthrough": "Romeo is Shakespeare's lover in the surface and a single radio letter in the grid, and the clue drops him in among another lover's letters so both readings sit on the same word.",
-     "definitionFit": "Something controversial is disputed rather than settled, so it stays open to question however long it is argued over."
+     "surface": "Romeo, the archetypal lover, behaving foolishly in a questionable way.",
+     "walkthrough": "'Romeo' looks like the Shakespeare lover to go with 'lover's', but it is the letter R. 'Foolish' rearranges LOVER'S ACTION, and R goes 'in' it.",
+     "definitionFit": "Something controversial is disputed and debatable, and so open to question."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "Romeo"
     }
    }
@@ -629,43 +646,45 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "YEARNED",
+     "op": "container",
      "indicators": [
       {
-       "text": "Revolutionary",
-       "note": "A revolution turns a thing right round, so the word it governs is written the other way about."
+       "text": "receiving",
+       "at": 22,
+       "note": "receiving means taking in, so the reversed word wraps around the attention word"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "receiving",
-         "note": "To receive a thing is to take it in, so the word doing the receiving is written round what it takes."
+         "text": "Revolutionary",
+         "at": 0,
+         "note": "something revolutionary turns things right round, so the letters are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "Revolutionary reject",
-         "gives": "YNED",
-         "note": "to reject a claim is to deny it, and the turn sends those four letters backwards"
-        },
-        {
-         "words": "attention",
-         "gives": "EAR",
-         "note": "to give a person your ear is to give them your attention"
+         "words": "reject",
+         "at": 14,
+         "gives": "DENY",
+         "note": "to deny something is to reject it"
         }
        ]
+      },
+      {
+       "words": "attention",
+       "at": 32,
+       "gives": "EAR",
+       "note": "to have someone's ear is to have their attention"
       }
      ]
     },
     "explanation": {
-     "surface": "A rebel turned down for a post, heard out politely, wanting it badly all the same.",
-     "walkthrough": "'Revolutionary' is a person in the surface and an instruction in the grid, which is the oldest costume in the setter's wardrobe. Lending an ear is where 'attention' gets its three letters.",
-     "definitionFit": "To have yearned for something is to have wanted it painfully and for a long while, the past tense matching the definition's 'had'."
+     "surface": "A rebel who was turned down yet got a hearing, and longed for more.",
+     "walkthrough": "'Revolutionary' turns DENY round to YNED, which takes in EAR, 'receiving' it after the Y.",
+     "definitionFit": "To yearn is to long for something deeply, a strong wish or craving."
     },
     "features": {
      "answerInScene": false,
@@ -799,72 +818,74 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "EYEBALL",
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "over",
+       "at": 57,
+       "note": "in a down clue, over means the first part sits above the next"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
        "indicators": [
         {
-         "text": "rising",
-         "note": "In a down clue what rises is written from the bottom of the entry upwards, so those letters go in backwards."
-        },
-        {
-         "text": "over",
-         "note": "In a down clue what is over something sits above it, so the letters made so far go in first and the rest hang below."
+         "text": "securing",
+         "at": 31,
+         "note": "securing means holding fast inside, so the reversed word wraps around the next letter"
         }
        ],
        "parts": [
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "securing",
-           "note": "To secure a thing is to hold it fast inside, so the letters doing the securing close round what follows."
+           "text": "rising",
+           "at": 8,
+           "note": "in a down clue, rising means read upwards, so backwards"
           }
          ],
          "parts": [
           {
-           "words": "rising worker, perhaps",
-           "gives": "EEB",
-           "note": "a worker is a bee — 'perhaps' marks it as one example of the class — and the climb turns the three letters round"
-          },
-          {
-           "op": "last",
-           "unchecked": true,
-           "gives": "Y",
-           "indicators": [
-            {
-             "text": "finally",
-             "note": "What comes finally comes at the very end, so only the last letter of the word before it is taken."
-            }
-           ],
-           "parts": [
-            {
-             "unchecked": true,
-             "words": "vacancy, finally",
-             "gives": "Y",
-             "select": "last",
-             "note": "the last letter of VACANCY"
-            }
-           ]
+           "words": "worker, perhaps",
+           "at": 15,
+           "gives": "BEE",
+           "note": "a worker bee is one example of a worker"
           }
          ]
         },
         {
-         "words": "everyone",
-         "gives": "ALL",
-         "note": "everyone means all of them"
+         "op": "last",
+         "indicators": [
+          {
+           "text": "finally",
+           "at": 49,
+           "note": "finally means the last letter is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "vacancy",
+           "at": 40,
+           "note": "the word whose last letter is used"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "everyone",
+       "at": 62,
+       "gives": "ALL",
+       "note": "all means everyone"
       }
      ]
     },
     "explanation": {
-     "surface": "An employee on the way up landing the vacant post ahead of everybody else.",
-     "walkthrough": "'Worker' is the crossword's bee before it is anything else. 'Vacancy' is the post being filled in the surface, and only its final letter ever reaches the grid.",
-     "definitionFit": "To eyeball a thing is to look hard and openly at it, a slangy verb standing in for the verb phrase 'Look at'."
+     "surface": "A worker on the rise, landing a job vacancy at last ahead of all the others.",
+     "walkthrough": "'Rising' turns BEE round to EEB, 'securing' the Y from 'vacancy, finally'. That sits 'over' ALL in this down entry.",
+     "definitionFit": "To eyeball something is to stare at it closely, an informal way of looking at it."
     },
     "features": {
      "answerInScene": false,
@@ -894,53 +915,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "STAGGER",
+     "op": "charade",
      "indicators": [
       {
-       "text": "climbing",
-       "note": "In a down clue what climbs is written from the bottom upwards, so the two letters go in the other way round."
+       "text": "above",
+       "at": 28,
+       "note": "in a down clue, above means the earlier pieces sit over the next one"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Deer",
+       "at": 0,
+       "gives": "STAG",
+       "note": "a stag is a male deer"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "above",
-         "note": "In a down clue what stands above something is written before it, so the river ends up at the foot of the entry."
+         "text": "climbing",
+         "at": 19,
+         "note": "in a down clue, climbing means going upwards, so the letters are read backwards"
         }
        ],
        "parts": [
         {
-         "words": "Deer",
-         "gives": "STAG",
-         "note": "a stag is a full-grown male deer"
-        },
-        {
-         "words": "for example, climbing",
-         "gives": "GE",
-         "note": "'for example' is eg, and the climb stands those two letters on their head"
-        },
-        {
-         "words": "river",
-         "gives": "R",
-         "note": "R is the map-maker's short form for river"
+         "words": "for example",
+         "at": 6,
+         "gives": "EG"
         }
        ]
+      },
+      {
+       "words": "river",
+       "at": 34,
+       "gives": "R",
+       "note": "R is the map abbreviation for river"
       }
      ]
     },
     "explanation": {
-     "surface": "A deer working its way up the bank above a river.",
-     "walkthrough": "'Deer, for example' reads as one phrase marking a species, and the two halves belong to different pieces of wordplay. 'For example' is the letters e and g; 'Deer' on its own is the animal.",
-     "definitionFit": "To stagger is to walk in lurching, uncertain steps, the way someone dazed or drunk gets across a room."
+     "surface": "A deer clambers up from a riverbank and staggers along on wobbly legs.",
+     "walkthrough": "'Climbing' turns EG round to GE after STAG, and that sits 'above' R in this down entry.",
+     "definitionFit": "To stagger is to totter or lurch along unsteadily, as if about to fall."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "example"
+     "aptDefinition": false
     }
    }
   },
@@ -1023,48 +1045,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "SCHEME",
+     "op": "container",
      "indicators": [
       {
-       "text": "worried",
-       "note": "A worried person cannot settle, and letters that will not settle come out in a different order."
+       "text": "about",
+       "at": 13,
+       "note": "about means around, so the rearranged letters go around the church abbreviation"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "about",
-         "note": "Set about a thing means placed round it, so the shuffled letters close over what follows."
+         "text": "worried",
+         "at": 5,
+         "note": "something worried is agitated or troubled, so the letters of seem are shaken into a new order"
         }
        ],
        "parts": [
         {
-         "words": "Seem worried",
-         "gives": "SEME",
-         "note": "the four letters of SEEM in another order"
-        },
-        {
-         "words": "church",
-         "gives": "CH",
-         "note": "CH is the standard short form of church, as printed on a map"
+         "words": "Seem",
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "church",
+       "at": 19,
+       "gives": "CH"
       }
      ]
     },
     "explanation": {
-     "surface": "Looking anxious about the state of the parish.",
-     "walkthrough": "'Seem worried' is a natural phrase about somebody's face, and only the first word's letters are wanted. Four letters is about the shortest fodder an anagram ever gets.",
-     "definitionFit": "A scheme is a worked-out plan, often with something sly about it, though the bare sense is simply a plan."
+     "surface": "Someone appears anxious about a church's plans.",
+     "walkthrough": "'Worried' rearranges SEEM into SEME, which goes 'about' CH, splitting after S.",
+     "definitionFit": "A scheme is a systematic plan or arrangement for doing something."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": false,
-     "misdirectedWord": "worried"
+     "answerInScene": true,
+     "aptDefinition": false
     }
    }
   },
@@ -1291,53 +1311,54 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ATLOGGERHEADS",
-     "indicators": [
-      {
-       "text": "unusually",
-       "note": "What is done unusually is not done in the usual way, so the letters beside the word are not in their usual order."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "container",
+       "indicators": [
+        {
+         "text": "held by",
+         "at": 7,
+         "note": "held by means kept inside, so the record word goes inside the rearranged letters"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
+         "op": "anagram",
          "indicators": [
           {
-           "text": "held by",
-           "note": "A thing held by something is kept inside it, so the word before goes within the letters after."
+           "text": "unusually",
+           "at": 15,
+           "note": "unusually means not in the usual way, so the letters of great are reordered"
           }
          ],
          "parts": [
           {
-           "words": "unusually great",
-           "gives": "ATGER",
-           "note": "the five letters of GREAT rearranged"
-          },
-          {
-           "words": "Record",
-           "gives": "LOG",
-           "note": "a ship's log is the running record kept of a voyage"
+           "words": "great",
+           "at": 25
           }
          ]
         },
         {
-         "words": "leaders",
-         "gives": "HEADS",
-         "note": "the leaders of a school or a firm are its heads"
+         "words": "Record",
+         "at": 0,
+         "gives": "LOG",
+         "note": "a log is a written record, as in a ship's log"
         }
        ]
+      },
+      {
+       "words": "leaders",
+       "at": 31,
+       "gives": "HEADS",
+       "note": "heads are leaders, as in heads of state"
       }
      ]
     },
     "explanation": {
-     "surface": "A record held by some exceptionally great leaders who have fallen out.",
-     "walkthrough": "'Record' looks like an achievement the leaders hold and is three letters of wordplay. A loggerhead was a long-handled iron tool, and two of them swung at each other gave English the phrase.",
-     "definitionFit": "Two people at loggerheads are locked in a quarrel neither will give way on, which is being engaged in dispute."
+     "surface": "A record set by a group of unusually great leaders.",
+     "walkthrough": "'Unusually' rearranges GREAT into ATGER, and LOG is 'held by' it after AT; HEADS for 'leaders' follows.",
+     "definitionFit": "To be at loggerheads is an idiom for being locked in a fierce disagreement with someone."
     },
     "features": {
      "answerInScene": false,
