@@ -1550,43 +1550,48 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "FLORENCE",
+     "op": "container",
      "indicators": [
       {
-       "text": "briefly",
-       "note": "briefly means cut short, so the final letter is dropped"
+       "text": "through",
+       "at": 13,
+       "note": "the shortened peer goes through the middle of the barrier, so it sits inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "barrier",
+       "at": 21,
+       "gives": "FENCE",
+       "note": "a fence is a barrier"
+      },
+      {
+       "op": "deletion",
        "indicators": [
         {
-         "text": "through",
-         "note": "something seen through an enclosure is within it, so one piece sits inside another"
+         "text": "briefly",
+         "at": 5,
+         "note": "briefly means cut short, so the last letter of the word is dropped"
         }
        ],
        "parts": [
         {
-         "words": "barrier",
-         "gives": "FENCE",
-         "note": "a fence is a barrier"
+         "words": "Peer",
+         "at": 0,
+         "gives": "LORD",
+         "note": "a lord is a peer of the realm"
         },
         {
-         "words": "Peer",
-         "gives": "LOR",
-         "note": "a lord is a peer, cut short by one letter"
+         "gives": "D"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Someone peeps through a fence for a quick look at an Italian city.",
-     "walkthrough": "'Peer' looks like the verb to look closely; it is the noun, a member of the nobility.",
-     "definitionFit": "Florence is the Tuscan capital and Renaissance art centre, one of the best known cities in Italy."
+     "surface": "Someone peeks through a fence and glimpses an Italian city beyond.",
+     "walkthrough": "'Peer' looks like a verb to go with 'through'; it is the noun, a lord, and 'briefly' cuts it to LOR, which goes inside FENCE.",
+     "definitionFit": "Florence is the Tuscan capital, a city in central Italy."
     },
     "features": {
      "answerInScene": true,
@@ -1612,7 +1617,8 @@
     "definitions": [
      {
       "text": "Cast",
-      "at": 0
+      "at": 0,
+      "note": "a cast is the actors in a play, so the plural noun fits"
      }
     ],
     "wordplay": {
@@ -1620,25 +1626,30 @@
      "indicators": [
       {
        "text": "cast!",
-       "note": "to cast is to throw, and thrown letters land in a new arrangement"
+       "at": 14,
+       "note": "cast here means thrown about or moulded into a new shape, so the letters before it are rearranged"
       }
      ],
      "parts": [
       {
-       "words": "cast or",
-       "note": "the six letters to be rearranged"
+       "words": "cast",
+       "at": 6
+      },
+      {
+       "words": "or",
+       "at": 11
       }
      ]
     },
     "explanation": {
-     "surface": "One word repeated three times, like a stage direction or a fishing instruction.",
-     "walkthrough": "The same word does three jobs: the first is the definition, the second is anagram material with 'or', and the third signals the shuffle by its sense of throwing.",
-     "definitionFit": "A cast is the company of performers in a play or film, so the players collectively."
+     "surface": "A playful repetition of one word three times, as if an exasperated director is shouting.",
+     "walkthrough": "The same word does three jobs: the first is the definition (the performers in a play), the second and 'or' are the letters, and the third, with its exclamation mark, is the signal to rearrange them.",
+     "definitionFit": "The cast of a production is the company of performers who take the roles."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
-     "joke": "absurd"
+     "aptDefinition": true,
+     "joke": "pun"
     }
    }
   }
