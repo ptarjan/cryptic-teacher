@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -466,48 +467,60 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FINDINGNEMO",
+     "op": "charade",
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "FINDINGNEMO",
+       "indicators": [
+        {
+         "text": "Not quite",
+         "at": 4,
+         "note": "not quite means falling just short, so the last letter of the word for OK is lost"
+        }
+       ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "Not quite",
-           "note": "Not quite means falling just short of the whole thing, so the word before it arrives one letter light."
-          },
-          {
-           "text": "drunk",
-           "note": "A drunk cannot walk a straight line, and letters in that state do not stay in the order they were handed over in."
-          }
-         ],
-         "parts": [
-          {
-           "words": "OK?",
-           "gives": "FIN",
-           "note": "OK is FINE, and this stops short of that word's last letter"
-          },
-          {
-           "words": "demon gin",
-           "gives": "DINGNEMO",
-           "note": "eight letters of raw material across the two words, re-sorted"
-          }
-         ]
+         "words": "OK",
+         "at": 0,
+         "gives": "FINE",
+         "note": "fine means OK, acceptable"
+        },
+        {
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "drunk",
+         "at": 25,
+         "note": "drunk means intoxicated and in disorder, so the letters of demon gin are rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "demon",
+         "at": 15
+        },
+        {
+         "words": "gin",
+         "at": 21
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Checking whether somebody is all right after a bottle of fearsome gin.",
-     "walkthrough": "'Demon' describes the gin in the surface and is plain fodder in the wordplay, while the question mark after the first word makes an instruction look like concern.",
-     "definitionFit": "Finding Nemo is the Pixar animation about a clownfish father hunting for his lost son, made for and watched by children."
+     "surface": "A worried question, then a devilish gin knocked back in a film made for kids.",
+     "walkthrough": "'Not quite' trims FINE to FIN, and 'drunk' turns DEMON GIN into DINGNEMO.",
+     "definitionFit": "Finding Nemo is the 2003 Pixar animation about a lost clownfish, a well-known family movie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
     }
    }
   },
@@ -843,7 +856,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Epic tales",
+      "text": "Epic tales whichever way you look at it",
       "at": 0
      }
     ],
@@ -852,21 +865,29 @@
      "indicators": [
       {
        "text": "whichever way you look at it",
-       "note": "Reading from either end is the only sense in which a word can be looked at two ways, so the letters have to be symmetrical."
+       "at": 11,
+       "note": "whichever direction you read the answer, from left or from right, it is the same word"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
        "words": "Epic tales",
-       "note": "the definition end of the clue: long heroic stories, the Norse ones first of all"
+       "at": 0,
+       "gives": "SAGAS",
+       "note": "long heroic stories, epic tales"
       }
      ]
     },
+    "andLit": true,
     "explanation": {
-     "surface": "A shrug of a remark: these long dramatic stories are what they are, from any angle.",
-     "walkthrough": "Norse literature gives us the word, and it is the plural that makes the symmetry work — the singular would not read the same in both directions.",
-     "definitionFit": "A saga is a long heroic narrative, the Icelandic ones above all, and the plural matches 'tales' while 'epic' names their scale."
+     "surface": "Long heroic stories that are epic however you judge them.",
+     "walkthrough": "'whichever way you look at it' sounds like 'any way you consider it', but it means the answer reads the same forwards and backwards.",
+     "definitionFit": "Sagas are long Norse narratives of heroes and feuds, so they are epic stories."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "look"
     }
    }
   },
@@ -997,53 +1018,52 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "JADEDLY",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Justice",
+       "at": 0,
+       "gives": "J",
+       "note": "J is the abbreviation for Justice, as in a judge's title"
+      },
+      {
+       "op": "composite",
        "indicators": [
         {
          "text": "terribly",
-         "note": "Anything done terribly is done badly, and letters handled badly do not stay in the order they were set down in."
+         "at": 8,
+         "note": "terribly means badly, so the letters of delayed are shaken into a new order"
+        },
+        {
+         "text": "dropping",
+         "at": 34,
+         "note": "dropping means letting go of, so one letter of the word is left out"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "dropping",
-           "note": "What drops out of something is no longer part of it, so the letter named just before this leaves the material."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Justice",
-           "gives": "J",
-           "note": "J is the standard abbreviation for a judge or justice, printed after the name in law reports"
-          },
-          {
-           "words": "delayed",
-           "gives": "ADEDLY",
-           "note": "seven letters of raw material with one struck out, and the six left over re-sorted"
-          }
-         ]
+         "words": "delayed",
+         "at": 17
         },
         {
-         "unchecked": true,
          "words": "energy",
-         "note": "energy is E to a physicist, and that is the letter taken out of the material"
+         "at": 27,
+         "gives": "E",
+         "note": "E is the physics symbol for energy"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A court case dragging on while everyone involved runs out of energy.",
-     "walkthrough": "Justice delayed is justice denied — the phrase the surface leans on — and the pair of dashes make the middle clause read as a weary aside rather than as an order.",
-     "definitionFit": "To do something jadedly is to do it wearily, with the appetite worn out of you, which is doing it without enthusiasm."
+     "surface": "Justice delayed is justice denied, and a tired system loses all its energy.",
+     "walkthrough": "DELAYED without its E for energy leaves DELAYD; 'terribly' rearranges those letters to ADEDLY after J.",
+     "definitionFit": "To do something jadedly is to do it wearily, as one tired and bored would, lacking any keenness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Justice"
     }
    }
   },
@@ -1106,47 +1126,54 @@
     "definitions": [
      {
       "text": "that's attractive",
-      "at": 31
+      "at": 31,
+      "note": "a noun phrase: something that's attractive, that draws things to it"
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "MAGNET",
+     "op": "container",
      "indicators": [
       {
-       "text": "rising",
-       "note": "A down entry read upwards runs from its foot to its head, and anything that rises travels in exactly that direction."
+       "text": "embracing",
+       "at": 14,
+       "note": "embracing means holding within, so one piece goes inside the other"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "embracing",
-         "note": "To embrace someone is to close your arms round them, so whatever is named next finishes up inside."
+         "text": "rising",
+         "at": 6,
+         "note": "in a down entry, rising means read upwards, from bottom to top"
         }
        ],
        "parts": [
         {
-         "words": "10am, rising",
-         "gives": "MANET",
-         "note": "ten in the morning spelled out gives five letters, then read from the bottom of the column upwards"
-        },
-        {
-         "words": "German",
-         "gives": "G",
-         "note": "G is the standard dictionary abbreviation for German"
+         "words": "10am",
+         "at": 0,
+         "gives": "TENAM",
+         "note": "10am written out is ten am"
         }
        ]
+      },
+      {
+       "words": "German",
+       "at": 24,
+       "gives": "G"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone getting up at ten and hugging a good-looking German.",
-     "walkthrough": "The digits have to be spelled out before anything can be done to them, and the clue never says so. 'Attractive' is meant physically rather than as a compliment.",
-     "definitionFit": "A magnet is the thing that literally attracts, pulling iron towards it, so 'that's attractive' is the plain physical sense and not the flattering one."
+     "surface": "Someone getting up at ten in the morning, cuddling a charming German.",
+     "walkthrough": "'rising' turns TEN AM into MANET, and 'embracing' puts G inside it after MA.",
+     "definitionFit": "A magnet pulls iron towards it, and figuratively a magnet is anything that draws people in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "rising"
     }
    }
   },
