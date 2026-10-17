@@ -97,47 +97,43 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "substitution",
+     "indicators": [
+      {
+       "text": "for",
+       "at": 28,
+       "note": "for in its sense of in place of: the concerning word stands where the letter a was"
+      }
+     ],
      "parts": [
       {
-       "op": "substitution",
-       "unchecked": true,
-       "gives": "WRETCHED",
-       "indicators": [
-        {
-         "text": "for",
-         "note": "one thing standing in for another replaces it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Observed?",
-         "gives": "WATCHED",
-         "note": "observed = watched; its A is swapped out"
-        },
-        {
-         "words": "That's concerning",
-         "gives": "RE",
-         "note": "re = concerning, as in a memo heading"
-        }
-       ]
+       "words": "Observed",
+       "at": 0,
+       "gives": "WATCHED",
+       "note": "to have observed something is to have watched it"
       },
       {
-       "unchecked": true,
        "words": "a",
-       "note": "the A of WATCHED that RE replaces"
+       "at": 32,
+       "gives": "A"
+      },
+      {
+       "words": "That's concerning",
+       "at": 10,
+       "gives": "RE",
+       "note": "re is a formal word for concerning, as in a letter heading, and that's names it as the piece to use"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone asks whether they were watched, and is told that is a worry for a deplorable person.",
-     "walkthrough": "Write WATCHED, then put RE 'for' (in place of) its A. 'A deplorable' reads like a noun for a person; the definition is the adjective.",
-     "definitionFit": "Plain synonym: wretched and deplorable both mean shockingly bad."
+     "surface": "A question about being watched, then something said about a contemptible person.",
+     "walkthrough": "'for a' reads as part of 'for a deplorable', but it tells you to put RE in place of the A in WATCHED.",
+     "definitionFit": "Wretched can mean contemptible or very poor in quality, close to deplorable."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "deplorable"
+     "misdirectedWord": "for"
     }
    }
   },
@@ -464,47 +460,69 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "HOTSEAT",
-     "indicators": [
-      {
-       "text": "saving starts",
-       "note": "saving means except: take the words except their starts, their first letters"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "saving starts",
+         "at": 40,
+         "note": "saving in its sense of except: each of the four words is taken without its first letter"
+        }
+       ],
        "parts": [
         {
          "words": "who",
-         "gives": "HO",
-         "note": "wHO without its first letter"
+         "at": 24
         },
+        {
+         "gives": "W"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
         {
          "words": "it",
-         "gives": "T",
-         "note": "iT without its first letter"
+         "at": 28
         },
+        {
+         "gives": "I"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
         {
          "words": "is",
-         "gives": "S",
-         "note": "iS without its first letter"
+         "at": 31
         },
         {
+         "gives": "I"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "parts": [
+        {
          "words": "heat",
-         "gives": "EAT",
-         "note": "hEAT without its first letter"
+         "at": 35
+        },
+        {
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Pointing out the one who decides, whoever it happens to be, and turning down the heating.",
-     "walkthrough": "'Saving' is the old sense 'except', as in 'all saving one'. 'Who it is' reads like part of the definition, but those words are fodder.",
-     "definitionFit": "Descriptive definition: the person who must make the hard decisions is said to be in the hot seat."
+     "surface": "A puzzled line about who the person under pressure is, with the heat sparing the beginners.",
+     "walkthrough": "'saving starts' applies to each of 'who it is, heat': drop each first letter and HO, T, S, EAT remain. 'saving' means except here, not storing up.",
+     "definitionFit": "The hot seat is the position of the person who must make the hard decisions and take the blame."
     },
     "features": {
      "answerInScene": true,
@@ -1019,31 +1037,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ENTICES",
      "indicators": [
       {
        "text": "after first four leave",
-       "note": "the first four letters depart, leaving the rest"
+       "at": 36,
+       "note": "after first four leave says the opening four letters of the trainees word are removed"
       }
      ],
      "parts": [
       {
        "words": "people into learning a trade",
-       "gives": "ENTICES",
-       "note": "APPRENTICES, minus APPR"
+       "at": 7,
+       "gives": "APPRENTICES",
+       "note": "apprentices are people learning a trade from a skilled worker"
+      },
+      {
+       "gives": "APPR"
       }
      ]
     },
     "explanation": {
-     "surface": "Luring people into apprenticeships once the first few have quit.",
-     "walkthrough": "Apprentices are people learning a trade; drop APPR and ENTICES is left.",
-     "definitionFit": "Plain synonym: to entice is to tempt."
+     "surface": "Luring trainees into a craft once the first few of them have quit.",
+     "walkthrough": "'after first four leave' takes APPR off the front of APPRENTICES; the four are letters, not trainees.",
+     "definitionFit": "To entice is to lure or attract, so entices and tempts are the same verb form."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "leave"
+     "misdirectedWord": "four"
     }
    }
   },
@@ -1161,32 +1182,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ROD",
      "indicators": [
       {
        "text": "endlessly",
-       "note": "the word loses its end letter"
+       "at": 7,
+       "note": "endlessly says the last letter of the word is cut off"
       }
      ],
      "parts": [
       {
        "words": "Was up",
-       "gives": "ROD",
-       "note": "RODE without its last letter: a jockey who rode was up on the horse"
+       "at": 0,
+       "gives": "RODE",
+       "note": "a rider who was up on a horse rode it"
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone staying up all night in a pub.",
-     "walkthrough": "'Bar' looks like a pub, which the late-night surface encourages; it is a metal bar. In racing, the jockey 'up' is the one riding.",
-     "definitionFit": "Plain synonym: a rod is a bar of metal or wood."
+     "surface": "Someone who stayed awake all night at the pub.",
+     "walkthrough": "'Was up' looks like being awake, but it means mounted, as a jockey is up: RODE, which 'endlessly' cuts short.",
+     "definitionFit": "A rod is a long thin bar of wood or metal."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "bar"
+     "misdirectedWord": "up"
     }
    }
   },
@@ -1451,45 +1474,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TURGENEV",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "accommodating",
+       "at": 28,
+       "note": "accommodating says the reversed passage word holds the press word inside it"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
          "text": "written up",
-         "note": "in a down clue, writing something upwards reverses it"
-        },
-        {
-         "text": "accommodating"
+         "at": 9,
+         "note": "in a down clue, written up says the passage word is set from bottom to top"
         }
        ],
        "parts": [
         {
          "words": "passage",
-         "gives": "TNEV",
-         "note": "VENT, an air passage, turned upwards"
-        },
-        {
-         "words": "press",
-         "gives": "URGE",
-         "note": "to press someone is to urge them"
+         "at": 20,
+         "gives": "VENT",
+         "note": "a vent is a passage for air or gas to escape"
         }
        ]
+      },
+      {
+       "words": "press",
+       "at": 42,
+       "gives": "URGE",
+       "note": "to press someone is to urge them"
       }
      ]
     },
     "explanation": {
-     "surface": "An author whose account of a passage about the press has been written up.",
-     "walkthrough": "The 's is 'is': Writer is TURGENEV. Ivan Turgenev was the Russian novelist of Fathers and Sons.",
-     "definitionFit": "Definition by example: Ivan Turgenev was a 19th-century Russian writer."
+     "surface": "An author's work is reviewed, with a passage given space in the papers.",
+     "walkthrough": "'written up' turns VENT into TNEV, and 'accommodating' puts URGE inside it, after the T. Ivan Turgenev was a 19th-century Russian novelist.",
+     "definitionFit": "Ivan Turgenev wrote Fathers and Sons, so he is a writer."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "passage"
+     "misdirectedWord": "press"
     }
    }
   },
@@ -1665,63 +1693,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "AIRINESS",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "cutting",
-         "note": "the pounds are cut out of the airline word"
+         "at": 16,
+         "note": "cutting says the pounds letter is cut out of the airline word"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "in the end",
-           "note": "only the last letter of achieves"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Plane operators",
-           "gives": "AIRINES",
-           "note": "AIRLINES with L (pounds) cut out"
-          },
-          {
-           "op": "last",
-           "parts": [
-            {
-             "words": "achieves",
-             "note": "achieveS: its last letter"
-            }
-           ]
-          }
-         ]
+         "words": "Plane operators",
+         "at": 0,
+         "gives": "AIRLINES",
+         "note": "airlines are the companies that operate passenger planes"
         },
         {
-         "unchecked": true,
          "words": "pounds",
-         "note": "L = pounds, from Latin libra; this is the letter removed"
+         "at": 24,
+         "gives": "L",
+         "note": "L, from Latin libra, is the abbreviation for pounds sterling"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "in the end",
+         "at": 31,
+         "note": "in the end says only the last letter of achieves is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "achieves",
+         "at": 42,
+         "note": "its last letter is S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Airlines trimming weight to save money, eventually making planes lighter.",
-     "walkthrough": "The surface is about fuel and luggage weight, but 'cutting pounds' means removing the letter L, the pound sign's origin.",
-     "definitionFit": "Plain synonym: airiness is lightness, of weight or of manner."
+     "surface": "Airlines that slash fares end up making their loads lighter.",
+     "walkthrough": "'cutting' takes L (pounds) out of AIRLINES, and 'in the end' adds the S that ends 'achieves'; 'achieves' looks like the link verb but is fodder.",
+     "definitionFit": "Airiness is the quality of being light and airy, a lightness of space or manner."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "pounds"
+     "misdirectedWord": "achieves"
     }
    }
   },
@@ -1746,42 +1771,44 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "YIELDS",
-     "indicators": [
-      {
-       "text": "without",
-       "note": "the fields go without F, losing it"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "unknown",
+       "at": 9,
+       "gives": "Y",
+       "note": "Y is one of the letters used for an unknown quantity in algebra"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "without",
+         "at": 31,
+         "note": "without says the force letter is left out of the fields word"
+        }
+       ],
        "parts": [
         {
-         "words": "unknown",
-         "gives": "Y",
-         "note": "x, y and z are the algebraic unknowns"
-        },
-        {
          "words": "open expanses",
-         "gives": "IELDS",
-         "note": "FIELDS minus F"
+         "at": 17,
+         "gives": "FIELDS",
+         "note": "fields are open expanses of land"
         },
         {
-         "unchecked": true,
          "words": "force",
-         "note": "F = force, as in physics; the letter removed"
+         "at": 39,
+         "gives": "F",
+         "note": "F is the physics symbol for force"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Giving up unexplored open country without a fight.",
-     "walkthrough": "'Without force' sounds like surrender without violence; it tells you to drop the F from FIELDS.",
-     "definitionFit": "Plain synonym: to yield is to concede."
+     "surface": "Giving up land of unknown extent when no force is used.",
+     "walkthrough": "'without' takes F (force) out of FIELDS, leaving IELDS after Y.",
+     "definitionFit": "To yield is to give way or surrender, so yields and concedes are the same verb form."
     },
     "features": {
      "answerInScene": false,
@@ -1812,30 +1839,34 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "CUSTOM",
      "indicators": [
       {
        "text": "endless",
-       "note": "the word loses its final letter"
+       "at": 19,
+       "note": "endless says the final letter of the duties word is dropped"
       }
      ],
      "parts": [
       {
        "words": "import duties",
-       "gives": "CUSTOM",
-       "note": "the duties charged on imports, minus the final S"
+       "at": 27,
+       "gives": "CUSTOMS",
+       "note": "customs are taxes charged on goods brought into a country"
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "Shops grumbling about the endless charges on imported goods.",
-     "walkthrough": "Import duties are customs; chop the S. Custom here is trade, the patronage of customers, which every shop welcomes.",
-     "definitionFit": "Descriptive definition: custom is business from customers, which shops are glad to receive."
+     "surface": "A question about whether shops are happy to see taxes on imports.",
+     "walkthrough": "'What shops welcome' is the definition: custom is the business of customers. 'endless' cuts the last S off CUSTOMS.",
+     "definitionFit": "Custom means regular trade from customers, which shopkeepers welcome."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
+     "joke": "pun",
      "misdirectedWord": "welcome"
     }
    }
@@ -2432,51 +2463,46 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "SHOCKTROOPS",
+     "indicators": [
+      {
+       "text": "trapped in",
+       "at": 10,
+       "note": "trapped in says the joint word is caught inside the other letters"
+      }
+     ],
      "parts": [
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "trapped in"
+         "text": "badly",
+         "at": 30,
+         "note": "badly says the letters of sport so are put together wrongly, in a new order"
         }
        ],
        "parts": [
         {
-         "op": "charade",
-         "indicators": [
-          {
-           "text": "badly",
-           "note": "the letters are arranged badly, out of order"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Leg joint",
-           "gives": "HOCK",
-           "note": "the hock is the ankle joint in a horse's hind leg"
-          },
-          {
-           "words": "sport so",
-           "gives": "STROOPS",
-           "note": "anagram of SPORT SO, opened to take HOCK"
-          }
-         ]
+         "words": "sport so",
+         "at": 21
         }
        ]
+      },
+      {
+       "words": "Leg joint",
+       "at": 0,
+       "gives": "HOCK",
+       "note": "a hock is the middle joint in an animal's hind leg"
       }
      ]
     },
     "explanation": {
-     "surface": "A sports injury: a joint caught badly, the price of doing assault courses.",
-     "walkthrough": "An assault course is army training, and the pun is that its product is soldiers trained for sudden assaults.",
-     "definitionFit": "Cryptic definition with a question mark: shock troops are soldiers trained for assault, turned out by assault courses."
+     "surface": "An injured knee caught in a messy sporting tackle after army training.",
+     "walkthrough": "'badly' rearranges SPORT SO into STROOPS, and 'trapped in' puts HOCK in it after the S. The question mark flags that soldiers trained on assault courses, rather than any one course, make the definition.",
+     "definitionFit": "Shock troops are soldiers trained for sudden attacks, the sort assault courses are meant to produce."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "courses"
     }
    }
@@ -3277,27 +3303,36 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NITRO",
+     "op": "substitution",
      "indicators": [
       {
        "text": "turning up",
-       "note": "in a down clue, turning up reads upwards: the IN flips to NI"
+       "at": 15,
+       "note": "in a down clue, turning up says those letters are reversed in place, read from bottom to top"
       }
      ],
      "parts": [
       {
        "words": "What initiates",
+       "at": 0,
        "gives": "INTRO",
-       "note": "an intro starts things off; its IN is turned"
+       "note": "an intro, short for introduction, is what starts something off"
+      },
+      {
+       "words": "in",
+       "at": 26,
+       "gives": "IN",
+       "note": "the two letters to be turned are the word in itself, which sits at the front of the intro word"
+      },
+      {
+       "gives": "NI"
       }
      ]
     },
     "explanation": {
-     "surface": "Asking what sets off a device that turns up in an explosive.",
-     "walkthrough": "Only the IN of INTRO is flipped, giving NI + TRO. Nitro is short for nitroglycerine.",
-     "definitionFit": "Plain definition: nitro is nitroglycerine, a powerful explosive."
+     "surface": "A cryptic question about what sets off an explosion.",
+     "walkthrough": "'turning up in' says the IN at the front of INTRO is reversed to NI, leaving the rest of the word unchanged.",
+     "definitionFit": "Nitro is short for nitroglycerine, a powerful liquid explosive."
     },
     "features": {
      "answerInScene": true,
