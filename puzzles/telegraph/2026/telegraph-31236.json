@@ -164,38 +164,41 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "REDTAPE",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "without leader",
-       "note": "having no leader means losing whatever stands at the front"
+       "text": "Engineer",
+       "at": 0,
+       "note": "to engineer something is to contrive or rework it, so the remaining letters are rebuilt in a new order"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "Engineer",
-         "note": "to engineer something is to contrive or rework it, so the letters are rebuilt in a new order"
+         "text": "without leader",
+         "at": 18,
+         "note": "the leader of a word is its first letter, which is dropped here"
         }
        ],
        "parts": [
         {
          "words": "operated",
-         "gives": "PERATED",
-         "note": "the word with its first letter dropped"
+         "at": 9,
+         "note": "the word that loses its first letter before being rearranged"
+        },
+        {
+         "gives": "O"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An engineer worked without a boss or any paperwork getting in the way.",
-     "walkthrough": "'Engineer' reads as a noun subject, but it is a verb telling you to rearrange OPERATED once its O is gone.",
-     "definitionFit": "Red tape is the idiom for excessive official rules and paperwork, the hallmark of bureaucracy."
+     "surface": "An engineer worked without a boss, or else drowned in paperwork.",
+     "walkthrough": "'Engineer' looks like the subject of the sentence, but it is the anagram signal: 'without leader' trims OPERATED to PERATED, which is rearranged.",
+     "definitionFit": "Red tape is the excessive official rules and form-filling of officialdom, the idiom named after the ribbon once used to tie legal papers."
     },
     "features": {
      "answerInScene": true,
@@ -1105,48 +1108,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SAPIENT",
+     "op": "container",
      "indicators": [
       {
-       "text": "loses heart",
-       "note": "the heart is the centre, so losing it removes the middle letter"
+       "text": "eating",
+       "at": 23,
+       "note": "the shortened word takes the pastry inside it, as if swallowing it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "eating",
-         "note": "whatever eats something takes it inside, so one piece swallows another"
+         "text": "loses heart",
+         "at": 11,
+         "note": "the heart of a word is its middle letter, which this five-letter word loses"
         }
        ],
        "parts": [
         {
          "words": "saint",
-         "gives": "SANT",
-         "note": "the word without its middle letter"
+         "at": 5,
+         "note": "the word whose central letter is dropped"
         },
         {
-         "words": "pastry",
-         "gives": "PIE",
-         "note": "a pie is a pastry dish"
+         "gives": "I"
         }
        ]
+      },
+      {
+       "words": "pastry",
+       "at": 30,
+       "gives": "PIE",
+       "note": "a pie is a pastry dish"
       }
      ]
     },
     "explanation": {
-     "surface": "A sage holy man grows disheartened while tucking into a tart.",
-     "walkthrough": "The heart of a five-letter word is its third letter, so the I goes before the pie is inserted.",
-     "definitionFit": "Sapient is a literary word for having great wisdom or discernment, a formal synonym of wise."
+     "surface": "A discouraged holy man consoles himself with a pie.",
+     "walkthrough": "'loses heart' sounds like despair, but it means removing the middle I from SAINT; the SANT left is 'eating' PIE.",
+     "definitionFit": "Sapient is a literary word for having great wisdom or discernment, from the Latin for knowing."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "heart"
     }
    }
@@ -1393,46 +1399,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "PLAZA",
-     "indicators": [
-      {
-       "text": "drug-free",
-       "note": "free of something means without it, so that letter is removed"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Quietly",
+       "at": 0,
+       "gives": "P",
+       "note": "p, for piano, is the musical direction meaning quietly"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "drug-free",
+         "at": 15,
+         "note": "free of the drug means without E, the slang letter for the drug ecstasy"
+        }
+       ],
        "parts": [
         {
-         "words": "Quietly",
-         "gives": "P",
-         "note": "p for piano, quietly in music"
-        },
-        {
          "words": "lounge",
-         "gives": "LAZ",
-         "note": "to laze is to lounge; E for ecstasy, the drug, is taken out"
+         "at": 8,
+         "gives": "LAZE",
+         "note": "to laze is to lounge about idly"
         },
         {
-         "words": "a",
-         "note": "taken as written"
+         "gives": "E"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 28,
+       "gives": "A"
       }
      ]
     },
     "explanation": {
-     "surface": "Relaxing calmly and soberly beside a town square.",
-     "walkthrough": "E is crossword shorthand for the drug ecstasy, so 'drug-free' strips that letter.",
-     "definitionFit": "A plaza is an open urban space, from the Spanish word for a market place or town square."
+     "surface": "Advice to relax quietly, staying sober, beside a town square.",
+     "walkthrough": "'lounge' is the verb, LAZE; 'drug-free' removes E (ecstasy) from it. A plaza is a Spanish-style open square.",
+     "definitionFit": "A plaza is an open marketplace or square in a town, the Spanish word for such a space."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "drug-free"
+     "misdirectedWord": "lounge"
     }
    }
   },
@@ -1504,52 +1515,57 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "CHESS",
-     "indicators": [
-      {
-       "text": "missing base",
-       "note": "in a down answer the base is the bottom, so the last letter goes"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "missing base",
+         "at": 20,
+         "note": "in a down entry the base of a word is its bottom letter, which goes missing"
+        }
+       ],
        "parts": [
         {
          "words": "trunk",
-         "gives": "CHES",
-         "note": "a chest is a trunk, with its final letter dropped"
+         "at": 14,
+         "gives": "CHEST",
+         "note": "a chest is a large box or trunk for storage"
         },
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "top of",
-           "note": "the top of a word in a down clue is its first letter, so only that is kept"
-          }
-         ],
-         "parts": [
-          {
-           "words": "spinner",
-           "note": "the first letter of the word"
-          }
-         ]
+         "gives": "T"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "top of",
+         "at": 37,
+         "note": "the top of a word in a down clue is its first letter"
+        }
+       ],
+       "parts": [
+        {
+         "words": "spinner",
+         "at": 44,
+         "note": "the word whose first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A board game turns up in an old storage chest, without its spinning top.",
-     "walkthrough": "'Trunk' suggests a tree or an elephant, but here it is a large box for storage.",
-     "definitionFit": "Chess is the classic board game of strategy for two players with kings, queens and pawns."
+     "surface": "A board game turns up in a box, but without its bottom and the top of its spinner.",
+     "walkthrough": "'missing base' takes the final T off CHEST, and 'top of spinner' adds S.",
+     "definitionFit": "Chess is the classic strategic board game for two players, with kings, queens and pawns."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "base"
+     "misdirectedWord": "spinner"
     }
    }
   },
