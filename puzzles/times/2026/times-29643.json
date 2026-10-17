@@ -1548,54 +1548,64 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "Nearly",
-       "note": "ALL loses its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
          "text": "leaving",
-         "note": "what is leaving goes out of a place, so those letters depart from the American"
+         "at": 11,
+         "note": "the shortened word is leaving, departing from, the word for an American, so it is removed"
         }
        ],
        "parts": [
         {
-         "words": "Nearly all",
-         "gives": "AL",
-         "note": "ALL without its last letter"
-        },
-        {
          "words": "an American",
+         "at": 19,
          "gives": "ALASKAN",
-         "note": "an Alaskan is an American; losing AL leaves ASKAN"
+         "note": "an Alaskan is an American from the state of Alaska"
         },
         {
-         "words": "church",
-         "gives": "CE",
-         "note": "CE = Church of England"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "Nearly",
+           "at": 0,
+           "note": "nearly all of a word means dropping its final letter, so the word all loses its end"
+          }
+         ],
+         "parts": [
+          {
+           "words": "all",
+           "at": 7,
+           "gives": "ALL",
+           "note": "taken as written before being cut short"
+          },
+          {
+           "gives": "L"
+          }
+         ]
         }
        ]
       },
       {
-       "gives": "ALAL"
+       "words": "church",
+       "at": 31,
+       "gives": "CE",
+       "note": "CE is the Church of England"
       }
      ]
     },
     "explanation": {
-     "surface": "Almost everyone quits an American church, eyeing it suspiciously.",
-     "walkthrough": "The 'American' has to be one that starts AL, which points to Alaskan.",
-     "definitionFit": "To look askance is to look with suspicion or disapproval."
+     "surface": "Most people walk out of an American church, viewing it with distrust.",
+     "walkthrough": "'Nearly all' gives AL; 'leaving' takes AL out of ALASKAN to leave ASKAN, and CE (Church of England) follows.",
+     "definitionFit": "To look askance is to regard someone with distrust or disapproval, so the adverb fits the phrase."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "American"
+     "misdirectedWord": "leaving"
     }
    }
   },
