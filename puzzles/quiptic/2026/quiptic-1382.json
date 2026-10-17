@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -38,59 +39,65 @@
    "annotation": {
     "definitions": [
      {
-      "text": "Curry perhaps",
+      "text": "Curry perhaps?",
       "at": 41
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EDWINA",
+     "op": "container",
      "indicators": [
       {
-       "text": "Terrible",
-       "note": "A terrible version of something is a botched one, and letters botched like that do not stay in the order the clue lists them."
+       "text": "interrupts",
+       "at": 14,
+       "note": "interrupts means breaks into the middle of the other piece"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "middle",
        "indicators": [
         {
-         "text": "interrupts",
-         "note": "To interrupt is to cut in partway through, so the disturbed letters land inside the other piece rather than beside it."
+         "text": "middle of",
+         "at": 25,
+         "note": "middle of means the central letters of the next word are taken"
         }
        ],
        "parts": [
         {
-         "op": "middle",
-         "indicators": [
-          {
-           "text": "middle of",
-           "note": "Only the heart of the word is wanted: the letters at each end are dropped and the two in the centre stay."
-          }
-         ],
-         "parts": [
-          {
-           "words": "middle of meal",
-           "gives": "MEAL",
-           "note": "MEAL loses the letter at each end, and the two left in the centre open up to take the other piece"
-          }
-         ]
-        },
+         "words": "meal",
+         "at": 35,
+         "note": "its two central letters are used"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "Terrible",
+         "at": 0,
+         "note": "terrible suggests the letters are mangled into a different order"
+        }
+       ],
+       "parts": [
         {
          "words": "wind",
-         "gives": "DWIN",
-         "note": "the four letters of WIND, re-laid in a fresh order"
+         "at": 9
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gale blowing through the middle of somebody's dinner, with a curry proposed instead.",
-     "walkthrough": "'Curry perhaps?' is not food at all — it is a surname, and the answer is the forename that belongs with it. Edwina Currie was a Conservative minister in the Thatcher years.",
-     "definitionFit": "'Curry perhaps?' points at Edwina Currie, a British MP of the 1980s: the answer is the forename that goes with that near-identical surname."
+     "surface": "Awful flatulence breaks up a dinner, perhaps because of a spicy curry.",
+     "walkthrough": "'Terrible' rearranges WIND as DWIN, which 'interrupts' EA, the 'middle of' meal. The curry looks like food, but it is a sound-alike for Edwina Currie, the former British Conservative minister.",
+     "definitionFit": "Edwina Currie is a former UK government minister, so a person named Currie is an example of someone with this first name; the question mark flags the punning spelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Curry"
     }
    }
   },
@@ -116,45 +123,47 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "ejecting",
-       "note": "To eject something is to throw it out of where it was sitting, so the letter named leaves the word beside it."
-      }
-     ],
      "parts": [
       {
        "op": "deletion",
        "indicators": [
         {
-         "text": "say",
-         "note": "'Say' marks an example rather than a definition, so one particular man stands in for the ordinary first name he happens to have."
+         "text": "ejecting",
+         "at": 18,
+         "note": "ejecting means throwing out, so a letter is removed from the word"
         }
        ],
        "parts": [
         {
          "words": "The morning after",
+         "at": 0,
          "gives": "HANGOVER",
-         "note": "the morning after a heavy night is the hangover it leaves you with"
+         "note": "the morning after a night's drinking is the hangover"
         },
         {
          "words": "good",
-         "gives": "G",
-         "note": "g = good, as on a school report, and it is the letter thrown out of the word above"
+         "at": 27,
+         "gives": "G"
         }
        ]
       },
       {
        "words": "Hislop, say",
+       "at": 32,
        "gives": "IAN",
-       "note": "Ian Hislop edits Private Eye and has captained a team on Have I Got News for You since 1990"
+       "note": "Ian Hislop, editor of Private Eye and a TV panellist, is one example of an Ian"
       }
      ]
     },
     "explanation": {
-     "surface": "The day after a satirist was thrown out of a palace.",
-     "walkthrough": "The House of Hanover was the German line that gave Britain its four Georges, so the definition wants a person belonging to that house rather than the house itself.",
-     "definitionFit": "A Hanoverian is somebody of the House of Hanover, so 'from a royal house' describes exactly what the answer says about a person."
+     "surface": "A hungover morning after throwing the satirist Ian Hislop out of a palace.",
+     "walkthrough": "HANGOVER 'ejecting' G gives HANOVER, then IAN; 'say' marks Hislop as one example of someone called Ian. The House of Hanover gave Britain its Georgian kings.",
+     "definitionFit": "Hanoverian describes the dynasty of the House of Hanover, the British royal family from George I to Victoria."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "morning"
     }
    }
   },
@@ -179,53 +188,61 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "TINNITUS",
+     "op": "container",
      "indicators": [
       {
-       "text": "Overturned",
-       "note": "Something overturned has been stood on its head, so the piece beside it is written out from its last letter to its first."
+       "text": "about",
+       "at": 24,
+       "note": "about means the turned word goes round the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "about",
-         "note": "A thing placed about another wraps round it, so the turned piece opens up and the smaller letters go inside."
+         "text": "Overturned",
+         "at": 0,
+         "note": "overturned in a down clue means the word is flipped and read from the bottom up"
         }
        ],
        "parts": [
         {
-         "words": "Overturned legal action",
-         "gives": "TIUS",
-         "note": "a suit is an action brought in court, entered here from its last letter back to its first"
+         "words": "legal action",
+         "at": 11,
+         "gives": "SUIT",
+         "note": "a suit is a lawsuit, a legal action"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "new",
+         "at": 30,
+         "gives": "N"
         },
         {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "new",
-           "gives": "N",
-           "note": "n = new, the abbreviation stamped on any relaunched product"
-          },
-          {
-           "words": "fool",
-           "gives": "NIT",
-           "note": "a nit is a fool in British usage, as in nitwit"
-          }
-         ]
+         "words": "fool",
+         "at": 34,
+         "gives": "NIT",
+         "note": "a nit is a fool, short for nitwit"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A lawsuit thrown out of court, with a foolish man's grievance heard instead.",
-     "walkthrough": "'Complaint in hearing' looks like an instruction to listen for a sound-alike, and it is the definition: a complaint of the ears, meaning an ailment rather than a grumble.",
-     "definitionFit": "Tinnitus is the ringing in the ears that has no source outside them, so it is literally a medical complaint of the hearing."
+     "surface": "A court case is overturned regarding a fresh idiot's complaint at a hearing.",
+     "walkthrough": "SUIT 'Overturned' gives TIUS, which goes 'about' N + NIT. 'Hearing' looks like a court hearing but means the sense of hearing.",
+     "definitionFit": "Tinnitus is a ringing or buzzing in the ears, a medical complaint affecting one's hearing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hearing"
     }
    }
   },
@@ -250,39 +267,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
+     "op": "charade",
      "indicators": [
       {
-       "text": "about",
-       "note": "Turned about, a title faces the other way and its letters are entered from the end back to the beginning."
-      },
-      {
        "text": "follows",
-       "note": "One piece that follows another is written after it, so the fuss comes second in the build rather than first."
+       "at": 5,
+       "note": "follows means the word for fuss comes after the reversed title"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "about",
+         "at": 27,
+         "note": "about means turned round, so the title is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "Fuss",
-         "gives": "ODA",
-         "note": "much ado about nothing — an ado is a fuss"
-        },
-        {
-         "words": "Kipling novel about",
+         "words": "Kipling novel",
+         "at": 13,
          "gives": "KIM",
-         "note": "Kim is Kipling's novel of a boy spying on the North-West Frontier, entered backwards"
+         "note": "Kim is Rudyard Kipling's novel of 1901"
         }
        ]
+      },
+      {
+       "words": "Fuss",
+       "at": 0,
+       "gives": "ADO",
+       "note": "ado means fuss, as in much ado about nothing"
       }
      ]
     },
     "explanation": {
-     "surface": "A row breaking out over a Kipling novel that features Japan's emperor.",
-     "walkthrough": "Gilbert and Sullivan made the word familiar as an opera title, but mikado is a real style for the emperor of Japan. 'About' belongs to the machinery, not to the picture.",
-     "definitionFit": "Mikado is the old ceremonial title of Japan's emperor, so the definition names the office the answer is the word for."
+     "surface": "An uproar follows a Kipling book about a Japanese ruler.",
+     "walkthrough": "KIM turned 'about' is MIK, and ADO 'follows' it. 'About' looks like 'concerning', but it reverses the title.",
+     "definitionFit": "Mikado is an old title used in the West for the Emperor of Japan, as in Gilbert and Sullivan's opera."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
     }
    }
   },
@@ -831,42 +859,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "ultimately",
-       "note": "What comes ultimately comes at the very end, so the closing letter of each word named is what gets taken."
+       "text": "plugging",
+       "at": 30,
+       "note": "plugging means filling a gap inside the other piece"
       }
      ],
      "parts": [
       {
        "words": "trim",
+       "at": 39,
        "gives": "CLIP",
-       "note": "to clip a hedge is to trim it"
+       "note": "to clip is to trim"
       },
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "OWS",
        "indicators": [
         {
-         "text": "plugging",
-         "note": "A plug goes into a hole, so those letters are pushed inside the other piece rather than added on beside it."
+         "text": "ultimately",
+         "at": 19,
+         "note": "ultimately means at the end, so the final letter of each word is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Outdo Kew Gardens, ultimately",
-         "gives": "OWS",
-         "select": "last",
-         "note": "the closing letters of those three words, taken in the order they stand"
+         "words": "Outdo Kew Gardens",
+         "at": 0,
+         "note": "the final letter of each of these three words is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A flower neatly grown to outshine even Kew Gardens.",
-     "walkthrough": "'Variety of' looks like an instruction to shuffle and is part of the definition instead — a botanical variety, not a mixed-up one. Kew is London's national botanic garden.",
-     "definitionFit": "The cowslip is a wild Primula of meadows and banks, so 'variety of primula' names the genus and asks for one species of it."
+     "surface": "A rival garden trying to beat Kew with a neatly trimmed primrose.",
+     "walkthrough": "The ends of Outdo, Kew and Gardens, taken 'ultimately', give OWS, which goes 'plugging' CLIP after its first letter.",
+     "definitionFit": "The cowslip, Primula veris, is a yellow-flowered wild plant of the primrose genus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trim"
     }
    }
   },
@@ -904,54 +936,62 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "changed",
-       "note": "Letters told they are changed do not stay as they were, so the three beside this word come out in a different arrangement."
+       "text": "after",
+       "at": 32,
+       "note": "after means the rearranged word comes after the previous pieces"
       }
      ],
      "parts": [
       {
        "words": "secure",
+       "at": 38,
        "gives": "LOCK",
-       "note": "to lock a door is to make it secure"
+       "note": "to lock something is to secure it"
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "start to",
+         "at": 45,
+         "note": "start to means the first letter of the next word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Olympics",
+         "at": 54,
+         "note": "its first letter is taken"
+        }
+       ]
       },
       {
        "op": "anagram",
        "indicators": [
         {
-         "text": "after",
-         "note": "What comes after something is written behind it, so the disturbed letters are added at the end of what precedes them."
+         "text": "changed",
+         "at": 24,
+         "note": "changed means the letters of the word are rearranged"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "start to",
-           "note": "The start of a word is its opening letter, and that single letter is all the clue takes from the name."
-          }
-         ],
-         "parts": [
-          {
-           "words": "start to Olympics",
-           "gives": "OLYMPICS",
-           "note": "the opening letter of the word, taken on its own"
-          }
-         ]
-        },
-        {
-         "words": "not changed",
-         "gives": "NOT",
-         "note": "three letters of fodder, waiting to be re-laid"
+         "words": "not",
+         "at": 20
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Nothing altered since the Games got safely under way.",
-     "walkthrough": "'Not changed' is the joke: the word 'not' is precisely the thing that changes, while 'changed' is an instruction rather than part of the description.",
-     "definitionFit": "To lock on to something is what radar does when it fixes on a target and follows it unaided, which is tracking automatically."
+     "surface": "Something left as it was after the safe opening of the Olympic Games.",
+     "walkthrough": "LOCK plus O (the 'start to' Olympics) is followed, 'after', by NOT 'changed' into NTO.",
+     "definitionFit": "A missile or radar that locks on to a target tracks it automatically, a phrasal verb with that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "secure"
     }
    }
   },
@@ -1129,41 +1169,45 @@
      "indicators": [
       {
        "text": "wears",
-       "note": "Somebody wearing a garment is inside it, so the letter for the man goes within the letters taken from the wool."
+       "at": 32,
+       "note": "wears means is dressed in, so the letter for Victor goes inside the other piece like a body in clothes"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "NOA",
        "indicators": [
         {
          "text": "off and on",
-         "note": "Something happening off and on happens at every other turn, so every second letter is taken and the rest dropped."
+         "at": 46,
+         "note": "off and on means alternately skipping and taking letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "angora, off and on",
-         "gives": "NOA",
-         "select": "alternate",
-         "note": "every second letter of the wool, counting from the second"
+         "words": "angora",
+         "at": 38,
+         "note": "every other letter of it is taken, starting from the second"
         }
        ]
       },
       {
        "words": "Victor",
+       "at": 25,
        "gives": "V",
-       "note": "v = Victor in the phonetic alphabet used over the radio"
+       "note": "Victor is V in the NATO phonetic alphabet"
       }
      ]
     },
     "explanation": {
-     "surface": "A rising star called Victor who wears angora from time to time.",
-     "walkthrough": "'Star' points at Hollywood in the picture and at astronomy in the definition — a star that flares up in brightness rather than one who is famous.",
-     "definitionFit": "A nova is a star that suddenly brightens by many magnitudes, so the definition describes the flare-up astronomers named it for."
+     "surface": "A rising star named Victor sometimes wears an angora jumper.",
+     "walkthrough": "Taking the letters of angora 'off and on' from the second gives NOA, and Victor 'wears' it: V goes inside. A jumper is a sweater.",
+     "definitionFit": "A nova is a star that suddenly flares to great brightness before fading, so it grows brighter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "star"
     }
    }
   },
@@ -1289,54 +1333,59 @@
     ],
     "wordplay": {
      "op": "charade",
-     "indicators": [
-      {
-       "text": "sides from",
-       "note": "The sides of a word are the letters at its two edges, so everything between them is thrown away."
-      }
-     ],
      "parts": [
       {
        "words": "Compete",
+       "at": 0,
        "gives": "VIE",
-       "note": "to vie with somebody is to compete with them"
+       "note": "to vie is to compete"
       },
       {
        "op": "container",
        "indicators": [
         {
          "text": "outside",
-         "note": "One piece standing outside another has that other within it, so the single letter is enclosed by the pair just taken."
+         "at": 32,
+         "note": "outside means the outer letters wrap round the next piece"
         }
        ],
        "parts": [
         {
          "op": "outer",
-         "unchecked": true,
-         "gives": "NA",
+         "indicators": [
+          {
+           "text": "sides from",
+           "at": 13,
+           "note": "sides from means the first and last letters of the next word"
+          }
+         ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "sides from Nigeria",
+           "words": "Nigeria",
+           "at": 24,
            "gives": "NA",
-           "select": "outer",
-           "note": "the first and last letters of the country, its middle discarded"
+           "note": "only its outer letters are used"
           }
          ]
         },
         {
          "words": "northern",
-         "gives": "N",
-         "note": "n = northern, as on a compass rose or a postcode"
+         "at": 40,
+         "gives": "N"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Teams from Nigeria playing a match just outside a capital city in the north.",
-     "walkthrough": "'Sides' is the football sense in the picture and the edges-of-a-word sense in the wordplay, and 'northern' belongs to the letters rather than to the capital.",
-     "definitionFit": "Vienna is the capital of Austria, so the bare word 'capital' asks for one particular city and the wordplay pins down which."
+     "surface": "Rivals take on a team from Nigeria somewhere north of the capital.",
+     "walkthrough": "The 'sides from' Nigeria are NA, which go 'outside' N, after VIE.",
+     "definitionFit": "Vienna is the capital city of Austria."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
     }
    }
   },
@@ -1361,35 +1410,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "indicators": [
-      {
-       "text": "round",
-       "note": "Turned round, a short word is written from its end back to its start, which is all the instruction amounts to."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "round",
+         "at": 4,
+         "note": "round means turned round, so the short word is read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "small",
-         "gives": "ETITEP",
-         "note": "petite, borrowed from French, describes a small and neat build"
-        },
-        {
-         "words": "Pop round",
+         "words": "Pop",
+         "at": 0,
          "gives": "PA",
-         "note": "pop is a father, and the two letters naming him are turned back to front"
+         "note": "pop and pa are both words for father"
         }
        ]
+      },
+      {
+       "words": "small",
+       "at": 17,
+       "gives": "PETITE",
+       "note": "petite means small, especially of a woman's build"
       }
      ]
     },
     "explanation": {
-     "surface": "Being asked to pop round, since you have a small hunger to satisfy.",
-     "walkthrough": "'Pop round' reads as an invitation to call in, and neither word means what the surface wants — one of them is a father, the other an instruction.",
-     "definitionFit": "An appetite is the hunger you feel before eating, so 'desire for food' is the plain definition of it, noun for noun."
+     "surface": "Dad pops over, having only a small appetite.",
+     "walkthrough": "PA turned 'round' gives AP, then PETITE.",
+     "definitionFit": "Appetite is the natural craving or hunger for something to eat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pop"
     }
    }
   },
