@@ -1600,44 +1600,46 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "LATHI",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "round",
+       "at": 13,
+       "note": "the rearranged letters go round the word a, holding it inside"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
          "text": "Sort of",
-         "note": "a sorted, rearranged version of the letters"
-        },
-        {
-         "text": "round",
-         "note": "the rearranged letters go round A"
+         "at": 0,
+         "note": "a sort of hilt is a version of the word reworked, so its letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "hilt",
-         "gives": "LTHI",
-         "note": "HILT rearranged"
-        },
-        {
-         "words": "a",
-         "note": "A as printed, placed inside"
+         "at": 8
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 19
       }
      ]
     },
     "explanation": {
-     "surface": "A sword hilt wrapped around an Indian weapon.",
-     "walkthrough": "A lathi is the long iron-bound bamboo stick carried by Indian police.",
-     "definitionFit": "A lathi is a heavy stick used as a club in India."
+     "surface": "Someone describes a club by likening its handle to a kind of hilt.",
+     "walkthrough": "'Sort of' rearranges HILT into LTHI, and 'round' puts those letters around A. A lathi is a long bamboo stick, bound with iron, used by Indian police.",
+     "definitionFit": "A lathi is the long iron-bound bamboo staff carried by police in India and used as a weapon."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "hilt"
     }
    }
   },
