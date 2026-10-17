@@ -726,71 +726,73 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ATROPOS",
-     "indicators": [
-      {
-       "text": "terribly",
-       "note": "terribly signals that the next word is badly mangled into a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "leading",
+         "at": 2,
+         "note": "leading means the one in front, so only the first letter of tutor is taken"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "taken as written"
-        },
+         "words": "tutor",
+         "at": 10,
+         "note": "the first letter of tutor"
+        }
+       ]
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "leading",
-           "note": "leading picks out the letter at the front of the word that follows"
-          }
-         ],
-         "parts": [
-          {
-           "words": "tutor",
-           "note": "opening letter of tutor"
-          }
-         ]
-        },
+         "text": "terribly",
+         "at": 21,
+         "note": "terribly means badly, so the letters of poor are knocked out of order"
+        }
+       ],
+       "parts": [
         {
          "words": "poor",
-         "gives": "ROPO",
-         "note": "the word poor rearranged"
-        },
+         "at": 30
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
         {
-         "op": "first",
-         "indicators": [
-          {
-           "text": "to start with",
-           "note": "to start with keeps only the opening letter of the word before it"
-          }
-         ],
-         "parts": [
-          {
-           "words": "student",
-           "note": "opening letter of student"
-          }
-         ]
+         "text": "to start with",
+         "at": 43,
+         "note": "to start with takes just the opening letter of student"
+        }
+       ],
+       "parts": [
+        {
+         "words": "student",
+         "at": 35,
+         "note": "the first letter of student"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A top tutor teaching a weak student exclaims at his destiny.",
-     "walkthrough": "In Greek myth the three Fates spun, measured and cut the thread of life; Atropos was the one who cut it.",
-     "definitionFit": "Atropos is one of the three Fates of Greek mythology, the goddess who severs each life's thread."
+     "surface": "A senior tutor laments being saddled with a hopeless student from the outset: such is fate.",
+     "walkthrough": "'terribly' rearranges POOR into ROPO. Atropos is a proper name, but as one of the three Fates of Greek myth she is personified fate, which is how the definition works.",
+     "definitionFit": "Atropos was the eldest of the three Greek Fates, the one who cut the thread of each mortal's life."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "fate"
+     "misdirectedWord": "poor"
     }
    }
   },
