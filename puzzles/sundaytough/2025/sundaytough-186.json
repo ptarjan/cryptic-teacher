@@ -1288,59 +1288,67 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "METER",
+     "op": "substitution",
      "indicators": [
       {
-       "text": "regularly dropping in",
-       "note": "to drop in at regular intervals is to be slotted into each gap, so pieces go inside another"
+       "text": "repeatedly",
+       "at": 21,
+       "note": "repeatedly means the loss of oxygen happens more than once, at every occurrence"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "METER",
+       "op": "substitution",
        "indicators": [
         {
          "text": "lost",
-         "note": "what has been lost is gone, so some letters are removed"
+         "at": 9,
+         "note": "lost tells you the oxygen letter is taken out of the word for engine"
         },
         {
-         "text": "repeatedly",
-         "note": "repeatedly means more than once, so every occurrence of the letter is removed, not just one"
+         "text": "regularly dropping in",
+         "at": 33,
+         "note": "dropping in means arriving to take a place, and regularly says it happens at each vacancy"
         }
        ],
        "parts": [
         {
-         "words": "Engine",
+         "words": "Engine's",
+         "at": 0,
          "gives": "MOTOR",
          "note": "a motor is an engine"
         },
         {
          "words": "oxygen",
+         "at": 14,
          "gives": "O",
          "note": "O is the chemical symbol for oxygen"
         },
         {
          "words": "electronic",
+         "at": 55,
          "gives": "E",
-         "note": "E is short for electronic, as in email"
+         "note": "E is the usual abbreviation for electronic, as in e-mail"
         }
        ]
+      },
+      {
+       "gives": "O"
+      },
+      {
+       "gives": "E"
       }
      ]
     },
     "explanation": {
-     "surface": "A car engine keeps losing oxygen, and the electronic gauge shows it at regular intervals.",
-     "walkthrough": "'Repeatedly' means both Os leave MOTOR, leaving MTR; an E then drops into each of the two gaps.",
-     "definitionFit": "A meter is a measuring instrument, the same thing as a gauge, as with a gas meter or pressure gauge."
+     "surface": "A mechanic's report on an engine running out of oxygen while an electronic gauge keeps flickering.",
+     "walkthrough": "MOTOR 'lost oxygen repeatedly', so both its Os go, and E for electronic is 'regularly dropping in' to fill each gap.",
+     "definitionFit": "Meter is the American spelling of a measuring instrument, such as a gas or water gauge."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "regularly"
+     "misdirectedWord": "Engine's"
     }
    }
   },
