@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -964,36 +965,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ENDORSE",
-     "indicators": [
-      {
-       "text": "in E London",
-       "note": "An East End voice drops the aitch off the front of a word, so that letter simply is not there to write down."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "destroy",
+       "at": 8,
+       "gives": "END",
+       "note": "to end something is to destroy it"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "in E London",
+         "at": 23,
+         "note": "in an East London (Cockney) accent the initial H is dropped"
+        }
+       ],
        "parts": [
         {
-         "words": "destroy",
-         "gives": "END",
-         "note": "to end a thing is to put a stop to it"
+         "words": "heroin",
+         "at": 16,
+         "gives": "HORSE",
+         "note": "horse is slang for heroin"
         },
         {
-         "words": "heroin",
-         "gives": "ORSE",
-         "note": "heroin is horse in dealers' slang, and the East End leaves the H off"
+         "gives": "H"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a police report and every word of it is machinery. 'Back' at the head of a down clue looks like a turning instruction and is the definition.",
-     "definitionFit": "Back → ENDORSE: to back a candidate is to endorse them, the sense of declaring public support rather than signing the reverse of a cheque."
+     "surface": "An instruction to stamp out the heroin trade in East London.",
+     "walkthrough": "Cockneys of East London famously drop their aitches, so 'in E London' turns HORSE into ORSE. 'Back' is the verb, to support.",
+     "definitionFit": "To endorse a candidate or plan is to back it, a synonym in the sense of giving support."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Back"
     }
    }
   },
@@ -1127,52 +1138,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "SKODA",
+     "op": "container",
      "indicators": [
       {
-       "text": "up",
-       "note": "In a down entry what goes up is read from the bottom, so these two letters arrive the other way round."
+       "text": "While entertained by",
+       "at": 0,
+       "note": "while entertained by means being held inside, as a guest is by a host"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Jamaican music",
+       "at": 21,
+       "gives": "SKA",
+       "note": "ska is a style of popular music from Jamaica"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "up",
+         "at": 40,
+         "note": "in a down clue, up means the word is written bottom to top, reversed"
+        }
+       ],
        "parts": [
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "entertained by",
-           "note": "To be entertained by somebody is to be taken into their house, so this piece sits within the other."
-          }
-         ],
-         "parts": [
-          {
-           "words": "Jamaican music",
-           "gives": "SKA",
-           "note": "ska is the Jamaican dance music that came before reggae"
-          },
-          {
-           "words": "do",
-           "gives": "OD",
-           "note": "the two letters of DO, taken from the bottom upwards"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "While",
-         "note": "surface only: it turns the clue into a scene and contributes no letters"
+         "words": "do",
+         "at": 37,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Do up' reads as restoring an old banger and is two letters climbing the column instead. The definition is the pair of words at the end.",
-     "definitionFit": "Czech car → SKODA: definition by example — the country's best-known marque, so one manufacturer stands in for the whole category."
+     "surface": "Someone restores a Czech car while listening to Jamaican music.",
+     "walkthrough": "'do up' reads as 'renovate', the obvious thing to do to an old car, but in a down clue 'up' means written upwards, and 'While entertained by' puts that reversal inside the music.",
+     "definitionFit": "Skoda is a car manufacturer based in the Czech Republic, so its cars are Czech."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
     }
    }
   },
