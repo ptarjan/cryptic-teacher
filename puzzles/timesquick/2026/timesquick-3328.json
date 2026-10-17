@@ -97,52 +97,54 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NAVAL",
+     "op": "charade",
      "indicators": [
       {
-       "text": "Reverse",
-       "note": "tells you to turn the vehicle back to front"
+       "text": "in front of",
+       "at": 16,
+       "note": "in front of places the reversed vehicle before the rest"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in front of",
-         "note": "puts the reversed vehicle before the rest"
+         "text": "Reverse",
+         "at": 0,
+         "note": "to reverse is to run backwards, so the word for vehicle is read the other way"
         }
        ],
        "parts": [
         {
-         "words": "Reverse vehicle",
-         "gives": "NAV",
-         "note": "vehicle = VAN, turned round"
-        },
-        {
-         "words": "a",
-         "note": "kept as it is"
-        },
-        {
-         "words": "line",
-         "gives": "L",
-         "note": "L is the standard abbreviation for line"
+         "words": "vehicle",
+         "at": 8,
+         "gives": "VAN",
+         "note": "a van is a vehicle"
         }
        ]
+      },
+      {
+       "words": "a",
+       "at": 28,
+       "gives": "A"
+      },
+      {
+       "words": "line",
+       "at": 30,
+       "gives": "L"
       }
      ]
     },
     "explanation": {
-     "surface": "A driver backing a vehicle up to the head of a queue of ships.",
-     "walkthrough": "'A line of ships' reads as a convoy, but the definition is only 'of ships'; 'a line' belongs to the wordplay.",
-     "definitionFit": "Naval means of or relating to ships and a navy."
+     "surface": "A van backs up to the head of a queue of ships at the docks.",
+     "walkthrough": "'Reverse' looks like a driving instruction but works on the word itself. The definition hides in the clue's tail: 'line' gives only its letter, and 'of ships' is what the answer means.",
+     "definitionFit": "Naval means relating to ships or a navy, so it serves as of ships."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "line"
+     "misdirectedWord": "Reverse"
     }
    }
   },
@@ -616,44 +618,44 @@
      "parts": [
       {
        "words": "A",
-       "note": "kept as it is"
+       "at": 0,
+       "gives": "A"
       },
       {
        "words": "river",
+       "at": 2,
        "gives": "R",
-       "note": "R is the abbreviation for river"
+       "note": "R is the map abbreviation for river"
       },
       {
        "words": "had",
+       "at": 8,
        "gives": "BORE",
-       "note": "had = bore, as in bore a child"
+       "note": "bore is the past tense of bear, so had a child is bore one"
       },
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "TUM",
+       "op": "middle",
        "indicators": [
         {
          "text": "stripped",
-         "note": "a stripped word has lost its outer letters"
+         "at": 12,
+         "note": "something stripped has its outer layer removed, so stump loses its first and last letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "stripped stump",
-         "gives": "TUM",
-         "select": "outer",
-         "note": "sTUMp without its first and last letters"
+         "words": "stump",
+         "at": 21,
+         "note": "taken as written, before its outer letters go"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A stream that has worn a tree stump bare in a botanic garden.",
-     "walkthrough": "'Had' is the past of bear in the sense of giving birth or carrying: she bore/had twins.",
-     "definitionFit": "Definition by example: a botanical garden given over to trees, from Latin arbor, tree."
+     "surface": "A river ran past a bare tree stump in a botanical garden.",
+     "walkthrough": "'stripped' takes the outer letters off STUMP to leave TUM.",
+     "definitionFit": "An arboretum is a place where trees are grown for study and display, a botanical garden of trees."
     },
     "features": {
      "answerInScene": true,
