@@ -962,55 +962,56 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "container",
      "indicators": [
       {
-       "text": "arrangement",
-       "at": 42,
-       "note": "a choral arrangement is literally a rearrangement here, of the letters"
+       "text": "is included in",
+       "at": 20,
+       "note": "is included in says the soldier piece goes inside the rearranged letters"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "anagram",
        "indicators": [
         {
-         "text": "is included in",
-         "at": 20,
-         "note": "the turned-round soldier is put inside the word choral before anything is rearranged"
+         "text": "arrangement",
+         "at": 42,
+         "note": "an arrangement of the word choral is a new ordering of its letters"
         }
        ],
        "parts": [
         {
          "words": "choral",
          "at": 35,
-         "note": "taken as written"
-        },
+         "note": "taken as written, then rearranged"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
         {
-         "op": "reversal",
-         "indicators": [
-          {
-           "text": "Return",
-           "at": 12,
-           "note": "a return goes back the way it came, so the soldier's letters are reversed"
-          }
-         ],
-         "parts": [
-          {
-           "words": "Soldier's",
-           "at": 2,
-           "gives": "GI",
-           "note": "a GI is an American soldier; the possessive is surface only"
-          }
-         ]
+         "text": "'s Return",
+         "at": 9,
+         "note": "a soldier's return goes back the way it came, so the soldier's letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Soldier",
+         "at": 2,
+         "gives": "GI",
+         "note": "GI is the usual term for an American soldier"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Continues the previous clue: a song called Soldier's Return arranged for choir.",
-     "definitionFit": "An oligarch is one member of a small ruling group, an oligarchy, so one of the powerful few."
+     "surface": "A returning soldier finds a place in a choir's new arrangement, read as a sequel to the previous clue.",
+     "walkthrough": "The leading ellipsis ties this to the clue before but adds nothing to the parse. ''s Return' reverses the American soldier; 'arrangement' scrambles CHORAL, and the soldier 'is included in' those letters.",
+     "definitionFit": "An oligarch is a member of an oligarchy, a small group holding power over a state."
     },
     "features": {
      "answerInScene": false,
@@ -1775,56 +1776,32 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "comeback for",
+       "at": 6,
+       "note": "a comeback goes back where it came from, so the letters are read in reverse"
+      }
+     ],
      "parts": [
       {
-       "op": "first",
-       "indicators": [
-        {
-         "text": "at first",
-         "at": 27,
-         "note": "at first takes the opening letter of the ass half of the clue word"
-        }
-       ],
-       "parts": [
-        {
-         "words": "badass",
-         "at": 19,
-         "gives": "ASS",
-         "note": "split in two: bad gives evil, and ass gives its initial"
-        }
-       ]
-      },
-      {
-       "op": "reversal",
-       "indicators": [
-        {
-         "text": "comeback for",
-         "at": 6,
-         "note": "a comeback returns, so the word for the bad half of the clue word is written backwards"
-        }
-       ],
-       "parts": [
-        {
-         "words": "badass",
-         "at": 19,
-         "gives": "EVIL",
-         "note": "bad means evil, the first half of the clue word"
-        }
-       ]
+       "words": "badass, at first",
+       "at": 19,
+       "gives": "EVILA",
+       "note": "read as bad plus ass: bad is evil, and ass at first is its first letter, A"
       }
      ]
     },
     "explanation": {
-     "surface": "Asking whether a snappy retort to a tough guy was spur-of-the-moment.",
-     "walkthrough": "The clue word splits into BAD and ASS. 'Quick' is the old sense of living, as in 'the quick and the dead'.",
-     "definitionFit": "Quick in its old sense means living, as in the biblical phrase the quick and the dead."
+     "surface": "Someone asks whether a tough guy, at first, would make a quick retort.",
+     "walkthrough": "Split 'badass' into bad (EVIL) and ass, of which 'at first' keeps A; 'comeback for' reverses EVILA.",
+     "definitionFit": "Quick in its old sense means living, as in the quick and the dead, so it is a synonym."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "Quick"
+     "misdirectedWord": "comeback"
     }
    }
   },
