@@ -1820,78 +1820,66 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "STRESSOR",
+     "op": "charade",
      "indicators": [
       {
-       "text": "back",
-       "note": "back means read in the opposite direction, so the two letters run right to left"
+       "text": "trailing",
+       "at": 25,
+       "note": "trailing means coming behind, so the little word or goes after what remains"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "trailing",
-         "note": "trailing means following behind, so the short word comes last"
+         "text": "off",
+         "at": 53,
+         "note": "off means taken away, so the reversed letters are removed from the front of the misfortune word"
         }
        ],
        "parts": [
         {
-         "op": "deletion",
+         "words": "calamity",
+         "at": 34,
+         "gives": "DISTRESS",
+         "note": "distress can mean a calamity or misfortune, as in a ship in distress"
+        },
+        {
+         "op": "reversal",
          "indicators": [
           {
-           "text": "off",
-           "note": "taken off means removed from the calamity word"
+           "text": "back",
+           "at": 48,
+           "note": "back means the letters are read in reverse"
           }
          ],
          "parts": [
           {
-           "words": "calamity",
-           "gives": "DISTRESS",
-           "note": "distress is misfortune or calamity"
-          },
-          {
-           "gives": "DI"
-          }
-         ]
-        },
-        {
-         "op": "deletion",
-         "parts": [
-          {
-           "op": "charade",
-           "parts": [
-            {
-             "words": "I'd",
-             "note": "taken as written, letters only"
-            },
-            {
-             "words": "or",
-             "note": "taken as written"
-            }
-           ]
-          },
-          {
-           "gives": "ID"
+           "words": "I'd",
+           "at": 44,
+           "gives": "ID",
+           "note": "I'd contracted, written without its apostrophe"
           }
          ]
         }
        ]
+      },
+      {
+       "words": "or",
+       "at": 22
       }
      ]
     },
     "explanation": {
-     "surface": "Someone piling on pressure, or following disaster, asks to step back.",
-     "walkthrough": "'I'd back off' reads as a polite retreat, but it tells you to remove the reversed pair from the front of the calamity word.",
-     "definitionFit": "A stressor is anything that causes stress, an agent applying strain or pressure."
+     "surface": "A bully either applies pressure or follows disaster around, and the speaker would rather retreat.",
+     "walkthrough": "'back' turns I'D into DI, and 'off' strips those letters from the start of DISTRESS to leave STRESS; 'trailing' puts OR after it.",
+     "definitionFit": "A stressor is any agent or circumstance that puts strain or tension on a person or system."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "back"
+     "misdirectedWord": "trailing"
     }
    }
   },
