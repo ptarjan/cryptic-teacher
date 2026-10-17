@@ -1174,40 +1174,49 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "OXBLOOD",
      "indicators": [
       {
        "text": "being replaced in",
-       "note": "one piece is swapped out of the word and the new letters put in its place"
+       "at": 30,
+       "note": "being replaced in says the letters that follow take the place of the named letters inside the word"
       }
      ],
      "parts": [
       {
        "words": "dark blue",
+       "at": 15,
        "gives": "OXFORD",
-       "note": "Oxford blue is a dark blue, Oxford University's colour"
+       "note": "Oxford blue is a dark blue, so dark blue gives Oxford"
       },
       {
        "words": "for",
-       "note": "taken as written; this is what is removed"
+       "at": 26,
+       "gives": "FOR",
+       "note": "the word for itself, the three letters to be swapped out"
       },
       {
-       "words": "black",
-       "gives": "B",
-       "note": "B is the pencil abbreviation for black"
-      },
-      {
-       "words": "WC",
-       "gives": "LOO",
-       "note": "a loo is a WC, a toilet"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "black",
+         "at": 48,
+         "gives": "B",
+         "note": "B is the abbreviation for black, as on pencils"
+        },
+        {
+         "words": "WC",
+         "at": 54,
+         "gives": "LOO",
+         "note": "a WC is a loo"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "Choosing between brown and navy paint for a black-tiled toilet.",
-     "walkthrough": "Dark blue is Oxford's sporting colour, as light blue is Cambridge's.",
-     "definitionFit": "Oxblood is a deep reddish-brown colour, named after the colour of dried ox blood."
+     "surface": "A paint chart: is this shade dark brown or navy, compared with a black lavatory?",
+     "walkthrough": "In OXFORD, the letters FOR are 'being replaced in' by B and LOO (black WC), leaving OX + BLOO + D.",
+     "definitionFit": "Oxblood is a deep reddish-brown colour, the shade of dried blood, often used for leather."
     },
     "features": {
      "answerInScene": true,
@@ -1936,29 +1945,51 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "DELTA",
+     "op": "charade",
      "indicators": [
       {
-       "text": "one from the middle coming last",
-       "note": "the central letter is taken from its place and set at the end of the word"
+       "text": "coming last",
+       "at": 43,
+       "note": "coming last says that letter is then put at the end"
       }
      ],
      "parts": [
       {
-       "words": "delivered",
-       "gives": "DEALT",
-       "note": "dealt means handed out, as cards are delivered"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "from the middle",
+         "at": 27,
+         "note": "from the middle says the letter is taken out of the inside of the word"
+        }
+       ],
+       "parts": [
+        {
+         "words": "delivered",
+         "at": 12,
+         "gives": "DEALT",
+         "note": "cards are dealt when they are delivered to the players"
+        },
+        {
+         "gives": "A"
+        }
+       ]
+      },
+      {
+       "words": "one",
+       "at": 23,
+       "gives": "A",
+       "note": "A means one, as in a single thing"
       }
      ]
     },
     "explanation": {
-     "surface": "A poor mark is handed out, with one pupil in the middle of the class finishing bottom.",
-     "definitionFit": "Delta is the fourth Greek letter, used as a grade below alpha, beta and gamma."
+     "surface": "A school report: a poor mark has been handed out, one pupil slipping from mid-table to the bottom.",
+     "walkthrough": "Take the middle A out of DEALT ('from the middle'), leaving DELT, and put that one A 'coming last'.",
+     "definitionFit": "Delta, the fourth Greek letter, stands for a D grade, a low mark in some marking schemes."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "delivered"
     }
