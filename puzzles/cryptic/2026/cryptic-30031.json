@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -684,57 +685,61 @@
      }
     ],
     "wordplay": {
-     "op": "cycling",
-     "unchecked": true,
-     "gives": "EMBROIDER",
-     "indicators": [
-      {
-       "text": "cycling",
-       "note": "Cycling sends letters round a loop: the one on the end comes off and rejoins at the front."
-      },
-      {
-       "text": "maybe",
-       "note": "'Maybe' marks an example — the person named is one particular kind of the wider word wanted."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "cycling",
+         "at": 10,
+         "note": "cycling the letters moves the last one round to the front"
+        }
+       ],
        "parts": [
         {
-         "words": "cycling honour",
-         "gives": "EMB",
-         "note": "the MBE, Member of the Order of the British Empire, with its last letter brought round to the front"
+         "words": "honour",
+         "at": 18,
+         "gives": "MBE",
+         "note": "an MBE, Member of the Order of the British Empire, is a British honour"
+        }
+       ]
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "accepts",
+         "at": 48,
+         "note": "to accept is to take in, so the rider holds the ring inside"
+        }
+       ],
+       "parts": [
+        {
+         "words": "cyclist maybe",
+         "at": 34,
+         "gives": "RIDER",
+         "note": "a cyclist is one example of a rider"
         },
         {
-         "op": "container",
-         "indicators": [
-          {
-           "text": "accepts",
-           "note": "Whoever accepts something takes it inside, so these letters open up and make room for the other piece."
-          }
-         ],
-         "parts": [
-          {
-           "words": "cyclist maybe",
-           "gives": "RIDER",
-           "note": "a cyclist is one sort of rider"
-          },
-          {
-           "words": "ring",
-           "gives": "O",
-           "note": "a ring is a circle, written as the letter O"
-          }
-         ]
+         "words": "ring",
+         "at": 29,
+         "gives": "O",
+         "note": "O is ring-shaped"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "An award and a ring are handed over to a cyclist at the end of a race.",
-     "walkthrough": "MBE is the honour crosswords hand out most often, and here its three letters roll round one place. 'Elaborate' is being used as a verb, not the adjective the surface makes it look like.",
-     "definitionFit": "Elaborate → EMBROIDER: the verb for adding decorative stitching also means adding invented detail to a story, which is exactly what elaborating a tale is."
+     "surface": "Elaborate praise for a cyclist awarded an honour and a medal ring.",
+     "walkthrough": "'cycling' moves the final E of MBE to the front, giving EMB; 'accepts' then puts O inside RIDER, giving ROIDER.",
+     "definitionFit": "To embroider a story is to elaborate on it, adding fanciful detail as a needle adds decoration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cycling"
     }
    }
   },
@@ -759,48 +764,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "DITHERY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "back",
-       "note": "'Back' is the about-turn, and in an across entry it means those letters run the other way along the row."
+       "text": "on",
+       "at": 33,
+       "note": "in an across clue, on means placed after, so the lines follow the article"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "on",
-         "note": "In an across clue 'on' means resting after, so the lines come along behind the article rather than in front of it."
+         "text": "back",
+         "at": 22,
+         "note": "to go back is to run in reverse, so these letters are read right to left"
         }
        ],
        "parts": [
         {
-         "words": "setter would back",
-         "gives": "DI",
-         "note": "the setter is I and 'would' contracts to 'd, and I'D is turned round"
-        },
-        {
-         "words": "article",
-         "gives": "THE",
-         "note": "the definite article"
-        },
-        {
-         "words": "lines",
-         "gives": "RY",
-         "note": "RY is the railway, the crossword's usual lines"
+         "words": "setter would",
+         "at": 9,
+         "gives": "ID",
+         "note": "the setter speaks of themself as I, so 'the setter would' is I'D"
         }
        ]
+      },
+      {
+       "words": "article",
+       "at": 36,
+       "gives": "THE",
+       "note": "the is the definite article"
+      },
+      {
+       "words": "lines",
+       "at": 27,
+       "gives": "RY",
+       "note": "RY is short for railway, a set of railway lines"
       }
      ]
     },
     "explanation": {
-     "surface": "A hesitant writer would back down over a few lines in an article.",
-     "walkthrough": "Setters put themselves in as I, so 'setter would' contracts to I'd before anything is reversed. 'Article' wants A, AN or THE, and the crossing letters are what decide which.",
-     "definitionFit": "Hesitant → DITHERY: somebody dithery cannot settle on a decision, which is the wavering that 'hesitant' describes, in a more colloquial adjective."
+     "surface": "A puzzle setter who would support some lines written about a newspaper article.",
+     "walkthrough": "'back' looks like 'support' in the surface; it reverses I'D to DI. RY, railway, is a crossword staple for lines.",
+     "definitionFit": "Someone dithery keeps wavering and cannot make up their mind, so is hesitant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
     }
    }
   },
@@ -1308,31 +1321,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "GRIEF",
      "indicators": [
       {
-       "text": "lowering",
-       "note": "Lowering a note takes it one step down the scale, so the letter naming it is replaced by the letter below."
+       "text": "lowering final note",
+       "at": 9,
+       "note": "the last letter is a musical note, G, and lowering it a step down the scale gives F"
       }
      ],
      "parts": [
       {
        "words": "Composer",
+       "at": 0,
        "gives": "GRIEG",
-       "note": "Edvard Grieg, the Norwegian who wrote the Peer Gynt music"
+       "note": "Edvard Grieg was the Norwegian composer of the Peer Gynt suites"
       },
       {
-       "words": "final note",
-       "gives": "F",
-       "note": "the composer's last letter is G, itself a note, and a step below G is F"
+       "gives": "G"
+      },
+      {
+       "gives": "F"
       }
      ]
     },
     "explanation": {
-     "surface": "A composer takes his closing note down a step and it causes no end of bother.",
-     "walkthrough": "Musical letter-names run only from A to G, which is the fact the whole clue turns on: there is exactly one place a G can go when it is lowered.",
-     "definitionFit": "trouble → GRIEF: not the bereavement sense but the colloquial one in 'don't give me any grief', where the word means hassle and bother."
+     "surface": "A composer dropping the pitch of the last note produces a mournful effect.",
+     "walkthrough": "In the musical scale F sits just below G, so 'lowering final note' changes the last G of GRIEG to F.",
+     "definitionFit": "Grief means trouble or annoyance, as in being given grief by someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lowering"
     }
    }
   },
@@ -1353,37 +1373,24 @@
     "definitions": [
      {
       "text": "Summons",
-      "at": 0
+      "at": 0,
+      "meaning": "first meaning: to page someone is to call them by loudspeaker or bleeper"
+     },
+     {
+      "text": "Pope intermittently filled out?",
+      "at": 8,
+      "meaning": "second, cryptic meaning: alternate letters of Pope give PP, the abbreviation for ..., and filling it out gives the full word"
      }
     ],
-    "wordplay": {
-     "op": "alternate",
-     "unchecked": true,
-     "gives": "PAGES",
-     "indicators": [
-      {
-       "text": "intermittently",
-       "note": "Something intermittent stops and starts, so the letters are taken with gaps left between them."
-      },
-      {
-       "text": "filled out?",
-       "note": "Filling a form out completes it, and here what gets completed is an abbreviation, written back into the word it stands for."
-      }
-     ],
-     "parts": [
-      {
-       "unchecked": true,
-       "words": "Pope intermittently filled out?",
-       "gives": "PAGES",
-       "select": "alternate",
-       "note": "every other letter of PoPe leaves pp, the abbreviation used in book references, and pp is then written out in full"
-      }
-     ]
-    },
     "explanation": {
-     "surface": "A form about the Pope has been filled in only here and there.",
-     "walkthrough": "pp is the abbreviation for pages in any footnote, and 'filled out' is an instruction to write an abbreviation back out at full length — an unusual device worth filing away.",
-     "definitionFit": "Summons → PAGES: to page somebody is to call for them over a public-address system or a pager, and the verb takes the same third-person -s."
+     "surface": "A curious question about a pope whose duties come and go.",
+     "walkthrough": "The every-other-letter pick gives PP, which is the abbreviation in 'see pp 10-12'; 'filled out' asks for the word it stands for, so the clue works backwards from the abbreviation.",
+     "definitionFit": "The verb page means call for someone, and PP in a reference such as pp 10-12 stands for the plural noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pope"
     }
    }
   },
@@ -1518,47 +1525,47 @@
     "definitions": [
      {
       "text": "collapsing inwards",
-      "at": 34,
-      "note": "The definition is a participle phrase and the answer is a noun; English lets 'collapsing inwards' name the event itself, as in 'the collapsing inwards of the roof'."
+      "at": 34
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "IMPLOSION",
-     "indicators": [
-      {
-       "text": "turning",
-       "note": "Turning a thing round makes it read the other way about, which for two letters is quick work."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Naughty kid",
+       "at": 0,
+       "gives": "IMP",
+       "note": "an imp is a mischievous child"
+      },
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "into",
+         "at": 23,
+         "note": "the turned word goes into the word for fool"
+        }
+       ],
        "parts": [
         {
-         "words": "Naughty kid",
-         "gives": "IMP",
-         "note": "an imp is a mischievous child"
+         "words": "fool",
+         "at": 28,
+         "gives": "LOON",
+         "note": "a loon is a silly person, a fool"
         },
         {
-         "op": "container",
+         "op": "reversal",
          "indicators": [
           {
-           "text": "into",
-           "note": "'Into' is the insertion: what has just been turned goes inside the word that follows."
+           "text": "turning",
+           "at": 15,
+           "note": "turning round makes a word face the other way, read right to left"
           }
          ],
          "parts": [
           {
-           "words": "fool",
-           "gives": "LOON",
-           "note": "a loon is a fool"
-          },
-          {
-           "words": "is turning",
-           "gives": "SI",
-           "note": "the word IS, turned round"
+           "words": "is",
+           "at": 12
           }
          ]
         }
@@ -1567,9 +1574,14 @@
      ]
     },
     "explanation": {
-     "surface": "A naughty child is slowly turning into a fool.",
-     "walkthrough": "The clue reads as one unbroken sentence about a child going to the bad, so the little word 'is' never looks like something you are meant to pick up and turn round.",
-     "definitionFit": "collapsing inwards → IMPLOSION: it is a collapse inwards under outside pressure, the exact opposite of the outward blast the word is usually paired with."
+     "surface": "A mischievous child turning into a clown as a building caves in.",
+     "walkthrough": "'turning' reverses IS into SI, which goes 'into' LOON between its O's. The definition is a noun phrase: an implosion is a collapsing inwards.",
+     "definitionFit": "An implosion is a violent inward collapse, the opposite of an explosion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
     }
    }
   },
@@ -1607,59 +1619,82 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "flipped",
-       "note": "Flip something and it lands the other way up, which for letters means the other way round."
+       "text": "in",
+       "at": 27,
+       "note": "in here simply sets the flipped food alongside the stirred-up letters"
       }
      ],
      "parts": [
       {
-       "words": "hot fat",
-       "gives": "AFT",
-       "note": "the three letters of FAT, resettled by the heat"
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "hot",
+         "at": 30,
+         "note": "hot, as in hot-wired or in a state, signals that these letters are stirred about"
+        }
+       ],
+       "parts": [
+        {
+         "words": "fat",
+         "at": 34,
+         "note": "the three letters are taken as written and rearranged"
+        }
+       ]
       },
       {
        "op": "reversal",
        "indicators": [
         {
-         "text": "hot",
-         "note": "Fat in a hot pan spits and jumps, so nothing dropped into it stays where it was put."
+         "text": "flipped",
+         "at": 19,
+         "note": "flipped over means turned the other way, so the word is read right to left"
         }
        ],
        "parts": [
         {
-         "op": "anagram",
-         "indicators": [
-          {
-           "text": "revolutionary",
-           "note": "A revolution carries a thing right round, so these letters come back facing the other way."
-          }
-         ],
-         "parts": [
-          {
-           "words": "food flipped",
-           "gives": "ERAF",
-           "note": "fare is food, and flipped it runs backwards"
-          },
-          {
-           "words": "remains",
-           "gives": "ASH",
-           "note": "what is left in the grate after a fire"
-          },
-          {
-           "words": "revolutionary number",
-           "gives": "ION",
-           "note": "no. is number and the one beside it is I, and the revolution turns the pair round"
-          }
-         ]
+         "words": "food",
+         "at": 14,
+         "gives": "FARE",
+         "note": "fare is food"
+        }
+       ]
+      },
+      {
+       "words": "remains",
+       "at": 38,
+       "gives": "ASH",
+       "note": "ash is what remains after burning"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "revolutionary",
+         "at": 46,
+         "note": "a revolution turns something round, so these letters are read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "number one",
+         "at": 60,
+         "gives": "NOI",
+         "note": "NO is the abbreviation for number, and one is I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody is frying food in a pan of hot fat and scraping up whatever is left behind.",
-     "walkthrough": "'Remains' is the pivot: the surface wants the greasy residue in the pan, and the clue wants what a fire leaves in the grate. Every other word keeps up the cooking picture while giving instructions.",
-     "definitionFit": "In one sense → AFTER A FASHION: the phrase means 'in a way, but only just', so the definition catches the grudging, partial agreement it always carries."
+     "surface": "Food tossed in a hot pan, leaving ashes, from a supposedly brilliant chef.",
+     "walkthrough": "'hot' rearranges FAT into AFT; 'flipped' turns FARE into ERAF; 'revolutionary' reverses NO I into ION. The blog reads 'in' as containment, but ERAF directly follows AFT.",
+     "definitionFit": "After a fashion means in a way or to some extent, which is what 'in one sense' conveys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "food"
     }
    }
   }
