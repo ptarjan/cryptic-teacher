@@ -53,43 +53,41 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "SOUPPLATE",
      "indicators": [
       {
        "text": "Spooner's",
-       "note": "Rev. Spooner swapped the opening sounds of words"
+       "at": 0,
+       "note": "Reverend Spooner swapped the opening sounds of words, so the starts of the two words change places"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "POUP",
        "parts": [
         {
-         "unchecked": true,
          "words": "His number two",
-         "gives": "SOUP",
-         "soundsLike": "POOP",
-         "note": "poop is a child's word for a number two; it takes the S sound from the next word"
-        },
-        {
-         "unchecked": true,
-         "words": "pan",
-         "gives": "PLATE",
-         "soundsLike": "SLATE",
-         "note": "to pan a show is to slate it, to criticise harshly; it takes the P sound from the word before"
+         "at": 16,
+         "gives": "POOP",
+         "note": "poop is a childish word for number two, excrement; his is Spooner's"
         }
        ]
+      },
+      {
+       "words": "pan",
+       "at": 31,
+       "gives": "SLATE",
+       "note": "to pan a show is to slate it, criticise it harshly"
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner's lavatory gets called a cooking pan, as if he can't tell the kitchen from the loo.",
-     "walkthrough": "'Number two' and 'pan' play together on the lavatory, but pan here is the verb: to slate. The question mark flags the dish as the definition.",
-     "definitionFit": "Definition by kind: the deep bowl-shaped plate used for soup is one sort of dish."
+     "surface": "The Reverend Spooner describes a dish and declares it lavatorial rubbish.",
+     "walkthrough": "POOP is said like POUP; swap its P with the S of SLATE as 'Spooner's' asks, and POUP SLATE becomes SOUP PLATE.",
+     "definitionFit": "A soup plate is a deep, wide plate for serving soup, a kind of dish."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "pan"
@@ -908,57 +906,59 @@
      }
     ],
     "wordplay": {
-     "op": "container",
-     "unchecked": true,
-     "gives": "MONSIEUR",
+     "op": "reversal",
+     "indicators": [
+      {
+       "text": "on return",
+       "at": 36,
+       "note": "on return means the letters are read coming back, right to left"
+      }
+     ],
      "parts": [
       {
-       "op": "reversal",
+       "op": "container",
        "indicators": [
         {
-         "text": "housing"
+         "text": "housing",
+         "at": 25,
+         "note": "housing means holding inside"
         }
        ],
        "parts": [
         {
          "op": "charade",
-         "indicators": [
-          {
-           "text": "on return",
-           "note": "the whole string comes back the other way"
-          }
-         ],
          "parts": [
           {
            "words": "Street",
+           "at": 0,
            "gives": "RUE",
-           "note": "rue is French for street"
-          },
-          {
-           "words": "is",
-           "note": "IS as written"
+           "note": "rue is French for street, read with 'for Parisian'"
           },
           {
            "words": "name for Parisian",
+           "at": 7,
            "gives": "NOM",
            "note": "nom is French for name"
           }
          ]
+        },
+        {
+         "words": "is",
+         "at": 33
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Paris street name shows where a Parisian lives on his return home.",
-     "walkthrough": "'For Parisian' covers both French words. 'There' points back to Paris, so the definition is the French form of address.",
-     "definitionFit": "Monsieur is how a man is addressed in France, the French for 'Mr' or 'sir'."
+     "surface": "A Paris street name hides something, and you see it coming back.",
+     "walkthrough": "'for Parisian' asks for French words, and 'there' points back to Paris too, so the definition is a French form of address.",
+     "definitionFit": "Monsieur is the French courtesy title for a man, the equivalent of Mr or sir."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": true,
-     "joke": "pun",
-     "misdirectedWord": "address"
+     "misdirectedWord": "Street"
     }
    }
   },
@@ -1105,56 +1105,55 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "DIAMETER",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "struck",
+       "at": 23,
+       "note": "struck means hit and knocked out of shape, so the letters are rearranged"
+      },
+      {
+       "text": "to go",
+       "at": 10,
+       "note": "with the hour still to go, that letter must leave, so it is taken out of the jumbled letters"
+      }
+     ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "DIAMETER",
-       "indicators": [
-        {
-         "text": "to go",
-         "note": "'to go' means still to be taken away, as in 'three days to go'"
-        },
-        {
-         "text": "struck",
-         "note": "struck as in knocked about, so the letters are rearranged"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
          "words": "media",
-         "note": "MEDIA as written"
+         "at": 17,
+         "note": "taken as written"
         },
         {
          "words": "the",
-         "note": "THE as written"
+         "at": 30,
+         "note": "taken as written"
         },
         {
          "words": "right",
-         "gives": "R",
-         "note": "R is short for right"
-        },
-        {
-         "words": "hour",
-         "gives": "H",
-         "note": "H is short for hour; it is removed"
+         "at": 34,
+         "gives": "R"
         }
        ]
+      },
+      {
+       "words": "hour",
+       "at": 5,
+       "gives": "H"
       }
      ]
     },
     "explanation": {
-     "surface": "With an hour to deadline, the press found the perfect tone.",
-     "walkthrough": "'Struck the right chord' is an idiom in the surface, but chord alone is the definition, from geometry.",
-     "definitionFit": "A diameter is the longest chord of a circle, a straight line joining two points on it through the centre."
+     "surface": "An hour before the deadline, the press found exactly the right tone.",
+     "walkthrough": "'With hour to go' means the anagram of MEDIA, THE and R loses an H. 'Struck the right chord' sounds like an idiom, but only 'chord' defines: the diameter is a circle's longest chord.",
+     "definitionFit": "In geometry a diameter is a straight line joining two points of a circle through its centre, so it is a chord."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
-     "joke": "pun",
      "misdirectedWord": "chord"
     }
    }
@@ -1289,31 +1288,31 @@
      {
       "text": "4",
       "at": 0,
-      "note": "4 points to 4 Down, AGE GROUP: the eighties is an age group"
+      "note": "refers to the answer at 4-down, an age group: people in their eighties form one"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "EIGHTIES",
+     "op": "middle",
      "indicators": [
       {
        "text": "spending limits",
-       "note": "the word spends, or gives up, its outer letters"
+       "at": 19,
+       "note": "spending means using up and losing, so the word's limits, its first and last letters, go"
       }
      ],
      "parts": [
       {
        "words": "most significant",
+       "at": 2,
        "gives": "WEIGHTIEST",
-       "note": "weightiest = most significant; its first and last letters go"
+       "note": "weightiest means most important or significant"
       }
      ]
     },
     "explanation": {
-     "surface": "The biggest limits on spending in a budget.",
-     "walkthrough": "'Spending limits' is budget talk, but limits are the word's two ends, W and T.",
-     "definitionFit": "People aged eighty to eighty-nine are in their eighties, one age group."
+     "surface": "Four very important budget caps.",
+     "walkthrough": "'4' is a cross-reference: the definition is the answer to 4-down, AGE GROUP.",
+     "definitionFit": "The eighties, ages eighty to eighty-nine, form a band of people grouped by age."
     },
     "features": {
      "answerInScene": false,
