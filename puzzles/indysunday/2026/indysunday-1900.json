@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -407,44 +408,36 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "upset",
-       "note": "In a down entry, upsetting the pile sends what was written at the foot of it up to the top."
+       "text": "upset being limited by",
+       "at": 15,
+       "note": "the neutral word is limited, bounded, by the word for sex, and upset turns that order over in this down clue so sex comes first"
       }
      ],
      "parts": [
       {
-       "op": "cycling",
-       "unchecked": true,
-       "gives": "CONGRESSPERSON",
-       "indicators": [
-        {
-         "text": "limited by",
-         "note": "To be limited by a thing is to have it as your edge, so the two words finish flush against each other rather than one inside the other."
-        }
-       ],
-       "parts": [
-        {
-         "words": "being",
-         "gives": "PERSON",
-         "note": "a being is a person — 'human being' with the human left off"
-        },
-        {
-         "words": "sex",
-         "gives": "CONGRESS",
-         "note": "congress is the formal word for sexual intercourse, as in carnal congress"
-        }
-       ]
+       "words": "sex",
+       "at": 38,
+       "gives": "CONGRESS",
+       "note": "congress is an old formal word for sexual intercourse"
       },
       {
-       "unchecked": true,
        "words": "so neutral?",
-       "note": "no letters: the setter's nod to why this ending exists, standing in for the two gendered titles"
+       "at": 43,
+       "gives": "PERSON",
+       "note": "person is the gender-neutral word used where man once stood, so it is the neutral choice"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The clue is about sex twice over — the act, and the grammatical kind the answer is designed to avoid. Only one of those meanings puts letters in the grid.",
-     "definitionFit": "Representative → CONGRESSPERSON: a member of the US House is formally styled a Representative, so the definition names the office by its holder's title."
+     "surface": "A politician is distressed at being held back by a sex scandal.",
+     "walkthrough": "'So neutral?' points to the gender-neutral ending that replaces the old -man. Congress is the formal word for sexual intercourse, which is what makes the scandal surface work.",
+     "definitionFit": "A congressperson is a member of the US Congress, an elected representative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sex"
     }
    }
   },
@@ -1249,31 +1242,39 @@
     "definitions": [
      {
       "text": "Motor races",
-      "at": 0,
-      "note": "The definition is plural and the answer names one meeting: 'the Indy' is used for the racing as a whole, not for a single afternoon's event."
+      "at": 0
      }
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "INDY",
      "indicators": [
       {
        "text": "not starting",
-       "note": "A word that is not starting has lost its opening letter and begins one along."
+       "at": 30,
+       "note": "not starting means the first letter is dropped"
       }
      ],
      "parts": [
       {
        "words": "affected by gales",
-       "gives": "INDY",
-       "note": "weather affected by gales is WINDY, which here never gets to start"
+       "at": 12,
+       "gives": "WINDY",
+       "note": "a place affected by gales is windy"
+      },
+      {
+       "gives": "W"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A race that never starts is the joke. The letter goes missing from the weather rather than from the race, which is what makes the surface hold together.",
-     "definitionFit": "Motor races → INDY: the Indianapolis 500 is universally shortened to the Indy, and the name now covers the whole American open-wheel racing series."
+     "surface": "Car races are disrupted by strong winds and fail to get under way.",
+     "walkthrough": "Indy is short for the Indianapolis 500 and the IndyCar series of American motor races.",
+     "definitionFit": "Indy is the name for a class of American open-wheel motor racing, IndyCar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starting"
     }
    }
   },
