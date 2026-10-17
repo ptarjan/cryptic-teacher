@@ -917,48 +917,41 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
+     "op": "composite",
      "indicators": [
       {
        "text": "broken",
-       "note": "Something broken has come apart into pieces, and letters in pieces can be put back in a different order."
+       "at": 7,
+       "note": "broken means smashed into pieces, so the letters are rearranged"
+      },
+      {
+       "text": "without",
+       "at": 24,
+       "note": "without means lacking, so the letters of it are taken out of the pool first"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "indicators": [
-        {
-         "text": "without",
-         "note": "'Without' here means lacking rather than outside — the letters it names are absent from what gets shuffled."
-        }
-       ],
-       "parts": [
-        {
-         "op": "charade",
-         "parts": [
-          {
-           "words": "reunited",
-           "note": "the word is handed over whole first, all eight letters of it"
-          },
-          {
-           "words": "without it",
-           "gives": "REUNED",
-           "note": "'it' names an I and a T, and both come out, leaving six letters to shuffle"
-          }
-         ]
-        },
-        {
-         "gives": "REUNITED"
-        }
-       ]
+       "words": "reunited",
+       "at": 15,
+       "note": "taken as written"
+      },
+      {
+       "words": "it",
+       "at": 32,
+       "note": "taken as written"
       }
      ]
     },
     "explanation": {
-     "surface": "A snapped stick, glued back together with one bit missing.",
-     "walkthrough": "'Stick' looks like the noun the surface is built on and is really the definition, in the sense of sticking something out. The deletion has to happen before the shuffle.",
-     "definitionFit": "'Stick' → ENDURE: to stick something is to put up with it — 'I can't stick him' — so the verb means to bear."
+     "surface": "A snapped stick glued back together, though missing a piece.",
+     "walkthrough": "'without' takes IT out of REUNITED, leaving REUNED, and 'broken' rearranges those six letters.",
+     "definitionFit": "To stick something out is to endure it, putting up with a hardship to the end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stick"
     }
    }
   },
@@ -1145,44 +1138,25 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "rebus",
+     "reading": "V at one end, A at the other",
      "parts": [
       {
-       "op": "outer",
-       "unchecked": true,
-       "gives": "V",
-       "indicators": [
-        {
-         "text": "ends",
-         "note": "'Ends' asks for the letters standing at the two edges of a word, the first and the last, with nothing from between them."
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Venezuela",
-         "gives": "V",
-         "select": "outer",
-         "note": "the opening letter of the country's name"
-        }
-       ]
-      },
-      {
-       "words": "both",
-       "gives": "AND",
-       "note": "'both' is one plus the other, and the enumeration shows that the joining word is spelt out in the middle"
-      },
-      {
-       "words": "Venezuela",
-       "gives": "A",
-       "note": "the closing letter of the same name"
+       "words": "from both ends of Venezuela",
+       "at": 31,
+       "note": "the country's name starts and finishes with letters that, joined by and, name a famous London museum"
       }
      ]
     },
     "explanation": {
-     "surface": "A gallery showing exhibits gathered from every corner of Venezuela.",
-     "walkthrough": "The enumeration (1,3,1) is doing the teaching here: it tells you the ampersand in the museum's usual shorthand has to be written out as a word.",
-     "definitionFit": "'Institution displaying objects' → the V AND A: the Victoria and Albert Museum in London, the national collection of art, design and decorative objects."
+     "surface": "A museum showing artefacts brought from one end of a South American country to the other.",
+     "walkthrough": "The V&A is London's Victoria and Albert Museum, which displays decorative arts and design; the two ends of 'Venezuela' are V and A.",
+     "definitionFit": "The Victoria and Albert Museum is a national institution whose job is showing objects of art and design."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "objects"
     }
    }
   },
@@ -1303,45 +1277,43 @@
    "annotation": {
     "definitions": [
      {
-      "text": "invitees",
-      "at": 21
+      "text": "invitees turn up",
+      "at": 21,
+      "note": "the definition is the noun invitees, with turn up describing what they do"
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 10,
+       "note": "about means surrounding, so the speculation word goes round the time letter"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
-       "indicators": [
-        {
-         "text": "about",
-         "note": "'About' means encircling, so the letter it introduces is planted inside the other word rather than tacked on the end."
-        }
-       ],
-       "parts": [
-        {
-         "words": "Speculate",
-         "gives": "GUESS",
-         "note": "to speculate about something is to guess at it"
-        },
-        {
-         "words": "time",
-         "gives": "T",
-         "note": "the standard single-letter shorthand for time, as in a physics formula"
-        }
-       ]
+       "words": "Speculate",
+       "at": 0,
+       "gives": "GUESS",
+       "note": "to guess is to speculate"
       },
       {
-       "unchecked": true,
-       "words": "turn up",
-       "note": "surface only — it paints the invited crowd arriving and hands over no letters"
+       "words": "time",
+       "at": 16,
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "Wondering aloud what time the invited crowd will arrive.",
-     "walkthrough": "'Speculate about' reads as one phrase in the surface and has to be split, with 'about' switching from a preposition into an instruction.",
-     "definitionFit": "'invitees' → GUESTS: guests are exactly the people who have been invited, and both are plural nouns for the same set."
+     "surface": "Wondering when the people you invited will arrive.",
+     "walkthrough": "'about' puts GUESS round T. The definition is a little phrase: the answer names the invitees who turn up.",
+     "definitionFit": "Guests are people invited to an event who come along to it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Speculate"
     }
    }
   },
@@ -1367,48 +1339,29 @@
    "annotation": {
     "definitions": [
      {
-      "text": "this",
-      "at": 59,
-      "note": "The definition is the bare word 'this', pointing back at the entry itself: the clue says the letters just built are its short form, so what is wanted is the phrase they stand for."
+      "text": "Early telegraph cables initially offering short version of this",
+      "at": 0
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ETCETERA",
-     "indicators": [
-      {
-       "text": "initially",
-       "note": "'Initially' asks for what a word starts with, so each of the words before it gives up only its opening letter."
-      }
-     ],
+     "op": "cryptic",
      "parts": [
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "ETC",
-       "indicators": [
-        {
-         "text": "short version of",
-         "note": "'Short version of' runs an abbreviation backwards: the letters just made are the clipped form, and the phrase behind them at full length is what goes in the grid."
-        }
-       ],
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Early telegraph cables",
-         "gives": "ETC",
-         "select": "first",
-         "note": "the opening letter of each of the three words, taken in the order they come"
-        }
-       ]
+       "words": "Early telegraph cables initially offering short version of this",
+       "at": 0,
+       "note": "the first letters of Early telegraph cables spell the usual three-letter abbreviation, and this means the answer, the full phrase it shortens"
       }
      ]
     },
     "explanation": {
-     "surface": "Early telegraph wires could at first send only a shortened version of a message.",
-     "walkthrough": "The wordplay builds a short form and leaves you to supply the phrase behind it — the Latin that ETC has always stood for, spelt out in full.",
-     "definitionFit": "'this' → ET CETERA: the clue points at its own answer, saying ETC abbreviates it, and ET CETERA is Latin for 'and the rest'."
+     "surface": "Old telegrams used abbreviations to save money on words.",
+     "walkthrough": "The initials of 'Early telegraph cables' give ETC, which is the short form of the answer that 'this' points to; the clue defines the answer by its abbreviation.",
+     "definitionFit": "Et cetera is the Latin phrase meaning and so on, almost always written in its shortened form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cables"
     }
    }
   }
