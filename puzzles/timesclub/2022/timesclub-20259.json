@@ -858,48 +858,61 @@
     ],
     "wordplay": {
      "op": "charade",
-     "unchecked": true,
-     "gives": "MINENWERFER",
-     "indicators": [
-      {
-       "text": "putting up new",
-       "note": "new is abbreviated N, and putting it up in a down entry shifts that letter higher in the word"
-      }
-     ],
      "parts": [
       {
+       "words": "Pit",
+       "at": 0,
+       "gives": "MINE",
+       "note": "a pit is a mine"
+      },
+      {
+       "words": "new",
+       "at": 49,
+       "gives": "N"
+      },
+      {
        "op": "reversal",
-       "unchecked": true,
-       "gives": "MINENWERFER",
        "indicators": [
         {
          "text": "on the rise",
-         "note": "rising in a down entry means the letters are read from the bottom upwards"
+         "at": 25,
+         "note": "in a down clue, rising means the rest of the town's name is read from bottom to top"
         }
        ],
        "parts": [
         {
-         "words": "Pit",
-         "gives": "MINE",
-         "note": "a pit is a coal mine"
-        },
-        {
-         "words": "town west of Glasgow",
-         "gives": "RENFREW",
-         "note": "Renfrew is a Scottish town just west of Glasgow"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "putting up",
+           "at": 38,
+           "note": "the new letter is lifted out of the town's name and put up higher in this down entry, above what is left"
+          }
+         ],
+         "parts": [
+          {
+           "words": "town west of Glasgow",
+           "at": 4,
+           "gives": "RENFREW",
+           "note": "Renfrew is a Scottish town just west of Glasgow"
+          },
+          {
+           "gives": "N"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A mining town near Glasgow is booming and has built new mortar for housing.",
-     "walkthrough": "After the town is read upwards its N, the abbreviation for new, is lifted to a higher position. 'Mortar' looks like building material but is a weapon.",
-     "definitionFit": "Minenwerfer, German for mine-thrower, was the trench mortar used by German forces in the First World War."
+     "surface": "A builder in a Scottish mining town is putting up a wall with fresh mortar.",
+     "walkthrough": "'Putting up new' lifts the N out of the town and sets it higher; 'on the rise' reads the remaining REFREW upwards. A Minenwerfer was a German trench mortar of the First World War.",
+     "definitionFit": "The word is German for 'mine thrower', the name of a short-range trench weapon of that type."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "joke": "pun",
      "misdirectedWord": "mortar"
     }
