@@ -371,41 +371,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "REGROUP",
-     "indicators": [
-      {
-       "text": "slipped",
-       "note": "ROGER's letters slip out of order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "slipped",
+         "at": 6,
+         "note": "something that has slipped has fallen out of place, so these letters lose their order"
+        }
+       ],
        "parts": [
         {
          "words": "Roger",
-         "gives": "REGRO",
-         "note": "ROGER rearranged"
-        },
-        {
-         "words": "out of bed",
-         "gives": "UP",
-         "note": "up = risen from bed"
+         "at": 0
         }
        ]
+      },
+      {
+       "words": "out of bed",
+       "at": 14,
+       "gives": "UP",
+       "note": "someone out of bed is up"
       }
      ]
     },
     "explanation": {
-     "surface": "Roger slides out from under the covers to rethink his plans.",
-     "walkthrough": "'Slipped out of bed' reads as one phrase, but 'slipped' works alone on Roger and 'out of bed' is UP.",
-     "definitionFit": "To regroup is to pause and reorganise before trying again."
+     "surface": "Roger tumbling out of bed in the morning before thinking things over anew.",
+     "walkthrough": "'slipped' rearranges ROGER into REGRO; 'to' only links the definition.",
+     "definitionFit": "To regroup is to reorganise yourself or your forces after a setback before trying again."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "slipped"
     }
    }
@@ -599,36 +598,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "GAEL",
      "indicators": [
       {
        "text": "moving east to west",
-       "note": "the E (east) moves one place to the left, westward, in the word"
+       "at": 5,
+       "note": "in an across answer east is the right-hand side and west the left, so the final letter for east shifts one place leftward"
       }
      ],
      "parts": [
       {
        "words": "storm",
+       "at": 28,
        "gives": "GALE",
-       "note": "a gale is a storm"
+       "note": "a gale is a very strong wind, a storm"
       },
       {
-       "words": "moving east to west",
-       "gives": "GAEL",
-       "note": "GALE with its E shifted leftward"
+       "gives": "LE"
+      },
+      {
+       "gives": "EL"
       }
      ]
     },
     "explanation": {
-     "surface": "A Celt travels westward through a storm.",
-     "walkthrough": "In an across answer west is left, so the E of GALE shifts left past the L.",
-     "definitionFit": "A Gael is a Gaelic-speaking Celt of Scotland or Ireland."
+     "surface": "A Celtic figure being blown westward in a storm.",
+     "walkthrough": "In an across answer east is right and west is left: 'moving east to west' takes the E at the right-hand end of GALE and shifts it one place left, so LE becomes EL.",
+     "definitionFit": "A Gael is a Gaelic-speaking Celt of Scotland, Ireland or the Isle of Man."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "east"
+     "misdirectedWord": "storm"
     }
    }
   },
@@ -839,42 +839,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "ANTICIPATE",
-     "indicators": [
-      {
-       "text": "confusing",
-       "note": "IT and PEA are jumbled together"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
-       "parts": [
+       "words": "caper",
+       "at": 7,
+       "gives": "ANTIC",
+       "note": "an antic is a playful caper or prank"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
         {
-         "words": "caper",
-         "gives": "ANTIC",
-         "note": "an antic is a playful caper"
+         "text": "confusing",
+         "at": 14,
+         "note": "confusing things mixes them up, so these letters are jumbled together"
         },
         {
-         "words": "it with pea",
-         "gives": "IPATE",
-         "note": "IT + PEA mixed up"
+         "text": "with",
+         "at": 27,
+         "note": "with tells the solver to mix it together with pea, pooling both words before they are confused"
+        }
+       ],
+       "parts": [
+        {
+         "words": "it",
+         "at": 24
+        },
+        {
+         "words": "pea",
+         "at": 32
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Look forward to a caper, mixing it up with a pea.",
-     "walkthrough": "'Caper' could be the pickled bud next to 'pea', but here it is a prank, ANTIC.",
-     "definitionFit": "A plain synonym: to anticipate an event is to look forward to it as likely."
+     "surface": "A cook expecting trouble muddling a caper with a pea.",
+     "walkthrough": "'confusing' rearranges IT and PEA together into IPATE, which follows ANTIC; 'with' simply joins the two words being mixed.",
+     "definitionFit": "To anticipate is to look forward to or foresee something, a synonym of expect."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
      "misdirectedWord": "caper"
     }
    }
@@ -1351,41 +1358,31 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NOON",
+     "op": "palindrome",
      "indicators": [
       {
-       "text": "going forwards and backwards"
+       "text": "going forwards and backwards",
+       "at": 12,
+       "note": "the villain's name must read the same in both directions, written once normally and once in the opposite direction"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Evil doctor",
-         "gives": "NO",
-         "note": "Dr No, the Bond villain"
-        },
-        {
-         "words": "backwards",
-         "gives": "ON",
-         "note": "NO turned round"
-        }
-       ]
+       "words": "Evil doctor",
+       "at": 0,
+       "gives": "NOON",
+       "note": "Dr No is the villain of the first James Bond film; here his name is set down once each way, NO then ON"
       }
      ]
     },
     "explanation": {
-     "surface": "A wicked doctor travelling to and fro through time.",
-     "walkthrough": "The time-travel picture is a decoy: Dr No is the villain of the first James Bond film.",
-     "definitionFit": "Definition by example: noon, twelve o'clock midday, is one particular time."
+     "surface": "A Bond villain pacing back and forth as the clock ticks.",
+     "walkthrough": "'going forwards and backwards' means the Bond villain's name is written once as NO and then reversed as ON.",
+     "definitionFit": "Midday, twelve o'clock, is a specific time of day."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "time"
     }
    }
@@ -1411,47 +1408,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "CAERPHILLY",
+     "op": "charade",
      "indicators": [
       {
-       "text": "excited",
-       "note": "ARE is stirred into a new order"
+       "text": "by",
+       "at": 25,
+       "note": "by means next to, so the city nickname is placed beside the other parts"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "clubs",
+       "at": 7,
+       "gives": "C",
+       "note": "C is the card-suit abbreviation for clubs"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
-         "text": "by"
+         "text": "excited",
+         "at": 17,
+         "note": "excited particles move about wildly, so these letters are stirred into a new order"
         }
        ],
        "parts": [
         {
-         "words": "clubs",
-         "gives": "C",
-         "note": "C = clubs in card games"
-        },
-        {
-         "words": "are excited",
-         "gives": "AER",
-         "note": "ARE rearranged"
-        },
-        {
-         "words": "Philadelphia",
-         "gives": "PHILLY",
-         "note": "Philly, the city's nickname"
+         "words": "are",
+         "at": 13
         }
        ]
+      },
+      {
+       "words": "Philadelphia",
+       "at": 28,
+       "gives": "PHILLY",
+       "note": "Philly is the familiar nickname of Philadelphia"
       }
      ]
     },
     "explanation": {
-     "surface": "A cheese-lovers' society gets thrilled by Philadelphia cream cheese.",
-     "walkthrough": "Philadelphia is a brand of cream cheese, which pulls you toward the wrong cheese; here it is the city, Philly. Caerphilly is a crumbly white Welsh cheese.",
-     "definitionFit": "Caerphilly is a mild, crumbly Welsh cheese."
+     "surface": "Clubs in Philadelphia getting excited about a cheese.",
+     "walkthrough": "'excited' rearranges ARE into AER, sandwiched between C and PHILLY; 'by' just places the parts side by side.",
+     "definitionFit": "Caerphilly is a crumbly white Welsh cheese named after a town near Cardiff."
     },
     "features": {
      "answerInScene": true,
