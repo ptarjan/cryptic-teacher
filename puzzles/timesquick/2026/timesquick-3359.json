@@ -26,7 +26,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -303,26 +304,29 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "EVEN",
      "indicators": [
       {
-       "text": "incomplete",
-       "note": "what is incomplete stops before it should, so the word is taken without its final letter"
+       "text": "to be incomplete",
+       "at": 15,
+       "note": "the word is left unfinished, losing its final letter"
       }
      ],
      "parts": [
       {
        "words": "happening",
-       "gives": "EVEN",
-       "note": "the noun sense — a happening is an occurrence — with the last letter T taken off"
+       "at": 5,
+       "gives": "EVENT",
+       "note": "an event is a happening or occurrence"
+      },
+      {
+       "gives": "T"
       }
      ]
     },
     "explanation": {
-     "surface": "A project that is under way has not been finished.",
-     "walkthrough": "'Flat' means level, not an apartment or a punctured tyre. 'Happening to be' reads as idle filler, and a solver skims past it looking for the wordplay somewhere else.",
-     "definitionFit": "An even surface is flat — level and free of bumps — which is the adjective the definition offers rather than the noun."
+     "surface": "A flat where some unfinished event is taking place.",
+     "walkthrough": "'incomplete' cuts the last letter, T, from EVENT.",
+     "definitionFit": "Even and flat both describe a level surface with no bumps, so they are synonyms."
     },
     "features": {
      "answerInScene": false,
@@ -596,36 +600,40 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASIA",
-     "indicators": [
-      {
-       "text": "short",
-       "note": "a word cut short is a word handed over without its last letter"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "A",
+       "at": 0,
+       "gives": "A"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "short",
+         "at": 2,
+         "note": "the old name is cut short, losing its last letter"
+        }
+       ],
        "parts": [
         {
-         "words": "A",
-         "note": "the word as it stands"
+         "words": "former name for Thailand's",
+         "at": 8,
+         "gives": "SIAM",
+         "note": "Siam was Thailand's name until 1939"
         },
         {
-         "words": "former name for Thailand",
-         "gives": "SIA",
-         "note": "Thailand was called Siam until 1939, and SIAM cut short leaves SIA"
+         "gives": "M"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A quick note on what Thailand used to be called and where it sits.",
-     "walkthrough": "The apostrophe-s is standing for 'is' and merely joining the halves, not marking a possessive, which is why Thailand belongs to the wordplay and the continent to the definition.",
-     "definitionFit": "Asia is one of the continents, so the definition names the answer by its class rather than by a synonym."
+     "surface": "A clipped version of the old name for the country Thailand belongs to.",
+     "walkthrough": "A is followed by SIA, which is SIAM made 'short' by dropping its M.",
+     "definitionFit": "Asia is the largest of the world's land masses, and Thailand lies within it."
     },
     "features": {
      "answerInScene": true,
