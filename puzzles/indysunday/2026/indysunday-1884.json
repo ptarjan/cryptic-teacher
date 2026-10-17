@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -622,36 +623,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WIPER",
-     "indicators": [
-      {
-       "text": "decapitated",
-       "note": "A decapitated word has lost its head, so the snake arrives without its first letter."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "with",
+       "at": 30,
+       "gives": "W"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "decapitated",
+         "at": 35,
+         "note": "decapitated means its head, the first letter, is cut off"
+        }
+       ],
        "parts": [
         {
-         "words": "with",
-         "gives": "W",
-         "note": "w is the standard short form of with, the one used in recipes and notes"
+         "words": "snake",
+         "at": 47,
+         "gives": "VIPER",
+         "note": "a viper is a venomous snake"
         },
         {
-         "words": "snake",
-         "gives": "IPER",
-         "note": "the snake is a viper, and its head has been cut off"
+         "gives": "V"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The definition is the whole picture of a windscreen fitting, described so plainly that it reads as surface, while 'with' quietly does duty as a single letter.",
-     "definitionFit": "Arm waving in front of driver -> WIPER: a windscreen wiper is a hinged arm that sweeps to and fro across the glass ahead of the driver."
+     "surface": "A motorist gestures in alarm at a beheaded snake in the road.",
+     "walkthrough": "'Arm waving' sounds like a person signalling, but it is the windscreen wiper's arm, swinging in front of the driver.",
+     "definitionFit": "A windscreen wiper is a blade on a pivoting arm that sweeps back and forth before the driver's eyes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Arm"
     }
    }
   },
@@ -773,40 +784,49 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "FRIENDLY",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "in",
+       "at": 22,
+       "note": "the rearranged letters go in the word for hurry"
+      }
+     ],
      "parts": [
       {
-       "op": "container",
+       "words": "hurry",
+       "at": 25,
+       "gives": "FLY",
+       "note": "to fly is to rush or hurry, as in 'I must fly'"
+      },
+      {
+       "op": "anagram",
        "indicators": [
         {
          "text": "ordered",
-         "note": "Ordered here means put in a different order rather than tidied up, so the five letters before it are rearranged."
-        },
-        {
-         "text": "in",
-         "note": "The rearranged letters go in: inside the piece that follows, splitting it open rather than sitting next to it."
+         "at": 14,
+         "note": "ordered here means put into a new order, so the letters are rearranged"
         }
        ],
        "parts": [
         {
-         "words": "hurry",
-         "gives": "FLY",
-         "note": "to fly is to hurry, and this piece opens up to take the other letters"
-        },
-        {
          "words": "diner",
-         "gives": "RIEND",
-         "note": "the five letters of diner in a new arrangement"
+         "at": 8,
+         "note": "taken as written, the letters to be rearranged"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is a restaurant evening, and 'ordered in' reads as one phrase about takeaway food rather than as two separate instructions.",
-     "definitionFit": "Helpful -> FRIENDLY: a friendly face is a helpful one, the word covering willingness to assist as much as actual affection."
+     "surface": "A diner places a food order in a rush, and the staff are obliging.",
+     "walkthrough": "'Ordered' looks like the diner's meal order but rearranges DINER into RIEND, which goes inside FLY.",
+     "definitionFit": "Friendly can mean helpful or supportive, as in a friendly piece of advice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ordered"
     }
    }
   },
@@ -1049,42 +1069,60 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "SCOURGE",
-     "indicators": [
-      {
-       "text": "half of",
-       "note": "Only the front portion of the word is wanted, three letters out of its six."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "saving the last",
-         "note": "To save one is to hold it back rather than spend it, so the final letter never arrives."
+         "text": "half of",
+         "at": 5,
+         "note": "only half the word is kept, its first three letters, the rest being dropped"
         }
        ],
        "parts": [
         {
          "words": "Scotch",
-         "gives": "SCO",
-         "note": "the front half of the word, three letters out of six"
+         "at": 13,
+         "note": "taken as written before it is halved"
         },
         {
+         "gives": "TCH"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "saving the last",
+         "at": 26,
+         "note": "saving means except, so the word is taken without its last letter"
+        }
+       ],
+       "parts": [
+        {
          "words": "eggs",
-         "gives": "URGE",
-         "note": "to egg somebody on is to urge them, and the S at the end is held back"
+         "at": 20,
+         "gives": "URGES",
+         "note": "eggs, as in eggs on, means urges"
+        },
+        {
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "A Scotch egg is one picnic item on the surface and two separate pieces of wordplay underneath, with 'eggs' as a verb rather than a food.",
-     "definitionFit": "Flog -> SCOURGE: to scourge is to whip somebody, and flog is the everyday word for that punishment rather than for selling something off."
+     "surface": "Someone tries to sell off half their Scotch eggs but keeps the final one.",
+     "walkthrough": "'Eggs' is a verb, as in egg on, giving URGES, and 'saving the last' drops its final S. A Scotch egg is a boiled egg wrapped in sausage meat and breadcrumbs.",
+     "definitionFit": "To scourge someone is to whip them, so it is a synonym for flog."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eggs"
     }
    }
   },
