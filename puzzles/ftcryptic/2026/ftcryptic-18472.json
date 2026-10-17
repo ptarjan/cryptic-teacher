@@ -109,47 +109,46 @@
      "op": "container",
      "indicators": [
       {
-       "text": "initially",
-       "note": "'initially' means at the start, so take the first letter of each word"
+       "text": "full of",
+       "at": 21,
+       "note": "full of means the outer letters hold the next piece inside them"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "HR",
        "indicators": [
         {
-         "text": "full of",
-         "note": "the two letters are full of the next word, which fills the gap between them"
+         "text": "initially",
+         "at": 11,
+         "note": "initially asks for the opening letter of each of the words Hôtel and Ritz"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Hôtel Ritz initially",
-         "gives": "HR",
-         "select": "first",
-         "note": "first letters of Hôtel and Ritz, H…R"
+         "words": "Hôtel Ritz",
+         "at": 0,
+         "note": "the opening letters of Hôtel and Ritz"
         }
        ]
       },
       {
        "words": "rage",
+       "at": 29,
        "gives": "IRE",
-       "note": "ire = rage, placed between H and R"
+       "note": "rage is ire, anger"
       }
      ]
     },
     "explanation": {
-     "surface": "A guest storming through a grand Paris hotel in a fury.",
-     "walkthrough": "The question mark marks the definition as an example: someone hiring a car or a room is charged by time.",
-     "definitionFit": "A definition by example: someone renting a car or boat is often charged per hour."
+     "surface": "A furious guest at a grand Paris hotel, billed by the hour.",
+     "walkthrough": "'initially' takes HR from Hôtel Ritz, and 'full of' puts IRE inside it. The question mark flags a playful definition: a hirer pays for something by the hour.",
+     "definitionFit": "A hirer rents something for a set period, often paying an hourly rate for its use."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": true,
-     "misdirectedWord": "Hôtel"
+     "misdirectedWord": "full"
     }
    }
   },
@@ -343,42 +342,44 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "REVAMP",
-     "indicators": [
-      {
-       "text": "sent round",
-       "note": "something sent round turns to face the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "Minister",
+       "at": 0,
+       "gives": "REV",
+       "note": "REV is short for Reverend, a minister of religion"
+      },
+      {
+       "words": "first on list",
+       "at": 9,
+       "gives": "A",
+       "note": "A is the first item on a list, as in an A-list"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "sent round",
+         "at": 26,
+         "note": "sent round means the letters of PM are turned to face the other way"
+        }
+       ],
        "parts": [
         {
-         "words": "Minister",
-         "gives": "REV",
-         "note": "a minister of religion is a Reverend, REV"
-        },
-        {
-         "words": "first on list",
-         "gives": "A",
-         "note": "A is the label of a list’s first item"
-        },
-        {
-         "words": "PM sent round",
-         "gives": "MP",
-         "note": "PM turned round"
+         "words": "PM",
+         "at": 23,
+         "gives": "PM",
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A prime minister reshuffling the cabinet and putting a minister at the top of the list.",
-     "walkthrough": "The political surface points 'Minister' at government; it is a clergyman, and the PM is only there to be turned into an MP.",
-     "definitionFit": "A plain synonym: an overhaul or reorganisation of something."
+     "surface": "A cabinet reshuffle where the Prime Minister circulates the list of ministers.",
+     "walkthrough": "'Minister' looks like a cabinet member but is a clergyman, the Reverend; 'sent round' turns PM about.",
+     "definitionFit": "A revamp is a thorough reorganisation or renovation, which is what a shake-up of a team amounts to."
     },
     "features": {
      "answerInScene": true,
@@ -408,47 +409,50 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "ROGUE",
+     "op": "container",
      "indicators": [
       {
-       "text": "from behind",
-       "note": "read from behind means starting at the back"
+       "text": "in",
+       "at": 25,
+       "note": "in places the turned word within the street"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "words": "Parisian street",
+       "at": 28,
+       "gives": "RUE",
+       "note": "rue is the French word for street"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "in",
-         "note": "'in' places the reversed word inside the street"
+         "text": "from behind",
+         "at": 13,
+         "note": "from behind means the word go is read starting at its back end"
         }
        ],
        "parts": [
         {
-         "words": "Parisian street",
-         "gives": "RUE",
-         "note": "rue is French for street; the outer letters R…UE"
-        },
-        {
-         "words": "shot from behind",
-         "gives": "OG",
-         "note": "a shot = a go, read backwards, inside RUE"
+         "words": "shot",
+         "at": 8,
+         "gives": "GO",
+         "note": "a shot is a go, an attempt"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A gangster gunned down in the back on a street in Paris.",
-     "walkthrough": "'Shot' reads as gunfire in the crime scene; it is a noun, an attempt, a go.",
-     "definitionFit": "A plain synonym: a scoundrel, a dishonest rascal."
+     "surface": "A criminal gunned down from behind in a Paris street.",
+     "walkthrough": "'shot' looks like gunfire but means a go, an attempt; 'from behind' reads it backwards and 'in' sets it within the French street.",
+     "definitionFit": "A rogue is a dishonest or unprincipled person, a scoundrel, which is what a villain is."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
+     "joke": "pun",
      "misdirectedWord": "shot"
     }
    }
@@ -654,37 +658,49 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "NUGATORY",
-     "indicators": [
-      {
-       "text": "around",
-       "note": "turned around means facing the other way"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "around",
+         "at": 22,
+         "note": "around means the words an and arm are turned back to front"
+        }
+       ],
        "parts": [
         {
-         "words": "an arm around",
-         "gives": "NUGA",
-         "note": "an arm = A GUN, turned round"
-        },
-        {
-         "words": "Michael Gove?",
-         "gives": "TORY",
-         "note": "Michael Gove is a Conservative (Tory) politician; the question mark says he is an example"
+         "op": "charade",
+         "parts": [
+          {
+           "words": "an",
+           "at": 15,
+           "gives": "A",
+           "note": "an gives the single letter A, the indefinite article"
+          },
+          {
+           "words": "arm",
+           "at": 18,
+           "gives": "GUN",
+           "note": "a gun is a firearm, an arm"
+          }
+         ]
         }
        ]
+      },
+      {
+       "words": "Michael Gove?",
+       "at": 29,
+       "gives": "TORY",
+       "note": "Michael Gove is a Conservative politician, a Tory; the question mark marks the example"
       }
      ]
     },
     "explanation": {
-     "surface": "Continuing from 9 across, someone relieving themselves while putting an arm round a politician.",
-     "walkthrough": "After the toilet in 9 across, 'piddling' looks like more of the same; here it means trivial. Tory is the nickname for the UK Conservative party.",
-     "definitionFit": "A plain synonym: of no value or importance, trifling."
+     "surface": "Following on from the toilet clue, a jibe that Michael Gove's efforts are piddling.",
+     "walkthrough": "'arm' is a weapon, not a limb, and 'around' turns the first two pieces backwards. Gove served in Conservative cabinets.",
+     "definitionFit": "Nugatory means of no value or importance, trifling, so it matches piddling in the sense of trivial."
     },
     "features": {
      "answerInScene": false,
@@ -777,36 +793,26 @@
     ],
     "wordplay": {
      "op": "cycling",
-     "unchecked": true,
-     "gives": "RUBE",
      "indicators": [
       {
        "text": "back to front",
-       "note": "the back letter is sent to the front"
+       "at": 25,
+       "note": "back to front here means the last letter is moved round to the front of the word"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "taxi",
-         "gives": "R",
-         "note": "Uber, the ride-hailing firm, stands for a taxi; its back letter R goes first"
-        },
-        {
-         "words": "back to front",
-         "gives": "UBE",
-         "note": "the rest of UBER follows"
-        }
-       ]
+       "words": "taxi",
+       "at": 42,
+       "gives": "UBER",
+       "note": "Uber is a ride-hailing taxi firm"
       }
      ]
     },
     "explanation": {
-     "surface": "A naive American tourist sitting the wrong way round in a cab.",
-     "walkthrough": "'Back to front' wants to reverse the whole word, giving REBU; only the back letter goes to the front.",
-     "definitionFit": "A regional use: US slang for a naive country bumpkin."
+     "surface": "A naive American sitting the wrong way round in a cab.",
+     "walkthrough": "'back to front' moves the R of UBER from the back to the front.",
+     "definitionFit": "A rube is a US slang term for a naive country bumpkin, an unsophisticated person."
     },
     "features": {
      "answerInScene": true,
@@ -895,52 +901,56 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "FIONASHAW",
+     "op": "container",
      "indicators": [
       {
-       "text": "climbing",
-       "note": "in a down entry, climbing means reading upwards"
+       "text": "around",
+       "at": 40,
+       "note": "around means the turned word wraps about the next pieces"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "around",
-         "note": "the reversed word goes around the others, holding them inside"
+         "text": "climbing",
+         "at": 31,
+         "note": "climbing in a down clue means the word waif reads upwards, backwards"
         }
        ],
        "parts": [
         {
-         "op": "container",
-         "parts": [
-          {
-           "words": "neglected child climbing",
-           "gives": "FIAW",
-           "note": "a waif is a neglected child; WAIF read upwards, the outer letters FI…AW"
-          },
-          {
-           "words": "on",
-           "note": "on is used as itself, inside FIAW"
-          }
-         ]
+         "words": "neglected child",
+         "at": 15,
+         "gives": "WAIF",
+         "note": "a waif is a homeless, neglected child"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "on",
+         "at": 47,
+         "gives": "ON",
+         "note": "taken as written"
         },
         {
          "words": "smoking waste",
+         "at": 50,
          "gives": "ASH",
-         "note": "ash is what smoking leaves, inside FIAW after ON"
+         "note": "ash is the waste left by smoking"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A child actor left alone, scrambling about on a heap of smouldering rubbish.",
-     "walkthrough": "The bracket marks her as a speaker at the festival at 5 down.",
-     "definitionFit": "A definition by example: the Irish performer is known for stage work and Killing Eve."
+     "surface": "An actor depicted as a neglected urchin clambering about on a pile of cigarette ash.",
+     "walkthrough": "'climbing' reads the child upwards, and 'around' wraps that about the rest. Fiona Shaw is an Irish actor; the cross-references point to the puzzle's theme.",
+     "definitionFit": "Fiona Shaw is a well-known stage and screen performer, known for Harry Potter and Killing Eve."
     },
     "features": {
      "answerInScene": false,
@@ -973,38 +983,50 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "mostly",
-       "note": "mostly means not quite all, so COMEDY loses its last letter"
+       "text": "to the left",
+       "at": 44,
+       "note": "to the left means the letters are read from right to left, backwards"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "to the left",
-         "note": "in an across entry, going to the left means reading right to left"
-        }
-       ],
        "parts": [
         {
          "words": "pitch",
+         "at": 24,
          "gives": "TAR",
-         "note": "pitch = tar, the black sticky stuff"
+         "note": "pitch is tar, the black sticky substance"
         },
         {
-         "words": "humour mostly",
-         "gives": "COMED",
-         "note": "COMEDY without its last letter"
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "mostly",
+           "at": 37,
+           "note": "mostly means the last letter of comedy is lopped off"
+          }
+         ],
+         "parts": [
+          {
+           "words": "humour",
+           "at": 30,
+           "gives": "COMEDY",
+           "note": "comedy is humour"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A campaign adviser urging a politician to slant their jokes leftwards.",
-     "walkthrough": "The surface pitches humour to the left as politics; 'to the left' is the reading direction, and 'pitch' is the substance, tar.",
-     "definitionFit": "A definition by example: a member of the Democratic Party, the more left-leaning of the two big US parties."
+     "surface": "Advice to a US politician to aim jokes at the left wing.",
+     "walkthrough": "'mostly' cuts COMEDY to COMED; TAR plus COMED is TARCOMED, and 'to the left' reads it backwards.",
+     "definitionFit": "A Democrat is a member of the Democratic Party, one of the two main US political parties."
     },
     "features": {
      "answerInScene": true,
@@ -1157,42 +1179,43 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "BOYHOODS",
-     "indicators": [
-      {
-       "text": "repelled",
-       "note": "something repelled is driven back, so YOB is read backwards"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "repelled",
+         "at": 12,
+         "note": "repelled means the word yob is pushed back, read backwards"
+        }
+       ],
        "parts": [
         {
-         "words": "repelled lout",
-         "gives": "BOY",
-         "note": "a lout = a yob, turned back"
-        },
-        {
-         "words": "thugs",
-         "gives": "HOODS",
-         "note": "hoods = hoodlums, thugs"
+         "words": "lout",
+         "at": 21,
+         "gives": "YOB",
+         "note": "a yob is a British slang word for a lout"
         }
        ]
+      },
+      {
+       "words": "thugs",
+       "at": 30,
+       "gives": "HOODS",
+       "note": "hoods is slang for hoodlums, thugs"
       }
      ]
     },
     "explanation": {
-     "surface": "Young men fending off a lout and his gang.",
-     "walkthrough": "'Male youths' reads as young men; it means the times of being young, as in 'their boyhoods'. YOB is British slang for a lout.",
-     "definitionFit": "A plain synonym in the abstract sense of youth: the years of being a young lad."
+     "surface": "Young men driven off a gang of louts and thugs.",
+     "walkthrough": "'repelled' turns YOB into BOY; a yob is British slang for a rowdy young man.",
+     "definitionFit": "Boyhoods are the periods when males are young, their youths in the sense of time of life."
     },
     "features": {
-     "answerInScene": false,
-     "aptDefinition": true,
-     "misdirectedWord": "youths"
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "repelled"
     }
    }
   },
@@ -1268,47 +1291,45 @@
      "indicators": [
       {
        "text": "on",
-       "note": "in an across clue, A on B puts A after B, so the wine follows"
+       "at": 11,
+       "note": "on puts the wine after the letters from trip"
       }
      ],
      "parts": [
       {
        "op": "alternate",
-       "unchecked": true,
-       "gives": "TI",
        "indicators": [
         {
          "text": "in odd places",
-         "note": "take the letters in the odd-numbered places of the word"
+         "at": 19,
+         "note": "in odd places asks for the first and third letters of trip"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "trip in odd places",
-         "gives": "TI",
-         "select": "alternate",
-         "note": "TrIp, letters 1 and 3"
+         "words": "trip",
+         "at": 14,
+         "note": "the first and third letters of trip"
         }
        ]
       },
       {
        "words": "wine",
+       "at": 6,
        "gives": "RED",
-       "note": "red = red wine"
+       "note": "red is wine"
       }
      ]
     },
     "explanation": {
-     "surface": "Flat wine served on a journey through strange places.",
-     "walkthrough": "'Odd places' sounds like strange destinations on the trip; it means odd-numbered positions.",
-     "definitionFit": "A plain synonym: overused and lacking freshness, as with an old joke."
+     "surface": "Wine that has gone flat on a journey.",
+     "walkthrough": "'in odd places' takes T and I from trip, and 'on' puts RED after them.",
+     "definitionFit": "Tired can describe something hackneyed or overused, such as a stale joke or idea."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "odd"
+     "misdirectedWord": "trip"
     }
    }
   },
@@ -1642,42 +1663,31 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WORDLE",
+     "op": "composite",
+     "indicators": [
+      {
+       "text": "could be",
+       "at": 19,
+       "note": "could be means the letters of wonderful may be rearranged into another form"
+      }
+     ],
      "parts": [
       {
-       "op": "charade",
-       "indicators": [
-        {
-         "text": "could be",
-         "note": "the letters could be turned into the other word, so the two are anagrams of each other"
-        }
-       ],
-       "parts": [
-        {
-         "op": "anagram",
-         "parts": [
-          {
-           "words": "wonderful",
-           "gives": "WODERL",
-           "note": "WONDERFUL with the letters of FUN taken out"
-          }
-         ]
-        },
-        {
-         "unchecked": true,
-         "words": "Fun",
-         "note": "the letters removed from WONDERFUL"
-        }
-       ]
+       "words": "wonderful",
+       "at": 28,
+       "note": "taken as written"
+      },
+      {
+       "words": "Fun",
+       "at": 0,
+       "note": "taken as written: these letters are removed from the pool"
       }
      ]
     },
     "explanation": {
-     "surface": "A cheerful endorsement of a game that is great fun.",
-     "walkthrough": "The clue works backwards: FUN plus the answer could be rearranged into WONDERFUL, so the answer is what is left of WONDERFUL once FUN is removed, reordered.",
-     "definitionFit": "A definition by example: the daily online five-letter guessing puzzle."
+     "surface": "A cheery remark that playing this game is wonderful fun.",
+     "walkthrough": "'could be' says WONDERFUL rearranges: it holds the letters of FUN plus six more, and those six give the answer.",
+     "definitionFit": "Wordle is the online daily word puzzle in which players guess a five-letter word in six tries."
     },
     "features": {
      "answerInScene": true,
