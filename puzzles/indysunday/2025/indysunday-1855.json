@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -137,42 +138,33 @@
     ],
     "wordplay": {
      "op": "homophone",
-     "unchecked": true,
-     "gives": "VACCINATE",
+     "spelt": "VACCINATE",
      "indicators": [
       {
        "text": "Hearing of",
-       "note": "Hearing of something reaches you as sound, so the phrase that follows is wanted for the noise it makes rather than its spelling."
+       "at": 0,
+       "note": "hearing signals that the phrase is spoken aloud and the answer is what it sounds like"
       }
      ],
      "parts": [
       {
-       "words": "hols",
-       "gives": "VAC",
-       "note": "the vac is what British students call the university holidays"
-      },
-      {
-       "words": "narrow boat",
-       "gives": "EIGHT",
-       "note": "an eight is the long thin racing boat pulled by eight oarsmen"
-      },
-      {
-       "op": "homophone",
-       "spelt": "VACCINATE",
-       "parts": [
-        {
-         "words": "hols in narrow boat",
-         "gives": "VACINEIGHT",
-         "note": "say the three little words straight through and the joins between them vanish"
-        }
-       ]
+       "words": "hols in narrow boat",
+       "at": 11,
+       "gives": "VACINEIGHT",
+       "note": "hols are holidays, a VAC (vacation); a narrow boat is an EIGHT, a rowing shell; said aloud, VAC IN EIGHT"
       }
      ]
     },
     "explanation": {
-     "surface": "Told that the holiday will be spent on a canal boat, you brace yourself for grim weather.",
-     "walkthrough": "The narrow boat of the surface is a canal barge and the wordplay wants the racing sort, the rowing eight; 'hols' is schoolboy shorthand the setter expects you to carry.",
-     "definitionFit": "To vaccinate is to prime somebody's immune system in advance so that it can meet a disease already ready for it."
+     "surface": "Someone getting ready for a rough holiday cruising the canals in a narrowboat.",
+     "walkthrough": "VAC is the British student word for vacation, and an EIGHT is a long thin rowing boat crewed by eight oarsmen; 'vac in eight' said aloud gives the answer. 'Narrow boat' suggests a canal barge, but it is the racing eight.",
+     "definitionFit": "Vaccination protects the body in advance against disease, so to vaccinate is to equip someone to withstand harsh conditions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "narrow"
     }
    }
   },
@@ -370,46 +362,57 @@
      "op": "container",
      "indicators": [
       {
-       "text": "bad",
-       "note": "Food gone bad has gone off, and letters that have gone off will not stay in the order the clue prints them."
+       "text": "around",
+       "at": 26,
+       "note": "around says the reworked letters of diet are wrapped about the next piece"
       }
      ],
      "parts": [
       {
        "op": "anagram",
+       "indicators": [
+        {
+         "text": "bad",
+         "at": 17,
+         "note": "bad suggests the letters of the word diet have gone wrong and must be rearranged"
+        }
+       ],
        "parts": [
         {
          "words": "diet",
-         "note": "anagram fodder, four letters"
+         "at": 21
         }
        ]
       },
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "M",
        "indicators": [
         {
-         "text": "around",
-         "note": "Something placed around another thing encloses it, so the shuffled letters close over the single letter named next."
+         "text": "start of",
+         "at": 33,
+         "note": "start of asks for only the opening letter of the following word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "start of May",
+         "words": "May",
+         "at": 42,
          "gives": "M",
-         "select": "first",
-         "note": "the first letter of May"
+         "note": "first letter of May"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A Scot swearing off a poor diet as May begins.",
-     "walkthrough": "'Give up' reads as abandoning a habit and means resigning an office, and 'Scottish' is the label a dictionary puts on this verb rather than a piece of the picture.",
-     "definitionFit": "Demit is the Scots and legal word for giving up an office — resigning a post, rather than abandoning a habit."
+     "surface": "A Scot abandoning an unhealthy eating plan once May begins.",
+     "walkthrough": "The rearranged DIET becomes DEIT, which goes around M to finish the answer.",
+     "definitionFit": "In Scots usage the verb means to resign or relinquish an office, so it is a regional synonym for give up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "diet"
     }
    }
   },
@@ -914,7 +917,7 @@
    "annotation": {
     "definitions": [
      {
-      "text": "people in shower",
+      "text": "people in shower?",
       "at": 32
      }
     ],
@@ -922,42 +925,48 @@
      "op": "container",
      "indicators": [
       {
-       "text": "Empty",
-       "note": "An empty container has had its middle taken out, so only the outside letters of the word that follows are left standing."
+       "text": "filled by",
+       "at": 14,
+       "note": "filled by says the next piece goes into the middle of the emptied word"
       }
      ],
      "parts": [
       {
        "op": "outer",
-       "unchecked": true,
-       "gives": "BS",
        "indicators": [
         {
-         "text": "filled by",
-         "note": "Something filled by another thing takes it inside, so the next word goes into the gap the emptying has just made."
+         "text": "Empty",
+         "at": 0,
+         "note": "empty means the inside of the word bottles is removed, leaving just its outside letters"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Empty bottles",
+         "words": "bottles",
+         "at": 6,
          "gives": "BS",
-         "select": "outer",
-         "note": "bottles with everything between the outer letters poured away"
+         "note": "first and last letters of bottles"
         }
        ]
       },
       {
        "words": "blonder",
+       "at": 24,
        "gives": "LIGHTER",
-       "note": "hair that is blonder is lighter"
+       "note": "blonder hair is lighter in colour"
       }
      ]
     },
     "explanation": {
-     "surface": "A crowd of fair-haired drinkers refilling the bottles they have emptied.",
-     "walkthrough": "'Shower' is not rain but the British insult for a useless bunch, and the question mark is the setter owning up to how loose that is.",
-     "definitionFit": "Blighters are contemptible fellows, and a shower is British slang for a hopeless bunch of them, so the definition carries the disapproval too."
+     "surface": "Bottles of hair dye that make the people in the shower blonder.",
+     "walkthrough": "A 'shower' in British slang is a contemptible bunch of people, hence the question mark; it is not a wash.",
+     "definitionFit": "Blighters is British slang for annoying or worthless fellows, the sort of people disparaged as a shower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shower"
     }
    }
   },
@@ -1036,40 +1045,44 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "MOONRAKER",
      "indicators": [
       {
        "text": "for Spooner",
-       "note": "The Reverend Spooner was famous for swapping the opening sounds of two words, so the pair described here trade their first noises."
+       "at": 30,
+       "note": "for Spooner means the opening sounds of the two words are swapped, as Reverend Spooner did"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "op": "homophone",
+       "spelt": "ROON",
        "parts": [
         {
-         "unchecked": true,
          "words": "secret character",
-         "gives": "MOON",
-         "soundsLike": "RUNE",
-         "note": "a rune is a letter of the old Germanic alphabet, long used for writing in secret"
-        },
-        {
-         "unchecked": true,
-         "words": "One creating",
-         "gives": "RAKER",
-         "soundsLike": "MAKER",
-         "note": "one who creates a thing is its maker"
+         "at": 13,
+         "gives": "RUNE",
+         "note": "a rune is a letter of an ancient, mysterious alphabet, a secret character; it is said ROON"
         }
        ]
+      },
+      {
+       "words": "One creating",
+       "at": 0,
+       "gives": "MAKER",
+       "note": "one who creates is a maker"
       }
      ]
     },
     "explanation": {
-     "surface": "Somebody writing a mystery part for the Reverend Spooner in a spy movie.",
-     "walkthrough": "Say 'rune maker' and trade the opening noises. The vowel slides a little on the way — 'roon' becomes 'moon' — which is the sort of drift a spoonerism is allowed.",
-     "definitionFit": "Moonraker is the 1979 James Bond picture, so the definition works by example — one spy film standing in for the class."
+     "surface": "A spy film script calls for someone to devise a coded symbol.",
+     "walkthrough": "Swapping the opening sounds of RUNE MAKER gives a sound like MOON RAKER, the James Bond film.",
+     "definitionFit": "Moonraker is the 1979 James Bond film, so it is an example of a spy movie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "character"
     }
    }
   },
@@ -1331,37 +1344,56 @@
     ],
     "wordplay": {
      "op": "anagram",
+     "indicators": [
+      {
+       "text": "Doctor",
+       "at": 0,
+       "note": "to doctor something is to tamper with it, so the letters are rearranged"
+      }
+     ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "D",
        "indicators": [
         {
-         "text": "Doctor",
-         "note": "To doctor something is to tamper with it, and letters tampered with come back in a different order."
+         "text": "beginning to",
+         "at": 7,
+         "note": "beginning to asks for the first letter of the word after it"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "beginning to doubt",
+         "words": "doubt",
+         "at": 20,
          "gives": "D",
-         "select": "first",
-         "note": "the first letter of doubt"
+         "note": "first letter of doubt"
         }
        ]
       },
       {
-       "words": "Roger's charm in",
-       "note": "anagram fodder, thirteen letters, the apostrophe ignored"
+       "words": "Roger's",
+       "at": 26
+      },
+      {
+       "words": "charm",
+       "at": 34
+      },
+      {
+       "words": "in",
+       "at": 40
       }
      ]
     },
     "explanation": {
-     "surface": "A physician beginning to suspect that Roger is charming his way into bed.",
-     "walkthrough": "'In the sack' is bed in the surface and dismissal in the definition, and the little word 'in' belongs to the letters rather than to the phrase it appears to start.",
-     "definitionFit": "Marching orders are the instruction to leave, which is what getting the sack amounts to — dismissal issued as a command."
+     "surface": "A doctor sceptical of Roger's bedside manner, or of his charm under the covers.",
+     "walkthrough": "'Doctor' looks like the subject of the sentence, but it is the anagram signal. 'In the sack' looks like a bed; 'the sack' alone is the definition.",
+     "definitionFit": "Getting one's marching orders is an idiom for being dismissed from a job, just like getting the sack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Doctor"
     }
    }
   },
