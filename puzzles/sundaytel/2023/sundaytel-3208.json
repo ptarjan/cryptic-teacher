@@ -1203,44 +1203,47 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "KUDOS",
+     "op": "anagram",
      "indicators": [
       {
-       "text": "Incomplete",
-       "note": "something incomplete is missing its end, so a final letter is dropped"
+       "text": "surprisingly",
+       "at": 18,
+       "note": "surprisingly signals an unexpected outcome, so the remaining letters are rearranged"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "surprisingly",
-         "note": "a surprising result is an unexpected one, so the letters come out in an unexpected order"
+         "text": "Incomplete",
+         "at": 0,
+         "note": "incomplete says the word is cut short, losing its final letter"
         }
        ],
        "parts": [
         {
          "words": "sudoku",
-         "gives": "SUDOK",
-         "note": "the number puzzle with its last letter cut"
+         "at": 11,
+         "note": "taken as written"
+        },
+        {
+         "gives": "U"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Leaving a number puzzle unfinished somehow earns you compliments.",
-     "walkthrough": "The surface's paradox is a cheeky joke; drop the final U and the five remaining letters rearrange.",
-     "definitionFit": "Kudos means honour, acclaim or credit given for an achievement, which is what admiring words express."
+     "surface": "Leaving a sudoku unfinished will, oddly, earn you compliments.",
+     "walkthrough": "'Incomplete' drops a U from SUDOKU (the setter means the final one, though for the anagram either U will do), and 'surprisingly' rearranges the five letters left.",
+     "definitionFit": "Kudos is honour or acclaim earned by an achievement, from a Greek word for glory."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "surprisingly"
+     "misdirectedWord": "sudoku"
     }
    }
   },
@@ -1271,61 +1274,62 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WATERPOLO",
+     "op": "container",
      "indicators": [
       {
-       "text": "almost",
-       "note": "almost means not quite all, so the last letter is lost"
+       "text": "catching",
+       "at": 14,
+       "note": "catching means the shortened defeat holds the other letters inside it"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "deletion",
        "indicators": [
         {
-         "text": "catching",
-         "note": "to catch something is to take hold of it, so one piece is held within another"
+         "text": "almost",
+         "at": 7,
+         "note": "almost says the word for defeat loses its last letter"
         }
        ],
        "parts": [
         {
          "words": "Defeat",
-         "gives": "WATERLO",
-         "note": "Waterloo, Napoleon's last battle, is a byword for final defeat; trimmed by one letter"
+         "at": 0,
+         "gives": "WATERLOO",
+         "note": "Waterloo, after Napoleon's final battle, means a decisive defeat"
         },
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "PO",
-         "indicators": [
-          {
-           "text": "initially",
-           "note": "initially means at the start, so just the opening letters are taken"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "people out",
-           "gives": "PO",
-           "select": "first",
-           "note": "the first letters of the two words"
-          }
-         ]
+         "gives": "O"
+        }
+       ]
+      },
+      {
+       "op": "first",
+       "indicators": [
+        {
+         "text": "initially",
+         "at": 35,
+         "note": "initially says take the first letter of each of the words people and out"
+        }
+       ],
+       "parts": [
+        {
+         "words": "people out",
+         "at": 23,
+         "note": "the two words whose opening letters are used"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A team nearly loses at cricket despite getting batsmen out early on.",
-     "walkthrough": "'Meet one's Waterloo' means suffer a final defeat, after Napoleon's last battle in 1815.",
-     "definitionFit": "Water polo is a team ball game played by swimmers in a pool, an example of a sport."
+     "surface": "A team nearly loses a match after catching a batch of opponents out early on.",
+     "walkthrough": "'Defeat' wants to be read as a verb; it is the noun, a Waterloo, from Napoleon's last battle, as in 'meet one's Waterloo'. Its letters split around the two initials.",
+     "definitionFit": "Water polo is a team ball game played by swimmers in a pool, scoring goals at each end."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "misdirectedWord": "catching"
     }
