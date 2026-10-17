@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -110,39 +111,45 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "GAPYEAR",
+     "spelt": "GAPYEAR",
      "indicators": [
       {
        "text": "with Spooner",
-       "note": "The Reverend Spooner's tongue-slips traded the opening sounds of two words, so his name is the standing signal to trade them."
+       "at": 26,
+       "note": "the Reverend Spooner was famous for swapping the opening sounds of words, so the two words trade their first letters"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "Constantly talk",
+       "at": 0,
+       "gives": "YAP",
+       "note": "to yap is to chatter on and on"
+      },
+      {
+       "op": "homophone",
+       "spelt": "GEER",
        "parts": [
         {
-         "unchecked": true,
-         "words": "Constantly talk",
-         "gives": "GAP",
-         "soundsLike": "YAP",
-         "note": "to yap is to talk constantly, and this word hands its Y over to the one behind it"
-        },
-        {
-         "unchecked": true,
          "words": "equipment",
-         "gives": "YEAR",
-         "soundsLike": "GEAR",
-         "note": "equipment is gear, and it takes in exchange the Y that was just given up"
+         "at": 16,
+         "gives": "GEAR",
+         "note": "gear is kit or equipment; said aloud it rhymes with year, so its vowel sound is written here as GEER"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Say the wordplay aloud before you write anything down: the swap happens in the mouth, not on the page, and the surface's talk of kit is pure decoration.",
-     "definitionFit": "period before university → GAP YEAR: the year school-leavers take out to travel or work between finishing school and starting a degree."
+     "surface": "A student chatting endlessly about kit for the year off before college.",
+     "walkthrough": "'with Spooner' trades the first sounds of the two words; in Britain this is the year many students take out between school and university.",
+     "definitionFit": "A gap year is a year out, typically spent travelling or working, taken before starting a degree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "equipment"
     }
    }
   },
@@ -1440,40 +1447,49 @@
      "indicators": [
       {
        "text": "on",
-       "note": "In an across entry one thing sits on another by following it along the row, so the piece named before this word is written second."
+       "at": 5,
+       "note": "in an across clue, the post sits on, so after, the half wage"
       }
      ],
      "parts": [
       {
-       "op": "last",
-       "unchecked": true,
-       "gives": "GE",
+       "op": "deletion",
        "indicators": [
         {
          "text": "half of",
-         "note": "Half of a four-letter word is two letters, and nothing here says which two: the pair that leaves a word when the pieces are joined is the one wanted."
+         "at": 8,
+         "note": "only one half of the word is used, here the second half"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "half of wage",
-         "gives": "GE",
-         "select": "last",
-         "note": "the word split down the middle, with the back two letters kept"
+         "words": "wage",
+         "at": 16,
+         "note": "its second half is used"
+        },
+        {
+         "gives": "WA",
+         "note": "the first half of wage, dropped"
         }
        ]
       },
       {
        "words": "Post",
+       "at": 0,
        "gives": "STATION",
-       "note": "a sentry's post is a station, the place they are set to keep"
+       "note": "a station is a post, a place where someone is stationed"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "The surface is payroll admin, and 'Post' is the military sense rather than the mail. An across clue's 'on' means 'after', so the piece the clue names first is the one written last.",
-     "definitionFit": "when things are developing → GESTATION: the period in which something is carried and grows before it emerges, whether an infant or an idea."
+     "surface": "Someone posted to a job on half pay while things get sorted out.",
+     "walkthrough": "'Post' looks like a verb about mail, but it is the noun for an assigned place.",
+     "definitionFit": "Gestation is the period of pregnancy, the time during which an embryo is developing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Post"
     }
    }
   },
@@ -1549,39 +1565,48 @@
      "parts": [
       {
        "words": "say",
+       "at": 15,
        "gives": "EG",
-       "note": "'say' introduces an example, which is what e.g. stands for"
+       "note": "eg (for example) is the abbreviation said when giving an example"
       },
       {
        "words": "Oscar",
+       "at": 19,
        "gives": "O",
-       "note": "Oscar is O in the phonetic alphabet used over the radio"
+       "note": "Oscar is O in the NATO phonetic alphabet"
+      },
+      {
+       "words": "is",
+       "at": 25
       },
       {
        "op": "outer",
        "indicators": [
         {
          "text": "extremely",
-         "note": "The extremes of a word are its two ends, so everything between the first and last letters is dropped."
+         "at": 28,
+         "note": "the extremes of a word are its first and last letters"
         }
        ],
        "parts": [
         {
-         "words": "is",
-         "note": "the clue's own word, taken at face value as two letters"
+         "words": "tedious",
+         "at": 38,
+         "note": "supplies its first and last letters"
         }
        ]
-      },
-      {
-       "words": "extremely tedious",
-       "gives": "TS",
-       "note": "the outer letters of the adjective, with its middle thrown away"
       }
      ]
     },
     "explanation": {
-     "walkthrough": "Four small pieces in a row, and the trap is reading Oscar as somebody being gossiped about. Every word here supplies letters, including the innocuous 'is'.",
-     "definitionFit": "Selfish people → EGOISTS: an egoist puts their own interest first on principle, so the plural names exactly that kind of person."
+     "surface": "A critic claiming that a man called Oscar is terribly boring.",
+     "walkthrough": "'say' gives EG, as in 'for example', and the extremes of tedious give TS.",
+     "definitionFit": "Egoists put themselves first, which is what makes them selfish people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
     }
    }
   },
