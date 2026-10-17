@@ -555,47 +555,47 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "back",
-       "note": "the back of a word is its last letter"
+       "text": "behind",
+       "at": 22,
+       "note": "behind places the dog's name after the shepherd's final letter"
       }
      ],
      "parts": [
       {
        "op": "last",
-       "unchecked": true,
-       "gives": "D",
        "indicators": [
         {
-         "text": "behind",
-         "note": "behind means following after, so the dog's name comes after the shepherd's last letter"
+         "text": "back",
+         "at": 40,
+         "note": "the back of a word is its final letter, so only the end of shepherd is used"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "shepherd's back",
-         "gives": "D",
-         "select": "last",
-         "note": "last letter of shepherD"
+         "words": "shepherd's",
+         "at": 29,
+         "gives": "SHEPHERD",
+         "note": "shepherd's is the possessive of shepherd, whose last letter is used"
         }
        ]
       },
       {
        "words": "dog",
+       "at": 18,
        "gives": "ROVER",
-       "note": "Rover is the stock name for a dog"
+       "note": "Rover is the stock name for a pet dog"
       }
      ]
     },
     "explanation": {
-     "surface": "A sheepdog trotting along behind the shepherd as the flock is moved.",
-     "walkthrough": "The surface places the dog behind the shepherd himself; the wordplay puts it behind only his last letter.",
-     "definitionFit": "A description: one who drives cattle or sheep to market, moving animals for a living."
+     "surface": "A sheepdog trots along behind its shepherd, moving the flock.",
+     "walkthrough": "The 's of shepherd's just makes it possessive: the back of shepherd is D, and ROVER goes behind it.",
+     "definitionFit": "A drover is someone who drives cattle or sheep to market, literally moving livestock."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "back"
+     "misdirectedWord": "dog"
     }
    }
   },
@@ -851,35 +851,39 @@
      "op": "reversal",
      "indicators": [
       {
-       "text": "originally",
-       "note": "the origin of 'stake' is its first letter"
+       "text": "looking back",
+       "at": 49,
+       "note": "looking back says the assembled letters are read from right to left"
       }
      ],
      "parts": [
       {
        "op": "charade",
-       "indicators": [
-        {
-         "text": "looking back",
-         "note": "the assembled string is read backwards"
-        }
-       ],
        "parts": [
         {
          "words": "charity",
+         "at": 20,
          "gives": "AID",
-         "note": "aid = charity, help for those in need"
+         "note": "aid is charitable help"
         },
         {
          "words": "at",
-         "note": "used as it stands"
+         "at": 28
         },
         {
          "op": "first",
+         "indicators": [
+          {
+           "text": "originally",
+           "at": 37,
+           "note": "originally points to the starting letter of stake"
+          }
+         ],
          "parts": [
           {
-           "words": "stake originally",
-           "note": "first letter of Stake"
+           "words": "stake",
+           "at": 31,
+           "note": "first letter of stake"
           }
          ]
         }
@@ -888,12 +892,12 @@
      ]
     },
     "explanation": {
-     "surface": "Big arenas where a charity event has money riding on it.",
-     "walkthrough": "The whole string AIDATS is reversed at once, not each piece in place. The Latin plural is the one needed to fit six letters.",
-     "definitionFit": "A loose synonym: arenas ringed with tiered seats, as Roman amphitheatres were."
+     "surface": "A charity event at an old arena where money was put at stake.",
+     "walkthrough": "'originally' takes just the S of stake, and 'looking back' turns the whole string AIDATS round to read STADIA.",
+     "definitionFit": "Stadia is the classical plural of stadium, a large arena for spectators, much like an amphitheatre."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "stake"
     }
@@ -968,55 +972,50 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
      "indicators": [
       {
-       "text": "turning"
+       "text": "around",
+       "at": 33,
+       "note": "around tells us the turned roads enclose the abbreviation for example"
       }
      ],
      "parts": [
       {
-       "op": "container",
+       "op": "reversal",
        "indicators": [
         {
-         "text": "around",
-         "note": "around means surrounding, so the turned roads enclose the abbreviation"
+         "text": "seen after turning",
+         "at": 14,
+         "note": "seen after turning means the word for roads is viewed once flipped end to end"
         }
        ],
        "parts": [
         {
-         "op": "reversal",
-         "parts": [
-          {
-           "words": "roads",
-           "gives": "LANES",
-           "note": "lanes = roads"
-          }
-         ]
-        },
-        {
-         "words": "for example",
-         "gives": "EG",
-         "note": "e.g. = for example"
+         "words": "roads",
+         "at": 8,
+         "gives": "LANES",
+         "note": "lanes are minor roads"
         }
        ]
       },
       {
-       "unchecked": true,
-       "words": "seen after",
-       "note": "surface padding: the roads are simply seen once turned"
+       "words": "for example",
+       "at": 40,
+       "gives": "EG",
+       "note": "e.g. is the abbreviation for exempli gratia, for example"
       }
      ]
     },
     "explanation": {
-     "surface": "Country roads spotted after someone turns round.",
-     "walkthrough": "'Country roads' reads as one rural phrase, but 'Country' alone is the definition.",
-     "definitionFit": "A definition by category: a nation in West Africa."
+     "surface": "Driving the country roads, glimpsed after a turn, as an example.",
+     "walkthrough": "'seen after turning' flips the roads word end to end, and 'around' wraps that around the Latin-derived abbreviation for example; 'Country' alone is the definition.",
+     "definitionFit": "Senegal is a nation in West Africa, on the Atlantic coast."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "Country"
+     "misdirectedWord": "turning"
     }
    }
   },
@@ -1083,49 +1082,44 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "novel",
-       "note": "novel means new, so I ALTER is rearranged"
+       "text": "ending",
+       "at": 5,
+       "note": "ending here means bringing the line to a close, the abbreviation being joined straight onto the rearranged letters"
       }
      ],
      "parts": [
       {
+       "words": "Line",
+       "at": 0,
+       "gives": "L"
+      },
+      {
        "op": "anagram",
        "indicators": [
         {
-         "text": "ending"
+         "text": "novel",
+         "at": 12,
+         "note": "novel means new, so the letters of I alter are given a new arrangement"
         }
        ],
        "parts": [
         {
          "words": "I alter",
-         "note": "rearranged to LITERA"
-        }
-       ]
-      },
-      {
-       "op": "last",
-       "unchecked": true,
-       "gives": "L",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Line",
-         "gives": "L",
-         "select": "last",
-         "note": "L = line"
+         "at": 18,
+         "note": "taken as written"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Changing the last line of a novel so it reads exactly right.",
-     "walkthrough": "'Novel' reads as a book but is the anagram indicator; 'Line ending' reads as the last line of that book.",
-     "definitionFit": "A plain sense: taking words in their exact, word-for-word meaning."
+     "surface": "A writer reworking the closing line of a novel.",
+     "walkthrough": "'novel' rearranges I ALTER to ITERAL, and 'ending' has the line's abbreviation L joined on to it at the front.",
+     "definitionFit": "A literal reading takes words in their plain, word-for-word sense, with no figurative interpretation."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false,
+     "aptDefinition": true,
      "misdirectedWord": "novel"
     }
    }
@@ -1234,46 +1228,54 @@
      "indicators": [
       {
        "text": "in",
-       "note": "'in' says the success sits inside the letters that follow"
+       "at": 17,
+       "note": "in places a success inside the central letters of nation"
       }
      ],
      "parts": [
       {
        "op": "middle",
-       "unchecked": true,
-       "gives": "TI",
        "indicators": [
         {
          "text": "heart of",
-         "note": "the heart of a word is its middle letters"
+         "at": 20,
+         "note": "the heart of a word is its central letters, here the middle two of nation"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "heart of nation",
-         "gives": "TI",
-         "select": "middle",
-         "note": "middle two letters of naTIon"
+         "words": "nation",
+         "at": 29,
+         "note": "middle letters of nation"
         }
        ]
       },
       {
-       "words": "a success",
-       "gives": "AHIT",
-       "note": "a hit = a success"
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 7
+        },
+        {
+         "words": "success",
+         "at": 9,
+         "gives": "HIT",
+         "note": "a hit is a success"
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "An island that has become a success at the heart of a nation.",
-     "walkthrough": "'Heart of nation' takes two letters, not one, because the word has an even number of letters.",
-     "definitionFit": "A definition by category: the largest island of French Polynesia."
+     "surface": "An island scores a success at the heart of the nation.",
+     "walkthrough": "'heart of' takes the central pair of letters of a six-letter word, and 'in' sets 'a success' inside that pair rather than the whole nation.",
+     "definitionFit": "Tahiti is the largest island in French Polynesia, in the South Pacific."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "heart"
+     "misdirectedWord": "nation"
     }
    }
   },
@@ -1531,28 +1533,25 @@
     ],
     "wordplay": {
      "op": "alternate",
-     "unchecked": true,
-     "gives": "PSALM",
      "indicators": [
       {
-       "text": "Odd bits forgotten",
-       "note": "drop the odd-numbered letters, keeping the even ones"
+       "text": "Odd bits forgotten in",
+       "at": 0,
+       "note": "dropping the odd letters keeps only the second, fourth, sixth and so on"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "in opus sadly, my",
-       "gives": "PSALM",
-       "select": "alternate",
-       "note": "even letters of oPuS sAdLy My"
+       "words": "opus sadly, my",
+       "at": 22,
+       "note": "the even letters of these words"
       }
      ]
     },
     "explanation": {
-     "surface": "A composer lamenting that bits of their opus were forgotten.",
-     "walkthrough": "Count across 'opus sadly my' as one string: O P U S S A D L Y M Y, keeping letters 2, 4, 6, 8 and 10.",
-     "definitionFit": "A definition by category: a sacred song, as in the Book of Psalms."
+     "surface": "A composer laments a forgotten opus, sadly losing bits of a song.",
+     "walkthrough": "'Odd bits forgotten in' means write out OPUSSADLYMY and skip the 1st, 3rd, 5th letters and so on; the even ones spell the answer.",
+     "definitionFit": "A psalm is a sacred song or hymn, especially one from the biblical Book of Psalms."
     },
     "features": {
      "answerInScene": true,
