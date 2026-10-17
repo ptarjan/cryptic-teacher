@@ -1065,61 +1065,67 @@
     "definitions": [
      {
       "text": "flatulent state",
-      "at": 48
+      "at": 48,
+      "note": "a noun phrase matching the noun answer"
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "WINDINESS",
-     "indicators": [
-      {
-       "text": "Mostly",
-       "note": "mostly means not quite all, so the last letter is cut off"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "Mostly",
+         "at": 0,
+         "note": "mostly means most but not all of the next word, so wine loses its final letter"
+        }
+       ],
        "parts": [
         {
          "words": "wine",
-         "gives": "WIN",
-         "note": "wine without its final letter"
+         "at": 7,
+         "note": "taken as written before it is cut short"
         },
         {
-         "words": "dine",
-         "note": "taken as written"
-        },
+         "gives": "E"
+        }
+       ]
+      },
+      {
+       "words": "dine",
+       "at": 16,
+       "note": "taken as written"
+      },
+      {
+       "op": "outer",
+       "indicators": [
         {
-         "op": "outer",
-         "indicators": [
-          {
-           "text": "on vacation",
-           "note": "vacating something empties it, so only the outer letters remain"
-          }
-         ],
-         "parts": [
-          {
-           "words": "snobs",
-           "note": "outside letters of snobs"
-          }
-         ]
+         "text": "on vacation",
+         "at": 32,
+         "note": "a word on vacation has been vacated, emptied of its middle, leaving only its outside letters"
+        }
+       ],
+       "parts": [
+        {
+         "words": "snobs",
+         "at": 26,
+         "note": "taken as written before its inside is emptied"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Wining and dining with snobs on holiday leaves someone gassy.",
-     "walkthrough": "'On vacation' sounds like a holiday, but it means emptying the word of its middle.",
-     "definitionFit": "Windiness is the condition of having wind in the gut, i.e. flatulence."
+     "surface": "Someone treating guests to food and drink with snooty company, ending up full of wind.",
+     "walkthrough": "'wine and dine' reads as one phrase, but 'and' only links: WIN (wine without its last letter), DINE, then SS from snobs with the middle vacated.",
+     "definitionFit": "Windiness is the condition of having gas in the gut, which is what flatulence means."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
      "joke": "absurd",
-     "misdirectedWord": "vacation"
+     "misdirectedWord": "and"
     }
    }
   },
