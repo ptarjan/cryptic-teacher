@@ -45,6 +45,12 @@ check("a one-part charade has the wrong arity", 1, v.bad_arity({"op": "charade",
 two = {"op": "charade", "parts": [{"words": "ab", "at": 0}, {"words": "b c", "at": 1}]}
 check("two leaves sharing clue words are counted", 1, v.span_overlaps(two))
 check("and ones under a cryptic definition are not", 0, v.span_overlaps({"op": "cryptic", "parts": two["parts"]}))
+spoon = {"op": "spoonerism", "indicators": [{"text": "Spooner's"}],
+         "parts": [{"op": "homophone", "parts": [{"words": "white late"}, {"gives": "WIGHT"}]}, {"words": "x"}]}
+check("a Spoonerism's own sound needs no indicator of its own", 0, v.unindicated_ops(spoon))
+check("a homophone elsewhere still does", 1, v.unindicated_ops(
+    {"op": "charade", "parts": [spoon["parts"][0], {"words": "y"}]}))
+check("and a Spoonerism with no indicator is still counted", 1, v.unindicated_ops({**spoon, "indicators": []}))
 same = {"op": "charade", "parts": [{"words": "Pieces", "at": 0, "gives": "BIT"}, {"words": "Pieces", "at": 0, "gives": "PART"}]}
 check("one word on two leaves (a word doing two jobs) is not claimed twice", 0, v.span_overlaps(same))
 check("but a leaf inside another leaf's span still is", 1, v.span_overlaps(

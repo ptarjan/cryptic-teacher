@@ -3481,9 +3481,18 @@ def charade_in_charade(tree):
 
 
 def unindicated_ops(tree):
-    """How many checked ops that need an indicator word have none."""
+    """How many checked ops that need an indicator word have none.
+
+    Not the sound a Spoonerism is built on: the prompt's own form is
+    spoon<Spooner's>(sound([word]HEARD, SPELT), b), and a clue's one indicator
+    ("Spooner's ...") is the Spoonerism's, so the sound under it has no word of
+    its own to name. Counting it made indysunday-1910 16A and cryptic-30133 17A
+    (both Spoonerisms with a flagged hint) impossible to clear: no tree passed
+    both this rule and the one that wants the sound written (10-17)."""
+    spoken = {id(p) for s in _walk(tree) if s.get("op") == "spoonerism"
+              for p in s.get("parts") or [] if isinstance(p, dict) and p.get("op") == "homophone"}
     return sum(1 for n in _walk(tree) if n.get("op") in NEEDS_INDICATOR
-               and not n.get("unchecked") and not n.get("indicators"))
+               and not n.get("unchecked") and not n.get("indicators") and id(n) not in spoken)
 
 
 def cdef_repeats(tree):
