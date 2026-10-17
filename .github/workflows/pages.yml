@@ -543,9 +543,23 @@ jobs:
       # Two steps rather than one with a branch, so each has its own budget in
       # tools/data/deploy_budgets.json: the full check's growth is tracked
       # there, and an incremental check that slows down is caught on its own.
-      - name: Check every annotation
+      # The full check is 4 steps, one per quarter of the puzzles (`--shard i/n`:
+      # the puzzles whose id hashes to i of n), because as one step it grew past
+      # its 300s budget (315s) and the budget is never raised. Every puzzle is
+      # checked by exactly one shard, and the backlog ratchet is per puzzle, so
+      # each shard enforces its own slice of it; any shard failing fails the job.
+      - name: Check every annotation, shard 1 of 4
         if: steps.scope.outputs.mode == 'full'
-        run: python3 tools/validate_annotations.py
+        run: python3 tools/validate_annotations.py --shard 0/4
+      - name: Check every annotation, shard 2 of 4
+        if: steps.scope.outputs.mode == 'full'
+        run: python3 tools/validate_annotations.py --shard 1/4
+      - name: Check every annotation, shard 3 of 4
+        if: steps.scope.outputs.mode == 'full'
+        run: python3 tools/validate_annotations.py --shard 2/4
+      - name: Check every annotation, shard 4 of 4
+        if: steps.scope.outputs.mode == 'full'
+        run: python3 tools/validate_annotations.py --shard 3/4
       - name: Check the changed annotations
         if: steps.scope.outputs.mode == 'files'
         run: |
