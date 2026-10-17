@@ -1010,41 +1010,41 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "on"
+       "text": "on",
+       "at": 7,
+       "note": "in an across clue, the bowler sits on, after, the other piece"
       }
      ],
      "parts": [
       {
        "op": "first",
-       "unchecked": true,
-       "gives": "S",
        "indicators": [
         {
          "text": "head of",
-         "note": "the head is the top or front of something, so the head of a word is its first letter"
+         "at": 10,
+         "note": "the head of a word is its first letter"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "head of some",
-         "gives": "S",
-         "select": "first",
-         "note": "first letter of 'some'"
+         "words": "some",
+         "at": 18,
+         "note": "the first letter of some is S"
         }
        ]
       },
       {
        "words": "Bowler",
+       "at": 0,
        "gives": "PACEMAN",
-       "note": "in cricket a paceman is a fast bowler"
+       "note": "a paceman is a fast bowler in cricket"
       }
      ]
     },
     "explanation": {
-     "surface": "A bowler hat sits on a traveller's head.",
-     "walkthrough": "'Bowler on head' paints a hat, but the bowler is a cricketer who bowls fast.",
-     "definitionFit": "A spaceman travels further than anyone."
+     "surface": "Pictures a cricket bowler perched on top of someone's head.",
+     "walkthrough": "'Bowler' looks like a hat on a head, but it is a cricket bowler: in cricket a paceman bowls fast.",
+     "definitionFit": "A spaceman is an astronaut, who travels vast distances beyond Earth."
     },
     "features": {
      "answerInScene": false,
@@ -1113,45 +1113,42 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "STARVE",
+     "indicators": [
+      {
+       "text": "poor",
+       "at": 8,
+       "note": "poor suggests the word is in bad shape, so its letters are rearranged"
+      }
+     ],
      "parts": [
       {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "STARVE",
        "indicators": [
         {
-         "text": "poor",
-         "note": "the servant is in a bad state, so its letters are rearranged"
-        },
-        {
-         "text": "ultimately",
-         "note": "'ultimately' means in the end, so it points at the final letter of the word before it"
+         "text": "losing",
+         "at": 21,
+         "note": "losing means a letter is taken away from the word"
         }
        ],
        "parts": [
         {
          "words": "servant",
-         "note": "anagram fodder"
+         "at": 13
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "N",
          "indicators": [
           {
-           "text": "losing",
-           "note": "what is lost is no longer there, so that letter comes out of the servant"
+           "text": "ultimately",
+           "at": 36,
+           "note": "ultimately points to the last letter of the word"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "pension ultimately",
-           "gives": "N",
-           "select": "last",
-           "note": "last letter of 'pension', removed from SERVANT"
+           "words": "pension",
+           "at": 28,
+           "note": "the last letter of pension is N"
           }
          ]
         }
@@ -1160,9 +1157,9 @@
      ]
     },
     "explanation": {
-     "surface": "An employer robs a poor servant of their pension.",
-     "walkthrough": "SERVANT without its N leaves SERVAT, which rearranges to the answer.",
-     "definitionFit": "To starve someone is to deprive them of food, or of anything needed."
+     "surface": "A hard-up servant loses their pension at the end of their service.",
+     "walkthrough": "'ultimately' gives N, which 'losing' takes out of SERVANT to leave SERVAT; 'poor' rearranges those letters.",
+     "definitionFit": "To starve someone of something is to deny them it, so it means deprive."
     },
     "features": {
      "answerInScene": true,
@@ -1553,50 +1550,54 @@
     ],
     "wordplay": {
      "op": "anagram",
-     "unchecked": true,
-     "gives": "FLAGEOLET",
+     "indicators": [
+      {
+       "text": "surprisingly",
+       "at": 42,
+       "note": "surprisingly suggests an unexpected result, so the letters are rearranged"
+      }
+     ],
      "parts": [
       {
+       "words": "felt",
+       "at": 6
+      },
+      {
        "op": "deletion",
-       "unchecked": true,
-       "gives": "FLAGEOLET",
        "indicators": [
         {
          "text": "not having",
-         "note": "the age is described as not having died, so that letter must be absent from it"
-        },
-        {
-         "text": "surprisingly",
-         "note": "the letters end up in an unexpected order"
+         "at": 25,
+         "note": "not having means the letter is removed from the word"
         }
        ],
        "parts": [
         {
-         "words": "felt",
-         "note": "anagram fodder"
-        },
-        {
-         "words": "old age",
-         "note": "anagram fodder"
+         "words": "old",
+         "at": 16
         },
         {
          "words": "died",
+         "at": 36,
          "gives": "D",
-         "note": "d = died, removed from OLD AGE"
+         "note": "D is the standard abbreviation for died, as in genealogies"
         }
        ]
+      },
+      {
+       "words": "age",
+       "at": 20
       }
      ]
     },
     "explanation": {
-     "surface": "A doctor takes a pulse and is surprised the old patient is still alive.",
-     "walkthrough": "'Pulse' looks medical, but it is the edible seed: beans and lentils are pulses.",
-     "definitionFit": "The flageolet is a small pale green French bean, a pulse."
+     "surface": "Someone is surprised to feel a pulse in an elderly person who has not died after all.",
+     "walkthrough": "'Pulse' looks like a heartbeat, but here it means a bean. 'not having died' takes D from OLD to leave OL, and 'surprisingly' rearranges FELT + OL + AGE.",
+     "definitionFit": "A flageolet is a small pale green kidney bean, and pulses are the edible seeds of legumes."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
-     "joke": "pun",
+     "aptDefinition": false,
      "misdirectedWord": "Pulse"
     }
    }
