@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -106,39 +107,47 @@
      "indicators": [
       {
        "text": "suspect",
-       "note": "Something suspect is not what it claims to be, so the letters in front of the word cannot be trusted to stay in the order they arrive in."
+       "at": 28,
+       "note": "suspect, read as an adjective meaning dubious or not right, signals that the letters are to be rearranged"
       }
      ],
      "parts": [
       {
-       "op": "charade",
+       "words": "These",
+       "at": 0
+      },
+      {
+       "words": "sick",
+       "at": 6
+      },
+      {
+       "op": "first",
        "indicators": [
         {
          "text": "initially",
-         "note": "Initially points at the very start of a word, so nothing but its opening letter joins the pile."
+         "at": 18,
+         "note": "initially means take just the first letter of the word people"
         }
        ],
        "parts": [
         {
-         "words": "These sick",
-         "note": "nine letters of raw material: both words are there for their spelling, not their sense"
-        },
-        {
-         "op": "first",
-         "parts": [
-          {
-           "words": "people initially",
-           "note": "the opening letter of the word, making the tenth"
-          }
-         ]
+         "words": "people",
+         "at": 11,
+         "note": "its first letter is taken"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Sick' looks like the shuffle signal and is fodder instead; the word doing the shuffling is 'suspect'. The count only reaches ten once the borrowed P joins in.",
-     "definitionFit": "bugs on lamb -> SHEEP TICKS: these are the parasites that fasten on to sheep, and a lamb is a young sheep, so the definition names the host."
+     "surface": "Seeing ill folk, one first suspects insects living on the sheep.",
+     "walkthrough": "'initially' gives P from people; 'suspect' then rearranges THESE, SICK and P together.",
+     "definitionFit": "Sheep ticks are parasitic arachnids that cling to sheep, so they are bugs found on a lamb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "suspect"
     }
    }
   },
@@ -1049,36 +1058,46 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "ASTUTE",
-     "indicators": [
-      {
-       "text": "two thirds of",
-       "note": "Two thirds of a six-letter word is four letters, and a fraction counts from the front unless the clue says otherwise."
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "like",
+       "at": 7,
+       "gives": "AS",
+       "note": "like means as, in the sense 'as a child' = 'like a child'"
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "two thirds of",
+         "at": 12,
+         "note": "two thirds of a six-letter word leaves its first four letters, dropping the final third"
+        }
+       ],
        "parts": [
         {
-         "words": "like",
-         "gives": "AS",
-         "note": "'quick like lightning' and 'quick as lightning' say the same thing"
+         "words": "private pupils",
+         "at": 26,
+         "gives": "TUTEES",
+         "note": "pupils taught privately by a tutor are tutees"
         },
         {
-         "words": "private pupils",
-         "gives": "TUTE",
-         "note": "pupils taught one to one are tutees, and only four of those six letters are wanted"
+         "gives": "ES"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "walkthrough": "'Private' pulls towards a soldier or a fee-paying school and is neither: it describes how the pupils are taught, one at a time by a tutor.",
-     "definitionFit": "Clever -> ASTUTE: astute is clever in the shrewd, practical sense, quick to see where an advantage lies, rather than clever at book learning."
+     "surface": "Comparing some cleverness to that of most private-school pupils.",
+     "walkthrough": "'two thirds of' keeps TUTE, the first four of the six letters of TUTEES.",
+     "definitionFit": "Astute means shrewd and quick-witted, a close synonym for clever."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "private"
     }
    }
   },
