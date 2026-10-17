@@ -39,6 +39,9 @@ import downloads
 DIR = downloads.PRIVATE_EYE_WAYBACK / "ia"
 PAGES = DIR / "pages"
 LEAF_WORDS = re.compile(r"cyclops|crossword|across|down", re.IGNORECASE)
+#: A clue's printed count, "(5,2,3)": a puzzle page has dozens, an article about
+#: crosswords (issues 849, 1095, 1096) none, though it says "crossword" often.
+COUNT_IN_TEXT = re.compile(r"\(\d+(?:[,-]\d+)*\)")
 #: A line that starts a clue ("7 TCP-like", "20/12 Paxman", "9ac. See") or
 #: ends one with its count ("(6,4)", "(4-4)").
 STARTS = re.compile(r"^\W{0,2}\d{1,2}(?:\s*[/+]\s*\d{1,2}(?:\s*(?:ac|dn)\.?)?)*\W{0,2}\s+[A-Za-z(.…\"'‘“]")
@@ -71,7 +74,7 @@ def find_leaf(issue, get):
         page = text[a:b]
         if not re.search(r"cyclops|crossword", page, re.IGNORECASE):
             continue
-        score = len(LEAF_WORDS.findall(page))
+        score = len(LEAF_WORDS.findall(page)) + len(COUNT_IN_TEXT.findall(page))
         if best is None or score > best[1]:
             best = (leaf, score)
     return best and best[0]
@@ -151,17 +154,20 @@ def number_of(lines, issue):
             after = [w for w in words[k + 1:k + 12] if re.search(r"[^\W_]", w[4])][:4]
             for i, nxt in enumerate(after[:3]):
                 if re.fullmatch(r"\d{1,3}", nxt[4]) and abs(int(nxt[4]) - want) <= 2 and not (
-                        i + 1 < len(after) and re.match(r"winner", after[i + 1][4], re.IGNORECASE)):
+                        i + 1 < len(after) and re.match(r"winner|carlisle", after[i + 1][4], re.IGNORECASE)):
                     return int(nxt[4])
-    # The heading lost: the solution printed below is the puzzle before's.
+    # The heading's number lost (outline digits the OCR drops, issue 1062's
+    # "CROSSWORD by Cyclops"): the solution or winner printed below is the
+    # puzzle before's.
     for ws in lines:
         m = SOLVED.search(" ".join(w[4] for w in ws))
-        if m and abs(int(m.group(1)) + 1 - want) <= 2:
-            return int(m.group(1)) + 1
+        if m and abs(int(m.group(1) or m.group(2)) + 1 - want) <= 2:
+            return int(m.group(1) or m.group(2)) + 1
     return None
 
 
-SOLVED = re.compile(r"solution\s+to\s+crossword\s+(?:no\.?\s*)?(\d{1,3})", re.IGNORECASE)
+SOLVED = re.compile(r"solution\s+to\s+crossword\s+(?:no\.?\s*)?(\d{1,3})|"
+                    r"\bcrossword\s+(?:no\.?\s*)?(\d{1,3})\s+winner", re.IGNORECASE)
 
 
 def columns(lines):
