@@ -2923,5 +2923,19 @@ tools/test_reconstruct_budget.py               reconstruct_grid's node budget co
                                                path, and its pruning is sound
 tools/test_ctc_hintcheck.py                    does hintcheck's per-clue comparison classify
                                                what it should, and stay silent otherwise?
+tools/hint_rungs.js                            the hint rungs the app shows, as JSON, for tools
+                                               that compare them with something
+tools/prereset_watch.sh                        what the */5 fire of the pre-reset burn checks
+                                               before it tries to start one
+tools/test_prereset_watch.sh                   does tools/prereset_watch.sh see a burn that is
+                                               alive but stuck, and one that is dead with
+                                               orphans holding its tree lease?
+tools/test_reindex_changed.py                  does fetch_puzzle.reindex_changed() re-read only
+                                               the puzzle files newer than the index, and fall
+                                               back to the full reindex when there is no index?
+tools/test_spelling_kept.py                    does a re-annotation that drops the spelling
+                                               HEAD's annotation of the same answer carries
+                                               (book-26021 22D lost APERÇU) get refused by the
+                                               run's check against HEAD?
 ```
 <!-- LAYOUT-END -->
