@@ -272,8 +272,9 @@
      "op": "charade",
      "indicators": [
       {
-       "text": "finally",
-       "note": "'finally' points at the word's final letter"
+       "text": "when leading",
+       "at": 45,
+       "note": "leading means coming first, so this part goes before the party"
       }
      ],
      "parts": [
@@ -282,32 +283,31 @@
        "indicators": [
         {
          "text": "in",
-         "note": "'in' puts that letter inside the word for broadcast"
+         "at": 32,
+         "note": "in puts that letter inside the sowing word"
         }
        ],
        "parts": [
         {
          "words": "broadcast",
+         "at": 35,
          "gives": "SOW",
-         "note": "to sow seed broadcast is to scatter it by hand"
+         "note": "to broadcast seed is to sow it by scattering"
         },
         {
          "op": "last",
-         "unchecked": true,
-         "gives": "N",
          "indicators": [
           {
-           "text": "when leading",
-           "note": "a piece leading another goes in front of it, here ahead of the party"
+           "text": "finally",
+           "at": 24,
+           "note": "finally picks the last letter of the word before it"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "reputation finally",
-           "gives": "N",
-           "select": "last",
-           "note": "last letter of reputation"
+           "words": "reputation",
+           "at": 13,
+           "note": "its last letter is N"
           }
          ]
         }
@@ -315,19 +315,20 @@
       },
       {
        "words": "party",
+       "at": 58,
        "gives": "BALL",
-       "note": "a ball is a formal dancing party"
+       "note": "a ball is a formal dance party"
       }
      ]
     },
     "explanation": {
-     "surface": "A politician's reputation grows fast once they are seen on air leading the party.",
-     "walkthrough": "The surface makes 'party' political and 'broadcast' about television; one is a dance, the other is sowing seed by scattering.",
-     "definitionFit": "A figurative verb: things that grow ever faster are said to do what a rolling ball of snow does, gathering size."
+     "surface": "Someone's standing quickly grows once their story is broadcast ahead of a party.",
+     "walkthrough": "'reputation finally' gives N, put 'in' SOW; this comes first ('when leading') before BALL. 'broadcast' is scattering seed, not radio.",
+     "definitionFit": "To snowball is to increase rapidly, like a snowball gathering snow as it rolls."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "broadcast"
     }
    }
@@ -611,42 +612,42 @@
      "op": "container",
      "indicators": [
       {
-       "text": "heart",
-       "note": "the heart of a word is its middle"
+       "text": "invested in",
+       "at": 16,
+       "note": "invested in means placed inside, so the letter goes into the needlework"
       }
      ],
      "parts": [
       {
        "words": "needlework",
+       "at": 28,
        "gives": "CROCHET",
-       "note": "crochet is needlework done with a hook"
+       "note": "crochet is needlework done with a hooked needle"
       },
       {
-       "op": "middle",
-       "unchecked": true,
-       "gives": "T",
+       "op": "nth",
+       "n": 4,
        "indicators": [
         {
-         "text": "invested in",
-         "note": "money invested in something is put inside it, and so is this letter"
+         "text": "heart",
+         "at": 10,
+         "note": "heart picks the central letter of the word"
         }
        ],
        "parts": [
         {
-         "unchecked": true,
-         "words": "Knitter's heart",
-         "gives": "T",
-         "select": "middle",
-         "note": "a middle letter of KNITTER"
+         "words": "Knitter's",
+         "at": 0,
+         "note": "the fourth letter, at the centre of the word knitter, is T"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A knitter pours their heart into their needlework and leaves a note.",
-     "walkthrough": "The needlework surface hides music: the answer is the British name for a quarter note.",
-     "definitionFit": "A regional use: British musicians call a quarter note by this name."
+     "surface": "The core of a knitter's work goes into a piece of needlework, as a note says.",
+     "walkthrough": "The heart of KNITTER is T, which is 'invested in' CROCHET before its HET. 'note' is a musical note, not a written message.",
+     "definitionFit": "A crotchet is a musical note worth one beat, a quarter note in American usage."
     },
     "features": {
      "answerInScene": false,
@@ -1480,42 +1481,36 @@
      "indicators": [
       {
        "text": "Top of",
-       "note": "in a down answer the top is the first letter"
+       "at": 0,
+       "note": "top of points to the first letter of the word"
       },
       {
        "text": "shaved",
-       "note": "shaving cuts something off, here that first letter"
+       "at": 12,
+       "note": "shaved means cut off, so that top letter is removed"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "head",
-         "gives": "BONCE",
-         "note": "bonce is British slang for the head"
-        },
-        {
-         "words": "Top of head shaved",
-         "gives": "ONCE",
-         "note": "B taken off the top"
-        }
-       ]
+       "words": "head",
+       "at": 7,
+       "gives": "BONCE",
+       "note": "bonce is British slang for the head"
       },
       {
-       "gives": "BONCE"
+       "gives": "B"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone whose crown was shaved long ago.",
-     "walkthrough": "Bonce is British slang for head; shave off its first letter.",
-     "definitionFit": "A plain synonym: formerly, at some earlier time."
+     "surface": "A man remembers having had the crown of his head shaved long ago.",
+     "walkthrough": "Bonce is British slang for head; 'Top of' points to its B, which is 'shaved' off.",
+     "definitionFit": "Once means at some time formerly, so it says the same as at a past time."
     },
     "features": {
      "answerInScene": false,
-     "aptDefinition": false
+     "aptDefinition": false,
+     "misdirectedWord": "shaved"
     }
    }
   },
