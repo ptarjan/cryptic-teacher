@@ -211,31 +211,51 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "CRATE",
      "indicators": [
       {
-       "text": "needs no outside",
-       "note": "doing without the outside means the edges are stripped away, and 'no' also asks for the round zero letter to go"
+       "text": "outside",
+       "at": 27,
+       "note": "outside says the letters removed come from the two ends of the name"
       }
      ],
      "parts": [
       {
-       "words": "Greek philosopher",
-       "gives": "SOCRATES",
-       "note": "the famous Athenian thinker"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "needs no",
+         "at": 18,
+         "note": "needs no says the philosopher must do without the cry for help"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Greek philosopher",
+         "at": 0,
+         "gives": "SOCRATES",
+         "note": "Socrates was the Athenian philosopher"
+        },
+        {
+         "words": "help",
+         "at": 35,
+         "gives": "SO",
+         "note": "SOS is the distress call, a cry for help; its SO and its last S are the two outside parts removed"
+        }
+       ]
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "An ancient thinker is so self-sufficient he needs nobody's help to find a box.",
-     "walkthrough": "Strip the outer S at each end of SOCRATES, and 'no' (O, a zero) also goes, leaving CRATE. The deletion is loose, so lean on the definition.",
-     "definitionFit": "A crate is a wooden packing case, a large container used for carrying goods."
+     "surface": "A puzzle story: a famous thinker, unaided, must locate a container.",
+     "walkthrough": "'needs no outside' strips SOS (help) from the outside of SOCRATES: removing SO from the front leaves CRATES, and the final S goes from the back.",
+     "definitionFit": "A crate is a slatted wooden box used for carrying goods."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "help"
     }
    }
@@ -1341,45 +1361,39 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "STOREY",
+     "op": "composite",
      "indicators": [
       {
+       "text": "ground",
+       "at": 24,
+       "note": "ground, as in ground down, means the letters are crushed and remade"
+      },
+      {
        "text": "ignoring",
-       "note": "to ignore something is to leave it out, so those letters are removed"
+       "at": 11,
+       "note": "ignoring says the letters of the are left out of the pool"
       }
      ],
      "parts": [
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "ground",
-         "note": "ground means crushed or milled, so the letters are broken up and remixed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Set",
-         "note": "taken as written"
-        },
-        {
-         "words": "theory",
-         "gives": "ORY",
-         "note": "the word with its opening three letters removed"
-        }
-       ]
+       "words": "Set theory",
+       "at": 0,
+       "note": "taken as written, to be rearranged"
+      },
+      {
+       "words": "the",
+       "at": 20,
+       "note": "taken as written, letters to be left out"
       }
      ]
     },
     "explanation": {
-     "surface": "A mathematician's set theory leaves out the building's lowest level.",
-     "walkthrough": "'Ground floor' is a single idea in the surface, but 'ground' is the anagram signal and 'floor' alone defines; 'the' is removed from the start of theory.",
-     "definitionFit": "A storey is one level of a building, the British spelling of what Americans call a story."
+     "surface": "A mathematics topic that pays no attention to the bottom level of a building.",
+     "walkthrough": "Take the letters of SET THEORY, set aside T, H, E for 'ignoring the', and 'ground' rearranges the remaining SETORY. 'ground floor' looks like one phrase, but 'ground' is the indicator and 'floor' the definition.",
+     "definitionFit": "A storey is one level of a building, which is what a floor means here."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "ground"
     }
@@ -1521,39 +1535,36 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
-     "parts": [
+     "op": "anagram",
+     "indicators": [
       {
-       "unchecked": true,
-       "words": "A couple of",
-       "note": "asks for two copies of the next word"
+       "text": "A couple of",
+       "at": 0,
+       "note": "a couple of says the word that follows is wanted twice before rearranging"
       },
       {
-       "op": "anagram",
-       "indicators": [
-        {
-         "text": "other",
-         "note": "other means different, so the letters are made into something different"
-        }
-       ],
-       "parts": [
-        {
-         "words": "things",
-         "gives": "THINGTHING",
-         "note": "the word thing, taken twice"
-        }
-       ]
+       "text": "other",
+       "at": 12,
+       "note": "other asks for another arrangement of the letters, done to each of the pair"
+      }
+     ],
+     "parts": [
+      {
+       "words": "things",
+       "at": 18,
+       "gives": "THINGTHING",
+       "note": "the word thing, taken twice: once for each half of the answer"
       }
      ]
     },
     "explanation": {
-     "surface": "A child asks for a few more things just before going to bed.",
-     "walkthrough": "'A couple of other things' sounds like stalling at bedtime; take two of the word thing and rearrange each into the bedtime farewell.",
-     "definitionFit": "The doubled phrase is the affectionate goodnight wish parents say to children as they go to sleep."
+     "surface": "Two further remarks someone makes as bedtime approaches.",
+     "walkthrough": "'A couple of things' gives two copies of THING, and 'other' rearranges each into NIGHT: NIGHT NIGHT, the goodnight said before bed.",
+     "definitionFit": "Night-night is the informal goodnight people say to each other, especially to children, on going to bed."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "other"
     }
    }
@@ -1694,34 +1705,51 @@
      }
     ],
     "wordplay": {
-     "op": "charade",
+     "op": "container",
+     "indicators": [
+      {
+       "text": "is in",
+       "at": 44,
+       "note": "is in tells us one word sits inside the other"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "words": "decline",
+       "at": 50,
+       "gives": "SAG",
+       "note": "to sag is to decline or droop"
+      },
+      {
+       "op": "substitution",
        "indicators": [
         {
-         "text": "failing",
-         "note": "something failing is breaking down, so its letters fall apart and regroup"
+         "text": "failing and its opposite",
+         "at": 19,
+         "note": "the Chinese principle named fails and gives way to its partner, the other half of the pair"
         }
        ],
        "parts": [
         {
-         "words": "Yang is",
-         "note": "taken as written"
+         "words": "Yang",
+         "at": 11,
+         "gives": "YANG",
+         "note": "the Chinese principle, taken as written"
+        },
+        {
+         "gives": "ANG"
+        },
+        {
+         "gives": "IN"
         }
        ]
-      },
-      {
-       "unchecked": true,
-       "words": "and its opposite is in decline",
-       "note": "surface padding that also works as a second route: the opposite of yang inside sag"
       }
      ]
     },
     "explanation": {
-     "surface": "A proverb claims that yang is weakening while yin also slips away.",
-     "walkthrough": "There is a second wordplay in the clue: the opposite of yang, YIN, inside SAG (decline) also gives the answer.",
-     "definitionFit": "An adage is a traditional proverb, a short well-known expression of a general truth."
+     "surface": "A proverb about Chinese philosophy: yang is weakening while its counterpart, yin, is also waning.",
+     "walkthrough": "Two wordplays in one. 'failing' rearranges YANG IS; and 'failing and its opposite' turns Yang into YIN, which 'is in' SAG (decline). Both give the answer, as the blog notes.",
+     "definitionFit": "A saying is a short, well-known statement of wisdom, the same as an adage."
     },
     "features": {
      "answerInScene": false,
