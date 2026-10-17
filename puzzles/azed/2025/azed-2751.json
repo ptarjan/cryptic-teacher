@@ -321,47 +321,46 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "POTION",
+     "op": "deletion",
      "indicators": [
       {
-       "text": "lifted",
-       "note": "in a down entry, lifting a word turns it to read upwards, back to front"
+       "text": "out of",
+       "at": 26,
+       "note": "out of means the reversed piece is taken away from the place word"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "POTION",
+       "words": "place",
+       "at": 33,
+       "gives": "POSITION",
+       "note": "a position is a place or location"
+      },
+      {
+       "op": "reversal",
        "indicators": [
         {
-         "text": "out of",
-         "note": "taking one thing out of another removes it from the longer word"
+         "text": "lifted",
+         "at": 19,
+         "note": "in a down clue, lifted means the word is is written upwards, i.e. reversed"
         }
        ],
        "parts": [
         {
          "words": "is",
-         "note": "taken as written"
-        },
-        {
-         "words": "place",
-         "gives": "POSITION",
-         "note": "a place is a position"
+         "at": 16
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A pharmacist hands over a measured quantity of medicine taken down from its shelf.",
-     "walkthrough": "IS turned up becomes SI, and that is removed from POSITION.",
-     "definitionFit": "A potion is a measured drink of medicine or drug, a dose given as prescribed."
+     "surface": "A measured medicine has been raised and taken from where it was kept.",
+     "walkthrough": "'lifted' turns IS into SI, and that pair comes 'out of' POSITION.",
+     "definitionFit": "A potion is a liquid dose of medicine, or of something magical, made up to be drunk."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "lifted"
     }
