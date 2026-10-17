@@ -46,41 +46,40 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "HETERO",
-     "indicators": [
-      {
-       "text": "mad",
-       "note": "the letters of THERE go crazy and land in a new order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "mad",
+         "at": 16,
+         "note": "mad means crazy or wild, so the letters of there are scrambled"
+        }
+       ],
        "parts": [
         {
          "words": "there",
-         "gives": "HETER",
-         "note": "THERE rearranged"
-        },
-        {
-         "words": "love",
-         "gives": "O",
-         "note": "love = zero in tennis, O"
+         "at": 9
         }
        ]
+      },
+      {
+       "words": "love",
+       "at": 25,
+       "gives": "O",
+       "note": "love is nil in tennis scoring, which looks like the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "Someone is told to go straight over there, out of their mind with love.",
-     "walkthrough": "\"Straight\" reads as \"directly\" beside \"there\", but it is the definition: straight in the sense of heterosexual.",
-     "definitionFit": "Straight is informal for heterosexual, and HETERO is its short form."
+     "surface": "Someone straight from over there is crazily in love.",
+     "walkthrough": "'mad' rearranges THERE into HETER; O for love (zero in tennis) is added at the end.",
+     "definitionFit": "Straight is slang for heterosexual, and hetero is the short informal form of that word."
     },
     "features": {
-     "answerInScene": true,
-     "aptDefinition": true,
+     "answerInScene": false,
+     "aptDefinition": false,
      "misdirectedWord": "Straight"
     }
    }
@@ -610,52 +609,52 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "unchecked": true,
-     "gives": "GALWAY",
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "first",
        "indicators": [
         {
          "text": "Introduction to",
-         "note": "take the first letter of GUINNESS"
+         "at": 0,
+         "note": "the introduction to a word is its opening letter"
         }
        ],
        "parts": [
         {
-         "op": "first",
-         "unchecked": true,
-         "gives": "G",
-         "indicators": [
-          {
-           "text": "almost",
-           "note": "drop the last letter of ALWAYS"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "Introduction to Guinness",
-           "gives": "G",
-           "select": "first",
-           "note": "first letter of GUINNESS"
-          }
-         ]
+         "words": "Guinness",
+         "at": 16,
+         "note": "its first letter is G"
+        }
+       ]
+      },
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "almost",
+         "at": 26,
+         "note": "almost means not quite all, so the last letter is dropped"
+        }
+       ],
+       "parts": [
+        {
+         "words": "invariably",
+         "at": 33,
+         "gives": "ALWAYS",
+         "note": "invariably means always, every time"
         },
         {
-         "words": "almost invariably",
-         "gives": "ALWAY",
-         "note": "ALWAYS (invariably) without its final S"
+         "gives": "S"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "In an Irish city, you are nearly always served a Guinness first.",
-     "walkthrough": "Galway is a city on the west coast of Ireland; Guinness is the Irish stout.",
-     "definitionFit": "A definition by category: the city on Ireland's west coast is one of many Irish cities."
+     "surface": "In one Irish city, the pint you start with is nearly always Guinness.",
+     "walkthrough": "G opens Guinness; ALWAYS for 'invariably' loses its last letter by 'almost', leaving ALWAY.",
+     "definitionFit": "Galway is a city on the west coast of Ireland, known for its bay and festivals."
     },
     "features": {
      "answerInScene": true,
