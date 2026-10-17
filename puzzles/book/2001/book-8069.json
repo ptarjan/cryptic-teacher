@@ -977,12 +977,11 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "NAPHTHA",
      "indicators": [
       {
        "text": "Outside",
-       "note": "outside means the other pieces wrap around the pair before the comma"
+       "at": 0,
+       "note": "Outside places the scrambled letters around the other pieces"
       }
      ],
      "parts": [
@@ -991,38 +990,51 @@
        "indicators": [
         {
          "text": "ruined",
-         "note": "something ruined is wrecked out of shape, so the letters are jumbled"
+         "at": 34,
+         "note": "ruined suggests something knocked out of shape, so the letters are rearranged"
         }
        ],
        "parts": [
         {
          "words": "new",
-         "gives": "N",
-         "note": "N abbreviates new"
-        },
-        {
-         "words": "a public house",
-         "gives": "APH",
-         "note": "A plus PH, the map abbreviation for public house"
+         "at": 24,
+         "gives": "N"
         },
         {
          "words": "hat's",
+         "at": 28,
          "gives": "HAT",
-         "note": "anagram fodder"
+         "note": "the word hat, with the 's read as is"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "a",
+         "at": 8,
+         "gives": "A"
+        },
+        {
+         "words": "public house",
+         "at": 10,
+         "gives": "PH",
+         "note": "PH is the map abbreviation for a public house"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "Outside a pub, a new hat is spoiled by a chemical spill.",
-     "walkthrough": "N and the rearranged HAT sit either side of A PH. PH stands for public house on maps.",
-     "definitionFit": "A flammable oil distilled from petroleum or coal tar is used to dissolve substances, so it is a solvent."
+     "surface": "A drinker's new hat ruined by a solvent spilled outside a pub.",
+     "walkthrough": "'ruined' rearranges N and HAT, and those letters go 'Outside' A and PH, split N... THA.",
+     "definitionFit": "Naphtha is a volatile hydrocarbon liquid used as a solvent and fuel, so it is a chemical solvent."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "Outside"
+     "misdirectedWord": "ruined"
     }
    }
   },
@@ -1124,33 +1136,32 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "EFFENDI",
-     "indicators": [
-      {
-       "text": "for misusing",
-       "note": "misusing something puts it to the wrong use, so its letters go in the wrong order"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "words": "English",
+       "at": 0,
+       "gives": "E"
+      },
+      {
+       "words": "fellow",
+       "at": 8,
+       "gives": "F",
+       "note": "F is the abbreviation for fellow, as in FRS"
+      },
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "for misusing",
+         "at": 21,
+         "note": "for misusing suggests the word is put to wrong use, so its letters are rearranged"
+        }
+       ],
        "parts": [
         {
-         "words": "English",
-         "gives": "E",
-         "note": "E abbreviates English"
-        },
-        {
-         "words": "fellow",
-         "gives": "F",
-         "note": "F abbreviates fellow"
-        },
-        {
          "words": "fined",
-         "gives": "FENDI",
-         "note": "anagram of the word"
+         "at": 15
         }
        ]
       }
@@ -1158,13 +1169,13 @@
     },
     "explanation": {
      "surface": "An Englishman fined for using the wrong form of address in Turkey.",
-     "walkthrough": "'Fined' looks like a penalty in the story, but it is the anagram fodder.",
-     "definitionFit": "A title of respect formerly used for officials and educated men in the Ottoman Empire, akin to sir."
+     "walkthrough": "'for misusing' rearranges FINED to give FENDI.",
+     "definitionFit": "Effendi was a Turkish title of respect for an educated man, a form of address like sir."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "fined"
+     "misdirectedWord": "address"
     }
    }
   },
