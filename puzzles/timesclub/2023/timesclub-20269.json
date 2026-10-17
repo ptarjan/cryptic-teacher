@@ -959,41 +959,59 @@
      }
     ],
     "wordplay": {
-     "op": "reversal",
-     "unchecked": true,
-     "gives": "LIBRETTI",
-     "indicators": [
-      {
-       "text": "all but the first in review",
-       "note": "a review looks back, and all but the first means every letter of the word except its opening one is turned round"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
        "words": "left",
-       "gives": "L",
-       "note": "L is the abbreviation for left"
+       "at": 15,
+       "gives": "L"
       },
       {
        "words": "one",
+       "at": 20,
        "gives": "I",
-       "note": "the Roman numeral for one"
+       "note": "the Roman numeral for one is I"
       },
       {
-       "words": "cold",
-       "gives": "BITTER",
-       "note": "bitter weather is very cold"
+       "op": "cycling",
+       "indicators": [
+        {
+         "text": "all but the first",
+         "at": 30,
+         "note": "the first letter stays at the front while everything after it is the part turned round, so the letter at the far end is moved back to the start"
+        }
+       ],
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "in review",
+           "at": 48,
+           "note": "a review looks back, so the word is read backwards"
+          }
+         ],
+         "parts": [
+          {
+           "words": "cold",
+           "at": 24,
+           "gives": "BITTER",
+           "note": "a bitter wind is a cold one"
+          }
+         ]
+        }
+       ]
       }
      ]
     },
     "explanation": {
-     "surface": "A critic reviewing an opera's roles was left cold by everything except the first one.",
-     "walkthrough": "BITTER keeps its B in place while the rest is read backwards, giving BRETTI after L and I.",
-     "definitionFit": "Libretti are the texts of operas, and 'parts' here means the words written for singers to perform."
+     "surface": "A critic's verdict on an opera: the soprano's part left one feeling cold.",
+     "walkthrough": "Only the letters after the first of BITTER are reversed: B stays put and ITTER becomes RETTI, giving BRETTI after L and I.",
+     "definitionFit": "Libretti are the texts of operas, the words sung by the performers in their roles."
     },
     "features": {
      "answerInScene": true,
-     "aptDefinition": true,
+     "aptDefinition": false,
      "misdirectedWord": "review"
     }
    }
@@ -1434,7 +1452,8 @@
      "indicators": [
       {
        "text": "hosts",
-       "note": "hosting someone is having them within, so the outer pair of letters surround the rest"
+       "at": 14,
+       "note": "to host something is to have it within, so the outer letters take in the others"
       }
      ],
      "parts": [
@@ -1443,13 +1462,13 @@
        "parts": [
         {
          "words": "Question",
-         "gives": "Q",
-         "note": "Q for question"
+         "at": 0,
+         "gives": "Q"
         },
         {
          "words": "Time",
-         "gives": "T",
-         "note": "T for time"
+         "at": 9,
+         "gives": "T"
         }
        ]
       },
@@ -1458,26 +1477,24 @@
        "parts": [
         {
          "words": "four",
+         "at": 20,
          "gives": "IV",
-         "note": "the Roman numeral for four"
+         "note": "IV is four in Roman numerals"
         },
         {
          "op": "middle",
-         "unchecked": true,
-         "gives": "IU",
          "indicators": [
           {
            "text": "centrally",
-           "note": "centrally points to the middle letters of the word just before it"
+           "at": 34,
+           "note": "only the central letters of the word geniuses are used here"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
            "words": "geniuses",
-           "gives": "IU",
-           "select": "middle",
-           "note": "the two central letters of geniuses"
+           "at": 25,
+           "note": "the middle two letters of this eight-letter word"
           }
          ]
         }
@@ -1486,9 +1503,9 @@
      ]
     },
     "explanation": {
-     "surface": "The BBC's Question Time panel features four geniuses who could still be beaten in debate.",
-     "walkthrough": "Question Time is a BBC political panel show. 'Worsted' is not defeated but the woollen yarn: qiviut is fibre that could be spun into it.",
-     "definitionFit": "Qiviut is the soft underwool of the musk ox, a fibre that can be spun into yarn such as worsted."
+     "surface": "The TV debate programme Question Time plays host to a panel of four brilliant minds.",
+     "walkthrough": "Question Time is a BBC political debate programme. The central two letters of the eight-letter 'geniuses' are IU.",
+     "definitionFit": "Qiviut is the soft underwool of the musk ox, which can be spun into worsted yarn."
     },
     "features": {
      "answerInScene": false,
@@ -1816,33 +1833,38 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "VERDET",
      "indicators": [
       {
        "text": "used to replace centre of",
-       "note": "the given letters are swapped in for the middle of the following word"
+       "at": 26,
+       "note": "the two letters go in place of the middle pair of the word for the soft surface"
       }
      ],
      "parts": [
       {
        "words": "soft, smooth surface",
+       "at": 52,
        "gives": "VELVET",
-       "note": "velvet is a fabric with a soft smooth pile"
+       "note": "velvet is a fabric with a soft, smooth pile, used of any such surface"
+      },
+      {
+       "gives": "LV"
       },
       {
        "words": "R&D",
-       "note": "taken as written"
+       "at": 22,
+       "gives": "RD",
+       "note": "taken letter for letter, R and D"
       }
      ]
     },
     "explanation": {
-     "surface": "A research department develops a blue-green coating for a soft, smooth finish.",
-     "walkthrough": "R&D is research and development; its two letters take the place of the middle LV of VELVET.",
-     "definitionFit": "Verdet is verdigris, the blue-green copper acetate pigment that forms on copper and is used in paints."
+     "surface": "A research and development lab tries a new coating on a soft, smooth finish.",
+     "walkthrough": "The centre of the six-letter VELVET is LV; RD goes in its place.",
+     "definitionFit": "Verdet is verdigris, the blue-green copper acetate pigment, a coloured chemical compound."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "misdirectedWord": "R&D"
     }
@@ -1870,59 +1892,56 @@
     ],
     "wordplay": {
      "op": "container",
-     "unchecked": true,
-     "gives": "EDAPHIC",
      "indicators": [
       {
        "text": "gets into",
-       "note": "getting into something means going inside it, so the pest goes between the central letters"
+       "at": 25,
+       "note": "the moved word goes inside the other letters"
       }
      ],
      "parts": [
       {
+       "op": "middle",
+       "indicators": [
+        {
+         "text": "middle of",
+         "at": 35,
+         "note": "the central pair of letters of molecast"
+        }
+       ],
+       "parts": [
+        {
+         "words": "molecast",
+         "at": 45,
+         "gives": "EC",
+         "note": "a molecast is a molehill; its two middle letters are used"
+        }
+       ]
+      },
+      {
        "op": "cycling",
-       "unchecked": true,
-       "gives": "EDAPHIC",
        "indicators": [
         {
          "text": "tail-first",
-         "note": "putting the tail first means the last letter is moved round to the front"
+         "at": 13,
+         "note": "the last letter goes round to the front of the word"
         }
        ],
        "parts": [
         {
          "words": "Garden pest",
+         "at": 0,
          "gives": "APHID",
-         "note": "an aphid is a sap-sucking insect pest"
-        },
-        {
-         "op": "middle",
-         "unchecked": true,
-         "gives": "EC",
-         "indicators": [
-          {
-           "text": "middle of",
-           "note": "the middle of a word is its central letters, which alone are kept"
-          }
-         ],
-         "parts": [
-          {
-           "unchecked": true,
-           "words": "molecast",
-           "gives": "EC",
-           "select": "middle",
-           "note": "the two central letters of molecast"
-          }
-         ]
+         "note": "an aphid is a greenfly or blackfly, a common garden pest"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A garden pest burrows into the middle of a molehill, the work of the soil.",
-     "walkthrough": "A molecast is a molehill. APHID with its D brought to the front sits between E and C.",
-     "definitionFit": "Edaphic describes things relating to or determined by soil conditions rather than climate."
+     "surface": "A garden pest burrows backwards into a molehill of earth.",
+     "walkthrough": "A molecast is the heap of earth thrown up by a mole. Moving APHID's tail to the front gives DAPHI, which sits between E and C.",
+     "definitionFit": "Edaphic describes things arising from or influenced by the soil, as opposed to climate."
     },
     "features": {
      "answerInScene": true,
