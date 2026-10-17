@@ -566,53 +566,42 @@
      }
     ],
     "wordplay": {
-     "op": "anagram",
-     "unchecked": true,
-     "gives": "JUMBOS",
+     "op": "composite",
      "indicators": [
       {
        "text": "about",
-       "note": "turned about means moved around, so the remaining letters are rearranged"
+       "at": 12,
+       "note": "about signals that the letters are moved around into a new order"
+      },
+      {
+       "text": "to drop",
+       "at": 18,
+       "note": "to drop tells us one piece of the pool is thrown away before the letters settle"
       }
      ],
      "parts": [
       {
-       "op": "deletion",
-       "unchecked": true,
-       "gives": "JUMBOS",
-       "indicators": [
-        {
-         "text": "to drop",
-         "note": "dropping something means letting it fall away, so a letter is removed"
-        }
-       ],
-       "parts": [
-        {
-         "words": "BoJo's",
-         "note": "BoJo is the nickname of Boris Johnson, taken with its S"
-        },
-        {
-         "words": "um",
-         "note": "taken as written"
-        },
-        {
-         "words": "round",
-         "gives": "O",
-         "note": "a round shape is the letter O; this one is dropped"
-        }
-       ]
+       "words": "BoJo's, um",
+       "at": 0,
+       "note": "taken as written: BoJo's plus um gives a pool of seven letters"
+      },
+      {
+       "words": "round",
+       "at": 26,
+       "gives": "O",
+       "note": "a round shape stands for the letter O"
       }
      ]
     },
     "explanation": {
-     "surface": "Boris Johnson, um-ing and ah-ing, is about to call round on some big beasts.",
-     "walkthrough": "BoJo is the press nickname for former Prime Minister Boris Johnson. One O is removed from BOJOS plus UM, and the six letters left are rearranged.",
-     "definitionFit": "Jumbos are very large things, especially jumbo jets or elephants, after Jumbo the famous circus elephant."
+     "surface": "Boris Johnson hesitates, mumbling about large matters.",
+     "walkthrough": "'about' rearranges the letters of BOJOS UM, and 'to drop round' removes one O from that pool, leaving the six letters of JUMBOS. BoJo is Boris Johnson's nickname.",
+     "definitionFit": "Jumbos are very large specimens, as in jumbo jets or jumbo-sized items, so they are big things."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "misdirectedWord": "round"
+     "misdirectedWord": "about"
     }
    }
   },
@@ -945,63 +934,67 @@
      }
     ],
     "wordplay": {
-     "op": "deletion",
-     "indicators": [
-      {
-       "text": "not Trump's first",
-       "note": "leaving out the first letter of a name chops a letter from the start of the word"
-      }
-     ],
+     "op": "charade",
      "parts": [
       {
-       "op": "charade",
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "not",
+         "at": 6,
+         "note": "not means the following letter is excluded from the word before it"
+        }
+       ],
        "parts": [
         {
          "words": "Text",
-         "note": "taken as written; its opening T is the one removed"
+         "at": 0,
+         "gives": "TEXT",
+         "note": "taken as written, before its first T goes"
         },
         {
-         "words": "HAND OVER",
-         "gives": "REMIT",
-         "note": "to remit money is to hand it over"
-        },
-        {
-         "op": "last",
-         "unchecked": true,
-         "gives": "Y",
+         "op": "first",
          "indicators": [
           {
-           "text": "BUTT",
-           "note": "a butt is the thick end of something, so only the final letter is kept"
+           "text": "first",
+           "at": 18,
+           "note": "first picks the opening letter of the word it follows"
           }
          ],
          "parts": [
           {
-           "unchecked": true,
-           "words": "ZELENSKY'S",
-           "gives": "Y",
-           "select": "last",
-           "note": "the final letter of the Ukrainian president's name"
+           "words": "Trump's",
+           "at": 10,
+           "note": "the first letter of Trump's is T"
           }
          ]
         }
        ]
       },
       {
-       "gives": "T"
+       "words": "HAND OVER",
+       "at": 26,
+       "gives": "REMIT",
+       "note": "to remit is to hand over, as payment or a case to another court"
+      },
+      {
+       "words": "ZELENSKY'S",
+       "at": 36,
+       "gives": "Y",
+       "note": "Zelensky's butt, his end, is the last letter of his name, Y"
       }
      ]
     },
     "explanation": {
-     "surface": "A message, styled like a Trump capital-letter post, demanding that Zelensky hand over his backside.",
-     "walkthrough": "The capitals mimic Trump's social-media style. 'Trump's first' is T, taken from TEXT. 'BUTT' does double duty: it picks the last letter and is also the definition.",
-     "definitionFit": "A butt is the end part of something, such as a rifle butt, and an extremity is a far end."
+     "surface": "A shouted text message demands that Ukraine's president give something up, echoing Trump's pressure.",
+     "walkthrough": "'not Trump's first' removes T from TEXT, leaving EXT. BUTT does double duty: it picks the end letter Y of Zelensky and also defines the answer, since a butt is an end.",
+     "definitionFit": "A butt is the far end of something, such as a rifle or cigarette, which is an extremity."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": true,
      "joke": "pun",
-     "misdirectedWord": "Trump's"
+     "misdirectedWord": "HAND"
     }
    }
   },
@@ -1364,50 +1357,49 @@
     "37-across"
    ],
    "annotation": {
-    "definedByPreamble": true,
+    "definitions": [
+     {
+      "text": "[see preamble]",
+      "at": 8
+     }
+    ],
     "wordplay": {
      "op": "charade",
      "indicators": [
       {
        "text": "covered by",
-       "note": "something covered by another sits beneath it, so in the answer it comes after the covering piece"
+       "at": 31,
+       "note": "covered by puts the second piece underneath the first, so in an across answer it comes after it"
       }
      ],
      "parts": [
       {
-       "op": "charade",
-       "parts": [
-        {
-         "words": "Private Eye",
-         "gives": "DICK",
-         "note": "dick is old American slang for a private detective, a private eye"
-        },
-        {
-         "words": "That is",
-         "gives": "IE",
-         "note": "i.e. is the Latin abbreviation id est, meaning that is"
-        },
-        {
-         "words": "lark",
-         "gives": "BIRD",
-         "note": "a lark is a small songster, a feathered creature"
-        }
-       ]
+       "words": "Private Eye",
+       "at": 42,
+       "gives": "DICK",
+       "note": "a dick is slang for a private detective, a private eye"
       },
       {
-       "unchecked": true,
-       "words": "[see preamble]",
-       "note": "an instruction to the solver, not wordplay: the preamble supplies the definition"
+       "words": "That is",
+       "at": 23,
+       "gives": "IE",
+       "note": "i.e. is the abbreviation of id est, that is"
+      },
+      {
+       "words": "lark",
+       "at": 54,
+       "gives": "BIRD",
+       "note": "a lark is a kind of bird"
       }
      ]
     },
     "explanation": {
-     "surface": "A cheeky aside that the joke is being covered by Private Eye magazine itself.",
-     "walkthrough": "'Private Eye' looks like the magazine that prints this puzzle, but it means a detective. The preamble says this is the poem's subject: Dickie Bird, the much-loved English cricket umpire who died in 2025.",
-     "definitionFit": "The preamble makes this answer the subject of a Poetry Corner tribute, so the name is defined by the puzzle's theme rather than by clue words."
+     "surface": "A joke reported on by the satirical magazine Private Eye.",
+     "walkthrough": "'covered by' puts IE beneath DICK, so it follows it. The preamble defines the answer: Dickie Bird, the cricket umpire who died in 2025, subject of the Poetry Corner tribute.",
+     "definitionFit": "The preamble names the poem's subject, the famous English cricket umpire honoured in Private Eye's Poetry Corner."
     },
     "features": {
-     "answerInScene": false,
+     "answerInScene": true,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "Eye"
@@ -1624,42 +1616,37 @@
    },
    "solution": "UMPIRE",
    "annotation": {
-    "definedByPreamble": true,
+    "definitions": [
+     {
+      "text": "[see preamble]",
+      "at": 0
+     }
+    ],
     "wordplay": {
-     "op": "charade",
+     "op": "hidden",
+     "indicators": [
+      {
+       "text": "In",
+       "at": 16,
+       "note": "In says the answer is sitting inside the run of words that follows"
+      }
+     ],
      "parts": [
       {
-       "op": "hidden",
-       "indicators": [
-        {
-         "text": "In",
-         "note": "the word sits inside the following phrase, so its letters lie within it"
-        }
-       ],
-       "parts": [
-        {
-         "words": "Trump I reside",
-         "gives": "UMPIRE",
-         "note": "the letters run from inside the first word, through the second, into the third"
-        }
-       ]
-      },
-      {
-       "unchecked": true,
-       "words": "[see preamble]",
-       "note": "an instruction to the solver, not wordplay: the preamble supplies the definition"
+       "words": "Trump I reside",
+       "at": 19,
+       "note": "the letters run on through trUMP I REside"
       }
      ]
     },
     "explanation": {
-     "surface": "Trump announces where he lives, as if speaking from inside himself.",
-     "walkthrough": "The preamble says this answer is the occupation of the poem's subject: Dickie Bird was a famous Test cricket umpire.",
-     "definitionFit": "The preamble asks for the subject's job, and Dickie Bird was renowned as an international cricket match official."
+     "surface": "A boastful line in which something claims to live within Trump.",
+     "walkthrough": "'In' says the answer lies inside trUMP I REside. The preamble defines it: the occupation of Dickie Bird, a cricket umpire.",
+     "definitionFit": "Dickie Bird's job was officiating at cricket matches, making rulings as an umpire."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "absurd",
      "misdirectedWord": "reside"
     }
    }
