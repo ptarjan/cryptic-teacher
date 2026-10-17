@@ -884,36 +884,20 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "TWEEDLEDEE",
-     "indicators": [
-      {
-       "text": "parts frequently repeated",
-       "note": "only some letters of the name are used, and each may be used again and again"
-      }
-     ],
+     "op": "rebus",
+     "reading": "T and WELD, each letter used again and again",
      "parts": [
       {
-       "op": "first",
-       "parts": [
-        {
-         "words": "Tuesday",
-         "note": "the opening letter of the actress's first name"
-        }
-       ]
-      },
-      {
-       "words": "Weld's",
-       "gives": "WELD",
-       "note": "her surname, each of whose letters may be used again and again"
+       "words": "Tuesday Weld's parts frequently repeated",
+       "at": 0,
+       "note": "Tuesday shortens to T and Weld stays whole; the answer is spelt using only those five letters, several of them over and over"
       }
      ]
     },
     "explanation": {
-     "surface": "A comment on the actress Tuesday Weld's roles, which seem to repeat.",
-     "walkthrough": "Every letter of the answer (T, W, E, D, L) occurs in Tuesday Weld, the American actress; the E and D are used repeatedly.",
-     "definitionFit": "Tweedledee is the twin of Tweedledum in Lewis Carroll, so he stands for one of two near-identical things."
+     "surface": "A remark that the actress Tuesday Weld kept playing much the same role, each part like the last.",
+     "walkthrough": "This is a letter bank: the answer uses only the letters T, W, E, L and D, with E and D appearing several times. Tuesday Weld was an American film actress of the 1960s and 70s.",
+     "definitionFit": "Tweedledee and his twin Tweedledum, from Lewis Carroll, are proverbial for two people or things that are virtually identical."
     },
     "features": {
      "answerInScene": false,
@@ -1105,31 +1089,37 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "PLOVER",
      "indicators": [
       {
        "text": "Just the opposite",
-       "note": "a word inside is swapped for its opposite, leaving the rest unchanged"
+       "at": 16,
+       "note": "just the opposite tells you to swap one word inside plunder for its opposite, so under becomes over"
       }
      ],
      "parts": [
       {
        "words": "plunder",
-       "note": "taken as written; its last five letters form a word with an obvious opposite"
+       "at": 7,
+       "note": "the word taken as written, which happens to contain under"
+      },
+      {
+       "gives": "UNDER"
+      },
+      {
+       "gives": "OVER"
       }
      ]
     },
     "explanation": {
-     "surface": "A bird's stolen hoard, or perhaps the other way round.",
-     "walkthrough": "Plunder ends in UNDER; replacing that with its opposite, OVER, gives the bird. 'Bird's' is 'bird is'.",
-     "definitionFit": "The plover is a wading shorebird with a short bill, often seen running along beaches."
+     "surface": "A puzzled question about a bird and its plunder, answered with a cheeky reversal.",
+     "walkthrough": "The question mark invites you to look inside the word plunder, where UNDER sits after PL; its opposite is OVER.",
+     "definitionFit": "A plover is a wading shorebird with a short bill, found on beaches and open ground."
     },
     "features": {
      "answerInScene": false,
      "aptDefinition": false,
-     "joke": "pun",
-     "misdirectedWord": "opposite"
+     "joke": "absurd",
+     "misdirectedWord": "plunder"
     }
    }
   },
@@ -1395,25 +1385,27 @@
      "spelt": "SCIFI",
      "indicators": [
       {
-       "text": "outspoken",
-       "note": "something outspoken is said out loud, so it is judged by how it sounds"
+       "text": "two outspoken",
+       "at": 16,
+       "note": "two outspoken says a pair of the characters are spoken aloud, so the answer sounds like them"
       }
      ],
      "parts": [
       {
-       "words": "two outspoken Greek characters",
+       "words": "Greek characters",
+       "at": 30,
        "gives": "PSIPHI",
-       "note": "two letters of the Greek alphabet, said one after the other"
+       "note": "letters of the Greek alphabet, here psi and phi, pronounced sigh and fie"
       }
      ]
     },
     "explanation": {
-     "surface": "A film genre with two forthright Greek people in it.",
-     "walkthrough": "'Characters' suggests people in a story, but here they are letters of the alphabet.",
-     "definitionFit": "Science fiction is a genre of books and films about invented technology, space and the future."
+     "surface": "A literary genre is described as starring a pair of Greek characters who speak their minds.",
+     "walkthrough": "'characters' suggests people in a story, but they are two letters of the Greek alphabet; 'outspoken', psi and phi match the two halves of the answer.",
+     "definitionFit": "Science fiction is a genre of stories about future technology, space travel and other imagined worlds."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "characters"
@@ -1679,31 +1671,42 @@
     ],
     "wordplay": {
      "op": "spoonerism",
-     "unchecked": true,
-     "gives": "DEADSEA",
+     "spelt": "DEADSEA",
      "indicators": [
       {
        "text": "The Rev. Spooner's",
-       "note": "Spooner famously swapped the opening sounds of words, so the starts of two words trade places"
+       "at": 0,
+       "note": "the Reverend Spooner famously swapped the opening sounds of words, so the starts of the two words heard are exchanged"
       }
      ],
      "parts": [
       {
-       "unchecked": true,
-       "words": "claimed the fourth",
-       "gives": "DEADSEA",
-       "soundsLike": "SAID DEE",
-       "note": "claimed is said, and the fourth letter of the alphabet is D, spoken dee; swap their opening sounds"
+       "op": "homophone",
+       "spelt": "SED",
+       "parts": [
+        {
+         "words": "claimed",
+         "at": 19,
+         "gives": "SAID",
+         "note": "to have claimed something is to have said it"
+        }
+       ]
+      },
+      {
+       "words": "the fourth",
+       "at": 27,
+       "gives": "DEE",
+       "note": "the fourth letter of the alphabet is D, spoken as dee"
       }
      ]
     },
     "explanation": {
-     "surface": "Spooner asserted ownership of the fourth something in a Middle Eastern place.",
-     "walkthrough": "Said is pronounced 'sed', so swapping the S and D sounds of 'sed dee' gives 'ded see'.",
-     "definitionFit": "The Dead Sea is the salt lake between Israel, the West Bank and Jordan, a well-known Middle Eastern location."
+     "surface": "The Reverend Spooner is said to have claimed fourth place, as if in a race.",
+     "walkthrough": "'the fourth' is not a position but the fourth letter, D, said as dee; 'claimed' is SAID, heard as SED. 'The Rev. Spooner's' swaps the first sounds of SED and DEE.",
+     "definitionFit": "The Dead Sea is the salt lake between Israel and Jordan, a well-known location in the Middle East."
     },
     "features": {
-     "answerInScene": true,
+     "answerInScene": false,
      "aptDefinition": false,
      "joke": "pun",
      "misdirectedWord": "fourth"
@@ -1731,36 +1734,20 @@
      }
     ],
     "wordplay": {
-     "op": "first",
-     "unchecked": true,
-     "gives": "INCONVENIENCE",
-     "indicators": [
-      {
-       "text": "members repeatedly appear",
-       "note": "the word's members are its letters, and they turn up again and again"
-      }
-     ],
+     "op": "rebus",
+     "reading": "NOVICE, each letter used again and again",
      "parts": [
       {
-       "op": "regular",
-       "unchecked": true,
-       "gives": "NOVICE",
-       "parts": [
-        {
-         "unchecked": true,
-         "words": "Novice",
-         "gives": "NOVICE",
-         "select": "regular",
-         "note": "the word's own six letters are the only ones used, several of them more than once"
-        }
-       ]
+       "words": "Novice members repeatedly appear",
+       "at": 0,
+       "note": "the members are the letters of the word novice; the answer is spelt with only those letters, several of them recurring many times"
       }
      ]
     },
     "explanation": {
-     "surface": "Beginners in a club keep turning up and causing bother.",
-     "walkthrough": "The answer uses only N, O, V, I, C and E, each letter of novice; N, I, C and E recur, which 'repeatedly' signals.",
-     "definitionFit": "An inconvenience is a bother or nuisance, so it means trouble as a noun."
+     "surface": "A newcomer's colleagues keep turning up, which is a nuisance.",
+     "walkthrough": "Like 14 Across this is a letter bank: the thirteen-letter answer uses only N, O, V, I, C and E, with N, I, C and E repeated.",
+     "definitionFit": "An inconvenience is a minor bother or difficulty, so the noun means trouble."
     },
     "features": {
      "answerInScene": false,
