@@ -753,6 +753,10 @@ LAYOUT = [
     ("annotating", "tools/test_corpus_queue_yield.py", "corpus_queue.yield_collapse() on fixture logs: the last 100 scans with under 5 puzzles wake the room, a healthy or short window does not"),
     ("annotating", "tools/test_times_four_digit_title.py", "the Times title and solution headings of the four-digit numbers (before No 10,000, May 1962) read as puzzles, five-digit ones as before"),
     ("annotating", "tools/test_resume_not_redo.py", "pins the two fixes for burn waste found in the 10-16 audit of .prereset.log"),
+    ("annotating", "tools/drop_failed_clues.py", "blank just the clues whose annotations fail validation, so the rest ship"),
+    ("annotating", "tools/clue_bag.py", "which tail puzzles one annotate session takes together: a bag"),
+    ("annotating", "tools/annotate_bag_prompt.md", "the task a bagged session (several tail puzzles at once) is given"),
+    ("annotating", "tools/test_clue_bag.py", "which tail puzzles share one annotate session, and which never do"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

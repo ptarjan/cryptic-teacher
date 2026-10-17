@@ -105,7 +105,7 @@ check "no marker, no output: not withdrawn" "$?" 1
 echo "a fresh conversation clears a stale marker"
 # shellcheck disable=SC2016  # the pattern matches the literal text
 check "worker_annotate removes it before a new session" \
-  "$(awk '/^worker_annotate\(\) \{/,/^\}/' tools/puzzle_worker.sh | grep -c 'rm -f "tools/_withdrawn_\$id.txt"')" 1
+  "$(awk '/^worker_annotate\(\) \{/,/^\}/' tools/puzzle_worker.sh | grep -c 'rm -f "tools/_withdrawn_\$m.txt"')" 1
 
 [ "$fails" = 0 ] && echo "withdrawn run: all checks passed" || echo "withdrawn run: $fails FAILED"
 exit $((fails > 0))
