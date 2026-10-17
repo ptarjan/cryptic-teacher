@@ -165,36 +165,56 @@
     ],
     "wordplay": {
      "op": "substitution",
-     "unchecked": true,
-     "gives": "ABODES",
      "indicators": [
       {
        "text": "traded",
-       "note": "traded means exchanged, so the two letters swap places with each other"
+       "at": 20,
+       "note": "traded means exchanged, so the two country letters swap places with each other"
       }
      ],
      "parts": [
       {
-       "words": "Germany",
-       "gives": "D",
-       "note": "D is the international vehicle code for Germany"
+       "op": "substitution",
+       "indicators": [
+        {
+         "text": "in",
+         "at": 27,
+         "note": "in says the change is made within the word for mud structures"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mud structures",
+         "at": 30,
+         "gives": "ADOBES",
+         "note": "adobes are buildings made of sun-dried mud brick"
+        },
+        {
+         "words": "Germany",
+         "at": 0,
+         "gives": "D",
+         "note": "D is the international vehicle code for Germany (Deutschland)"
+        },
+        {
+         "words": "Belgium",
+         "at": 12,
+         "gives": "B",
+         "note": "B is the international vehicle code for Belgium"
+        }
+       ]
       },
       {
-       "words": "Belgium",
-       "gives": "B",
-       "note": "B is the international vehicle code for Belgium"
+       "gives": "B"
       },
       {
-       "words": "mud structures",
-       "gives": "ADOBES",
-       "note": "adobes are buildings of sun-dried mud brick"
+       "gives": "D"
       }
      ]
     },
     "explanation": {
-     "surface": "Germany and Belgium bartering over mud huts sounds like a colonial-era trade deal.",
-     "walkthrough": "In ADOBES the D and the B change places, turning the mud houses into ABODES.",
-     "definitionFit": "An abode is a formal word for the place where someone lives, a dwelling or residence."
+     "surface": "Two European nations swap mud huts for proper houses.",
+     "walkthrough": "In ADOBES, the D (Germany) and the B (Belgium) are 'traded': each takes the other's place.",
+     "definitionFit": "An abode is a place where someone lives, so abodes are dwellings or homes."
     },
     "features": {
      "answerInScene": true,
