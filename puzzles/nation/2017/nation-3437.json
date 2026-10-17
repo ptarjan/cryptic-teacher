@@ -369,26 +369,44 @@
     ],
     "wordplay": {
      "op": "deletion",
-     "unchecked": true,
-     "gives": "ACES",
      "indicators": [
       {
-       "text": "after removing duplicates",
-       "note": "any letter that appears twice in a row loses its second copy, shortening the word"
+       "text": "after removing",
+       "at": 33,
+       "note": "removing applies to the doubled S as well, so one of that pair is taken out too"
       }
      ],
      "parts": [
       {
-       "words": "permission to enter",
-       "gives": "ACCESS",
-       "note": "access is the right to go in"
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "duplicates",
+         "at": 48,
+         "note": "the word has a doubled C, and the duplicate copy is the one to go"
+        }
+       ],
+       "parts": [
+        {
+         "words": "permission to enter",
+         "at": 13,
+         "gives": "ACCESS",
+         "note": "access is the right or permission to go in"
+        },
+        {
+         "gives": "C"
+        }
+       ]
+      },
+      {
+       "gives": "S"
       }
      ]
     },
     "explanation": {
-     "surface": "Specialists are let into a building once the duplicate passes have been weeded out.",
-     "walkthrough": "ACCESS has a doubled C and a doubled S; dropping one of each leaves ACES.",
-     "definitionFit": "Aces are people who are highly skilled at something, so the plural noun matches experts."
+     "surface": "Specialists are let in once the duplicate passes are weeded out.",
+     "walkthrough": "ACCESS has a double C and a double S; dropping one of each leaves the answer.",
+     "definitionFit": "Aces are people who are exceptionally skilled at something, such as flying aces."
     },
     "features": {
      "answerInScene": false,
@@ -1436,27 +1454,28 @@
      "op": "hidden",
      "indicators": [
       {
-       "text": "hosting",
-       "note": "to host is to contain a guest, so the answer is held within the words"
+       "text": "entails",
+       "at": 17,
+       "note": "to entail is to involve or contain, so the answer is contained in these words"
       }
      ],
      "parts": [
       {
        "words": "Internet hosting",
-       "gives": "ETHOS",
-       "note": "letters running across the two words"
+       "at": 0,
+       "note": "the answer runs across the end of the first word and the start of the second"
       }
      ]
     },
     "explanation": {
-     "surface": "Running websites comes with its own culture and code of conduct.",
-     "walkthrough": "'Hosting' is web-site hosting in the surface, but it also holds the answer: interNET HOSting.",
-     "definitionFit": "An ethos is the characteristic spirit and values of a group or culture."
+     "surface": "Running websites comes with its own culture and values.",
+     "walkthrough": "The answer sits inside 'internET HOSting'.",
+     "definitionFit": "An ethos is the characteristic spirit and guiding values of a community or culture."
     },
     "features": {
      "answerInScene": true,
      "aptDefinition": false,
-     "misdirectedWord": "hosting"
+     "misdirectedWord": "entails"
     }
    }
   },
