@@ -19,7 +19,8 @@
   "origin": "published"
  },
  "annotatedBy": [
-  "claude-opus-5"
+  "claude-opus-5",
+  "claude-opus-5-5"
  ],
  "entries": [
   {
@@ -1227,41 +1228,57 @@
      "indicators": [
       {
        "text": "sandwiches",
-       "note": "to sandwich something is to put it between two others, so these letters go inside the word in front of them"
+       "at": 14,
+       "note": "the German word holds the next letters between its own, like bread round a filling"
       }
      ],
      "parts": [
       {
        "words": "Dieter's good",
+       "at": 0,
        "gives": "GUT",
-       "note": "Dieter is a German name, and 'gut' is the German for good"
+       "note": "Dieter is a typical German name, and gut is German for good"
       },
       {
-       "op": "first",
-       "unchecked": true,
-       "gives": "AM",
-       "indicators": [
-        {
-         "text": "primarily",
-         "note": "what comes primarily comes first, so only the opening letter of each word named is taken"
-        }
-       ],
+       "op": "charade",
        "parts": [
         {
-         "unchecked": true,
-         "words": "are primarily meat",
-         "gives": "AM",
-         "select": "first",
-         "note": "the opening letters of the two words on either side of the instruction"
+         "words": "are",
+         "at": 25,
+         "gives": "A",
+         "note": "an are is a metric unit of area, abbreviated A"
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "primarily",
+           "at": 29,
+           "note": "primarily means first of all, so only the opening letter of meat is used"
+          }
+         ],
+         "parts": [
+          {
+           "words": "meat",
+           "at": 39,
+           "note": "the word meat supplies its opening letter"
+          }
+         ]
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A dieter's sandwich that turns out to be mostly meat paste.",
-     "walkthrough": "Dieter is a man's name in German rather than somebody counting calories, and that swap is what hands over 'gut'. 'Spread' looks like more of the sandwich and means a range.",
-     "definitionFit": "A gamut is the whole range from one end to the other, originally the full scale of notes, and a spread is that same span."
+     "surface": "A slimmer's healthy sandwiches turn out to be mostly meat spread.",
+     "walkthrough": "'Dieter' is not a slimmer but a German name, so his 'good' is GUT. 'sandwiches' puts A (the are, a unit of area) and M (first of meat, by 'primarily') inside it.",
+     "definitionFit": "A gamut is the full range or spread of something, as in running the gamut of emotions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dieter's"
     }
    }
   },
@@ -1292,35 +1309,51 @@
      }
     ],
     "wordplay": {
-     "op": "substitution",
-     "unchecked": true,
-     "gives": "BLUERIBAND",
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "sabotaged",
+       "at": 37,
+       "note": "sabotaged means wrecked, so the letters are thrown into a new order"
+      }
+     ],
      "parts": [
       {
-       "op": "anagram",
+       "op": "substitution",
        "indicators": [
         {
-         "text": "sabotaged",
-         "note": "sabotage wrecks the working order of a thing, so what it touches does not survive in the order it was given in"
-        },
-        {
-         "text": "with hidden typo?",
-         "note": "a typo is one letter standing where another should be, and this is the setter warning that the word as printed is not the word you think you are reading"
+         "text": "with hidden typo",
+         "at": 47,
+         "note": "the clue admits that its word carries a concealed misprint, I for L, and the letters are used as printed"
         }
        ],
        "parts": [
         {
          "words": "Iand-lubber",
-         "note": "as printed the word opens with a capital I where an L belongs: ten letters, and that swapped letter is the typo"
+         "at": 25,
+         "gives": "LANDLUBBER",
+         "note": "landlubber, someone unused to the sea, printed with a capital I in place of its first L"
+        },
+        {
+         "gives": "L"
+        },
+        {
+         "gives": "I"
         }
        ]
       }
      ]
     },
     "explanation": {
-     "surface": "A sailor's record-breaking Atlantic crossing wrecked by a landlubber.",
-     "walkthrough": "The typo is real and it is on the page, a capital I standing in for the L, and those printed letters are the ones that work. Read the word as 'landlubber' and the anagram will not come out.",
-     "definitionFit": "The Blue Riband was the trophy for the fastest Atlantic crossing by a passenger liner, so the definition names that record by its prize."
+     "surface": "A sea record spoiled by a lubber who sabotaged it, with a sly misprint slipped in.",
+     "walkthrough": "The capital I in 'Iand-lubber' looks like an L, which is what 'with hidden typo' owns up to; 'sabotaged' then rearranges IANDLUBBER. The Blue Riband was the honour for the fastest Atlantic crossing by a liner.",
+     "definitionFit": "The Blue Riband was the unofficial accolade held by the passenger liner with the fastest Atlantic crossing, a speed record."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "typo"
     }
    }
   },
