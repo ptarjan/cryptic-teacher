@@ -683,6 +683,9 @@ def unstretched(rects):
 #: box read in turn. No 150 prints one column below the grid; No 174 two
 #: columns (Across, Down) below it, the instructions beside the grid.
 OCR_BOXES = {150: [(0, 0.43, 1, 1)], 174: [(0, 0.48, 0.5, 1), (0.5, 0.48, 1, 1)]}
+#: Where the grid is, where it is not the whole picture above the clues (No
+#: 174 prints its instructions beside it).
+OCR_GRIDS = {174: (0.065, 0.108, 0.495, 0.476)}
 #: The clue OCR's readers (ocr_clues.READERS), of two engines: a clue files
 #: only when both read it alike.
 OCR_READERS = ("en5", "times")
@@ -766,10 +769,11 @@ def ocr_page(number, image, post=None):
                 return None, bad
             pick = dict(c, clue=quoted)
         clues.append(pick)
-    # The grid is the picture above the clues.
-    top = int(image.height * min(b[1] for b in OCR_BOXES[number]))
+    # The grid is the picture above the clues (or the box OCR_GRIDS gives).
+    x0, y0, x1, y1 = OCR_GRIDS.get(number, (0, 0, 1, min(b[1] for b in OCR_BOXES[number])))
+    above = image.crop((int(image.width * x0), int(image.height * y0), int(image.width * x1), int(image.height * y1)))
     return dict(first, clues=clues, preamble=first["preamble"] if first["preamble"] == readings[1]["preamble"]
-                else None, number=None, grid=grid_of_images([image.crop((0, 0, image.width, top))], clues)), None
+                else None, number=None, grid=grid_of_images([above], clues)), None
 
 
 def read_pdf(path, post=None):
